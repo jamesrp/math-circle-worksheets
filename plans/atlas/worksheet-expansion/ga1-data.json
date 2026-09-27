@@ -1,0 +1,1351 @@
+{
+  "batch": "ga1",
+  "status": "design review closed; renderer and maker PDF QA complete; independent PDF review pending",
+  "families": [
+    {
+      "id": "GA-01",
+      "title": "Can a box keep a secret?",
+      "core_gate": "Spatial reasoning: keep three room axes fixed, follow and reverse quarter-turns, compare two marked directions. No arithmetic is required for the physical counterexample. Signed coordinates support recording; proving shortest length needs a small exhaustive case split.",
+      "extension_gate": "Matrix multiplication for the optional complete commuting-powers classification; derivatives are required for any Lie algebra continuation, which is not assigned here.",
+      "reading": "Turn cards can be read aloud. X means the room x-axis turn, never the current direction of a box edge. Red and blue marks need distinct shapes as well as colors.",
+      "materials": "One small rigid box per pair. Mark adjacent faces R (red) and B (blue); a face points in its outward perpendicular direction. Reset R toward +x and B toward +z. Printed room-axis mat, X/Y and inverse turn cards, pencil. No cutting is essential.",
+      "prep_minutes": 10,
+      "timing": "5–10 minutes free box play; 5 demonstrate the two fixed-axis turns; 15–20 invent and reverse words; 5 movement/reset; 15 seek the hidden twist and justify shortest length. The plane comparison can be a later 15-minute continuation.",
+      "launch": "With red pointing right (+x) and blue pointing up (+z), choose two turn cards. Predict both marks before moving. Reset all faces, reverse the card order, and try to catch a difference.",
+      "satisfying_stop": "A witnessed order-sensitive pair, followed by a shortest three-turn word that restores the blue direction while changing the red direction.",
+      "prior_use": "Week 3 explored permutation composition; this uses continuous physical rotations and fixed axes. Actual use of related instances remains unknown.",
+      "assessment": "First-pilot candidate with careful physical demonstration. The hidden-orientation task is stronger than merely seeing two different arrows. Spatial load is real; supply a partner recorder and allow three-face checking.",
+      "mathematical_connection": "This is the actual action of rotations on a rigid frame. The quarter-turn examples prove noncommutativity in SO(3); the same-axis angle argument reaches arbitrary real angles. No claim about Lie brackets is made.",
+      "sources": [
+        {
+          "title": "Peter Woit, Quantum Theory, Groups and Representations",
+          "url": "https://www.math.columbia.edu/~woit/QMbook/qmbook-latest.pdf",
+          "locator": "§6.1, coordinate-axis rotation matrices, printed p.63 / PDF p.80 (October 2025 version).",
+          "adaptation": "Uses the rotation convention only. Hidden-twist minimality, room-mat rules and different-center half-turn comparison are newly derived.",
+          "checked": "Inspected the three matrices and the noncommutativity statement online on 2026-09-25; exact quarter-turn calculations checked independently in ga1-checks.py."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Choose two turns",
+          "gate": "Core: fixed axes and spatial tracking",
+          "intro": "Reset: the red R face points +x and the blue B face points +z. A face points outward, perpendicular to itself. Room axes stay still. X sends +y to +z and +z to −y; Y sends +z to +x and +x to −z. Both are quarter-turns. A minus card undoes its matching turn. Read a word left to right.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose two cards from X, Y, X−, Y−. Predict where red and blue will point. Carry out your word, reset, then reverse its order. Record one comparison worth showing another pair.",
+              "solution": "Answers depend on the chosen word. X then Y sends (red,blue) to (−z,−y); Y then X sends them to (+y,+x). Opposite turns about one axis cancel in either order; repeating the same card is unchanged by reversal. Any two signed quarter-turns on different axes give different orientations. Validate predictions using the printed direction cycles and a complete reset.",
+              "hints": [
+                "Track blue first, then repeat with red.",
+                "An inverse card moves backward round the same four-direction cycle."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Give your partner an exact reset and two short words that look interchangeable but are not. What single observation disproves equality of the two motions?",
+              "solution": "For example use the reset above and X Y versus Y X. Blue finishes −y versus +x, so the motions cannot be equal. A single differing image is enough to disprove equality; a matching image is not enough to prove equality. Other exact witnesses are valid if the reset and order are stated.",
+              "hints": [
+                "Compare final directions, not only where the box sits."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "One mark returns",
+          "gate": "Core continuation: inverse moves and a shortest-word argument",
+          "intro": "Use only X, X−, Y and Y−. A word may repeat cards. Restore the reset position before every attempt. The challenge concerns the whole orientation, not the box location.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Find a nonempty word that returns blue to +z but leaves red pointing somewhere else. Then try to use as few cards as possible. Draw or write your best word.",
+              "solution": "A shortest word is Y X Y−: blue follows z→x→x→z while red follows x→−z→y→y. Thus blue returns and red moves to +y. Another is X Y X−, which also fixes z and sends x to −y. Three cards suffice.",
+              "hints": [
+                "Put blue along an axis that the middle turn leaves fixed.",
+                "Undo your first turn after making a different middle turn."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Why can no one-card or two-card word win this challenge? Check kinds of words instead of writing all sixteen pairs.",
+              "solution": "One X-type or Y-type quarter-turn moves z to a horizontal direction. For two cards on the same axis, opposite signs give the identity (red returns too), and equal signs give a half-turn sending z to −z. For two cards on different axes, the first sends z to the other turn’s axis, so the second leaves that horizontal direction fixed; blue cannot return. These exhaust one and two cards, proving length three is optimal.",
+              "hints": [
+                "Separate same-axis pairs from different-axis pairs."
+              ]
+            },
+            {
+              "id": "5",
+              "text": "A partner says, “Blue ended in the same place, so these motions are the same.” Repair the test. How many marked directions are enough for a rigid box?",
+              "solution": "Track a second nonparallel direction, such as red. A proper rigid rotation is determined by the images of two nonparallel directions: they determine their plane and, by the right-hand orientation, the perpendicular third direction. For a concrete check, mark three distinguishable perpendicular box directions; in the challenge blue agrees but red does not. One direction is insufficient because the box can rotate about it.",
+              "hints": [
+                "Turn the box around the blue direction while watching red."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What if the turns are flat?",
+          "gate": "Continuation: angles; signed coordinates optional",
+          "intro": "Use the supplied flat compass for same-center turns and the line with centers A=0 and B=2 for half-turns. A half-turn about c sends a point x on the line to 2c−x.",
+          "prompts": [
+            {
+              "id": "6",
+              "text": "Choose two angles about the same center, in either direction. Compare both orders. Explain what happens for any two angles, not just yours.",
+              "solution": "For angles a and b the final direction has angle θ+a+b or θ+b+a, equal modulo 360°. The distance from the common center stays fixed. Thus all plane rotations about one center commute, including negative and non-quarter angles.",
+              "hints": [
+                "Record the total angle from the start."
+              ]
+            },
+            {
+              "id": "7",
+              "text": "Start a dot at A=0. Compare a half-turn about A followed by a half-turn about B=2, with the reverse order. Which word in your same-center claim matters?",
+              "solution": "A then B gives 0→0→4. B then A gives 0→4→−4. The results differ. The common-center assumption matters; planar rotations about different centers need not commute.",
+              "hints": [
+                "Use the line and reflect through the named center each time."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "For a,b in {0,1,2,3}, classify when X^a and Y^b commute.",
+          "solution": "They commute exactly when a=0, b=0, or a=b=2. Identity powers commute. The two half-turn matrices are diagonal and commute. Multiplying the remaining signed permutation matrices rules out all other pairs; ga1-checks.py exhausts the 16 pairs. This is a complete finite classification, not a classification of arbitrary axes and angles.",
+          "gate": "Matrix multiplication or tracking all three coordinate arrows."
+        }
+      ],
+      "figures": {
+        "room_axes": {
+          "x": "right",
+          "y": "away from reader",
+          "z": "up"
+        },
+        "direction_cycles": {
+          "X": [
+            "+y",
+            "+z",
+            "−y",
+            "−z"
+          ],
+          "Y": [
+            "+z",
+            "+x",
+            "−z",
+            "−x"
+          ]
+        },
+        "reset_marks": {
+          "red": "+x",
+          "blue": "+z"
+        },
+        "cards": [
+          "X",
+          "Y",
+          "X−",
+          "Y−"
+        ],
+        "flat_line": {
+          "xmin": -5,
+          "xmax": 5,
+          "centers": {
+            "A": 0,
+            "B": 2
+          },
+          "start": 0
+        },
+        "render_notes": "Show the fixed room-axis mat, large blank record boxes for two words, and a line spanning −5 to 5. Do not pre-draw the hidden-twist solution."
+      },
+      "index_gate": "Fixed-axis spatial tracking; shortest-word proof; no arithmetic needed"
+    },
+    {
+      "id": "GA-02",
+      "title": "Design a fence that defeats a match",
+      "core_gate": "Compare heights and track opposite points moving continuously. The satisfying proof requires reasoning about every intermediate position and the half-turn exchange. Exact crossing locations are a separate fractions/linear-interpolation continuation.",
+      "extension_gate": "Signed fractions for all ramp crossings or bisection error bounds. The real-analysis justification may use the intermediate value theorem; no higher-dimensional theorem is claimed.",
+      "reading": "An adult can read all core questions. Use “same, red higher, blue higher” before introducing a signed difference. A jump means missing intermediate heights, not a steep or cornered ramp.",
+      "materials": "Printed 12-position repeated profile (two periods), ruler, two linked pencil marks exactly three post spacings apart, blank six-post profile grids. A strip can be left flat; no model fence construction is necessary.",
+      "prep_minutes": 8,
+      "timing": "5–10 minutes move markers freely; 5 establish the seam and separation; 15–20 design attempted escapes; 5 physically exchange places; 15 develop the half-turn argument. Optional exact locations and broken rules add 15–25 minutes.",
+      "launch": "Six equally spaced posts have heights 0,5,1,4,2,3 around a circle. Straight ramps join neighboring tops, including the last to the first. Choose where opposite red and blue markers begin. Can you move them together while always avoiding equal height?",
+      "satisfying_stop": "A learner’s own attempted counterexample leads to the argument that a continuous height difference changes sign when opposite markers exchange places.",
+      "prior_use": "New continuous strand; no matching worksheet in Weeks 1–10. The advisory atlas example suggested this mechanism; this exact ramp instance is separately checked.",
+      "assessment": "First-pilot candidate for the core comparison argument, with close attention to opposite spacing and the seam. The exact fractions page is optional; doing its arithmetic is not the payoff.",
+      "mathematical_connection": "The circle theorem is an exact consequence of the intermediate value theorem applied to a difference of two heights. Finite posts and discontinuous step profiles deliberately test the hypotheses.",
+      "sources": [
+        {
+          "title": "Jiří Lebl, Basic Analysis I",
+          "url": "https://www.jirka.org/ra/realanal.pdf",
+          "locator": "§3.3, Lemma 3.3.7 and Theorem 3.3.8, PDF pp.132–133.",
+          "adaptation": "The source supplies intermediate value reasoning. The six-post profile, designer challenge, exact crossings and missing-hypothesis cases are newly constructed.",
+          "checked": "Inspected the sign-change lemma and bisection proof online on 2026-09-25. All piecewise-linear crossings are checked with rational arithmetic."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Try to beat the markers",
+          "gate": "Core: comparison and opposite positions",
+          "intro": "The numbered posts are equally spaced. Join neighboring tops by straight ramps, and repeat the profile after six spacings. Red and blue are always exactly three spacings apart. Slide both in the same direction; corners are allowed.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "On the supplied fence, choose a starting position that is not a match. Move the markers and mark a place where their heights seem equal. Explain how you kept them opposite.",
+              "solution": "Any nonmatching start is acceptable; the printed linked markers enforce separation three. There are three distinct matching antipodal pairs, located in the first half-period at post coordinates 4/7, 8/5, and 7/3 (coordinate 0 at the height-0 post). Each has its partner three units later. A drawing or bracket is sufficient here; exact locations are reserved for prompt 6.",
+              "hints": [
+                "Compare only which marker is higher at first.",
+                "Mark both locations at once."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Choose six new heights on the blank grid. Make every pair of opposite posts unequal. Join all ramps, including the seam. Try to design a fence whose moving opposite markers never match. Keep one attempted design and mark what happened.",
+              "solution": "There are many legal designs, but none defeats a match after continuous ramps are added. For example heights 0,1,2,3,4,5 have unequal opposite posts; along the ramp from post 2 to 3 the opposing ramp goes from 5 to 0, so the difference changes from −3 to +3 and vanishes halfway. Validate that the repeated end height agrees and all ramps are present; do not present failed searches as proof.",
+              "hints": [
+                "A steep ramp is legal. A missing part of the ramp is a different rule."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Explain the exchange",
+          "gate": "Core proof: continuity and a half-turn",
+          "intro": "Imagine that red begins higher. The markers move half a turn, without lifting or jumping, until each reaches the other marker’s starting place.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "What must be true about which marker is higher at the finish? Explain why a match must occur somewhere on the way. Include the case in which the start is already a match.",
+              "solution": "After half a turn red is at blue’s old height and blue at red’s old height, so red is now lower. A continuously changing difference cannot go from positive to negative without being zero. If red begins lower, reverse the words; if they begin equal, the desired pair is already found. This proves existence for every continuous closed profile, not only straight ramps.",
+              "hints": [
+                "Follow places first, not numbers.",
+                "Imagine trying to change from “red higher” to “blue higher” without ever saying “same.”"
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Another group checked all six posts and found no equal opposite heights. Does that defeat your argument? Use the printed fence to settle the disagreement.",
+              "solution": "No. Opposite post differences for the printed fence are −4, 3, −2 and their negatives, none zero. But between posts the ramps contain all intermediate heights and the moving difference crosses zero. A problem allowing only the six isolated posts has no matching pair here; it is a different domain.",
+              "hints": [
+                "The markers are allowed between the posts."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Test the rules",
+          "gate": "Continuation: exact locations use fractions",
+          "intro": "For exact work let x measure post spacings, with x=0 at the height-0 post. Opposite locations differ by 3; x and x+6 name the same position. For the rule tests, give a precise counterexample or explanation.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Keep opposition but allow jumps. On one half of the circle set height 0 and on the other half set height 1: h(t)=0 for 0≤t<1/2 and h(t)=1 for 1/2≤t<1, repeated every turn. Can opposite heights match? Where did the proof break?",
+              "solution": "They never match: adding half a turn exchanges the two half-open intervals, so the values are always 0 and 1. There are jumps at t=1/2 and at the seam t=0. The difference can jump from −1 to +1 without passing through zero. Both endpoints are assigned by the half-open convention, so no position is omitted.",
+              "hints": [
+                "Check the seam as well as the middle."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Optional exact challenge: find every matching pair on the printed straight-ramp fence. Work over 0≤x<3 so you do not count the same opposite pair twice.",
+              "solution": "On the three unit intervals, let u be the distance from the left post. The differences are −4+7u, 3−5u, and −2+6u. Their unique zeros are u=4/7,3/5,1/3; hence x=4/7,8/5,7/3, each paired with x+3. Their common heights are 20/7,13/5,2 respectively. Each difference is a nonconstant affine function, so this list is exhaustive. In turns the positions are 2/21,4/15,7/18, with opposite positions one-half turn later.",
+              "hints": [
+                "Write each height as start height plus u times its change.",
+                "Subtract the two ramp heights before solving."
+              ]
+            },
+            {
+              "id": "7",
+              "text": "Replace the circle by a straight trail: height h(t)=t for 0≤t≤1. Keep walkers 1/2 unit apart, with the first at 0≤t≤1/2. Must they ever match? Explain which part of the circle argument is lost.",
+              "solution": "No: their heights are t and t+1/2, always different. They never exchange places while staying in the permitted trail domain and order. Continuity alone is insufficient; the half-turn exchange on a closed circle supplied the sign reversal.",
+              "hints": [
+                "Compute the height difference once for a general t."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Starting with a bracket of width 1/6 turn whose difference has opposite signs, what location guarantee follows from k bisections?",
+          "solution": "If an exact midpoint zero is found, its location is exact. Otherwise retain a subinterval with opposite endpoint signs at each step; continuity keeps at least one zero inside. After k steps the bracket width is 1/(6·2^k) turn, and its midpoint is within 1/(12·2^k) of some zero. This assumes exact sign readings; physical height uncertainty can prevent certified bisection.",
+          "gate": "Fractions and geometric halving."
+        }
+      ],
+      "figures": {
+        "profile": {
+          "post_x": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "heights": [
+            0,
+            5,
+            1,
+            4,
+            2,
+            3,
+            0,
+            5,
+            1,
+            4,
+            2,
+            3,
+            0
+          ],
+          "period": 6,
+          "opposition_spacing": 3,
+          "connect": "straight segments"
+        },
+        "design_grid": {
+          "x_min": 0,
+          "x_max": 6,
+          "y_min": 0,
+          "y_max": 6,
+          "repeat_first_at_last": true
+        },
+        "render_notes": "Supply a large profile with labeled heights and a duplicated continuation, a blank design grid, and a separate pair of marker tabs/spans of width three grid units. Do not mark crossing points in student figures."
+      },
+      "index_gate": "Height comparison and continuity; exact fractions are optional"
+    },
+    {
+      "id": "GA-03",
+      "title": "A cover with a tiny budget",
+      "core_gate": "Halves, interval length, and geometric sums; the satisfying core includes an infinite list with a rule for its nth member. Finite paper play alone does not establish zero length.",
+      "extension_gate": "Enumerating fractions and distinguishing dense from all points for the rational-number continuation. The interval-cover lower bound is supplied explicitly, not proved by a picture.",
+      "reading": "Short rules with point labels p1,p2,…; an adult may record chosen centers. Algebraic ε means any positive budget and may first be replaced by 1/100.",
+      "materials": "Printed number line and rational-pair grid, pencil, ruler, optional paper strips for the first few intervals. The printed first few widths are illustrative; no demand to cut unmeasurably small strips.",
+      "prep_minutes": 5,
+      "timing": "10 minutes finite covering play; 5 state the never-ending opponent; 20 design and justify a budget rule; 5 movement/reset; 15–25 tackle the dense rational list. The final lower-bound contrast may be a separate continuation.",
+      "launch": "An opponent names points one at a time. Every named point must lie strictly inside an interval you assign to it. You choose the widths and pay the sum of all assigned widths, even when intervals overlap. Can you promise to spend less than 1/100 while covering an endless numbered list?",
+      "satisfying_stop": "A rule that covers every named point within any requested positive budget, followed by the surprising application to a dense list of rational numbers.",
+      "prior_use": "No matching countable-cover worksheet in Weeks 1–10. The accepted GA-29 trial proves the middle-thirds Cantor set uncountable with covers tending to zero; cross-link it to prevent the false converse “zero outer measure means countable.” Here the new work is adversarial enumeration, an arbitrary-budget rule, and dense rational coverage. Actual classroom use remains unknown.",
+      "assessment": "Promising with specific gates: finite entry is easy but the actual theorem requires geometric-series and infinite-list reasoning. Strong mathematical payoff for prepared learners; do not market paper cutting as a complete K–5 version.",
+      "mathematical_connection": "The arbitrary-budget construction proves zero outer measure for countable sets. Applying it to all rationals in [0,1] separates density, cardinality and length without claiming that every zero-measure set is countable.",
+      "sources": [
+        {
+          "title": "Sheldon Axler, Measure, Integration & Real Analysis",
+          "url": "https://measure.axler.net/MIRA.pdf",
+          "locator": "§2A, result 2.4, PDF p.30; result 2.14 and its countable-cover lower bound (using Theorem 2.12), PDF pp.34–35.",
+          "adaptation": "Uses the countable-cover mechanism with a different strict budget allocation. The opponent protocol, denominator enumeration and contrast with covering every real point are original activity design.",
+          "checked": "Inspected results 2.4 and 2.14 and the Heine–Borel step online on 2026-09-25. The student page supplies the interval-cover lower bound as a theorem; it is not inferred from finite experiments."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Name a point; buy a cover",
+          "gate": "Core entry: fractions and lengths",
+          "intro": "An interval has a center and a positive width. It covers its center even when the interval is open (endpoints excluded). You pay the sum of assigned widths; overlap does not refund your budget. The opponent starts with 0, 1, 1/2, then chooses two more points in [0,1].",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose widths and cover these five points for a total cost less than 1/100. Describe each interval by its center and width. Challenge a partner with your fourth and fifth points.",
+              "solution": "A valid universal example gives all five intervals width 1/1000, centered at the named points; total 5/1000=1/200<1/100. Center p and width w mean the open interval (p−w/2,p+w/2). Other positive widths are valid when their sum is less than 1/100. Chosen locations do not affect this arithmetic; intervals may extend beyond [0,1].",
+              "hints": [
+                "Choose the widths before worrying about where the centers lie."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "The opponent now promises to keep naming points forever. Before hearing them, invent a rule giving a positive width to point number n. It must keep the total cost below 1/100, no matter which points are named. Test several terms without pretending the test proves the whole rule.",
+              "solution": "One rule is w_n=1/(100·2^(n+1)) for n=1,2,… . The first widths are 1/400,1/800,1/1600,…; center each at p_n. All widths are positive and their infinite sum is 1/200<1/100. Any rule of positive widths with a rigorously bounded sum below the budget is valid. A finite successful prefix alone does not certify the infinite sum.",
+              "hints": [
+                "Save a fixed fraction of the remaining money for later.",
+                "Try halving the next width each time."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Defend the promise",
+          "gate": "Core: a rule for every numbered point",
+          "intro": "Keep your rule visible. A list may repeat points and may be ordered by an opponent. Your explanation must work for a point very far down the list and for every positive budget, not merely for the first picture.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Prove both parts of your promise: every listed point is covered, and the total cost stays below 1/100. Write a finite partial-sum formula or a geometric argument that also controls the whole tail.",
+              "solution": "For the displayed rule p_n is the center of its own positive-width interval, hence lies inside it for every n. The first N widths sum to (1/200)(1−2^(−N)), and the remaining tail sums to 1/(200·2^N). The infinite total is 1/200. The coverage statement and the sum bound are distinct; neither depends on point spacing. An alternative rule needs the same two justifications.",
+              "hints": [
+                "Name an arbitrary point number n.",
+                "A diagram of a halved bar can explain why the missing tail shrinks to zero."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "An opponent changes the budget to a positive number B as small as they like. Adapt your rule. Does “a cover for every B>0” mean you have one cover whose intervals all have width zero?",
+              "solution": "Use w_n=B/2^(n+1), giving total B/2<B. Every B produces a different family of positive-width open intervals. It does not produce a single zero-width cover; an open interval of zero width contains no point. The infimum of possible total costs is zero because cost is nonnegative and can be below every positive B.",
+              "hints": [
+                "Scale every width by the same factor."
+              ]
+            },
+            {
+              "id": "5",
+              "text": "Suppose instead that you pay the same positive width w for each named point forever. Can that assigned-cost rule fit under a fixed finite budget? Would overlapping intervals change this answer?",
+              "solution": "No: after N points the assigned cost is Nw, which exceeds any fixed budget for sufficiently large N. Overlap does not reduce assigned cost under the stated rules. This says nothing against a different efficient cover of a special set, and the actual union of repeated overlapping intervals could have small length.",
+              "hints": [
+                "Keep “sum of purchases” separate from “length of their union.”"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "The points become dense",
+          "gate": "Advanced continuation: fractions, lists and a supplied theorem",
+          "intro": "List fractions row by row: for q=1,2,3,… list 0/q,1/q,…,q/q. Repetitions are allowed. Supplied theorem: any countable collection of open intervals covering every real point of [0,1] has summed lengths at least 1. We use this theorem; a finite drawing is not its proof.",
+          "prompts": [
+            {
+              "id": "6",
+              "text": "Choose three fractions in [0,1], including one with a large denominator. Find the row and position at which each appears. Explain why every rational number in [0,1] appears at a finite place. Can the tiny-budget rule cover this entire list?",
+              "solution": "Every rational in [0,1] has a form p/q with integers q≥1 and 0≤p≤q, so it appears in row q after finitely many earlier rows. Row q begins after (q−1)(q+2)/2 entries; p/q is at index (q−1)(q+2)/2+p+1. For example 2/3 is index 8, 4/7 index 32, and 37/101 index 5188. Apply w_n=B/2^(n+1) to the list, including repetitions. Thus all rationals in [0,1] are covered within B.",
+              "hints": [
+                "A large denominator still has a finite row number."
+              ]
+            },
+            {
+              "id": "7",
+              "text": "There are rationals between any two different real points. Does covering them all with total cost below 1/100 force your intervals to cover every real point too? Use the supplied theorem. What can you say about a point that is left out?",
+              "solution": "No. If every real point in [0,1] were covered, the supplied theorem would force total cost at least 1, contradicting a cost below 1/100. Therefore at least one real point remains uncovered, and every such point in [0,1] is irrational because all rationals are covered. Density does not mean equality with the whole interval. This proves existence, not a formula for a missing point.",
+              "hints": [
+                "Assume every real point is covered and compare the two bounds."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Why are the rationals dense, even though the covering cost can be tiny?",
+          "solution": "Given a<b, choose a positive integer q with q(b−a)>1. An integer p exists strictly between qa and qb (choose floor(qa)+1; the interval length exceeds 1), giving a<p/q<b. Density concerns whether every open interval contains a point; outer measure concerns arbitrarily cheap covers. These statements do not conflict.",
+          "gate": "Archimedean property and floor/ceiling reasoning."
+        },
+        {
+          "prompt": "Does zero outer measure force a set to be countable?",
+          "solution": "No. The previous trial GA-29 constructs the uncountable middle-thirds Cantor set and gives covers of total length (2/3)^n tending to zero. This is a reference to that separately proved construction, not an inference from today’s countable-set argument.",
+          "gate": "Use the GA-29 uncountability argument before asserting the example."
+        }
+      ],
+      "figures": {
+        "number_line": {
+          "min": 0,
+          "max": 1,
+          "fixed_points": [
+            "0",
+            "1",
+            "1/2"
+          ],
+          "free_point_slots": 2
+        },
+        "rational_grid": {
+          "q_rows": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "cells": [
+            {
+              "q": 1,
+              "p": 0
+            },
+            {
+              "q": 1,
+              "p": 1
+            },
+            {
+              "q": 2,
+              "p": 0
+            },
+            {
+              "q": 2,
+              "p": 1
+            },
+            {
+              "q": 2,
+              "p": 2
+            },
+            {
+              "q": 3,
+              "p": 0
+            },
+            {
+              "q": 3,
+              "p": 1
+            },
+            {
+              "q": 3,
+              "p": 2
+            },
+            {
+              "q": 3,
+              "p": 3
+            },
+            {
+              "q": 4,
+              "p": 0
+            },
+            {
+              "q": 4,
+              "p": 1
+            },
+            {
+              "q": 4,
+              "p": 2
+            },
+            {
+              "q": 4,
+              "p": 3
+            },
+            {
+              "q": 4,
+              "p": 4
+            },
+            {
+              "q": 5,
+              "p": 0
+            },
+            {
+              "q": 5,
+              "p": 1
+            },
+            {
+              "q": 5,
+              "p": 2
+            },
+            {
+              "q": 5,
+              "p": 3
+            },
+            {
+              "q": 5,
+              "p": 4
+            },
+            {
+              "q": 5,
+              "p": 5
+            }
+          ]
+        },
+        "render_notes": "Give roomy center/width drawing space, a blank budget bar, and a triangular grid labeled p and q without printing a completed geometric allocation. Mark tiny drawn intervals as schematic, not to scale."
+      },
+      "index_gate": "Fractions, geometric sums, and reasoning about an infinite list"
+    },
+    {
+      "id": "GA-04",
+      "title": "A root takes a journey",
+      "core_gate": "Track and halve a running angle, including turns beyond 360°, and reason about a continuous choice between two separated alternatives. Complex notation is optional for the circle model but the no-jump argument is essential.",
+      "extension_gate": "Complex division and continuity for the formal ratio proof; integer multiplication for mth-root circuits. No unrestricted monodromy theorem is assigned.",
+      "reading": "A partner can read route instructions aloud. Every signed turn is explicit; “go to 90°” alone does not specify the route.",
+      "materials": "Two large printed circle dials with 45° spokes, movable pencil arrows or fingers, colored/shaped root marks, blank route strip. Dials are sufficient without a fastener.",
+      "prep_minutes": 8,
+      "timing": "10 minutes freely use the angle-doubling machine; 5 state no jumping; 15–20 compare chosen routes; 5 reset; 15 defend the obstruction. The mth-root page is a later continuation if needed.",
+      "launch": "A root arrow is legal when doubling its angle points at the target arrow. Start both at 0°. Choose how to move the target once counterclockwise around its circle, changing speed or reversing temporarily if you like. Keep a legal root moving without jumps. Where does it end?",
+      "satisfying_stop": "A one-circuit obstruction justified for every continuous choice, and a parity rule for routes specified by a continuous running angle.",
+      "prior_use": "Week 3 cycles are an algebraic comparison; the new obstruction concerns continuous root selection around a loop.",
+      "assessment": "Promising with specific gates. Dials provide real exploration, but some learners need prolonged practice distinguishing target, both candidate roots and tracked root. Finite checkpoints alone cannot establish continuity.",
+      "mathematical_connection": "The unit-circle squaring map is a two-to-one covering. Explicit angle paths show monodromy and the impossibility of a global continuous square-root choice on the circle; the proof here stays on the circle.",
+      "sources": [
+        {
+          "title": "Jiří Lebl, Guide to Cultivating Complex Analysis",
+          "url": "https://www.jirka.org/ca/ca.pdf",
+          "locator": "§1.2 polar multiplication; Example 10.2.6, PDF p.226.",
+          "adaptation": "Uses the local-to-global root-continuation issue. The signed route cards, parity classification and no-jump alternative-choice proof are derived for the unit circle.",
+          "checked": "Inspected the analytic-continuation example online on 2026-09-25. The classroom model does not claim to prove the source’s general continuation theory; exact half-angle routes are checked in ga1-checks.py."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Choose a route",
+          "gate": "Core: angle doubling and halving",
+          "intro": "A root arrow is legal when doubling its angle gives the target angle, modulo one full turn. There are two legal unit root arrows for each unit target arrow. Start the target and chosen root at 0°. You may turn either way, but the chosen root must move continuously and remain legal at every instant.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose a target position that is not 0° or 180°. Find both legal roots and explain why there are exactly two. Test your pair by doubling the angles.",
+              "solution": "If the target angle is θ, roots have angles θ/2 and θ/2+180° modulo 360°. Doubling either gives θ modulo 360°, and solving 2φ=θ modulo 360° gives precisely these two residues. For θ=90°, roots are 45° and 225°; any chosen target is checked by the same formula.",
+              "hints": [
+                "A half-turn of the root becomes a full turn of its square."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Invent a target route starting at running angle 0° and finishing at 360°. You may stop or reverse along the way. Record a few signed moves, then follow one root without jumping. Predict and check its final direction.",
+              "solution": "For any continuous running angle θ(s) with endpoints 0° and 360°, the root beginning at 0° can be tracked as θ(s)/2, ending at 180°. Example signed target moves +270°,−180°,+270° total +360°; corresponding root moves +135°,−90°,+135° total +180°. Other paths with these endpoints have the same result. Check intermediate legality, not merely the endpoints.",
+              "hints": [
+                "Halve every signed move, including a backward move."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Can another choice escape?",
+          "gate": "Core proof: continuity",
+          "intro": "Compare two possible no-jump root choices along the same target route. At every moment they are either the same root or opposite roots. A drawing of selected moments suggests an answer; explain what happens between them.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Could a clever root follow your choice for a while, switch to the other root without a jump, and return to the start after one target turn? Explain why or construct such a motion.",
+              "solution": "It cannot switch continuously: the two legal unit roots are always a distance 2 apart. Formally, divide a competing root v(s) by the tracked root w(s)=exp(iπθ(s)/360), with θ still in degrees. The continuous quotient is always +1 or −1, so it is constant on the time interval. If both start together the quotient stays +1. Thus every no-jump root beginning at 1 ends at −1 after one circuit. The constant-sign fact follows from the intermediate value property.",
+              "hints": [
+                "The two legal arrows never merge.",
+                "How could a continuous quantity change from +1 to −1 while taking only those two values?"
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Suppose someone claims to assign one root to every target position on the circle, with the assigned root varying continuously as the target moves. Use one circuit to test the claim.",
+              "solution": "At the repeated target 1 the single-valued assignment must give the same root at start and finish. But following a continuous choice once around gives the opposite root by prompt 3, whether the initial choice is 1 or −1. This contradiction rules out a continuous single-valued square root on the entire circle. A rule with a cut may assign a root everywhere but jumps at the cut.",
+              "hints": [
+                "The target finishes where it started. Must a function give the same value there?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Count the net turns",
+          "gate": "Continuation: integer turns; optional mth roots",
+          "intro": "For these tasks routes are supplied by a continuous running angle θ, with θ(start)=0 and θ(finish)=360°k for an integer k. This is our definition of k net turns for these routes; no theorem about arbitrary loops is needed.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Choose one route with reversals that restores the root and one that does not. Give a rule using k that decides all these routes, including clockwise circuits.",
+              "solution": "The root’s total angle is 180°k. It returns exactly when k is even. For example target moves +540°,−180°, +360° have k=2 and restore the root; moves +540°,−180° have k=1 and reverse it. Negative k obeys the same parity rule; k=0 returns. The proof uses half of the continuous running angle plus the no-switch argument.",
+              "hints": [
+                "Only the total signed change matters for the endpoint."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Advanced: change the machine so that it triples a root angle. Start with the root at 0°. Find all legal roots for target 120°, and decide how many counterclockwise target circuits first restore your tracked root.",
+              "solution": "The three roots at target 120° have angles 40°,160°,280°. Tracking a root divides every running target angle by 3. One target circuit moves the root 120°, so exactly three circuits first restore it. More generally with mth roots, m≥1, legal roots are θ/m+360°j/m for j=0,…,m−1, and k circuits return the initial root exactly when m divides k. Continuity prevents switching among the finitely separated alternatives.",
+              "hints": [
+                "For three roots, equal spacing is 120° rather than 180°."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Describe precisely what a principal-angle square-root rule loses.",
+          "solution": "Choose target angles 0≤θ<360° and output angle θ/2. It is a single-valued set-theoretic root on the entire circle. As the target approaches 1 from angles near 360°, outputs approach −1, while the output at 1 is +1. Thus it is discontinuous at the cut. Restricting the target to the circle with 1 removed permits a continuous branch.",
+          "gate": "Limits on a circle or one-sided continuity."
+        }
+      ],
+      "figures": {
+        "dials": [
+          {
+            "name": "target",
+            "spokes_degrees": [
+              0,
+              45,
+              90,
+              135,
+              180,
+              225,
+              270,
+              315
+            ]
+          },
+          {
+            "name": "root",
+            "spokes_degrees": [
+              0,
+              45,
+              90,
+              135,
+              180,
+              225,
+              270,
+              315
+            ]
+          }
+        ],
+        "route_record": {
+          "signed_moves": 5,
+          "show_running_angle": true
+        },
+        "render_notes": "Do not draw the tracked solution path or an ending root. Provide two blank dials large enough for two candidate root arrows and a running-angle strip that permits values outside one turn."
+      },
+      "index_gate": "Half angles and continuous choices; complex notation optional"
+    },
+    {
+      "id": "GA-05",
+      "title": "Can a network hide a high point?",
+      "core_gate": "Averages of two or three numbers, including halves, and reasoning from a largest value. Solving the shortcut network can use simultaneous equations or balancing; the core proof needs all averaging rules to hold at once.",
+      "extension_gate": "Subtracting two complete assignments for uniqueness and boundary sensitivity. The continuum harmonic-function connection requires analysis and is not proved here.",
+      "reading": "Rules may be read aloud. Square nodes are fixed boundary values; circles must equal the average of all neighbors. Edges express constraints, not travel or pipes with lengths.",
+      "materials": "Printed five-node path and shortcut network, reusable number counters or pencil, blank graph space. Label edges equally; physical edge length has no weight.",
+      "prep_minutes": 5,
+      "timing": "5–10 minutes freely balance one average; 15 solve the path and predict a shortcut; 5 movement/reset; 15 invent attempted hidden peaks and explain failure; 15–20 optional uniqueness and sensitivity. Distribute later pages when ready.",
+      "launch": "Keep the square endpoints 0 and 12. Choose the three circle values so each is the average of its neighbors. Then add the printed shortcut and predict which circles must rise or fall before recalculating.",
+      "satisfying_stop": "A solved shortcut network and a proof that any finite averaging network with a fixed boundary in each connected component cannot hide a new maximum.",
+      "prior_use": "Week 10 supplies network familiarity. The accepted AP-01 trial already develops an averaging chance skyline on a path, equal-gap uniqueness, and a ferry preserving the skyline. Here the path is only a reset: adding an undirected a–c edge changes the interior values, learner-designed networks lead to maximum propagation, and subtraction proves graph-wide uniqueness and boundary sensitivity. Skip the path calculation for learners returning from AP-01. Actual classroom use remains unknown.",
+      "assessment": "First-pilot candidate for average-ready learners. The shortcut makes the network choice consequential; uniqueness is a separate proof continuation. Signed differences and fractions need adult support for some learners.",
+      "mathematical_connection": "This is a discrete Dirichlet problem. The maximum propagates along neighbors, yielding both a maximum principle and uniqueness. It shares the mechanism of harmonic potential theory without asserting convergence to a continuum model.",
+      "sources": [
+        {
+          "title": "John Hunter, Notes on Partial Differential Equations",
+          "url": "https://math.ucdavis.edu/~hunter/pdes/pde_notes.pdf",
+          "locator": "§2.3, Theorems 2.15, 2.17 and 2.18, printed pp.26–28 / PDF pp.32–34.",
+          "adaptation": "The source gives continuous maximum and uniqueness principles. All graphs and the finite maximum-propagation proof are independently supplied; the graph is a counterpart rather than a discretization theorem.",
+          "checked": "Inspected the maximum/minimum and difference-of-solutions arguments online on 2026-09-25. Rational Gaussian elimination verifies the new path, shortcut and sensitivity instances."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Change one connection",
+          "gate": "Core: averages and halves",
+          "intro": "At every circle, its number equals the average of all adjacent numbers. Squares are fixed and do not obey this rule. All edges count once with equal weight, regardless of drawing length. The original network is 0—a—b—c—12.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose numbers for a,b,c that make every circle obey the rule at the same time. Check your whole assignment. Can equal steps along the path help?",
+              "solution": "The assignment is a=3,b=6,c=9. Checks: 3=(0+6)/2, 6=(3+9)/2, 9=(6+12)/2. The equations force successive differences equal: a−0=b−a=c−b=12−c, so all four differences are 3. Any correct method is acceptable; updating one circle once is not a simultaneous solution.",
+              "hints": [
+                "If a is halfway between 0 and b, compare those two gaps."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Now connect a directly to c, keeping every old edge. Before solving, predict which of a,b,c will rise, fall or stay. Find a legal new assignment and explain your prediction.",
+              "solution": "The shortcut gives 3a=b+c, 2b=a+c, 3c=a+b+12. Solving gives a=9/2, b=6, c=15/2. Thus a rises, c falls, and b stays. Reflection of the graph interchanges 0 and 12 and a and c, so the new values remain symmetric about 6; direct substitution verifies them. An initial intuitive prediction about stronger averaging across the shortcut is welcome, but the final simultaneous check is needed.",
+              "hints": [
+                "The middle circle b still has exactly two neighbors.",
+                "Try keeping values symmetric about 6."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Build a hiding place",
+          "gate": "Core proof: the greatest-value argument",
+          "intro": "Draw a finite network of at most six nodes. Choose at least one fixed square in every connected component; use fixed values between 0 and 12. Circles must obey the same averaging rule. Your challenge is to make some circle strictly above 12.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Try to design a network and legal values that hide a circle above 12. Keep a record of one attempt. If an average fails, mark the failed circle instead of silently changing the rule.",
+              "solution": "No legal design satisfying these conditions can succeed. For a useful failed example, draw fixed 0—a—b—12 and try a=b=13; a’s average is 6.5 and b’s is 12.5, so both fail. More elaborate proposals should be checked node by node. The impossibility follows in prompt 4; an unsuccessful search alone is not a proof.",
+              "hints": [
+                "Try making several neighboring circles equally high."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Assume a legal network has a largest value M greater than every fixed value. At a circle with value M, what must all its neighbors equal? Follow a path to a square and finish the argument. Also explain the lower bound.",
+              "solution": "Every neighbor is at most M. Their average equals M only if every neighbor equals M; one smaller neighbor would make the average smaller. Repeat along a path to a fixed square, which exists in that component. That square would equal M, contradicting M being larger than every fixed value. Apply the same argument to the smallest value, or negate all values, to show no circle is below the minimum fixed value. Finiteness gives an attained maximum; the boundary-in-each-component condition provides the path.",
+              "hints": [
+                "An average of numbers no bigger than M equals M only in one case."
+              ]
+            },
+            {
+              "id": "5",
+              "text": "Break exactly the boundary condition: add two circles joined to each other, disconnected from every square. Can this pair carry 100 while the old network stays legal? What claim fails?",
+              "solution": "Yes. Give both new circles 100; each has one neighbor of value 100, so each averages correctly. Leave the old network solution unchanged. The added component has no fixed boundary, so the global boundary bound and uniqueness fail: any constant can be used on that pair. Disconnectedness alone is not fatal when each component has its own fixed boundary.",
+              "hints": [
+                "A one-neighbor average is that neighbor’s value."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Could two answers both work?",
+          "gate": "Proof continuation: subtraction of assignments",
+          "intro": "Use any finite graph with a nonempty fixed boundary in each component. A “solution” means all circles obey the rule simultaneously. You may reuse the maximum and minimum result from the previous page.",
+          "prompts": [
+            {
+              "id": "6",
+              "text": "Suppose two different assignments solve exactly the same network and fixed values. At each node subtract the second number from the first. What rule do these differences obey? Decide whether both assignments can exist.",
+              "solution": "Differences are zero at every fixed square. At a circle, subtraction commutes with averaging, so the difference is the average of neighboring differences. The maximum principle bounds every difference above by 0 and below by 0. Thus all differences are zero and the assignments coincide. This proves at most one solution; it does not by itself prove existence for every graph.",
+              "hints": [
+                "Apply the earlier argument to differences, which may be negative."
+              ]
+            },
+            {
+              "id": "7",
+              "text": "On the shortcut network, raise only the right square from 12 to 16. Before solving, bound how far any circle can move. Then find the three new values and test your bound.",
+              "solution": "Subtract the old solution from the new one. Boundary differences are 0 and 4, so every interior difference lies in [0,4]. Scaling the original shortcut solution by 16/12 gives a=6,b=8,c=10, checked by the same averaging equations. Changes are 3/2,2,5/2, all between 0 and 4. The general argument proves increasing one boundary by δ≥0 cannot lower an interior value or raise it by more than δ, whenever the two solutions exist.",
+              "hints": [
+                "The difference network has simpler fixed values than either original network."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Does the maximum principle require the whole graph to be connected?",
+          "solution": "No. It suffices that every connected component has at least one fixed boundary node. Apply the argument separately in each component. A component containing only fixed nodes is harmless. An isolated interior node has no defined neighbor average and is excluded by the rule.",
+          "gate": "Connected components."
+        },
+        {
+          "prompt": "Can every circle increase strictly when one fixed value rises?",
+          "solution": "Not necessarily. A circle in a different component does not change. Even in a connected whole graph, another fixed square can separate its interior component from the changed boundary. Example path fixed 4—a—fixed 0—b—fixed 0: raising the left fixed value to 8 raises a from 2 to 4 but leaves b=0. Strict influence needs an interior path to the changed boundary that does not pass through other fixed squares.",
+          "gate": "Difference maximum principle; distinguish graph connectivity from interior connectivity."
+        }
+      ],
+      "figures": {
+        "path": {
+          "nodes": {
+            "L": [
+              0,
+              0
+            ],
+            "a": [
+              1,
+              0
+            ],
+            "b": [
+              2,
+              0
+            ],
+            "c": [
+              3,
+              0
+            ],
+            "R": [
+              4,
+              0
+            ]
+          },
+          "edges": [
+            [
+              "L",
+              "a"
+            ],
+            [
+              "a",
+              "b"
+            ],
+            [
+              "b",
+              "c"
+            ],
+            [
+              "c",
+              "R"
+            ]
+          ],
+          "boundary": {
+            "L": 0,
+            "R": 12
+          }
+        },
+        "shortcut": {
+          "nodes": {
+            "L": [
+              0,
+              0
+            ],
+            "a": [
+              1,
+              0
+            ],
+            "b": [
+              2,
+              1
+            ],
+            "c": [
+              3,
+              0
+            ],
+            "R": [
+              4,
+              0
+            ]
+          },
+          "edges": [
+            [
+              "L",
+              "a"
+            ],
+            [
+              "a",
+              "b"
+            ],
+            [
+              "b",
+              "c"
+            ],
+            [
+              "c",
+              "R"
+            ],
+            [
+              "a",
+              "c"
+            ]
+          ],
+          "boundary": {
+            "L": 0,
+            "R": 12
+          }
+        },
+        "render_notes": "Use square fixed nodes and generously sized empty circles. Put no initial values in the circles. The shortcut diagram must show exactly five edges and no apparent node at an unmarked crossing."
+      },
+      "index_gate": "Averages and halves; proof by following a maximum through a graph"
+    },
+    {
+      "id": "GA-06",
+      "title": "What does a real picture miss?",
+      "core_gate": "Complex arithmetic including i²=−1, factorization, and two complex coordinates. The core payoff is an exhaustive solution set with two branches and a proof that a real slice can conceal almost all solutions. This is not an elementary-age activity.",
+      "extension_gate": "Continuity for the no-branch-switch proof; a supplied necessary local-disc condition for the optional complex-curve singularity proof. No calculus is needed for the explicit uv=c parameterizations.",
+      "reading": "Symbol-heavy. Read z and w as two separate complex numbers, hence four real coordinates in total. Paired Argand diagrams show each coordinate, not an embedding of the entire solution set in a plane.",
+      "materials": "Two paired Argand grids per investigation, colored/shaped markers for linked z,w choices, pencils. A final blank u,v pair supports the change of coordinates.",
+      "prep_minutes": 5,
+      "timing": "5–10 minutes choose complex inputs and multiply by i; 20 solve and classify branches; 5 reset; 15 inspect real slices and continuous paths; 15–25 compare the constant-one equation. The manifold extension needs a separate discussion.",
+      "launch": "Choose a complex number z and find every complex w satisfying z²+w²=0. Draw the paired coordinates. Give a partner a different z, then ask what a picture restricted to real z and w would show.",
+      "satisfying_stop": "All solutions are parameterized and distinguished from their real slice; a later change of coordinates exposes why the zero equation has two branches while the constant-one equation does not split that way.",
+      "prior_use": "No existing week supplies this complex-variable content; this deliberately keeps a substantial algebra prerequisite.",
+      "assessment": "Advanced/specialist. The algebra choices are genuine and the real-slice surprise is substantial. A four-real-dimensional object cannot be faithfully supplied as an ordinary crossing drawing; the paired diagrams are deliberately honest.",
+      "mathematical_connection": "The polynomial zero set is a complex analytic variety. An invertible linear change gives uv=0, while uv=1 has a single C* parameterization. The optional singularity argument uses local topology, not merely a vanishing gradient.",
+      "sources": [
+        {
+          "title": "Jiří Lebl, Tasty Bits of Several Complex Variables",
+          "url": "https://www.jirka.org/scv/scv.pdf",
+          "locator": "§6.5, Definition 6.5.5 and Example 6.5.6, PDF pp.184–185.",
+          "adaptation": "Adapts the source’s intersecting complex lines from a minus-sign to a plus-sign equation by a complex linear coordinate change. The uv=c comparison and chosen numerical examples are derived here.",
+          "checked": "Inspected the local manifold/regular-point definition and explicit intersecting-branch example on 2026-09-25. Exact Gaussian-rational checks verify all printed examples and the inverse coordinate formulas."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Choose the coordinates",
+          "gate": "Core: complex algebra",
+          "intro": "Solve z²+w²=0 over the complex numbers. A point in this problem is a pair (z,w), not a single point on one ordinary graph. The two Argand grids record its two coordinates.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose z=1+i or z=2−i, then find every possible w. Plot each linked pair on the two grids. Challenge a partner with a third z of your own.",
+              "solution": "For z=1+i, w=−1+i or 1−i. For z=2−i, w=1+2i or −1−2i. For any chosen z=a+bi, the complete possibilities are w=−b+ai and w=b−ai, coinciding only for z=0. Each gives w²=−z². Completeness is justified by factorization in prompt 2.",
+              "hints": [
+                "First try multiplying your z by i.",
+                "Try the negative of a solution as well."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Find a formula describing every solution pair. Prove that no others are missed, and determine exactly where your two formulas give the same pair.",
+              "solution": "z²+w²=(w−iz)(w+iz). Since complex numbers have no zero divisors, the product is zero exactly when w=iz or w=−iz. Thus the branches are (z,iz) and (z,−iz) for arbitrary z∈C. They meet when iz=−iz, hence 2iz=0 and z=w=0. Both directions of the factorization argument establish an exhaustive classification.",
+              "hints": [
+                "Factor as a difference of two squares using (iz)²=−z²."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Restrict the view",
+          "gate": "Core continuation: real slices; path question uses continuity",
+          "intro": "The two branches each have a freely chosen complex parameter. A restriction to real values of some coordinates is a slice. It is not a picture of every complex solution.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Find all solutions when both z and w must be real. Then allow z to stay real but w to be complex. Describe both slices and explain why the first picture could be misleading.",
+              "solution": "If both are real, z²,w²≥0, so only (0,0) solves the equation. If z=x∈R and w may be complex, solutions are (x,ix) and (x,−ix) for any real x. Thus the all-real slice is one point, but every complex neighborhood of (0,0) contains nonzero solutions on both branches. An isolated point in a real slice does not establish an isolated complex zero.",
+              "hints": [
+                "Use nonnegativity only when the coordinates really are real."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Begin at (1,i) and try to move continuously through solutions to (1,−i), without ever passing through (0,0). Can a route exist? If you allow the origin, give an exact route.",
+              "solution": "No origin-avoiding route exists. Away from the origin, z≠0 and the continuous ratio w/z is always +i or −i. It cannot change between these separated values on a connected time interval. Allowing the origin, for 0≤s≤1/2 take (z,w)=(1−2s,i(1−2s)); for 1/2≤s≤1 take (2s−1,−i(2s−1)). The two pieces meet at (0,0) and remain on the respective branches.",
+              "hints": [
+                "Can w/z change continuously between its two allowed values?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Change the equation",
+          "gate": "Advanced algebra continuation: an invertible complex change of coordinates",
+          "intro": "Set u=w−iz and v=w+iz. Both new coordinates are still complex. Investigate z²+w²=1 with this new notation; the equation no longer asks for a product to be zero.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Compute uv, then recover z and w from u and v. Use this to give every solution of z²+w²=1 with one freely chosen parameter. State any forbidden parameter value.",
+              "solution": "uv=z²+w². Adding and subtracting give w=(u+v)/2 and z=(v−u)/(2i), so the change is invertible. For uv=1 choose any u∈C\\{0}, set v=1/u, and use those inverse formulas. Conversely every solution has u≠0 and v=1/u, so none are missed. Unlike uv=0, neither coordinate may vanish.",
+              "hints": [
+                "Add the definitions; then subtract them."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Choose u=2 or u=i and construct the corresponding (z,w). Can you give a continuous route through constant-one solutions from u=1 to u=−1 without meeting a branch junction?",
+              "solution": "For u=2, v=1/2 and (z,w)=(3i/4,5/4), giving −9/16+25/16=1. For u=i, v=−i and (z,w)=(−1,0). A route u=e^(iθ), v=e^(−iθ), 0≤θ≤π, gives z=−sin θ and w=cos θ, a real semicircle from (0,1) to (0,−1). The parameter never reaches zero and the inverse coordinate map is continuous; every nonzero u has a unique paired v, so there is no meeting of two branches in this parameterization. This explicit route does not rely on a planar drawing of C².",
+              "hints": [
+                "Move u halfway around the unit circle and set v=1/u."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Why is the origin of z²+w²=0 not a smooth complex curve point? Use this supplied necessary condition: a smooth complex curve has a neighborhood homeomorphic to an open disc in C.",
+          "solution": "Every sufficiently small relative neighborhood of the origin contains nonzero points from both branches. Removing the origin separates it into the two nonempty sets w=iz and w=−iz; the ratio w/z=±i separates them. If a disc neighborhood existed, take a smaller disc inside its coordinate chart. Removing its center would leave a connected punctured disc, while its image has the two separated branch pieces, a contradiction. Away from the origin only one branch is locally present and z is a complex coordinate. This proves the singularity using the explicit local structure; a vanishing gradient alone would not suffice for an arbitrary defining equation.",
+          "gate": "Topology of a punctured disc and the supplied local-disc necessary condition for a smooth complex curve."
+        },
+        {
+          "prompt": "For a nonzero complex constant c, parameterize all solutions of z²+w²=c.",
+          "solution": "Use u∈C\\{0}, v=c/u, w=(u+c/u)/2 and z=(c/u−u)/(2i). The formulas and inverse u=w−iz give a global complex parameterization by C*. In particular this is a smooth complex curve; the explicit holomorphic charts certify that statement without relying on a gradient test.",
+          "gate": "Complex rational functions and the meaning of a holomorphic coordinate."
+        }
+      ],
+      "figures": {
+        "argand_grids": {
+          "labels": [
+            "z",
+            "w",
+            "u",
+            "v"
+          ],
+          "min": -3,
+          "max": 3,
+          "ticks": [
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "render_notes": "Show two large blank paired Argand grids on page 1; distinguish linked solution pairs by shape as well as color. Never draw a planar X and label it the complete complex variety. Page 3 needs room for the inverse algebra and an optional u-plane route."
+      },
+      "index_gate": "Complex arithmetic and factorization; four-real-dimensional reasoning"
+    },
+    {
+      "id": "GA-07",
+      "title": "Build an angle machine",
+      "core_gate": "Cosine as a unit-circle horizontal coordinate, signed fractions, and polynomial algebra. The satisfying proof uses cosine addition identities or their supplied symmetric form; finite numerical checks alone do not prove the machine works.",
+      "extension_gate": "Polynomial composition and the fact that a nonzero polynomial has finitely many roots for the all-real composition identity. No calculus or approximation-theory theorem is assigned.",
+      "reading": "Symbolic text. The machine input is x=cos θ, not the angle θ. Start with a circle projection before using the variable x.",
+      "materials": "Unit-circle diagram with selected angle rays, two-column blank input/output workspace, graph paper for an optional graph. No electronic calculator is necessary.",
+      "prep_minutes": 5,
+      "timing": "10 minutes choose angle tests on the circle; 15 build a candidate cubic; 5 reset; 15–20 replace finite evidence with a recurrence proof; 15–20 compose machines. The last page is a natural separate continuation.",
+      "launch": "An angle machine sees only the horizontal coordinate x=cos θ. You want it to output cos(3θ). Choose angle tests that might determine an odd cubic ax³+bx, then try to break your candidate.",
+      "satisfying_stop": "An invented triple-angle polynomial with a proof for every real angle, followed by a composition rule that connects angle multiplication to polynomial substitution.",
+      "prior_use": "Week 3 repeated actions is a conceptual comparison; polynomial functions and projections create new substance.",
+      "assessment": "Promising with specific algebra/trigonometry gates. The choice of informative versus redundant tests and the false-candidate challenge are substantive; circle measuring alone is not the core investigation.",
+      "mathematical_connection": "The machine is the Chebyshev polynomial T3. A trigonometric recurrence constructs all Tn; composition turns multiplication of indices into substitution of polynomials.",
+      "sources": [
+        {
+          "title": "NIST Digital Library of Mathematical Functions",
+          "url": "https://dlmf.nist.gov/18.5",
+          "locator": "DLMF §18.5(i), equation 18.5.1; recurrence relations §18.9(i).",
+          "adaptation": "The source supplies the identity T_n(cos θ)=cos(nθ). Test selection, fake-fit polynomial, derived recurrence and chosen composition examples are developed here.",
+          "checked": "Inspected equation 18.5.1 and the recurrence section on 2026-09-25. Exact polynomial coefficient arithmetic checks T2,T3,T6 and the deceptive higher-degree fit."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Choose useful tests",
+          "gate": "Core: unit-circle cosine and algebra",
+          "intro": "The input x is the horizontal coordinate of an angle arrow: x=cos θ. The desired output is cos(3θ). Start by searching among odd cubics P(x)=ax³+bx. The printed rays include 0°,60°,90°,120°,180°; select tests deliberately.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose two of the printed angles and use them to determine a and b, if you can. If your tests do not determine them, explain why and choose a more useful pair.",
+              "solution": "The 0° and 180° tests both give a+b=1. The 60° and 120° tests both give a+4b=−8 (after multiplying and accounting for sign). The 90° test gives 0=0 and no information. Thus one endpoint test and one of 60°/120° determine a=4,b=−3. Any pair within one class, or involving 90° with only one informative class, is insufficient. This explains all pairs among the five offered angles.",
+              "hints": [
+                "At 90°, any odd cubic outputs zero.",
+                "Do your two tests really give two different equations?"
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Choose another angle to challenge your candidate. Also compare θ and −θ: do equal inputs ask the machine for conflicting outputs? State what these checks do and do not prove.",
+              "solution": "For example θ=45° gives x=√2/2 and 4x³−3x=−√2/2=cos135°. θ and −θ have the same input and equal desired outputs because cosine is even. In general angles sharing a cosine are congruent to ±θ modulo 360°, so their triple-angle cosines agree. The checks support a candidate but do not establish the identity for every angle.",
+              "hints": [
+                "Try an angle whose input is not 0, ±1/2 or ±1."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "From evidence to an identity",
+          "gate": "Core proof: cosine addition and polynomial recurrence",
+          "intro": "You may use cos(A+B)+cos(A−B)=2cos A cos B. Define T0(x)=1, T1(x)=x, and T_(n+1)(x)=2xT_n(x)−T_(n−1)(x) for n≥1.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Use the recurrence to build T2 and T3. Then explain why T_n(cos θ)=cos(nθ) for every integer n≥0 and every real θ.",
+              "solution": "T2=2x²−1 and T3=4x³−3x. The identity holds for n=0 and n=1. If it holds for n and n−1, substitute x=cos θ into the recurrence and use the supplied cosine identity with A=nθ and B=θ to obtain cos((n+1)θ). Induction proves every n. Each recurrence step uses addition and multiplication of polynomials, so every Tn is a polynomial.",
+              "hints": [
+                "Make the supplied addition identity look like “next = 2×input×current − previous.”"
+              ]
+            },
+            {
+              "id": "4",
+              "text": "A rival adds x(x²−1)(x²−1/4) to your cubic. Show why the new polynomial passes all five original angle tests but still fails somewhere. What distinguishes a fitted guess from your proof?",
+              "solution": "The added term vanishes at x=0,±1,±1/2, which are exactly the five distinct original inputs. At x=√2/2 (θ=45°), the added term is (√2/2)(−1/2)(1/4)=−√2/16, nonzero; thus it fails the desired output there. The recurrence proof covers every angle; agreement at finitely many inputs does not certify an unrestricted polynomial identity unless a sufficient degree bound is also established. The rival polynomial has degree five, outside the original cubic search class.",
+              "hints": [
+                "Factor values make the five successful checks immediate."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Feed one machine into another",
+          "gate": "Advanced continuation: composition and polynomial identities",
+          "intro": "A doubling machine has polynomial T2; a tripling machine has T3. Feeding one machine’s output into the next means substituting one polynomial for x in the other.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Predict what T2(T3(x)) and T3(T2(x)) do when x=cos θ. Choose one order to expand, and compare with a partner who expands the other.",
+              "solution": "Both give cos(6θ) on x∈[−1,1]. Direct expansion gives T2(T3(x))=2(4x³−3x)²−1=32x⁶−48x⁴+18x²−1. Also T3(T2(x))=4(2x²−1)³−3(2x²−1), the same polynomial. Order does not matter for these particular multiplier machines.",
+              "hints": [
+                "Think about the angle before expanding the algebra."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "State and prove a rule for T_m(T_n(x)). First work on −1≤x≤1. Supplied algebra fact: a nonzero polynomial of degree d has at most d distinct real roots. Can your rule extend outside the circle-input interval?",
+              "solution": "For x=cos θ, T_m(T_n(x))=T_m(cos(nθ))=cos(mnθ)=T_(mn)(x). Every x∈[−1,1] is a cosine. The difference of the two polynomials has infinitely many roots in that interval, so by the supplied algebra fact it is identically zero. Thus T_m∘T_n=T_(mn) for all real x (indeed complex x), with integers m,n≥0. For x outside [−1,1], the polynomial identity remains true though there is no real θ with that cosine.",
+              "hints": [
+                "Subtract the two sides after proving agreement on the whole interval."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Find the solutions of T3(x)=0 in [−1,1] using either angles or algebra.",
+          "solution": "4x³−3x=x(4x²−3), so x=0,±√3/2. In angle form 0≤θ≤π and cos(3θ)=0 give θ=π/6,π/2,5π/6, yielding the same three roots. These exhaust the interval and, by factorization, all real roots.",
+          "gate": "Factoring and square roots; radians optional."
+        },
+        {
+          "prompt": "Why is T3(x) not cos(3x)?",
+          "solution": "The variable x is a coordinate, not an angle. At x=0, T3(0)=0 whereas cos(3·0)=1, in either radians or degrees. The correct identity is T3(cos θ)=cos(3θ).",
+          "gate": "Function input notation."
+        }
+      ],
+      "figures": {
+        "unit_circle": {
+          "rays_degrees": [
+            0,
+            60,
+            90,
+            120,
+            180
+          ],
+          "axes_labels": [
+            "horizontal coordinate x",
+            "vertical coordinate"
+          ],
+          "radius": 1
+        },
+        "original_test_angles": [
+          0,
+          60,
+          90,
+          120,
+          180
+        ],
+        "render_notes": "The circle must show actual rays and coordinate projection opportunities. Do not print T3 before the recurrence page. Give an open working area, not a compulsory filled arithmetic table."
+      },
+      "index_gate": "Polynomial algebra, unit-circle cosine, and cosine addition"
+    },
+    {
+      "id": "GA-08",
+      "title": "Can a rate law choose a future?",
+      "core_gate": "Calculus is essential: derivatives of powers, one-sided difference quotients at a join, square roots, and the meaning of a differential equation at every time. A sketch or slope game alone is not the satisfying investigation.",
+      "extension_gate": "Chain and product rules plus monotonicity for the complete classification and comparison equation. Local Lipschitz continuity is defined on the final page; its uniqueness theorem is discussed as a supplied result, not proved here.",
+      "reading": "Symbolic piecewise functions. y(t) is nonnegative height, t≥0 is time, and y′(t) is the instantaneous derivative. At t=0 use the right derivative; at positive join times use both sides.",
+      "materials": "Three blank time-height axes, pencil, optional graphing tool. Calculus-capable learner and facilitator; no manipulative substitution is claimed to lower the prerequisite.",
+      "prep_minutes": 5,
+      "timing": "10–15 minutes invent and test power-law candidates; 20 design and verify a delayed departure; 5 reset; 20 classify every nonnegative future. The comparison and Lipschitz page may take another 20–30 minutes.",
+      "launch": "For every t≥0 obey y′=2√y, with y≥0 and y(0)=0. Can two different differentiable motions obey all these instructions? Choose a candidate and let a partner attack its weakest point.",
+      "satisfying_stop": "At least two fully checked different solutions with identical initial data, including a chosen delayed departure and its differentiability at the join. The advanced continuation classifies every nonnegative solution.",
+      "prior_use": "No existing worksheet covers rate-law uniqueness; this is intentionally a calculus-gated extension upward.",
+      "assessment": "Advanced/specialist, explicitly calculus-gated in accordance with user feedback. The freedom to choose a waiting time is a real solution choice, and the join check is indispensable. Classification strengthens the counterexample without disguising its prerequisites.",
+      "mathematical_connection": "The initial-value problem fails uniqueness. The square-root right side is continuous but not locally Lipschitz at zero; the example demonstrates why an existence/uniqueness theorem has substantive hypotheses. Non-Lipschitz does not itself imply nonuniqueness.",
+      "sources": [
+        {
+          "title": "Gerald Teschl, Ordinary Differential Equations and Dynamical Systems",
+          "url": "https://www.mat.univie.ac.at/~gerald/ftp/book-ode/ode.pdf",
+          "locator": "§2.2, Theorem 2.2 (Picard–Lindelöf), PDF p.49; Problem 2.6(ii), PDF p.50.",
+          "adaptation": "Uses the local Lipschitz uniqueness hypothesis and the square-root diagnostic. Every waiting solution, the join check, the full nonnegative classification and the negative-sign comparison are independently derived. The source theorem is stated on an open domain. Our half-line example is checked directly; extending the rate to 2√max(y,0) on R gives the same failure of the Lipschitz hypothesis if an open-domain comparison is desired.",
+          "checked": "Inspected the uniform local Lipschitz hypothesis and square-root problem online on 2026-09-25. Algebraic identities and one-sided quotient forms are checked in ga1-checks.py; written calculus arguments carry the universal proof."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Invent a motion",
+          "gate": "Calculus core: derivatives of powers",
+          "intro": "A solution must be defined for all t≥0, be nonnegative, have y(0)=0, and satisfy y′(t)=2√y(t) at every time. Use the right derivative at t=0. The equation specifies an instantaneous rate, not an update step.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Search among y(t)=a t² and y(t)=a t⁴ with a≥0. Which choices of a obey the rate law for every time? Use them to find different futures from the same start.",
+              "solution": "For at², y′=2at and 2√y=2√a·t for t≥0. Equality for every t>0 requires a=√a, hence a=0 or 1. Both obey the initial condition and the right-derivative condition at 0. For at⁴, y′=4at³ and 2√y=2√a·t²; if a>0 equality would force t=1/(2√a) for every t>0, impossible. Thus only a=0 works in that family. We already have y≡0 and y=t², which differ for every t>0.",
+              "hints": [
+                "Check all positive t, not one convenient instant.",
+                "Remember √(t²)=t only because t≥0 here."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Both of your valid futures have slope 0 at the start. Explain why that fact does not force the graph to remain flat. What would count as a complete check of another proposed future?",
+              "solution": "A zero derivative at one time controls the tangent there, not later values. y=t² has right derivative 0 at 0 but is positive afterward and satisfies the equation everywhere. A complete check verifies the domain, nonnegativity, initial value, differentiability everywhere (including any joins), and equality of derivative and 2√y at every time. Matching a plotted slope field at selected points is evidence, not that check.",
+              "hints": [
+                "The derivative is an instantaneous statement."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Choose when to leave",
+          "gate": "Calculus core: piecewise functions and the join",
+          "intro": "Choose a waiting time c>0, for example 3/2 or 2, and require y(t)=0 until t=c. Your job is to invent the rest of the function and defend the exact moment at which it starts moving.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Find a formula for a motion that waits until your c, then becomes positive. Verify the rate law on both open pieces t<c and t>c.",
+              "solution": "Use y_c(t)=0 for 0≤t≤c and y_c(t)=(t−c)² for t≥c. On t<c the derivative and right side are both 0. On t>c, y′=2(t−c) and 2√y=2|t−c|=2(t−c). The pieces agree in value at c. This verifies all times except the differentiability and equation check at the join, completed next. Any proposed alternative needs the same exact checks.",
+              "hints": [
+                "Translate a valid nonconstant future horizontally.",
+                "Use t−c for the time since departure."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "At t=c, calculate the difference quotient [y(c+h)−y(c)]/h separately for h<0 and h>0. Is the joined motion differentiable, and does it obey the rate law at the join?",
+              "solution": "For h<0 sufficiently small to stay in the domain, the quotient is 0. For h>0 it is h²/h=h. Both limits are 0, so y′(c)=0=2√y(c). Thus the full piecewise motion is differentiable and satisfies the IVP. At c=0 the same construction is t² on its domain and the right derivative is 0. Waiting forever gives the separate solution y≡0.",
+              "hints": [
+                "Agreement of the function values is not yet agreement of the derivative limits."
+              ]
+            },
+            {
+              "id": "5",
+              "text": "A partner tries the single formula y=(t−c)² for all t≥0, with c>0, avoiding a piecewise definition. Identify every obstruction to calling this a solution of our initial-value problem.",
+              "solution": "First y(0)=c²≠0. Also for 0≤t<c, its derivative 2(t−c) is negative while the required rate 2√y=2|t−c| is positive (except at c). At t=c the equation is true, and for t>c it is true, but those partial successes do not repair the initial condition or earlier times.",
+              "hints": [
+                "Do not simplify √((t−c)²) to t−c when t<c."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Are there stranger futures?",
+          "gate": "Advanced calculus continuation: chain rule and monotonicity",
+          "intro": "Consider any nonnegative differentiable solution on all t≥0. You may use: a function with nonnegative derivative is nondecreasing, and a function with derivative 1 on an interval equals t plus a constant.",
+          "prompts": [
+            {
+              "id": "6",
+              "text": "Could a solution leave zero, return to zero, and leave again? Explain the possible shape of its set of zero times.",
+              "solution": "No: y′=2√y≥0, so y is nondecreasing. Once positive, it stays positive. Since y is continuous, the zero times form either all [0,∞) or an initial closed interval [0,c] for some finite c≥0; c=0 includes immediate departure. For the latter case, if c is the supremum of the zero times, continuity gives y(c)=0 and every t>c has y(t)>0.",
+              "hints": [
+                "Use the sign of the derivative before manipulating square roots."
+              ]
+            },
+            {
+              "id": "7",
+              "text": "On any interval where y>0, set v(t)=√y(t). Find v′. Use continuity at the last zero c to classify every nonnegative solution of the original problem.",
+              "solution": "For t>c, the chain rule gives v′=y′/(2√y)=1. Thus v=t+K on (c,∞). As t decreases to c, continuity gives v→0, so K=−c. Hence y=(t−c)² after c and y=0 before it. Along with y≡0, these are all nonnegative differentiable solutions on [0,∞). The calculation divides by √y only on the strictly positive interval; it does not divide at zero. Prompt 4 proves every classified candidate really is a solution.",
+              "hints": [
+                "First restrict to positive y so division is legal."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What changes the answer?",
+          "gate": "Advanced calculus: product rule and a stated uniqueness hypothesis",
+          "intro": "For a scalar rate function f, local Lipschitz at 0 would require constants L,δ>0 with |f(a)−f(b)|≤L|a−b| for all permitted a,b within δ of 0. A standard uniqueness theorem uses local Lipschitz continuity (plus continuity in time). We inspect the hypothesis here, not prove that theorem.",
+          "prompts": [
+            {
+              "id": "8",
+              "text": "Change the rate law to y′=y with y(0)=0. Differentiate e^(−t)y(t) and determine every solution. Does a delayed departure remain possible?",
+              "solution": "The product rule gives (e^(−t)y)′=e^(−t)(y′−y)=0. Therefore e^(−t)y is constant, and its value at 0 is 0; thus y≡0. This argument proves uniqueness directly for differentiable solutions, so no positive delayed departure is possible. The rate f(y)=y also satisfies a Lipschitz bound with L=1.",
+              "hints": [
+                "A product with zero derivative is constant."
+              ]
+            },
+            {
+              "id": "9",
+              "text": "For f(y)=2√y on y≥0, compare f(h)−f(0) with h as h>0 tends to 0. Then test the claim “every non-Lipschitz rate gives several nonnegative forward futures” using y′=−2√y, y(0)=0.",
+              "solution": "The ratio |f(h)−f(0)|/h=2/√h grows without bound, so no local L works even on the nonnegative half-line. Failure of this sufficient uniqueness hypothesis alone does not force nonuniqueness. For y′=−2√y with nonnegative y and t≥0, y′≤0 makes y nonincreasing; from initial value 0 and nonnegativity it follows y≡0. The negative-sign rate has the same unbounded absolute Lipschitz ratio but a unique nonnegative forward future. The domain and forward-time restriction are part of that counterexample.",
+              "hints": [
+                "To disprove a universal claim, one carefully stated rate law suffices."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "For 0<α<1, construct delayed solutions of y′=y^α, y(0)=0, y≥0.",
+          "solution": "For c≥0 use y=0 up to c and y=[(1−α)(t−c)]^(1/(1−α)) afterward. The exponent β=1/(1−α)>1 makes the right difference quotient at c tend to 0. On t>c, direct differentiation yields y′=y^α. The coefficient is essential. Waiting forever also works. The same monotonicity and positive-region transformation y^(1−α) classify all nonnegative forward solutions.",
+          "gate": "Derivatives of real powers and chain rule."
+        },
+        {
+          "prompt": "Does a unique local future necessarily exist for all time?",
+          "solution": "No. For y′=y² with y(0)=1 the solution y=1/(1−t) exists only for t<1 and grows without bound as t→1 from below. Uniqueness and global existence are distinct; this connects to GA-34 and is not an additional conclusion about the square-root example.",
+          "gate": "Separation or direct differentiation of a rational function; one-sided blow-up."
+        }
+      ],
+      "figures": {
+        "graphs": [
+          {
+            "x_label": "time t",
+            "y_label": "height y",
+            "x_range": [
+              0,
+              5
+            ],
+            "y_range": [
+              0,
+              10
+            ],
+            "curves": []
+          },
+          {
+            "x_label": "time t",
+            "y_label": "height y",
+            "x_range": [
+              0,
+              5
+            ],
+            "y_range": [
+              0,
+              10
+            ],
+            "curves": []
+          },
+          {
+            "x_label": "time t",
+            "y_label": "height y",
+            "x_range": [
+              0,
+              5
+            ],
+            "y_range": [
+              0,
+              10
+            ],
+            "curves": []
+          }
+        ],
+        "join_zoom": {
+          "center_label": "c",
+          "h_left_label": "h<0",
+          "h_right_label": "h>0",
+          "prefilled_curves": false
+        },
+        "render_notes": "Print calculus prerequisite prominently on every page. Supply blank axes with room to choose c. Do not pre-draw the delayed square before the learner constructs it. The join work needs separate left/right quotient space."
+      },
+      "index_gate": "Calculus required: derivatives, piecewise joins, and square roots"
+    }
+  ]
+}

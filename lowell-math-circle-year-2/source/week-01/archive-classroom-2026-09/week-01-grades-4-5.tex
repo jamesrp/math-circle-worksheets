@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+\def\activityid{F01-U-v2}\input{common.tex}
+\hypersetup{pdftitle={Week 1: A world of tilings - grades 4 and 5}}
+\begin{document}
+\PageTitle{GRADES 4--5}{A world of tilings}\NameLine
+\RuleBox{Use \textbf{eight small (1\(\times\)) blue rhombi}. Cover the outline exactly. Keep the bold bottom edge in the same place; different joins count as different tilings.}
+\Task{1. Build. Then change it.}{Find a filling. Can you make a different filling with just one flip?}
+\begin{center}\begin{tikzpicture}[x=\blockside,y=\blockside]\BoardGrid\draw[outline] \BoardPath;\draw[line width=2.3pt] (0,0)--(1,0);\node[below,font=\small] at (.5,0) {keep this edge at the bottom};\end{tikzpicture}\end{center}
+\begin{minipage}[c]{.44\linewidth}\centering\FlipExample\par{\small The two fillings of a small hexagon.}\end{minipage}\hfill
+\begin{minipage}[c]{.52\linewidth}\textbf{One legal flip:} Find three rhombi that fill a small regular hexagon. Lift only those three and refill that same hexagon in its other way.\end{minipage}
+\textbf{Investigate:} Can you get from any filling to any other by these tiny moves? How could you find out?
+\ScaleCheck
+\newpage
+\PageTitle{GRADES 4--5}{How many tilings can you find?}\NameLine
+Draw as many distinct tilings as you can, one on each blank board. Keep the bold edge at the bottom; different joins count as different tilings. These smaller boards are for drawing.\par
+\newcommand{\BlankTilingBoard}{\begin{minipage}[c]{.30\linewidth}\centering\begin{tikzpicture}[x=.50\blockside,y=.50\blockside]\BoardGrid\draw[outline] \BoardPath;\draw[line width=2pt] (0,0)--(1,0);\end{tikzpicture}\end{minipage}}
+\vspace{8pt}
+\BlankTilingBoard\hfill\BlankTilingBoard\hfill\BlankTilingBoard\par\vspace{16pt}
+\BlankTilingBoard\hfill\BlankTilingBoard\hfill\BlankTilingBoard\par\vspace{16pt}
+\BlankTilingBoard\hfill\BlankTilingBoard\hfill\BlankTilingBoard\par
+\textbf{How many distinct tilings did you find?}\quad\rule{.6in}{.4pt}
+\StudentFooter
+\newpage
+\PageTitle{GRADES 4--5}{Map the possible moves}\NameLine
+Try finding tilings yourself first. Then use these six cards. The cards are a supplied list; explaining why no seventh tiling exists is a separate challenge.\par
+\StateCard{A}\hfill\StateCard{B}\hfill\StateCard{C}\par\vspace{5pt}
+\StateCard{D}\hfill\StateCard{E}\hfill\StateCard{F}\par
+\Task{2. Make a map.}{Join two letters below \textbf{exactly when one legal flip} changes one tiling into the other. Use the blocks to check each line.}
+\begin{center}\begin{tikzpicture}[x=1in,y=1in]
+\foreach \a/\x/\y in {A/0/1.3,B/1.8/1.3,C/3.6/1.3,D/0/0,E/1.8/0,F/3.6/0}{\node[draw,circle,minimum size=26pt,font=\bfseries] at (\x,\y) {\a};}
+\end{tikzpicture}\end{center}
+\WriteBox{Can every card reach every other? Could a seventh tiling be hiding?}{.7in}
+\StudentFooter
+\newpage
+\PageTitle{GRADES 4--5}{Can you prove the best route?}\NameLine
+\Task{3. From A to F.}{Find the shortest route from A to F. Write the letters along your route.}
+\WriteBox{My route:\quad A}{.55in}
+\WriteBox{Why can no shorter route work?}{.85in}
+\Task{4. Odd or even?}{Can you leave A and return to A in exactly three flips? Five flips? Any odd number? Give a reason that covers every route.}
+\WriteBox{My reason:}{.85in}
+\Task{A clue for going deeper: follow a ribbon.}{Start at the bold bottom edge. Cross its rhombus to the opposite horizontal edge. Keep crossing upward until you reach the top. Each step goes left (L) or right (R).}
+\begin{center}\begin{tikzpicture}[x=.40\blockside,y=.40\blockside]\TilingA\draw[outline] \BoardPath;\draw[line width=2pt] (0,0)--(1,0);\PathA\end{tikzpicture}\end{center}
+This is A's ribbon. Record the ribbon for each card. How many orders of two L's and two R's are possible? What does a flip do to the order?
+\StudentFooter
+\end{document}

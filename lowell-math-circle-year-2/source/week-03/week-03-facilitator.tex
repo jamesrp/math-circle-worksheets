@@ -1,0 +1,61 @@
+\documentclass[12pt]{extarticle}
+\def\activityid{F03-FAC-v2}\input{common.tex}
+\begin{document}
+
+\PageTitle{FACILITATOR / 1}{Codes become permutations}
+\RuleBox{The main question is structural: how long can a reversible finite machine take to reset? Encoding is the entry point; loop decomposition supplies the explanation. These are deterministic repeated keys, not random swaps.}
+\Subhead{Materials and preparation}
+Make two circle/triangle/square sets per K--1 child (18 slips), one A--D set per middle child (12), and A--E plus F--H for upper/extra. Hand-lettered scraps suffice. Bring \textbf{13 counters}: three per K--1 child and one per older child; pencils and paper. Print 3 K--1, 3 middle, 1 upper, and 1 extra reserve. Read aloud; letters are labels, not spelling tasks.
+\Subhead{Prerequisites}
+\textbf{K--1:} recognize three shapes, follow one arrow, count to three with support; reason about reversibility and repeat. \textbf{2--3:} recognize A--D and count to six; no multiplication needed. Track a consistent mapping and classify loops. \textbf{4--5:} count to six, coordinate multiple cycles; reason that an exhaustive classification establishes a maximum. Multiples/LCM can grow from lists of return turns. \textbf{Extra:} list partitions by largest part, find common multiples up to 15; build an upper-bound argument. Factorials are context, not required arithmetic.
+\Subhead{A shared 60-minute hour}
+\textbf{0--10:} explore symbol cards and invent a short key. \textbf{10--15:} show the three-shape cycle. Launch: ``What happens if we code the code again?'' \textbf{15--35:} K follows shape keys; middle compares P/Q; upper tests the five-symbol key. Adult A anchors K; organizer visits middle and upper. \textbf{35--40:} movement/reset: stand, stretch, leave work ready to return to. \textbf{40--55:} continue with loop classification or an optional proof below; composition and the eight-letter extra are alternatives. \textbf{55--60:} share a machine and its return time; tidy cards.
+Give one page at a time. Upper page 3 is an alternative direction, not required before the extra. Rotate encoder/decoder/checker. An adult should hear the upper child's loop argument and offer a counterproposal.
+\Subhead{Helpful questions}
+``Where does this letter go next?'' ``Is every letter home?'' ``Can two arrows enter one symbol?'' If enumeration stalls, choose the largest loop, then split what remains. Walk counters around loops and list their return turns.
+\Subhead{Satisfying stops / optional proof}
+\textbf{K--1 stop:} return all shapes after three turns; undo a message. \textbf{Optional:} explain why merging two inputs prevents unique decoding.\par
+\textbf{2--3 stop:} compare P/Q and build a four-turn key. \textbf{Optional:} use all five loop partitions to rule out six turns.\par
+\textbf{4--5 stop:} build the 3+2 key and explain its first return at six. \textbf{Optional:} cover the supplied table, classify by largest loop, and prove six is the maximum.
+\newpage
+\PageTitle{FACILITATOR / 2}{Reversibility and loops}
+\Subhead{K--1 checked results}
+The three-shape key sends circle--triangle--circle to triangle--square--triangle. The input giving square is triangle. Every symbol returns after three turns; the order of names or the starting point does not affect that count. Under the changed key, circle and triangle swap while square stays put. All are home after two turns; square is also home after one. A key sending both circle and triangle to square loses information: the receiver cannot determine which was sent.
+\Subhead{Middle page 1}
+P sends ABBA to \textbf{BCCB}; decoding CAAC gives \textbf{BCCB}. A one-to-one key preserves equality and inequality between positions, so ABBA cannot become ABCD. Its first and last outputs must match, as must the middle pair.
+\begin{center}\renewcommand{\arraystretch}{1.4}\begin{tabular}{c|cc}Turn&P&Q\\\hline 0&ABCD&ABCD\\1&BCAD&BADC\\2&CABD&ABCD\\3&ABCD&BADC\\4&BCAD&ABCD\end{tabular}\end{center}
+P has a three-cycle A--B--C--A and fixed D, so order 3. Q has two swaps A--B and C--D, so order 2. A single fixed letter does not certify that the whole key has returned.
+\Subhead{Middle page 2: complete classification}
+A four-cycle A--B--C--D--A has order 4. The possible cycle-size partitions and their orders are:
+\begin{center}\begin{tabular}{c|ccccc}Loop sizes&4&3+1&2+2&2+1+1&1+1+1+1\\\hline Order&4&3&2&2&1\end{tabular}\end{center}
+These exhaust four letters by sorting on the largest loop. Order 6 is impossible with four letters; separate loops of size 3 and 2 require five. Counting all possible keys gives \(4\cdot3\cdot2\cdot1=24\), but the classification uses five cases. Do not replace the investigation with a factorial exercise.
+\Subhead{Why every reversible key splits into loops}
+Follow arrows from any symbol. Finiteness forces a repeated symbol. The first repeat must be the starting symbol: if a later point were first repeated, it would have two distinct predecessors, violating the one-to-one rule. Remove that loop and repeat with an unused symbol. Loops are disjoint and exhaust all symbols. On a loop of length a, the first return is a and all returns occur at multiples of a. All loops return together at their least common multiple. This is a child-accessible proof, not just a pattern from examples.
+\newpage
+\PageTitle{FACILITATOR / 3}{A maximum and noncommuting keys}
+\Subhead{Upper: the five-letter example}
+Successive messages are ABCDE, BCAED, CABDE, ABCED, BCADE, CABED, ABCDE. The 3-cycle returns on turns 3,6,9,\ldots; the 2-cycle on 2,4,6,\ldots. The first common return is \textbf{6}. A five-cycle takes only 5, so the longest individual loop need not be optimal.
+\begin{center}\renewcommand{\arraystretch}{1.3}\begin{tabular}{c|rrrrrrr}Sizes&5&4+1&3+2&3+1+1&2+2+1&2+1+1+1&1+1+1+1+1\\\hline Order&5&4&6&3&2&2&1\end{tabular}\end{center}
+Cover the supplied table before children classify. Largest loop 5 or 4 leaves just one split; largest 3 leaves 2 or 1+1; largest 2 leaves 2+1 or 1+1+1; largest 1 forces five singletons. Ask why these exhaust the leftovers. This complete list plus the loop theorem proves no five-letter key exceeds 6; the displayed key attains it. The mathematical work is construction \emph{and} upper bound. If reading the full table is a barrier, arrange the five letter cards into loops and enumerate the same seven cases physically.
+\Subhead{Upper: P then Q is not Q then P}
+P swaps A/B; Q swaps B/C; both fix D/E. P then Q takes ABCDE to BACDE to \textbf{CABDE}. Q then P takes ABCDE to ACBDE to \textbf{BCADE}. At letter A alone: A goes to B then C in the first order, but A then B in the second. Thus the maps differ.
+The composite P then Q is the loop A--C--B--A with D/E fixed: its order is \textbf{3}, even though each factor has order 2. To undo it, apply Q then P. Disjoint swaps, such as A/B and D/E, commute: neither changes any input moved by the other. Their common composite has two 2-cycles and order 2.
+\Subhead{Extra: the eight-letter optimum is 15}
+Use a 5-cycle on A--E and a 3-cycle on F--H. Their first common return is 15. Exhaustive upper bound by largest loop: 8 gives 8; 7 leaves one and gives 7; 6 leaves at most a 2-cycle and gives 6; 5 leaves three letters, giving at most \(\mathrm{lcm}(5,3)=15\); 4 leaves four, with largest possible LCM 12 from 4+3+1; if all loops have size at most 3 their LCM divides 6. Thus nothing exceeds 15.
+For nine letters, 5+4 gives \textbf{20}. For completeness: largest 9,8,7,6 give maxima 9,8,14,6; largest 5 leaves at most four and gives at most 20; largest 4 gives at most 12; all at most 3 gives at most 6. Adding a letter never decreases the maximum (fix the new letter) but need not strictly increase it: sizes 5 and 6 both have maximum 6. On six letters, partitions with largest 6,5,4,3,2,1 have maximal orders 6,5,4,6,2,1.
+\newpage
+\PageTitle{FACILITATOR / 4}{The exact research question}
+\Subhead{Undergraduate mathematics}
+A reversible substitution on n symbols is a permutation, an element of the symmetric group. A repeated key is a power of this permutation; its return time is its order. Disjoint cycles, least common multiples, inverses, and noncommuting products are standard abstract algebra. No formal group axioms are needed in the child-facing activity. The words ``key'' and ``code'' describe the entry point; these small deterministic substitutions are not modern secure encryption.
+\textbf{Thomas Judson}, \emph{Abstract Algebra: Theory and Applications}, Chapter 5, \S5.1 ``Definitions and Notation,'' especially disjoint-cycle examples and Theorem 5.9 on disjoint-cycle decomposition. See \href{https://people.hsc.edu/faculty-staff/blins/books/JudsonAbstractAlgebra.pdf}{university-hosted textbook}, printed pp. 59--63. Our explicit loop proof supports the activity independently of theorem numbering.
+\Subhead{A direct research lineage}
+\textbf{Marc Del\'eglise, Jean-Louis Nicolas, and Paul Zimmermann}, \emph{Landau's function for one million billions} (2008 arXiv manuscript), \S1, defines g(n), the maximum order of a permutation of n symbols, and relates it to least common multiples of partitions. The paper develops algorithms for very large n: \href{https://arxiv.org/abs/0803.2160}{arXiv:0803.2160}; \href{https://arxiv.org/pdf/0803.2160}{paper, introduction pp. 1--3}.
+The classroom's g(5)=6 and g(8)=15 are \emph{exact small instances of the same optimization problem}. We do not claim that finding these small values is new research. Efficient computation and large-n growth are the research directions. The extra page asks for a proved maximum, not a decorated encoding exercise.
+\Subhead{Downloaded sources and pedagogical choices}
+Rozhkovskaya, \emph{Math Circles for Elementary School Students}, Lesson 2, problems 2.2--2.8 (EPUB section 12), uses secret codes and shifts. We retain the physical key and short-message entry while replacing the core with arbitrary reversible substitutions and loop structure. This week's keys need not be shifts; week 4 imposes a fixed circular order.
+\emph{Math Circle by the Bay}, preface pp. viii--x, supports a deep theme accessible across levels, manipulatives, explanation, and spare challenges. Rozhkovskaya Lesson 3, ``At the lesson'' item 1, supports attempted solutions and explanations before tabular organization. Our exact keys, tables, staffing, and timing are new adaptations.
+\Subhead{Prior use and verification}
+Lowell Handout 8, problem 8.1, already used divisibility for distributing apples among 3,4,5,6 guests. The LCM idea here is revisited through synchronized permutation loops, with new questions about maximal orders. No saved use log proves these particular machines were taught. Record actual instances as F03-K/M/U/X-v2 and note which keys or partitions children saw.
+\texttt{verify.py} checks every permutation for n=4,5,6,8,9 against the claimed maxima and verifies all message traces and compositions. It is a separate check of the finite results, not a substitute for the loop and partition proofs.
+
+\end{document}

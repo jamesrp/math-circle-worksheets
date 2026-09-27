@@ -1,0 +1,472 @@
+[
+  {
+    "id": "AP-11",
+    "title": "The narrow channel and the impossible flow map",
+    "msc_primary": "76",
+    "msc_secondary": [
+      "35",
+      "65"
+    ],
+    "adult_question": "How does local conservation constrain a continuous flow, and how can a proposed flow field be rejected before solving its dynamics?",
+    "anchor": "For steady incompressible flow through a stream tube with impermeable walls, volume flux Q=integral(u·n dA) is constant between cross-sections. If speed is uniform across a section, Q=Av; otherwise v denotes the section’s mean normal speed.",
+    "source": [
+      {
+        "title": "David Tong, Fluid Mechanics",
+        "url": "https://davidtong.org/pdfs/teaching/fluid-mechanics/fluids1.pdf",
+        "locator": "Continuity equation and narrowing-pipe Bernoulli example, PDF pp. 23–24",
+        "checked": "relevant exposition inspected; exact model calculation supplied here"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Area-and-mean-speed sections describe an ideal continuous incompressible stream tube. Conservation relates their fluxes directly.",
+      "limits": "Counters can represent fixed volume parcels but do not prove continuum dynamics. No pressure claim is inferred from continuity alone."
+    },
+    "gates": {
+      "entry": "O/C/V: compare cross-section sizes and count volume packets per time interval.",
+      "explore": "F: multiply area by speed and divide a fixed flux by area.",
+      "explain": "P: use a control-volume storage ledger to reject unequal in/out flow.",
+      "prove": "D/I: integrate the continuity equation or use the divergence theorem.",
+      "reading": "A few area and speed labels; arrows and oral rules suffice.",
+      "arithmetic": "Multiplication and division of small positive values; units.",
+      "reasoning": "Distinguish speed, volume rate, and water already stored between sections.",
+      "hard_stop": "Pressure differences require momentum/energy laws and assumptions; turbulence and viscosity cannot be deduced from this ledger."
+    },
+    "materials": "Draw a wide-to-narrow tube with two cross-sections; use equal volume blocks and a one-second time card. Optional water transfer uses measuring cups, not a pressure demonstration.",
+    "prep_minutes": 7,
+    "launch": "A tube carries incompressible water steadily with no leaks. At its wide section the area is 6 square units and average forward speed is 2 units per second. At the narrow section the area is 3. What average speed is possible? Invent a flow map that looks plausible but cannot stay steady.",
+    "choices": "Choose areas, propose speeds, decide where extra water would accumulate in a bad map, and add a branch or storage reservoir deliberately.",
+    "session": "0–10 move equal-volume blocks between regions; 10–15 specify steady, incompressible and no-leak rules; 15–35 design and audit section labels; 35–40 act as equal-volume parcels crossing gates; 40–55 add branches or a changing reservoir; 55–60 explain one impossible flow map.",
+    "questions": [
+      "Why does a narrower channel require faster average flow under these assumptions?",
+      "What would unequal inflow and outflow tell you if the region could store water?"
+    ],
+    "hints": [
+      "Ask how much volume crosses each section in one second.",
+      "Inventory the water between the sections before and after that second."
+    ],
+    "example": {
+      "problem": "Find narrow-section speed, then audit a proposed exit speed 3.",
+      "solution": "The incoming flux is 6×2=12 volume units per second. Conservation requires 3v=12, giving v=4. If the proposed speed were 3, outgoing flux would be 9 and the intervening region would gain 3 volume units per second. That contradicts steady flow in a rigid full tube with no leaks and incompressible material.",
+      "boundary": "For a reservoir whose level rises, unequal inflow and outflow is allowed: storage changes. For compressible gas, conserve mass flux ρAv rather than volume flux Av."
+    },
+    "extensions": [
+      "Split flux 12 between two branches with areas 2 and 1; explore the infinitely many nonnegative flow allocations before additional physics chooses one.",
+      "With calculus, derive the integral continuity law; with mechanics, add a justified Bernoulli relation and compare its stronger assumptions."
+    ],
+    "satisfying_stop": "Reject an impossible continuous flow map using a clear volume-accounting argument.",
+    "prior_use": "Week 10 route networks concern traversal; this question concerns conservation of flowing material and cannot be counted as another route puzzle.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AP-12",
+    "title": "Where should the fastest path cross the shoreline?",
+    "msc_primary": "78",
+    "msc_secondary": [
+      "49",
+      "26"
+    ],
+    "adult_question": "Why does a ray bend at a boundary between media, and how does minimizing travel time differ from minimizing distance?",
+    "anchor": "In two homogeneous isotropic media with positive constant speeds, a path made of straight segments meeting a flat interface has travel time T(x). Minimizing T yields the Snell relation sin(θ1)/v1=sin(θ2)/v2, with angles measured from the normal.",
+    "source": [
+      {
+        "title": "David Tong, Electromagnetism",
+        "url": "https://www.davidtong.org/pdfs/teaching/electromagnetism/electro3.pdf",
+        "locator": "Wave and boundary framework inspected; Fermat optimization for this geometry proved self-contained below",
+        "checked": "relevant exposition inspected; exact model calculation supplied here"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "The adjustable crossing point parameterizes actual geometric-optics travel paths in the two-speed idealization.",
+      "limits": "This variational calculation assumes the ray model; it does not derive Maxwell’s equations or wave diffraction."
+    },
+    "gates": {
+      "entry": "V/A: coordinates, Pythagoras and distance divided by speed.",
+      "explore": "F: compute and compare square-root travel times or measure scaled segments.",
+      "explain": "D: differentiate the time function and identify its zero derivative.",
+      "prove": "D/P: positive second derivative proves the stationary point is the unique global minimizer.",
+      "reading": "A diagram with speed labels and the time formula.",
+      "arithmetic": "Square roots and fractions; exact 3–4–5 triangles make the worked optimum accessible.",
+      "reasoning": "Distance and time are competing quantities; angles must be measured from a stated reference.",
+      "hard_stop": "Without calculus, comparison gives evidence and an exact candidate, not a proof over all continuous crossing points."
+    },
+    "materials": "Coordinate paper, ruler, two colored half-planes separated by y=0, and a sliding crossing marker. A calculator is optional for exploratory comparisons.",
+    "prep_minutes": 10,
+    "launch": "Travel from A=(0,4) to B=(7,−3), crossing the shoreline y=0 once. Above it speed is 3; below it speed is 4. Each segment is straight. Choose the crossing point (x,0) to minimize total time. Must the fastest route be the shortest route?",
+    "choices": "Choose trial crossing points, organize numerical or geometric comparisons, and decide what extra reasoning certifies the best continuous choice.",
+    "session": "0–10 explore paths and speed labels; 10–15 define total time; 15–35 compare candidate crossings; 35–40 trace two routes with different walking tempos; 40–55 differentiate or verify the proposed optimum; 55–60 contrast an experimental minimum with a proof.",
+    "questions": [
+      "Which side should gain distance when its speed is greater?",
+      "Does a zero derivative alone prove the crossing is globally best?"
+    ],
+    "hints": [
+      "Write T(x)=√(x²+16)/3+√((7−x)²+9)/4.",
+      "At x=3 both segment lengths are 5, making the derivative simple."
+    ],
+    "example": {
+      "problem": "Prove x=3 uniquely minimizes travel time over all real crossing positions.",
+      "solution": "T′(x)=x/(3√(x²+16))−(7−x)/(4√((7−x)²+9)). At x=3, both terms equal 1/5. Also T″(x)=16/[3(x²+16)^(3/2)]+9/[4((7−x)²+9)^(3/2)] is positive everywhere. Thus T is strictly convex and x=3 is its unique global minimizer, with time 5/3+5/4=35/12. The direct straight route crosses at x=4, so shortest and fastest differ.",
+      "boundary": "If both speeds are equal, minimizing time is minimizing distance and the straight path is optimal. Changing the interface shape changes the parameterization."
+    },
+    "extensions": [
+      "Vary the lower speed and predict the optimal crossing direction before calculating.",
+      "Derive Snell’s relation by identifying each derivative ratio as a sine; total internal reflection is a separate wave-boundary question, not established here."
+    ],
+    "satisfying_stop": "A concrete optimum whose geometry, time and proof all agree.",
+    "prior_use": "Week 9 billiards uses reflections and unfolding. Refraction with unequal speeds adds a genuinely different continuous optimization mechanism.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AP-13",
+    "title": "Add a wave and make the signal smaller",
+    "msc_primary": "78",
+    "msc_secondary": [
+      "42"
+    ],
+    "adult_question": "Why do coherent signals combine at the amplitude level, and how can adding a signal reduce local intensity?",
+    "anchor": "For same-frequency coherent scalar waves at a fixed location, amplitudes add linearly. If E(t)=A sin(t)+B sin(t+φ), the normalized time-averaged intensity 2⟨E²⟩ is A²+B²+2AB cosφ.",
+    "source": [
+      {
+        "title": "David Tong, Electromagnetism",
+        "url": "https://www.davidtong.org/pdfs/teaching/electromagnetism/electro3.pdf",
+        "locator": "Section 4.3: plane waves, polarization and superposition, PDF pp. 20–22",
+        "checked": "relevant exposition inspected; exact model calculation supplied here"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Signed waveform strips and their pointwise sums are exact scalar coherent-wave calculations.",
+      "limits": "The scalar model fixes location, frequency and polarization. It does not describe every source, global energy flow, or incoherent light."
+    },
+    "gates": {
+      "entry": "V/F: compare heights above and below an axis and add signed heights.",
+      "explore": "A: scale a sine-shaped template and shift it by half a period.",
+      "explain": "P: show pointwise reinforcement or cancellation.",
+      "prove": "Trigonometry and I: derive the time-average formula for an arbitrary phase.",
+      "reading": "Wave labels can be pictures; full formula is an optional symbolic extension.",
+      "arithmetic": "Signed sums and squares; fractions for averages.",
+      "reasoning": "Do not add intensities before adding coherent amplitudes; distinguish a single location from the whole field.",
+      "hard_stop": "Without phase and coherence assumptions, the interference formula is not justified. General electromagnetic energy conservation needs more physics."
+    },
+    "materials": "Transparent sine-wave strips with amplitude 2 and amplitude 1, a shared horizontal time axis, and blank sum graphs. Preprint half-period alignment marks.",
+    "prep_minutes": 15,
+    "launch": "At one sensor, wave A has height 2 sin(t). You may add wave B with height sin(t) or −sin(t). Add their heights at each time before comparing the resulting signal. Can adding a wave make the sensor’s average squared reading smaller?",
+    "choices": "Choose relative phase, decide which sample times expose cancellation, and invent amplitude pairs that silence the sensor entirely.",
+    "session": "0–10 overlay and slide wave strips; 10–15 define pointwise addition; 15–35 draw sums and compare squared amplitudes; 35–40 partners move in phase and opposite phase; 40–55 explore unequal amplitudes or intermediate phase; 55–60 explain why the word add can mislead.",
+    "questions": [
+      "Why is the sum of two nonzero waves sometimes zero at every time?",
+      "What assumption would fail if the second wave’s phase drifted unpredictably?"
+    ],
+    "hints": [
+      "Start with the same phase and then turn one strip upside down.",
+      "For C sin(t), mean square is C²/2 over a full period; use 2 times that average as normalized intensity."
+    ],
+    "example": {
+      "problem": "Compare normalized intensity before adding B, with B in phase, and with B opposite in phase.",
+      "solution": "Wave A alone has amplitude 2 and normalized intensity 4. In phase, E=3 sin(t), giving 9. Opposite in phase, E=sin(t), giving 1. Adding the same amplitude-1 wave therefore either increases or decreases the sensor’s intensity. With A=B=1 and opposite phase, the local field vanishes. These follow pointwise before any averaging.",
+      "boundary": "Independent drifting phases can average the cross term to zero, giving intensity A²+B² instead. Local cancellation does not mean energy vanished everywhere; source work and the spatial field require a larger model."
+    },
+    "extensions": [
+      "Use a quarter-period shift and prove the normalized intensity is A²+B² for that coherent special phase.",
+      "Generalize to rotating phasor vectors and Fourier superposition; unequal frequencies require a specified averaging interval."
+    ],
+    "satisfying_stop": "A surprising reduction verified by both a waveform drawing and an exact calculation.",
+    "prior_use": "No wave-superposition task is documented. Pattern repetition alone would not count as an equivalent investigation.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AP-14",
+    "title": "Can the heat-engine sales pitch be true?",
+    "msc_primary": "80",
+    "msc_secondary": [
+      "49"
+    ],
+    "adult_question": "How do conservation and entropy constrain possible transformations more strongly than either condition alone?",
+    "anchor": "For a cyclic engine exchanging heat Qh with a hot reservoir Th and rejecting Qc to a cold reservoir Tc, W=Qh−Qc. The reservoir entropy change is Qc/Tc−Qh/Th≥0; hence W≤Qh(1−Tc/Th), with equality for a reversible ideal engine.",
+    "source": [
+      {
+        "title": "David Tong, Statistical Physics",
+        "url": "https://davidtong.org/teaching/statistical-physics/statmechhtml/S4",
+        "locator": "Chapter 4: heat engines, entropy and Carnot efficiency",
+        "checked": "relevant exposition inspected; exact model calculation supplied here"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Heat and work ledgers with two fixed absolute-temperature reservoirs are the exact algebraic constraints of an ideal thermodynamic cycle.",
+      "limits": "Passing these necessary tests is not a construction of a real engine. The model omits finite-rate losses and engineering details."
+    },
+    "gates": {
+      "entry": "C/F: account for incoming heat, outgoing heat and work.",
+      "explore": "F/A: divide heat quantities by absolute temperature.",
+      "explain": "P: show why an energy-balanced proposal can still violate the entropy condition.",
+      "prove": "A: rearrange the two constraints; deriving the second law itself is a separate physical foundation.",
+      "reading": "Short proposal cards and a three-column ledger.",
+      "arithmetic": "Small subtraction and simple fractions; ratios use kelvin.",
+      "reasoning": "Distinguish a whole cycle from an intermediate state and internal changes from reservoir changes.",
+      "hard_stop": "Entropy cannot be replaced with an undefined messiness metaphor. Advanced cycle analysis requires thermodynamic state variables and calculus."
+    },
+    "materials": "Two reservoir cards labeled 600 K and 300 K, twelve heat tokens, work tokens and proposal sheets. This is a paper model; no hot materials or actual engine are needed.",
+    "prep_minutes": 8,
+    "launch": "Every engine must return to its starting internal state. It takes 12 heat units from a 600 K reservoir, sends Qc heat units to a 300 K reservoir, and outputs W work units. Design the biggest work claim that passes both W+Qc=12 and Qc/300−12/600≥0.",
+    "choices": "Choose heat/work splits, test a rival sales pitch, and compare changing the hot temperature with changing the cold temperature.",
+    "session": "0–10 explore token energy ledgers; 10–15 add the entropy constraint and absolute temperatures; 15–35 design, test and sort proposals; 35–40 physically transfer tokens between labeled stations; 40–55 change reservoir temperatures or cascade engines; 55–60 state the strongest valid bound.",
+    "questions": [
+      "Why is energy conservation insufficient to rule out converting all incoming heat to work?",
+      "What happens to the maximum work when the two reservoir temperatures approach each other?"
+    ],
+    "hints": [
+      "First eliminate one variable using energy balance.",
+      "The entropy inequality gives a minimum rejected heat, which gives a maximum work."
+    ],
+    "example": {
+      "problem": "Evaluate proposals (W,Qc)=(8,4),(6,6),(4,8).",
+      "solution": "All conserve energy. Entropy changes are 4/300−12/600=−1/150, 0, and 1/150. Thus the first violates the second-law condition, the second reaches the reversible bound, and the third passes with positive entropy production. The maximum permitted work is 6. Passing the two tests is necessary within this model, not a guarantee that a proposed machine exists.",
+      "boundary": "Using the corresponding Celsius temperatures in the efficiency ratio would be invalid: ratios require absolute temperature. A third reservoir, net internal-state change or external work input also changes the ledger."
+    },
+    "extensions": [
+      "With Th=600 K and Tc=400 K, the same heat budget permits at most 4 work units.",
+      "Cascade reversible engines through an intermediate temperature and show the combined reversible efficiency still equals 1−Tc/Th."
+    ],
+    "satisfying_stop": "Reject a tempting perpetual-motion-style proposal with an exact second constraint.",
+    "prior_use": "No thermodynamic-cycle investigation is documented. This deliberately remains an algebraic thermodynamics entry rather than a generic sharing game.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AP-15",
+    "title": "Does the order of two quantum questions matter?",
+    "msc_primary": "81",
+    "msc_secondary": [
+      "15",
+      "60"
+    ],
+    "adult_question": "How can two projective measurements fail to commute, even when each has only two possible answers?",
+    "anchor": "In a real two-component restriction of a two-dimensional quantum model, a normalized state ψ measured in an orthonormal basis yields outcome vector b with probability |b·ψ|² and updates to b. Measurement order can change the recorded joint outcomes. General complex states require the complex inner product.",
+    "source": [
+      {
+        "title": "David Tong, Quantum Mechanics",
+        "url": "https://www.davidtong.org/teaching/quantum-mechanics/qmhtml/S3",
+        "locator": "Sections 3.1–3.4: states, measurement, operators and commutation",
+        "checked": "relevant exposition inspected; exact model calculation supplied here"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Real normalized two-component states and projectors form a genuine restricted quantum model; the activity uses its exact probability/update rules.",
+      "limits": "Ordinary arrows are representations of amplitudes, not hidden particle directions. General states have complex amplitudes, and this card does not establish an interpretation of measurement."
+    },
+    "gates": {
+      "entry": "V/F/L: vectors (1,0),(0,1) and diagonal unit vectors, dot products, squaring and probability trees.",
+      "explore": "L: distinguish basis coordinates from a physical state and apply the stated update.",
+      "explain": "P: sum probabilities over intermediate outcomes.",
+      "prove": "L: compute noncommuting projectors and their sequential measurement probabilities.",
+      "reading": "Symbolic rules; a facilitator may read the rule aloud and demonstrate one transition before learners construct the sequence trees.",
+      "arithmetic": "Halves, quarters and 1/√2; calculator unnecessary with supplied dot products.",
+      "reasoning": "Separate unknown outcome from state update; discard unobserved intermediate labels only after summing their branches.",
+      "hard_stop": "Do not remove the Born rule or projection update and still call the resulting coin game quantum measurement."
+    },
+    "materials": "Four state-arrow cards e0=(1,0), e1=(0,1), +=(1,1)/√2, −=(1,−1)/√2; branch-tree sheets and counters. Supply a dot-product table if needed.",
+    "prep_minutes": 12,
+    "launch": "Start in state e0. A Z question measures in {e0,e1}; an X question measures in {+,−}. Use squared dot products for probabilities and replace the state by the outcome card. Compare X then Z with Z then X. Record the Z answer wherever it occurs in each order. How often is that answer e1?",
+    "choices": "Choose measurement sequences, organize intermediate branches, and search for a sequence that changes a formerly certain answer.",
+    "session": "0–10 explore unit-vector projections; 10–15 establish probabilities and update separately; 15–35 build exact sequence trees; 35–40 exchange state keeper and probability recorder; 40–55 compare X–Z and Z–X or repeated measurements; 55–60 explain the order effect with a tree.",
+    "questions": [
+      "Why does asking Z twice immediately give the same second answer?",
+      "Why can an unreported X result still change the later Z statistics?"
+    ],
+    "hints": [
+      "For e0 measured in X, both squared dot products equal 1/2.",
+      "From either diagonal state, a Z measurement gives e0 and e1 with equal probability."
+    ],
+    "example": {
+      "problem": "Compare the recorded Z outcome in X→Z and Z→X; also check Z alone and Z→Z.",
+      "solution": "In X→Z, X gives + or − with probability 1/2 each. Each branch then yields Z=e1 with probability 1/2, totaling 1/4+1/4=1/2. In Z→X, the first Z returns e0 with certainty, so its recorded e1 probability is zero. Z alone and Z→Z also never yield e1. The claim concerns recorded outcome statistics: the final unconditional mixed state is the same for these particular two mutually unbiased dephasing orders, so no difference between those final mixed states is asserted.",
+      "boundary": "If the two measurements use the same basis, repeated measurement does not create the order effect. Ignoring the state update incorrectly predicts the original statistics throughout."
+    },
+    "extensions": [
+      "Using matrices P0=[[1,0],[0,0]] and P+=[[1,1],[1,1]]/2, verify P0P+ differs from P+P0.",
+      "Allow a continuously rotated real basis and derive sin²θ/cos²θ probabilities; complex phases and entanglement are separate later branches."
+    ],
+    "satisfying_stop": "An exact probability-tree comparison showing why a prior measurement changes a later question.",
+    "prior_use": "No finite quantum-measurement family is documented. Classical polarizer experiments may motivate it but are not substitutes for these stated quantum rules.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AP-16",
+    "title": "Count the tiny magnet before running it",
+    "msc_primary": "82",
+    "msc_secondary": [
+      "05",
+      "60"
+    ],
+    "adult_question": "How can energetic preference compete with the number of available microscopic arrangements?",
+    "anchor": "A four-spin open Ising chain has spins ±1 and three adjacent interactions. Assign each configuration weight 2^a, where a is its number of agreeing adjacent pairs. This is a canonical Ising distribution at a specified positive inverse-temperature coupling, up to a common factor.",
+    "source": [
+      {
+        "title": "David Tong, Statistical Physics",
+        "url": "https://davidtong.org/teaching/statistical-physics/",
+        "locator": "Chapters 1 and 5: canonical ensembles and Ising models; four-spin enumeration supplied here",
+        "checked": "canonical-ensemble exposition and Ising chapter scope inspected; finite chain independently enumerated"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Four two-sided counters are literal spin configurations; adjacent-pair weights define a genuine finite statistical-mechanics ensemble.",
+      "limits": "Sixteen states cannot exhibit a true thermodynamic-limit phase-transition singularity. The weights are a stipulated model, not measured magnetic behavior."
+    },
+    "gates": {
+      "entry": "O/C: flip four counters and count agreeing neighbors.",
+      "explore": "M: organize configurations and attach powers of two as weights.",
+      "explain": "F/P: distinguish counts from weighted probabilities.",
+      "prove": "P: encode a configuration by its first spin and three agree/disagree choices.",
+      "reading": "Color symbols and a short weight rule; oral explanation works.",
+      "arithmetic": "Counts to 16, weights to 8, totals to 54; probability fractions optional.",
+      "reasoning": "Configurations with equal energy share weights, but groups contain unequal numbers of configurations.",
+      "hard_stop": "Infinite-volume phase transitions and criticality require limits and additional analysis; no claim that this toy has a critical temperature."
+    },
+    "materials": "Four reversible red/blue counters per group, a strip showing exactly three neighbor links, and a table for agreement count 0,1,2,3. Do not wrap the chain into a ring.",
+    "prep_minutes": 8,
+    "launch": "Make every red/blue arrangement of four counters in a row. Count its agreeing neighboring pairs. Its raffle weight is 2 raised to that count: 1,2,4 or 8. Which total weight belongs to perfectly aligned arrangements, and which belongs to the more numerous partly aligned arrangements?",
+    "choices": "Choose an enumeration method, predict the largest weight class, and compare uniform sampling with the interaction-weighted model.",
+    "session": "0–10 play with spin patterns; 10–15 establish open ends and the weight rule; 15–35 catalog all sixteen configurations; 35–40 act as four neighbors agreeing or disagreeing; 40–55 calculate class probabilities or change the weight factor; 55–60 explain energy-versus-multiplicity competition.",
+    "questions": [
+      "Can a group of individually less-favored arrangements outweigh the two best-favored arrangements?",
+      "Why does changing the first spin not change the agreement pattern?"
+    ],
+    "hints": [
+      "Choose the first color, then choose agree or disagree independently at each of the three links.",
+      "For a fixed agreement count a, there are 2 times “three choose a” configurations."
+    ],
+    "example": {
+      "problem": "Find class multiplicities, total weight and probability of complete alignment.",
+      "solution": "For a=0,1,2,3 the multiplicities are 2,6,6,2. Their total weights are 2,12,24,16, summing to 54. Complete alignment therefore has probability 16/54=8/27. The a=2 class has greater total weight, 24/54, despite each member having weight 4 rather than 8. Under uniform sampling alignment has probability 2/16=1/8.",
+      "boundary": "Closing the row into a ring adds an interaction. The three independent edge-choice count no longer applies; a ring must have an even number of disagreements."
+    },
+    "extensions": [
+      "Replace factor 2 by b>0 and derive total weight 2(1+b)^3; alignment probability becomes b^3/(1+b)^3.",
+      "Compare longer open chains with rings, then distinguish finite partition functions from infinite-system phase transitions."
+    ],
+    "satisfying_stop": "A complete sixteen-state ensemble whose most numerous and most favored classes differ.",
+    "prior_use": "No statistical-ensemble activity is documented. Coin colors alone are not a new family; the interaction weights and multiplicity question define this one.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AP-17",
+    "title": "Two clocks, one reunion, different elapsed times",
+    "msc_primary": "83",
+    "msc_secondary": [
+      "53",
+      "26"
+    ],
+    "adult_question": "Why is elapsed proper time path dependent in spacetime, even between the same departure and reunion events?",
+    "anchor": "In flat 1+1 spacetime with c=1, an inertial timelike segment has proper duration √(Δt²−Δx²). Proper durations add along a piecewise inertial path. This Lorentzian rule differs from Euclidean path length.",
+    "source": [
+      {
+        "title": "David Tong, General Relativity",
+        "url": "https://davidtong.org/teaching/general-relativity/grhtml/S1",
+        "locator": "Section 1.2.1, particle in Minkowski spacetime; proper time equation (1.16)",
+        "checked": "author-hosted proper-time exposition inspected; finite piecewise inertial calculation independently checked"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Coordinate events and piecewise inertial worldlines are exact special-relativistic objects under the stated metric.",
+      "limits": "The diagram is not a physical scale model; an instantaneous turnaround is an idealization. The activity does not solve Einstein’s gravitational field equations."
+    },
+    "gates": {
+      "entry": "V/A: plot time and position, interpret speed and use the given interval rule.",
+      "explore": "F: calculate squares and square roots using 3–4–5 triangles.",
+      "explain": "P: distinguish coordinate duration from each clock’s proper duration.",
+      "prove": "A/P: compare piecewise constant-speed routes; D/I for arbitrary smooth paths.",
+      "reading": "Symbolic interval rule and axis labels.",
+      "arithmetic": "Squares of 3,4,5 and addition; units chosen so c=1.",
+      "reasoning": "The vertical axis is time, not a second space direction. A geometrically longer drawing need not mean more clock time.",
+      "hard_stop": "General curved spacetime requires a metric and differential geometry; rubber sheets are not a substitute."
+    },
+    "materials": "Graph paper with vertical t-axis and horizontal x-axis, rulers, colored worldline segments, and two clock counters.",
+    "prep_minutes": 8,
+    "launch": "Both clocks leave event (t,x)=(0,0) and reunite at (10,0). Clock A stays at x=0. Clock B travels to (5,3), then returns to (10,0). For each straight segment add √(Δt²−Δx²) to that clock. Which clock records more time, and can a different legal turn point change the gap?",
+    "choices": "Choose turn positions with speed below 1, compare symmetric routes, and decide which features of the drawing affect each clock.",
+    "session": "0–10 explore legal and too-fast segments; 10–15 introduce the interval rule; 15–35 compute several reunion paths; 35–40 move markers along equal coordinate-time slices; 40–55 prove the symmetric comparison or vary reunion duration; 55–60 explain the result without Euclidean-length language.",
+    "questions": [
+      "Why must |Δx| be smaller than Δt for a massive clock segment?",
+      "What changes if B turns around at x=0 instead?"
+    ],
+    "hints": [
+      "Compute each leg separately; both B legs have Δt=5 and |Δx|=3.",
+      "Compare √(25−d²) with 5 for a symmetric excursion to distance d."
+    ],
+    "example": {
+      "problem": "Calculate both proper times and prove every symmetric nonzero excursion with |d|<5 gives B less than 10.",
+      "solution": "A records √(100)=10. Each B leg records √(25−9)=4, for total 8. For a general symmetric excursion to d, total is 2√(25−d²), which is less than 10 whenever 0<|d|<5. Equality occurs at d=0. No numerical approximation is required for the worked route.",
+      "boundary": "At |d|=5 the legs are lightlike and proper duration is zero; that is not a possible worldline for the massive clock assumed here. At |d|>5 the square root is not real because the proposed segment is spacelike."
+    },
+    "extensions": [
+      "Fix the excursion distance and change turnaround coordinate time; investigate why constant-speed segments maximize each leg’s proper time under its endpoints.",
+      "With calculus, evaluate proper-time integrals on smooth subluminal curves and examine how an actual turnaround approximates the ideal diagram."
+    ],
+    "satisfying_stop": "An exact 10-versus-8 comparison and a clear statement of the model’s causal constraint.",
+    "prior_use": "No spacetime activity is documented. Ordinary shortest-path investigations do not cover the Lorentzian sign change or proper time.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AP-18",
+    "title": "Weigh an unseen center from its orbiters",
+    "msc_primary": "85",
+    "msc_secondary": [
+      "70",
+      "62"
+    ],
+    "adult_question": "How can observable orbital motion reveal an unobserved mass, and how can inconsistent estimates expose a failed model?",
+    "anchor": "For a negligible-mass test particle in a circular Newtonian orbit around a dominant point mass, v²/r=GM/r², hence M=v²r/G. The inference relies on circularity, the true three-dimensional speed and radius, and the assumed force law.",
+    "source": [
+      {
+        "title": "MIT, Astrophysics II lecture notes",
+        "url": "https://ocw.mit.edu/courses/8-902-astrophysics-ii-fall-2023/mit8_902_f23_lec_full.pdf",
+        "locator": "PDF pp. 15–16: dynamical mass inference and virial assumptions; circular special case derived from force balance here",
+        "checked": "virial and dynamical-inference exposition inspected; circular-orbit formula independently derived from stated force balance"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Radius/speed data cards are exact observations of a specified circular-orbit model; learners perform a genuine inverse parameter inference.",
+      "limits": "The supplied observations are invented and exact. Real astronomy requires projection, uncertainty and distributed-mass modeling."
+    },
+    "gates": {
+      "entry": "V/F/A: radius, speed, square and the supplied circular-balance formula.",
+      "explore": "A: infer one common mass from several orbiters and test consistency.",
+      "explain": "P: show a model predicts a specific speed-radius relation.",
+      "prove": "D/V: derive centripetal acceleration and the Newtonian circular formula.",
+      "reading": "A small data table and clearly labeled assumptions.",
+      "arithmetic": "Small squares, products and square roots.",
+      "reasoning": "Distinguish fitting a parameter under a model from proving the model is true.",
+      "hard_stop": "Noncircular orbits, projected velocities and extended mass distributions require new equations; do not silently apply the point-mass formula."
+    },
+    "materials": "Orbit-circle drawings at radii 1,4,9, colored orbit markers, and cards giving speeds 6,3,2 in units with G=1. Provide an alternative deliberately inconsistent data card.",
+    "prep_minutes": 8,
+    "launch": "An unseen object is orbited by three tiny test particles. Assume their orbits are circular, all motion is visible in the page, gravity is inverse-square, and the central object dominates. With G=1, infer its mass from radius/speed pairs (1,6),(4,3),(9,2). Then decide whether the new card (4,4) fits the same story.",
+    "choices": "Choose which observation to use first, predict an unmeasured speed, and propose reasons why inconsistent data might arise rather than forcing agreement.",
+    "session": "0–10 inspect orbit diagrams and what a measurement means; 10–15 state the force-balance model; 15–35 infer masses and predict missing data; 35–40 trace fast inner and slow outer orbits; 40–55 audit inconsistent or projected data; 55–60 distinguish conditional inference from discovery of a law.",
+    "questions": [
+      "Why does a slower outer particle not necessarily imply a smaller central mass?",
+      "What information would you seek before blaming an inconsistent observation on arithmetic?"
+    ],
+    "hints": [
+      "Compute v²r for each observation.",
+      "For a fixed inferred mass, solve v=√(M/r) to make a prediction."
+    ],
+    "example": {
+      "problem": "Find the common central mass and test the extra data card.",
+      "solution": "The first three estimates are 6²×1=36,3²×4=36,2²×9=36. The new card gives 4²×4=64 and is incompatible with the same exact point-mass circular model. The predicted speed at r=16 is √(36/16)=3/2. The inconsistency identifies a failed joint set of assumptions or data, not which component failed.",
+      "boundary": "A measured projected speed can underestimate true speed. At a turning point of an eccentric orbit, v²r need not equal GM, despite the same inverse-square force."
+    },
+    "extensions": [
+      "Use small intervals for observed radii and speeds to obtain a mass interval and test overlap between orbiters.",
+      "Investigate flat galaxy rotation curves: under spherical symmetry, enclosed mass scales as v²r/G, but this is a changed distributed-mass model, not the original point mass."
+    ],
+    "satisfying_stop": "An unseen parameter inferred three ways and an inconsistency recognized honestly.",
+    "prior_use": "No astronomical inverse problem is documented. A drawing of ellipses alone would not preserve this inference mechanism.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  }
+]

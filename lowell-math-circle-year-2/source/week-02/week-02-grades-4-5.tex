@@ -1,0 +1,32 @@
+\documentclass[12pt]{extarticle}
+\def\activityid{F02-U-v2}\input{common.tex}
+\begin{document}
+
+\PageTitle{GRADES 4--5 / 1}{The cheapest light show}\NameLine
+\RuleBox{All lamps begin OFF. Press an edge to flip its two end lamps. Pressing 12 flips lamps 1 and 2. Minimize the \textbf{number of presses}.}
+\begin{center}\LampRing{5}{1.04}{}\end{center}
+\Task{1. Find two ways.}{Light \textbf{only lamps 1 and 3}. Find a shortest solution and a different solution. Reset before each attempt.}
+\WriteBox{Two move lists; why the shorter one is best:}{.85in}
+\Task{2. Four lamps.}{Now light \textbf{1, 2, 3, 4} and leave 5 OFF. Find two ways again. Can you prove your best way is best?}
+\WriteBox{My best construction and a lower bound:}{.85in}
+\StudentFooter
+\newpage
+\PageTitle{GRADES 4--5 / 2}{Are there other solutions?}
+\RuleBox{Pressing the same edge twice cancels. The order of presses does not matter: check this at each lamp. So record just the edges pressed an \textbf{odd} number of times.}
+\Task{3. Start with a choice.}{Target: only 1 and 3 ON. Decide whether to use edge 51. Then use lamp 1's target to decide 12, lamp 2's target to decide 23, and so on. Why is each later edge forced, with no new choice? Does the last lamp check work? Explain why the two first choices cover every reduced solution.}
+\begin{center}\renewcommand{\arraystretch}{2.0}\begin{tabular}{c|ccccc|c}First choice&51&12&23&34&45&Check lamp 5\\\hline Do not use 51&no&&&&&\\Use 51&yes&&&&&\end{tabular}\end{center}
+\Task{4. The missing-edges trick.}{Take one solution. Press exactly the edges it did \textbf{not} use. Does that give the same target? Explain at a lamp, which touches two edges.}
+\WriteBox{Why the trick works, and why there cannot be a third edge set:}{1.35in}
+\textbf{Try to break your rule:} Repeat the table for a target with only lamp 1 ON. Where does the consistency check fail?
+\StudentFooter
+\newpage
+\PageTitle{GRADES 4--5 / 3}{A theorem for every target}
+\Task{5. Possible or impossible?}{Conjecture: a target is reachable exactly when it has an even number of ON lamps. Prove the impossible direction. For the possible direction, pair the ON lamps and join each pair by a path.}
+\WriteBox{Why paths give every even target:}{1.1in}
+\Task{6. A surprising speed limit.}{On this five-lamp ring, can every reachable target be made in \textbf{at most two presses}? Use the two complementary edge sets from page 2.}
+\WriteBox{A construction or a reason that covers all targets:}{1.1in}
+\Task{7. Change the ring.}{Draw a six-lamp ring. Light only opposite lamps 1 and 4. What is the fewest presses? Can the two complementary solutions tie?}
+\WriteBox{Six-lamp experiment and explanation:}{1.05in}
+\StudentFooter
+
+\end{document}

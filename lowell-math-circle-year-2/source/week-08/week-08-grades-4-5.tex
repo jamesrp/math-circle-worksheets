@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+\def\activityid{F08-U-v2}\input{common.tex}
+\begin{document}
+
+\PageTitle{GRADES 4--5}{Three piles break the mirror}\NameLine
+\RuleBox{Build three piles. On a turn, remove any positive number of counters from exactly ONE pile. Take the last counter to win. Use ordinary counters, not bundles, for actual play.}
+\Task{1. Challenge an adult.}{Try piles \((1,2,3)\), then \((1,2,4)\). Change who moves first. Which starts seem to be traps for the player receiving them?}
+\WriteBox{Record moves, replies, and a conjecture.}{1.05in}
+\Task{2. Compare two kinds of balance.}{With only two piles, matching sizes lets you copy your opponent. With three piles, investigate \((1,1,1)\), \((1,1,2)\), \((1,2,3)\), and \((2,4,6)\). Is an even \emph{total} enough to make a trap?}
+\WriteBox{Find evidence against a rule that almost works.}{1.0in}
+\Task{3. Trade for bundles.}{Use labels 1, 2, and 4. Write each pile as a sum using each label at most once: for example, 5 is 4+1. For each label, count how many piles use it. Which starts have an even count for every bundle?}
+\textbf{Try before turning the page.} An adult can make the bundle labels with scraps of paper.
+\StudentFooter
+
+\newpage
+
+\PageTitle{GRADES 4--5}{Balance the binary columns}\NameLine
+\RuleBox{Represent each pile using bundles 4, 2, 1. Write 1 if that bundle is used and 0 if not. Call a position \textbf{balanced} when every column contains an even number of 1s. Zero 1s counts as even.}
+\begin{center}\renewcommand{\arraystretch}{1.5}\begin{tabular}{c|ccc@{\qquad}c|ccc}Pile&4&2&1&Pile&4&2&1\\\hline1&0&0&1&1&0&0&1\\2&0&1&0&2&0&1&0\\3&0&1&1&4&1&0&0\end{tabular}\end{center}
+\Task{4. Repair the unbalanced position.}{Change just one pile in \((1,2,4)\) to a \emph{smaller} number, making every column even. What move does this mean with counters?}
+\Task{5. Test your rule.}{For each start, either give a move to balance or say it is already balanced. Then play against someone trying to break your prediction.}
+\begin{center}\renewcommand{\arraystretch}{1.8}\begin{tabular}{c|p{2.0in}|p{2.2in}}Start&4/2/1 records&Move or already balanced?\\\hline(2,4,6)&&\\(3,4,5)&&\\(1,5,7)&&\\(3,5,6)&&\end{tabular}\end{center}
+\WriteBox{Can a legal move from balance leave every column even? Why?}{.85in}
+\textbf{Vocabulary after discovery:} The column parities form the \emph{Nim sum}, also called bitwise XOR. A balanced position has Nim sum zero.
+\StudentFooter
+
+\newpage
+
+\PageTitle{GRADES 4--5}{Why must the strategy work?}\NameLine
+\Task{6. The highest wrong column.}{Suppose some column is odd. Find the largest bundle whose column is odd. At least one pile uses it. In that pile:}
+\begin{enumerate}\item Keep all larger bundle choices unchanged.\item Remove this bundle.\item Choose the smaller bundles to make \emph{every} column even.\end{enumerate}
+Try this recipe on \((3,4,5)\). Then try \((7,10,12)\), adding an 8-column.
+\WriteBox{My moves, and why they fix all the columns:}{1.05in}
+\Task{7. Two missing pieces of a proof.}{Why is the new pile \emph{smaller}, even if you add some smaller bundles? Why can the game not continue forever?}
+\WriteBox{A reason that works for any pile sizes:}{1.05in}
+\Task{8. Design a trap.}{Choose any first two piles. Can you choose the third to make balance? Could you do it in two different ways? Give your puzzle and its explanation to an adult.}
+\WriteBox{My designed start and why its third pile is forced:}{.75in}
+\StudentFooter
+
+\end{document}

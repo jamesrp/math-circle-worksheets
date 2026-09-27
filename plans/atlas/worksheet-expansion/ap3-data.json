@@ -1,0 +1,1158 @@
+{
+  "batch": "ap3",
+  "status": "independent design review closed and approved; PDF status is recorded in scope and review files",
+  "families": [
+    {
+      "id": "AP-19",
+      "title": "Design a survey that can identify the depth",
+      "core_gate": "Distance ÷ speed, positive square roots, fractions and two linear equations. The noise-design continuation uses exact interval bounds. The wave-speed law is supplied, not derived.",
+      "index_gate": "Square roots and two linear equations; supplied wave model and exact travel times",
+      "extension_gate": "Inequalities and weighted means for the effective-depth extension.",
+      "reading": "Read a two-region channel and distinguish measured time, known length, unknown depth and supplied model.",
+      "materials": "Pencil, ruler and supplied channel/receiver diagram. Optional calculator checks only; no water experiment is needed.",
+      "prep_minutes": 8,
+      "timing": "0–10 try chosen depths; 10–25 build indistinguishable models; 25–45 place a second receiver and invert its readings; later 25 minutes for placement under bounded timing error. Give one page at a time.",
+      "launch": "The end receiver reports five time units. Choose a first-region depth and construct a second region that makes the same report. Can a receiver placed inside the channel settle the disagreement?",
+      "satisfying_stop": "A complete ambiguity family, followed by a chosen extra measurement that uniquely identifies both positive depths; an optimal receiver placement under an explicit error model.",
+      "prior_use": "AP-18 separates orbital inference from model assumptions. AP-27 studies dynamic observability and close decay rates. Here the learner physically places a receiver, and the inverse parameters are wave slownesses and depths.",
+      "assessment": "Promising for algebra-ready learners. The receiver-design payoff is substantial; this is not a physical tsunami model or an elementary substitute for wave equations.",
+      "mathematical_connection": "A nonlinear inverse depth problem becomes linear in slowness. Identifiability, positivity and conditioning are separate questions.",
+      "sources": [
+        {
+          "title": "Geoffrey Vallis, Atmospheric and Oceanic Fluid Dynamics, supplementary material for the second edition",
+          "url": "https://empslocal.ex.ac.uk/people/staff/gv219/aofd/aofd2_r2.pdf",
+          "locator": "§7.1.3, printed pp. 288–289 / PDF pp. 75–76, shallow-water limit following (7.19).",
+          "adaptation": "Retain c=√(gH) as a supplied long-wave approximation. The two-region inverse data, receiver placement and error analysis are new.",
+          "checked": "Reopened 2026-09-26: inspected the limit KH≪1 giving equal phase/group speed √(gH). Piecewise travel-time addition is an explicitly idealized model here; interface reflections and dispersion are omitted."
+        }
+      ],
+      "pages": [
+        {
+          "title": "One reading, many hidden channels",
+          "gate": "Core: square roots and positive travel times",
+          "intro": "Use a supplied one-dimensional travel-time model for small-amplitude long waves, no current or rotation. Each region has constant positive finite depth H and speed √(gH); segment times add. Ignore reflections. Choose units with g=1. The channel runs from x=0 to 12; its depth changes at x=6. The end travel time is T=5.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose H₁ from 4, 9 or 16. Find H₂ that gives the measured total time. Compare with a partner who chose differently. Can equal total times certify equal channels?",
+              "solution": "The first region takes 6/√H₁, leaving 5−6/√H₁ for region 2. Thus H₂=[6/(5−6/√H₁)]². Choices 4, 9, 16 give H₂=9, 4, 144/49 respectively. The positive remaining times are 2, 3, 7/2. Distinct pairs give the same T, so the end reading does not uniquely identify depths.",
+              "hints": [
+                "Allocate the measured time between the two known lengths."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Describe EVERY pair of positive finite depths with T=5. Include an equal-depth channel and explain which proposed first depths are impossible.",
+              "solution": "Put u=1/√H₁ and v=1/√H₂. Exactly the positive pairs with u+v=5/6 work. In depth coordinates H₁>36/25 and H₂=[6/(5−6/√H₁)]²; this is both necessary and sufficient. H₁=36/25 leaves zero time for a positive-length region and would require infinite H₂; smaller H₁ already takes too long. Equal depths have u=v=5/12, hence H₁=H₂=144/25. Neither endpoint of the open slowness segment is permitted.",
+              "hints": [
+                "Use reciprocal speeds; both must be strictly positive."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Where should the second receiver go?",
+          "gate": "Core continuation: design and invert a measurement",
+          "intro": "Place one receiver at a chosen x between 0 and 12. It measures S, the first arrival time from the same launch at 0. The end reading remains T=5. Let u=1/√H₁ and v=1/√H₂.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Choose x=3, 6 or 9. A test channel gives S=3/2, 3 or 4 respectively. Recover both depths from your chosen reading and T. Explain why the new equation supplies information the end reading lacks.",
+              "solution": "At x=3, S=3u, so u=1/2 and v=(5−6u)/6=1/3. At x=6, S=6u gives the same. At x=9, S=6u+3v=4 and T=6u+6v=5, so v=1/3 and u=1/2. Each gives (H₁,H₂)=(4,9). The new length row is not proportional to (6,6), so the independent equations determine both slownesses. A direct substitution proves sufficiency.",
+              "hints": [
+                "A receiver records only the lengths already crossed."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "For an arbitrary receiver position x, decide exactly which positions identify both depths. Give recovery formulas and the restrictions on S for positive finite depths. Include x=0 and x=12.",
+              "solution": "For 0<x≤6, S=xu: u=S/x and v=T/6−S/x. Positive depths require 0<S<xT/6. For 6≤x<12, v=(T−S)/(12−x) and u=T/6−v; positivity requires (x−6)T/6<S<T. Both formulas agree at x=6, where 0<S<T. Every interior position uniquely determines positive depths when these inequalities hold, with H₁=u⁻² and H₂=v⁻². At x=0 the reading is always 0; at x=12 it merely repeats T. Those endpoint positions cannot distinguish the prompt-2 family.",
+              "hints": [
+                "Split the calculation according to which region contains the receiver."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "A unique answer can still be sensitive",
+          "gate": "Continuation: deterministic error bounds",
+          "intro": "The end time T=5 is exact. The inside receiver reports Ŝ with unknown error e=Ŝ−S satisfying |e|≤1/20. The same absolute error bound applies at every position. Recover using Ŝ as though it were exact. Slowness means reciprocal speed, not depth.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Compare placing the receiver at x=3 with report Ŝ=3/2, or at x=6 with report Ŝ=3. Find every positive depth pair consistent with each report and error bound. Which placement gives the tighter slowness uncertainty?",
+              "solution": "At x=3, u∈[29/60,31/60] and v=5/6−u∈[19/60,21/60]. Thus H₁∈[3600/961,3600/841] and H₂∈[400/49,3600/361], with the two depths linked by u+v=5/6, not independent choices in a rectangle. At x=6, u∈[59/120,61/120], v∈[39/120,41/120], so H₁∈[14400/3721,14400/3481] and H₂∈[14400/1681,1600/169], again linked. All endpoint slownesses are positive. The slowness half-width is 1/60 at x=3 and 1/120 at x=6, so the interface receiver is twice as precise under this error model.",
+              "hints": [
+                "Recover slowness intervals first; reciprocal squares reverse endpoint order."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Choose ANY interior x. Derive the largest absolute error in either recovered slowness caused by |e|≤ε, with T still exact. Prove which receiver position minimizes this error amplification. Does a good position remove the wave-model assumptions?",
+              "solution": "For 0<x≤6, the errors are Δu=e/x and Δv=−e/x. For 6≤x<12, Δv=−e/(12−x) and Δu=e/(12−x). The sharp algebraic bound in either coordinate is ε/min(x,12−x), attained at e=±ε. For physical states restrict to errors that keep recovered slownesses positive; the bound remains valid and is attained at interior states with enough margin. The denominator is at most 6, uniquely maximized at x=6, so that position uniquely minimizes amplification. Better conditioning does not validate the supplied shallow-water model, the depth segmentation, or the assumed error bound.",
+              "hints": [
+                "Track the error through the recovery formulas, not through a numerical experiment."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "gate": "Positive weighted means and reciprocal inequalities.",
+          "prompt": "A uniform-depth interpretation assigns H_eff=(12/T)². Prove that it lies between the two actual depths, and test (4,9). Is it the arithmetic average of the depths?",
+          "solution": "The effective speed is 12/T=2/(u+v), the harmonic mean of the two speeds. Since (u+v)/2 lies between u and v, its reciprocal square lies between H₁ and H₂, strictly if they differ. For (4,9), T=5 and H_eff=144/25, whereas the arithmetic depth average is 13/2. The uniform interpretation fits the same single time but is a different channel. If g were unknown, only products gH_i could be recovered: replacing g by kg and H_i by H_i/k for k>0 preserves every travel time."
+        }
+      ],
+      "figures": {
+        "channel": {
+          "length": 12,
+          "interface": 6,
+          "region_labels": [
+            "H₁ unknown",
+            "H₂ unknown"
+          ],
+          "depth_drawing": "Both beds hidden behind an unscaled hatched mask; do not imply either is deeper.",
+          "launch": 0,
+          "end_receiver": 12,
+          "total_time": 5
+        },
+        "receiver_choices": [
+          0,
+          3,
+          6,
+          9,
+          12
+        ],
+        "slowness_axes": {
+          "u": [
+            0,
+            1
+          ],
+          "v": [
+            0,
+            1
+          ],
+          "solution_line_initially_absent": true
+        },
+        "noise": {
+          "T": 5,
+          "epsilon": "1/20",
+          "trials": [
+            {
+              "x": 3,
+              "report": "3/2"
+            },
+            {
+              "x": 6,
+              "report": 3
+            }
+          ]
+        },
+        "workspace": "Channel with a movable blank receiver marker; open depth-model records, unfilled recovery equations and interval diagram space. Keep the optimal receiver out of the initial page."
+      }
+    },
+    {
+      "id": "AP-20",
+      "title": "Sell products, then price a proof",
+      "core_gate": "Counting resources and revenue; fractions and linear inequalities for a price certificate. Whole products and divisible production are explicitly separate models.",
+      "index_gate": "Counters and multiplication; fractions and inequalities for an optimality certificate",
+      "extension_gate": "Piecewise affine formulas for arbitrary real resource capacities.",
+      "reading": "Read two recipe cards. Adult may read the challenge aloud; algebra is needed for the universal price proof.",
+      "materials": "At least 6 red and 6 blue counters, recipe cards, pencil and open planning grid. Recipes are supplied; no price numbers are preprinted.",
+      "prep_minutes": 6,
+      "timing": "0–10 build products; 10–25 challenge a best plan; 25–45 invent resource prices and prove optimality; 45–60 change the stock and distinguish fractional from whole production. General capacity extension can be a later meeting.",
+      "launch": "Make the highest-value bundle you can from this stock. A search record is useful; can you also invent a price for each resource that proves nobody can earn more?",
+      "satisfying_stop": "A feasible plan and matching universal resource-price upper bound, followed by an integer gap and a decision about which extra resource to buy.",
+      "prior_use": "Week 1 uses packing bounds and AP-07 diagnoses numerical optimization. This is an exact primal/dual resource certificate; the integer gap is not settled by a fractional graph alone.",
+      "assessment": "First-pilot candidate for fraction-ready learners. The counter launch works earlier, but the complete universal certificate needs weighted inequalities.",
+      "mathematical_connection": "Weak duality proved directly by pricing resources, with equality conditions and a distinction between linear and integer optimization.",
+      "sources": [
+        {
+          "title": "Stephen Boyd and Lieven Vandenberghe, Convex Optimization",
+          "url": "https://www.seas.ucla.edu/~vandenbe/cvxbook/bv_cvxbook.pdf",
+          "locator": "§5.1.3, printed p. 216 / PDF p. 230, lower bounds from dual feasibility.",
+          "adaptation": "Use the weak-duality idea in a maximization problem with nonnegative resource prices. All recipes, capacity changes and equality conditions are proved directly.",
+          "checked": "Reopened 2026-09-26: inspected the feasible-point inequality underlying (5.2). No strong-duality theorem is needed or inferred."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Build a plan worth challenging",
+          "gate": "Core: whole products and resource accounting",
+          "intro": "Product A uses 2 red and 1 blue counter and sells for 3 points. Product B uses 1 red and 2 blue and sells for 4 points. You have 5 red and 4 blue. Counters cannot be reused. On this page make whole products only.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose a production plan, trade recipes with a partner, and try to improve the revenue. Record the counters used and left over. Give your best plan and a challenge another plan must beat.",
+              "solution": "For nonnegative integers a,b, feasibility is 2a+b≤5 and a+2b≤4, with revenue 3a+4b. The best plan is a=2,b=1, using all stock and earning 10. The complete feasible list is (0,0),(1,0),(2,0),(0,1),(1,1),(2,1),(0,2); respective revenues are 0,3,6,4,7,10,8. Any learner proposal is audited by the two resource counts. Page 2 supplies a universal proof without depending on this enumeration.",
+              "hints": [
+                "One product can consume a resource needed by a more valuable combination."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Someone says, “B sells for more, so making as many B products as possible must be best.” Give a counterexample using this stock. What would a proof against ALL competing plans need to control?",
+              "solution": "Two B products use (2 red,4 blue) and earn 8, leaving three red unusable alone. The plan 2A+B earns 10. Sale value per product ignores the scarce ingredients and how recipes fit together. A proof must bound every feasible combination, not merely compare pure-A and pure-B plans.",
+              "hints": [
+                "Track unused counters as well as completed products."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Invent prices that certify your plan",
+          "gate": "Core proof: fractions and inequalities",
+          "intro": "Assign nonnegative audit prices r to one red counter and b to one blue counter. These are proof tools, not extra income. Require the ingredients of each recipe to be worth at least its sale value. For this page fractional quantities of products are also allowed.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Design audit prices that make the total stock worth exactly your 10-point plan. Check both recipe inequalities. Prove these prices bound every feasible plan, including fractional ones.",
+              "solution": "Use r=2/3 and b=5/3. Then 2r+b=3 and r+2b=4, and stock value 5r+4b=10. Let x,y be the nonnegative real quantities of A,B. Every feasible plan satisfies 3x+4y≤r(2x+y)+b(x+2y)≤5r+4b=10. The first inequality follows from recipe prices and nonnegative quantities; the second from resource limits and nonnegative prices. The feasible plan (x,y)=(2,1) attains this bound. This proves optimality even when production may be fractional.",
+              "hints": [
+                "Try making each recipe inequality an equality, then check the stock value."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Prove whether another fractional plan can also earn 10. Explain which equality conditions in your price proof matter.",
+              "solution": "Both prices are strictly positive, so equality in the stock inequality requires using all 5 red and 4 blue: 2x+y=5 and x+2y=4. These equations uniquely give x=2,y=1. Both recipe inequalities are already equalities. Therefore this is the unique fractional optimum and also the unique whole-product optimum. Merely finding one plan that reaches the bound would prove optimality but not uniqueness.",
+              "hints": [
+                "A leftover counter with a positive audit price makes the upper bound strict."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "When a fractional certificate leaves a gap",
+          "gate": "Continuation: whole-number restrictions",
+          "intro": "Change the stock to 4 red and 4 blue. Keep the same recipes and sale values. First allow fractional production; then restore the whole-product rule.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Find the best fractional plan and certify it. Then find the best whole-product plan and prove that no whole plan does better. Explain why the fractional certificate alone does not finish the second task.",
+              "solution": "The same prices give upper bound 4(2/3)+4(5/3)=28/3, attained uniquely by x=y=4/3. Whole products each use three counters, so at most floor(8/3)=2 can be made; each earns at most 4, giving revenue≤8. Two B products are feasible and attain 8. The fractional bound 28/3 exceeds 8 and even its floor 9 does not exclude a hypothetical 9-point whole plan. The product-count argument uses the extra integer rule.",
+              "hints": [
+                "How many total counters does every whole product consume?"
+              ]
+            },
+            {
+              "id": "6",
+              "text": "You may add ONE red or ONE blue counter to the 4-and-4 stock. Choose which addition gives more whole-product revenue. Certify both resulting optima. Compare the gain with what the audit price of that counter predicts for fractional production.",
+              "solution": "Adding red gives stock (5,4), optimum 10 at (2,1). Adding blue gives (4,5), optimum 11 at (1,2), using all resources. The same price pair certifies bounds 10 and 11 respectively, so blue is better for whole products: gains 2 and 3 from the original whole optimum 8. Fractional revenue starts at 28/3, so its gains are exactly 2/3 and 5/3, the audit prices. Whole-product gains differ because the original stock had an unattained fractional bound. No universal interpretation of prices as integer marginal gains follows.",
+              "hints": [
+                "Keep the fractional baseline and the whole-product baseline separate."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "gate": "Linear inequalities and a piecewise formula with real quantities.",
+          "prompt": "Keep blue stock 4 and let red stock R be any nonnegative real number. Allow fractional production. Find the exact maximum revenue for every R and supply a price certificate in every range.",
+          "solution": "For 0≤R≤2, make B=R and A=0, earning 4R; audit prices (red,blue)=(4,0) bound revenue by 4R. For 2≤R≤8, solve both resource equalities: A=(2R−4)/3, B=(8−R)/3, giving (2R+20)/3 and prices (2/3,5/3). For R≥8, make A=4,B=0, earning 12; prices (0,3) certify 12. The formulas agree at R=2 and 8. All constructions are nonnegative in their stated ranges, and every stated price pair satisfies both recipe inequalities. This proves the complete piecewise optimum directly."
+        }
+      ],
+      "figures": {
+        "recipes": [
+          {
+            "name": "A",
+            "red": 2,
+            "blue": 1,
+            "value": 3
+          },
+          {
+            "name": "B",
+            "red": 1,
+            "blue": 2,
+            "value": 4
+          }
+        ],
+        "stocks": [
+          [
+            5,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "quantity_names": [
+          "x = number of A",
+          "y = number of B"
+        ],
+        "price_names": [
+          "r = red price",
+          "b = blue price"
+        ],
+        "workspace": "Recipe counter icons, separate used/leftover areas, open plan record rather than a prefilled feasible set; blank price tags first appear on page 2. No winning plan or polygon is drawn on page 1."
+      }
+    },
+    {
+      "id": "AP-22",
+      "title": "Build a randomizer your opponent cannot exploit",
+      "core_gate": "Fractions, independent probabilities and expected payoff; linear inequalities for worst-case guarantees. No general minimax theorem is required.",
+      "index_gate": "Private independent sampling, fractions, expected value and linear inequalities",
+      "extension_gate": "Positive real parameters and solving two linear equalities.",
+      "reading": "Read a two-by-two payment table; distinguish knowing a distribution from seeing its actual sampled action.",
+      "materials": "Two opaque cups or envelopes, up to six equal-sized slips per player, row U/D cards and column L/R cards, counters only for scores. Replace and mix slips independently before each round.",
+      "prep_minutes": 8,
+      "timing": "0–10 try private randomizers; 10–25 challenge against pure opponents; 25–45 construct matching lower/upper certificates; later 20 minutes for near-optimal ranges and changed information rules.",
+      "launch": "Choose a secret action using your own bag. Your opponent knows the bag recipe, but cannot see the draw. Can a deliberately unequal bag protect you better than a fair coin?",
+      "satisfying_stop": "Two independently sampled three-ticket randomizers with matching universal payoff bounds; an exact account of how deviations or revealed actions change the guarantee.",
+      "prior_use": "Weeks 7–8 use perfect-information games. AP-21 studies backward induction. Here a strategy is a private distribution and the certificate is a worst-case expected payoff, not a sure win in each round.",
+      "assessment": "Promising with fractions and expected value. Playing is a launch, but short-run score averages do not verify the guarantee. The lower/upper certificate is the satisfying core.",
+      "mathematical_connection": "Finite zero-sum minimax, best responses, and exploitability proved by affine payoff inequalities.",
+      "sources": [
+        {
+          "title": "Giacomo Bonanno, Game Theory",
+          "url": "https://arxiv.org/pdf/1512.06808",
+          "locator": "§§5.2–5.3, printed pp. 190–198 / PDF pp. 197–205; mixed strategies and best replies.",
+          "adaptation": "Use private independent mixtures and indifference as a candidate-finding tool. Prove both minimax bounds directly for the chosen matrix.",
+          "checked": "Reopened 2026-09-26: inspected the mixed-strategy definition and support-indifference discussion, including the warning that indifference alone is not a sufficient equilibrium test."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Choose a bag; let a rival challenge it",
+          "gate": "Core: independent hidden actions and averages",
+          "intro": "Row chooses U or D; Column chooses L or R. Choices are simultaneous and privately sampled, using independent randomizers. Column pays Row the table entry: U/L pays 2, D/R pays 1, the other entries pay 0. Row wants more; Column wants less. Both know each bag recipe, never the other draw.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Build a Row bag with at most six equally likely slips, each marked U or D. Test its EXPECTED payment against a Column player who always chooses L, then one who always chooses R. A rival chooses the worse opponent for your bag. Revise your bag if you can.",
+              "solution": "If a proportion p of slips are U, expected payment against L is 2p and against R is 1−p. The worse guarantee is min(2p,1−p). Any chosen bag is evaluated by these two exact numbers; trials need not equal their expectations. One U and two D slips gives p=1/3 and both payments 2/3; two U and four D is equivalent. A fair bag only guarantees 1/2. Do not announce the best recipe before the learner has explored.",
+              "hints": [
+                "An opponent can exploit the less profitable column, even while unable to see your draw."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Now allow any real p between 0 and 1 as the probability of U. Find the largest payment Row can guarantee against EVERY independent Column mixture. Prove which p attain it.",
+              "solution": "For Column probability q of L, payoff is q(2p)+(1−q)(1−p), a weighted average of the two pure-column payoffs. Its minimum over q is min(2p,1−p). If p≤1/3 this is 2p≤2/3; if p≥1/3 it is 1−p≤2/3. Equality occurs only at p=1/3. Thus Row uniquely maximizes its worst-case expected payoff at 2/3. This is an expected guarantee, not a positive payment on every round.",
+              "hints": [
+                "The opponent may use either pure column; mixtures cannot go below both endpoint values."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "The opponent needs a certificate too",
+          "gate": "Core proof: matching lower and upper bounds",
+          "intro": "Let q be Column’s probability of L, independently of Row’s action. A Column guarantee is an upper bound on what Row can earn against that fixed distribution.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Design a Column randomizer that keeps EVERY Row mixture at or below the guarantee you found. Prove it works and decide whether its probability q is unique. What do the two certificates establish together?",
+              "solution": "Against pure U the payoff is 2q, and against pure D it is 1−q. Every Row mixture is a weighted average. The smallest possible upper bound max(2q,1−q) is 2/3, uniquely at q=1/3: for q<1/3, 1−q>2/3, and for q>1/3, 2q>2/3. One L and two R slips works. Matching Row lower and Column upper bounds prove the value exactly 2/3, and the product of these independent distributions is an equilibrium. No general minimax theorem is invoked.",
+              "hints": [
+                "Find an upper bound by testing both pure rows."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Suppose Column advertises q=3/4 and really samples independently from it. Choose Row’s best response and compute its payoff. Why can a strategy with a larger payoff here have a worse worst-case guarantee?",
+              "solution": "Pure U earns 2q=3/2, while pure D earns 1−q=1/4. Since mixtures average these, U is the unique best response and earns 3/2. But if Column changes to pure R, U earns 0. The minimax mixture protects against every Column distribution and earns exactly 2/3 against any fixed q; exploiting one known opponent is a different objective.",
+              "hints": [
+                "A best response compares against this opponent; a guarantee compares against all opponents."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "How much imperfection can the bag tolerate?",
+          "gate": "Continuation: inequalities and information rules",
+          "intro": "Keep independent private sampling for the first task. Then change what the opponent can see, and state that change explicitly.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Choose 0≤ε≤1/3. Find EVERY p that guarantees Row at least 2/3−ε, and EVERY q that keeps Row at most 2/3+ε. Test ε=1/15. Prove both necessity and sufficiency.",
+              "solution": "Row needs both 2p≥2/3−ε and 1−p≥2/3−ε, giving 1/3−ε/2≤p≤1/3+ε. Column needs 2q≤2/3+ε and 1−q≤2/3+ε, giving 1/3−ε≤q≤1/3+ε/2. These ranges stay in [0,1] for the stated ε. At ε=1/15, Row has 3/10≤p≤2/5 and Column has 4/15≤q≤11/30. Pure opponents prove necessity; weighted-average payoffs prove sufficiency.",
+              "hints": [
+                "Demand the promised bound against each pure action separately."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Change the rules: Column sees Row’s actual action before choosing. Design Column’s response and determine Row’s best guarantee. Then suppose both instead use the SAME uniform ticket from {1,2,3}: Row uses U only on 1 and Column uses L only on 1. Compute the payoff and explain why the independent-mixture formula cannot be used.",
+              "solution": "With the revealed action, Column chooses R after U and L after D, giving zero on every round. All entries are nonnegative, so the value under this information rule is exactly 0. With the shared ticket, (U,L) occurs with probability 1/3 and (D,R) with probability 2/3, giving expected payoff 2/3+2/3=4/3. Both marginal probabilities are 1/3 but the choices are correlated; multiplying their marginals would incorrectly give 2/3. The earlier certificates apply to independent private sampling, not these changed rules.",
+              "hints": [
+                "Write the actual joint outcomes before calculating an expectation."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "gate": "Algebra with positive real parameters.",
+          "prompt": "Replace the two positive diagonal payments by A>0 and B>0, keeping the off-diagonal payments zero. Find both optimal mixtures and the value; prove the full lower/upper certificate.",
+          "solution": "The pure-column payoffs for Row are Ap and B(1−p), so the unique maximizer of their minimum is p=B/(A+B), with value AB/(A+B). The pure-row payoffs against Column are Aq and B(1−q), so q=B/(A+B) uniquely minimizes their maximum at the same value. Independent mixed payoffs are weighted averages, proving both bounds. Positivity ensures the intersection is interior and uniqueness; zero payments would need separate boundary treatment."
+        }
+      ],
+      "figures": {
+        "payoff": {
+          "rows": [
+            "U",
+            "D"
+          ],
+          "columns": [
+            "L",
+            "R"
+          ],
+          "values": [
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "payment_direction": "Column pays Row"
+        },
+        "bags": {
+          "max_initial_tickets": 6,
+          "student_labels_blank": true,
+          "independent": true,
+          "replacement": true
+        },
+        "plot": {
+          "p_range": [
+            0,
+            1
+          ],
+          "payoff_range": [
+            0,
+            2
+          ],
+          "initial_lines_absent": true
+        },
+        "shared_ticket": {
+          "tickets": [
+            1,
+            2,
+            3
+          ],
+          "row_U": [
+            1
+          ],
+          "column_L": [
+            1
+          ]
+        },
+        "workspace": "Open bag recipe and two response records, empty guarantee plot, blank Column bag, inequality number lines on the final page. Do not preallocate exactly three slips on the launch page."
+      }
+    },
+    {
+      "id": "AP-24",
+      "title": "A fair copying rule can erase a color",
+      "core_gate": "Independent sampling with replacement, fractions and finite outcome trees. Geometric tails and conditional averages for eventual-absorption proofs.",
+      "index_gate": "Independent sampling with replacement; exact probabilities and geometric tails",
+      "extension_gate": "Finite conditional expectations and a uniform absorption bound for arbitrary population size.",
+      "reading": "Differentiate the current parent population from the new offspring population. Colors represent neutral inherited types, not human groups.",
+      "materials": "Three numbered parent cards, two colors of counters, opaque cup, and separate parent/offspring mats. Draw labels uniformly with replacement; make every child from the unchanged old generation before replacing all parents.",
+      "prep_minutes": 8,
+      "timing": "0–10 practice copying without replacing parents early; 10–25 contrast chosen legal histories; 25–40 compute two-parent transitions and tails; later 25 minutes for a three-parent population and an asymmetric fixation probability.",
+      "launch": "Each child copies a randomly chosen parent. No color has an advantage. Invent a legal family history that loses one color, and another that stays mixed for several generations.",
+      "satisfying_stop": "Exact finite-time probabilities and a proof that eventual absorption has probability one, even while the expected count stays unchanged; an asymmetric three-parent fixation result.",
+      "prior_use": "AP-02/03/05 examine sampling estimators and intervals. This is a generational Markov process with absorbing states. AP-26 has state recurrence, but here the transition rule is randomized reproduction and the proof uses tail probabilities.",
+      "assessment": "Promising with probability-ready learners. Copying has an accessible physical launch; expectation versus realized history is the essential conceptual distinction. The limiting proof is a genuine prerequisite gate.",
+      "mathematical_connection": "Neutral Wright–Fisher sampling, conditional expectation, absorption and fixation probabilities without a general optional-stopping theorem.",
+      "sources": [
+        {
+          "title": "Jeffrey Chasnov, Mathematical Biology",
+          "url": "https://www.math.hkust.edu.hk/~machas/mathematical-biology.pdf",
+          "locator": "§5.5, printed p. 78 / PDF p. 84, opening comparison of Wright–Fisher and Moran sampling.",
+          "adaptation": "Use the discrete-generation Wright–Fisher rule, not the subsequent Moran/diffusion calculation. All N=2, N=3 and general finite-N absorption proofs are supplied independently.",
+          "checked": "Reopened 2026-09-26: inspected the description of N independently chosen gametes and the explicit distinction from one-birth/one-death Moran steps. No diffusion approximation is used."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Build two possible family histories",
+          "gate": "Core: copy from the OLD generation",
+          "intro": "Start with two parents: one red and one blue. To make each of two children, independently choose one parent uniformly, with replacement, and copy its color. Both children choose from the unchanged old generation. Only then replace the parents by the two children. Use fresh independent draws each generation. No mutation or color advantage occurs.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose and draw a legal three-generation history that loses a color, and another that stays mixed throughout. Name the selected parent for each child. Does either history contradict the fair copying rule?",
+              "solution": "For early loss, choose the red parent twice in generation 1, giving RR; all later offspring remain RR. For persistent mixing, choose each color once in each generation, giving one red and one blue each time. Parent labels can be chosen in either child order. Both histories have positive probability under independent with-replacement draws. Fairness means the sampling law treats parent labels equally, not that every realized generation preserves both colors.",
+              "hints": [
+                "One parent can be chosen by both children."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "From one red and one blue, list the ordered parent choices for one generation and their probabilities. Group them by the new red count. Find the expected red count. Then give the transition rule from an all-red or all-blue population.",
+              "solution": "The ordered choices RR,RB,BR,BB each have probability 1/4. Thus next red counts 2,1,0 have probabilities 1/4,1/2,1/4, and expectation 2(1/4)+1(1/2)=1. From all-red the next count is certainly 2; from all-blue it is certainly 0. These are absorbing states. The letters here denote copied colors; numbered-parent drawings on the launch page implement the same uniform selection.",
+              "hints": [
+                "RB and BR are different ordered draws even though their red counts agree."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "A mean is not a typical history",
+          "gate": "Core proof: finite probabilities and a limit",
+          "intro": "Let X_k be the red count after k generations from the original mixed pair, with X₀=1. Once a color is lost, it cannot return under this rule.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Find exact probabilities for X_k=0, 1 and 2 for EVERY integer k≥0. Prove that the probability of remaining mixed forever is zero. Is there a finite generation by which loss is absolutely certain?",
+              "solution": "To stay mixed through k generations, the process must take the mixed-to-mixed transition each time, so P(X_k=1)=2^(−k). Symmetry or summing the identical per-step absorption hazards gives P(X_k=0)=P(X_k=2)=(1−2^(−k))/2. The event of staying mixed forever is contained in staying mixed for each fixed k, hence its probability is at most 2^(−k) for every k and therefore zero. For every finite k, 2^(−k)>0, so there is no finite absolute deadline. The k=0 formulas give (0,1,0).",
+              "hints": [
+                "Each additional mixed generation multiplies the survival probability by 1/2."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Choose k so that the chance of still being mixed is below 1/100. Compute the expected red count at that k and explain how it can coexist with almost every population having just one color. What changes if the two parent draws are WITHOUT replacement?",
+              "solution": "The least such k is 7 since 2^(−6)=1/64>1/100 and 2^(−7)=1/128<1/100; any k≥7 works. E[X_k]=0·P0+1·2^(−k)+2·(1−2^(−k))/2=1 for every k. The average across histories remains one because red fixation and blue fixation balance; it need not describe any common individual population. Without replacement each parent is copied once, so the mixed pair persists forever. The unchanged expectation alone cannot distinguish these two processes.",
+              "hints": [
+                "Average across possible histories, not across the two children of one realized history."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What if the colors start unequally?",
+          "gate": "Continuation: three independent offspring",
+          "intro": "Now use THREE parents and THREE children, with the same independent with-replacement rule. Start with one red and two blue. Write X_k for the red count, so X₀=1. Counts 0 and 3 are absorbing.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Find the transition probabilities from red count 1 and from red count 2. Prove that the next expected red count equals the current count. Use your rows to find the chance of remaining mixed for k generations.",
+              "solution": "From count 1, each child is red with probability 1/3, independently. The probabilities of counts 0,1,2,3 are (8,12,6,1)/27. From count 2 they are (1,6,12,8)/27. The expectations are 1 and 2, either by the rows or by summing three child indicators with means 1/3 or 2/3. From either mixed count, the total mixed probability is 18/27=2/3. Therefore mixed survival through k generations is (2/3)^k, despite possible movement between counts 1 and 2.",
+              "hints": [
+                "Count ordered child-color strings, then combine strings with equal red counts."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Prove the eventual all-red probability from the one-red start. Do not argue by red/blue symmetry: the starting population is unequal. Explain why this is a probability across histories, not a fractional final population.",
+              "solution": "Conditional expectation preserves E[X_k]=1 for every k. Write r_k=P(X_k=3). Then 1=3r_k+E[X_k·1_{X_k∈{1,2}}], and the remaining term is between 0 and 2(2/3)^k. Thus r_k→1/3. Absorbed-red events increase with k; their limit is eventual all-red, so its probability is 1/3. Mixed survival tends to zero, so eventual all-blue has probability 2/3. Every absorbed population has three of one color; the fraction 1/3 refers to the collection of possible histories.",
+              "hints": [
+                "Separate the expected contribution of absorbed-red histories from the vanishing mixed histories."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "gate": "Linearity of finite expectation and geometric probability bounds.",
+          "prompt": "For a general fixed population size N≥2, with i red parents, prove eventual absorption with probability one and eventual all-red probability i/N under the same neutral sampling rule.",
+          "solution": "Given a generation with j red parents, each of N offspring has red probability j/N, hence the next expected red count is j. Thus E[X_k]=i at every finite k. In any generation, the event that all N children choose one specified parent has probability N^(−N), and makes the next generation monochromatic. Therefore the probability of still being mixed after k steps is at most (1−N^(−N))^k, which tends to zero. This is a uniform bound; independence of successive population states is not assumed. Writing E[X_k]=N·P(X_k=N)+E[X_k·1_mixed], the second term lies between 0 and N times the survival probability. Consequently eventual all-red has probability i/N; all-blue has 1−i/N. Endpoints i=0,N are already absorbed."
+        }
+      ],
+      "figures": {
+        "parent_mats": [
+          {
+            "N": 2,
+            "initial": [
+              "red",
+              "blue"
+            ]
+          },
+          {
+            "N": 3,
+            "initial": [
+              "red",
+              "blue",
+              "blue"
+            ]
+          }
+        ],
+        "generation_rule": "Old parent mat remains unchanged until every offspring slot is filled; sample labels independently with replacement.",
+        "history_rows": 4,
+        "transition_nodes": [
+          0,
+          1,
+          2
+        ],
+        "transition_labels_initially_blank": true,
+        "N3_nodes": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "workspace": "Two open three-generation history strips, blank ordered-draw tree and probabilities, open tail/certificate regions; do not show absorbing arrows before learners infer them."
+      }
+    },
+    {
+      "id": "AP-25",
+      "title": "Design labels that survive a reaction",
+      "core_gate": "Counting and legal exchanges; signed linear expressions for all conserved labels. Integer intervals and a constructive path prove complete reachability.",
+      "index_gate": "Counter exchanges, signed weights and a proof that every claimed state is reachable",
+      "extension_gate": "Nonnegative integer states, enabling conditions and a second reaction network.",
+      "reading": "Read A, B and C species labels and a reversible recipe. Distinguish one C molecule from a count of its constituents.",
+      "materials": "At least 6 A, 10 B and 5 C counters in distinct shapes; reaction card; pencil. Label weights are invented, so do not preprint an atom decomposition on C.",
+      "prep_minutes": 7,
+      "timing": "0–10 trade counters freely; 10–25 invent conserved labels; 25–40 use labels to exclude targets; 40–60 classify the full state chain. The changed reaction and catalyst extension can follow later.",
+      "launch": "Trade one A and two B for one C, or reverse that trade. The number of counters changes. Can you invent a way of labeling counters whose total never changes?",
+      "satisfying_stop": "All linear conserved labels, a complete reachable-state chain with a legal-path certificate, and a second network showing why a conserved total alone can be insufficient.",
+      "prior_use": "Weeks 2 and 4 use toggle/remainder invariants. This family deliberately proves sufficiency for one stoichiometric class, then exposes the limits of linear invariants in a changed reaction. AD-13 has a different monomial-move invariant.",
+      "assessment": "First-pilot candidate for the exchange launch and invented labels; general weights and reachability formulas need algebra. This preserves actual stoichiometric conservation, not reaction kinetics.",
+      "mathematical_connection": "Stoichiometric left-nullspace, nonnegative integer reachability and the difference between necessary invariants and constructive sufficiency.",
+      "sources": [
+        {
+          "title": "Jeffrey Chasnov, Mathematical Biology",
+          "url": "https://www.math.hkust.edu.hk/~machas/mathematical-biology.pdf",
+          "locator": "§6.1, printed pp. 85–86 / PDF pp. 91–92, reaction signs and mass-action rates.",
+          "adaptation": "Use stoichiometric signed changes for A+2B↔C. The counter network, all linear invariants and reachability classifications are new direct calculations; no rate law is needed for the discrete game.",
+          "checked": "Reopened 2026-09-26: inspected A+B→C and its signed concentration derivatives. Our different stoichiometry is explicitly stated; conserved weights follow from its change vector, not by copying source rate equations."
+        }
+      ],
+      "pages": [
+        {
+          "title": "The counter total changes. What survives?",
+          "gate": "Core: reversible legal trades",
+          "intro": "A forward move consumes 1 A and 2 B and creates 1 C. A backward move consumes 1 C and creates 1 A and 2 B. A move is legal only when all consumed counters are present. Start with (A,B,C)=(4,7,1). Counts must stay nonnegative integers.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Explore both directions. Choose a target you can reach and record a legal sequence. Compare the total number of counters before and after a forward move. Could total counter count certify that a target is impossible?",
+              "solution": "A forward move changes (A,B,C) by (−1,−2,+1), so total count falls by 2; a backward move raises it by 2. For example two forward moves reach (2,3,3); one backward move reaches (5,9,0). All legal proposals are checked move by move. The ordinary total is not conserved, so unequal totals alone cannot certify impossibility. Its parity is conserved, but that weaker fact is not the same as a fixed total.",
+              "hints": [
+                "Count what disappears and what is created separately."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Put a positive whole-number weight on each species. Design TWO different weight systems for which every legal move preserves total weight. Make the two systems more than just scaled copies. Test them on your sequence.",
+              "solution": "Weights (w_A,w_B,w_C) must obey w_C=w_A+2w_B. Examples (1,1,3) and (2,1,4) are positive and not scaled copies. Their totals at the initial state are 14 and 19. For every move, change in total weight is −w_A−2w_B+w_C=0, and reversing changes the sign but remains zero. Arbitrary positive integer w_A,w_B determine a valid positive integer w_C. Testing examples motivates but does not replace this one-move proof.",
+              "hints": [
+                "Make the value of the ingredients equal the value of one product."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Turn a label into a complete certificate",
+          "gate": "Core proof: arbitrary weights and impossible targets",
+          "intro": "Allow weights to be any real numbers, including zero or negative values. A label total is w_A A+w_B B+w_C C. It must be preserved by the reaction wherever that reaction is legal, not just at one chosen inventory.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Find EVERY weight triple that is always conserved. Find two simple conserved totals from which every other linear conserved total can be built. Prove that your list is complete.",
+              "solution": "A forward move changes the label by −w_A−2w_B+w_C. Thus preservation is equivalent to w_C=w_A+2w_B, because the forward reaction is legal somewhere, for example at (1,2,0). Every weight triple is (r,s,r+2s), with arbitrary real r,s. The corresponding total is r(A+C)+s(B+2C). Hence A+C and B+2C generate every linear conserved total and are independent. The one-step calculation proves necessity and sufficiency for both reaction directions.",
+              "hints": [
+                "Compute the change symbolically before choosing numerical weights."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Find EVERY reachable state from (4,7,1), and draw legal arrows connecting your list. Prove completeness as well as reachability. Invent one nonnegative target that passes the A+C test but fails B+2C, and another that does the opposite.",
+              "solution": "Initial conserved totals are A+C=5 and B+2C=9. If C=z, then A=5−z and B=9−2z. Nonnegative integer states force z=0,1,2,3,4, giving (5,9,0),(4,7,1),(3,5,2),(2,3,3),(1,1,4). Consecutive states are linked by a legal forward move to larger z and a legal backward move to smaller z. The initial z=1 therefore reaches every listed state. There are no others because the two totals and nonnegativity force the list. Target (0,1,5) passes A+C=5 but has B+2C=11; target (2,1,4) passes B+2C=9 but has A+C=6. These independent tests each exclude targets the other accepts.",
+              "hints": [
+                "Choose the number of C counters; the two totals determine everything else."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "When do invariant tests finish the job?",
+          "gate": "Continuation: arbitrary inventories and a changed reaction",
+          "intro": "First keep A+2B↔C but allow any initial nonnegative integer inventory (a,b,c). Then change the reaction explicitly in the second task.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Classify EVERY reachable state from (a,b,c). Give a legal route to each state you claim and the smallest possible number of reaction firings needed to reach it.",
+              "solution": "Write M=a+c and N=b+2c. The complete list is (M−z,N−2z,z) for every integer 0≤z≤min(M,floor(N/2)). The initial z=c lies in this interval. To reach a larger z, fire forward z−c times; every intermediate step is legal because its next state has A,B≥0. To reach a smaller z, fire backward c−z times, consuming an available C at each step. Each firing changes z by exactly one, so at least |z−c| firings are required and these monotone paths attain that bound. The invariant calculation excludes every other state.",
+              "hints": [
+                "The permitted C counts form an unbroken integer interval containing the initial count."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Replace the reaction by 2A↔2B. Starting at (A,B)=(5,0), find all reachable states. Why does the conserved total A+B fail to decide reachability by itself? State an extra invariant and prove that your full list is reachable.",
+              "solution": "A+B=5 is conserved, but each move changes A by two, so A stays odd (and B even). The nonnegative possibilities are exactly (5,0),(3,2),(1,4). Consecutive states are legal forward moves, and reversing is legal when there are two B counters. Target (4,1) has the right total but wrong parity. In this second network, total plus parity plus nonnegativity do characterize the reachable states from this start; that conclusion follows from the explicit path, not from a general claim that invariants always suffice.",
+              "hints": [
+                "Look at the size of one step along the line of fixed total."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "gate": "Reaction enabling conditions and a proof of all nonnegative integer states.",
+          "prompt": "Change the reaction to A+B↔2B. Its net change is (−1,+1), and A+B is conserved. Show why (2,0) cannot reach (1,1), even though the target has the same total and differs by an integer multiple of the change vector. Classify reachability for a general initial (a,b).",
+          "solution": "From (2,0), the forward reaction lacks B and the backward reaction lacks two B, so no move is enabled. More generally, if b=0 the initial state is trapped. If b≥1 and total n=a+b, exactly the states (n−z,z) with 1≤z≤n are reachable: forward moves increase z when A>0 and B≥1; backward moves decrease z when B≥2. These unit steps traverse the whole interval but can never reach z=0. Thus even linear invariants and an allowed integer displacement can miss the enabling obstruction. This is a different network from the core, whose gap-free path proof established sufficiency."
+        }
+      ],
+      "figures": {
+        "reaction": {
+          "forward": [
+            -1,
+            -2,
+            1
+          ],
+          "backward": [
+            1,
+            2,
+            -1
+          ],
+          "species": [
+            "A",
+            "B",
+            "C"
+          ]
+        },
+        "initial": [
+          4,
+          7,
+          1
+        ],
+        "label_tags_initially_blank": true,
+        "changed_reaction": {
+          "species": [
+            "A",
+            "B"
+          ],
+          "forward": [
+            -2,
+            2
+          ],
+          "initial": [
+            5,
+            0
+          ]
+        },
+        "workspace": "Counter inventory mats, open move log and three blank weight tags per invented system. Do not supply exactly five state boxes before the completeness problem; learners draw their own chain."
+      }
+    },
+    {
+      "id": "AP-27",
+      "title": "Choose when one sensor can separate two tanks",
+      "core_gate": "Fractions, powers and two linear equations; nonnegative real states. Exact bounded-error propagation and a geometric comparison for choosing the measurement time.",
+      "index_gate": "Two linear equations, powers and nonnegative states; bounded-error sensitivity",
+      "extension_gate": "A two-by-two matrix determinant and global observability versus exceptional states.",
+      "reading": "Read initial amounts, per-step retained fractions, and one measured total. A tank icon is a state diagram, not a claim that ordinary gravity-driven tanks decay geometrically.",
+      "materials": "Pencil, two supplied hidden-state boxes and a sum-sensor icon; optional counters for initial split. No liquid experiment is required.",
+      "prep_minutes": 7,
+      "timing": "0–10 choose hidden splits; 10–25 prove permanent ambiguity for equal rates; 25–40 reconstruct unequal rates; later 30 minutes for noisy readings and optimal observation timing.",
+      "launch": "Two hidden amounts both shrink every step. You can see only their sum. Choose two different starting splits that the sensor cannot distinguish, then change a known decay factor and investigate what becomes visible.",
+      "satisfying_stop": "A proof of permanent ambiguity, a complete positive-state reconstruction test, and a mathematically optimal observation time under a fixed absolute-error model.",
+      "prior_use": "Week 6 uses freely chosen code questions. GA-14 studies aliasing of periodic signals; AP-19 places a travel-time receiver. Here a fixed output law observes a changing linear state, and delayed readings may improve or worsen sensitivity.",
+      "assessment": "Promising with linear equations. Equal-rate ambiguity is accessible; the final timing proof needs powers and inequalities. Exact uniqueness must not be advertised as noise robustness.",
+      "mathematical_connection": "Observability and conditioning of a two-state discrete-time linear system; the singular direction appears when decay rates coincide or a sensor ignores one component.",
+      "sources": [
+        {
+          "title": "Åström and Murray, Feedback Systems: Output Feedback",
+          "url": "https://www.fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers",
+          "locator": "Second-edition chapter 8, Observability and State Estimation; chapter landing-page scope.",
+          "adaptation": "Use state reconstruction from outputs as context. The complete discrete two-tank calculation and bounded-noise timing proof are derived here.",
+          "checked": "Checked 2026-09-26: the official chapter listing identifies observability/state estimation. Its linked chapter PDF returned a fetch error; no uninspected theorem from that PDF is invoked."
+        },
+        {
+          "title": "MIT 6.3100, DT Observer",
+          "url": "https://introcontrol.mit.edu/_static/spring25/lectures/DT_Observer.pdf",
+          "locator": "PDF pp. 15–20, state/output representation and sensor noise; pp. 32–33 and 40, discrete-time state and output equations.",
+          "adaptation": "Provides primary course context for state versus measured output and noise. This worksheet uses a new exact diagonal discrete model, not the motor example.",
+          "checked": "Opened 2026-09-26: inspected the state/output equations, additive output-noise diagrams, and the discrete-time form x[n+1]=A_d x[n]+B_d u[n], y[n]=C_d x[n]+D_d u[n]. Reconstruction and optimal-delay claims below are independently proved."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Different tanks, the same entire record",
+          "gate": "Core: hidden states and a fixed output law",
+          "intro": "At time n=0 the nonnegative real amounts are a and b. Each step multiplies BOTH amounts by 1/2. The sensor reports only their sum y_n. This geometric decay rule is supplied; it is not a law for every physical tank.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose two different nonnegative starting splits with total 8. Predict their entire sensor records and prove whether any later reading can distinguish them. Describe every initial state giving this record. Is the zero-total record exceptional?",
+              "solution": "Examples (2,6) and (4,4) both give y_n=8·2^(−n) for every n≥0. In general the record depends only on a+b, so exactly (a,8−a), 0≤a≤8, fit it. Waiting longer never distinguishes these states. If the total is zero, nonnegativity forces a=b=0, so that one record does identify its state. The sensor fails to identify every state globally, despite this exceptional unique record.",
+              "hints": [
+                "Factor the common decay term out of the total."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Keep the equal decay rates. You may take one extra reading at time 0: either a alone or z=a+2b. Choose one sensor and prove that it recovers every initial pair when combined with the total y₀. Test your chosen split.",
+              "solution": "Measuring a gives b=y₀−a. Measuring z=a+2b gives b=z−y₀ and a=2y₀−z. These formulas prove uniqueness and reconstruct the readings. In the weighted case nonnegative compatibility is y₀≤z≤2y₀ with y₀≥0. The added sensor measures a different combination; it is not merely another copy of a later total from the old sensor.",
+              "hints": [
+                "Design a second equation that is not just a multiple of the first."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Different rates can reveal the hidden split",
+          "gate": "Core proof: reconstruction and feasible readings",
+          "intro": "Change the known rates: the first amount retains 1/2 each step, the second retains 1/4. The sensor still reports only y_n=a(1/2)ⁿ+b(1/4)ⁿ. Initial amounts remain nonnegative real numbers.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "The readings are y₀=8 and y₁=3. Recover both starting amounts and predict y₂. A rival proposes (6,2). Use an actual sensor reading to reject or accept that proposal.",
+              "solution": "Equations a+b=8 and a/2+b/4=3 give 2a+b=12, hence a=b=4. Therefore y₂=4/4+4/16=5/4. The rival (6,2) gives y₁=3+1/2=7/2, so it fails the observed second reading despite matching y₀. Substitution of (4,4) verifies both given readings.",
+              "hints": [
+                "Clear the fraction in the second equation before subtracting."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Derive a reconstruction formula for arbitrary readings y₀,y₁. Decide exactly which pairs of readings come from nonnegative amounts. Include zero amounts and prove sufficiency.",
+              "solution": "The unique algebraic solution is a=4y₁−y₀ and b=2y₀−4y₁. It is nonnegative exactly when y₀≥0 and y₀/4≤y₁≤y₀/2. Equality at the lower bound means a=0; at the upper bound b=0. If y₀=0, both bounds force y₁=0 and the state is (0,0). Conversely these inequalities make the formulas nonnegative, and substitution yields the supplied readings, establishing sufficiency. A negative recovered amount signals incompatible data/model, not a second admissible solution.",
+              "hints": [
+                "Apply nonnegativity separately to the two reconstructed amounts."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Choose rates and timing with noise in mind",
+          "gate": "Continuation: exact deterministic error bounds",
+          "intro": "The initial total y₀ is exact. One later reading has additive error e with |e|≤1/100. This absolute error bound is the same at every observation time. All rates are known exactly; compute the inverse from the reported reading.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Keep the first rate 1/2. Choose the second rate as 1/4 or 49/100. For a true initial state (4,4), predict the time-1 reading and find the greatest possible error in either reconstructed amount. Prove a formula explaining the difference.",
+              "solution": "For distinct rates r,s, a=(y₁−s y₀)/(r−s), b=(r y₀−y₁)/(r−s). A reading error e gives Δa=e/(r−s), Δb=−e/(r−s). With r=1/2,s=1/4, true y₁=3 and the sharp bound is (1/100)/(1/4)=1/25. With s=49/100, true y₁=99/25 and the bound is 1. Both signs of the extreme error leave the true (4,4) reconstruction nonnegative, so these maxima are physically attainable here. Unequal rates ensure exact uniqueness but a small separation amplifies noise.",
+              "hints": [
+                "Subtract the exact-total equation before propagating the reading error."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Now choose when to observe. Rates are r=3/4 and s=1/2. Use y₀ and one reading y_k, where k is any positive integer. Find the k that gives the smallest worst-case reconstruction-error bound, and prove it beats EVERY other allowed k.",
+              "solution": "Replace r,s in the time-1 inversion by r^k,s^k. The error in each recovered amount is at most ε/[r^k−s^k], with ε=1/100. Let d_k=(3/4)^k−(1/2)^k. Then d_(k+1)−d_k=(1/4)(1/2)^k[2−(3/2)^k]. This is positive at k=1 and negative for every integer k≥2, since (3/2)²>2 and the power increases. Thus d_k is uniquely largest at k=2, with d₂=5/16, and the smallest bound is 16ε/5=4/125. Waiting one extra step helps, but arbitrarily late observations make the difference vanish and conditioning worse. Sharpness is attained at interior states for which both signs of ε preserve nonnegative recovery; otherwise nonnegative constraints may further reduce the feasible error range.",
+              "hints": [
+                "Compare consecutive gaps d_(k+1)−d_k rather than trying many times."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "gate": "Two-by-two determinants and distinguishing every real state.",
+          "prompt": "For x_(n+1)=diag(r,s)x_n and output y_n=αa_n+βb_n, decide exactly when the first two readings identify every real initial state. Relate this to nonnegative exceptional states.",
+          "solution": "The two-reading matrix is [[α,β],[αr,βs]], with determinant αβ(s−r). If it is nonzero, the matrix is invertible and every state is uniquely recovered. If α=0 or β=0, an entire component is unseen at every time. If r=s, every later row is a scalar multiple of the first, so a nonzero kernel direction remains. Thus the condition is also necessary for identifying every state from the entire record in this diagonal model. Restricting to nonnegative states can make special boundary data unique, such as a positive-weight sum equal to zero, but it does not restore global observability when the determinant vanishes: an interior positive state can be perturbed slightly in a kernel direction."
+        }
+      ],
+      "figures": {
+        "tanks": {
+          "initial": [
+            "a≥0",
+            "b≥0"
+          ],
+          "sensor": "sum only",
+          "initial_levels_hidden": true
+        },
+        "models": [
+          {
+            "r": "1/2",
+            "s": "1/2"
+          },
+          {
+            "r": "1/2",
+            "s": "1/4"
+          },
+          {
+            "r": "1/2",
+            "s": "49/100"
+          },
+          {
+            "r": "3/4",
+            "s": "1/2"
+          }
+        ],
+        "readings": {
+          "y0": 8,
+          "y1": 3
+        },
+        "noise": {
+          "epsilon": "1/100",
+          "initial_total_exact": true
+        },
+        "workspace": "Two blank split diagrams and an open output record, two empty reconstruction equations, blank feasible-reading axes, and a delay-choice proof area. No solution state or optimal delay is preprinted."
+      }
+    },
+    {
+      "id": "AP-28",
+      "title": "Four messages through a damaged strip",
+      "core_gate": "Binary patterns, counting disagreements and an adversarial guarantee. Powers of two through 32 and counting disjoint neighborhoods for the optimal-length proof.",
+      "index_gate": "Bit flips, disagreement counts and a finite counting proof of optimal length",
+      "extension_gate": "XOR parity checks, two-bit syndromes and a finite decoding proof.",
+      "reading": "Rules can be spoken; black/white patterns also carry 0/1 labels. The location of an error is unknown. At most one includes no error.",
+      "materials": "Four message symbols, blank five-square strips, 0/1 counters, pencil. Give page 2 only after design attempts; its supplied codebook is a staged comparison, not part of the initial challenge.",
+      "prep_minutes": 8,
+      "timing": "0–10 damage and compare strips; 10–30 construct a candidate five-bit code; 30–45 verify a code and decoding rule; 45–60 prove a four-bit obstruction; later 20 minutes for detection versus correction.",
+      "launch": "Invent four message strips. Another person may secretly change one square, or leave it alone. Can the receiver recover the message every time, even when the adversary chooses the worst square?",
+      "satisfying_stop": "An attained five-bit construction and a four-bit counting obstruction, with a precise separation between correction, detection and violations of the error promise.",
+      "prior_use": "Week 6 uses coding and optimal queries. This family uses a noisy channel with unknown error position, disjoint Hamming neighborhoods and an optimal fixed length. AP-09 relates integer frequencies, not message recovery.",
+      "assessment": "First-pilot candidate. Concrete strips allow broad entry; the complete counting proof needs organizing possible received words. The staged supplied code is labeled honestly so a tested example is not mistaken for an independent construction.",
+      "mathematical_connection": "Minimum distance, adversarial one-bit correction, sphere packing and a finite optimal code. No asymptotic Shannon capacity theorem is claimed.",
+      "sources": [
+        {
+          "title": "Claude Shannon, A Mathematical Theory of Communication",
+          "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+          "locator": "Part II, §11, PDF p. 19, noisy discrete-channel representation.",
+          "adaptation": "Use noisy transmission as context. The four-message code, all-distance audit and sphere-packing proof are explicit finite mathematics, not a deduction from the asymptotic theorem.",
+          "checked": "Reopened 2026-09-26: inspected the distinction between sent and received signals and the effect of noise. Our noise is worst-case at most one bit, with no probability distribution assumed."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Invent a code that an adversary cannot confuse",
+          "gate": "Core: choose patterns and try to break them",
+          "intro": "A message is sent as a fixed-length strip of 0s and 1s. An adversary may flip at most ONE bit, with its position hidden, or make no change. You need four distinct messages. The receiver knows the codebook, but not which message was sent.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose four five-bit codewords for your messages. Let a partner try to produce the SAME received strip from two different messages using at most one flip from each. Revise your code if that happens. Record a successful code or the strongest obstruction you found.",
+              "solution": "A valid example is 00000,11100,10011,01111, whose pair distances are 3,3,4,4,3,3. Any chosen four words work exactly when every pair differs in at least three coordinates; prompt 2 proves this criterion. If a pair differs in one coordinate, the first word itself is reachable unchanged from itself and by one flip from the second. If they differ in two, flip one differing coordinate from the first and the other from the second to obtain the same midpoint word. These give explicit obstructions to failed proposals. Do not reveal the sample code until page 2.",
+              "hints": [
+                "Compare the pairs that look most alike, not only a few random errors."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "How far apart must EVERY pair of codewords be to make one-bit correction possible? Prove necessity by constructing an ambiguous received word when the condition fails, and prove sufficiency for every allowed error.",
+              "solution": "Hamming distance counts differing coordinates. Distance at least 3 is necessary by the distance-1 and distance-2 ambiguities described above; distance 0 already confuses messages without noise. It is sufficient because a word within one flip of two codewords would put those originals within at most two flips of each other, by changing via the common received word. Thus radius-one neighborhoods are disjoint. A decoder selects the unique codeword at distance at most one whenever such a word exists.",
+              "hints": [
+                "Join two possible originals through the common received word."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Audit a construction, then rule out a shorter one",
+          "gate": "Core proof: correction and a counting obstruction",
+          "intro": "Now compare with this supplied codebook: A=00000, B=11100, C=10011, D=01111. It is a construction to verify, whether or not it matches your first design. Keep the at-most-one-flip promise.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Audit all six pairs. Decode 10111, 01000 and 11100, explaining every correction or no-change decision. Then design a short universal decoding instruction for this codebook.",
+              "solution": "Distances AB,AC,AD,BC,BD,CD are 3,3,4,4,3,3. Received 10111 is one flip from C=10011 (position 3); 01000 is one flip from A=00000 (position 2); 11100 equals B unchanged. Each is farther than one from the other codewords by the distance proof. The universal instruction is: count disagreements with each codeword; if exactly one has distance 0 or 1, return its message. If none does, report that the one-flip promise or codebook has failed; do not invent a guaranteed message. Two such candidates cannot occur for this verified code.",
+              "hints": [
+                "The adversary is allowed to leave the strip unchanged."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Could ANY four-bit codebook carry four messages with the same guarantee? Count the received words possible from one codeword and use your disjointness proof. Explain why this also rules out every shorter length.",
+              "solution": "One four-bit codeword has five distinct radius-one received words: itself and four single-coordinate flips. Four messages would need 4×5=20 disjoint words, but the entire four-bit space has only 2⁴=16. Therefore length 4 is impossible for every codebook. A shorter valid code could be padded by fixed zero bits to length 4; distances would stay unchanged and the distance criterion would still give correction, contradicting impossibility. The verified five-bit construction attains the minimum length. Counting one codebook that fails would not prove this universal bound.",
+              "hints": [
+                "The neighborhoods must be disjoint for all messages at once."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What can the receiver honestly conclude?",
+          "gate": "Continuation: promises, detection and correction",
+          "intro": "Use the supplied five-bit codebook. A decoder is allowed to say “the error promise failed” when no codeword lies within one flip.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "How many five-bit received words lie within one flip of this codebook? Find a received word outside all those neighborhoods and prove that it violates the promise. Then show how TWO flips can fool the decoder into returning the wrong message.",
+              "solution": "Each of four disjoint neighborhoods has 1+5=6 words, so 24 of the 32 words are covered and 8 are outside. For example 00110 has distances 2,3,3,2 from A,B,C,D, so it cannot arise under the one-flip promise. From A=00000, flipping positions 1 and 2 produces 11000, which is only one flip from B=11100; the decoder returns B incorrectly. An uncovered word certifies a violated promise, but some two-flip violations imitate a promised transmission and cannot be recognized by this decoder.",
+              "hints": [
+                "A failed promise need not always produce an obvious alarm."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Change the goal: detect any single flip, but do not necessarily correct it. Construct four messages using THREE bits and prove that every one-bit change is detected. Exhibit an ambiguity showing why detection is weaker than correction.",
+              "solution": "Use 000,011,101,110, the three-bit words of even parity. Any one-bit flip changes parity, so no corrupted word belongs to the codebook and every single flip is detected. But received 001 is one flip from 000,011 and 101, so it does not identify a unique original. Three bits can therefore detect for four messages even though four bits cannot correct. Detection means noticing a change, not naming its position or recovering the original.",
+              "hints": [
+                "Can all your codewords have the same parity?"
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "gate": "XOR arithmetic and two-component binary checks.",
+          "prompt": "For a different length-five code, define h(w)=(w₁+w₂+w₄, w₂+w₃+w₅) modulo 2. Can taking all words with h(w)=(0,0) correct every one-bit error? Prove your answer, and identify exactly what the check does detect.",
+          "solution": "The two checks define 8 codewords because w₁,w₂,w₃ are free and force w₄=w₁+w₂ and w₅=w₂+w₃ modulo 2. A flip in positions 1,2,3,4,5 changes h by (1,0),(1,1),(0,1),(1,0),(0,1), respectively. Every one-bit flip has nonzero syndrome and is detected, but positions 1 and 4 have identical syndromes, as do 3 and 5. In particular 00000 and 10010 are both codewords at distance 2; received 10000 is one flip from each. Hence these checks do not correct every one-bit error. More parity checks alone are not a proof unless their error signatures separate all allowed errors. More generally, for a codeword c and an XOR error pattern e, h(c+e)=h(c)+h(e)=h(e). The check detects exactly the 24 nonzero-syndrome error patterns among all 32 patterns. It misses the seven nonzero kernel errors; the eighth kernel pattern is no error. Thus the exact detection claim includes, but is not limited to, every one-bit error."
+        }
+      ],
+      "figures": {
+        "initial_codebook_blank": true,
+        "codebook_staged_page": 2,
+        "codebook": {
+          "A": "00000",
+          "B": "11100",
+          "C": "10011",
+          "D": "01111"
+        },
+        "received": [
+          "10111",
+          "01000",
+          "11100"
+        ],
+        "outside_example_guide_only": "00110",
+        "bit_order": "left to right, positions 1–5",
+        "workspace": "Four blank five-bit message strips (four is given in the task, not an answer count), open pair-audit and common-received-word space. Page 2 supplies codebook strips and blank six-pair audit; page 3 has unfilled short-code strips."
+      }
+    },
+    {
+      "id": "AP-30",
+      "title": "Design a meter that disturbs the circuit less",
+      "core_gate": "Supplied Ohm and node-balance laws, fractions and one linear equation; relative error and inequalities for a meter design. The entire activity is a paper DC model.",
+      "index_gate": "Supplied circuit laws, fractions, one linear equation and relative-error design",
+      "extension_gate": "Symbolic positive resistances and a two-resistor equivalent-source calculation.",
+      "reading": "Read source voltage, ground and branch connections. A meter reads its own terminal voltage and simultaneously adds the specified resistance.",
+      "materials": "Printed circuit diagrams, pencil and optional calculator for checks. No powered construction is part of the activity. All ideal values and laws are supplied.",
+      "prep_minutes": 7,
+      "timing": "0–10 trace branches and test voltage proposals; 10–25 attach a chosen meter; 25–45 derive a tolerance rule; 45–60 compare energy and multiple agreeing meters. General resistance formula is a later extension.",
+      "launch": "The meter reports a voltage but also becomes a new branch. Choose a meter resistance, predict whether the report will agree with the no-meter calculation, and test your prediction using current balance.",
+      "satisfying_stop": "A correct loaded-circuit solution, a sharp resistance threshold for a chosen error tolerance, and a counterexample to treating agreement between meters as evidence of non-disturbance.",
+      "prior_use": "AP-10 uses linear spring networks and AP-11 uses flux conservation. This circuit adds a measurement branch, so the learner must recompute the object being observed; it is not just another series/parallel reduction exercise.",
+      "assessment": "Promising for algebra-ready learners. The branch diagram must be explicit. A physical voltmeter demonstration is optional future work; the present guarantees concern only the stated ideal model.",
+      "mathematical_connection": "Kirchhoff node balance, sensor loading, a quantitative approximation to a noninvasive limit, and energy conservation as an independent audit.",
+      "sources": [
+        {
+          "title": "David Tong, Electromagnetism",
+          "url": "https://davidtong.org/pdfs/teaching/electromagnetism/electro3.pdf",
+          "locator": "§4.1.3, printed pp. 74–77 / PDF pp. 8–11; Ohm law (4.4) and Joule heating.",
+          "adaptation": "Supply ideal resistive component laws and node-current conservation. The meter-loading network, tolerance design and multiple-meter analysis are new exact instances.",
+          "checked": "Reopened 2026-09-26: inspected the stated extra assumption of Ohm behavior and the I²R dissipation law. A general meter or component is not claimed to obey every ideal value."
+        }
+      ],
+      "pages": [
+        {
+          "title": "The meter is another branch",
+          "gate": "Core: test a voltage using current balance",
+          "intro": "An ideal source fixes the top node at 6 V relative to ground at 0 V. A 2 Ω resistor joins the top node to X; a 1 Ω resistor joins X to ground. Supplied laws: current through resistance R is voltage drop/R; incoming current equals outgoing current at X. A meter of resistance R>0 joins X to ground and reports voltage X.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "With NO meter attached, choose a trial voltage between 0 and 6 and compute both currents. Adjust until current balances. Find the exact voltage X and explain why it is unique.",
+              "solution": "Incoming current is (6−X)/2 and outgoing current is X/1. Balance gives 6−X=2X, hence X=2 V and both currents 2 A. The linear equation has nonzero coefficient 3, so this voltage is unique. Any trial voltage above 2 has outgoing current larger than incoming; below 2 has the reverse imbalance.",
+              "hints": [
+                "The source fixes the top node, not the internal node X."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Choose meter resistance R=1, 2 or 6 Ω. Predict the direction of the change, then solve the LOADED node equation. Find all three currents and compare their sum at X with the no-meter result.",
+              "solution": "The equation becomes (6−X)/2=X+X/R. For R=1, X=6/5 V and currents are 12/5 A in, 6/5 A through the original 1 Ω branch and 6/5 A through the meter. For R=2, X=3/2 V and currents are 9/4,3/2,3/4 A. For R=6, X=9/5 V and currents are 21/10,9/5,3/10 A. Each satisfies balance. In every case X falls below 2 V while the source current rises above 2 A. The meter current must be included rather than using the old node voltage as fixed.",
+              "hints": [
+                "The incoming current splits into two outgoing branches."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Specify how accurate the meter must be",
+          "gate": "Core proof: a sharp design inequality",
+          "intro": "Allow any real meter resistance R>0. Define relative loading error as E=(2−X)/2, comparing the loaded reading with the exact no-meter voltage 2 V. Component values and the source remain exact.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Find X and each branch current as formulas in R. Prove whether ANY finite positive R gives exactly the no-meter voltage. Explain the ideal limit as R becomes arbitrarily large.",
+              "solution": "Solving balance gives X=6R/(3R+2), original-branch current I₁=X, meter current I_m=6/(3R+2), and incoming current I_in=6(R+1)/(3R+2)=I₁+I_m. The voltage shortfall is 2−X=4/(3R+2)>0 for finite R>0, so no such meter reads exactly 2. As R→∞, X→2, I_m→0 and I_in→2. This is the ideal zero-loading limit. R=0 is excluded from the formula derivation because the meter would be a short circuit, not a positive resistor.",
+              "hints": [
+                "Solve the loaded equation before taking a limit."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Choose a tolerance 0<ε<1. Find the smallest R that guarantees E≤ε, proving both directions. Test a 1% tolerance. Does meeting this design bound account for every possible real-world measurement error?",
+              "solution": "E=2/(3R+2). Since the denominator is positive, E≤ε is equivalent to R≥2(1−ε)/(3ε). Equality attains the tolerance, so the threshold is sharp. For ε=1/100 the minimum is 66 Ω and the reading is 99/50=1.98 V. The bound concerns loading in this exact ideal circuit; it does not account for uncertain source/resistor values, meter calibration, or effects absent from the model.",
+              "hints": [
+                "Keep relative error separate from the voltage difference in volts."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Agreement is not the same as non-disturbance",
+          "gate": "Continuation: energy and several meters",
+          "intro": "Supplied power laws: the source supplies 6 I_in watts, and a resistor dissipates I²R, equivalently voltage-drop²/R. Multiple meters are independent branches electrically, not independent copies of an undisturbed quantity.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "For R=2 Ω, audit source power against the sum of all three resistor dissipations. Then model R=0 as an ideal wire from X to ground, separately from the positive-R formula. Find its node voltage, currents and resistor-power balance.",
+              "solution": "At R=2, source power is 6(9/4)=27/2 W. Top 2 Ω dissipation is (9/4)²·2=81/8 W; original 1 Ω gives (3/2)²=9/4 W; meter gives (3/4)²·2=9/8 W. Their sum is 108/8=27/2 W. An ideal short sets X=0: top current is 3 A, original 1 Ω current is 0, and wire current is 3 A by balance. Source power is 18 W, all dissipated in the top 2 Ω resistor; the ideal wire has zero voltage drop and no dissipation. Never compute wire current by dividing 0 by 0.",
+              "hints": [
+                "Use the branch currents already verified, and keep the zero-resistance case separate."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Attach TWO meters, each R=2 Ω, across X and ground. They agree with each other: do they reproduce the no-meter voltage? Generalize to m identical meters of resistance R>0, where m is a positive integer, and design R so the combined loading error is at most ε.",
+              "solution": "Two 2 Ω meters add two outgoing currents X/2, so balance is (6−X)/2=2X and X=6/5 V. Both report this same loaded value, not the no-meter 2 V. With m meters, (6−X)/2=X+mX/R, so X=6R/(3R+2m) and relative error is 2m/(3R+2m). Thus E≤ε is equivalent to R≥2m(1−ε)/(3ε). At 1% tolerance each of two identical meters must have at least 132 Ω. Agreement arises because the meters share a node; it does not show that their extra branches are negligible.",
+              "hints": [
+                "Add every meter branch to the node equation, even if the readings are identical."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "gate": "Symbolic algebra with strictly positive resistances.",
+          "prompt": "Replace 6 V by V>0, the upper resistor by a>0 and the lower by b>0. Derive the no-meter voltage V₀, the loaded voltage with a meter R>0, and a relative-error rule. Identify a single resistance that controls the loading.",
+          "solution": "No-meter balance (V−X)/a=X/b gives V₀=Vb/(a+b). With the meter, (V−X)/a=X/b+X/R gives X=VbR/[ab+R(a+b)]. Put R_* = ab/(a+b)>0. Then X=V₀ R/(R+R_*), and relative error is R_* /(R+R_*). Hence the sharp tolerance condition is R≥R_*(1−ε)/ε for 0<ε<1. This proves an equivalent-source description for this two-resistor circuit directly; it does not prove the general Thevenin theorem for arbitrary networks."
+        }
+      ],
+      "figures": {
+        "circuit": {
+          "source_voltage": 6,
+          "ground_voltage": 0,
+          "upper_resistance": 2,
+          "lower_resistance": 1,
+          "meter_node_pair": [
+            "X",
+            "ground"
+          ],
+          "meter_values": [
+            1,
+            2,
+            6
+          ],
+          "layout": {
+            "source": [
+              0,
+              0
+            ],
+            "top": [
+              2,
+              0
+            ],
+            "X": [
+              2,
+              2
+            ],
+            "ground": [
+              2,
+              4
+            ],
+            "meter_branch_x": 4
+          },
+          "junction_dots": [
+            "top",
+            "X",
+            "ground"
+          ],
+          "arrows": "Incoming downward on the upper resistor; outgoing downward on both lower branches; arrows are reference directions, values left blank."
+        },
+        "multi_meter": {
+          "count": 2,
+          "individual_resistance": 2,
+          "separate_parallel_branches": true
+        },
+        "workspace": "Before/after circuit diagrams with unmistakable added branch, empty voltage/current tags, a tolerance-design region, and a power ledger. Do not preprint loaded current values or the limiting voltage in the launch diagram."
+      }
+    }
+  ]
+}

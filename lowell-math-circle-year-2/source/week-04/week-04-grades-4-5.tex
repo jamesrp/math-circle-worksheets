@@ -1,0 +1,31 @@
+\documentclass[12pt]{extarticle}
+\def\activityid{F04-U-v2}\input{common.tex}
+\begin{document}
+
+\PageTitle{GRADES 4--5 / 1}{The twelve-place code}\NameLine
+\RuleBox{Use positions 0 through 11 clockwise. A shift +k moves every input k places clockwise, wrapping after 11. Decoding reverses that shift. A turn repeats the \textbf{same} shift.}
+\begin{center}\ClockRing{12}{1.05}\end{center}
+\Task{1. A broken message?}{Input 9 became output 1. Find the shift +k, where k is between 0 and 11. Check whether input 2 could become 6 under the same shift. Decode the output sequence \textbf{1, 4, 10}.}
+\WriteBox{My key, check, and decoded message:}{.75in}
+\Task{2. Follow one input.}{Starting at 0, repeat that shift until the first return. Then try starting at 1. Find \textbf{all} its separate loops, including every position exactly once.}
+\WriteBox{All loops, and the first return time:}{.85in}
+\StudentFooter
+\newpage
+\PageTitle{GRADES 4--5 / 2}{Classify every shift}
+\Task{3. Find a rule, not just a table.}{Try enough shifts to spot a rule: start at 0, find the first positive return, and count separate loops. Use clockwise/counterclockwise symmetry. The full table is optional; move to page 3 when ready to explain.}
+\begin{center}\renewcommand{\arraystretch}{1.45}\begin{tabular}{c|p{1.45in}|p{1.2in}|p{1.65in}}Shift&Turns to return&Number of loops&Visits all 12?\\\hline 0&&&\\1&&&\\2&&&\\3&&&\\4&&&\\5&&&\\6&&&\\7&&&\\8&&&\\9&&&\\10&&&\\11&&&\end{tabular}\end{center}
+\Task{4. Predict before you test.}{On an 18-place ring, predict the return times for +6 and +5. What number connects the ring size, the step size, and the number of loops?}
+\WriteBox{My conjecture and evidence:}{1.0in}
+\StudentFooter
+\newpage
+\PageTitle{GRADES 4--5 / 3}{Why the rule works}
+\Task{5. Count distance around the ring.}{After t turns of +k on an n-place ring, you have moved kt spaces. You are back at the start exactly when kt is a whole multiple of n. Use this to explain +4 on a 12-ring.}
+\WriteBox{The first return and why none earlier works:}{.80in}
+\Task{6. Shrink the common factor.}{For +8 on 12 places, return means 12 divides 8t, or 3 divides 2t. Draw three equal t-strips: together they total 3t. If two strips total a multiple of 3, why does removing them leave t a multiple of 3? Explain the first return.}
+\WriteBox{My strip argument; optional general rule:}{.80in}
+\Task{7. Undoing is different from visiting.}{The +4 rule does not visit every place from 0. Does it still give a reversible code on \emph{all} twelve inputs? Find its inverse. Then compare +4 followed by +7 with +7 followed by +4. Explain for every starting place.}
+\WriteBox{Inverse, combined shift, and why the order agrees:}{.80in}
+\textbf{Optional, with an adult:} Use the guide's subtraction-of-strips argument to justify coprime cancellation, then prove the gcd rule. Until then, label the general rule a conjecture or a supplied theorem.
+\StudentFooter
+
+\end{document}

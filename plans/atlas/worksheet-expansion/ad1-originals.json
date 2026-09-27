@@ -1,0 +1,485 @@
+[
+  {
+    "id": "AD-01",
+    "title": "Build a world that defeats a rule",
+    "msc_primary": "03",
+    "msc_secondary": [
+      "06"
+    ],
+    "adult_question": "How do models distinguish a valid inference from a statement that happens to hold in a few examples?",
+    "anchor": "For predicates R and S on a specified finite universe, 'every R is S' means no object satisfies R and not S. Its converse is a different sentence. A countermodel satisfies every premise while falsifying the conclusion.",
+    "source": [
+      {
+        "title": "Open Logic Project, Sets, Logic, Computation",
+        "url": "https://slc.openlogicproject.org/slc-screen.pdf",
+        "locator": "Chapter 7 semantics and satisfaction; chapter 12 completeness/compactness inspected in survey",
+        "checked": "excerpt only; the finite countermodels below are established directly"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "A tray is a finite domain; color and shape are unary predicates. Building or altering a tray is constructing a model, and checking each object is evaluating the quantified sentence.",
+      "limits": "These finite unary examples do not establish completeness, compactness, or a decision procedure for general first-order logic."
+    },
+    "gates": {
+      "entry": "O: distinguish two colors and two shapes, or equivalent tactile labels; spoken rules suffice.",
+      "explore": "C: compare several objects while holding one rule fixed.",
+      "explain": "P: identify the exact premise and conclusion and point to a witness.",
+      "prove": "P: reason over the four possible combinations of two predicates, including an empty predicate class.",
+      "reading": "None with adult reading; rule cards can use pictures.",
+      "arithmetic": "Only small counts, if any.",
+      "reasoning": "Language and quantifier scope are the real demands; avoid adding memory pressure through hidden objects.",
+      "hard_stop": "Stop at explicit finite models before discussing arbitrary structures or metatheorems."
+    },
+    "materials": "A tray and twelve red/blue circle/square cards, with spare duplicates. Draw a persistent four-cell property table. Prepare three rule cards, not a long worksheet.",
+    "prep_minutes": 10,
+    "launch": "Put any cards in your world. Every red object must be round. Can you make that rule true while 'every round object is red' is false? Keep both rules visible. Empty trays are allowed later, but begin with at least one object.",
+    "choices": "Choose the world's inhabitants, remove unnecessary objects, and invent a new proposed inference for another group to challenge.",
+    "session": "0-10 freely sort and invent descriptions; 10-15 test one sample world together; 15-35 build smallest counterworlds; 35-40 move to room corners representing four property types; 40-55 compare converses and empty classes; 55-60 display one world with an explanation. The first countermodel is a complete stopping point.",
+    "questions": [
+      "Which single object would break the first rule?",
+      "Can your world contain a blue circle?",
+      "Does adding a red square change truth or merely make the world larger?",
+      "What happens if there are no red objects?"
+    ],
+    "hints": [
+      "Mark forbidden card types rather than guessing entire worlds.",
+      "To defeat 'every round object is red', look for a round object that is not red."
+    ],
+    "example": {
+      "problem": "Make every red object round, but make not every round object red. Then test whether every round object being blue follows.",
+      "solution": "A world containing one blue circle satisfies the first sentence because it has no red counterexample, and falsifies the converse. If a red object is required, use one red circle plus one blue circle. This second world also falsifies 'every round object is blue'. A red square is forbidden by the premise; blue squares are irrelevant to either implication.",
+      "boundary": "An empty tray satisfies both universal sentences, so it cannot defeat the converse. This is not the same as saying a red object exists. Explicitly separate universal and existence claims."
+    },
+    "extensions": [
+      "Introduce an arrow relation 'visits'. Compare 'everyone visits someone' with 'someone is visited by everyone'; two vertices with only self-arrows separate them.",
+      "Ask which two-predicate inferences are valid by considering all four object types; general finite-model theory is a later continuation, not established here."
+    ],
+    "satisfying_stop": "A learner builds a smallest counterworld and explains which object defeats the conclusion while the premise survives.",
+    "prior_use": "Year-1 truth/logic material is related; exact prior instances require the use log. Week 5 tests consistency and uniqueness, whereas this activity makes learners construct countermodels to proposed implications.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AD-02",
+    "title": "The list that cannot catch your pattern",
+    "msc_primary": "03",
+    "msc_secondary": [
+      "05"
+    ],
+    "adult_question": "How can diagonalization construct an object different from every member of a proposed list, and what changes when the list is infinite?",
+    "anchor": "For any n by n binary array, choose the ith bit of a new length-n word opposite the entry in row i, column i. The new word differs from each listed row. For an infinite sequence of infinite binary sequences, the same coordinate rule constructs a sequence absent from the enumeration.",
+    "source": [
+      {
+        "title": "Open Logic Project, Sets, Logic, Computation",
+        "url": "https://slc.openlogicproject.org/slc-screen.pdf",
+        "locator": "Chapter 4, printed pp. 58-60, binary-sequence diagonalization and Theorem 4.18",
+        "checked": "full relevant text"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Rows are binary words; changing diagonal entries gives the exact finite construction used by the infinite argument.",
+      "limits": "The finite game proves a finite avoidance result. Uncountability requires explaining an arbitrary infinite list and a rule defined at every positive integer, not drawing many rows."
+    },
+    "gates": {
+      "entry": "O: match two colors and locate a marked square in each row.",
+      "explore": "C: track row and column indices with fingers or paired labels.",
+      "explain": "P: assign a guaranteed disagreement to each opponent row.",
+      "prove": "P and X: for the infinite extension, understand functions on positive integers and universal quantification over possible enumerations.",
+      "reading": "None for colored cards; a short symbolic rule for the infinite stage.",
+      "arithmetic": "Counting to four or five; no calculation.",
+      "reasoning": "Coordinating two indices is harder than the arithmetic. Use one row at a time and retain comparison markers.",
+      "hard_stop": "A participant may finish with the finite guarantee. Do not infer understanding of infinity from success at four rows."
+    },
+    "materials": "Two-color counters, a four-by-four grid, and a four-place answer strip. Label matching rows/columns with four pictures if numeral reading is a barrier.",
+    "prep_minutes": 5,
+    "launch": "Your partner lists four patterns, each four counters long. Build a pattern missing from their list. Then make a method that works against any list they choose. You may inspect the whole list; rearranging their patterns is not required.",
+    "choices": "The list maker chooses patterns, including duplicates. The challenger chooses an initial strategy and later decides which coordinate will guarantee disagreement with each row.",
+    "session": "0-10 make and compare patterns; 10-15 play one challenge without prescribing a method; 15-35 trade adversarial lists and look for a guarantee; 35-40 stand in four numbered places and change one gesture each; 40-55 explain certificates or discuss a precisely defined infinite list; 55-60 show one disagreement per row. Infinity is optional.",
+    "questions": [
+      "How can you certify four differences without comparing every square?",
+      "Must your answer be the only missing pattern?",
+      "Can five rows of four bits always be defeated by the same diagonal recipe?",
+      "What statement would a truly complete infinite list make?"
+    ],
+    "hints": [
+      "Reserve a different answer position for each opponent row.",
+      "At the reserved position, deliberately choose the other color."
+    ],
+    "example": {
+      "problem": "Defeat rows 0000, 0110, 1011, 1101 with a guaranteed rule.",
+      "solution": "The diagonal is 0,1,1,1, so choose 1000. It differs from row 1 in position 1, row 2 in position 2, row 3 in position 3, and row 4 in position 4. These four witness positions prove absence from the list, regardless of other matches. Other missing words may also work.",
+      "boundary": "All sixteen four-bit words can be listed, leaving no missing word. Therefore the claim is not 'every finite list misses a finite word'; the relation between number of rows and available coordinates matters."
+    },
+    "extensions": [
+      "Use three symbols: any fixed rule choosing a different symbol works, so binary is convenient rather than essential.",
+      "For infinite binary sequences, define b(i)=1-a_i(i). Explain why no row index can equal the resulting sequence; avoid decimal expansions and their nonunique representations."
+    ],
+    "satisfying_stop": "A four-counter pattern with four visible mismatch certificates and an explanation that the procedure survives any changed list.",
+    "prior_use": "Week 6 concerns identifying hidden finite codes, not diagonal construction or uncountability. This is a distinct question even though it reuses binary counters.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AD-03",
+    "title": "The largest collection with no nested sets",
+    "msc_primary": "05",
+    "msc_secondary": [
+      "06"
+    ],
+    "adult_question": "How large can a family of subsets be when no member contains another, and how can a chain decomposition certify optimality?",
+    "anchor": "An antichain in the Boolean lattice of subsets of an n-element set has size at most choose(n,floor(n/2)). The exact four-element problem admits a six-chain partition certificate, with six two-element subsets attaining the bound.",
+    "source": [
+      {
+        "title": "Richard P. Stanley, Topics in Algebraic Combinatorics, 2013 author draft",
+        "url": "https://math.mit.edu/~rstan/algcomb/algcomb.pdf",
+        "locator": "Chapter 4, Sperner property and Corollary 4.8; chain discussion",
+        "checked": "full relevant theorem discussion; the particular six-chain certificate is original and checked below"
+      }
+    ],
+    "bridge": {
+      "type": "faithful-representation",
+      "preserves": "A card displays a subset of four named objects; legal collections are precisely antichains under inclusion. Partitioning cards into nested chains proves an upper bound.",
+      "limits": "The supplied four-object certificate proves only that case. It does not establish a chain decomposition or Sperner's theorem for every n."
+    },
+    "gates": {
+      "entry": "O: recognize which pictured objects belong to each card; no arithmetic beyond small counts.",
+      "explore": "C: distinguish containment from overlap and organize all sixteen subsets.",
+      "explain": "P: argue that a legal collection can take at most one card from each nested chain.",
+      "prove": "P: construct or justify the six-chain partition; general n needs a separate inductive chain construction or counting proof.",
+      "reading": "None with picture sets; names may be replaced by four symbols.",
+      "arithmetic": "Count up to sixteen and compare collection sizes.",
+      "reasoning": "Track a universal pairwise condition; overlapping cards are legal unless one contains the other.",
+      "hard_stop": "Stop at the exact four-object optimum if the general combinatorial proof is not accessible."
+    },
+    "materials": "Sixteen cards, one for every subset of four pictures; counters to mark selected cards. Prepare six blank chain strips and optionally the certificate on a facilitator sheet.",
+    "prep_minutes": 15,
+    "launch": "Choose as many cards as possible. You may not choose two when every picture on one is also on the other. Sharing some pictures is allowed. Build a large legal collection, then convince another team that a larger one cannot exist.",
+    "choices": "Choose a collection, exchange small sets for large ones, choose how to organize the complete deck, and invent a certificate rather than chase the adult's target arrangement.",
+    "session": "0-10 sort and compare set cards; 10-15 demonstrate containment and a legal overlapping pair; 15-35 compete cooperatively for large collections; 35-40 form nested groups of participants; 40-55 build chain certificates; 55-60 show a matching construction and bound. Finding six is a worthwhile early stop.",
+    "questions": [
+      "Do all chosen cards need the same number of pictures?",
+      "Why is the empty card difficult to combine with others?",
+      "Can one long chain help limit your selection?",
+      "How many chains would prove six is best?"
+    ],
+    "hints": [
+      "Arrange cards by number of pictures, then inspect all two-picture cards.",
+      "Group the entire deck into nested chains. One selected card per chain is the most possible."
+    ],
+    "example": {
+      "problem": "Determine the maximum for subsets of {1,2,3,4}.",
+      "solution": "All six pairs form a legal collection. Partition the deck into chains: empty<1<12<123<1234; 2<23<234; 3<13<134; 4<14<124; 24; 34. Each of the sixteen subsets appears once and every chain is nested. A legal collection uses at most one member of each of six chains, proving the maximum is six.",
+      "boundary": "For three objects the three singleton cards and the three pair cards each give a maximum, but choosing both full layers is illegal: for example {1} is contained in {1,2}. Equal layer sizes do not permit merging layers."
+    },
+    "extensions": [
+      "Find the exact answer for five objects; the middle layer has ten sets, and a ten-chain certificate is a concrete next proof challenge.",
+      "Investigate antichains in a divisibility poset. The largest same-size layer need not solve arbitrary partially ordered sets; the Boolean-lattice hypothesis matters."
+    ],
+    "satisfying_stop": "A six-card construction together with a complete six-chain certificate that explains optimality.",
+    "prior_use": "No matching current Week 1-10 mechanism. Week 5 also distinguishes a good construction from a proof of optimality, but its clue constraints and reasoning are different.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AD-04",
+    "title": "Send a whole tree in two numbers",
+    "msc_primary": "05",
+    "msc_secondary": [
+      "68"
+    ],
+    "adult_question": "Why do labeled trees on n vertices correspond exactly to words of length n-2 on those labels?",
+    "anchor": "Prüfer encoding repeatedly removes the smallest labeled leaf and records its neighbor until two vertices remain. For labels 1 through n, n≥2, this gives a bijection with length-(n-2) words, proving Cayley's count n^(n-2).",
+    "source": [
+      {
+        "title": "Richard P. Stanley, Topics in Algebraic Combinatorics",
+        "url": "https://math.mit.edu/~rstan/algcomb/algcomb.pdf",
+        "locator": "Chapter 9 appendix, three combinatorial proofs; Prüfer proof and Cayley count",
+        "checked": "relevant text inspected; exact n=4 encoding and decoding proved below"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Labeled dots and string edges are actual trees; deleting leaves and reconstructing them are the encoding and inverse algorithm.",
+      "limits": "The count is for labeled simple trees. Rotating a drawing does not produce a new tree, but changing which named vertices connect can."
+    },
+    "gates": {
+      "entry": "O and C: connect four labeled vertices, recognize a leaf as a vertex with one incident edge.",
+      "explore": "C: follow the smallest-label tie-breaking rule and keep track of deleted vertices.",
+      "explain": "P: explain why decoding is unique rather than merely successful in a few trials.",
+      "prove": "P: induct on successive leaf deletions, using the relation between remaining code occurrences and degrees.",
+      "reading": "Short algorithm cards; partner can read and record.",
+      "arithmetic": "Order four small integers; count occurrences; powers only in the later counting interpretation.",
+      "reasoning": "Dynamic state tracking is substantial; physically remove edges and retain a vertex ledger.",
+      "hard_stop": "Complete the four-vertex correspondence before general coding proofs; avoid treating a large unverified catalog as proof."
+    },
+    "materials": "Four numbered cards and reusable strings, with a two-place message slip. A second color can mark removed vertices; prepare a visible algorithm card.",
+    "prep_minutes": 8,
+    "launch": "Build a connected network on 1,2,3,4 with no loops around a cycle. Remove the smallest leaf and write its neighbor. Repeat once. Can your partner reconstruct exactly your edges using only the two-number message? Labels stay attached to their vertices.",
+    "choices": "Invent the tree, choose challenging messages, look for ambiguity, and decide how to prove the decoder cannot choose differently.",
+    "session": "0-10 build connected networks and remove redundant edges; 10-15 demonstrate one deletion; 15-35 exchange messages and debug decoding; 35-40 enact leaves leaving a human network; 40-55 organize all sixteen messages and argue uniqueness; 55-60 explain why two numbers suffice. General n is optional.",
+    "questions": [
+      "Which label cannot yet be removed if it still appears in the message?",
+      "What does a repeated number tell you about the tree?",
+      "Why must the same smallest-leaf rule be used every time?",
+      "Can any two-number message fail?"
+    ],
+    "hints": [
+      "At decoding, choose the smallest surviving label absent from the remaining message.",
+      "Join that label to the first message entry, remove the label and entry, then connect the last two survivors."
+    ],
+    "example": {
+      "problem": "Decode message (2,4), then check by encoding. Count all trees on four labeled vertices.",
+      "solution": "Initially labels 1 and 3 are absent, so remove the smaller 1 and add edge 1-2. With message (4), surviving label 2 is smallest absent; add 2-4 and remove 2. Join survivors 3 and 4. The edges are {12,24,34}; encoding removes leaf 1 then leaf 2, recovering (2,4). Every two-entry word from four labels decodes by the same rule, and the inverse recovers it, giving 4×4=16 trees.",
+      "boundary": "If labels are ignored, there are only two shapes on four vertices: a path and a three-leaf star. The sixteen count must not be reported as sixteen unlabeled shapes."
+    },
+    "extensions": [
+      "For five labels, choose a three-entry code first and predict which vertices will be leaves; degree equals one plus its number of code occurrences.",
+      "Compare Prüfer's bijection with determinant-based spanning-tree counting in AD-05; the latter handles restricted edge sets but is less direct as a communication code."
+    ],
+    "satisfying_stop": "Two partners exchange one tree with a message and explain why the reconstruction is forced.",
+    "prior_use": "Week 10 uses routes in networks, not labeled-tree encoding. Network materials can be reused without treating the old route puzzle as this new investigation.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AD-05",
+    "title": "How many minimal networks survive?",
+    "msc_primary": "05",
+    "msc_secondary": [
+      "15",
+      "90"
+    ],
+    "adult_question": "How can a determinant count spanning trees of a graph, and what combinatorial structure explains the answer?",
+    "anchor": "For a finite connected loopless graph, any principal cofactor of its Laplacian D-A equals its number of spanning trees. The core is a four-cycle with one diagonal; direct classification proves eight trees without requiring determinants.",
+    "source": [
+      {
+        "title": "Richard P. Stanley, Topics in Algebraic Combinatorics",
+        "url": "https://math.mit.edu/~rstan/algcomb/algcomb.pdf",
+        "locator": "Theorem 9.8 Matrix-Tree Theorem; chapter 9 incidence matrices",
+        "checked": "full relevant theorem and proof discussion"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Choosing edge subsets that connect every vertex without a cycle is exactly choosing spanning trees. The later Laplacian calculation describes this same graph.",
+      "limits": "The direct eight-case count does not prove the general determinant formula. No claim is made that all networks or optimization problems reduce to this small example."
+    },
+    "gates": {
+      "entry": "O: join four places with removable strips and trace connections.",
+      "explore": "C: distinguish connectedness, a cycle, and minimal connectedness; compare edge sets rather than drawing positions.",
+      "explain": "P: split all possibilities by whether the diagonal is selected.",
+      "prove": "L and P for the general Matrix-Tree Theorem: incidence matrices, determinants, and a determinant expansion such as Cauchy-Binet.",
+      "reading": "None for the graph; symbolic matrix reading for the optional upper stage.",
+      "arithmetic": "Count to eight; determinant stage uses signed products and sums.",
+      "reasoning": "Completeness and duplicate control matter more than arithmetic. Give each edge a distinct label.",
+      "hard_stop": "A correct combinatorial count is complete mathematics; stop there when determinant prerequisites are absent."
+    },
+    "materials": "A square with vertices A,B,C,D in cyclic order, diagonal AC, and five removable edge strips. Eight small recording frames or photographs can replace repeated drawing.",
+    "prep_minutes": 10,
+    "launch": "Keep every place connected while using no unnecessary link: removing any chosen link must disconnect the network. Find every different network you can make using only these five available links. Two drawings count the same when they use the same links.",
+    "choices": "Choose which links survive, decide a recording scheme, invent an organizing question, and test another team's completeness argument.",
+    "session": "0-10 build and break networks; 10-15 agree on necessary links and duplicates; 15-35 enumerate minimal connected networks; 35-40 form a human cycle then remove one link; 40-55 prove the count or compute a cofactor; 55-60 compare the two descriptions. A classified eight-tree list is enough.",
+    "questions": [
+      "How many links must a minimal connected four-place network have?",
+      "What changes when the diagonal is included?",
+      "Can a three-link selection contain a cycle?",
+      "Why should deleting a different matrix row and column give the same answer?"
+    ],
+    "hints": [
+      "First handle networks without AC: delete exactly one edge of the square.",
+      "With AC present, choose one connection for B and one for D; explain why those choices suffice."
+    ],
+    "example": {
+      "problem": "Count spanning trees of edges AB,BC,CD,DA,AC and verify one Laplacian cofactor.",
+      "solution": "Without AC, deleting one of the four cycle edges gives four trees. With AC, choose AB or BC for B and CD or DA for D, giving four more. Other diagonal-containing three-edge choices leave B or D isolated. Deleting D's row/column from the Laplacian gives [[3,-1,-1],[-1,2,-1],[-1,-1,3]], whose determinant is 15-4-3=8.",
+      "boundary": "A disconnected graph has no spanning tree on all its vertices. If a second diagonal is added, its crossing is not a vertex unless declared; declaring a junction changes the graph and the count."
+    },
+    "extensions": [
+      "Add the second diagonal BD, treating its crossing as not a vertex. The graph becomes K4, which has sixteen spanning trees by AD-04.",
+      "Assign positive edge weights: products of tree-edge weights sum to a weighted Laplacian cofactor. This continuation requires a separately checked weighted statement before use."
+    ],
+    "satisfying_stop": "Eight drawings organized into two four-case groups, with a reason no other edge set works.",
+    "prior_use": "Week 10 minimizes repeated travel, whereas this family counts minimal connecting subgraphs. AD-04 shares trees but studies an encoding of all labeled trees rather than restricted-edge counts.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AD-06",
+    "title": "When the usual mixing rule breaks",
+    "msc_primary": "06",
+    "msc_secondary": [
+      "08"
+    ],
+    "adult_question": "Which order structures admit greatest common lower bounds and least common upper bounds, and why can distributivity fail?",
+    "anchor": "A lattice is a partial order in which every pair has a meet and join. The five-element diamond M3 has bottom 0, top 1, and three pairwise incomparable middle elements a,b,c. It is a lattice but is not distributive.",
+    "source": [
+      {
+        "title": "Burris and Sankappanavar, A Course in Universal Algebra",
+        "url": "https://math.hawaii.edu/~ralph/Classes/619/univ-algebra.pdf",
+        "locator": "Chapter I, §§1 and 3, lattice definitions and distributive/modular lattices",
+        "checked": "relevant definitions and examples inspected; the M3 calculation is explicit below"
+      }
+    ],
+    "bridge": {
+      "type": "faithful-representation",
+      "preserves": "Tiles are elements; upward arrows encode order, including transitive comparisons. Finding the lowest common ceiling and highest common floor is computing join and meet.",
+      "limits": "The order diagram is not a road map: traversing downward then upward does not establish comparison. One counterexample distinguishes lattice from distributive lattice, not all varieties of lattices."
+    },
+    "gates": {
+      "entry": "O: follow upward comparisons and point to common places above two tiles.",
+      "explore": "C: coordinate two partial-order searches and keep incomparability visible.",
+      "explain": "P: evaluate two parenthesized expressions one operation at a time.",
+      "prove": "P: check all pair types in M3 have a meet and join, then present one distributivity failure.",
+      "reading": "Spoken operation names suffice; symbolic expression strips are optional.",
+      "arithmetic": "None; 0 and 1 are names for bounds, not ordinary arithmetic values.",
+      "reasoning": "Abstract comparison and nested operations are substantial. Use movable intermediate-result markers.",
+      "hard_stop": "Do not introduce general representation or duality theorems without set-theoretic proof prerequisites."
+    },
+    "materials": "Five labeled tiles, six arrows for 0<a,b,c<1, and a separate deck of the eight subsets of three pictures. Use 'floor' and 'ceiling' markers.",
+    "prep_minutes": 10,
+    "launch": "For two tiles, find the lowest tile at or above both (their join) and the highest tile at or below both (their meet). A tile counts as at or above/below itself. Start with picture-set cards ordered by containment, then try the five-tile diagram. For three chosen tiles a,b,c, compare a meet (b join c) with (a meet b) join (a meet c). Do these two recipes always agree?",
+    "choices": "Choose pairs, invent an order diagram, challenge whether a proposed common bound is the least or greatest one, and search for a shortcut failure.",
+    "session": "0-10 arrange picture sets by containment; 10-15 name common floor and ceiling; 15-35 investigate the diamond and compare operations; 35-40 participants stand at diagram vertices; 40-55 evaluate two competing expression routes; 55-60 show a counterexample. Do not require every participant to manipulate notation.",
+    "questions": [
+      "Are a and b comparable even though both sit above 0?",
+      "Can there be several common upper bounds but only one least one?",
+      "What is the ceiling of b and c?",
+      "Do both expression routes finish at the same tile?"
+    ],
+    "hints": [
+      "List all common upper bounds before choosing the least; do the dual search below.",
+      "For three distinct middle tiles, compute b join c first on one route, and a meet b plus a meet c first on the other."
+    ],
+    "example": {
+      "problem": "Compare a meet (b join c) with (a meet b) join (a meet c) in M3.",
+      "solution": "Distinct middle elements have only 1 as a common upper bound and only 0 as a common lower bound. Thus b join c=1, so the first result is a meet 1=a. Each of a meet b and a meet c is 0, so the second result is 0. Since a differs from 0, distributivity fails. Equal middle elements and pairs involving 0 or 1 also have obvious unique bounds, verifying this is still a lattice.",
+      "boundary": "A poset with two incomparable upper bounds and no least common upper bound for some pair is not a lattice. 'There is something above both' is insufficient."
+    },
+    "extensions": [
+      "For divisors of 12 ordered by divisibility, compute meet as gcd and join as lcm; compare the diagram with subsets.",
+      "Investigate the lattice of subspaces of a two-dimensional vector space: distinct lines supply the same distributivity failure. This exact connection requires a real linear-algebra gate."
+    ],
+    "satisfying_stop": "Two legal calculation routes end at different tiles, with each intermediate result justified from the diagram.",
+    "prior_use": "No exact current-week match. Tiling flip orders may eventually produce lattices, but that additional structure must be proved separately rather than assumed from Week 1.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AD-07",
+    "title": "Everything your starting clues force",
+    "msc_primary": "06",
+    "msc_secondary": [
+      "03",
+      "08"
+    ],
+    "adult_question": "Why do closure operations generate lattices of closed sets, and why does joining two closed sets sometimes create new consequences?",
+    "anchor": "On a finite set, repeatedly apply implications X implies y by adding y whenever every member of X is present. The least fixed point containing the starting set is extensive, monotone, and idempotent. Intersections of closed sets are closed; their join is the closure of their union.",
+    "source": [
+      {
+        "title": "Burris and Sankappanavar, A Course in Universal Algebra",
+        "url": "https://math.hawaii.edu/~ralph/Classes/619/univ-algebra.pdf",
+        "locator": "Chapter I §5, closure operators and closed sets",
+        "checked": "relevant definition inspected; finite rule-system claims proved by the explicit procedure"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Chosen token sets and forced additions are an actual finite closure operator. Order of processing eligible rules does not change the eventual closed set if all eligible rules are eventually applied.",
+      "limits": "These are monotone addition-only implications, not arbitrary instructions with deletion or negation. The result does not promise order independence for every rule game."
+    },
+    "gates": {
+      "entry": "O: place named tokens and follow one visible if-then rule.",
+      "explore": "C: track several rules without losing previously obtained tokens.",
+      "explain": "P: distinguish a set already closed from a set still requiring additions.",
+      "prove": "P: prove termination by finite growth and minimality by induction on additions.",
+      "reading": "Three short rule cards, orally supported and drawn with arrows.",
+      "arithmetic": "Count at most four tokens; no calculation.",
+      "reasoning": "Conditional language and tracking prerequisites matter; put every rule and obtained token in view.",
+      "hard_stop": "Keep rules positive and finite until the fixed-point argument is secure; arbitrary logical consequence is a separate advanced subject."
+    },
+    "materials": "Tokens a,b,c,d and rule cards: a gives b; b together with c gives d; d gives c. Prepare a recording strip for each starting set and a closed/not-yet-closed marker.",
+    "prep_minutes": 8,
+    "launch": "Choose any starting tokens. You may add a token whenever a displayed rule allows it, and you never remove tokens. Keep going until no new token can be added. Can two different legal orders end with different collections? Which starting collections already need no changes?",
+    "choices": "Choose starting sets, choose which eligible rule fires first, challenge a claimed stopping point, and invent two closed collections whose union triggers something new.",
+    "session": "0-10 explore tokens and make informal recipes; 10-15 demonstrate one implication and one two-token prerequisite; 15-35 compare orders and catalog closed sets; 35-40 pass prerequisite cards around a circle; 40-55 investigate intersections and unions; 55-60 present one surprising forced addition. The full catalog is optional.",
+    "questions": [
+      "What does starting with only a force?",
+      "Can a rule be used before all its inputs are available?",
+      "Can an extra starting token ever make you lose an eventual token?",
+      "Why can two individually finished collections have an unfinished union?"
+    ],
+    "hints": [
+      "Underline prerequisites already present and mark each newly obtained token.",
+      "For a union surprise, try one closed set containing b and another containing c."
+    ],
+    "example": {
+      "problem": "Find closures of {a}, {c}, and {a,c}; decide whether closed sets stay closed under union.",
+      "solution": "Starting at {a}, the first rule adds b and nothing else fires, so closure is {a,b}. Starting at {c} adds nothing. Their union {a,b,c} activates b-and-c, adding d, so its closure is {a,b,c,d}. Thus union need not be closed. Any closed set containing the starting set must contain each forced addition, by induction; hence every completed run produces the same least such set.",
+      "boundary": "If a rule deletes a prerequisite, order can matter: from {a}, 'replace a by b' and 'replace a by c' give different terminal sets. The addition-only hypothesis is essential."
+    },
+    "extensions": [
+      "Enumerate all closed sets: empty, {b}, {c}, {c,d}, {a,b}, {b,c,d}, {a,b,c,d}. Verify intersections remain on the list.",
+      "Connect to subalgebra generation or linear span only after defining their operations; they are further exact closure systems, not identical problem stories."
+    ],
+    "satisfying_stop": "Two finished collections combine to force a new token, and the learner can explain why order does not change the final closure.",
+    "prior_use": "Week 5 concerns clue uniqueness; this family studies closure under explicit implication rules. No exact reuse is claimed; actual prior encounter remains governed by the use log.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AD-08",
+    "title": "Which numbers may share a name?",
+    "msc_primary": "08",
+    "msc_secondary": [
+      "11",
+      "20"
+    ],
+    "adult_question": "When does identifying elements preserve an operation, so that a quotient algebra is well-defined?",
+    "anchor": "For addition modulo four, an equivalence relation is a congruence when equivalent inputs always have equivalent sums. Its congruences are equality, parity, and the indiscrete relation. The specific parity quotient has two classes with addition modulo two.",
+    "source": [
+      {
+        "title": "Burris and Sankappanavar, A Course in Universal Algebra",
+        "url": "https://math.hawaii.edu/~ralph/Classes/619/univ-algebra.pdf",
+        "locator": "Chapter II §5, congruences and quotient algebras",
+        "checked": "relevant definition inspected; classification for the four-element example proved here"
+      }
+    ],
+    "bridge": {
+      "type": "faithful-representation",
+      "preserves": "Colored bags are equivalence classes. Asking whether a bag-level sum depends on chosen representatives is exactly the congruence condition.",
+      "limits": "The experiment concerns a specified operation. A partition valid for addition may fail for an additional operation; checking one algebraic structure does not check all signatures."
+    },
+    "gates": {
+      "entry": "O and C: use a supplied four-by-four addition table or move on a four-position ring.",
+      "explore": "C: choose two representatives independently and compare result bags.",
+      "explain": "P: exhibit a representative-dependent result as a counterexample, or check parity for all cases.",
+      "prove": "P and M: propagate one identified pair by adding the same residue to both; use cyclic translation.",
+      "reading": "Bag labels and a small table; oral instructions suffice.",
+      "arithmetic": "Addition modulo four, supplied concretely; odd/even reasoning for explanation.",
+      "reasoning": "Distinguish the object's name from the whole class and test all legal choices, not just one convenient representative.",
+      "hard_stop": "Universal-algebra theorems about all algebras remain beyond this finite quotient investigation."
+    },
+    "materials": "Cards 0,1,2,3, transparent colored bags or drawn class circles, and an addition table modulo four. Duplicate cards let pairs of inputs be shown simultaneously.",
+    "prep_minutes": 8,
+    "launch": "Rename some numbers so they share a bag. To add two bags, choose any number from each bag, add around the four-ring, and report the answer's bag. Your renaming is legal only if the answer bag never depends on the representatives chosen. Invent a legal renaming and an illegal one.",
+    "choices": "Choose partitions, choose adversarial representative pairs, and decide what extra identifications repair a failing renaming.",
+    "session": "0-10 play with ring addition; 10-15 demonstrate bag-level ambiguity without giving the valid partition; 15-35 test and repair partitions; 35-40 participants become bags and choose representatives; 40-55 classify all possible legal renamings; 55-60 show either a quotient table or a decisive failure witness.",
+    "questions": [
+      "What happens if only 0 and 1 share a bag?",
+      "Does putting 0 with 2 force 1 to share with 3?",
+      "Could every number share one name?",
+      "Which information survives the parity renaming?"
+    ],
+    "hints": [
+      "Hold one input fixed while changing the other representative.",
+      "If two numbers share a bag, adding 1 to both must give two numbers that also share a bag."
+    ],
+    "example": {
+      "problem": "Test bags {0,2} and {1,3}; compare with bags {0,1},{2},{3}.",
+      "solution": "Even+even and odd+odd land in the even bag; even+odd lands in the odd bag, independently of representatives. The second partition fails: choosing 0+0 gives the first bag, while 1+1 gives {2}, even though both input bags were the same. For classification, any identified adjacent residues force all four together by translation. Identifying opposite residues forces exactly the parity partition unless further identifications are added. If no distinct residues are identified, equality remains.",
+      "boundary": "The singleton partition and the one-bag partition are both valid, although the latter discards all distinctions. Validity does not mean the quotient retains useful information."
+    },
+    "extensions": [
+      "Repeat for addition modulo six and investigate partitions corresponding to remainders modulo two or three; require new witnesses and a proof before generalizing.",
+      "Add the operation that maps 0 to 0, 1 to 0, 2 to 1, 3 to 1. The parity partition now fails because 0 and 2 have differently classified outputs."
+    ],
+    "satisfying_stop": "A two-bag addition rule with a reason every representative choice agrees, plus a concrete failing partition.",
+    "prior_use": "Week 4 uses cyclic arithmetic; the new central question is well-defined identification and information loss. The same ring alone is a representation reuse, not a new mechanism.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  }
+]

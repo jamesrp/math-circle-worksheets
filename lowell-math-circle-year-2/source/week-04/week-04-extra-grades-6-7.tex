@@ -1,0 +1,17 @@
+\documentclass[12pt]{extarticle}
+\def\activityid{F04-X-v2}\input{common.tex}
+\begin{document}
+
+\PageTitle{EXTRA / GRADES 6--7}{A perfect shuffle has a clock}\NameLine
+\RuleBox{Use eight cards 0--7 in a row, leftmost = top. Cut into two equal halves \textbf{without reversing either half}. Interleave, starting with the first half: 0 1 2 3 / 4 5 6 7 becomes \textbf{0 4 1 5 2 6 3 7}. This is an out-shuffle.}
+\Task{1. Shuffle until home.}{Repeat the exact rule. How many shuffles first restore the whole original order? Record rows or track each card's \emph{position}.}
+\WriteBox{My rows or position cycles:}{.85in}
+\Task{2. Explain the rule with remainders.}{Positions are numbered 0--7. Track where a card at old position x goes. For x=0 through 6, test ``double x, then take the remainder after division by 7.'' What happens to position 7?}
+\begin{center}\renewcommand{\arraystretch}{1.6}\begin{tabular}{c|cccccccc}Old position&0&1&2&3&4&5&6&7\\\hline New position&&&&&&&&\end{tabular}\end{center}
+\Task{3. Prove the return time.}{After t shuffles, a position below 7 becomes the remainder of \(2^t x\) after division by 7. Find the first t with \(2^t\) leaving remainder 1. Why does checking x=1 show that no earlier return works?}
+\WriteBox{My proof, including the fixed last card:}{.95in}
+\textbf{Go further:} Predict the first return for 6 cards and for 16 cards. For 2m cards the relevant modulus is \(2m-1\). Why does twice as many cards not necessarily mean twice as many shuffles?
+\textbf{Research bridge:} Diaconis, Graham, and Kantor studied which permutations combinations of perfect in- and out-shuffles generate. This page proves the single out-shuffle return formula in a small case.
+\StudentFooter
+
+\end{document}

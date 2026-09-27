@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\def\activityid{F08-F-v2}\input{common.tex}
+\begin{document}
+
+\PageTitle{FACILITATOR / 1 OF 4}{From mirror play to Nim}
+\RuleBox{Core question: Which positions can the next player force a win from, and why? Children first play; classifications must describe perfect opposition, not the result of one game. All games use normal play: taking the last counter wins.}
+\Subhead{Prepare for seven children and two adults}
+Print 3 K--1 packets, 3 middle packets, 1 upper packet, and keep one extra page in reserve. Bring about 60 counters, five paper plates or marked pile areas for the middle/upper table, pencils, and scraps labeled 1, 2, 4, 8. Reuse counters between trials. The boards need no calibrated size.
+
+K--1: no reading; compare small distances and count to 2. Middle: short instructions read aloud, counts to 7, reasoning about all replies. Upper: subtract small integers and distinguish odd/even; binary notation is taught through bundles. Extra: organized lists and subtraction; floor/square-root notation is explained, not a prerequisite for the first two questions.
+\Subhead{A flexible shared hour}
+0--10: freely move tokens and build piles. 10--15: briefly demonstrate legal long/short right or down moves and an illegal diagonal. 15--35: main investigation: parent starts K--1; organizer launches the middle board and three piles, then alternates between them about every five minutes. Leave a specific start to test. 35--40: movement/reset. 40--55: continue play and explanations, or choose a proof continuation. 55--60: share a move with its reason and tidy.
+
+Triplets rotate two opponents and a checker; the checker does not become a third player. Parent remains mainly with K--1. The fifth grader gets two actual adult games and a proof conversation; a spare worksheet does not replace an opponent.
+\Subhead{Launch and hints, in order}
+``Can you leave me a square where every move helps you?'' First ask children to show every legal move. Then ask which distances remain to the star. Offer matching only after exploration. Upper: try small counterexamples before giving bundle cards; ask ``Which bundle is the largest unpaired one?'' Stop after a satisfying explanation; finishing all pages is not required.
+
+\Subhead{A satisfying stop; an optional proof}
+\textbf{K--1:} show both center moves and their replies; continue by explaining copying from any equal piles. \textbf{Middle:} map the board and restore equality; continue with both directions of the arbitrary two-pile proof and termination. \textbf{Upper:} refute even-total reasoning and find a legal bundle-balancing move; continue with the full binary proof. Record an explained claim separately from a theorem supplied by an adult.
+
+\newpage
+
+\PageTitle{FACILITATOR / 2 OF 4}{Checked two-pile reasoning}
+\Subhead{K--1 and middle board answers}
+Distances $(a,b)$ mean squares remaining right and down. A rook move reduces exactly one positive coordinate. The star is $(0,0)$: the previous player has already won. On the $3\times3$ board, the center $(1,1)$ is losing. Both possible moves allow an immediate reply to the star. Top-left $(2,2)$ is also losing; copy the amount removed in the other direction.
+
+On the $4\times4$ board, the traps form the top-left to bottom-right diagonal: $(3,3),(2,2),(1,1),(0,0)$. Every unequal pair is winning: reduce the larger coordinate to the smaller. The middle start $(3,2)$ has the unique winning move to $(2,2)$.
+\Subhead{A complete proof, with counters}
+If two piles have the same size, every move makes them unequal. If they differ, reducing the larger to the smaller is legal and restores equality. Thus a player who hands over equal piles can always restore equality after an opponent's move. The total number of counters strictly decreases, so play must finish. The player restoring equality takes the final counters; the opponent receives $(0,0)$ and cannot move. These two properties establish all traps, on rectangles as well as squares.
+
+Any unequal two-pile start has exactly one winning first move (specifying the pile and amount). Matching piles have none. Children can use $(5,2)$ as their designed puzzle: remove 3 from the 5-pile.
+\Subhead{Why three piles change the problem}
+$(1,1,1)$ is winning: remove one pile and leave $(0,1,1)$. Even total is insufficient: $(1,1,2)$ has total 4 but is winning by removing the whole 2-pile. $(1,2,3)$ is losing. Here are all first moves and one reply; pile order is kept fixed.
+\begin{center}\renewcommand{\arraystretch}{1.35}\begin{tabular}{c|c@{\qquad}c|c}After move&Reply leaves&After move&Reply leaves\\\hline(0,2,3)&(0,2,2)&(1,2,0)&(1,1,0)\\(1,0,3)&(1,0,1)&(1,2,1)&(1,0,1)\\(1,1,3)&(1,1,0)&(1,2,2)&(0,2,2)\end{tabular}\end{center}
+Each reply leaves two equal piles and one empty pile. This gives a physical proof before binary notation. The middle group can stop here or join the upper bundle experiment.
+
+\newpage
+
+\PageTitle{FACILITATOR / 3 OF 4}{The binary invariant}
+\Subhead{Upper answers}
+Binary records: $1=001$, $2=010$, $3=011$, $4=100$, $5=101$, $6=110$, $7=111$. $(1,2,3)$ and $(2,4,6)$ have even column sums. $(1,2,4)$ does not; reduce 4 to 3. For the table: $(2,4,6)$ is balanced; $(3,4,5)$ can become $(1,4,5)$; $(1,5,7)$ can become $(1,5,4)$; $(3,5,6)$ is balanced. Other correct balancing moves should be accepted.
+
+For $(7,10,12)$, the Nim sum is 1; reduce 7 to 6. For chosen first piles $a,b$, the unique third pile is $a\mathbin{\oplus}b$: each binary digit is forced by whether the first two digits agree.
+\Subhead{Why the test is sufficient, for any number of piles}
+A move changes exactly one integer. At least one of its binary digits changes, so at least one previously even column becomes odd. No legal move can connect two balanced positions.
+
+If the Nim sum $s$ is nonzero, choose its highest 1-bit, say the $2^k$ column. Some pile $x$ has a 1 there. Replace it by $y=x\mathbin{\oplus}s$. Higher bits stay fixed, this bit becomes 0, and lower bits may change. The sum of all smaller bundles is $2^k-1$, so $y<x$: the move is legal. Every odd column is toggled once, every even column is unchanged, and the result is balanced. The decreasing total ensures termination. These two facts prove exactly the same win/lose structure as in the two-pile proof.
+
+Do not physically permit removing an arbitrary bundle while leaving a larger number of counters: the game is still ordinary removal from one pile. The bundle display is a way to calculate a legal smaller result.
+\Subhead{Extra: Wythoff, checked results and proof boundary}
+The old equal-pile trap fails because both piles can be emptied in one diagonal move. For $0\le a\le b\le7$, the traps are $(0,0),(1,2),(3,5),(4,7)$. Greedy pairs through $n=5$ are $(0,0),(1,2),(3,5),(4,7),(6,10),(8,13)$.
+
+Distinct pairs have disjoint coordinates and distinct absolute differences, so neither a single-pile move nor an equal-take move connects them, including reversed pile order. This proves only the no-move-between-traps condition. To prove completeness one must also show every outside position reaches a listed pair. Sample moves: $(2,4)\to(2,1)$, $(5,8)\to(4,7)$, $(8,12)\to(6,10)$. The golden-ratio formula is a cited theorem, not a conclusion from five data points.
+
+\newpage
+
+\PageTitle{FACILITATOR / 4 OF 4}{Where the mathematics leads}
+\Subhead{Undergraduate direction and genuine research}
+Two piles give a strategy-preserving change of representation from a grid to an impartial game. Binary column parity is addition in a vector space over the two-element field. The proof has a useful algorithmic form: recognize the losing set, prove no move stays inside it, and construct a move into it from everywhere else. Formal algebra vocabulary can wait.
+
+Charles Bouton's historical paper, \emph{Nim, a Game with a Complete Mathematical Theory}, \emph{Annals of Mathematics} 3 (1901--02), pp. 35--39, is the original research source for binary analysis. Our normal-play proof is written out on page 3, so the circle does not depend on reading the historical notation. \href{https://paradise.caltech.edu/ist4/lectures/Bouton1901.pdf}{Caltech-hosted paper}.
+
+Fraenkel and Peled, \emph{Harnessing the unwieldy MEX function}, \emph{Games of No Chance 4}, MSRI Publications 63 (2015), pp. 77--94: \S1, pp. 77--78 states the Wythoff rule, greedy pairs, and golden-ratio formula; \S5 develops efficient computation for generalized complementary sequences. \href{https://library.slmath.org/books/Book63/files/131104-Fraenkel-2.pdf}{Author research chapter}.
+
+The extra page meets an actual research theme: a simple rule change can replace bitwise arithmetic with complementary sequences and a question of efficient computation. It does not reproduce the paper's generalized algorithm or claim an open problem has been solved by the classroom experiment.
+\Subhead{Local sources and teaching choices}
+JRMF, \emph{Rook's Move Activity Guide}, PDF pp. 3--6: legal moves, exploration before advice, losing positions, and the Wythoff connection. We replace the old upper king variant with three-pile Nim; the king version remains an untaught reserve unless the use log says otherwise.
+
+\emph{Math Circle by the Bay}, preface printed pp. viii--x (PDF pp. 9--11), supports common themes with adjustable depth, manipulatives, explanations, and extra challenges. Rozhkovskaya, Lesson 7 ``At the lesson,'' EPUB \texttt{part0017.xhtml}, highlights checking that children understand legal moves. The seven-child schedule and bundle prompts are our adaptations.
+
+Lowell Handout 2, problem 2.3, and Handout 3, problems 3.1--3.3, include subtraction-game history; Week 7 also studies constrained subtraction. Here an entire pile may be removed, and the important new step is multiple piles plus binary balance. Reuse is deliberate, not evidence that every child has seen these exact starts.
+\Subhead{Record and verify}
+IDs F08-K/M/U/X-v2. Record the actual starts, rule, level, strategies explained, and whether Wythoff was attempted. Keep unused stages for later years. \texttt{verify.py} checks all three-pile states through size 12 and Wythoff states through 30 by independent backward recursion. Those finite checks support the examples; the proofs establish the unlimited claims.
+
+\end{document}

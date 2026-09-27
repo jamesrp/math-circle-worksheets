@@ -1,0 +1,1310 @@
+{
+  "batch": "ga3",
+  "status": "independent design review closed and approved; PDF production/review status is recorded in ga3-maker-qa.md, review-ga3-pdf.md and the release scope records",
+  "families": [
+    {
+      "id": "GA-18",
+      "title": "Choose what best flat height means",
+      "core_gate": "Fractions, squared and absolute errors, and signed algebra. Rectangle sums supply the integrals; completing the square and a full piecewise argument are the core.",
+      "index_gate": "Weighted rectangle sums, absolute values and algebraic optimality proofs",
+      "extension_gate": "Finite weighted sums and expansion; Hilbert-space projection is context, not a prerequisite for the direct proof.",
+      "reading": "Read a two-height graph, choose a loss rule and distinguish a unique optimizer from a whole interval of ties.",
+      "materials": "Printed landscape with width ratio 2:1, straight strip or ruler to move as a horizontal candidate, pencils and optional transparent sleeve.",
+      "prep_minutes": 5,
+      "timing": "Explore candidate heights and rule cards for 10 minutes; allow 15 for the square certificate, a short break, then 20–30 for comparing objectives. Variable widths can be a later meeting.",
+      "launch": "Place a flat line through this landscape. Choose how you will charge for errors, then let a partner propose a cheaper line.",
+      "satisfying_stop": "Prove that the same landscape has three different best heights under three precisely stated costs.",
+      "prior_use": "GA-13 already minimizes maximum error for a parabola over all affine lines. This uses a step landscape, constants and three distinct losses, then changes the interval weights. GA-20 effort costs also compare choices of objective, but for motion under endpoint constraints rather than a fixed landscape.",
+      "assessment": "Promising with fraction and algebra gates. The unequal widths make the choice of objective visible. Unpiloted; use the first two pages as a complete investigation before the parameter classification.",
+      "mathematical_connection": "Weighted mean, weighted median and midrange; direct projection onto constant functions for a step function in L². No general Hilbert-space projection theorem is proved by a single example.",
+      "sources": [
+        {
+          "title": "Sheldon Axler, Measure, Integration & Real Analysis",
+          "url": "https://measure.axler.net/MIRA.pdf",
+          "locator": "§8B, Definition 8.34 and Theorem 8.37, printed pp.227–228 (PDF pp.242–243).",
+          "adaptation": "Projection supplies context; the new landscape and every loss classification are derived directly.",
+          "checked": "Reopened the June 12, 2026 PDF on 2026-09-26; inspected nearest-point definition and residual orthogonality. No general projection existence theorem is assumed in the student proof."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Choose how errors cost",
+          "gate": "Core: weighted areas and squares",
+          "intro": "The landscape is f(x)=0 for 0≤x<2/3 and f(x)=6 for 2/3≤x≤1. A candidate is any real constant height c. Rule cards: Q(c)=∫₀¹(f−c)² dx; A(c)=∫₀¹|f−c| dx; W(c)=max₀≤x≤1|f(x)−c|. For these step functions, each integral is a sum of rectangle widths times their heights.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose one rule card and two candidate heights. Predict the winner before calculating. Challenge your partner to improve the winner, and record which rule your comparison uses.",
+              "solution": "Any two real choices are legal. For example c=0,3 give Q=12,9, A=2,3 and W=6,3. Thus the preferred candidate can depend on the chosen card. All comparisons use Q=(2/3)c²+(1/3)(6−c)², A=(2/3)|c|+(1/3)|6−c|, W=max(|c|,|6−c|). A failed search is not yet an optimality proof.",
+              "hints": [
+                "Compute the two rectangle contributions separately.",
+                "Keep the horizontal widths even when the two heights look equally important."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Using rule Q, find the best height among ALL real c. Give a certificate that excludes every better competitor, and decide whether any different height ties.",
+              "solution": "Q(c)=(2/3)c²+(1/3)(6−c)²=c²−4c+12=(c−2)²+8. Hence the unique minimizer is c=2 and minimum cost 8. The square is nonnegative for every real c and is zero only at 2. The unweighted midpoint 3 costs 9 because the low region has twice the width.",
+              "hints": [
+                "Can you write the cost as a nonnegative square plus a constant?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "One landscape, different demands",
+          "gate": "Core proof: absolute values and worst error",
+          "intro": "Keep the landscape unchanged. A rule measures what it says: area under squared error, area under absolute error, or the single worst vertical error.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Find every best height for rule A. Your proof must include candidates below 0 and above 6, not just the heights you tried.",
+              "solution": "For c<0, A=2−c; for 0≤c≤6, A=2+c/3; for c>6, A=c−2. Each outer branch decreases toward or increases away from [0,6], and the middle branch is strictly increasing. Thus c=0 is the unique minimum, with cost 2. Endpoint formulas agree.",
+              "hints": [
+                "Break the real line where the signs inside absolute values change."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Find every best height for rule W and prove the lower bound. Write a claim about “the best average height” that your three results refute, then repair the claim so it states a true mathematical question.",
+              "solution": "For any c, 6=|6−0|≤|6−c|+|c|≤2W(c), so W≥3. At c=3 both errors equal 3. If W≤3 then |c|≤3 and |6−c|≤3 force c=3, proving uniqueness. “One height is best regardless of how error is charged” is false: Q,A,W have respective optima 2,0,3. A repaired question names the landscape, allowed constants and exact objective.",
+              "hints": [
+                "A worst-error allowance must cover both heights at once."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Design the widths",
+          "gate": "Continuation: a parameter and complete cases",
+          "intro": "Now f_p is 0 on [0,p) and 6 on [p,1], where 0<p<1. Both heights occupy a positive width. Keep all three cost definitions.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Classify all minimizing heights for Q, A and W as p varies. Identify any value of p where a unique answer becomes a whole set of answers.",
+              "solution": "Q_p=p c²+(1−p)(6−c)²=(c−6(1−p))²+36p(1−p), so its unique optimum is 6(1−p). For 0≤c≤6, A_p=6(1−p)+(2p−1)c; outside this interval moving toward it strictly reduces cost. Thus A has unique optimum 0 when p>1/2, unique optimum 6 when p<1/2, and every c∈[0,6] when p=1/2. W is independent of p in this open range and uniquely minimized at 3. Restricting 0<p<1 avoids mixing absent regions or isolated endpoint values into the maximum convention.",
+              "hints": [
+                "For absolute loss, watch the sign of 2p−1.",
+                "Both heights remain present, so the maximum rule still compares the same two errors."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Choose a desired squared-loss optimum h with 0<h<6. Build the low-region width that produces it and prove it is the only such width. Can that same landscape have h as its unique absolute-loss optimum?",
+              "solution": "The required equation 6(1−p)=h gives the unique p=1−h/6, which lies in (0,1). For example h=9/2 needs p=1/4. No interior h can be the unique A optimum: those unique optima are only 0 or 6; when p=1/2, every interior height ties with every height in [0,6]. Even h=3 is then a tie rather than a unique A optimum.",
+              "hints": [
+                "Use your parameter formula, then check which values the absolute rule can select uniquely."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Let heights a₁,…,a_n occupy positive widths w₁,…,w_n with Σw_i=1. Find the best constant for squared loss. Prove the residual has weighted sum zero and derive an identity certifying uniqueness.",
+          "solution": "Set μ=Σw_i a_i. Then Σw_i(a_i−μ)=0. Expanding a_i−c=(a_i−μ)+(μ−c) gives Σw_i(a_i−c)²=Σw_i(a_i−μ)²+(μ−c)²; the cross term vanishes and the weights sum to one. Therefore μ uniquely minimizes the cost, even if all heights coincide. This is the orthogonality of the residual to constants in this finite step-function model.",
+          "gate": "Finite sums, expansion and positive weights."
+        }
+      ],
+      "figures": {
+        "landscape": {
+          "interval": [
+            0,
+            1
+          ],
+          "breakpoint": "2/3",
+          "heights": [
+            0,
+            6
+          ],
+          "show_optimum": false
+        },
+        "loss_cards": [
+          "squared integral Q",
+          "absolute integral A",
+          "maximum W"
+        ],
+        "variable_width_domain": "0<p<1",
+        "workspace": "Large landscape with equal coordinate labels and a movable horizontal strip; preserve exact 2:1 horizontal width ratio. Blank candidate ledger, no answer heights."
+      }
+    },
+    {
+      "id": "GA-19",
+      "title": "Defeat a claimed derivative bound",
+      "core_gate": "Calculus is essential: polynomial derivatives, maximum norms and quantified counterexamples. Fixed-scale graph sketches are evidence; the all-bounds obstruction needs exact derivatives.",
+      "index_gate": "Polynomial derivatives, supremum norms and an every-bound counterexample",
+      "extension_gate": "Forward differences, bounded measurement errors and a worst-case triangle inequality. The integration comparison on page 3 needs definite integrals.",
+      "reading": "Read statements with “for every function” and “for every proposed bound”; distinguish input size, derivative size and their ratio.",
+      "materials": "Fixed-scale axes on [0,1], polynomial trial cards, pencil; calculator optional for plotting but not needed for the proofs.",
+      "prep_minutes": 4,
+      "timing": "Allow 10 minutes to choose an error budget and slope challenge, 15–20 for exact polynomial construction, and 20 for a universal obstruction. Stronger norms and integration belong to a later calculus discussion if needed.",
+      "launch": "Make a graph stay inside a tiny height allowance while its slope at the right endpoint beats a chosen target. Keep the horizontal and vertical scales fixed.",
+      "satisfying_stop": "A polynomial construction defeats every fixed bound on derivative size in terms of graph height alone.",
+      "prior_use": "GA-09 uses derivatives to test evolution laws; GA-17 shows amplification near a critical parameter. Here the derivative itself is the fixed operator and the input norm is the issue. The original x^n/n witness is retained but now supports learner-chosen thresholds, a complete no-bound argument and a norm repair.",
+      "assessment": "Advanced/specialist. Calculus and quantifiers are the satisfying core. Small-looking plots alone would miss the point; the exact endpoint derivative and norm ratio make the result decisive. Unpiloted.",
+      "mathematical_connection": "Unbounded differentiation D:C¹[0,1]→C[0,1] with both supremum norms, continuity under a stronger input norm, and bounded integration. Operator norm can be sharp without being attained by any nonzero input.",
+      "sources": [
+        {
+          "title": "Sheldon Axler, Measure, Integration & Real Analysis",
+          "url": "https://measure.axler.net/MIRA.pdf",
+          "locator": "§6C, Definition 6.43 and Examples 6.44–6.45, printed pp.167–168 (PDF pp.182–183).",
+          "adaptation": "Use the norm and bounded-map definitions; all polynomial witnesses, changed-norm results and integration bounds are derived here.",
+          "checked": "Reopened on 2026-09-26. This precise §6C locator replaces the original broad Chapter 10 reference. The source examples are not falsely described as the worksheet derivative example."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Small height, chosen slope",
+          "gate": "Calculus core: powers and derivatives",
+          "intro": "All graphs use 0≤x≤1 and fixed axis scales. For a continuous real function, write ||f||∞=max₀≤x≤1|f(x)|. A polynomial is allowed; no graph may change its horizontal domain to win.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose a height allowance ε>0 and a slope target M>0. Build a polynomial a x^n with ||a x^n||∞≤ε and derivative at x=1 at least M. Give a rule that works for every chosen pair. Also meet ε=1/1000 and M=7 exactly.",
+              "solution": "Take a=ε and a positive integer n≥M/ε. Since 0≤x^n≤1, the norm is ε and the endpoint derivative is εn≥M. For the supplied target, f=x^7000/1000 has norm 1/1000 and f′(1)=7. This is exact even when the narrow rise is hard to see on paper.",
+              "hints": [
+                "Where is x^n largest on this interval?",
+                "The endpoint derivative multiplies the coefficient by n."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "For f_n(x)=x^n/n, n=1,2,…, find the exact norms of f_n and f_n′. Sketch two choices on the supplied common axes and explain which exact fact the sketch cannot certify on its own.",
+              "solution": "f_n′=x^(n−1), with f_1′=1. Thus ||f_n||∞=1/n and ||f_n′||∞=1, attained at x=1. For example n=2 and 8 both rise from 0 but reach 1/2 and 1/8; their endpoint slopes are both 1. A raster or hand drawing cannot certify the supremum or the universal n statement.",
+              "hints": [
+                "Find a bound valid on the whole interval and a point attaining it."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Challenge every bound",
+          "gate": "Calculus proof: quantifiers and uniform convergence",
+          "intro": "A proposed bound is a finite C≥0 such that ||f′||∞≤C||f||∞ for EVERY continuously differentiable real function f on [0,1]. Differentiation is called bounded under these norms if some such C exists.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Let a partner name C. Defeat the claim using a polynomial, then prove that your strategy defeats every finite C. Why is one unsuccessful candidate C not enough?",
+              "solution": "For f_n, the ratio ||f_n′||∞/||f_n||∞=n. Choose an integer n>C; then 1>C/n, contradicting the proposed inequality. The construction depends on arbitrary C and thus rules out all finite bounds. Refuting only C=1 would leave open a larger valid bound. Differentiation is linear, but linearity alone does not give boundedness in infinite-dimensional spaces.",
+              "hints": [
+                "Translate the proposed inequality into a statement about n."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "A graph sequence converges uniformly to zero when its maximum absolute height tends to zero. Do f_n and their derivatives both do so? Would g_n(x)=x^n establish the same small-input claim? Explain the endpoint role.",
+              "solution": "||f_n||∞=1/n→0, but ||f_n′||∞=1 for every n, so the derivatives do not converge uniformly to zero. Their value at 1 stays 1. For each fixed x<1, f_n′(x)→0, which is a different pointwise statement. The sequence g_n has ||g_n||∞=1 because g_n(1)=1; it does not give uniform convergence of inputs to zero. Its large derivative still gives unbounded ratios, but it does not establish the stated small-input convergence contrast.",
+              "hints": [
+                "Check x=1 before guessing a limit from the graph away from the edge."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Change the measurement",
+          "gate": "Advanced continuation: norms and integrals",
+          "intro": "Now measure a C¹ input by ||f||*=||f||∞+||f′||∞, while still measuring its derivative by ||f′||∞. Separately, define If(x)=∫₀ˣf(t)dt for continuous real f, using supremum norms for both input and output.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Find the smallest constant C for ||f′||∞≤C||f||*. Does any nonzero function attain equality for this smallest C? Distinguish a sharp bound from an attained ratio.",
+              "solution": "C=1 works since ||f′||∞≤||f||∞+||f′||∞. For f_n the ratio is 1/(1+1/n)=n/(n+1)→1, so no C<1 works. If f≠0, then ||f||∞>0, making the ratio strictly below 1. Thus the operator norm is exactly 1, with no nonzero attaining input. The zero function trivially satisfies equality 0=0 but has no defined output/input ratio.",
+              "hints": [
+                "Use the same witnesses, with their new input sizes.",
+                "A nonzero continuous function has positive maximum absolute value."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Find the smallest constant C for ||If||∞≤C||f||∞. Prove the bound for every continuous f, and find an input attaining it. Explain what changed between this experiment and task 5.",
+              "solution": "For 0≤x≤1, |If(x)|≤∫₀ˣ|f(t)|dt≤x||f||∞≤||f||∞. Thus C=1 works. For f=1, If=x and both norms equal 1, so C=1 is sharp and attained. Task 5 kept differentiation and changed the input norm; this task changes the operator to integration and uses the original supremum norms.",
+              "hints": [
+                "Bound the integral by a rectangle of height ||f||∞."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Suppose two measured values z(x),z(x+h) each differ from true values f(x),f(x+h) by at most ε, where h>0 and x,x+h∈[0,1]. Find the exact worst measurement contribution to the forward-difference error. Does this alone choose an optimal h for approximating f′?",
+          "solution": "Writing the two errors as e₀,e₁ gives difference error (e₁−e₀)/h, whose magnitude is at most 2ε/h. Taking e₁=ε,e₀=−ε attains it. This compares the measured difference with the true finite difference, not necessarily f′(x). A truncation-error model involving regularity of f would be needed to balance that other error and justify an optimal h.",
+          "gate": "Signed bounded errors and finite differences; derivative approximation is a separate issue."
+        }
+      ],
+      "figures": {
+        "domain": [
+          0,
+          1
+        ],
+        "common_axes": {
+          "x": [
+            0,
+            1
+          ],
+          "y": [
+            0,
+            1
+          ]
+        },
+        "witness": "x^n/n",
+        "supplied_target": {
+          "epsilon": "1/1000",
+          "M": 7
+        },
+        "workspace": "Common-scale blank graph and norm/derivative ledger; do not visually magnify each curve independently or print the winning exponent."
+      }
+    },
+    {
+      "id": "GA-20",
+      "title": "Choose a journey and its effort bill",
+      "core_gate": "Signed speeds, durations, squares and algebra suffice for finite schedules. The claim for every continuous piecewise-C¹ path has a separate calculus gate and uses the fundamental theorem.",
+      "index_gate": "Weighted squares for schedules; calculus for the proof over all paths",
+      "extension_gate": "Definite integrals, endpoint constraints and equality in a nonnegative-square integral.",
+      "reading": "Read a position-versus-time graph; distinguish signed displacement, total distance and a deliberately defined quadratic cost.",
+      "materials": "Position/time axes, speed-and-duration cards, pencil and optional counter moved along a number line. No physical energy measurement is required.",
+      "prep_minutes": 5,
+      "timing": "Spend 10 minutes inventing two-speed trips, 15 comparing exact bills, then 15–20 generalizing schedules or adding a waypoint. Give the calculus page only to learners who know integrals, possibly at a later meeting.",
+      "launch": "Get from position 0 to position 6 in three time units. You can rush, pause or go backward. What trip is cheapest when speed is squared before charging?",
+      "satisfying_stop": "An exact bill identity proves the unique cheapest schedule; adding a waypoint changes the winner in a controlled way.",
+      "prior_use": "Week 1 packing uses an attained lower bound; this changes the objects to speed schedules and paths. AP-12 minimizes travel time across media, while this fixes duration and minimizes a declared quadratic functional. GA-18 changes a loss rule for a landscape; the comparison here tests uniqueness of motion.",
+      "assessment": "Promising for algebra-ready learners on finite schedules; advanced/specialist for the full variational claim. The cost is a mathematical rule, not an assertion about calories or fuel. Unpiloted.",
+      "mathematical_connection": "A global variational minimum obtained by a square identity, including equality and waypoint constraints. An Euler–Lagrange stationary condition is not used as a sufficient minimum proof.",
+      "sources": [
+        {
+          "title": "UCL MATH0043, Calculus of Variations",
+          "url": "https://www.homepages.ucl.ac.uk/~ucahmto/latex_html/pandoc_chapter2.html",
+          "locator": "§2, “Functionals and Extrema,” “The Statement of an Example Problem,” and Euler–Lagrange setup.",
+          "adaptation": "Use a functional on an explicitly admissible path class. The selected endpoint/waypoint instances and global square certificates are independently derived.",
+          "checked": "Reopened the functional setup on 2026-09-26. The source provides context rather than a claim that stationarity proves the worksheet global optimum."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Invent a speed schedule",
+          "gate": "Core: signed displacement and weighted squares",
+          "intro": "Start at y=0 and finish at y=6 after time 3. First travel at constant signed speed v for time 1, then w for time 2. The bill is E=v²+2w². This invented quadratic-effort rule is not a physical fuel law.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose two different legal schedules, one with a pause or backward motion. Draw their position graphs and compare their exact bills. What equation decides whether a proposed schedule finishes correctly?",
+              "solution": "Legality is v+2w=6. Examples: (v,w)=(6,0) has bill 36 and a pause; (0,3) has bill 18; (−2,4) has bill 36 and initially goes backward; (2,2) has bill 12. Draw straight graph segments through (0,0),(1,v),(3,6). Any pair satisfying the endpoint equation is allowed, including negative speeds.",
+              "hints": [
+                "A speed is charged for the length of time it is used."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Find the cheapest legal two-speed schedule and prove uniqueness among all real v,w. Try expressing a rival schedule as a change from your candidate.",
+              "solution": "Write v=2+2a,w=2−a; this describes every solution of v+2w=6. Then E=(2+2a)²+2(2−a)²=12+6a². The unique minimum is 12 at a=0, hence v=w=2. The certificate includes all signed speeds.",
+              "hints": [
+                "Use the endpoint equation to express both speeds with one free parameter."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Let a rival use more changes",
+          "gate": "Core proof: finite weighted sums",
+          "intro": "A rival may choose any finite list of durations Δt_i>0 summing to 3 and real speeds v_i satisfying ΣΔt_i v_i=6. The bill is E=ΣΔt_i v_i². Changes of speed occur only at the finitely many joins.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Can any such rival beat your cheapest schedule? Derive a formula for its excess cost above 12 and say exactly when it is zero.",
+              "solution": "Expand ΣΔt_i(v_i−2)²=E−4ΣΔt_i v_i+4ΣΔt_i=E−24+12=E−12. Therefore E=12+ΣΔt_i(v_i−2)²≥12. Since every duration is positive, equality holds exactly when every v_i=2. Different partitions can describe the same winning position path y=2t; they do not give different motions.",
+              "hints": [
+                "Use both the total-time and total-displacement constraints when expanding."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Now require the trip to pass through y=4 at time 1. Find and prove the new cheapest finite schedule, allowing any extra speed changes before or after that time. Does it refute your earlier theorem?",
+              "solution": "Split or refine the schedule at time 1. On [0,1], displacement 4 and duration 1 give E₁=16+ΣΔt_i(v_i−4)²≥16. On [1,3], displacement 2 and duration 2 give E₂=2+ΣΔt_i(v_i−1)²≥2. The unique winning motion uses speed 4 then 1, with bill 18. It does not refute the earlier minimum 12: the new constraint excludes y=2t, whose position at time 1 is only 2.",
+              "hints": [
+                "Treat the two time intervals as separate endpoint problems."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Every admissible curve",
+          "gate": "Calculus continuation: FTC and equality in an integral",
+          "intro": "An admissible y:[0,3]→R is continuous, is C¹ on each of finitely many closed subintervals, and satisfies y(0)=0,y(3)=6. One-sided derivatives at a join may differ; their point values do not affect E=∫₀³(y′)²dt.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Prove the exact minimum and uniqueness for this whole class of curves, not only piecewise-linear schedules. Explain why the equality case determines the path at the joins as well.",
+              "solution": "The fundamental theorem on each piece telescopes to ∫₀³y′dt=6. Expanding gives E=12+∫₀³(y′−2)²dt≥12. If equality holds, the continuous nonnegative integrand on every C¹ piece must be zero: a positive value would remain positive on a small interval and have positive integral. Thus y′=2 within every piece. Continuity at joins and y(0)=0 force y(t)=2t throughout, which attains 12. Derivative values assigned to individual join points are irrelevant.",
+              "hints": [
+                "Apply the fundamental theorem piece by piece before completing the square."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Test the family y_a(t)=2t+a t(3−t) in your effort formula. Then change the bill to total distance L=∫₀³|y′|dt. Find its minimum over all admissible paths and all values of a for which this family attains it. Does uniqueness survive?",
+              "solution": "y_a′=2+a(3−2t), so E=12+a²∫₀³(3−2t)²dt=12+9a². For distance, L≥|∫y′|=6. Equality holds exactly for nondecreasing admissible paths: L−6=∫(|y′|−y′), and continuity of y′ on pieces rules out any negative derivative interval; conversely nonnegative derivatives imply monotonicity and L=6. In this family the linear derivative is nonnegative throughout iff 2−3|a|≥0, i.e. |a|≤2/3. Thus infinitely many distinct paths attain distance 6, while only a=0 attains minimum quadratic effort.",
+              "hints": [
+                "For distance, compare |y′| with y′ point by point.",
+                "The minimum of a linear derivative on an interval occurs at an endpoint."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "For prescribed endpoints y(0)=A,y(T)=B with T>0, prove the exact quadratic minimum. Then prescribe finitely many time-position waypoints with strictly increasing times. State and prove the unique minimizing motion.",
+          "solution": "Set v=(B−A)/T. FTC and expansion give ∫[0,T](y′)²=(B−A)²/T+∫[0,T](y′−v)². Equality forces y=A+vt as above. For waypoints (t_i,b_i), apply this identity on each interval: the minimum is Σ(b_(i+1)−b_i)²/(t_(i+1)−t_i). Equality on every interval forces the unique piecewise-linear interpolation, which is admissible. Negative displacements and repeated positions are allowed; only repeated times were excluded.",
+          "gate": "Piecewise calculus and a global equality argument."
+        }
+      ],
+      "figures": {
+        "endpoint_data": {
+          "start": [
+            0,
+            0
+          ],
+          "finish": [
+            3,
+            6
+          ],
+          "first_change_time": 1,
+          "waypoint": [
+            1,
+            4
+          ]
+        },
+        "axes": {
+          "t": [
+            0,
+            3
+          ],
+          "y": [
+            -3,
+            9
+          ]
+        },
+        "student_paths": "blank; only required endpoints or explicitly added waypoint are marked",
+        "guide_identities": [
+          "E=12+6a²",
+          "E=12+ΣΔt_i(v_i−2)²",
+          "E[y_a]=12+9a²"
+        ]
+      }
+    },
+    {
+      "id": "GA-21",
+      "title": "A mirror that is too short",
+      "core_gate": "Distances, equal-scale coordinates, reflection and the triangle inequality. The shortened-mirror proof uses a supplied strict-convexity tool with an explicit geometric justification; calculus is not required.",
+      "index_gate": "Reflection and triangle inequality; convexity for a constrained optimum",
+      "extension_gate": "Symbolic coordinates and a convex-combination argument covering all closed mirror segments.",
+      "reading": "Read a legal-contact interval and distinguish an unattainable lower bound from a minimum actually achieved by a legal route.",
+      "materials": "Equal-scale coordinate mirror diagrams, ruler, string or two straight strips, pencil and tracing paper for reflection.",
+      "prep_minutes": 7,
+      "timing": "Allow 10–15 minutes for string trials, 15 for unfolding, a short break, then 20 for the shortened mirror. The general segment theorem can be a later proof discussion.",
+      "launch": "Touch the mirror once on the way from A to B. Choose the contact point and try to make the broken route shorter. Then lose the last part of the mirror.",
+      "satisfying_stop": "A global shortest route is certified by unfolding; when its contact becomes illegal, a separate argument proves the new endpoint winner.",
+      "prior_use": "Week 9 already uses billiard unfolding for trajectories and periods. This new instance centers continuous optimization, uniqueness and a finite-mirror obstruction; the old periodic path is not repeated. AP-12 changes speed across a boundary, whereas both legs here have the same distance cost.",
+      "assessment": "Promising with coordinate and geometric proof gates. The first optimum is concrete; the shortened segment requires real abstraction and should not be settled by ruler precision. Unpiloted.",
+      "mathematical_connection": "Reflection converts a broken-path minimum to an attained triangle-inequality bound. Strict convexity establishes the constrained endpoint rule; stationarity or visual symmetry alone is insufficient.",
+      "sources": [
+        {
+          "title": "Anton Petrunin, Euclidean Plane and Its Relatives",
+          "url": "https://arxiv.org/pdf/1302.1630",
+          "locator": "§5D, Proposition 5.8 and Corollary 5.10, printed pp.39–40; §5F, Lemma 5.13, pp.41–42.",
+          "adaptation": "Use distance preservation by line reflection and the triangle-inequality framework. Both mirror intervals and the strict-convexity constraint proof are independently derived.",
+          "checked": "Reopened reflection and shortest-perpendicular proofs on 2026-09-26; no claim that the selected shortened-mirror instance is quoted from the source."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Place the contact point",
+          "gate": "Core: a route, distances and a legal interval",
+          "intro": "A=(−2,3), B=(6,1). A legal route consists of the two straight segments A→M→B, where M=(m,0) and −3≤m≤5. Minimize their total Euclidean length. Both endpoints lie above the mirror line.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Use string or drawn segments to choose and compare legal contact points. Try to improve your best route and record a conjectured winner. What would a proof need to exclude that your trials do not?",
+              "solution": "Any contacts in [−3,5] are legal. For example m=−2 gives 3+√65, m=0 gives √13+√37, and m=4 gives √45+√5=4√5. Measurements may suggest m=4, but cannot exclude the continuum of untried contacts or prove exact uniqueness. Later reflection supplies that certificate.",
+              "hints": [
+                "Keep both legs straight and keep the contact on the allowed segment."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Write the exact length F(m). Is the midpoint of the mirror always a shortest contact? Test that claim on this diagram with an exact comparison.",
+              "solution": "F(m)=√((m+2)²+9)+√((m−6)²+1). The mirror midpoint is m=1, with F(1)=√18+√26. Its square is 44+12√13>80 because √13>3, so F(1)>4√5=F(4). Thus the midpoint is not shortest. Both quantities are positive, so comparing squares is valid. A learner may use another exact comparison that disproves the midpoint claim.",
+              "hints": [
+                "The midpoint of [−3,5] is 1.",
+                "Use the Pythagorean theorem on each leg before comparing."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Unfold the route",
+          "gate": "Core proof: reflection and equality",
+          "intro": "Reflect a point across y=0 by changing the sign of its y-coordinate. You may use the triangle inequality: |UV|+|VW|≥|UW|, with equality exactly when V lies on the straight segment from U to W.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Reflect B to B′. Construct the crossing of the straight segment AB′ with y=0 and find its exact coordinate. Is it a legal contact?",
+              "solution": "B′=(6,−1). A+s(B′−A)=(−2+8s,3−4s), so crossing y=0 requires s=3/4 and gives M=(4,0). Since 4∈[−3,5], this contact is legal. The construction does not need a protractor: draw the reflected point and straight joining segment.",
+              "hints": [
+                "Solve the vertical coordinate first."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Prove the exact shortest length and the uniqueness of its contact. State where reflection and the equality condition each enter the argument.",
+              "solution": "Reflection fixes every M on y=0 and preserves distance, so |MB|=|MB′|. Therefore F(m)=|AM|+|MB′|≥|AB′|=√(8²+4²)=4√5. The crossing m=4 attains the bound. Equality requires M∈[AB′], and this segment crosses the mirror line exactly once because its endpoint y-coordinates have opposite signs. Hence m=4 is the unique optimum.",
+              "hints": [
+                "A lower bound is a minimum only after a legal route attains it."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Remove part of the mirror",
+          "gate": "Proof continuation: a constrained minimum",
+          "intro": "Now only −3≤m≤2 is legal. Supplied tool: F is strictly convex, meaning F((1−t)m+tn)<(1−t)F(m)+tF(n) for m≠n and 0<t<1. Justification: apply the vector triangle inequality to each leg; vectors (m+2,−3) and (n+2,−3) cannot be positive parallel multiples unless m=n, and likewise for the other leg. Positive endpoint heights make the inequalities strict.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Choose the best contact on the shortened mirror. Compute its exact length. Explain why merely repeating the lower bound 4√5 does not prove your new candidate is best.",
+              "solution": "The candidate is m=2, giving F(2)=√(4²+3²)+√((−4)²+1)=5+√17. The previous lower bound remains true, but equality would require m=4, now illegal. Thus it gives only an unattained lower bound for this restricted problem. Trials suggest m=2 but the monotonicity argument in task 6 is the certificate.",
+              "hints": [
+                "Find where the unfolded equality contact lies relative to the remaining mirror."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Use the strict-convexity tool and the known unique minimum at 4 to prove that F strictly decreases to the left of 4 and strictly increases to its right. Finish the shortened-mirror proof, including uniqueness.",
+              "solution": "If x<y<4, write y=(1−t)x+t·4 with 0<t<1. Strict convexity gives F(y)<(1−t)F(x)+tF(4)<F(x), because F(4)<F(x). The endpoint case y=4 follows from uniqueness of the global minimum. Reversing the order similarly proves increase for 4<x<y: x is a strict convex combination of 4 and y, so F(x)<F(y). Therefore every m<2 in [−3,2] has F(m)>F(2), proving the unique constrained minimum 5+√17.",
+              "hints": [
+                "Express an intermediate contact as a weighted average of a farther contact and 4."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Let A=(a,h), B=(b,k) with h,k>0. Find the shortest two-leg route touching any prescribed closed segment [s,t] on y=0, where s<t. Give its unique contact for every relative position of the unconstrained crossing.",
+          "solution": "Reflect B to (b,−k). The crossing occurs at fraction h/(h+k) of the joining segment, hence m*=(ka+hb)/(h+k). The unrestricted length is √((b−a)²+(h+k)²), attained uniquely at m*. Each distance term is strictly convex in m because its endpoint height is positive; the same argument as task 6 gives strict decrease before m* and increase after. Thus the unique legal contact is s if m*<s, m* if s≤m*≤t, and t if m*>t. Evaluate √((m−a)²+h²)+√((m−b)²+k²) there. Equality cases m*=s or t are included.",
+          "gate": "Coordinate algebra, reflection and strict convexity."
+        }
+      ],
+      "figures": {
+        "A": [
+          -2,
+          3
+        ],
+        "B": [
+          6,
+          1
+        ],
+        "mirror_intervals": [
+          [
+            -3,
+            5
+          ],
+          [
+            -3,
+            2
+          ]
+        ],
+        "axes": {
+          "x": [
+            -4,
+            7
+          ],
+          "y": [
+            -2,
+            4
+          ],
+          "equal_scale": true
+        },
+        "student_scaffold": "First diagram marks only A,B and allowed mirror; second leaves reflected B and crossing for construction. No optimal contact printed.",
+        "guide_only": {
+          "B_reflected": [
+            6,
+            -1
+          ],
+          "unconstrained_M": [
+            4,
+            0
+          ],
+          "constrained_M": [
+            2,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "GA-22",
+      "title": "Make a four-peg challenge",
+      "core_gate": "Convex hulls as stretched bands, planar cases and a complete argument. Exact certificates later require fractions and coordinate combinations; general dimension requires a separately supplied linear-algebra fact.",
+      "index_gate": "Convex-hull pictures and complete cases; fractions for exact certificates",
+      "extension_gate": "Linear dependence in R^(d+1), signed coefficients and normalized convex combinations.",
+      "reading": "Every label must belong to exactly one of two nonempty groups. Hulls include their boundaries, and the hull of one peg is just that point.",
+      "materials": "Printed coordinate peg boards, four labeled counters, two colored pencils or bands and blank arrangement grids. Avoid actual sharp pegs.",
+      "prep_minutes": 6,
+      "timing": "Allow 10 minutes to invent and exchange arrangements, 15 for the two supplied boards, then 20–30 for cases and proof. Exact coordinate certificates are a later fraction-ready continuation.",
+      "launch": "Place four pegs to make your partner’s job hard. Your partner must split the labels into two groups whose stretched-band regions touch.",
+      "satisfying_stop": "A strategy works for every four-point arrangement, including collinear and coincident cases, while three pegs can defeat it.",
+      "prior_use": "Week 1 tiling uses polygonal pieces but not intersecting hulls of a partition. The original four-peg idea is extended through adversarial arrangement choice, complete degeneracy cases and new exact convex-combination certificates. No previous trial uses these coordinate boards.",
+      "assessment": "First-pilot candidate for the planar core with oral rules and drawings; the exact certificate and general-dimensional theorem have separate gates. Unpiloted; give time to understand one-point hulls before challenging the theorem.",
+      "mathematical_connection": "Planar Radon partition, minimality of four in the worst case, and equal convex combinations extracted from a signed affine relation. The finite examples are not the proof for all arrangements.",
+      "sources": [
+        {
+          "title": "Daniel Hug and Wolfgang Weil, A Course on Convex Geometry",
+          "url": "https://users.fmf.uni-lj.si/lavric/hug%26weil.pdf",
+          "locator": "§1.2, Theorem 1.2.1 (Radon), printed p.22 (PDF p.22).",
+          "adaptation": "Use the affine-dependence partition mechanism; derive new planar examples and a hull-case proof before the linear-algebra extension.",
+          "checked": "Reopened the statement and complete positive/negative coefficient proof on 2026-09-26. Zero coefficients and nonempty groups are explicitly handled in this adaptation."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Challenge the splitter",
+          "gate": "Core: two nonempty groups and their hulls",
+          "intro": "Use four distinct labeled points. Assign every label to exactly one of two nonempty groups. A group’s convex hull is the smallest filled convex region containing it: one point stays a point, two make a segment, and three noncollinear points make a filled triangle. Boundary contact counts as an intersection.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Place four distinct pegs of your choice and trade the board with a partner. Find a legal split whose hulls meet, or try to explain why your arrangement defeats every split. Mark the actual common point when you succeed.",
+              "solution": "Every four-point arrangement permits a split, as proved later. For checking a chosen board, look for a point lying in the triangle of the other three; isolate it if present. Otherwise a noncollinear board is a convex quadrilateral and opposite pairs have intersecting diagonals. In a collinear board, isolate a nonextreme point. A convincing trial shows an actual shared point and assigns all labels once; merely overlapping bounding boxes is not enough.",
+              "hints": [
+                "A single peg can be one whole group.",
+                "Try separating alternate corners around the outside."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Solve both supplied boards: A=(0,0),B=(6,0),C=(5,4),D=(0,3); and A=(0,0),B=(6,0),C=(0,6),P=(2,1). Explain how the winning splits use different kinds of hulls.",
+              "solution": "For the first board, split {A,C} and {B,D}; the two segments cross. For the second, split {P} and {A,B,C}; P lies inside the triangle. The first witness is the intersection of two segments; the second is a one-point hull contained in a filled triangle. Exact common-point coefficients are derived later, so an accurate geometric construction is enough here.",
+              "hints": [
+                "For the second board, test whether P lies inside the outer triangle."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Can any arrangement defeat you?",
+          "gate": "Core proof: all cases, including degeneracy",
+          "intro": "You may use this elementary planar hull fact: four distinct points that are not all collinear either include a point in or on the triangle of the other three, or are the four corners of a convex quadrilateral. Diagonals of a convex quadrilateral intersect inside it.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Prove that every four-distinct-point board has a legal split with meeting hulls. Include all-collinear points and three-collinear-plus-one-off-line points, and explain why your cases cover every board.",
+              "solution": "If one point lies in or on the triangle of the other three, isolate it. If no such point exists and the board is not collinear, the supplied hull fact gives four convex corners; split alternate corners to get the crossing diagonals. If all four are collinear, order them along the line and isolate either nonextreme point; the other three have a segment hull containing it. With exactly three collinear and one off-line, isolate the middle collinear point, which lies on an edge of the triangle of the other three. All groups are nonempty and all labels are used. These cases exhaust the supplied hull alternatives and their collinear boundary.",
+              "hints": [
+                "Do not silently discard a point sitting on a triangle edge."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Allow different labels to occupy the same location. Does the conclusion change? Then show that three points are not enough to guarantee success for every board.",
+              "solution": "If two labels coincide, put one alone and every other label in the second group; the matching label gives the same point in both hulls. If none coincide, task 3 applies. Thus the conclusion survives all coincidences. Three noncollinear points give a counterexample to a three-point guarantee: every partition has a singleton vertex versus the opposite segment, which does not contain that vertex. This says three can fail, not that every three-point arrangement fails.",
+              "hints": [
+                "Labels must be separated into groups even when their physical positions agree."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Certify contact with fractions",
+          "gate": "Continuation: convex combinations and coordinates",
+          "intro": "A convex combination is Σw_i P_i with w_i≥0 and Σw_i=1. It belongs to the hull of those points. Use the same two coordinate boards as before; no diagram measurement counts as an exact fraction.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Find the exact crossing of AC and BD in the first board. Express it as a convex combination from each group, and explain why the coefficients certify actual segment contact.",
+              "solution": "Write A+r(C−A)=(5r,4r) and B+s(D−B)=(6−6s,3s). From 4r=3s and 5r=6−6s, r=6/13,s=8/13. The point is (30/13,24/13)=(7/13)A+(6/13)C=(5/13)B+(8/13)D. Each pair of positive coefficients sums to 1, so the point lies inside both segments.",
+              "hints": [
+                "Solve the two coordinate equations for the two segment parameters."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Express P from the second board as a convex combination of A,B,C. Move all terms to one side to obtain a signed relation with coefficient sum zero. Why do signed coefficients alone not describe a point inside one hull?",
+              "solution": "P=(1/2)A+(1/3)B+(1/6)C, since the B,C terms contribute (2,0),(0,1), and weights sum to 1. Thus (1/2)A+(1/3)B+(1/6)C−P=0 with coefficient sum 0. The relation compares two convex combinations, the second being 1·P. A signed combination within a single group can leave its hull: for example 2B−A=(12,0) lies outside segment AB. Nonnegative weights and sum one are essential to a hull certificate.",
+              "hints": [
+                "Read the x- and y-coordinates first, then find the remaining weight at A."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Supplied linear-algebra fact: any d+2 vectors in R^(d+1) are linearly dependent. Use the vectors (p_i,1) to prove that any d+2 labeled points in R^d split into two nonempty groups with intersecting hulls. Include zero coefficients and coincident points.",
+          "solution": "A nonzero relation Σα_i(p_i,1)=0 gives Σα_i p_i=0 and Σα_i=0. Since not all α_i vanish, at least one is positive and one negative. Set S=Σ_(α_i>0)α_i=Σ_(α_i<0)(−α_i)>0. Dividing the point relation by S gives equal convex combinations of the positive and negative groups. Each is nonempty. Assign zero-coefficient labels arbitrarily to either group; adding them does not remove the existing convex-hull witness. Coincidences do not affect linear dependence or the argument. The supplied dimension fact is the higher-dimensional prerequisite.",
+          "gate": "Linear dependence and signed affine/convex combinations."
+        }
+      ],
+      "figures": {
+        "boards": [
+          {
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              6,
+              0
+            ],
+            "C": [
+              5,
+              4
+            ],
+            "D": [
+              0,
+              3
+            ]
+          },
+          {
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              6,
+              0
+            ],
+            "C": [
+              0,
+              6
+            ],
+            "P": [
+              2,
+              1
+            ]
+          }
+        ],
+        "student_hulls": "No hull edges, diagonals or witness point preprinted on initial boards. Blank arrangement grid supplied.",
+        "guide_only": {
+          "crossing": [
+            "30/13",
+            "24/13"
+          ],
+          "AC_weights": [
+            "7/13",
+            "6/13"
+          ],
+          "BD_weights": [
+            "5/13",
+            "8/13"
+          ],
+          "ABC_weights": [
+            "1/2",
+            "1/3",
+            "1/6"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GA-23",
+      "title": "Let the route turn a tangent arrow",
+      "core_gate": "Three-dimensional tangent vectors and a precisely supplied great-circle transport rule. Following a ball is entry; signed vector tracking is the proof. Varied longitude later needs sine/cosine components.",
+      "index_gate": "Spatial tangent vectors and component tracking; trigonometry comes later",
+      "extension_gate": "Rotation composition, integer multiples of an angle and rational versus irrational periods.",
+      "reading": "Distinguish the moving forward tangent from the transported arrow, and a leg’s fixed plane normal from the sphere’s outward normal. No compass rule is implied.",
+      "materials": "Ball marked with equator, north pole and two meridians; two differently colored paper arrows for forward tangent and carried vector; printed route and frame cards. A small flat card at a landmark helps show its tangent plane.",
+      "prep_minutes": 15,
+      "timing": "Allow 10 minutes just to try tangent directions, then demonstrate the transport rule on one leg. Spend 15–20 on the octant route and a reset, then 20 on exact frame tracking. The longitude and area pages can be a separate trigonometry meeting.",
+      "launch": "Carry an arrow around the marked spherical triangle. Keep it tangent by the stated rule, and do not turn the arrow when you turn the corner. Does coming home also restore its direction?",
+      "satisfying_stop": "An exact calculation shows every initial tangent arrow rotates by a quarter-turn around the octant; reversing or retracing has a different effect.",
+      "prior_use": "Week 9 billiards and GA-21 mirror unfolding concern a flat plane. GA-01 composes rigid box turns, whereas this follows vectors in changing tangent planes on a curved surface. The original octant example is retained as entry and grows into a proved rotation for every initial vector and variable longitude.",
+      "assessment": "Promising only with spatial-vector readiness; the trigonometric continuation is advanced. A hand-carried arrow is approximate and the exact rule must be rehearsed before interpreting physical results. Unpiloted.",
+      "mathematical_connection": "Parallel transport along great circles and holonomy on a specific spherical triangle. For a unit-speed great circle, T′=−r and a fixed N has N′=0, so the supplied aT+bN rule has derivative normal to the sphere and agrees with parallel transport. The general Gauss–Bonnet theorem is context, not proved here.",
+      "sources": [
+        {
+          "title": "Anton Petrunin and Sergio Zamora Barrera, What Is Differential Geometry? Curves and Surfaces",
+          "url": "https://arxiv.org/pdf/2012.11814",
+          "locator": "Chapter 16, pp.134–138: parallel fields, Proposition-Definition 16.2, Exercise 16.5 and Proposition 16.6; semisolution 16.5, p.202; Proposition 17.10, p.143.",
+          "adaptation": "Use the actual tangent-field/transport definition and octant example; derive exact frame calculations for all initial vectors and variable longitude independently.",
+          "checked": "Reopened on 2026-09-26. Inspected v′ normal-to-tangent-plane definition, transport existence statement, octant semisolution and spherical-area relation. Our +angle convention is explicitly +y toward +z at A."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Carry an arrow around the corner",
+          "gate": "Core: spatial directions and an exact rule",
+          "intro": "Use the unit sphere with A=(1,0,0), B=(0,1,0), C=(0,0,1). Route A→B→C→A follows the short great-circle arcs. On one leg let T be its forward unit tangent and N the fixed unit normal to that leg’s oriented plane. Write the carried arrow as aT+bN and keep a,b constant along that leg. At a corner keep the actual arrow fixed, then use the NEXT leg’s T,N. Do not turn it with the walker.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose initial arrow +y, +z or a mixture in A’s tangent plane. Predict its final direction, then try the route on the ball. Record the arrow at each landmark and any disagreement between prediction and experiment.",
+              "solution": "For +y the landmark sequence is +y at A, −x at B, −x at C and +z at A. For +z it is +z,+z,−y,−y. A mixture a·y+b·z follows the same linear combinations, ending −b·y+a·z. Physical errors are expected; the later frame cards supply the exact certificate. The arrow and forward tangent must be visibly separate, and no reset is allowed at corners.",
+              "hints": [
+                "Pause at a corner before changing the forward-tangent arrow.",
+                "Check that the carried arrow is still in the local tangent plane."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Starting from the same chosen arrow, compare A→B→A with A→C→B→A. Predict whether each restores the arrow. Explain why simply turning the arrow with the walker would be a different rule.",
+              "solution": "Retracing A→B→A restores every initial arrow because reverse transport undoes the preserved frame coefficients. The reverse triangular route gives the inverse of the forward quarter-turn: a·y+b·z maps to b·y−a·z, so a nonzero arrow is not restored. Rotating the arrow when the walker corners adds an extra rotation that the stated rule forbids; it can change or erase the effect being investigated. These predictions are proved by frame reversibility and task 4.",
+              "hints": [
+                "Reverse one leg while keeping the same physical arrow at the turning point."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Track the two basis arrows",
+          "gate": "Core proof: orthonormal frames and signed components",
+          "intro": "For 0≤t≤π/2 the supplied frames are: AB has r=(cos t,sin t,0), T=(−sin t,cos t,0), N=+z; BC has r=(0,cos t,sin t), T=(0,−sin t,cos t), N=+x; CA has r=(sin t,0,cos t), T=(cos t,0,−sin t), N=+y. In each case T,N are perpendicular unit vectors tangent at r.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Use the frame cards to compute the complete route first for initial +y and then for initial +z. At each corner explicitly rewrite the arriving vector in the next frame.",
+              "solution": "Initial +y equals T on AB and reaches B as −x. At B it equals −N on BC, so remains −x through C. At C it equals −T on CA, so ends +z. Initial +z equals N on AB, so stays +z to B. At B it equals T on BC, reaching C as −y. At C it equals −N on CA, so ends −y. These decompositions keep the physical vector fixed at corners.",
+              "hints": [
+                "Substitute t=0 and t=π/2 into each T before tracking the coefficients."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Find the final vector for every initial a·y+b·z. Prove the map preserves length and identify its signed angle in A’s tangent plane, where positive means from +y toward +z. Justify the inverse and retracing claims.",
+              "solution": "Each leg preserves linear combinations of its two frame vectors, and changes of frame are linear. Task 3 therefore gives (a,b)↦(−b,a), or a·y+b·z↦−b·y+a·z. Its squared length is b²+a², and it is the positive π/2 rotation in the stated orientation. Its inverse is (a,b)↦(b,−a). Traversing a leg backward uses the reversed forward tangent and plane normal; coefficients become −a,−b, and preserving them brings the same physical vector back. Therefore reversing a full route reverses the order of inverse leg maps, while an out-and-back cancels.",
+              "hints": [
+                "A linear map is determined by the images of +y and +z."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Choose a different longitude",
+          "gate": "Trigonometric continuation: changing frames",
+          "intro": "Keep A=(1,0,0), C=(0,0,1), but choose B=(cos α,sin α,0), 0<α<π. Travel the equator A→B and the short meridians B→C→A. Put c=cos α,s=sin α. Endpoint frames: AB has T:+y→(−s,c,0), N=+z; BC has T:+z→(−c,−s,0), N=(s,−c,0); CA has T:+x→−z, N=+y.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Derive the returning vector for initial +y and +z using these frames. Then give the formula for an arbitrary initial a·y+b·z. Do not assume an angle-area theorem.",
+              "solution": "Let u=(−s,c,0). Initial +y reaches B as u=−N_BC, remains u to C, then decomposes as −s T_CA+c N_CA. At A it becomes c·y+s·z. Initial +z reaches B unchanged, follows T_BC to −B=(−c,−s,0) at C, then equals −c T_CA−s N_CA; it ends −s·y+c·z. Linearity gives (a,b)↦(ac−bs,as+bc), a positive rotation by α. The formula was obtained entirely from the supplied transport rule.",
+              "hints": [
+                "At C, read the x and y components as the CA frame coefficients."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Choose a longitude separation and an initial vector; compute the final vector and test its length. Include the case α=π/3, initial +y. Can a nonzero vector be unchanged after one trip when 0<α<π?",
+              "solution": "For α=π/3 and +y, the result is (1/2)y+(√3/2)z, with length 1. Any chosen (a,b) follows task 5; expanding (ac−bs)²+(as+bc)²=(a²+b²)(c²+s²)=a²+b² proves exact length preservation. An unchanged vector solves (c−1)a−sb=0 and sa+(c−1)b=0. The determinant (c−1)²+s²=2(1−c)>0 for 0<α<π, so only a=b=0 works.",
+              "hints": [
+                "Use c²+s²=1, and keep the zero vector separate from a direction arrow."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What did the route measure?",
+          "gate": "Continuation: area and limits of a model",
+          "intro": "The unit sphere has area 4π. A lune of longitude width α occupies fraction α/(2π) of the sphere; its northern half is the triangle A→B→C→A. Angles are measured in radians.",
+          "prompts": [
+            {
+              "id": "7",
+              "text": "Compute the triangle’s area and compare it with the rotation you proved. Why is this a proved relation for this family of routes, but not a proof about all closed curves on every surface?",
+              "solution": "The full lune has area (α/(2π))·4π=2α, and its northern half has area α. The independently computed transport angle is also α. Both statements apply to this equator-and-two-meridians family on the unit sphere. We did not compute arbitrary spherical curves, prove a general area-holonomy theorem, or treat surfaces with varying curvature. The general theorem needs additional differential geometry.",
+              "hints": [
+                "Use rotational symmetry and the north/south division of the lune."
+              ]
+            },
+            {
+              "id": "8",
+              "text": "A partner proposes carrying an arrow fixed in surrounding three-dimensional space. Test a fixed +y arrow along AB. Give a closed route that does restore every arrow, and explain why curvature does not force every closed route to turn it.",
+              "solution": "On the equator r(t)=(cos t,sin t,0), the dot product of fixed +y with r(t) is sin t, nonzero in the interior. Therefore that arrow is not tangent there and violates the transport rule. A→B→A restores all arrows because the reverse leg is the inverse map. Curvature allows route-dependent rotation; it does not say every possible closed itinerary has nonzero rotation.",
+              "hints": [
+                "A tangent vector at r on the unit sphere is perpendicular to r."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Repeat the longitude-α route k times. For a nonzero initial arrow, determine exactly when it returns. Find the first return for α=π/3 and decide what happens if α/(2π) is irrational.",
+          "solution": "The proved matrix is a rotation by α; composing k copies gives angle kα. A nonzero vector returns exactly when cos(kα)=1 and sin(kα)=0, equivalently kα∈2πZ. For α=π/3 the least positive k is 6. If α/(2π) is irrational, no positive integer k can make its product an integer, so no exact finite return occurs. This is not a claim about approximate return or measurement precision.",
+          "gate": "Trigonometric rotation composition and rational/irrational multiples."
+        }
+      ],
+      "figures": {
+        "sphere_landmarks": {
+          "A": [
+            1,
+            0,
+            0
+          ],
+          "B": [
+            0,
+            1,
+            0
+          ],
+          "C": [
+            0,
+            0,
+            1
+          ]
+        },
+        "routes": [
+          [
+            "A",
+            "B",
+            "C",
+            "A"
+          ],
+          [
+            "A",
+            "B",
+            "A"
+          ],
+          [
+            "A",
+            "C",
+            "B",
+            "A"
+          ]
+        ],
+        "drawing_rule": "Three-dimensional sphere schematic with visible equator and meridians, labeled landmarks, route direction arrows; distinguish forward tangent and carried arrow by symbols as well as color. No final arrow printed before tracking.",
+        "octant_frames": [
+          {
+            "leg": "AB",
+            "T0": [
+              0,
+              1,
+              0
+            ],
+            "T1": [
+              -1,
+              0,
+              0
+            ],
+            "N": [
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "leg": "BC",
+            "T0": [
+              0,
+              0,
+              1
+            ],
+            "T1": [
+              0,
+              -1,
+              0
+            ],
+            "N": [
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "leg": "CA",
+            "T0": [
+              1,
+              0,
+              0
+            ],
+            "T1": [
+              0,
+              0,
+              -1
+            ],
+            "N": [
+              0,
+              1,
+              0
+            ]
+          }
+        ],
+        "variable_frames": "As explicitly printed on page 3; angle α in radians.",
+        "guide_only": {
+          "octant_matrix": [
+            [
+              0,
+              -1
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "variable_matrix": [
+            [
+              "cos α",
+              "−sin α"
+            ],
+            [
+              "sin α",
+              "cos α"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "GA-24",
+      "title": "Test a reversible reshaping",
+      "core_gate": "Tracing connected pieces and reasoning with a point-deletion invariant. The formal proof uses the definition of homeomorphism and supplied interval/continuous-image facts; arithmetic is not needed.",
+      "index_gate": "Connected pieces and a point-deletion proof; maps are defined explicitly",
+      "extension_gate": "Planar polygonal paths and a supplied finite-union-of-lines fact for a disk.",
+      "reading": "A mathematical puncture deletes one point, not a whole graph edge or a short physical strand. Joined crossings and disjoint curves must be distinguished.",
+      "materials": "String loop, open string, removable dot markers and printed loop/segment/Y/joined-eight/disjoint-loops diagrams. No cutting is needed to test imagined point removal.",
+      "prep_minutes": 5,
+      "timing": "Allow 10 minutes of free reshaping and tracing, 15 for chosen punctures, then 15–25 for impossibility arguments. Formula-map tests and the disk extension are separate continuations.",
+      "launch": "Bend a loop and an open string into many shapes. Invent a test that every truly reversible reshaping would have to pass.",
+      "satisfying_stop": "A point-deletion contradiction rules out a loop-to-segment homeomorphism, and an explicit ellipse map demonstrates what a successful reversible map requires.",
+      "prior_use": "Week 1 has discrete tiling moves. GA-06 compares a crossing algebraic curve with disjoint components; GA-27 uses connected sublevel sets. This task focuses on homeomorphisms, matching punctures and explicit failed/successful maps rather than visual resemblance.",
+      "assessment": "First-pilot candidate for tracing and puncture choices; promising with explicit topology facts for the proof. Physical string is an approximation to a space, so the one-point convention needs careful demonstration. Unpiloted.",
+      "mathematical_connection": "Connectedness preserved by continuous maps and homeomorphisms, restriction after deletion, cut points and limits of a one-point invariant. No complete classification of spaces follows from component counts.",
+      "sources": [
+        {
+          "title": "Romyar Sharifi, Point-Set Topology",
+          "url": "https://www.math.ucla.edu/~sharifi/notes/topology-ch03.html",
+          "locator": "Chapter 3, §3.1, Definition 3.1.1 and Proposition 3.1.8.",
+          "adaptation": "Use connectedness and preservation under continuous images. The puncture comparisons and explicit path constructions are derived here.",
+          "checked": "On 2026-09-26 direct page opens failed; retrieved and read the indexed primary-page text of the definition and proposition with proof. No uninspected page content is claimed."
+        },
+        {
+          "title": "Romyar Sharifi, Point-Set Topology",
+          "url": "https://www.math.ucla.edu/~sharifi/notes/topology-ch02.html",
+          "locator": "Chapter 2, Definition 2.1.13 and Examples 2.1.16.",
+          "adaptation": "Use the continuous-bijection-with-continuous-inverse definition. The circle/ellipse and failed maps are independent examples.",
+          "checked": "Read the indexed primary-page definition and homeomorphism examples on 2026-09-26."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Choose the point to remove",
+          "gate": "Core: trace pieces without jumping gaps",
+          "intro": "The pictures represent every point along the drawn strands, not just marked vertices. “Delete a point” means that single mathematical point is unavailable. A connected piece can be traced between any of its retained points in these examples. The figure-eight crossing and the Y center are joined; the two separate loops are not joined.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose points to delete from the circle and the closed segment. Try different positions and record the number of pieces left. Can a segment endpoint trick a test based on just one careless choice?",
+              "solution": "A circle minus any single point is one open arc, hence one connected piece. Deleting a segment endpoint leaves one piece; deleting an interior point leaves two. Thus choosing only an endpoint would make both examples give one and fail to distinguish them. The useful contrast is the existence of a segment cut point versus the circle’s every-point property.",
+              "hints": [
+                "Mark the missing point, then trace all retained strands without crossing it."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Choose useful punctures in the Y, the joined figure-eight and the two disjoint loops. Classify the possible numbers of remaining pieces for each shape. Explain the role of a junction instead of treating every drawn point alike.",
+              "solution": "Y: deleting its joined center gives three pieces; deleting an arm interior gives two; deleting an endpoint gives one. Joined figure-eight: deleting the joining point gives two open arcs; deleting any other point leaves the rest connected, since the broken loop remains attached to the intact loop through the join. Two disjoint loops: every one-point deletion leaves two pieces, one open arc and one intact circle. They already had two components before deletion. All statements concern one point, not removal of an entire edge.",
+              "hints": [
+                "An intact second loop may still connect both ends of a punctured strand through the join."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Turn the test into a proof",
+          "gate": "Topology proof: supplied facts and matching points",
+          "intro": "A homeomorphism is a continuous bijection with continuous inverse. Supplied facts: an interval is connected, and a continuous image of a connected space is connected. A homeomorphism restricts to a homeomorphism after deleting matching points, because the map and inverse remain continuous on their remaining subspaces.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Prove that the circle cannot be homeomorphic to [0,1]. Choose a point strategically, and justify why every corresponding punctured circle is connected.",
+              "solution": "Suppose h:[0,1]→S¹ is a homeomorphism. Remove 1/2 and h(1/2). The remaining interval has the two nonempty relatively open pieces [0,1/2) and (1/2,1], so is disconnected. A circle minus any point p is connected: rotate p to (1,0); the remaining circle is the continuous image of the connected interval (0,2π) under t↦(cos t,sin t). Rotation back preserves connectedness. The inverse of the restricted homeomorphism would send a connected punctured circle onto a disconnected punctured interval, contradiction.",
+              "hints": [
+                "Choose the interval point first, since you know how to make its deletion disconnect."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Use matching-point deletion to distinguish the Y from a segment and the joined figure-eight from a circle. Also distinguish the joined figure-eight from two disjoint circles.",
+              "solution": "Deleting the Y center leaves three components, whereas deleting any point of a closed segment leaves at most two. A restricted homeomorphism induces a bijection of connected components: a connected component maps into one, and the continuous inverse prevents a larger connected component from appearing. Thus Y and segment are not homeomorphic. Deleting the figure-eight join gives two components, but deleting any circle point leaves one, so these are not homeomorphic. The joined eight is connected before deletion and two disjoint circles are disconnected, already ruling out that homeomorphism.",
+              "hints": [
+                "When a puncture is not needed, use connectedness of the whole space."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Test actual maps",
+          "gate": "Continuation: bijections, inverses and coordinates",
+          "intro": "A continuous map onto a shape is not automatically a reversible reshaping. Test which of the definition’s requirements each candidate satisfies.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "The map (x,y)↦x sends the unit circle onto [−1,1]. The map t↦(cos 2πt,sin 2πt) sends [0,1] onto the circle. Why does neither contradict your impossibility proof? Exhibit the failure explicitly.",
+              "solution": "Both maps are continuous and onto, but neither is one-to-one. Projection identifies (0,1) and (0,−1), so it has no inverse function. The parametrization identifies t=0 and t=1, so it also has no inverse function on the stated domain. A picture covering the target does not meet the homeomorphism definition.",
+              "hints": [
+                "Find two different inputs sharing one output."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Build a homeomorphism from the unit circle to the ellipse (X/2)²+Y²=1. Give its inverse, check both compositions and explain continuity. What geometric features did this successful map change?",
+              "solution": "Use h(x,y)=(2x,y) and g(X,Y)=(X/2,Y). The circle equation becomes (X/2)²+Y²=x²+y²=1; conversely the ellipse maps into the circle. Both compositions are the identity, proving bijectivity and inverse formulas. Coordinate scaling is continuous, so both h and g are continuous. Lengths and most angles change; the connectedness and puncture properties used above do not.",
+              "hints": [
+                "Stretch one coordinate and undo that same stretch."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "A circle and a closed disk both remain connected after deleting any one point. Show this does not make them homeomorphic: compare deleting two distinct points. You may use the fact that finitely many lines cannot cover an open disk.",
+          "solution": "A circle minus two distinct points is the union of two disjoint open arcs, hence has two components. For a closed disk with two deleted points d₁,d₂, take any retained p,q (if equal there is nothing to prove). Choose an interior z outside the finitely many lines through p or q and either deleted point, and outside the deleted points themselves. Such z exists by the supplied fact. Convexity keeps segments pz,zq in the disk, and their line choices prevent either from hitting a deleted point. Thus the punctured disk is path-connected. The same construction proves the one-point disk claim; a punctured circle is an open arc. A homeomorphism deleting corresponding pairs would preserve connectedness, contradiction.",
+          "gate": "Planar paths, convexity, and the supplied finite-line fact."
+        }
+      ],
+      "figures": {
+        "shapes": {
+          "circle": {
+            "center": [
+              0,
+              0
+            ],
+            "radius": 1
+          },
+          "segment": [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "Y": {
+            "center": [
+              0,
+              0
+            ],
+            "ends": [
+              [
+                0,
+                1
+              ],
+              [
+                -1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ]
+            ],
+            "center_joined": true
+          },
+          "eight": {
+            "circle_centers": [
+              [
+                -1,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "radii": [
+              1,
+              1
+            ],
+            "join": [
+              0,
+              0
+            ]
+          },
+          "two_loops": {
+            "circle_centers": [
+              [
+                -1.5,
+                0
+              ],
+              [
+                1.5,
+                0
+              ]
+            ],
+            "radii": [
+              1,
+              1
+            ],
+            "joined": false
+          }
+        },
+        "student_scaffold": "Large unlacerated shapes with removable dot choices and open records. Junctions explicitly solid and joined; no puncture count preprinted.",
+        "ellipse": {
+          "semiaxes": [
+            2,
+            1
+          ],
+          "equal_scale": true
+        }
+      }
+    },
+    {
+      "id": "GA-27",
+      "title": "Find the flood’s joining height",
+      "core_gate": "Signed squares, coordinate inequalities and explicit paths in a clipped square. Calculus is required only for the final gradient/Hessian interpretation, not for the exact component proof.",
+      "index_gate": "Coordinate inequalities and paths; calculus only on the Morse continuation",
+      "extension_gate": "Quadratic inequalities in x², path components, gradient and Hessian for a new double-well model.",
+      "reading": "Flooded means height ≤ water level, including equality. Count regions, not boundary curves; every path stays in the stated square.",
+      "materials": "Printed equal-scale grids of [−1,1]², transparent sleeves or tracing paper, two colored pencils; clay saddle is optional and cannot replace the exact inequality.",
+      "prep_minutes": 8,
+      "timing": "Explore point tests and chosen water levels for 10 minutes, sketch the common levels for 15, then allow 20 for safe paths and barriers. Give the calculus interpretation later only to learners with partial derivatives.",
+      "launch": "Choose where to walk between the top and bottom of this landscape. How high must the water be before your entire route lies underwater?",
+      "satisfying_stop": "Prove the exact joining threshold and all component counts in the actual square, then design the smallest water level for a forced crossing.",
+      "prior_use": "GA-24 develops connectedness and point-deletion invariants. This changes the space with a numerical level and proves connections by paths and barriers. The original three saddle levels remain a common entry, but the new investigation classifies every real level and solves a learner-chosen constrained crossing.",
+      "assessment": "Promising with coordinate-inequality gates; the Morse interpretation is advanced/specialist. Physical shading can hide a point connection, so equality at zero must be stated and used. Unpiloted.",
+      "mathematical_connection": "Sublevel-set component changes, a minimax path barrier and the local nondegenerate saddle model. Square-boundary events are proved directly and are not applications of a smooth compact-manifold slab theorem.",
+      "sources": [
+        {
+          "title": "Patrick Gillespie, Morse Theory Notes",
+          "url": "https://web.math.utk.edu/~afreire/teaching/m663f21/Morse_Theory_Notes.pdf",
+          "locator": "Lemma 1.12 (Morse lemma), p.3; Theorem 2.9 (Regular Interval Theorem), p.7; §3, Definition 3.1 and Theorem 3.3, p.9.",
+          "adaptation": "Use the local saddle/Hessian interpretation as context. The clipped-square and double-well sublevel classifications are independently proved by inequalities and paths.",
+          "checked": "Reopened the nondegeneracy hypothesis and regular-interval boundary conditions on 2026-09-26. The square has corners and does not satisfy the quoted smooth-boundary setup; no such theorem is applied to it."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Choose a water level and a route",
+          "gate": "Core: squares, inequalities and wet paths",
+          "intro": "Work only in the square −1≤x≤1, −1≤y≤1. Ground height is f(x,y)=x²−y². At level c, a point is wet exactly when f≤c; equality is included. A wet route is a continuous path whose every point is wet.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose one negative and one positive water level and test points of your own. Then sketch the exact wet regions at c=−1/4,0,1/4 on the supplied grids, labeling their boundary inequalities.",
+              "solution": "Any chosen levels and points can be tested by x²−y²≤c. At −1/4, the wet region is y²≥x²+1/4 inside the square: upper and lower lobes, with |x|≤√3/2 at y=±1. At 0 it is |y|≥|x|, two closed wedges meeting at the origin. At 1/4 it is x²≤y²+1/4 inside the square, containing the entire y-axis; for |y|≥√3/2 every x in [−1,1] is wet. Boundaries belong to the wet region. Example tests: (0,0) has height 0; (1,0) has height 1; (0,1) has height −1; (1/2,0) has height 1/4.",
+              "hints": [
+                "Rearrange the inequality before shading.",
+                "Do not omit points where the inequality is an equality."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Try to connect U=(0,1) to D=(0,−1) by a wet route at each common level. Give an explicit successful route or an obstruction that rules out every route. At which level do the two sides first join?",
+              "solution": "For c=−1/4, every wet point has y≠0; any continuous U-to-D path must pass through y=0 by the intermediate value theorem, where f=x²≥0, contradiction. At c=0 and c=1/4 the vertical segment x=0 is wet since f(0,y)=−y²≤0. Thus the first possible joining level is 0, including the single connecting point (0,0). A small drawing gap at zero would be misleading.",
+              "hints": [
+                "Track the y-coordinate of a proposed path rather than only its drawing."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Classify every flood level",
+          "gate": "Core proof: bounds, connectedness and a barrier",
+          "intro": "The domain remains the closed square. A component is a maximal connected wet piece. You may use that any continuous route from positive y to negative y passes through y=0.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Classify the number of wet components for every real c, including the first nonempty level, the joining level and when the whole square is wet. Prove that each claimed piece really is connected within the square.",
+              "solution": "Since −1≤f≤1, c<−1 gives no wet points; c=−1 gives exactly (0,1),(0,−1), two singleton components. For −1<c<0, no wet point has y=0, so upper and lower sets are separated by the relatively open signs of y. Each upper point can move vertically to (x,1), decreasing f, then horizontally along the top to (0,1); wet top points obey |x|≤√(1+c). The lower piece has the analogous route via y=−1. Thus exactly two components exist for −1≤c<0. For c≥0, every wet point joins the origin by r↦r(x,y), 0≤r≤1: f(rx,ry)=r²f(x,y)≤c, whether f is positive or negative. Hence there is one component. At c≥1 the entire square is wet; for 0≤c<1 it is connected but not the whole square because (1,0) is dry. These boundary events were proved in the clipped domain.",
+              "hints": [
+                "For a negative level, move toward the top or bottom edge before joining sideways.",
+                "For nonnegative levels, test a straight radial path."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Choose a forced crossing point (a,0), with |a|≤1. Among all U-to-D routes that pass through it, find the smallest water level making an entire route wet. Give both a lower bound and a route attaining it, including a=0 and a=±1.",
+              "solution": "Every such route visits (a,0), whose height is a², so its maximum height and required level are at least a². Go from U along y=1 to (a,1), vertically to (a,−1), then along y=−1 to D. The top/bottom portions have f=x²−1≤0≤a², and the vertical portion has f=a²−y²≤a², with equality at its crossing. Thus the exact optimum is a². All segments stay in the square. At a=0 it reduces to the axis route with threshold 0; at a=±1 the threshold is 1.",
+              "hints": [
+                "A mandatory visited point is already a lower-bound certificate."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What makes this a Morse saddle?",
+          "gate": "Calculus continuation: partial derivatives and Hessian",
+          "intro": "A critical point has zero gradient. The Hessian is the matrix of second partial derivatives. A critical point is nondegenerate if its Hessian is invertible; its index is the number of negative eigenvalues. These derivative tests concern the function near an interior point.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Find all critical points and the Hessian of x²−y². Compare with the bowl x²+y² near zero: what different component event occurs as c crosses 0?",
+              "solution": "For f, ∇f=(2x,−2y) vanishes only at (0,0), and Hessian diag(2,−2) is invertible with index 1. It is the nondegenerate saddle model. The bowl has gradient (2x,2y) and positive Hessian diag(2,2), index 0. Its square-clipped sublevel is empty for c<0, the origin at c=0, and a nonempty connected region for c>0 (a disk for 0<c≤1, then clipped), so a component is born rather than two joining. A local Morse interpretation does not replace the earlier global path proof.",
+              "hints": [
+                "Compare the signs of the two second derivatives."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "The landscape g=x⁴−y⁴ has the same wet set as f at level 0. Verify that statement, then test whether g has a nondegenerate critical point at the origin. Why can a matching drawing not justify invoking the Morse lemma?",
+              "solution": "Because fourth powers preserve the order of |x| and |y|, g≤0 iff |x|≤|y|, the same wedges as f≤0. But ∇g=(4x³,−4y³) vanishes at the origin and its Hessian diag(12x²,−12y²) is the zero matrix there. Thus the critical point is degenerate, and the nondegeneracy hypothesis of the Morse lemma fails. Equal zero-level sublevel pictures do not certify Hessian signature or the local smooth normal-form theorem.",
+              "hints": [
+                "Compute the second derivatives at the point, not merely their signs away from it."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "On the whole plane, let F(x,y)=(x²−1)²+y². Classify the components of {F≤c} for every real c and find all critical points and Hessians. Give a direct path argument, rather than inferring the answer from a landscape sketch.",
+          "solution": "For c<0 the set is empty. For c≥0 the allowed x obey |x²−1|≤√c, so max(0,1−√c)≤x²≤1+√c. At c=0 only (±1,0) occur. For 0<c<1 the allowed x form two disjoint intervals of opposite sign. Every vertical fiber is an interval containing (x,0), and each allowed x interval on the axis is wet, proving exactly two components. For c≥1 the allowed x form one interval, so the same fiber-to-axis paths prove connectedness; at c=1 they first join through (0,0). ∇F=(4x(x²−1),2y) gives critical points (±1,0),(0,0). Hessian diag(12x²−4,2) is diag(8,2) at the minima and diag(−4,2) at the saddle. Its saddle level is 1. This is a new explicitly solved model, not a general Morse theorem.",
+          "gate": "Polynomial inequalities, path components and partial derivatives."
+        }
+      ],
+      "figures": {
+        "domain": {
+          "x": [
+            -1,
+            1
+          ],
+          "y": [
+            -1,
+            1
+          ],
+          "equal_scale": true
+        },
+        "levels": [
+          "−1/4",
+          "0",
+          "1/4"
+        ],
+        "function": "x²−y²",
+        "endpoints": {
+          "U": [
+            0,
+            1
+          ],
+          "D": [
+            0,
+            -1
+          ]
+        },
+        "student_scaffold": "Three unshaded coordinate squares; include equality instruction and blank chosen-point ledger. Separate route-design square with movable (a,0), no optimal route drawn.",
+        "guide_only": {
+          "zero_wedges": "|y|≥|x|",
+          "negative_edge_bound": "|x|≤√(1+c)",
+          "forced_route": [
+            [
+              0,
+              1
+            ],
+            [
+              "a",
+              1
+            ],
+            [
+              "a",
+              -1
+            ],
+            [
+              0,
+              -1
+            ]
+          ],
+          "threshold": "a²"
+        }
+      }
+    }
+  ]
+}

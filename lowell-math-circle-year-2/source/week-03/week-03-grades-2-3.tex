@@ -1,0 +1,24 @@
+\documentclass[12pt]{extarticle}
+\def\activityid{F03-M-v2}\input{common.tex}
+\begin{document}
+
+\PageTitle{GRADES 2--3 / 1}{A code you can undo}\NameLine
+\RuleBox{Use cards A, B, C, D. A key uses every letter exactly once in its output row. One turn replaces \textbf{every} letter at once. Keep spaces and letter positions fixed.}
+\begin{center}\renewcommand{\arraystretch}{1.6}\begin{tabular}{c|cccc}Input&A&B&C&D\\\hline Key P&B&C&A&D\\Key Q&B&A&D&C\end{tabular}\end{center}
+\Task{1. What stays the same?}{Encode ABBA with P. Could any valid key turn ABBA into ABCD? Explain. Then decode P's output CAAC.}
+\WriteBox{My messages and a reason:}{.9in}
+\Task{2. Keep coding the code.}{Start with ABCD. Apply P again and again until \textbf{all four letters} are back in their starting places. Do the same with Q. Count the first positive return.}
+\begin{center}\renewcommand{\arraystretch}{1.7}\begin{tabular}{c|p{2.4in}|p{2.4in}}Turn&Key P&Key Q\\\hline 0&ABCD&ABCD\\1&&\\2&&\\3&&\\4&&\end{tabular}\end{center}
+\textbf{Look closer:} Follow just A through P. What happens to D? Is one letter returning enough to say the \emph{whole machine} has reset?
+\StudentFooter
+\newpage
+\PageTitle{GRADES 2--3 / 2}{Build a slow machine}
+\Task{3. Make a key that takes four turns.}{Write each of A, B, C, D exactly once under the line. Test it with the whole message ABCD. Draw arrows to show the route of each letter.}
+\begin{center}\renewcommand{\arraystretch}{1.8}\begin{tabular}{c|p{.6in}p{.6in}p{.6in}p{.6in}}Input&A&B&C&D\\\hline My key&&&&\end{tabular}\end{center}
+\WriteBox{Arrow loops and my test:}{1.1in}
+\Task{4. Can four letters take six turns?}{Try it. Then sort your keys by their loops. A letter that stays put is a loop of size 1. What are all the ways to split four letters into loops?}
+\begin{center}\renewcommand{\arraystretch}{1.65}\begin{tabular}{p{2.4in}|p{2.4in}}Loop sizes&First turn when all are home\\\hline&\vspace{0pt}\\&\vspace{0pt}\\&\vspace{0pt}\\&\vspace{0pt}\\&\vspace{0pt}\\\end{tabular}\end{center}
+\textbf{Go further:} Add a fifth letter. Can you build a machine that really does take six turns? Try two separate loops.
+\StudentFooter
+
+\end{document}

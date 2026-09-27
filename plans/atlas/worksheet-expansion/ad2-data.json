@@ -1,0 +1,1119 @@
+{
+  "batch": "ad2",
+  "status": "Independent mathematical/design review closed; custom PDF production and visual review in progress; not classroom-piloted.",
+  "families": [
+    {
+      "id": "AD-09",
+      "title": "Can both schedules be right?",
+      "core_gate": "Remainders, counting to twenty-four, ordered pairs and a completeness argument. Moving counters is the entry; compatibility and uniqueness within a period are the core.",
+      "extension_gate": "General theorem: gcd, lcm, integer divisibility and a supplied Bézout identity. Three-clock continuation uses repeated congruence solving.",
+      "reading": "An adult may read reports. Learners must distinguish the four-clock from the six-clock and a unique residue from a unique integer.",
+      "materials": "Printed four- and six-position clock faces, two counters per pair, blank timeline and report grid; optional eight/twelve faces. No custom physical clocks needed.",
+      "prep_minutes": 6,
+      "timing": "5–10 minutes to move both counters; 15 to invent and repair reports; 15 for a complete compatibility certificate. General gcd proof may be a separate 25-minute continuation.",
+      "launch": "Both counters start at zero and move once each minute. Choose one report from each clock and challenge another pair to decide whether the reports can occur together.",
+      "satisfying_stop": "Classify every compatible four/six report pair and explain both the parity obstruction and why each compatible pair has one answer per twelve-minute period.",
+      "prior_use": "Week 4 already investigates modular orbits and Week 9 common multiples. This is a revisit of movement with a new destination: consistency and repairing simultaneous reports. AD-08 has congruences as renamings, not combined schedules.",
+      "assessment": "Promising with specific remainder gates. Test whether learners can hold two clock roles fixed; the general theorem is advanced number theory.",
+      "mathematical_connection": "Generalized Chinese remainder theorem: compatibility modulo the gcd, existence by reduction to coprime moduli, uniqueness modulo the lcm.",
+      "sources": [
+        {
+          "title": "Keith Conrad, The Chinese Remainder Theorem",
+          "url": "https://kconrad.math.uconn.edu/blurbs/ugradnumthy/crt.pdf",
+          "locator": "Theorem 1.1 and §2, printed pp. 1–2; §3, pp. 2–3",
+          "adaptation": "The coprime proof supplies the modular-inverse/Bézout mechanism. The noncoprime schedule and reduction are derived here.",
+          "checked": "Read the existence and uniqueness proofs and the pairwise-coprime warning on 2026-09-25; the general gcd statement is proved explicitly below."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Invent a report",
+          "gate": "Core: remainders and synchronized movement",
+          "intro": "Clocks have positions 0,1,2,3 and 0,1,2,3,4,5. Both start at 0 and advance one step at every integer time t≥0. A report (a,b) names the four-clock first and six-clock second.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose reports that can occur together and reports that cannot. Explain each decision. Then solve the supplied report (3,5) and describe every time when it occurs.",
+              "solution": "For example (0,0) occurs at t=0,12,24,…, while (0,1) cannot occur because the first residue forces even t and the second odd t. The report (3,5) first occurs at 11; all times are 11+12k for integers k≥0. To check an arbitrary choice, use the same-parity rule proved on page 2; do not accept a failed short search as impossibility.",
+              "hints": [
+                "List several times matching just one report.",
+                "Keep each clock in its named role."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "A notice says (2,5). You may change exactly one reported number by one clock step, forward or backward, wrapping at zero. Find every repair, and the first time for each. Is the repaired notice uniquely determined?",
+              "solution": "The four possible changes give (1,5),(3,5),(2,4),(2,0), first occurring at 5,11,10,6 respectively. They are all compatible. The original notice is impossible by parity; the repairs are not unique. Each is one allowed edit, so each has minimum positive edit cost.",
+              "hints": [
+                "Try both directions on each of the two clocks."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Explain all reports",
+          "gate": "Core proof: a complete period",
+          "intro": "A first joint return means the first positive time when both counters are back at zero. Organize the possible reports in any way that makes omissions and repetitions visible.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Find the first joint return. Classify every report that appears before it, without checking each pair by a separate search. Why can no report repeat earlier?",
+              "solution": "The first joint return is lcm(4,6)=12. Times 0–11 give (0,0),(1,1),(2,2),(3,3),(0,4),(1,5),(2,0),(3,1),(0,2),(1,3),(2,4),(3,5). Every same-parity pair appears. Any time difference preserving both reports is divisible by 4 and 6, hence by 12, so the twelve reports are distinct. There are 2·3 even/even plus 2·3 odd/odd pairs, twelve in total; this proves completeness. Opposite-parity pairs are impossible.",
+              "hints": [
+                "Compare the parity of each report.",
+                "A repeated report would give a smaller joint return by taking the time difference."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Replace the clocks by eight and twelve positions. Predict the exact compatibility test, then test reports (5,9) and (2,9). Classify the compatible reports and their repetition period.",
+              "solution": "The residues must agree modulo 4. Report (5,9) occurs at 21+24k; (2,9) fails because 2 and 9 differ modulo 4. There are 4 choices of common residue mod 4, two eight-clock representatives and three twelve-clock representatives, giving 24 compatible reports. Times 0–23 produce distinct reports because the first common multiple is 24; every produced report is compatible, so all compatible ones occur exactly once.",
+              "hints": [
+                "Which smaller clock can be read consistently from both larger clocks?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Build a general solver",
+          "gate": "Advanced: gcd, divisibility and Bézout",
+          "intro": "Let m,n>0 and d=gcd(m,n). Supplied fact: if gcd(M,N)=1, there are integers u,v with uM+vN=1. Write the reports as t≡a (mod m), t≡b (mod n).",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Prove that a solution exists exactly when d divides b−a. When it exists, build one using the supplied fact. Prove uniqueness modulo mn/d, and explain how to choose the first nonnegative time.",
+              "solution": "Necessity: both m and n divide appropriate differences, so d divides t−a and t−b, hence b−a. For sufficiency put m=dM,n=dN,b−a=dc. Then gcd(M,N)=1. Choose uM+vN=1 and set t0=a+mu c. This is a modulo m; modulo n, t0−b=d(Mu c−c)=−dNv c, so it is b. If t,t′ both work, their difference is divisible by dM and dN. Write t−t′=dMk; divisibility by dN gives N|Mk, and Bézout gives N|k. Thus mn/d divides the difference. Conversely adding mn/d preserves both residues. Reducing t0 to 0≤r<mn/d gives the first nonnegative solution r; all nonnegative solutions are r+k mn/d, k≥0. This also handles m=1 or n=1.",
+              "hints": [
+                "After dividing by d, solve M k≡(b−a)/d (mod N)."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Use the construction for reports 7 modulo 10 and 1 modulo 6. Then create your own compatible pair with a shared factor and show your construction agrees with a direct check.",
+              "solution": "Here d=2,M=5,N=3,c=−3 and u=2 works because 2·5−3·3=1. Thus t0=7+10·2·(−3)=−53, which reduces to 7 modulo 30. Check 7≡7 mod 10 and 7≡1 mod 6. Every nonnegative answer is 7+30k. One created example is t≡4 mod 6,t≡7 mod 9, with d=3 and first answer 16 modulo 18; direct substitution confirms it. Arbitrary choices are checked by the proved divisibility condition and substitution.",
+              "hints": [
+                "A negative intermediate solution is allowed; reduce it to one period."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Solve the three reports t≡3 mod 4, t≡5 mod 6, t≡2 mod 5. Prove that your full list of nonnegative answers has no omissions.",
+          "solution": "The first two combine to t=11+12k. Modulo 5 this is 1+2k≡2, hence k≡3 mod 5. Thus t=47+60j for j≥0. Conversely every such time works. Uniqueness modulo 60 follows from divisibility by 4,6,5; repeated two-clock solving gives existence rather than assuming simultaneous consistency.",
+          "gate": "Remainders, coprimality and the two-clock theorem."
+        }
+      ],
+      "figures": {
+        "clocks": [
+          4,
+          6
+        ],
+        "first_report": [
+          3,
+          5
+        ],
+        "repair_report": [
+          2,
+          5
+        ],
+        "second_clocks": [
+          8,
+          12
+        ],
+        "second_reports": [
+          [
+            5,
+            9
+          ],
+          [
+            2,
+            9
+          ]
+        ],
+        "general_example": {
+          "moduli": [
+            10,
+            6
+          ],
+          "residues": [
+            7,
+            1
+          ]
+        },
+        "render_note": "Blank report matrix may show all 4×6 candidate pairs, but do not premark compatible entries or print a twelve-row completion scaffold."
+      },
+      "index_gate": "Remainders and paired clocks; gcd and Bézout are a separate advanced proof"
+    },
+    {
+      "id": "AD-10",
+      "title": "Can the next match hide between our answers?",
+      "core_gate": "Figurate counting is the entry. The satisfying new core uses polynomial expansion, a two-variable recurrence, integer parity and positive-integer descent. Keep row count separate from square side.",
+      "extension_gate": "General Pell theory is not assumed. A recurrence for the matching totals uses algebra and second differences; optional exact calculator arithmetic is permitted.",
+      "reading": "Equation reading and inequalities are required for the completeness proof. A learner stopping with counters has an earlier concrete result, not a proof of the infinite classification.",
+      "materials": "At most 36 counters, triangular-row and square mats, graph paper and a calculator for exact integer products. Do not prepare thousands of counters.",
+      "prep_minutes": 6,
+      "timing": "10 minutes of arrangements; 15 for re-encoding and checking a proposed recipe; 20 for descent. The beyond-one-million challenge and proof can be a second meeting.",
+      "launch": "Choose counts to test as both complete triangular rows and a square. Then challenge a recipe that claims to find the next match without checking every intervening number.",
+      "satisfying_stop": "Produce the first triangular-square total above one million, and justify that the recurrence skipped no positive solution using a decreasing inverse with a base case.",
+      "prior_use": "Year-1 figurate-number material and the original AD-10 card already use 36 and the forward recurrence. Those are openly revisited as entry. The new destination is descent/completeness and a certified large threshold, not another unproved next-term calculation.",
+      "assessment": "Advanced/specialist for the satisfying proof; the counter entry is a promising earlier activity but must be labeled as such.",
+      "mathematical_connection": "Pell equation x²−2y²=1, a norm-preserving invertible integer transformation and a positive-integer descent proving completeness.",
+      "sources": [
+        {
+          "title": "Keith Conrad, Pell’s Equation, I",
+          "url": "https://kconrad.math.uconn.edu/blurbs/ugradnumthy/pelleqn1.pdf",
+          "locator": "§3, Theorem 3.1, printed pp. 3–4; §4, multiplication of solutions",
+          "adaptation": "Use the triangular-square re-encoding and quadratic multiplication. The specific decreasing inverse and threshold proof are written independently here.",
+          "checked": "Read the correspondence, forced parity and product mechanism on 2026-09-25. The source is not cited as a substitute for the descent proof."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Choose counts to compare",
+          "gate": "Entry: rows and square arrays; algebra follows",
+          "intro": "A triangle has rows of lengths 1,2,…,m. A square has n rows of n counters. Both m and n are positive integers; matching totals satisfy m(m+1)/2=n².",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Find a match larger than one using at most 36 counters. Explain the triangle count with a picture or pairing argument. Why is adding one to both side labels not a reliable way to find the next match?",
+              "solution": "The larger match is m=8,n=6, with 36 counters. Two copies of rows 1 through m pair to m rows of m+1, giving m(m+1)/2. Completeness within 36 follows from triangular totals 1,3,6,10,15,21,28,36 and squares 1,4,9,16,25,36. Increasing both labels from 8,6 gives 45 versus 49, so the same update does not preserve equality.",
+              "hints": [
+                "Choose which of the two lists is shorter to search."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Set x=2m+1 and y=2n. Find an equation relating x and y. Prove both directions: a triangle-square match gives such a pair, and every positive integer pair satisfying your equation gives a match.",
+              "solution": "Expanding yields x²−2y²=4m(m+1)+1−8n²=1. Conversely x²−2y²=1 forces x odd since x² is odd, then modulo 4 forces y even. Thus m=(x−1)/2,n=y/2 are integers. Since y>0 it is at least 2 and x≥3, hence m,n≥1. Reversing the expansion gives the matching-total equation.",
+              "hints": [
+                "Multiply the matching-total equation by 8, then add 1."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Test a machine that makes matches",
+          "gate": "Algebra core: identities and growth",
+          "intro": "Proposed forward machine: U(x,y)=(3x+4y,2x+3y). Work only with positive integer solutions of x²−2y²=1. A successful forward rule alone does not show that no solutions were skipped.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Prove that U preserves the equation and produces a strictly larger positive pair. Start with (3,2), use the machine to reach a triangular-square total above one million, and check that total exactly.",
+              "solution": "(3x+4y)²−2(2x+3y)²=x²−2y² by expansion. Both new coordinates are positive integers and exceed the old coordinates. Starting from (3,2) gives (17,12),(99,70),(577,408),(3363,2378). These correspond to (m,n)=(1,1),(8,6),(49,35),(288,204),(1681,1189), and totals 1,36,1225,41616,1413721. Exactly 1681·1682/2=1413721=1189². At this stage the construction proves a match above the threshold, not yet that it is the first.",
+              "hints": [
+                "Convert back only after generating each new x,y pair."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Solve X=3x+4y and Y=2x+3y for x,y. Use that reverse machine on two generated examples. What must still be proved before it can certify that every possible match comes from the starting pair?",
+              "solution": "The inverse is D(X,Y)=(3X−4Y,3Y−2X), since both matrix products are the identity. It sends (99,70) to (17,12) and (17,12) to (3,2). It also preserves x²−2y². Completeness still requires proving that every positive solution except the base has a positive integer predecessor of smaller size, and that descent cannot terminate elsewhere.",
+              "hints": [
+                "Eliminate one variable; the determinant is 1."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Make “next” a theorem",
+          "gate": "Advanced proof: inequalities and integer descent",
+          "intro": "Use D(x,y)=(3x−4y,3y−2x). Positive solutions have x odd and y even. Examine (3,2) separately before treating y>2.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Prove that every positive solution other than (3,2) has a positive predecessor with smaller y. Explain why repeated descent reaches (3,2), and why reversing the steps proves that U lists every positive solution exactly once.",
+              "solution": "If y=2, the equation gives x=3. For y>2, x²=2y²+1 gives 4y/3<x<3y/2: the lower inequality follows from 2>16/9, and the upper from 1<y²/4. Hence 3x−4y>0 and 3y−2x>0. Also x>y, so 3y−2x<y. D has integer coefficients and preserves the equation, so it gives a smaller positive solution. Positive integer y cannot decrease forever; the only point where the y>2 step ceases is y=2,x=3. The base maps to (1,0), outside the positive-y domain. Since D and U are inverse, every original pair is a finite iterate of U on (3,2). U strictly increases y, so no iterate repeats and their order is increasing in square side and total.",
+              "hints": [
+                "To prove 3y−2x>0, compare x² with (3y/2)².",
+                "A decreasing positive integer cannot continue indefinitely."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Now decide whether your displayed total above one million is the first. Give the triangle row count and square side of the first match after it, and separate the roles of computation and proof.",
+              "solution": "The complete increasing list through the threshold is 1,36,1225,41616,1413721, so 1413721 is the first above one million. Applying U to (3363,2378) gives (19601,13860), hence m=9800,n=6930,total 48024900; check 9800·9801/2=6930². Arithmetic checks particular matches; the descent proof rules out unseen matches between them.",
+              "hints": [
+                "Use the completeness result before using the word “first.”"
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Show that the matching totals N_k, starting N_0=0,N_1=1, satisfy N_(k+2)=34N_(k+1)−N_k+2. Does this recurrence alone prove completeness?",
+          "solution": "Let x_k+y_k√2=(3+2√2)^k, so N_k=y_k²/4 and x_k²−2y_k²=1. Put r=(3+2√2)²=17+12√2, r⁻¹=17−12√2; r+r⁻¹=34. The expression N_k=(r^k+r^(−k)−2)/32 follows by squaring y_k=((3+2√2)^k−(3−2√2)^k)/(2√2). Each r-power sequence obeys the homogeneous recurrence with coefficient 34; the constant −2/32 yields the extra 2. This formula generates the same sequence but does not independently exclude other matches; completeness still uses descent.",
+          "gate": "Quadratic irrational arithmetic, conjugates and linear recurrences."
+        }
+      ],
+      "figures": {
+        "counter_limit": 36,
+        "initial_pair": [
+          3,
+          2
+        ],
+        "forward_matrix": [
+          [
+            3,
+            4
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "inverse_matrix": [
+          [
+            3,
+            -4
+          ],
+          [
+            -2,
+            3
+          ]
+        ],
+        "threshold": 1000000,
+        "render_note": "Do not preprint the number of iterations to the threshold or a completed dot arrangement; use open ledgers."
+      },
+      "index_gate": "Algebra and integer descent for completeness; counter arrangements are an earlier entry"
+    },
+    {
+      "id": "AD-11",
+      "title": "Choose a rule that never loses a symbol",
+      "core_gate": "Two-bit addition, distributive multiplication and inverse reasoning. The field claim uses the supplied polynomial-quotient ring fact plus a complete inverse classification.",
+      "extension_gate": "Linear decoding over a finite field; Frobenius extension uses polynomial substitution. No claim of the classification of all finite fields is needed.",
+      "reading": "Four symbols 0,1,t,u with u=1+t. Learners must keep coefficient bits separate from ordinary integers modulo 4.",
+      "materials": "Four labeled two-bit cards, coefficient mat and blank multiplication tables for two rule choices; a separate modulo-four card. Paper and pencil suffice.",
+      "prep_minutes": 8,
+      "timing": "10 minutes of bit addition; 15 choosing and testing a t-square rule; 15 explaining invertibility; 15–20 for a two-report decoder.",
+      "launch": "Keep the four coefficient cards fixed. Choose whether t² becomes t or t+1. Can every nonzero multiplier be undone under your choice?",
+      "satisfying_stop": "Derive every nonzero inverse for the successful rule and use it to prove that two distinct input-output reports determine a unique affine machine.",
+      "prior_use": "Week 2 binary representations and Week 4 modular arithmetic are preparations. AD-08 studied quotient compatibility; this family uses a polynomial quotient and contrasts two different multiplication rules on the same four cards. The original AD-11 arithmetic is revisited, then applied to reversible decoding.",
+      "assessment": "Promising with explicit algebra gates; pair addition is accessible, while distributivity and solving a general two-report problem need preparation.",
+      "mathematical_connection": "GF(4), irreducible versus reducible quadratic quotients, invertible multiplication and two-point interpolation.",
+      "sources": [
+        {
+          "title": "Keith Conrad, Finite Fields",
+          "url": "https://kconrad.math.uconn.edu/blurbs/galoistheory/finitefields.pdf",
+          "locator": "§1, Theorem 1.1 and warning, printed p.1; Example 2.6, p.4",
+          "adaptation": "Use polynomial remainders as four-element arithmetic. Both quadratic choices and every decoding instance are checked directly.",
+          "checked": "Read the quotient construction and warning that Z/(p^n) is not the field on 2026-09-25; no general finite-field classification is inferred from four labels."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Keep the cards, change multiplication",
+          "gate": "Core: bits and distribution",
+          "intro": "Cards are 0=(0,0),1=(1,0),t=(0,1),u=(1,1)=1+t. Add coefficient bits modulo 2, so equal terms cancel. Multiply by distributing, then use ONE chosen rule: A has t²=t; B has t²=t+1. These are formal symbols, not residues 0,1,2,3 modulo 4.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose A or B and derive enough products to decide whether every nonzero card has a partner whose product is 1. Trade your evidence with a pair using the other rule.",
+              "solution": "For A: t²=t,tu=t+t²=0,u²=1+t=t+1=u. Thus t and u are nonzero zero divisors and have no inverses; only 1 is invertible. For B: t²=u,tu=t+(t+1)=1,u²=1+t²=t. Thus 1⁻¹=1,t⁻¹=u,u⁻¹=t. The identity and zero give the remaining products in either table. This covers every card, not just a successful example.",
+              "hints": [
+                "Expand t(1+t) before reducing.",
+                "A nonzero card multiplying another nonzero card to 0 cannot have an inverse."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "For each rule, try to find two different inputs that multiplication by t sends to the same output. Explain either your collision or why no collision can exist.",
+              "solution": "For A, t·0=0=t·u, and t·1=t=t·t. For B no collision exists: if ta=tb, multiply both sides by u, using ut=1, to obtain a=b. Explicitly multiplication by t sends 0,1,t,u to 0,t,u,1. An inverse is a universal no-collision certificate.",
+              "hints": [
+                "The output list is useful evidence; an inverse explains all inputs at once."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Certify the arithmetic",
+          "gate": "Algebra proof: quotient rings and inverses",
+          "intro": "Supplied fact: polynomials over the two-element field, reduced modulo a monic quadratic, form a commutative ring with identity; each class has a unique remainder a+bt. Associativity and distributivity come from polynomial arithmetic. A field is such a ring in which every nonzero element is invertible.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Identify the quadratic modulus for each rule. Explain why the facts supplied here together with your inverse work certify B as a field and reject A. Test the two possible roots of each modulus as another explanation.",
+              "solution": "A is the quotient by T²+T=T(T+1); B is by T²+T+1. In B the complete inverse list from prompt 1, together with the supplied ring fact, satisfies the field definition. In A, t,u are distinct nonzero classes by unique remainders but tu=0, so it is not a field. The A polynomial has roots 0,1; the B polynomial evaluates to 1 at both 0,1. A quadratic over a field factors nontrivially exactly when it has a root, so B is irreducible, consistent with the general quotient theorem. We do not infer associativity from a few table entries.",
+              "hints": [
+                "In characteristic 2, subtracting a term is the same as adding it."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Could a clever renaming make B into ordinary arithmetic modulo 4 while preserving both addition and multiplication? Give a property that any such renaming would have to preserve and show the mismatch.",
+              "solution": "No. In B every nonzero element has an inverse and the product of nonzero elements cannot be 0. Modulo 4 the nonzero residue 2 satisfies 2·2=0 and has no inverse. A bijection preserving both operations must preserve 0 and inverses (the unique additive and multiplicative identities are determined by the operations), so this mismatch is impossible. Also every B element added to itself is 0, while 1+1=2≠0 modulo 4.",
+              "hints": [
+                "A renaming must preserve equations, not merely the number of labels."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Decode a hidden machine",
+          "gate": "Continuation: affine equations over B",
+          "intro": "Use rule B from now on. A hidden machine has form f(z)=az+b, with a,b among 0,1,t,u. Choose two distinct input cards and ask for their output cards. Arithmetic is the four-symbol arithmetic throughout.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Make an affine machine and give a partner two distinct input-output reports. Recover your partner’s a,b. Prove that every pair of output reports at distinct inputs determines exactly one affine machine, including equal outputs.",
+              "solution": "For inputs r≠s and outputs h,k, subtracting is addition, so a(r+s)=h+k. The nonzero card r+s has an inverse; hence a=(h+k)(r+s)⁻¹ and b=h+ar. These satisfy both equations and are forced, proving existence and uniqueness. If h=k then a=0 and b=h, a valid constant machine. For example a=t,b=u gives f(0)=u,f(1)=1; those reports recover a=t,b=u.",
+              "hints": [
+                "Add the two equations so the b terms cancel."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Decode the reports f(1)=t and f(t)=0, then predict f(u). Repeat these same reports under rule A: can they determine a unique machine? Use an explicit calculation.",
+              "solution": "In B, (1+t)a=u a=t, so u⁻¹=t gives a=t²=u; then b=t+a=t+u=1. Therefore f(u)=u²+1=t+1=u. In A, the equations give b=ta and a+ta=t, i.e. u a=t. But multiplication by u has outputs only 0,u, never t: u·0=0,u·1=u,u·t=0,u·u=u. Thus no A machine fits these reports. As a separate collision example, the A machines 0 and tz agree at inputs 0,u, showing lack of uniqueness can also occur for other reports.",
+              "hints": [
+                "Check the image of multiplication by 1+t under each rule."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "For rule B, classify the map F(z)=z² and prove that it preserves addition and multiplication. Does it equal the identity?",
+          "solution": "It fixes 0,1 and exchanges t,u because t²=u,u²=t. Thus F² is the identity but F is not. Commutativity and characteristic 2 give (a+b)²=a²+b², and (ab)²=a²b². It preserves 1 and is bijective, so it is an automorphism. This proof checks the ring rules as well as the finite permutation.",
+          "gate": "Distributivity, characteristic 2 and function composition."
+        }
+      ],
+      "figures": {
+        "labels": [
+          "0",
+          "1",
+          "t",
+          "u"
+        ],
+        "coefficient_pairs": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "rules": {
+          "A": "t²=t",
+          "B": "t²=t+1"
+        },
+        "decode_inputs": [
+          "1",
+          "t"
+        ],
+        "decode_outputs": [
+          "t",
+          "0"
+        ],
+        "render_note": "Provide blank product tables, keeping the two rules visually separate; do not preprint inverse partners."
+      },
+      "index_gate": "Bit coefficients, distribution and inverse proofs; field certification is algebraic"
+    },
+    {
+      "id": "AD-12",
+      "title": "Which cube volumes can these tools reach?",
+      "core_gate": "Exact compass/straightedge work is an entry. The actual obstruction requires rational polynomials, irreducibility of cubics, degree of an algebraic number and the supplied constructible-degree theorem.",
+      "extension_gate": "Classify positive integer volumes; a separate angle-trisection extension uses a cubic cosine identity and irreducibility. Calculus is not required.",
+      "reading": "Read polynomial equations and distinguish exact construction from decimal approximation. The unit length and unmarked-tool restrictions must be kept throughout.",
+      "materials": "Compass, unmarked straightedge, printed unit segment, blank construction area and supplied line/circle equation cards; calculator for cubing rational bounds.",
+      "prep_minutes": 8,
+      "timing": "10–15 minutes of exact square-root construction; 15 of coordinate-intersection reasoning; 20 for the cubic obstruction and volume classification. Earlier geometry and full field-degree proof are different stopping points.",
+      "launch": "An exact segment can certify a square area, yet the same drawing may not certify a cube volume. Choose a construction and identify the equation its length really solves.",
+      "satisfying_stop": "Prove exactly which positive integer cube volumes have classically constructible edges, using a stated degree theorem and a complete cubic irreducibility argument.",
+      "prior_use": "The original AD-12 card treats cube volume 2. We revisit its classical tool restriction but use volume 3, a full positive-integer-volume classification, and a rational approximation contrast. Week 1 shape manipulation does not establish a field-degree obstruction.",
+      "assessment": "Advanced/specialist for the intended payoff. Exact square-root geometry is an accessible earlier stop and must not be advertised as the impossibility proof.",
+      "mathematical_connection": "Quadratic coordinate extensions, a necessary constructible-degree condition and irreducible-cubic obstructions.",
+      "sources": [
+        {
+          "title": "Thomas Judson, Abstract Algebra: Theory and Applications",
+          "url": "https://judsonbooks.org/aata-files/aata-html/fields-section-constructions.html",
+          "locator": "§21.3.1, Lemmas 21.3.3,21.3.5,21.3.6 and Theorem 21.3.7; §21.3.2",
+          "adaptation": "Use the square-root construction and quadratic-tower obstruction; derive volume 3 and the positive-integer classification.",
+          "checked": "Read the intersection argument and theorem on 2026-09-25. State degree 2^r with r≥0, including rational degree 1, correcting the page’s k>0 wording. The power-of-two condition is used only as necessary."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Certify the equation of a length",
+          "gate": "Geometric entry: exact unit constructions",
+          "intro": "Start from a unit segment. Legal tools are an unmarked straightedge and compass, used for finitely many line/circle intersections. A physical measurement may suggest a length, but its construction needs an exact argument.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose and carry out an exact construction of √2 and then √3. Explain each length. If your √3 segment were the edge of a cube, what would its volume be? Does it solve the cube-volume 3 problem?",
+              "solution": "Construct a unit square; its diagonal has square 2, hence length √2. Construct a right triangle with legs √2 and 1; its hypotenuse has square 3 and positive length √3. Perpendiculars and copying lengths are legal classical constructions. A cube with edge √3 has volume (√3)³=3√3, not 3. The edge for volume 3 must solve α³=3.",
+              "hints": [
+                "Use Pythagoras to certify the construction, not a ruler reading."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "A partner proposes the rational edge 1442/1000 for volume 3. Check its cube exactly. Find a nearby rational edge whose cube lies on the other side of 3. Explain what the two checks establish and what they do not.",
+              "solution": "1442³/1000³=2998442888/1000000000<3. The nearby 1443/1000 gives 3004685307/1000000000>3. Thus the positive cube root lies strictly between 1.442 and 1.443, since cubing is strictly increasing on positive numbers. Both endpoints are rational and constructible, but neither is the exact root. Arbitrarily fine rational brackets do not by themselves provide a finite exact construction.",
+              "hints": [
+                "Compare integer numerators with 3·1000³."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What can one legal step add?",
+          "gate": "Advanced: algebraic degree and supplied theorem",
+          "intro": "Supplied theorem: coordinates made from a unit segment by finitely many legal intersections lie in a tower of extensions of degree 1 or 2 over Q. Hence any constructible real algebraic number has degree 2^r over Q for some integer r≥0. Degree means the degree of its irreducible minimal polynomial. This is a necessary condition, not a general sufficiency test.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Explain the quadratic step behind the theorem. If known coordinates lie in a field K, why do line-line, line-circle and two distinct circle intersections introduce at most a square root? Include tangency and intersections that do not exist.",
+              "solution": "Lines have linear equations over K, so a unique line-line intersection uses only field arithmetic; parallel distinct lines give none. A circle has x²+y²+dx+ey+f=0 over K because its center and squared radius are in K. Substituting a nonvertical line gives a quadratic; a vertical line fixes x first. Two distinct circle equations subtract to a nonzero linear equation, unless concentric with different radii, when subtraction is a nonzero constant and there are no intersections. Thus remaining intersections reduce to the line-circle case. Quadratic roots use at most one square root; a repeated tangent root lies in K, and a negative real discriminant gives no real new point. Coincident lines/circles do not specify an isolated new intersection. The full tower-law conclusion remains the supplied theorem.",
+              "hints": [
+                "Subtract two circle equations before solving them."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Use the theorem to decide whether the exact positive edge α with α³=3 is constructible. Prove the needed irreducibility rather than merely calling α irrational.",
+              "solution": "A rational root of the monic integer polynomial X³−3 must be an integer dividing 3, so candidates are ±1,±3; none is a root. A reducible cubic over Q has a linear factor and hence a rational root, so X³−3 is irreducible. Thus [Q(α):Q]=3, which is not 2^r for any r≥0. The necessary theorem excludes a finite exact construction with these tools. Irrationality alone would not exclude √2, so it is not the obstruction.",
+              "hints": [
+                "For a cubic, any nontrivial factorization has a degree-one factor."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Classify all integer requests",
+          "gate": "Proof continuation: positive integer cube volumes",
+          "intro": "A request is a positive integer volume N, measured relative to the unit cube. Its positive edge is the real solution of x³=N. Do not include negative volumes; if you discuss N=0, label it separately.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Classify all positive integers N for which the exact edge is constructible. Prove both directions. Test your classification on N=8,9,27 and 64.",
+              "solution": "Exactly the perfect cubes N=k³ with positive integer k work; edge k is constructible by concatenating unit segments. If N is not a perfect cube, a rational root of X³−N would be an integer k (rational-root theorem), forcing N=k³. Therefore no rational root exists; the cubic is irreducible and its positive root has degree 3, excluding construction. Thus 8,27,64 work with edges 2,3,4; 9 does not. If N=0 is separately allowed, its edge 0 is rational/constructible, a degenerate cube, and it is not part of the positive-volume statement.",
+              "hints": [
+                "Prove the converse by asking what a rational root of a monic cubic could be."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "A learner says, “Every irrational root is forbidden,” and another says, “The supplied theorem alone proves that every algebraic number of power-of-two degree is allowed.” Explain the flaw in each claim. Give an explicit constructible root of X⁴−2 and certify it by legal square-root steps.",
+              "solution": "The first claim fails at √2 or √3. For X⁴−2 the positive root is √(√2); construct √2 first, then its square root using the supplied semicircle/geometric-mean construction: take diameter segments 1 and √2, erect a perpendicular at their junction, and its height to the semicircle is √(√2). The right-triangle altitude theorem gives height²=1·√2. The second claim reverses a merely necessary condition: a degree that divides a power of 2 does not alone exhibit a tower of quadratic extensions containing the number. The explicit tower certifies this particular fourth root; the worksheet does not claim every degree-four number is constructible.",
+              "hints": [
+                "The theorem rules some things out; a construction or an actual quadratic tower is still needed to rule one in."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Assume the identity 4cos³θ−3cosθ=cos 3θ. Show that an exact 20° angle cannot be constructed from the unit segment, so there cannot be a classical method trisecting every constructible angle.",
+          "solution": "If 20° were constructible, its cosine c would be a constructible coordinate on the unit circle. Since cos 60°=1/2,4c³−3c=1/2. Put u=2c; then u³−3u−1=0. The only rational-root candidates ±1 give −3 and 1, so this cubic is irreducible and u has degree 3. Constructibility of c would give constructibility of 2c=u, contradiction. A 60° angle is constructible via an equilateral triangle. This excludes a universal trisection procedure, not trisection of every individual angle.",
+          "gate": "Triple-angle identity, rational-root theorem and the constructible-degree theorem."
+        }
+      ],
+      "figures": {
+        "unit_segment": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "cube_volume": 3,
+        "bracket_edges": [
+          "1442/1000",
+          "1443/1000"
+        ],
+        "volume_tests": [
+          8,
+          9,
+          27,
+          64
+        ],
+        "semicircle_construction": {
+          "left_segment": "1",
+          "right_segment": "√2",
+          "unknown_height": "h"
+        },
+        "render_note": "Provide blank exact-construction areas and a labeled general semicircle diagram, not a purported cube-root construction."
+      },
+      "index_gate": "Field-degree theorem and cubic irreducibility; exact geometry is an earlier entry"
+    },
+    {
+      "id": "AD-13",
+      "title": "Move a corner, change the whole staircase",
+      "core_gate": "Nonnegative grid coordinates, right/up reachability and a finite certificate for an infinite region. The quotient-basis stage needs polynomial linear combinations and independence.",
+      "extension_gate": "Multiplication in a polynomial quotient and kernels of linear maps. A two-variable rectangle extension uses exponent counting and a proof of its basis.",
+      "reading": "Picture rules permit an oral launch. Upper pages require reading x^i y^j and distinguishing an exponent position from its coefficient.",
+      "materials": "Printed coordinate grids from 0 to 6, four movable corner markers and pencil shading; an unbounded-axis arrow is essential. Optional transparent overlay, no exact-count survivor tokens.",
+      "prep_minutes": 7,
+      "timing": "10 minutes exploring the forbidden rule; 15 finding and certifying the survivors; 15 changing one corner; 20 for the algebraic normal form on a later page.",
+      "launch": "Each forbidden corner spoils every place northeast of it. Choose an organization that finds all survivors, including any beyond the edge of the paper. Then move one corner to save exactly two more places.",
+      "satisfying_stop": "Find the unique legal one-step change that adds exactly two survivors, prove there are no other such changes, and, at the algebra gate, prove the surviving monomials form a quotient basis.",
+      "prior_use": "Week 1 boards represent tilings, while these coordinates encode divisibility. The original AD-13 four-survivor example is replaced by a larger staircase and a constrained redesign problem. AD-14 will study one special nilpotent quotient, a related but different question.",
+      "assessment": "First-pilot candidate for grid-ready learners at the finite-boundary stage; promising with linear-algebra gates for quotient dimension.",
+      "mathematical_connection": "Monomial ideals, standard-monomial normal forms, basis spanning/independence and multiplication kernels.",
+      "sources": [
+        {
+          "title": "J. S. Milne, Algebraic Geometry",
+          "url": "https://www.jmilne.org/math/CourseNotes/AG.pdf",
+          "locator": "Current PDF: Chapter 1, polynomial-ring discussion, printed p.25 (PDF page 25), and ring/ideal framework",
+          "adaptation": "Use monomial linear independence and quotient arithmetic. The exact staircase, move classification and basis proof are derived here.",
+          "checked": "Read the current polynomial-basis passage and ideal framework on 2026-09-25. The current PDF has different pagination from the original atlas locator; no Gröbner-basis theorem is needed."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Find the places that survive",
+          "gate": "Core: grid directions and a complete boundary",
+          "intro": "Coordinates (i,j) are nonnegative integers. A corner (a,b) forbids itself and every (i,j) with i≥a and j≥b. Corners are (3,0),(2,1),(1,3),(0,4). The grid continues forever to the right and upward.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose a way to find every surviving position. Show your result on the grid and explain why enlarging the paper cannot reveal more survivors.",
+              "solution": "Column i=0 has j=0,1,2,3; column i=1 has j=0,1,2; column i=2 has only j=0. Every i≥3 is forbidden by (3,0), and every j≥4 by (0,4). Thus there are eight survivors: (0,0),(0,1),(0,2),(0,3),(1,0),(1,1),(1,2),(2,0). The two outer corners bound the whole infinite search; the two inner corners determine the staircase inside.",
+              "hints": [
+                "Classify a whole column at once.",
+                "Find corners that exclude every sufficiently large coordinate."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Is any of the four starting corners redundant, meaning that removing it leaves the forbidden region unchanged? Give a witness for each decision rather than judging the picture.",
+              "solution": "None is redundant. Its own position is not northeast of any other corner, so removing that corner frees that position. Specifically (3,0),(2,1),(1,3),(0,4) are pairwise incomparable in coordinatewise order. Each is therefore an independent necessary generator of this forbidden region.",
+              "hints": [
+                "Can another corner already forbid the corner you plan to remove?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Save exactly two places",
+          "gate": "Core continuation: classify legal changes",
+          "intro": "Move exactly one corner one unit right or one unit up. All other corners stay fixed. The goal is to keep only finitely many survivors and increase their number by exactly two. A moved corner may become redundant.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Find every move that meets the goal. Explain what happens for all eight possible moves, including moves that create infinitely many survivors.",
+              "solution": "Moving (2,1) right to (3,1) is the unique success: it frees (2,1),(2,2), giving ten survivors; the moved corner is now redundant because of (3,0). Moving (3,0) right adds only (3,0); moving it up leaves the whole row j=0 unbounded and creates infinitely many survivors. Moving (2,1) up adds only (2,1). Moving (1,3) right or up adds only (1,3). Moving (0,4) up adds only (0,4); moving it right leaves the whole column i=0 unbounded. These eight cases exhaust the legal choices. Moving corners northeast can only free positions, never forbid a previously surviving one.",
+              "hints": [
+                "The corner on each coordinate axis is the only one that can stop travel forever along that axis."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Return to the original corners. A right step or an up step sends a survivor to its neighboring position, or to zero if that neighbor is forbidden. Find every surviving position for which BOTH kinds of step go to zero. Explain why your list is complete.",
+              "solution": "They are (0,3),(1,2),(2,0). A position killed by an up step is the top survivor of one of the three nonempty columns. Those same three positions have forbidden right neighbors. Every other survivor has an allowed up neighbor, so no other position can qualify. This argument classifies the full infinite grid via its finite staircase.",
+              "hints": [
+                "First locate the top surviving point in each nonempty column."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What the staircase proves in algebra",
+          "gate": "Advanced: polynomial quotients and a basis argument",
+          "intro": "Work over Q. Position (i,j) represents x^i y^j. Declare x³,x²y,xy³,y⁴ and all their polynomial multiples equal to zero. Thus we work in Q[x,y]/I, where I=(x³,x²y,xy³,y⁴). Do not erase terms merely because their total degree is large.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Prove that every polynomial has exactly one remainder using the surviving monomials. Give both spanning and independence arguments. Reduce (x+y)³, and give an example showing that a simple total-degree cutoff is the wrong rule.",
+              "solution": "The survivors are 1,y,y²,y³,x,xy,xy²,x². A monomial is in I exactly when divisible by one displayed generator: the forward direction is clear; conversely every term of a sum of generator multiples is of that divisible type, and coefficient cancellation cannot create a nondivisible monomial. Removing those terms spans the quotient with the eight survivors. No nonzero linear combination of survivors lies in I, since all terms of every element of I have divisible exponents; hence the remainder is unique and the classes are a basis of dimension 8. Expansion gives (x+y)³=x³+3x²y+3xy²+y³≡3xy²+y³. The degree-three monomial x³ vanishes while y³ and xy² survive, so degree alone cannot determine removal.",
+              "hints": [
+                "A polynomial is a unique finite sum of monomials before taking the quotient."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Classify every quotient element killed by multiplication by BOTH x and y. Could a linear combination of other survivors create a cancellation that produces an extra answer?",
+              "solution": "Exactly a y³+b xy²+c x² with a,b,c∈Q are killed by both. Multiplication by y kills y³,xy²,x², while the other surviving basis monomials map to distinct nonzero survivors; therefore its kernel is precisely their span, with no hidden cancellation. Multiplication by x also kills each of those three, so their span is the common kernel. The kernel of x alone is larger, also containing xy. Distinct surviving shifted monomials cannot cancel unless their original exponents were identical.",
+              "hints": [
+                "Use the unique remainder from prompt 5 to compare coefficients after shifting."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "For positive integers r,s, use only corners (r,0) and (0,s). Prove the quotient Q[x,y]/(x^r,y^s) has dimension rs, and classify elements killed by both x and y.",
+          "solution": "The survivors are x^i y^j with 0≤i<r and 0≤j<s. Divisibility by x^r or y^s gives the spanning/independence proof, so dimension is rs. Multiplication by x kills exactly the last-column span and multiplication by y exactly the top-row span. Their common kernel is the one-dimensional span of x^(r−1)y^(s−1). This includes r=1 or s=1, where one of the two multiplication maps is zero.",
+          "gate": "Polynomial basis and coordinatewise exponent shifts."
+        }
+      ],
+      "figures": {
+        "corners": [
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "grid_max": 6,
+        "allowed_moves": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "quotient_generators": [
+          "x³",
+          "x²y",
+          "xy³",
+          "y⁴"
+        ],
+        "render_note": "Show supplied corners but no shading or survivor count. Use open working grids for redesign; avoid one box per answer."
+      },
+      "index_gate": "Infinite-grid boundary proof; polynomial spanning and independence for the quotient"
+    },
+    {
+      "id": "AD-14",
+      "title": "Can one calculation remember a rate?",
+      "core_gate": "Signed rational algebra, distribution, polynomial evaluation and formal coefficient comparison. The value/derivative payoff needs polynomial differentiation or its formal power rule, stated explicitly.",
+      "extension_gate": "The higher-order extension needs second derivatives and truncated polynomial multiplication. No claim about analytic convergence or actual tiny real numbers is made.",
+      "reading": "Read an ordinary coefficient and an ε coefficient as separate exact coordinates. Equality requires equality of both coefficients.",
+      "materials": "Two-column coefficient mats, optional signed counters for initial integer trials, paper for inverse fractions and a blank calculation graph.",
+      "prep_minutes": 5,
+      "timing": "10 minutes trying products; 10–15 classifying inverses and cancellation; 20 for polynomial evaluation with a rate coefficient. Higher-order information is a separate continuation.",
+      "launch": "Use pairs a+bε with the exact rule ε²=0. Choose two pairs and multiply. Can a second coefficient preserve information that would be lost by setting ε=0?",
+      "satisfying_stop": "Use one exact dual-number evaluation to compute a polynomial’s value and derivative, then prove the general identity and product rule while identifying information it does not retain.",
+      "prior_use": "The original AD-14 inverse/zero-divisor examples are entry. The new core follows a chosen arithmetic program and proves first-order information is exact. AD-13 supplies quotient normal forms, while this family focuses on invertibility and differentiation.",
+      "assessment": "Promising with explicit polynomial-algebra gates; advanced/specialist when interpreting derivatives. Do not tell learners ε is an ordinary very small nonzero real number.",
+      "mathematical_connection": "Dual numbers, nilpotents, formal first-order Taylor expansion and forward propagation of a derivative coefficient.",
+      "sources": [
+        {
+          "title": "J. S. Milne, Algebraic Geometry",
+          "url": "https://www.jmilne.org/math/CourseNotes/AG.pdf",
+          "locator": "Current PDF, Chapter 4 §f, “Dual numbers,” printed p.90 (PDF page 90), Proposition 4.26; “Derivations,” p.91",
+          "adaptation": "Use the exact quotient-ring multiplication and first-order polynomial expansion. Scalar polynomial programs and inverse examples are derived here.",
+          "checked": "Read the current dual-number definition, multiplication, Taylor calculation and Leibniz-rule discussion on 2026-09-25. The atlas’s older Chapter 2 locator no longer identifies this passage."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Make an unfamiliar arithmetic",
+          "gate": "Algebra core: exact coefficient rules",
+          "intro": "A dual number is the formal pair a+bε, with a,b∈Q. Add coefficients separately. Multiply by distribution and replace ε² by 0. The pair 0+1ε is different from 0+0ε. This is exact arithmetic in Q[T]/(T²), not arithmetic with a tiny real ε.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose two nonzero dual numbers whose product is zero, and two whose product is 1. Then find an inverse for 3−2ε and explain which choices made your two searches possible.",
+              "solution": "For example ε and 2ε are nonzero pairs but their product is 0. The pair 1+ε has inverse 1−ε. For 3−2ε, an inverse is 1/3+(2/9)ε: ordinary product 1 and ε coefficient 3·(2/9)−2·(1/3)=0. Nonzero pure ε multiples are zero divisors, while nonzero ordinary coefficients allow inverse construction. Arbitrary proposed pairs must be checked by both coefficient equations.",
+              "hints": [
+                "Write the ordinary and ε coefficients of the product separately."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Classify all invertible a+bε. Explain exactly why canceling a nonzero factor can fail, even though canceling an invertible factor works.",
+              "solution": "(a+bε)(c+dε)=ac+(ad+bc)ε. Equality to 1 requires ac=1, so a≠0,c=1/a, and d=−b/a². This also proves sufficiency by substitution. If a=0 no product has ordinary coefficient 1. Cancellation fails, for example ε·0=ε·ε=0 although 0≠ε. If a factor has an inverse, multiplying both sides by it gives valid cancellation using associativity inherited from the quotient ring.",
+              "hints": [
+                "The ordinary coefficient gives a necessary condition before the ε equation."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Run two numbers through one program",
+          "gate": "Continuation: polynomial evaluation and derivatives",
+          "intro": "Use the polynomial program f(z)=(z²+1)(z−2). Evaluate it by its displayed operations, keeping both coefficients at every intermediate step. Polynomial derivative notation will be used on the next page.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Choose z=3+ε or z=3+2ε and run the program. Compare the ordinary output with f(3). Predict how the ε coefficient changes if the input is 3+bε for any rational b.",
+              "solution": "For 3+bε: z²=9+6bε, z²+1=10+6bε, and z−2=1+bε. Their product is 10+16bε. Thus 3+ε gives 10+16ε; 3+2ε gives 10+32ε; ordinary output is always f(3)=10. The coefficient scales linearly with b. The calculations are exact because every term with ε² is zero.",
+              "hints": [
+                "Do not substitute ε=0 before the multiplication is complete."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "A partner says the two output coefficients determine the whole polynomial. Choose two different polynomials that give the same output at 2+ε, and show an ordinary input at which they disagree. What information did the program forget?",
+              "solution": "For example f(z)=z² and g(z)=z²+(z−2)² both give 4+4ε at 2+ε because the added term becomes ε²=0. At z=3 they give 9 and 10. Their common value and first derivative at 2 agree, but second-order behavior differs. In general every multiple of (z−2)² is invisible to evaluation at 2+ε. Thus dual output is local first-order information, not the full polynomial.",
+              "hints": [
+                "Add a nonzero term that vanishes after substituting z=2+ε."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Prove what the second coefficient means",
+          "gate": "Algebra/calculus proof: polynomial power rule",
+          "intro": "For a polynomial f(X)=Σ c_k X^k over Q, define f′(X)=Σ k c_k X^(k−1), with the constant term contributing 0. This agrees with the usual derivative for real polynomials. Prove statements for every polynomial, not just the chosen program. Supplied algebra fact: a nonzero polynomial over Q has only finitely many roots.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Prove f(a+bε)=f(a)+b f′(a)ε for every rational a,b. Use it to explain why the earlier program output 16 in its ε column when the input was 3+ε.",
+              "solution": "For k≥1, expansion of (a+bε)^k leaves only the term a^k and the k terms containing exactly one bε, giving a^k+k a^(k−1)bε. Terms with at least two ε factors vanish. For k=0 the output is 1. Summing with coefficients c_k gives the formula, including a=0 (handle k=1 directly; no negative power is needed). For f=(X²+1)(X−2)=X³−2X²+X−2, f′=3X²−4X+1 and f′(3)=27−12+1=16. The ring identity is exact; no limiting-size approximation has been used.",
+              "hints": [
+                "Count how many expansion terms contain exactly one ε factor."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Use dual multiplication to derive the product rule for two polynomials f,g. Then derive the chain rule by evaluating f(g(a+bε)). State what would need to change to retain second-order information.",
+              "solution": "Write f(a+bε)=f(a)+b f′(a)ε and g(a+bε)=g(a)+b g′(a)ε. Multiplication gives ordinary value f(a)g(a) and ε coefficient b[f′(a)g(a)+f(a)g′(a)]. Compare with (fg)(a+bε), taking b=1, to obtain (fg)′=f′g+fg′ at every rational a, hence as a polynomial identity (a nonzero polynomial has finitely many roots). Composition gives f(g(a))+b f′(g(a))g′(a)ε, so (f∘g)′=(f′∘g)g′ by the same reasoning, or directly as a formal coefficient identity. To retain second-order information, keep an ε² column and impose ε³=0 instead; simply calling ε a smaller real number does not change the algebra.",
+              "hints": [
+                "Compare coefficients of ε after multiplying the two outputs."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Now work with ε³=0 while ε²≠0. Derive f(a+bε+cε²) through the ε² term, and test f(X)=X³ at a=2,b=1,c=3.",
+          "solution": "Expansion gives f(a)+b f′(a)ε+[c f′(a)+(b²/2) f″(a)]ε². In each power, an ε² contribution comes from one cε² factor or two bε factors; counting those choices gives the coefficients. For X³ at (2,1,3), the result is 8+12ε+(36+6)ε²=8+12ε+42ε². The formula is exact in Q[ε]/(ε³), and 1,ε,ε² are independent residue classes.",
+          "gate": "Second polynomial derivatives, binomial expansion and truncated quotient arithmetic."
+        }
+      ],
+      "figures": {
+        "coefficient_columns": [
+          "ordinary",
+          "ε"
+        ],
+        "inverse_test": [
+          3,
+          -2
+        ],
+        "program": {
+          "expression": "(z²+1)(z−2)",
+          "ordinary_input": 3,
+          "seed_choices": [
+            1,
+            2
+          ]
+        },
+        "comparison_base": 2,
+        "render_note": "Keep intermediate two-coefficient cells blank; label ε² terms as discarded by the rule, never as numerically negligible."
+      },
+      "index_gate": "Rational polynomial algebra; derivative meaning uses the explicit polynomial power rule"
+    },
+    {
+      "id": "AD-15",
+      "title": "Encode a rational point with one slope",
+      "core_gate": "Fractions, signed coordinates, substitution and factoring a quadratic with one known root. Exact symbolic algebra is needed for completeness.",
+      "extension_gate": "Integer triples and coprimality/parity; an optional projective parameter handles the infinite slope. No general rationality theorem for all curves is assumed.",
+      "reading": "Distinguish a schematic drawn point from a pair of exact rational coordinates; read ordered pairs and a slope parameter.",
+      "materials": "Printed ellipse x²+2y²=1 with basepoint (−1,0), ruler, blank exact-coordinate ledger and graph paper. No compass construction of every rational point is assumed.",
+      "prep_minutes": 6,
+      "timing": "10 minutes choosing secants and predicting signs; 15 deriving or checking exact points; 15 decoding and completeness; 15 for integer triples if ready.",
+      "launch": "Aim a line from the marked point across the ellipse. Choose a rational slope and send only the second point to a partner. Can the partner recover the slope exactly?",
+      "satisfying_stop": "Derive mutually inverse point/slope formulas for every rational point on the ellipse except one, then explicitly include the exceptional basepoint.",
+      "prior_use": "Week 9 rational slopes are preparatory. The original AD-15 circle is replaced by x²+2y²=1, a point-encoding/decoding task and generalized integer triples. AD-16 changes the ground field instead of parametrizing rational coordinates.",
+      "assessment": "Promising with explicit fractional-algebra gates. The drawing offers a real choice, but completeness must be argued symbolically.",
+      "mathematical_connection": "Rational parametrization of a conic with a known rational point, inverse maps and an exceptional parameter.",
+      "sources": [
+        {
+          "title": "Ravi Vakil, The Rising Sea, January 29,2015 draft",
+          "url": "https://math.stanford.edu/~vakil/216blog/FOAGjan2915public.pdf",
+          "locator": "§6.5.8, Figure 6.1 and circle calculation, printed pp.191–192; §6.5.9",
+          "adaptation": "Adapt the line-through-a-known-point method to a new ellipse and derive all formulas and exceptions directly.",
+          "checked": "Read the circle substitution, known-root factorization and inverse map on 2026-09-25. The source uses basepoint (1,0) on a circle; this worksheet uses (−1,0) on a different conic."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Aim, calculate and send",
+          "gate": "Core: slopes and exact fractions",
+          "intro": "The curve is x²+2y²=1. The marked point is B=(−1,0). A nonvertical line of slope t through B has equation y=t(x+1). Use exact fractions; a plotted approximation alone does not certify membership.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose t=1 or t=2/3, predict where the second intersection lies, and find it exactly by substitution. Give the point to a partner without the slope; let them try to recover your choice.",
+              "solution": "For t=1, substitution gives 3x²+4x+1=(x+1)(3x+1)=0; the second point is (−1/3,2/3). For t=2/3 the equation becomes 17x²+16x−1=(x+1)(17x−1)=0, giving (1/17,12/17). Both satisfy x²+2y²=1 exactly. Positive slope gives positive y for a second point with x>−1. Recovery uses t=y/(x+1), yielding 1 or 2/3.",
+              "hints": [
+                "One quadratic root is known before doing any arithmetic."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Invent a different rational slope and create a point challenge. Then decode the supplied point (−7/11,6/11), checking both its curve equation and the recovered line.",
+              "solution": "Any rational t gives the formula derived next. For example t=−1/2 gives (1/3,−2/3), which checks 1/9+8/9=1. The supplied point checks 49/121+72/121=1, and its slope is (6/11)/(4/11)=3/2. Substituting y=(3/2)(x+1) recovers it. A partner’s arbitrary rational point must pass both the equation and the inverse-slope check.",
+              "hints": [
+                "The horizontal change from B is x+1, not x."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Can any rational point escape?",
+          "gate": "Core proof: known root and inverse",
+          "intro": "Continue to use finite rational slopes t. A complete parametrization claim needs both directions and every exceptional case.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Derive the second-intersection formula for general t. Prove that its denominator cannot vanish for rational t and that it always gives a point different from B. Does t=0 cause any difficulty?",
+              "solution": "Substitution factors as (x+1)[(1+2t²)x+(2t²−1)]=0. Thus x=(1−2t²)/(1+2t²), y=2t/(1+2t²). The denominator is positive, hence nonzero for every real and rational t. Also x+1=2/(1+2t²)>0, so the second point differs from B. Direct substitution gives [(1−2t²)²+8t²]/(1+2t²)²=1. At t=0 the point is (1,0), with no exceptional denominator.",
+              "hints": [
+                "Factor out x+1 before using the quadratic formula."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Prove that every rational point on the ellipse other than B is recovered by exactly one rational slope. Describe the missing point geometrically and explain how an infinite-slope card completes the correspondence.",
+              "solution": "For a rational point (x,y) with x≠−1, t=y/(x+1) is rational. Its line goes through B and the point, so factoring the substituted equation shows the other point is precisely the formula from prompt 3. This also proves uniqueness of t. If x=−1 the ellipse equation forces y=0, so B is the sole omitted point. The vertical line x=−1 meets the ellipse only at B (a double intersection); it is tangent there. Assigning the formal parameter ∞ to B extends the bijection from Q to the punctured rational ellipse into a bijection Q∪{∞} with all rational points. No finite real t gives B.",
+              "hints": [
+                "Check the exceptional denominator of the inverse, not just the forward formula."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Trade slopes for integer triples",
+          "gate": "Continuation: integer algebra and completeness",
+          "intro": "Write t=p/q with integers p,q and q≠0. A point with rational coordinates can be written (A/C,B/C), C≠0; scaling A,B,C together does not change the point.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Clear denominators in your parametrization to construct integer triples satisfying A²+2B²=C². Choose p,q to make a nontrivial example. Explain in what sense this produces every rational point, including any exception.",
+              "solution": "Take A=q²−2p², B=2pq, C=q²+2p². Expansion proves A²+2B²=C². For p=2,q=3, this is (1,12,17); for p=3,q=2 it is (−14,12,22), reducible to (−7,6,11). Every rational point other than B has rational t=p/q, so its coordinate ratios agree with one generated triple. This does not assert every integer triple equals the raw formula without scaling or sign changes. The missing rational point (−1,0) is represented by (−1,0,1); allowing q=0,p≠0 in the homogeneous formula gives the same point.",
+              "hints": [
+                "Keep the common denominator instead of reducing the two coordinates separately."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Does a line through a known point guarantee a rational second point on every polynomial curve? Test y²=x³+x+1 through (0,1) using the horizontal line y=1. Explain exactly which earlier step breaks.",
+              "solution": "The point (0,1) lies on this cubic. With y=1, the equation becomes x³+x=x(x²+1)=0. After removing the known root x=0, the remaining factor has degree 2 and has no real or rational roots. Thus there is no distinct rational second point for this chosen line. For the conic, removing one root leaves a linear equation with rational coefficients and nonzero leading coefficient; a cubic leaves a quadratic. This one example refutes the claimed general guarantee, but does not by itself classify which cubics admit rational parametrizations.",
+              "hints": [
+                "Compare the degree left after removing the known factor."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Suppose p,q are coprime integers with q>0. Determine the common divisor of q²−2p²,2pq,q²+2p², including the case p=0.",
+          "solution": "No odd prime can divide all three: it would divide 2q² and 4p², hence both p and q, contradicting coprimality. If q is odd, both q²±2p² are odd, so the common divisor is 1. If q is even then p is odd; q²±2p² are exactly 2 modulo 4, and 2pq is divisible by 4, so the gcd is exactly 2. The case p=0 forces q=1 and gives gcd 1. Thus the raw triple is primitive exactly when q is odd; otherwise dividing by 2 makes it primitive.",
+          "gate": "Prime divisibility, parity and the meaning of a primitive integer triple."
+        }
+      ],
+      "figures": {
+        "conic": {
+          "x_squared_coefficient": 1,
+          "y_squared_coefficient": 2,
+          "constant": 1
+        },
+        "basepoint": [
+          -1,
+          0
+        ],
+        "trial_slopes": [
+          "1",
+          "2/3"
+        ],
+        "decode_point": [
+          "-7/11",
+          "6/11"
+        ],
+        "counterexample_cubic": {
+          "a": 1,
+          "b": 1,
+          "basepoint": [
+            0,
+            1
+          ],
+          "line": "y=1"
+        },
+        "render_note": "Draw the actual ellipse with y-semiaxis 1/√2 and labeled axes. Keep secants and second points for the learner, apart from the given basepoint."
+      },
+      "index_gate": "Exact fractions and quadratic factorization; completeness includes the missing point"
+    },
+    {
+      "id": "AD-16",
+      "title": "Can these finite points make one cycle?",
+      "core_gate": "Modulo-five arithmetic and a complete square-residue search give the finite entry. The new cyclic-structure payoff requires field division, point-addition formulas and a supplied elliptic-curve group theorem.",
+      "extension_gate": "Projective triples, equivalence under nonzero scaling, formal partial derivatives and nonsingularity are explicit advanced prerequisites. Orbit completeness and group-equation solving use modular reasoning.",
+      "reading": "Read coordinates as residues 0–4, not ordinary real positions. Never join the modular points into a smooth real curve.",
+      "materials": "Blank 5×5 coordinate grid, residue square table, counters without a prescribed count, separate infinity card for the projective stage, and supplied addition-rule card.",
+      "prep_minutes": 7,
+      "timing": "10–15 minutes choosing a complete search; 10 for symmetry; 15 for projective completion and theorem hypotheses; 20–30 for the addition cycle and decoding. These stages can occupy separate meetings.",
+      "launch": "Choose a column or a square residue and find points obeying y²=x³+x+1 modulo 5. Can you find them all while doing less than twenty-five unrelated tests?",
+      "satisfying_stop": "At the finite entry, certify the complete point set. At the advanced gate, find a point whose repeated addition visits the entire projective set, then solve point equations through its cyclic labels.",
+      "prior_use": "Week 4 modular rings are prior preparation. The original AD-16 curve y²=x³−x and its seven affine points are not reused: this curve has a different inventory and a cyclic group continuation. AD-15’s cubic counterexample uses the same equation over Q, deliberately contrasting ground fields.",
+      "assessment": "Promising with modulo-five gates for enumeration; advanced/specialist for the elliptic group structure. No cryptographic-security conclusion is made from this tiny group.",
+      "mathematical_connection": "Finite-field rational points, projective completion, nonsingular Weierstrass equations and a concretely identified cyclic group.",
+      "sources": [
+        {
+          "title": "J. S. Milne, Elliptic Curves, second edition",
+          "url": "https://www.jmilne.org/math/Books/EC2.pdf",
+          "locator": "I §3, addition law and associativity, printed pp.26–28; I Proposition 4.10, p.32; II Theorem 2.1, p.50 and addition/duplication formulas, pp.51–52",
+          "adaptation": "Supply the nonsingular projective group theorem and use equivalent slope formulas. The chosen F5 point set, orbit, orders and equations are independently calculated.",
+          "checked": "Read nonsingularity criterion, exceptional inverse/doubling cases and associativity justification on 2026-09-25. The source uses 4a³+27b² as a nonvanishing criterion; our discriminant is the nonzero multiple −16(4a³+27b²)."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Find the finite point set",
+          "gate": "Entry: residue arithmetic and an exhaustive search",
+          "intro": "All arithmetic is modulo 5. Coordinates are residues 0,1,2,3,4. Place a point exactly when y²=x³+x+1. The printed grid is a map of labels, not a sampled real curve: do not join the dots. Squares of 0,1,2,3,4 are 0,1,4,4,1.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose a search organized by columns or square values. Find every point, and give a certificate that none were missed. Predict which points must come in pairs before completing the search.",
+              "solution": "For x=0,1,2,3,4, the right-hand sides are 1,3,1,1,4. Thus the affine points are (0,1),(0,4),(2,1),(2,4),(3,1),(3,4),(4,2),(4,3), eight in all. The square table contains every y, and the five-column table contains every x, proving completeness. If (x,y) works then (x,−y) works. Here no column has right side 0, so no point has y=0 and all pairs are distinct.",
+              "hints": [
+                "Reuse the same square table in every column."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Choose one coefficient change: replace the constant 1 by 0, or replace the coefficient of x by 0. Predict a difference, then find the new affine point count and explain why a smooth real-looking sketch would not settle it.",
+              "solution": "For y²=x³+x, right-hand sides for x=0…4 are 0,2,0,0,3, so only (0,0),(2,0),(3,0): three affine points. For y²=x³+1, right-hand sides are 1,2,4,3,0, giving (0,1),(0,4),(2,2),(2,3),(4,0): five affine points. These counts depend on residue arithmetic and square roots in F5; a real drawing cannot supply them. Either choice is acceptable if the full column certificate is correct.",
+              "hints": [
+                "A zero right-hand side has one square root, whereas 1 and 4 each have two."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Account for the point off the grid",
+          "gate": "Advanced: projective coordinates, formal partial derivatives and a supplied theorem",
+          "intro": "Return to y²=x³+x+1. A projective point [X:Y:Z] is a nonzero triple modulo nonzero scalar multiplication. The homogeneous equation is Y²Z=X³+XZ²+Z³. Supplied theorem: over a field of characteristic other than 2 or 3, a curve y²=x³+ax+b with Δ=−16(4a³+27b²)≠0, completed by O=[0:1:0], has a commutative associative point-addition law with identity O. The next page supplies its formulas.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Prove that points with Z≠0 correspond exactly to the affine points already found, and find every projective point with Z=0. Check the discriminant hypothesis for the original curve.",
+              "solution": "If Z≠0, multiply the triple by Z⁻¹ to obtain [x:y:1]; substitution gives the affine equation, and this representative is unique. If Z=0, the equation forces X³=0, hence X=0 in the field. Since the triple is nonzero, Y≠0, and scaling gives the single point [0:1:0]=O. The projective total is therefore 9, not a mysterious extra grid point. With a=b=1, Δ=−16·31≡4 mod 5≠0, and characteristic 5 is neither 2 nor 3, so the supplied group theorem applies.",
+              "hints": [
+                "Use the field inverse to normalize one nonzero coordinate."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Why should the theorem’s nonzero-discriminant condition not be dropped? Test the curve y²=x³ at (0,0) using its two partial derivatives. The proposed tangent slope for y²=x³+ax+b is s=(3x²+a)/(2y). Identify what fails in this formula at the tested point.",
+              "solution": "For F(x,y)=y²−x³, partial derivatives F_x=−3x² and F_y=2y both vanish at (0,0), which lies on the curve. Thus the point is singular; its discriminant is 0. The tangent slope (3x²+a)/(2y) would be 0/0, not a defined field quotient. The formula’s vertical inverse case alone does not turn this singular cubic into the same nonsingular elliptic-curve theorem. We have not claimed that no other structure can be studied after removing or resolving the singularity.",
+              "hints": [
+                "At the origin, compare numerator and denominator rather than canceling them."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Try repeated point addition",
+          "gate": "Advanced: field division and the supplied group law",
+          "intro": "Use the original curve and arithmetic modulo 5. O+P=P. The inverse of (x,y) is (x,−y); inverse pairs add to O. Otherwise, for P=(x₁,y₁),Q=(x₂,y₂), use s=(y₂−y₁)/(x₂−x₁) when x₁≠x₂; for P=Q with y₁≠0 use s=(3x₁²+1)/(2y₁). Then P+Q=(x₃,y₃), where x₃=s²−x₁−x₂ and y₃=s(x₁−x₃)−y₁. Doubling a point with y=0 gives O. Division means multiplying by a nonzero residue’s inverse.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Choose a nonidentity point and repeatedly add it, starting at O. Record the orbit until it returns. Try to find a point that visits every point. If your first choice does not, choose another. Give at least one exact addition or doubling check.",
+              "solution": "One successful choice is P=(0,1). The multiples 0P…9P are O,(0,1),(4,2),(2,1),(3,4),(3,1),(2,4),(4,3),(0,4),O. For doubling, s=1/2=3, x₃=3²=4,y₃=3(0−4)−1=2, so 2P=(4,2). Adding P to 2P uses s=(2−1)/(4−0)=1/4=4 and gives (2,1). The displayed orbit contains all eight affine points plus O before returning. Other choices: 3P=(2,1) and 6P=(2,4) have order 3; every other nonidentity point has order 9. A learner’s different orbit is checked against the finite group law, not its visual adjacency.",
+              "hints": [
+                "After finding a point, locate its inverse in your inventory.",
+                "A small orbit is evidence about the chosen starting point, not a reason to add missing grid dots."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "For a point P whose orbit visits everything, prove that labeling its multiples by integers modulo the return time turns the point law into modular addition. Explain which part is experimental evidence and which part uses the supplied theorem.",
+              "solution": "For P=(0,1), the explicit list shows 9P=O and that 0P through 8P are distinct and exhaust the projective set. Associativity from the supplied theorem gives (rP)+(sP)=(r+s)P; the identity 9P=O makes labels depend only on the residue modulo 9. Distinctness makes the label map bijective. Thus the group is cyclic of order 9. The orbit calculations establish the order and exhaustion in this instance; they do not by themselves prove associativity of the chord/tangent formulas for arbitrary triples. The finite checker additionally verifies all triples here, but the student proof openly uses the supplied theorem.",
+              "hints": [
+                "Use associativity to regroup repeated sums, then use the return time."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Solve equations in the hidden clock",
+          "gate": "Advanced continuation: a cyclic-group representation",
+          "intro": "Use the generator P=(0,1) and the orbit you proved. A point equation may now be translated into an equation on its multiple-of-P label. A solution list must include every point or explain why none can work.",
+          "prompts": [
+            {
+              "id": "7",
+              "text": "Solve 2Q=P, then solve 3Q=P. Solve 3Q=O and 3Q=(2,1). Translate every answer back to actual point coordinates and explain the difference among the four equations.",
+              "solution": "Write Q=kP with k mod 9. For 2Q=P, 2k≡1 gives k=5, so Q=(3,1). For 3Q=P, 3k≡1 has no solution because the left side is divisible by 3 modulo 9. For 3Q=O, k=0,3,6 gives O,(2,1),(2,4). Since (2,1)=3P, 3Q=(2,1) means 3k≡3, hence k=1,4,7 and Q=(0,1),(3,4),(4,3). The label bijection and congruence classifications prove these lists are complete.",
+              "hints": [
+                "Which residues can 3k have modulo 9?"
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Without recomputing the full addition table, classify the order of every point and every subgroup of this nine-point group.",
+          "solution": "Under Q=kP the order is 9/gcd(9,k), with O of order 1. Labels 3,6 have order 3, namely (2,1),(2,4); labels 1,2,4,5,7,8 have order 9. Every subgroup containing an order 9 point is the whole group. A nontrivial subgroup without such a point contains 3P or 6P and therefore contains exactly{O,3P,6P}, unless it is already whole. Thus the subgroups are{O}, {O,(2,1),(2,4)}, and all nine points. This exhaustive argument uses only the explicit cyclic representation.",
+          "gate": "Cyclic groups, divisibility and subgroup closure."
+        }
+      ],
+      "figures": {
+        "prime": 5,
+        "curve": {
+          "a": 1,
+          "b": 1
+        },
+        "square_table": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "coefficient_trials": [
+          {
+            "a": 1,
+            "b": 0
+          },
+          {
+            "a": 0,
+            "b": 1
+          }
+        ],
+        "generator": [
+          0,
+          1
+        ],
+        "projective_equation": "Y²Z=X³+XZ²+Z³",
+        "render_note": "Blank discrete grid; no smooth connecting curve, preset point count, or nine-slot orbit scaffold. Infinity is a separate labeled card only after its projective explanation."
+      },
+      "index_gate": "Mod-five inventory; projective coordinates and a supplied group theorem for point addition"
+    }
+  ]
+}

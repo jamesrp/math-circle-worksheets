@@ -1,0 +1,1104 @@
+{
+  "batch": "ad3",
+  "status": "Design independently approved; PDF review tracked in scope/review files; not classroom-piloted.",
+  "families": [
+    {
+      "id": "AD-17",
+      "title": "Design the round when closeness begins",
+      "core_gate": "Fractions, simultaneous updates, signed differences and geometric powers. Exact first-entry bounds use inequalities; weighted invariants and parameter classification are the algebraic core.",
+      "index_gate": "Fractional updates and geometric powers; weighted invariants prove exact convergence times",
+      "extension_gate": "Linear algebra for eigenvectors; real geometric-sequence limits for the full parameter classification. No differential calculus.",
+      "reading": "Read two update rules and distinguish old from new coordinates. A number-line trial is an entry; a finite list is not a convergence proof.",
+      "materials": "Two labeled markers, printed number line and open old/new ledger; pencil and optional fraction strips.",
+      "prep_minutes": 5,
+      "timing": "10 minutes choose and run a rule; 15 find a preserved quantity; 20 derive the exact time bound; 15 design an initial pair. General parameter classification can be another meeting.",
+      "launch": "Both markers move at once from their old positions. Let partners choose which marker is more willing to move. Start both trials from the same pair and predict whether they settle at the same place.",
+      "satisfying_stop": "An exact formula and a proof of the first round meeting a tolerance, followed by a family of starting pairs designed to cross a chosen threshold.",
+      "prior_use": "The original AD-17 uses symmetric quarter-gap movement from (0,8). The accepted AP-01 trial and GA-05 worksheets use static harmonic averaging and uniqueness. Here asymmetric simultaneous dynamics preserve a weighted quantity and support exact time-to-tolerance design; it is a related linear idea with a different problem and proof.",
+      "assessment": "Promising with fraction/algebra gates. Marker motion is accessible earlier, but weighted limits and all-parameter claims need algebra-ready learners. Not classroom-piloted.",
+      "mathematical_connection": "A change of coordinates separates the fixed direction from the decaying or oscillating disagreement. This is an exact two-dimensional spectral calculation, with finite equality distinguished from convergence.",
+      "sources": [
+        {
+          "title": "Sheldon Axler, Linear Algebra Done Right, fourth edition",
+          "url": "https://linear.axler.net/LADR4e.pdf",
+          "locator": "§3A definition 3.1, printed p. 52 / PDF p. 66; §5A definitions 5.5 and 5.8, printed pp. 134–135 / PDF pp. 148–149",
+          "adaptation": "Use the linear-map and eigenvector framework. The asymmetric update, weighted invariant, threshold problems and parameter proofs are derived independently.",
+          "checked": "Read the current official PDF locally on 2026-09-26 after web retrieval timed out; exact arithmetic and general formulas are checked separately."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Choose who moves farther",
+          "gate": "Core: fractions and simultaneous movement",
+          "intro": "At each integer round, x′=(1−α)x+αy and y′=βx+(1−β)y. Both right sides use the OLD pair. Start at (−3,9). Choose rule A: α=1/4,β=1/2; or rule B: α=1/2,β=1/4.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Run your chosen rule for two rounds. Compare with a partner using the other rule. Predict the long-term location and explain why averaging the two current positions may mislead.",
+              "solution": "A gives (−3,9)→(0,3)→(3/4,3/2), apparently approaching 1. B gives (−3,9)→(3,6)→(9/2,21/4), approaching 5. The starting ordinary midpoint is 3 but the first midpoint is 3/2 under A and 9/2 under B. Each move uses old values; sequential updates give a different map. The limit predictions are certified later.",
+              "hints": [
+                "Compute both new entries before replacing either old entry.",
+                "Check the ordinary midpoint after one round."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Find a nonzero weighted sum px+qy that never changes under rule A. Then find one for rule B. Prove your choices work for every starting pair, and explain why equal shrinkage of the gap does not force equal limits.",
+              "solution": "For A, 2x+y is invariant: 2(3x/4+y/4)+(x/2+y/2)=2x+y. For B, x+2y is invariant. Both differences satisfy x′−y′=(x−y)/4. If both coordinates share a limit, the invariants force 1 under A and 5 under B for this start. All invariant coefficient pairs satisfy pα=qβ, so these are unique up to scale.",
+              "hints": [
+                "Compare the coefficients of x and y after one update."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Predict a first round, then design one",
+          "gate": "Algebra core: a formula and sharp inequalities",
+          "intro": "Use rule A. Write d=x−y and L=(2x+y)/3. “Within ε” means BOTH |x−L|≤ε and |y−L|≤ε. Round 0 is the initial pair.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Derive x_n and y_n from L and d_0 without repeated updating. For the start (−3,9), find the FIRST round when both coordinates are within 1/100 of L. Prove the preceding round fails. Can they be exactly equal at a finite round?",
+              "solution": "One step keeps L fixed and replaces d by d/4. Solving 2x+y=3L and x−y=d gives x_n=L+d_0/(3·4^n), y_n=L−2d_0/(3·4^n). Here L=1,d_0=−12, so errors are 4/4^n and 8/4^n. At n=4 the maximum is 1/32>1/100; at n=5 it is 1/128≤1/100. Error decreases strictly, so 5 is first. A nonzero initial difference never becomes zero in finitely many divisions by 4; equality at every round occurs only for an equal initial pair.",
+              "hints": [
+                "Track the larger of the two absolute errors.",
+                "Compare powers of 4 exactly; logarithms are unnecessary."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Design an initial pair whose limit is 2 and whose FIRST round within 1/8 is round 3. Find one pair, then classify every real initial pair with this property.",
+              "solution": "Let d_0=d. The invariant forces x_0=2+d/3 and y_0=2−2d/3. The maximum error is E_n=2|d|/(3·4^n). First entry at 3 means E_2>1/8 and E_3≤1/8, equivalently 3<|d|≤12. Every pair in this family works, and these conditions are necessary. Example d=6 gives (4,−2); errors at rounds 2 and 3 are 1/4 and 1/16. Strictness at the earlier boundary matters: |d|=3 first enters at 2.",
+              "hints": [
+                "Use two inequalities: failure at 2 and success at 3."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Choose the dynamics",
+          "gate": "Continuation: real parameters and geometric limits",
+          "intro": "Now allow 0≤α,β≤1. Initial coordinates may be any real numbers. A common limit means both coordinates converge to the same finite number.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "For unequal initial coordinates, classify every parameter pair that produces a common limit. Include zero movement, swapping and exact finite meeting. Derive the limit when it exists.",
+              "solution": "Put s=α+β. The difference multiplier is r=1−s. If s>0, L=(βx_0+αy_0)/s is invariant, and x_n=L+(α/s)r^n d_0, y_n=L−(β/s)r^n d_0. Common convergence occurs exactly when 0<s<2: |r|<1. If s=1, r=0 and both meet after one round. Otherwise a nonzero difference never becomes zero at finite n. If s=0 then α=β=0 and the unequal pair is fixed. If s=2 then α=β=1 and it swaps forever. Equal starting coordinates stay fixed for every allowed pair and are deliberately excluded from the classification.",
+              "hints": [
+                "First study the signed difference; then use βx+αy.",
+                "Do not divide by α+β before treating its zero case."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Return to the start (−3,9). Design ALL parameter pairs that give common limit 3 and halve the absolute gap each round. Which preserve the order of the markers and which alternate it?",
+              "solution": "The limit equation (−3β+9α)/(α+β)=3 forces α=β, with positive sum. Halving requires |1−α−β|=1/2, hence sums 1/2 or 3/2. The two pairs are (1/4,1/4) and (3/4,3/4). Their signed multipliers are 1/2 and −1/2, respectively. The first keeps the order; the second swaps order on every round while the gap shrinks. Both have limit 3 and never meet finitely from this unequal start.",
+              "hints": [
+                "The invariant determines the ratio; the gap multiplier determines the sum."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "For 0<α+β<2, express the update using the directions (1,1) and (α,−β). Identify the eigenvalues and prove the coordinate formula from this decomposition.",
+          "solution": "The directions are independent because their determinant is −(α+β)≠0. T(1,1)=(1,1), and T(α,−β)=(1−α−β)(α,−β). Every starting pair is L(1,1)+(d_0/(α+β))(α,−β), giving the stated nth iterate. An eigenvector need not be a unit vector; here the fixed value L is a coordinate, not necessarily the ordinary mean.",
+          "gate": "Bases, eigenvectors and geometric powers."
+        }
+      ],
+      "figures": {
+        "rules": {
+          "A": [
+            "1/4",
+            "1/2"
+          ],
+          "B": [
+            "1/2",
+            "1/4"
+          ]
+        },
+        "start": [
+          -3,
+          9
+        ],
+        "number_line_range": [
+          -4,
+          10
+        ],
+        "tolerance": "1/100",
+        "design_limit": 2,
+        "design_tolerance": "1/8",
+        "design_first_round": 3,
+        "render_note": "Number line and open round ledger; do not print limit markers or a five-row threshold scaffold."
+      }
+    },
+    {
+      "id": "AD-18",
+      "title": "Can you preserve area without preserving shape?",
+      "core_gate": "Coordinate vectors, parallelogram area and signed arithmetic. The general proof uses perpendicular projection/dot products; inverse and composition arguments require 2×2 algebra.",
+      "index_gate": "Coordinate area and orientation; projection and matrix algebra support the full proof",
+      "extension_gate": "Integer divisibility and inverse matrices for the lattice continuation.",
+      "reading": "Ordered image arrows determine a linear map. Keep signed area, nonnegative physical area, and distance separate.",
+      "materials": "Printed coordinate grid, ruler, two colored image-arrow strips, optional tracing paper and scissors; vector/matrix rule card.",
+      "prep_minutes": 8,
+      "timing": "10 minutes choose an image square; 15 compare orientation and collapse; 15 derive the area formula; 20 design and compose area-preserving maps. Later proof pages may be a separate session.",
+      "launch": "Keep the first arrow fixed and slide the second arrow horizontally. Build the resulting parallelogram before calculating. Which choices could fold the whole plane onto a line?",
+      "satisfying_stop": "A complete parameter design for area 1, exact inverses, and a proof separating area preservation from preservation of all lengths.",
+      "prior_use": "The original AD-18 compares a unit shear, reflection and coordinate projection. This instance uses an oblique image family and a constrained design problem; Week 1 shape work is preparation, not this linear-map classification. AD-17 studies iteration instead of geometric distortion.",
+      "assessment": "Promising with coordinate-area gates; projection/determinant and rigidity arguments are an advanced continuation. A grid count alone is not an adequate core proof.",
+      "mathematical_connection": "The determinant measures oriented area and detects loss of a direction. The Gram identity explains when area and two preserved edge lengths force a rigid linear map. ",
+      "sources": [
+        {
+          "title": "Sheldon Axler, Linear Algebra Done Right, fourth edition",
+          "url": "https://linear.axler.net/LADR4e.pdf",
+          "locator": "§7F7.108–7.111, printed pp. 291–293 / PDF pp. 305–307; §9C and 9.61, printed p. 363 / PDF p. 377",
+          "adaptation": "Use the linear volume-scaling framework. The worksheet proves its planar signed-area, inverse and composition formulas directly rather than appealing to singular-value theory.",
+          "checked": "Read the current official volume discussion and determinant-volume statement on 2026-09-26; the oblique family and projection calculation are independent."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Slide one image arrow",
+          "gate": "Entry: vectors, orientation and parallelograms",
+          "intro": "The unit horizontal arrow maps to u=(2,1); the unit vertical arrow maps to v=(k,2). The full linear rule is A_k(x,y)=x u+y v. Traverse the image square in the order 0,u,u+v,v. Counterclockwise traversal has positive signed area, clockwise negative; a collapsed image has signed area 0.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose k=1 or k=5. Draw the image square, find its ordinary area, and determine its signed area. Compare your result with the other choice. Justify area by geometry, not by counting partly covered grid squares.",
+              "solution": "For k=1 the ordered vertices are (0,0),(2,1),(3,3),(1,2), with signed area 3 and ordinary area 3. For k=5 they are (0,0),(2,1),(7,3),(5,2), with signed area −1 and ordinary area 1. One geometric certificate uses base u of length √5 and the signed perpendicular height (4−k)/√5; the general derivation comes later. Equivalently triangulate with exact coordinate triangle areas, preserving orientation. The sign records which side of the directed line through u contains v.",
+              "hints": [
+                "Find the perpendicular height to the slanted base, or enclose and subtract exact triangles."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Test k=4. Find two distinct inputs with the same output. Describe the whole image and ALL inputs producing an arbitrary reachable output. Explain why there cannot be an inverse on the plane.",
+              "solution": "v=(4,2)=2u, so A_4(x,y)=(x+2y)(2,1). Its image is the line X=2Y. Output (2s,s) has exactly the inputs (x,y)=(s−2t,t), t∈R. For example (0,0) and (−2,1) both map to 0. The distinct-input collision precludes an inverse; no output off that line is reachable.",
+              "hints": [
+                "Express the second arrow as a multiple of the first."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Turn the picture into a test",
+          "gate": "Proof gate: dot products and invertibility",
+          "intro": "For vectors p=(p₁,p₂),q=(q₁,q₂), the dot product is p·q=p₁q₁+p₂q₂. Supplied geometry fact: projection onto a unit normal gives signed perpendicular height. The left normal to a nonzero vector (a,c) is (−c,a)/√(a²+c²).",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "For any real matrix M=[[a,b],[c,d]], prove that the signed area of its ordered image square is ad−bc and its ordinary area is |ad−bc|. Include the case (a,c)=(0,0). Explain exactly when the image collapses.",
+              "solution": "If u=(a,c)≠0, the signed height of v=(b,d) above the directed base is v·(−c,a)/||u||=(ad−bc)/||u||. Multiplying by base length ||u|| gives signed area ad−bc; taking absolute value gives ordinary area. If u=0, the image is a segment or point and ad−bc=0. Otherwise the height is 0 exactly when v is parallel to u. Thus collapse is exactly linear dependence of the two columns, equivalently determinant 0.",
+              "hints": [
+                "Keep the sign of the height until the last step. "
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Find ALL real k for which A_k preserves ordinary area of parallelograms. For each, give an explicit inverse and its orientation. Prove that every other k except the collapse value is still invertible.",
+              "solution": "det A_k=4−k. Ordinary area scale 1 requires |4−k|=1, so k=3 or 5. The inverse for k≠4 is (1/(4−k))[[2,−k],[−1,2]], verified by multiplication. For k=3 this is [[2,−3],[−1,2]], preserving orientation. For k=5 it is [[-2,5],[1,−2]], reversing orientation. Every k≠4 has this inverse; k=4 is excluded by the earlier collision. The same scale for any parallelogram follows from the composition identity proved next, or the same base-height calculation applied to its columns.",
+              "hints": [
+                "Area 1 permits either sign; invertibility only requires a nonzero determinant."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Compose, then test rigidity",
+          "gate": "Continuation: matrix products and a length identity",
+          "intro": "Write det M=ad−bc for M=[[a,b],[c,d]]. A shear S_t(x,y)=(x+ty,y) has matrix [[1,t],[0,1]]. In A_3 S_t, the shear acts first.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Choose a nonzero t and compare A_3 S_t with S_t A_3 on the two coordinate arrows. Prove for arbitrary real 2×2 matrices M,N that det(MN)=det M·det N, then explain why both compositions preserve area even when they differ.",
+              "solution": "A_3=[[2,3],[1,2]]. A_3S_t=[[2,2t+3],[1,t+2]], whereas S_tA_3=[[2+t,3+2t],[1,2]]; for nonzero t they differ in their first columns. Example t=1 gives [[2,5],[1,3]] and [[3,5],[1,2]], each determinant 1. With N=[[e,f],[g,h]], direct expansion of (ae+bg)(cf+dh)−(af+bh)(ce+dg) cancels acef and bdgh and leaves (ad−bc)(eh−fg). This includes singular cases and proves scale multiplication. Signed area of any parallelogram with column matrix N changes by det M.",
+              "hints": [
+                "Write all four product entries before expanding.",
+                "Check the order with the horizontal unit input."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Area preservation alone does not preserve every length: demonstrate that with A_3. Now decide whether a linear map can preserve ordinary area AND the lengths of both unit coordinate arrows, yet fail to preserve some other length. Prove your answer.",
+              "solution": "A_3 sends (1,0) to (2,1), length √5 rather than 1. But the proposed stronger failure is impossible. Let image columns u,v each have length 1 and |det(u,v)|=1. Expanding gives det(u,v)²=||u||²||v||²−(u·v)², so u·v=0. Then ||xu+yv||²=x²||u||²+2xy(u·v)+y²||v||²=x²+y² for every x,y. Thus all lengths are preserved; either orientation is possible.",
+              "hints": [
+                "Expand the square of the determinant and compare with the product of squared lengths."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Among integer matrices M, prove that M maps Z² bijectively onto Z² exactly when det M=±1.",
+          "solution": "If det M=±1, the displayed 2×2 inverse has integer entries, so M and its inverse carry integer vectors to integer vectors. Conversely, a bijection of Z² has preimages of the two unit vectors; place them in an integer matrix N, giving MN=I. Hence integer det M times integer det N is 1, forcing det M=±1. This concerns bijectivity on the lattice, not merely drawing an integer parallelogram.",
+          "gate": "Integer matrices and determinant multiplication."
+        }
+      ],
+      "figures": {
+        "image_u": [
+          2,
+          1
+        ],
+        "image_v": [
+          "k",
+          2
+        ],
+        "trial_k": [
+          1,
+          5
+        ],
+        "collapse_k": 4,
+        "grid_range": [
+          -1,
+          8,
+          -1,
+          4
+        ],
+        "shear_parameter": "t",
+        "render_note": "Blank coordinate grids with unit input square and labeled supplied image arrows only; learners complete the parallelograms. Do not label unknown area or preselect the area1 parameters."
+      }
+    },
+    {
+      "id": "AD-19",
+      "title": "Choose bases that reveal what an arrow does",
+      "core_gate": "Finite-dimensional vector spaces over Q, linear independence, bases, kernel, image and rank. The general theorem works over any field. This is an advanced linear-algebra investigation.",
+      "index_gate": "Bases, kernel and image; independent source/target coordinates are essential",
+      "extension_gate": "Composition and ranks for the two-arrow counterexample.",
+      "reading": "Read coordinate vectors and distinguish a basis vector from a scalar coordinate. Independent choices on the two sides are part of the equivalence rule.",
+      "materials": "Printed linear-map rule, source/target vector cards and open basis ledger; pencil. Optional colored arrows represent basis directions, not individual points of a finite graph.",
+      "prep_minutes": 6,
+      "timing": "10 minutes invent collisions and test targets; 20 choose and check bases; 20 prove the block inventory; 10 test the limit of the equivalence rule. General proof can be a separate meeting.",
+      "launch": "The machine has four inputs and three outputs. Choose different inputs that collide, and a target you believe can never appear. Now invent coordinates that make the machine’s behavior immediately visible.",
+      "satisfying_stop": "An explicit basis decomposition with killed, transmitted and unreachable directions, plus a proof that these three counts completely classify one linear arrow under independent bases.",
+      "prior_use": "The original AD-19 map Q³→Q² has no unreachable target block. The new Q⁴→Q³ instance has all three types and asks learners to design bases and test the classification scope. Week 2/AD-13 image-kernel work is preparatory; the new destination is representation decomposition.",
+      "assessment": "Advanced/specialist with a genuine linear-algebra gate. Arrow cards can organize the proof but do not replace vector-space prerequisites.",
+      "mathematical_connection": "One-arrow quiver representations are classified by domain dimension, target dimension and rank, using independent basis changes. Their three indecomposable types follow from elementary basis extension.",
+      "sources": [
+        {
+          "title": "Pavel Etingof et al., Introduction to Representation Theory, 2011 notes",
+          "url": "https://math.mit.edu/~etingof/replect.pdf",
+          "locator": "§1.8 quiver representations; §5.2 Example 5.8, printed p. 81 / PDF p. 81",
+          "adaptation": "Use the one-arrow direct-sum framework. The Q⁴→Q³ map, explicit basis certificate and design/comparison tasks are new. The proof uses only field-linear basis extension.",
+          "checked": "Read the decomposition of kernel, image and complementary target in Example 5.8 on 2026-09-26; independently construct and verify the new bases."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Try to hide and recover directions",
+          "gate": "Advanced core: exact linear algebra",
+          "intro": "Over Q, let T:Q⁴→Q³ be T(x₁,x₂,x₃,x₄)=(x₁+x₂,x₃+x₄,x₁+x₂+x₃+x₄). You may choose a basis independently in the source and target. A basis must be proved independent and spanning.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Invent two distinct inputs with the same output. Decide whether (3,−2,1) and (3,−2,0) are reachable. Then describe ALL inputs giving any reachable target.",
+              "solution": "The first two output coordinates may be arbitrary a,b and the third must be a+b. Thus (3,−2,1) is reachable, for example from (3,0,−2,0), while (3,−2,0) is not. All preimages of (a,b,a+b) are (a−s,s,b−t,t), s,t∈Q. For example (0,0,0,0) and (1,−1,0,0) collide at 0. This also describes the two-parameter kernel.",
+              "hints": [
+                "Compare the third output with the first two.",
+                "Keep one free choice inside each input-coordinate pair."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Choose source and target bases so the matrix has as few nonzero entries as possible. Show each basis vector’s image, prove both lists are bases, and explain why fewer nonzero entries cannot suffice.",
+              "solution": "Take source u₁=e₁,u₂=e₃,k₁=e₂−e₁,k₂=e₄−e₃. Their coefficients recover any input uniquely: x=(x₁+x₂)u₁+(x₃+x₄)u₂+x₂k₁+x₄k₂. Take target w₁=(1,0,1),w₂=(0,1,1),w₃=(0,0,1); target (a,b,c)=a w₁+b w₂+(c−a−b)w₃ uniquely. Images are w₁,w₂,0,0, so the matrix is [[1,0,0,0],[0,1,0,0],[0,0,0,0]]. Rank is 2, while a matrix with fewer than 2 nonzero entries has rank at most 1, proving minimality. Other checked bases are equally valid.",
+              "hints": [
+                "Use independent image directions as the first target vectors.",
+                "Complete the source with kernel vectors."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Prove the inventory does not depend on your choices",
+          "gate": "General proof: basis extension over a field",
+          "intro": "A block k→0 is one killed source direction; k→k with identity is one transmitted direction; 0→k is one unreachable target direction. A direct sum places blocks side by side in both source and target. A nonzero representation is indecomposable if it is not a direct sum of two nonzero representations.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "For ANY linear map V→W between finite-dimensional spaces over a field k, construct bases giving only these blocks. Prove your chosen transmitted source vectors really are independent modulo the kernel, and account for every direction.",
+              "solution": "Choose a basis w₁,…,w_r of the image and choose v_i with Tv_i=w_i. Add a kernel basis k₁,…,k_a. If Σc_i v_i+Σd_j k_j=0, apply T: image independence forces all c_i=0; kernel independence forces all d_j=0. Any v has Tv=Σc_iw_i; subtracting Σc_iv_i leaves a kernel vector, proving spanning. Extend the image basis to a target basis by b further vectors. The matrix has r identity entries and zeros elsewhere. Thus a=dim ker T, r=rank T, b=dim W−r; this includes zero spaces and the zero map. ",
+              "hints": [
+                "Apply T to a proposed linear dependence.",
+                "Subtract a vector with the same image to land in the kernel."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Why are the three displayed block types indecomposable? Prove that any two decompositions have the same number of each type. Do equal inventories also guarantee equivalence of two one-arrow representations?",
+              "solution": "For k→0 and 0→k, the sole 1-dimensional space cannot split into two nonzero contributions. For identity k→k, a nontrivial split would have to put source and target in separate blocks k→0 and 0→k, whose map is zero, contradicting rank 1. Any decomposition has transmitted count r, killed count dim V−r and unreachable count dim W−r, all invariant under independent invertible bases. Conversely equal counts give the same block matrix after choosing bases by prompt 3; compose these basis isomorphisms to obtain an equivalence. Thus the inventory is both necessary and sufficient.",
+              "hints": [
+                "Check dimensions on both sides AND rank."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Design an arrow and test the rule’s boundary",
+          "gate": "Continuation: classification versus similarity",
+          "intro": "Keep source Q⁴ and target Q³. Later in this page, a SAME-basis change for an endomorphism means replacing a square matrix M by P⁻¹MP, with the same invertible P on both sides.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Design a map Q⁴→Q³ with exactly one transmitted direction. Give a basis certificate. Then list every possible killed/transmitted/unreachable inventory for these fixed dimensions and construct a map for each.",
+              "solution": "One design is S(x)=(x₁+x₂,2x₁+2x₂,0). It has image span(1,2,0), with source e₁ followed by e₂−e₁,e₃,e₄, and target (1,2,0),(0,1,0),(0,0,1). Its inventory is (3,1,2). In general 0≤r≤3 and the inventory is (4−r,r,3−r), giving (4,0,3),(3,1,2),(2,2,1),(1,3,0). Maps (x₁,…,x₄)↦(x₁,…,x_r,0,…,0) attain each. No other inventory is possible by prompt 3.",
+              "hints": [
+                "Rank cannot exceed either dimension; a diagonal rectangular matrix realizes every allowed rank."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Someone applies your theorem to say I₂ and 2I₂ become equal under a SAME-basis change. Audit this claim. Show how independent source/target bases can identify the arrows, and why a same-basis change cannot.",
+              "solution": "Over Q both maps have rank 2 and independent-basis inventory (0,2,0). For 2I, keep source e₁,e₂ and take target 2e₁,2e₂; its matrix becomes I. But P⁻¹ I P=I for every invertible P, so I cannot become 2I through a same-basis change. Equivalence of one arrow permits independent coordinates and is a different problem from similarity of an endomorphism.",
+              "hints": [
+                "Compute P⁻¹IP before trying any specific P."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Do the separate ranks of two arrows determine a chain Q→Q²→Q? Construct two chains with both arrows of rank 1 that cannot be related by independent bases at the three vertices.",
+          "solution": "Use A(t)=(t,0). In the first chain B(x,y)=x, so BA is identity of rank 1; in the second C(x,y)=y, so CA=0 of rank 0. Both individual ranks are 1, but the composite rank is preserved under a chain isomorphism: internal changes cancel and only invertible end changes remain. Therefore these chains are inequivalent. This establishes a limitation, not a full two-arrow classification.",
+          "gate": "Composition, rank and compatible basis changes at a shared intermediate space."
+        }
+      ],
+      "figures": {
+        "matrix": [
+          [
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "targets": [
+          [
+            3,
+            -2,
+            1
+          ],
+          [
+            3,
+            -2,
+            0
+          ]
+        ],
+        "dimensions": [
+          4,
+          3
+        ],
+        "render_note": "Supply matrix/rule and open source-image-target ledger. Do not prelabel numbers of killed or unreachable directions before the basis search."
+      }
+    },
+    {
+      "id": "AD-20",
+      "title": "Find what commutes, then explain the cancellations",
+      "core_gate": "Rational 2×2 matrix multiplication, subtraction and symbolic algebra. General identities require distributivity and associativity of multiplication, not assumptions about associativity of the bracket.",
+      "index_gate": "Matrix multiplication and symbolic cancellation; a concrete test leads to general identities",
+      "extension_gate": "Trace in arbitrary finite dimension for the operator obstruction.",
+      "reading": "Products act on column vectors from right to left. Brackets are a newly defined operation and must retain their parentheses.",
+      "materials": "Printed matrices N,C, blank product and ordered-word ledgers; pencil. No specialized manipulatives.",
+      "prep_minutes": 5,
+      "timing": "10 minutes choose commuting and noncommuting trials; 15 classify the commuting partners; 20 audit bracket identities; 15 prove Jacobi and classify the center. Advanced pages may be separated.",
+      "launch": "Choose a matrix B and predict whether applying B before N has the same effect as applying N before B. Use a vector to expose a difference, then search for every B that hides the order.",
+      "satisfying_stop": "A complete commuting-partner family, a concrete nonassociativity witness and a general Jacobi proof by cancellation of ordered triple products.",
+      "prior_use": "The original AD-20 uses the E,F,H bracket table. The new entry uses a different nilpotent N and a centralizer design problem; the structural identity is shared and acknowledged. Week 3 composition prepares order conventions but does not supply matrix subtraction or a Lie-algebra proof.",
+      "assessment": "Advanced/specialist. Exact matrix trials are meaningful learner choices for those with the algebra gate; they are not advertised as an elementary movement substitute.",
+      "mathematical_connection": "Associative matrix multiplication induces a bilinear alternating bracket satisfying Jacobi. Centralizers and the scalar center distinguish commutation with one operator from commutation with all.",
+      "sources": [
+        {
+          "title": "Pavel Etingof et al., Introduction to Representation Theory, 2011 notes",
+          "url": "https://math.mit.edu/~etingof/replect.pdf",
+          "locator": "§1.9 Definition 1.39 and Example 1.40, printed p. 15 / PDF p. 15; displayed sl(2) example on that page",
+          "adaptation": "Use the associative-commutator and Lie-algebra framework. The N-centralizer, repeated-C associativity witness and center proof are derived here.",
+          "checked": "Read the definition, associative-algebra example and trace-zero matrix discussion on 2026-09-26; ordered-product expansion and chosen matrices are independently verified."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Choose a partner for one matrix",
+          "gate": "Advanced core: products on column vectors",
+          "intro": "Work over Q. Let N=[[1,1],[−1,−1]] and C=[[1,0],[0,0]]. For any matrices A,B define [A,B]=AB−BA. Matrix multiplication acts right to left: ABv means apply B first, then A.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose a nonscalar matrix B that commutes with N, and another that does not. Certify the first by full products and expose the second with an explicit input vector. Check N² as a useful clue.",
+              "solution": "N²=0. A nonscalar commuting choice is B=N+I=[[2,1],[−1,0]]; both NB and BN equal N. A noncommuting choice is C: NC=[[1,0],[−1,0]] and CN=[[1,1],[0,0]]. On e₁=(1,0), NC e₁=(1,−1) while CN e₁=(1,0). Any proposed examples are checked by exact products; scalar multiples of I alone do not meet the first request.",
+              "hints": [
+                "Build a candidate from N and I.",
+                "For a nonzero difference matrix, one of its columns gives a witness vector."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Classify EVERY B=[[a,b],[c,d]] satisfying [N,B]=0. Express your answer using I and N, and explain why a few successful trials would not prove completeness.",
+              "solution": "NB−BN=[[b+c,2b+d−a],[d−a−2c,−b−c]]. Vanishing is equivalent to c=−b and d=a−2b; after these equations the other entries vanish automatically. Therefore B=(a−b)I+bN, with arbitrary rational a,b, or equivalently sI+tN. This proves necessity and sufficiency. Trials suggest a family but do not rule out other entries.",
+              "hints": [
+                "First use a diagonal entry of the difference, then the upper-right one."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Audit the new operation",
+          "gate": "Proof gate: distinguish two operations",
+          "intro": "Keep ordinary multiplication and the bracket separate. The trace of a square matrix is the sum of its diagonal entries. A Lie algebra bracket is bilinear, has [A,A]=0, and obeys the Jacobi identity studied on the next page.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Prove bilinearity and [A,A]=0 for arbitrary rational 2×2 matrices. Prove also that every commutator has trace 0. Must a zero bracket mean either matrix is zero?",
+              "solution": "For example [A+B,D]=(A+B)D−D(A+B)=[A,D]+[B,D], and [qA,D]=q [A,D]; the second argument is analogous. [A,A]=AA−AA=0 and [B,A]=−[A,B]. For A=[[a,b],[c,d]],B=[[e,f],[g,h]], traces of AB and BA are ae+bg+cf+dh and ea+fc+gb+hd, equal over Q, so trace [A,B]=0. A zero bracket does not force either matrix to vanish: I commutes with every B, including nonzero N.",
+              "hints": [
+                "Expand one identity without changing factor order.",
+                "Pair scalar terms in the two diagonal sums."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Compare [[N,C],C] with [N,[C,C]]. Use the result to decide whether the bracket is associative. Explain why this does not contradict associativity of ordinary matrix multiplication.",
+              "solution": "[N,C]=[[0,−1],[−1,0]]. Bracketing this with C gives [[0,1],[−1,0]], while [C,C]=0 and [N,0]=0. Hence the bracket is not associative. Ordinary multiplication remains associative; nested brackets contain sums and subtractions of differently ordered products, and are a distinct operation.",
+              "hints": [
+                "Compute [C,C] before multiplying any longer expression."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Why every Jacobi sum vanishes",
+          "gate": "General proof: ordered triple products",
+          "intro": "For arbitrary matrices A,B,D of the same size, the Jacobi expression is [[A,B],D]+[[B,D],A]+[[D,A],B]. Ordinary products remain in their original order; associativity lets us omit parentheses inside each three-letter product.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Prove the Jacobi identity for ALL rational square matrices by expanding the expression and pairing cancellations. Then prove the related identity [A,BD]=[A,B]D+B[A,D]. State where associativity of multiplication is used.",
+              "solution": "The three expansions are ABD−BAD−DAB+DBA; BDA−DBA−ABD+ADB; DAB−ADB−BDA+BAD. Every ordered word cancels with its opposite, giving 0 in every dimension. Associativity identifies, for example,(AB)D with A(BD); factors are never commuted. For the second identity, the right side is (AB−BA)D+B(AD−DA)=ABD−BAD+BAD−BDA=ABD−BDA=[A,BD]. Checking a single triple would not establish either general identity.",
+              "hints": [
+                "Treat ABD and BAD as different words.",
+                "Each expansion has four terms; cancel only identical words."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Call a matrix central if it commutes with EVERY rational 2×2 matrix. Prove that the central matrices are exactly scalar multiples of I. Use only the tests with N and C for necessity, then verify sufficiency. What is the center inside the trace-zero matrices?",
+              "solution": "Commuting with C forces the off-diagonal entries b,c to be 0. The earlier N-centralizer condition then forces d=a. Thus any central matrix is aI. Conversely aI commutes with every matrix by scalar multiplication. Inside the trace-zero subspace, trace (aI)=2a, so over Q only a=0 remains. Commuting with N alone is weaker: N itself passes that test but fails the C test. For the center of the trace-zero Lie algebra itself, use the trace-zero tests N and C−(1/2)I. The latter has the same commutator with any matrix as C, so these tests again force a scalar matrix; trace zero then forces that scalar to be zero.",
+              "hints": [
+                "Combine two necessary tests; do not mistake one centralizer for the whole center."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Can finite rational square matrices A,B satisfy [A,B]=I? Prove your answer in any positive dimension n.",
+          "solution": "No. In dimension n, trace (AB)=Σ_i Σ_j a_ij b_ji=Σ_j Σ_i b_ji a_ij=trace (BA), so every commutator has trace 0. But trace I=n≠0 over Q. This finite-dimensional obstruction is compatible with infinite-dimensional polynomial operators D and multiplication by X satisfying [D,M_X]=I; the finite trace argument does not apply there.",
+          "gate": "Finite sums and trace; polynomial differentiation only for the optional contrast."
+        }
+      ],
+      "figures": {
+        "N": [
+          [
+            1,
+            1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "C": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "render_note": "Print N,C and a blank order-comparison diagram; leave the commuting-family coefficients and twelve Jacobi terms for learners."
+      }
+    },
+    {
+      "id": "AD-21",
+      "title": "Make a catalog that remembers every choice",
+      "core_gate": "Named objects, ordered pairs and compatible assignments. The universal-property proof needs functions and separate existence/uniqueness arguments; it can be explained with tokens before formal notation.",
+      "index_gate": "Named pairs and matching colors; function uniqueness is the categorical continuation",
+      "extension_gate": "Finite counting and fiber sizes for the projection/count extension.",
+      "reading": "Color names accompany all marks so color vision is unnecessary. Reusing a catalog entry for different tokens is permitted; no one-to-one matching rule is imposed.",
+      "materials": "Printed person and badge cards with names and color words, reusable token markers, blank catalog area and projection arrows.",
+      "prep_minutes": 8,
+      "timing": "10 minutes explore pairings; 15 construct and check a catalog; 10 optimize one recoloring; 15 send token assignments through it; 15–20 prove the universal and uniqueness claims.",
+      "launch": "Choose one person and one badge of the same color. Design a catalog that remembers exactly which person and which badge were chosen. Challenge a partner with repeated names and repeated colors.",
+      "satisfying_stop": "A complete compatible-pair catalog and a proof that every compatible assignment has exactly one record-preserving map into it; duplicate records then explain failure of uniqueness.",
+      "prior_use": "The original AD-21 uses a four-pair color catalog. This larger inventory has repeated fibers on both sides, an optimization choice and a duplicate-record audit. Week 5 combines constraints; the universal mediator and uniqueness up to record-preserving isomorphism remain the new categorical content.",
+      "assessment": "First-pilot candidate for the finite catalog; promising with function-language gates for the universal proof. The counted catalog alone is not the full categorical destination.",
+      "mathematical_connection": "The pullback of two maps to a common set is a set of compatible ordered pairs with a unique mediating function. Existence, uniqueness and uniqueness of the representing object are separate arguments.",
+      "sources": [
+        {
+          "title": "Brendan Fong and David Spivak, Seven Sketches in Compositionality",
+          "url": "https://ocw.mit.edu/courses/18-s097-applied-category-theory-january-iap-2019/a4175d61479a35340d6307ae5e48ef5a_18-s097iap19textbook.pdf",
+          "locator": "§3.5.3 Theorem 3.95 and Example 3.99, printed pp. 112–113 / PDF pp. 124–125",
+          "adaptation": "Use the set-pullback and colored-pair framework. Invent a new inventory, recoloring optimization and duplicate-record/unique-isomorphism tests.",
+          "checked": "Read the finite-limit tuple formula and pullback example on 2026-09-26; independently enumerate the new catalog and prove its mediator property."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Build and improve the catalog",
+          "gate": "Core: named choices and color agreement",
+          "intro": "People: Aster and Birch are red; Cedar and Dahlia are blue; Elm is green. Badges: r,s are red; t is blue; u,v are green; w is gold. A legal entry is an ordered (person,badge) pair with matching colors. Names remain distinct even when colors agree.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose a catalog layout and record EVERY legal entry, once each. Prove completeness. Identify any person or badge that appears in no entry. Can one slot per color preserve both names?",
+              "solution": "The entries are (Aster,r),(Aster,s),(Birch,r),(Birch,s),(Cedar,t),(Dahlia,t),(Elm,u),(Elm,v). These are all pairs within the red, blue, green color fibers, hence complete, with 8 entries. Every person appears; only badge w appears nowhere because no person is gold. A slot storing only a color merges distinct person/badge pairs, so it cannot recover both names.",
+              "hints": [
+                "Choose one person at a time, but retain every badge of that color."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "You may recolor ONLY badge w to red, blue or green. Choose a color to make the catalog as large as possible. Find every best choice and certify that no permitted recoloring can do better.",
+              "solution": "Recoloring w adds one pair for each person of its new color; it removes none because w was unused. Red and blue each add 2 pairs, giving 10, while green adds 1, giving 9. Thus red and blue are exactly the two maximizing choices. This compares all three permitted colors, so it proves optimality.",
+              "hints": [
+                "Count the people in the chosen color, not the badges already there."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Send tokens without losing either record",
+          "gate": "Continuation: functions and forced placements",
+          "intro": "Return w to gold. A token can carry one person name and one badge name. Tokens may repeat the same assignments, and several tokens may land in the same catalog entry. A placement must preserve both names.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Create compatible assignments for at least three tokens, including two tokens with identical records. Place them in your catalog and explain why the placements are forced. Then create an incompatible token assignment and explain exactly why no placement exists.",
+              "solution": "For example x₁,x₂ both carry (Aster,r), and x₃ carries (Elm,v); the first two map to the same entry and the third to (Elm,v). Equal assignments need not have different destinations. Every compatible token’s names specify one existing entry, so existence and uniqueness hold. An incompatible example (Cedar,u) has blue/green colors; no entry preserves both names. Any learner-chosen examples follow the same test.",
+              "hints": [
+                "No rule says the token-to-catalog function must be injective."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "For arbitrary sets A,B,C and functions f:A→C,g:B→C, define P={(a,b):f(a)=g(b)}. Its projections return the first and second records. Given any set X and functions u:X→A,v:X→B with f∘u=g∘v, prove there is EXACTLY ONE h:X→P with projections u,v. Include X empty.",
+              "solution": "For every x∈X set h(x)=(u(x),v(x)). The compatibility equation makes this pair a member of P, proving existence, and its projections are u,v. Any competing h′ with those projections must have first component u(x) and second component v(x), so h′(x)=h(x) for all x. Thus h′=h. If X is empty, the unique empty function gives the same conclusion, even when P is empty.",
+              "hints": [
+                "First show the proposed pair belongs to P; only then prove it is forced."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Test a rival catalog",
+          "gate": "Proof continuation: uniqueness of the object",
+          "intro": "A rival catalog Q has two record maps q_A:Q→A,q_B:Q→B whose colors agree. It has the universal property if EVERY compatible token assignment has exactly one record-preserving map into Q. Merely containing a record for every compatible pair is not enough.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Start with your catalog P. Make Q by adding a second, distinct copy of (Aster,r), with identical person and badge records. Which part of the universal property fails? Give the smallest token test. Also explain what fails if the original (Aster,r) entry is removed instead.",
+              "solution": "For the duplicate catalog, a one-token set X={x} assigned Aster and r has two possible placements, so uniqueness fails although every compatible assignment can still be placed. If the original entry is removed without a replacement, the same one-token assignment has no placement, so existence fails. An empty token set cannot detect either fault because it has one empty map to any catalog.",
+              "hints": [
+                "Test one token whose records pick the altered pair."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Suppose a rival Q really does have the universal property. Prove that there is exactly one bijection P→Q preserving both records. Prove it is a bijection using the two universal properties, without comparing cardinalities.",
+              "solution": "Apply Q’s property to X=P with P’s projections to get a unique h:P→Q. Apply P’s property to X=Q with q_A,q_B to get k:Q→P. The composites kh and id_P both preserve P’s two records; uniqueness for P forces kh=id_P. Likewise hk=id_Q. Thus h is bijective with inverse k. Any other record-preserving map P→Q equals h by Q’s uniqueness, so in particular no other such bijection exists. No finiteness assumption is used.",
+              "hints": [
+                "Build a map each way, then compare each composite with the identity."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "For finite inventories, prove the catalog count is Σ_c|A_c||B_c|. Characterize when each projection is onto its whole inventory.",
+          "solution": "Each compatible pair lies in exactly one disjoint fiber product A_c×B_c, giving the sum. Projection P→A is onto exactly when B_{f(a)} is nonempty for every a∈A; equivalently every color used by A is used by B. The other projection is onto exactly when every color used by B is used by A. Empty inventories obey these statements vacuously in the appropriate direction. In the original inventory the projection to people is onto and the projection to badges misses w.",
+          "gate": "Finite products, disjoint sums and the definition of a surjective function."
+        }
+      ],
+      "figures": {
+        "people": [
+          [
+            "Aster",
+            "red"
+          ],
+          [
+            "Birch",
+            "red"
+          ],
+          [
+            "Cedar",
+            "blue"
+          ],
+          [
+            "Dahlia",
+            "blue"
+          ],
+          [
+            "Elm",
+            "green"
+          ]
+        ],
+        "badges": [
+          [
+            "r",
+            "red"
+          ],
+          [
+            "s",
+            "red"
+          ],
+          [
+            "t",
+            "blue"
+          ],
+          [
+            "u",
+            "green"
+          ],
+          [
+            "v",
+            "green"
+          ],
+          [
+            "w",
+            "gold"
+          ]
+        ],
+        "render_note": "Print both named inventories and a blank catalog region with no answer-sized slot count. Projection arrows carry names rather than colors alone."
+      }
+    },
+    {
+      "id": "AD-22",
+      "title": "Which face cards erase the same edge pattern?",
+      "core_gate": "Parity, edge toggles and a completeness argument. Formal homology uses F2 vector spaces, boundary maps and quotients; the finite reachability proof can precede that notation.",
+      "index_gate": "Even-degree edge patterns; vector spaces and quotient classes form the formal continuation",
+      "extension_gate": "Kernel in degree 2 for a supplied cap-face extension.",
+      "reading": "Names label graph vertices and triangular faces. O is a genuine center vertex where all spokes meet. A drawn triangle is not an available move unless its face card is listed.",
+      "materials": "Printed square-with-center graph, eight edge markers, face cards OAB,OBC,OCD,ODA in a separate style, blank copies for patterns.",
+      "prep_minutes": 8,
+      "timing": "10 minutes freely toggle; 15 classify closed patterns; 20 sort reachability classes; 15 choose extra face cards and certify minimality. Boundary-matrix interpretation may be another meeting.",
+      "launch": "Choose marked edges with even incidence at every vertex. Initially only the opposite face cards OAB and OCD can be played. Try to erase a partner’s pattern, then invent a quick certificate for a failed attempt.",
+      "satisfying_stop": "A complete classification by two preserved outer-edge marks, with constructive erasing sequences and a minimum face-card purchase proof.",
+      "prior_use": "The original AD-22 has a square with one diagonal and four cycles. This new square-center complex has 16 cycles and opposite filled triangles, leading to a two-coordinate class invariant and a face-purchase problem. Week 2 toggles and AD-05 cycle language prepare the mechanism but do not include cycles modulo filled-face boundaries.",
+      "assessment": "First-pilot candidate for parity-ready learners at the finite game; the matrix/quotient continuation has an honest linear-algebra gate. No general topological-invariance claim is inferred.",
+      "mathematical_connection": "Closed edge patterns are ker ∂₁; legal triangle boundaries span im ∂₂. Their quotient is the exact move-equivalence set and has a concrete coordinate invariant.",
+      "sources": [
+        {
+          "title": "The Stacks Project, Complexes",
+          "url": "https://stacks.math.columbia.edu/tag/010V",
+          "locator": "§12.13, chain-complex definition and the homology formula immediately after Lemma 12.13.3",
+          "adaptation": "Use the chain/boundary/quotient framework. The wheel graph, exact cycle parameterization and legal-face classification are independently derived over F2.",
+          "checked": "Read d²=0 and H_i=ker d_i/im d_(i+1) on 2026-09-26; every edge pattern and face subset is independently checked."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Make a closed pattern",
+          "gate": "Core: parity on an exact graph",
+          "intro": "Vertices A,B,C,D form a square in that order; O is its center. Edges are AB,BC,CD,DA,OA,OB,OC,OD. O is a vertex, not an overpass. A pattern marks any subset of edges and is CLOSED when each vertex meets an even number of marked edges. Toggling means marked↔unmarked. Initially the only available face moves toggle the three edges of OAB or OCD.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose a nonempty closed pattern other than a single triangle boundary. Check every vertex. Try each available face move and explain why any legal sequence keeps the pattern closed.",
+              "solution": "The outer square AB+BC+CD+DA is one example: each outer vertex has degree 2 and O has degree 0. Either available face has two incident boundary edges at each of its three vertices, so toggling it changes each incidence parity by 0 mod 2. Other vertices are untouched. Therefore every face move preserves closedness, and induction gives the same for every sequence. Learner choices are accepted exactly when every incidence is even.",
+              "hints": [
+                "Count selected incident edges, not all drawn edges."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Find EVERY closed pattern without checking all subsets separately. Let a,b,c,d be the marks on AB,BC,CD,DA. What must the four spoke marks be? Prove every choice of a,b,c,d gives exactly one closed pattern.",
+              "solution": "At A, OA=a+d; at B, OB=a+b; at C, OC=b+c; at D, OD=c+d, all modulo 2. Their sum at O is 2(a+b+c+d)=0, so O imposes no new constraint. Thus every choice of four bits gives a unique closed pattern,16 total. If T₁,T₂,T₃,T₄ denote boundaries of OAB,OBC,OCD,ODA, then the pattern is aT₁+bT₂+cT₃+dT₄; the outer edge of each triangle proves independence.",
+              "hints": [
+                "Solve the parity equations at the outer vertices first."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Classify what the available cards can change",
+          "gate": "Core proof: an invariant and a construction",
+          "intro": "Keep only face cards OAB and OCD available. Two closed patterns count as equivalent when some legal sequence turns one into the other. A card may be used repeatedly; twice has no net effect.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Classify ALL equivalence classes of closed patterns. Give both a certificate preventing moves between different classes and a procedure connecting any two patterns in the same class. Do not stop after finding one loop that cannot be erased.",
+              "solution": "OAB toggles a and OCD toggles c in the four-bit representation. Neither changes b or d, which are the marks on BC and DA. Thus (b,d) is invariant and has four possible values. Conversely, if two patterns share b,d, toggle OAB exactly when their a values differ and OCD exactly when c differs. This connects them. Therefore the four classes are {bT₂+dT₄+aT₁+cT₃:a,c∈F2} indexed by (b,d)∈F2²; each has 4 patterns. The erasable class is b=d=0.",
+              "hints": [
+                "Look for outer edges that no available move touches.",
+                "An invariant needs a converse construction to prove completeness."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Choose a target to erase: the outer square, or the closed loop AB+BC+OC+OA. You may buy missing face cards OBC and ODA. Find ALL minimum purchases for each target, with a legal sequence and a reason fewer cards cannot work.",
+              "solution": "The outer square is T₁+T₂+T₃+T₄, so both OBC and ODA must be bought: its BC mark can change only via OBC and its DA mark only via ODA. Playing all four cards erases it, so the unique minimum purchase is both missing cards. The second loop is T₁+T₂, so OBC alone is the unique minimum purchase; play OAB and OBC. Buying ODA alone cannot change its BC mark. These arguments prove necessity and sufficiency, not merely a successful attempt.",
+              "hints": [
+                "Which card is the only one touching each marked outer edge?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Name the quotient you have computed",
+          "gate": "Advanced: F2 boundaries and homology",
+          "intro": "Over F2, C₀ has the five vertices as basis, C₁ the eight edges, and C₂ only the available filled triangles OAB,OCD. The boundary ∂₁ of an edge is the sum of its endpoints; ∂₂ of a triangle is the sum of its boundary edges. Define H₁=ker ∂₁/im ∂₂ once you have proved im ∂₂⊆ker ∂₁. Use vertex order A,B,C,D,O; edge order AB,BC,CD,DA,OA,OB,OC,OD; and face order OAB,OCD.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Write the two boundary matrices in the displayed basis orders and verify ∂₁∂₂=0. Use your earlier classification to give bases and dimensions for ker ∂₁ and im ∂₂. Identify H₁ explicitly and say what its zero element means in the game.",
+              "solution": "With vertex order A,B,C,D,O and edge order AB,BC,CD,DA,OA,OB,OC,OD, the rows of ∂₁ are: A=(1,0,0,1,1,0,0,0), B=(1,1,0,0,0,1,0,0), C=(0,1,1,0,0,0,1,0), D=(0,0,1,1,0,0,0,1), O=(0,0,0,0,1,1,1,1). The columns of ∂₂ are T₁=(1,0,0,0,1,1,0,0) and T₃=(0,0,1,0,0,0,1,1). Each product column is 0 because triangle vertices appear twice. The kernel has basis T₁,T₂,T₃,T₄ by prompt 2; image has independent basis T₁,T₃. Hence H₁≅F2² via the BC,DA marks. Its zero element is the whole class of erasable patterns, not just the empty drawing.",
+              "hints": [
+                "Each matrix column is the boundary of its named basis object.",
+                "Use the unique outer-edge coordinate of each triangle."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Now choose ANY subset S of the four possible triangular face cards. Classify the resulting quotient without recomputing a large matrix each time. Which cycle coordinates survive, and when can every closed pattern be erased?",
+              "solution": "The cycle basis T₁,…,T₄ is unchanged because the graph is unchanged. Available boundaries are exactly the distinct basis vectors indexed by S, so their span has dimension |S|. Two cycles are equivalent exactly when their coefficients agree outside S. Thus H₁≅F2^(4−|S|), represented by the unfilled triangles’ outer-edge coordinates. Every cycle is erasable exactly when all four cards are available. With no cards all 16 cycles remain distinct; intermediate cases have 2^(4−|S|) classes. A visible closed loop need not represent a nonzero class.",
+              "hints": [
+                "Changing face cards changes the boundary image, not the closed-pattern space."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Allow all four triangle cards and add a formal cap face attached along the outer square ABCD. There are no 3-dimensional cells. Compute H₂=ker ∂₂ and H₁ over F2 for this enlarged chain complex.",
+          "solution": "The four triangle boundaries are independent in C₁ and the cap boundary equals their sum. For coefficients a₁,…,a₄,e, zero boundary means a_i+e=0 for every i, so ker ∂₂ is one-dimensional, generated by the sum of all five faces. With C₃=0 this is H₂. The image in C₁ remains the full four-dimensional cycle space, so H₁=0. This is a calculation for the explicitly supplied attachment; the visible planar regions alone would not specify the extra cap. ",
+          "gate": "F2 kernels in degree 2 and the definition of homology."
+        }
+      ],
+      "figures": {
+        "vertices": {
+          "A": [
+            0,
+            2
+          ],
+          "B": [
+            2,
+            2
+          ],
+          "C": [
+            2,
+            0
+          ],
+          "D": [
+            0,
+            0
+          ],
+          "O": [
+            1,
+            1
+          ]
+        },
+        "edges": [
+          "AB",
+          "BC",
+          "CD",
+          "DA",
+          "OA",
+          "OB",
+          "OC",
+          "OD"
+        ],
+        "faces": [
+          "OAB",
+          "OBC",
+          "OCD",
+          "ODA"
+        ],
+        "initial_faces": [
+          "OAB",
+          "OCD"
+        ],
+        "targets": [
+          [
+            "AB",
+            "BC",
+            "CD",
+            "DA"
+          ],
+          [
+            "AB",
+            "BC",
+            "OC",
+            "OA"
+          ]
+        ],
+        "render_note": "Mark O as a vertex. Distinguish face availability from edge selection by separate face cards or light stippling; no selected answer pattern or16-slot catalog."
+      }
+    },
+    {
+      "id": "AD-23",
+      "title": "How much free space completes this module?",
+      "core_gate": "Finite-dimensional rational vector spaces, ring/module action, direct sums and isomorphism. Projective means a direct summand of a finite free module here. Counters alone are only a preparatory model.",
+      "index_gate": "Vector spaces and module actions; idempotents justify the two-inventory model of K0",
+      "extension_gate": "Abstract commutative monoids and cancellation for the warning example.",
+      "reading": "Symbolic definitions are essential. Distinguish an actual module, its isomorphism class and a formal difference; negative coordinates are not negative-dimensional spaces.",
+      "materials": "Printed two-control definition card, paired-space diagrams, optional two-color counters and open complement/formal-difference ledgers.",
+      "prep_minutes": 8,
+      "timing": "15 minutes choose modules and test controls; 20 prove splitting and construct free complements; 15 compare stable additions; 20 establish the universal group completion. This advanced family may use two meetings.",
+      "launch": "Two independent rational knobs scale two components. Choose spaces with the same total dimension but different responses to the knobs. Then ask what smallest additional space makes each into a free module.",
+      "satisfying_stop": "An explicit smallest free complement and a justified computation K0(Q×Q)=Z², including a nonfree projective and a virtual class not represented by an actual module.",
+      "prior_use": "The original AD-23 already states K0(Q×Q)=Z²; the ring and mechanism are deliberately retained. The new investigation asks for minimal free complements, stable-addition obstructions and alternate descriptions of one virtual class. No existing elementary counter lesson is claimed to establish the module theorem.",
+      "assessment": "Advanced/specialist. Paired counters faithfully represent isomorphism classes only after the idempotent/module argument. The hard gate is preserved rather than hidden.",
+      "mathematical_connection": "Central orthogonal idempotents split modules into two rational vector spaces. Their dimension monoid is N², projectivity is certified by free complements, and its universal additive completion is Z².",
+      "sources": [
+        {
+          "title": "Charles Weibel, The K-book, Chapter II",
+          "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.II.pdf",
+          "locator": "§1 definition and Proposition 1.1, chapter pp. 1–2; §2 definition of K0, p. 5; product-ring statement before Example 2.1.4, p. 6",
+          "adaptation": "Use the projective-class monoid and universal group-completion framework. The worksheet independently proves the Q×Q splitting, smallest complement and virtual-class tests.",
+          "checked": "Read the universal construction, stable equality discussion and product-ring statement on 2026-09-26; the chosen module dimensions and all minimality claims are derived directly."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Let two controls distinguish equal totals",
+          "gate": "Advanced core: actual module action",
+          "intro": "Let R=Q×Q with componentwise ring operations and identity (1,1). On M(a,b)=Q^a⊕Q^b, let (r,s)·(u,v)=(ru,sv). Here a,b are nonnegative integers. An R-linear isomorphism is an invertible additive map preserving this action. Set e₁=(1,0),e₂=(0,1).",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose two different dimension pairs with the same total dimension and test whether their modules can be R-isomorphic. Then compare P=M(3,1) and Q=M(1,3). Find a control-based invariant that proves your answer, rather than relying on the names of the two components.",
+              "solution": "For example M(4,2) and M(3,3) have equal total 6 but differ in the dimension of e₁M, respectively 4 and 3. Any R-linear isomorphism φ satisfies φ(e_i m)=e_i φ(m), so it carries e_iM bijectively onto e_iN and preserves its rational dimension. P and Q therefore differ because their e₁ dimensions are 3 and 1 (also e₂ dimensions 1 and 3). Equal total dimension alone forgets the independent controls. If a learner chooses identical ordered pairs, the modules are isomorphic and the intended distinguishing choice should be revised.",
+              "hints": [
+                "Apply e₁ and e₂ separately; each kills one component."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "For ANY finitely generated unital R-module M, prove M=e₁M⊕e₂M and show both summands are finite-dimensional rational vector spaces. Prove that the ordered pair of dimensions completely classifies M, including the converse construction of an R-isomorphism.",
+              "solution": "The idempotents satisfy e₁+e₂=1,e₁e₂=0,e_i²=e_i. Thus m=e₁m+e₂m. An element in both summands is fixed by e₁ and killed by e₁, so the intersection is 0. Rational scalars act through (q,q), making each summand a Q-space. If m₁,…,m_n generate M over R, then e_i m_j span e_iM over Q, so its dimension is finite. On e₁M the action (r,s) is multiplication by r, and on e₂M it is multiplication by s. Choosing rational bases gives an R-isomorphism with M(a,b). Conversely equal ordered dimensions permit separate rational linear isomorphisms on the components; their direct sum is R-linear. Necessity follows from the control invariant in prompt 1.",
+              "hints": [
+                "Use the identities of the two idempotents before choosing a basis."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Buy the smallest free complement",
+          "gate": "Advanced: free versus projective modules",
+          "intro": "A finite free R-module is R^n, n≥0. In this investigation “finitely generated projective” means a module that has a complement C with M⊕C≅R^n for some finite n. Direct sum adds the two component dimensions.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Find the smallest n for which P=M(3,1) has a complement in R^n, and exhibit that complement. Then solve this problem for EVERY M(a,b). Use the result to prove every finitely generated R-module is projective and classify which are free.",
+              "solution": "R^n has pair (n,n). For P, the inequalities n≥3 and n≥1 force n≥3; complement M(0,2) attains R³. In general n≥max(a,b) is necessary, and at n=max(a,b), C=M(n−a,n−b) gives an explicit direct-sum isomorphism to R^n by grouping coordinates. Thus the smallest free rank is max(a,b), every M(a,b) is projective, and it is free exactly when a=b. The zero module has minimum n=0 and zero complement.",
+              "hints": [
+                "Each control sees dimension n in a free module."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Can adding the SAME module to P=M(3,1) and Q=M(1,3) make them isomorphic? Can adding some free R^n make M(1,0) free? Prove both answers, and then find a nonfree addition that does make M(1,0) free.",
+              "solution": "Adding M(c,d) gives pairs (3+c,1+d) and (1+c,3+d), still unequal, so no common addition repairs P versus Q. M(1,0)⊕R^n has pair (n+1,n), never equal coordinates, so it is not free for any n. But adding M(0,1) yields M(1,1)=R. The obstruction concerns adding a free module, not adding an arbitrary complement; projective need not mean stably free in this example.",
+              "hints": [
+                "Compare coordinates before and after adding the same quantities."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Allow differences without inventing negative spaces",
+          "gate": "Advanced: the universal group completion",
+          "intro": "The monoid of projective isomorphism classes has direct sum as addition. Its K0 is the abelian group generated by symbols [M], subject to [M⊕N]=[M]+[N] and [0]=0. An actual class [M] and a formal difference [P]−[Q] are different kinds of description.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Compute z=[M(3,1)]−[M(1,3)]. Invent a different pair of actual modules giving the same z and justify equality using the relations. Decide whether z is the class of any actual module. More generally, identify exactly which signed pairs can be represented by an actual module.",
+              "solution": "z has coordinate difference (2,−2). For example add M(2,0) to both modules: [M(5,1)]−[M(3,3)]=z, since the added class cancels in the group. A negative second coordinate cannot be the dimensions of an actual module, so z is genuinely virtual. The coordinate invariant is justified on the defining relations because dimensions add. Every pair with both coordinates nonnegative is represented by M(a,b), and no pair with a negative coordinate is. Prompt 6 proves that no extra invariant is hidden.",
+              "hints": [
+                "Add the same actual module to the positive and negative sides."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Prove K0(R)≅Z², rather than merely giving a map to Z². Show every signed pair occurs and that coordinate differences determine formal classes uniquely. Then prove the universal statement: every additive map N²→G to an abelian group extends uniquely to a group homomorphism Z²→G.",
+              "solution": "Every actual class is a [e₁R]+b [e₂R] by the module classification. Hence every formal class is uniquely forced to have form u [e₁R]+v [e₂R], u,v∈Z: the dimension map sends this expression to (u,v), so no two distinct pairs can coincide. All pairs occur by taking positive and negative parts as actual modules. This proves inverse homomorphisms between K0(R) and Z². For an additive φ:N²→G, set g₁=φ(1,0),g₂=φ(0,1); then φ(a,b)=ag₁+bg₂. The only possible extension is Ψ(u,v)=ug₁+vg₂, using additive inverses for negative integers. It is a well-defined homomorphism extending φ, proving existence and uniqueness. In this ring cancellation also means [P]=[Q] iff P≅Q; that conclusion is not asserted for arbitrary rings.",
+              "hints": [
+                "The two one-component modules generate every actual class.",
+                "Use the dimension homomorphism to rule out an extra relation."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Does every commutative monoid embed in its group completion? Test the monoid {0,e} with 0 as identity and e+e=e.",
+          "solution": "No. In any abelian group image, φ(e)+φ(e)=φ(e) implies φ(e)=0 by cancellation, so both monoid elements have the same image. The universal group completion is the zero group: every map to any group is the unique zero map. This contrasts with N², whose coordinate cancellation permits an injective map into Z². The module computation relied on that special classification.",
+          "gate": "Commutative monoids, group cancellation and a universal property."
+        }
+      ],
+      "figures": {
+        "ring": "Q×Q",
+        "idempotents": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "modules": {
+          "P": [
+            3,
+            1
+          ],
+          "Q": [
+            1,
+            3
+          ]
+        },
+        "render_note": "Print the action and idempotent definitions with paired-space diagrams. Leave complement dimensions blank; do not imply a signed pair is an actual vector space."
+      }
+    },
+    {
+      "id": "AD-24",
+      "title": "Count necklaces when every bead count is fixed",
+      "core_gate": "Arranging six beads, exact counting and rotation equivalence. The fixed-pair proof needs orbit/stabilizer reasoning, introduced concretely. The n-bead formula uses gcd and binomial coefficients.",
+      "index_gate": "Rotation classes and exact counting; the general formula uses gcd and fixed-pair reasoning",
+      "extension_gate": "Gcd/divisibility for equal-sized orbits at coprime bead counts.",
+      "reading": "Two named colors are fixed. Rotate in the plane only until a later explicit reflection rule. Labeled strings and unlabeled necklaces are different collections.",
+      "materials": "Six-position circular mats with a removable top marker, three red and three blue counters per learner, open catalog area and rotation ledger.",
+      "prep_minutes": 8,
+      "timing": "10 minutes build freely; 20 classify rotation types; 15 audit naive division; 20 derive the fixed-pair count; 15 test reflection and a new bead number. Do not reveal later counts early.",
+      "launch": "Every necklace has three red and three blue beads. A turn is allowed, but no flipping and no renaming colors. Build a catalog that another pair cannot enlarge with a new necklace.",
+      "satisfying_stop": "A complete fixed-weight necklace catalog, a proof of the rotation average and a real example where adding reflections merges two previously different types.",
+      "prior_use": "The original AD-24 counts unrestricted four-bead binary necklaces. The new six-bead fixed-weight instance has a chiral pair and unequal orbit sizes; it supports both a fixed-weight general formula and an actual rotation/reflection distinction. Week 3 return times are preparation, not this orbit-counting argument.",
+      "assessment": "First-pilot candidate for the six-bead catalog and symmetry explanation; the general n,r formula has an explicit counting/gcd gate. Not classroom-piloted.",
+      "mathematical_connection": "An orbit contributes exactly the group size to the fixed-pair count. Rotation cycles also impose divisibility on the allowed red count, explaining the fixed-weight Burnside formula.",
+      "sources": [
+        {
+          "title": "Thomas Judson, Abstract Algebra: Theory and Applications",
+          "url": "https://judsonbooks.org/aata-files/aata-html/actions-section-burnsides-counting-theorem.html",
+          "locator": "§14.3 Theorem 14.3.3 and its fixed-pair proof; supporting orbit-stabilizer Theorem 14.1.11",
+          "adaptation": "Use the finite-action double count. Six-bead weight 3, the reflected pair and eight-bead weight 4 are new exact instances solved independently.",
+          "checked": "Read the theorem and fixed-point/stabilizer double count on 2026-09-26; enumerate all fixed-weight strings and actual rotation/reflection orbits separately."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Build without counting the same turn twice",
+          "gate": "Core: six beads and a precise equivalence rule",
+          "intro": "Use exactly three red beads and three blue beads on six positions. Two necklaces are the same if a rotation makes all named colors match. Do not flip the ring or exchange color names. For recording, 1 means red and 0 means blue; strings read clockwise from a temporary top mark.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose a catalog method and find every different necklace. Prove that none is missing and that no two entries are rotations of one another. A bare list without a completeness argument is not enough.",
+              "solution": "One representative list is 000111,001011,001101,010101. A completeness certificate uses the clockwise blue gaps after the three red beads: triples of nonnegative integers summing 3, considered up to cyclic permutation. The types are (3,0,0),(2,1,0),(2,0,1),(1,1,1). These exhaust the partitions of 3 into three ordered gaps modulo cyclic rotation; the two orders of 2,1,0 are not cyclic permutations. They give precisely the four displayed rotation types. An exhaustive labeled-string catalog with checked rotations is also valid.",
+              "hints": [
+                "Record how many blue beads occur between successive red beads.",
+                "Turning changes the starting gap, not their cyclic order."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Restore the top mark. Count all labeled strings with three red beads. For each necklace in your catalog, count its DISTINCT rotations. Explain why dividing the labeled count by 6 does not give the necklace count.",
+              "solution": "There are C(6,3)=20 labeled strings, choosing the red positions. The first three representative orbits have 6 distinct rotations each; 010101 has 2. The orbit sizes sum 6+6+6+2=20. Division by 6 incorrectly assumes every orbit has 6 elements, and 20/6 is not an integer. The alternating pattern repeats after a two-position turn, so it is the exact obstruction.",
+              "hints": [
+                "Count actual different strings in an orbit, not the six attempted turns."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Count the patterns fixed by each turn",
+          "gate": "Proof core: count the same pairs twice",
+          "intro": "Let r_j move each bead forward j positions modulo 6, for j=0,…,5. A labeled pattern is FIXED by r_j when the resulting labeled string is unchanged. Count only strings with exactly three red beads.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Find the number of patterns fixed by every r_j, with a reason for each turn type. Average the six counts and compare with your catalog. Why must a fixed pattern have constant color along each position-cycle of the turn?",
+              "solution": "The fixed counts for j=0,1,2,3,4,5 are 20,0,2,0,2,0. Identity fixes all 20. Turns 1 and 5 make one 6-cycle, so a fixed pattern has 0 or 6 reds. Turns 2 and 4 make two 3-cycles, so exactly one cycle must be red, giving 2 choices. Turn 3 makes three 2-cycles, so its red count must be even, excluding 3. Their sum 24 divided by 6 is 4. Equality under the turn propagates a bead’s color along its entire position-cycle; choosing one color per cycle is also sufficient.",
+              "hints": [
+                "Draw the permutation of positions for each turn.",
+                "The red beads must fill complete cycles."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Explain why this average MUST count necklaces. Count pairs (turn, labeled pattern fixed by that turn) in two ways. Prove that the patterns in any one rotation orbit contribute exactly 6 pairs, even when the orbit has fewer than 6 members.",
+              "solution": "Counting by turns gives Σ_j Fix(r_j)=24. For a fixed pattern x, its stabilizer consists of the turns fixing it. The map from six turns to the orbit, r↦r x, has equal fibers: turns r,s give the same result iff s⁻¹r fixes x, so each fiber has size |Stab(x)|. Thus |Orbit(x)|·|Stab(x)|=6. Stabilizer sizes are equal for all patterns in that orbit (here rotations commute; conjugation gives the general group argument). Summing stabilizer sizes over the orbit therefore contributes 6. Each orbit contributes equally, so total fixed pairs divided by 6 is exactly the number of orbits. This proves the count rather than guessing a successful average.",
+              "hints": [
+                "For a chosen target rotation of x, compose with one turn that reaches it."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Change the rules, then generalize",
+          "gate": "Continuation: reflections and gcd",
+          "intro": "For the first task on this page ONLY, allow turning the ring over as well as rotating it, while keeping color names fixed. For the next task return to rotations only.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Which of your six-bead necklaces merge when reflections become legal? Give an actual reflected pair and prove the new complete count. Explain why a coincidence for four beads would not settle this case.",
+              "solution": "000111 and 010101 each reflect into their own rotation orbits. The types 001011 and 001101 reflect into each other’s orbit, giving 3 bracelet types in all. For example reverse 001011 to 110100, a rotation of 001101. Gap triples make completeness clear: reflection reverses their cyclic order, interchanging (2,1,0) and (2,0,1), while (3,0,0) and (1,1,1) stay equivalent to themselves. Thus exactly one pair of rotation types merges. The four-bead coincidence from the original atlas is not a general rule.",
+              "hints": [
+                "Reverse the cyclic order of the blue-gap triple."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "For n≥1 positions and exactly r red beads, 0≤r≤n, derive the number fixed by a j-position turn using g=gcd(n,j). State a rotations-only counting formula, justify it, and use it for eight positions with four red beads.",
+              "solution": "The j-turn has g cycles, each of length L=n/g. A fixed pattern is a union of full red cycles, so the count is 0 unless L divides r; if L divides r it is C(g,r/L). Here gcd(n,0)=n, so the identity count is C(n,r). The number of necklaces is (1/n)Σ_(j=0)^(n−1) F_j, with F_j as just derived, by the fixed-pair argument. For n=8,r=4, the counts in order j=0,…,7 are 70,0,2,0,6,0,2,0, giving 80/8=10. Endpoints r=0 or r=n give one necklace because every turn fixes the unique constant string.",
+              "hints": [
+                "Equal-length position cycles force a divisibility condition before any binomial choice."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Prove that if gcd(n,r)=1 with 0<r<n, every fixed-weight rotation orbit has size n. Deduce a shortcut count and apply it to seven beads with three red.",
+          "solution": "If a nonidentity turn fixes a pattern, its cycle length L=n/gcd(n,j)>1 divides both n and r, contradicting coprimality. Thus only the identity stabilizes any pattern, and orbit-stabilizer gives size n for every orbit. The count is C(n,r)/n. For 7,3 it is 35/7=5. The coprime hypothesis is sufficient here; without it, orbit sizes may vary and naive division is unsafe.",
+          "gate": "Gcd, divisibility, stabilizers and binomial coefficients."
+        }
+      ],
+      "figures": {
+        "beads": 6,
+        "red_count": 3,
+        "colors": [
+          "blue",
+          "red"
+        ],
+        "recording": {
+          "0": "blue",
+          "1": "red"
+        },
+        "comparison_beads": 8,
+        "comparison_red": 4,
+        "render_note": "Provide reusable six-position rings and an open catalog, not four preset answer rings. Label clockwise order and a removable top marker; no reflection arrows until the rule-change page."
+      }
+    }
+  ]
+}

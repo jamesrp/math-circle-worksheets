@@ -1,0 +1,1195 @@
+{
+  "batch": "ga2",
+  "status": "independent design review closed; maker PDF QA complete; independent PDF review pending",
+  "families": [
+    {
+      "id": "GA-09",
+      "title": "Choose a shape, then choose its future",
+      "core_gate": "Calculus is the core: partial derivatives, sine/cosine and exponentials. Graph sliding is an entry, not a proof of a PDE.",
+      "index_gate": "Partial derivatives, trigonometry and exponentials; calculus is the core",
+      "extension_gate": "Energy comparison uses definite integrals and integration by parts.",
+      "reading": "Formula reading in two variables; distinguish holding x fixed from holding t fixed. Signed amplitudes and integer spatial frequencies.",
+      "materials": "Printed sine profiles and axes, tracing paper or a transparent sleeve, pencil; calculator optional for e^(−t). No physical heat apparatus.",
+      "prep_minutes": 8,
+      "timing": "Allow 10 minutes to move and compare profiles, 15–25 to diagnose the equations, a short movement reset, then 20–30 to design fixed-end evolutions. Mode superpositions and energy can be a later meeting.",
+      "launch": "Choose a sliding speed and a fading rate. Where will the peak be later, and what calculation would catch an incorrect evolution law?",
+      "satisfying_stop": "Two distinct fixed-end wave futures with the same initial shape, plus the derivative calculation explaining what initial velocity adds.",
+      "prior_use": "Week 9 follows individual billiard trajectories; this follows a function across all positions. GA-33 studies one-variable rate equations; this family makes spatial derivatives and boundary conditions essential.",
+      "assessment": "Advanced/specialist. Strong for learners already comfortable with derivatives; moving a graph alone is not a satisfying substitute for the mathematical core. Unpiloted.",
+      "mathematical_connection": "Exact separated modes of the wave and heat equations; initial data, boundary data and superposition. No claim of general PDE existence or completeness follows from this selected family.",
+      "sources": [
+        {
+          "title": "John K. Hunter, Notes on Partial Differential Equations",
+          "url": "https://math.ucdavis.edu/~hunter/pdes/pde_notes.pdf",
+          "locator": "§5.1, printed p.127, heat initial-value problem; §7.1, pp.211–212, wave equation and two initial conditions.",
+          "checked": "The equations, fixed-boundary wave formulation and energy calculation were inspected. Every mode, diagnostic and chosen superposition is differentiated independently. Inspected 2026-09-25.",
+          "adaptation": "The source provides the continuum equations and initial-data context. The parameter-selection and same-initial-velocity discrimination tasks are new exact calculations; no token model is substituted for the PDE."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Slide it or fade it",
+          "gate": "Core: partial derivatives and trigonometric functions",
+          "intro": "For all real x and t≥0, try U_c(x,t)=sin(x−ct) and V_a(x,t)=e^(−at)sin x. Choose c from −2,−1,0,1,2 and a from 0,1,4. The two candidate laws are W_tt=W_xx (wave) and W_t=W_xx (heat). A subscript is a partial derivative; hold the other variable fixed. Angles use radians.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose c and a. Draw the profiles at t=0 and t=π/2. Predict what happens to the peak position and height. Choose a space-time point where you would test a disputed prediction.",
+              "solution": "For U_c, peaks occur at x=π/2+ct+2πj and their height stays 1; at t=π/2 the displacement is cπ/2, with the sign setting the direction. For V_a, peaks remain at π/2+2πj and have height e^(−at), hence e^(−aπ/2) at the chosen later time. The a=0 and c=0 choices are stationary. Any point is a legitimate test; one should choose a point at which the competing predicted values differ, rather than only a common zero.",
+              "hints": [
+                "Track a marked peak, and distinguish its x-coordinate from its height."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Classify all the allowed c and a: which U_c and V_a obey each law everywhere? Prove each success and exhibit a failed equality for each excluded type.",
+              "solution": "U_t=−c cos(x−ct), U_tt=−c²sin(x−ct), U_xx=−sin(x−ct), so U_c obeys the wave law exactly when c=±1. It never obeys the heat law: if c≠0, use x=t=0; if c=0, use x=π/2,t=0. V_t=−aV, V_tt=a²V, V_xx=−V, so V_a obeys heat exactly for a=1 and obeys wave for no real a, since a²+1>0 and V is not identically zero. Evaluating the rejected wave identities at a point with sine equal to 1 gives explicit failures.",
+              "hints": [
+                "An identity must hold at every point. One convenient point can disprove it, but cannot by itself prove it."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "One initial shape, several futures",
+          "gate": "Core continuation: initial and boundary data",
+          "intro": "Now use only 0≤x≤π and require W(0,t)=W(π,t)=0 for every t≥0. The initial shape is sin x. Try W_b(x,t)=sin x(cos t+b sin t), with a real number b of your choice. The heat candidate is H(x,t)=e^(−t)sin x.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Choose two different values of b. Verify that both W_b satisfy the wave law, the endpoint rule and the same initial shape. Show that their later futures differ. Explain why simply sliding sin(x−t) would not meet this endpoint rule.",
+              "solution": "For every b, W_tt=−W=W_xx, the sine factor vanishes at both endpoints, and W(x,0)=sin x. Its initial velocity is W_t(x,0)=b sin x. At t=π/2, W_b=b sin x, so distinct b give different futures, already distinguished at x=π/2. The traveling wave sin(x−t) gives −sin t at x=0, which is not always zero; using the same initial graph does not repair its boundary failure.",
+              "hints": [
+                "At t=π/2 the cosine term disappears. Check an endpoint for all times, not just at the start."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Choose b so the wave W_b and heat H have both the same initial shape and the same initial velocity. Find an exact later observation that separates them. What additional choice remains essential when specifying a future?",
+              "solution": "H_t(x,0)=−sin x, so b=−1. At x=π/2,t=π/2, W_−1=−1 but H=e^(−π/2)>0. Their second time derivatives at zero are already different: W_tt(x,0)=−sin x, while H_tt(x,0)=sin x. Even matching two initial records does not make solutions of different laws coincide: the evolution equation itself is essential. Within the displayed wave family, specifying initial velocity fixes b; no general PDE uniqueness theorem is being inferred.",
+              "hints": [
+                "Match the derivative at t=0 first; then choose a time that simplifies sine and cosine."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Design with more than one mode",
+          "gate": "Calculus continuation: separated modes and linearity",
+          "intro": "A mode has spatial shape sin(kx), where k is a positive integer. Test heat candidates e^(−αt)sin(kx) with α≥0 and wave candidates cos(ωt)sin(kx) with ω>0, keeping the fixed endpoints.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Choose k. Determine every α and ω for which the corresponding candidate obeys its law. Explain how changing the number of spatial oscillations changes decay and oscillation in time.",
+              "solution": "Two x-derivatives multiply sin(kx) by −k². The heat derivative multiplies by −α, so α=k². Two wave time derivatives multiply by −ω², so ω²=k² and ω=k because ω>0. These are necessary because sin(kx) is nonzero somewhere and sufficient by substitution. Integer k ensures both endpoints vanish. Heat decay rate grows like k²; wave angular frequency grows like k.",
+              "hints": [
+                "Keep the factor k each time you differentiate in x."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Choose a nonzero real d and initial shape sin x+d sin(2x). Build a heat evolution and, separately, a wave evolution with zero initial velocity from the modes. Can the heat evolution at any positive time be just one scalar multiple of the whole initial shape? Prove your answer.",
+              "solution": "Linearity gives H_d=e^(−t)sin x+d e^(−4t)sin(2x) and W_d=cos t sin x+d cos(2t)sin(2x). Differentiating each term verifies the respective PDE; both endpoints and the initial shape match, and W_d has initial velocity zero. If H_d(x,t)=C(sin x+d sin(2x)) for all x, evaluation at x=π/2 forces C=e^(−t). Evaluation at x=π/4 then forces e^(−4t)=e^(−t), since d≠0. This occurs only at t=0. Thus for every positive time the heat shape changes, not merely its overall height.",
+              "hints": [
+                "Use one position where sin(2x)=0, then one where it is not zero."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "For W_b and H on the fixed interval, compare wave energy E=(1/2)∫₀^π(W_t²+W_x²)dx with heat size Q=∫₀^πH²dx. Derive their time behavior, and explain why wave amplitude at one point is not the same as wave energy.",
+          "solution": "Write A=cos t+b sin t and A′=−sin t+b cos t. Since ∫sin²x=∫cos²x=π/2, E=π(A′²+A²)/4=π(1+b²)/4, constant. Q=πe^(−2t)/2 decreases. More generally for sufficiently smooth fixed-end wave solutions, differentiating E and integrating by parts gives E′=[W_tW_x]₀^π+∫W_t(W_tt−W_xx)dx=0; fixed endpoint values give W_t=0 there. A standing wave can be zero everywhere at an instant while its velocity stores the energy. This is an exact model identity, not an experimental claim about a real lossy string.",
+          "gate": "Partial derivatives, definite integrals and integration by parts."
+        }
+      ],
+      "figures": {
+        "profile_axis": {
+          "x_ticks_pi_units": [
+            -1,
+            0,
+            0.5,
+            1,
+            1.5,
+            2,
+            2.5,
+            3
+          ],
+          "y_range": [
+            -2,
+            2
+          ],
+          "initial_profile": "sin(x)",
+          "later_profiles": "learner drawn"
+        },
+        "fixed_end_axis": {
+          "x_ticks_pi_units": [
+            0,
+            0.25,
+            0.5,
+            0.75,
+            1
+          ],
+          "y_range": [
+            -2,
+            2
+          ]
+        },
+        "mode_axis": {
+          "x_range_pi_units": [
+            0,
+            1
+          ],
+          "y_range": [
+            -2,
+            2
+          ]
+        },
+        "render_notes": "Give movable starting sine and blank later axes; do not preprint the parameter classification or later evolved curves. Endpoint dots mark the fixed boundary only on pages 2–3."
+      }
+    },
+    {
+      "id": "GA-10",
+      "title": "Program the folded interval",
+      "core_gate": "Fractions, a two-piece function, affine composition and solving a linear equation. The complete period argument needs symbolic reasoning.",
+      "index_gate": "Fractions, affine composition and a proof about repeating words",
+      "extension_gate": "General word counts use divisors and a finite recurrence; no theorem about chaos is assumed.",
+      "reading": "Follow current-state L/R labels in time order. Exact rational arithmetic avoids decimal orbits manufactured by rounding.",
+      "materials": "Printed tent graph and [0,1] number lines, L/R inverse cards handed out on page 2, pencil and optional fraction counters.",
+      "prep_minutes": 6,
+      "timing": "10 minutes for forward trials; 15–25 for backward design; a movement reset; 15–25 for least-period comparisons. Save the general word theorem and complete inventory for another session if useful.",
+      "launch": "Write a four-letter L/R program. Can you find an exact starting fraction whose successive positions repeat that program forever?",
+      "satisfying_stop": "An engineered orbit and a proof of its least period; the later complete four-step inventory is a stronger destination.",
+      "prior_use": "Week 4 modular orbits and AP-26 delayed control have finite orbit/state mechanisms. This is the actual continuous tent map, with folding, inverse branches and symbolic programs; it does not reuse the atlas LRR example as the main instance.",
+      "assessment": "Promising with specific gates. Backward composition can be a substantial algebra step. Exact orbit construction is satisfying; a few irregular dots are not evidence of chaos. Unpiloted.",
+      "mathematical_connection": "Periodic symbolic coding of the tent map at slope 2. Every finite word determines one fixed point of its inverse composition; shorter word periods determine shorter orbit periods.",
+      "sources": [
+        {
+          "title": "Gerald Teschl, Ordinary Differential Equations and Dynamical Systems",
+          "url": "https://www.mat.univie.ac.at/~gerald/ftp/book-ode/ode.pdf",
+          "locator": "§11.3, equation (11.13), printed p.297, slope-two tent map; §11.4, pp.299–301, inverse intervals and symbolic coding for slopes greater than two.",
+          "checked": "The slope-two definition and the neighboring coding construction were inspected. The source coding theorem uses μ>2; our μ=2 periodic-word theorem and boundary handling are proved directly. Inspected 2026-09-25.",
+          "adaptation": "The actual tent map is retained. The chosen four-letter orbits, all-word fixed-point proof and exact least-period inventory are new derivations, not an invocation of the μ>2 conjugacy theorem."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Write a program before guessing a start",
+          "gate": "Core: exact fractions and a folded rule",
+          "intro": "T(x)=2x when 0≤x≤1/2, and T(x)=2−2x when 1/2≤x≤1. The formulas agree at 1/2. Record L for a current state in [0,1/2), and R for a current state in [1/2,1]. A program lists current-state labels, before each update.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose a four-letter word using L and R. Try exact starting fractions to make those four labels repeat. Keep a successful orbit or explain precisely where a trial fails.",
+              "solution": "Any four-letter choice is legal. A trial must check four current-state half labels and return exactly to its initial value after four updates. For a facilitator example, LRRL is realized by 4/15→8/15→14/15→2/15→4/15. A finite decimal resemblance is insufficient. An unsuccessful trial is useful if the first failed half or return equality is identified.",
+              "hints": [
+                "A repeated picture is a conjecture; an exact return equality gives something you can check."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Test starts 1/2, 1 and 0. Can a genuinely periodic orbit ever pass through 1/2 or 1? Explain what this means for the L/R boundary convention.",
+              "solution": "The chain is 1/2→1→0→0. A periodic orbit reaching 1/2 or 1 would then remain at zero and could not return to the nonzero point, so neither can lie on a periodic orbit. Zero is a fixed point and is labeled L. Thus periodic orbits have no midpoint ambiguity, although general forward trials can hit it and use the stated R convention.",
+              "hints": [
+                "Once zero is reached, what can the next value be?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Undo the machine",
+          "gate": "Core continuation: inverse branches and composition",
+          "intro": "For a target y∈[0,1], its two possible previous values are L(y)=y/2 and R(y)=1−y/2. Here L and R name inverse cards as well as the corresponding half. For word s₀s₁s₂s₃, a return candidate solves x=B_s₀(B_s₁(B_s₂(B_s₃(x)))): undo the latest step first.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Use inverse cards to solve your own four-letter program. Then independently check every forward value, half label and the return. If your first word was too easy, choose another.",
+              "solution": "Compose the chosen affine cards to get B(x)=ax+b with a=±1/16. The only algebraic candidate is x=b/(1−a). For LRRL, B(x)=1/4+x/16, so x=4/15 and the forward orbit is 4/15,8/15,14/15,2/15. For LLRR the start is 2/15 and it is the same cycle viewed at another point. All choices are handled by this method; page 4 proves validity rather than assuming branch inequalities.",
+              "hints": [
+                "Write the outermost inverse first but evaluate the innermost one first."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Compare LRRL, LRLR and LLLL. Find their exact starting points and least positive return times. Why is “the word has four letters” not enough to prove least period four?",
+              "solution": "LRRL starts at 4/15 with four distinct states and least period 4. LRLR has inverse composition 3/8+x/16, giving 2/5→4/5→2/5 and least period 2. LLLL gives x=x/16, hence zero with least period 1. A four-step return permits earlier returns; inspect the full orbit or the repeated structure of the word.",
+              "hints": [
+                "Check whether the entire program is made by repeating a shorter block."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "How many different cycles?",
+          "gate": "Continuation: classification and cyclic starting points",
+          "intro": "Count geometric cycles, not ways of choosing their starting point. A cycle of least period four contains four distinct states. You may organize words however you wish; no list of answers is supplied.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Find every cycle of least period four. Give exact fractions for its states and a way to check that you have not counted the same cycle twice.",
+              "solution": "There are three: (2/17,4/17,8/17,16/17), (2/15,4/15,8/15,14/15), and (6/17,12/17,10/17,14/17), with each arrow given by T and the last returning to the first. Representative words are LLLR, LLRR and LRRR respectively. Cyclic rotations of a word move the starting point on one cycle; these three cycles have disjoint state sets. The general word count on page 4 certifies completeness.",
+              "hints": [
+                "Organize cyclic rotations together; exact fractions can identify a shared cycle."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "A partner says that all sixteen four-letter words must produce sixteen four-cycles. Refute the claim, and give a corrected count that separates fixed points, two-cycles and four-cycles.",
+              "solution": "Sixteen words give sixteen distinct points fixed by T⁴, not sixteen cycles. LLLL and RRRR give fixed points 0 and 2/3. LRLR and RLRL give the two points 2/5 and 4/5 of one two-cycle. The remaining twelve points form three four-cycles. Thus there are two fixed-point cycles, one two-cycle and three four-cycles. Completeness of the sixteen-point assertion is proved on the next page.",
+              "hints": [
+                "First distinguish a point from its full cycle; then remove words repeating a shorter block."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Why backward programs always work",
+          "gate": "Proof continuation: affine fixed points and word periods",
+          "intro": "For any nonempty word w of length n, let B_w be its inverse-card composition in the same time-order convention. A word has least word period d if it is repeats of a length-d block and no shorter block, where d divides n.",
+          "prompts": [
+            {
+              "id": "7",
+              "text": "Prove that B_w has exactly one fixed point in [0,1], that this point really follows the repeated word, and that different length-n words give different points. Include the midpoint and endpoint cases.",
+              "solution": "B_w(x)=ax+b maps [0,1] into itself and has a=±2^(−n). Since b=B_w(0)≥0 and a+b=B_w(1)≤1, the candidate x=b/(1−a) lies in [0,1] and is unique. T∘L=T∘R is the identity, including endpoints, so successively cancelling inverse cards gives Tⁿx=x and puts each intermediate state in its prescribed closed half. By prompt 2, a periodic orbit cannot hit 1/2 or 1; thus the closed-half placements give exactly the stated L/R labels. Zero is labeled L and realizes only the all-L word. A point has a unique current-half itinerary, so distinct length-n words cannot produce the same point.",
+              "hints": [
+                "An affine self-map with slope of magnitude below 1 can have its fixed point located using only its endpoint inequalities."
+              ]
+            },
+            {
+              "id": "8",
+              "text": "Prove that the least orbit period equals the least word period. Use this to justify the completeness of your four-cycle inventory.",
+              "solution": "Let the least word period be d, with w=v repeated n/d times. The unique fixed point y of B_v is fixed by B_w=(B_v)^(n/d), hence equals x by uniqueness; therefore T^d x=x. If the least orbit period is r, then r divides d: divide d by r and a smaller positive remainder return would contradict minimality. The length-n itinerary is consequently repeats of its first r symbols, so minimality of d gives d≤r. Hence r=d. For n=4 there are 2⁴=16 words/points. Exactly two words have period 1 and two more have period 2; twelve have period 4 and yield three cycles. The listed three verified cycles therefore exhaust all possibilities.",
+              "hints": [
+                "A fixed point of the shorter inverse composition is also fixed by its repeated composition."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Let P_n be the number of tent-map points with least period n. Derive a recurrence for P_n and use it to count least-period-six points and cycles.",
+          "solution": "There are exactly 2^n points fixed by T^n, one for each length-n word. Any least period of such a point divides n by division with remainder. These disjoint classes give 2^n=Σ_(d|n)P_d, so P_n=2^n−Σ_(d|n,d<n)P_d. Thus P_1=2, P_2=2, P_3=6, and P_6=64−2−2−6=54. Each least-period-six cycle contains exactly six points, giving nine cycles. This counts exact periodic behavior; it is not a proof of any unspecified meaning of chaos.",
+          "gate": "Divisors, finite sums and the proved all-word theorem."
+        }
+      ],
+      "figures": {
+        "tent_graph": {
+          "vertices": [
+            [
+              0,
+              0
+            ],
+            [
+              0.5,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "x_range": [
+            0,
+            1
+          ],
+          "y_range": [
+            0,
+            1
+          ],
+          "diagonal": "faint y=x for optional cobweb trials"
+        },
+        "inverse_cards": [
+          {
+            "label": "L",
+            "formula": "y/2"
+          },
+          {
+            "label": "R",
+            "formula": "1−y/2"
+          }
+        ],
+        "worked_guide_cycles": [
+          [
+            "2/17",
+            "4/17",
+            "8/17",
+            "16/17"
+          ],
+          [
+            "2/15",
+            "4/15",
+            "8/15",
+            "14/15"
+          ],
+          [
+            "6/17",
+            "12/17",
+            "10/17",
+            "14/17"
+          ]
+        ],
+        "render_notes": "Do not draw a repeated orbit before the learner constructs one. Page 3 needs open classification space, not exactly three cycle boxes. Guide-only cycles must never render as a student scaffold."
+      }
+    },
+    {
+      "id": "GA-12",
+      "title": "Can tiny payments break a budget?",
+      "core_gate": "Fractions, powers of two and comparing groups of terms. The core payoff requires reasoning about every proposed finite target.",
+      "index_gate": "Fractions, doubling and a rule that defeats every finite target",
+      "extension_gate": "Comparing ordinary convergence with averages of partial sums needs sequence limits.",
+      "reading": "Read 1/n and distinguish a payment from the total paid so far. Exact addition of long fraction lists is deliberately unnecessary.",
+      "materials": "Printed payment cards 1 through 1/16, geometric strip, blank target cards and pencil. Cards show labels, not physical lengths proportional to all reciprocals.",
+      "prep_minutes": 6,
+      "timing": "10 minutes to play with early payments, 15 to propose budgets and group cards, a short movement reset, then 20–30 for target guarantees and tail challenges. Infinite quantifiers may need a later discussion.",
+      "launch": "Choose a total you want to beat. Which machine can be guaranteed to pass it, and how could you prove that without adding every payment?",
+      "satisfying_stop": "A block construction that beats an arbitrary budget, contrasted with an exact geometric remainder.",
+      "prior_use": "GA-03 uses geometric budgets to cover points and GA-29 uses Cantor-stage lengths; neither already asks why vanishing harmonic payments can defeat every budget. GA-34 later uses finite sums of shrinking time gaps for blow-up, a different conclusion.",
+      "assessment": "First-pilot candidate for fraction-ready learners, with the infinite proof as the real gate. Avoid turning the launch into lengthy common-denominator arithmetic. Unpiloted.",
+      "mathematical_connection": "Convergence versus unbounded partial sums; term size alone is insufficient. Finite grouping proves arbitrary target guarantees without evaluating the harmonic constant or a logarithm.",
+      "sources": [
+        {
+          "title": "Jiří Lebl, Basic Analysis I",
+          "url": "https://www.jirka.org/ra/realanal.pdf",
+          "locator": "§2.5, Example 2.5.4 and Proposition 2.5.5, printed pp.88–89; Example 2.5.11, pp.90–91, harmonic grouping.",
+          "checked": "The geometric remainder and harmonic block proof were inspected. Index conventions, strict inequalities, tail blocks and chosen guarantees are checked independently. Inspected 2026-09-25.",
+          "adaptation": "The classical series contrast is retained, but learners choose targets and repair a proposed tail-saving plan. The sparse-subsequence and partial-sum-average questions explicitly distinguish changing the payment rule from ordinary convergence."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Two payment machines",
+          "gate": "Core: fractions and chosen targets",
+          "intro": "Machine G pays 1,1/2,1/4,1/8,… . Machine H pays 1,1/2,1/3,1/4,… . The total after n payments is G_n or H_n, with n≥1. A budget is broken only when a total is strictly greater than it.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose two target budgets, one below 2 and one above 2. Try to break each using each machine. Record what your trials prove and what they leave uncertain.",
+              "solution": "G can break any budget B<2 because G_n=2−2^(1−n) tends to 2 from below; it cannot break B≥2. H eventually breaks every finite target. At this stage learners may have only verified particular finite successes; failure to cross in a finite trial proves no permanent upper bound. For example B=3/2 is broken by both machines at n=3 (G_3=7/4,H_3=11/6), while H_16>3 supplies a later certificate for B=3. The learner can choose other targets.",
+              "hints": [
+                "A failed finite attempt is not yet a proof that a machine can never win."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Find a formula for G_n and its exact unpaid distance from 2. For a tolerance ε of your choice with 0<ε<1, give a rule selecting n with 2−G_n<ε. Test ε=1/100.",
+              "solution": "G_n=2−2^(1−n), proved by doubling/subtracting the finite sum or induction. Its gap is exactly 2^(1−n). Choose n with 2^(n−1)>1/ε, which exists because repeated doubling is unbounded. For ε=1/100 the least n is 8: the gap is 1/128, while n=7 gives 1/64. This proves convergence to 2 and a strict accuracy threshold, without an infinite subtraction trick.",
+              "hints": [
+                "Compare one finite sum with half of itself, or describe the remaining strip."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Build a certificate from groups",
+          "gate": "Core continuation: lower bounds, not exact totals",
+          "intro": "You may group consecutive H payments any way you like. Replacing every payment in a group by a smaller amount gives a lower bound for that group.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Use the cards through 1/16 to prove H_16>3 without finding their exact sum. Choose your own grouping and explain why your inequality is strict.",
+              "solution": "One grouping is 1; then 1/2; then 1/3+1/4; then terms 1/5 through 1/8; then terms 1/9 through 1/16. Each of the four later blocks is at least 1/2, and the block 1/3+1/4 is strictly larger than 1/2. Thus H_16>1+4/2=3. Other rigorous groupings are accepted; an equality-only estimate H_16≥3 does not by itself break the strict budget.",
+              "hints": [
+                "Can twice as many smaller terms still guarantee the same contribution?"
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Let a partner choose any finite positive budget B. Give a finite stopping index guaranteed to break it, and prove your rule works for every B. Give one explicit guarantee for B=10; do not claim it is the first crossing.",
+              "solution": "For each j≥1, indices 2^(j−1)+1 through 2^j contribute at least 1/2. Hence H_(2^k)≥1+k/2. Choose any integer k>2(B−1), with k≥1; then N=2^k gives H_N>B. For B=10, k=19 and N=524288 suffice. The construction works for every finite B, proving unboundedness. This deliberately loose bound is not a calculation of the earliest crossing.",
+              "hints": [
+                "Keep the number of blocks separate from the number of individual payments."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Can skipping payments save the budget?",
+          "gate": "Continuation: tails and changed rules",
+          "intro": "A proposed repair ignores the first N payments, with N a positive integer, but keeps every later payment. A different repair keeps only selected indices. These are different operations.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "After any chosen N, show that the remaining H payments can still break any extra budget. Contrast this with the total of all G payments after its first N payments.",
+              "solution": "The H block N+1,…,2N has N terms at least 1/(2N), contributing at least 1/2. The next block 2N+1,…,4N does the same, and so on. After k such blocks the extra total is at least k/2, so choosing k>2B breaks any extra budget B. For G, the complete remaining tail has sum 2^(1−N), by scaling the geometric sum; every finite remaining total is smaller. Removing a finite prefix does not repair harmonic divergence.",
+              "hints": [
+                "Double the ending index starting from N, rather than starting over at 1."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Choose infinitely many H payment indices so that their total does stay within a finite budget. Prove your choice works. Explain why this does not contradict the previous tail argument or the fact that both machines have payments tending to zero.",
+              "solution": "Keep indices 1,2,4,8,…, obtaining payments 1,1/2,1/4,… with total 2. More generally starting at index 2^r makes the total 2^(1−r). The choice deletes infinitely many payments; it is not merely removal of a finite prefix. Both original payment sizes tend to zero, but the harmonic blocks keep a substantial cumulative contribution. Thus termwise smallness alone cannot certify convergence.",
+              "hints": [
+                "Could one of the original machines hide inside a sparse selection of the other?"
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Consider payments 1,−1,1,−1,… . Find the ordinary partial sums and the averages of the first n partial sums. Explain exactly what converges and what does not.",
+          "solution": "Partial sums S_n equal 1 for odd n and 0 for even n, so they do not have an ordinary limit. Their averages A_n=(S_1+…+S_n)/n are 1/2 for even n and (n+1)/(2n) for odd n, both tending to 1/2. Saying this series has Cesàro value 1/2 names a different summation convention; it does not make its ordinary partial sums converge. Pairing all terms as (1−1) or starting a grouping differently cannot override the stated definition.",
+          "gate": "Signed numbers, limits and the distinction between two sequences."
+        }
+      ],
+      "figures": {
+        "harmonic_cards": {
+          "indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "initial_grouping": "none"
+        },
+        "geometric_strip": {
+          "total_axis": [
+            0,
+            2
+          ],
+          "payments_to_show": 5,
+          "labels": [
+            "1",
+            "1/2",
+            "1/4",
+            "1/8",
+            "1/16"
+          ],
+          "remaining_region": "unlabeled"
+        },
+        "render_notes": "Provide movable ungrouped harmonic cards and open grouping space; do not predivide them into the proof blocks. Target cards are blank. Do not print a tail total as a scaffold."
+      }
+    },
+    {
+      "id": "GA-13",
+      "title": "How narrow can the error band be?",
+      "core_gate": "Graphs, signed fractions, affine formulas and inequalities. No calculus is needed for the complete minimax proof.",
+      "index_gate": "Graphs, signed fractions, affine formulas and inequalities",
+      "extension_gate": "The general interval change uses algebra; best constants for continuous piecewise-linear targets use maxima and minima.",
+      "reading": "Read y=ax+b and absolute vertical error; distinguish an error bound from total band thickness and from average or perpendicular error.",
+      "materials": "Printed x² graphs, ruler, tracing paper or a transparent sleeve, pencil. A graphing device is optional, not a proof tool.",
+      "prep_minutes": 6,
+      "timing": "10–15 minutes moving candidate lines; 15–25 for challenges and an optimality certificate; movement reset; 15–25 for uniqueness or a moved interval. The last page can be separate.",
+      "launch": "Place a straight line where its worst vertical miss from the parabola is as small as possible. Your partner may challenge it at any x in the interval.",
+      "satisfying_stop": "A global lower bound met by one line, with a uniqueness proof.",
+      "prior_use": "Week 1 packing also joins a construction to a lower bound; this is a different continuous approximation problem. GA-07 uses Chebyshev identities, while this family discovers an error certificate without assuming a general alternation theorem.",
+      "assessment": "Promising with specific algebra gates. The movable-line search is concrete, but an attractive graph is not a proof. Unpiloted.",
+      "mathematical_connection": "Best uniform affine approximation and a three-point alternation certificate. General approximation theorems are contextual; this entire chosen problem is solved directly.",
+      "sources": [
+        {
+          "title": "NIST Digital Library of Mathematical Functions",
+          "url": "https://dlmf.nist.gov/3.11",
+          "locator": "§3.11(i), minimax polynomial approximation, uniqueness and alternating extreme errors.",
+          "checked": "The minimax definition and alternation context were inspected. The lower bound, uniqueness and translated-interval formulas are independently proved by elementary inequalities. Inspected 2026-09-25.",
+          "adaptation": "The classical x² target remains, with learner-chosen lines and adversarial test points. The full proof is supplied without invoking the general equioscillation theorem or substituting least squares."
+        }
+      ],
+      "pages": [
+        {
+          "title": "A line and a challenger",
+          "gate": "Core: graphs and vertical error",
+          "intro": "The target is f(x)=x² for −1≤x≤1. You may choose any line p(x)=ax+b. An error budget E≥0 is valid if |x²−p(x)|≤E for every x in the interval. The band is between p−E and p+E, so its total vertical thickness is 2E.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose a line and an error budget. Let a partner challenge them at any x in [−1,1]. Revise your proposal and try to make the budget smaller. Mark the actual vertical gaps you compared.",
+              "solution": "Valid proposals vary. For example p=0 needs E=1, p=1 needs E=1, and p=1/2 works with E=1/2 because 0≤x²≤1. Tilted proposals may fail at one endpoint or at an interior point. A finite set of successful tests supports a conjecture only; the validity condition concerns every x. Do not announce the optimum before learners have experimented.",
+              "hints": [
+                "A tilted line can reduce one gap while increasing another."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "A line passes exactly through the two endpoint values of the parabola. Find that line and its worst error on the whole interval. Can endpoint agreement alone certify a small uniform error?",
+              "solution": "The two endpoints are (−1,1) and (1,1), giving p=1. Its residual x²−1 lies in [−1,0], and the worst absolute error is 1 at x=0. Thus endpoint agreement alone says nothing about a small bound between them. It is legitimate to use the supplied continuous graph to conjecture this, then use 0≤x²≤1 to prove it.",
+              "hints": [
+                "Challenge the line halfway between the endpoints."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "A certificate against every line",
+          "gate": "Core proof: combine inequalities",
+          "intro": "For a general candidate p=ax+b, keep E as an unknown valid error bound. You may test particular x-values to force a lower bound, but must also verify your winning line everywhere.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Use x=−1,0,1 to prove that no line can have E<1/2. Find a line attaining the bound, and verify its error on all of [−1,1].",
+              "solution": "At zero, |b|≤E. At the endpoints, |1−b−a|≤E and |1−b+a|≤E. Averaging the two signed endpoint residuals gives |1−b|≤E. Therefore 1≤|b|+|1−b|≤2E, so E≥1/2. The constant p=1/2 has |x²−1/2|≤1/2 for all |x|≤1, attaining the lower bound. Its signed residuals at −1,0,1 are +1/2,−1/2,+1/2.",
+              "hints": [
+                "The average of the two endpoint residuals removes the slope."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Prove that there is only one line attaining this best budget. Explain why verifying a candidate and proving it is the unique best candidate are separate tasks.",
+              "solution": "If E=1/2 is valid, |b|≤1/2 and |1−b|≤1/2 imply b=1/2. Then |1/2−a|≤1/2 requires 0≤a≤1, while |1/2+a|≤1/2 requires −1≤a≤0. Hence a=0. Candidate verification proves attainment; these forced equalities exclude every other line with the same error. The proof does not assume that an optimal line must be horizontal merely from the symmetry of a picture.",
+              "hints": [
+                "Use the two intervals allowed for b, then do the same for a."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Move and stretch the playing field",
+          "gate": "Algebra continuation: transfer a certificate",
+          "intro": "Choose a center h and radius r>0. Now approximate x² on [h−r,h+r]. You may use z=(x−h)/r, so −1≤z≤1. Error still means vertical error.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Find the best affine line and exact error for your chosen interval. Prove optimality and uniqueness by transferring the earlier argument. Test the interval [1,3].",
+              "solution": "Write x=h+rz. Then x²=h²+2hrz+r²z². The affine part can be matched exactly; applying the established unique optimum to z² gives p(x)=2hx−h²+r²/2 and E=r²/2. More formally, subtract h²+2hrz from any competing affine approximation and divide by r²; this bijects competitors to lines on [−1,1] and scales their uniform errors by 1/r². Thus both optimality and uniqueness transfer. For [1,3], h=2,r=1, giving p=4x−7/2 and E=1/2.",
+              "hints": [
+                "Remove the part that is already linear before deciding how to approximate the remaining square."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Compare the optimal line with the line through both endpoint values on your chosen interval. Find the latter line and its exact worst error. Explain how the best line improves it.",
+              "solution": "The endpoint secant is s(x)=2hx−h²+r². Since x²−s(x)=(x−h)²−r², its residual ranges from −r² at the center to zero at the endpoints; its worst error is r². Lowering that secant by r²/2 balances the positive endpoint residuals with the negative center residual, halving the error to r²/2. This comparison follows from the full range, not just three measurements.",
+              "hints": [
+                "Complete the square in the residual and compare its largest and smallest values."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "For the continuous polygonal graph with vertices (−2,1),(−1,4),(0,−2),(1,1),(2,0), find the unique best constant under maximum vertical error. Generalize to a continuous target whose minimum m and maximum M are attained.",
+          "solution": "The polygonal graph stays between its extreme vertex values −2 and 4, so c=1 has worst error 3. Any constant c has error at least max(|M−c|,|m−c|)≥(M−m)/2. The midpoint c=(M+m)/2 attains this for every target value between m and M. The simultaneous inequalities at m and M force that same c when the error is optimal, including m=M. Thus the best constant is unique; no claim is made that it is also the best tilted line for the polygonal graph.",
+          "gate": "Ordering real values and absolute-value inequalities."
+        }
+      ],
+      "figures": {
+        "base_graph": {
+          "function": "x^2",
+          "x_range": [
+            -1,
+            1
+          ],
+          "y_range": [
+            -0.5,
+            1.5
+          ],
+          "x_ticks": [
+            -1,
+            -0.5,
+            0,
+            0.5,
+            1
+          ],
+          "candidate_lines": "learner drawn"
+        },
+        "shifted_graph": {
+          "function": "x^2",
+          "x_range": [
+            1,
+            3
+          ],
+          "y_range": [
+            0,
+            10
+          ]
+        },
+        "extension_vertices": [
+          [
+            -2,
+            1
+          ],
+          [
+            -1,
+            4
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "render_notes": "The opening graph has no optimal line, special center marker, or alternating-error arrows. Provide generous axes for arbitrary candidate bands. Later certificate page may label the three requested x-values without filling residuals."
+      }
+    },
+    {
+      "id": "GA-14",
+      "title": "Choose a photograph that reveals the motion",
+      "core_gate": "Quarter turns, fractions and trigonometric periodicity. Classifying aliases uses integer remainders; the final obstruction uses elementary polynomials.",
+      "index_gate": "Fractions, rotating angles, periodicity and integer remainders",
+      "extension_gate": "An ideal irrational-time observation uses irrational numbers and exact full-arrow positions.",
+      "reading": "Read time versus angle carefully. All arrows start pointing right and turn counterclockwise at a constant nonnegative integer number of turns per second. Heights may be signed.",
+      "materials": "Two printed unit-circle dials, paper arrows or pencils, time-strip cards and blank signal axes. No real camera or high-speed measurement is required.",
+      "prep_minutes": 6,
+      "timing": "10 minutes turning arrows and making snapshot records; 15–25 designing an extra observation; movement reset; 15–25 classifying missed frequencies or proving the limit of finite observations.",
+      "launch": "Two motions agree at every scheduled photograph. Choose one new photograph to try to tell them apart, then ask which other motions could still remain hidden.",
+      "satisfying_stop": "A chosen extra time that distinguishes two candidate motions, with an exact statement of what ambiguity remains.",
+      "prior_use": "Week 4 clock periodicity is a useful prerequisite, but here the object is a continuous signal observed only at selected times. GA-10 programs actual iterations; this family studies information lost by observation, not a new update rule.",
+      "assessment": "Promising with specific gates. Arrow play is accessible; complete classifications require modular and trigonometric reasoning. Exact-time results do not claim robustness under real measurement noise. Unpiloted.",
+      "mathematical_connection": "Aliasing as restriction of periodic functions to a sampling grid. The candidate class is always explicit; no general reconstruction theorem is inferred from finitely many observations.",
+      "sources": [
+        {
+          "title": "Daniel W. Stroock, Topics in Fourier Analysis",
+          "url": "https://ocw.mit.edu/courses/res-18-015-topics-in-fourier-analysis-spring-2024/mitres_18_015_s24_full_lec.pdf",
+          "locator": "§1, printed p.2, periodic exponentials e_m(x)=exp(2πimx) and periodic extension.",
+          "checked": "The periodic-frequency framework was inspected. All sampling congruences, extra-time tests and finite-record counterexamples are proved independently. Inspected 2026-09-25.",
+          "adaptation": "The source gives Fourier background rather than this camera puzzle or a sampling theorem. The worksheet uses exact rotating arrows and explicitly restricted frequency families."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Make a shared record",
+          "gate": "Core: unit-circle turns and times",
+          "intro": "A unit arrow starts pointing right at time 0 and turns counterclockwise. Frequency k means k complete turns each second. Its tip is (cos(2πkt),sin(2πkt)); a height-only photograph records s_k(t)=sin(2πkt). Compare k=1 and k=5.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Turn or draw both arrows at t=0,1/4,1/2,3/4. Record their heights and full tip positions. Choose another scheduled time n/4 and test whether it separates the motions.",
+              "solution": "Both give tip positions (1,0),(0,1),(−1,0),(0,−1) at the four listed times, with heights 0,1,0,−1. At every additional integer n, their angles differ by 2πn at t=n/4, so neither heights nor full positions separate them. Their motion between observations is still different; the k=5 arrow completes one extra full turn between adjacent scheduled times.",
+              "hints": [
+                "Compare the number of complete extra turns between photographs."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Prove agreement at every scheduled time t=n/4, not only the ones you drew. Could the entire infinite regular record decide between these two frequencies?",
+              "solution": "The phase difference is 2π(5−1)n/4=2πn, an integer number of turns. Sine and cosine both have period 2π, so agreement holds for every integer n. Even the whole infinite scheduled record is identical for the two candidates and cannot identify which one produced it. This is exact ambiguity, not a claim that the motions themselves coincide.",
+              "hints": [
+                "Use an arbitrary integer n in the angle difference."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Design one more observation",
+          "gate": "Core continuation: distinguish a stated class",
+          "intro": "You may choose one extra observation time between 0 and 1/4. First distinguish only frequencies 1 and 5. Then broaden the candidate class to all nonnegative integer frequencies with the same starting arrow.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Choose an extra time that distinguishes the two heights and justify your choice exactly. Give one tempting extra time that would fail, and explain why.",
+              "solution": "For example t=1/8 gives s_1=sin(π/4)=√2/2 and s_5=sin(5π/4)=−√2/2, so it succeeds. A failing interior choice is t=1/12: s_1=sin(π/6)=1/2 and s_5=sin(5π/6)=1/2. The full arrows differ at that time, but a height-only measurement does not. Other exact times are accepted if their two sine values are proved different. The choice matters even between regular samples.",
+              "hints": [
+                "Equal heights can come from two different angles on the circle."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Find all nonnegative integer k whose heights agree with frequency 1 at every t=n/4. Now also require agreement at t=1/8. Does that additional photograph uniquely identify frequency 1 in this enlarged class?",
+              "solution": "At t=1/4, agreement requires sin(πk/2)=1, which for integer k means k≡1 modulo 4. This condition is also sufficient for all n because the phase difference is then a whole number of turns. Such k are 1 or 5 modulo 8; at t=1/8 the respective sine values are +√2/2 and −√2/2. Therefore the surviving class is exactly k≡1 modulo 8, namely 1,9,17,… . The extra photo separates 1 from 5 but leaves infinitely many integer alternatives.",
+              "hints": [
+                "First use one necessary photograph, then prove your remaining residue class works at all photographs."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What did the camera forget?",
+          "gate": "Algebra continuation: sensor choice and finite data",
+          "intro": "For the next task change the schedule to t=n/2, still with nonnegative integer frequencies and arrows initially pointing right. For the final task allow arbitrary continuous real-valued signals, not just rotating-arrow heights.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "At the new schedule, classify every frequency that looks like k=1 when only height is recorded. Then classify them when the full arrow is recorded. Prove whether the richer record removes all ambiguity.",
+              "solution": "For any integer k, sin(πkn)=0 at every integer n, so all nonnegative integers match the height record of frequency 1. The full arrow is ((−1)^(kn),0). At n=1 it matches frequency 1 exactly when k is odd, and odd k then work for every n. Thus full positions discard the even frequencies but still leave all odd frequencies. Richer observations need not completely determine the motion.",
+              "hints": [
+                "A zero height does not tell you whether an arrow points left or right."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "An observer makes any finite list of measurements at distinct times t₁,…,t_m. Starting with a continuous signal f, construct a different continuous signal agreeing at every measured time. What claim about unrestricted reconstruction does your construction rule out?",
+              "solution": "Take g(t)=f(t)+ε∏_(j=1)^m(t−t_j), with any nonzero real ε. The polynomial perturbation vanishes at every measured time and is nonzero at every other time, so g is continuous, distinct from f and gives the same finite record. For an empty record any nonzero constant perturbation works. Thus finitely many point values cannot uniquely identify an arbitrary continuous function. These alternatives need not be sinusoids; that is exactly why the enlarged candidate class must be stated.",
+              "hints": [
+                "Build a nonzero function with a zero at each prescribed measurement time."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Keep only constant nonnegative integer frequencies with initial arrow pointing right. In an ideal exact model, show that one full-arrow observation at t=√2 distinguishes frequency 1 from every other such frequency. Does this contradict the finite-record obstruction?",
+          "solution": "Equal full-arrow positions require 2π(k−1)√2 to be an integer multiple of 2π, so (k−1)√2=m for some integer m. If k≠1 this would make √2=m/(k−1) rational, impossible. Hence k=1 is unique within the specified integer-frequency family. There is no contradiction: the finite-record obstruction allowed arbitrary continuous functions, a much larger class. This argument assumes an exactly specified irrational time and exact angular observation; it is not a finite-precision recovery guarantee.",
+          "gate": "Irrationality and equality of angles modulo a complete turn."
+        }
+      ],
+      "figures": {
+        "dials": {
+          "radius_units": 1,
+          "initial_tip": [
+            1,
+            0
+          ],
+          "orientation": "counterclockwise",
+          "cardinal_labels": [
+            "right",
+            "up",
+            "left",
+            "down"
+          ],
+          "starting_arrows": "right only"
+        },
+        "time_strip": {
+          "regular_times": [
+            "0",
+            "1/4",
+            "1/2",
+            "3/4",
+            "1"
+          ],
+          "extra_time": "learner chosen"
+        },
+        "record_layout": "blank full-position and height fields for the explicitly requested times",
+        "render_notes": "Do not draw the coinciding later arrows or the successful extra time before the task. An open extra-time area must not suggest a unique successful time."
+      }
+    },
+    {
+      "id": "GA-15",
+      "title": "Decode a picture from four sign patterns",
+      "core_gate": "Signed addition, fractions and four-entry arrays. The basis proof uses dot products or their equivalent weighted sums.",
+      "index_gate": "Signed arithmetic, four-entry arrays and weighted-sum cancellation",
+      "extension_gate": "Three binary coordinates and parity for the eight-pattern extension.",
+      "reading": "Four square labels are always 00,01 on top and 10,11 below. Negative contributions are algebraic corrections; they are not negative physical light.",
+      "materials": "Four printed 2-by-2 sign cards, blank picture grids, two colors of counters and pencil. Counter colors distinguish positive from negative contributions.",
+      "prep_minutes": 8,
+      "timing": "10–15 minutes combining cards; 15–25 decoding and inventing detectors; movement reset; 15–25 for reconstruction proof, swaps or missing measurements. The general basis explanation can be a later stop.",
+      "launch": "Choose hidden amounts of the four sign cards and add them into a picture. Can your partner recover the amounts, and can you predict what swapping columns will do before decoding again?",
+      "satisfying_stop": "A unique reconstruction of an arbitrary four-square picture and a predicted symmetry in its coefficients.",
+      "prior_use": "Week 2 toggles uses binary changes and Week 6 coding uses message distinctions. Here values and weights are real, signed corrections add linearly, and orthogonal patterns decode a complete array. This is not another binary toggle worksheet.",
+      "assessment": "First-pilot candidate for learners ready for signed quantities and halves; the full arbitrary-vector proof is a real later gate. Counters should support cancellation rather than imply that all coefficients must be nonnegative. Unpiloted.",
+      "mathematical_connection": "The Walsh character basis of (Z/2Z)² and diagonal action of translations. The four-square case is proved directly, including scaling and uniqueness; no infinite-group theory is claimed.",
+      "sources": [
+        {
+          "title": "Rohan Dandavati, The Fourier Transform on Finite Groups: Theory and Computation",
+          "url": "https://math.uchicago.edu/~may/REU2018/REUPapers/Dandavati.pdf",
+          "locator": "§3, Definition 3.1 and Theorem 3.3 on characters and orthogonality, printed pp.5–6; Theorem 3.8, character basis, p.7.",
+          "checked": "The character definition, orthogonality and basis argument were inspected. The worksheet uses unnormalized signed sums and derives the necessary division by four directly; it does not copy a normalization from the general reconstruction display. Inspected 2026-09-25.",
+          "adaptation": "Four sign cards are actual characters in a fixed coordinate order. Chosen encoding, new target (5,0,1,2), symmetry prediction and incomplete-measurement classification are independently constructed."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Mix cards into a picture",
+          "gate": "Core: signed addition and four-square arrays",
+          "intro": "Read entries in order 00,01,10,11: top row first, then bottom. The cards are C=(1,1,1,1), R=(1,1,−1,−1), S=(1,−1,1,−1), D=(1,−1,−1,1). A weight multiplies every entry of its card. Add contributions square by square; any real weights are allowed.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose weights for the cards and make a picture. Give your partner only the resulting four entries and ask for the weights. You may use a large constant-card weight to make every final entry nonnegative, even if some other weights are negative.",
+              "solution": "Any chosen four real weights define a legal picture c_C C+c_R R+c_S S+c_D D. For example weights (3,−1,1/2,1/2) give (3,1,4,4). Adding a sufficiently large C contribution raises every entry equally without changing the nonconstant coefficients. The partner may guess, solve equations or discover cancellation. Later tasks prove that decoding is always possible and unique; positivity of the final picture does not require positivity of each hidden weight.",
+              "hints": [
+                "A negative weight reverses every sign on that card."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Decode the supplied picture (5,0,1,2). Rebuild all four entries from your weights to verify the result. Would restricting every weight to be a nonnegative whole number change the problem?",
+              "solution": "The unique real weights are (2,1/2,1,3/2). The four reconstructed values are 2+1/2+1+3/2=5; 2+1/2−1−3/2=0; 2−1/2+1−3/2=1; and 2−1/2−1+3/2=2. Restricting weights to nonnegative integers would forbid this representation, since uniqueness later rules out a second integer one. Real coefficients, including fractions and negative values, are part of the stated model.",
+              "hints": [
+                "Try adding all entries, then adding after changing some signs."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Invent a detector for one card",
+          "gate": "Core proof: weighted sums and cancellation",
+          "intro": "A detector applies a sign to each picture entry, then adds the four signed values. For a sign card P, write ⟨v,P⟩ for that weighted sum. No normalization is built into this notation.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Choose one card and build a detector that ignores every other card. Explain why it works. Find the detector output on its own card and use it to justify your decoding scale.",
+              "solution": "Use the chosen card itself as the four detector signs. Each card has self-sum of squares 4. For distinct cards, their entrywise product has two +1 and two −1 entries, so its sum is zero. Thus ⟨Σc_Q Q,P⟩=4c_P, and the weight is ⟨v,P⟩/4. This verifies all four detectors, not only the selected one; the supplied target has detector totals 8,2,4,6.",
+              "hints": [
+                "Compare matching and opposite signs when two cards are multiplied square by square."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Prove that every real four-entry picture is reconstructed by these four detector readings divided by four, and that no picture has two different weight lists.",
+              "solution": "For v=(a,b,c,d), the weights are (a+b+c+d)/4, (a+b−c−d)/4, (a−b+c−d)/4 and (a−b−c+d)/4. In the first reconstructed entry all a contributions add to 4a and every other variable cancels; the other three entries similarly give b,c,d. Hence the formula reconstructs every picture. If two lists reconstructed the same picture, subtract the lists and apply each detector: 4 times each weight difference is zero. Thus all differences vanish. Counting four cards alone would not establish spanning or uniqueness.",
+              "hints": [
+                "Check an arbitrary entry with letters, then use a detector to rule out an invisible coefficient change."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Predict changes without decoding again",
+          "gate": "Continuation: symmetry and missing information",
+          "intro": "A column swap exchanges 00 with 01 and 10 with 11. A row swap exchanges 00 with 10 and 01 with 11. These are permutations of the picture squares, not new sign conventions.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Choose a row swap or column swap. Predict exactly which coefficients stay the same and which change sign, then test your rule on (5,0,1,2). Explain using the cards themselves.",
+              "solution": "A column swap fixes C and R but negates S and D, so (c_C,c_R,c_S,c_D) becomes (c_C,c_R,−c_S,−c_D). The target becomes (0,5,2,1), with weights (2,1/2,−1,−3/2). A row swap fixes C and S but negates R and D; the target becomes (1,2,5,0), with weights (2,−1/2,1,−3/2). Since permutations distribute over sums, checking their action on the four cards proves the rule for every picture.",
+              "hints": [
+                "Swap the entries on one sign card before attempting a whole new decoding."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "An incomplete sensor reports only total brightness 8 and “top total minus bottom total” equal to 2. Find every nonnegative four-square picture consistent with it. Which further card readings make the picture unique?",
+              "solution": "Let top and bottom totals be T and B. T+B=8 and T−B=2 give T=5,B=3. Therefore all pictures are (p,5−p,q,3−q), with 0≤p≤5 and 0≤q≤3. This is a complete family: every nonnegative consistent picture has this form, and every listed pair works. The missing S and D readings supply the remaining coefficients and hence a unique picture by prompt 4. One of those alone generally leaves one free parameter; special boundary data may happen to single out one point, but the pair guarantees uniqueness for all pictures.",
+              "hints": [
+                "First determine the two row totals. How freely can you distribute each total within its row?"
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "For three binary coordinates, define P_a(x)=(−1)^(a₁x₁+a₂x₂+a₃x₃), with a,x in {0,1}³. Prove the eight patterns reconstruct every real eight-entry array and find the scaling factor.",
+          "solution": "Each self dot product is 8. For a≠b, choose a coordinate where they differ. Pair each x with the vector obtained by flipping that coordinate; the products P_a(x)P_b(x) cancel in each pair. Hence distinct patterns are orthogonal. Alternatively summing P_a(x)P_a(y) over a yields 8 if x=y and 0 otherwise by the same pairing. Thus c_a=(1/8)Σ_xv(x)P_a(x) and Σ_ac_aP_a(y)=v(y), proving spanning directly. Applying a detector proves uniqueness. The division is by eight, not four, because there are eight coordinates.",
+          "gate": "Binary coordinates, parity and a finite cancellation proof."
+        }
+      ],
+      "figures": {
+        "coordinate_grid": [
+          [
+            "00",
+            "01"
+          ],
+          [
+            "10",
+            "11"
+          ]
+        ],
+        "cards": {
+          "C": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "R": [
+            1,
+            1,
+            -1,
+            -1
+          ],
+          "S": [
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "D": [
+            1,
+            -1,
+            -1,
+            1
+          ]
+        },
+        "target": [
+          5,
+          0,
+          1,
+          2
+        ],
+        "detector_table": "blank weighted sums only; no orthogonality totals initially",
+        "render_notes": "Draw actual 2-by-2 cards rather than only vectors. Use + and − symbols as well as color. The missing-information task needs open space for a parameter family, not a finite inventory of pictures."
+      }
+    },
+    {
+      "id": "GA-16",
+      "title": "Predict what the sliding window draws",
+      "core_gate": "Length, subtraction and piecewise graphs. The convolution connection uses the supplied fact that an indicator integral equals length.",
+      "index_gate": "Lengths, interval endpoints and piecewise graphs; integral meaning is supplied",
+      "extension_gate": "A third window requires definite integration and continuity of derivatives.",
+      "reading": "Keep the moving window’s right endpoint t distinct from its center. Distinguish input indicator values at a boundary from the overlap length at that time.",
+      "materials": "Printed fixed strip of length 3 units, transparent moving strip of length 2 units, unit ruler and blank overlap graph. One unit may be one inch; compare strips on the same scale.",
+      "prep_minutes": 8,
+      "timing": "10–15 minutes sliding and choosing observations, 15–25 to justify the full graph, a movement reset, then 15–25 to reverse roles or design widths. Integral notation may be introduced only after the geometric core.",
+      "launch": "Choose where to place the short window. Predict the entire overlap graph before tracing many samples, then design windows for a graph you want.",
+      "satisfying_stop": "A full overlap formula explained by endpoint changes, with a successful inverse design from desired graph dimensions.",
+      "prior_use": "No Week 1–10 task already computes this moving interval intersection. GA-14 discusses samples of a signal; this family derives a whole continuous graph and deliberately distinguishes that proof from sampled evidence.",
+      "assessment": "First-pilot candidate for the geometric core. A third convolution is an advanced calculus extension. The moving endpoint convention is the main practical risk. Unpiloted.",
+      "mathematical_connection": "Convolution of interval indicators, commutativity, support and area. The exact continuum integral is represented by overlap length; no discretization or unjustified general transform theorem is used.",
+      "sources": [
+        {
+          "title": "Stephen Boyd, EE102 Lecture 3: The Laplace Transform",
+          "url": "https://web.stanford.edu/class/ee102k/laplace.pdf",
+          "locator": "Slides 3–29 and 3–30 (PDF pp.29–30), convolution definition, commutativity and transform calculation.",
+          "checked": "The convolution definition and change-of-variable calculation were inspected. The worksheet extends causal indicators by zero to the real line and derives its interval overlaps, inverse design and third-window formula independently. Inspected 2026-09-25.",
+          "adaptation": "The source supplies the transform/convolution context. The 3-by-2 windows, choice of graph dimensions and full endpoint formulas are new; the core does not invoke a general Laplace inversion theorem."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Move the right endpoint",
+          "gate": "Core: lengths and prediction",
+          "intro": "The fixed window is [0,3]. The moving window is [t−2,t], so t labels its right endpoint. Let h(t) be the length covered by both windows. Touching at one point gives length zero. All lengths use the same unit.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose several positions t, including a first touch, a partly overlapping position and a fully nested position. Before making many measurements, sketch your prediction for the entire graph of h(t). Mark where you think its rule changes.",
+              "solution": "Valid sample choices include t=0 giving 0, t=1 giving 1, t=5/2 giving 2, t=4 giving 1, and t=5 giving 0. The full graph has changes at 0,2,3,5, as proved in prompt 2. The learner may choose different samples and should retain an incorrect prediction for comparison. Measurements alone do not certify all intermediate values.",
+              "hints": [
+                "Notice which endpoint limits the overlap as you slide."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Derive h(t) for every real t. Explain each breakpoint using the two windows, including endpoint contacts. Use the formula to check and revise your prediction.",
+              "solution": "The intersection starts at max(0,t−2) and ends at min(3,t), provided the latter is at least the former. Thus h=max(0,min(3,t)−max(0,t−2)). It equals 0 for t≤0, t for 0≤t≤2, 2 for 2≤t≤3, 5−t for 3≤t≤5, and 0 for t≥5. At shared case endpoints the formulas agree. The corners occur when a moving endpoint crosses a fixed endpoint; isolated contact points have zero length.",
+              "hints": [
+                "Find the later left endpoint and the earlier right endpoint before subtracting."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Build windows for a chosen graph",
+          "gate": "Algebra continuation: arbitrary positive widths",
+          "intro": "Now choose any lengths a,b>0. The fixed interval is [0,a] and the moving one is [t−b,t]. Its overlap function is h_(a,b). You may temporarily assume a≥b when describing cases.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Find the full formula for your chosen lengths, then for arbitrary a≥b>0. Swap the roles of a and b and prove whether the whole graph changes.",
+              "solution": "For a≥b, the cases are 0 when t≤0; t on [0,b]; b on [b,a]; a+b−t on [a,a+b]; and 0 when t≥a+b. When a=b the plateau has zero duration, giving a triangle. Equivalently h_(a,b)(t)=max(0,min(a,b,t,a+b−t)), which is symmetric in a and b and proves the unchanged graph when roles swap. The general max/min interval-intersection formula gives the same conclusion.",
+              "hints": [
+                "The smaller width controls the peak, and the larger width determines how long it stays fully inside."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Choose a desired distance S>0 between the first and last contact positions, and a peak height H>0, for such unit-height windows. Decide exactly when your design is possible and find every ordered pair (a,b) that realizes it. Test S=7,H=2.",
+              "solution": "The closure of the positive-overlap interval is [0,a+b], so S=a+b and H=min(a,b). Hence a design exists exactly when S≥2H>0. The widths are H and S−H in either order; if S=2H the two orders coincide and the graph is triangular. Conversely these widths produce the desired graph by prompt 3. For S=7,H=2 the ordered possibilities are (5,2) and (2,5), with plateau duration 3. The graph identifies the unordered pair but cannot identify which window was called fixed.",
+              "hints": [
+                "Use the sum and the smaller member to recover two positive lengths."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Why this is an integral operation",
+          "gate": "Continuation: a supplied integral interpretation",
+          "intro": "Define f(x)=1 on [0,a] and 0 elsewhere, and g(x)=1 on [0,b] and 0 elsewhere. Their convolution is (f*g)(t)=∫_R f(x)g(t−x)dx. Supplied fact: the integral of an interval’s indicator is its length; changing finitely many endpoint values does not change the integral.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Show exactly why this integral equals your overlap length. Explain what graph you would get if you instead slid [t,t+b] while continuing to label its left endpoint t. Would making the input intervals open change the convolution?",
+              "solution": "The product is 1 exactly when 0≤x≤a and 0≤t−x≤b, the latter equivalent to t−b≤x≤t. Its integral is therefore the length of [0,a]∩[t−b,t]. Sliding [t,t+b] gives h_(a,b)(t+b), shifting the graph left by b; for (a,b)=(3,2) its support closure becomes [−2,3]. Replacing closed inputs by open ones only changes membership at finitely many x for each t, so the integral and graph stay unchanged, although pointwise input values differ.",
+              "hints": [
+                "Solve both inequalities in g(t−x)=1 before drawing the moving interval."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Find the area under your 3-by-2 overlap graph. Then prove the area under h_(a,b) is ab for every positive a,b, using the graph’s pieces. What does this area remember that the choice of fixed window does not?",
+              "solution": "For (3,2), the two triangles each have area 2 and the central rectangle has area 2, totaling 6. For a≥b, the two triangular areas total b² and the plateau rectangle contributes b(a−b), giving ab. Swapping handles a<b; equality a=b has no rectangle and still gives ab. The area is the product of the original window lengths, independent of which is fixed. This is a direct proof for the chosen indicators, not a proof of a general integral-exchange theorem.",
+              "hints": [
+                "Keep the two triangular pieces and the plateau rectangle separate."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Take three unit-width indicators. The first two convolve to h(t)=t on [0,1], 2−t on [1,2], and zero elsewhere. Find the full third convolution k(t)=∫_(t−1)^t h(x)dx and determine whether k has a continuous first derivative.",
+          "solution": "Let z_+=max(z,0). Since h(x)=x_+−2(x−1)_++(x−2)_+, integrating over [t−1,t] gives k(t)=(t_+²−3(t−1)_+²+3(t−2)_+²−(t−3)_+²)/2. Equivalently k is zero for t≤0; t²/2 on [0,1]; (−2t²+6t−3)/2 on [1,2]; (3−t)²/2 on [2,3]; and zero for t≥3. The values and first derivatives match at 0,1,2,3, so k is continuously differentiable. Its second derivative jumps at those points, so it is not twice continuously differentiable. The additional averaging has smoothed the corners by one derivative in this instance.",
+          "gate": "Definite integrals, piecewise polynomials and one-sided derivative comparisons."
+        }
+      ],
+      "figures": {
+        "strip_scale": {
+          "unit_inches": 1,
+          "fixed_length": 3,
+          "moving_length": 2,
+          "fixed_labels": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "moving_right_label": "t",
+          "moving_left_label": "t−2"
+        },
+        "overlap_axes": {
+          "t_range": [
+            -1,
+            6
+          ],
+          "h_range": [
+            0,
+            3
+          ],
+          "initial_graph": "blank"
+        },
+        "design_axes": {
+          "S": "learner chosen",
+          "H": "learner chosen"
+        },
+        "render_notes": "Use cuttable 3-unit and 2-unit strips at a common scale and one long travel rail. Keep predicted graph blank; avoid premarking all four true breakpoints. Integral page may repeat definitions but not a completed solution graph."
+      }
+    },
+    {
+      "id": "GA-17",
+      "title": "A graph feeds back its own mean",
+      "core_gate": "Definite integrals, functions and linear equations are core prerequisites. Necessary compatibility must be checked again by constructing the function.",
+      "index_gate": "Definite integrals, functions and linear equations are the core",
+      "extension_gate": "The changed rank-one kernel uses a weighted integral moment; no general compact-operator theorem is required.",
+      "reading": "Read a function equation holding for every x∈[0,1]; the integral uses a separate dummy variable. Signed functions are allowed.",
+      "materials": "Printed forcing graphs for x² and 2x−1, feedback dial cards, pencil and blank graph space. No invented discrete averaging substitute.",
+      "prep_minutes": 5,
+      "timing": "10 minutes trying chosen forcing/dial pairs; 15–25 deriving and verifying the mean condition; a movement reset; 15–25 for critical feedback and sensitivity. The changed kernel is a separate advanced continuation.",
+      "launch": "Choose a forcing graph and a feedback dial. Look for a graph equal to that forcing plus the dial times its own mean. Could changing only the dial leave one, many, or no possible graphs?",
+      "satisfying_stop": "A complete unique/no-solution/family classification with necessity and sufficiency separately proved.",
+      "prior_use": "GA-05 and delivered AP-01 use finite-network harmonic averages. Here the unknown is a continuous function, its continuum integral drives a rank-one equation, and a singular feedback parameter changes solvability. GA-33 solves differential equations; this is an integral equation.",
+      "assessment": "Advanced/specialist. The mean reduction is a strong surprise for integration-ready learners; graphs alone do not establish the compatibility condition. Unpiloted.",
+      "mathematical_connection": "A rank-one Fredholm equation u=f+λPu, where P maps a function to its constant mean on the unit interval. The critical eigenvalue gives compatibility and nonuniqueness; the general Fredholm alternative is background only.",
+      "sources": [
+        {
+          "title": "Michael O’Neil, Integral Equations and Fast Algorithms",
+          "url": "https://cims.nyu.edu/~oneil/courses/fa17-math2011/int_eq_notes_2017.pdf",
+          "locator": "Theorem 3, The Fredholm Alternative, printed p.54 (PDF p.55).",
+          "checked": "The compact-operator alternative and its compatibility statement were inspected. The selected constant and xt kernels are each solved completely by a scalar mean/moment calculation. Inspected 2026-09-25.",
+          "adaptation": "The original normalization and critical λ=1 are retained. New forcing choices, an adjustable zero-mean repair and a quantified near-critical perturbation deepen the investigation; no general compact-operator proof is claimed."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Choose a forcing and a dial",
+          "gate": "Core: definite integrals and a function equation",
+          "intro": "All functions are continuous and real-valued on [0,1]. Seek u(x)=f(x)+λm for every x, where m=∫₀¹u(t)dt is u’s own mean. Choose f(x)=x² or f(x)=2x−1, and λ from 1/2,1,2. Negative heights are allowed.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose a forcing and dial. Predict whether there is one solution, no solution, or more than one. Try a vertically shifted copy of the forcing graph and check whether its actual mean makes the feedback equation true.",
+              "solution": "For f=x², mean F=1/3: at λ=1/2, m=2/3 and u=x²+1/3; at λ=2, m=−1/3 and u=x²−2/3; at λ=1 there is no solution. For f=2x−1, F=0: at λ=1/2 or 2 the only solution is u=2x−1; at λ=1 every u=2x−1+C works. A learner may choose any pair. Every displayed function can be checked by integrating it and substituting; the impossible case is justified by prompt 2 rather than a failed search.",
+              "hints": [
+                "A vertical shift by C adds C to the mean because the interval has length one."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Introduce the unknown mean m before trying to determine every value u(x). Derive an equation that every solution must satisfy. Use it to justify one impossible case from the available choices.",
+              "solution": "Put F=∫₀¹f(t)dt. Integrating the function equation gives m=F+λm, hence (1−λ)m=F. This is necessary for every solution because the interval length is 1. At λ=1,f=x² it becomes 0=1/3, a contradiction, so no solution exists. This reduction alone is not yet a sufficiency proof; a proposed m must reconstruct a function whose mean is indeed m.",
+              "hints": [
+                "The integral of the constant λm over [0,1] is λm."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Classify the whole equation",
+          "gate": "Core proof: necessity, construction and uniqueness",
+          "intro": "Keep the same equation but now let f be any continuous real function on [0,1] and let λ be any real number. Write F=∫₀¹f(t)dt.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Handle λ=1 completely. State exactly which f allow a solution and describe every solution when they exist. Prove both directions.",
+              "solution": "Necessity gives F=0. If F≠0 no solution exists. If F=0, every u=f+C, with arbitrary real C, has mean C and satisfies u=f+m. Conversely the original equation with λ=1 forces u−f=m to be constant, so every solution is on that list. There are infinitely many distinct solutions, including all real choices of C, whenever F=0.",
+              "hints": [
+                "Do not divide by 1−λ when it equals zero."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Handle every λ≠1. Give the solution, verify it directly and prove uniqueness. Put this case together with the critical case in a complete classification.",
+              "solution": "The only possible mean is m=F/(1−λ), so the candidate is u=f+λF/(1−λ). Its integral is F+λF/(1−λ)=F/(1−λ), exactly m, proving sufficiency. Any other solution would have the same mean by the scalar equation and hence the same pointwise values by the original equation, proving uniqueness. This includes λ=0, giving u=f. Together with prompt 3: λ≠1 gives one solution for every f; λ=1,F≠0 gives none; λ=1,F=0 gives exactly the one-parameter family.",
+              "hints": [
+                "Check the reconstructed mean rather than only repeating the scalar equation."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Repair the forcing, then perturb it",
+          "gate": "Continuation: exact sensitivity near the critical dial",
+          "intro": "You may adjust the forcing by a constant. First consider f_a(x)=x²−a at λ=1. Then move the dial to λ=1−δ with 0<δ≤1 and use f_ε(x)=x²−1/3+ε.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Choose a so the critical equation has solutions. Describe all of them. If a is changed by any nonzero amount while λ stays exactly 1, what happens? Prove the claim.",
+              "solution": "The mean of f_a is 1/3−a, so the only successful adjustment is a=1/3. Every solution is u=x²−1/3+C. Changing a by any nonzero amount makes the mean nonzero, so no solution exists at λ=1. This is a compatibility failure, not a unique solution of very large magnitude. Exact zero mean is the necessary and sufficient condition at the critical dial.",
+              "hints": [
+                "A constant adjustment changes the forcing mean by exactly that amount."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "For λ=1−δ, compare the unique solution for ε with the one for ε=0. Find their maximum absolute difference. Given an allowed solution error η>0, how small must |ε| be? Test ε=1/100 at δ=1/10 and δ=1/100.",
+              "solution": "Here F=ε and m=ε/δ. Substitution gives u_ε=x²−1/3+ε+(1−δ)ε/δ=x²−1/3+ε/δ. Thus u_ε−u_0 is the constant ε/δ and the maximum absolute difference is |ε|/δ. Error at most η holds exactly when |ε|≤ηδ. With ε=1/100 the two specified δ values give errors 1/10 and 1. For every δ>0 there is still exactly one solution; growing sensitivity as δ approaches zero is distinct from the critical no-solution/many-solution alternatives.",
+              "hints": [
+                "Simplify the direct forcing shift together with the feedback shift before comparing solutions."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Replace the feedback by u(x)=f(x)+λx∫₀¹t u(t)dt. For continuous f, classify all solutions for every real λ. Exhibit one forcing with no solution at the critical dial and one with infinitely many.",
+          "solution": "Let m=∫₀¹t u(t)dt and M=∫₀¹t f(t)dt. Multiplying by x and integrating gives m=M+(λ/3)m because ∫₀¹t²dt=1/3. If λ≠3, m=M/(1−λ/3) and u=f+[λM/(1−λ/3)]x; direct weighted integration verifies the mean and uniqueness follows. At λ=3 there is no solution if M≠0. If M=0, every u=f+C x has weighted moment C/3 and satisfies the equation, and the equation forces every solution to this form. For f=x, M=1/3 gives no solution at 3. For f=x−2/3, M=1/3−1/3=0 and the whole family works. The critical value moved because the kernel and moment normalization changed.",
+          "gate": "Definite integrals and weighted moments of functions."
+        }
+      ],
+      "figures": {
+        "forcing_graphs": [
+          {
+            "formula": "x^2",
+            "x_range": [
+              0,
+              1
+            ],
+            "y_range": [
+              -1,
+              2
+            ]
+          },
+          {
+            "formula": "2x−1",
+            "x_range": [
+              0,
+              1
+            ],
+            "y_range": [
+              -1.5,
+              1.5
+            ]
+          }
+        ],
+        "dial_values": [
+          "1/2",
+          "1",
+          "2"
+        ],
+        "repair_forcing": "x²−a",
+        "sensitivity_parameters": {
+          "epsilon": "1/100",
+          "delta": [
+            "1/10",
+            "1/100"
+          ]
+        },
+        "render_notes": "Do not preprint a three-outcome answer chart at the launch. Supply forcing graphs and open shifted-graph/mean space. The later classification workspace may name the λ=1 and λ≠1 cases requested by the prompts, without filling outcomes."
+      }
+    }
+  ]
+}

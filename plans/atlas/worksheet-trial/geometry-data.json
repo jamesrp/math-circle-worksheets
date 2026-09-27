@@ -1,0 +1,1466 @@
+{
+  "edition": "worksheet trial geometry design v 1",
+  "status": "Author checked; independent design review repaired; independent PDF review repairs applied; classroom pilot pending.",
+  "family_order": [
+    "GA-26",
+    "GA-29",
+    "GA-25"
+  ],
+  "drawing_contract": {
+    "braid_recipe": "In each slab, generator k crosses positions k,k+1 by straight segments from top-left to bottom-right and top-right to bottom-left. Other positions stay vertical. Sign+ means left-to-right segment OVER; sign− means right-to-left OVER. Slab endpoints are connected continuously. Add closure polylines ONLY when explicitly requested. Draw every UNDER segment with a gap centered on the crossing (gap length 0.22 coordinate units along that segment); the OVER segment stays continuous. Crossings are not vertices. Close all polygonal endpoints. Round outer bends if convenient but do not alter crossing order. An open braid with word[] consists of vertical strands at the stated positions.",
+    "coloring_render": "Student copies are uncolored, with broad pale gray or outlined traceable strokes and unequivocal black/white bridge gaps. Never precolor the nonconstant trefoil on the initial student pages. Print R/B/G letters in addition to color on examples/keys for monochrome accessibility. No dotted joining line may bridge an underpass gap.",
+    "graph_render": "Draw each edge at most once. Graph vertices are explicit dots; room E remains visible even in the perimeter counterexample. No diagonal edges. Maze moves use named existing roads only.",
+    "cantor_render": "Closed endpoints need visible black dots. Removed open intervals are white gaps, not deleted endpoints. Do not fill an 81-unit strip with physically 81 pieces; it is a scaled mathematical number line. Stage 4 pieces are each 1 unit, not 1 inch."
+  },
+  "diagrams": {
+    "grid_full": {
+      "kind": "planar_grid",
+      "vertices": {
+        "A": [
+          0,
+          2
+        ],
+        "B": [
+          1,
+          2
+        ],
+        "C": [
+          2,
+          2
+        ],
+        "D": [
+          0,
+          1
+        ],
+        "E": [
+          1,
+          1
+        ],
+        "F": [
+          2,
+          1
+        ],
+        "G": [
+          0,
+          0
+        ],
+        "H": [
+          1,
+          0
+        ],
+        "I": [
+          2,
+          0
+        ]
+      },
+      "edges": [
+        "AB",
+        "BC",
+        "DE",
+        "EF",
+        "GH",
+        "HI",
+        "AD",
+        "DG",
+        "BE",
+        "EH",
+        "CF",
+        "FI"
+      ],
+      "bounds": [
+        -0.35,
+        -0.35,
+        2.35,
+        2.35
+      ],
+      "vertex_labels": true,
+      "room_radius": 0.075,
+      "edge_label_rule": "A road is named by its two endpoints, e.g. AB."
+    },
+    "grid_TA": {
+      "kind": "planar_grid",
+      "base": "grid_full",
+      "kept": [
+        "AB",
+        "BC",
+        "DE",
+        "EF",
+        "GH",
+        "HI",
+        "AD",
+        "DG"
+      ],
+      "omitted_style": "faint dotted",
+      "caption": "Maze A"
+    },
+    "grid_TB": {
+      "kind": "planar_grid",
+      "base": "grid_full",
+      "kept": [
+        "AB",
+        "BC",
+        "AD",
+        "DG",
+        "BE",
+        "EH",
+        "CF",
+        "FI"
+      ],
+      "omitted_style": "faint dotted",
+      "caption": "Maze B"
+    },
+    "grid_perimeter": {
+      "kind": "planar_grid",
+      "base": "grid_full",
+      "kept": [
+        "AB",
+        "BC",
+        "CF",
+        "FI",
+        "HI",
+        "GH",
+        "DG",
+        "AD"
+      ],
+      "omitted_style": "absent",
+      "caption": "Eight roads. Does it work?"
+    },
+    "grid_courtyards": {
+      "kind": "planar_grid",
+      "base": "grid_full",
+      "face_labels": {
+        "NW": [
+          0.5,
+          1.5
+        ],
+        "NE": [
+          1.5,
+          1.5
+        ],
+        "SW": [
+          0.5,
+          0.5
+        ],
+        "SE": [
+          1.5,
+          0.5
+        ]
+      },
+      "outside_label": "OUTSIDE (all four sides are the same region)",
+      "face_edge_map": {
+        "AB": [
+          "NW",
+          "OUT"
+        ],
+        "BC": [
+          "NE",
+          "OUT"
+        ],
+        "DE": [
+          "NW",
+          "SW"
+        ],
+        "EF": [
+          "NE",
+          "SE"
+        ],
+        "GH": [
+          "SW",
+          "OUT"
+        ],
+        "HI": [
+          "SE",
+          "OUT"
+        ],
+        "AD": [
+          "NW",
+          "OUT"
+        ],
+        "DG": [
+          "SW",
+          "OUT"
+        ],
+        "BE": [
+          "NW",
+          "NE"
+        ],
+        "EH": [
+          "SW",
+          "SE"
+        ],
+        "CF": [
+          "NE",
+          "OUT"
+        ],
+        "FI": [
+          "SE",
+          "OUT"
+        ]
+      }
+    },
+    "dual_dots": {
+      "kind": "blank_graph_nodes",
+      "vertices": {
+        "NW": [
+          0,
+          2
+        ],
+        "NE": [
+          2,
+          2
+        ],
+        "SW": [
+          0,
+          1
+        ],
+        "SE": [
+          2,
+          1
+        ],
+        "OUT": [
+          1,
+          0
+        ]
+      },
+      "edges": [],
+      "caption": "One dot for each region. Draw a link for each removed road."
+    },
+    "cantor_blank": {
+      "kind": "number_line",
+      "min": 0,
+      "max": 81,
+      "unit_ticks": true,
+      "major_ticks": [
+        0,
+        9,
+        18,
+        27,
+        36,
+        45,
+        54,
+        63,
+        72,
+        81
+      ],
+      "filled_endpoints": [
+        0,
+        81
+      ],
+      "length_inches": 6.3,
+      "caption": "Start: length 81"
+    },
+    "cantor_stages_0_4": {
+      "kind": "cantor_stages",
+      "stages": [
+        {
+          "n": 0,
+          "pieces": 1,
+          "piece_length": "81",
+          "total": "81",
+          "intervals": [
+            [
+              "0",
+              "81"
+            ]
+          ]
+        },
+        {
+          "n": 1,
+          "pieces": 2,
+          "piece_length": "27",
+          "total": "54",
+          "intervals": [
+            [
+              "0",
+              "27"
+            ],
+            [
+              "54",
+              "81"
+            ]
+          ]
+        },
+        {
+          "n": 2,
+          "pieces": 4,
+          "piece_length": "9",
+          "total": "36",
+          "intervals": [
+            [
+              "0",
+              "9"
+            ],
+            [
+              "18",
+              "27"
+            ],
+            [
+              "54",
+              "63"
+            ],
+            [
+              "72",
+              "81"
+            ]
+          ]
+        },
+        {
+          "n": 3,
+          "pieces": 8,
+          "piece_length": "3",
+          "total": "24",
+          "intervals": [
+            [
+              "0",
+              "3"
+            ],
+            [
+              "6",
+              "9"
+            ],
+            [
+              "18",
+              "21"
+            ],
+            [
+              "24",
+              "27"
+            ],
+            [
+              "54",
+              "57"
+            ],
+            [
+              "60",
+              "63"
+            ],
+            [
+              "72",
+              "75"
+            ],
+            [
+              "78",
+              "81"
+            ]
+          ]
+        },
+        {
+          "n": 4,
+          "pieces": 16,
+          "piece_length": "1",
+          "total": "16",
+          "intervals": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "2",
+              "3"
+            ],
+            [
+              "6",
+              "7"
+            ],
+            [
+              "8",
+              "9"
+            ],
+            [
+              "18",
+              "19"
+            ],
+            [
+              "20",
+              "21"
+            ],
+            [
+              "24",
+              "25"
+            ],
+            [
+              "26",
+              "27"
+            ],
+            [
+              "54",
+              "55"
+            ],
+            [
+              "56",
+              "57"
+            ],
+            [
+              "60",
+              "61"
+            ],
+            [
+              "62",
+              "63"
+            ],
+            [
+              "72",
+              "73"
+            ],
+            [
+              "74",
+              "75"
+            ],
+            [
+              "78",
+              "79"
+            ],
+            [
+              "80",
+              "81"
+            ]
+          ]
+        }
+      ],
+      "endpoint_style": "filled dots",
+      "removed_style": "white gap; never join across it",
+      "length_inches": 6.3,
+      "labels": "round number; 0 and 81; major ticks optional"
+    },
+    "cantor_stage4": {
+      "kind": "cantor_stages",
+      "stages": [
+        {
+          "n": 4,
+          "pieces": 16,
+          "piece_length": "1",
+          "total": "16",
+          "intervals": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "2",
+              "3"
+            ],
+            [
+              "6",
+              "7"
+            ],
+            [
+              "8",
+              "9"
+            ],
+            [
+              "18",
+              "19"
+            ],
+            [
+              "20",
+              "21"
+            ],
+            [
+              "24",
+              "25"
+            ],
+            [
+              "26",
+              "27"
+            ],
+            [
+              "54",
+              "55"
+            ],
+            [
+              "56",
+              "57"
+            ],
+            [
+              "60",
+              "61"
+            ],
+            [
+              "62",
+              "63"
+            ],
+            [
+              "72",
+              "73"
+            ],
+            [
+              "74",
+              "75"
+            ],
+            [
+              "78",
+              "79"
+            ],
+            [
+              "80",
+              "81"
+            ]
+          ]
+        }
+      ],
+      "endpoint_style": "filled dots",
+      "length_inches": 6.3,
+      "labels": "mark left and right endpoints only when a task requests them"
+    },
+    "cantor_address_tree": {
+      "kind": "binary_tree",
+      "depth": 4,
+      "edges": [
+        "L",
+        "R"
+      ],
+      "node_labels": "prefix; only L and R shown at first split",
+      "blank_leaves": true,
+      "leaf_width_inches": 0.36
+    },
+    "cantor_list": {
+      "kind": "address_table",
+      "rows": [
+        "LLLLLL…",
+        "RRRRRR…",
+        "LRLRLR…",
+        "RLRLRL…",
+        "LLRRLL…",
+        "RRLLRR…"
+      ],
+      "diagonal_not_highlighted_initially": true,
+      "blank_new_row": true
+    },
+    "knot_trefoil": {
+      "kind": "closed_braid",
+      "strand_count": 2,
+      "word": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "x_positions": [
+        -1,
+        1
+      ],
+      "y_top": 3,
+      "slab_height": 1,
+      "closure_polylines": [
+        [
+          [
+            -1,
+            0
+          ],
+          [
+            -2,
+            -0.3
+          ],
+          [
+            -2,
+            3.3
+          ],
+          [
+            -1,
+            3
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            -0.3
+          ],
+          [
+            2,
+            3.3
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      ],
+      "crossings": [
+        {
+          "point": [
+            0,
+            2.5
+          ],
+          "over": "top-left to bottom-right",
+          "under": "top-right to bottom-left"
+        },
+        {
+          "point": [
+            0,
+            1.5
+          ],
+          "over": "top-left to bottom-right",
+          "under": "top-right to bottom-left"
+        },
+        {
+          "point": [
+            0,
+            0.5
+          ],
+          "over": "top-left to bottom-right",
+          "under": "top-right to bottom-left"
+        }
+      ],
+      "minimum_width_inches": 2.4,
+      "caption": "A",
+      "arc_labels": {
+        "A": [
+          -1,
+          2.93
+        ],
+        "B": [
+          1,
+          2.93
+        ],
+        "C": [
+          -1,
+          1.93
+        ]
+      },
+      "trace_start": [
+        -2,
+        1.5
+      ],
+      "verified_components": 1,
+      "verified_crossings": 3
+    },
+    "knot_changed": {
+      "kind": "closed_braid",
+      "base": "knot_trefoil",
+      "word": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "caption": "B",
+      "middle_crossing_change_only": true,
+      "arc_labels": false,
+      "verified_components": 1,
+      "verified_crossings": 3
+    },
+    "knot_circle": {
+      "kind": "circle",
+      "radius": 1,
+      "caption": "A plain closed circle"
+    },
+    "crossing_rule": {
+      "kind": "crossing_examples",
+      "examples": [
+        {
+          "over": "R",
+          "under_in": "R",
+          "under_out": "R",
+          "valid": true
+        },
+        {
+          "over": "R",
+          "under_in": "B",
+          "under_out": "G",
+          "valid": true
+        },
+        {
+          "over": "R",
+          "under_in": "R",
+          "under_out": "B",
+          "valid": false
+        }
+      ],
+      "color_names": {
+        "R": "red",
+        "B": "blue",
+        "G": "green"
+      },
+      "print_letters_at_ends": true
+    },
+    "R1_curl": {
+      "kind": "polyline_knot_move",
+      "before_polyline": [
+        [
+          -2,
+          -1
+        ],
+        [
+          -1,
+          -1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          -1,
+          1
+        ],
+        [
+          1,
+          -1
+        ],
+        [
+          2,
+          -1
+        ]
+      ],
+      "crossing": [
+        0,
+        0
+      ],
+      "over_segment": [
+        [
+          -1,
+          -1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "under_segment": [
+        [
+          -1,
+          1
+        ],
+        [
+          1,
+          -1
+        ]
+      ],
+      "after_polyline": [
+        [
+          -2,
+          -1
+        ],
+        [
+          2,
+          -1
+        ]
+      ],
+      "endpoint_labels": [
+        "in",
+        "out"
+      ],
+      "caption": "Curl / uncurl"
+    },
+    "R2_pair": {
+      "kind": "braid_move",
+      "before": {
+        "strand_count": 2,
+        "x_positions": [
+          -1,
+          1
+        ],
+        "word": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            -1
+          ]
+        ],
+        "slab_height": 1
+      },
+      "after": {
+        "strand_count": 2,
+        "x_positions": [
+          -1,
+          1
+        ],
+        "word": [],
+        "height": 2
+      },
+      "caption": "Slide two crossings away",
+      "top_endpoint_labels": [
+        "left in",
+        "right in"
+      ],
+      "bottom_endpoint_labels": [
+        "left out",
+        "right out"
+      ]
+    },
+    "R3_slide": {
+      "kind": "braid_move",
+      "before": {
+        "strand_count": 3,
+        "x_positions": [
+          -1,
+          0,
+          1
+        ],
+        "word": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "slab_height": 1
+      },
+      "after": {
+        "strand_count": 3,
+        "x_positions": [
+          -1,
+          0,
+          1
+        ],
+        "word": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "slab_height": 1
+      },
+      "caption": "Slide a strand past a crossing",
+      "top_endpoint_labels": [
+        "left",
+        "middle",
+        "right"
+      ],
+      "bottom_endpoint_labels": [
+        "left",
+        "middle",
+        "right"
+      ],
+      "minimum_width_inches_each": 2.35
+    }
+  },
+  "families": [
+    {
+      "id": "GA-26",
+      "title": "Can three colors catch a knot?",
+      "pages_count": 4,
+      "prerequisites": {
+        "entry": "Track a continuous line through over/under crossings; use three distinct symbols or colors. No arithmetic required.",
+        "core_explanation": "Apply a local same-or-all-different rule and organize cases; distinguish “cannot find” from an impossibility reason. Spatial tracing is a real prerequisite.",
+        "extension": "Use five color-equality patterns to check a local move and reason about reversible one-to-one correspondences. The general Reidemeister theorem is an explicitly supplied fact, not proved by coloring."
+      },
+      "materials": [
+        "three pencils or labels R/B/G",
+        "one loose overhand knot with its ends taped together and one plain closed loop of cord per pair, optional but recommended",
+        "paper diagrams large enough to trace",
+        "a spare open cord for making local moves"
+      ],
+      "prep_minutes": 15,
+      "preparation_details": "Tie a loose overhand knot before joining the ends to make a trefoil. Tape the ends of a second unknotted cord to make a plain loop. Do not ask a child to test unknotting by unsealing joins. For matching the braid drawing, two open strands can be crossed three times and then the same-side bottom/top ends joined; the resulting closed braid has one component. A failed untying attempt is evidence for a conjecture, not a proof.",
+      "timing": "0–10 play with closed cords and trace crossings; 10–15 state coloring rule; 15–35 investigate A and B; 35–40 whole-body over/under trace; 40–55 choose two-move checks OR three-strand extension; 55–60 state exactly what was proved. The complete local-invariance proof may require a second session.",
+      "pages": [
+        {
+          "page": 1,
+          "title": "Almost the same drawing. The same knot?",
+          "prompts": [
+            {
+              "id": "26.1",
+              "text": "Each picture is ONE closed cord. At a crossing the solid bridge goes over; the gap goes under. Follow the whole cord in A, then B. What changed?",
+              "answer_space": "A and B large, side by side, with visible gaps and no colors."
+            },
+            {
+              "id": "26.2",
+              "text": "You may bend, stretch or slide the cord. You may not open an end or pass one strand through another. Which drawing can become a plain circle? Make a prediction. Try the closed cords if you have them.",
+              "answer_space": "0.9 in prediction/evidence box."
+            },
+            {
+              "id": "26.3",
+              "text": "For a new way to track A: begin at the marked dot. Follow the cord until it goes UNDER. Start a new section just after that underpass. Keep the same section when you go OVER. How many sections return you to the starting section?",
+              "answer_space": "Second Aat 2.6 in width; mark sections with small labels or pencil traces."
+            }
+          ],
+          "diagram_ids": [
+            "knot_trefoil",
+            "knot_changed"
+          ],
+          "handout_note": "Keep the coloring rule and solution off this first page. Page 1 shows two copies of A: a comparison copy and a tracing copy.",
+          "gate": ""
+        },
+        {
+          "page": 2,
+          "title": "One color or three. Never exactly two.",
+          "prompts": [
+            {
+              "id": "26.4",
+              "text": "Color every section between underpasses. At each crossing, inspect the overpass and the two underpass ends. Their colors must be ALL THE SAME or ALL DIFFERENT. The overpass keeps its color. Use R, B, Gletters if you prefer.",
+              "answer_space": "Three small crossing examples: valid RRR, valid RBG, invalid RRB."
+            },
+            {
+              "id": "26.5",
+              "text": "Can you color A with more than one color? Can you do the same for B? Follow every section, including the joins around the outside.",
+              "answer_space": "One large uncolored A and one B; do not prelabel A’s arcs with color names."
+            },
+            {
+              "id": "26.6",
+              "text": "If you get stuck on B, try two different colors at its top ends and follow the forced colors down. What happens when they must join around the outside?",
+              "answer_space": "0.75 in evidence box; hint after a genuine attempt."
+            },
+            {
+              "id": "26.7",
+              "text": "How many legal colorings does each FIXED drawing have? Color names matter:RBG and BRG count differently. Include the all-one-color choices. Find a counting method that cannot miss a coloring.",
+              "answer_space": "Table A/B/plaincircle with total and more-than-one-color columns."
+            }
+          ],
+          "diagram_ids": [
+            "crossing_rule",
+            "knot_trefoil",
+            "knot_changed",
+            "knot_circle"
+          ],
+          "handout_note": "The failure in Bmust come from a forced contradiction, not a collection of unsuccessful attempts.",
+          "gate": ""
+        },
+        {
+          "page": 3,
+          "title": "Can the colors survive a real move?",
+          "prompts": [
+            {
+              "id": "26.8",
+              "text": "Curl or uncurl. Start with red at the left end. Complete the coloring of the curl. What color reaches the right end? Could any other completion work?",
+              "answer_space": "Large R1 before/after diagram and 0.65 in response."
+            },
+            {
+              "id": "26.9",
+              "text": "Slide two crossings away. Start red on the left and blue on the right. Fill every section before the move. Compare the bottom colors with the two straight strands. Then try equal starting colors.",
+              "answer_space": "R2 before/after; a two-row input/output table."
+            },
+            {
+              "id": "26.10",
+              "text": "Why do those two trials cover EVERY choice of starting colors, if colors may be renamed? Is the completion unique?",
+              "answer_space": "0.8 in explanation box."
+            },
+            {
+              "id": "26.11",
+              "text": "Return to B. Can its first two crossings slide away? What remains? Why is switching a single overpass to an underpass different from sliding these two crossings away?",
+              "answer_space": "0.9 in sketch/reason box."
+            }
+          ],
+          "diagram_ids": [
+            "R1_curl",
+            "R2_pair"
+          ],
+          "handout_note": "Two local checks are worthwhile but are not yet a proof for all possible knot deformations.",
+          "gate": ""
+        },
+        {
+          "page": 4,
+          "title": "The last move, and a certificate",
+          "prompts": [
+            {
+              "id": "26.12",
+              "text": "Slide a strand past a crossing. Start with the SAME three top colors in both pictures. Complete both diagrams. Compare the bottom colors, left to right.",
+              "answer_space": "R3 pair large; five-row table inputs RRR, RRB, RBR, BRR, RBG; blank left/right outputs."
+            },
+            {
+              "id": "26.13",
+              "text": "Why do these five rows cover every possible pattern of three starting colors, after renaming colors? Is every completion forced?",
+              "answer_space": "0.8 in explanation box."
+            },
+            {
+              "id": "26.14",
+              "text": "FACTS TO USE: every deformation of a closed cord without cutting or passing through itself can be represented by these three kinds of local move and ordinary redrawing. Every version of a local move pairs each coloring before with exactly one afterward; our checks illustrate this fact. Explain why a drawing with 9 colorings cannot become a circle with 3.",
+              "answer_space": "0.95 in proof box."
+            },
+            {
+              "id": "26.15",
+              "text": "Does our argument prove that matching coloring counts mean two drawings represent the same knot? Explain what this argument leaves unresolved.",
+              "answer_space": "0.55 in final boundary box."
+            }
+          ],
+          "diagram_ids": [
+            "R3_slide"
+          ],
+          "handout_note": "Optional proof page. Checking the local rules does not prove the supplied theorem about all deformations.",
+          "gate": "Organized cases and reversible correspondences."
+        }
+      ],
+      "hints": [
+        {
+          "for": "26.5",
+          "text": "Try different colors on the two top strands, then each crossing forces the next color."
+        },
+        {
+          "for": "26.7",
+          "text": "There are three choices for the left top color and three for the right. Which choices close consistently?"
+        },
+        {
+          "for": "26.9",
+          "text": "The same strand passes over at both crossings. Track it all the way."
+        },
+        {
+          "for": "26.13",
+          "text": "Three colors can be all equal, all different, or have just one unequal position."
+        }
+      ],
+      "solutions": {
+        "26.1": "Only the MIDDLE crossing changes which strand is on top. Both diagrams have the same planar shadow and exactly 3 crossings. Following either diagram traverses both braid strands and both outer closures before returning, so each has one component. A is the closure of σ₁³, a trefoil; B is the closure of σ₁σ₁⁻¹σ₁.",
+        "26.2": "A cannot become a circle; the later coloring certificate proves it. B can: cancel its first two opposite crossings by a type II move, leaving a one-crossing closed braid, then remove its curl by type I. Physical difficulty or matching coloring counts alone would not prove this.",
+        "26.3": "A has 3 arcs/sections between successive underpasses. Each arc can contain an overpass. Starting at the left closure, its top-left portion is arc A; top-right portion arc B; the left strand just below first crossing arc C. Because the marked dot may lie inside a section, returning to that section is not a fourth arc.",
+        "26.4": "Given overcolor and one undercolor, the other undercolor is uniquely forced: same if they agree, otherwise the third color. Thus valid examples are RRR and RBG; RRB is invalid. The gap is an underpass of a single cord, not a cut end; color is permitted to change there because diagram arcs terminate at undercrossings.",
+        "26.5": "A: start top colors R, B. From top to bottom the color pairs are(R, B),(G, R),(B, G),(R, B). Both outer joins agree, and every crossing contains all 3 colors. B with the same start gives(R, B),(G, R),(R, B),(G, R), which fails the outer joins. Any two different top colors behave by renaming in the same way; equal colors stay equal. Hence B has no nonconstant coloring.",
+        "26.6": "For Bthe bottom pair differs from the top pair when the two top colors are different. Since each bottom endpoint joins the SAME-side top endpoint, the drawing cannot be colored consistently. The local rule forces every intermediate color; there is no alternative hidden choice.",
+        "26.7": "A has 9 total colorings: 3 equal top pairs give constant colorings, and 6 unequal ordered top pairs give nonconstant ones. B has 3 total, all constant. A plain circle has one arc and therefore 3 constant colorings. Global fixed drawing/colors are counted; color permutations are distinct here. On later move-check pages, renaming is only a way to reduce proof cases.",
+        "26.8": "The curl must remain entirely red. Its overpass and the entering undersection are already the same color, so the outgoing undersection is forced red. This proves a unique extension for any single starting color; reversing the move forgets no choice.",
+        "26.9": "For input(R, B), the pair between crossings is(G, R) and after both crossings returns to(R, B). For(R, R), every section is R. The corresponding straight strands keep their input colors. Both operations are uniquely reversible. Do not accidentally draw two crossings of the SAME sign; those are not removable by this move.",
+        "26.10": "A pair of colors is either equal or different. Any equal pair is a renaming of RR and any unequal ordered pair is a renaming of RB. The rule depends only on equality/difference, so those two trials cover all 9 assignments. Each crossing uniquely determines the new undercolor.",
+        "26.11": "Yes: B’s first two crossings are positive then negative, with the same physical strand passing over both; they cancel. The remaining one-crossing closure is a curl of the unknot. Changing one crossing would require a strand to pass through another and is not one of the legal deformations.",
+        "26.12": "Both diagrams send the following top colors to the same bottom colors, left to right: RRR→RRR; RRB→BRR; RBR→BGR; RBG→RGR; BRR→GGB. Exact 27-case check confirms all. These are ENDPOINT colors, not three arc names. The intermediate colors may differ between drawings; the endpoint correspondence is identical.",
+        "26.13": "The patterns are: all same; left=middle only; left=right only; middle=right only; all different. Every triple belongs to exactly one type. Color renaming transfers the checked example to every member of its type. Uniqueness follows crossing-by-crossing; reverse moves recover the original.",
+        "26.14": "Each local move gives a bijection between the entire diagrams’ legal colorings because outside colors stay fixed and inside completion is unique in both directions. Therefore a finite sequence preserves the number. Ordinary redrawing also preserves it. The supplied Reidemeister theorem turns any possible unknotting into such a sequence. A has 9 but the circle has 3, impossible. The theorem is necessary; checking a handful of moves without it would not cover arbitrary 3 Ddeformations. The five student cases cover the displayed type III representative. The complete facilitator variant check covers every consistent strand-height order; it must be supplied if the children have not proved those variants. See invariance_variants and the 162-case exact check.",
+        "26.15": "No. Equal invariant values do not establish equivalence; an invariant may fail to distinguish different knots. For B we additionally gave an explicit sequence to a circle. Do not offer an unsourced nontrivial zero-test knot as if checked in this packet."
+      },
+      "sources": [
+        {
+          "title": "Louis H. Kauffman, Knots",
+          "url": "https://homepages.math.uic.edu/~kauffman/Tots/Knots",
+          "locator": "§II and §III; “Three Coloring a Knot,” Figures 12–14",
+          "use": "Local Fox coloring rule, Reidemeister-move invariance and the theorem bridge. Exact braid drawings and finite tables independently checked."
+        },
+        {
+          "title": "Jonny Evans, 6.03 Braids: the Wirtinger presentation",
+          "url": "https://www.jde27.uk/tg/braids03.html",
+          "locator": "example identifying closure of σ₁³ as the trefoil",
+          "use": "Confirms the explicit closed-braid diagram chosen here is a trefoil, rather than relying on a familiar icon."
+        }
+      ],
+      "prior_use": "New knot object and invariant. Week 2 has invariants, but no crossing/arc convention or topology. The atlas’s assumed standard trefoil has been replaced by explicit, independently verified geometry.",
+      "assessment": {
+        "verdict": "Promising and substantial, with a real visual-prerequisite risk.",
+        "why": "Nearly identical diagrams behave differently; learners invent/check a coloring, a finite count becomes an obstruction, and local moves link hands-on string to a general certificate.",
+        "risk": "Over/under tracing and coloring an arc rather than each visible stroke are genuinely hard. Page 1 must succeed before continuing. Pages 3–4 may be a second meeting. Do not promise that a seven-year-old’s rainbow picture alone proves the trefoil is knotted.",
+        "satisfying_stop": "Solve A’s coloring and prove B cannot have a nonconstant one by forced propagation. Full knot non-equivalence is a later stop after local checks plus the supplied theorem.",
+        "not_claimed": "Coloring is not a complete knot test. No classroom pilot yet."
+      },
+      "invariance_variants": "The displayed braid slide is one representative. A complete local check must include all allowed height orders, not just three positive crossings. For signs (a, b, c), compare braid words (σ₁^a, σ₂^b, σ₁^c) with (σ₂^c, σ₁^b, σ₂^a). Six sign triples are legal; exclude (+, −, +) and (−, +, −), which would require a cyclic above/below order of the three strands. The exact script verifies all 6×27=162 color assignments. It also checks both orders of opposite-sign type II crossings (18 assignments), and type I forces one color. Turning a strand around does not change the rule: the two undercolors are symmetric. The operation a*b = 2b − a modulo 3 is idempotent, involutory and self-distributive, giving the same argument for all unoriented local variants. These extra checks belong to the facilitator; students may use their invariance conclusion as a supplied fact after investigating the pictured examples."
+    },
+    {
+      "id": "GA-29",
+      "title": "More pieces. Less path.",
+      "pages_count": 4,
+      "prerequisites": {
+        "entry": "Locate labeled whole numbers and split a segment into three equal parts; count and double.",
+        "core_explanation": "Fractions with denominators 3 and 9 for budget page; follow finite L/R addresses; distinguish endpoints from interiors.",
+        "extension": "Infinite sequences, a nested-interval existence fact and “for every proposed list” reasoning. No calculus, but genuine proof maturity. Do not describe the infinite page as elementary merely because the arithmetic is small."
+      },
+      "materials": [
+        "paper number-line strips",
+        "pencils in two colors",
+        "ruler optional",
+        "address slips L/R",
+        "scissors optional only for separate play strips; use shading on proof sheets to preserve endpoints"
+      ],
+      "prep_minutes": 8,
+      "timing": "0–8 fold/play with thirds; 8–13 state remove-open-middle rule; 13–30 finite cutting and addresses; 30–35 movement: walk L/R branches; 35–50 choose budget or infinity extension; 50–60 explain one certificate. Page 4 often deserves a later meeting.",
+      "pages": [
+        {
+          "page": 1,
+          "title": "Which places escape the eraser?",
+          "prompts": [
+            {
+              "id": "29.1",
+              "text": "Start with the whole path from 0 to 81. In each round, erase the middle third of EVERY piece that remains. Keep the two boundary dots of each erased gap. Do two rounds on the blank copies.",
+              "answer_space": "Three 6.3 in number lines labeled start/round 1/round 2; blank cut annotations."
+            },
+            {
+              "id": "29.2",
+              "text": "Predict: which of these places will ever be erased? 9, 15, 18, 27, 40, 54. Mark a safe place with a dot. If a place is erased, write its first round.",
+              "answer_space": "Six-row table: place / safe or round / reason."
+            },
+            {
+              "id": "29.3",
+              "text": "Choose a surviving piece and do one more round inside it. Find a place that survives two rounds but is erased in the third.",
+              "answer_space": "Zoom drawing box 1.0 in."
+            }
+          ],
+          "diagram_ids": [
+            "cantor_blank"
+          ],
+          "handout_note": "Do not hand out the completed stage picture yet.",
+          "gate": ""
+        },
+        {
+          "page": 2,
+          "title": "Give every piece an address",
+          "prompts": [
+            {
+              "id": "29.4",
+              "text": "At every split, call the left piece L and the right piece R. Start from the whole 0-to 81 path. Four letters name a piece after four rounds. Find LLRR and RLRL. Write each piece’s two endpoints.",
+              "answer_space": "Stage 4 strip plus two address/endpoints lines."
+            },
+            {
+              "id": "29.5",
+              "text": "The piece from 20 to 21 is still there. Find its four-letter address. Then choose another piece and make an address puzzle for a partner.",
+              "answer_space": "Two blank address/endpoint pairs."
+            },
+            {
+              "id": "29.6",
+              "text": "List EVERY four-letter address beginning LR. How do you know none is missing?",
+              "answer_space": "Four address boxes, initially unnumbered; allow a branch drawing."
+            },
+            {
+              "id": "29.7",
+              "text": "How many pieces are there after four rounds? Explain without counting the picture one tiny piece at a time. Could two different four-letter addresses lead to the same piece?",
+              "answer_space": "1.15 in explanation space."
+            }
+          ],
+          "diagram_ids": [
+            "cantor_stage 4",
+            "cantor_address_tree"
+          ],
+          "handout_note": "A completed stage 4 strip is a supplied search space, not a proof of completeness.",
+          "gate": ""
+        },
+        {
+          "page": 3,
+          "title": "Win two challenges at once",
+          "prompts": [
+            {
+              "id": "29.8",
+              "text": "Fill the table. “Total length” means add the lengths of all surviving pieces. Do not count the erased gaps.",
+              "answer_space": "Table rounds 0–6; columns number of pieces / length of one piece / total length. Only round 0 given: 1, 81, 81."
+            },
+            {
+              "id": "29.9",
+              "text": "Can you keep MORE THAN 50 pieces while their total length is LESS THAN10? Find the first round that wins both challenges. Explain why no earlier round works.",
+              "answer_space": "1.0 in certificate box."
+            },
+            {
+              "id": "29.10",
+              "text": "Choose five exact places you are sure will NEVER be erased. Explain what protects them, even after a million rounds.",
+              "answer_space": "Five number blanks plus 0.8 in explanation."
+            },
+            {
+              "id": "29.11",
+              "text": "Invent a new challenge: keep more than ___ pieces with total length less than ___. Find a round that wins, or explain why yours cannot be won.",
+              "answer_space": "0.9 in chosen-challenge workspace."
+            }
+          ],
+          "diagram_ids": [],
+          "handout_note": "This is a complete finite investigation. The infinite page is optional.",
+          "gate": "Fractions, or a partner comfortable with them."
+        },
+        {
+          "page": 4,
+          "title": "Could a list name every survivor?",
+          "prompts": [
+            {
+              "id": "29.12",
+              "text": "Now imagine an endless L/R address. Keep following its nested pieces. FACT TO USE: because these closed pieces shrink to length 0, exactly one point lies in all of them. Explain why two different endless addresses give different points.",
+              "answer_space": "0.9 in explanation box."
+            },
+            {
+              "id": "29.13",
+              "text": "Here is the start of someone’s list. Make a new address whose first letter differs from row 1’s first letter, whose second differs from row 2’s second, and so on. Fill the first six letters.",
+              "answer_space": "Six-by-six address table plus six blank boxes."
+            },
+            {
+              "id": "29.14",
+              "text": "Your six letters beat the first six rows. That alone does not beat an endless list! Describe a rule for EVERY later letter so your new address differs from row n, whatever n is. Why does the new address still name a surviving point?",
+              "answer_space": "1.0 in explanation box."
+            },
+            {
+              "id": "29.15",
+              "text": "How could the surviving set fit inside pieces with total length below ANY positive budget, yet fail to fit in any list? Give one reason about length and a separate reason about lists.",
+              "answer_space": "Two short separate boxes: length certificate / list certificate."
+            }
+          ],
+          "diagram_ids": [
+            "cantor_list"
+          ],
+          "handout_note": "Optional infinity investigation. The nested-interval fact is supplied, not proved by cutting paper.",
+          "gate": "Infinite sequences and quantified reasoning; no derivatives needed."
+        }
+      ],
+      "hints": [
+        {
+          "for": "29.2",
+          "text": "An endpoint stays an endpoint of one surviving piece at every later round."
+        },
+        {
+          "for": "29.7",
+          "text": "At each step, how many choices does an address have? Look at the first letter where two addresses differ."
+        },
+        {
+          "for": "29.9",
+          "text": "Every round doubles the pieces, but each is a third as long. Keep those two changes separate."
+        },
+        {
+          "for": "29.14",
+          "text": "Choose the nth new letter by inspecting the nth letter of row n."
+        },
+        {
+          "for": "29.15",
+          "text": "Two rounds multiply total length by 4/9, which is less than 1/2."
+        }
+      ],
+      "solutions": {
+        "29.1": "Round 1 keeps[0, 27] and [54, 81]. Round 2 keeps[0, 9],[18, 27],[54, 63],[72, 81]. Gaps are open: 27 and 54 remain, as do 9, 18, 63, 72. Distinguish a mathematical endpoint from the finite width of ink.",
+        "29.2": "9, 18, 27, 54 are safe forever because they become endpoints and stay endpoints of surviving intervals.15 is first removed in round 2, from the gap(9, 18).40 is removed in round 1, from(27, 54). “Not erased yet” alone is not a forever proof.",
+        "29.3": "In[0, 9], round 3 removes(3, 6); for example 5 survives two rounds then is erased. Other examples: 21 is an endpoint of the gap(21, 24) and is NOT erased, so choose 22 instead. The other new open gaps are(21, 24),(57, 60),(75, 78).",
+        "29.4": "LLRR=[8, 9]; RLRL=[60, 61]. Four choices contribute offsets 0 or 54, 0 or 18, 0 or 6, 0 or 2, leaving length 1. Each address is a recursive interval choice, not a base-two coordinate value.",
+        "29.5": "[20, 21] has address LRLR: left[0, 27], right[18, 27], left[18, 21], right[20, 21]. Partner puzzles may use any of the 16 intervals in the checked address table.",
+        "29.6": "LRLL, LRLR, LRRL, LRRR. After fixed prefix LR, the two remaining positions each have two choices, exhausted by LL, LR, RL, RR. A small binary tree is a completeness certificate.",
+        "29.7": "There are 2×2×2×2=16 pieces. The first differing letter sends two addresses into left and right thirds of one parent interval, separated by a positive gap, so the final pieces cannot coincide. This finite address bijection proves the count.",
+        "29.8": "For rounds 0–6: piece counts 1, 2, 4, 8, 16, 32, 64; individual lengths 81, 27, 9, 3, 1, 1/3, 1/9; totals 81, 54, 36, 24, 16, 32/3, 64/9. Powers notation is optional.",
+        "29.9": "First win is round 6: 64>50 and 64/9<10. Before round 6 there are at most 32 pieces, already failing the first demand; round 5 also has 32/3>10. Fraction comparisons can be made by multiplying both sides by 9 or 3.",
+        "29.10": "Many answers: 0, 81, 27, 54, 9, 18, 63, 72. Each is an endpoint at some finite stage; after each subsequent split it is the outer endpoint of one retained third. Induction in pictures proves permanence. Do not assert that only finite-stage endpoints survive.",
+        "29.11": "For any finite positive piece target K and positive length budgetb, both can be met by sufficiently many rounds: 2^n grows and 81(2/3)^n shrinks. An accessible example “more than 20 pieces, less than 12 length” first succeeds at 5. Targets with budget 0 ornegative cannot succeed at a finite round, because total length remains strictly positive. Accept a chosen numeric example without requiring the general infinite-growth theorem.",
+        "29.12": "At their first different letter, two addresses enter disjoint left/right thirds of a common positive-length parent, with a positive middle gap. Their final points cannot be equal. Existence and uniqueness for one infinite address use the supplied nested-interval fact. This avoids the ambiguity of ordinary terminating positional expansions.",
+        "29.13": "The visible diagonal is LRLLLR, so the opposite letters are RLRRRL. There are many completions after those six letters. Do not claim this six-letter calculation alone defeats row 7 orany later row.",
+        "29.14": "Given any proposed infinite list of infinite addresses, choose new letter n opposite to row n’s letter n. The new address differs from every row at its own numbered position; it is still a valid infinite L/Rsequence and therefore names a survivor. If a point list was supplied, use each point’s unique address. Hence no countable list exhausts all survivors.",
+        "29.15": "Length: at roundn, all never-erased points lie within 2^nclosed intervals whose lengths total 81(2/3)^n. Every two rounds multiply by 4/9<1/2, so a sufficiently large even number of rounds puts that total below any positive budget. Formal outer-measure definitions using open intervals can enlarge the finitely many intervals by an arbitrarily small total allowance. List: the independent diagonal construction defeats any proposed enumeration. Small total covering length does not mean empty, finite or listable."
+      },
+      "sources": [
+        {
+          "title": "Sheldon Axler, Measure, Integration & Real Analysis",
+          "url": "https://measure.axler.net/MIRA.pdf",
+          "locator": "§2D, construction 2.74 and 2.75; results 2.76–2.79, printed 56–59 (PDF 70–73)",
+          "use": "Adult limiting construction and distinction between measure and cardinality. The 81-unit finite tasks, exact addresses and budget instance were independently constructed and checked."
+        }
+      ],
+      "prior_use": "No documented matching worksheet. Binary branching resembles several earlier tree representations, but here the addresses code nested intervals rather than queries or moves. GA-03 has a related countable zero-length example; this extension tests the false converse.",
+      "assessment": {
+        "verdict": "Good finite worksheet; the ambitious title of the original atlas card needs an honest advanced gate.",
+        "why": "Addressing adds a second representation and completeness argument; endpoint traps and simultaneous count/length optimization give finite discoveries beyond repeatedly shading thirds.",
+        "risk": "The full uncountability result is not a satisfying low-prerequisite endpoint for every learner. The finite first 3 pages are the core. Infinite page 4 is optional and likely another meeting; do not equate enjoying the picture with proving the theorem.",
+        "satisfying_stop": "Explain all 16 addresses and solve the round 6 double challenge, while identifying permanently safe endpoints.",
+        "not_claimed": "No finite diagram exhibits zero retained length; every finite stage has positive length. No classroom pilot yet."
+      }
+    },
+    {
+      "id": "GA-25",
+      "title": "Make a maze. Then turn it inside out.",
+      "pages_count": 4,
+      "prerequisites": {
+        "entry": "Trace a route; count to 12; distinguish a loop from going along one road and back. Oral directions suffice.",
+        "core_explanation": "Choose routes and check all rooms; explain a leaf-removal certificate or a shortest sequence of swaps. No algebra required.",
+        "extension": "Track the outside as one region; compare two planar networks. A complete theorem for arbitrary planar graphs is optional, not claimed from four examples."
+      },
+      "materials": [
+        "12 toothpicks or removable road strips per pair",
+        "9 counters on the room dots",
+        "pencil and eraser",
+        "optional transparent sheet/highlighter for courtyard flood"
+      ],
+      "prep_minutes": 10,
+      "timing": "0–8 free road designs; 8–13 demonstrate a loop and a disconnected room; 13–28 maze challenge and a proof; 28–33 walk a human tree; 33–50 choose swaps OR courtyard view; 50–60 share a certificate. Four pages are a menu for one or two meetings, not a required pace.",
+      "pages": [
+        {
+          "page": 1,
+          "title": "Can you keep every room and lose every loop?",
+          "prompts": [
+            {
+              "id": "25.1",
+              "text": "Put a counter on every room. Use the twelve roads shown. Remove roads until every room can still reach every other, but there is no loop. A loop comes back to its start without reusing a road or visiting any other room twice. Just going out and back is not a loop.",
+              "answer_space": "Two large blank grid copies, 2.6 in each. Space to circle removed roads."
+            },
+            {
+              "id": "25.2",
+              "text": "Find a second successful maze. It must keep a different set of roads. How many roads did you remove each time?",
+              "answer_space": "Two count blanks."
+            },
+            {
+              "id": "25.3",
+              "text": "Can you succeed by removing fewer? Give a partner something to check, not only “I tried.”",
+              "answer_space": "1.1 in explanation box."
+            }
+          ],
+          "diagram_ids": [
+            "grid_full"
+          ],
+          "handout_note": "Give this page before the proof and courtyard pages.",
+          "gate": ""
+        },
+        {
+          "page": 2,
+          "title": "A certificate for every maze",
+          "prompts": [
+            {
+              "id": "25.4",
+              "text": "This design keeps eight roads. Does it satisfy BOTH rules? Mark what goes wrong.",
+              "answer_space": "Perimeter diagram at 2.1 in; brief response beside it."
+            },
+            {
+              "id": "25.5",
+              "text": "Draw your kept roads over the faint guides; leave missing roads faint. Cross out a one-road room and its road. Repeat until one room remains. Record the room order.",
+              "answer_space": "Fresh blank grid at 2.4 in plus 8 letter slots."
+            },
+            {
+              "id": "25.6",
+              "text": "What does each removal do to the room count and the road count? Use your record to explain how many roads every nine-room maze must keep.",
+              "answer_space": "1.2 in explanation box."
+            },
+            {
+              "id": "25.7",
+              "text": "Why can you always find a one-road room before the last room? Try following a route as far as it can go without revisiting a room.",
+              "answer_space": "0.8 in explanation box; optional proof prompt."
+            }
+          ],
+          "diagram_ids": [
+            "grid_perimeter",
+            "grid_full"
+          ],
+          "handout_note": "Offer after genuine attempts; leaf clue is intentionally delayed.",
+          "gate": ""
+        },
+        {
+          "page": 3,
+          "title": "Repair the maze one swap at a time",
+          "prompts": [
+            {
+              "id": "25.8",
+              "text": "Change Maze A into Maze B. One swap means: restore one missing road, then remove a different road. After each whole swap, every room must still be reachable and no loop may remain. Keep all nine rooms.",
+              "answer_space": "Maze A/Maze B side by side at 2.5 in; full road labels by endpoints."
+            },
+            {
+              "id": "25.9",
+              "text": "Make a shortest swap plan. Check each step with road strips.",
+              "answer_space": "Table: swap / restore / remove; six blank rows."
+            },
+            {
+              "id": "25.10",
+              "text": "Why can no plan use fewer swaps?",
+              "answer_space": "0.9 in explanation box."
+            },
+            {
+              "id": "25.11",
+              "text": "After restoring a missing road, how many loops appear? Which road may you remove to make the repair legal?",
+              "answer_space": "0.8 in explanation box; generalization."
+            }
+          ],
+          "diagram_ids": [
+            "grid_TA",
+            "grid_TB"
+          ],
+          "handout_note": "No supplied intermediate states: the sequence belongs to the children.",
+          "gate": ""
+        },
+        {
+          "page": 4,
+          "title": "The roads become walls",
+          "prompts": [
+            {
+              "id": "25.12",
+              "text": "Draw your kept roads as bold WALLS over the faint guides. Missing roads stay faint: they are OPENINGS. Water crosses openings, never bold walls or wall corners. Color where water from OUTSIDE can flow. Can it reach all four courtyards?",
+              "answer_space": "Large labeled courtyard grid, 3 in; room for flood coloring."
+            },
+            {
+              "id": "25.13",
+              "text": "Try a different successful maze. Can you trap a courtyard, or must every courtyard open to the outside? Explain your prediction with a picture.",
+              "answer_space": "0.9 in answer area."
+            },
+            {
+              "id": "25.14",
+              "text": "Make a new map: one dot for each courtyard and one for OUTSIDE. Each removed road gives a link between its two neighboring regions. Draw those links. What kind of network did your four removed roads make?",
+              "answer_space": "Five-region node template, 2.3 in."
+            },
+            {
+              "id": "25.15",
+              "text": "Go further: draw a larger rectangular road grid. Guess how many roads a maze must remove. Test whether its removed roads still make a tree of regions.",
+              "answer_space": "Small blank drawing box; reserve challenge."
+            }
+          ],
+          "diagram_ids": [
+            "grid_courtyards",
+            "dual_dots"
+          ],
+          "handout_note": "Optional representation change. OUTSIDE wraps around all four sides; corners of walls are not passageways.",
+          "gate": "Planar region reasoning, not just counting."
+        }
+      ],
+      "hints": [
+        {
+          "for": "25.3",
+          "text": "Can a road on a loop be removed without blocking any room?"
+        },
+        {
+          "for": "25.6",
+          "text": "Pair each disappearing road with one disappearing room. Which room has no partner?"
+        },
+        {
+          "for": "25.10",
+          "text": "Count roads that Maze B needs and Maze A is missing."
+        },
+        {
+          "for": "25.13",
+          "text": "If some courtyards stay dry, trace the outside boundary of that dry patch."
+        }
+      ],
+      "solutions": {
+        "25.1": "Many answers. Maze A keeps AB, BC, DE, EF, GH, HI, AD, DG, removing BE, EH, CF, FI. It connects all nine rooms and has no cycle. There are 192 successful kept edge sets in this fixed grid. Do not require students to enumerate them.",
+        "25.2": "Maze B keeps AB, BC, AD, DG, BE, EH, CF, FI, removing DE, EF, GH, HI. Both remove 4 roads. Any other distinct verified tree works.",
+        "25.3": "Deleting one road of a loop preserves all possible reachability: the rest of that loop gives a detour. Continue until no loops remain. Every resulting connected acyclic graph on 9 vertices has 8 edges (proved onpage 2), so 12−8=4 removals are necessary and sufficient. Before the formal count, accept a correct paired room/road certificate explained with counters.",
+        "25.4": "The perimeter uses 8 roads, but it leaves E isolated and also retains the outer 8-edge loop. Having the right edge count alone is not enough.",
+        "25.5": "For Maze A one valid leaf sequence is C, B, F, E, I, H, G, D, leaving A. Students may start from any current leaf; checks must use the graph after previous removals. For Maze B one sequence is G, D, H, E, I, F, C, B, leaving A.",
+        "25.6": "Each leaf deletion removes exactly 1 room and 1 road, preserves connectivity among remaining rooms, and cannot create a loop. Eight room deletions leave one room with no roads, so every successful maze had 8 roads. The starting 12 roads therefore lose 4.",
+        "25.7": "Take a longest simple path in the finite tree. An endpoint cannot have a neighbor off the path, since that extends it; it cannot have another neighbor already on the path, since that makes a loop. Thus the endpoint has degree 1 whenever more than one vertex remains. This is a picture proof, not a demand for the formal word “induction.”",
+        "25.8": "Use only the 12 original grid edges. Do not slide rooms, invent diagonal roads, or regard rotated drawings as an allowed swap. A valid solution is supplied under 25.9.",
+        "25.9": "Four swaps: restore BE/remove DE; restore CF/remove EF; restore EH/remove GH; restore FI/remove HI. Every intermediate graph is a tree; exact check script verifies it. Other shortest sequences are valid.",
+        "25.10": "The target has four roads BE, EH, CF, FI that the start lacks. One swap restores at most one of them, so at least 4 swaps are necessary; the displayed plan meets that bound.",
+        "25.11": "A tree has exactly one simple route between any two rooms. Adding one road creates exactly one loop: that road plus the old route between its endpoints. Remove any other edge on that loop, and the graph is a tree again. Removing an edge outside that loop disconnects the graph. If the new road is itself removed, the state is unchanged; the task excludes that empty move.",
+        "25.12": "Yes for every successful maze. For Maze A the removed edges are BE, EH, CF, FI; the region links are NW–NE, SW–SE, NE–OUT, SE–OUT. All 5 region dots are connected by 4 links with no loop. Water cannot slip through a retained wall vertex: regions cross only through a removed edge.",
+        "25.13": "Yes. If a collection of courtyards cannot reach OUT, its outer boundary consists of kept roads and contains a loop; a successful maze has no such loop. The picture is sufficient for this rectangular grid. The stronger dual-tree theorem also needs the primal connected condition, ensuring the removed-region links have no dual cycle.",
+        "25.14": "The complementary network is another tree: 5 region dots and 4 links. For Maze B its links are NW–SW, NE–SE, SW–OUT, SE–OUT. All 4096 edge subsets were checked: primal kept roads form a tree exactly when complementary dual region links form a tree. Parallel outside links are distinct roads, so do not merge them in a broader example.",
+        "25.15": "For an m-by-n array of square courtyards there are (m+1)(n+1) rooms and m(n+1)+n(m+1) roads. The required number removed is mn, matching one less than the mn+1 regions including outside. A 3 by 2 courtyard example has 12 rooms, 17 roads, needs 6 removals. Keep all horizontal rows and one vertical boundary to construct a maze. Its complement is a dual tree. The general statement is planar graph duality, not a claim about arbitrary crossing networks."
+      },
+      "sources": [
+        {
+          "title": "Allen Hatcher, Algebraic Topology",
+          "url": "https://pi.math.cornell.edu/~hatcher/AT/AT.pdf",
+          "locator": "Chapter 0; §1.A, Proposition 1A.2, printed 84–85 (PDF 92–93)",
+          "use": "Adult graph/fundamental-group connection. This specific 3×3 maze, swaps and dual worksheet are independently designed/verified."
+        }
+      ],
+      "prior_use": "Week 10 asks Euler/postman traversal; this uses spanning trees and planar complementarity. The swap lower bound resembles Week 1 intentionally, but the maze objects and dual representation are new. Atlas square+diagonal instance has been enlarged and replaced.",
+      "assessment": {
+        "verdict": "Strong candidate for the Week 1 richness standard.",
+        "why": "Manipulable choices, a misleading right-count counterexample, a general invariant proof, optimal local reconfiguration, and a second representation with a genuine duality surprise.",
+        "risk": "Four pages are too much for many one-hour groups; use 1–2 plus either 3 or 4. The courtyard page needs physical tracing; do not force a general topology proof.",
+        "satisfying_stop": "One valid maze and a reason all valid mazes remove 4 roads, OR a shortest 4 swaproute with a lower bound.",
+        "not_claimed": "No classroom pilot yet; no claim that every random atlas card would support this expansion."
+      },
+      "rendering_revision": "Copy templates on pages 2 and 4 have faint dashed reference roads; children overdraw their kept edges. Initial play page retains solid removable-road map."
+    }
+  ],
+  "checks_file": "geometry-checks.py",
+  "checks_results": "geometry-checks-results.json",
+  "teaching_basis": "Math Circle by the Bay, preface printedviii–x/PDF9–11, reread directly. Its concrete manipulatives, variable pace and return to explanation support the format; these new worksheets are not source-tested lessons.",
+  "rendering_status": "12 student pages; body11.5–11.8pt; templates and proof scope repaired in independent PDF review. Larger-grid25.15and invented-budget29.11are facilitator back-pocket prompts."
+}

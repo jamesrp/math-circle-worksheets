@@ -1,0 +1,488 @@
+[
+  {
+    "id": "AD-09",
+    "title": "Two clocks, one hidden position",
+    "msc_primary": "11",
+    "msc_secondary": [
+      "08",
+      "20"
+    ],
+    "adult_question": "When can independent remainder reports be combined into one residue, and how does a common divisor obstruct compatibility?",
+    "anchor": "For positive coprime moduli m,n, every residue pair has a unique solution modulo mn. For general positive moduli, a pair is solvable exactly when the residues agree modulo gcd(m,n), and any solution is unique modulo lcm(m,n). The core proves the 3-and-4 case by a complete cycle.",
+    "source": [
+      {
+        "title": "Keith Conrad, The Chinese Remainder Theorem",
+        "url": "https://kconrad.math.uconn.edu/blurbs/ugradnumthy/crt.pdf",
+        "locator": "Theorem 1.1 and §2 existence/uniqueness proof",
+        "checked": "full relevant coprime text; general compatibility is a separately explained continuation"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Two counters recording one step at a time are the map from integer time to a pair of residues. Returning to both origins means a common multiple.",
+      "limits": "A twelve-state picture proves its own case, not the theorem for arbitrary moduli. Independent clocks cannot produce every pair when their sizes share a factor."
+    },
+    "gates": {
+      "entry": "O and C: move two counters once for each shared step and recognize paired positions.",
+      "explore": "C: record ordered pairs without swapping clock roles.",
+      "explain": "M and P: reason about multiples, remainders, and the first joint return.",
+      "prove": "M and P: use coprimality and a modular inverse or Bezout identity for the general theorem.",
+      "reading": "Clock symbols suffice; an adult can read remainder clues.",
+      "arithmetic": "Core uses counting to twelve; later stage needs multiplication, division, gcd and lcm.",
+      "reasoning": "Track synchronized movement and distinguish uniqueness within one period from uniqueness among all integers.",
+      "hard_stop": "Do not require a general Bezout proof for the complete small-cycle result; supply exact restrictions on the hidden time."
+    },
+    "materials": "Clock faces labeled 0,1,2 and 0,1,2,3; two counters; a strip numbered 0 through 11. A second pair of four- and six-position clocks is optional.",
+    "prep_minutes": 10,
+    "launch": "A hidden time is one of 0 through 11. Both clocks start at 0 and move one position per step. The three-clock reports 2 and the four-clock reports 1. Find the time, then design a pair of reports that no one can solve—or explain why you cannot.",
+    "choices": "Choose clues, choose a search method, organize the full pair inventory, and choose changed clock sizes to challenge the conjecture.",
+    "session": "0-10 explore synchronized clocks; 10-15 solve one clue collaboratively; 15-35 invent reports and build a complete table; 35-40 walk two floor rings in synchrony; 40-55 try clocks with a shared factor and explain failures; 55-60 state exactly what can and cannot be guaranteed.",
+    "questions": [
+      "When do both counters first return to 0?",
+      "Can a paired report repeat before then?",
+      "Does the answer remain unique if time is unrestricted?",
+      "What must a four-clock and six-clock agree about?"
+    ],
+    "hints": [
+      "List the times matching just one report, then inspect the other clock.",
+      "For four and six positions, track whether both reported residues are odd or even."
+    ],
+    "example": {
+      "problem": "Solve t=2 mod 3 and t=1 mod 4 for 0≤t<12; then test residues 1 mod 4 and 2 mod 6.",
+      "solution": "The times matching the first clue are 2,5,8,11; only 5 is 1 mod 4. Two times sharing both residues differ by a multiple of both 3 and 4, hence by 12, so the chosen interval gives uniqueness. For the changed clocks, t=1 mod 4 makes t odd, whereas t=2 mod 6 makes t even; no solution exists.",
+      "boundary": "Without a bounded interval or residue-class interpretation, 5,17,29 and infinitely many other times satisfy the first pair. State uniqueness modulo 12, not a unique integer."
+    },
+    "extensions": [
+      "For moduli four and six, classify all twenty-four residue pairs: exactly twelve compatible same-parity pairs occur, with period twelve.",
+      "For three pairwise coprime clocks, combine two first and then the third; prove the construction's uniqueness rather than assuming pairwise agreement is enough in unrelated constraint problems."
+    ],
+    "satisfying_stop": "A hidden time with a uniqueness argument and one impossible pair explained by parity.",
+    "prior_use": "Week 4 follows one modular orbit and Week 9 uses common multiples. This family combines simultaneous reports and exposes compatibility; prior ring movement can reduce setup time.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AD-10",
+    "title": "Square dots that also make a triangle",
+    "msc_primary": "11",
+    "msc_secondary": [
+      "12"
+    ],
+    "adult_question": "How can a geometric counting question become a Pell equation, and how does multiplication of quadratic expressions generate infinitely many solutions?",
+    "anchor": "For nonnegative integers m,n, m(m+1)/2=n^2 is equivalent to (2m+1)^2-2(2n)^2=1. Multiplication of x+y√2 by 3+2√2 preserves x^2-2y^2=1 and sends (x,y) to (3x+4y,2x+3y).",
+    "source": [
+      {
+        "title": "Keith Conrad, Pell's Equation, I",
+        "url": "https://kconrad.math.uconn.edu/blurbs/ugradnumthy/pelleqn1.pdf",
+        "locator": "§3 Theorem 3.1, triangular-square numbers; §4 quadratic-unit multiplication",
+        "checked": "full relevant text"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "The same counter total admits triangular and square arrangements. The algebraic re-encoding and recurrence preserve exactly the required equality.",
+      "limits": "Producing successive larger examples does not by itself prove that every triangular-square number has been found, or that no omitted one lies between generated examples."
+    },
+    "gates": {
+      "entry": "O and C: build rows of lengths 1,2,3,... and square arrays.",
+      "explore": "M: compare triangular totals with square totals, using a supplied table if desired.",
+      "explain": "A: expand squares and translate between m,n and x,y; a finite dot explanation remains possible earlier.",
+      "prove": "A and P: verify a polynomial identity and show the recurrence preserves positivity and strictly increases size. Completeness needs a separate descent argument.",
+      "reading": "Spoken launch; optional symbolic recurrence card.",
+      "arithmetic": "Core uses thirty-six counters; extension uses multiplication of two-digit integers and polynomial expansion.",
+      "reasoning": "Coordinate two different side-length parameters; label triangle height m and square side n separately.",
+      "hard_stop": "Stop after a verified common arrangement when symbolic equations remove the learner's agency; the Pell proof is an explicit upper gate."
+    },
+    "materials": "Thirty-six counters per pair, square grid and triangular-row mat, plus a calculator or prepared arithmetic strip for large extensions. Do not prepare 1,225 physical counters.",
+    "prep_minutes": 10,
+    "launch": "Use the same counters to make both a square and a triangle with one more counter in each successive row. One counter works. Find a larger collection that works both ways. Later, decide whether a proposed recipe makes a new example every time.",
+    "choices": "Choose which totals to test, invent a search table, explain failed candidates, and decide whether the recurrence should be trusted from examples or from an identity.",
+    "session": "0-10 freely arrange dots; 10-15 define the exact triangle convention; 15-35 search and verify thirty-six; 35-40 physically form increasing rows; 40-55 choose a drawing-based explanation or symbolic recipe; 55-60 distinguish a verified new example from a claimed complete list. The symbolic phase is optional.",
+    "questions": [
+      "Why does a triangle of eight rows use thirty-six counters?",
+      "Can a formula replace moving thousands of counters?",
+      "Which quantities must remain whole numbers?",
+      "Does a recipe that works forever necessarily find every solution?"
+    ],
+    "hints": [
+      "Compare a list of triangular totals with 1,4,9,16,25,36.",
+      "If m(m+1)=2n^2, multiply by four and add one to make (2m+1)^2."
+    ],
+    "example": {
+      "problem": "Verify m=8,n=6 and use the recurrence to generate another triangular-square total.",
+      "solution": "Eight rows use 8×9/2=36=6^2. Set x=17,y=12; x^2-2y^2=289-288=1. The recurrence gives x'=99,y'=70, hence m'=49,n'=35. Indeed 49×50/2=1225=35^2. Algebraically (3x+4y)^2-2(2x+3y)^2=x^2-2y^2, so the equation is preserved. Odd x and even y remain odd/even, allowing the conversion back.",
+      "boundary": "The identity x^2-2y^2=1 also has negative solutions; blindly converting them may give negative row lengths. Restrict to positive x,y for the displayed growth recipe, and do not claim the generated next value is the next smallest without a completeness proof."
+    },
+    "extensions": [
+      "In m,n coordinates the recipe is m'=3m+4n+1 and n'=2m+3n+1. Start at m=n=1 and verify that it reaches 8,6 then 49,35.",
+      "An advanced continuation proves all positive solutions arise from powers of 3+2√2. Inspect and prove the descent/completeness argument separately before reporting an exhaustive classification."
+    ],
+    "satisfying_stop": "Thirty-six dots visibly form both arrangements, with a count explaining why the match is exact.",
+    "prior_use": "Year-1 material includes figurate numbers; whether this exact triangular-square investigation was used is unknown. Current Weeks 1-10 do not contain this Pell mechanism.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AD-11",
+    "title": "Four symbols where every nonzero number divides",
+    "msc_primary": "12",
+    "msc_secondary": [
+      "13",
+      "94"
+    ],
+    "adult_question": "How can a field have four elements when arithmetic modulo four has zero divisors?",
+    "anchor": "The polynomial t^2+t+1 has no root over the two-element field and is irreducible. Its quotient F2[t]/(t^2+t+1) is a field with elements 0,1,t,1+t. Arithmetic uses 1+1=0 and t^2=t+1.",
+    "source": [
+      {
+        "title": "Keith Conrad, Finite Fields",
+        "url": "https://kconrad.math.uconn.edu/blurbs/galoistheory/finitefields.pdf",
+        "locator": "Theorem 1.1 and warning on p.1 about Z/(p^n)",
+        "checked": "full relevant text; the specific four-element arithmetic is checked directly"
+      }
+    ],
+    "bridge": {
+      "type": "faithful-representation",
+      "preserves": "Two-bit cards represent polynomial coefficient pairs. XOR addition and the stated multiplication reduction are exactly finite-field operations, not numerals interpreted modulo four.",
+      "limits": "Table play alone does not prove the existence or uniqueness of every prime-power field. The reason this quotient is a field depends on irreducibility."
+    },
+    "gates": {
+      "entry": "O and C: manipulate two-position cards and cancel matching pairs; read a supplied multiplication table.",
+      "explore": "M or A: apply distributivity and reduce repeated terms with 1+1=0.",
+      "explain": "P: identify an inverse for each of the three nonzero elements.",
+      "prove": "A and P: justify arithmetic as a polynomial quotient, or verify all finite field axioms from tables without omitting associativity.",
+      "reading": "Four symbol labels and short rules; adult can mediate table use.",
+      "arithmetic": "Addition of bits; later polynomial multiplication and cancellation, with no fractions required.",
+      "reasoning": "An unfamiliar operation is not ordinary integer arithmetic. Keep the two models, F4 and mod four, visually separate.",
+      "hard_stop": "Do not call the system a field solely because a few products work; either supply quotient justification or explicitly keep the investigation at the inverse-table result."
+    },
+    "materials": "Cards 00,10,01,11 labeled 0,1,t,u where u=1+t; two-color coefficient counters; multiplication workspace. Prepare a separate modulo-four table for comparison.",
+    "prep_minutes": 15,
+    "launch": "In this arithmetic, two copies of the same coefficient cancel, and t times t becomes 1+t. Find a partner for each nonzero symbol so their product is 1. Can ordinary arithmetic modulo four do the same? You may derive products with counters or consult a checked table.",
+    "choices": "Choose a product to derive, choose how to record inverses, test a proposed relabeling to modulo-four arithmetic, and challenge whether multiplication can lose information.",
+    "session": "0-10 explore two-bit addition; 10-15 demonstrate distributivity and the t-square rule; 15-35 complete nonzero products and inverse pairs; 35-40 walk the multiplication-by-t cycle; 40-55 compare with modulo four and discuss irreducibility; 55-60 show the precise difference between the systems. Quotient proof is optional.",
+    "questions": [
+      "What is t(1+t)?",
+      "Can multiplying by a nonzero symbol send two different inputs to the same output?",
+      "How many times must you multiply by t to return to 1?",
+      "Why cannot simply renaming 0,1,2,3 repair modulo-four multiplication?"
+    ],
+    "hints": [
+      "Expand first, then replace t^2 with t+1 and cancel duplicate terms.",
+      "Once t times u equals 1, use it to test whether either multiplication can collapse distinct inputs."
+    ],
+    "example": {
+      "problem": "Find all nonzero products and inverses in {1,t,u}, u=1+t.",
+      "solution": "The identity leaves every symbol fixed. t^2=u. Also tu=t+t^2=t+(t+1)=1. Finally u^2=(1+t)^2=1+t^2=t because the two cross terms cancel. Thus 1 is self-inverse and t,u are mutual inverses; multiplication by t cycles 1,t,u. In contrast, modulo four, 2×2=0, so 2 has no multiplicative inverse.",
+      "boundary": "Using the reducible modulus t^2 instead would make nonzero t square to zero. The same four coefficient pairs would then form a ring but not a field."
+    },
+    "extensions": [
+      "Prove the Frobenius map z↦z^2 fixes 0,1 and exchanges t,u; applying it twice restores every element.",
+      "Construct a field of eight elements only after choosing and checking an irreducible cubic. Having eight labels by itself specifies neither the operations nor a field."
+    ],
+    "satisfying_stop": "A complete nonzero multiplication triangle and a clear reason every nonzero symbol can be undone, unlike modulo four.",
+    "prior_use": "Week 2 binary addition and Week 4 modular rings are preparatory representations. This family introduces irreducible-polynomial field arithmetic, a distinct mechanism.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AD-12",
+    "title": "A cube that ruler and compass cannot double",
+    "msc_primary": "12",
+    "msc_secondary": [
+      "51"
+    ],
+    "adult_question": "How can algebra certify an impossible geometric construction even when approximation is easy?",
+    "anchor": "Starting from a unit segment with unmarked straightedge and compass, constructible coordinates lie in a tower of extensions of degree at most two over Q. Therefore any constructible real algebraic number has degree a power of two over Q. The irreducible cubic x^3-2 excludes the exact doubled-cube edge.",
+    "source": [
+      {
+        "title": "Thomas Judson, Abstract Algebra: Theory and Applications",
+        "url": "https://judsonbooks.org/aata-files/aata-html/fields-section-constructions.html",
+        "locator": "§21.3, Lemma 21.3.6, Theorem 21.3.7, doubling-the-cube subsection",
+        "checked": "full relevant text; correct power-of-two statement includes degree one, unlike the page's k>0 wording"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "The permitted lines and circles are the classical construction operations; coordinate equations faithfully track the algebraic extensions they create.",
+      "limits": "A rough physical drawing is an approximation. The impossibility concerns exact finite constructions with the specified tools, not marked rulers, origami, or numerical methods."
+    },
+    "gates": {
+      "entry": "V: use compass and unmarked straightedge to construct a square diagonal; participation need not begin with fields.",
+      "explore": "A: solve linear and quadratic equations and distinguish exact expressions from decimals.",
+      "explain": "A and P: show the doubled-volume edge must satisfy x^3=2; prove the cubic has no rational root.",
+      "prove": "X and P: field extensions, minimal-polynomial degree, and the tower law are essential for the impossibility proof.",
+      "reading": "A symbolic proof sheet, read together if necessary.",
+      "arithmetic": "Squares, cubes, rational arithmetic, polynomial degree; calculator only for comparison with approximations.",
+      "reasoning": "Distinguish failure to find a construction from a theorem ruling all legal constructions out.",
+      "hard_stop": "The complete obstruction stays at the field-extension gate. Younger participants may finish with exact square-root constructions, without being told they have proved cube-duplication impossibility."
+    },
+    "materials": "Compasses, unmarked straightedges, unit segment, graph paper, and one page showing equations of lines/circles. A prepared field-tower diagram reduces copying.",
+    "prep_minutes": 10,
+    "launch": "A unit cube has volume one. Construct a segment that would be the edge of a cube with volume two, using only unmarked straightedge and compass. First construct √2 exactly and compare that problem. If your best drawing is close, decide what would certify exactness or prove impossibility.",
+    "choices": "Choose constructions to attempt, choose coordinate descriptions, compare permitted-tool variations, and locate the precise step at which a proposed impossibility argument needs a theorem.",
+    "session": "0-10 construct and compare lengths; 10-15 fix exact rules and the volume target; 15-35 derive line/circle equations and square-root steps; 35-40 reset with a physical cube-volume comparison; 40-55 follow the field-degree obstruction at the appropriate gate; 55-60 state the conclusion with its tool hypotheses. Exact √2 is an earlier stop.",
+    "questions": [
+      "Does doubling the edge double the volume?",
+      "What new equation appears when a line meets a circle?",
+      "Why can two circle equations be reduced by subtraction?",
+      "Could a degree-three number fit inside a tower whose total degree is a power of two?"
+    ],
+    "hints": [
+      "Draw a unit square: its diagonal solves a quadratic equation.",
+      "For the obstruction, track coordinates after each operation, not the visual sophistication of the whole drawing."
+    ],
+    "example": {
+      "problem": "Compare exact construction of √2 with exact construction of the positive root of x^3=2.",
+      "solution": "The unit-square diagonal has length √2 by Pythagoras. A doubled cube needs edge α=∛2. A rational root of x^3-2 would be an integer dividing 2, and none of ±1,±2 is a root; a cubic without rational roots is irreducible over Q, so α has degree three. Each permitted intersection adds at most a quadratic extension. By the tower law, the degree of any constructible coordinate divides a power of two, contradicting degree three.",
+      "boundary": "The power-of-two degree condition is necessary, not sufficient for an arbitrary algebraic number to be constructible. Also, using a marked ruler changes the permitted operations, so this theorem no longer settles the task."
+    },
+    "extensions": [
+      "Construct √3 from a right triangle with legs √2 and 1, then describe its quadratic tower.",
+      "Investigate trisection of a 60-degree angle through its cubic cosine equation, preserving the distinction between some trisectable angles and a universal trisection method."
+    ],
+    "satisfying_stop": "Either an exact square-root construction with justification, or the complete degree-three contradiction with its tool restrictions stated.",
+    "prior_use": "Week 1 shape manipulation is unrelated to field-degree obstructions. This deliberately keeps an advanced proof gate rather than presenting an elementary approximation exercise as field theory.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AD-13",
+    "title": "The monomials that survive the forbidden corners",
+    "msc_primary": "13",
+    "msc_secondary": [
+      "05",
+      "15"
+    ],
+    "adult_question": "How does a monomial ideal turn algebraic quotient structure into a staircase of lattice points, and what does that staircase measure?",
+    "anchor": "In k[x,y]/(x^2,xy,y^3), for a field k, the residue classes of 1,x,y,y^2 form a basis. A monomial belongs to the ideal exactly when it is divisible by at least one displayed generator. Multiplication by x or y moves one step on the exponent grid, possibly to zero.",
+    "source": [
+      {
+        "title": "J. S. Milne, Algebraic Geometry",
+        "url": "https://www.jmilne.org/math/CourseNotes/AG.pdf",
+        "locator": "Chapter 1 rings/ideals; chapter 2 Hilbert basis theorem and quotient-ring framework",
+        "checked": "relevant framework inspected; this specific monomial basis has a self-contained proof below"
+      }
+    ],
+    "bridge": {
+      "type": "faithful-representation",
+      "preserves": "Grid point (i,j) represents x^i y^j. Forbidden northeast regions are exactly the multiples of ideal generators; surviving points encode a quotient basis.",
+      "limits": "Grid play describes a monomial ideal, not arbitrary polynomial ideals. For relations involving sums, erasing every involved monomial would destroy the quotient's actual information."
+    },
+    "gates": {
+      "entry": "O and V: move right/up on a grid and recognize a forbidden region.",
+      "explore": "C: classify all surviving positions and investigate how the boundary changes.",
+      "explain": "P: prove every point outside the displayed survivors is forbidden, including points beyond the drawn window.",
+      "prove": "A and L: understand polynomial linear combinations and basis independence for the formal quotient interpretation.",
+      "reading": "Picture directions suffice initially; polynomial labels optional until the upper stage.",
+      "arithmetic": "Small nonnegative coordinates; exponent addition for algebraic extension.",
+      "reasoning": "Reason about an unbounded grid from a finite boundary; distinguish geometric squares from algebraic coefficient values.",
+      "hard_stop": "The low entrance establishes an exact monomial-membership puzzle; abstract quotient dimension requires linear combinations and polynomial independence."
+    },
+    "materials": "A grid showing coordinates 0 through 5 in each direction, movable markers at (2,0),(1,1),(0,3), transparent northeast shading, and four survivor tokens. Axes begin at zero.",
+    "prep_minutes": 10,
+    "launch": "A marked forbidden point spoils itself and every point reachable by moving right or up from it. Mark the forbidden starts (2,0),(1,1),(0,3). Which places survive? Convince a partner that drawing a larger grid will not uncover more survivors. Later, name a right step x and an up step y.",
+    "choices": "Choose how to shade, how to certify the infinite region, how to multiply survivor positions, and which generator to move for a new family member.",
+    "session": "0-10 explore right/up paths; 10-15 set the three forbidden starts; 15-35 find survivors and test multiplication moves; 35-40 enact coordinate steps; 40-55 compare changed corners or translate to polynomial quotients; 55-60 give a finite certificate for the whole infinite grid.",
+    "questions": [
+      "Can a point above a forbidden point ever recover?",
+      "Which survivor dies when multiplied by x?",
+      "Is any forbidden start redundant?",
+      "How would the answer change if xy were allowed?"
+    ],
+    "hints": [
+      "Separate the vertical axis, the column i=1, and all columns i≥2.",
+      "Any column i≥2 is killed by (2,0); in column i=1, every positive height is killed by (1,1)."
+    ],
+    "example": {
+      "problem": "Find the survivors and explain why they form a basis of the stated quotient.",
+      "solution": "At i=0, heights 0,1,2 survive; at i=1, only height 0 survives; i≥2 never survives. The monomials are 1,y,y^2,x. Every polynomial reduces to their linear combination by removing divisible terms. Every polynomial in the ideal contains only monomials divisible by x^2,xy,or y^3, so no nonzero linear combination of the four survivors belongs to the ideal. This proves spanning and independence, hence dimension four.",
+      "boundary": "If the sole relation is x-y=0, neither x nor y should be erased: their classes are equal, not zero. The forbidden-region rule applies specifically to monomial generators."
+    },
+    "extensions": [
+      "Remove generator xy. The quotient k[x,y]/(x^2,y^3) has six survivor monomials in a two-by-three rectangle; compare the multiplication maps.",
+      "Move the corners and count survivors by rows. Gröbner bases extend this normal-form approach to more general ideals, but require a separately defined term order and reduction theory."
+    ],
+    "satisfying_stop": "Four surviving positions and a complete reason there are no hidden survivors beyond the paper.",
+    "prior_use": "Week 1 also uses boards, but these positions encode monomial divisibility rather than tilings. The family adds commutative-algebra content rather than relabeling a packing puzzle.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AD-14",
+    "title": "A nonzero symbol whose square vanishes",
+    "msc_primary": "13",
+    "msc_secondary": [
+      "14",
+      "26"
+    ],
+    "adult_question": "What algebraic information is retained by nilpotents even when ordinary point sets look identical?",
+    "anchor": "The dual-number ring Q[ε]/(ε^2) consists uniquely of a+bε with rational a,b and product (a+bε)(c+dε)=ac+(ad+bc)ε. Its element ε is nonzero but ε^2=0; a+bε is invertible exactly when a is nonzero.",
+    "source": [
+      {
+        "title": "J. S. Milne, Algebraic Geometry",
+        "url": "https://www.jmilne.org/math/CourseNotes/AG.pdf",
+        "locator": "Chapter 2, discussion of nilpotents/reduced quotients preceding Theorem 2.16 and Aside 2.24",
+        "checked": "full relevant nilpotent/radical discussion; dual-number computations proved directly"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Two coefficient boxes encode an actual quotient ring. The ε^2 rule is an exact algebraic relation, not a numerical approximation.",
+      "limits": "ε is not a tiny nonzero rational or real number. The activity does not establish schemes, tangent functors, or general infinitesimal geometry; those need additional definitions."
+    },
+    "gates": {
+      "entry": "A and F: distribute two linear expressions and add signed rational coefficients.",
+      "explore": "A: reduce products using ε^2=0 and distinguish formal equality from substitution ε=0.",
+      "explain": "P: show ε cannot vanish as a residue class and solve for an inverse.",
+      "prove": "A and X: quotient rings and ideals; polynomial independence justifies the two-coordinate normal form.",
+      "reading": "Symbolic rule card; paired oral explanation is useful.",
+      "arithmetic": "Signed addition, multiplication, and rational reciprocals.",
+      "reasoning": "Hold an unfamiliar but consistent algebra separate from ordinary real arithmetic; errors in ε^2 usually expose this conflation.",
+      "hard_stop": "This is an algebra-gated investigation. Do not replace the relation with 'ε is almost zero' to lower the prerequisite."
+    },
+    "materials": "Two-column coefficient mats labeled ordinary and ε, signed counters for integer trials, and paper for rational examples. Prepare comparison cards for Q[t]/(t) and Q[t]/(t^2).",
+    "prep_minutes": 8,
+    "launch": "Invent numbers a+bε under the exact rule ε^2=0. Addition works by columns; multiplication distributes before ε^2 terms disappear. Find nonzero numbers whose product is zero, and find surprising numbers that still have multiplicative inverses. You may choose your own coefficients.",
+    "choices": "Choose trial elements, design a failed cancellation argument, classify invertibility, and decide what is lost when every ε coefficient is discarded.",
+    "session": "0-10 explore two-column addition and products; 10-15 agree that ε is a formal basis symbol; 15-35 hunt zero divisors and inverse pairs; 35-40 reset with pairs of ordinary/ε roles; 40-55 derive a general inverse rule or polynomial first-order expansion; 55-60 present one statement distinguishing this ring from Q.",
+    "questions": [
+      "Why does ε^2=0 not force ε=0 here?",
+      "Can 1+ε be invertible despite containing a nilpotent part?",
+      "Which coefficient of a product decides whether it could equal 1?",
+      "Do equations t=0 and t^2=0 have the same rational points but different quotient rings?"
+    ],
+    "hints": [
+      "Compare ordinary coefficients before trying to solve the ε coefficient equation.",
+      "Multiply (a+bε)(c+dε) and set its two coefficients equal to those of 1."
+    ],
+    "example": {
+      "problem": "Invert 2+3ε and compare its behavior with ε.",
+      "solution": "For an inverse c+dε, the equations are 2c=1 and 2d+3c=0. Thus c=1/2,d=-3/4, and direct multiplication gives 1. For a general nonzero a, the inverse is 1/a-(b/a^2)ε. If a=0, the ordinary coefficient of every product is zero, so no inverse exists. The element ε is nonzero because the polynomial t is not a multiple of t^2, although its square is in that ideal.",
+      "boundary": "Evaluating every dual number at ε=0 collapses ε to zero. That map preserves arithmetic but forgets information; it is not an injective identification of dual numbers with rational numbers."
+    },
+    "extensions": [
+      "Expand (1+ε)^n. For nonnegative integer n all terms of degree two or higher vanish, leaving 1+nε; prove this by induction.",
+      "For a polynomial f, expansion gives f(a+bε)=f(a)+b f'(a)ε. This identity is exact in the ring; interpreting it as differential geometry requires a stated calculus/tangent-space gate."
+    ],
+    "satisfying_stop": "One checked inverse pair and one nonzero zero divisor, with an explanation of why ordinary cancellation is unavailable.",
+    "prior_use": "No current Week 1-10 equivalent. AD-13 supplies quotient normal forms, but this family investigates invertibility and nilpotent information rather than monomial counting.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AD-15",
+    "title": "Find every rational point by aiming a line",
+    "msc_primary": "14",
+    "msc_secondary": [
+      "11",
+      "51"
+    ],
+    "adult_question": "When does a geometric projection give a rational parametrization, and how must exceptional points be handled?",
+    "anchor": "For the circle x^2+y^2=1, a line of rational slope t through (-1,0) meets it again at ((1-t^2)/(1+t^2),2t/(1+t^2)). Conversely every rational point except (-1,0) yields rational t=y/(x+1). This is an exact parametrization with one explicitly handled exception.",
+    "source": [
+      {
+        "title": "Ravi Vakil, The Rising Sea, January 29, 2015 draft",
+        "url": "https://math.stanford.edu/~vakil/216blog/FOAGjan2915public.pdf",
+        "locator": "§6.5, printed pp.191-193, rational circle parametrization",
+        "checked": "full relevant passage; source uses (1,0), while this reflected version is rederived below"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "The drawn circle, rational-slope line, and coordinate calculation are an actual rational map and its inverse on the specified punctured circle.",
+      "limits": "A drawing alone cannot certify rational coordinates. Not every algebraic curve admits such a parametrization, and the missing point must not be concealed."
+    },
+    "gates": {
+      "entry": "V: draw a circle and lines through one marked point; independent arithmetic can initially be deferred.",
+      "explore": "F and A: understand rational slopes and solve a quadratic after substituting a line equation.",
+      "explain": "A and P: factor out the already known intersection and account for the exceptional point.",
+      "prove": "A and P: derive both formulas and show each rational point in the claimed domain is recovered.",
+      "reading": "A coordinate diagram and equations; orally supported derivation is possible.",
+      "arithmetic": "Fractions, squares, polynomial factoring, and signed coordinates.",
+      "reasoning": "Switch between geometric point and parameter without forgetting which domain excludes a point.",
+      "hard_stop": "A complete rational parametrization needs symbolic algebra. Projective or scheme language is a later continuation, not required decoration."
+    },
+    "materials": "Unit-circle template with (-1,0) marked, ruler, coordinate grid, and a slope table. A calculator can check arithmetic but not replace exact fractions.",
+    "prep_minutes": 10,
+    "launch": "Aim a line from (-1,0) across the unit circle. Choose a rational slope and find the second intersection exactly. Can this method find every point on the circle whose coordinates are fractions? Find any point it misses and explain why.",
+    "choices": "Choose slopes, search for small denominators, invent a way to recover the slope from a point, and decide how to represent the exceptional case.",
+    "session": "0-10 draw and compare secants; 10-15 state the rational-coordinate question; 15-35 derive or use the formula and exchange slope challenges; 35-40 move along a large circle while tracing lines from the fixed point; 40-55 prove the converse and connect to triples; 55-60 show an exact point and its recovery rule.",
+    "questions": [
+      "Why is one quadratic root already known before calculating?",
+      "What happens at slope zero?",
+      "How do you recover t from a given point?",
+      "Which line through (-1,0) has no distinct second intersection?"
+    ],
+    "hints": [
+      "Substitute y=t(x+1) into x^2+y^2=1.",
+      "The result has factor x+1 because (-1,0) lies on both curves."
+    ],
+    "example": {
+      "problem": "Use slope t=1/2 and prove the general formula covers every rational point other than (-1,0).",
+      "solution": "Substitution gives (x+1)((1+t^2)x+t^2-1)=0. The second root is x=(1-t^2)/(1+t^2); y=t(x+1)=2t/(1+t^2). At t=1/2 this gives (3/5,4/5), and 9/25+16/25=1. Conversely, for a rational circle point with x≠-1, t=y/(x+1) is rational and its line recovers the point. The sole circle point with x=-1 is (-1,0), excluded from the finite-slope formula.",
+      "boundary": "A line tangent at (-1,0) is vertical and has no finite slope; its intersection is the known point counted twice. Omitting this exception would make the 'every point' claim false."
+    },
+    "extensions": [
+      "Take t=p/q with integers p,q and obtain the triple (q^2-p^2,2pq,q^2+p^2). State the further coprimality/parity conditions before claiming primitive triples.",
+      "Try a different conic with a known rational point. A general cubic does not inherit this parametrization merely because a line can be drawn through it."
+    ],
+    "satisfying_stop": "One exact fractional point and a reversible slope construction, including the missing-point explanation.",
+    "prior_use": "Week 9 uses rational slopes for billiards; this family uses them to parametrize solutions of an algebraic equation. The geometric language is related, the mathematical question is new.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AD-16",
+    "title": "A curve made of seven finite-field points",
+    "msc_primary": "14",
+    "msc_secondary": [
+      "11",
+      "12"
+    ],
+    "adult_question": "How does the choice of ground field change the solutions of a polynomial equation, and what structure remains when a continuous-looking curve becomes a finite set?",
+    "anchor": "Over F5, the affine equation y^2=x^3-x has seven solutions. Its projective completion Y^2Z=X^3-XZ^2 has one point with Z=0, giving eight projective F5-points. The short Weierstrass discriminant is nonzero modulo five, so this is a nonsingular elliptic curve with its marked point at infinity.",
+    "source": [
+      {
+        "title": "J. S. Milne, Elliptic Curves, second edition",
+        "url": "https://www.jmilne.org/math/Books/EC2.pdf",
+        "locator": "Introduction, printed p.1: projective Weierstrass equation, nonsingularity condition, and distinguished point; I §1 Example 1.15 for the point at infinity",
+        "checked": "full relevant introductory statement and point-at-infinity example; finite enumeration proved below; broader finite-field theory is continuation"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Coordinates are residues with arithmetic modulo five; placed tokens are exactly the rational points of the displayed affine curve over that field.",
+      "limits": "The grid is not a sampled real curve and adjacent dots should not be joined as if continuity were present. Point enumeration alone does not establish the elliptic-curve group law or cryptographic security."
+    },
+    "gates": {
+      "entry": "M and V: use a five-by-five coordinate grid and supplied residue/square tables.",
+      "explore": "M: cube, subtract, and compare residues, with a calculator or lookup table if needed.",
+      "explain": "P: exhaust all five x-values while using the complete square-residue table.",
+      "prove": "A and X: projective coordinates for the extra point; algebraic nonsingularity or elliptic group-law proof is a separate gate.",
+      "reading": "Coordinates and one equation; partner can record values.",
+      "arithmetic": "Modulo-five addition/multiplication; supplied tables lower calculation demand without changing the mathematical question.",
+      "reasoning": "Distinguish the number of y-solutions from the number of square residues, and affine from projective counting.",
+      "hard_stop": "Finish with the seven affine points when projective coordinates are unavailable; do not quietly add an unexplained eighth point."
+    },
+    "materials": "Five-by-five grids labeled 0 through 4, counters, a square table, and a separate ordinary real-coordinate sketch for comparison. Prepare an infinity card only for the projective stage.",
+    "prep_minutes": 10,
+    "launch": "Place a counter at (x,y) exactly when y times y and x cubed minus x have the same remainder after division by five. Find every permitted point without testing all twenty-five pairs separately. What symmetry can shorten the search?",
+    "choices": "Choose whether to search by columns or square residues, predict partners of known points, organize a completeness certificate, and compare a changed modulus or polynomial.",
+    "session": "0-10 explore residue multiplication; 10-15 place two sample points and reject one; 15-35 complete the curve and explain missing columns; 35-40 stand in residue positions paired by negation; 40-55 change the equation or introduce projective infinity at its real gate; 55-60 report exactly which point set was counted.",
+    "questions": [
+      "Which remainders can a square have?",
+      "Why does a nonzero y normally have a partner?",
+      "When do y and -y coincide?",
+      "Does a smooth real-looking drawing determine the number of points modulo five?"
+    ],
+    "hints": [
+      "Compute the squares of 0,1,2,3,4 once and reuse that table.",
+      "For each x, compare x^3-x with 0,1,4, the possible square residues."
+    ],
+    "example": {
+      "problem": "Find every affine F5-point of y^2=x^3-x and, if projective coordinates are understood, the additional point at infinity.",
+      "solution": "For x=0,1,2,3,4 the right sides are 0,0,1,4,0. Square roots give (0,0),(1,0),(2,1),(2,4),(3,2),(3,3),(4,0), seven points. At Z=0 the homogeneous equation forces X=0; a projective point cannot have all coordinates zero, so Y≠0 and all such triples represent the single point [0:1:0]. The projective total is eight. The discriminant is -16(4(-1)^3)=64, which is 4 modulo 5 and nonzero, as required for nonsingularity.",
+      "boundary": "Using modulus four would not give a field and changes square-root behavior; formulas requiring division by any nonzero residue would fail. Counting affine points and reporting eight without explaining infinity is also incorrect."
+    },
+    "extensions": [
+      "Over F7 the same curve has seven affine points and one point at infinity; verify independently rather than assume the total follows the modulus.",
+      "With field division and the actual group-law formulas, investigate addition of points. Associativity is a theorem, not a consequence of the finite picture; keep it a separately sourced continuation."
+    ],
+    "satisfying_stop": "A seven-point picture with a five-column table proving completeness and a visible y↦-y symmetry.",
+    "prior_use": "Week 4 supplies modular arithmetic, but polynomial curves over fields are a new mathematical object. AD-15 contrasts rational parametrization with changing the ground field.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  }
+]

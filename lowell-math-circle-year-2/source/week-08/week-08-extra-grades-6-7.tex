@@ -1,0 +1,16 @@
+\documentclass[12pt]{article}
+\def\activityid{F08-X-v2}\input{common.tex}
+\begin{document}
+
+\PageTitle{EXTRA / GRADES 6--7}{One new move, a new world}\NameLine
+\RuleBox{Use TWO piles. You may remove any positive number from one pile, OR remove the SAME positive number from both. Take the last counter to win. This is Wythoff's game.}
+\Task{1. Break the matching strategy.}{Why is \((4,4)\) no longer a trap? Classify all starts \((a,b)\) with \(0\leq a\leq b\leq7\). Work in order of \(a+b\); a trap has no move to an earlier trap. Treat \((0,0)\) as terminal.}
+\Task{2. Build a smaller list.}{Start with \((0,0)\). Repeatedly choose the smallest nonnegative integer not yet in either column as \(a_n\), then put \(b_n=a_n+n\).}
+\begin{center}\renewcommand{\arraystretch}{1.55}\begin{tabular}{c|*{6}{>{\centering\arraybackslash}p{.58in}}}n&0&1&2&3&4&5\\\hline$a_n$&0&1&&&&\\$b_n$&0&2&&&&\end{tabular}\end{center}
+Does this list match your small-game traps? Explain why no rook move and no equal-take move can connect two listed pairs, even when pile order is swapped.
+\WriteBox{What is proved? What still needs to be proved?}{.75in}
+\Task{3. An unexpected number.}{Let \(\phi=(1+\sqrt5)/2\approx1.618\). A known theorem says the pairs are \((\lfloor n\phi\rfloor,\lfloor n\phi^2\rfloor)\), together with swapped pairs. Floors mean round down. Test \(n=1,\ldots,5\). Why does \(\phi^2=\phi+1\) explain the differences \(b_n-a_n=n\)?}
+\textbf{Harder:} To prove the list is the whole losing set, what must you show about a position \emph{outside} it? Try finding such moves from \((2,4)\), \((5,8)\), and \((8,12)\).
+\StudentFooter
+
+\end{document}

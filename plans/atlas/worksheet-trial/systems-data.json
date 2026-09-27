@@ -1,0 +1,941 @@
+{
+  "version": "worksheet-trial-systems-v1",
+  "authored": "2026-09-25",
+  "status": "Design with independently derived solutions and executable exact checks; awaiting independent review and PDF production; not piloted.",
+  "pedagogy": {
+    "sources_read": [
+      {
+        "title": "Math Circle by the Bay",
+        "locator": "Preface printed viii–x, PDF pp.9–11",
+        "local_path": "external-resources/msri-math-circle-books/Math Circle by the Bay.pdf",
+        "lesson": "The authors favor deep themes, manipulatives, playful dialogue, varied pacing, independent work, and returning to explanations; they explicitly decline universal timing estimates."
+      },
+      {
+        "title": "Week 1 redesigned around mathematical questions",
+        "locator": "The revised hour; undergraduate and research source trails",
+        "local_path": "plans/week-01-tiling-redesign.md",
+        "lesson": "Concrete decisions should lead to an obstruction, completeness argument, optimum, or generalization; an advanced label alone is insufficient."
+      }
+    ],
+    "design_inference": "These prototypes retain those principles but move the prerequisite gate upward whenever the mathematical payoff needs it. The timings below are planning suggestions, not empirically validated durations."
+  },
+  "investigations": [
+    {
+      "id": "GA-11",
+      "title": "The addition machine has a secret",
+      "potential": "Conditional strong for learners who enjoy logical necessity and symbolic invention. The rational-only portion is too slight to match Week 1 by itself; the two-dial construction supplies the substantial surprise. This is not an elementary manipulative worksheet.",
+      "satisfactory_core": "Invent two additive machines on the same specified irrational domain that agree at every rational input yet disagree at √2, and explain why.",
+      "prerequisites": {
+        "entry": "Signed fractions; distributive algebra; follow f(x+y)=f(x)+f(y).",
+        "core": "Signed rational arithmetic, use of letters for arbitrary numbers, distinction between rational and irrational numbers. The fact that √2 is irrational may be supplied.",
+        "extension": "For the continuity question: limits of rational approximations and the meaning of continuity; derivatives unnecessary.",
+        "reading": "Short but precise symbolic instructions; a facilitator can read them aloud.",
+        "honest_stop": "A correct rational theorem is worthwhile, but the whole sheet's main payoff is the irrational-domain construction. Do not market early fraction calculations as a satisfactory account of the real Cauchy equation."
+      },
+      "materials": "Pencil, two colors, optional blank input/output cards. No calculator until the final approximation challenge.",
+      "preparation_minutes": 5,
+      "suggested_timing": "0–8 play with chosen input claims; 8–23 two-route certificates; 23–35 the rational theorem; 35–40 break; 40–60 invent and compare irrational-domain machines. The continuity challenge can take a second meeting.",
+      "launch": "Your partner can claim any output. You can reject it only by making two different addition routes reach the same input with different outputs.",
+      "student_pages": [
+        {
+          "page": 1,
+          "title": "Catch a claim with two routes",
+          "lede": "The machine accepts every rational input. Its promise is f(x+y)=f(x)+f(y), and f(1)=3. An output is forced only if you can prove it from those promises.",
+          "prompts": [
+            {
+              "id": "G1",
+              "text": "A technician writes these claims: f(0)=1; f(−1)=−3; f(2/3)=21/10; f(5/6)=5/2. Mark each IMPOSSIBLE or FORCED. For each decision, draw two addition routes to the same input; label the corresponding output sums.",
+              "workspace": "Four claim cards with an empty two-route certificate below each. Do not print verdicts."
+            },
+            {
+              "id": "G2",
+              "text": "Choose a new rational input that looks awkward. Write a tempting wrong output. Trade with a partner: can they expose the contradiction without assuming a formula for f?",
+              "workspace": "Two large blank cards labeled input / proposed output, plus a 2.0-inch proof area."
+            }
+          ],
+          "figures": [
+            {
+              "type": "two_route_template",
+              "caption": "Same input, two routes. If the routes agree at the input, their outputs must agree too.",
+              "labels": [
+                "route A",
+                "route B",
+                "same input",
+                "output sum"
+              ]
+            }
+          ],
+          "footer": "A list of matching examples is evidence to investigate. A certificate says why a claim must hold."
+        },
+        {
+          "page": 2,
+          "title": "A whole infinite deck",
+          "lede": "You need not test every fraction separately. Try to trap them all with one argument.",
+          "prompts": [
+            {
+              "id": "G3",
+              "text": "Let m be any integer and n any positive integer. Explain what n copies of the input m/n add to. Use that to force f(m/n). Include why your argument handles zero and negative m.",
+              "workspace": "Three proof boxes: integers; n equal inputs; conclusion for every rational."
+            },
+            {
+              "id": "G4",
+              "text": "A new input key √2 appears. Which step of your fraction proof no longer applies? Can you conclude that f(√2)=3√2, or has that value only become a guess?",
+              "workspace": "A 1.3-inch explanation area; no answer choices that assert an irrational machine exists yet."
+            },
+            {
+              "id": "G5",
+              "text": "Now allow exactly the inputs a+b√2, where a and b are rational. For this task you may use the fact that each input has exactly one such pair (a,b). Build an addition rule for these input pairs. Test your rule on (1+2√2)+(−3+√2/2).",
+              "workspace": "Two input-pair cards feeding a blank sum-pair card; space for a general rule."
+            }
+          ],
+          "figures": [
+            {
+              "type": "pair_addition",
+              "labels": [
+                "rational dial a",
+                "√2 dial b"
+              ],
+              "student_example": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  -3,
+                  "1/2"
+                ]
+              ]
+            }
+          ],
+          "footer": "The allowed input set has changed. Say which inputs each conclusion covers."
+        },
+        {
+          "page": 3,
+          "title": "Invent two machines that disagree",
+          "lede": "Both machines must accept exactly the inputs a+b√2, obey the addition promise, and send 1 to 3. You may design their insides.",
+          "prompts": [
+            {
+              "id": "G6",
+              "text": "Build Machine A with f(√2)=0 and Machine B with f(√2)=5. Give formulas in a and b. Verify the addition promise for two arbitrary input pairs—not just for your examples.",
+              "workspace": "Two large machine panels with formula line and proof area. Two dials a,b feed an empty output box."
+            },
+            {
+              "id": "G7",
+              "text": "Find one input on which the machines disagree. Then prove they agree on EVERY rational input. Explain why the uniqueness of (a,b) matters to the construction.",
+              "workspace": "Three short labeled answer areas: disagreement / all rational inputs / one output per input."
+            },
+            {
+              "id": "G8",
+              "text": "Optional continuity challenge. For Machine B compare the outputs at 1.4142 and √2. You may use 1.4142<√2<1.4143. Does that one close pair alone prove discontinuity? What happens if rational inputs approach √2 with arbitrarily small error? Which extra promise would rule Machine B out?",
+              "workspace": "A small input number line and a separate output number line, then a 1.4-inch explanation area."
+            }
+          ],
+          "figures": [
+            {
+              "type": "two_dial_machine",
+              "copies": 2,
+              "blank_output_formula": true
+            },
+            {
+              "type": "separate_number_lines",
+              "input_range": [
+                1.4141,
+                1.4144
+              ],
+              "output_range": [
+                4.2,
+                5.05
+              ],
+              "do_not_plot_answers": true
+            }
+          ],
+          "footer": "The construction is on the stated set a+b√2. It is not a construction on every real input."
+        }
+      ],
+      "staged_hints": {
+        "G1": [
+          "Try input 0 in both x and y.",
+          "For f(2/3), compare three copies of 2/3 with two copies of 1. For f(5/6), compare six copies with five copies of 1."
+        ],
+        "G2": [
+          "Choose m/n. Repeating it n times produces an integer you can already control."
+        ],
+        "G3": [
+          "First use f(0)=f(0)+f(0), then f(m)+f(−m)=f(0).",
+          "The same output repeated n times has to equal f(m)."
+        ],
+        "G4": [
+          "Every finite sum of rational numbers is rational. Is √2=m/n for integers m,n?"
+        ],
+        "G5": [
+          "Collect the two rational coefficients separately."
+        ],
+        "G6": [
+          "For an input a+b√2, repeated addition already determines the effect of rational multiples of 1 and of √2.",
+          "Try f(a+b√2)=3a+cb. What should c be?"
+        ],
+        "G7": [
+          "A rational input has pair (a,0).",
+          "If the same real input had two dial settings that gave different outputs, would this be a function?"
+        ],
+        "G8": [
+          "On rational inputs Machine B still gives three times the input.",
+          "Continuity concerns every desired output tolerance and sufficiently small input errors; one measured close pair is not enough by itself."
+        ]
+      },
+      "solutions": {
+        "G1": "f(0)=1 is impossible: additivity gives f(0)=2f(0), so f(0)=0. f(−1)=−3 is forced because f(1)+f(−1)=f(0)=0. f(2/3)=21/10 is impossible: three copies would give 63/10, whereas the input sums to 2 and f(2)=6; the forced value is 2. f(5/6)=5/2 is forced: six copies of the input sum to 5, whose output is 15, so the output is 15/6=5/2. A claim being forced is not a proof that an unspecified entire device obeys the rule.",
+        "G2": "Answers vary. For example input −7/4, false output −5. Four copies sum to −7 and would give −20, contradicting f(−7)=−21; the forced output is −21/4. For arbitrary proposed rational m/n the rule forces 3m/n.",
+        "G3": "The zero argument above forces f(0)=0. Positive integer m is a sum of m ones, so f(m)=3m. Then f(−m)=−f(m). For any integer m and positive integer n, n f(m/n)=f(m)=3m; division by n gives f(m/n)=3m/n. This proves every rational input at once.",
+        "G4": "The proof requires n copies of the input to be an integer. No positive integer n makes n√2 an integer, since √2 is irrational. Therefore the rational proof does not establish its value. This does not itself prove a different value is possible; G6 supplies that construction on the enlarged specified domain.",
+        "G5": "Represent a+b√2 by (a,b). Addition is (a,b)+(c,d)=(a+c,b+d). The example gives −2+(5/2)√2. The set is closed under addition, negatives and rational scaling.",
+        "G6": "Machine A is f_A(a+b√2)=3a; Machine B is f_B(a+b√2)=3a+5b. More generally c may be any real number. For pairs (a,b),(d,e), f_c((a+d)+(b+e)√2)=3(a+d)+c(b+e)=(3a+cb)+(3d+ce). Thus additivity holds for arbitrary inputs, and f_c(1)=3. Uniqueness of the representation makes each rule a well-defined function. The fact can be proved: if a+b√2=d+e√2 and b≠e, then √2=(d−a)/(b−e) is rational, a contradiction; hence b=e and a=d.",
+        "G7": "At √2 the outputs are 0 and 5. At any rational r its unique pair is (r,0), so both outputs equal 3r. The two machines agree on every rational, not merely on a finite tested set. Uniqueness prevents one accepted input from receiving conflicting values through alternative pair representations.",
+        "G8": "f_B(1.4142)=4.2426 and f_B(√2)=5, an output gap 0.7574 for an input gap less than 0.0001. One finite close pair does not alone prove discontinuity: a continuous function may change rapidly. For any rational sequence q_n→√2, f_B(q_n)=3q_n→3√2, which differs from 5. Thus Machine B is not continuous at √2 in its stated domain. Requiring continuity there would force f(√2)=3√2; requiring continuity at all inputs would rule out B. Neither the construction nor this argument claims to define a nonstandard function on all of R."
+      },
+      "facilitator": {
+        "novelty": "Original atlas rational proof upgraded to an adversarial certificate game plus a genuine family of alternative additive maps. No repeated computation table.",
+        "satisfying_stops": [
+          "Page 1: disprove a deceptive claim with two routes.",
+          "Page 2: prove the entire rational theorem.",
+          "Full core: construct and verify two disagreeing machines on the same domain."
+        ],
+        "common_pitfalls": [
+          "Calling a plausible output 'forced' from a finite pattern.",
+          "Treating the irrational input as a second formal symbol without justifying unique real-number representation.",
+          "Saying the close decimal pair alone proves discontinuity.",
+          "Claiming the construction covers all real numbers."
+        ],
+        "extensions": [
+          {
+            "prompt": "Classify every additive function on D with f(1)=3.",
+            "solution": "Let c=f(√2). Additivity forces rational homogeneity: n f((m/n)x)=m f(x). Hence f(a+b√2)=3a+cb. Conversely G6 verifies every such choice."
+          },
+          {
+            "prompt": "Can a continuous choice still make the two dials disagree with ordinary multiplication by 3?",
+            "solution": "No. Rational approximations to √2 force c=3√2; the formula then equals 3(a+b√2)."
+          }
+        ]
+      },
+      "sources": [
+        {
+          "title": "Daniel Reem, Remarks on the Cauchy functional equation and variations of it",
+          "url": "https://arxiv.org/abs/1002.3721",
+          "locator": "Introduction and §2 for additivity and regularity; the worksheet's rational proof and restricted-domain constructions are independently supplied.",
+          "checked": "Source identity and abstract rechecked 2026-09-25; prior atlas review inspected the relevant discussion."
+        }
+      ],
+      "rendering_data": {
+        "claim_cards": [
+          [
+            "f(0)",
+            "1"
+          ],
+          [
+            "f(−1)",
+            "−3"
+          ],
+          [
+            "f(2/3)",
+            "21/10"
+          ],
+          [
+            "f(5/6)",
+            "5/2"
+          ]
+        ],
+        "answer_leak_warning": "Do not print general formula 3a+cb on student page 3. Keep verdicts and the √2=0/5 constructions out of pages 1–2.",
+        "minimum_font_points": 11,
+        "symbol_requirements": [
+          "√",
+          "−",
+          "→",
+          "≠",
+          "≤",
+          "∈",
+          "ℚ"
+        ],
+        "page_count": 3
+      }
+    },
+    {
+      "id": "AP-26",
+      "title": "The parking robot remembers yesterday",
+      "potential": "Strongest of these three at the Week 1 standard. A playable rule produces a false finish, demands a richer state, and leads to an all-start theorem and a geometric rotation. The optional fraction page changes the control rule instead of merely making the numbers larger.",
+      "satisfactory_core": "Explain why a robot at zero can move away again, identify the ordered pair as the state, and prove the chosen pair-state cycle. The all-start theorem is the algebra continuation.",
+      "prerequisites": {
+        "entry": "Signed integer positions and subtraction. A partner can read and record.",
+        "core": "Track two quantities and an update order; a repeated complete state determines the future.",
+        "extension": "Letters as arbitrary numbers for the all-start proof; fractions for the half-correction experiment; distributive algebra for its global decay proof. Triangular-grid geometry is optional.",
+        "reading": "Previous / current labels and brief role instructions.",
+        "honest_stop": "The game is an exact discrete delayed-control model. It is not a numerical approximation of a differential equation."
+      },
+      "materials": "One token; a number line from −6 to 6; two erasable cards or scraps labeled OLD REPORT and CURRENT POSITION; pencils; optional counters or a body-sized number line. No cutting required.",
+      "preparation_minutes": 5,
+      "suggested_timing": "0–10 free moves and familiarization with the two cards; 10–25 delayed game and false finishes; 25–40 pair-state discovery; 40–45 role swap/movement; 45–60 one proof route. Page 4 is a later or fast-group extension.",
+      "launch": "Park the robot at zero. Each tick the controller sees yesterday's report, not today's position, and commands the opposite of that reported number. The robot adds the command to its current position.",
+      "student_pages": [
+        {
+          "page": 1,
+          "title": "It reached zero. Is it parked?",
+          "lede": "Start OLD REPORT=1 and CURRENT POSITION=1. At every tick: (1) command = negative of OLD REPORT; (2) new position = CURRENT POSITION + command; (3) replace OLD REPORT by the position BEFORE the move, then replace CURRENT POSITION by the new position. Update the two cards together.",
+          "prompts": [
+            {
+              "id": "D1",
+              "text": "Play until you think the story repeats. Record enough ticks to convince a partner. Circle every visit to zero. Does visiting zero mean the robot stays there?",
+              "workspace": "A ruled strip for 9 current positions, beginning at 1, plus a 1.5-inch explanation box. No preprinted later values."
+            },
+            {
+              "id": "D2",
+              "text": "Change one rule: use the CURRENT position to make the command. Start at 1 again. Explain exactly what the delayed report changed.",
+              "workspace": "Two tick spaces and a comparison paragraph."
+            },
+            {
+              "id": "D3",
+              "text": "With the delayed rule restored, choose an old report and a current position that make the NEXT position zero. Can you make it remain zero forever? Find every starting pair that is already truly parked.",
+              "workspace": "Two blank card pairs labeled one-tick zero / stays zero, with proof space."
+            }
+          ],
+          "figures": [
+            {
+              "type": "number_line",
+              "range": [
+                -6,
+                6
+              ],
+              "tick": 1,
+              "labels_every": 1
+            },
+            {
+              "type": "state_cards",
+              "labels": [
+                "OLD REPORT",
+                "CURRENT POSITION"
+              ],
+              "initial_values": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "update_order",
+              "labels": [
+                "compute command",
+                "save old CURRENT",
+                "replace both cards"
+              ]
+            }
+          ],
+          "footer": "A tick is one complete update. Keep the old CURRENT long enough to store it as the next report."
+        },
+        {
+          "page": 2,
+          "title": "What counts as the state?",
+          "lede": "Two robots show the same current position. Must they have the same future?",
+          "prompts": [
+            {
+              "id": "D4",
+              "text": "Robot A has (old,current)=(1,1). Robot B has (old,current)=(−1,1). Predict one tick for each. Find your own pair of examples showing why one current reading is not enough.",
+              "workspace": "Two robot/card diagrams with blank next-current boxes; additional blank comparison."
+            },
+            {
+              "id": "D5",
+              "text": "Track the ordered pair (old,current), starting from (1,1). Draw an arrow for each tick. Stop only when the entire pair repeats. Why does that repeat prove the future repeats?",
+              "workspace": "A completely blank 3.1-inch-high graph area. Do not supply a six-node ring; discovering its size is part of the task."
+            },
+            {
+              "id": "D6",
+              "text": "Suppose the pair after a tick is (c,d). Recover the pair before that tick. Could two different previous pairs ever merge into the same pair?",
+              "workspace": "An arrow with blank predecessor (__,__) and known successor (c,d), plus explanation."
+            }
+          ],
+          "figures": [
+            {
+              "type": "paired_robot_states",
+              "states": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  -1,
+                  1
+                ]
+              ]
+            }
+          ],
+          "footer": "Write pairs in the same order every time: (old report, current position)."
+        },
+        {
+          "page": 3,
+          "title": "Can every start come home?",
+          "lede": "Experiments suggest a return rule. Does it work for every starting pair, even enormous or fractional ones?",
+          "prompts": [
+            {
+              "id": "D7",
+              "text": "Start from (a,b). Apply (old,current) → (current,current−old). Write the successive pairs until the original pair returns. Explain why the calculation covers every real a,b.",
+              "workspace": "Seven pair slots linked in a strip, first (a,b); only enough space rather than a supplied answer pattern."
+            },
+            {
+              "id": "D8",
+              "text": "Does every nonzero starting pair first return on the same tick? Check whether a return in 1, 2, or 3 ticks is possible. Why are those the only shorter cycle lengths you need to consider?",
+              "workspace": "Three short cases and a final conclusion area."
+            },
+            {
+              "id": "D9",
+              "text": "Optional picture proof. On the triangular grid, one unit of OLD points right; one unit of CURRENT points up-left. Plot the orbit of (1,1), then (1,2). What rigid motion does one tick appear to make? Explain how the two unit directions could prove that motion for all pairs.",
+              "workspace": "Triangular grid with axis arrows and origin; blank, no orbit preplotted. Target drawing region at least 4.5 by 2.5 inches."
+            }
+          ],
+          "figures": [
+            {
+              "type": "triangular_pair_grid",
+              "a_range": [
+                -3,
+                3
+              ],
+              "b_range": [
+                -3,
+                3
+              ],
+              "embedding": "(a−b/2, sqrt(3)*b/2)",
+              "axes": [
+                {
+                  "pair": [
+                    1,
+                    0
+                  ],
+                  "label": "+1 OLD"
+                },
+                {
+                  "pair": [
+                    0,
+                    1
+                  ],
+                  "label": "+1 CURRENT"
+                }
+              ]
+            }
+          ],
+          "footer": "The zero pair deserves its own case."
+        },
+        {
+          "page": 4,
+          "title": "A gentler correction",
+          "lede": "Optional fraction-and-algebra investigation. The report is still one tick old, but the command is now HALF of its opposite. The new pair is (current,current−old/2).",
+          "prompts": [
+            {
+              "id": "D10",
+              "text": "Start from (1,1). Predict whether a weaker correction will help or hurt. Run four ticks, then compare the whole pair with the starting pair. Run four more only if you need to test your conjecture.",
+              "workspace": "Nine pair slots in two rows, with space to compare tick 0 / 4 / 8. Do not print intermediate values."
+            },
+            {
+              "id": "D11",
+              "text": "Start instead at arbitrary (a,b). Work out four ticks. Use what you find to prove whether EVERY starting pair approaches (0,0). A small simulation alone does not settle this.",
+              "workspace": "Five pair boxes and a 2.0-inch proof space."
+            },
+            {
+              "id": "D12",
+              "text": "Design a target test: begin at (1,1) and promise that after some tick BOTH cards will have magnitude at most 1/100, and will remain within that bound afterward. Give one certified tick, not necessarily the earliest. Explain why a small current reading alone would be inadequate.",
+              "workspace": "A short calculation panel plus explanation. Calculator optional."
+            }
+          ],
+          "figures": [
+            {
+              "type": "gain_rule_comparison",
+              "old_rule": "new = current − old",
+              "new_rule": "new = current − old/2"
+            }
+          ],
+          "footer": "Smaller corrections help in this exact model. That is a conclusion to prove, not a rule for every controller."
+        }
+      ],
+      "staged_hints": {
+        "D1": [
+          "Keep going after the first zero. What number is still on the old-report card?"
+        ],
+        "D2": [
+          "With a current report, the new position is current−current."
+        ],
+        "D3": [
+          "To make the next position zero you need old=current.",
+          "After that move, which old report will still be waiting?"
+        ],
+        "D4": [
+          "Apply the two commands −1 and +1 to the same current position."
+        ],
+        "D5": [
+          "The full pair is enough information to perform the next tick. Apply exactly the same rule after an identical pair."
+        ],
+        "D6": [
+          "The previous current must have been c. The equation for the new current is d=c−old."
+        ],
+        "D7": [
+          "Do not choose numbers. After one tick the pair is (b,b−a)."
+        ],
+        "D8": [
+          "After three ticks, compare your result with (a,b).",
+          "If T has period six, a first return length must divide six. For a proposed two-tick return solve both coordinate equations."
+        ],
+        "D9": [
+          "The rightward OLD unit becomes the negative CURRENT unit. The CURRENT unit becomes their sum."
+        ],
+        "D10": [
+          "Compare complete pairs four ticks apart, including their signs."
+        ],
+        "D11": [
+          "After two ticks the pair is (b−a/2,(b−a)/2).",
+          "Compare the fourth pair with the initial pair. Then examine the four residue classes of tick numbers separately."
+        ],
+        "D12": [
+          "At ticks 0,1,2,3 for this start the largest absolute card value is at most 1.",
+          "Use the four-tick scale factor repeatedly. How many factors of 1/4 make 1 smaller than 1/100?"
+        ]
+      },
+      "solutions": {
+        "D1": "From current x0=1 with old x−1=1, subsequent current positions are 0,−1,−1,0,1,1,0,... . The visits to zero are not permanent because the old report is nonzero there. The complete pair returns to (1,1) after six ticks.",
+        "D2": "Current feedback makes xnew=xcurrent−xcurrent=0 in one tick and repeats zero forever. Delayed feedback uses an earlier value, so it can issue a nonzero command even at the target. This is a change in the feedback information, not a numerical approximation error.",
+        "D3": "The next position is zero exactly when a=b. After that the pair is (b,0), whose next current is −b. Hence it stays zero forever only for a=b=0. More generally no nonzero pair reaches (0,0), because the update is invertible (D6).",
+        "D4": "A produces pair (1,0), so its next current is 0. B produces pair (1,2), so its next current is 2. Arbitrarily many other examples work: hold current fixed and choose different old values; new=current−old changes.",
+        "D5": "The ordered pairs are (1,1)→(1,0)→(0,−1)→(−1,−1)→(−1,0)→(0,1)→(1,1). The update is a deterministic function of the complete pair; induction then gives the same pair at every corresponding future tick. A single repeated coordinate does not support that induction.",
+        "D6": "The predecessor of (c,d) is (c−d,c), since T(c−d,c)=(c,d). Therefore each state has exactly one predecessor, and different pair trajectories cannot merge. In particular a nonzero state never becomes (0,0).",
+        "D7": "The states T^j(a,b), j=0,...,6, are (a,b); (b,b−a); (b−a,−a); (−a,−b); (−b,a−b); (a−b,a); (a,b). Only addition/subtraction identities were used, so this holds for arbitrary real a,b.",
+        "D8": "A one-tick return satisfies a=b and b=b−a, so a=b=0. A two-tick return satisfies b−a=a and −a=b; hence −2a=a, a=0 and b=0. A three-tick return requires (−a,−b)=(a,b), again only zero. Any first return period divides six: write 6=kp+r with 0≤r<p; because repeated p-step returns give the initial state, the six-step return would force a return at r, so r=0. Thus every nonzero real pair has exact period six, and zero has period one.",
+        "D9": "Embed (a,b) at (a−b/2,√3 b/2). T rotates this point clockwise through 60 degrees: on basis (1,0) the image is (0,−1), whose Euclidean coordinate is (1/2,−√3/2); on (0,1) the image is (1,1), whose coordinate is (1/2,√3/2). These are the same 60-degree rotation of the two independent basis vectors, and linearity extends the result. Therefore every nonzero orbit is a regular hexagon about the origin. Squared radius is a²−ab+b². The (1,2) orbit is (1,2),(2,1),(1,−1),(−1,−2),(−2,−1),(−1,1). Students without vectors can verify the two displayed orbits without claiming a full geometric proof.",
+        "D10": "Half-gain states are (1,1),(1,1/2),(1/2,0),(0,−1/4),(−1/4,−1/4),(−1/4,−1/8),(−1/8,0),(0,1/16),(1/16,1/16). The entire pair four ticks later is −1/4 times the earlier pair, suggesting shrinking rather than a nonzero cycle.",
+        "D11": "T_half^0(a,b)=(a,b); T_half^1=(b,b−a/2); T_half^2=(b−a/2,(b−a)/2); T_half^3=((b−a)/2,−a/4); T_half^4=(−a/4,−b/4). Therefore T_half^(4k+r)(a,b)=(−1/4)^k T_half^r(a,b), r=0,1,2,3. Each of those four fixed pairs is multiplied by a factor tending to zero, so every pair approaches (0,0). A four-tick Euclidean norm contraction alone is sufficient; one-tick contraction in every norm was not claimed.",
+        "D12": "For the chosen start, every coordinate of the states at ticks r=0,1,2,3 has magnitude ≤1. Thus at any tick 4k+r both coordinates have magnitude ≤4^(−k). Taking k=4 gives ≤1/256<1/100, so tick 16 is a valid certificate for all subsequent ticks. It is not the earliest, and finding the earliest is unnecessary. A current zero can coexist with a nonzero old report that moves the next position."
+      },
+      "facilitator": {
+        "novelty": "The memory pair, invertible state update, and all-start six-cycle turn a short recurrence into a substantial state-space investigation. A state graph alone would copy Week 1's representation; here the need to enlarge the state is the new idea.",
+        "satisfying_stops": [
+          "Pages 1–2: correctly explain a false finish and a cycle in complete states.",
+          "Page 3: universal six-cycle proof or a correctly bounded geometric observation.",
+          "Page 4: prove every initial pair converges under the changed gain."
+        ],
+        "common_pitfalls": [
+          "Overwriting CURRENT before storing it as the next old report.",
+          "A cycle claim based only on a repeated current value.",
+          "Saying all cycles have length six without exempting the zero pair.",
+          "Treating a finite half-gain experiment as proof of convergence.",
+          "Calling the plotted standard Cartesian pair hexagon regular; the regular-hexagon claim uses the stated triangular embedding."
+        ],
+        "extensions": [
+          {
+            "prompt": "Find a quantity preserved by full correction, using the picture.",
+            "solution": "a²−ab+b² is preserved: b²−b(b−a)+(b−a)²=a²−ab+b². Under four half-gain steps it scales by 1/16 because each coordinate scales by −1/4."
+          },
+          {
+            "prompt": "For general gain k, explore what changes without claiming a theorem from plots.",
+            "solution": "Characteristic roots satisfy λ²−λ+k=0. Both have magnitude below one exactly for 0<k<1. For 0<k≤1/4 they are real between zero and one; for 1/4<k<1 they are conjugate with modulus √k. k=0 has root 1, k=1 has unit-modulus roots, k<0 has a root >1, and k>1 has modulus √k>1. This extension needs quadratic roots/complex numbers and is facilitator-only unless those prerequisites hold."
+          }
+        ]
+      },
+      "sources": [
+        {
+          "title": "Åström and Murray, Feedback Systems",
+          "url": "https://www.fbswiki.org/wiki/index.php/State_Feedback",
+          "locator": "Chapter 7 summary, state-feedback law and closed-loop dynamics. The delayed discrete model and the worksheet's finite proofs are independently constructed.",
+          "checked": "Chapter summary re-read 2026-09-25; do not attribute the exact six-cycle puzzle to this source."
+        }
+      ],
+      "rendering_data": {
+        "full_gain_orbits": {
+          "start_1_1": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              -1
+            ],
+            [
+              -1,
+              -1
+            ],
+            [
+              -1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "start_1_2": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              -1,
+              -2
+            ],
+            [
+              -2,
+              -1
+            ],
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        "triangular_grid": {
+          "embedding": "x=a−b/2, y=sqrt(3)*b/2",
+          "all_integer_pairs_min": -3,
+          "all_integer_pairs_max": 3,
+          "edge_directions": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "origin_label": "(0,0)",
+          "student_orbits_blank": true
+        },
+        "answer_leak_warning": "Do not supply a six-node graph on page 2 or completed symbolic sequence on page 3. Page 4's title may promise a comparison, not reveal contraction factor.",
+        "minimum_font_points": 11,
+        "page_count": 4
+      }
+    },
+    {
+      "id": "AP-07",
+      "title": "Can you trust the cooling simulator?",
+      "potential": "Strong calculus investigation after redesign; weak as an elementary recurrence-only worksheet. The payoff is designing the numerical method under a cost and accuracy constraint, with a proved optimal step allocation. It deliberately requires more mathematics than AP-26.",
+      "satisfactory_core": "Derive Euler's update from a tangent model, distinguish decaying output from accurate output, and prove the best placement of a limited number of updates.",
+      "prerequisites": {
+        "entry": "Derivatives as slopes; exponential function and its derivative; signed algebra; graph interpretation.",
+        "core": "Calculus to understand the differential model and the approximation; complete-the-square algebra for two-step optimization. A calculator evaluates powers and exp.",
+        "extension": "For the global six-update lower bound, use or prove the equal-factor product inequality (AM–GM). No advanced ODE theory is required.",
+        "reading": "Mathematical prose; equations with elapsed time and step size.",
+        "honest_stop": "Do not lower the main gate to signed arithmetic. A recurrence can be explored with less preparation, but identifying and improving a numerical approximation of cooling is the satisfactory core."
+      },
+      "materials": "Pencil, ruler, two colors, scientific calculator. No hot liquid or temperature equipment.",
+      "preparation_minutes": 5,
+      "suggested_timing": "0–12 curve and tangent experiments; 12–25 failures and all-step-size classification; 25–40 split-step design; 40–45 pause; 45–60 cost/accuracy challenge. Page 4's lower bound and backward method can be a second session.",
+      "launch": "The mathematical cooling model is y′=−y, y(0)=8, where y is degrees above room temperature and time is measured in fixed chosen units. The simulator uses the slope at the beginning of each step as if that slope stayed constant for the whole step. When should we distrust it?",
+      "student_pages": [
+        {
+          "page": 1,
+          "title": "A computer walks along tangents",
+          "lede": "Our model is y′=−y, y(0)=8. Here y is the difference from room temperature, not absolute temperature. The exact model solution is y(t)=8e^(−t).",
+          "prompts": [
+            {
+              "id": "C1",
+              "text": "Check the supplied exact solution using its derivative and initial value. What must remain true about its sign and direction of change for every finite t≥0?",
+              "workspace": "A 1.3-inch reasoning box; exact curve printed on graph for comparison, derivative work blank."
+            },
+            {
+              "id": "C2",
+              "text": "At a state (t,y), the simulator follows the current tangent slope for a duration h>0. Derive its next value. Starting from (0,8), draw ONE simulator step for h=1/2, 3/2, and 3. Label each endpoint with its actual elapsed time. Which steps violate the model's qualitative behavior?",
+              "workspace": "Large t–y graph over 0≤t≤3.1 and −17≤y≤9; exact curve preprinted but tangent lines and endpoints blank."
+            },
+            {
+              "id": "C3",
+              "text": "A teammate says a negative simulated value means negative absolute temperature. Correct the interpretation, then explain why a below-room-temperature value is still wrong for this particular model and start.",
+              "workspace": "A 1.1-inch explanation box."
+            }
+          ],
+          "figures": [
+            {
+              "type": "cooling_curve",
+              "function": "8*exp(-t)",
+              "t_range": [
+                0,
+                3.1
+              ],
+              "y_range": [
+                -17,
+                9
+              ],
+              "x_ticks": [
+                0,
+                0.5,
+                1,
+                1.5,
+                2,
+                2.5,
+                3
+              ],
+              "y_ticks": [
+                -16,
+                -12,
+                -8,
+                -4,
+                0,
+                4,
+                8
+              ],
+              "student_tangents_blank": true
+            }
+          ],
+          "footer": "A model, its exact solution, and a numerical approximation are three different objects."
+        },
+        {
+          "page": 2,
+          "title": "Settling down is not enough",
+          "lede": "Keep the SAME positive step size h at every update. Say that the simulator settles if its values tend to zero as the number of updates grows.",
+          "prompts": [
+            {
+              "id": "C4",
+              "text": "Rewrite the update as multiplication by one number. Classify ALL h>0 into: positive decreasing values; hits zero in one step; alternating values that settle; a persistent bounded oscillation; growing magnitude. Include every boundary value.",
+              "workspace": "Blank h-number line marked 0,1,2 and five classification rows, no categories preassigned to intervals."
+            },
+            {
+              "id": "C5",
+              "text": "Build a counterexample to 'If the simulator settles, its answers are accurate.' Use the model value at the same elapsed time, not the same step number. Quantify the relative error |approximation−exact|/exact.",
+              "workspace": "Counterexample card with h / elapsed time / simulated / exact / relative error."
+            },
+            {
+              "id": "C6",
+              "text": "Change the physics to y′=−2y with the same initial value. Without calculating a long sequence, identify the positive step sizes that make the simulator settle, and those that keep every value strictly positive.",
+              "workspace": "A second h-number line and two inequality lines."
+            }
+          ],
+          "figures": [
+            {
+              "type": "classification_number_line",
+              "ticks": [
+                0,
+                1,
+                2
+              ],
+              "right_arrow": true
+            },
+            {
+              "type": "classification_number_line",
+              "ticks": [
+                0,
+                0.5,
+                1
+              ],
+              "right_arrow": true
+            }
+          ],
+          "footer": "Bounded, tending to zero, and accurate over a chosen time interval are different requirements."
+        },
+        {
+          "page": 3,
+          "title": "Spend two updates wisely",
+          "lede": "Return to y′=−y. You must estimate the value at elapsed time t=1 using exactly TWO Euler updates. You choose the first duration h, with 0<h<1. The second duration is 1−h. Start from y=8.",
+          "prompts": [
+            {
+              "id": "C7",
+              "text": "Try two different choices of h, then derive a formula for the final simulated value in terms of h. Compare your choices at t=1.",
+              "workspace": "Two segmented time bars from 0 to 1, each with a movable split mark; formula and chosen-trial boxes."
+            },
+            {
+              "id": "C8",
+              "text": "Which choice of h gives the closest answer to 8/e? Prove it beats EVERY other two-step choice, not just the choices you tried. Explain why maximizing the simulated final value really does minimize the error here.",
+              "workspace": "A 2.6-inch proof area plus a small optional h-versus-final-value plotting grid."
+            },
+            {
+              "id": "C9",
+              "text": "An engineer suggests replacing one duration H by two positive durations u and v with u+v=H. Compare the two resulting multipliers algebraically. What improves when 0<H≤1? Which conclusion about accuracy would require comparison to the exact model?",
+              "workspace": "Two route diagrams, one step H / two steps u,v; difference-of-multipliers line and explanation."
+            }
+          ],
+          "figures": [
+            {
+              "type": "split_time_bar",
+              "range": [
+                0,
+                1
+              ],
+              "split_blank": true,
+              "labels": [
+                "h",
+                "1−h"
+              ]
+            },
+            {
+              "type": "one_vs_two_steps",
+              "labels": [
+                "H",
+                "u",
+                "v"
+              ],
+              "constraint": "u+v=H"
+            }
+          ],
+          "footer": "Compare at equal elapsed time. Two updates of length h do not always finish at t=1."
+        },
+        {
+          "page": 4,
+          "title": "An accuracy budget",
+          "lede": "You may choose any positive step durations adding to 1. Goal: approximate y(1)=8/e with relative error at most 10%, using as few Euler updates as possible. A calculator is allowed.",
+          "prompts": [
+            {
+              "id": "C10",
+              "text": "Find a schedule that meets the target. Equal steps are a sensible experiment, but unequal steps are allowed. State your durations, final estimate, and relative error.",
+              "workspace": "A 1.8-inch design card; compact optional scratch rows, no printed n=6 answer."
+            },
+            {
+              "id": "C11",
+              "text": "Prove no schedule with fewer updates than your proposed minimum can meet the target. You may use this fact: for a fixed sum, a product of nonnegative numbers is largest when all factors are equal. Identify the factors and their sum. Explain how schedules with still fewer updates fit your argument.",
+              "workspace": "A 2.0-inch proof area. The product inequality is an explicitly supplied theorem, not an already-proved result."
+            },
+            {
+              "id": "C12",
+              "text": "Optional repair. Another simulator chooses the slope at the END of each step: y_new=y_old−h·y_new. Solve for y_new. Does it remain positive and settle for every h>0? Does that guarantee 10% accuracy with one step to t=1?",
+              "workspace": "Equation-solving area and a three-part verdict line."
+            }
+          ],
+          "figures": [
+            {
+              "type": "step_schedule",
+              "total_time": 1,
+              "student_segments_blank": true
+            }
+          ],
+          "footer": "Optional proof of the supplied product fact: replace two unequal factors by their average and compare their product."
+        }
+      ],
+      "staged_hints": {
+        "C1": [
+          "Differentiate 8e^(−t). Exponentials are positive."
+        ],
+        "C2": [
+          "A tangent with slope −y changes its height by −hy over horizontal distance h."
+        ],
+        "C3": [
+          "Zero y means room temperature. The exact solution for this start never crosses zero."
+        ],
+        "C4": [
+          "The multiplier is 1−h. Compare it with 1,0,−1.",
+          "Treat h=1 and h=2 separately."
+        ],
+        "C5": [
+          "At h=1, what does the simulator predict at t=1? Does the exact model reach zero then?"
+        ],
+        "C6": [
+          "The multiplier becomes 1−2h. Tending to zero requires its absolute value to be below 1."
+        ],
+        "C7": [
+          "Multiply the two step multipliers: (1−h)(1−(1−h))."
+        ],
+        "C8": [
+          "Rewrite h(1−h) as 1/4−(h−1/2)².",
+          "The maximum simulated value is 2. Compare that with 8/e."
+        ],
+        "C9": [
+          "Expand (1−u)(1−v), and subtract 1−H.",
+          "For s≥0, 1−s≤e^(−s); derive it from a tangent or a derivative if needed."
+        ],
+        "C10": [
+          "For n equal durations, the estimate is 8(1−1/n)^n. Compare it to 8/e."
+        ],
+        "C11": [
+          "If there are fewer than five updates, insert zero-duration placeholders, which multiply by 1 and change nothing.",
+          "With five factors (1−h_i), the sum is 4. The largest product is (4/5)^5."
+        ],
+        "C12": [
+          "Move h·y_new to the left. The multiplier becomes a reciprocal."
+        ]
+      },
+      "solutions": {
+        "C1": "y′(t)=−8e^(−t)=−y(t) and y(0)=8. For every finite t≥0 the solution is strictly positive and its derivative is strictly negative. It approaches zero without attaining or crossing it.",
+        "C2": "Euler gives y_new=y+h(−y)=(1−h)y. At the initial point, the tangent is y=8−8t. The endpoints are (1/2,4), (3/2,−4), and (3,−16). The last two fall below the room-temperature level even though the exact solution stays above it. All three differ quantitatively from the curved exact solution.",
+        "C3": "A negative y means below room temperature; absolute temperature would add the room's absolute value. Nonetheless this cooling model with y(0)>0 never goes below room temperature, as its exact positive exponential solution proves. The numerical approximation invented the crossing.",
+        "C4": "For 0<h<1 the multiplier lies in (0,1), so the values stay strictly positive and decrease to zero. At h=1 the first update becomes zero and all later values are zero. For 1<h<2 the multiplier is in (−1,0), giving alternating signs with shrinking magnitudes and convergence to zero. At h=2 it is −1, giving 8,−8,8,..., bounded but not tending to zero. For h>2 the multiplier is below −1 and magnitude grows. Thus settling means 0<h<2; preserving strict positivity at every finite step means 0<h<1. Some texts define absolute stability by boundedness, which includes the boundary h=2; this sheet deliberately uses the explicit word 'settles'.",
+        "C5": "Take h=1. The simulation settles immediately at zero. At elapsed t=1 it predicts 0 whereas the model gives 8/e≈2.943035529, so relative error is 1=100%. This disproves the claim without confusing long-time decay and fixed-time accuracy.",
+        "C6": "With y′=−2y, Euler multiplier is 1−2h. Settling requires |1−2h|<1, equivalent to 0<h<1. Strictly positive decreasing iterates require 0<1−2h<1, equivalent to 0<h<1/2. At h=1/2 the simulator reaches zero immediately. The thresholds depend on the rate constant; h alone is not dimensionless in a general physical model.",
+        "C7": "The final value is 8(1−h)(1−(1−h))=8h(1−h). Example h=1/4 gives 3/2; h=1/2 gives 2. Both end at t=1. Exchanging the order of the two durations leaves their multiplier product unchanged for this scalar linear equation.",
+        "C8": "8h(1−h)=2−8(h−1/2)²≤2, with equality only at h=1/2. Since 8/e≈2.943>2, every allowed two-step estimate lies below the exact value; the largest estimate is therefore the closest. The unique optimal schedule is two half-steps, final value 2 and relative error 1−e/4≈32.043%. Optimizing within a poor budget still leaves a poor approximation.",
+        "C9": "Two steps give (1−u)(1−v)=1−H+uv, exceeding the single-step multiplier 1−H by uv>0. For 0<H≤1 all factors are nonnegative. Also 1−s≤e^(−s) for s≥0, so (1−u)(1−v)≤e^(−H); the split-step value lies between the one-step estimate and the exact multiplier for positive starting y. Thus splitting improves the local final-time approximation in this scalar case. The factor comparison alone only proves the numerical value increased; the exact-solution bound is needed to conclude accuracy improved. It is not a theorem for arbitrary ODEs.",
+        "C10": "Six equal durations h_i=1/6 give Y=8(5/6)^6=15625/5832≈2.679183813. Relative error is 1−e(5/6)^6≈0.089652916, below 10%. Five equal steps give 8(4/5)^5=2.62144 and relative error≈0.109273410, above 10%. C11 excludes all other schedules with at most five.",
+        "C11": "For a schedule of m≤5 positive durations summing to 1, add 5−m zero-duration placeholders. The estimate remains 8∏(1−h_i). The five factors are nonnegative and sum to 5−1=4, so their product is at most (4/5)^5. Hence every such schedule gives Y≤2.62144, while 90% of the exact value is 7.2/e≈2.648731976. All estimates are below the exact value by the same 1−h≤e^(−h) bound, and the upper bound already misses the allowed interval. Therefore at least six updates are necessary, and C10 attains six. The supplied product fact can be proved by a maximum argument on the compact nonnegative fixed-sum simplex: if a maximizing positive product had unequal factors u,v, replacing both by (u+v)/2 preserves the sum and increases their product by (u−v)²/4, a contradiction; the all-equal candidate has positive product, so a maximizer cannot have a zero factor.",
+        "C12": "Backward Euler gives y_new=y_old/(1+h), with multiplier in (0,1) for every h>0. Thus every positive start remains positive and settles for any fixed positive h. At one step h=1 it predicts 4, while exact is 8/e≈2.943; relative error is e/2−1≈35.914%, still above 10%. Removing the qualitative failure does not remove the accuracy requirement."
+      },
+      "facilitator": {
+        "novelty": "The atlas's multiplier exercise becomes a design problem: a tangent simulation with physical constraints, fixed-time comparisons, an optimal allocation of two updates, and an exact minimum update budget under an accuracy target. This is intentionally a calculus sheet.",
+        "satisfying_stops": [
+          "Page 2: prove the full qualitative classification and a precise accuracy counterexample.",
+          "Page 3: prove the unique optimal two-update schedule.",
+          "Page 4: prove six updates are necessary and sufficient under the stated 10% target."
+        ],
+        "common_pitfalls": [
+          "Using the same number of updates as if it meant the same elapsed time.",
+          "Calling bounded oscillation 'settling'.",
+          "Asserting stable means accurate.",
+          "Assuming improving the final numerical value improves accuracy without showing it lies below the exact value.",
+          "Transferring scalar commuting-step formulas to general nonlinear or matrix systems."
+        ],
+        "extensions": [
+          {
+            "prompt": "For y′=−ay and total time T with aT≤1, solve the best n-step allocation.",
+            "solution": "For nonnegative h_i summing to T, multipliers 1−a h_i are nonnegative with sum n−aT. Their product is maximal when h_i=T/n, giving y0(1−aT/n)^n. Since each multiplier is at most e^(−a h_i), the numerical final value is below the exact solution for y0>0, so this maximizes accuracy as well. The restriction aT≤1 guarantees no negative factors for arbitrary permitted partitions; other regimes require additional constraints."
+          },
+          {
+            "prompt": "Prove the one-step lower estimate without already assuming a Taylor expansion.",
+            "solution": "For g(s)=e^(−s)−(1−s), g(0)=0 and g′(s)=1−e^(−s)≥0 for s≥0. Hence g(s)≥0."
+          }
+        ]
+      },
+      "sources": [
+        {
+          "title": "Driscoll and Braun, Fundamentals of Numerical Computation",
+          "url": "https://fncbook.com/absstab-diffusion/",
+          "locator": "§11.3, Example 11.3.1 and equations (11.3.5)–(11.3.6), Euler multiplier; Definition 11.3.1 uses boundedness, including the boundary.",
+          "checked": "Relevant exposition read 2026-09-25. Two-step optimization and six-update accuracy challenge independently designed and proved."
+        }
+      ],
+      "rendering_data": {
+        "cooling_curve": {
+          "function": "8*exp(-t)",
+          "t_min": 0,
+          "t_max": 3.1,
+          "sample_count": 160,
+          "y_min": -17,
+          "y_max": 9
+        },
+        "initial_tangent_endpoints": [
+          [
+            0.5,
+            4
+          ],
+          [
+            1.5,
+            -4
+          ],
+          [
+            3,
+            -16
+          ]
+        ],
+        "initial_tangent_endpoints_facilitator_only": true,
+        "two_step_function": "8*h*(1-h)",
+        "exact_at_one": 2.9430355293715387,
+        "five_step_value": 2.62144,
+        "six_step_value": 2.6791838134430734,
+        "six_step_relative_error": 0.08965291560201061,
+        "answer_leak_warning": "The six-update challenge page title is an intentional final challenge but leaks the minimum; replace printed title by 'An accuracy budget' so students discover the six. Do not preprint the optimal split or complete tangent endpoints.",
+        "student_page4_title_override": "An accuracy budget",
+        "minimum_font_points": 11,
+        "page_count": 4
+      }
+    }
+  ]
+}

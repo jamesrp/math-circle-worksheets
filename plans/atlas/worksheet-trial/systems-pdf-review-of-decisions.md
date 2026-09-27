@@ -1,0 +1,22 @@
+# Independent PDF review: decisions worksheets
+
+September 25, 2026. Reviewer: systems agent, who did not write this group's design, renderer, or source solutions. Reviewed `tmp/pdfs/atlas-random-ten/decisions-preview/`: student pages 2–13 (all twelve investigation pages) at full size; every facilitator page in contact sheets; facilitator pages 6,9,12 at full size for the dense optimization, probability, and coding arguments. Each book also has a temporary contents page.
+
+**Disposition: pass.** No release-blocking mathematical, diagram, answer-space, or answer-leak issue found. The maker noticed a small AP-21.8 sentence mismatch during review: three boxes compare TAKE/SKIP and the fourth traces the attaining plan. The proposed correction says exactly that; it does not change the mathematical instance or the layout.
+
+## Student experience and diagrams
+
+- **AP-23, PDF pages 2–4.** The road rules state costs per traveler, recalculate congestion after a move, and distinguish strict improvement from the later tie rule. The before/after positions, occupancy boxes, and six named states agree with the actual game. The student supplies the arrows, totals, and loop; none is pre-solved. The four occupancy cases give a legitimate completeness route. There is room to show who bears the external cost rather than only calculating a group sum.
+- **AP-21, PDF pages 5–7.** Five job cards and the battery rule are usable immediately. Future-value cards separate earlier earned points from future choices. The relevant day/battery cases fit the page without a repetitive full-table drill. The two greedy constructions score 15 and17; the actual optimum is18. The printed reduced state path supplies all subproblems needed for the upper bound and an attaining plan. The changed-reward problem is marked an optional fresh investigation.
+- **AP-01, PDF pages 8–10.** The coin track, endpoint prizes, price placeholders, first-step branching diagram, skyline grid, and ferry arrows are legible and consistent. At the ferry state, heads goes to4 and tails to0; ordinary arrows from1 and3 remain as specified. Price and winning chance are related explicitly, without confusing path duration with reward. A four-trip cap keeps the experiment from becoming the whole activity. The initial symmetry prompt offers a reasonable early observation without revealing the main equal-gap uniqueness argument. The final shortcut map is blank for learner construction.
+- **AP-29, PDF pages 11–13.** The picture strip has frequencies4,2,1,1 and sixteen blank bit cells for the initial fixed-length code. The ambiguous 010 example really has two parses under the supplied complete code. Leaves, branches, binary labels, and blank tree panels clearly support prefix-code construction and the two-shape proof. The later equal-frequency and six-message tie challenges change the optimization meaningfully. The codeword blanks do not insert free separators into the actual transmission rule.
+
+All student body copy inspected is comfortably readable. Figures have enough contrast and working space; no overlaps, clipped titles, unreadable crossings of labels, or accidentally filled solution panels were found. The last line of the longer probability page is close to the content bottom but remains clear of the footer and usable.
+
+## Guide and exact checks
+
+The guide's displayed values match the student diagrams and rules. I independently recomputed the road totals12,9,10,15 and tie-loop totals7,9; the five-job greedy and optimal plans; the original and ferry price maps0,1,2,3,4; and the code costs16 versus14, then16 versus18 for equal counts and12 versus12 for frequencies2,2,1,1. The guide distinguishes eventual absorption from the first-step equations and states the prefix-only scope of the coding optimum.
+
+All **36** structured solutions are present in the actual extracted facilitator PDF under whitespace/dash normalization. The shared build also reports no blank pages, off-page characters, or suspect glyphs in either book. This text check supplements the visual inspection; it is not the visual review itself.
+
+The clean, compact facilitator layout keeps explanations findable by prompt ID. Every reviewed page has consistent headers and footers. Source status and prior-use distinctions remain visible. These checks approve an unpiloted worksheet prototype, not an empirical claim that every activity will engage every group.

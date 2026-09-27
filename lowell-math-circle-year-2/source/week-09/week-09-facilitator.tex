@@ -1,0 +1,77 @@
+\documentclass[11pt]{article}
+\def\activityid{F09-F-v2}\input{common.tex}
+\begin{document}
+
+\PageTitle{FACILITATOR / 1 OF 4}{From bouncing to straight lines}
+\RuleBox{Core question: Predict the first corner and the number of bounces without tracing the whole path. Launch from bottom-left at 45 degrees. Stop at the FIRST corner; do not reflect there. Line crossings inside the table have no effect.}
+\Subhead{Preparation, access, and the shared hour}
+Print 3 K--1, 3 middle, 1 upper, and one extra reserve page. Bring seven counters, rulers, pencils, scrap grid paper, and two spare copies of the K--1 folding page. Folding is optional; an adult can reflect a traced room instead. Allow about 10 minutes to prepare; no actual ball is needed.
+
+K--1: no reading or arithmetic; track a diagonal and choose one changed direction. Middle: count lengths and multiples to 12; coordinate two repeating lists. Upper: multiples, parity, and division; introduce gcd/lcm after a picture. The general coprime lemma additionally needs adult-supported subtraction of multiples and Euclid's argument. Extra: fractions and coordinate pairs; irrationality of $\sqrt2$ may be supplied as known, with its proof available on page 3.
+
+0--10 explore counters and mirrored grid rooms. 10--15 brief reflection launch: which direction is blocked by a right wall? 15--35 main investigation: parent models K--1 while organizer launches middle and upper, then alternates visits; children trace, fold, and predict. 35--40 movement/reset. 40--55 continue with target designs or an optional proof. 55--60 share a prediction with its reason and tidy.
+
+Triplets rotate tracer, predictor, and checker but each child should move a token. Parent mostly stays with K--1. The fifth grader receives a personal discussion, with a concrete next table left between visits.
+\Subhead{Launch and hints}
+``What if we opened the wall into a mirror room and kept going straight?'' Let the child fold a drawn path before introducing number theory. Ask which copied walls it reaches together. If tracing is difficult, adult draws while child chooses directions. Upper hint order: compare a rectangle with a scaled copy; list common multiples; count whole rooms; use odd/even; only then reduce by gcd.
+
+For returners, ask for one remembered corner prediction, then go straight to mirrored rooms and explain it. Skip familiar traces and redundant table rows; the new destination is unfolding, an obstruction, or inverse design.
+
+\Subhead{A satisfying stop; an optional proof}
+\textbf{K--1:} predict and fold one route; continue by explaining the different 2-by-4 and 4-by-2 corners. \textbf{Middle:} build and explain a target table; continue by justifying the first common wall multiple. \textbf{Upper:} rule out bottom-left by an earlier corner and count walls; continue with adult-supported coprime division and the complete inverse design. Do not require every table row.
+
+\newpage
+
+\PageTitle{FACILITATOR / 2 OF 4}{Checked paths and corner rule}
+\Subhead{K--1 and middle answers}
+For width $w$, height $h$: $2\times2$ ends top-right with no bounce. $2\times4$ follows $(0,0),(2,2),(0,4)$, ending top-left; $4\times2$ follows $(0,0),(2,2),(4,0)$, ending bottom-right. Folding the two width-2, height-4 rooms turns the straight diagonal through $(2,2)$ into the first of these paths.
+
+For $2\times3$, the folded path is $(0,0),(2,2),(1,3),(0,2),(2,0)$. In copied rooms, the first simultaneous wall meeting is $(6,6)$. The four middle rows have $(L,\text{widths},\text{heights},\text{corner})$:
+\begin{center}\renewcommand{\arraystretch}{1.35}\begin{tabular}{c|c|c|c|c}Table&$L$&Widths&Heights&Corner\\\hline$2\times3$&6&3&2&bottom-right\\$3\times6$&6&2&1&top-left\\$3\times9$&9&3&1&top-right\\$4\times6$&12&3&2&bottom-right\end{tabular}\end{center}
+A middle design reaching top-right after a bounce can be $2\times6$ (two bounces); top-left can be $2\times4$. Accept any verified design.
+\Subhead{Upper theorem with all hypotheses}
+Take positive integer $w,h$ and a 45-degree launch. Reflections unfold to $y=x$. A corner occurs when the common coordinate is both a multiple of $w$ and of $h$. Its first positive value is $L=\operatorname{lcm}(w,h)$. First use room counts $m=L/w,n=L/h$. If they shared $d>1$, distance $L/d$ would already cross $m/d$ widths and $n/d$ heights: an earlier corner. Thus they are coprime; both cannot be even, ruling out bottom-left without a gcd formula.
+
+\textbf{Optional arithmetic bridge.} Write $w=ga,h=gb$ with coprime $a,b$. Any common multiple is $ga\,t$ with $b\mid at$. To justify $b\mid t$, begin with $a=2,b=3$: both $3t$ and $2t$ divide into threes, so their difference $t$ does too. In general, run repeated subtraction on strips of lengths $a,b$ and, alongside them, $at,bt$. Subtract the shorter from the longer until equal. Common divisors are unchanged, so the coprime base strips end at 1 and the scaled strips at $t$. Both scaled lengths remain multiples of $b$ throughout; hence $b\mid t$. The least positive $t$ is therefore $b$, and $L=gab$, $m=b,n=a$. The shared plan scaffold supplies physical bundle examples. If this step is supplied, record it as a given theorem.
+
+An odd number of whole widths folds to the right, even to the left. An odd number of whole heights folds to the top, even to the bottom. Thus odd $a$, odd $b$ gives top-right; even $a$, odd $b$ gives bottom-right; odd $a$, even $b$ gives top-left. Both cannot be even, so first arrival at bottom-left is impossible. Scaling both dimensions preserves the reduced pair and corner.
+
+Upper rows: $4\times6$: $L=12,m=3,n=2$, bottom-right; $6\times9$: $18,3,2$, bottom-right; $6\times10$: $30,5,3$, top-right; $8\times14$: $56,7,4$, bottom-right. Raw parity of the original lengths does not determine the endpoint.
+
+\newpage
+
+\PageTitle{FACILITATOR / 3 OF 4}{Bounces, inverse design, and slopes}
+\Subhead{Count crossings, then design}
+Before the final corner the line crosses $m-1$ vertical room walls and $n-1$ horizontal ones. With the optional lemma these are $b-1$ and $a-1$. No crossing belongs to both lists: that would be an earlier corner. So the number of bounces is $a+b-2$ (not counting launch or terminal corner). Path length, if wanted, is $\sqrt2 L$; $L$ itself is horizontal distance, not path length.
+
+For top-right after exactly four bounces, $a,b$ are coprime odd positives with $a+b=6$. Candidates $(1,5),(3,3),(5,1)$ reduce to just $(1,5),(5,1)$ because $(3,3)$ is not coprime. Any positive integer scaling works, such as $2\times10$. Top-right after three bounces is impossible: two odd numbers have even sum, so $a+b-2$ is even. The latter is a parity obstruction, not a failed search.
+\Subhead{Extra page: rational and irrational directions}
+The extra uses a \emph{unit square} and physical slope $s=p/q$ in lowest terms. A positive lattice point $(u,v)$ on $y=(p/q)x$ satisfies $qv=pu$, so its first occurrence is $(q,p)$. By the coprime lemma on page 2, $q$ divides $u$; the first positive choice is $u=q$, giving $v=p$. The endpoint's horizontal side is right iff $q$ is odd; its vertical side is top iff $p$ is odd. There are $p+q-2$ bounces. Slope $2/3$ ends bottom-right with 3 bounces; $3/2$ ends top-left with 3.
+
+For slope $\sqrt2$, an integer corner $(u,v)$ with $u>0$ would give $\sqrt2=v/u$, impossible. If requested, prove irrationality: reduce a supposed fraction $v/u$ first. From $v^2=2u^2$, $v$ is even; substituting $v=2k$ forces $u$ even, contradicting the reduction.
+
+The other launch $(0,1/2)$ with slope 1 cycles through $(1/2,1),(1,1/2),(1/2,0),(0,1/2)$. It avoids corners but follows just a diamond. No-corner does not imply dense. Density of the $\sqrt2$-slope trajectory launched from $(0,0)$ is a separate theorem. Under our stopping rule, arbitrary starts need care: from $(0,2-\sqrt2)$ the same slope reaches unfolded $(1,2)$, folds to bottom-right, and stops.
+\Subhead{Keep the conventions straight}
+A general rectangle with physical slope $s$ becomes a square after rescaling axes, with normalized slope $sw/h$. Rationality of that normalized slope controls the square model. The extra fixes $w=h=1$ to avoid silently mixing those slopes. ``Rational polygon'' in research means its angles are rational multiples of $\pi$; it does not mean a rational launch slope. Our corner-start paths stop when they hit a corner, so do not call those stopped paths periodic billiard orbits.
+
+\newpage
+
+\PageTitle{FACILITATOR / 4 OF 4}{A doorway into dynamics}
+\Subhead{Mathematical direction and primary sources}
+Unfolding replaces a piecewise reflected path by a straight line on a lattice. The corner problem is divisibility, coprime integers, and parity; the inverse problem asks for a complete classification of parameters. These are substantive undergraduate number-theoretic and geometric ideas in a tangible representation.
+
+Masur and Tabachnikov, \emph{Rational billiards and flat structures}, published in \emph{Handbook of Dynamical Systems} 1A (2002), pp. 1015--1089. In the linked author manuscript, \S1.3 gives unfolding, \S1.4 develops the unit-square/torus model, and \S1.5 extends the construction to flat surfaces. Later \S4 concerns periodic orbits. \href{https://math.uchicago.edu/~masur/handbook1.pdf}{Author manuscript}.
+
+The classroom genuinely performs the first construction used in the research: reflect copies, then study straight motion. It does not establish the deeper recurrence or ergodicity theorems. The extra explicitly separates avoiding corners from density; the latter is supplied specifically for the origin-start $\sqrt2$ path under our stopping convention.
+\Subhead{Downloaded sources and documented prior use}
+JRMF \emph{Billiards Geometry}, PDF p. 2, asks for corner, bounce-count, and path-length rules. Lowell Handout 10, problems 10.2--10.7, includes $7\times5$, $4\times3$, $8\times10$, scaling, consecutive sides, $1\times n$, and $2\times\text{odd}$ families. Handout 11, problems 11.4--11.5, includes height-five rectangles and plus-shaped tables. Do not describe small rectangle families or scaling as wholly new for returning children.
+
+Our changed emphasis is a proof through physical unfolding, an exact first-corner criterion, a bounce formula, and inverse existence/impossibility design. This deliberately promotes an old reserve into the core. Plus-shaped tables remain a later branch; do not claim the rectangle formula covers them.
+
+\emph{Math Circle by the Bay}, preface printed pp. viii--x, supports manipulatives and revisiting ideas at different depths. Rozhkovskaya, Lesson 3 ``At the lesson,'' EPUB \texttt{part0013.xhtml}, supports attempts and child explanations before formal displays; Lesson 8's account warns about copying pace. Preprinted grids and optional adult tracing are our response, not a procedure claimed to be in those sources.
+\Subhead{Keep a useful history}
+IDs F09-K/M/U/X-v2. Record actual dimensions, launch slopes, whether unfolding was used, which formulas were explained, and which claims stayed conjectural. A prepared extension is not a taught activity. Future variants can change slopes, starting points, or polygons instead of enlarging the same arithmetic table.
+
+\texttt{verify.py} independently traces all 900 rectangles with sides 1--30, compares the corner and bounce formulas, and checks the inverse-design list. The general proofs are on pages 2--3; finite checks alone do not establish them.
+
+\end{document}

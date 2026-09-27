@@ -1,0 +1,472 @@
+[
+  {
+    "id": "GA-28",
+    "title": "A bracket or a tangent: which promise survives?",
+    "msc_primary": "26",
+    "msc_secondary": [
+      "65",
+      "37"
+    ],
+    "adult_question": "How can a root-finding method certify an answer, and why can a fast local method fail?",
+    "anchor": "For continuous f on [a,b] with opposite endpoint signs, bisection preserves a root-containing interval and halves its width each step. Newton iteration has no corresponding unconditional convergence guarantee; for f(x)=x³−2x+2 it cycles 0→1→0.",
+    "source": [
+      {
+        "title": "MIT 2.086, Numerical Computation for Mechanical Engineers, Unit VI",
+        "url": "https://ocw.mit.edu/courses/2-086-numerical-computation-for-mechanical-engineers-spring-2013/60af88c658ba3e83cdf7c43289aeb5b4_MIT2_086S13_Unit6_Textbook.pdf",
+        "locator": "§29, bisection discussion and §29.2.5 Newton pathologies, printed pp.432–435",
+        "checked": "Both methods and their differing guarantees inspected; chosen arithmetic verified independently"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Learners execute genuine algorithms on real continuous functions, with a maintained existence certificate.",
+      "limits": "A graph that appears to cross an axis supplies intuition; the sign condition plus continuity supplies the mathematical existence argument."
+    },
+    "gates": {
+      "entry": "F: halve rational intervals and compare squares.",
+      "explore": "A: evaluate polynomial signs; D is required only for Newton slopes.",
+      "explain": "P: explain why the selected half still contains some root.",
+      "prove": "P/A: inductive interval bound using the intermediate value theorem; D for the Newton counterexample.",
+      "reading": "Short numeric records; a facilitator may read procedural instructions.",
+      "arithmetic": "Fractions and squares; cubic values and signed division in the extension.",
+      "reasoning": "Keep an invariant rather than merely collecting plausible decimal digits.",
+      "hard_stop": "Do not introduce tangent iteration without derivatives, or claim continuity from a finite plot."
+    },
+    "materials": "Number lines, blank bracket records, fraction cards, optional calculator and graphing tool.",
+    "prep_minutes": 8,
+    "launch": "Find a number whose square is two, using questions that answer only “too large” or “too small.” Decide what information to keep after every question.",
+    "choices": "Choose test points, compare equal-halving with other choices, and set a target interval width before computing.",
+    "session": "0–10 guess and square; 10–15 agree on a certificate; 15–35 maintain brackets; 35–40 reset; 40–55 investigate the Newton cycle if derivative-ready, otherwise prove the halving bound; 55–60 compare promises.",
+    "questions": [
+      "Can a good-looking guess lack a proved error bound?",
+      "Does an endpoint sign change prove a root if the function jumps?"
+    ],
+    "hints": [
+      "Keep both a lower and an upper witness.",
+      "For the Newton example, calculate the next value from zero and then from one."
+    ],
+    "example": {
+      "problem": "Start with [1,2] for x²−2 and perform four bisections. Compare with Newton on x³−2x+2 from zero.",
+      "solution": "The tested midpoints are 3/2,5/4,11/8,23/16; their square-minus-two signs are +,−,−,+. The remaining interval is [11/8,23/16], width 1/16. Its midpoint 45/32 is within 1/32 of √2. Generally the width after n bisections is 2^−n. For the cubic, Newton gives x−(x³−2x+2)/(3x²−2): at zero it gives one, and at one it gives zero. Both derivative denominators are nonzero, yet iteration never reaches a root.",
+      "boundary": "The discontinuous function equal to −1 for x<0 and +1 for x≥0 changes sign across [−1,1] without any zero. Continuity is essential to the bracket certificate."
+    },
+    "extensions": [
+      "Bracket a root of the cubic on [−2,−1] and compare its reliable progress with the cycle.",
+      "Design a hybrid that accepts a Newton step only when it preserves a maintained bracket; specify fallback rules."
+    ],
+    "satisfying_stop": "A root-containing interval of chosen width and an explanation of why it is trustworthy.",
+    "prior_use": "Comparison and extension of AP-06: the Newton cubic x³−2x+2 and its 0↔1 cycle are deliberate cross-volume reuse. Here the main additional work is a bisection invariant and explicit error certificate. GA-02 supplies the underlying continuity principle.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "GA-30",
+    "title": "Two shortest routes around a cylinder",
+    "msc_primary": "53",
+    "msc_secondary": [
+      "55",
+      "51"
+    ],
+    "adult_question": "How does a surface’s global topology affect shortest paths even when its local geometry is flat?",
+    "anchor": "On the lateral surface of a circular cylinder of circumference six and height four, A and B lie on opposite generators at opposite rims. Unrolling lifts B to (3+6k,4), k∈Z, from A=(0,0). Straight segments give candidates of length √((3+6k)²+16); the minimum is five, attained twice.",
+    "source": [
+      {
+        "title": "Anton Petrunin and Sergio Zamora Barrera, What Is Differential Geometry?",
+        "url": "https://arxiv.org/pdf/2012.11814",
+        "locator": "Chapters 14–15 on length and shortest paths; §18G cylinder as a length-preserving image of a plane domain",
+        "checked": "Unrolling/length-preserving cylinder model inspected; lift minimization checked independently"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Paper unrolling preserves intrinsic lengths on the actual cylinder surface, giving a continuous geometric proof.",
+      "limits": "Routes must stay on the lateral surface. Travel through the solid cylinder or across end caps is a different optimization problem."
+    },
+    "gates": {
+      "entry": "O: trace alternative routes around a rolled paper surface.",
+      "explore": "V: unroll and compare straight segments to translated copies.",
+      "explain": "P/V: explain why every winding choice has a straight lower bound.",
+      "prove": "A/P: minimize over integer lifts with the distance formula.",
+      "reading": "Labels and short diagrams suffice; no calculus reading.",
+      "arithmetic": "Squares, square roots, integer multiples, and comparison of absolute values.",
+      "reasoning": "Separate local straightness from being globally shortest.",
+      "hard_stop": "The informal paper argument proves this developable case; arbitrary curved-surface geodesics need further differential geometry."
+    },
+    "materials": "A 6-by-4 rectangle, tape, ruler, string, and a tiled strip of three or more copied rectangles.",
+    "prep_minutes": 10,
+    "launch": "Join the short edges into a cylinder. Connect a bottom-rim point to the top point halfway around. Find two visibly different routes and decide whether one can be shortened.",
+    "choices": "Choose a cut line, a winding direction, and extra windings; use another cut if a promising path crosses the first seam.",
+    "session": "0–10 explore string routes; 10–15 fix the surface-only rule; 15–35 unroll and measure; 35–40 reset; 40–55 compare lifted routes and prove the minimum; 55–60 show two equal winners.",
+    "questions": [
+      "Why might one unrolled rectangle hide a shortest route?",
+      "Can a locally straight route lose to another route with different winding?"
+    ],
+    "hints": [
+      "Repeat the rectangle sideways before drawing.",
+      "A path ending at B can lift to any copy of B, but its endpoint height is always four."
+    ],
+    "example": {
+      "problem": "Use circumference six, height four, and a half-circumference displacement. Find all shortest routes.",
+      "solution": "In the unrolled strip, B has copies (3+6k,4). A path with that lift has length at least the straight segment distance √((3+6k)²+16). Each straight segment lies between heights zero and four and rolls to an allowed path, so the bound is attained for each winding choice. The smallest possible |3+6k| is three, attained only at k=0 and k=−1. Both routes therefore have length √25=5. The next candidates have horizontal displacement nine and length √97>5.",
+      "boundary": "A straight line to a distant lift is locally a geodesic but is not globally shortest. A chord through the cylinder’s interior does not compete under the stated rules."
+    },
+    "extensions": [
+      "Move B to horizontal offset two; show that the unique shortest lift has displacement two.",
+      "Vary the offset continuously and locate exactly where two shortest routes exchange priority."
+    ],
+    "satisfying_stop": "Two constructions of length five and a lower-bound argument excluding every shorter surface route.",
+    "prior_use": "New continuous geometry. GA-23 studies curvature on a sphere; this cylinder is locally flat while its global wrapping still matters.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "GA-31",
+    "title": "Everybody agrees in pairs: is there a common choice?",
+    "msc_primary": "52",
+    "msc_secondary": [
+      "54",
+      "90"
+    ],
+    "adult_question": "When can small groups of convex constraints certify simultaneous feasibility?",
+    "anchor": "For a finite family of nonempty closed bounded intervals, pairwise intersection implies a common point. In R² pairwise intersection of convex sets is insufficient; finite Helly requires every triple to intersect, for families with at least three members.",
+    "source": [
+      {
+        "title": "Daniel Hug and Wolfgang Weil, A Course on Convex Geometry",
+        "url": "https://users.fmf.uni-lj.si/lavric/hug%26weil.pdf",
+        "locator": "§1.2, Theorems 1.2.1–1.2.3 on Radon and Helly",
+        "checked": "Finite-dimensional convex intersection statements inspected; interval proof and planar counterexample checked independently"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Interval choices are actual one-dimensional convex sets, and their shared feasibility is exactly the dimension-one Helly theorem.",
+      "limits": "The planar triple theorem is a further theorem. Pairwise classroom trials do not prove it, and arbitrary nonconvex sets need not obey the interval result."
+    },
+    "gates": {
+      "entry": "O/C: overlap strips representing allowed locations on a common line.",
+      "explore": "V: draw intervals or clipped half-planes on a coordinate grid.",
+      "explain": "P: identify the latest left endpoint and earliest right endpoint.",
+      "prove": "P: complete the finite interval proof and construct a planar counterexample.",
+      "reading": "Read short endpoint labels; symbols for inequalities are needed only in the planar extension.",
+      "arithmetic": "Ordering integers; signed coordinates for the counterexample.",
+      "reasoning": "Distinguish one common witness from a different witness for every pair.",
+      "hard_stop": "A general proof of planar Helly needs additional convexity reasoning, such as Radon; do not present the interval proof as that proof."
+    },
+    "materials": "Transparent strips on a number line, endpoint clips, grid paper, and optional three translucent half-plane sheets.",
+    "prep_minutes": 10,
+    "launch": "Each person marks an allowed interval for a meeting location. Every pair can agree somewhere. Can the entire group agree? Try hard to produce a failure before making a rule.",
+    "choices": "Choose interval endpoints, choose which pairs to test, then change the space from a line to a plane or remove the no-gaps rule.",
+    "session": "0–10 free overlap play; 10–15 state the pairwise condition; 15–35 search and prove on a line; 35–40 reset; 40–55 build planar or nonconvex failures; 55–60 identify the hypothesis doing the work.",
+    "questions": [
+      "Why is checking that every interval overlaps one favorite interval insufficient?",
+      "What changes when allowed regions have holes or live in a plane?"
+    ],
+    "hints": [
+      "Which interval starts furthest right? Which ends furthest left?",
+      "In the plane try three constraints that each prohibit a different direction."
+    ],
+    "example": {
+      "problem": "Find the common part of [0,4],[2,6],[3,5],[1,7]. Then give three planar convex sets intersecting pairwise but not all together.",
+      "solution": "The largest left endpoint is three and the smallest right endpoint is four, so the common interval is [3,4]. In general, let L be the largest left endpoint and U the smallest right endpoint. The two intervals attaining them intersect by hypothesis, forcing L≤U; every interval contains [L,U]. For the plane use A={x≥0}, B={y≥0}, C={x+y≤−1}. Pair witnesses are (0,0) for A,B; (0,−1) for A,C; and (−1,0) for B,C. A common point would have x+y≥0 and ≤−1, impossible. Intersect each set with [−2,2]² if bounded physical windows are preferred.",
+      "boundary": "The nonconvex sets {0,1},{1,2},{0,2} intersect pairwise but have empty triple intersection even on a line. Convexity, not merely dimension, matters."
+    },
+    "extensions": [
+      "Use GA-22 Radon partitions to investigate a proof of planar Helly.",
+      "Design a three-window puzzle where pair witnesses misleadingly suggest global agreement."
+    ],
+    "satisfying_stop": "A complete interval proof and a counterexample showing precisely why its scope matters.",
+    "prior_use": "New convex-feasibility family. GA-22 supplies a possible later proof tool; no prior worksheet is assumed.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "GA-32",
+    "title": "Cut a Möbius band and follow the seam",
+    "msc_primary": "57",
+    "msc_secondary": [
+      "54"
+    ],
+    "adult_question": "How can gluing rules determine connectedness, boundary, and orientability before a surface is physically built?",
+    "anchor": "Compare the annulus quotient (0,s)~(1,s) with the Möbius quotient (0,s)~(1,−s) of [0,1]×[−1,1]. The Möbius band has one boundary component. Cutting along s=0 produces one annulus; the corresponding annulus cut produces two annuli.",
+    "source": [
+      {
+        "title": "Allen Hatcher, Algebraic Topology",
+        "url": "https://pi.math.cornell.edu/~hatcher/AT/AT.pdf",
+        "locator": "Chapter 0, opening deformation-retraction examples, printed p.2; Möbius band and core circle",
+        "checked": "Core-circle surface model inspected; boundary and cutting conclusions derived independently by the explicit seam tracking below"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Paper represents these exact quotient surfaces. Tracking glued edges proves connectedness beyond the empirical surprise of one cut.",
+      "limits": "The embedding in three-dimensional space may be twisted or linked. This activity classifies the resulting surfaces, not their knotting or a numerical twist count."
+    },
+    "gates": {
+      "entry": "O: trace an edge and make a prediction before cutting.",
+      "explore": "C: label upper/lower halves and follow paired seam labels.",
+      "explain": "P: explain why crosswise gluing connects the two halves.",
+      "prove": "P: use the quotient diagram to prove boundary counts and the cut surface type.",
+      "reading": "Colored arrows can replace written labels; oral reasoning is sufficient at entry.",
+      "arithmetic": "Counting one or two circuits; no algebra is required for the physical proof.",
+      "reasoning": "Distinguish a connected strip from the number of boundary loops and from orientability.",
+      "hard_stop": "General surface classification is beyond a single band. A dramatic cutting demonstration alone is not a classification proof."
+    },
+    "materials": "Long paper strips, tape, two marker colors, scissors or precut strips, and large matching seam diagrams.",
+    "prep_minutes": 12,
+    "launch": "Build one band with matching ends and one with a half-turn. Trace an edge all the way back to your start. Predict what will happen if each band is cut exactly along its middle.",
+    "choices": "Choose tracking colors, draw a prediction diagram, and decide which observations would distinguish one component from two.",
+    "session": "0–10 handle and trace both bands; 10–15 record predictions; 15–35 cut and follow seams; 35–40 reset; 40–55 rebuild the explanation on flat diagrams; 55–60 present a proof another group can check without cutting.",
+    "questions": [
+      "Does one connected object necessarily have one boundary loop?",
+      "Which part of the seam rule changes the result of the center cut?"
+    ],
+    "hints": [
+      "Name the upper half U and lower half L before attaching the seam.",
+      "After a half-turn, the end of U attaches to L. Follow one more seam crossing."
+    ],
+    "example": {
+      "problem": "Predict boundary loops and connected pieces before and after a center cut, using the two seam rules.",
+      "solution": "In the annulus, the top edge returns to the top and the bottom to the bottom, giving two boundary loops. Cutting the center leaves U glued to U and L to L, so there are two separate annuli. In the Möbius band, following the top edge crosses to the bottom and only then returns, giving one boundary loop. After the center cut, U joins L and L joins U: the two rectangular pieces form one cyclic strip. Traversing both pieces reverses the transverse coordinate twice, so the combined strip has matching ends and is an annulus. It is connected but has two boundary loops.",
+      "boundary": "Do not infer “two pieces” from two visible edges after cutting. Connected components and boundary components count different objects; the cut Möbius example separates them."
+    },
+    "extensions": [
+      "Replace the half-turn by several half-turns and predict seam behavior from parity, keeping knotting questions separate.",
+      "Draw the center circle and explain why flattening a band onto it forgets boundary and orientability information."
+    ],
+    "satisfying_stop": "A seam diagram that correctly predicts the outcome of the cut and distinguishes two kinds of counting.",
+    "prior_use": "New surface investigation. Week 5 used geometric transformations; here identification of whole edges creates a space rather than moving a planar figure.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "GA-33",
+    "title": "The transform must remember how the system started",
+    "msc_primary": "44",
+    "msc_secondary": [
+      "34",
+      "93"
+    ],
+    "adult_question": "How does an integral transform convert a differential equation into algebra without losing initial data?",
+    "anchor": "For the one-sided Laplace transform Y(s)=∫_0^∞e^−st y(t)dt, integration by parts gives L(y′)=sY−y(0) under convergence and vanishing-boundary hypotheses. Applied to y′+y=1, the initial value selects y(t)=1+(y(0)−1)e^−t.",
+    "source": [
+      {
+        "title": "Stephen Boyd, EE102 Laplace Transform",
+        "url": "https://web.stanford.edu/class/ee102k/laplace.pdf",
+        "locator": "Slides 3–19 and 3–20, differentiation and initial-condition example; transform table",
+        "checked": "Derivative transform and role of initial conditions inspected; selected equations and inverses verified directly"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "The transformed equation and recovered continuous trajectory solve exactly the same initial-value problem.",
+      "limits": "This is a calculus-gated activity. The algebraic table game alone does not establish the transform identity or convergence."
+    },
+    "gates": {
+      "entry": "D/A: read a rate equation and compare initial slopes.",
+      "explore": "I/A: use the definition, integration by parts, and a short transform table.",
+      "explain": "P/D: substitute the recovered trajectory into the original equation and initial condition.",
+      "prove": "I/P: justify the derivative rule, including the boundary term at infinity.",
+      "reading": "Symbolic mathematical reading; a shared table reduces memory demand.",
+      "arithmetic": "Partial fractions and exponential algebra.",
+      "reasoning": "Track the same initial datum through time-domain and transformed descriptions.",
+      "hard_stop": "Stop before this family unless derivatives and improper integrals are meaningful; forcing an elementary version would lose the central mechanism."
+    },
+    "materials": "Graph paper or plotting tool, a table with transforms of 1,e^−t,t e^−t, and equation cards with different initial values.",
+    "prep_minutes": 8,
+    "launch": "A system moves toward level one according to y′=1−y. Predict its behavior when it starts empty and when it starts at level two. Can an algebraic shortcut preserve that difference?",
+    "choices": "Choose starting levels, sketch predictions, and choose a constant or fading input before calculating.",
+    "session": "0–10 sketch initial slopes and qualitative paths; 10–15 establish the transform definition; 15–35 solve and compare initial conditions; 35–40 reset; 40–55 investigate a fading input and verify by differentiation; 55–60 explain the indispensable boundary term.",
+    "questions": [
+      "Where exactly is the starting value stored in the transformed equation?",
+      "Can two solutions have the same forcing but different trajectories?"
+    ],
+    "hints": [
+      "Keep −y(0) attached to the transformed derivative.",
+      "After inversion, check both the differential equation and the initial value."
+    ],
+    "example": {
+      "problem": "Solve y′+y=1 first with y(0)=0, then with y(0)=2; finally change the forcing to e^−t and start at zero.",
+      "solution": "For the constant forcing and initial value a, sY−a+Y=1/s, so Y=1/[s(s+1)]+a/(s+1). Inversion gives y=1−e^−t+a e^−t. Thus the first two trajectories are 1−e^−t and 1+e^−t: both approach one, from opposite sides. For forcing e^−t and zero initial value, (s+1)Y=1/(s+1), hence Y=1/(s+1)² and y=t e^−t. Differentiating gives y′=(1−t)e^−t, so y′+y=e^−t and y(0)=0. These transforms converge for real s>0.",
+      "boundary": "Omitting −y(0) incorrectly assigns the zero-start trajectory to every initial condition. A transform expression without its domain of convergence is also incomplete."
+    },
+    "extensions": [
+      "Find when t e^−t reaches its maximum, and relate that time to input versus decay.",
+      "Replace the decay coefficient one by k>0 and determine the steady level for constant input."
+    ],
+    "satisfying_stop": "Two correctly distinguished initial-value solutions and one direct time-domain verification.",
+    "prior_use": "New transform family. GA-16 develops convolution geometrically; this offers a later route to transformed differential equations and system response.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "GA-34",
+    "title": "A well-behaved rate law can still explode",
+    "msc_primary": "34",
+    "msc_secondary": [
+      "26"
+    ],
+    "adult_question": "Why does local existence and uniqueness not guarantee that a trajectory exists for all future time?",
+    "anchor": "For y′=y² with y(0)=a>0, y(t)=a/(1−at) is the unique solution on its maximal forward interval 0≤t<1/a and diverges as t approaches 1/a. The polynomial rate law is locally Lipschitz, so this is finite-time blow-up without a local uniqueness failure.",
+    "source": [
+      {
+        "title": "Gerald Teschl, Ordinary Differential Equations and Dynamical Systems",
+        "url": "https://www.mat.univie.ac.at/~gerald/ftp/book-ode/ode.pdf",
+        "locator": "§2.2, local existence/uniqueness and Problem 2.9 on finite-time existence",
+        "checked": "Local theorem and blow-up exercise inspected; explicit solution and maximal forward intervals checked"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "The algebraic trajectory is an exact solution of a genuinely continuous differential equation; finite doubling times reveal its limiting behavior.",
+      "limits": "A step-by-step numerical table can suggest growth, but cannot establish either finite-time divergence or the exact differential law."
+    },
+    "gates": {
+      "entry": "A/F: compare values of a supplied rational trajectory and mark doubling times.",
+      "explore": "D/A: interpret the rate equation and differentiate the proposed solution.",
+      "explain": "P: explain why an infinite value cannot be inserted as a real-valued continuation.",
+      "prove": "D/P: verify the solution and use local uniqueness to establish its maximal interval.",
+      "reading": "Symbolic fractions and rate notation; discussion can precede formal theorem reading.",
+      "arithmetic": "Rational expressions, signed values, and geometric time intervals.",
+      "reasoning": "Separate uniqueness, boundedness, and duration of existence.",
+      "hard_stop": "Without derivatives, stop at the exact rational-function investigation; identifying it as the solution of the rate equation requires calculus."
+    },
+    "materials": "Time-number lines, value cards, graph paper or plotting software, and optional slope-field images.",
+    "prep_minutes": 8,
+    "launch": "A quantity grows at a rate equal to its square. Starting at one, could it double over and over before time one? Predict the times before looking at the candidate formula.",
+    "choices": "Choose positive, zero, or negative starting values; choose target heights and compare their arrival times.",
+    "session": "0–10 predict growth and inspect candidate curves; 10–15 define the rate equation; 15–35 verify and find doubling times; 35–40 reset; 40–55 vary initial values and discuss continuation; 55–60 distinguish the three existence questions.",
+    "questions": [
+      "Does a finite rate at every finite y prevent the solution from escaping to infinity?",
+      "Why can a formula valid beyond a vertical asymptote fail to continue the original trajectory?"
+    ],
+    "hints": [
+      "Differentiate a/(1−at) before trying to solve the equation from scratch.",
+      "For a=1, solve 1/(1−t)=2^n for the arrival time."
+    ],
+    "example": {
+      "problem": "Verify the solution for a=1, calculate repeated doubling times, and compare a=1/2,0,−1.",
+      "solution": "Differentiating y=a/(1−at) gives y′=a²/(1−at)²=y², with y(0)=a. For a=1, height 2^n is reached at t=1−2^−n, so all finite doublings occur before one. The solution tends to +∞ as t→1 from below and cannot extend continuously as a real-valued solution through that time. For a=1/2 the blow-up time is two. For a=0 the solution is constantly zero. For a=−1 it is −1/(1+t), defined for all t≥0 and approaching zero from below.",
+      "boundary": "The expression 1/(1−t) also satisfies the equation on t>1, but that disconnected branch does not pass through the initial point and is not a continuation across t=1. Local uniqueness remains valid."
+    },
+    "extensions": [
+      "Compare y′=y, whose exponential solution grows without finite-time blow-up.",
+      "For y′=y^p with positive initial data and p>1, investigate how the blow-up time depends on p."
+    ],
+    "satisfying_stop": "A directly verified solution, an exact finite blow-up time, and a clear reason continuation fails.",
+    "prior_use": "New counterpart to GA-08: the waiting-time example loses uniqueness at zero, whereas this smooth rate law retains local uniqueness but loses global existence.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "GA-35",
+    "title": "A circle’s average can equal its center exactly",
+    "msc_primary": "31",
+    "msc_secondary": [
+      "35",
+      "26"
+    ],
+    "adult_question": "What makes harmonic functions obey exact averaging laws on a continuum of surrounding points?",
+    "anchor": "The harmonic polynomial h(x,y)=x²−y² equals its mean over every circle centered at (a,b). More generally a quadratic Ax²+Bxy+Cy²+Dx+Ey+K has this property exactly when A+C=0, equivalently its Laplacian is zero.",
+    "source": [
+      {
+        "title": "John K. Hunter, Notes on Partial Differential Equations",
+        "url": "https://math.ucdavis.edu/~hunter/pdes/pde_notes.pdf",
+        "locator": "§2.1, Theorems 2.1–2.2 on mean values; §2.3 maximum principle",
+        "checked": "Mean-value statements and smoothness/domain hypotheses inspected; quadratic classification derived independently"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "The activity investigates actual functions on the plane and their actual circle integrals. Symmetric point groups expose why exact cancellation occurs.",
+      "limits": "Four successful sample values do not establish an integral identity for an arbitrary function. The continuous mean and the discrete test must remain distinct."
+    },
+    "gates": {
+      "entry": "F/V: evaluate a supplied quadratic at four marked circle points.",
+      "explore": "A: move the center, change the radius, and pair opposite points.",
+      "explain": "P/A: prove the four-point cancellation and propose a general coefficient condition.",
+      "prove": "I: integrate the trigonometric parametrization; D for the Laplacian connection.",
+      "reading": "Coordinates and short formulas; calculus notation only at the advanced gate.",
+      "arithmetic": "Signed squares and averages; trigonometric identities for the continuous calculation.",
+      "reasoning": "Turn sampled evidence into a structural identity with stated scope.",
+      "hard_stop": "General mean-value and maximum principles for arbitrary harmonic functions need analysis; a finite sampling experiment is not their proof."
+    },
+    "materials": "Coordinate grids, circle templates, value tables, and optional plotting software.",
+    "prep_minutes": 8,
+    "launch": "Place four equally spaced points on a circle and evaluate x²−y² at each. Does their average know the value at the center? Move the circle and try to break your guess.",
+    "choices": "Choose center, radius, and starting angle; then choose altered quadratics and design a sampling test likely to expose failure.",
+    "session": "0–10 evaluate and compare circles; 10–15 distinguish samples from a continuous average; 15–35 find symmetry cancellations; 35–40 reset; 40–55 integrate if ready or classify four-point identities; 55–60 state exactly what was proved.",
+    "questions": [
+      "What cancels between opposite points?",
+      "Could a different function pass our four-point test but fail the full circle-average test?"
+    ],
+    "hints": [
+      "Use x=a+r cos θ and y=b+r sin θ.",
+      "The full-circle means of cos θ and sin θ vanish; the means of their squares both equal one-half."
+    ],
+    "example": {
+      "problem": "Test center (1,2), radius two, then prove the mean identity and find a misleading four-point test.",
+      "solution": "The cardinal points (3,2),(−1,2),(1,4),(1,0) have h-values 5,−3,−15,1, averaging −3=h(1,2). Parametrization gives h=a²−b²+2r(a cos θ−b sin θ)+r²(cos² θ−sin² θ). Every extra term has circle mean zero, proving the identity for all centers and radii. For a general quadratic the circle mean is its center value plus (A+C)r²/2; hence the stated criterion. But q=x²y² on a circle centered at zero has value zero at all four cardinal points while its actual circle mean is r^4/8>0 for r>0.",
+      "boundary": "The four cardinal samples for q falsely suggest the mean-value identity. Changing the starting angle can expose the failure; a universal proof still needs an exact argument."
+    },
+    "extensions": [
+      "Use the Laplacian to classify more harmonic polynomials and then test their mean values.",
+      "Explain directly why x²−y² has no interior local maximum, and compare with −x²−y²."
+    ],
+    "satisfying_stop": "A proved symmetry identity; calculus-ready learners additionally prove the actual continuous mean formula.",
+    "prior_use": "GA-05 introduced a finite network averaging mechanism. This is the deliberately separate continuous family and does not claim that network experiments prove harmonic-function theorems.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "GA-36",
+    "title": "A fixed point exists—but will repeated feedback find it?",
+    "msc_primary": "54",
+    "msc_secondary": [
+      "26",
+      "37"
+    ],
+    "adult_question": "What separates a topological existence theorem from a convergent algorithm?",
+    "anchor": "Every continuous f:[0,1]→[0,1] has a fixed point because f(x)−x changes from nonnegative to nonpositive. Iterating f need not converge: f(x)=1−x has fixed point 1/2 but cycles from zero. A contraction adds a quantitative convergence mechanism.",
+    "source": [
+      {
+        "title": "Jiří Lebl, Basic Analysis I",
+        "url": "https://www.jirka.org/ra/realanal.pdf",
+        "locator": "§3.3 intermediate value theorem; §7.6, Theorem 7.6.2 and Exercise 7.6.4 on contractions and completeness",
+        "checked": "Existence and contraction hypotheses inspected; both explicit iterations and the omitted-endpoint example checked"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "The learner’s feedback map is an actual continuous interval self-map. Its fixed point and iterates are exact mathematical objects.",
+      "limits": "A crossing in a coarse sketch is evidence, while continuity and endpoint inequalities prove existence. Existence by itself supplies no universal iteration guarantee."
+    },
+    "gates": {
+      "entry": "O/V: match a curve with the diagonal and follow feedback arrows.",
+      "explore": "F/A: iterate simple affine maps and compare errors.",
+      "explain": "P: explain the endpoint sign argument without differentiating.",
+      "prove": "P/A: prove the interval theorem by continuity and derive geometric error decay in the chosen contraction.",
+      "reading": "Graph labels and a short iteration rule; no derivative notation is necessary.",
+      "arithmetic": "Fractions, signed differences, powers of three.",
+      "reasoning": "Distinguish an object’s existence, uniqueness, and accessibility by a chosen process.",
+      "hard_stop": "A general contraction theorem needs completeness and a sequence-limit proof; the finite computation alone establishes neither."
+    },
+    "materials": "Unit-square grids, diagonal lines, arrow cards, and a table for iterates and errors.",
+    "prep_minutes": 7,
+    "launch": "A machine turns a number between zero and one into another number in that interval. Can some input come out unchanged? If you repeatedly feed the output back in, must you find it?",
+    "choices": "Choose a continuous graph inside the square, choose a starting value, and try to create settling, alternating, and cycling behavior.",
+    "session": "0–10 graph and arrow play; 10–15 define fixed points; 15–35 compare two machines; 35–40 reset; 40–55 prove existence and investigate error decay; 55–60 separate the conclusions.",
+    "questions": [
+      "Why does staying inside the unit interval force an intersection with the diagonal?",
+      "What property prevents two different fixed points in the shrinking-distance example?"
+    ],
+    "hints": [
+      "Compare f(x) with x at the two endpoints.",
+      "For f(x)=(x+1)/3, subtract 1/2 from both sides of the iteration equation."
+    ],
+    "example": {
+      "problem": "Start at zero and compare f(x)=(x+1)/3 with g(x)=1−x. Prove that every continuous self-map of the closed interval [0,1] has some fixed point.",
+      "solution": "For f, solving x=(x+1)/3 gives x=1/2. The iterates from zero are 1/3,4/9,13/27,40/81. Their errors satisfy x_n−1/2=(x_0−1/2)/3^n, so after four steps the error is 1/162 and tends to zero. For g, the only fixed point is also 1/2, but zero and one alternate forever. For any continuous interval self-map, d(x)=f(x)−x is continuous, d(0)≥0, and d(1)≤0. An endpoint zero is already a fixed point; otherwise the intermediate value theorem gives an interior zero.",
+      "boundary": "On the incomplete space (0,1), f(x)=x/2 shrinks distances but has no fixed point in that space: iteration approaches the omitted endpoint zero. The domain hypotheses cannot be discarded."
+    },
+    "extensions": [
+      "Use f_q(x)=1/2+q(x−1/2) with −1<q<1. It maps [0,1] into [0,1] and has error multiplier q about its fixed point 1/2. Compare the bound |x_n−1/2|=|q|^n|x_0−1/2|, including alternating errors when q<0.",
+      "Find continuous self-maps with an interval of fixed points, then examine which uniqueness hypothesis fails."
+    ],
+    "satisfying_stop": "An existence argument and two exact iterations proving that existence and convergence are different claims.",
+    "prior_use": "New fixed-point synthesis. GA-02 and GA-28 also use continuity; GA-10 studies iteration through symbolic orbits. Return visits should foreground a different question, not repeat the same calculation.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  }
+]

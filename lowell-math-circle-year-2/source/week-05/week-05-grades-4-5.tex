@@ -1,0 +1,30 @@
+\documentclass[12pt]{article}
+\def\activityid{F05-U-v2}\input{common.tex}
+\hypersetup{pdftitle={Week 5: grades-4-5}}
+\begin{document}
+\PageTitle{GRADES 4--5}{A city with a certificate}\NameLine
+\RuleBox{Use heights 1--4 once in each row and column. Outside numbers count visible towers from that end. Taller towers hide shorter towers behind them.}
+\Task{1. Solve with towers.}{Build any legal city first. Then solve this puzzle. Record a forced step and explain it to a partner.}\begin{center}\begin{tikzpicture}[x=0.69in,y=0.69in]\draw[step=1,black!55] (0,0) grid (4,4);\draw[thick](0,0)rectangle(4,4);\node[font=\bfseries] at (-0.5,3.5){4};\node[font=\bfseries] at (-0.5,1.5){2};\node[font=\bfseries] at (-0.5,0.5){1};\node[font=\bfseries] at (4.5,2.5){2};\node[font=\bfseries] at (4.5,1.5){2};\node[font=\bfseries] at (4.5,0.5){2};\node[font=\bfseries] at (0.5,4.5){4};\end{tikzpicture}\end{center}
+\WriteBox{My forced step and the clue that forces it:}{.75in}
+\Task{2. Two clues disappear.}{Cover the top 4 and the left 4. Is the city still the only answer? A failed search is not yet a proof. Save your city; continue on the next page.}
+\StudentFooter
+\newpage
+\PageTitle{GRADES 4--5}{Can five clues force everything?}\NameLine
+\Task{3. Rebuild using only these clues.}{There are no top or bottom clues. Work row by row; make a list of possible rows when a step is uncertain.}\begin{center}\begin{tikzpicture}[x=0.62in,y=0.62in]\draw[step=1,black!55] (0,0) grid (4,4);\draw[thick](0,0)rectangle(4,4);\node[font=\bfseries] at (-0.5,1.5){2};\node[font=\bfseries] at (-0.5,0.5){1};\node[font=\bfseries] at (4.5,2.5){2};\node[font=\bfseries] at (4.5,1.5){2};\node[font=\bfseries] at (4.5,0.5){2};\end{tikzpicture}\end{center}
+\textbf{A route into a proof:} The bottom row begins with 4. Looking from the right, exactly one tower is seen before 4. Where must height 3 be? Which two bottom rows remain?
+\WriteBox{Record both possible bottom rows; keep both for now.}{.4in}
+\textbf{Next:} List row 3's possibilities using both its clues. Pair each with a bottom row, rejecting column repeats. For each surviving pair, test row 2's right clue. Only now can you rule out a bottom row.
+\begin{center}\renewcommand{\arraystretch}{1.5}\begin{tabular}{p{1.35in}|p{1.35in}|p{2.8in}}Bottom row&Row 3&Possible row 2 (or none)\\\hline&&\\&&\\&&\end{tabular}\end{center}
+\textbf{Finish the proof:} How is the top row forced? Explain why your cases cover every city.
+\StudentFooter
+\newpage
+\PageTitle{GRADES 4--5}{Necessary is not the same as smallest}\NameLine
+\textbf{Optional continuation:} A complete uniqueness proof on page 2 is a good stopping point. Continue with an adult when ready.
+\Task{4. Check five certificates.}{First try deleting the left clue on row 3 yourself. Then check the alternatives below. L3 means the left clue on row 3; R2 means the right clue on row 2. Each slash starts the next row.}
+\begin{center}\renewcommand{\arraystretch}{1.5}\begin{tabular}{c|l|c}Delete&Alternative city, top row first&Checked\\\hline L3&1234 / 3412 / 2341 / 4123&\\L4&1234 / 4123 / 3412 / 2341&\\R2&1324 / 2431 / 3142 / 4213&\\R3&1324 / 3142 / 2431 / 4213&\\R4&1234 / 2143 / 3412 / 4321&\end{tabular}\end{center}
+For each city, check every row and column, all four retained clues, and that it differs from your target. Restore the deleted clue before the next check. Why does this prove \emph{each} of the five clues is necessary in this set?
+\RuleBox{A clue set is \textbf{minimal} if it forces one city and deleting any clue destroys uniqueness. A \textbf{minimum} clue set uses the fewest clues among perimeter-clue sets for the same target city.}
+\Task{5. A different set uses only three clues.}{Remove every old clue. Use only left clues \textbf{4, 3, 2 on rows 1, 2, 3}. Build the city. Row 1 is forced; list row 2's possibilities using its clue and the columns, then do row 3. Why is row 4 forced?}
+\WriteBox{Why these three clues force the same city, and what that says about five:}{.65in}
+\textbf{Our conclusion:} Three works, so five is not the smallest. Have we proved that two can never work? That is a separate question; the facilitator has a computer check for this target.\StudentFooter
+\end{document}

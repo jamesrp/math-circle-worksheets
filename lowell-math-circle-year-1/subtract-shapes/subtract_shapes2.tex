@@ -1,0 +1,170 @@
+\documentclass[20pt]{article}
+\usepackage{tikz}
+\usepackage{extsizes}
+\usepackage{amsmath}
+
+\begin{document}
+
+% Define a command for drawing a red square with content
+\newcommand{\redbox}[1]{%
+  \begin{tikzpicture}[scale=0.8, baseline=(current bounding box.center)]
+    % Red square border
+    \draw[red, ultra thick] (0,0) rectangle (2,2);
+    % Content
+    #1
+  \end{tikzpicture}%
+}
+
+% Redbox only
+\newcommand{\redboxonly}{%
+  \begin{tikzpicture}[scale=0.8, baseline=(current bounding box.center)]
+    % Red square border
+    \draw[red, ultra thick] (0,0) rectangle (2,2);
+  \end{tikzpicture}%
+}
+
+\begin{center}
+
+% Problem 1
+\redbox{
+  \draw[black, ultra thick] (0,1) -- (1,2) -- (1,0) -- (2,1);
+}
+$+$ 
+\redbox{
+  \draw[black, ultra thick] (1,0) -- (0,1) -- (2,1) -- (1,2);
+}
+$=$ 
+\redboxonly
+
+\vspace{1cm}
+
+% Problem 2
+\redbox{
+  \draw[black, ultra thick] (0,1) -- (1,0) -- (2,1) -- (1,1) -- (1,2);
+}
+$\vcenter{\hbox{$+$}}$ 
+\redbox{
+  \draw[black, ultra thick] (1,0) -- (1,1) -- (0,1) -- (1,2) -- (2,1);
+}
+$\vcenter{\hbox{$=$}}$ 
+\redboxonly
+
+\vspace{1cm}
+
+% Problem 3
+\redbox{
+  \draw[black, ultra thick] (0,2) -- (2,0);
+  \draw[black, ultra thick] (0,1) -- (1,2);
+  \draw[black, ultra thick] (1,0) -- (2,1);
+}
+$\vcenter{\hbox{$+$}}$ 
+\redbox{
+  \draw[black, ultra thick] (0,0) -- (2,2);
+  \draw[black, ultra thick] (1,0) -- (0,1);
+  \draw[black, ultra thick] (2,1) -- (1,2);
+}
+$\vcenter{\hbox{$=$}}$ 
+\redboxonly
+
+\vspace{1cm}
+
+% Problem 4
+\redbox{
+  \draw[black, ultra thick] (0,2) -- (1,1) -- (1,0);
+  \draw[black, ultra thick] (1,1) -- (2,1);
+}
+$\vcenter{\hbox{$+$}}$ 
+\redbox{
+  \draw[black, ultra thick] (1,1) -- (0,0);
+  \draw[black, ultra thick] (1,1) -- (1,0);
+  \draw[black, ultra thick] (1,1) -- (2,0);
+  \draw[black, ultra thick] (1,1) -- (2,2);
+  \draw[black, ultra thick] (1,1) -- (1,2);
+  \draw[black, ultra thick] (1,1) -- (0,1);
+}
+$\vcenter{\hbox{$=$}}$ 
+\redboxonly
+
+\vspace{1cm}
+\pagebreak
+
+% Problem 5
+\redbox{
+  \draw[black, ultra thick] (0,1) -- (1,0) -- (2,1) -- (1,2) -- (0,1);
+  \draw[black, ultra thick] (0,1) -- (2,1);
+  \draw[black, ultra thick] (1,0) -- (1,2);
+}
+$\vcenter{\hbox{$-$}}$ 
+\redbox{
+  \draw[black, ultra thick] (0,1) -- (1,1) -- (1,2);
+  \draw[black, ultra thick] (1,0) -- (2,1);
+}
+$\vcenter{\hbox{$=$}}$ 
+\redboxonly
+
+\vspace{1cm}
+
+% Problem 6
+\redbox{
+  \draw[black, ultra thick] (0,1) -- (1,0) -- (2,1) -- (1,2) -- (0,1);
+  \draw[black, ultra thick] (0,0) -- (.5,.5);
+  \draw[black, ultra thick] (0,2) -- (.5,1.5);
+  \draw[black, ultra thick] (2,2) -- (1.5,1.5);
+  \draw[black, ultra thick] (2,0) -- (1.5,.5);
+  \draw[black, ultra thick] (1,0) -- (1,2);
+}
+$\vcenter{\hbox{$-$}}$ 
+\redbox{
+  \draw[black, ultra thick] (2,1) -- (1,0) -- (1,2) -- (0,1);
+  \draw[black, ultra thick] (0,2) -- (.5,1.5);
+  \draw[black, ultra thick] (2,0) -- (1.5,.5);
+}
+$\vcenter{\hbox{$=$}}$ 
+\redboxonly
+
+\vspace{1cm}
+
+% Subtraction Problems
+
+% Problem 7
+\redbox{
+  \draw[black, ultra thick] (0,1) -- (1,0) -- (2,1) -- (1,2) -- (0,1);
+  \draw[black, ultra thick] (0,1) -- (2,1);
+  \draw[black, ultra thick] (1,0) -- (1,2);
+  \draw[black, ultra thick] (1,1) -- (2,2);
+  \draw[black, ultra thick] (1,1) -- (2,0);
+}
+$\vcenter{\hbox{$-$}}$ 
+\redbox{
+  \draw[black, ultra thick] (1,0) -- (1,2);
+  \draw[black, ultra thick] (0,1) -- (2,1);
+  \draw[black, ultra thick] (1,1) -- (2,2);
+  \draw[black, ultra thick] (1,1) -- (2,0);
+}
+$\vcenter{\hbox{$=$}}$ 
+\redboxonly
+
+\vspace{1cm}
+
+% Problem 8
+\redbox{
+  \draw[black, ultra thick] (1,0) -- (1,2);
+  \draw[black, ultra thick] (0,1) -- (2,1);
+  \draw[black, ultra thick] (0,1) -- (2,2);
+  \draw[black, ultra thick] (0,2) -- (2,1);
+  \draw[black, ultra thick] (0,0) -- (2,1);
+  \draw[black, ultra thick] (0,1) -- (2,0);
+}
+$\vcenter{\hbox{$-$}}$ 
+\redbox{
+  \draw[black, ultra thick] (1,0) -- (1,2);
+  \draw[black, ultra thick] (0,1) -- (2,1);
+}
+$\vcenter{\hbox{$=$}}$ 
+\redboxonly
+
+\vspace{1cm}
+
+\end{center}
+
+\end{document}

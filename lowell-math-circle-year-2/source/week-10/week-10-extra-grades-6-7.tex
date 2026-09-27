@@ -1,0 +1,18 @@
+\documentclass[12pt]{article}
+\def\activityid{F10-X-v2}\input{common.tex}
+\begin{document}
+
+\PageTitle{EXTRA / GRADES 6--7}{Cheapest pair first?}\NameLine
+\RuleBox{Start at A, travel every road at least once, return to A. Numbers are road lengths. Find the minimum total length. Repeated trips count again.}
+\begin{center}\begin{tikzpicture}[scale=1.6]\GraphNodes
+\draw[very thick](A)--node[below]{2}(B)--node[right]{3}(C)--node[left]{7}(A);
+\draw[very thick](A)--node[above left]{1}(D)--node[below right]{6}(B) (D)--node[right]{1}(C);
+\foreach\n in{A,B,C,D}{\node[circle,draw,fill=white,minimum size=22pt,font=\bfseries]at(\n){\n};}\end{tikzpicture}\end{center}
+\Task{1. Roads and shortest connections differ.}{What is the shortest connection from A to C? From B to D? A connection may use several roads.}
+\Task{2. Compare all three pairings.}{All four vertices are odd. Pair them and repeat a shortest connection for each pair. Compare AB+CD, AC+BD, and AD+BC. Does beginning with the cheap pair AD guarantee the best total?}
+\WriteBox{Connection costs, best pairing, and predicted total:}{.85in}
+\Task{3. Certify the minimum.}{Give an actual closed route attaining your total. For a lower bound, explain why the extra road copies in \emph{any} closed solution can be separated into paths pairing the four odd vertices, plus possible closed loops.}
+\textbf{Beyond four vertices:} With $2k$ odd vertices, there are $(2k-1)(2k-3)\cdots1$ pairings. Research on the Chinese postman problem replaces trying them all with efficient minimum-weight matching algorithms.
+\StudentFooter
+
+\end{document}

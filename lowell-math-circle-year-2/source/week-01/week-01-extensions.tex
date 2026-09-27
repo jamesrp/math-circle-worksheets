@@ -1,0 +1,57 @@
+\documentclass[11pt]{article}
+\def\activityid{F01-X1--X4}\input{extensions-common.tex}
+\hypersetup{pdftitle={Week 1: Back-pocket tiling challenges - grades 6 and 7 entry level}}
+\begin{document}
+\ExtensionTitle{CHALLENGE 1 / MATCHING}{Enough partners?}
+\RuleBox{Use small (1\(\times\)) blue rhombi on pairs of whole triangle spaces. No overlaps or pieces outside. Greens may fill the spaces you cannot pair.}
+\Task{Try it. Then explain it.}{Count the up and down spaces. Can blues fill this board? If not, find the \textbf{fewest green fillers} needed to finish it.}
+\begin{center}\begin{tikzpicture}[x=\blockside,y=\blockside]\ExtensionMatchingBoard\end{tikzpicture}\end{center}
+\textbf{My best filling:}\ \rule{.45in}{.4pt}\ blues and \rule{.45in}{.4pt}\ greens.
+\WriteBox{Show a construction and a reason nobody can use fewer greens.}{.7in}
+\textbf{Look closer:} Can several up spaces be competing for too few down partners? Mark a group and all its possible partners.
+
+\textbf{Go further:} Turn your reason into a rule for any board with equal up/down counts. Would adding purple chevrons change your bound?
+\ScaleCheck
+\newpage
+\ExtensionTitle{CHALLENGE 2 / DISTANCE}{How far apart are two tilings?}
+\RuleBox{Use the large board on page 5 with \textbf{15 small blues}, or use three R slips and three L slips. One move swaps neighboring unlike letters: RL \(\leftrightarrow\) LR. Keep the board fixed.}
+\begin{center}\begin{minipage}[c]{.26\linewidth}\centering\begin{tikzpicture}[x=.25in,y=.25in]\ExtensionTilingStart\ExtensionPathStart\end{tikzpicture}\end{minipage}\hspace{.35in}\begin{minipage}[c]{.61\linewidth}Start at the bold bottom edge. Cross each rhombus to its opposite horizontal edge. Each crossing goes right (R) or left (L).\par This ribbon reads \Word{RRRLLL}, bottom to top.\end{minipage}\end{center}
+\Task{1. Count the possibilities.}{How many orders of three R's and three L's are there? Organize your list so nothing is missed or counted twice. Each order gives exactly one filling of this board.}
+\WriteBox{My count and why the list is complete:}{.60in}
+\Task{2. Get from one extreme to the other.}{Find the fewest moves from \Word{RRRLLL} to \Word{LLLRRR}. Explain both why your route works and why no shorter route can work.}
+\WriteBox{A best route, and a lower bound:}{.70in}
+\Task{3. A trap for a promising shortcut.}{Give a word one point for every L-before-R pair, including pairs that are not neighbors. Compare \Word{LRRRLL} and \Word{RRLLLR}: what are their scores? What is their actual distance?}
+\WriteBox{Test a route. Can equal scores hide a positive distance?}{.65in}
+\textbf{Go further:} Number the L's from left to right. Track their positions. Can you calculate the distance between \emph{any} two words with the same numbers of R's and L's?
+\StudentFooter
+\newpage
+\ExtensionTitle{CHALLENGE 3 / COUNTING}{How many best routes?}
+\RuleBox{Use three R slips and three L slips. Go from \Word{RRRLLL} to \Word{LLLRRR} using the fewest moves. Routes are different if their sequence of words is different.}
+\Task{1. Find two routes.}{Each L must cross each R. A shortest route makes each of these nine crossings once. Number the L's from left to right; their order never changes.}
+\Task{2. Keep a smaller record.}{Record how many R's each L has crossed. For example, \((2,1,0)\) means the first L has crossed two R's, the second one, and the third none.}
+\begin{center}\begin{minipage}{.23\linewidth}\centering\RowPicture\end{minipage}\hfill\begin{minipage}{.71\linewidth}Shade left-justified rows in a \(3\times3\) square. Row lengths must satisfy \(3\geq x_1\geq x_2\geq x_3\geq0\). Every move adds one square while keeping that rule.\par Start \((0,0,0)\); finish \((3,3,3)\).\end{minipage}\end{center}
+\Task{3. Count without listing every route.}{Add the route counts of all legal previous records. For \((2,1,0)\), use \((1,1,0)\) and \((2,0,0)\): \(1+1=2\) routes. Work \textbf{down the left half}, then \textbf{down the right half}.}
+\begin{center}\ExtensionRouteTableBlank\end{center}
+\WriteBox{Why does adding the previous counts count each route exactly once?}{.5in}
+\textbf{Go further:} Repeat with two R's and four L's. Is the number of shortest routes the same as the number of possible words?
+\StudentFooter
+\newpage
+\ExtensionTitle{CHALLENGE 4 / CHANCE}{Does random mean equally often?}
+The six nodes below are the six tilings from the earlier activity. A line is one legal flip. Use a counter on the graph; you do not need to rebuild the blocks each turn.
+\begin{center}\WalkGraph\end{center}
+\Task{1. Choose a legal move at random.}{Start at A. At every turn choose each neighboring node with equal chance. Use the randomizer rule below. Predict which nodes you will visit most, then try \textbf{30 turns}. Tally your node \emph{after} each turn; do not tally the initial A.}
+{\small One neighbor: move there. Two: odd/even on a die chooses the alphabetically first/second neighbor. Three: reroll 4--6, then 1, 2, 3 chooses the first, second, third neighbor. Rerolls do not count as turns.}
+\begin{center}\renewcommand{\arraystretch}{1.65}\begin{tabular}{c|p{.65in}|p{.65in}|p{.65in}|p{.65in}|p{.65in}|p{.65in}}Node&A&B&C&D&E&F\\\hline Tally&&&&&&\end{tabular}\end{center}
+\Task{2. Explain a possible imbalance.}{Write one unit at every node on scrap paper. In a \emph{sharing model}, split each node's amount equally among its neighbors, all at once. Does every node receive one? Can you find starting amounts that come back unchanged after sharing? Fractions are allowed.}
+\WriteBox{Stable starting amounts, and how I checked them:}{.65in}
+\Task{3. Change the random rule.}{Make four identical folded slips labeled 1--4. Draw one, replace it, and mix again. Take the line with that label if it touches your node. Otherwise \textbf{stay put and count the turn}. Could this rule give equal long-run visit frequencies? Explain using both directions along a line.}
+\textbf{Go further:} Starting at A, count turns until your first return, then start a new trial. Compare the rules. Under rule 3 a stay at A on turn 1 counts as a return. What might the averages approach?
+\StudentFooter
+\newpage
+\ExtensionTitle{MAT FOR CHALLENGES 2--3}{A larger world of tilings}
+\RuleBox{Fill with \textbf{15 small (1\(\times\)) blue rhombi}. Boundary side lengths: 1, 3, 3, 1, 3, 3 small edges. Keep the bold bottom edge fixed.}
+\begin{center}\begin{tikzpicture}[x=\blockside,y=\blockside]\ExtensionLargeBoard\node[below]at(.5,-.04){start the ribbon at this edge};\end{tikzpicture}\end{center}
+\textbf{One flip:} Find three blues filling a small regular hexagon. Refill just that hexagon in its other way. On the ribbon this swaps one neighboring RL or LR.
+\begin{center}\FlipExample\end{center}
+\ScaleCheck
+\end{document}

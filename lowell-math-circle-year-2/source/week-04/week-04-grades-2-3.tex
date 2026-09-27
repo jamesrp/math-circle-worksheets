@@ -1,0 +1,24 @@
+\documentclass[12pt]{extarticle}
+\def\activityid{F04-M-v2}\input{common.tex}
+\begin{document}
+
+\PageTitle{GRADES 2--3 / 1}{One clue controls the whole code}\NameLine
+\RuleBox{Our small alphabet is A, B, C, D, E, F, G, H, I, J. To encode, move the \textbf{same number of places clockwise} for every letter. After J comes A.}
+\begin{center}\begin{tikzpicture}[x=1in,y=1in]\draw[black!30](0,0)circle(1.05);\foreach\i/\l in {0/A,1/B,2/C,3/D,4/E,5/F,6/G,7/H,8/I,9/J}{\node[circle,draw,fill=white,minimum size=.37in]at({90-36*\i}:1.05){\l};}\node at(0,0){clockwise $\circlearrowright$};\end{tikzpicture}\end{center}
+\Task{1. Recover the key.}{You learn that message A becomes code D. Decode \textbf{GDG}. Then encode \textbf{BAG}. Check by reversing your moves.}
+\WriteBox{My shift, decoded message, and new code:}{.8in}
+\Task{2. A clue that cannot fit.}{Someone also claims B becomes F under that same key. Could both clues be true? Show why on the ring.}
+\WriteBox{My reason:}{.7in}
+\StudentFooter
+\newpage
+\PageTitle{GRADES 2--3 / 2}{A code that skips places}
+\Task{3. Repeat a two-step code.}{Start at A. Take two clockwise steps each turn. Write each \textbf{landing} until you first return to A. Do not include skipped-over letters. Which letters never appear?}
+\WriteBox{My two-step route and the missing letters:}{.85in}
+\Task{4. Repeat a three-step code.}{Start at A again. Take three steps each turn. Does this rule visit every letter before returning? Give the whole route so someone else can check.}
+\WriteBox{My three-step route:}{.85in}
+\Task{5. Explain the split.}{Start the two-step rule at B instead. How do its landings relate to your route from A? Why can the A-route never jump into the B-route?}
+\WriteBox{Two loops, and why they cannot meet:}{1.0in}
+\textbf{Go further:} Which step sizes from 1 to 9 visit all ten letters? Can a two-step code still be \emph{decoded} even though one repeated route skips letters?
+\StudentFooter
+
+\end{document}

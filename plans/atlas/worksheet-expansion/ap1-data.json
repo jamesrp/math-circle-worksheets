@@ -1,0 +1,1307 @@
+{
+  "batch": "ap1",
+  "status": "Independent mathematical/design review closed; custom renderer and maker PDF QA complete; independent PDF review pending; not classroom-piloted.",
+  "families": [
+    {
+      "id": "AP-02",
+      "title": "The same clue, a different experiment",
+      "core_gate": "Counting equally likely labeled outcomes and fractions; distinguish a random selection from a deliberate report. No algebra is needed for the complete finite certificate.",
+      "extension_gate": "Multiply simple fractions or count a two-draw grid; prior odds and likelihood ratios are an optional algebraic continuation.",
+      "reading": "Short protocol cards; labels A1,A2,A3,B1,B2,B3. An adult can read the protocol, but the learner must keep its two choices distinct.",
+      "materials": "Two cups; A has labeled counters A1=R,A2=R,A3=B, and B has B1=R,B2=B,B3=B; fair coin; three equally likely bag-ticket cards A,B,B; six outcome cards and two blank 3×3 outcome grids.",
+      "prep_minutes": 10,
+      "timing": "0–10 explore the supplied objects; 10–15 rehearse exact rules; 15–35 investigate page 1; 35–40 move/reset; 40–55 choose a certificate or new representation; 55–60 explain one result. Pages 2–3 can be a second meeting; no requirement to complete the packet in one hour.",
+      "launch": "Two messengers both say “red.” Must their clues tell you the same thing about the hidden bag?",
+      "satisfying_stop": "Two correct but different answers to the red clue, proved from the mechanism; then a complete two-draw evidence comparison.",
+      "prior_use": "Year-1 probability is related, and AP-01 in the trial uses fair paths. This new question concerns selection of evidence, not endpoint probabilities. Original atlas bag counts remain but the two-messenger and two-draw comparison are developed here.",
+      "assessment": "First-pilot candidate for a group comfortable with fractions. The protocol distinction creates the surprise; avoid turning the repeated-draw page into long simulation or presenting posterior fractions before learners filter the cards.",
+      "mathematical_connection": "Finite conditional probability and likelihood ratios. The outcome cards are the actual sample space; no continuous prior or real-world bag-selection model is silently assumed.",
+      "sources": [
+        {
+          "title": "Grinstead and Snell, Introduction to Probability",
+          "url": "https://math.dartmouth.edu/~prob/prob/prob.pdf",
+          "locator": "§4.1 Discrete Conditional Probability, especially Bayes formula, printed pp.133–146.",
+          "adaptation": "The textbook supplies the conditioning framework. Messenger protocols, two-draw grids and fixed-size extremal design are independently derived finite instances.",
+          "checked": "Reopened the author-hosted PDF, checked §4.1 and Bayes discussion; all outcome counts independently enumerated in ap1-checks.py."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Which messenger should change your mind?",
+          "gate": "Count equally likely outcomes; fractions; distinguish drawing from reporting.",
+          "intro": "Bag A holds R,R,B; bag B holds R,B,B. For each experiment choose one bag by a fresh fair coin. Messenger DRAWS takes one uniformly random counter. Messenger CHOOSES looks inside and deliberately shows a red counter whenever one is present. You hear “red” from one specified messenger.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose a messenger. Before calculating, predict whether red favors A, favors B, or leaves them equally likely. Build the possible bag-and-counter outcomes for DRAWS. Why may you give those cards equal weight?",
+              "solution": "The six labeled outcomes each have probability (1/2)(1/3)=1/6. Before the draw A and B are equally likely. DRAWS reporting red leaves A1,A2,B1, so A is favored. Predictions are provisional; the explanation must use bag choice AND within-bag choice.",
+              "hints": [
+                "Label individual counters, including the two reds in A."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Find the chance of A after each messenger says red. Explain why the identical word did not force an identical answer.",
+              "solution": "DRAWS: two of the three surviving equal-weight outcomes are from A, giving 2/3. CHOOSES: both bags contain red, so the specified messenger always says red regardless of the fair bag choice; the posterior is 1/2. Do not incorrectly treat deliberate choice among counter colors as uniform random drawing.",
+              "hints": [
+                "Can CHOOSES ever give a different report with these two bags?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Ask the same bag twice",
+          "gate": "Count equally likely outcomes; fractions; distinguish drawing from reporting.",
+          "intro": "Choose A or B once by a fair coin. Draw uniformly, record the color, REPLACE the counter, mix, and draw again independently from that same bag. Each bag has nine labeled ordered draw pairs. The bag is not reselected between draws.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Use the two 3×3 grids to locate every way to hear RR. What chance of A does that clue give? Compare it with a single red draw.",
+              "solution": "The 18 bag-and-ordered-counter-pair outcomes each have probability 1/18. A contributes four RR cells, B one: P(A|RR)=4/5, larger than 2/3 after a single red. Replacement is essential to these grids; the same physical counter may appear twice.",
+              "hints": [
+                "Rows are first counter identity; columns are second counter identity."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Choose one new report: “red then blue,” “the two colors differ,” or “at least one red.” Find its answer, then trade proofs with a group that chose another report.",
+              "solution": "RB: A contributes 2 and B contributes 2, giving 1/2. Different colors: A contributes 4 and B contributes 4, giving 1/2. At least one red: A contributes 8 and B contributes 5, giving 8/13. Counts come from the same 18 equiprobable cells. RB records order, whereas the other reports pool cells; pooling is part of the reporting mechanism.",
+              "hints": [
+                "Precisely which grid cells make your chosen sentence true?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Can you cancel a clue?",
+          "gate": "Count equally likely outcomes; fractions; distinguish drawing from reporting.",
+          "intro": "Now select the bag by shuffling three equally likely tickets A,B,B and taking one. Then make ONE uniform counter draw. Every ticket-and-counter pair is equally likely; the two B tickets remain distinct.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "After a red draw, are A and B equally likely? Build a card proof before using a formula.",
+              "solution": "There are 9 equal-weight micro-outcomes. Red arises from 2 A outcomes and 1 on each B ticket, hence 2 B outcomes: posterior A=2/4=1/2. Prior A=1/3; the clue still changes the prior even though its posterior happens to be 1/2.",
+              "hints": [
+                "Keep both B tickets in the sample space."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Invent two equally sized bags that make a random red draw leave a fair bag choice unchanged. Make another pair where red favors A as strongly as possible while BOTH bags can produce red. State the bag size you chose.",
+              "solution": "Unchanged: both bags need the same positive red fraction, e.g. 2R and 2B in each four-counter bag. For a chosen common size n≥1 with at least one red per bag, the strongest A-favoring design has n reds in A and 1 red in B, giving n/(n+1); the numerator cannot exceed n and the competitor count cannot fall below 1. If size is unrestricted, there is no single strongest finite design: n/(n+1) increases toward 1. A learner may certify a fixed-size optimum without claiming a global maximum.",
+              "hints": [
+                "Decide whether your bag size is fixed before saying “best.”"
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "After selecting A with probability p and B with 1−p, derive the posterior odds after k reds in the replacement experiment.",
+          "solution": "Prior odds p/(1−p) multiply by [(2/3)/(1/3)]^k=2^k, so posterior probability is p·2^k/(p·2^k+1−p), for 0<p<1. This conditions on exactly the specified ordered observations; stopping/report-selection changes may require reanalysis.",
+          "gate": "Fractions, powers and algebra; finite Bayes conditioning."
+        }
+      ],
+      "figures": {
+        "bags": {
+          "A": [
+            {
+              "id": "A1",
+              "color": "R"
+            },
+            {
+              "id": "A2",
+              "color": "R"
+            },
+            {
+              "id": "A3",
+              "color": "B"
+            }
+          ],
+          "B": [
+            {
+              "id": "B1",
+              "color": "R"
+            },
+            {
+              "id": "B2",
+              "color": "B"
+            },
+            {
+              "id": "B3",
+              "color": "B"
+            }
+          ]
+        },
+        "single_draw_cards": [
+          "A1",
+          "A2",
+          "A3",
+          "B1",
+          "B2",
+          "B3"
+        ],
+        "pair_grids": {
+          "A": {
+            "rows": [
+              "A1",
+              "A2",
+              "A3"
+            ],
+            "columns": [
+              "A1",
+              "A2",
+              "A3"
+            ],
+            "student_cells": "blank"
+          },
+          "B": {
+            "rows": [
+              "B1",
+              "B2",
+              "B3"
+            ],
+            "columns": [
+              "B1",
+              "B2",
+              "B3"
+            ],
+            "student_cells": "blank"
+          }
+        },
+        "weighted_tickets": [
+          "A",
+          "B₁ ticket",
+          "B₂ ticket"
+        ],
+        "layout": "Page1 large bag/card work region; page2 two blank grids with reporting spaces; page3 ticket tree and blank learner bags. Red/blue letters accompany any colors."
+      },
+      "index_gate": "Count equally likely outcomes; fractions; distinguish drawing from reporting."
+    },
+    {
+      "id": "AP-03",
+      "title": "How surprising are these labels?",
+      "core_gate": "Choose subsets systematically, add six small scores and compare sums; fractions such as 1/20. The real reasoning gate is fixing the null assumption and actual assignment rule.",
+      "extension_gate": "Understand the difference between a prespecified one-sided rule and a rule selected after seeing the result; paired randomization uses three independent fair coins.",
+      "reading": "Fictional experiment rules and named participant cards; no health claim or real treatment inference. Adult may read the rules.",
+      "materials": "Six cards A=0,B=1,C=2,D=4,E=5,F=6; three TRAINED clips; shuffled labeled assignment slips or uniformly shuffled participant cards; three fair coins for the paired variation.",
+      "prep_minutes": 10,
+      "timing": "0–10 explore the supplied objects; 10–15 rehearse exact rules; 15–35 investigate page 1; 35–40 move/reset; 40–55 choose a certificate or new representation; 55–60 explain one result. Pages 2–3 can be a second meeting; no requirement to complete the packet in one hour.",
+      "launch": "Three of six glider pilots were chosen uniformly for training. The trained pilots got the top three scores. Could assignment alone have produced that?",
+      "satisfying_stop": "A complete 20-assignment reference set and a prespecified tail count, followed by an explanation of why a different assignment design gives a different answer.",
+      "prior_use": "No matching inference worksheet in Weeks 1–10 or random-ten. AP-02 also conditions on a mechanism, but this asks whether randomized labels alone can explain a prespecified extremeness statistic.",
+      "assessment": "Promising with explicit statistical reasoning gates. A complement-pair representation avoids twenty rows of repetitive arithmetic. “Unusual under this no-effect model” is the payoff, never “probability training is useless.”",
+      "mathematical_connection": "Exact randomization inference under the sharp null: each participant would have the same score with or without training. Scores are fixed only for that hypothetical calculation; treatment labels follow the actual random assignment.",
+      "sources": [
+        {
+          "title": "Allen Downey, Think Stats, third edition",
+          "url": "https://allendowney.github.io/ThinkStats/chap09.html",
+          "locator": "Think Stats 3, §9.2 simulation/permutation mechanics and chapter 9 discussion of test statistics and null models.",
+          "adaptation": "The text supplies general test/permutation terminology; the sharp-null randomized-experiment argument and paired-design comparison are derived here, not attributed to observational exchangeability examples.",
+          "checked": "Reopened chapter 9, inspected the statistic/null/permutation discussion. Independently enumerated every 20 and 8 assignment and both tails."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Assign the clips before explaining the result",
+          "gate": "Small subset counts and means; explicit null model and random assignment.",
+          "intro": "Six fictional pilots have scores A=0,B=1,C=2,D=4,E=5,F=6. Before flying, exactly three received TRAINED labels, uniformly among all three-person subsets. The observed trained group is D,E,F. For this investigation ASSUME training changed no pilot’s score. Keep scores fixed and move only labels.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Try three possible assignments. Use the sum of trained scores to say which looks strongest. Why can sums replace means here?",
+              "solution": "Any three distinct participant labels form a possible assignment. Because both groups have size 3, higher trained sum S means higher trained mean S/3, and trained-minus-other mean is (2S−18)/3. Total score 18 is fixed. The observed DEF sum is 15; the other group sum is 3 and mean difference 4.",
+              "hints": [
+                "The untrained sum is the total minus the trained sum."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Find ALL possible assignments without listing any twice. Try putting A in one group, then pairing that assignment with the assignment that swaps the two group labels. Explain why this is complete.",
+              "solution": "Choose two partners for A from B,C,D,E,F: 10 choices. Each resulting triple and its complementary triple form a pair; exactly one contains A. This gives 20 distinct assignments, all equally likely by the stated mechanism. The ten A-containing sums are 3,5,6,7,6,7,8,9,10,11; complementary sums are 18 minus those. The sheet supplies an open paired-record area, without precomputed sums or a suggested number of pairs.",
+              "hints": [
+                "Exactly one member of each complementary pair contains A."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Choose the alarm rule before looking",
+          "gate": "Small subset counts and means; explicit null model and random assignment.",
+          "intro": "Before data, choose the statistic and direction. UP means larger trained sums are more extreme. EITHER WAY means larger absolute trained-minus-other mean differences are more extreme. Now the observed trained sum is 15 and the mean difference is 4; compare all assignments against these observed values.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Under the no-effect assumption, what fraction of assignments trigger UP? What fraction trigger EITHER WAY? Could an UP tail ever have probability smaller than 1/20 in this exact design?",
+              "solution": "Only DEF has S≥15, so UP has 1/20. EITHER WAY requires S≥15 or S≤3; DEF and ABC give 2/20=1/10. A nonempty tail includes the observed assignment and each assignment has probability 1/20, so no exact nonrandomized tail can be smaller than 1/20. Ties could make the smallest tail larger.",
+              "hints": [
+                "Use complementary assignments to avoid recomputing the negative extreme."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "A reporter waits to see which group did better, then advertises the one-sided 1/20 count in that direction. Under no effect, how often would this “pick the favorable direction” procedure flag either extreme? Explain what the reporter left out.",
+              "solution": "The adaptive procedure flags either DEF on top or ABC on top, two of 20 assignments, so its false-alarm probability at this extremeness is 1/10. Reporting 1/20 ignores that either tail could have been chosen after the data. This is a specified finite comparison, not a blanket statement that every data-dependent analysis doubles a p-value.",
+              "hints": [
+                "Write the full set of outcomes that could make the reporter boast."
+              ]
+            },
+            {
+              "id": "5",
+              "text": "What have the counts established—and what have they NOT established? Include the assumption that made scores stay fixed.",
+              "solution": "They give frequencies under the sharp no-effect null and the uniform three-of-six assignment design. 1/20 is not the probability that training has no effect; rare events still occur. No claim about a population of pilots follows without a sampling/generalization model. If treatment assignment depended on likely performance, the twenty outcomes would not have the stipulated equal probabilities.",
+              "hints": [
+                "A probability calculated assuming a model is not automatically a probability that the model is true."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "A new assignment rule changes the answer",
+          "gate": "Small subset counts and means; explicit null model and random assignment.",
+          "intro": "Instead, form fixed pairs (A,F),(B,E),(C,D). Before the flights, use an independent fair coin in EACH pair to select exactly one trained pilot. Keep the same sharp no-effect assumption and observed trained group D,E,F.",
+          "prompts": [
+            {
+              "id": "6",
+              "text": "List the possible trained groups using a three-coin tree. How often is their total at least 15 now? Why would using the old twenty-outcome map be wrong?",
+              "solution": "There are 2³=8 equiprobable assignments, choosing one from each pair. Their trained sums are 3,5,7,9,9,11,13,15. Only DEF reaches 15, so 1/8. Many triples in the complete-randomization design contain both members of a fixed pair or none; they are impossible here. The reference distribution must match actual randomization.",
+              "hints": [
+                "Write one choice from each pair, never two from the same pair."
+              ]
+            },
+            {
+              "id": "7",
+              "text": "Design a one-sentence explanation for someone who says, “The scores stayed the same, so the probability had to stay the same.”",
+              "solution": "An acceptable explanation identifies both the fixed outcomes and the probability law over label assignments: the score cards are unchanged, but the sampling experiment now has 8 equally likely allowed assignments rather than 20. The observed extreme therefore carries a different tail proportion. Diagrams of 20 versus 8 legal assignments are a concrete certificate.",
+              "hints": [
+                "The assignment mechanism is part of the mathematical data."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Replace outcomes by 0,0,1,1,2,2 but keep all six individuals labeled. What is the smallest upper tail for the top-three sum?",
+          "solution": "The maximum trained sum is 5, requiring both 2-score people and either one of the two 1-score people. Thus two of 20 assignments tie at the top and the smallest upper tail is 2/20=1/10. Equal scores do not merge distinct assignment outcomes.",
+          "gate": "Combinations with repeated values but distinct participant labels."
+        }
+      ],
+      "figures": {
+        "participants": {
+          "A": 0,
+          "B": 1,
+          "C": 2,
+          "D": 4,
+          "E": 5,
+          "F": 6
+        },
+        "observed_trained": [
+          "D",
+          "E",
+          "F"
+        ],
+        "pairing_variation": [
+          [
+            "A",
+            "F"
+          ],
+          [
+            "B",
+            "E"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "student_assignment_maps": "Empty complementary triple cards, then empty three-level binary decision tree; do not print tail counts before tasks.",
+        "complement_workspace": "Open unpartitioned area: learners organize complementary assignment pairs; no count of blank slots suggests completeness."
+      },
+      "index_gate": "Small subset counts and means; explicit null model and random assignment."
+    },
+    {
+      "id": "AP-04",
+      "title": "A very precise wrong answer",
+      "core_gate": "Means of small numbers, counting equally likely draws, and distinguishing the whole target population from the draw bag. The non-identifiability explanation needs systematic reasoning.",
+      "extension_gate": "Weighted averages with known group sizes; no calculus or asymptotic theorem needed.",
+      "reading": "Card identities 1–8 and two draw protocols. The first reveal is staged; an adult can run the covered-card portion.",
+      "materials": "Eight numbered covered cards; values 1,1,1,1,5,5,5,5 for the first world; replacement values 9,9,9,9 for cards 5–8 in the alternate world; two draw bags of identifiers; counters; pencil.",
+      "prep_minutes": 10,
+      "timing": "0–10 explore the supplied objects; 10–15 rehearse exact rules; 15–35 investigate page 1; 35–40 move/reset; 40–55 choose a certificate or new representation; 55–60 explain one result. Pages 2–3 can be a second meeting; no requirement to complete the packet in one hour.",
+      "launch": "A sampler always reports 1. Does its perfect consistency prove the whole population’s average is 1?",
+      "satisfying_stop": "Two different hidden populations yield exactly the same allowed observations, proving that more restricted data cannot determine the full mean; an improved sampling design is justified.",
+      "prior_use": "Related to AP-02 because mechanisms matter, but distinct target: estimating a finite-population mean from a sampling frame. No corresponding trial worksheet or Week 1–10 instance.",
+      "assessment": "First-pilot candidate when averages are familiar. The two indistinguishable hidden worlds produce a genuine impossibility argument rather than merely saying “bias is bad.” Avoid repeated draws after the mechanism is already clear.",
+      "mathematical_connection": "Sampling frames, non-identifiability, unbiasedness, and stratified estimation. Equal probability within a restricted frame is not equal coverage of the target population.",
+      "sources": [
+        {
+          "title": "Allen Downey, Think Stats",
+          "url": "https://allendowney.github.io/ThinkStats/chap08.html",
+          "locator": "Chapter 8, §8.1 Estimation of means; discussion of biased and unbiased estimators.",
+          "adaptation": "Uses the distinction between an estimator and its sampling distribution. The two-world impossibility construction and unequal-block repair are independently derived, not copied from the source examples.",
+          "checked": "Reopened estimation chapter, inspected finite-sampling and bias discussions; all 64 two-draw outcomes and block-weight calculations checked exactly."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Could two different worlds look identical?",
+          "gate": "Small population means; distinguish the sampling frame from the target.",
+          "intro": "The target is the mean of ALL eight cards. Cards 1–4 are 1,1,1,1. Cards 5–8 are hidden. The sampler chooses an identifier uniformly only from 1–4, reads its value, replaces it, and repeats independently. You may request any number of these readings.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Make two different possible sets of hidden cards 5–8 that produce exactly the same readings from this sampler but have different whole-population means. Use values from 0 to 9.",
+              "solution": "Many answers. World W has hidden 5,5,5,5 and total mean 3; World Z has hidden 9,9,9,9 and total mean 5. Both always produce 1 under the restricted rule. The same observations persist for every finite or infinite sequence of allowed draws because none accesses cards 5–8.",
+              "hints": [
+                "Can changing a card the sampler never visits change the full mean?"
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Could a million readings from this same sampler distinguish your two worlds? Propose one change to what may be observed that could help. State exactly what it would establish.",
+              "solution": "No: the observation distributions are identical. Sampling identifiers 1–8 allows unseen cards to appear; auditing one of 5–8 distinguishes the two specific homogeneous example worlds, but one audited value alone does not determine arbitrary four-card hidden contents. Reading all hidden cards would determine the exact population mean. A remedy must change information access, not just the number of identical restricted draws.",
+              "hints": [
+                "Separate “distinguish my two examples” from “identify every possible hidden population.”"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "A noisy rule with the right center",
+          "gate": "Small population means; distinguish the sampling frame from the target.",
+          "intro": "Now use this supplied population: values 1,1,1,1,5,5,5,5. New rule FULL draws an identifier uniformly from 1–8, replaces it, and draws again independently. Its estimate is the mean of the two values.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Try to predict all possible two-draw means. Find their exact probabilities without writing 64 individual ordered identifier pairs. Is the expected estimate the whole-population mean?",
+              "solution": "A full draw is 1 or 5 with probability 1/2. The four value-pattern categories 11,15,51,55 each have probability 1/4; the means are 1,3,3,5. Therefore mean 1 has probability 1/4; 3 has 1/2; 5 has 1/4. The expected estimate is (1+3+3+5)/4=3, the population mean. Each category represents 16 of 64 identifier pairs.",
+              "hints": [
+                "Group equally likely identifier pairs by their two values."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "A FULL sample happens to give 1, just like the restricted sampler. Did that one result prove the two procedures are equally trustworthy? Draw their complete distributions to explain.",
+              "solution": "No. FULL can give 1 with probability 1/4 but is centered at 3 over repetitions; restricted always gives 1 and has bias −2 for this population. Unbiasedness does not promise every sample is correct, and repeatedly giving the same answer does not make it accurate. Draw mass 1/4,1/2,1/4 at 1,3,5 for FULL versus all mass at 1 for restricted.",
+              "hints": [
+                "A result is one outcome. A procedure has many possible outcomes."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Design a better two-card survey",
+          "gate": "Small population means; distinguish the sampling frame from the target.",
+          "intro": "Continue with the supplied population of four 1-cards and four 5-cards. Divide the identifiers into blocks 1–4 and 5–8. A BLOCK sampler draws one uniformly within each block, independently, then averages the two readings.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Compare BLOCK with FULL. What does BLOCK estimate on every possible draw? Explain why this certainty depends on this population rather than on a magic property of sampling one per block.",
+              "solution": "BLOCK always draws 1 and 5, so always estimates 3 here, eliminating the between-block sampling fluctuation. Certainty follows because each block is homogeneous and their sizes are equal. If block values vary, one per block can fluctuate; the design does not promise exactness for arbitrary populations.",
+              "hints": [
+                "What information about every value within each block did the reveal provide?"
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Change the population to TWO 1-cards in block L and SIX 5-cards in block R. A sampler still takes one card per block. Is their ordinary average the whole mean? Repair the rule using the known block sizes.",
+              "solution": "Ordinary average is 3, but the whole mean is (2×1+6×5)/8=4. Weight the L reading by 2/8 and the R reading by 6/8:1/4×1+3/4×5=4. Generally these known block-size weights make one uniform independent draw per block unbiased for the full mean, even with variation inside blocks; they do not necessarily make it exact.",
+              "hints": [
+                "One observed card represents two population members; the other represents six."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Let the equal-sized blocks be 0,0,2,2 and 4,4,6,6. What can BLOCK produce?",
+          "solution": "The independent within-block choices have values 0 or 2 and 4 or 6, each equally likely. Means 2,3,3,4 give probabilities 1/4,1/2,1/4 and expectation 3. The certainty is gone while unbiasedness remains.",
+          "gate": "Means and products of independent halves."
+        }
+      ],
+      "figures": {
+        "world_W": {
+          "1": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 5,
+          "6": 5,
+          "7": 5,
+          "8": 5
+        },
+        "world_Z": {
+          "1": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1,
+          "5": 9,
+          "6": 9,
+          "7": 9,
+          "8": 9
+        },
+        "page1_cards": "Eight outlined card backs; only cards1–4show1. Two empty hidden-world rows for learner designs. Do not print W/Z before learner choices.",
+        "page2_distribution_axes": {
+          "x_labels": [
+            1,
+            3,
+            5
+          ],
+          "two_blank_panels": [
+            "FULL",
+            "RESTRICTED"
+          ],
+          "y_label": "probability"
+        },
+        "page3_block_cards": {
+          "equal_sizes": [
+            4,
+            4
+          ],
+          "unequal_sizes": [
+            2,
+            6
+          ]
+        },
+        "draw_rule": "With replacement for repeated draws; FULL pair draws independent. BLOCK chooses one uniformly per block."
+      },
+      "index_gate": "Small population means; distinguish the sampling frame from the target."
+    },
+    {
+      "id": "AP-05",
+      "title": "Build a promise an interval can keep",
+      "core_gate": "Signed integer addition and subtraction, closed intervals, fifths and systematic cases. Keep one unknown target fixed while the instrument error varies.",
+      "extension_gate": "Compare a procedure’s repeated coverage with what is known from a realized report; optional randomized interval procedures use a separate independent coin.",
+      "reading": "Target θ may be called “secret number”; the role distinction matters more than the symbol. Short rule cards and interval endpoints.",
+      "materials": "Number-line strips; a sealed secret integer; five equally likely error cards−2,−1,0,1,2; transparent or paper interval strips; a fair coin for page 3.",
+      "prep_minutes": 10,
+      "timing": "0–10 explore the supplied objects; 10–15 rehearse exact rules; 15–35 investigate page 1; 35–40 move/reset; 40–55 choose a certificate or new representation; 55–60 explain one result. Pages 2–3 can be a second meeting; no requirement to complete the packet in one hour.",
+      "launch": "The instrument gives a slightly wrong reading. Design the shortest interval rule that catches the fixed secret at least four times out of five.",
+      "satisfying_stop": "A shortest 80%translation interval with a lower-bound proof, and an explanation that coverage describes the random procedure rather than a posterior distribution on the secret.",
+      "prior_use": "No matching trial activity; AP-02 has probabilities for a randomly selected bag, whereas this holds an unknown target fixed. Keeping those different probability models explicit is part of the investigation.",
+      "assessment": "Promising with a genuine statistics gate. The width optimization and intentionally unhelpful 50%procedure make coverage tangible. The coin-rule page is optional; explain its purpose before invoking general confidence-interval terminology.",
+      "mathematical_connection": "Exact finite confidence coverage Pθ{θ∈I(X)}. The instrument model is X=θ+E with fixed unknown integer θ and a fresh uniform five-card error. No prior on θ is assumed.",
+      "sources": [
+        {
+          "title": "NIST/SEMATECH e-Handbook of Statistical Methods",
+          "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "locator": "NIST/SEMATECH §1.3.5.2, introductory interpretation paragraphs before the t-interval formula.",
+          "adaptation": "Uses only the repeated-sampling meaning of coverage. The five-error model, shortest-offset proof and independent-coin counterexample are separately constructed; no t-distribution calculation is borrowed.",
+          "checked": "Directly reread the interpretation distinguishing procedure coverage from the probability assigned to a realized interval. Enumerated offsets/errors and randomized branches exactly."
+        }
+      ],
+      "pages": [
+        {
+          "title": "What does the strip catch?",
+          "gate": "Integer intervals and fractions; track one fixed secret across random errors.",
+          "intro": "A secret integer θ stays fixed. The instrument reports X=θ+E, where E is freshly chosen uniformly from −2,−1,0,1,2. Try the rule [X−1,X+1], including both endpoints. The interval moves with X; the secret does not move.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose a practice secret and run all five possible errors once, as an exact audit rather than a random sample. Place each reported interval. Which catch your secret?",
+              "solution": "For any chosen integer θ, the interval [θ+E−1,θ+E+1] contains θ exactly when −1≤E≤1. Errors −1,0,1 succeed; −2,2 fail. Every error has probability 1/5 in the actual instrument, so coverage is 3/5. Auditing each error once enumerates the model rather than estimating coverage from five random trials.",
+              "hints": [
+                "Check the secret against both interval endpoints."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Without redoing five calculations, explain why moving the secret to another integer leaves the success fraction unchanged. What assumption about the errors did your explanation use?",
+              "solution": "Translating θ and all readings/intervals by the same amount preserves containment. The success condition depends only on E, not θ. Its 3/5 probability relies on the same uniform error distribution at every target. Translation geometry alone would not determine probabilities under a different error mechanism.",
+              "hints": [
+                "Draw the original and translated pictures on two aligned strips."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "The shortest four-out-of-five promise",
+          "gate": "Integer intervals and fractions; track one fixed secret across random errors.",
+          "intro": "Restrict to translation rules [X+a,X+b], where a≤b are fixed integers chosen BEFORE seeing X. Width means b−a, not the number of integer dots. The same offsets must be used for every reading.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Design a rule with coverage at least 4/5 for EVERY integer secret. Make its width as small as possible. You may put the reading off-center. Find every shortest rule.",
+              "solution": "Minimum width is 3. The two width 3 rules with coverage 4/5 are [X−2,X+1] and [X−1,X+2]. A rule succeeds for errors E with −b≤E≤−a. To cover four of the five consecutive possible errors, the reflected interval must contain either −2,−1,0,1 or −1,0,1,2. These yield the two stated offsets. Both are translation-invariant, so the proof holds for every θ.",
+              "hints": [
+                "Which four error values will your rule protect against?"
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Prove that a narrower rule cannot meet the promise. Then design a 100% rule and explain exactly which model assumption makes its guarantee possible.",
+              "solution": "An interval of integer width L contains at most L+1 integer errors. Coverage≥4/5 requires at least four distinct equally likely errors, hence L≥3. For 100%, [X−2,X+2] has width 4 and covers all possible errors. The guarantee uses the known hard error bound |E|≤2; real instruments without that bound would need another model. The optimality claim is for fixed integer-offset closed intervals, not arbitrary confidence sets or randomized widths.",
+              "hints": [
+                "Count protected error values, not places you happened to measure."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "An honest percentage can hide a bad rule",
+          "gate": "Optional: independent randomization and distinction between coverage and posterior belief.",
+          "intro": "Optional: after measuring X, flip a fresh independent fair coin. On HEADS report [X−2,X+2]. On TAILS report the one-point interval [X+10,X+10]. Always reveal which branch you used. Keep the same bounded-error model.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "What is this procedure’s coverage for each fixed secret? Prove your answer using all ten error-and-coin cases.",
+              "solution": "All five HEADS cases cover because the full error range is included. All five TAILS cases miss, since θ=X−E and|E|≤2 cannot equal X+10. The 10 cases are equally likely, so coverage is 1/2 for every fixed θ. This is an exact randomized confidence procedure, although a poor practical one.",
+              "hints": [
+                "Which branch guarantees a catch? Which makes a catch impossible?"
+              ]
+            },
+            {
+              "id": "6",
+              "text": "You see X=7 and the TAILS report [17,17]. Is it reasonable to call 17 a 50% plausible secret just because the procedure has 50% coverage? Explain what the percentage actually certifies.",
+              "solution": "No. The measurement model forces θ∈{5,6,7,8,9}, so 17 is impossible for this report. The 1/2 describes averaging over the future random error-and-coin procedure with θ fixed; it is not a posterior probability for each realized interval. A distribution on θ after a report requires an additional prior model. No such prior has been specified.",
+              "hints": [
+                "Use the possible errors to list targets consistent with the actual reading."
+              ]
+            },
+            {
+              "id": "7",
+              "text": "Would you recommend this 50% rule over your shortest 80% rule? Give a reason beyond simply choosing the larger percentage.",
+              "solution": "A useful comparison mentions width, informative reports and guaranteed failure on one branch. The coin rule sometimes gives a knowingly impossible interval and otherwise width 4; the 80% rule always has width 3 and a clearly specified miss direction. Coverage alone does not rank every procedure or make every realized report useful. Preference must identify its criterion; no universal statistical-optimality claim is required.",
+              "hints": [
+                "What does the user receive on each possible branch?"
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "What happens to the original narrow rule if error is−2 or 2 with probability 1/2 each?",
+          "solution": "It never covers: neither possible error lies in [−1,1]. The printed interval formula is unchanged while its coverage falls from 3/5 to 0. A coverage statement always includes the error law.",
+          "gate": "Same core; reinforces model dependence."
+        }
+      ],
+      "figures": {
+        "errors": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "practice_secret": "learner chooses; guide may demonstrate0",
+        "number_lines": {
+          "ticks": [
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "translation_blank": true
+        },
+        "offset_design_strip": {
+          "possible_errors": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ],
+          "candidate_intervals": "blank; no preferred three/four-dot block preselected"
+        },
+        "coin_branches": [
+          "HEADS: [X−2,X+2]",
+          "TAILS: [X+10,X+10]"
+        ],
+        "coverage_audit_grid": {
+          "rows": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ],
+          "columns": [
+            "HEADS",
+            "TAILS"
+          ],
+          "student_cells": "blank"
+        }
+      },
+      "index_gate": "Integer intervals and fractions; track one fixed secret across random errors."
+    },
+    {
+      "id": "AP-06",
+      "title": "When the tangent robot comes back",
+      "core_gate": "CALCULUS: derivative as tangent slope, evaluating cubics, rational arithmetic and a tangent-line zero. The loop is a Newton-method investigation only with this gate retained.",
+      "extension_gate": "Continuity/Intermediate Value Theorem and algebraic interval-width bounds for a safeguarded method; a supplied geometric-decay fact is enough for finite error certification.",
+      "reading": "Symbolic f,f′ and a short iterative algorithm. Calculator optional; exact fractions establish the cycle.",
+      "materials": "Supplied graph of f(x)=x³−5x on−3≤x≤3, with axes and no tangent answers; ruler; blank tangent workspace; calculator; bracket strips for[1,3].",
+      "prep_minutes": 10,
+      "timing": "0–10 explore the supplied objects; 10–15 rehearse exact rules; 15–35 investigate page 1; 35–40 move/reset; 40–55 choose a certificate or new representation; 55–60 explain one result. Pages 2–3 can be a second meeting; no requirement to complete the packet in one hour.",
+      "launch": "A tangent robot wants a zero of x³−5x. Choose a start, draw its first step, and look for a start that makes the robot revisit a guess.",
+      "satisfying_stop": "An exact non-root 2 cycle despite available roots, plus a modified method whose sign bracket shrinks by a proved factor.",
+      "prior_use": "AP-06 and GA-28 in the original atlas share x³−2x+2. This investigation deliberately changes the example to x³−5x and develops a bracket-preserving safeguard. Delivered AP-07 studies explicit-Euler stability, accuracy and an optimization certificate: both diagnose numerical procedures, but the failure mechanism and certificate differ here.",
+      "assessment": "Advanced first-pilot candidate for learners taking calculus. The safeguard gives more than a familiar failure example. Do not relabel tangent motion as a lower-prerequisite guessing game.",
+      "mathematical_connection": "Newton iteration as numerical dynamics; a sign-bracket invariant plus a contraction bound gives a global certificate in this specific interval. The new cubic differs from the atlas’s shared AP-06/GA-28 counterexample.",
+      "sources": [
+        {
+          "title": "Yano, Penn, Konidaris and Patera, Math, Numerics, and Programming",
+          "url": "https://ocw.mit.edu/courses/2-086-numerical-computation-for-mechanical-engineers-spring-2013/60af88c658ba3e83cdf7c43289aeb5b4_MIT2_086S13_Unit6_Textbook.pdf",
+          "locator": "Yano et al., Unit VI, §29.2.1 tangent construction; §29.2.3 failure checks and bisection discussion, PDF pp.5–8.",
+          "adaptation": "Retains the Newton derivation but changes the cubic to avoid merely repeating GA-28. The middle-half safeguard and its 3/4 width bound are independently designed/proved.",
+          "checked": "Reopened the MIT primary textbook PDF and inspected the formula, derivative-zero issue and bracketing discussion. Exact rational iterates and safeguard decisions independently checked."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Follow a tangent, not the curve",
+          "gate": "Calculus: derivatives and tangent updates; continuity for the safeguard.",
+          "intro": "Use f(x)=x³−5x and f′(x)=3x²−5. From guess x, draw the tangent at (x,f(x)); its horizontal-axis crossing is the next guess. Then move vertically to the curve and repeat. The initial guess is x₀.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose two starts from −2,−1,0,1,2. Draw or calculate two steps for each. Predict what a third step might do. Keep your exact values when they are simple.",
+              "solution": "For 0 the method stays at the true root 0. For 1 the next guesses are −1,1; for −1 they are 1,−1. For 2 they are 16/7 and 8192/3661; for −2 the values are the negatives because the Newton map is odd. Approximate −2/+2 runs head toward −√5/+√5; two numerical steps alone are not a convergence proof. Every chosen pair is acceptable if the tangent construction is correct.",
+              "hints": [
+                "Find the zero of y=f(x)+f′(x)(t−x)."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Derive a formula for the next guess. For a start at 1, predict x₁₀₀₀ and x₁₀₀₁ without making a long table. Prove the prediction.",
+              "solution": "Setting the tangent equation to zero gives N(x)=x−f(x)/f′(x)=2x³/(3x²−5), where the denominator is nonzero. N(1)=−1 and N(−1)=1, so induction gives x_even=1 and x_odd=−1. Hence x₁₀₀₀=1,x₁₀₀₁=−1. The exact two-arrow cycle is the certificate; rounded repeats alone would not prove an infinite loop.",
+              "hints": [
+                "Once a deterministic rule returns to an earlier exact state, its future repeats."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "A failed run is not a failed equation",
+          "gate": "Calculus: derivatives and tangent updates; continuity for the safeguard.",
+          "intro": "Keep the same cubic. A solver must distinguish a true zero, a repeating guess and an undefined tangent step.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Find every real root. Find the starts where the Newton formula is undefined. Explain why “the robot failed” does not imply “there is no root.”",
+              "solution": "Factor f(x)=x(x²−5), so the roots are 0,±√5. The formula is undefined at x=±√(5/3), where f′=0 and f≠0. Starts ±1 cycle through nonroots despite three actual roots. A horizontal tangent can miss the axis while the curve has zeros elsewhere.",
+              "hints": [
+                "Solve the equation and the denominator condition separately."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Design a warning that catches the exact two-cycle. Could a warning alone force the solver to reach a root? Give a separate certificate that a root lies in [1,3].",
+              "solution": "Storing earlier exact iterates and signaling on a repeated nonroot detects the cycle; checking x_(n+1)=x_(n−1), with distinct consecutive iterates and f(x_n)≠0, also detects this two-cycle. Detection alone supplies no new successful step. f(1)=−4,f(3)=12 and continuity imply a root in [1,3], specifically √5. The warning and the existence bracket are distinct guarantees.",
+              "hints": [
+                "A diagnostic tells you a run failed; it is not automatically a repair."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Give the tangent robot a guardrail",
+          "gate": "Calculus plus continuity and interval inequalities.",
+          "intro": "Keep a bracket [L,R] with opposite-sign endpoint values and a current guess x. Propose its Newton step. ACCEPT the proposal only if it is defined and lies in the middle half [L+(R−L)/4,R−(R−L)/4]. Otherwise use the midpoint. If the chosen point is a root, stop; otherwise retain the subinterval whose endpoints have opposite signs. Use the chosen point as the next current guess.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Start with [L,R]=[1,3] and x=1. Carry out two guarded updates. Record which proposal was accepted and the new bracket each time.",
+              "solution": "First Newton proposes −1, outside [3/2,5/2], so choose midpoint 2. f(2)=−2, hence bracket [2,3]. Next Newton from 2 proposes 16/7, inside the new middle half [9/4,11/4], so accept it. f(16/7)=176/343>0, so bracket [2,16/7]. Widths change 2→1→2/7. Exact fractions, not plotting accuracy, decide signs and acceptance.",
+              "hints": [
+                "The allowed middle half changes when the bracket changes."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Prove that the bracket always retains a root and its width is at most 3/4 of the old width after an update. Give a bound after n updates starting from width 2. How many updates suffice to make the width less than 0.01?",
+              "solution": "Continuity and opposite signs retain a root after either sign-based endpoint replacement; an exact zero stops successfully. Every selected point lies in the middle half, including a fallback midpoint, so neither resulting subinterval can exceed 3/4 of the old width. Induction gives width≤2(3/4)^n. At n=19 this is<1/100; n=18 does not make that worst-case bound <1/100. Thus 19 updates suffice for the bracket-width guarantee, not necessarily the exact number actually required. Midpoint error is then at most half the width. The argument does not claim unguarded Newton converges from every start.",
+              "hints": [
+                "Track an invariant and a shrinking quantity separately."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Replace the safeguard’s middle half by [L+δ(R−L),R−δ(R−L)], with fixed 0<δ≤1/2. Prove the new width bound.",
+          "solution": "A chosen point in this central interval leaves either side of width≤(1−δ)(R−L). A midpoint fallback also qualifies. Repetition gives width≤(1−δ)^n times the initial width. δ=1/2 forces pure midpoint steps; smaller δ permits more Newton proposals but weakens the guaranteed contraction.",
+          "gate": "Algebraic inequalities and geometric powers."
+        }
+      ],
+      "figures": {
+        "curve": {
+          "formula": "x**3-5*x",
+          "x_range": [
+            -3,
+            3
+          ],
+          "y_range": [
+            -14,
+            14
+          ],
+          "axes_ticks_x": [
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3
+          ],
+          "student_tangents": "none preprinted",
+          "draw_sampling": "evaluate polynomial finely; graph is illustration, exact formulas decide cases"
+        },
+        "initial_starts": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "bracket_start": [
+          1,
+          3
+        ],
+        "guard_middle_fraction": [
+          "1/4",
+          "3/4"
+        ],
+        "iteration_record_columns": [
+          "bracket",
+          "current guess",
+          "Newton proposal",
+          "accepted?",
+          "chosen point",
+          "new bracket"
+        ],
+        "neutral_iteration_record": [
+          "x0",
+          "x1",
+          "x2",
+          "x3"
+        ]
+      },
+      "index_gate": "Calculus: derivatives and tangent updates; continuity for the safeguard."
+    },
+    {
+      "id": "AP-08",
+      "title": "How many rooms must a machine remember?",
+      "core_gate": "Follow directed arrows labeled R/B, count red cards in triples, and reason that the current room is the machine’s only memory. Lower bounds require comparing histories followed by the same suffix.",
+      "extension_gate": "Two simultaneous remainder conditions and a six-state construction; a pairwise distinguishability argument proves minimality.",
+      "reading": "R and B symbol strings, including the empty string; rules can be spoken. No hidden memory in the operator’s head.",
+      "materials": "Blank state circles; one movable token; R/B arrow cards; start arrow and accepting-star stickers; short input slips; optional floor circles.",
+      "prep_minutes": 8,
+      "timing": "0–10 explore the supplied objects; 10–15 rehearse exact rules; 15–35 investigate page 1; 35–40 move/reset; 40–55 choose a certificate or new representation; 55–60 explain one result. Pages 2–3 can be a second meeting; no requirement to complete the packet in one hour.",
+      "launch": "Build a machine that accepts exactly strings with a multiple of three red cards, including zero. Another group will try to break it.",
+      "satisfying_stop": "A working three-room machine and a proof that every two-room machine fails for some finite string; optional six-room extension has its own lower bound.",
+      "prior_use": "Delivered AP-26 studies state memory and recurrence; Weeks 1–10 also use state diagrams. This investigation adds a new payoff: distinguishing common future strings gives a lower-bound certificate for every smaller deterministic machine, alongside explicit correct constructions.",
+      "assessment": "First-pilot candidate with low arithmetic requirements and substantial proof. Learners get construction and adversarial testing before state-distinguishability is introduced. Do not confuse passing several short tests with a universal proof.",
+      "mathematical_connection": "Deterministic finite automata and the concrete distinguishable-prefix principle underlying Myhill–Nerode minimality. The finite lower bound is proved directly without invoking the full theorem.",
+      "sources": [
+        {
+          "title": "Michael Sipser, MIT Theory of Computation",
+          "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/b4d9bf1573dccea21bee82cfba4224d4_MIT18_404f20_lec1.pdf",
+          "locator": "Sipser MIT18.404J Lecture 1, PDF pp.6–9, finite automata definition, computation and even-count language example.",
+          "adaptation": "Uses the formal room/transition/acceptance model. The three- and six-state constructions, short-test counterexample and lower-bound certificates are independently proved.",
+          "checked": "Reopened the MIT lecture PDF and inspected state/alphabet/transition/start/accept definitions and computation. Enumerated all 64 fixed-start two-state machines plus all short strings and all 15 six-state history pairs."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Build it. Try to break it.",
+          "gate": "Follow labeled arrows; remainders; compare histories using common futures.",
+          "intro": "A machine starts in its marked room, reads one symbol at a time, and follows exactly one arrow for that symbol. Each room needs one outgoing R arrow and one outgoing B arrow. It answers YES only if it ends in a starred room. Its room is its entire memory. The target: number of R cards is a multiple of 3, including 0; B cards do not count.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Try a two-room design. Mark start and YES rooms and both arrows from every room. Ask a partner for short strings that might break it. Start with the empty string, B, R, RR, RBR and RRR.",
+              "solution": "No two-room design solves all strings, but attempts are valuable. Target answers in the given order are YES,YES,NO,NO,NO,YES. Empty input leaves the machine in its start room, so the start must accept. A partner’s failed test must trace the machine correctly, not secretly count in the operator’s memory.",
+              "hints": [
+                "How does a machine answer the empty string?"
+              ]
+            },
+            {
+              "id": "2",
+              "text": "A machine passes EVERY string of length at most 2. Its rooms are START (starred) and OTHER (not starred); B stays put, and every R goes to OTHER. Find its shortest failing string. What did the short tests fail to prove?",
+              "solution": "This machine accepts exactly strings containing no R. It agrees with the target for lengths 0,1,2, but fails on RRR at length 3 because the target accepts three reds while the machine remains in OTHER. No shorter failure exists by the stated agreement. Exhaustion confirms this is the unique fixed-start two-state design passing all length≤2 tests, but the worksheet needs only this explicit counterexample.",
+              "hints": [
+                "A long enough accepted input must contain some reds."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Build a certificate about memory",
+          "gate": "Follow labeled arrows; remainders; compare histories using common futures.",
+          "intro": "You may now use three rooms. A history is the part of a string already read. A suffix is the SAME future string attached to each of two histories.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Build a correct three-room machine. Explain what each room remembers and prove your explanation survives the next R or B.",
+              "solution": "Rooms q0,q1,q2 record the red count remainder 0,1,2. Start and accept at q0. R cycles q0→q1→q2→q0; B loops at each room. Initially remainder 0 is correct; each R adds 1 mod 3 and each B leaves it unchanged, proving by induction that every finite string is classified correctly.",
+              "hints": [
+                "Discard complete triples of red cards; what unfinished remainder is left?"
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Consider the histories empty, R and RR. For EACH pair, find one common suffix that makes exactly one completed string acceptable. Why does that rule out every two-room machine?",
+              "solution": "Empty versus R: empty suffix distinguishes YES from NO. Empty versus RR: empty suffix likewise. R versus RR: suffix R produces RR (NO) and RRR (YES). If any pair of histories ended in the same machine room, identical future symbols would lead to the same final answer, contradicting its distinguishing suffix. Three pairwise distinguishable histories therefore require at least three states. This excludes every deterministic two-state design, not only the one children tried.",
+              "hints": [
+                "Different pasts can share a room only if every possible common future treats them the same."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Remember two things at once",
+          "gate": "Optional: remainder pairs and a systematic lower-bound proof.",
+          "intro": "New target: the number of R cards is a multiple of 3 AND the number of B cards is even. Zero counts satisfy both requirements. Every finite input length is allowed.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Design a machine for this new target. Choose your room layout. Test RRR, BBB, RBRBRBB and the empty string. Explain what a room needs to remember.",
+              "solution": "Use six rooms (r,b) with r∈{0,1,2},b∈{0,1}; R adds 1 to r mod 3 and B leaves r unchanged while toggling b. Start/accept at (0,0). Target answers: RRR YES; BBB NO; RBRBRBB has 3R and 4B, YES; empty YES. The pair is a sufficient state because updates depend only on it. Layout may be a 2×3 array, two linked cycles, or another unambiguous drawing.",
+              "hints": [
+                "A room might record two small pieces of information rather than a long history."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Can fewer rooms work? Use the six histories empty, R, RR, B, RB, RRB. Explain how to choose a common suffix that separates ANY chosen pair.",
+              "solution": "Each history represents one distinct remainder pair (r,b). Given a first pair (r,b), append enough R cards to make its red remainder 0 and enough B cards to make its parity 0: R^{(−r mod 3)} B^{(−b mod 2)}. It accepts. For any different second pair, at least one difference survives addition of the same suffix, so that completed string rejects. Thus all six histories are pairwise distinguishable and six rooms are necessary. This is a proof for every pair, with 15 pair instances exhaustively checked in the script.",
+              "hints": [
+                "Complete one selected history to an accepted state; see what the same completion does to the other."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Replace multiples of 3 by multiples of m. Prove that m rooms suffice and are necessary.",
+          "solution": "Remainder states 0,…,m−1 with R cycle and B self-loops suffice. Histories R^r for 0≤r<m are pairwise distinguishable: append R^{(m−r) mod m} to accept one chosen remainder; any other remains nonzero. Thus at least m states are needed. m=1 has a single accepting state.",
+          "gate": "Modular arithmetic and a parameterized distinguishing-suffix argument."
+        }
+      ],
+      "figures": {
+        "test_strings": [
+          "",
+          "B",
+          "R",
+          "RR",
+          "RBR",
+          "RRR"
+        ],
+        "two_room_candidate": {
+          "rooms": [
+            "START",
+            "OTHER"
+          ],
+          "start": "START",
+          "accept": [
+            "START"
+          ],
+          "transitions": {
+            "START": {
+              "R": "OTHER",
+              "B": "START"
+            },
+            "OTHER": {
+              "R": "OTHER",
+              "B": "OTHER"
+            }
+          }
+        },
+        "candidate_reveal_page": 1,
+        "blank_three_room_layout": [
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            1.8
+          ]
+        ],
+        "blank_six_room_layout": "No rooms preprinted for the optional two-condition target: learners choose number and layout.",
+        "suffix_pair_rows": [
+          [
+            "empty",
+            "R"
+          ],
+          [
+            "empty",
+            "RR"
+          ],
+          [
+            "R",
+            "RR"
+          ]
+        ],
+        "render_contract": "Leave learner-machine edges blank. Print the explicit bad machine only for task2, after task1 workspace; double circles or stars distinguish acceptance without color."
+      },
+      "index_gate": "Follow labeled arrows; remainders; compare histories using common futures."
+    },
+    {
+      "id": "AP-09",
+      "title": "Two motions hiding in one machine",
+      "core_gate": "ALGEBRA: signed displacement coordinates, linear force formulas, proportional pairs and factorization. The complete static force-pattern classification is a real stop; paper movement alone is not the whole result.",
+      "extension_gate": "CALCULUS: differentiate cosine twice and verify a two-component ODE. Exact nonrepetition additionally uses the irrationality of √3 and cosine’s period.",
+      "reading": "Two coordinates measured from separate equilibrium marks; read short formulas for force. A facilitator should demonstrate that both positive displacements point right.",
+      "materials": "Paper mass markers on two parallel displacement axes; supplied wall–spring–mass–spring–mass–spring–wall diagram; pencil/ruler; calculator optional. No physical spring apparatus required.",
+      "prep_minutes": 10,
+      "timing": "0–10 explore the supplied objects; 10–15 rehearse exact rules; 15–35 investigate page 1; 35–40 move/reset; 40–55 choose a certificate or new representation; 55–60 explain one result. Pages 2–3 can be a second meeting; no requirement to complete the packet in one hour.",
+      "launch": "Choose a pair of displacements. When does the restoring-force pair point exactly opposite the displacement pair, without changing their relative shape?",
+      "satisfying_stop": "Classify the two force patterns and uniquely decompose any initial displacement. With calculus, verify the motion and explain why two periodic modes can combine into a motion with no exact common repeat.",
+      "prior_use": "AP-10 also uses spring laws, but studies static effective stiffness. Trial AP-07 studies a numerical recurrence, not exact coupled motion. No earlier coupled-mode sheet is documented.",
+      "assessment": "Promising with algebra; specialist continuation with calculus. The classification and sum/difference coordinates give a strong mathematical payoff. Keep temporal frequencies and recurrence claims behind the calculus gate.",
+      "mathematical_connection": "Normal modes diagonalize a coupled linear system. With unit masses and three unit Hookean springs, x″=−Kx for K=[[2,−1],[−1,2]]. Algebra finds eigendirections; differentiation verifies their oscillations.",
+      "sources": [
+        {
+          "title": "David Tong, Classical Dynamics",
+          "url": "https://davidtong.org/teaching/classical-dynamics/dynhtml/S2",
+          "locator": "Tong, Classical Dynamics §2.6 Small Oscillations and Stability; neighboring examples of normal-mode diagonalization.",
+          "adaptation": "Uses the general normal-mode framework. The two-unit-mass worksheet, full shape classification, nonrepeat proof and retuned middle spring are independently derived for the stated matrix.",
+          "checked": "Reopened Tong’s author-hosted section, inspected the small-oscillation/eigenmode setup. Matrix identities and decompositions checked exactly; time formulas checked analytically in the key, not inferred from numerical plots."
+        }
+      ],
+      "pages": [
+        {
+          "title": "Which shapes pull straight back?",
+          "gate": "Algebra for force modes; calculus for oscillation and exact nonrepetition.",
+          "intro": "Two equal unit masses move horizontally between fixed walls. All three springs have stiffness 1. Displacements x₁,x₂ are measured from each mass’s own rest mark; positive is right for BOTH. The ideal force law is F₁=−2x₁+x₂, F₂=x₁−2x₂. Ignore friction and assume the linear spring law.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Choose three nonzero displacement pairs. Draw each pair and its force pair. Try to find a pair whose force is a NEGATIVE multiple of the whole displacement pair. Find a second essentially different shape.",
+              "solution": "Many trials. Equal pairs (a,a) have force (−a,−a)=−1 times the pair. Opposite pairs (a,−a) have force (−3a,3a)=−3 times the pair. Scaling or sign-reversing a pair does not create a new direction. A contrasting trial (1,0) gives(−2,1), not proportional. Require both coordinates to share the same multiplier.",
+              "hints": [
+                "Equal displacement leaves the middle spring unchanged; opposite displacement changes it."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Can a third shape work? Give a complete algebraic reason, not just more tested pairs. Exclude the zero pair when discussing a shape.",
+              "solution": "For x=(u,v), proportionality requires u F₂−v F₁=0. Substitution gives u(u−2v)−v(−2u+v)=u²−v²=(u−v)(u+v). Thus u=v or u=−v. For nonzero pairs these indeed give negative factors −1 and −3, so there are exactly two eigendirections. The zero pair has no distinguished direction and is explicitly excluded.",
+              "hints": [
+                "Two vectors in the plane are parallel exactly when their 2×2 determinant is zero."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "A different pair of coordinates",
+          "gate": "Algebra for force modes; calculus for oscillation and exact nonrepetition.",
+          "intro": "Now use the two shapes you found as building blocks. Add displacement pairs coordinate by coordinate; this is a mathematical decomposition, not two separate physical copies of the masses.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Build the displacement (3,1) from one equal-motion piece and one opposite-motion piece. Then do it for a pair (u,v) of your choosing. Why is the decomposition unique?",
+              "solution": "(3,1)=2(1,1)+1(1,−1). Generally u=a+b,v=a−b, hence a=(u+v)/2,b=(u−v)/2. These formulas give existence and uniqueness for every real pair. A learner’s chosen numerical pair is checked by adding the two contributions back.",
+              "hints": [
+                "Add and subtract the two coordinate equations."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Define S=x₁+x₂ and D=x₁−x₂. Express F₁+F₂ and F₁−F₂ using S,D. What interaction disappeared in these coordinates?",
+              "solution": "F₁+F₂=−(x₁+x₂)=−S; F₁−F₂=−3(x₁−x₂)=−3D. The force sum depends only on S, and the force difference only on D; each new coordinate has its own scalar restoring factor. Without calculus this is an exact algebraic decoupling, not yet a statement about time.",
+              "hints": [
+                "Collect the coefficients of x₁ and x₂ before naming the result."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Can periodic pieces fail to repeat together?",
+          "gate": "Calculus, cosine periods, irrationality; ODE uniqueness may be supplied.",
+          "intro": "CALCULUS continuation. Unit mass means acceleration equals force. Release from x(0)=(3,1) with both initial velocities 0. A scalar motion A cos(ωt) has second derivative −ω²A cos(ωt). Use radians.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Use your decomposition to propose the two mass positions x₁(t),x₂(t). Verify both force equations and all four initial conditions by differentiation.",
+              "solution": "x(t)=2 cos(t)(1,1)+cos(√3t)(1,−1), so x₁=2 cos t+cos(√3t),x₂=2 cos t−cos(√3t). Differentiating twice gives x₁″=−2 cos t−3 cos(√3t),x₂″=−2 cos t+3 cos(√3t), exactly −2x₁+x₂ and x₁−2x₂. At 0 the positions are 3,1 and both sine-based velocities vanish. Standard uniqueness for a linear ODE may be supplied to identify this verified solution as the actual ideal-model motion.",
+              "hints": [
+                "Each shape keeps its own coefficient but acquires the frequency whose square is its restoring factor."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Each mode is periodic. Can the combined system return EXACTLY to its starting positions at a positive time? Distinguish an exact proof from a plot that looks close.",
+              "solution": "Starting positions require S=4 and D=2 again, so cos T=1 and cos(√3T)=1. Thus T=2πm and √3T=2πn for positive integers m,n, implying √3=n/m, impossible. Therefore there is no positive exact return to the initial positions (and hence no full-state period). Approximate near-returns can occur; no finite plot proves or disproves the exact statement. Irrationality of √3 may be supplied or proved by the usual divisibility contradiction.",
+              "hints": [
+                "What must BOTH mode coefficients equal for the original pair to return?"
+              ]
+            },
+            {
+              "id": "7",
+              "text": "Change only the middle spring stiffness to k>0. Choose k so that the opposite mode completes exactly TWO cycles while the equal mode completes ONE. Show that the combined motion then repeats.",
+              "solution": "The force matrix has equal-mode factor 1 and opposite-mode factor 1+2k. Frequency ratio 2 requires √(1+2k)=2, hence k=3/2. Both modal cosines repeat after 2π because their frequencies are 1 and 2; derivatives do too. This changes the ideal model, not merely a plotted scale.",
+              "hints": [
+                "Recompute the force of the middle spring; equal motion still leaves it unstretched."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "For which positive k does the opposite mode finish an integer number m of cycles in one equal-mode cycle?",
+          "solution": "√(1+2k)=m, so k=(m²−1)/2 with integer m≥2. More generally any rational frequency ratio greater than 1 gives a common period, while an irrational ratio and two nonzero amplitudes prevent exact joint recurrence to this released state. The ratio criterion assumes the specified ideal linear system.",
+          "gate": "Calculus/trigonometry and rational versus irrational frequency ratios."
+        }
+      ],
+      "figures": {
+        "spring_layout": {
+          "rest_positions": {
+            "left_wall": 0,
+            "mass1": 2,
+            "mass2": 4,
+            "right_wall": 6
+          },
+          "stiffnesses": [
+            1,
+            1,
+            1
+          ],
+          "displacement_axes": "two separate aligned−3to3numberlines with their own0; right is positive"
+        },
+        "force_formula": [
+          "−2x₁+x₂",
+          "x₁−2x₂"
+        ],
+        "vector_trial_boards": 3,
+        "mode_building_workspace": "Two blank vector-pair boxes plus sum arrow; do not label equal/opposite as the only answers before task2.",
+        "initial_position": [
+          3,
+          1
+        ],
+        "initial_velocity": [
+          0,
+          0
+        ],
+        "optional_mode_graph": {
+          "t_range": [
+            0,
+            12
+          ],
+          "student_curves": "blank coordinate axes; plotting is exploration, never the exact recurrence proof"
+        }
+      },
+      "index_gate": "Algebra for force modes; calculus for oscillation and exact nonrepetition."
+    },
+    {
+      "id": "AP-10",
+      "title": "Add a spring: softer or stiffer?",
+      "core_gate": "Fractions and algebra with F=kx; distinguish shared force from shared extension. Proving completeness for three springs requires structural cases, not calculus.",
+      "extension_gate": "Series-parallel recursive constructions and reciprocal duality. Continuum elasticity, material failure and non-series-parallel networks remain outside this core.",
+      "reading": "Spring diagrams with fixed walls, massless connectors and rigid guided bars; labels F,k,x. Explain the physical connection constraints before arithmetic.",
+      "materials": "Printed spring pieces labeled k=2,k=6 and three pieces k=1; blank two-terminal network frames; force and extension tags; pencil. A physical elastic demonstration is optional and does not certify Hooke’s law.",
+      "prep_minutes": 10,
+      "timing": "0–10 explore the supplied objects; 10–15 rehearse exact rules; 15–35 investigate page 1; 35–40 move/reset; 40–55 choose a certificate or new representation; 55–60 explain one result. Pages 2–3 can be a second meeting; no requirement to complete the packet in one hour.",
+      "launch": "Two springs can be joined end-to-end or side-by-side. Predict which arrangement stretches more under the same total load, then design a connection that reaches a target response.",
+      "satisfying_stop": "Explain the series/parallel reversal from compatibility and force balance; classify all three-unit-spring responses and certify an impossible target, then construct it with four.",
+      "prior_use": "AP-09 shares the linear spring model but studies coupled motion. Electrical resistor networks have related algebra; cross-link the representation instead of counting a relabeled network as unrelated content.",
+      "assessment": "First-pilot candidate for an algebra-ready group. The complete four-response classification and series/parallel duality make this more than substituting into two formulas. Younger exploration of hardware alone is not advertised as the full mathematical result.",
+      "mathematical_connection": "Finite ideal elastic networks: constitutive equations plus connection constraints determine effective stiffness. Series-parallel composition has an exact reciprocal symmetry for unit springs.",
+      "sources": [
+        {
+          "title": "Allan Bower, Applied Mechanics of Solids",
+          "url": "https://solidmechanics.org/Text/Chapter3_2/Chapter3_2.php",
+          "locator": "Bower, Applied Mechanics of Solids §3.2, linear elastic constitutive assumptions; finite spring laws derived in the worksheet.",
+          "adaptation": "Uses linear-elastic model discipline. Series/parallel compatibility, all three-spring responses and reciprocal duality are derived directly, not claimed as a theorem printed in this continuum section.",
+          "checked": "Reopened the author-hosted linear-elastic section. Independently solved force/extension equations and exhaustively generated all recursive three- and four-spring stiffness values with exact fractions."
+        }
+      ],
+      "pages": [
+        {
+          "title": "What is shared?",
+          "gate": "Algebra: force/extension equations, fractions and recursive networks.",
+          "intro": "Ideal spring A has F=2x; spring B has F=6x. Compare END-TO-END with SIDE-BY-SIDE between common rigid guided bars. Connectors are massless, motion is along the springs, and the load is static. Apply total force 6. The bars in the side-by-side drawing translate without rotating.",
+          "prompts": [
+            {
+              "id": "1",
+              "text": "Predict which arrangement extends farther. Draw force and extension labels on EACH spring, then solve. Which quantity must be equal in the two springs for each arrangement?",
+              "solution": "End-to-end shares force 6: extensions 3 and 1 sum to 4. Side-by-side shares extension x: forces 2 x and 6 x sum to 6, giving x=3/4; branch forces are 3/2 and 9/2. Equal extension follows from common translating bars; equal force in series follows from balance at the massless internal connector. The diagram’s constraints, not visual resemblance alone, decide what is shared.",
+              "hints": [
+                "Separate each spring as a free body; at a connector the forces must balance."
+              ]
+            },
+            {
+              "id": "2",
+              "text": "Someone gives each side-by-side spring half the total force. Show exactly what fails. Then explain how adding a spring can make a system either softer or stiffer.",
+              "solution": "Force 3 on A requires extension 3/2; force 3 on B requires 1/2. Those unequal extensions contradict the rigid common guided bars. For general positive k₁,k₂, parallel stiffness k₁+k₂ exceeds either, whereas series stiffness k₁k₂/(k₁+k₂) is less than either. Under a fixed total force, larger stiffness means smaller extension. These are ideal static statements, not universal rubber-band behavior.",
+              "hints": [
+                "Check compatibility as well as the total force."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "How many three-spring responses exist?",
+          "gate": "Algebra: force/extension equations, fractions and recursive networks.",
+          "intro": "Now use EXACTLY THREE identical springs, each k=1. A permitted network starts with single springs and repeatedly joins two disjoint smaller networks either in SERIES (end-to-end) or PARALLEL (between common guided bars). Use every spring once; no other connections are allowed. Mirrored drawings count as the same construction type.",
+          "prompts": [
+            {
+              "id": "3",
+              "text": "Build as many different responses as you can. For each, find the total extension under force 6. Compare different-looking drawings that give the same result.",
+              "solution": "The four possible effective stiffnesses are 3 (all parallel),1/3 (all series),3/2 (one spring parallel to a two-spring series branch),2/3 (one spring in series with a two-spring parallel pair). Their force 6 extensions are 2,18,4,9 respectively. Permuting identical springs or reparenthesizing all-series/all-parallel does not create a new response. The key provides four worked AST/network drawings after learner attempts.",
+              "hints": [
+                "At your final join, one subnetwork has one spring and the other has two."
+              ]
+            },
+            {
+              "id": "4",
+              "text": "Prove your list of possible responses is complete. Is total extension 6 under force 6 possible with exactly these three springs? If not, give a certificate covering EVERY permitted network.",
+              "solution": "The final join is S or P, splitting three leaves into 1 and 2. The two-spring part is S(1,1) or P(1,1), with stiffness 1/2 or 2. Root S gives 1/3 or 2/3; root P gives 3/2 or 3. These exhaust the two final-join choices times two child choices, after branch exchange. None equals 1, which would be needed for extension 6 under force 6; the target is impossible within the explicitly restricted class. No claim is made about networks with extra rigid paths or other constitutive laws.",
+              "hints": [
+                "Classify the last connection, not every possible drawing separately."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Turn a design into its reciprocal",
+          "gate": "Algebra: force/extension equations, fractions and recursive networks.",
+          "intro": "A dual design swaps EVERY series join for a parallel join, and every parallel join for a series join; each unit spring stays a unit spring. Use the four verified three-spring designs as your first experiments.",
+          "prompts": [
+            {
+              "id": "5",
+              "text": "Pair each three-spring design with its dual. What happens to stiffness and to extension under unit force? Explain from the two combination rules.",
+              "solution": "All-series 1/3 pairs with all-parallel 3. S(1,P(1,1)) has 2/3 and pairs with P(1,S(1,1)) of 3/2. In every case dual stiffness is reciprocal. Inductive proof: if dual subnetwork stiffnesses are 1/a,1/b, a series parent has ab/(a+b), and the dual parallel parent has 1/a+1/b=(a+b)/(ab); a parallel parent a+b duals to series (1/a)(1/b)/(1/a+1/b)=1/(a+b). The single unit spring is the base case. Under unit load extension is 1/k, so original and dual extension values also reciprocate.",
+              "hints": [
+                "Apply the claim to the two pieces before the final join."
+              ]
+            },
+            {
+              "id": "6",
+              "text": "Use EXACTLY FOUR unit springs to achieve extension 6 under force 6. Find two visibly different arrangements and certify both. Explain why this does not contradict your three-spring impossibility proof.",
+              "solution": "S(P(1,1),P(1,1)) has two stiffness 2 blocks in series, giving 1. P(S(1,1),S(1,1)) has two stiffness 1/2 branches in parallel, also giving 1. Thus both extend 6 under force 6 and are dual to each other. The earlier exhaustive proof assumed exactly three leaves; changing that resource count changes the permitted construction set.",
+              "hints": [
+                "Try making two identical two-spring blocks, then join the blocks the other way."
+              ]
+            }
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "prompt": "Can the reciprocal proof work if individual springs have arbitrary positive stiffness?",
+          "solution": "Yes if dualization ALSO replaces each leaf stiffness k by 1/k. The same inductive combination identities apply. Swapping joins alone while leaving arbitrary nonunit leaf stiffnesses unchanged does not generally reciprocate the response. This distinguishes a theorem’s base case from its recursive step.",
+          "gate": "Algebraic induction on a recursively defined network."
+        }
+      ],
+      "figures": {
+        "two_spring_arrangements": {
+          "series": {
+            "ast": [
+              "S",
+              "A",
+              "B"
+            ],
+            "stiffness": {
+              "A": 2,
+              "B": 6
+            },
+            "load": 6
+          },
+          "parallel": {
+            "ast": [
+              "P",
+              "A",
+              "B"
+            ],
+            "stiffness": {
+              "A": 2,
+              "B": 6
+            },
+            "load": 6
+          }
+        },
+        "diagram_contract": "S joins spring/network end to end through a massless connector. P has two branches between a fixed bar and a rigid bar constrained to translate without rotating. Mark the total force at the terminal, not independently on each branch. Rest lengths may be chosen to fit the drawing; x denotes extension from each network’s own rest length.",
+        "student_three_spring_frames": "Open unpartitioned trial area; do not cue the number of possible responses.",
+        "key_three_asts": [
+          [
+            "P",
+            1,
+            [
+              "P",
+              1,
+              1
+            ]
+          ],
+          [
+            "S",
+            1,
+            [
+              "S",
+              1,
+              1
+            ]
+          ],
+          [
+            "P",
+            1,
+            [
+              "S",
+              1,
+              1
+            ]
+          ],
+          [
+            "S",
+            1,
+            [
+              "P",
+              1,
+              1
+            ]
+          ]
+        ],
+        "four_spring_key_asts": [
+          [
+            "S",
+            [
+              "P",
+              1,
+              1
+            ],
+            [
+              "P",
+              1,
+              1
+            ]
+          ],
+          [
+            "P",
+            [
+              "S",
+              1,
+              1
+            ],
+            [
+              "S",
+              1,
+              1
+            ]
+          ]
+        ],
+        "student_ast_answers_hidden_until_key": true
+      },
+      "index_gate": "Algebra: force/extension equations, fractions and recursive networks."
+    }
+  ]
+}

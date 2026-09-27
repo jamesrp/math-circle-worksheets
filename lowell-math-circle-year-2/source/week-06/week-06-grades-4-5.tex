@@ -1,0 +1,30 @@
+\documentclass[12pt]{article}
+\def\activityid{F06-U-v2}\input{common.tex}
+\hypersetup{pdftitle={Week 6: grades-4-5}}
+\begin{document}
+\PageTitle{GRADES 4--5}{Build a guaranteed code breaker}\NameLine
+\RuleBox{Two colors: R and B. Repeats allowed. A test earns one point for each color in the correct position. You hear \textbf{only the total}, not which positions match.}\Task{1. Play four places.}{Try a hidden code. Then build a method that always identifies it in at most \textbf{four scored tests}. You may name the answer without paying for a final test.}
+\begin{center}\renewcommand{\arraystretch}{2}\begin{tabular}{c|p{2.2in}|p{.7in}|p{1.5in}}Test&My code&Score&Still possible\\\hline 1&&&\\2&&&\\3&&&\\4&&&\end{tabular}\end{center}
+\Task{2. Explain a baseline method.}{Test \Code{RRRR}. Then separately change place 1, place 2, and place 3 to B, keeping every other place R. Explain how the fourth place is recovered.}
+\WriteBox{What each score change tells me, and why the method covers every secret:}{1.05in}
+\textbf{A real optimization question:} Four tests are enough. Could a cleverer, adaptive method always manage three? On the next page, play the role of a difficult secret maker.\StudentFooter
+\newpage
+\PageTitle{GRADES 4--5}{The secret maker fights back}\NameLine
+\RuleBox{Two colors: R and B. Repeats allowed. A test earns one point for each color in the correct position. You hear \textbf{only the total}, not which positions match.}\Task{3. Make the first answer difficult.}{After \Code{RRRR}, answer 2. These are the six possible secrets. Group them by their score for each proposed second test.}
+\begin{center}\large\Code{BBRR}\quad\Code{BRBR}\quad\Code{BRRB}\par\Code{RBBR}\quad\Code{RBRB}\quad\Code{RRBB}\end{center}
+\begin{center}\renewcommand{\arraystretch}{2}\begin{tabular}{c|p{1.65in}|p{1.65in}|p{1in}}Second test&Score groups&Largest group&Its size\\\hline BRRR&&&\\BBRR&&&\\BBBR&&&\\BBBB&&&\end{tabular}\end{center}
+\Task{4. Only one test remains.}{For \Code{BRRR}, let the answer leave three candidates. Can one last test separate those three? For \Code{BBRR}, let the answer leave four candidates. Can one last test separate those four?}
+\WriteBox{Try final tests; explain why each difficult branch defeats them.}{.65in}
+\textbf{Three-secret hint:} Use \Code{BBRR}, \Code{BRBR}, \Code{BRRB}. Which position is fixed? What is the only feature that changes? A test asks whether the moving B falls in one of its B positions. How many scores can that give?
+
+\textbf{Four-secret hint:} All six original candidates contain exactly two Bs. How many scores can one test produce on them? Is that enough to separate four candidates?\StudentFooter
+\newpage
+\PageTitle{GRADES 4--5}{Turn the experiment into a proof}\NameLine
+\Task{5. Cover every possible second test.}{Second tests have 0, 1, 2, 3, or 4 Bs. Changing position names does not change the problem. Swapping every R and B in a test replaces its score by \(4-\text{score}\). Use those facts to explain why the cases on page 2 cover everything.}
+\WriteBox{Why one or three Bs leaves a hard three-secret branch:}{1.1in}
+\WriteBox{Why two Bs leaves a hard four-secret branch:}{1.1in}
+\Task{6. What about a different first test?}{Rename the two colors separately at selected positions, in both every secret and every test. Can you turn any first test into \Code{RRRR} without changing which places match?}
+\WriteBox{My conclusion: the smallest guaranteed number of tests, and why:}{1in}
+\RuleBox{A short method proves an \textbf{upper bound}. A difficult branch that defeats every shorter method proves a \textbf{lower bound}. When they meet, we know the optimum.}
+\textbf{Go further:} Must five places need five tests? The extra page contains a surprise.\StudentFooter
+\end{document}

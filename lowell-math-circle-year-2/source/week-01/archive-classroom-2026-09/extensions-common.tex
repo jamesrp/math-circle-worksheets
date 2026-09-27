@@ -1,0 +1,9 @@
+\input{common.tex}
+\newcommand{\ExtensionTitle}[2]{{\fontsize{10}{12}\selectfont\bfseries WEEK 1\quad BACK-POCKET CHALLENGES\hfill #1\par}\vspace{3pt}{\fontsize{26}{29}\selectfont\bfseries #2\par}\vspace{2pt}}
+\newcommand{\Word}[1]{\texttt{#1}}
+\newcommand{\WalkGraph}{\begin{tikzpicture}[x=1.10in,y=.58in,every node/.style={font=\small}]
+\foreach \name/\x/\y in {A/0/0,B/1/0,C/2/1,D/2/-1,E/3/0,F/4/0}{\node[circle,draw,minimum size=25pt,font=\bfseries](\name)at(\x,\y){\name};}
+\draw (A)--node[above]{1}(B) (B)--node[above left]{2}(C) (B)--node[below left]{3}(D) (C)--node[above right]{3}(E) (D)--node[below right]{2}(E) (E)--node[above]{4}(F);
+\end{tikzpicture}}
+\newcommand{\RowPicture}{\begin{tikzpicture}[x=.23in,y=.23in]\fill[black!18](0,2)rectangle(2,3);\fill[black!18](0,1)rectangle(1,2);\draw[step=1,black!50](0,0)grid(3,3);\node[right]at(3.1,2.5){2};\node[right]at(3.1,1.5){1};\node[right]at(3.1,.5){0};\end{tikzpicture}}
+\input{extensions-geometry.tex}

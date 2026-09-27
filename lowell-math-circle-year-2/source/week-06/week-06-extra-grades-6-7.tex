@@ -1,0 +1,15 @@
+\documentclass[12pt]{article}
+\def\activityid{F06-X-v2}\input{common.tex}
+\hypersetup{pdftitle={Week 6: extra-grades-6-7}}
+\begin{document}
+\PageTitle{EXTRA / GRADES 6--7}{Five places, only four tests}\NameLine
+\RuleBox{Write R as 0 and B as 1. A score still counts correct \textbf{positions}. Choose all tests in advance: \Code{00000}, \Code{00011}, \Code{00101}, \Code{01001}.}
+\Task{1. Decode a real example.}{These four tests score 2, 2, 2, 0 in that order. Find the secret. Verify every score.}
+\WriteBox{Secret and check:}{.65in}
+\Task{2. Why could this always work?}{Let the secret be \(x_1x_2x_3x_4x_5\), with each \(x_i\) equal to 0 or 1. The first score tells the total number of 1s. What does changing two test positions from 0 to 1 tell you?}
+\WriteBox{Relate the score changes to these sums: \(x_4+x_5,\ x_3+x_5,\ x_2+x_5\).}{.7in}
+\Task{3. The only tricky case.}{A pair-sum of 0 or 2 forces both bits. What if all three pair-sums are 1? Try \(x_5=0\) and \(x_5=1\). Can they have the same total number of 1s, even after you choose \(x_1\)?}
+\WriteBox{Why the four answers identify every possible secret:}{.75in}
+\textbf{A geometric translation:} Join binary words that differ in one position. Distance is the number of mismatches, so distance = 5 minus score. These four test words are landmarks that distinguish all 32 vertices of a five-dimensional cube.
+\StudentFooter
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass[12pt]{extarticle}
+\def\activityid{F03-U-v2}\input{common.tex}
+\begin{document}
+
+\PageTitle{GRADES 4--5 / 1}{How long until every letter returns?}\NameLine
+\RuleBox{A substitution key uses A, B, C, D, E once each as inputs and once each as outputs. Apply the key to every letter \textbf{simultaneously}. Repeat the same key each turn.}
+\begin{center}\renewcommand{\arraystretch}{1.55}\begin{tabular}{c|ccccc}Input&A&B&C&D&E\\\hline Output&B&C&A&E&D\end{tabular}\end{center}
+\Task{1. Test this machine.}{Start with ABCDE. Record successive messages until the \textbf{entire} message first returns. Draw the arrow loops separately.}
+\begin{center}\renewcommand{\arraystretch}{1.45}\begin{tabular}{c|p{2in}||c|p{2in}}Turn&Message&Turn&Message\\\hline 0&ABCDE&4&\\1&&5&\\2&&6&\\3&&7&\end{tabular}\end{center}
+\WriteBox{The loops, and why their clocks must agree:}{.95in}
+\Task{2. Make it slower.}{Can a different five-letter key take longer to return? A five-letter loop is one candidate. Try several keys; keep a record of the loop sizes.}
+\WriteBox{My best key, its loops, and its return time:}{1.0in}
+\StudentFooter
+\newpage
+\PageTitle{GRADES 4--5 / 2}{Prove the best is best}
+\Task{3. Replace a huge list by a small one.}{Cover the table first. Arrange your five letter cards into loops, working by largest loop: 5, then 4, then 3, then 2, then 1. List how the remaining cards can split without a larger loop. Uncover and compare. A fixed letter is a loop of size 1; rearranging sizes gives no new case.}
+\begin{center}\renewcommand{\arraystretch}{1.75}\begin{tabular}{p{2.2in}|p{2.5in}}Loop sizes&First common return time\\\hline 5&\\4 + 1&\\3 + 2&\\3 + 1 + 1&\\2 + 2 + 1&\\2 + 1 + 1 + 1&\\1 + 1 + 1 + 1 + 1&\end{tabular}\end{center}
+\Task{4. Explain the classification.}{Why does following arrows eventually bring a letter back to \textbf{itself}, rather than merge into another loop? Where does using each output once matter? Why does your largest-loop list omit no possible split?}
+\WriteBox{Why all keys are covered, and the largest return time:}{1.1in}
+\textbf{A useful language:} A loop of size 3 returns on turns 3, 6, 9, \ldots. The whole key returns at the first turn that is a multiple of \emph{every} loop size. Mathematicians call this the least common multiple.
+\StudentFooter
+\newpage
+\PageTitle{GRADES 4--5 / 3}{Does the order of two keys matter?}
+\RuleBox{Key P swaps A and B and leaves C, D, E alone. Key Q swaps B and C and leaves A, D, E alone. ``P then Q'' means apply P first, then Q to its output.}
+\Task{5. Compare two pipelines.}{Start with ABCDE each time. Try P then Q. Reset and try Q then P. Do they agree? One differing letter is enough to disprove agreement.}
+\begin{center}\renewcommand{\arraystretch}{1.8}\begin{tabular}{l|p{1.8in}|p{1.8in}}&After first key&After second key\\\hline P then Q&&\\Q then P&&\end{tabular}\end{center}
+\WriteBox{An arrow picture explaining the difference:}{.95in}
+\Task{6. Repeat the entire pipeline.}{P alone returns in two turns; so does Q. If a turn is now \textbf{P then Q}, how many turns until everything returns? Find its loops.}
+\WriteBox{My answer and a loop proof:}{1in}
+\textbf{Go further:} Make two different nonidentity keys whose order \emph{does not} matter. What if they move completely separate sets of letters? Can you undo P then Q using the same two keys?
+\StudentFooter
+
+\end{document}

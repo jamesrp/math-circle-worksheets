@@ -1,0 +1,469 @@
+[
+  {
+    "id": "GA-18",
+    "title": "Which constant best represents a whole landscape?",
+    "msc_primary": "46",
+    "msc_secondary": [
+      "41",
+      "49"
+    ],
+    "adult_question": "How does a choice of distance between functions change the meaning of best approximation?",
+    "anchor": "For f=0 on [0,3/4) and f=4 on [3/4,1], its squared L² distance to constant c is (3/4)c²+(1/4)(4−c)²=(c−1)²+3. Thus c=1 uniquely minimizes this distance.",
+    "source": [
+      {
+        "title": "Sheldon Axler, Measure, Integration & Real Analysis",
+        "url": "https://measure.axler.net/MIRA.pdf",
+        "locator": "§8B, orthogonal projection; 8.34 and 8.43",
+        "checked": "Projection definitions and characterization inspected; step-function calculation supplied"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "A step-function space with weighted squared distance is an exact finite-dimensional subspace of L²[0,1]; constant approximation is orthogonal projection.",
+      "limits": "This example does not prove infinite-dimensional projection existence, completeness, or general Banach-space behavior."
+    },
+    "gates": {
+      "entry": "F/V: compare the widths and heights of two rectangular pieces.",
+      "explore": "A: square discrepancies and combine weighted costs.",
+      "explain": "P/A: complete the square to prove global optimality.",
+      "prove": "I/X: interpret the cost as an L² integral and extend to Hilbert spaces.",
+      "reading": "Short labels and a cost rule; a recorder can handle algebra.",
+      "arithmetic": "Quarters, squares, signed differences.",
+      "reasoning": "Keep width weights: a small high region must not count equally with a wide low region.",
+      "hard_stop": "General function-space conclusions require norms, integrals, and completeness."
+    },
+    "materials": "A unit-width profile with height zero over three quarters and height four over one quarter; movable horizontal line.",
+    "prep_minutes": 8,
+    "launch": "Replace this two-level landscape by one flat height. Each part charges its width times the square of its vertical error. Choose a replacement that costs least. Then change the rule to charge only the largest error.",
+    "choices": "Choose candidate heights, compare cost rules, and redesign the widths to favor a different answer.",
+    "session": "0–10 inspect and approximate the landscape; 10–15 define the weighted squared cost; 15–35 optimize by trials and algebra; 35–40 reset; 40–55 compare maximum error or derive a general weighted mean; 55–60 state which definition of best was used.",
+    "questions": [
+      "Why should the wide low region matter more?",
+      "Can the same constant win under two different error rules?"
+    ],
+    "hints": [
+      "Write the two rectangular contributions separately.",
+      "Expand the total and try to complete one square."
+    ],
+    "example": {
+      "problem": "Find the squared-error best constant and the maximum-error best constant.",
+      "solution": "The squared-error cost is c²−2c+4=(c−1)²+3, so c=1 uniquely gives the minimum three. Under maximum error, the cost is max(|c|,|4−c|), at least two by the triangle inequality 4≤|c|+|4−c|. Height c=2 attains two and is the unique minimizer. Thus different legitimate distances select different flat representatives.",
+      "boundary": "Using the unweighted average of the two displayed heights gives two, which ignores their unequal widths and fails for squared error. Requiring exact equality to the profile has no constant solution."
+    },
+    "extensions": [
+      "For heights a,b occupying proportions p and 1−p, derive c=pa+(1−p)b.",
+      "Explain orthogonality: the residual f−1 has integral zero, so its inner product with every constant vanishes."
+    ],
+    "satisfying_stop": "An optimal constant with a completed-square certificate and a second optimum under another distance.",
+    "prior_use": "GA-13 minimizes uniform error for a parabola; this changes both the space and the error geometry rather than repeating the same fit.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "GA-19",
+    "title": "A tiny graph with a large derivative",
+    "msc_primary": "47",
+    "msc_secondary": [
+      "26",
+      "65"
+    ],
+    "adult_question": "Can a transformation amplify arbitrarily small input errors, and why does the chosen norm matter?",
+    "anchor": "Differentiation D:C¹[0,1]→C[0,1] is unbounded when both spaces use the supremum norm. The polynomials f_n(x)=x^n/n have norm 1/n while Df_n=x^(n−1) has norm one.",
+    "source": [
+      {
+        "title": "Sheldon Axler, Measure, Integration & Real Analysis",
+        "url": "https://measure.axler.net/MIRA.pdf",
+        "locator": "Chapter 10, bounded linear maps and operator norms",
+        "checked": "Definitions inspected; unbounded-differentiation witness supplied"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "The input objects are actual functions and differentiation is a linear operator; supremum discrepancy measures their size.",
+      "limits": "This establishes one unbounded operator between specified normed spaces, not a general theorem about spectra or numerical differentiation."
+    },
+    "gates": {
+      "entry": "A/D: polynomial functions and the power rule.",
+      "explore": "V: compare graphs on one fixed scale and inspect endpoint slopes.",
+      "explain": "P: use a parameter n to defeat any proposed amplification bound.",
+      "prove": "P/L: definition of a bounded linear operator.",
+      "reading": "Symbolic formulas; graph explanations can precede notation.",
+      "arithmetic": "Powers, reciprocals, and inequalities.",
+      "reasoning": "Do not change the graph scale secretly; separate visual height from derivative height.",
+      "hard_stop": "Without derivatives, observations remain motivation. Infinite-dimensional spectral theory is a separate hard stop."
+    },
+    "materials": "Graph paper with a fixed vertical scale, polynomial cards n=1,2,5,10, and optional plotting software.",
+    "prep_minutes": 5,
+    "launch": "Design a function that stays extremely close to zero but whose derivative is at least one somewhere. Your opponent proposes a universal multiplier C between graph size and derivative size. Can your function break that promise?",
+    "choices": "Choose n, an error budget, and a claimed bound; test alternative function families.",
+    "session": "0–10 compare low-degree graphs; 10–15 define both supremum sizes; 15–35 challenge bounds using polynomials; 35–40 reset; 40–55 prove unboundedness or change the norm; 55–60 state exactly what failed.",
+    "questions": [
+      "Where is x^n largest on [0,1]?",
+      "What happens if we measure the derivative as part of input size?"
+    ],
+    "hints": [
+      "Divide x^n by n.",
+      "Choose n larger than the opponent's proposed constant."
+    ],
+    "example": {
+      "problem": "Find a polynomial with maximum height at most 1/100 and derivative equal to one at x=1.",
+      "solution": "Take f(x)=x^100/100. For 0≤x≤1, its height is between zero and 1/100. Its derivative is x^99, equaling one at x=1. More generally ||Df_n||∞/||f_n||∞=n, so for any fixed C choose an integer n>C and the inequality ||Df||∞≤C||f||∞ fails. The sequence f_n tends uniformly to zero while its derivatives do not tend uniformly to zero.",
+      "boundary": "With input norm ||f||∞+||f'||∞, differentiation has bound one by definition. The operator did not change; the topology used to judge small input changed."
+    },
+    "extensions": [
+      "Compare f_n=x^n with f_n=x^n/n and explain why only the second tends uniformly to zero.",
+      "Explore finite differences on a noisy table, clearly separating an error-amplification model from a proved algorithmic bound."
+    ],
+    "satisfying_stop": "One exact tiny-input witness and a parameter argument defeating every fixed bound.",
+    "prior_use": "New operator-theory family. GA-18 compares norms for optimization; here the question is continuity of a transformation.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "GA-20",
+    "title": "Save quadratic effort with a steady journey",
+    "msc_primary": "49",
+    "msc_secondary": [
+      "26"
+    ],
+    "adult_question": "Why can local changes to a whole trajectory prove that one motion minimizes a functional?",
+    "anchor": "Among continuous piecewise-C¹ paths y:[0,1]→R with y(0)=0 and y(1)=1, the cost E=∫_0^1(y′)²dt is at least one, with equality only for y(t)=t. Use a finite partition into C¹ pieces and expand ∫(y′−1)²=E−1; values of the derivative at joins do not affect the integral.",
+    "source": [
+      {
+        "title": "UCL MATH0043, Calculus of Variations",
+        "url": "https://www.homepages.ucl.ac.uk/~ucahmto/latex_html/pandoc_chapter2.html",
+        "locator": "§2, functional viewpoint and Euler–Lagrange setup",
+        "checked": "Functional setup inspected; global squared-cost proof supplied independently"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "A chosen time-position curve is the actual competitor in a variational problem; its velocity determines the defined cost.",
+      "limits": "Quadratic effort is a mathematical objective, not a claim about human metabolic energy. This proof uses more than merely stationarity."
+    },
+    "gates": {
+      "entry": "F/V: compare journeys using constant speeds on two equal time intervals.",
+      "explore": "A: square speeds and calculate weighted cost.",
+      "explain": "P/A: prove the two-speed optimum by completing a square.",
+      "prove": "D/I/P: the general continuous piecewise-C¹ path proof applies the fundamental theorem of calculus on each piece and adds.",
+      "reading": "Short schedule labels initially; symbolic integral extension.",
+      "arithmetic": "Halves, signed speeds, and squares.",
+      "reasoning": "Distinguish fixed duration, endpoint displacement, and total traveled distance; reversing is allowed.",
+      "hard_stop": "The universal result for continuous piecewise-C¹ paths needs calculus; checking finitely many schedules alone does not prove it."
+    },
+    "materials": "A unit time-position diagram, two half-time cards, speed cards, and optional string curves.",
+    "prep_minutes": 8,
+    "launch": "Reach position one from zero in one time unit. Each time segment charges its duration times speed squared. Choose your speeds and see whether rushing early and resting later can cost less than moving steadily.",
+    "choices": "Choose two-speed schedules, permit backward motion, and invent smooth challengers.",
+    "session": "0–10 act or draw varied journeys; 10–15 define the artificial cost; 15–35 optimize two-speed schedules; 35–40 reset; 40–55 prove the smooth theorem or design another objective; 55–60 share an optimality certificate.",
+    "questions": [
+      "If the first-half speed rises, what must the second-half speed do?",
+      "Why is finding a stationary trajectory insufficient by itself?"
+    ],
+    "hints": [
+      "Write the two speeds as 1+a and 1−a.",
+      "Subtract the constant speed one and square the difference."
+    ],
+    "example": {
+      "problem": "Optimize two half-time speeds and then verify y=t+a t(1−t).",
+      "solution": "The endpoint condition forces speeds 1+a and 1−a. Their cost is [(1+a)²+(1−a)²]/2=1+a², minimized only at a=0. The resulting journeys are continuous piecewise-C¹ competitors. For the smooth family y=t+a t(1−t), derivative is 1+a(1−2t); integrating its square gives 1+a²/3. For every permitted path, apply the fundamental theorem on each piece to get ∫y′=1. Thus E=1+∫(y′−1)²≥1. Equality makes the continuous squared integrand zero on each piece, so the derivative is one there. Continuity at joins and y(0)=0 then give y=t throughout.",
+      "boundary": "Minimizing total distance ∫|y'| gives many minimizers: every nondecreasing path with these endpoints has distance one. Uniqueness depends on the squared-speed objective."
+    },
+    "extensions": [
+      "Use three unequal time intervals and derive a weighted variance identity.",
+      "Change endpoints to a,b over duration T>0: the minimum is (b−a)²/T, attained by constant speed."
+    ],
+    "satisfying_stop": "A complete best-two-speed argument; calculus-ready learners may finish the global proof.",
+    "prior_use": "Week 1 optimized discrete packing; this optimizes a continuous function. It is new even though both use lower-bound-plus-construction reasoning.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "GA-21",
+    "title": "The shortest route that touches a mirror",
+    "msc_primary": "51",
+    "msc_secondary": [
+      "49"
+    ],
+    "adult_question": "How can a geometric transformation turn a constrained broken path into an unconstrained straight one?",
+    "anchor": "For A and B in the same open half-plane of a mirror line, reflecting B to B' makes |AM|+|MB|=|AM|+|MB'|. The straight crossing gives the minimum whenever it lies in the allowed mirror segment.",
+    "source": [
+      {
+        "title": "Anton Petrunin, Euclidean Plane and Its Relatives",
+        "url": "https://arxiv.org/pdf/1302.1630",
+        "locator": "§5D–F, reflection and distance; triangle-inequality framework",
+        "checked": "Reflection facts inspected; constrained instance derived directly"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "A chosen contact point determines a real Euclidean broken path; unfolding preserves its length.",
+      "limits": "The minimum for an infinite mirror need not be legal for a finite mirror. Physical light behavior is motivation, not needed for the proof."
+    },
+    "gates": {
+      "entry": "O/V: move a contact point and compare string lengths.",
+      "explore": "V/F: reflect a point and use equal triangles.",
+      "explain": "P: apply the triangle inequality to every possible contact point.",
+      "prove": "A: optional coordinate solution; calculus only for certain constrained extensions.",
+      "reading": "Oral launch; coordinate labels for exact computation.",
+      "arithmetic": "None for geometric proof; fractions and square roots for exact length.",
+      "reasoning": "Track the reflected endpoint while preserving original path lengths.",
+      "hard_stop": "Multiple obstacles or curved mirrors require new arguments; do not reuse the straight-mirror theorem blindly."
+    },
+    "materials": "Paper with A=(1,2), B=(5,4), mirror y=0 from x=0 to 4; ruler, string, and tracing paper.",
+    "prep_minutes": 10,
+    "launch": "Travel from A to B while touching the marked mirror segment exactly once at M. Choose M to make the total route shortest. Your partner may challenge your choice with any other point on the segment.",
+    "choices": "Choose and adjust M, use measurement or reflection, and shorten the mirror to test the solution.",
+    "session": "0–10 compare candidate string routes; 10–15 fix legal contact points; 15–35 discover reflection; 35–40 reset; 40–55 produce a universal proof or change the segment; 55–60 explain a certificate.",
+    "questions": [
+      "What stays equal when B is reflected?",
+      "Could the best infinite-mirror route miss the permitted segment?"
+    ],
+    "hints": [
+      "Draw B' below the mirror at the same perpendicular distance as B.",
+      "A bent path from A to B' cannot beat their straight-line distance."
+    ],
+    "example": {
+      "problem": "Find the optimal M on the specified segment and its exact route length.",
+      "solution": "B'=(5,−4). The segment from A to B' has parametrization (1+4t,2−6t), meeting y=0 at t=1/3 and M=(7/3,0), which lies in [0,4]. Its length is √(4²+6²)=2√13. Every legal route unfolds to A→M→B' and has length at least |AB'| by the triangle inequality. The exhibited crossing attains the bound, so it is globally optimal.",
+      "boundary": "If the allowed mirror ends at x=2, M=7/3 is illegal. The previous lower bound still holds, but its equality construction is unavailable; a new constrained optimization is required."
+    },
+    "extensions": [
+      "Vary A and B and express M as a weighted average of their horizontal coordinates using their heights.",
+      "For the shortened mirror, calculus or convexity proves the minimum occurs at x=2; the route then has length √5+5."
+    ],
+    "satisfying_stop": "A shortest route certified without testing every mirror point.",
+    "prior_use": "Week 9 used billiard unfolding and periodicity; this adds a continuous optimization and a finite-mirror obstruction. Avoid reusing the earlier trajectory instance.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "GA-22",
+    "title": "Split four pegs so their hulls meet",
+    "msc_primary": "52",
+    "msc_secondary": [
+      "15"
+    ],
+    "adult_question": "What tiny configuration forces an intersection between two independently chosen convex hulls?",
+    "anchor": "Any four points in R² can be partitioned into two nonempty groups whose convex hulls intersect. The core uses distinct points and analyzes convex quadrilaterals, a point inside a triangle, and collinear degeneracy.",
+    "source": [
+      {
+        "title": "Daniel Hug and Wolfgang Weil, A Course on Convex Geometry",
+        "url": "https://users.fmf.uni-lj.si/lavric/hug%26weil.pdf",
+        "locator": "§1.2, Theorem 1.2.1, Radon's theorem",
+        "checked": "Statement and proof framework inspected; planar cases supplied"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Peg subsets and stretched outlines are literal convex hulls; choosing a partition asks the exact planar Radon question.",
+      "limits": "Rubber bands show an idealized hull approximately. Four pegs do not prove the higher-dimensional theorem by experiment."
+    },
+    "gates": {
+      "entry": "O: sort four pegs into two colors and draw segments or triangular hulls.",
+      "explore": "V: recognize inside a triangle versus four convex corners.",
+      "explain": "P: explain the complete geometric case split, including collinearity.",
+      "prove": "L/P: linear dependence gives the general R^d theorem.",
+      "reading": "Oral; a partner may trace boundaries.",
+      "arithmetic": "None for the first cases; fractions for a coordinate certificate.",
+      "reasoning": "A hull of one point is that point; hulls include their boundaries.",
+      "hard_stop": "Do not assume every four-point arrangement is a convex quadrilateral."
+    },
+    "materials": "Four movable pegs or dots, two colors, thread, and a transparent grid.",
+    "prep_minutes": 8,
+    "launch": "Choose four distinct positions. Color each red or blue, using both colors, so the red convex hull and blue convex hull share a point. Challenge another group with an arrangement that seems hard.",
+    "choices": "Choose positions, partition, intersection witness, and a case missed by a proposed universal explanation.",
+    "session": "0–10 make and discuss hulls; 10–15 establish the intersection task; 15–35 challenge arrangements; 35–40 reset; 40–55 organize a proof or try three points; 55–60 explain one difficult case.",
+    "questions": [
+      "What if one peg is inside the triangle of the others?",
+      "Can three corners of a triangle always be split successfully?"
+    ],
+    "hints": [
+      "For four convex corners, try opposite corners together.",
+      "A one-peg hull is allowed."
+    ],
+    "example": {
+      "problem": "Use (0,0),(4,0),(0,4),(1,1). Find a partition and certify the intersection.",
+      "solution": "Put (1,1) alone and the other three together. Since (1,1)=1/2(0,0)+1/4(4,0)+1/4(0,4), with nonnegative coefficients totaling one, it lies in the triangular hull. More generally, if one point lies in or on the triangle of the other three, put it alone. This includes three collinear points plus one off their line: choose the middle collinear point alone. Otherwise four distinct noncollinear points form a convex quadrilateral, whose diagonal segments intersect, giving two pairs. If all four are collinear, choose an inner point alone; it lies between the extreme points in the other group. These cases cover every arrangement of four distinct points.",
+      "boundary": "For three noncollinear points, every nonempty partition is one vertex versus the opposite edge, and those hulls are disjoint. The number four is therefore necessary in the plane."
+    },
+    "extensions": [
+      "Choose five points in three dimensions and seek a partition using a tetrahedron and an interior point.",
+      "Translate intersection witnesses into two convex combinations and relate them to affine dependence."
+    ],
+    "satisfying_stop": "A successful partition for an adversarial arrangement and a proof that handles its geometric type.",
+    "prior_use": "Week 1 tilings are different convex/discrete geometry. No identical existing task was found.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "GA-23",
+    "title": "Return home with your arrow pointing somewhere new",
+    "msc_primary": "53",
+    "msc_secondary": [
+      "58"
+    ],
+    "adult_question": "How can locally straight transport around a curved surface retain a record of the route?",
+    "anchor": "On the unit sphere, parallel transport along a great-circle arc keeps the angle to its forward tangent constant. Around the positively oriented octant triangle A=(1,0,0), B=(0,1,0), C=(0,0,1), the transported tangent arrow rotates by π/2.",
+    "source": [
+      {
+        "title": "Anton Petrunin and Sergio Zamora Barrera, What Is Differential Geometry?",
+        "url": "https://arxiv.org/pdf/2012.11814",
+        "locator": "Chapters 16–17; Proposition 17.10 and octant transport example in semisolutions",
+        "checked": "Relevant transport and spherical-area discussion inspected; vector tracking supplied"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "A tangent arrow follows an explicitly defined connection along actual spherical great-circle arcs.",
+      "limits": "A hand-held arrow is approximate. General holonomy/curvature theorems need differential geometry; an arbitrary 'keep pointing north' rule is different transport."
+    },
+    "gates": {
+      "entry": "O/V: follow three great-circle arcs and keep a chosen angle to forward travel.",
+      "explore": "V: identify tangent directions along equator and meridians.",
+      "explain": "P/V: track exact coordinate directions leg by leg.",
+      "prove": "D/X: parallel transport equations and general Gauss–Bonnet.",
+      "reading": "Oral route with labeled landmarks; coordinates optional.",
+      "arithmetic": "Right angles; no length calculations in the octant proof.",
+      "reasoning": "Separate the sphere's tangent plane from surrounding three-dimensional space.",
+      "hard_stop": "Do not infer transport from compass direction alone; the legal rule must be demonstrated."
+    },
+    "materials": "A ball marked with equator, north pole, and two meridians 90° apart; a tangent arrow and route diagram. Mark A,B,C and use different colors for the forward tangent and transported arrow. Keep the arrow fixed at each corner before starting the next arc.",
+    "prep_minutes": 15,
+    "launch": "Start at A with your arrow pointing toward B. Follow the shortest arc A→B→C→A. Along each leg keep the arrow's angle to the forward tangent unchanged. When you return, compare with the original arrow without resetting it at the corners.",
+    "choices": "Choose an initial tangent direction, reverse the route, or compare a retraced route; predict before carrying the arrow.",
+    "session": "0–10 explore tangent directions on the ball; 10–15 demonstrate transport on one arc; 15–35 complete and record routes; 35–40 reset; 40–55 verify exact vectors or relate angle excess; 55–60 share the route-dependent result.",
+    "questions": [
+      "Can an arrow remain tangent while staying fixed in ordinary space?",
+      "Why is retracing an arc different from completing a triangle?"
+    ],
+    "hints": [
+      "On the equator, track the arrow that points along travel.",
+      "On B→C the x-direction stays tangent and perpendicular to travel."
+    ],
+    "example": {
+      "problem": "Transport initial vector +y from A around the specified octant.",
+      "solution": "Along A→B, the forward tangent rotates from +y to −x, so the arrow reaches B as −x. Along B→C the vector −x is constant, tangent to the sphere, and perpendicular to the great-circle plane, hence parallel. At C it is opposite the forward tangent +x for C→A. Keeping that opposite relation makes the ending arrow +z at A. Thus +y has become +z, a +90° rotation in A's tangent plane. The octant area is 4π/8=π/2, matching spherical holonomy.",
+      "boundary": "Walking out and exactly retracing the same arc restores the arrow. Curvature does not make every closed itinerary produce nonzero rotation."
+    },
+    "extensions": [
+      "Reverse the triangle and predict −90°.",
+      "Use a different longitude separation α with two meridians and an equator arc; the spherical lune argument predicts transport angle α."
+    ],
+    "satisfying_stop": "One precisely described route and a verified changed arrow.",
+    "prior_use": "New curved-geometry strand; plane billiards from Week 9 cannot exhibit this transport effect.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "GA-24",
+    "title": "Can a loop be reshaped into a segment?",
+    "msc_primary": "54",
+    "msc_secondary": [
+      "55"
+    ],
+    "adult_question": "What property survives every homeomorphism even when lengths and angles are discarded?",
+    "anchor": "Deleting a point from a circle leaves a connected space, while deleting an interior point from a closed interval disconnects it. A homeomorphism restricts to a homeomorphism of the corresponding punctured spaces.",
+    "source": [
+      {
+        "title": "Romyar Sharifi, Point-Set Topology",
+        "url": "https://www.math.ucla.edu/~sharifi/notes/topology-ch03.html",
+        "locator": "§3.1, connectedness and Proposition 3.1.8",
+        "checked": "Continuous-image principle inspected; puncture argument supplied"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Idealized strings represent a circle and interval as topological spaces, and deleting a point tests an invariant.",
+      "limits": "Physical cutting removes a short length; the proof concerns deleting one mathematical point. No general classification of topological spaces is claimed."
+    },
+    "gates": {
+      "entry": "O: trace a loop and segment and compare pieces after a marked cut.",
+      "explore": "P: reason about all possible images of an interior point.",
+      "explain": "P: formulate the puncture contradiction using preservation of connectedness.",
+      "prove": "X: definitions of homeomorphism and connectedness for a formal proof.",
+      "reading": "Oral launch with pictures.",
+      "arithmetic": "None; counting one or two components.",
+      "reasoning": "Separate allowable continuous reversible deformation from cutting, gluing, or identifying points.",
+      "hard_stop": "A drawing with crossings needs explicit decisions about which strands are joined."
+    },
+    "materials": "One closed string loop and one open string segment, paper diagrams, and removable dot markers.",
+    "prep_minutes": 5,
+    "launch": "Can you continuously reshape a loop into a segment without cutting, gluing, or making different points become the same point? Invent a test that every successful reshaping would have to pass.",
+    "choices": "Choose where to puncture each shape, propose candidate reshaping rules, and challenge a test using endpoints.",
+    "session": "0–10 freely bend strings; 10–15 specify reversible no-identification moves; 15–35 invent invariants; 35–40 reset; 40–55 explain the puncture test or compare another pair; 55–60 state an impossibility with its legal-move assumptions.",
+    "questions": [
+      "Does an endpoint behave like a middle point?",
+      "If a map is reversible, can two different string points merge?"
+    ],
+    "hints": [
+      "Mark a point in the interior of the segment.",
+      "Its corresponding point on a loop would have to behave the same after deletion."
+    ],
+    "example": {
+      "problem": "Prove that [0,1] is not homeomorphic to the unit circle.",
+      "solution": "Suppose a homeomorphism existed. Take the point 1/2 in the interval and its image p on the circle. Removing them preserves the homeomorphism. But [0,1] without 1/2 separates into two nonempty relatively open pieces [0,1/2) and (1/2,1]. A circle without p is connected: rotating p to (1,0), the remaining circle is the continuous image of the interval 0<t<2π under t↦(cos t,sin t). This contradicts preservation of connectedness.",
+      "boundary": "Deleting an endpoint of [0,1] leaves it connected, so one careless cut does not distinguish the spaces. The argument deliberately chooses an interior point and uses the circle's every-point property."
+    },
+    "extensions": [
+      "Compare a Y-shaped graph with a segment by deleting the branch point; three components appear.",
+      "Investigate a figure-eight, specifying that its crossing is one joined point, and compare it with two disjoint circles."
+    ],
+    "satisfying_stop": "A complete impossibility argument that does not rely on visual resemblance.",
+    "prior_use": "Week 1 reconfiguration involved legal moves on discrete states; this introduces reversible continuous maps of spaces.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "GA-27",
+    "title": "What happens when a lake rises through a saddle?",
+    "msc_primary": "58",
+    "msc_secondary": [
+      "53",
+      "54"
+    ],
+    "adult_question": "How can a local critical point change the topology of an entire sublevel set?",
+    "anchor": "The quadratic f(x,y)=x²−y² has a nondegenerate critical point of index one at the origin. Within [−1,1]², its sublevel sets at c=−1/4,0,1/4 exhibit two components, a point connection, and a connected region.",
+    "source": [
+      {
+        "title": "Patrick Gillespie, Morse Theory Notes",
+        "url": "https://web.math.utk.edu/~afreire/teaching/m663f21/Morse_Theory_Notes.pdf",
+        "locator": "Lemma 1.12; Theorem 2.9; §3 passing critical levels",
+        "checked": "Relevant local normal form and topology-change statements inspected; square-domain instance proved directly"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Flooding means the precise inequality f≤c, and the quadratic is the actual local Morse saddle model.",
+      "limits": "A clay landscape is a representation. The square has corners, so we do not apply the compact smooth-manifold slab theorem to its boundary."
+    },
+    "gates": {
+      "entry": "V/A: plot inequalities or test coordinates in a supplied contour map.",
+      "explore": "A: rewrite the inequality and use symmetry.",
+      "explain": "P: prove disconnectedness by the sign of y and connectedness by explicit paths.",
+      "prove": "D/L/X: gradient, Hessian signature, and Morse theory for the general theorem.",
+      "reading": "Coordinate labels; oral flooded/not-flooded decisions before symbolic proof.",
+      "arithmetic": "Squares and signed quarters.",
+      "reasoning": "Track connected regions rather than just the number of contour curves.",
+      "hard_stop": "A sampled height map cannot certify that no hidden critical point exists."
+    },
+    "materials": "Graph paper showing [−1,1]², transparent shaded sublevels, and optional clay saddle for comparison.",
+    "prep_minutes": 12,
+    "launch": "Raise the water level c. A point floods exactly when x²−y²≤c. Choose test points and sketch the flooded regions at −1/4,0,1/4. At which height can the upper and lower lakes first meet?",
+    "choices": "Choose test points, routes through flooded ground, and candidate levels where the topology changes.",
+    "session": "0–10 explore a saddle or its contours; 10–15 define sublevel flooding; 15–35 map the three levels; 35–40 reset; 40–55 prove the connection change or classify derivatives; 55–60 report one topological event.",
+    "questions": [
+      "Can a flooded path cross y=0 when c is negative?",
+      "What makes radial travel toward the origin safe when c≥0?"
+    ],
+    "hints": [
+      "At y=0, f=x² cannot be negative.",
+      "Use f(tx,ty)=t²f(x,y) for 0≤t≤1."
+    ],
+    "example": {
+      "problem": "Explain the component change for the three stated levels.",
+      "solution": "For c=−1/4, every flooded point satisfies y²≥x²+1/4, so y cannot be zero. The upper and lower regions are separated. Each is connected: move vertically toward y=1 or y=−1, which only decreases f, then travel along that boundary within |x|≤√3/2. At c=0 the two wedges |y|≥|x| meet at the origin. For c=1/4, every flooded point can connect radially to the origin because multiplying f by t² keeps it ≤1/4, so the set is connected. Gradient (2x,−2y) vanishes only at zero; Hessian diag(2,−2) has one negative direction.",
+      "boundary": "A function such as x⁴−y⁴ has a similar-looking drawing but a degenerate Hessian at zero. The Morse lemma cannot be invoked just from visual resemblance."
+    },
+    "extensions": [
+      "Compare a bowl x²+y², where a component is born as c crosses zero.",
+      "Build a piecewise-linear landscape and track component mergers, labeling it a different model before connecting it to persistence."
+    ],
+    "satisfying_stop": "An exact reason the two regions cannot join below zero and do join at zero.",
+    "prior_use": "New global-analysis entry; no prior week studies critical points or sublevel topology.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  }
+]

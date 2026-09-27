@@ -1,0 +1,473 @@
+[
+  {
+    "id": "AP-19",
+    "title": "Can travel times reveal the water depth?",
+    "msc_primary": "86",
+    "msc_secondary": [
+      "35",
+      "65"
+    ],
+    "adult_question": "How can wave travel times infer hidden geometry, and which assumptions make that inverse problem identifiable?",
+    "anchor": "Small-amplitude long gravity waves in nonrotating shallow water of constant depth H have speed c=√(gH). For one-dimensional travel through specified constant-depth segments, total ray travel time is the sum of segment length divided by local speed.",
+    "source": [
+      {
+        "title": "Geoffrey Vallis, Atmospheric and Oceanic Fluid Dynamics",
+        "url": "https://empslocal.ex.ac.uk/people/staff/gv219/aofd/aofd2_r2.pdf",
+        "locator": "Section 7.1, equations (7.18)–(7.23), PDF pp. 75–76: shallow-water limit and parcel motion",
+        "checked": "relevant exposition or named scope inspected; finite calculation self-contained below"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Travel-time equations are an exact inverse problem inside the stated piecewise homogeneous long-wave approximation.",
+      "limits": "Interface reflections, rapidly varying-depth corrections, rotation and finite-amplitude effects are omitted. A real tsunami is not established by this two-segment calculation."
+    },
+    "gates": {
+      "entry": "V/F/A: distance, speed, time and square roots.",
+      "explore": "A: infer one unknown depth from a measured total time.",
+      "explain": "P: distinguish one unknown from two and show nonuniqueness by two witnesses.",
+      "prove": "D: derive wave speed from the linear shallow-water equations; A suffices for the finite inverse calculation.",
+      "reading": "A labeled cross-section and three numerical data cards.",
+      "arithmetic": "Small divisions, squares and fractions.",
+      "reasoning": "Wave propagation is not the same as the journey of a particular water parcel; keep model and observation separate.",
+      "hard_stop": "Continuous bathymetric inversion and real seismic/tidal data require more wave physics and uncertainty modeling."
+    },
+    "materials": "A two-segment channel sketch, two movable depth labels, travel-time strips and a calculator optional. Use units with g=1 explicitly; no real water is needed.",
+    "prep_minutes": 7,
+    "launch": "A long, small wave crosses two 6-unit segments. In this ideal model its speed in depth H is √H. The first segment has depth 4. The total travel time is 5. Infer the second depth. Then hide both depths: does the same total time still determine them?",
+    "choices": "Choose candidate depths, decide which extra measurement would resolve ambiguity, and compare forward prediction with inverse reconstruction.",
+    "session": "0–10 explore speed-versus-depth cards; 10–15 state long-wave and piecewise-depth assumptions; 15–35 infer and check the hidden depth; 35–40 move wave markers using travel-time strips; 40–55 construct two indistinguishable depth pairs; 55–60 explain what the data determine.",
+    "questions": [
+      "Why can deeper water produce faster wave travel in this model?",
+      "How would measuring the arrival time at the interface change the inverse problem?"
+    ],
+    "hints": [
+      "The known first segment takes 6/√4 time units.",
+      "Subtract that time before solving for the remaining speed; square only after finding speed."
+    ],
+    "example": {
+      "problem": "Recover the second depth, then exhibit nonuniqueness when both depths are unknown.",
+      "solution": "The first time is 3, leaving 2 for the second segment. Thus its speed is 6/2=3 and its depth is 9. If both depths are unknown, (H1,H2)=(4,9) and (9,4) both give total time 5. A genuinely different pair is (144/25,144/25): each speed is 12/5 and each time 5/2, again total 5.",
+      "boundary": "A total time of 3 or less is impossible with first depth 4 and a finite positive second depth: the first segment alone takes 3 and the second adds a positive time."
+    },
+    "extensions": [
+      "Measure one intermediate arrival time and show how both depths become individually recoverable.",
+      "From ηt+H ux=0 and ut+gηx=0 derive ηtt=gHηxx, then verify traveling waves f(x−ct) with c²=gH."
+    ],
+    "satisfying_stop": "A hidden depth found and a clear counterexample to overinterpreting one measurement.",
+    "prior_use": "No geophysical inverse-data family is documented. Ordinary path-length problems omit the depth-dependent wave model and identifiability issue.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AP-20",
+    "title": "A price certificate for the best factory plan",
+    "msc_primary": "90",
+    "msc_secondary": [
+      "15",
+      "05"
+    ],
+    "adult_question": "How can a proposed optimum be certified without examining every feasible allocation?",
+    "anchor": "A nonnegative resource-price vector whose priced ingredients cover every product’s sale value gives an upper bound on the revenue of every feasible production plan. Equality between such a bound and a feasible plan proves optimality by weak duality.",
+    "source": [
+      {
+        "title": "Stephen Boyd and Lieven Vandenberghe, Convex Optimization",
+        "url": "https://www.seas.ucla.edu/~vandenbe/cvxbook/bv_cvxbook.pdf",
+        "locator": "Chapter 5: weak duality; finite resource certificate verified algebraically here",
+        "checked": "relevant exposition or named scope inspected; finite calculation self-contained below"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Products, resource inequalities and price certificates constitute a genuine finite linear/integer optimization problem and its dual bound.",
+      "limits": "One integral optimum does not imply all linear programs have integral optima; general duality requires separate hypotheses."
+    },
+    "gates": {
+      "entry": "O/C: make two kinds of bundles from limited colored counters.",
+      "explore": "C: enumerate integer plans and total revenue.",
+      "explain": "F/P: assign fractional resource prices and show a universal bound.",
+      "prove": "A: multiply resource inequalities by nonnegative prices and add them.",
+      "reading": "Two recipe cards and values; oral description and physical bundles work.",
+      "arithmetic": "Small counts initially; thirds for the sharp certificate.",
+      "reasoning": "Distinguish finding a good plan from ruling out every better plan.",
+      "hard_stop": "General linear-programming duality, existence and algorithms require algebraic/convex prerequisites; this finite certificate is complete without them."
+    },
+    "materials": "Five red counters, four blue counters, product recipe cards A=(2 red,1 blue), B=(1 red,2 blue), and revenue labels 3 and 4. Include blank resource-price tags.",
+    "prep_minutes": 8,
+    "launch": "Make products without reusing ingredients. A sells for 3 and uses two red plus one blue; B sells for 4 and uses one red plus two blue. You have five red and four blue. Find the most revenue, then price the raw ingredients so your total ingredient budget proves nobody can earn more.",
+    "choices": "Choose product mixes, organize feasible cases, propose resource prices, and improve a loose upper bound until it matches a plan.",
+    "session": "0–10 build and undo bundles; 10–15 establish resource and sale rules; 15–35 search for good production plans; 35–40 exchange builder and auditor roles; 40–55 invent a price certificate with fractions or a scaled integer version; 55–60 present plan and matching bound.",
+    "questions": [
+      "Why does giving every raw ingredient price 1 fail to cover product B’s sale price?",
+      "What makes a resource-price argument apply even to plans we never listed?"
+    ],
+    "hints": [
+      "Find prices r,b with 2r+b at least 3 and r+2b at least 4.",
+      "Try making both equalities hold; alternatively multiply all money values by 3."
+    ],
+    "example": {
+      "problem": "Prove the maximum revenue is 10 for five red and four blue counters.",
+      "solution": "Two A and one B use five red and four blue and earn 10. Prices r=2/3,b=5/3 make A’s ingredients worth 3 and B’s worth 4. All available ingredients are worth 5(2/3)+4(5/3)=10. Since no product sells above its ingredient value, every feasible plan earns at most 10. Equality proves optimality, even if fractional production were allowed.",
+      "boundary": "With four red and four blue, fractional A=B=4/3 earns 28/3, whereas the best integer plan is two B, earning 8. A fractional bound need not be attained by whole products."
+    },
+    "extensions": [
+      "Scale all prices by three so the certificate uses integers 2 and 5 against product values 9 and 12.",
+      "Change resource supplies and identify when the same price certificate remains sharp; this introduces sensitivity and complementary slackness."
+    ],
+    "satisfying_stop": "A best plan accompanied by a short universal certificate, not only a search record.",
+    "prior_use": "Existing tiling packets use upper bounds for packing. This connects the bounding habit to resource prices and linear optimization with a distinct feasible set.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AP-22",
+    "title": "How should you hide an unequal choice?",
+    "msc_primary": "91",
+    "msc_secondary": [
+      "60",
+      "90"
+    ],
+    "adult_question": "How can randomization protect a player against an opponent who knows the strategy but not its realized action?",
+    "anchor": "A two-player zero-sum matrix game allows each player to choose a distribution independently and privately. For payoff matrix [[2,0],[0,1]], maximizing the guaranteed expected row payoff gives a mixed minimax equilibrium with value 2/3.",
+    "source": [
+      {
+        "title": "Giacomo Bonanno, Game Theory",
+        "url": "https://arxiv.org/pdf/1512.06808",
+        "locator": "Sections 5.2–5.3: mixed strategies, indifference and best replies",
+        "checked": "mixed-strategy exposition inspected; this matrix solved independently"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Simultaneous hidden action cards and score transfers realize the specified strategic-form game exactly.",
+      "limits": "Observed short-run winnings need not equal expectation. Real people need not play equilibrium, and visible random draws change the information structure."
+    },
+    "gates": {
+      "entry": "O/C: choose cards secretly and score the four outcomes.",
+      "explore": "F: compare long-run averages and design a three-card randomizer.",
+      "explain": "A: calculate payoff against each opposing pure choice.",
+      "prove": "F/P: show one strategy guarantees a lower bound and the other caps every strategy at the same value.",
+      "reading": "A two-by-two score table; colors can replace U,D,L,R.",
+      "arithmetic": "Thirds and multiplication by two; no money or betting required.",
+      "reasoning": "Keep the chosen distribution public but the realized action private; players have opposite objectives.",
+      "hard_stop": "General finite-game equilibrium existence uses more machinery; the exact two-by-two certificate suffices here."
+    },
+    "materials": "Row cards U,D and column cards L,R, score counters, and two three-card draw packs. Row payoff is 2 for U/L, 1 for D/R, and 0 otherwise; column minimizes that score.",
+    "prep_minutes": 10,
+    "launch": "Choose your action simultaneously and reveal together. The row player wants a high score; the column player wants a low score. Everyone knows the payoff table. Can the row player guarantee a positive average even against an opponent who knows the row player’s randomization rule?",
+    "choices": "Choose mixtures, test predictable play, build a private randomizer, and seek a strategy whose guarantee does not depend on the opponent’s choice.",
+    "session": "0–10 play several rounds; 10–15 clarify simultaneous secrecy and opposite goals; 15–35 compare pure play and mixtures; 35–40 exchange roles; 40–55 derive matching lower and upper bounds; 55–60 explain why the mixture is unequal.",
+    "questions": [
+      "Why is choosing U and D equally often not necessarily best?",
+      "What could the opponent do if it saw your realized action before choosing?"
+    ],
+    "hints": [
+      "If U is chosen with probability p, payoffs against L and R are 2p and 1−p.",
+      "Make those two threats equal, then find a column mixture giving the same payoff to U and D."
+    ],
+    "example": {
+      "problem": "Find both optimal mixtures and certify the game value.",
+      "solution": "Set 2p=1−p, giving p=1/3 and guarantee 2/3. If column chooses L with q=1/3, pure U earns 2q=2/3 and pure D earns 1−q=2/3. Therefore every row mixture earns exactly 2/3 against that column strategy, proving no larger guarantee is possible. The two matching bounds certify the equilibrium.",
+      "boundary": "If column sees the row action first, it chooses R after U and L after D, forcing payoff zero. The guarantee depends on simultaneous hidden realization."
+    },
+    "extensions": [
+      "Change the diagonal rewards to positive a,b and derive row U probability b/(a+b) and value ab/(a+b).",
+      "Contrast expected guarantee with every-round guarantee: the latter remains zero in this game."
+    ],
+    "satisfying_stop": "Two three-card randomizers with a complete minimax certificate.",
+    "prior_use": "Weeks 7–8 cover perfect-information combinatorial games. Simultaneous mixed strategies are a different branch and use a different notion of solution.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AP-24",
+    "title": "A neutral population can lose a color",
+    "msc_primary": "92",
+    "msc_secondary": [
+      "60"
+    ],
+    "adult_question": "Why can random inheritance drive fixation even when the expected allele fraction remains unchanged?",
+    "anchor": "A neutral finite Wright–Fisher generation of size N samples N offspring independently with replacement from the current generation’s allele frequencies. Conditional expected next frequency equals current frequency, while absorbing all-one-color states remain possible.",
+    "source": [
+      {
+        "title": "Jeffrey Chasnov, Mathematical Biology",
+        "url": "https://www.math.hkust.edu.hk/~machas/mathematical-biology.pdf",
+        "locator": "Section 5.5: random genetic drift; N=2 transition calculation provided below",
+        "checked": "named source scope inspected; displayed finite result proved directly here"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Parent-color draws with replacement implement a genuine finite neutral allele-frequency model.",
+      "limits": "This is a highly simplified haploid population with fixed size, no mutation and no selection. It is not a model of individual human traits."
+    },
+    "gates": {
+      "entry": "O/C: draw, replace, and record a parent color for each offspring.",
+      "explore": "F: compare probabilities for two independent draws and repeat generations.",
+      "explain": "P: distinguish an unchanged expectation from an unchanged realized population.",
+      "prove": "F/A: derive transition probabilities and eventual absorption for the two-individual case.",
+      "reading": "Color-only generation rows; spoken rules suffice.",
+      "arithmetic": "Halves and quarters; optional powers for survival probability.",
+      "reasoning": "The new generation replaces the old only after both offspring have been drawn; no within-generation updating.",
+      "hard_stop": "Selection, diploidy, mutation and real demographic inference require changed models and biological assumptions."
+    },
+    "materials": "Two parent counters, one red and one blue, an opaque draw cup, and a row of generation boxes. Use colored pencils to record offspring while replacing every parent draw.",
+    "prep_minutes": 5,
+    "launch": "Make a new generation of exactly two counters. For each offspring, draw a parent color uniformly from the current two, record that color, and replace the parent before drawing again. After both offspring are recorded, they become the new parents. Can a neutral rule eventually erase a color?",
+    "choices": "Choose how to record generations, compare several independent populations, and design a changed rule that would prevent or reverse loss.",
+    "session": "0–10 practice drawing with replacement; 10–15 establish simultaneous generation replacement; 15–35 run independent lineages; 35–40 exchange sampler and recorder roles; 40–55 enumerate one-generation outcomes and explain absorption; 55–60 compare expected counts with observed endpoints.",
+    "questions": [
+      "Why can both colors be equally successful in expectation while one disappears in a run?",
+      "Once a color is gone, can this particular model recover it?"
+    ],
+    "hints": [
+      "From one red and one blue, list RR,RB,BR,BB as distinct ordered offspring outcomes.",
+      "Only the two mixed outcomes keep both colors alive for another generation."
+    ],
+    "example": {
+      "problem": "Starting from one red and one blue, find one-step probabilities and eventual fixation probabilities.",
+      "solution": "RR,RB,BR,BB each have probability 1/4. Red counts 2,1,0 therefore have probabilities 1/4,1/2,1/4 and expected count 1. The mixed state survives k generations with probability (1/2)^k, tending to zero. Symmetry gives eventual all-red and all-blue probabilities 1/2 each. Once all red or all blue, every parent draw has that color, so these states are absorbing.",
+      "boundary": "Drawing without replacement would preserve one red and one blue forever for N=2. That small rule change removes the drift in this example."
+    },
+    "extensions": [
+      "Increase population size and compare time to loss; derive the binomial one-step distribution with fraction p.",
+      "Add a specified small mutation chance after each draw and observe that formerly absorbing states no longer remain absorbing."
+    ],
+    "satisfying_stop": "An exact explanation of random loss under a neutral rule.",
+    "prior_use": "Year-1 probability examples do not document this generational sampling process. Record population size and rule version to distinguish future variants.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AP-25",
+    "title": "What can never change in the reaction box?",
+    "msc_primary": "92",
+    "msc_secondary": [
+      "15",
+      "80"
+    ],
+    "adult_question": "How do stoichiometric constraints produce conserved quantities independently of reaction rates?",
+    "anchor": "For reaction A+2B ↔ C, a forward firing changes counts by (−1,−2,+1) and a backward firing reverses it. Linear quantities w·n are conserved exactly when w is orthogonal to that change vector; rates determine timing but not these conservation laws.",
+    "source": [
+      {
+        "title": "Jeffrey Chasnov, Mathematical Biology",
+        "url": "https://www.math.hkust.edu.hk/~machas/mathematical-biology.pdf",
+        "locator": "Section 6.1: law of mass action; conservation proof is explicit for this network",
+        "checked": "named source scope inspected; displayed finite result proved directly here"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Colored molecule counters and legal reaction firings are the exact discrete stoichiometric state system for the stated reversible reaction.",
+      "limits": "Tokens are hypothetical species; legal reachability does not determine real reaction speed, energy, equilibrium or chemical feasibility."
+    },
+    "gates": {
+      "entry": "O/C: exchange one A and two B for one C, or reverse it.",
+      "explore": "C: record reachable count triples without creating negative counts.",
+      "explain": "M/P: discover weighted totals unchanged by each exchange.",
+      "prove": "A/L: solve w·(−1,−2,1)=0 and use invariance under sequences of moves.",
+      "reading": "Three symbols or colors with a pictorial recipe; oral rules work.",
+      "arithmetic": "Counts and doubling; optional linear equations.",
+      "reasoning": "The total number of tokens is not conserved; different quantities may be conserved simultaneously.",
+      "hard_stop": "Mass-action differential equations add rates and continuous concentration assumptions; do not infer them from token reachability alone."
+    },
+    "materials": "A counters, B counters and distinct C counters, a forward/backward recipe mat, and count-triple records. Begin with 3 A and 4 B and no C.",
+    "prep_minutes": 7,
+    "launch": "A legal forward reaction trades exactly one A and two B for one C. A reverse reaction trades one C for one A and two B. Start with (A,B,C)=(3,4,0). Find every reachable collection. What totals stay fixed even though the number of counters changes?",
+    "choices": "Choose reaction sequences, invent a conserved counting method, propose impossible target states, and decide whether a certificate rules them out.",
+    "session": "0–10 practice both reactions freely; 10–15 establish nonnegative whole counts; 15–35 map reachable states and test targets; 35–40 partners act as molecule trades; 40–55 derive weighted invariants or add a second reaction; 55–60 explain an impossibility.",
+    "questions": [
+      "Why does simply counting all tokens fail as an invariant?",
+      "Are invariant equations alone always enough to prove reachability in an arbitrary reaction network?"
+    ],
+    "hints": [
+      "Imagine each C as a sealed packet containing the A and B used to make it.",
+      "Count A+C and B+2C separately."
+    ],
+    "example": {
+      "problem": "List every reachable state and decide whether (0,0,3) can be reached.",
+      "solution": "A+C=3 and B+2C=4 stay fixed. Writing C=c gives A=3−c and B=4−2c. Nonnegative integer counts force c=0,1,2, yielding (3,4,0),(2,2,1),(1,0,2). Each is reached by zero, one or two forward reactions. Target (0,0,3) violates B+2C=4 since its value is 6, so it is impossible. Total molecule count falls by two per forward firing, demonstrating why the unweighted total fails.",
+      "boundary": "For a larger network, nonnegative invariant-compatible counts need not be reachable; modular obstructions or missing reactants needed to enable a move may prevent reachability. Here sufficiency was proved by an explicit sequence."
+    },
+    "extensions": [
+      "Add A↔B and determine which conserved totals survive both reaction vectors.",
+      "Assign positive forward and backward rates and compare dynamical equilibrium with stoichiometric reachability; conservation alone cannot locate the equilibrium."
+    ],
+    "satisfying_stop": "A complete reaction-state list and two visible conservation laws.",
+    "prior_use": "Weeks 2 and 4 use invariants for toggles and remainders. This is a distinct chemical-stoichiometry instance with changing molecule count and several simultaneous conservation laws.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AP-27",
+    "title": "Can one sensor see two hidden tanks?",
+    "msc_primary": "93",
+    "msc_secondary": [
+      "15",
+      "62"
+    ],
+    "adult_question": "When do output observations determine a system’s hidden initial state, and when can infinitely many observations remain insufficient?",
+    "anchor": "For x[n+1]=Ax[n] and y[n]=Cx[n], two states are observationally indistinguishable if C A^n times their difference vanishes for every observed n. Distinct decay rates can make two total-output readings identify two initial components.",
+    "source": [
+      {
+        "title": "Åström and Murray, Feedback Systems",
+        "url": "https://www.fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers",
+        "locator": "Chapter 8: observability and state estimation; two-state examples derived below",
+        "checked": "observability chapter scope inspected; both finite linear systems solved and checked directly"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Hidden component amounts, linear updates and a sum-only sensor are a literal finite-dimensional linear observation system.",
+      "limits": "Exact noiseless identification does not imply stable inference from noisy measurements. Physical tank drainage need not follow these fractional updates."
+    },
+    "gates": {
+      "entry": "O/C/F: hide two amounts and read only their total.",
+      "explore": "F: halve or quarter the amounts each step.",
+      "explain": "P: produce two distinct states with the same entire reading history.",
+      "prove": "A/L: solve two linear equations or find an unobservable difference vector.",
+      "reading": "Two update arrows and sensor labels; diagram-first explanation possible.",
+      "arithmetic": "Halves and quarters, signed linear combinations.",
+      "reasoning": "The visible total is not the full state; avoid assuming an unknown split is equal.",
+      "hard_stop": "Kalman filtering requires a noise model and probabilistic estimation; it is not established by this exact reconstruction."
+    },
+    "materials": "Two covered amount cards representing tanks, one total-readout card, and an update table. Use counters for integer starting values and fraction strips after decay.",
+    "prep_minutes": 8,
+    "launch": "A sensor reports only the sum of two hidden amounts. First both amounts halve each tick. Can any number of total readings reveal the original split? Now let the first halve and the second quarter each tick. Readings are 8 initially and 3 one tick later. Find the original amounts.",
+    "choices": "Choose indistinguishable hidden states, decide what extra sensor or changed dynamics would help, and test the reconstruction with a partner’s secret split.",
+    "session": "0–10 hide and guess two-counter splits; 10–15 fix the sensor and update rules; 15–35 compare histories under identical decay; 35–40 exchange hidden-state and observer roles; 40–55 reconstruct under distinct decay or inspect near-equal rates; 55–60 state an observability conclusion.",
+    "questions": [
+      "Why does collecting the same kind of information many times sometimes add nothing?",
+      "How can changing the dynamics make one sensor sufficient?"
+    ],
+    "hints": [
+      "For identical decay, express every future total as the original total times a power of 1/2.",
+      "For different decay, write a+b=8 and a/2+b/4=3."
+    ],
+    "example": {
+      "problem": "Give indistinguishable states in the first model and solve the second model’s two readings.",
+      "solution": "Under identical halving, states (2,6) and (4,4) both produce totals 8,4,2,1,..., so no number of those readings distinguishes them. Under rates 1/2 and 1/4, equations a+b=8 and 2a+b=12 give a=b=4. In general a=4y1−y0 and b=2y0−4y1. Substitution recovers both measured totals.",
+      "boundary": "If the second decay factor is changed back to 1/2, the two equations become dependent. If rates are merely very close, exact uniqueness can coexist with high sensitivity to measurement error."
+    },
+    "extensions": [
+      "Add a sensor reading the difference; one simultaneous sum and difference then identifies both components without waiting.",
+      "Build the two-row observability matrix and investigate its rank and conditioning as the decay rates approach equality."
+    ],
+    "satisfying_stop": "A proof of permanent ambiguity and a contrasting exact reconstruction.",
+    "prior_use": "Week 6 asks optimal queries about codes. Here the measurements arise from evolving hidden state and fixed sensor design; this is a substantive systems-theory connection.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AP-28",
+    "title": "Four messages that survive one damaged bit",
+    "msc_primary": "94",
+    "msc_secondary": [
+      "05",
+      "68"
+    ],
+    "adult_question": "How much redundancy is required to correct an adversarial error, and how can geometry in a discrete space certify a limit?",
+    "anchor": "Binary words of minimum Hamming distance at least three have disjoint radius-one Hamming balls and uniquely correct any one-bit error by nearest-codeword decoding. Four messages require at least five bits for that guarantee.",
+    "source": [
+      {
+        "title": "Claude Shannon, A Mathematical Theory of Communication",
+        "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+        "locator": "Part II: noisy communication framework; finite distance and sphere-packing proofs given here",
+        "checked": "relevant source framework inspected; finite example explicitly proved below"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Bit strips, adversarial single flips and nearest-codeword decoding are exact finite error-correcting communication.",
+      "limits": "This finite worst-case guarantee is distinct from Shannon’s asymptotic probabilistic channel theorem and from secret encryption."
+    },
+    "gates": {
+      "entry": "O/C: copy black/white patterns and flip at most one tile.",
+      "explore": "C/P: count disagreements and compare candidate codewords.",
+      "explain": "P: show a received word cannot be within one flip of two codewords distance three apart.",
+      "prove": "M/P: count disjoint radius-one balls to rule out four-bit codes.",
+      "reading": "Color patterns only; rule can be spoken.",
+      "arithmetic": "Counts to five and powers of two up to 32.",
+      "reasoning": "The error position is unknown; the guarantee must cover every single flip, not just errors tried experimentally.",
+      "hard_stop": "Asymptotic capacity, optimal code families and decoding complexity are later questions; the finite code is complete."
+    },
+    "materials": "Five-position black/white strips, four message symbols and codewords 00000,11100,10011,01111. Give an independent partner the role of flipping zero or one bit.",
+    "prep_minutes": 10,
+    "launch": "Send one of four messages using a five-bit strip. Your partner may secretly flip at most one bit. Design a decoding rule that always recovers the original. Then investigate whether four bits could ever give the same guarantee, even with a different code.",
+    "choices": "Choose a message, choose a damaging position as adversary, organize all received patterns, and seek either a shorter construction or an impossibility proof.",
+    "session": "0–10 practice damage and recovery; 10–15 state the at-most-one-flip rule; 15–35 test and audit the four codewords; 35–40 exchange sender/noise/decoder roles; 40–55 count neighborhoods to attack four-bit coding; 55–60 show a recovery and its universal justification.",
+    "questions": [
+      "Why must two message patterns differ in at least three places?",
+      "How many distinct received patterns can one four-bit message produce with at most one flip?"
+    ],
+    "hints": [
+      "If a received word is one flip from both originals, the originals are at most two flips apart.",
+      "A four-bit message has one unchanged pattern and four one-flip patterns; those five-pattern sets must be disjoint."
+    ],
+    "example": {
+      "problem": "Decode received word 10111 and prove four-bit coding is impossible for four messages.",
+      "solution": "10111 differs from 10011 only at the third bit, so it decodes to that codeword. The six pairwise distances of the supplied code are 3,3,4,4,3,3, hence the guarantee holds. For four-bit words, each radius-one ball contains 5 patterns. Four messages would require 20 distinct received patterns, but only 2^4=16 exist. Any shorter code could be padded with fixed zeros to length four without decreasing pairwise distance, so ruling out length four rules out every shorter length. Therefore four bits cannot suffice; the displayed five-bit code attains the minimum.",
+      "boundary": "Two flipped bits can mislead nearest decoding. From 00000, flipping the first two gives 11000, which lies one bit from 11100."
+    },
+    "extensions": [
+      "Separate detection from correction: distance two detects any single flip but need not identify the original.",
+      "Compare a threefold repetition code with the five-bit construction, then explore Hamming codes after linear algebra over two-element arithmetic."
+    ],
+    "satisfying_stop": "A working optimal-length code with both a correction proof and a lower bound.",
+    "prior_use": "Week 6 uses optimal code queries. This adds channel damage, Hamming distance and sphere-packing rather than duplicating the existing guessing questions.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  },
+  {
+    "id": "AP-30",
+    "title": "The sensor changes the circuit it measures",
+    "msc_primary": "94",
+    "msc_secondary": [
+      "15",
+      "78"
+    ],
+    "adult_question": "How do component laws and conservation determine a circuit, and why can attaching a measurement device alter the measured voltage?",
+    "anchor": "In an ideal DC resistor network, each edge current is voltage drop divided by resistance and currents balance at every internal node. A finite-resistance meter connected across a component becomes an extra parallel branch, changing the network solution.",
+    "source": [
+      {
+        "title": "David Tong, Electromagnetism",
+        "url": "https://davidtong.org/pdfs/teaching/electromagnetism/electro3.pdf",
+        "locator": "Section 4.1.3, equation (4.4), printed pp. 74-77 / PDF pp. 8-11: Ohm’s law and Joule heating; the finite Kirchhoff equations are explicit below",
+        "checked": "relevant source framework inspected; finite example explicitly proved below"
+      }
+    ],
+    "bridge": {
+      "type": "exact-special-case",
+      "preserves": "Node voltages, Ohmic edge laws and current conservation form a literal ideal resistive circuit model; the meter is modeled as a specified resistor.",
+      "limits": "Real meters, sources and components have tolerances and additional effects. Paper calculations avoid claiming that all physical devices obey these ideal values."
+    },
+    "gates": {
+      "entry": "V/F/A: interpret two labeled nodes and voltage differences along resistors.",
+      "explore": "A: solve one linear node equation.",
+      "explain": "P: distinguish a current split from equal currents and check the new measurement branch.",
+      "prove": "A/L: derive node potentials from Kirchhoff equations and verify energy balance.",
+      "reading": "Circuit sketch and Ohm’s law; partner calculation allowed.",
+      "arithmetic": "Fractions and small linear equations; optional squares for power.",
+      "reasoning": "A measuring device is part of the modeled system unless its loading is idealized away.",
+      "hard_stop": "Capacitors, inductors and signal-frequency behavior add state and dynamics; they are not covered by a steady DC calculation."
+    },
+    "materials": "Paper circuit with ideal 6 V source, a 2 Ω resistor from 6 V to node X, and a 1 Ω resistor from X to 0 V. Supply an optional meter branch of 2 Ω from X to 0 V.",
+    "prep_minutes": 8,
+    "launch": "First find node X’s voltage with no meter branch. Then attach a meter modeled as a 2 Ω resistor between X and 0 V and recalculate. Can the act of measuring lower the voltage being measured? Use current conservation rather than treating the original voltage as fixed.",
+    "choices": "Choose which node equation to write, test different meter resistances, and decide how a meter could disturb the circuit less.",
+    "session": "0–10 explore circuit connections and voltage differences; 10–15 introduce current=drop/resistance; 15–35 solve before and after attaching the meter; 35–40 trace and split current counters at the node; 40–55 vary meter resistance or check energy; 55–60 explain loading in a complete sentence.",
+    "questions": [
+      "Why is the incoming current no longer equal to the current through the original bottom resistor alone?",
+      "What should happen as the meter’s resistance becomes extremely large?"
+    ],
+    "hints": [
+      "Without the meter, equate (6−X)/2 to X/1.",
+      "With the meter, add X/2 to the outgoing side of that equation."
+    ],
+    "example": {
+      "problem": "Compute X and all currents before and after adding the 2 Ω meter.",
+      "solution": "Without the meter, (6−X)/2=X gives X=2 V and current 2 A through both original resistors. With the meter, (6−X)/2=X+X/2 gives X=3/2 V. Incoming current is 9/4 A; outgoing currents are 3/2 A through 1 Ω and 3/4 A through the meter, totaling 9/4 A. The displayed voltage falls by 1/2 V while the source supplies more current.",
+      "boundary": "An ideal infinite-resistance voltmeter draws zero current and does not change this circuit. A zero-resistance branch would short X to 0 V and requires separate handling rather than division by zero."
+    },
+    "extensions": [
+      "For meter resistance R>0, solve X=6R/(3R+2) and show it approaches 2 V as R grows.",
+      "Verify source power equals the sum of resistor dissipation before and after loading; later add capacitance to study measurement transients."
+    ],
+    "satisfying_stop": "A quantitatively checked case in which measurement changes the object measured.",
+    "prior_use": "AP-10 spring networks share linear constitutive and compatibility reasoning. Keep that cross-link explicit; the new circuit question is sensor loading, not a renamed spring-combination exercise.",
+    "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+  }
+]

@@ -1,0 +1,41 @@
+# AP3 independent PDF review
+
+**Status: CLOSED — approved for assembly from `ap3-preview-v2`.** Reviewer: expand_ad1, 2026-09-26. No mathematical, diagram, layout, prerequisite or answer-leak repair is outstanding. This review covers the actual rendered preview; it is separate from expand_ga1's closed design review and is not a classroom pilot.
+
+## Reviewed files and coverage
+
+Preview: `tmp/pdfs/atlas-remaining/ap3-preview-v2/`.
+
+- Student: `atlas-ap3-student-worksheets.pdf`, 25 pages including contents; SHA-256 `c4c5792a5b414acbf08c9cf5514ab16ba18199bfb4026cbe501d95b868d86e22`.
+- Guide: `atlas-ap3-facilitator-guide.pdf`, 44 pages including contents; SHA-256 `576feae6fd8229bb3600994482f4cb05f6ab2078178d16dacaac281768cc38b2`.
+- Inspected every student page **1–25 individually at full size**, including all 24 investigation bodies.
+- Inspected all five guide contact sheets, covering **every guide page 1–44**.
+- Additionally inspected guide pages **1–6, 9–15, 18–21, 24–26, 29–31, 34–37, 39–43** individually at full size (32 pages). These include all four custom worked figures, on pages **6, 21, 37 and 43**, all dense keyed calculations, all eight extensions and the explicit-index notation on page 31.
+
+This was a full independent pass of v2; no v1 images were substituted. Read the maker note and closed design review, then assessed the actual prompts, objects, keys and figures. There were no requested PDF repairs, so no closure-by-identity shortcut was needed.
+
+## Family-specific checks
+
+**AP-19, student 2–4 / guide 2–7.** The bed is hidden and explicitly not to scale, while the two six-unit lengths and receiver positions are clear. No drawn depth supplies the inverse solution. The second-page variables and the third-page coupled uncertainty problem are introduced before use. The worked graph has open endpoints at `(0,5/6)` and `(5/6,0)` and the correct point `(1/2,1/3)`; axes and annotation agree. Recomputed the receiver equations, reciprocal-square interval endpoints, sharp slowness amplification and the effective-depth example. The guide correctly keeps the two depths coupled rather than presenting independent intervals as a rectangle. The supplied-wave-model and algebra gates remain explicit.
+
+**AP-20, student 5–7 / guide 8–11.** Recipe icons display precisely two red/one blue and one red/two blue counters, with the stated revenues. Blank production and price records allow learners to choose a plan and invent a certificate. The 10-point reference occurs on the later proof page, with the guide's one-page-at-a-time instruction preserving the launch. Recomputed the `(2,1)` optimum, prices `(2/3,5/3)`, fractional `28/3` versus whole-product `8`, extra-counter optima `10/11`, and the three real-capacity ranges. Dense formulas fit without collision and the distinction between whole and fractional production stays visible.
+
+**AP-22, student 8–10 / guide 12–16.** The payoff table has diagonal entries 2 and 1 and zero off-diagonals, with the two roles unambiguous. Bag templates and axes disclose no optimal probability. Private independent sampling is explicit; the facilitator preparation requires replacing and independently mixing slips before every round. Thus the practical replacement rule is available even though the student task focuses on expected payoff. Recomputed the matching `2/3` bounds, the near-optimal intervals, the pure response to `q=3/4`, and the changed-information examples. Revealing a realized row and using a shared ticket are clearly separate rule changes. Expected guarantees are distinguished from per-round outcomes.
+
+**AP-24, student 11–13 / guide 17–22.** Old and new generations are kept separate, with replacement and independent offspring specified. Open history strips and the blank three-parent transition table preserve the discovery. The worked transition diagram correctly sends `1 red` to `0 red`, itself and `2 red` with probabilities `1/4,1/2,1/4`; both endpoints are marked absorbing and the self-loop label is clear. Recomputed finite survival, the strict seven-generation threshold, both binomial rows, unequal-start fixation `1/3`, and the general uniform absorption bound. The printed `X_k`, `^k` and indicator expressions retain their meaning. The guide does not confuse an expectation with a typical population or claim finite-time certainty.
+
+**AP-25, student 14–16 / guide 23–27.** The reaction picture consumes one A and two B and creates one C, matching the availability rule and nonnegative-integer inventory. Blank weight tags support invention; the reachable-state workspace does not preprint a solution count. The rendered keys give the full weight family, both separating targets, the integer interval and legal monotone paths, including their minimal lengths. Recomputed the five original states, the parity obstruction for `2A↔2B`, and the enabling obstruction for `A+B↔2B`. The zero-B boundary and distinction between a formal displacement and an enabled move remain explicit.
+
+**AP-27, student 17–19 / guide 28–32.** Hidden tank amounts are not encoded by fill heights. Rates, initial-time data, exact total and bounded measurement error are clear. The feasible-reading grid has labeled axes and no prefilled wedge. The delay record does not disclose the useful difference of powers or the best delay. Recomputed both inverses, the nonnegative wedge, errors `1/25` and `1`, and the consecutive-gap proof of the unique delay `k=2` and bound `4/125`. Guide page 31 explicitly prints `d_(k+1)` and `x_(n+1)` so composite indices are unambiguous. The signed-state sensor extension and nonnegative boundary exceptions are correctly distinguished.
+
+**AP-28, student 20–22 / guide 33–38.** Four blank five-bit strips precede the supplied codebook on the next page. Every supplied bit is correct in both student and worked-guide diagrams. Recomputed all six distances `3,3,4,4,3,3`, the three received-word decisions, the four-bit `20>16` obstruction and the padding argument for every shorter length. The 24 covered words, outside word `00110`, two-flip deception and three-bit detection example match their keys. The five syndrome columns and the extension's 24 detected / seven nonzero undetected errors are correct. Student workspaces do not reveal these answers before the relevant exploration.
+
+**AP-30, student 23–25 / guide 39–44.** Source, ground and X are labeled; the meter is drawn as a parallel branch with filled junctions, and the last page adds two separate meter branches. The printed node-balance law supplies the incoming/outgoing convention. The figures distinguish resistor values, voltage and currents. Recomputed the no-meter voltage, all three loaded cases, the `66 Ω` and `132 Ω` tolerance thresholds, exact power balance and ideal-wire boundary. The worked `R=2 Ω` figure gives `X=3/2 V`, incoming `9/4 A`, lower `3/2 A` and meter `3/4 A`, consistently. The general effective resistance `ab/(a+b)` and error rule are printed correctly. Paper-model scope and supplied physical laws are visible.
+
+## Mechanical and release checks
+
+Independently recomputed the two PDF hashes and page counts. The build report records 48 student prompts; the body pass found all six prompts per family, with complete corresponding keys and eight extensions. Both PDFs report no blank pages, out-of-page characters or suspect glyphs. The student contents links point to pages `2,5,8,11,14,17,20,23`; the guide links point to `2,8,12,17,23,28,33,39`. Resolved the PDF destinations and bookmarks and verified their agreement with the actual family starts.
+
+Ran `ap3-checks.py` read-only with its result-file write suppressed; all eight groups pass. This supports, rather than replaces, the rendered-object checks and independently derived design proofs. No author data, renderer or shared helper was changed during this review.
+
+The approved objects are the v2 preview bodies identified above. Any changed body needs a fresh-path reread before assembly approval can carry over. The final assembled contents and page-body identity still belong to the editor's release checks. These investigations remain unpiloted; preparation time, sustained engagement and classroom use have not been empirically verified.

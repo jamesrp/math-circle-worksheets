@@ -1,0 +1,700 @@
+{
+  "method": "Uniform sample without replacement from all 90 family records, sorted by ID; Python random.Random(seed).sample; seed drawn once using secrets.randbits(64); no redraw or filtering.",
+  "seed": 12921103429184828756,
+  "population_ids": [
+    "AD-01",
+    "AD-02",
+    "AD-03",
+    "AD-04",
+    "AD-05",
+    "AD-06",
+    "AD-07",
+    "AD-08",
+    "AD-09",
+    "AD-10",
+    "AD-11",
+    "AD-12",
+    "AD-13",
+    "AD-14",
+    "AD-15",
+    "AD-16",
+    "AD-17",
+    "AD-18",
+    "AD-19",
+    "AD-20",
+    "AD-21",
+    "AD-22",
+    "AD-23",
+    "AD-24",
+    "AP-01",
+    "AP-02",
+    "AP-03",
+    "AP-04",
+    "AP-05",
+    "AP-06",
+    "AP-07",
+    "AP-08",
+    "AP-09",
+    "AP-10",
+    "AP-11",
+    "AP-12",
+    "AP-13",
+    "AP-14",
+    "AP-15",
+    "AP-16",
+    "AP-17",
+    "AP-18",
+    "AP-19",
+    "AP-20",
+    "AP-21",
+    "AP-22",
+    "AP-23",
+    "AP-24",
+    "AP-25",
+    "AP-26",
+    "AP-27",
+    "AP-28",
+    "AP-29",
+    "AP-30",
+    "GA-01",
+    "GA-02",
+    "GA-03",
+    "GA-04",
+    "GA-05",
+    "GA-06",
+    "GA-07",
+    "GA-08",
+    "GA-09",
+    "GA-10",
+    "GA-11",
+    "GA-12",
+    "GA-13",
+    "GA-14",
+    "GA-15",
+    "GA-16",
+    "GA-17",
+    "GA-18",
+    "GA-19",
+    "GA-20",
+    "GA-21",
+    "GA-22",
+    "GA-23",
+    "GA-24",
+    "GA-25",
+    "GA-26",
+    "GA-27",
+    "GA-28",
+    "GA-29",
+    "GA-30",
+    "GA-31",
+    "GA-32",
+    "GA-33",
+    "GA-34",
+    "GA-35",
+    "GA-36"
+  ],
+  "draw_order": [
+    "GA-26",
+    "GA-29",
+    "GA-11",
+    "AP-26",
+    "AP-23",
+    "AP-21",
+    "GA-25",
+    "AP-07",
+    "AP-01",
+    "AP-29"
+  ],
+  "selected": [
+    {
+      "id": "GA-26",
+      "title": "Can a coloring prove a knot cannot untie?",
+      "msc_primary": "57",
+      "msc_secondary": [
+        "20",
+        "55"
+      ],
+      "adult_question": "How can a local diagram rule provide a global obstruction to deformation?",
+      "anchor": "Fox 3-coloring assigns residues 0,1,2 to diagram arcs so that 2·over=under1+under2 mod 3 at each crossing. Equivalently, all three colors agree or all differ. Reidemeister moves preserve colorings bijectively.",
+      "source": [
+        {
+          "title": "Louis Kauffman, Knots",
+          "url": "https://homepages.math.uic.edu/~kauffman/Tots/Knots",
+          "locator": "Three Colored Trefoil, Figures 12–14 and theorem",
+          "checked": "Coloring rule and move-invariance argument inspected"
+        }
+      ],
+      "bridge": {
+        "type": "exact-special-case",
+        "preserves": "Arcs and crossings are those of genuine knot diagrams; allowed Reidemeister moves preserve the embedded-knot type.",
+        "limits": "The invariant can prove two knots different but matching colorability does not prove sameness. Diagrams need unambiguous over/under data."
+      },
+      "gates": {
+        "entry": "O/C: follow an arc through crossings and use three colors.",
+        "explore": "P: check local color completion under moves; modular arithmetic is optional.",
+        "explain": "P: distinguish a nonconstant coloring from the single-arc unknot.",
+        "prove": "M/P: the formula supplies a compact proof of all three move identities.",
+        "reading": "Oral rule; short crossing labels.",
+        "arithmetic": "None for coloring; remainders modulo three for the algebraic extension.",
+        "reasoning": "An arc stops at undercrossings, not at every crossing; tracing deserves time.",
+        "hard_stop": "General knot equivalence requires Reidemeister's theorem; do not present local checks alone as its proof."
+      },
+      "materials": "A clearly drawn standard trefoil with three arcs labeled A,B,C, an unknot, three pencils, and local move sketches. Mark an explicit overpass at every crossing and stop each arc only at undercrossings. Future student sheets need independently checked trefoil and local-move drawings.",
+      "prep_minutes": 15,
+      "launch": "Color the trefoil's arcs so each crossing has either one color or three, and use more than one color overall. Can the same kind of coloring survive every legal diagram move? Could the knot then become a plain circle?",
+      "choices": "Choose colorings, local moves to test, and a proposed invariant-breaking move.",
+      "session": "0–10 trace knot arcs and manipulate a closed cord; 10–15 learn the crossing rule; 15–35 color and test moves; 35–40 reset; 40–55 explain the obstruction or check algebraic identities; 55–60 separate proof from failed untying attempts.",
+      "questions": [
+        "Why must a nonconstant coloring be required?",
+        "What changes if a strand is allowed to pass through another?"
+      ],
+      "hints": [
+        "Give the trefoil arcs three different colors.",
+        "For a crossing with overcolor b and incoming undercolor a, the outgoing undercolor must be 2b−a modulo three."
+      ],
+      "example": {
+        "problem": "Color the standard three-crossing trefoil and explain why the unknot is excluded.",
+        "solution": "Assign A=0,B=1,C=2. At every crossing the three colors are distinct, satisfying 2b=a+c modulo three. The unknot has only one arc, so every coloring is constant. For move invariance define a*b=2b−a: a*a=a, (a*b)*b=a, and (a*b)*c=(a*c)*(b*c), since both sides are a−2b+2c. These are the type I, II, and III local color-completion identities. The induced bijections preserve constant colorings and hence nonconstant ones. Together with Reidemeister's theorem this obstructs unknotting.",
+        "boundary": "Every diagram admits constant colorings, so allowing those alone proves nothing. Changing a crossing is not a Reidemeister move and can alter knot type."
+      },
+      "extensions": [
+        "Count all trefoil colorings: choose two arc colors freely and the third is forced, giving nine total and six nonconstant.",
+        "Find a nontrivial knot with no nonconstant 3-coloring; treat an example as a new sourced investigation rather than assuming the test is complete."
+      ],
+      "satisfying_stop": "A nonconstant trefoil coloring and one checked local reason it survives legal moves.",
+      "prior_use": "New knot-theory content; Week 2 parity invariants offer a reasoning comparison but not the same object or obstruction.",
+      "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+    },
+    {
+      "id": "GA-29",
+      "title": "Remove almost all the length; keep uncountably many points",
+      "msc_primary": "28",
+      "msc_secondary": [
+        "03",
+        "40"
+      ],
+      "adult_question": "How can a set have zero length and still contain more points than any list?",
+      "anchor": "The middle-thirds Cantor set C is the intersection of its closed construction stages. Stage n has 2^n intervals of length 3^−n, so outer measure(C)=0. Infinite addresses using ternary digits 0 and 2 give an injection from all binary sequences into C.",
+      "source": [
+        {
+          "title": "Sheldon Axler, Measure, Integration & Real Analysis",
+          "url": "https://measure.axler.net/MIRA.pdf",
+          "locator": "§2D, Cantor set construction and results 2.76–2.79",
+          "checked": "Construction, zero outer measure, and uncountability inspected; stage counts and chosen address checked"
+        }
+      ],
+      "bridge": {
+        "type": "exact-special-case",
+        "preserves": "Finite stages supply actual covers of the limiting set; nested interval addresses specify actual real points.",
+        "limits": "A finite paper model always retains positive total length and cannot display all points or prove an infinite statement by itself."
+      },
+      "gates": {
+        "entry": "O/C: cut or shade the open middle third repeatedly, keeping endpoints.",
+        "explore": "F: compute interval counts, lengths, and a shrinking total budget.",
+        "explain": "P: distinguish number of pieces, length, and number of points.",
+        "prove": "P/F: use geometric limits and diagonalization; no derivatives are needed.",
+        "reading": "Facilitator can narrate the cut rule; address strings must be tracked accurately.",
+        "arithmetic": "Powers of two and three, fractions, and a geometric sum.",
+        "reasoning": "Coordinate a nested construction with two different quantifiers: every length budget and every proposed list.",
+        "hard_stop": "Uncountability needs an infinite-sequence argument. “Too many dots to count” is only an observation."
+      },
+      "materials": "Long paper strips, three-color pencils, interval templates, and 0/2 address cards.",
+      "prep_minutes": 10,
+      "launch": "Repeatedly remove the open middle third of every surviving interval. Before cutting, predict which endpoints survive and whether all the length can disappear while points remain.",
+      "choices": "Choose addresses for surviving points, invent a proposed list of addresses, and challenge another group to find an omitted address.",
+      "session": "0–10 explore cutting; 10–15 state endpoint and nesting rules; 15–35 compute covers and encode locations; 35–40 reset; 40–55 compare length with listing and diagonalize; 55–60 share separate certificates.",
+      "questions": [
+        "Why does zero total length not mean the empty set?",
+        "Where does the argument use infinitely many stages?"
+      ],
+      "hints": [
+        "At stage n multiply the number of intervals by their individual length.",
+        "Against a list of infinite addresses, change the nth digit of the nth address."
+      ],
+      "example": {
+        "problem": "Compute the stage-four cover, locate 1/4 in C, and explain why no list exhausts C.",
+        "solution": "Stage four has 16 closed intervals of length 1/81, total 16/81. At stage n the cover total is (2/3)^n, below every positive budget for sufficiently large n; hence outer measure is zero. If using open covers, enlarge the finitely many stage-n closed intervals slightly, adding arbitrarily little total length. The repeating ternary address 0.020202… has value (2/9)/(1−1/9)=1/4 and avoids every deleted middle third. Every infinite 0/2 address determines a point by nested intervals. Two such addresses differing first at digit k give values separated by at least 1/3^k, so they cannot coincide. If all such addresses were listed, changing the diagonal digits produces another address missing from the list.",
+        "boundary": "After any finite number of stages the retained length is positive. Endpoints such as 1/3 survive because the removed middle thirds are open; using closed deletions changes the construction."
+      },
+      "extensions": [
+        "Find surviving rational points from repeating 0/2 addresses.",
+        "Compare GA-03: countable sets have zero outer measure, but the converse fails by this example."
+      ],
+      "satisfying_stop": "A small-length cover and an independently explained missed-address argument.",
+      "prior_use": "New measure/cardinality synthesis. Paper cutting resembles earlier hands-on work, but the infinite limiting object and two distinct proofs are new.",
+      "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+    },
+    {
+      "id": "GA-11",
+      "title": "How much does an addition machine have to reveal?",
+      "msc_primary": "39",
+      "msc_secondary": [
+        "26"
+      ],
+      "adult_question": "Does a rule about combining inputs determine an entire function, or do hidden domain assumptions matter?",
+      "anchor": "If f:Q→R is additive, then f(q)=qf(1). On R, continuity at one point forces the same form; additivity alone allows nonstandard functions. The core proves only the rational statement.",
+      "source": [
+        {
+          "title": "Daniel Reem, Remarks on the Cauchy functional equation and variations of it",
+          "url": "https://arxiv.org/pdf/1002.3721",
+          "locator": "Introduction and §2, regularity assumptions for additive functions",
+          "checked": "Relevant discussion inspected; rational proof and restricted-domain counterexample supplied"
+        }
+      ],
+      "bridge": {
+        "type": "exact-special-case",
+        "preserves": "An actual function obeys f(x+y)=f(x)+f(y); learners infer values from the equation rather than from a finite pattern table.",
+        "limits": "The elementary core does not construct a pathological additive function on all of R or prove the general regularity theorem."
+      },
+      "gates": {
+        "entry": "C: combine whole-number inputs under one stated rule.",
+        "explore": "F/A: use negatives and fractions and name an unknown output.",
+        "explain": "P: force integer and rational values using repeated addition.",
+        "prove": "P/X: extending the rational linearity conclusion to all real inputs uses a stated regularity assumption, such as continuity; constructing nonstandard additive extensions is a separate algebraic task. The restricted irrational domain here uses Q-linear independence.",
+        "reading": "Short rules; symbolic follow-up can be adult recorded.",
+        "arithmetic": "Addition, division, signed fractions.",
+        "reasoning": "Distinguish values forced by a universal rule from guesses suggested by examples.",
+        "hard_stop": "Do not claim the rational proof covers arbitrary real inputs without a continuity argument."
+      },
+      "materials": "Input-output cards, blank cards for learner-selected inputs, and a rule card.",
+      "prep_minutes": 5,
+      "launch": "The machine always obeys f(x+y)=f(x)+f(y), and f(1)=3. Choose an input whose output you think is forced. Convince a skeptical partner using only the rule. Then try an input your argument cannot reach.",
+      "choices": "Choose inputs, chains of decompositions, and adversarial output proposals; decide which domain the machine accepts.",
+      "session": "0–10 invent whole-number machines; 10–15 impose the addition rule; 15–35 force zero, negative, and fractional outputs; 35–40 reset; 40–55 examine irrational inputs or prove the rational theorem; 55–60 classify forced and unproved claims.",
+      "questions": [
+        "What must f(0) be?",
+        "Why does a repeated-addition proof reach 2/3 but not √2?"
+      ],
+      "hints": [
+        "Use f(0)=f(0)+f(0).",
+        "Three copies of the input 2/3 add to two."
+      ],
+      "example": {
+        "problem": "Determine f(2/3) and decide whether f(√2)=5 is already impossible from the rational argument.",
+        "solution": "Additivity gives f(2)=6 and 3f(2/3)=f(2)=6, so f(2/3)=2. On the restricted domain D={a+b√2:a,b rational}, define f(a+b√2)=3a+5b. Representation is unique because √2 is irrational, and coordinatewise addition verifies additivity. Thus f(1)=3 and f(√2)=5 coexist on D. This is an exact counterexample to extending the rational conclusion by algebra alone.",
+        "boundary": "If continuity is additionally required on D, rational numbers approaching √2 force f(√2)=3√2, contradicting 5. Continuity is a mathematical condition, not a property established by a smooth-looking sketch."
+      },
+      "extensions": [
+        "For arbitrary f(1)=c, prove f(m/n)=cm/n with n positive.",
+        "Replace additivity by positive multiplicativity f(x+y)=f(x)f(y); logarithms turn it into an additive equation when those tools are available."
+      ],
+      "satisfying_stop": "One forced fractional output and a correct statement of the domain on which the proof works.",
+      "prior_use": "No prior-week equivalent; differs from guessing patterns because the universal functional equation is the evidence.",
+      "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+    },
+    {
+      "id": "AP-26",
+      "title": "The controller is correcting yesterday’s error",
+      "msc_primary": "93",
+      "msc_secondary": [
+        "37"
+      ],
+      "adult_question": "Why can delayed feedback destabilize a correction rule that works perfectly with current information?",
+      "anchor": "The discrete plant is x[n+1]=x[n]+u[n]. Current feedback u[n]=−x[n] sets the next state to zero. One-step delayed feedback u[n]=−x[n−1] instead creates a second-order recurrence whose behavior depends on the stored previous state.",
+      "source": [
+        {
+          "title": "Åström and Murray, Feedback Systems",
+          "url": "https://www.fbswiki.org/wiki/index.php/State_Feedback",
+          "locator": "Chapter 7: state feedback; delay example is a self-contained discrete system",
+          "checked": "relevant source framework inspected; finite example explicitly proved below"
+        }
+      ],
+      "bridge": {
+        "type": "exact-special-case",
+        "preserves": "Position, correction input and a one-step-old sensor report are exactly the state, control and observation of a discrete feedback system.",
+        "limits": "This is not Euler’s approximation to a cooling ODE. Its clocked update and communication delay are the model itself."
+      },
+      "gates": {
+        "entry": "F/C: signed positions and one-step memory represented by two cards.",
+        "explore": "F: apply full or half correction and plot a sequence.",
+        "explain": "P: identify a repeating pair of states, not merely a repeated single reading.",
+        "prove": "A: manipulate the two-step recurrence to prove periodicity or decay.",
+        "reading": "Current, previous and correction labels; spoken role instructions support participation.",
+        "arithmetic": "Signed addition, halves and quarters.",
+        "reasoning": "Separate the current position from the sensor’s delayed report; update both cards in the correct order.",
+        "hard_stop": "General delay-system stability and frequency-domain design require further control theory; the exact recurrence suffices."
+      },
+      "materials": "A signed number line, two state cards labeled previous/current, correction arrows, and a two-person controller/plant station. Start both state cards at 1.",
+      "prep_minutes": 7,
+      "launch": "The plant adds your correction to its current position once each tick. Your sensor reports the previous tick’s position. Begin with previous=current=1. First always negate the reported number. Does the position settle at zero? Then try correcting only half the reported error.",
+      "choices": "Choose full or half correction, test a different initial state pair, and decide what information is necessary to predict the future.",
+      "session": "0–10 move positions with chosen corrections; 10–15 establish the delayed-report order; 15–35 compare full and half feedback; 35–40 exchange controller and plant roles; 40–55 prove the repeating pair or four-step shrink rule; 55–60 explain why strong correction need not be better.",
+      "questions": [
+        "Why is seeing a zero position once not enough to show the system has settled?",
+        "What changes when the controller sees the current state instead?"
+      ],
+      "hints": [
+        "Keep a two-column record of (previous,current).",
+        "A deterministic repeated pair makes every future pair repeat; for half correction, compare entries four steps apart."
+      ],
+      "example": {
+        "problem": "Analyze full and half delayed correction from x[−1]=x[0]=1.",
+        "solution": "Full correction gives x[1..6]=0,−1,−1,0,1,1, returning the pair to (1,1): a six-step cycle. Current full correction would instead reach zero in one tick and stay there. Half delayed correction gives 1,1/2,0,−1/4,−1/4,−1/8,0,1/16,... from x[0]. Algebra from x[n+1]=x[n]−x[n−1]/2 yields x[n+4]=−x[n]/4, so every four-step subsequence decays to zero.",
+        "boundary": "A single repeated position does not prove a cycle: its preceding state might differ. The complete state is the ordered previous/current pair."
+      },
+      "extensions": [
+        "Test other gains k in x[n+1]=x[n]−k x[n−1] and study characteristic roots with algebra.",
+        "Add bounded disturbances and compare perfect nominal convergence with robustness; a new disturbance rule must be specified."
+      ],
+      "satisfying_stop": "A proved delay-induced cycle and a weaker correction that converges.",
+      "prior_use": "AP-07 also studies recurrence stability, but there the update approximates an ODE. Here delayed information changes the exact closed-loop state dimension; record the shared proof mechanism.",
+      "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+    },
+    {
+      "id": "AP-23",
+      "title": "A stable traffic pattern that costs more",
+      "msc_primary": "91",
+      "msc_secondary": [
+        "90"
+      ],
+      "adult_question": "Why can individually stable choices fail to minimize total cost?",
+      "anchor": "A pure Nash equilibrium has no strictly profitable unilateral deviation. In a finite congestion game, a player’s route cost depends on how many use it; equilibrium and social optimum are distinct conditions.",
+      "source": [
+        {
+          "title": "Giacomo Bonanno, Game Theory",
+          "url": "https://arxiv.org/pdf/1512.06808",
+          "locator": "Section 1.6: Nash equilibrium; finite congestion instance checked directly",
+          "checked": "named source scope inspected; displayed finite result proved directly here"
+        }
+      ],
+      "bridge": {
+        "type": "exact-special-case",
+        "preserves": "Three route-choice counters are literal players in an explicitly specified congestion game.",
+        "limits": "This is a mathematical cost model, not a prediction of actual children’s traffic choices or a recommendation for a real transport policy."
+      },
+      "gates": {
+        "entry": "O/C: place one token per player on a route and count users.",
+        "explore": "C: compute each player’s cost and total cost.",
+        "explain": "P: test every kind of unilateral switch, including the cost change caused by joining.",
+        "prove": "P: enumerate the four possible route occupancies.",
+        "reading": "Two route cost labels; oral rules sufficient.",
+        "arithmetic": "Counts to three and totals to nine.",
+        "reasoning": "A switch changes the destination route’s crowding. Equal cost is not a strictly profitable deviation.",
+        "hard_stop": "General equilibrium existence and price-of-anarchy bounds require additional game-theoretic definitions and proofs."
+      },
+      "materials": "Three distinct player counters, route A labeled “cost equals number using A,” and route B labeled “cost always 2.” Provide a table for A-occupancies 0,1,2,3.",
+      "prep_minutes": 5,
+      "launch": "Three travelers choose A or B. Everyone on A pays the number of travelers on A; everyone on B pays 2. A configuration is stable if no single traveler can switch and strictly lower their own cost. Find every stable occupancy and compare total costs.",
+      "choices": "Choose configurations, act as a player searching for improvement, propose coordinated changes, and distinguish fairness from total efficiency.",
+      "session": "0–10 explore costs by moving counters; 10–15 define unilateral and strictly lower; 15–35 classify the four occupancies; 35–40 become three travelers and rehearse switches; 40–55 compare stable states with a planner’s optimum; 55–60 explain one surprising stable pattern.",
+      "questions": [
+        "Why can a B traveler not simply use the cost A had before they joined it?",
+        "Can a stable pattern still have a cheaper alternative arrangement?"
+      ],
+      "hints": [
+        "Record each current cost and then recompute the destination cost after one token moves.",
+        "Compare total costs separately from individual improvement tests."
+      ],
+      "example": {
+        "problem": "Find Nash occupancies and the social optimum.",
+        "solution": "Let n be the number on A. Total costs for n=0,1,2,3 are 6,5,6,9. At n=0 a traveler improves from 2 to 1 by joining A. At n=3 a traveler improves from 3 to 2 by switching to B. At n=1, a B traveler joining A would pay 2, unchanged, and the A traveler would worsen from 1 to 2: stable. At n=2, an A traveler moving to B stays at 2, while the B traveler joining A would pay 3: also stable. The social optimum is n=1 with total 5; n=2 is a costlier equilibrium.",
+        "boundary": "If ties also trigger moves, stability is a different notion. Two A travelers may be indifferent to a move even though that move improves total cost."
+      },
+      "extensions": [
+        "Change B’s constant cost to 3/2 and recompute equilibria and total optimum with fractions.",
+        "Explore a small toll or coordination rule, stating whose objective it serves; no policy is universally best without an objective."
+      ],
+      "satisfying_stop": "A complete table separating stable behavior from globally efficient behavior.",
+      "prior_use": "No congestion-game task is documented. The existing route packets ask how to traverse edges, not how route users create strategic costs.",
+      "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+    },
+    {
+      "id": "AP-21",
+      "title": "Spend the battery now, or save it?",
+      "msc_primary": "90",
+      "msc_secondary": [
+        "68",
+        "93"
+      ],
+      "adult_question": "Why can looking backward through a state space beat choosing the best immediate reward?",
+      "anchor": "For a finite deterministic horizon with state (day, remaining energy), the optimal value obeys Bellman’s recurrence: compare the reward plus optimal value of the resulting state for every legal action. The state must retain all information relevant to future feasibility and reward.",
+      "source": [
+        {
+          "title": "Jeffrey Chasnov, Mathematical Biology",
+          "url": "https://www.math.hkust.edu.hk/~machas/mathematical-biology.pdf",
+          "locator": "Chapter 7.3: dynamic programming located; this finite resource recurrence is self-contained",
+          "checked": "dynamic-programming chapter located in authored contents; this finite decision recurrence has a complete independent proof"
+        }
+      ],
+      "bridge": {
+        "type": "exact-special-case",
+        "preserves": "A two-unit battery, dated offers and accept/skip actions form an exact finite-horizon resource-allocation problem.",
+        "limits": "Future offers are known here. Unknown or random future offers require an explicit information model and possibly different policies."
+      },
+      "gates": {
+        "entry": "O/C: spend energy tokens once, collect score counters and follow three dates.",
+        "explore": "C: list legal plans and compare their scores.",
+        "explain": "P: justify why optimal remaining decisions depend only on day and energy.",
+        "prove": "P: backward induction over the number of remaining days.",
+        "reading": "Three short offer cards; pictures can replace text.",
+        "arithmetic": "Small whole-number subtraction and addition.",
+        "reasoning": "An immediate attractive action may remove a more valuable future choice; the record must keep remaining energy.",
+        "hard_stop": "Continuous optimal control and stochastic decision theory are continuations, not claims proved by the three-day table."
+      },
+      "materials": "Two energy tokens, three ordered offer cards: day 1 costs 2 and pays 5; day 2 costs 1 and pays 4; day 3 costs 1 and pays 4. Prepare a 3×3 day/energy grid.",
+      "prep_minutes": 8,
+      "launch": "Start with two energy tokens and no recharge. On each day you may accept that day’s offer once if you can pay its energy cost, or skip it. Tomorrow’s offers are already visible. Find the best plan, then make a table that gives the best decision from every day and remaining-energy state.",
+      "choices": "Choose a plan, create a counterexample to a greedy rule, and decide how to organize reusable information rather than rechecking every complete story.",
+      "session": "0–10 act out possible spending plans; 10–15 agree on one-time offers and no recharge; 15–35 enumerate or build a decision tree; 35–40 swap planner and battery-keeper roles; 40–55 compress the tree into a backward table; 55–60 explain why a tempting first choice fails.",
+      "questions": [
+        "Why can the highest-value single offer be part of a worse overall plan?",
+        "Which details of the earlier days matter after the remaining energy is known?"
+      ],
+      "hints": [
+        "Begin on the last day, when there is no later consequence.",
+        "At each state compare skip with take plus the best value already recorded for the next day."
+      ],
+      "example": {
+        "problem": "Find the optimal score and the backward values for energy 0,1,2.",
+        "solution": "On day 3, values are 0,4,4. Before day 2, values are 0,4,8: with two tokens take both remaining offers. Before day 1, values are 0,4,8; with two tokens, taking day 1 gives 5 while skipping gives 8. Thus skip day 1 and take days 2 and 3. Enumerating feasible subsets gives {},{1},{2},{3},{2,3}, with scores 0,5,4,4,8, confirming the table.",
+        "boundary": "If energy recharges by one unit overnight, the state transitions change and taking day 1 can become optimal. The old table must not be reused unchanged."
+      },
+      "extensions": [
+        "Add a fourth dated offer and update the same state table.",
+        "Introduce a random future offer with a stated distribution and compare a precommitted plan with a policy reacting to the observed offer."
+      ],
+      "satisfying_stop": "A greedy counterexample and a complete optimal-decision table.",
+      "prior_use": "Subtraction games use backward winning-state analysis. Here the payoff is accumulated reward under resource constraints, with optimization rather than alternating adversarial turns.",
+      "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+    },
+    {
+      "id": "GA-25",
+      "title": "How many corridors must close to erase every loop?",
+      "msc_primary": "55",
+      "msc_secondary": [
+        "05"
+      ],
+      "adult_question": "Why does a connected graph have an invariant number of independent cycles even when it has many visible loop routes?",
+      "anchor": "For a finite connected graph with V vertices and E edges, every spanning tree has V−1 edges. Therefore exactly E−V+1 edges must be removed to leave a connected graph with no cycles.",
+      "source": [
+        {
+          "title": "Allen Hatcher, Algebraic Topology",
+          "url": "https://pi.math.cornell.edu/~hatcher/AT/AT.pdf",
+          "locator": "Chapter 0, graphs and homotopy type; §1.1 fundamental group of graphs",
+          "checked": "Graph discussion inspected; elementary spanning-tree proof supplied"
+        }
+      ],
+      "bridge": {
+        "type": "exact-special-case",
+        "preserves": "Rooms and corridors form the actual one-dimensional cell complex; deleting selected edges asks for its cycle rank.",
+        "limits": "This computes a graph invariant, not higher-dimensional homology. Crossing corridors are joined only when a vertex is explicitly marked."
+      },
+      "gates": {
+        "entry": "O/C: trace routes and count rooms and corridors.",
+        "explore": "P: delete a cycle edge without disconnecting the graph.",
+        "explain": "P: combine a termination algorithm with the tree-edge count.",
+        "prove": "X: fundamental groups or homology for the algebraic interpretation.",
+        "reading": "Oral; vertex labels help record chosen deletions.",
+        "arithmetic": "Counting and E−V+1.",
+        "reasoning": "Distinguish a cycle from a backtracking walk and preserve all vertices.",
+        "hard_stop": "Cycle rank does not count every simple cycle; avoid calling both quantities 'number of loops'."
+      },
+      "materials": "Four room dots A,B,C,D in a square, corridors AB,BC,CD,DA,AC, and removable edge strips.",
+      "prep_minutes": 8,
+      "launch": "Close as few corridors as possible so every room remains reachable but no cycle survives. Choose your closures. Can a partner prove that using fewer closures could never work?",
+      "choices": "Choose the spanning tree, a deletion algorithm, and a graph that seems to have more cycles than the formula predicts.",
+      "session": "0–10 explore routes and cycles; 10–15 define connected and cycle-free; 15–35 optimize closures; 35–40 reset; 40–55 prove the edge count or change the graph; 55–60 share two different optimal closure sets.",
+      "questions": [
+        "Can removing an edge on a cycle disconnect the graph?",
+        "Why are the two small triangles and the outside square not three independent cycles?"
+      ],
+      "hints": [
+        "Keep deleting one cycle edge until no cycle remains.",
+        "A tree can be built by attaching one new vertex with one new edge."
+      ],
+      "example": {
+        "problem": "Solve the four-room square with diagonal AC.",
+        "solution": "Here V=4 and E=5, so two deletions are required. Delete DA and AC, leaving the path A−B−C−D. One deletion would leave four edges on four vertices; a connected acyclic graph on four vertices has only three edges, so one cannot suffice. To prove the general procedure, an edge on a cycle has an alternate route around that cycle, so deleting it preserves connectivity. Repetition ends at a spanning tree. Removing a leaf inductively proves every finite tree has V−1 edges.",
+        "boundary": "The original graph has three simple cycles: ABC, ACD, and the outer square. Its independent cycle count is only two; listing cycles and finding a cycle basis are different questions."
+      },
+      "extensions": [
+        "Allow several connected components: the cycle rank becomes E−V+c, where c is the component count.",
+        "Fill one triangle with a two-dimensional face; ask why its boundary loop is now contractible, introducing a new dimension."
+      ],
+      "satisfying_stop": "A minimal closure plan and an explanation of why all optimal plans remove the same number.",
+      "prior_use": "Week 10 studied Euler/postman routes. This asks about spanning trees and independent cycles, not traversing all corridors.",
+      "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+    },
+    {
+      "id": "AP-07",
+      "title": "A cooling model that heats itself up",
+      "msc_primary": "65",
+      "msc_secondary": [
+        "34",
+        "80"
+      ],
+      "adult_question": "How can discretizing a stable differential equation produce oscillation or explosive growth?",
+      "anchor": "Forward Euler applied to y′=−ay with a>0 gives y[n+1]=(1−ah)y[n]. The numerical magnitude decays exactly when |1−ah|<1, whereas the continuous solution y(0)exp(−at) always decays.",
+      "source": [
+        {
+          "title": "Driscoll and Braun, Fundamentals of Numerical Computation",
+          "url": "https://fncbook.com/",
+          "locator": "Chapter 6 initial-value problems and chapter 11 diffusion located; scalar stability proof supplied here",
+          "checked": "chapter scope inspected; scalar Euler stability proof supplied independently on this card"
+        }
+      ],
+      "bridge": {
+        "type": "exact-special-case",
+        "preserves": "The finite recurrence is precisely an Euler discretization of the specified scalar ODE. Comparing its multiplier with the continuous solution preserves a numerical-stability question.",
+        "limits": "No claim that every recurrence is an ODE or that stability alone guarantees small discretization error."
+      },
+      "gates": {
+        "entry": "F/A: signed multiplication and repeated updates.",
+        "explore": "V: plot a table at equally spaced times; compare signs and magnitudes.",
+        "explain": "A/P: classify powers of a constant multiplier.",
+        "prove": "D: relate the update to the differential equation; A suffices for recurrence stability.",
+        "reading": "A short recurrence; a partner can maintain the table.",
+        "arithmetic": "Halves, signed integers and powers.",
+        "reasoning": "Track three distinct objects: physical temperature difference, continuous model, and numerical approximation.",
+        "hard_stop": "General ODE error bounds need calculus and regularity hypotheses. The recurrence analysis is a satisfying independent stop."
+      },
+      "materials": "Graph paper and two-color counters representing positive and negative differences from room temperature; calculator optional. No actual hot water is necessary.",
+      "prep_minutes": 5,
+      "launch": "A model says the difference from room temperature falls at a rate equal to itself. Our computer approximates one step by “new difference = old difference − h times old difference.” Start at 8. Choose h from 1/2,1,3/2,2,3. Which choices look like cooling, and which invent strange behavior?",
+      "choices": "Choose step sizes, decide what counts as a sensible approximation, and separate monotone decay from merely shrinking magnitude.",
+      "session": "0–10 explore update cards; 10–15 identify the signed difference variable; 15–35 generate and plot sequences; 35–40 use body positions above/below a floor line for signs; 40–55 classify every positive h or compare equal elapsed time; 55–60 present a numerical failure.",
+      "questions": [
+        "Why does a negative value mean below room temperature rather than negative absolute temperature?",
+        "Can a shrinking sequence still be a poor picture of monotone cooling?"
+      ],
+      "hints": [
+        "Rewrite the update as multiplication by 1−h.",
+        "Classify whether the multiplier is between 0 and 1, between −1 and 0, exactly −1, or below −1."
+      ],
+      "example": {
+        "problem": "Compare h=1/2, h=3/2 and h=3 from y0=8.",
+        "solution": "The multipliers are 1/2,−1/2,−2. Sequences begin 8,4,2,1; 8,−4,2,−1; and 8,−16,32,−64. The first decays monotonically, the second decays while alternating, the third grows in magnitude. For a=1, stability is 0<h<2. Only the first qualitatively matches positive monotone continuous decay.",
+        "boundary": "At h=2, values alternate 8,−8 forever: bounded does not mean converging to equilibrium. At h=1, Euler reaches zero immediately, although the continuous solution remains positive at every finite time."
+      },
+      "extensions": [
+        "For a=2, derive 0<h<1 rather than copying the previous threshold.",
+        "Compare equal elapsed times with h=1/2 and h=1/4; discuss convergence separately from stability."
+      ],
+      "satisfying_stop": "A complete classification of one update rule and an explanation of why smaller steps can matter.",
+      "prior_use": "No numerical time-stepping investigation is documented in the existing worksheets. This extends continuous mathematics beyond the existing bisection prototype.",
+      "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+    },
+    {
+      "id": "AP-01",
+      "title": "Which shore will the wandering token reach?",
+      "msc_primary": "60",
+      "msc_secondary": [
+        "65"
+      ],
+      "adult_question": "How can a random path have an exactly predictable endpoint probability, and why is that probability harmonic?",
+      "anchor": "An independent fair nearest-neighbor random walk on 0,1,...,N, stopped at 0 or N, hits N with probability i/N from i. The first-step equations and boundary values determine the finite answer.",
+      "source": [
+        {
+          "title": "Grinstead and Snell, Introduction to Probability",
+          "url": "https://math.dartmouth.edu/~prob/prob/prob.pdf",
+          "locator": "Chapters 4 and 12.2",
+          "checked": "relevant exposition inspected; finite instance independently derived below"
+        }
+      ],
+      "bridge": {
+        "type": "exact-special-case",
+        "preserves": "A token position is precisely the state of the stopped Markov chain. Independent fair coin flips implement its transition rule.",
+        "limits": "Short experimental frequencies are estimates. This is not Brownian motion or a proof of a diffusion limit."
+      },
+      "gates": {
+        "entry": "O/C: move one place following a coin result and recognize endpoints.",
+        "explore": "C/F: tally outcomes from repeated starts; compare fractions.",
+        "explain": "F/A: an interior winning chance is the average of its two neighbors.",
+        "prove": "A/P: solve the finite averaging equations, and justify eventual absorption.",
+        "reading": "None with oral rules; a recorder may label the table.",
+        "arithmetic": "Small counts; quarters and halves for the worked example.",
+        "reasoning": "Separate individual paths from repeated experiments; hold the starting location fixed.",
+        "hard_stop": "Martingale stopping theorems and Brownian limits require new probability prerequisites."
+      },
+      "materials": "Draw five numbered spaces, provide a token and coin, and prepare a start/end tally sheet. A partner can flip while another directs moves.",
+      "prep_minutes": 5,
+      "launch": "Put the token on 1 of the track 0–1–2–3–4. Heads moves right one space, tails left one. Stop when it reaches 0 or 4. Which starting places make reaching 4 easier? Choose a start and investigate.",
+      "choices": "Choose starts, organize trials, decide whether to compare counts or proportions, and propose a track change to test.",
+      "session": "0–10 explore coin paths freely; 10–15 agree on independent tosses and stopping; 15–35 collect starts and endpoint records; 35–40 walk a human-size track; 40–55 build a probability-height drawing or longer track; 55–60 share a conjecture and its evidence.",
+      "questions": [
+        "Could starting one place farther right make the winning chance smaller?",
+        "What must the chance at 2 have to do with the chances at 1 and 3?"
+      ],
+      "hints": [
+        "Give endpoints height 0 and height 1; leave interior heights blank.",
+        "Make every interior height the average of its neighbors. Equal spacing works."
+      ],
+      "example": {
+        "problem": "Find the exact probability of reaching 4 before 0 when starting at 1.",
+        "solution": "Write p0=0,p4=1 and 2pi=p(i−1)+p(i+1). Consecutive differences are equal, so p1=1/4,p2=1/2,p3=3/4. Absorption occurs almost surely: from any interior state, four consecutive heads suffice; each independent block has probability 1/16, so survival through k blocks is at most (15/16)^k. This justifies the endpoint interpretation.",
+        "boundary": "A coin with heads probability 3/4 breaks equal averaging. Starting at 1 on 0–1–2 then wins with probability 3/4, not 1/2."
+      },
+      "extensions": [
+        "Use track 0–6 and explain why doubling a start from 1 to 2 doubles its endpoint probability.",
+        "With algebra, solve the biased recurrence; with advanced probability, compare discrete harmonic functions and diffusion."
+      ],
+      "satisfying_stop": "A complete five-position chance map, supported by a finite averaging argument.",
+      "prior_use": "Week 1 extensions include random walks on tiling graphs; this uses absorbing boundaries and harmonic probabilities. Actual use of this new instance is unknown.",
+      "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+    },
+    {
+      "id": "AP-29",
+      "title": "Give the common message a shorter name",
+      "msc_primary": "94",
+      "msc_secondary": [
+        "05",
+        "60"
+      ],
+      "adult_question": "How can unequal frequencies be converted into shorter unambiguous communication?",
+      "anchor": "A binary prefix code represents messages by leaves of a binary tree, preventing a codeword from prefixing another. For positive message weights, an optimal tree has no unary internal node, and shorter leaves should receive larger weights by an exchange argument.",
+      "source": [
+        {
+          "title": "Claude Shannon, A Mathematical Theory of Communication",
+          "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+          "locator": "Part I, PDF p. 18: code 0,10,110,111 and weighted average length",
+          "checked": "relevant source framework inspected; finite example explicitly proved below"
+        }
+      ],
+      "bridge": {
+        "type": "exact-special-case",
+        "preserves": "Messages, binary strings and weighted bit totals are exact finite lossless source coding.",
+        "limits": "The known message frequencies and prefix condition are part of the model. This does not prove general entropy bounds or all properties of non-prefix uniquely decodable codes."
+      },
+      "gates": {
+        "entry": "O/C: follow left/right branches and associate leaves with pictures.",
+        "explore": "M: count total bits for a specified collection of messages.",
+        "explain": "P: explain immediate greedy decoding in a prefix tree and why a prefix violation can make greedy stopping fail. A non-prefix code may still be uniquely decodable by another method.",
+        "prove": "P: classify full binary trees with four leaves and use a label-swap argument.",
+        "reading": "Four picture symbols and binary digits; a spoken “left/right” alternative works.",
+        "arithmetic": "Weighted counts up to 16; division by eight optional.",
+        "reasoning": "A codeword ends at a leaf. Preserve boundaries without secretly inserting separators for free.",
+        "hard_stop": "Entropy bounds require logarithms and probability; optimality among unrestricted uniquely decodable codes needs an additional theorem."
+      },
+      "materials": "Eight message tokens: four A, two B, one C, one D; binary-tree mats and movable leaf labels. Provide code strips but no free spaces or punctuation between words.",
+      "prep_minutes": 8,
+      "launch": "Our eight messages contain A four times, B twice, and C and D once each. Give each symbol a binary codeword so a receiver can decode a concatenation without separators. Restrict to prefix codes. Can you use fewer than the 16 bits required by two bits per symbol?",
+      "choices": "Choose tree shape and label placement, invent difficult concatenations, and compare total length with worst-case length.",
+      "session": "0–10 send and decode short strings; 10–15 establish no-free-separator and prefix rules; 15–35 construct trees and count bits; 35–40 partners walk left/right paths; 40–55 prove the best four-leaf tree choice; 55–60 show a savings calculation and decoding demonstration.",
+      "questions": [
+        "Why should the most frequent symbol get a shallow leaf?",
+        "Could the shortest average code make one rare message longer than before?"
+      ],
+      "hints": [
+        "Try A=0, then put all remaining words beneath the 1 branch.",
+        "An optimal positive-weight tree needs no node with only one child; remove such a step to shorten its descendants."
+      ],
+      "example": {
+        "problem": "Optimize weighted total prefix-code length for weights 4,2,1,1.",
+        "solution": "Code A=0,B=10,C=110,D=111 has total 4×1+2×2+1×3+1×3=14 bits, average 7/4. An optimal four-leaf binary tree can be taken full. Its root splits leaf counts either 2+2, giving lengths 2,2,2,2 and total 16, or 1+3, giving 1,2,3,3. Swapping a larger weight into a shorter depth never increases cost, so the displayed assignment minimizes the second shape at 14. These exhaust full four-leaf shapes up to symmetry.",
+        "boundary": "Codes A=0 and B=01 are not prefix-free; without the rest of a specified code and a unique-decoding proof, greedily stopping at 0 can misread B."
+      },
+      "extensions": [
+        "Change the frequencies to all equal; the balanced two-bit code now has total 8 and beats lengths 1,2,3,3 totaling 9.",
+        "Use the two-smallest-weight merge idea to develop Huffman coding, proving why sibling placement permits recursive optimization."
+      ],
+      "satisfying_stop": "An unambiguous code that saves two bits, with a finite optimality proof.",
+      "prior_use": "Week 6 query trees share a branching representation. Here path length is weighted communication cost, and unknown separators create the central decoding constraint.",
+      "status": "reviewed plan v1; exact instance checked; not classroom-piloted"
+    }
+  ],
+  "source_hashes": {
+    "plans/atlas/families/algebra-discrete.json": "741783d4521ecaabb711c9d15d8f73b436242149c2f1778ea3c0bd8a5da0ddaa",
+    "plans/atlas/families/applied-probability.json": "b43a548b1cb02b5af9373c1feae4e8953cdc2bd190e52b37168a1ef38099cd1e",
+    "plans/atlas/families/geometry-analysis.json": "abb310c18533ad5f3ebdbbc75ec4e6117f2db23f5df25343c4eb37c800904f20"
+  }
+}
