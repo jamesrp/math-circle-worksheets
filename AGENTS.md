@@ -22,9 +22,23 @@ A student worksheet page should contain only:
 
 - A consistent header: `Week 1 / Tiling lab / Grades 2–3`, with the week, topic, and level adjusted for that packet.
 - A consistent footer: `Bellingham Math Circle / Week 1 / <id>`.
+- Optional brief, unnumbered shared rules at the beginning of the activity.
 - `Problem N: <problem description, graphics, space for their answer, etc.>`
 
-Remove Name/Date fields. Do not add a second page title above a numbered problem, generic encouragement, separate “build first” directions, or a “go further” label in place of a clear task. Put essential rules and expected actions directly in the numbered problem, in the same ordinary text style. Include the diagrams and recording space children actually need. Keep preparation, timing, hints, proof follow-ups, and teaching commentary in the facilitator guide.
+Remove Name/Date fields. Do not add a second page title above a numbered problem, generic encouragement, separate “build first” directions, or a “go further” label in place of a clear task. State activity-wide rules once in the opening guidance. Put task-specific rules and the requested action directly in the numbered problem, in the same ordinary text style. Include the diagrams and recording space children actually need. Keep preparation, timing, hints, discretionary proof follow-ups, and teaching commentary in the facilitator guide.
+
+## Substantial problems, concise presentation
+
+- **Give children something substantial to work on.** A numbered problem should usually support five or more minutes of experimenting and thinking without another instruction. Several purposeful, contrasting examples can belong under one shared question. Let the choice and sequence of problems carry the mathematical development.
+- **State the goal and essential rules; leave the method open.** Children should understand what they are trying to accomplish. Choosing an approach, noticing patterns, and organizing their work should usually be part of the mathematics. Avoid turning an investigation into tiny directed steps or printing the intended discovery as a procedure.
+- **State shared rules once.** Put brief rules that apply throughout the activity in unnumbered guidance at the beginning. Each numbered problem should contain only what is needed for that particular task. Add constraints only when they are essential to the intended mathematics.
+- **Choose the representation that suits the mathematics.** Use words, numbers, symbols, diagrams, objects, or a combination. Logic puzzles, number problems, and other primarily textual activities are equally welcome. Use pictures when they clarify the problem or support exploration. When a diagram already supplies information, avoid repeating it in prose. Concision means removing unnecessary directions and repetition; retain the clues, definitions, and context needed for a rich problem.
+- **Keep optional scaffolding with the adults.** Hints, worked solutions, suggested intermediate steps, and prompts directing attention to particular features belong in the facilitator guide, to use when needed. Do not routinely append instructions to count, record, compare, try again, find another method, or explain after every small action.
+- **Reduce reading without reducing depth.** Finding all solutions, finding the fewest moves, inventing a difficult puzzle, explaining impossibility, and discovering or proving a rule can each be the central problem. Keep these substantial questions when they are the point of the activity; move discretionary teaching follow-ups to the facilitator guide.
+- **Size diagrams for their use.** Use compact, legible diagrams when children will work with separate materials, paper, or whiteboards. Provide large working boards and answer areas when children need to work directly on the printed page.
+- **Review for independence and brevity.** Once children understand the rules and the problem, can they get absorbed in the work without continually returning for instructions? Remove sentences that repeat rules, narrate diagrams, supply optional facilitation, or tell children how to solve the problem.
+
+Use [week-02-shared-catalog.pdf](lowell-math-circle-year-2/week-02/week-02-shared-catalog.pdf) and [week-02-shared-catalog-upper.pdf](lowell-math-circle-year-2/week-02/week-02-shared-catalog-upper.pdf) as approved examples of brief directions, substantial tasks, and room for independent thinking. Their diagram-heavy format suits those particular activities; other topics may call for a different presentation. Number problems consecutively within each packet.
 
 ## Design and review from classroom evidence
 
@@ -33,3 +47,16 @@ Remove Name/Date fields. Do not add a second page title above a numbered problem
 - **Sequence representations around their purpose.** Let children act, record, and compare before asking them to organize or explain what happened. Introduce a map, code, or ribbon when it helps answer a question they have encountered; give that representation its own concrete work.
 - **Let observed experience change the design.** Record what children tried, understood, found unclear, and wanted to continue. Expand ideas that need more examples, resequence instructions that required repeated adult rescue, and remove or redesign elegant questions that did not land. Distinguish observations from hypotheses about why they happened, and distinguish tested material from new revisions.
 - **Preserve depth and flexible pacing.** Keep worthwhile explanation and proof opportunities, using objects, drawings, and adult conversation as appropriate. Put discretionary follow-ups such as “How do you know for sure?” in facilitator notes when they would interrupt the printed task. Choose starting points and further questions by prerequisites and observed readiness; finishing every page is not the goal.
+
+## Workflow to generate worksheets
+
+To draft a week's student worksheets, use [worksheet-workflow/](worksheet-workflow/README.md) rather than writing the pages in one pass yourself. It is the best of ten workflows tested in [experiments/worksheet-genlab-opus5.5/](experiments/worksheet-genlab-opus5.5/REPORT.md), and the organizer preferred its output to his own hand-edited Week 1 in a blind review.
+
+1. Write the week's outline from `worksheet-workflow/outlines/TEMPLATE.md`: the mathematical kernels, a one-line emphasis per band, and the materials with their physical constraints. Leave the choice of problems to the writer stage.
+2. Check that `worksheet-workflow/context.md` matches the current group.
+3. Run `python3 worksheet-workflow/make_prompts.py --outline <outline> --run tmp/worksheet-runs/<week>-v1`.
+4. Run the stage files in order, each in a fresh agent (a subagent in Claude Code, a separate `codex exec` run or session in Codex): `PROMPT.md` (writer), then `CRITIC.md` (adversarial review; add `CRITIC-MATH.md` for weeks whose answers come from enumeration), then `REVISE.md`. The reviewer must not be the writer.
+5. If you were started with one of these stage files, do only that stage.
+6. Present `final/*.pdf` for review. After approval, move the packet into `lowell-math-circle-year-2/` as described above and record it as unpiloted.
+
+Keep the workflow's prompt files as a set. Change them only deliberately, and log each change in `worksheet-workflow/README.md`. `worksheet-workflow/blocks/spec.md` is the writer-facing version of the student-page guidance above; if either changes, update the other. The workflow produces student pages only; a facilitator guide is a separate, untested step.
