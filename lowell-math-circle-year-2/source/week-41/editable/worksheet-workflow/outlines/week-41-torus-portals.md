@@ -1,0 +1,22 @@
+Week 41: Walk off the map and return somewhere familiar
+
+Mathematical kernels
+
+1. Identify opposite edges of a square in matching directions. Exiting the right edge enters the left at the same height; exiting the top enters the bottom at the same horizontal position. This is a torus, modeled by a square with edge identifications. Repeat the square in an infinite tiled plane: every path has a unique continuous lifted path once its starting copy is chosen. A loop based at a marked point may end at a different copy of that same point. For a unit-square model, the endpoint displacement is an integer pair (m,n), recording horizontal and vertical windings. A full rightward trip has (1,0), a full upward trip (0,1), and a trip right then up has (1,1). The ordinary drawn endpoint alone forgets these distinctions. Crossing a seam and immediately crossing back contributes zero; count signed net crossings, not total crossings.
+
+2. Two based torus loops are homotopic exactly when their lifts have the same endpoint copy. Necessity follows because a based homotopy's endpoint lift varies continuously among discrete copies, so cannot change. Sufficiency follows by linearly deforming between the lifted paths in the plane with their endpoints fixed and projecting down. Consequently a loop contracts exactly when its displacement is (0,0), and horizontal and vertical full trips commute up to homotopy. A square-lattice path version allows immediate backtrack removal AND replacing two sides of a small square by the other two; faces are traversable. This is different from the graph-only detours activity, where no face slides are allowed and the two-loop commutator survives. Children need not learn covering-space vocabulary to trace a lift. Do not treat just moving the pawn back home as contracting the entire loop.
+
+Sources: Allen Hatcher, Algebraic Topology, Chapter 1 §§1.1 and 1.3 (fundamental groups, products, covering spaces and lifting), https://pi.math.cornell.edu/~hatcher/AT/ATch1.pdf . The tiled-plane proof above supplies the exact special case. Atlas GA-30 uses cylinder lifts to minimize length; this activity uses a two-direction quotient to distinguish path classes and explores no shortest-route objective.
+
+Suggested emphasis by level:
+K–1: Learn the paired-edge rule with a pawn and predict where a short route emerges; full homotopy classification is not a youngest-band claim.
+Grades 2–3: Draw one route on the portal map and replay it across repeated copies, distinguishing arriving at home from arriving in the original copy.
+Grades 4–5: Compare endpoint copies and winding pairs, then explain why zero displacement can shrink and why right/up order ceases to matter when faces are available.
+
+Materials
+
+Per child: one 180 mm square portal mat with a 3-by-3 internal grid and matched opposite-edge symbols; two pawns; tracing paper; erasable marker. Per table: a 3-by-3 array of copied maps (each copy 90 mm square, joined from multiple sheets), spare copies to extend beyond its boundary, and clear labels for the center/original copy. Use matching shapes and arrow orientation as well as color on paired edges. Internal grid junctions must not create a false restriction that paths are forever confined to the graph when discussing continuous homotopy. Give one explicit input/path/output lift example: a short path exits one labeled edge on the small map and continues into the adjacent matching tile on the repeated map. Keep labels and startpoint identical. This representation example is essential and should precede any lifting problem, without presenting a winding-classification answer.
+
+A physical doughnut/fabric torus is optional explanatory equipment, not needed to act. Do not claim a flat metric torus can be made by bending an ordinary sheet isometrically in three dimensions; edge gluing is an abstract exact model. Do not silently add edge reversals, which define different surfaces. Avoid shortest-path calculations that would repeat bouncing/reflection activities. Draft and unpiloted; older children carry the classification proof.
+
+Novelty and readiness: New two-direction covering-map investigation beyond the atlas, with a related cylinder lead GA-30. AD-22 is parity homology on a finite complex; the endpoint lift here detects integer winding and establishes a complete classification for this torus. Different grade entries are one investigation, not three new topics.

@@ -1,45 +1,47 @@
 # Week 10: Bridge puzzles, Euler trails, and the shortest delivery route
 
-Redesigned September 19, 2026; review revisions September 20, 2026. Prepared, not taught. Use Week 1’s standard of an approachable experiment leading to a theorem, obstruction, optimization, or controlled mathematical question. Three core entry levels plus **one optional grades 6–7 page**. Full launch prompts, hints, checked solutions, and the 60-minute operating plan are in the [four-page facilitator guide](../lowell-math-circle-year-2/week-10/week-10-facilitator.pdf) and its [editable source](../lowell-math-circle-year-2/source/week-10/week-10-facilitator.tex).
+Revised September 27, 2026 in response to the [Week 1 classroom review](week-01-classroom-review.md) and the adopted AGENTS.md guidance. **F10-K/M/U/X-v3 are prepared, unpiloted revisions.** No observations about a Week 10 session have been supplied. The previous v2 source and PDFs are preserved separately in the weekly `archive-before-classroom-guidance-2026-09/` directories.
 
-## What changed
+## What changed, and why
 
-Replace the unconstrained mixed-kit workshop with a coherent route investigation. Puzzle design remains, now controlled by an existence theorem, an invariant, and explicit optimality certificates. K1 reasons about dead ends; middle proves odd-degree obstructions and repairs; upper constructs Euler trails and minimizes repeated unit roads; extra solves a weighted postman instance and tests greedy pairing.
+Children now try several maps and starting points before counting degrees. Fresh maps support two distinct repairs and a later closed-route repair. Upper work performs two loop insertions at different vertices before a general proof; delivery gets two route trials before pairing roads. Two six-odd-vertex maps contrast a sharp lower bound with one that cannot be attained. The extra separates actual weighted routes, shortest connections, the three pairings and a checked greedy counterexample.
+
+These changes infer what may help from the organizer's reported Week 1 experience: sufficient contrasting work, explicit actions, and records introduced for a purpose. They are proposals, not claims that these new sequences succeeded with children. Formal generalizations, hints and discretionary proof follow-ups are in the [six-page facilitator guide](../lowell-math-circle-year-2/week-10/week-10-facilitator.pdf); numbered student problems state concrete actions with the space/diagrams needed to perform them.
 
 ## Entry points and mathematical work
 
-Grade labels are approximate. Reading can always be supported by adult scribing/read-aloud; moving objects and giving an oral explanation count as mathematical work.
+Grades are approximate. Choose by prerequisites; read aloud, scribe and accept oral or drawn explanations. The additional pages provide flexible continuations, not a one-hour completion quota.
 
-| ID suffix | Investigation | Student pages | Prerequisites: reading/arithmetic/reasoning | Main work |
-| --- | --- | --- | --- | --- |
-| K | Cross every bridge once / Dead ends | 2 | No reading; count small incident bridges and distinguish an island from a bridge. Track used edges and reason that a leaf needs an endpoint. | Triangle and triangle-with-branch; impossible three-leaf star; add one bridge between leaves and show a repaired route. |
-| M | One-walk maps / Repair an impossible map | 2 | Count degrees to 4 and odd/even. Explain all possible starts, not only failed attempts. | Find a house Euler trail, prove its endpoints forced, show K4 impossible, add a duplicate bridge to repair, and design a two-odd-vertex puzzle. |
-| U | When a walk exists / Shortest delivery / Algorithm | 3 | Route lists, edge counts, odd/even, lower and upper bounds. Follow constructive cycle-splicing and a pairing argument. | Prove the Euler criterion constructively, optimize closed K4 at 8 and open K4 at 7, then design a six-odd-vertex network attaining the three-extra-edge lower bound. |
-| X | Cheapest pair first? | 1 | Addition through 23 and comparing three choices. Distinguish shortest connections from individual road costs; decompose repetitions into odd-endpoint paths. | Weighted K4: original 20, minimum augmentation 3, optimum 23; compare all pairings and reject an incautious greedy choice. |
+| ID | Pages | Prerequisites | Concrete sequence |
+| --- | --- | --- | --- |
+| F10-K-v3 | 3 | Adult reads; track a moving counter and used bridges; compare leaves and endpoints. | Triangle/branch and two-leaf/three-leaf contrasts; two separate repairs; a child-created town. |
+| F10-M-v3 | 4 | Count degrees to 4 and distinguish odd/even; oral route records can be scribed. | Multiple starts before parity; house, branch and K4; two repairs then closed repair; constrained map design. |
+| F10-U-v3 | 5 | Route lists, edge counts and parity; optional general proof uses finite construction and matching lower bounds. | Two concrete loop insertions; two closed delivery attempts; three pair repairs; open route; prism versus five-leaf star. |
+| F10-X-v3 | 3 | Add lengths through 24 and compare three choices; shortest connection may involve several roads. | Actual routes; six shortest-connection trials; all pairings; two route certificates; cheapest-first tie counterexample. |
 
-The complete IDs are **F10-K/M/U/X-v2**. There is no extra packet for the lower groups; offer the next entry level when appropriate.
+## Materials, launch, and flexible hour
 
-## Materials, launch, and hour
+Seven moving counters, about 35 used-edge markers, pencils and paper strips for loop insertion. Optional string and paper islands enlarge the models. Keep earlier maps for comparison; a crossing without a dot is not a junction. Parallel bridges are allowed; each road joins two different dots.
 
-Seven moving counters, about 35 small used-edge markers, pencils, scrap paper, and two short paper strips for the upper loop splice. Optional strings/paper islands enlarge the models. Dots are junctions; line crossings without dots are not junctions. Every road joins two different dots (no self-loops); parallel roads are allowed. Print three K1 packets, three middle packets, and one upper packet: **15 core student sheets**, plus the single extra sheet if wanted. Print single-sided, US Letter; actual size is recommended but no physical fitting depends on calibration. Introduce one page at a time.
+**Print a starting set:** page 1 of the appropriate level for each child (3 K–1 + 3 middle + 1 upper = **7 starting sheets**), with one master of each continuation and the optional three-page extra. Copy additional pages as needed and offer one at a time. The complete core packet lengths are 3/4/5 pages; the full roster set would be 26 sheets, but is not the default print instruction. Use US Letter, single-sided, actual size. No activity depends on physical scale calibration.
 
-**Launch:** Can you cross every bridge once without teleporting? Let children freely walk and build first. Make revisiting an island legal and reusing a bridge illegal. Pair an arrival with a departure only after routes have been tried.
+**Whole-group launch:** Let children freely build or walk small maps, then gather at a triangle. Walk A–B–C–A, mark each used bridge, and demonstrate the visited-island record. Invite another start. State that islands may be revisited but bridges are used once. Add a branch and begin an attempt before distributing starting tasks. Introduce parity only after contrasting walks.
 
-**Proposed hour:** 0–10 build and walk freely; 10–15 brief shared rules; 15–35 main investigation: try routes, pair arrivals/departures, and splice physical loops; 35–40 movement/reset; 40–55 continue with repairs, route optimization, or an optional proof; 55–60 share an explanation and tidy. The weighted route stays optional.
+**Proposed hour:** 0–10 handle materials; 10–15 short common action-and-record demonstration; 15–35 concrete attempts; 35–40 movement/reset; 40–55 revisit, compare or continue at the child's current stage; 55–60 share one result and tidy. Change this rhythm to fit actual exploration. Parent mainly supports K–1; organizer alternates middle/upper about every five minutes and leaves a specific next attempt. The upper child receives actual adult mathematical conversation. Roles rotate so each child acts.
 
-One parent stays mainly with K,K,1; the organizer alternates between 3,3,3 and the fifth grader, aiming for a return within five minutes and leaving a concrete next attempt. Roles rotate within triplets, preserving two opposing sides for games. The fifth grader needs actual adult mathematical conversation. The exact timetable and staffing are this project’s proposal, not a documented arrangement from the books.
+## Stopping points and proof continuations
 
-**Hints and pacing:** first ask a child to demonstrate the rule and show their current attempt; next ask for a smaller example or counterexample; only then offer the organizing representation on the next page. The facilitator gives specific hint ladders. A corrected conjecture is valuable. Do not fill time with copying or require finishing every task.
-
-## Stopping points and optional proof continuations
-
-| Group | Satisfying stopping point | Optional proof continuation |
+| Group | Satisfying stop | Optional facilitator continuation |
 | --- | --- | --- |
-| K–1 | Explain the three-leaf obstruction, add one bridge, and demonstrate the repaired route. | Explain why the remaining leaf and the center must be the endpoints. |
-| 2–3 | Explain the house endpoints and repair K4 with a duplicate bridge and a complete route. | Generalize arrival/departure pairing to prove every odd vertex must be an endpoint. |
-| 4–5 | Physically splice the two triangle loops and find a closed delivery route of length 8 with a matching lower bound. | Generalize splicing to any connected all-even map, then add/remove a temporary edge to prove the two-odd case. |
+| K–1 | Two-leaf versus three-leaf attempts and one demonstrated repair. | Explain why leaves force endpoints and why the unjoined leaf remains special. |
+| 2–3 | Identify house endpoints or demonstrate a repaired K4 route. | Pair arrivals/departures at repeated visits to prove the odd-endpoint necessity. |
+| 4–5 | Two actual loop splices, or an eight-step delivery route with its parity lower bound. | Constructive all-even Euler proof and temporary-edge argument; full route/pairing optimality reasoning. |
 
-The full Euler criterion is established only when the construction and temporary-edge argument are explained. Otherwise record the physical splice, tested routes, and parity lower bound actually reached.
+Do not require every table cell, map or page. Demonstrate each unfamiliar record once with the real objects. When a representation is causing copying rather than helping compare attempts, scribe or return to objects. Preserve both construction and explanation; the guide keeps complete arguments so they are available when children are ready.
+
+## Observation plan and reuse
+
+After the session record which exact pages/instances children attempted, what they tried, what needed adult rescue, what they explained and what they wanted to continue. Label adult hypotheses separately from observed behavior. Distinguish a child's explanation from a supplied theorem. Unused stages remain prepared reserves; do not mark a whole printed packet as taught. The existing use log records actual use; this revision makes no new teaching claims.
 
 ## Verified mathematical backbone
 
@@ -73,6 +75,6 @@ Lowell Handout 10 has a shortest-password-window task tied to directed Euler/deB
 
 ## Verification and outputs
 
-Independent Dijkstra search over (current vertex, visited-edge mask) verifies closed/open unit costs 8 and 7 and weighted cost 23. Route edge coverage is checked independently. The parity and pairing certificates prove the claims beyond the computation.
+Independent Dijkstra search verifies closed/open unit K4 optima 8/7, weighted optimum 23, prism optimum 12 and five-leaf star optimum 10. Added assertions check the second K4 repair, every printed pairing route, third-loop insertion and the 24-cost greedy comparison. Finite checks support the printed cases; general proofs remain in the facilitator guide.
 
-Run `python3 lowell-math-circle-year-2/source/week-10/verify.py`, then `sh lowell-math-circle-year-2/source/week-10/build.sh`. Builds write five PDFs in `lowell-math-circle-year-2/combined/`; LaTeX is editable in the week folder. The [print index](../lowell-math-circle-year-2/source/week-10/README.md) and [review record](../lowell-math-circle-year-2/source/week-10/REVIEW.md) describe the delivered files and visual checks.
+Run `python3 lowell-math-circle-year-2/source/week-10/verify.py`, then `sh lowell-math-circle-year-2/source/week-10/build.sh`. The five PDFs are written to `lowell-math-circle-year-2/week-10/`; editable TeX sources remain in the weekly source folder and intermediates in `tmp/pdfs/`. The [print index](../lowell-math-circle-year-2/source/week-10/README.md) and [review record](../lowell-math-circle-year-2/source/week-10/REVIEW.md) record final page counts and checks.

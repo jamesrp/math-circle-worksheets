@@ -1,0 +1,242 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[margin=0.62in,headheight=16pt,headsep=16pt,footskip=25pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[scaled=0.96]{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage{amsmath,amssymb,array,tabularx,booktabs,enumitem,fancyhdr,tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage[hidelinks]{hyperref}
+\def\UrlBreaks{\do\/\do\-\do\ }
+\hypersetup{pdftitle={Week 54: Partitions and rebuilding, adult guide},pdfauthor={Bellingham Math Circle}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 54 / Partitions and rebuilding / Adult guide}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 54 / W54-FAC-v1}
+\fancyfoot[R]{\footnotesize\thepage}
+\renewcommand\headrulewidth{0.4pt}\renewcommand\footrulewidth{0pt}
+\setlength\parindent{0pt}\setlength\parskip{6pt}
+\setlist[enumerate]{leftmargin=1.5em,itemsep=3pt,topsep=2pt}
+\setlist[itemize]{leftmargin=1.3em,itemsep=3pt,topsep=2pt}
+\newcommand{\heading}[1]{\vspace{4pt}{\large\bfseries #1}\par}
+\newcommand{\subhead}[1]{\vspace{3pt}\textbf{#1}\par}
+\newcommand{\p}[1]{\ensuremath{(#1)}}
+\newcommand{\ones}[1]{\ensuremath{\underbrace{1,\ldots,1}_{#1\text{ ones}}}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\hints}[3]{\textbf{Hints, in order.}\begin{enumerate}\item #1\item #2\item #3\end{enumerate}}
+\newcommand{\rows}[3]{\foreach \n [count=\r from 0] in {#3}{\foreach \c in {1,...,\n}{\draw[fill=black!4,line width=.4pt] ({#1+(\c-1)*.26},{#2-\r*.26}) rectangle ++(.26,-.26);}}}
+\begin{document}
+\heading{Mathematical destination: two reversible correspondences}
+\textbf{Partitions.} A partition of an integer $n\geq0$ is an \emph{unordered} collection of positive integer sizes whose sum is $n$. Repeated sizes are allowed; colors, positions and strip order carry no information. The empty collection is the one partition of 0. All printed tasks have positive totals. Record sizes largest first to recognize duplicates.
+
+\textbf{Row/column theorem.} Left-align the rows in nonincreasing length, with no gaps. Reading each column's length as a new row gives the \emph{conjugate} partition. This preserves the total and exchanging twice restores the original. It exchanges the number of rows and the longest row. Thus, for each $n\geq0$ and integer $k\geq0$, partitions of $n$ with at most $k$ parts correspond one-to-one with partitions of $n$ whose parts are all at most $k$. The empty case uses longest length 0. This statement depends on aligned, sorted rows; arbitrary separated strips are not yet a column diagram. Each square at row $i$, column $j$ changes to row $j$, column $i$, then back.
+
+\textbf{Odd/distinct theorem (Euler; the doubling case of Glaisher's map).} For every $n\geq0$, there are equally many partitions with \emph{only odd sizes} and partitions with \emph{all sizes different}. Starting on the odd side, repeatedly join two equal strips $q,q$ into $2q$ until no size repeats. Starting on the different-size side, repeatedly split every even strip into two equal halves until all sizes are odd. These maps undo each other, preserve the total, and do not depend on the legal order of operations.
+
+\textbf{Why the maps work.} Every positive size has a unique form $2^j u$ with $u$ odd. Equal-pair joining keeps each odd family $u,2u,4u,\ldots$ separate. Its total number of original $u$-strips stays fixed. Pairing at each level leaves either zero or one strip there; this is the unique expression of that number as a sum of different powers of two. Splitting recovers exactly those original strips. Joining terminates because the number of strips decreases; splitting terminates because each descendant reaches an odd positive size. The route and inverse explanations are on guide p.\,6.
+
+\textbf{Limits.} The two restricted catalogs can overlap but are usually different catalogs. ``Only odd'' allows repetitions; ``all different'' allows even sizes. Arbitrary unequal joins or unequal splits do not give this correspondence. Splitting an arbitrary repeated-size input and rejoining need not restore that input. Problem 4 uses different-size inputs; the general inverse claim uses these two domains. Ordered sums and allocations to named children are different objects.
+
+\subhead{What children are meant to discover}
+Grades 2--5 pages 1--5: distinguish collections, make small catalogs, and experience joining and splitting as recoverable actions. Grade 3 readers may need adult reading or recording; count to 24, compare sizes, and recognize odd/even by pairing. Grades 4--5 pages 6--9: compare routes, justify reversibility, and exchange rows/columns. These demand retaining a rule and reasoning about whole collections; binary notation is unnecessary. K--1 has no Week 54 packet. Use the accepted earlier pattern-block material described on guide p.\,2.
+
+\textbf{Evidence language.} A built example is an experiment. Equal counts for totals 6, 7 or 8 suggest a conjecture. A complete small catalog explains that particular total. A reversible correspondence, with uniqueness and both inverse directions, explains every total. Digital checks and source age labels do not establish classroom readiness. This adaptation and its physical procedures remain unpiloted and unrehearsed.
+\newpage
+
+\heading{Preparation for eleven children and three anchored adults}
+The fixed tables are KK11, 3333 and 445. The parent volunteer stays with the four K--1 children; a mathematician stays with the four third graders; the organizer stays with the two fourth graders and fifth grader. Tables do not mix.
+
+\begin{tabularx}{\linewidth}{@{}L{1.23in}X@{}}\toprule
+Kit & Counts and use\\\midrule
+Older tables & Three kits of \textbf{24 identical 10--15 mm unit squares or snap cubes}: two Grade 3 pairs and one upper pair, with the third child checking and rotating. Total 72 units, plus 12 spare units = \textbf{84}. No color distinctions. Reserve six spares for the younger table during the common launch.\\
+Each older kit & Two letter-size paper lanes, 2 pencils, 1 eraser, 4 blank sheets. Totals: 6 lanes, 6 pencils, 3 erasers, 12 blank sheets. Add 3 spare pencils, 1 spare eraser and 8 spare blank sheets. Label lanes ``before record'' and ``working collection''. Keep one written/drawn reference; do not build both full states simultaneously.\\
+K--1 return kit & Two shared pattern-block kits, each with \textbf{12 small greens, 6 small blues, 1 small yellow}. Add 6 green, 4 blue and 1 yellow spares: \textbf{30 greens, 16 blues, 3 yellows}. This subset fills the selected earlier boards. Add 4 pencils and 2 erasers for tracing, and 4 blank sheets.\\\bottomrule
+\end{tabularx}
+
+\textbf{Print single-sided, US Letter.} For Grade 3, two shared copies of student pp.\,1--5 (10 sheets). For the upper table, one shared copy of pp.\,1--9 (9 sheets). One complete spare packet (9 sheets) permits an extra recorder or replacement: \textbf{28 Week 54 sheets}. Give one page at a time. Print three copies of this eight-page adult guide (24 sheets).
+
+For K--1, print two copies each of pp.\,1--2 of the current \nolinkurl{week-01-k-1.pdf} (4 sheets); keep its existing adult guide pp.\,1--2 available. Repository paths: \nolinkurl{lowell-math-circle-year-2/week-01/}. These are accepted prior materials, revised after the tiling lesson; their current revision is also marked unpiloted. Consult prior use before choosing a board, so returning children can continue an unfinished one. Use the current packet, not an archive.
+
+\textbf{Table space and prep.} Allow about $42\times30$ cm for each older kit, plus room for the recording page: two clear work areas at Grade 3, one at upper. The longest printed strip is 12 units, at most 18 cm with the proposed pieces. Count and bag the three 24-unit kits, label six lanes, sort the pattern blocks by small size, and stack the pages. No cutting or taping is required. Spare units stay away from the working total. For a task, take exactly its stated total out of the kit and leave unused units in the bag.
+
+\textbf{Pretests required before the meeting; not yet performed.} Use the actual cubes to join two equal strips and split an even strip exactly at its midpoint. Check connectors hold but separate without repeated adult rescue; use loose touching squares if necessary. Rehearse the 24-unit first case of Problem 4 in the allotted table area, recording each state before dismantling it. Check children can distinguish separate strips and stop when no legal move remains. Print a Week 1 board at 100\%/Actual Size and compare a green edge with its one-inch grid; never use ``Fit to page''. Physical fit, rule retention, staffing and pacing have not been tested by the digital checks.
+
+\subhead{K--1 route and older-table fallback}
+K--1 resumes Week 1 Problem 1 (sailboat/cat) or Problem 2 (two fillings of a hexagon/diamond), with one board per pair. Read aloud and trace before lifting. No new partition catalog or bijection is assigned there. Older-table fallback: partners build a collection using five units; the other partner rearranges its strips and decides whether the collection changed, then builds a genuinely different one. Keep it oral and concrete.
+\newpage
+
+\heading{Suggested first hour and flexible pacing}
+\begin{tabularx}{\linewidth}{@{}L{.62in}X@{}}\toprule
+Minutes & Suggested route\\\midrule
+0--5 & Running around. Adults finish setting out materials.\\
+5--7 & Free handling: each older pair takes three units; each younger pair borrows three. Make and separate straight strips.\\
+7--10 & Whole-group launch below. Return younger demo units to the spare bag; distribute table starting pages.\\
+10--20 & Grade 3: Problem 1, at least the 4-unit catalog. Upper: check one small catalog, then Problem 2, choosing 7. K--1: one prior board, two pairs with its anchored parent.\\
+20--32 & Grade 3: Problem 2, choosing 6, then Problem 3 if ready. Upper: Problems 3--4 with builder, recorder and checker rotating each case.\\
+32--35 & Brief movement/reset; keep reference records.\\
+35--50 & Grade 3: continue the current catalog or joining cases. Problem 4 is a readiness-dependent continuation. Upper: finish reversing; start Problem 5 or 6 if the rule is retained. K--1: another filling of the same board or a second prior board.\\
+50--57 & Share one attempt or record per table: ``What did you change, and what stayed the same?'' Ask whether a claim is an example, a checked catalog, a guess or an explanation.\\
+57--60 & Tidy and adults note what actually happened.\\\bottomrule
+\end{tabularx}
+
+\textbf{Whole-group launch, two or three minutes.} Everyone first handles the units. An adult uses \textbf{three} units, a non-task total, to make one 2-unit straight strip and one 1-unit strip. Say: ``Use all three. Each strip has at least one unit. Here is one collection.'' Invite a child to slide and reorder the two strips: ``Is it a new collection?'' Show the largest-first record $2+1$ from student p.\,1. Invite the child to separate the 2-strip into two 1-strips, making a genuinely new collection of three single units. Record $1+1+1$. Say: ``At your table, build a collection and keep one record so you can recognize it later.'' Stop there. Joining, splitting and columns get their own printed examples when they become useful.
+
+\textbf{Partner jobs.} At Grade 3, one child builds and one checks the total and records; swap every collection. At upper, a pair works while the third checks legal moves, then rotate all three jobs each case. The third child can work with the organizer if independent parallel work becomes useful, using the spare packet and borrowing a kit only when it is free. Do not add a simultaneous fourth 24-unit construction without a fourth kit.
+
+\heading{Problem 1 / student p.\,1 / concrete core}
+\textbf{Action.} Make all collections with 4, then 5 units. Children may draw rows or list sizes. Their records need not use formal partition notation.
+
+\textbf{Complete answers.} Four units: \p{4}, \p{3,1}, \p{2,2}, \p{2,1,1}, \p{1,1,1,1}: \textbf{5 collections}. Five units: \p{5}, \p{4,1}, \p{3,2}, \p{3,1,1}, \p{2,2,1}, \p{2,1,1,1}, \p{1,1,1,1,1}: \textbf{7 collections}. Extra printed boxes may stay blank.
+
+\textbf{Why complete.} Sort each collection by its largest strip. For each possible largest size, partition the remainder using strips no longer than that size. For example, with total 5 and largest size 3, the remaining 2 is either one 2-strip or two 1-strips. Working downward through largest sizes gives exactly the list above. Use this only after children have tried their own organization.
+\hints{Build one collection and slide its strips around. Does the set of sizes change?}{Choose one largest strip. What can the leftover units make without exceeding that size?}{Group the records by their largest strip and check each possible size once.}
+\textbf{If stuck.} Stay with four units; let the adult draw what the child builds. Skip the second total rather than doing all the choices for them. A later visit can resume the missing largest-size cases.
+\newpage
+
+\heading{Problem 2 / student p.\,2 / concrete core}
+\textbf{Action.} Choose one total, 6 or 7, and catalog the two restrictions separately. Grade 3 pairs may share the workload and pool records; each child need not copy both complete catalogs. No joining rule is needed yet.
+
+\begin{tabularx}{\linewidth}{@{}L{.4in}X X@{}}\toprule
+Total & Only odd sizes & All sizes different\\\midrule
+6 & \p{5,1}; \p{3,3}; \p{3,1,1,1}; \p{1,1,1,1,1,1} & \p{6}; \p{5,1}; \p{4,2}; \p{3,2,1}\\[5pt]
+7 & \p{7}; \p{5,1,1}; \p{3,3,1}; \p{3,1,1,1,1}; \p{1,1,1,1,1,1,1} & \p{7}; \p{6,1}; \p{5,2}; \p{4,3}; \p{4,2,1}\\\bottomrule
+\end{tabularx}
+
+\textbf{Answer and explanation.} There are 4 on each side for 6 and 5 on each side for 7. On the odd side, the possible largest odd sizes are 5,3,1 or 7,5,3,1; partition the remainder with odd sizes no larger. On the different-size side, the largest sizes for 6 are 6,5,4,3; those for 7 are 7,6,5,4. The next size must be strictly smaller. A largest size at most 2 cannot supply either total with distinct positive parts, since $2+1=3$. These cases yield exactly the table.
+
+The same collection can appear on both sides: \p{5,1} at total 6 and \p{7} at total 7. Equal counts have not yet explained a matching for every total. Keep ``odd'' and ``different'' as separate tests, rather than imposing both together.
+\hints{Lay the units of one strip in pairs. Is one left over? Check each strip separately for the odd rule.}{For the other catalog, place equal-size strips beside each other. Does any size repeat?}{Organize each catalog by its largest allowed strip; what can the remaining units make under that catalog's rule?}
+\textbf{If stuck.} Build and check a few contrasting examples before seeking completeness. Keep total 6 throughout; skip 7. The adult may keep the pooled catalog, but children choose the strips.
+
+\heading{Problem 3 / student p.\,3 / concrete core after the catalogs}
+\textbf{First-use bridge.} Read the page's worked visual with actual pieces: \p{3,3,1,1,1,1} has one legal join $3+3\to6$, giving \p{6,1,1,1,1}. The remaining equal joins end at \p{6,4}. Point to the input, single join and output; a join joins \emph{exactly two equal} strips. Keep the total 10. This is the page's example, separate from the task cases.
+
+\begin{tabularx}{\linewidth}{@{}X X@{}}\toprule
+Printed input & Final collection\\\midrule
+Nine 1-strips (total 9) & \p{8,1}\\
+\p{5,5,3,3,3,1,1} (total 21) & \p{10,6,3,2}\\
+\p{5,3,1} (total 9) & \p{5,3,1}: already different, so no join\\\bottomrule
+\end{tabularx}
+
+\textbf{Plain explanation.} Nine ones make four twos and one one, then two fours and one one, then eight and one. In the second case, join the two fives, two of the threes and the two ones; the third three stays. Reordering the final strips changes no collection. Different legal orders may be tried here; Problem 6 asks why they agree.
+\hints{Put two strips of the same size side by side. Can you make one straight strip using exactly their units?}{Look again after the join: has a new equal-size pair appeared?}{Read all final sizes. Is any size still repeated? If none repeats, stop even when some strips are even.}
+\textbf{If stuck.} Start with the nine ones; skip the 21-unit case until joining is fluent. The unchanged \p{5,3,1} is a useful check that zero moves can be a legal completion.
+\newpage
+
+\heading{Problem 4 / student p.\,4 / reversible-action core for upper}
+For Grade 3 this is a readiness-dependent continuation. Before it, use the printed visual: \p{4,3,2} splits its 4 into two 2s, giving \p{3,2,2,2}; further splits give one 3 and six 1s. The total remains 9. Use the same units throughout; the page keeps the intermediate state when the physical model is rebuilt.
+
+\begin{tabularx}{\linewidth}{@{}L{1.45in}X L{1.5in}@{}}\toprule
+Input & After all even splits & After equal joins\\\midrule
+\p{10,7,4,2,1}\newline total 24 & \p{7,5,5,1,1,1,1,1,1,1}\newline (seven ones) & \p{10,7,4,2,1}\\[5pt]
+\p{12,6,3}\newline total 21 & \p{3,3,3,3,3,3,3}\newline (seven threes) & \p{12,6,3}\\[5pt]
+\p{7,3,1}\newline total 11 & \p{7,3,1} & \p{7,3,1}\\\bottomrule
+\end{tabularx}
+
+\textbf{Answer.} Every printed input returns. In the first, 10 splits into two fives; 4 gives four ones; 2 gives two ones; the original one makes seven ones. Seven ones rejoin as $4+2+1$, and the two fives rejoin as 10. In the second, 12 makes four threes, 6 makes two threes, and the original 3 makes seven; seven equal threes rejoin as $12+6+3$. The last input needs no moves in either direction. These are examples of the inverse theorem, not a proof for every input.
+\hints{Choose an even strip and show its midpoint. Do the two resulting strips have equal lengths?}{After each split, look for any even strip left; keep odd strips intact.}{Compare the final size list with the original record, disregarding order. Can you account for every original unit?}
+\textbf{If stuck.} Rehearse just the 4-strip from the worked visual, then return to one whole printed case. Skip the 24-unit case if material handling is taking over. Keep the unchanged case as a contrast, not as the only reversing experience.
+
+\heading{Problem 5 / student p.\,5 / later core or return visit}
+\textbf{Action.} Make the full eight-unit matching. Both directions matter: build an odd collection, join it, then split its partner to check recovery. There are \textbf{six pairs}; the page has eight spaces, so two can stay empty.
+
+\begin{tabularx}{\linewidth}{@{}X c X@{}}\toprule
+Only odd sizes & & All sizes different\\\midrule
+\p{7,1} & $\longleftrightarrow$ & \p{7,1}\\
+\p{5,3} & $\longleftrightarrow$ & \p{5,3}\\
+\p{5,1,1,1} & $\longleftrightarrow$ & \p{5,2,1}\\
+\p{3,3,1,1} & $\longleftrightarrow$ & \p{6,2}\\
+\p{3,1,1,1,1,1} & $\longleftrightarrow$ & \p{4,3,1}\\
+\p{1,1,1,1,1,1,1,1} & $\longleftrightarrow$ & \p{8}\\\bottomrule
+\end{tabularx}
+
+\textbf{Why complete.} On the odd side the largest strip is 7, 5, 3 or 1. Largest 7 leaves 1; largest 5 leaves either 3 or three ones; largest 3 permits two threes plus two ones, or one three plus five ones; largest 1 forces eight ones. The table gives distinct partners. Conversely a distinct collection has largest size 8,7,6,5 or 4; examining the remaining units with smaller unequal sizes yields the six right-hand entries. Largest at most 3 can supply only $3+2+1=6$.
+\hints{Choose one odd collection and keep its original record while you join.}{Split the proposed partner. Does it recover that exact original collection?}{Pool the pairs and sort the odd side by largest strip. Which largest-size cases remain?}
+\textbf{If stuck.} Share the six cases across the pair/table. Stop after several checked pairs and resume the catalog later; do not supply the entire matching for transcription.
+\newpage
+
+\heading{Problem 6 / student p.\,6 / readiness-dependent explanation}
+\textbf{Action.} Start with four 3-strips and six 1-strips, total 18. Keep a record of one route, restore the input, and deliberately try another legal order. The answer is always \p{12,4,2}; \textbf{no two terminal collections are possible}.
+
+Two checkable routes (each arrow is one legal equal-pair join):
+{\small
+\begin{align*}
+&(3,3,3,3,1,1,1,1,1,1)\\
+&\to(6,3,3,1,1,1,1,1,1)\to(6,6,1,1,1,1,1,1)\to(12,1,1,1,1,1,1)\\
+&\to(12,2,1,1,1,1)\to(12,2,2,1,1)\to(12,2,2,2)\to(12,4,2);\\[3pt]
+&(3,3,3,3,1,1,1,1,1,1)\\
+&\to(3,3,3,3,2,1,1,1,1)\to(3,3,3,3,2,2,1,1)\to(3,3,3,3,2,2,2)\\
+&\to(4,3,3,3,3,2)\to(6,4,3,3,2)\to(6,6,4,2)\to(12,4,2).
+\end{align*}}
+\textbf{Why no route changes the outcome.} Descendants of 3 have sizes $3,6,12,\ldots$; descendants of 1 have sizes $1,2,4,8,\ldots$. They never have equal sizes across families. Four original threes leave one 12; six original ones leave one 4 and one 2. More generally, each odd family retains its number of original equal units; there is exactly one terminal grouping into different powers of two. Guide p.\,6 explains the uniqueness without requiring binary notation. Different physical choices among indistinguishable equal strips do not create different size lists.
+\hints{Keep the first route record and restore all four threes and six ones. Which equal pair could you join first instead?}{Trace the descendants of just the 3-strips. Can any of them have the same size as a descendant of a 1-strip?}{Within one family, pair at the smallest size, then the next size. Can there be two leftovers of one size at a terminal state?}
+\textbf{If stuck.} Check both routes for this instance only. Save the universal explanation for a return visit; do not treat agreement of two routes as proof for every input.
+
+\heading{Problem 9 / student p.\,9 / general explanation, later visit}
+\textbf{Answer.} Yes, for every nonnegative integer total, including 0. Joining and splitting give a one-to-one correspondence between the two restricted collections. The explanation needs more than preserving area: every odd input has one terminal different-size output, every different-size input has one odd output, and both round trips recover the input.
+\hints{Pick one pair from Problem 5. Which recorded state returns when you run the other rule?}{Keep the descendants of one odd size together. What sizes can its joined strips have?}{If each restricted collection returns under the round trip, could two different inputs have the same partner, or could a partner be missed?}
+\textbf{Why both round trips return.} Use the odd-family explanation on guide p.\,1. Splitting $2^ju$ makes $2^j$ copies of the odd size $u$. Different original sizes in one family occupy different powers-of-two levels. Pairing those copies recreates exactly those occupied levels. Conversely, any odd multiplicity is recovered by splitting its forced terminal grouping. Distinct odd families never collide, because removing all factors of two identifies a size's unique odd family. Hence neither side has a missing or shared partner.
+
+\textbf{Uniqueness, without binary digits.} Two different terminal selections of $u,2u,4u,\ldots$ cannot have the same total. Take the smallest size where they differ. Larger sizes are multiples of twice that size, so they cannot compensate for one extra strip of that size. After removing the agreeing smaller sizes, one total has an odd number of that-sized units and the other an even number. Thus join order cannot change the terminal grouping. Stop after an example if this parity comparison requires the adult to operate the investigation; preserve it for a future visit.
+
+
+\newpage
+
+\heading{Problem 7 / student p.\,7 / new representation, later visit}
+\textbf{First-use bridge.} Put touching square rows longest first with left edges aligned. Rebuild the printed example \p{5,3,3,1}; point to its columns of lengths $4,3,3,1,1$, then the new rows \p{4,3,3,1,1}. Do not read horizontal gaps between separate strips as columns. The exchange preserves 12 units.
+
+\begin{tabularx}{\linewidth}{@{}X X X@{}}\toprule
+Before & Once & Twice\\\midrule
+\p{5,2,1} & \p{3,2,1,1,1} & \p{5,2,1}\\
+\p{4,4} & \p{2,2,2,2} & \p{4,4}\\
+\p{3,3,1,1} & \p{4,2,2} & \p{3,3,1,1}\\\bottomrule
+\end{tabularx}
+\textbf{Explanation.} The second exchange restores every input. Each square's row and column positions swap, then swap back. Use aligned touching squares: this is diagonal reflection.
+\hints{Touch and count the squares in the leftmost column. Make one new row with that many units.}{Repeat for each column, preserving the column order from left to right.}{Follow one square through the two exchanges. Where do its row and column positions end?}
+\textbf{If stuck.} Use the rectangular \p{4,4} first and physically rebuild; skip the general explanation until the three concrete comparisons are meaningful.
+
+
+\heading{Problem 8 / student p.\,8 / conjugation catalog and theorem}
+\textbf{Action.} Catalog every 8-unit collection with at most three strips and exchange rows/columns. The full list contains \textbf{ten pairs}, not twelve. Two printed rows can remain unused.
+
+\begin{tabularx}{\linewidth}{@{}X X@{}}\toprule
+At most three strips & After exchange\\\midrule
+\p{8} & \p{1,1,1,1,1,1,1,1}\\
+\p{7,1} & \p{2,1,1,1,1,1,1}\\
+\p{6,2} & \p{2,2,1,1,1,1}\\
+\p{6,1,1} & \p{3,1,1,1,1,1}\\
+\p{5,3} & \p{2,2,2,1,1}\\
+\p{5,2,1} & \p{3,2,1,1,1}\\
+\p{4,4} & \p{2,2,2,2}\\
+\p{4,3,1} & \p{3,2,2,1}\\
+\p{4,2,2} & \p{3,3,1,1}\\
+\p{3,3,2} & \p{3,3,2}\\\bottomrule
+\end{tabularx}
+
+\textbf{Why complete.} One strip gives one case. With two strips, the smaller size is 1, 2, 3 or 4: four cases. With three strips, smallest 1 leaves $(6,1),(5,2),(4,3)$; smallest 2 leaves $(4,2),(3,3)$. A smallest strip of 3 would already require nine units. Total $1+4+5=10$.
+
+\textbf{Which outputs result?} Exactly all 8-unit collections whose sizes are at most 3. Each column crosses at most three rows, so every new strip is at most 3. Conversely, a diagram with rows at most 3 has at most three columns; exchanging makes at most three rows, and exchanging back recovers it. For any $n$ and integer $k\geq0$, ``at most $k$ strips'' matches ``all sizes at most $k$''.
+\hints{Build a collection of eight using just one, two or three strips. What are its column lengths?}{Compare the longest output row with the number of input rows.}{Start instead with any output whose sizes are at most three. What does exchanging back give, and why?}
+\textbf{If stuck.} Share the one-, two- and three-strip cases. Exchange several physical diagrams before seeking a universal rule. Reserve this branch for another visit if rebuilding still absorbs the children.
+
+\newpage
+
+\heading{Returning to the theme and recording what happened}
+\textbf{Possible later visits.} Resume an unfinished restricted catalog or reversible construction first. A second investigation can focus on Problem 6's different routes and why the endpoint is forced. A third can introduce Problem 7's row/column record and lead to Problem 8. Problem 9 draws the earlier rebuilding together; it need not wait for the independent conjugation branch. Use readiness and children's questions, not page completion, to choose a route. Keep the substantive proof with an adult conversation and the objects; formal notation is optional.
+
+\textbf{Record immediately after the meeting.} For each fixed table, note the actual pages/cases reached, who chose strips and who needed adult reading or recording, and whether children could retain the rules after the ordinary launch. Keep a drawing, a move route or an exact child statement; note material difficulties separately. Mark its status: \emph{tried example}, \emph{conjecture}, \emph{complete small catalog}, or \emph{general explanation}. Note whether ``odd'' was confused with ``different'', whether all units remained present, and whether the return trip recovered the same size list. Record the K--1 boards actually used so a returning child resumes rather than repeats them. Observations belong in the use log; proposed reasons for confusion remain hypotheses.
+
+\heading{Mathematical and teaching precedents}
+All Week 54 wording, tables and diagrams are newly authored around established mathematics. Reference prose, figures, workflow examples and books are not part of this guide's editable source. These precedents do not validate our age fit, material handling or pacing.
+
+\textbf{Peter Koroteev, \emph{Integer Partitions}, Berkeley Math Circle 2020 archive.} Section 1, pp.\,1--3: block records and partitions. Section 2.2, pp.\,6--9: odd/distinct matching, repeated halving, and powers-of-two grouping. The source reports catalog building and a classroom discussion; on p.\,8 many of its children already knew powers of two. Our inference is to retain physical equal-pair grouping without making that knowledge a prerequisite. The source's occasional ``+0'' contributes no part under our positive-size convention. Local reference folder: \nolinkurl{external-resources/new-themes-52-63/week54-55/}; file: \nolinkurl{koroteev-partitions-chapter-2020.pdf}.
+
+\textbf{Elysee Wilson-Egolf, \emph{Counting: Partitions} (2018), p.\,1.} The two compared partition diagrams supply a conjugation precedent. Later self-conjugate/distinct-odd work is outside this guide. Local reference in the same folder: \nolinkurl{wilson-egolf-counting-partitions-2018.pdf}.
+
+\textbf{Laura Givental, Maria Nemirovskaya and Ilya Zakharevich, \emph{Math Circle by the Bay}.} Preface printed pp.\,viii--ix (PDF pp.\,9--10), ``How we select our topics'' and ``How we teach'': mathematically deep themes, independent problem solving, dialogue, clear statements, and manipulatives. Our application is to give the same objects a concrete catalog visit and later explanation visits. This specific sequence is our proposal, not a sequence stated in the book. Book folder: \nolinkurl{external-resources/msri-math-circle-books/}; file: \texttt{Math Circle by the Bay.pdf}.
+
+\textbf{Zvezdelina Stankova and Tom Rike, eds., \emph{A Decade of the Berkeley Math Circle}.} Chapter 6, section 3.6, ``The burden of proof'', printed pp.\,113--114 (PDF pp.\,133--134), distinguishes lengthy numerical verification from a general proof. This supports our evidence labels; its historic verification bounds are not reused. Local reference in the same book folder: \texttt{A decade of the Berkeley Math Circle.pdf}.
+
+\textbf{Organizer's prior material.} \emph{Math Circle Problem Set 1}, unnumbered figurate-number/odd-sum tile prompts; \emph{Problem Set 8}, Problems 8.2--8.3 and 8.5. Folder: \nolinkurl{lowell-math-circle-year-1/lowell-math-circle/}\newline\texttt{Math Circle Fall 2025/}; files: \texttt{Handouts 1.docx} and \texttt{Handouts 8.docx}. Concrete pictures and mappings are precedents; distributing apples to named children, with zero allowed, is a different counting object. The repository session context supplies the reported success of handling pattern blocks and difficulty retaining paper lamp rules. 
+
+\textbf{Verification.} The separate \texttt{guide-src/check\_answers.py} recomputes every printed Week 54 answer from manually transcribed final page inputs, with 7,338 partitions through total 24, both inverse identities, conjugation, and all legal merge orders for odd inputs through 14 and the actual Problem 6 input. Finite checks supplement the proofs. Every final guide page is rendered and inspected. Physical pretests and classroom piloting are \textbf{unperformed}.
+\end{document}

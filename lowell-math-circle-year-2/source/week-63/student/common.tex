@@ -1,0 +1,76 @@
+\usepackage[letterpaper,top=16mm,bottom=17mm,left=15mm,right=15mm,headheight=14pt,headsep=5mm,footskip=9mm]{geometry}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{amsmath}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3mm}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.35pt}
+\renewcommand{\footrulewidth}{0pt}
+\newcommand{\band}{Grades 2--5}
+\newcommand{\packetid}{W63-S-v2}
+\fancyhead[L]{\small Week 63 / Cards away from home / \band}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 63 / \packetid}
+\fancyfoot[R]{\footnotesize\thepage}
+\newcommand{\problem}[2]{\noindent\textbf{Problem #1:} #2\par}
+\newcommand{\nextpage}[1]{\newpage\renewcommand{\band}{#1}}
+\newcommand{\worklines}[1]{\foreach \i in {1,...,#1}{\par\noindent\rule{\linewidth}{0.2pt}\vspace{8mm}}}
+% All geometry below is in millimetres unless a local diagram says otherwise.
+\newcommand{\rowdraw}[4]{%
+  % x offset, y offset, comma-separated homes, comma-separated cards.
+  \foreach \h [count=\i from 0] in {#3}{%
+    \node[font=\scriptsize] at ({#1+\i*12+6},{#2+3}) {\h};
+    \draw[thin] ({#1+\i*12},{#2-10}) rectangle ++(12,10);
+  }
+  \foreach \c [count=\i from 0] in {#4}{%
+    \node[font=\normalsize] at ({#1+\i*12+6},{#2-5}) {\c};
+  }
+}
+\newcommand{\blankrows}[3]{%
+  % number of rows per column, comma-separated homes, cell count.
+  \begin{center}\begin{tikzpicture}[x=1mm,y=1mm]
+  \pgfmathtruncatemacro{\last}{#1-1}
+  \foreach \r in {0,...,\last}{%
+    \rowdraw{0}{-\r*20}{#2}{}
+    \rowdraw{97}{-\r*20}{#2}{}
+  }
+  \end{tikzpicture}\end{center}
+}
+\newcommand{\cyclefive}[2]{%
+  % labels in cyclic order, radius in mm; arrow means card -> home.
+  \foreach \v [count=\i from 0] in {#1}{%
+    \node[circle,draw,fill=white,minimum size=6mm,inner sep=0pt,font=\small]
+      (v\i) at ({90-72*\i}:#2) {\v};
+  }
+  \foreach \i/\j in {0/1,1/2,2/3,3/4,4/0}{\draw[-{Stealth[length=2mm]},thin] (v\i)--(v\j);}
+}
+\newcommand{\cyclesix}[2]{%
+  \foreach \v [count=\i from 0] in {#1}{%
+    \node[circle,draw,fill=white,minimum size=5.8mm,inner sep=0pt,font=\small]
+      (v\i) at ({90-60*\i}:#2) {\v};
+  }
+  \foreach \i/\j in {0/1,1/2,2/3,3/4,4/5,5/0}{\draw[-{Stealth[length=1.8mm]},thin] (v\i)--(v\j);}
+}
+\newcommand{\cyclefour}[2]{%
+  \foreach \v [count=\i from 0] in {#1}{%
+    \node[circle,draw,fill=white,minimum size=6mm,inner sep=0pt,font=\small]
+      (v\i) at ({90-90*\i}:#2) {\v};
+  }
+  \foreach \i/\j in {0/1,1/2,2/3,3/0}{\draw[-{Stealth[length=1.8mm]},thin] (v\i)--(v\j);}
+}
+\newcommand{\fourworkspace}[2]{%
+  \begin{scope}[shift={(#1,#2)}]
+    \rowdraw{-24}{28}{A,B,C,D}{}
+    \foreach \v/\x/\y in {A/-17/8,B/17/8,C/17/-20,D/-17/-20}{%
+      \node[circle,draw,fill=white,minimum size=6mm,inner sep=0pt,font=\small] at (\x,\y) {\v};}
+  \end{scope}
+}
+\ifdefined\pdfinfoomitdate\pdfinfoomitdate=1\fi
+\ifdefined\pdftrailerid\pdftrailerid{}\fi
+\ifdefined\pdfsuppressptexinfo\pdfsuppressptexinfo=15\fi

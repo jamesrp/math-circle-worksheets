@@ -1,6 +1,6 @@
 # External resources
 
-Downloaded reference material for planning the circle. Original collection folders, filenames, indexes, and manifests are preserved.
+Downloaded reference material for planning the circle. Whole downloaded files are ignored local inputs, preserved on the organizer's Mac and excluded from GitHub history. Authored indexes and manifests remain committed; the links below work when the corresponding local files are available. See [LOCAL-RESOURCES.md](../LOCAL-RESOURCES.md) and [RESOURCE-MANIFEST.tsv](../RESOURCE-MANIFEST.tsv) for placement and hashes.
 
 - `beast-academy/`
 - `earlyfamilymath/`

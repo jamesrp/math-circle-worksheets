@@ -1,0 +1,17 @@
+Week 9: Bouncing paths
+
+Page header: "Week 9 / Bouncing paths / K–1", with "Grades 2–3" and "Grades 4–5" for the other packets. Packet ids: F09-K-v4, F09-M-v4, F09-U-v4; the footer reads "Bellingham Math Circle / Week 9 / <id>".
+
+Mathematical kernels
+
+1. Where the ball stops. A rectangular table is drawn on a square grid, w squares wide and h squares high. A ball starts in the bottom-left corner and moves diagonally up and to the right, one square across for each square up, through the corners of the grid squares. When it reaches a side wall it reverses its left/right direction; at the top or bottom wall it reverses its up/down direction; it stops when it reaches a corner. Let L be the least common multiple of w and h. The ball travels L squares across in total, which is L ÷ w table widths, and L squares up, which is L ÷ h table heights. It stops on the right side when L ÷ w is odd and on the left when it is even; at the top when L ÷ h is odd and at the bottom when it is even. L ÷ w and L ÷ h have no common factor, so they are never both even: the ball never comes back to its starting corner. The number of bounces (wall hits, not counting the start or the final corner) is L ÷ w + L ÷ h − 2. Checked by simulation, written width × height → corner, bounces: 2×2 → top-right, 0; 1×2 → top-left, 1; 2×1 → bottom-right, 1; 2×4 → top-left, 1; 4×2 → bottom-right, 1; 1×3 → top-right, 2; 2×3 → bottom-right, 3; 3×2 → top-left, 3; 3×4 → top-left, 5; 4×6 → bottom-right, 3; 6×4 → top-left, 3; 3×5 → top-right, 6; 6×9 → bottom-right, 3; 6×10 → top-right, 6. Doubling both sides changes neither the corner nor the number of bounces.
+
+2. Unfolding. Instead of bouncing, reflect the table across the wall and let the ball continue straight into the reflected copy. The bouncing path becomes one straight diagonal line through a grid of copied tables, and it first meets a corner point of the copies after L squares across. Folding the copies back up (like a paper map) turns the straight line back into the bouncing path. Counting the copy walls the straight line crosses before that corner gives the number of bounces.
+
+Sources: Tabachnikov, Geometry and Billiards (AMS Student Mathematical Library 30), Chapter 1 on unfolding; Gardner, "Mathematical Games" (Scientific American) on paper-pool; any elementary number theory text for gcd and lcm.
+
+Suggested emphasis by level: K–1 acts out paths on a floor grid and traces small tables (such as 1×2, 2×2, 1×3, 2×3, 3×3, 2×4) with a finger, a counter and a crayon, predicting the corner first; grades 2–3 trace tables up to 6 by 6, record corners and bounces, design tables that end at a chosen corner, and challenge a partner to predict; grades 4–5 find and explain the rule for the corner and the number of bounces, using unfolding and table distances, with "the ball never returns to its start" as a thing to explain.
+
+Materials
+
+Printed tables on square grids with the starting corner marked. For K–1 the squares are at least 3/4 inch so a counter can move from corner to corner and a crayon line stays inside; older children can use 1/2-inch squares. Rulers, coloured pencils, counters, scissors and tape for making and folding mirror copies of a table. Masking tape to mark a grid of about 3 by 5 large squares on the floor (or use floor tiles) so a child can walk a path as the ball while the others predict where it stops. Children work in pairs: one predicts, the other traces, then swap.

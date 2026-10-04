@@ -1,0 +1,78 @@
+\pagehead{Chip firing mathematical overview}\label{overview}
+The central theorem is that on a finite graph a fixed finite chip configuration has a unique stable finish \emph{and} a unique number of firings at each vertex, regardless of legal choices, provided every vertex can reach an absorbing sink. The activities let children discover parts of this theorem and, in the oldest packet, explain why it holds. Here is the adult mathematical map before the detailed solutions.
+
+\textbf{The facts to have in mind}
+\begin{enumerate}[leftmargin=18pt,itemsep=4pt,topsep=3pt]
+\item \textbf{Stable means below threshold.} A vertex of degree $d$ fires when it has at least $d$ chips, sending one along each edge. It is stable with $0,\ldots,d-1$ chips. Thus the triangle has 4 stable states; the four-cycle has 8; the extra-line board has 18. A stable state need not be empty or reachable from a given start.
+\item \textbf{Firing operations commute as vector additions.} With prescribed firing counts, the net change is independent of order. A word such as ABAB records a proposed history; it is legal only if each letter is allowed when it occurs. Arbitrarily reordering its letters may make it illegal. Commuting vectors alone do not prove the stabilization theorem.
+\item \textbf{Legal firing alone always stops under the sink hypothesis.} On a finite undirected graph, each nonsink vertex must have a path to the sink, which never fires. Every finite nonnegative start then admits no infinite legal run and no nonempty legal cycle. Merely placing a sink in a disconnected part of the graph is insufficient.
+\item \textbf{All complete legal runs agree.} They have the same final state and the same firing-count vector, called the \emph{odometer}. A least-action argument proves this. The final state is therefore a function $S(c)$ of the start $c$. Balance equations and stability alone can have spurious solutions; page~\pageref{determination} explains what selects the actual one.
+\item \textbf{Adding and stabilizing is also abelian, but can lose information.} For nonnegative batches $x,y$, $S(S(x)+y)=S(x+y)$. The timing of finitely many prescribed additions does not change the eventual finish. Repeated add-and-stabilize steps can cycle or merge. Those steps introduce new chips, so their cycles do not contradict termination of firing alone.
+\end{enumerate}
+
+\textbf{What the grades actually investigate}
+\begin{itemize}
+\item \textbf{K--1:} P1 and P3 test order independence; P2 collects finishes from fixed totals; P4 finds all stable four-cycle states and the three-chip capacity; P5 tests interleaved additions; P6 finds the triangle's three-state addition cycle and failure to return to empty.
+\item \textbf{Grades 2--3:} P1, P2 and P4 compare both final piles and firing counts; P3 exhausts the seven six-chip triangle starts; P5 compares batches; P6 compares the two opposite triangle addition cycles. These are experiments and small completeness arguments, not requests for the general theorem's proof.
+\item \textbf{Grades 4--5:} P1 and P4 test the stronger count claim; P2 tests batches; P3 studies return and merging; P5 asks for a termination proof on the four-cycle; P6 asks for order independence of both records on that board. The score and quota arguments in the solutions are optional adult scaffolding.
+\end{itemize}
+
+\textbf{A lighter record if useful.} While moving counters, write only the firing word (for example ABAB) and the final state. Afterwards count each letter to obtain the firing counts. Different words can have the same letter counts. The current student pages use this record instead of live tallies. Adults may scribe the word while children choose and carry out legal moves.
+
+\newpage
+\pagehead{The model and the stabilization theorem}\label{theorem}
+\textbf{Scope.} Fix a finite loopless undirected graph with sink $s$, and require every nonsink vertex to have a path to $s$. All starts are finite vectors $c\in\mathbb Z_{\ge0}^{V\setminus\{s\}}$. The sink only receives. Edges to it count in the nonsink degree $d_v$. The three printed boards satisfy these assumptions. The next arguments concern firing with \emph{no new additions}.
+
+Let $a_{vw}$ count edges between nonsink vertices and let $L$ be the reduced Laplacian: $L_{vv}=d_v$, $L_{vw}=-a_{vw}$ for $v\ne w$. Firing $v$ adds the fixed vector $-Le_v$. A word with count vector $u$ has formal result
+\[
+c-Lu,\qquad (c-Lu)_v=c_v-d_vu_v+\sum_{w\ne v}a_{vw}u_w.
+\]
+This identity does not assert legality. On the triangle, AB is legal from $(2,1)$ and ends at $(1,0)$; BA cannot even begin. If two distinct vertices are both legal now, firing either cannot make the other illegal, and the two orders give the same state after both fire. A stable state satisfies $0\le c_v<d_v$ for every $v$. There are $\prod_vd_v$ stable states, of maximum total size $\sum_v(d_v-1)$; the three boards have capacities $2,3,5$.
+
+\textbf{Termination theorem.} Every legal sequence is finite. In particular, continuing while a move is available must reach a stable state, without any fairness condition on the choices.
+
+\emph{Proof.} If an infinite run existed, finiteness of the graph would make some vertex fire infinitely often. Every nonsink neighbor would receive infinitely many chips and would also have to fire infinitely often, since the total supply is bounded by the initial total. Following a path to the sink, a neighbor of the sink would send infinitely many chips permanently into it, impossible with a finite supply. A repeated state along a nonempty legal firing word would let that word repeat forever, so legal cycles are excluded too.
+
+\textbf{Least action.} If $u$ is the count vector of any legal prefix and $f\in\mathbb Z_{\ge0}^{V\setminus\{s\}}$ satisfies $c-Lf<d$ componentwise, then $u\le f$. No lower bound on the formal vector $c-Lf$ is needed for this comparison.
+
+\emph{Proof.} At a hypothetical first firing exceeding $f_v$, the current count at $v$ is $f_v$ and all other counts are at most their values in $f$. The current pile at $v$ is therefore at most $(c-Lf)_v<d_v$. That firing is illegal, a contradiction.
+
+\textbf{Abelian stabilization theorem.} By termination there is a complete legal run. Let its counts be $u_*$. Its terminal state is stable, so least action bounds every legal prefix by $u_*$. Comparing two complete runs in both directions proves their counts equal. The balance identity then proves their final states equal. Consequently their lengths and the number of chips absorbed by the sink agree as well. The sink guarantees existence for every start; the least-action comparison itself works whenever a complete legal stabilization exists, even without a sink.
+
+\textbf{A concrete termination certificate.} On the four-cycle and the extra-line board, $W=3A+4B+3C$ drops by 2 at \emph{every} firing and stays nonnegative. On the triangle, $A+B$ drops by 1. The first score is the useful child-facing route for grades 4--5 P5: ordinary chip total need not decrease when B fires.
+
+\newpage
+\pagehead{Determining the finish and interpreting cycles}\label{determination}
+\textbf{Determination without replaying every move.} The odometer has the exact characterization
+\[
+u_* = \text{the componentwise least }f\in\mathbb Z_{\ge0}^{V\setminus\{s\}}
+       \text{ such that } c-Lf<d,
+\qquad S(c)=c-Lu_*.
+\]
+Existence follows from termination; least action proves minimality. Equivalently, $u_*$ uniquely minimizes $\sum_v f_v$ over nonnegative integer $f$ with $0\le c-Lf<d$. This gives an integer-optimization description, not a universal elementary closed formula. For these boards one can enumerate stable $r$, retain those for which $f=L^{-1}(c-r)$ is integral and nonnegative, and select the candidate with smallest $\sum_v f_v$. The reduced Laplacian is invertible under the sink hypothesis. Invariants can sometimes do better, as below.
+
+\textbf{Why a stable balance solution is not enough.} On the triangle, from $c=(2,2)$ the actual odometer $(1,1)$ gives finish $(1,1)$. The formal count vector $(2,2)$ gives $(0,0)$, also nonnegative and stable, but no legal word realizes those counts. Thus choosing any stable representative modulo the columns of $L$, or merely solving $Lf=c-r$ for a proposed stable $r$, does not select $S(c)$. The least-action condition does.
+
+\textbf{An exact formula for the triangle.} Firing A changes $a-b$ by $-3$, and firing B by $+3$. Every firing leaves a chip at the other nonsink vertex, so a nonempty start can never finish empty. The remaining stable states $(1,1),(1,0),(0,1)$ have distinct residues of $a-b$ modulo 3. Hence, for every nonempty start $(a,b)$,
+\[
+S(a,b)=
+\begin{cases}
+(1,1),&a-b\equiv0\pmod3,\\
+(1,0),&a-b\equiv1\pmod3,\\
+(0,1),&a-b\equiv2\pmod3.
+\end{cases}
+\]
+Also $S(0,0)=(0,0)$. Once $r=S(a,b)$ is known, the balance equations give
+\[
+u_A=\frac{2(a-r_A)+(b-r_B)}3,\qquad
+u_B=\frac{(a-r_A)+2(b-r_B)}3.
+\]
+This explains the fixed-total collections and the repeating triangle tables without simulating each start. The residue is an optional extension for children, not assumed knowledge.
+
+\textbf{Staged additions.} A legal run from $x$ remains legal if a nonnegative batch $y$ is present from the beginning. After that run the state is $S(x)+y$; stabilizing it and using uniqueness gives $S(S(x)+y)=S(x+y)$. More generally, move all finitely many prescribed additions to the beginning: every firing from an interleaved history stays legal. Once all additions have arrived and firing is complete, both final state and total firing counts are independent of timing.
+
+\textbf{Repeated additions and reversibility.} The map $T_A(r)=S(r+e_A)$ acts on the finite set of stable states. Iterating any fixed addition map is eventually periodic; it need not be injective or periodic from the first state. On the triangle,
+\[
+(0,0)\longmapsto(1,0)\longmapsto(0,1)\longmapsto(1,1)\longmapsto(1,0).
+\]
+The empty state is transient; the other three form a cycle. In particular, $(0,0)$ and $(1,1)$ merge after one addition. On all stable states, $x\oplus y=S(x+y)$ is a commutative associative operation with identity $0$, but it need not be a group. These finite addition dynamics are different from a firing-only cycle, which the sink theorem excludes.

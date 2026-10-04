@@ -1,45 +1,47 @@
 # Week 8: Rook moves, Nim, and changing the losing set
 
-Redesigned September 19, 2026; review revisions September 20, 2026. Prepared, not taught. Use Week 1’s standard of an approachable experiment leading to a theorem, obstruction, optimization, or controlled mathematical question. Three core entry levels plus **one optional grades 6–7 page**. Full launch prompts, hints, checked solutions, and the 60-minute operating plan are in the [four-page facilitator guide](../lowell-math-circle-year-2/week-08/week-08-facilitator.pdf) and its [editable source](../lowell-math-circle-year-2/source/week-08/week-08-facilitator.tex).
+Revised September 27, 2026 in response to the [Week 1 classroom review](week-01-classroom-review.md) and the adopted AGENTS.md guidance. **F08-K/M/U/X-v3 are prepared, unpiloted revisions.** No observations about a Week 8 session have been supplied. The previous v2 source and PDFs are preserved separately in the weekly `archive-before-classroom-guidance-2026-09/` directories.
 
-## What changed
+## What changed, and why
 
-The original middle activity now requires both halves of a universal winning-position argument. The upper king-variant task is replaced by three-pile Nim, a counterexample to naive matching and to even-total conjectures, then a constructive binary proof. The extra changes the move set again, leading to Wythoff pairs and the golden ratio.
+Rook and pile games now get repeated equal/unequal trials before a trap map. The board-to-piles correspondence is acted out before use. Three-pile play and the complete six-reply experiment precede grouping counters into binary bundles; several separate bundle records precede the repair algorithm. Wythoff now has concrete play, a full classification grid, and a later greedy-pair record on separate pages.
+
+These changes infer what may help from the organizer's reported Week 1 experience: sufficient contrasting work, explicit actions, and records introduced for a purpose. They are proposals, not claims that these new sequences succeeded with children. Formal generalizations, hints and discretionary proof follow-ups are in the [six-page facilitator guide](../lowell-math-circle-year-2/week-08/week-08-facilitator.pdf); numbered student problems state concrete actions with the space/diagrams needed to perform them.
 
 ## Entry points and mathematical work
 
-Grade labels are approximate. Reading can always be supported by adult scribing/read-aloud; moving objects and giving an oral explanation count as mathematical work.
+Grades are approximate. Choose by prerequisites; read aloud, scribe and accept oral or drawn explanations. The additional pages provide flexible continuations, not a one-hour completion quota.
 
-| ID suffix | Investigation | Student pages | Prerequisites: reading/arithmetic/reasoning | Main work |
-| --- | --- | --- | --- | --- |
-| K | Race to the star / Can you copy my move? | 2 | No independent reading; count to 2 or compare distances physically. Follow a turn rule, inspect every option from the center, and copy a move in the other direction. | Play on a 3-by-3 board; investigate center and top-left; translate matching to two piles of 2. |
-| M | Map the traps / The board is two piles | 2 | Short instructions can be read aloud; count to 7. Reason about every opposing move versus one winning response. | Classify a 4-by-4 board, prove the equal-pile rule for arbitrary rectangles, then break a naive generalization with three piles. |
-| U | Three piles break the mirror / Binary balance | 3 | Small subtraction and odd/even; binary representation is built from 1/2/4/8 bundles. Follow a two-direction strategy proof and a highest-bit argument. | Play (1,2,3) and (1,2,4); test (1,1,2) against even-total reasoning; find zero-XOR positions and prove how to reach them. |
-| X | One new move, a new world | 1 | Organize a table and subtract. Floor and square-root notation are explained for the final comparison; the greedy part needs neither. | Classify Wythoff positions through 7, generate greedy pairs, distinguish no-edges-between from completeness, test the golden-ratio theorem. |
+| ID | Pages | Prerequisites | Concrete sequence |
+| --- | --- | --- | --- |
+| F08-K-v3 | 3 | Adult read-aloud; compare small distances and count to 3; follow and copy a turn. | Immediate win versus center; equal versus unequal board starts; physical matching with two piles. |
+| F08-M-v3 | 4 | Short read-aloud instructions; counts to 7; distinguish a played outcome from a forced result. | Eight board starts before mapping; enact slides as pile removals; equal-pile replies; all six first moves from (1,2,3). |
+| F08-U-v3 | 5 | Small subtraction and parity; 4/2/1 and then 8 bundles are built, not assumed. | Actual games and counterexamples; six replies before binary; build bundle records; test four cases; repair and design balanced starts. |
+| F08-X-v3 | 3 | Organized lists and subtraction; optional calculator/floor/square-root notation supplied at the end. | Four concrete starts; triangular T/W grid through 7; greedy pairs after classified games; separately supplied golden-ratio theorem. |
 
-The complete IDs are **F08-K/M/U/X-v2**. There is no extra packet for the lower groups; offer the next entry level when appropriate.
+## Materials, launch, and flexible hour
 
-## Materials, launch, and hour
+About 60 counters, five plates or pile areas, pencils, and scraps labeled 1, 2, 4, 8. Reset and reuse the printed counter-sized mats. Middle page 3 reuses its earlier rook board.
 
-About 60 counters, five paper plates or marked pile areas, pencils, and scraps labeled 1, 2, 4, 8. Reuse the counters between trials; no chess pieces are necessary. Print three K1 packets, three middle packets, and one upper packet: **15 core student sheets**, plus the single extra sheet if wanted. Print single-sided, US Letter; actual size is recommended but no physical fitting depends on calibration. Introduce one page at a time.
+**Print a starting set:** page 1 of the appropriate level for each child (3 K–1 + 3 middle + 1 upper = **7 starting sheets**), with one master of each continuation and the optional three-page extra. Copy additional pages as needed and offer one at a time. The complete core packet lengths are 3/4/5 pages; the full roster set would be 26 sheets, but is not the default print instruction. Use US Letter, single-sided, actual size. No activity depends on physical scale calibration.
 
-**Launch:** Can you leave me a square where every move helps you? Let children show all legal moves before asking for a pattern. Demonstrate a long rook move so the game is not mistaken for one-step movement.
+**Whole-group launch:** After time handling counters, gather at one visible rook board. Demonstrate short and long right/down moves, invite a child to make a legal move, and show recording the start and finish. Reach the star once. Distribute starting pages only after everyone knows the action. Show one corresponding pile action: from rook distances (2,1), slide right one and remove one from a matching 2-counter pile beside a 1-counter pile. State the one-pile removal rule and taking-last wins, without announcing the matching strategy. The full correspondence is investigated later.
 
-**Proposed hour:** 0–10 explore tokens and piles; 10–15 brief common rule demonstration; 15–35 main investigation: play, classify, and challenge claims; 35–40 movement/reset; 40–55 continue at the group’s stopping point or choose an optional proof; 55–60 share one move with its reason and tidy.
+**Proposed hour:** 0–10 handle materials; 10–15 short common action-and-record demonstration; 15–35 concrete attempts; 35–40 movement/reset; 40–55 revisit, compare or continue at the child's current stage; 55–60 share one result and tidy. Change this rhythm to fit actual exploration. Parent mainly supports K–1; organizer alternates middle/upper about every five minutes and leaves a specific next attempt. The upper child receives actual adult mathematical conversation. Roles rotate so each child acts.
 
-One parent stays mainly with K,K,1; the organizer alternates between 3,3,3 and the fifth grader, aiming for a return within five minutes and leaving a concrete next attempt. Roles rotate within triplets, preserving two opposing sides for games. The fifth grader needs actual adult mathematical conversation. The exact timetable and staffing are this project’s proposal, not a documented arrangement from the books.
+## Stopping points and proof continuations
 
-**Hints and pacing:** first ask a child to demonstrate the rule and show their current attempt; next ask for a smaller example or counterexample; only then offer the organizing representation on the next page. The facilitator gives specific hint ladders. A corrected conjecture is valuable. Do not fill time with copying or require finishing every task.
-
-## Stopping points and optional proof continuations
-
-| Group | Satisfying stopping point | Optional proof continuation |
+| Group | Satisfying stop | Optional facilitator continuation |
 | --- | --- | --- |
-| K–1 | Show both moves from the center and their replies, then copy a move on equal two-pile starts. | Explain why matching still works from the top-left or any two equal piles. |
-| 2–3 | Classify the 4-by-4 board and explain how to restore equality from an unequal pair. | Prove both directions for all two-pile starts and explain termination; then challenge a three-pile guess. |
-| 4–5 | Refute the even-total rule and find a legal balancing move using bundles. | Prove that every move breaks balance, every unbalanced start can be repaired, and play terminates. |
+| K–1 | Two center moves and replies, then contrasting equal/unequal starts. | Match arbitrary equal piles and explain why replies stay legal. |
+| 2–3 | An argued board pattern or enacted board/pile correspondence. | Both directions of the equal-pile proof and termination; six three-pile replies if ready. |
+| 4–5 | A complete six-reply experiment, or a legal bundle-balancing move. | No move connects balanced states, every unbalanced state can be repaired, and decreasing total forces termination. |
 
-Record the achieved claim separately from any theorem supplied by an adult; the full Nim proof is a continuation, not a completion requirement.
+Do not require every table cell, map or page. Demonstrate each unfamiliar record once with the real objects. When a representation is causing copying rather than helping compare attempts, scribe or return to objects. Preserve both construction and explanation; the guide keeps complete arguments so they are available when children are ready.
+
+## Observation plan and reuse
+
+After the session record which exact pages/instances children attempted, what they tried, what needed adult rescue, what they explained and what they wanted to continue. Label adult hypotheses separately from observed behavior. Distinguish a child's explanation from a supplied theorem. Unused stages remain prepared reserves; do not mark a whole printed packet as taught. The existing use log records actual use; this revision makes no new teaching claims.
 
 ## Verified mathematical backbone
 
@@ -69,6 +71,6 @@ Lowell Handout 2 problem 2.3 and Handout 3 problems 3.1–3.3 (moves 1–3 and 1
 
 ## Verification and outputs
 
-Backward recursion, independent of XOR, checks 2,197 three-pile positions (each heap 0–12), 169 two-pile positions, and 961 Wythoff positions (0–30); sample moves are checked. Finite checks do not replace the general proofs.
+Backward recursion checks 2,197 three-pile positions, 169 two-pile positions and 961 Wythoff positions. Added v3 assertions check the six replies to (1,2,3), three repairs of (4,6,7), balancing third piles and new Wythoff moves. Finite checks support the printed cases; general proofs remain in the facilitator guide.
 
-Run `python3 lowell-math-circle-year-2/source/week-08/verify.py`, then `sh lowell-math-circle-year-2/source/week-08/build.sh`. Builds write five PDFs in `lowell-math-circle-year-2/combined/`; LaTeX is editable in the week folder. The [print index](../lowell-math-circle-year-2/source/week-08/README.md) and [review record](../lowell-math-circle-year-2/source/week-08/REVIEW.md) describe the delivered files and visual checks.
+Run `python3 lowell-math-circle-year-2/source/week-08/verify.py`, then `sh lowell-math-circle-year-2/source/week-08/build.sh`. The five PDFs are written to `lowell-math-circle-year-2/week-08/`; editable TeX sources remain in the weekly source folder and intermediates in `tmp/pdfs/`. The [print index](../lowell-math-circle-year-2/source/week-08/README.md) and [review record](../lowell-math-circle-year-2/source/week-08/REVIEW.md) record final page counts and checks.

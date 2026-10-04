@@ -1,0 +1,5 @@
+# Final delta mathematics pass — Week 42
+
+Compared final/draft source and adult notes; inspected the new final page-2 worked visual. BRRB splits into BR|RB; the first emits square and second circle, with both retained. Independently recomputed in `final-convention-checks.py/.json`. The final summary table distinguishes square/circle totals for Basic/Recycled correctly.
+
+The page-1 target now expressly requires fairness for every fixed two-color bag, with independent replacement draws. The independently derived lone-color-position rule supplies equal weights p(1−p) for all three shapes for every 0<p<1; the strengthened wording is supported by the original exact identity-history checks. Page 3's two four-ticket cups and fairness distinction are unchanged mathematically. Basic/recycled totals 16/18 on the same balanced histories, 192/210 on three-red/one-blue histories, and expectation formula remain correct. The new record-strip/ticket sizes introduce no mathematical condition. Physical independent mixing and kit use remain untested. No new blocker.

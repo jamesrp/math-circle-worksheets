@@ -1,0 +1,145 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=15mm,top=19mm,bottom=18mm,headheight=15pt,headsep=5mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{amsmath}
+\definecolor{polygonline}{rgb}{0.12,0.16,0.20}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\newcommand{\Band}{Grades 3--5}
+\fancyhead[L]{\small Week 57 / Area from dots / \Band}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 57 / N57-S-final-v2}
+\fancyfoot[R]{\footnotesize\thepage}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3mm}
+\renewcommand{\arraystretch}{1.6}
+\newcommand{\Problem}[2]{\textbf{Problem #1:} #2\par}
+\newcommand{\BlankBoard}[2]{%
+\begin{tikzpicture}[x=20mm,y=20mm]
+\path[use as bounding box] (-.12,-.12) rectangle (#1+.12,#2+.12);
+\foreach \x in {0,...,#1} \foreach \y in {0,...,#2}
+  \fill (\x,\y) circle[radius=.55mm];
+\end{tikzpicture}}
+\newcommand{\Record}{\(I=\)\rule{12mm}{.3pt}\quad\(B=\)\rule{12mm}{.3pt}\quad area\(=\)\rule{12mm}{.3pt}}
+\newcommand{\PairFigures}[2]{%
+\begin{center}\begin{minipage}[t]{.48\textwidth}\centering\Figure{#1}\end{minipage}\hfill%
+\begin{minipage}[t]{.48\textwidth}\centering\Figure{#2}\end{minipage}\end{center}}
+\input{figures.tex}
+\begin{document}
+
+Join dots with straight sides to make one closed outline. Sides cannot cross or touch except at neighboring corners. Leave no holes until Problem 9. The area of one grid square is 1. Dots are 20 mm apart; print at 100\%.
+
+\begin{center}
+\begin{minipage}[t]{.31\textwidth}\centering
+Input\par\Figure{area-input}
+\end{minipage}\hfill
+\begin{minipage}[t]{.36\textwidth}\centering
+Two copies joined\par\Figure{area-joined}
+\end{minipage}\hfill
+\begin{minipage}[t]{.27\textwidth}\centering
+Output\par
+\vspace{3mm}
+Rectangle area: 2\par
+One copy's area: 1
+\end{minipage}
+\end{center}
+
+\Problem{1}{Find the exact area of each shape. Show a way to check each area with a cut or a second copy.}
+\PairFigures{area-rectangle}{area-slanted}
+\begin{center}
+\begin{minipage}{.48\textwidth}\centering area\(=\)\rule{22mm}{.3pt}\end{minipage}\hfill
+\begin{minipage}{.48\textwidth}\centering area\(=\)\rule{22mm}{.3pt}\end{minipage}
+\end{center}
+\vfill
+\newpage
+
+\(I\) counts dots strictly inside. \(B\) counts every dot on the outline, including dots between corners. Count each dot once.
+\begin{center}
+\begin{minipage}[t]{.31\textwidth}\centering
+Input\par\Figure{count-input}
+\end{minipage}\hfill
+\begin{minipage}[t]{.36\textwidth}\centering
+Marked dots\par\Figure{count-marked}\par
+\small circle: boundary\par box: inside
+\end{minipage}\hfill
+\begin{minipage}[t]{.27\textwidth}\centering
+Output\par\vspace{6mm}
+\(I=1\)\par\(B=8\)\par area\(=4\)
+\end{minipage}
+\end{center}
+
+\Problem{2}{For each shape, mark the dots you count and make an \(I,B,\text{area}\) record. Check area with pieces, cuts or copies.}
+\PairFigures{count-L}{count-triangle}
+\begin{center}
+\begin{minipage}{.48\textwidth}\centering\Record\end{minipage}\hfill
+\begin{minipage}{.48\textwidth}\centering\Record\end{minipage}
+\end{center}
+\vfill
+\newpage
+
+\Problem{3}{Can two different shapes have the same \(I\) and \(B\)? Make a triangle and a four-sided shape, each with \(I=2\) and \(B=6\). Find their areas using cuts or copies.}
+\begin{center}
+\begin{minipage}{.48\textwidth}\centering\BlankBoard{4}{4}\par\Record\end{minipage}\hfill
+\begin{minipage}{.48\textwidth}\centering\BlankBoard{4}{4}\par\Record\end{minipage}
+\end{center}
+\vfill
+\newpage
+
+\Problem{4}{Find a rule that predicts area from \(I\) and \(B\). Use all your records. Draw a new shape that could defeat your rule.}
+\begin{center}\BlankBoard{6}{6}\par\Record\end{center}
+\vfill
+\newpage
+
+\Problem{5}{Pick's rule for the allowed polygons is
+\[\text{area}= I + (\text{half of }B) - 1.\]
+Make shapes of area 6 with as many different \((I,B)\) records as you can. Check at least one area with pieces, cuts or copies.}
+\begin{center}\BlankBoard{6}{6}\end{center}
+\vfill
+\newpage
+
+\Problem{6}{Each dashed seam cuts a shape into two pieces. Make an \(I,B,\text{area}\) record for each piece and for the whole shape. What changes when the seam disappears?}
+\PairFigures{join-rectangle}{join-slanted}
+\begin{center}
+\begin{minipage}[t]{.48\textwidth}
+Left piece: \par\Record\par
+Right piece: \par\Record\par
+Whole: \par\Record
+\end{minipage}\hfill
+\begin{minipage}[t]{.48\textwidth}
+Lower piece: \par\Record\par
+Upper piece: \par\Record\par
+Whole: \par\Record
+\end{minipage}
+\end{center}
+\vfill
+\newpage
+
+\renewcommand{\Band}{Grades 4--5}
+\Problem{7}{Join two allowed polygons along one whole side. They must meet only on that side, and the joined shape must obey the shared rules. Explain why the two values \(I+(\text{half of }B)-1\) add to the value for the whole. Your explanation must work however many dots lie on the shared side.}
+\begin{center}\BlankBoard{6}{6}\end{center}
+\vfill
+\newpage
+
+\Problem{8}{Find an explanation that Pick's rule works for every allowed polygon. Use the joining result and what you know about rectangles and triangles. These shapes can be test cases for your explanation.}
+\PairFigures{explain-triangle}{explain-concave}
+\vfill
+\newpage
+
+Keep each hole inside the outer outline. All boundary loops must stay separate, with straight sides and corners on dots. Count dots on all outlines in \(B\); dots in a hole do not count in \(I\).
+
+\Problem{9}{The shaded shape has a square hole. Find its area, \(I\) and \(B\). How must Pick's rule change when there is one hole? Test your change on another shape with one hole.}
+\begin{center}\Figure{hole-square}\par\Record\end{center}
+\begin{center}\BlankBoard{6}{3}\end{center}
+\vfill
+\newpage
+
+\Problem{10}{Make a connected shape with two holes. Find area without using dot counts. Then find a dot-count rule for a connected shape with any number of holes.}
+\begin{center}\BlankBoard{6}{6}\par\Record\end{center}
+\vfill
+\end{document}

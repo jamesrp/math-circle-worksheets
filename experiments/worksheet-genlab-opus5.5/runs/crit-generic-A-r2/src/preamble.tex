@@ -1,0 +1,26 @@
+\usepackage[letterpaper,top=0.45in,bottom=0.4in,left=0.5in,right=0.5in,
+  includehead,includefoot,headheight=18pt,headsep=0.22in,footskip=0.34in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[default]{sourcesanspro}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{fancyhdr}
+\usepackage{array}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Week 1 / Tiling / \level}
+\fancyfoot[L]{Bellingham Math Circle / Week 1}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedright
+\newcommand{\prob}[1]{\textbf{Problem #1:}}
+\newcommand{\fig}[1]{\input{figs/#1.tex}}
+\newcommand{\rarrow}{\tikz[baseline=-3pt]\draw[-{Stealth[length=9pt,width=8pt]},line width=1.3pt] (0,0)--(0.42in,0);}
+\newcommand{\lrarrow}{\tikz[baseline=-3pt]\draw[{Stealth[length=9pt,width=8pt]}-{Stealth[length=9pt,width=8pt]},line width=1.3pt] (0,0)--(0.6in,0);}
+\newcommand{\blank}[1][0.9in]{\rule{#1}{0.6pt}}
+\newcommand{\green}{\raisebox{-1pt}{\fig{greenicon}}}
+\newsavebox{\figbox}
+\newcommand{\labfig}[2]{\sbox{\figbox}{\fig{#2}}\raisebox{\dimexpr\ht\figbox-1.6ex\relax}{\makebox[0.3in][l]{\textbf{#1}}}\usebox{\figbox}}

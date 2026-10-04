@@ -1,0 +1,19 @@
+\usepackage[letterpaper,margin=.65in,top=.60in,bottom=.65in]{geometry}
+\usepackage{fix-cm}
+\usepackage[T1]{fontenc}\usepackage[default]{sourcesanspro}
+\usepackage{microtype,tikz,array,tabularx,fancyhdr,amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}\usetikzlibrary{calc,arrows.meta}
+\setlength{\parindent}{0pt}\setlength{\parskip}{8pt}\setlength{\headheight}{0pt}\setlength{\footskip}{26pt}
+\setlength{\emergencystretch}{2em}\pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{.4pt}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 3 / \activityid}\fancyfoot[R]{\scriptsize \thepage}
+\definecolor{ink}{gray}{.12}\color{ink}
+\newcommand{\PageTitle}[2]{{\fontsize{10}{12}\selectfont\bfseries Week 3 / Code machines / #1\par}\vspace{5pt}{\fontsize{24}{27}\selectfont\bfseries #2\par}\vspace{2pt}}
+\newcommand{\Subhead}[1]{\par\vspace{3pt}{\large\bfseries #1}\par}
+\newcommand{\StudentHeader}[1]{{\fontsize{10}{12}\selectfont\bfseries Week 3 / Code machines / #1\par}\vspace{10pt}}
+\newcommand{\Problem}[2]{\par\vspace{7pt}\textbf{Problem #1:} #2\par}
+\newcommand{\Space}[1]{\par\vspace{3pt}\begin{tikzpicture}\draw[black!25,line width=.4pt] (0,0) rectangle (\dimexpr\linewidth-.5pt\relax,#1);\end{tikzpicture}\par}
+\newcommand{\ShapeKey}[3]{\begingroup\fontsize{20}{24}\selectfont\renewcommand{\arraystretch}{1.2}\begin{tabular}{c|ccc}in&$\bigcirc$&$\triangle$&$\square$\\\hline out&$#1$&$#2$&$#3$\end{tabular}\endgroup}
+\newcommand{\FourKey}[2]{\renewcommand{\arraystretch}{1.6}\begin{tabular}{c|cccc}in&A&B&C&D\\\hline #1&#2\end{tabular}}
+\newcommand{\FiveKey}[2]{\renewcommand{\arraystretch}{1.6}\begin{tabular}{c|ccccc}in&A&B&C&D&E\\\hline #1&#2\end{tabular}}
+\newcommand{\BlankMessage}[1]{\begin{tikzpicture}[baseline=.13in,x=.57in,y=1in]\foreach\i in {1,...,#1}{\draw[black!40](\i,0) rectangle ++(.86,.49);}\end{tikzpicture}}
+\newcommand{\Clue}[2]{\begin{minipage}[t][1.48in]{.47\linewidth}\textbf{#1}\quad #2\par\vspace{10pt}\FourKey{out}{\quad&\quad&\quad&\quad}\end{minipage}}

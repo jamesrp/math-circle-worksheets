@@ -1,0 +1,17 @@
+Week 60: Take it or pass
+
+Mathematical kernels
+
+1. A finite sequence of independent, identically distributed offers has a known score distribution. After seeing each offer, a player accepts its score and ends the round, or permanently passes it; the last permitted offer must be accepted. The objective is the expected accepted score. If V_m is the best expected score before m offers remain, then V_1 = E[X] and V_m = E[max(X,V_{m-1})]. With m > 1 offers including the current one, accept x when x >= V_{m-1}; either action is optimal at equality. Backward induction proves this by comparing acceptance with optimal continuation. These claims require replacement, independence, a known finite horizon, no recall, and the score objective; they are not the rank-only secretary problem.
+
+2. For three equal-chance tickets 0, 4, 6, V_1 = 10/3, V_2 = 40/9, and V_3 = 134/27. An offer of 4 should be accepted with two offers left but passed with three. Every full three-draw ticket word has chance 1/27, even when a decision would end the played round sooner. Complete physical outcome collections can establish a policy's exact average; a small play sample cannot certify optimality. Comparing only the current score with the next draw's mean gives 130/27 at horizon three, so it misses the value of later decisions. The selected examples and exact checks are background facts, not a required list of student problems.
+
+Sources: Thomas S. Ferguson, Optimal Stopping and Applications, Chapter 2, printed pp. 2.1 and 2.7-2.8, especially section 2.4 (https://www.math.ucla.edu/~tom/Stopping/sr2.pdf). Local research notes and independently enumerated examples are in this folder.
+
+Suggested emphasis by level: K-1: no new core packet; this investigation requires keeping an irreversible decision and a deadline. Grades 2-3: genuine entry for ready third graders through partner play, equal physical outcomes, and comparing total scores; adult reading and summing can support the work. Grades 4-5: changing thresholds with the horizon, exact expected-score comparison, and a backward-induction explanation. Use honest Grades 3-5 page labels; a general recurrence is a readiness-dependent continuation.
+
+Materials
+
+For each playing pair or trio: one opaque bag with three indistinguishable-size cardstock score tickets 0, 4, 6 (about 40 by 60 mm); a separate visible reference copy of the distribution; three turn counters; an erasable current-offer box or three display cards; ACCEPT and PASS places; a pencil or whiteboard. Return and mix the drawn ticket after every draw, including a passed offer. The displayed offer is a record, not a ticket removed from the bag. Acceptance ends that round immediately; the final turn counter physically enforces the deadline. No player may choose the random offer or reclaim a passed one.
+
+For exact comparison, provide movable equal-size outcome cards for small complete ticket-word collections, with identities and order recoverable and score space kept separate. Retain each word even if several have the same accepted score. Children may pool a checkable collection at their table. For the current Grades 3-5 tables, three playing kits suffice: two pairs at the four-third-grader table, and a pair/trio with rotating referee at the 445 table. A supplied recording convention needs a short non-target input/intermediate/output example before its first use. US Letter pages, single-sided at 100%; diagrams are records, not full-size boards. Physical bag mixing, deadline handling and role rotation remain untested.

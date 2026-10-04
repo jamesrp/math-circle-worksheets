@@ -1,0 +1,87 @@
+{
+  "week": 20,
+  "topic": "Averaging",
+  "overview": [
+    "Stopping walks: on a finite undirected graph where each circle can reach a fixed square, a uniformly wandering token stops almost surely. Its expected terminal score averages neighboring expectations, by conditioning on the first move. The base uniqueness theorem identifies it with the harmonic filling. Printed expectations are A=2, B=4, C=3; finite trial means need not equal them.",
+    "Neighbor-only whole-board updates on the four-cycle alternate 0,6,0,6 and 6,0,6,0 forever. Including one's own old value makes two joined circles reach 3,3 in one tick, while the alternating four-cycle approaches 3 without reaching it at a finite tick. Every update uses one unchanged BEFORE state. These examples do not prove universal convergence.",
+    "Least roughness: sum the squared value gaps over edges, each edge once. With fixed boundary values, a harmonic filling minimizes this score; if every finite connected component reaches a fixed square, the minimizer is unique. The printed paths have unique minima 18 at 3 and 12 at 2,4. Both are integral, so the allowed whole-number guesses do not change the optimum. Child entry is square areas and stack experiments; the adult energy proof is optional context.",
+    "Grades 2-3 can run walks, copy boards and compare areas. Fractions gate P4; global score certificates suit grades 4-5. Separate estimates, conjectures and exact arguments."
+  ],
+  "readiness": [
+    "Shared Grades 2-5 entry: follow a token, count terminal scores, add small quantities and share equally. Adult reading is appropriate. P2-4 require preserving two states, not remembering them; P4 requires fraction cards after the first tick. P5-6 can use drawn square areas instead of multiplication facts.",
+    "Current fixed KK11 / 3333 / 445 tables have one anchored adult each. Choose one investigation and its short launch per table per visit. Adults read or record while children own choices; pool cases into one checkable record. A K-1 oral fair walk or two-circle copy/swap entry is suitable only while the child retains the rule."
+  ],
+  "materials": [
+    "Per pair: 60 cubes/counters, a walking token, two copies of each small graph mat with nodes at least 30 mm wide, fair-choice slips, number/fraction cards, squared paper, pencils and one terminal-score strip. For two neighbors use two indistinguishable-back slips; for C use three. Replace the drawn slip before each choice. Zero is a full neighbor, not an omitted pile.",
+    "Keep BEFORE and AFTER mats separate; spare cubes make copies. Switch to fraction cards after P4's first tick. Preparing mats/slips takes about 15-20 minutes with an existing kit. Fair drawing, state handling and fit remain unrehearsed."
+  ],
+  "launch": "Allow brief handling. Move a token once using fair slips and stop at a square, including 0; record only its score. For a dynamics visit use the printed 0,3,6 BEFORE to 3,3,3 AFTER example, checking the middle against the unchanged old board. Before scoring, use the printed gap-square example. Keep each launch to two or three minutes.",
+  "route": "P1 can occupy 20-30 minutes. P2-3 form a dynamics visit; P4 is a fraction-ready return. P5-6 give a separate area-score visit. Times are proposals. Retain a state or landscape to resume.",
+  "investigations": [
+    {
+      "problem": "1",
+      "title": "Wandering tokens and exact expected scores",
+      "entry": "Grades 2-3 can choose fairly and record terminal scores. Grades 4-5 can derive exact values from the first move. Allow 20-30 minutes, including at least the twelve A walks and twelve B walks requested. Adults may scribe while children draw and move.",
+      "solution": [
+        "A has neighbors 0 and B; B has neighbors A and 6. Let their exact expected scores be a,b. First-step averaging gives a=b/2 and b=(a+6)/2. Hence a=2,b=4. Equivalently, the chances of stopping at 6 are 1/3 and 2/3. At C every choice immediately reaches a square, with equally likely scores 0,3,6, so its expectation is 3.",
+        "The A/B walk stops almost surely: at each move from either circle there is probability 1/2 of reaching a square. Probability of surviving n moves is (1/2)^n, tending to zero. In a larger finite reachable graph, a bounded-length path from each circle to a square gives a common positive chance of stopping in each block of steps; the survival bound decays geometrically.",
+        "A sample average can be unlike 2 or 4, even after twelve walks. Calculate a pooled average from the recorded terminal scores only after the trials; neither the step count nor a running simultaneous tally is required. The expectation describes the process, not a promise that a finite sample exactly matches it."
+      ],
+      "hints": [
+        "If the choice is biased, point to all neighbors and reset the slips. For exact scores, ask what happens on the very first move and retain the unknown score of the other circle rather than replacing it by one observed walk."
+      ],
+      "extensions": [
+        "Keep the same walk and replace square scores 0,6 by 0,3: A and B expectations become 1,2 because every terminal score has been halved. This is a direct scaling proof, not an assumption about a new simulation. Ask how many trials would feel persuasive while distinguishing persuasion from an exact proof."
+      ],
+      "notes": "Record whether children count 0 as a possible choice, and whether fair slips or an adult are operating the choices. If a session ends during a walk, mark it unfinished rather than recording an invented terminal score."
+    },
+    {
+      "problem": "2-4",
+      "title": "Cycles and a change in the update rule",
+      "entry": "P2-3 have whole-number concrete entries for grades 2-3. P4 is a grades 4-5 or fraction-ready return. Allow 20-35 minutes. The gate is simultaneous replacement from one old board; adults can label positions while children make the new stacks.",
+      "solution": [
+        "P2, clockwise from top left: 0,6,0,6 becomes 6,0,6,0 and then returns. Its first return takes exactly two ticks. Any unequal alternating a,b,a,b does the same; 1,5,1,5 is another example. Constant boards stay unchanged and first return after one tick, so they do not meet the exactly-two request. The printed three-circle convention example updates 0,3,6 to 3,3,3 because endpoints copy their only neighbor.",
+        "P3 neighbor-only 0,6 swaps forever. Under the new own-and-neighbor rule, both circles receive (0+6)/2=3 in the first tick and remain 3,3. Including the old value changes the rule; it does not mean updating the same board sequentially.",
+        "P4 new-rule successive boards are 4,2,4,2; 8/3,10/3,8/3,10/3; 28/9,26/9,28/9,26/9. If alternating values are a,b, the new pair is (a+2b)/3,(b+2a)/3. Their sum remains 6, while their signed difference reverses and is divided by 3. Thus their midpoint is always 3 and their positive gap shrinks by a factor of 3 each tick without becoming zero. Both values approach 3, but neither reaches it at any finite tick.",
+        "Adult exact formula at tick t is 3-3(-1/3)^t in the original zero positions and 3+3(-1/3)^t in the original six positions. A child can instead track the always-positive shrinking gap and fixed midpoint in a drawing. Experiments with three ticks suggest a limit; that invariant explains all later ticks."
+      ],
+      "hints": [
+        "Keep a clear BEFORE mat; point to its neighbors while producing each AFTER value. For P4 ask what happens to the sum of the two alternating values and to their gap. Offer fractions only after the whole-number first tick, without rounding to fake an exact steady board."
+      ],
+      "extensions": [
+        "On the four-cycle, any alternating a,b,a,b has period two under neighbor-only updates when a differs from b. With own-value averaging, its midpoint stays (a+b)/2 and its gap shrinks by 3 with the high/low positions reversing; equal values are already fixed. These claims are confined to alternating states, not every graph or starting state."
+      ],
+      "notes": "The dynamic action deliberately replaces values, whereas base Week 20 checks all equations on one unchanged state. Observe sequential-update slips directly and keep them separate from a hypothesis about executive-function demands."
+    },
+    {
+      "problem": "5-6",
+      "title": "Find the least-rough landscape",
+      "entry": "Use square drawings or tiles with grades 2-3; grades 4-5 can explain a certificate covering all choices. Whole-number inputs 0-6 and squared areas are the only student prerequisites. Allow 20-35 minutes; pairs can share case checks.",
+      "solution": [
+        "The printed convention 0-1-3 has gaps 1,2, square areas 1,4, and score 5. P5 score for x is x^2+(6-x)^2. At x=0,1,2,3,4,5,6 the scores are 36,26,20,18,20,26,36. The unique permitted minimum is 18 at x=3. The identity score=18+2(x-3)^2 proves it even among all real x.",
+        "P6 score is x^2+(y-x)^2+(6-y)^2, with each of the three edges counted once. The unique minimum is 12 at x=2,y=4. Let the signed successive gaps be d1=x,d2=y-x,d3=6-y; they sum to 6. Then score-12=(d1-2)^2+(d2-2)^2+(d3-2)^2>=0. Equality needs every gap to be 2. Squaring absolute gaps gives the same score, so this also rules out nonmonotone guesses. A pooled audit of the 49 allowed pairs is another finite certificate.",
+        "Adult general proof: let h be harmonic with fixed square values and write a competing filling h+g, where g is zero at squares. Expanding the edge squares gives E(h+g)=E(h)+E(g)+2 sum_edges(h_u-h_v)(g_u-g_v). The last sum equals sum_vertices g_u sum_neighbors(h_u-h_v), which is zero at circles by averaging and at squares by g=0. Thus E(h+g)>=E(h). Equality forces g equal along every edge, hence zero on every component reaching a square. This proves unique minimization when those finite-boundary assumptions hold."
+      ],
+      "hints": [
+        "After genuine score comparisons, ask whether making one gap smaller makes another bigger. For P6, let three side lengths representing the gaps stand beside their square areas. Keep the score attached to one recoverable landscape, not three separate concurrent tallies."
+      ],
+      "extensions": [
+        "For a path of L>=1 edges with fixed ends A,B, its real minimum score is (B-A)^2/L, attained by equal successive gaps (B-A)/L. Sum squared deviations from that gap proves the bound. When A and B are integers, the minimizer has integer values exactly when L divides B-A; otherwise an integer-only task is a different optimization problem."
+      ],
+      "notes": "The last proof is adult context, not a formal prerequisite. Children may justify the actual whole-number tasks by complete finite checks or an area argument. Never omit an empty/zero neighbor from an average."
+    }
+  ],
+  "sources": [
+    "Current Week 20 base outline and guide pp. 1,3-4,22-25 were read for the maximum/uniqueness setting and exclusions. The encore adds walks, a new update process and score minimization rather than repeating static-board tasks.",
+    "Doyle and Snell, Random Walks and Electric Networks, sections 1.1-1.2, is the mathematical context recorded in the base guide. Its source body was not newly read here. First-step stopping, finite cycle and energy arguments above are independently derived.",
+    "Math Circle by the Bay, Preface pp. vii-x (local PDF pp. 8-11), actually read, supports manipulatives, interaction and long development of themes. The proposed pacing and readiness routes are our design, not classroom observations reported there."
+  ],
+  "verification": [
+    "The independent student math review re-solved all six tasks and both worked examples with exact fractions, first-step equations and full finite energy enumeration. It checked the actual graph edges, fixed/free shapes and equal scaling of the gap squares. Final task wording was read again for this guide.",
+    "The final guide received a separate independent mathematical review. Both final PDFs were rendered and inspected and passed a clean extracted-source ZIP rebuild. See release-validation.json in the editable source package. No fair-draw, simultaneous-update or physical-fit rehearsal has occurred."
+  ],
+  "observations": [
+    "Record actual problems used, trial scores, a retained dynamic state or best landscape, and where a pair wants to resume.",
+    "Observe whether 0 remains a neighbor, whether new values use one unchanged old state, whether sample averages are called exact, and whether fractions prompt rounding. Separate these observed actions from hypotheses about readiness or pacing."
+  ]
+}

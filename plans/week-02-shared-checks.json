@@ -1,0 +1,1418 @@
+{
+  "id": "F02-S-v1",
+  "date": "2026-09-28",
+  "status": "All mathematical assertions passed; classroom use remains unpiloted",
+  "data_source": "plans/week-02-shared-data.json",
+  "method": {
+    "graphs": "Every edge subset enumerated; independent BFS confirms reachability and minimum moves. Walk BFS retains only states with exactly one ON lamp.",
+    "rooms": "Exact Fraction segment intersections, planar face traversal, area and Euler checks; adjacency requires a shared wall segment. All 2- and 3-symbol assignments enumerated."
+  },
+  "graph_classifications": {
+    "square": {
+      "vertices": 4,
+      "edges": 4,
+      "components": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "edge_subsets_enumerated": 16,
+      "reachable_states_from_all_off": 8,
+      "expected_component_even_states": 8,
+      "reduced_solutions_per_reachable_state": 2,
+      "maximum_shortest_length_from_all_off": 2,
+      "every_subset_undo_verified": true,
+      "repeat_move_cancels_from_every_state": true,
+      "BFS_and_edge_subset_minima_agree": true
+    },
+    "ring6": {
+      "vertices": 6,
+      "edges": 6,
+      "components": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "edge_subsets_enumerated": 64,
+      "reachable_states_from_all_off": 32,
+      "expected_component_even_states": 32,
+      "reduced_solutions_per_reachable_state": 2,
+      "maximum_shortest_length_from_all_off": 3,
+      "every_subset_undo_verified": true,
+      "repeat_move_cancels_from_every_state": true,
+      "BFS_and_edge_subset_minima_agree": true
+    },
+    "tree8": {
+      "vertices": 8,
+      "edges": 7,
+      "components": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "edge_subsets_enumerated": 128,
+      "reachable_states_from_all_off": 128,
+      "expected_component_even_states": 128,
+      "reduced_solutions_per_reachable_state": 1,
+      "maximum_shortest_length_from_all_off": 7,
+      "every_subset_undo_verified": true,
+      "repeat_move_cancels_from_every_state": true,
+      "BFS_and_edge_subset_minima_agree": true
+    },
+    "grid9": {
+      "vertices": 9,
+      "edges": 12,
+      "components": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "edge_subsets_enumerated": 4096,
+      "reachable_states_from_all_off": 256,
+      "expected_component_even_states": 256,
+      "reduced_solutions_per_reachable_state": 16,
+      "maximum_shortest_length_from_all_off": 5,
+      "every_subset_undo_verified": true,
+      "repeat_move_cancels_from_every_state": true,
+      "BFS_and_edge_subset_minima_agree": true
+    },
+    "islands8": {
+      "vertices": 8,
+      "edges": 8,
+      "components": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "edge_subsets_enumerated": 256,
+      "reachable_states_from_all_off": 64,
+      "expected_component_even_states": 64,
+      "reduced_solutions_per_reachable_state": 4,
+      "maximum_shortest_length_from_all_off": 4,
+      "every_subset_undo_verified": true,
+      "repeat_move_cancels_from_every_state": true,
+      "BFS_and_edge_subset_minima_agree": true
+    }
+  },
+  "student_targets": [
+    {
+      "problem": 2,
+      "graph": "square",
+      "extra_edges": [],
+      "start": [],
+      "target": [
+        1,
+        2
+      ],
+      "one_light_at_every_stage": false,
+      "reachable": true,
+      "shortest_length": 1,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ]
+      ],
+      "states_during_sample": [
+        [],
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "problem": 2,
+      "graph": "square",
+      "extra_edges": [],
+      "start": [],
+      "target": [
+        1,
+        3
+      ],
+      "one_light_at_every_stage": false,
+      "reachable": true,
+      "shortest_length": 2,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "states_during_sample": [
+        [],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "problem": 2,
+      "graph": "square",
+      "extra_edges": [],
+      "start": [],
+      "target": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "one_light_at_every_stage": false,
+      "reachable": true,
+      "shortest_length": 2,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "states_during_sample": [
+        [],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "problem": 5,
+      "graph": "ring6",
+      "extra_edges": [],
+      "start": [
+        1
+      ],
+      "target": [
+        3
+      ],
+      "one_light_at_every_stage": true,
+      "reachable": true,
+      "shortest_length": 2,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "states_during_sample": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "problem": 5,
+      "graph": "ring6",
+      "extra_edges": [],
+      "start": [
+        1
+      ],
+      "target": [
+        4
+      ],
+      "one_light_at_every_stage": true,
+      "reachable": true,
+      "shortest_length": 3,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "states_during_sample": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ]
+    },
+    {
+      "problem": 7,
+      "graph": "tree8",
+      "extra_edges": [],
+      "start": [
+        1
+      ],
+      "target": [
+        5
+      ],
+      "one_light_at_every_stage": true,
+      "reachable": true,
+      "shortest_length": 4,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "states_during_sample": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ]
+      ]
+    },
+    {
+      "problem": 7,
+      "graph": "tree8",
+      "extra_edges": [],
+      "start": [
+        1
+      ],
+      "target": [
+        7
+      ],
+      "one_light_at_every_stage": true,
+      "reachable": true,
+      "shortest_length": 4,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "states_during_sample": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ]
+    },
+    {
+      "problem": 7,
+      "graph": "tree8",
+      "extra_edges": [],
+      "start": [
+        1
+      ],
+      "target": [
+        8
+      ],
+      "one_light_at_every_stage": true,
+      "reachable": true,
+      "shortest_length": 4,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "states_during_sample": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          6
+        ],
+        [
+          8
+        ]
+      ]
+    },
+    {
+      "problem": 8,
+      "graph": "tree8",
+      "extra_edges": [],
+      "start": [],
+      "target": [
+        1,
+        8
+      ],
+      "one_light_at_every_stage": false,
+      "reachable": true,
+      "shortest_length": 4,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "states_during_sample": [
+        [],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "problem": 9,
+      "graph": "ring6",
+      "extra_edges": [],
+      "start": [],
+      "target": [
+        1,
+        2
+      ],
+      "one_light_at_every_stage": false,
+      "reachable": true,
+      "shortest_length": 1,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ]
+      ],
+      "states_during_sample": [
+        [],
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "problem": 9,
+      "graph": "ring6",
+      "extra_edges": [],
+      "start": [],
+      "target": [
+        1,
+        4
+      ],
+      "one_light_at_every_stage": false,
+      "reachable": true,
+      "shortest_length": 3,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "states_during_sample": [
+        [],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "problem": 9,
+      "graph": "ring6",
+      "extra_edges": [],
+      "start": [],
+      "target": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "one_light_at_every_stage": false,
+      "reachable": true,
+      "shortest_length": 2,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "states_during_sample": [
+        [],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "problem": 9,
+      "graph": "ring6",
+      "extra_edges": [],
+      "start": [],
+      "target": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "one_light_at_every_stage": false,
+      "reachable": true,
+      "shortest_length": 3,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "states_during_sample": [
+        [],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "problem": 10,
+      "graph": "grid9",
+      "extra_edges": [],
+      "start": [],
+      "target": [
+        1,
+        5
+      ],
+      "one_light_at_every_stage": false,
+      "reachable": true,
+      "shortest_length": 2,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "states_during_sample": [
+        [],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "problem": 10,
+      "graph": "grid9",
+      "extra_edges": [],
+      "start": [],
+      "target": [
+        2,
+        8
+      ],
+      "one_light_at_every_stage": false,
+      "reachable": true,
+      "shortest_length": 2,
+      "sample_shortest_edge_sequence": [
+        [
+          2,
+          5
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "states_during_sample": [
+        [],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "problem": 10,
+      "graph": "grid9",
+      "extra_edges": [],
+      "start": [],
+      "target": [
+        1,
+        3,
+        7,
+        9
+      ],
+      "one_light_at_every_stage": false,
+      "reachable": true,
+      "shortest_length": 4,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "states_during_sample": [
+        [],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3,
+          7,
+          8
+        ],
+        [
+          1,
+          3,
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "problem": 10,
+      "graph": "grid9",
+      "extra_edges": [],
+      "start": [],
+      "target": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        9
+      ],
+      "one_light_at_every_stage": false,
+      "reachable": true,
+      "shortest_length": 4,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          6,
+          9
+        ]
+      ],
+      "states_during_sample": [
+        [],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3,
+          4,
+          7
+        ],
+        [
+          1,
+          3,
+          4,
+          6,
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "problem": 11,
+      "graph": "islands8",
+      "extra_edges": [],
+      "start": [
+        1
+      ],
+      "target": [
+        5
+      ],
+      "one_light_at_every_stage": false,
+      "reachable": false,
+      "shortest_length": null,
+      "sample_shortest_edge_sequence": null,
+      "states_during_sample": null
+    },
+    {
+      "problem": 12,
+      "graph": "islands8",
+      "extra_edges": [
+        [
+          2,
+          5
+        ]
+      ],
+      "start": [
+        1
+      ],
+      "target": [
+        5
+      ],
+      "one_light_at_every_stage": true,
+      "reachable": true,
+      "shortest_length": 2,
+      "sample_shortest_edge_sequence": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "states_during_sample": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          5
+        ]
+      ]
+    }
+  ],
+  "room_maps": {
+    "parallel3": {
+      "rooms": 4,
+      "vertices_in_planar_arrangement": 10,
+      "edges_in_planar_arrangement": 13,
+      "room_adjacencies_zero_based": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "corner_counts": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "room_areas": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "two_symbol_assignment_count": 2,
+      "three_symbol_assignment_count": 24,
+      "sample_two_symbol_assignment": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "sample_three_symbol_assignment": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "area_and_Euler_checks_passed": true
+    },
+    "concurrent3": {
+      "rooms": 6,
+      "vertices_in_planar_arrangement": 9,
+      "edges_in_planar_arrangement": 14,
+      "room_adjacencies_zero_based": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "corner_counts": [
+        3,
+        3,
+        3,
+        3,
+        4,
+        4
+      ],
+      "room_areas": [
+        "1/8",
+        "1/8",
+        "1/4",
+        "1/4",
+        "1/8",
+        "1/8"
+      ],
+      "two_symbol_assignment_count": 2,
+      "three_symbol_assignment_count": 66,
+      "sample_two_symbol_assignment": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "sample_three_symbol_assignment": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "area_and_Euler_checks_passed": true
+    },
+    "general3": {
+      "rooms": 7,
+      "vertices_in_planar_arrangement": 11,
+      "edges_in_planar_arrangement": 17,
+      "room_adjacencies_zero_based": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "corner_counts": [
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        5
+      ],
+      "room_areas": [
+        "9/100",
+        "33/200",
+        "9/200",
+        "33/200",
+        "2/25",
+        "41/100",
+        "9/200"
+      ],
+      "two_symbol_assignment_count": 2,
+      "three_symbol_assignment_count": 84,
+      "sample_two_symbol_assignment": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "sample_three_symbol_assignment": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "area_and_Euler_checks_passed": true
+    },
+    "five3": {
+      "rooms": 5,
+      "vertices_in_planar_arrangement": 11,
+      "edges_in_planar_arrangement": 15,
+      "room_adjacencies_zero_based": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "corner_counts": [
+        3,
+        3,
+        4,
+        5,
+        5
+      ],
+      "room_areas": [
+        "1/4",
+        "151/440",
+        "5/88",
+        "59/220",
+        "9/110"
+      ],
+      "two_symbol_assignment_count": 2,
+      "three_symbol_assignment_count": 36,
+      "sample_two_symbol_assignment": [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "sample_three_symbol_assignment": [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "area_and_Euler_checks_passed": true
+    },
+    "stripes": {
+      "rooms": 3,
+      "vertices_in_planar_arrangement": 8,
+      "edges_in_planar_arrangement": 10,
+      "room_adjacencies_zero_based": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "corner_counts": [
+        4,
+        4,
+        4
+      ],
+      "room_areas": [
+        "33/100",
+        "17/50",
+        "33/100"
+      ],
+      "two_symbol_assignment_count": 2,
+      "three_symbol_assignment_count": 12,
+      "sample_two_symbol_assignment": [
+        0,
+        1,
+        0
+      ],
+      "sample_three_symbol_assignment": [
+        0,
+        1,
+        0
+      ],
+      "area_and_Euler_checks_passed": true
+    },
+    "cross": {
+      "rooms": 4,
+      "vertices_in_planar_arrangement": 9,
+      "edges_in_planar_arrangement": 12,
+      "room_adjacencies_zero_based": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "corner_counts": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "room_areas": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "two_symbol_assignment_count": 2,
+      "three_symbol_assignment_count": 18,
+      "sample_two_symbol_assignment": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "sample_three_symbol_assignment": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "area_and_Euler_checks_passed": true
+    },
+    "tee": {
+      "rooms": 3,
+      "vertices_in_planar_arrangement": 8,
+      "edges_in_planar_arrangement": 10,
+      "room_adjacencies_zero_based": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "corner_counts": [
+        4,
+        4,
+        4
+      ],
+      "room_areas": [
+        "1/2",
+        "1/4",
+        "1/4"
+      ],
+      "two_symbol_assignment_count": 0,
+      "three_symbol_assignment_count": 6,
+      "sample_two_symbol_assignment": null,
+      "sample_three_symbol_assignment": [
+        0,
+        1,
+        2
+      ],
+      "area_and_Euler_checks_passed": true
+    },
+    "two_triangles": {
+      "walls": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "rooms": 2,
+      "vertices_in_planar_arrangement": 4,
+      "edges_in_planar_arrangement": 5,
+      "room_adjacencies_zero_based": [
+        [
+          0,
+          1
+        ]
+      ],
+      "corner_counts": [
+        3,
+        3
+      ],
+      "room_areas": [
+        "1/2",
+        "1/2"
+      ],
+      "two_symbol_assignment_count": 2,
+      "three_symbol_assignment_count": 6,
+      "sample_two_symbol_assignment": [
+        0,
+        1
+      ],
+      "sample_three_symbol_assignment": [
+        0,
+        1
+      ],
+      "area_and_Euler_checks_passed": true
+    },
+    "two_quadrilaterals": {
+      "walls": [
+        [
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            0.5
+          ]
+        ]
+      ],
+      "rooms": 2,
+      "vertices_in_planar_arrangement": 6,
+      "edges_in_planar_arrangement": 7,
+      "room_adjacencies_zero_based": [
+        [
+          0,
+          1
+        ]
+      ],
+      "corner_counts": [
+        4,
+        4
+      ],
+      "room_areas": [
+        "1/2",
+        "1/2"
+      ],
+      "two_symbol_assignment_count": 2,
+      "three_symbol_assignment_count": 6,
+      "sample_two_symbol_assignment": [
+        0,
+        1
+      ],
+      "sample_three_symbol_assignment": [
+        0,
+        1
+      ],
+      "area_and_Euler_checks_passed": true
+    },
+    "triangle_and_pentagon": {
+      "walls": [
+        [
+          [
+            0,
+            0.5
+          ],
+          [
+            0.5,
+            1
+          ]
+        ]
+      ],
+      "rooms": 2,
+      "vertices_in_planar_arrangement": 6,
+      "edges_in_planar_arrangement": 7,
+      "room_adjacencies_zero_based": [
+        [
+          0,
+          1
+        ]
+      ],
+      "corner_counts": [
+        3,
+        5
+      ],
+      "room_areas": [
+        "7/8",
+        "1/8"
+      ],
+      "two_symbol_assignment_count": 2,
+      "three_symbol_assignment_count": 6,
+      "sample_two_symbol_assignment": [
+        0,
+        1
+      ],
+      "sample_three_symbol_assignment": [
+        0,
+        1
+      ],
+      "area_and_Euler_checks_passed": true
+    }
+  },
+  "bounds_and_interpretation": {
+    "one_complete_straight_wall": "Two regions when endpoints lie on boundary and the wall crosses the interior; the supplied examples have corner counts 3+3, 4+4, and 3+5.",
+    "two_complete_straight_walls_maximum": 4,
+    "two_wall_bound_reason": "The first wall adds one room. The second meets it at most once, hence has at most two interior pieces and adds at most two rooms. Crossing example attains 4.",
+    "three_complete_straight_walls_maximum": 7,
+    "three_wall_bound_reason": "The third wall meets the first two at at most two distinct points, so adds at most three rooms: 1+1+2+3=7. General3 attains 7; all totals 4 through 7 have checked examples.",
+    "room_symbol_rule": "Regions sharing a nonzero-length wall have different symbols. Meeting at a point does not force different symbols.",
+    "two_symbol_full_line_proof": "Give each room the parity of the number of supporting lines separating it from a fixed reference point. Crossing one wall changes exactly one sign, hence changes parity.",
+    "tee_requires_three_symbols": "Its three rooms are pairwise adjacent; exhaustive enumeration gives no 2-symbol assignments and 6 assignments with three labeled symbols."
+  },
+  "problem_numbering_note": "Source target keys 1-14 retain their numbers; drawing keys 15-24 become shared Problems 33-42. Core ring/network keys are checked separately."
+}

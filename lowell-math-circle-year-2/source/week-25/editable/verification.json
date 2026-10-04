@@ -1,0 +1,465 @@
+{
+  "method": "Independent row-subset reconstruction and breadth-first search. No student answer file or student builder imported.",
+  "fixed_cases": [
+    {
+      "label": "K1 P1 top",
+      "rows": [
+        1,
+        1
+      ],
+      "columns": [
+        1,
+        1
+      ],
+      "count": 2,
+      "pictures": [
+        "01/10",
+        "10/01"
+      ]
+    },
+    {
+      "label": "K1 P1 middle",
+      "rows": [
+        1,
+        1
+      ],
+      "columns": [
+        1,
+        0,
+        1
+      ],
+      "count": 2,
+      "pictures": [
+        "001/100",
+        "100/001"
+      ]
+    },
+    {
+      "label": "K1 P1 bottom; K1 P2 right; 23 P1 top",
+      "rows": [
+        2,
+        1
+      ],
+      "columns": [
+        1,
+        1,
+        1
+      ],
+      "count": 3,
+      "pictures": [
+        "011/100",
+        "101/010",
+        "110/001"
+      ]
+    },
+    {
+      "label": "K1 P2 left",
+      "rows": [
+        1,
+        2
+      ],
+      "columns": [
+        1,
+        1,
+        1
+      ],
+      "count": 3,
+      "pictures": [
+        "001/110",
+        "010/101",
+        "100/011"
+      ]
+    },
+    {
+      "label": "K1 P3",
+      "rows": [
+        1,
+        1,
+        1
+      ],
+      "columns": [
+        1,
+        1,
+        1
+      ],
+      "count": 6,
+      "pictures": [
+        "001/010/100",
+        "001/100/010",
+        "010/001/100",
+        "010/100/001",
+        "100/001/010",
+        "100/010/001"
+      ]
+    },
+    {
+      "label": "K1 P4 first; 23 P1 middle",
+      "rows": [
+        3,
+        1
+      ],
+      "columns": [
+        2,
+        1,
+        1
+      ],
+      "count": 1,
+      "pictures": [
+        "111/100"
+      ]
+    },
+    {
+      "label": "K1 P4 second; 23 P3 top left",
+      "rows": [
+        2,
+        1,
+        0
+      ],
+      "columns": [
+        2,
+        1,
+        0
+      ],
+      "count": 1,
+      "pictures": [
+        "110/100/000"
+      ]
+    },
+    {
+      "label": "K1 P4 last; 23 P2",
+      "rows": [
+        2,
+        1,
+        1
+      ],
+      "columns": [
+        2,
+        1,
+        1
+      ],
+      "count": 5,
+      "pictures": [
+        "011/100/100",
+        "101/010/100",
+        "101/100/010",
+        "110/001/100",
+        "110/100/001"
+      ]
+    },
+    {
+      "label": "23 P1 bottom",
+      "rows": [
+        2,
+        2
+      ],
+      "columns": [
+        2,
+        1,
+        1
+      ],
+      "count": 2,
+      "pictures": [
+        "101/110",
+        "110/101"
+      ]
+    },
+    {
+      "label": "23 P3 nonadjacent",
+      "rows": [
+        1,
+        0,
+        1
+      ],
+      "columns": [
+        1,
+        0,
+        1
+      ],
+      "count": 2,
+      "pictures": [
+        "001/000/100",
+        "100/000/001"
+      ]
+    },
+    {
+      "label": "23 P4; 45 P1 and P2",
+      "rows": [
+        2,
+        2
+      ],
+      "columns": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "count": 6,
+      "pictures": [
+        "0011/1100",
+        "0101/1010",
+        "0110/1001",
+        "1001/0110",
+        "1010/0101",
+        "1100/0011"
+      ]
+    },
+    {
+      "label": "45 P3",
+      "rows": [
+        3,
+        3
+      ],
+      "columns": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "count": 20,
+      "pictures": [
+        "000111/111000",
+        "001011/110100",
+        "001101/110010",
+        "001110/110001",
+        "010011/101100",
+        "010101/101010",
+        "010110/101001",
+        "011001/100110",
+        "011010/100101",
+        "011100/100011",
+        "100011/011100",
+        "100101/011010",
+        "100110/011001",
+        "101001/010110",
+        "101010/010101",
+        "101100/010011",
+        "110001/001110",
+        "110010/001101",
+        "110100/001011",
+        "111000/000111"
+      ]
+    },
+    {
+      "label": "45 P4",
+      "rows": [
+        3,
+        3
+      ],
+      "columns": [
+        2,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "count": 6,
+      "pictures": [
+        "100011/110100",
+        "100101/110010",
+        "100110/110001",
+        "110001/100110",
+        "110010/100101",
+        "110100/100011"
+      ]
+    }
+  ],
+  "23_P3_switches": [
+    {
+      "start": "110/100/000",
+      "count": 0,
+      "moves": []
+    },
+    {
+      "start": "100/000/001",
+      "count": 1,
+      "moves": [
+        {
+          "rows": [
+            "A",
+            "C"
+          ],
+          "columns": [
+            1,
+            3
+          ],
+          "result": "001/000/100"
+        }
+      ]
+    },
+    {
+      "start": "110/001/100",
+      "count": 3,
+      "moves": [
+        {
+          "rows": [
+            "A",
+            "B"
+          ],
+          "columns": [
+            1,
+            3
+          ],
+          "result": "011/100/100"
+        },
+        {
+          "rows": [
+            "A",
+            "B"
+          ],
+          "columns": [
+            2,
+            3
+          ],
+          "result": "101/010/100"
+        },
+        {
+          "rows": [
+            "B",
+            "C"
+          ],
+          "columns": [
+            1,
+            3
+          ],
+          "result": "110/100/001"
+        }
+      ]
+    },
+    {
+      "start": "111/110/100",
+      "count": 0,
+      "moves": []
+    }
+  ],
+  "shortest_routes": [
+    {
+      "route": [
+        "1100/0011",
+        "0110/1001",
+        "0011/1100"
+      ],
+      "distance": 2
+    },
+    {
+      "route": [
+        "111000/000111",
+        "011100/100011",
+        "001110/110001",
+        "000111/111000"
+      ],
+      "distance": 3
+    },
+    {
+      "route": [
+        "110100/100011",
+        "100110/110001",
+        "100011/110100"
+      ],
+      "distance": 2
+    }
+  ],
+  "23_P4_distance_distribution": {
+    "0": 1,
+    "1": 4,
+    "2": 1
+  },
+  "construction_examples": [
+    {
+      "picture": "111/100",
+      "rows": [
+        3,
+        1
+      ],
+      "columns": [
+        2,
+        1,
+        1
+      ],
+      "count": 1
+    },
+    {
+      "picture": "110/101",
+      "rows": [
+        2,
+        2
+      ],
+      "columns": [
+        2,
+        1,
+        1
+      ],
+      "count": 2
+    },
+    {
+      "picture": "111/100/000",
+      "rows": [
+        3,
+        1,
+        0
+      ],
+      "columns": [
+        2,
+        1,
+        1
+      ],
+      "count": 1
+    },
+    {
+      "picture": "110/001/100",
+      "rows": [
+        2,
+        1,
+        1
+      ],
+      "columns": [
+        2,
+        1,
+        1
+      ],
+      "count": 5
+    }
+  ],
+  "all_four_counter_constructions": {
+    "2x3": {
+      "pictures": 15,
+      "unique_margin_sets": 9,
+      "ambiguous_margin_sets": 3
+    },
+    "3x3": {
+      "pictures": 126,
+      "unique_margin_sets": 45,
+      "ambiguous_margin_sets": 27
+    }
+  },
+  "exhaustive_checks": [
+    {
+      "shape": "2x4",
+      "boards": 256,
+      "margin_sets": 189,
+      "uniqueness_criterion": true,
+      "two_row_ordered_pairs_checked": 454
+    },
+    {
+      "shape": "2x6",
+      "boards": 4096,
+      "margin_sets": 2187,
+      "uniqueness_criterion": true,
+      "two_row_ordered_pairs_checked": 13236
+    },
+    {
+      "shape": "3x3",
+      "boards": 512,
+      "margin_sets": 328,
+      "uniqueness_criterion": true,
+      "two_row_ordered_pairs_checked": 0
+    }
+  ],
+  "student_pdf_sha256": {
+    "k-1.pdf": "aaff000edc2305f0fa7dfccb4ce893d2fae508bc0f0a603802466cb75d4fd8b2",
+    "grades-2-3.pdf": "ab413a8d2b075e1f1eec39c38bb1e837d8db805b4993bb15d7d816914eb01ce0",
+    "grades-4-5.pdf": "b6f25f213638d57b65f37f1b202ea2cef1871d8ae130e5edb3b40b2f0ae8126f"
+  }
+}

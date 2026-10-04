@@ -1,0 +1,5 @@
+# Final delta mathematics pass — Week 44
+
+Compared final/draft student source and adult notes; inspected final page 1. Its worked opposite-reinforcement example and all mathematical targets are unchanged; removing the automatic exact-chance label does not alter the three-rule comparison. The guide now confines “balancing” to the verified two-draw comparison, correctly avoiding a general claim.
+
+New three-draw record preparation is quantitatively consistent with the independent catalog: there are ten final count vectors, 27 color words, and sixty marked-identity histories. Ten count cards and thirty color-word slips suffice for the weighted-color route; thirty additional slips supply the full sixty-history route. Five kits scale to fifty cards/150 slips, or 300 slips for full identity enumeration. Forecasts and the general uniform composition law remain supported by the draft independent counts through five draws. No new represented mathematical example or changed target needs re-enumeration. Physical sorting, resetting and mixing remain untested. No new blocker.

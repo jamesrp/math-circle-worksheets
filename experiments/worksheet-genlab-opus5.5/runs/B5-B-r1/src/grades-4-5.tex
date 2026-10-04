@@ -1,0 +1,156 @@
+\documentclass[12pt]{article}
+\newcommand{\bandname}{Grades 4–5}
+\input{common}
+
+\newcommand{\bodyfont}{\fontsize{12.5}{17}\selectfont}
+\newcommand{\rowh}[1]{\rule[-0.45\dimexpr#1\relax]{0pt}{#1}}
+
+% Grid for two-pile games: \pilegrid{N}{square size}; rows and columns labelled 0..N-1.
+\newcommand{\pilegrid}[2]{%
+  \begin{tikzpicture}
+    \pgfmathtruncatemacro{\last}{#1-1}
+    \foreach \i in {0,...,\last} {
+      \node[anchor=south] at ({(\i+0.5)*#2},0.05) {\i};
+      \node[anchor=east] at (-0.1,{-(\i+0.5)*#2}) {\i};
+    }
+    \node[anchor=south,font=\small] at ({#1*#2/2},0.72) {column};
+    \node[anchor=south,font=\small,rotate=90] at (-0.85,{-#1*#2/2}) {row};
+    \draw[line width=0.7pt] (0,0) grid[step=#2] ({#1*#2},{-#1*#2});
+    \draw[line width=1.1pt] (0,0) rectangle ({#1*#2},{-#1*#2});
+  \end{tikzpicture}}
+
+\begin{document}
+\bodyfont
+
+Two players take turns taking counters from a pile. Each problem says how many counters you may take on a turn. Every rule lets you take 1, and you can never take more than are there. Whoever takes the last counter wins.
+
+\vspace{0.55cm}
+\prob{1}For each rule, find every pile from 1 to 20 where the second player can always win, however the first player plays. Then explain, for rule (b), why the second player can always win from those piles, and why the first player can always win from every other pile.
+
+\vspace{0.35cm}
+\begin{minipage}[t]{0.485\linewidth}
+(a) Take 1 or 2.
+
+\vspace{0.1cm}
+\numboxes{1}{20}{10}{0.87}{0.9}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.485\linewidth}
+(b) Take 1, 2, or 3.
+
+\vspace{0.1cm}
+\numboxes{1}{20}{10}{0.87}{0.9}
+\end{minipage}
+\writelines{6}{0.8}
+
+\vspace{0.8cm}
+\prob{2}From now on, call a pile where the second player can always win a \textbf{losing pile}, because it is a loss for whoever has to move from it. The rule is: take 1, 3, or 4. Find every losing pile from 1 to 30, and describe the pattern.
+
+\vspace{0.35cm}
+\numboxes{1}{30}{10}{1.75}{0.9}
+\writelines{3}{0.8}
+
+\newpage
+\prob{3}The rule is: take 1, 3, or 4. For piles of 50, 53, 54, 56, and 100 counters, decide whether you would rather go first or second, and if first, what you take first. Then explain why the pattern you found in Problem 2 keeps going for every pile, however large.
+
+\vspace{0.4cm}
+\begin{tabular}{|>{\centering\arraybackslash}m{2.4cm}|m{6.6cm}|m{5.6cm}|}\hline
+\rowh{0.75cm}\textbf{Pile} & \textbf{First or second?} & \textbf{First move} \\ \hline
+\rowh{0.95cm}50 & & \\ \hline
+\rowh{0.95cm}53 & & \\ \hline
+\rowh{0.95cm}54 & & \\ \hline
+\rowh{0.95cm}56 & & \\ \hline
+\rowh{0.95cm}100 & & \\ \hline
+\end{tabular}
+\writelines{10}{0.85}
+
+\newpage
+\prob{4}For each rule, find every losing pile from 1 to 20 and describe the pattern. Then explain why rule (c) has the same losing piles as “take 1 or 2”.
+
+\vspace{0.4cm}
+(a) Take 1 or 4.
+
+\vspace{0.1cm}
+\numboxes{1}{20}{20}{0.87}{0.85}
+\writelines{2}{0.8}
+
+\vspace{0.5cm}
+(b) Take 1, 4, or 5.
+
+\vspace{0.1cm}
+\numboxes{1}{20}{20}{0.87}{0.85}
+\writelines{2}{0.8}
+
+\vspace{0.5cm}
+(c) Take 1, 2, or 4.
+
+\vspace{0.1cm}
+\numboxes{1}{20}{20}{0.87}{0.85}
+\writelines{2}{0.8}
+
+\vspace{0.5cm}
+(d) Take 1, 3, or 5.
+
+\vspace{0.1cm}
+\numboxes{1}{20}{20}{0.87}{0.85}
+\writelines{2}{0.8}
+
+\vspace{0.3cm}
+\writelines{4}{0.8}
+
+\newpage
+\prob{5}For each list below, find a rule whose losing piles are exactly the piles on the list, or explain why no rule can do it. Your rule must let you take 1, and you may choose any other numbers to allow.
+
+\vspace{0.5cm}
+(a) 2, 4, 6, 8, 10, 12, \ldots\ (every even pile)
+
+\vspace{0.3cm}
+Rule:
+\writelines{4}{0.8}
+
+\vspace{0.6cm}
+(b) 5, 10, 15, 20, 25, \ldots\ (the numbers ending in 0 or 5)
+
+\vspace{0.3cm}
+Rule:
+\writelines{4}{0.8}
+
+\vspace{0.6cm}
+(c) 3, 5, 8, 10, 13, 15, 18, 20, \ldots\ (the numbers ending in 0, 3, 5, or 8)
+
+\vspace{0.3cm}
+Rule:
+\writelines{4}{0.8}
+
+\vspace{0.6cm}
+(d) 3, 7, 10, 14, 17, 21, 24, 28, \ldots\ (add 4, then 3, again and again)
+
+\vspace{0.3cm}
+Rule:
+\writelines{4}{0.8}
+
+\newpage
+\prob{6}The rule is: take 1, 6, or 9. Find every losing pile from 1 to 35. Describe what happens. Does the pattern repeat right from the start?
+
+\vspace{0.35cm}
+\numboxes{1}{35}{10}{1.75}{0.9}
+\writelines{3}{0.8}
+
+\vspace{0.8cm}
+\prob{7}In every rule so far, the losing piles end up repeating in a pattern forever. Could some rule that lets you take 1 and a few other numbers have losing piles that never settle into a repeating pattern? Explain.
+\writelines{9}{0.8}
+
+\newpage
+\prob{8}Now there are two piles. On your turn, take 1 or 2 counters from one of the piles. Whoever takes the last counter wins. In the grid, the square in row 2 and column 5 stands for starting piles of 2 and 5, and a 0 means that pile is empty. Mark every square where the second player can always win. Then explain how the second player wins from piles of 2 and 5.
+
+\vspace{0.4cm}
+\hspace*{1.2cm}\pilegrid{7}{2}
+\writelines{5}{0.8}
+
+\newpage
+\prob{9}Two piles again, but now take 1, 3, or 4 counters from one pile. Mark every square in the grid where the second player can always win. Then explain how the second player wins from piles of 4 and 6.
+
+\vspace{0.4cm}
+\hspace*{1.2cm}\pilegrid{8}{1.8}
+\writelines{6}{0.8}
+
+\end{document}

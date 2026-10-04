@@ -1,0 +1,289 @@
+{
+  "week": 18,
+  "title": "Week 18 Hidden changes facilitator guide",
+  "pages": [
+    {
+      "title": "Codebooks mathematical overview",
+      "elements": [
+        "Adult theorem map | Draft and unpiloted",
+        {
+          "h": "Setting"
+        },
+        "A key assigns distinct binary rows of one fixed length n to pictures. Positions and orientation stay fixed. The receiver knows the key but sees only a row with at most t changed entries, where t is a nonnegative integer, without knowing whether or where a change happened. Recovery means identifying the original picture, not merely detecting damage.",
+        {
+          "h": "Distance criterion"
+        },
+        "The Hamming distance between two rows is their number of differing positions. Guaranteed recovery from at most t changes is possible exactly when every pair of code rows has distance at least 2t+1. Equivalently, their sets of possible received rows are disjoint. The main activity has t=1 and needs distance at least 3; the two-change extension needs distance at least 5. An observation outside all promised outcome sets need not have a decoding.",
+        {
+          "h": "Counting bound and exact cases"
+        },
+        "For one change, each length-n binary row has n+1 possible observations, including no change. A key with M pictures therefore requires M(n+1) at most 2 to the power n. This packing bound is necessary, not sufficient. Two pictures need at least three positions; four pictures need at least five, and a five-position key exists. Three pictures cannot fit in four positions: among three binary rows, each position contributes at most two to the sum of their three pairwise distances, but three distances of at least 3 require a sum of at least 9, exceeding 8.",
+        {
+          "h": "Across the bands"
+        },
+        "K-1 sends and decodes counter rows and invents small keys. Grades 2-3 organizes all outcomes and keys, then tests two changes. Grades 4-5 proves the distance rule and compares constructions with counting and pairwise bounds.",
+        {
+          "h": "From trials to a guarantee"
+        },
+        "Experiments can reveal an ambiguous row and suggest a conjecture. Frequent success cannot establish a guarantee. List every allowed outcome or prove pairwise separation; for shortest-length claims, also exclude every shorter length. Erasures, reversals and moving entries are different error models. Detailed keys and proofs follow."
+      ]
+    },
+    {
+      "title": "Hidden changes facilitator guide",
+      "elements": [
+        "<b>Week 18 is an unscheduled library label. Draft and unpiloted.</b> This separate adult guide follows the FINAL W18-K-v3, W18-23-v3, and W18-45-v3 packets, seven pages each. It covers every final problem. The aim is guaranteed recovery of a hidden message when the location of an allowed change is unknown.",
+        {
+          "h": "Supplies and practical preparation"
+        },
+        "At each of three tables: 30 two-sided counters (filled circle on one face, empty on the other), 10 reusable strips of five cells, four picture cards (triangle, square, star, diamond), two opaque folders, pencils, erasers, and blank paper. Across the room this is 90 counters, 30 strips, 12 picture cards, and 6 folders. Use cells at least 2 cm wide for handling counters. Cover unused cells on shorter strips and mark every strip's left end.",
+        "Allow about 20 minutes with an existing counter kit, 35 minutes if preparing paper counters and strips. Check that no color cue identifies the sender's message. Print packets single-sided at 100%. Keep extra paper available: K-1 P4 has eight answers despite six printed key slots; middle P4 has six despite four slots. Slots do not limit the search.",
+        {
+          "h": "A brief shared launch"
+        },
+        "Allow 3 minutes to handle counters. Use student page 1 for the visible 0101 to 0111 training trace; only the final row crosses the folder. Then demonstrate a real hidden send: everyone knows the key; the sender privately selects a picture and builds its row; the changer secretly flips zero or one counter; only the final row crosses the folder. The receiver names the picture or identifies genuine ambiguity. Show orientation and roles without announcing the distance rule. Never reveal whether a change occurred.",
+        {
+          "h": "A flexible hour"
+        },
+        {
+          "table": [
+            [
+              "Minutes",
+              "Menu"
+            ],
+            [
+              "0-7",
+              "Free handling and one shared transmission"
+            ],
+            [
+              "7-22",
+              "K-1 P1-P2; middle P1-P2; upper P1"
+            ],
+            [
+              "22-40",
+              "Choose key invention or complete-list tasks; rotate sender, changer, receiver."
+            ],
+            [
+              "40-53",
+              "K-1 P5 or P6; middle P5 or P6; upper P5 or P6"
+            ],
+            [
+              "53-60",
+              "Share one foolproof key and one ambiguous received row."
+            ]
+          ],
+          "widths": [
+            65,
+            439
+          ]
+        },
+        "Let productive experiments continue rather than covering all six problems. Keep mathematical proof separate from how often random trials succeed: a single allowed ambiguous row defeats a guarantee."
+      ]
+    },
+    {
+      "title": "Readiness and the correction principle",
+      "elements": [
+        {
+          "h": "Prerequisite gates"
+        },
+        "K-1 entry: match counter faces and positions, count to three, use a public picture key; an adult supplies reading and records lists. Middle entry: compare rows position by position and keep ordered picture assignments distinct. Upper entry: organize complete outcome sets and reason that disjoint sets cannot occupy too few available rows. Powers of two can be represented by a physical catalog; algebra is optional.",
+        "<b>Gate before searching keys:</b> the receiver sees only the final row, with the left end unchanged. <b>Gate before counting proofs:</b> the group includes the unchanged row and can generate each single flip once. If either gate fails, repeat a concrete send and list its possibilities before increasing the row length.",
+        {
+          "h": "The useful adult theorem"
+        },
+        "Two code rows can always be distinguished after at most one hidden change exactly when they differ in at least three positions. If they differ in one, either original can also be the damaged other. If they differ in two, changing one of those positions gives a row one flip from each. If a row were one flip from each of two originals, the originals could differ only in those at most two flipped positions. Thus three differences prevent ambiguity.",
+        {
+          "diagram": "ambiguity"
+        },
+        "For a larger key, every pair must satisfy this condition. The rule guarantees a unique original only for rows within the allowed one-change promise. Do not force a decode for an observation outside all allowed outcome sets.",
+        {
+          "diagram": "repetition"
+        },
+        "<b>Misconceptions to watch:</b> noticing damage is not recovering the picture; 00/11 detects a single flip but cannot decode 01. Reversal, erasure, moving counters, revealing the original, or telling which counter changed all alter the task. In middle P6 alone, the rule changes to at most two flips."
+      ]
+    },
+    {
+      "title": "K-1 solutions for Problems 1 to 3",
+      "elements": [
+        {
+          "h": "Problem 1  Test the repetition key  Student page 2"
+        },
+        "<b>Answer and reasoning.</b> The changer cannot fool a receiver using the allowed rule. Triangle is 000 and square is 111. From triangle the outcomes are 000, 100, 010, 001; from square they are 111, 011, 101, 110. The first list has at most one filled counter; the second has at least two. They never overlap. The majority face identifies the original picture even when no change occurs. Ask children to take each role; correct conclusions should apply to every permitted flip, not just the trials they happened to see.",
+        "<b>Hold back, then offer.</b> Ask which picture could have sent the received row with only one flip or none. Do not call a guess successful unless the receiver can rule out the other picture.",
+        {
+          "h": "Problem 2  Decode both keys  Student page 3"
+        },
+        "<b>Answer and reasoning.</b> For the three-counter key, the printed rows decode as follows: 000 triangle; 101 square; 010 triangle; 111 square. Each has exactly one possible picture. For the two-counter key: 00 triangle; 01 both pictures; 10 both pictures; 11 square. The two-counter key can fool the receiver: 01 is either 00 with the right counter changed or 11 with the left changed. The same is true of 10 with the roles of the positions reversed. A receiver cannot resolve two allowed explanations from the final strip alone.",
+        "<b>Hold back, then offer.</b> Build both possible originals behind the folder and produce the identical final strip in two ways. Ask what information the receiver actually has.",
+        {
+          "h": "Problem 3  Invent a two-counter key  Student page 4"
+        },
+        "<b>Answer and reasoning.</b> No two different two-counter rows can guarantee recovery. There are only four candidates: 00, 01, 10, 11. If the chosen originals differ at one position, an unchanged original can be a one-flip version of the other. If they differ at both positions, change one differing position to reach a common row. These exhaust every distinct pair of two-counter rows. Reusing the same row for both pictures already fails without a change.",
+        "<b>Hold back, then offer.</b> If repeated trials look successful, ask the changer to find a final row that both pictures could send. Compare the two chosen rows where they match and where they differ.",
+        {
+          "h": "Pacing choice"
+        },
+        "If a child can explain the two-counter obstruction physically, move to invention in P4. If not, keep two original strips beside one shared received strip. Do not replace hidden errors with visible missing counters to make the task easier."
+      ]
+    },
+    {
+      "title": "K-1 solutions for Problems 4 to 6",
+      "elements": [
+        {
+          "h": "Problem 4  Every three-counter key  Student page 5"
+        },
+        "<b>Answer and reasoning.</b> Writing triangle first and square second, all eight keys are 000/111, 001/110, 010/101, 011/100, 100/011, 101/010, 110/001, 111/000. The two rows must differ in all three positions; fewer differences allow ambiguity. For each of the eight possible triangle rows the square must be its exact opposite, giving one and only one partner. The picture labels matter, so swapping them gives a different key. Provide extra paper.",
+        "<b>Hold back, then offer.</b> For one triangle row, ask whether any matching position can be allowed. Then ask whether every possible triangle row has been considered.",
+        {
+          "h": "Problem 5  All mixed four-counter completions  Student page 6"
+        },
+        "<b>Answer and reasoning.</b> For triangle 0011, the square may be 0100, 1000, 1100, 1101, or 1110. For triangle 0100, the square may be 0011, 1001, 1010, or 1011. These are complete lists. A working partner must differ in three or four positions. Start from the completely opposite row, then permit at most one matching position. For 0011 the opposite is 1100; it and all four one-position alterations are mixed. For 0100 the opposite is 1011; changing its second position gives 1111, excluded because the task requires both kinds of counter. The other three alterations and 1011 remain.",
+        "<b>Hold back, then offer.</b> Ask how many positions agree, rather than telling the child which rows to build. Once several work, ask how to account for every row with at most one agreement.",
+        {
+          "h": "Problem 6  Three pictures with three counters  Student page 7"
+        },
+        "<b>Answer and reasoning.</b> Impossible. Any two reliable three-counter code rows must be opposites. Once the first row is fixed there is exactly one opposite row for the second picture. A third row would also have to be that same opposite to stay three positions from the first, but pictures must have different rows. Equivalently, each original needs four distinct received rows; three pictures would need twelve among only eight.",
+        "<b>Hold back, then offer.</b> Keep one picture's row fixed and search for all partners that work with it. For a child comfortable with complete lists, spread the two repetition neighborhoods on the table and ask what is left.",
+        {
+          "h": "Optional extension"
+        },
+        "Ask whether a fixed row of length four has more than one reliable partner. There are five without the mixed-row restriction: its complement and the four rows obtained by changing one position of that complement. This explains why P5 is richer than the three-counter search."
+      ]
+    },
+    {
+      "title": "Grades 2-3 solutions for Problems 1 to 4",
+      "elements": [
+        {
+          "h": "Problem 1  Which keys work  Student page 2"
+        },
+        "<b>Answer and reasoning.</b> The 000/111 key always works. The 001/101 key fails. The first pair differs at all three positions. The second differs only at the first: received 001 can be unchanged triangle or square 101 with its first counter flipped. The receiver cannot choose with certainty.",
+        "<b>Hold back, then offer.</b> Invite the changer to produce exactly the same final row from both pictures, rather than relying on many random sends.",
+        {
+          "h": "Problem 2  Common received rows  Student page 3"
+        },
+        "<b>Answer and reasoning.</b> For 0000/0001, use 0000 (also 0001). For 0101/0110, use 0100 (also 0111). For 0001/1111, no common row. For 0011/1100, no common row. The pairs differ in 1, 2, 3, and 4 positions, respectively. The first witnesses use zero/one flip or one flip from each original. A common outcome for either last pair would make the originals differ in at most two positions, a contradiction.",
+        "<b>Hold back, then offer.</b> Keep the unchanged row among the legal outcomes. If children think all four keys fail, have them count the differing positions and try to share only one change on each side.",
+        {
+          "h": "Problem 3  Shortest key for two pictures  Student page 4"
+        },
+        "<b>Answer and reasoning.</b> Three counters is the exact minimum; 000/111 is one solution. Length one or two permits at most one or two differing positions, so the ambiguity construction on guide page 3 always applies. The three-position repetition key works by its disjoint outcome lists. A successful construction and exclusion of shorter rows are both required.",
+        "<b>Hold back, then offer.</b> Ask what failed in P2's first two cases. Can any rows of length two avoid both failure mechanisms?",
+        {
+          "h": "Problem 4  Every balanced four-counter key  Student page 5"
+        },
+        "<b>Answer and reasoning.</b> The six ordered triangle/square keys are 0011/1100, 0101/1010, 0110/1001, 1001/0110, 1010/0101, 1100/0011. Two rows each containing two filled counters differ in an even number of positions: each lost filled position is balanced by a gained one. Reliability needs at least three, so they must differ in four and be opposites. Each of the six choices of two filled positions has exactly one opposite, proving completeness. Extra paper is needed.",
+        "<b>Hold back, then offer.</b> Ask whether exactly three differences can occur while both rows keep two filled counters. Accept a physical swapping argument instead of the word even."
+      ]
+    },
+    {
+      "title": "Grades 2-3 solutions for Problems 5 and 6",
+      "elements": [
+        {
+          "h": "Problem 5  Four pictures with five counters  Student page 6"
+        },
+        "<b>Answer and reasoning.</b> One valid key is triangle 00000, square 00111, star 11001, diamond 11110. Many other keys are valid. The six pairwise distances, in the order triangle/square, triangle/star, triangle/diamond, square/star, square/diamond, star/diamond, are 3, 3, 4, 4, 3, 3. Thus every pair has disjoint one-change outcome sets. The table below is a complete alternative audit: no received row occurs twice.",
+        "<b>Hold back, then offer.</b> Ask children to test all six pairs, not only each row against triangle. If they are stuck, invite them to keep one row fixed and find far-away rows, withholding the full key.",
+        {
+          "table": [
+            [
+              "Picture and sent row",
+              "All legal received rows"
+            ],
+            [
+              "Triangle 00000",
+              "00000, 00001, 00010, 00100, 01000, 10000"
+            ],
+            [
+              "Square 00111",
+              "00011, 00101, 00110, 00111, 01111, 10111"
+            ],
+            [
+              "Star 11001",
+              "01001, 10001, 11000, 11001, 11011, 11101"
+            ],
+            [
+              "Diamond 11110",
+              "01110, 10110, 11010, 11100, 11110, 11111"
+            ]
+          ],
+          "widths": [
+            145,
+            359
+          ]
+        },
+        {
+          "h": "Problem 6  Up to two hidden changes  Student page 7"
+        },
+        "<b>Answer and reasoning.</b> Five counters is the shortest possible length. Use 00000/11111. The majority face recovers the picture after zero, one, or two flips. Two reliable originals must differ in at least five positions. If they differ in d <= 4 positions, split those differing positions into two groups of at most two. Form a row by taking one original and switching the first group to match the other; it is at most two changes from each original. Thus every shorter pair is ambiguous. For the proposed five-position key, triangle outcomes have at most two filled counters and square outcomes have at least three, so the lists are disjoint.",
+        "<b>Hold back, then offer.</b> If a child proposes four positions, build 0011 from both 0000 and 1111 using two changes. Then ask how the same halfway construction adapts to a different chosen pair.",
+        "<b>Important distinction.</b> P6 changes the allowed number of errors, so the three-difference test from earlier problems is no longer sufficient. Preserve the hidden location and the allowance of no change."
+      ]
+    },
+    {
+      "title": "Grades 4-5 solutions for Problems 1 to 3",
+      "elements": [
+        {
+          "h": "Problem 1  Complete received-row lists  Student page 2"
+        },
+        "<b>Answer and reasoning.</b> For 00: {00,01,10}; for 11: {01,10,11}. The shared rows are 01 and 10, so this key fails. For 000: {000,001,010,100}; for 111: {011,101,110,111}. These lists are disjoint, so this key works. For 0010: {0000,0010,0011,0110,1010}; for 0100: {0000,0100,0101,0110,1100}. The common rows are 0000 and 0110, so this key fails. In each list, the unchanged word plus a flip at each position accounts for all allowed outcomes exactly once.",
+        "<b>Hold back, then offer.</b> Ask where the no-change case is. To audit completeness, match each generated row to either no flip or one particular flipped position.",
+        {
+          "h": "Problem 2  Four messages of length five  Student page 3"
+        },
+        "<b>Answer and reasoning.</b> Triangle 00000, square 00111, star 11001, diamond 11110 is a working key. Its six pairwise distances are 3,3,4,4,3,3. Guide page 7 lists all 24 legal observations and their unique picture. A proof can use either the complete disjoint lists or the three-difference criterion. No minimality proof is required until P5.",
+        "<b>Hold back, then offer.</b> Once four candidates are found, ask whether any two of their possible observations coincide. Check every pair of originals.",
+        {
+          "h": "Problem 3  The least safe distance  Student page 4"
+        },
+        "<b>Answer and reasoning.</b> For 000000/110000, a common observation is 100000 or 010000. For 010010/101010, there is no common observation: the rows differ in the first three positions. The exact threshold for one-error correction is three differing positions. Necessity: distance one permits an unchanged original also reachable from the other; distance two permits a one-flip midpoint; distance zero already confuses two pictures. Sufficiency: a common received row would differ from each original in at most one position, so the originals could differ in at most the union of these two positions. This contradicts three or more differences, regardless of total row length.",
+        "<b>Hold back, then offer.</b> Ask which positions two originals could possibly disagree in if both could turn into the same row with one flip. Use counters before introducing the term Hamming distance.",
+        {
+          "h": "Interpreting an observation"
+        },
+        "Under the one-change promise, decode to the unique key row with zero or one difference. For the example code, 00101 decodes to square 00111. If no key row is that close, the promise was broken or the transmission was recorded incorrectly; the task supplies no guaranteed answer."
+      ]
+    },
+    {
+      "title": "Grades 4-5 solutions for Problems 4 to 6",
+      "elements": [
+        {
+          "h": "Problem 4  Count every possible observation  Student page 5"
+        },
+        "<b>Answer and reasoning.</b> From 010: {000,010,011,110}. From 0110: {0010,0100,0110,0111,1110}. From 00111: {00011,00101,00110,00111,01111,10111}. A row of length ten has eleven possible received rows. For any length n, there is one unchanged row and one distinct row for each of the n possible changed positions. A flip changes that position only, so neither two different flips nor a flip and no flip can coincide. This proves exactly n+1, not merely at most n+1.",
+        "<b>Hold back, then offer.</b> Ask the group to label each outcome by the changed position or none. Avoid adding a second flip to the one-flip case.",
+        {
+          "h": "Problem 5  Shortest length for four pictures  Student page 6"
+        },
+        "<b>Answer and reasoning.</b> The exact minimum is five. The key in P2 supplies the construction. At length four there are 16 binary rows in total. Each original needs its five possible received rows, and four reliable originals need 20 distinct received rows. They cannot fit into 16. Any reliable shorter code could be padded with fixed zeros to length four without decreasing any pairwise distance, giving a forbidden length-four code; hence all shorter lengths fail too. Alternatively count 4(n+1) against 2^n at n=1,2,3,4.",
+        "<b>Hold back, then offer.</b> Ask whether two pictures may share a received row. Then count the space needed by all four outcome sets. The inequality is necessary; a count that fits is not itself a construction.",
+        {
+          "h": "Problem 6  Three pictures with four entries  Student page 7"
+        },
+        "<b>Answer and reasoning.</b> Impossible, even though the simple count 3 x 5 <= 16 does not rule it out. Fix one proposed original A. Any other reliable row must differ from A at least three times, so it agrees with A in at most one position. For two other rows B and C, a disagreement between them can occur only where exactly one agrees with A, because the alphabet is binary. There are at most two such positions altogether. Thus B and C differ in at most two positions, making them confusable. This excludes every three-row choice.",
+        "<b>Hold back, then offer.</b> Ask how many positions each of the other rows can keep the same as the first. Then compare those two rows with each other, not just with the first.",
+        "<b>Why this matters.</b> A numerical capacity bound can leave room for a code that does not exist. P6 demonstrates why a successful count and an actual construction have different logical roles."
+      ]
+    },
+    {
+      "title": "Sources extensions and verification",
+      "elements": [
+        {
+          "h": "Source and scope"
+        },
+        "R. W. Hamming, <i>Error Detecting and Error Correcting Codes</i>, Bell System Technical Journal 29 (1950), 147-160. Section 5, pp. 154-156, gives distance and error guarantees; section 7, pp. 157-158, counts disjoint one-error neighborhoods. The original paper body was checked on October 3, 2026: <link href=\"https://ineffectivetheory.com/edu/papers/hamming-codes-1950.pdf\" color=\"blue\">read the paper scan</link>. Publication identifier: DOI 10.1002/j.1538-7305.1950.tb00463.x.",
+        "This guide independently checks finite examples against the FINAL sheets and supplies elementary proofs. It does not require or claim to teach parity-check matrices, systematic-code constructions, channel capacity, or a general formula for optimal codes. The supplied five-entry key is one construction, not the complete family of such keys.",
+        "Natasha Rozhkovskaya, <i>Math Circles for Elementary School Students</i>, Introduction: Berkeley 2009 (local EPUB, Part 1). The introduction describes individual adult assistance and active parent participation. Our short launch, hint timing, and hour menu are proposed adaptations, not reported classroom results.",
+        {
+          "h": "Extensions with answer information"
+        },
+        "For the four-picture example on guide page 7, eight length-five observations are outside the one-change promise: 01010, 01011, 01100, 01101, 10010, 10011, 10100, 10101. Ask children why no guaranteed decode is requested for them. The other 24 observations are fully listed on page 7.",
+        "For two pictures and up to t changes, repetition of 0 and 1 for 2t+1 positions works by majority. No shorter pair works: divide their at most 2t differing positions into two sets of at most t to create an ambiguous observation. Use t=2 concretely before naming the general statement. Do not imply that repeating a whole multi-picture key is always shortest.",
+        {
+          "h": "Reproducible checks and pilot questions"
+        },
+        "Included independent_checks.py constructs outcomes by explicitly flipping positions, independently of the student generator. It verifies the eight ordered three-entry keys; the 5 and 4 mixed completions; all six balanced ordered keys; the 24 distinct observations; the absence of any reliable three-word length-four code; and the length-five minimum for two-error correction of two pictures. Its output is independent-checks.json.",
+        "The final task count is six per band. The K-1 P5 lists and exact picture-order convention in P4 were checked against the revised FINAL wording. The guide source is editable and portable. This revision adds the separate training page; numbered tasks and working strips are preserved.",
+        "No classroom pilot has occurred. Record whether folders truly hid the original, whether children remembered the no-change possibility, and whether role rotation helped them distinguish an allowed ambiguity from a decoding mistake. These are proposed observations, not evidence already collected."
+      ]
+    }
+  ]
+}

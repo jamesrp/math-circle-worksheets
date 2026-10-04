@@ -1,0 +1,158 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage[margin=0in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usepackage{amssymb,amsmath}
+\pdfmapfile{+lm.map}
+\pdfmapfile{+symbols.map}
+\usetikzlibrary{arrows.meta}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\renewcommand{\familydefault}{\sfdefault}
+\definecolor{cardred}{RGB}{203,45,45}
+\definecolor{cardblue}{RGB}{34,95,176}
+\tikzset{state/.style={circle,draw=black,line width=1.1pt,minimum size=.66in,inner sep=0pt,font=\sffamily\bfseries\fontsize{13}{14}\selectfont},edge/.style={-{Stealth[length=7pt,width=5pt]},line width=1.15pt},lab/.style={fill=white,inner sep=2pt,font=\sffamily\bfseries\fontsize{12}{13}\selectfont}}
+\newcommand{\R}{\tikz[baseline=-.045in,x=1in,y=1in]{\node[draw=cardred,fill=cardred!10,rectangle,minimum size=.23in,inner sep=0pt,line width=.85pt,text=black,font=\sffamily\bfseries\fontsize{11}{12}\selectfont] {R};}}
+\newcommand{\B}{\tikz[baseline=-.045in,x=1in,y=1in]{\node[draw=cardblue,fill=cardblue!10,circle,minimum size=.23in,inner sep=0pt,line width=.85pt,text=black,font=\sffamily\bfseries\fontsize{11}{12}\selectfont] {B};}}
+\newcommand{\Y}{$\checkmark$}
+\newcommand{\N}{$\times$}
+\begin{document}
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in,shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.3in,font=\sffamily\fontsize{11}{13}\selectfont] at (0.6,0.34) {Week 17 / Machine memory / Grades 2--3};
+\draw[line width=.45pt] (.6,.66)--(7.9,.66);
+\node[anchor=north west,inner sep=0pt,align=left,text width=6.8in,font=\sffamily\fontsize{9}{11}\selectfont] at (0.6,10.49) {Bellingham Math Circle / Week 17 / W17-23-v2};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.35in,font=\sffamily\fontsize{9}{11}\selectfont] at (7.55,10.49) {1};
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{12}{15}\selectfont] at (0.65,0.86) {R means red; B means blue. A machine has one start circle and a fixed YES or NO on each circle. Each circle has exactly one R arrow and one B arrow. Read left to right with one marker, hiding used cards. Only the current circle and the card being read may affect the next move.};
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{14.5}{18.125}\selectfont] at (0.65,1.86) {\textbf{Problem 1:} Find every four-card row that makes exactly one of these machines say YES. Start both machines fresh for each row, and write each row once.};
+\node[state] (a0) at (1.75,3.7) {\shortstack{{\fontsize{9}{10}\selectfont 1}\\YES}};
+\node[state] (a1) at (3.25,3.7) {\shortstack{{\fontsize{9}{10}\selectfont 2}\\NO}};
+\draw[edge] (0.8,3.7)--(a0.west);
+\draw[edge] (a0) edge[loop above,min distance=.57in] node[lab] {\B} (a0);
+\draw[edge] (a1) edge[loop above,min distance=.57in] node[lab] {\B} (a1);
+\draw[edge] (a0) to[bend left=24] node[lab,above] {\R} (a1);
+\draw[edge] (a1) to[bend left=24] node[lab,below] {\R} (a0);
+\node[state] (b0) at (5.35,3.7) {NO};
+\node[state] (b1) at (6.85,3.7) {YES};
+\draw[edge] (4.3999999999999995,3.7)--(b0.west);
+\draw[edge] (b0) edge[loop above,min distance=.57in] node[lab] {\B} (b0);
+\draw[edge] (b1) edge[loop above,min distance=.57in] node[lab] {\R} (b1);
+\draw[edge] (b0) to[bend left=24] node[lab,above] {\R} (b1);
+\draw[edge] (b1) to[bend left=24] node[lab,below] {\B} (b0);
+\node[anchor=north west,inner sep=0pt,align=left,text width=6.9in,font=\sffamily\fontsize{11.5}{14}\selectfont] at (0.8,4.48) {Left machine, input B R: start 1 $\xrightarrow{\ B\ }$ 1 $\xrightarrow{\ R\ }$ 2; stop: NO.};
+\draw[black!38,line width=.45pt] (0.95,5.2)--(3.55,5.2);
+\draw[black!38,line width=.45pt] (4.75,5.2)--(7.35,5.2);
+\draw[black!38,line width=.45pt] (0.95,6.03)--(3.55,6.03);
+\draw[black!38,line width=.45pt] (4.75,6.03)--(7.35,6.03);
+\draw[black!38,line width=.45pt] (0.95,6.86)--(3.55,6.86);
+\draw[black!38,line width=.45pt] (4.75,6.86)--(7.35,6.86);
+\draw[black!38,line width=.45pt] (0.95,7.69)--(3.55,7.69);
+\draw[black!38,line width=.45pt] (4.75,7.69)--(7.35,7.69);
+\draw[black!38,line width=.45pt] (0.95,8.52)--(3.55,8.52);
+\draw[black!38,line width=.45pt] (4.75,8.52)--(7.35,8.52);
+\draw[black!38,line width=.45pt] (0.95,9.35)--(3.55,9.35);
+\draw[black!38,line width=.45pt] (4.75,9.35)--(7.35,9.35);
+\end{tikzpicture}\null\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in,shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.3in,font=\sffamily\fontsize{11}{13}\selectfont] at (0.6,0.34) {Week 17 / Machine memory / Grades 2--3};
+\draw[line width=.45pt] (.6,.66)--(7.9,.66);
+\node[anchor=north west,inner sep=0pt,align=left,text width=6.8in,font=\sffamily\fontsize{9}{11}\selectfont] at (0.6,10.49) {Bellingham Math Circle / Week 17 / W17-23-v2};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.35in,font=\sffamily\fontsize{9}{11}\selectfont] at (7.55,10.49) {2};
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{15}{18.75}\selectfont] at (0.65,0.96) {\textbf{Problem 2:} Draw a machine that says YES exactly when at least one red card has appeared. Use as few circles as you can.};
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{15}{18.75}\selectfont] at (0.65,5.4) {\textbf{Problem 3:} Draw a machine that says YES exactly when its last card is blue. It must say NO if there are no cards. Use as few circles as you can.};
+\end{tikzpicture}\null\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in,shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.3in,font=\sffamily\fontsize{11}{13}\selectfont] at (0.6,0.34) {Week 17 / Machine memory / Grades 2--3};
+\draw[line width=.45pt] (.6,.66)--(7.9,.66);
+\node[anchor=north west,inner sep=0pt,align=left,text width=6.8in,font=\sffamily\fontsize{9}{11}\selectfont] at (0.6,10.49) {Bellingham Math Circle / Week 17 / W17-23-v2};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.35in,font=\sffamily\fontsize{9}{11}\selectfont] at (7.55,10.49) {3};
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{14.5}{18.125}\selectfont] at (0.65,0.96) {\textbf{Problem 4:} A row gets YES exactly when its red cards can be put in groups of three with none left over, including no red cards. For each pair, add the same extra cards in the same order to both rows to give one YES and one NO, or explain why this cannot be done. Adding no cards is allowed.};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.2in,font=\sffamily\fontsize{12}{14}\selectfont] at (0.9,2.51) {no cards};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.25in,font=\sffamily\fontsize{15}{16}\selectfont] at (2.25,2.52) {+};
+\draw[black!38,line width=.45pt] (2.65,2.77)--(3.95,2.77);
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10.5}{12}\selectfont] at (2.6,2.9499999999999997) {YES / NO};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (4.5,2.65) {R};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.25in,font=\sffamily\fontsize{15}{16}\selectfont] at (5.85,2.52) {+};
+\draw[black!38,line width=.45pt] (6.25,2.77)--(7.55,2.77);
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10.5}{12}\selectfont] at (6.2,2.9499999999999997) {YES / NO};
+\draw[black!38,line width=.45pt] (0.9,3.5)--(7.7,3.5);
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (0.9,3.85) {R};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.25in,font=\sffamily\fontsize{15}{16}\selectfont] at (2.25,3.72) {+};
+\draw[black!38,line width=.45pt] (2.65,3.97)--(3.95,3.97);
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10.5}{12}\selectfont] at (2.6,4.15) {YES / NO};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (4.5,3.85) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (4.81,3.85) {R};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.25in,font=\sffamily\fontsize{15}{16}\selectfont] at (5.85,3.72) {+};
+\draw[black!38,line width=.45pt] (6.25,3.97)--(7.55,3.97);
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10.5}{12}\selectfont] at (6.2,4.15) {YES / NO};
+\draw[black!38,line width=.45pt] (0.9,4.7)--(7.7,4.7);
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (0.9,5.05) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.21,5.05) {R};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.25in,font=\sffamily\fontsize{15}{16}\selectfont] at (2.25,4.92) {+};
+\draw[black!38,line width=.45pt] (2.65,5.17)--(3.95,5.17);
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10.5}{12}\selectfont] at (2.6,5.35) {YES / NO};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (4.5,5.05) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (4.81,5.05) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (5.12,5.05) {R};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.25in,font=\sffamily\fontsize{15}{16}\selectfont] at (5.85,4.92) {+};
+\draw[black!38,line width=.45pt] (6.25,5.17)--(7.55,5.17);
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10.5}{12}\selectfont] at (6.2,5.35) {YES / NO};
+\draw[black!38,line width=.45pt] (0.9,5.8999999999999995)--(7.7,5.8999999999999995);
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (0.9,6.25) {R};
+\node[draw=cardblue,fill=cardblue!10,circle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.21,6.25) {B};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.52,6.25) {R};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.25in,font=\sffamily\fontsize{15}{16}\selectfont] at (2.25,6.12) {+};
+\draw[black!38,line width=.45pt] (2.65,6.37)--(3.95,6.37);
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10.5}{12}\selectfont] at (2.6,6.55) {YES / NO};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (4.5,6.25) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (4.81,6.25) {R};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.25in,font=\sffamily\fontsize{15}{16}\selectfont] at (5.85,6.12) {+};
+\draw[black!38,line width=.45pt] (6.25,6.37)--(7.55,6.37);
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10.5}{12}\selectfont] at (6.2,6.55) {YES / NO};
+\draw[black!38,line width=.45pt] (0.9,7.1)--(7.7,7.1);
+\node[draw=cardblue,fill=cardblue!10,circle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (0.9,7.45) {B};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.25in,font=\sffamily\fontsize{15}{16}\selectfont] at (2.25,7.32) {+};
+\draw[black!38,line width=.45pt] (2.65,7.57)--(3.95,7.57);
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10.5}{12}\selectfont] at (2.6,7.75) {YES / NO};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (4.5,7.45) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (4.81,7.45) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (5.12,7.45) {R};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.25in,font=\sffamily\fontsize{15}{16}\selectfont] at (5.85,7.32) {+};
+\draw[black!38,line width=.45pt] (6.25,7.57)--(7.55,7.57);
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10.5}{12}\selectfont] at (6.2,7.75) {YES / NO};
+\draw[black!38,line width=.45pt] (0.9,8.3)--(7.7,8.3);
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (0.9,8.65) {R};
+\node[draw=cardblue,fill=cardblue!10,circle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.21,8.65) {B};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.25in,font=\sffamily\fontsize{15}{16}\selectfont] at (2.25,8.52) {+};
+\draw[black!38,line width=.45pt] (2.65,8.77)--(3.95,8.77);
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10.5}{12}\selectfont] at (2.6,8.950000000000001) {YES / NO};
+\node[draw=cardblue,fill=cardblue!10,circle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (4.5,8.65) {B};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.25in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (4.81,8.65) {R};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.25in,font=\sffamily\fontsize{15}{16}\selectfont] at (5.85,8.52) {+};
+\draw[black!38,line width=.45pt] (6.25,8.77)--(7.55,8.77);
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10.5}{12}\selectfont] at (6.2,8.950000000000001) {YES / NO};
+\draw[black!38,line width=.45pt] (0.9,9.5)--(7.7,9.5);
+\end{tikzpicture}\null\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in,shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.3in,font=\sffamily\fontsize{11}{13}\selectfont] at (0.6,0.34) {Week 17 / Machine memory / Grades 2--3};
+\draw[line width=.45pt] (.6,.66)--(7.9,.66);
+\node[anchor=north west,inner sep=0pt,align=left,text width=6.8in,font=\sffamily\fontsize{9}{11}\selectfont] at (0.6,10.49) {Bellingham Math Circle / Week 17 / W17-23-v2};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.35in,font=\sffamily\fontsize{9}{11}\selectfont] at (7.55,10.49) {4};
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{15}{18.75}\selectfont] at (0.65,0.96) {\textbf{Problem 5:} Draw a machine that says YES exactly when its red cards can be put in groups of three with none left over. A row with no red cards must give YES. Your machine must work for rows of any length. Use as few circles as you can, and explain why fewer circles cannot work.};
+\draw[black!38,line width=.45pt] (0.85,8.7)--(7.6499999999999995,8.7);
+\draw[black!38,line width=.45pt] (0.85,9.35)--(7.6499999999999995,9.35);
+\draw[black!38,line width=.45pt] (0.85,10.0)--(7.6499999999999995,10.0);
+\end{tikzpicture}\null\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in,shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.3in,font=\sffamily\fontsize{11}{13}\selectfont] at (0.6,0.34) {Week 17 / Machine memory / Grades 2--3};
+\draw[line width=.45pt] (.6,.66)--(7.9,.66);
+\node[anchor=north west,inner sep=0pt,align=left,text width=6.8in,font=\sffamily\fontsize{9}{11}\selectfont] at (0.6,10.49) {Bellingham Math Circle / Week 17 / W17-23-v2};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.35in,font=\sffamily\fontsize{9}{11}\selectfont] at (7.55,10.49) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{15}{18.75}\selectfont] at (0.65,0.96) {\textbf{Problem 6:} Draw a machine that says YES exactly when the last two cards are red followed by blue. Every other row must give NO. Use as few circles as you can, and explain why fewer circles cannot work.};
+\draw[black!38,line width=.45pt] (0.85,8.7)--(7.6499999999999995,8.7);
+\draw[black!38,line width=.45pt] (0.85,9.35)--(7.6499999999999995,9.35);
+\draw[black!38,line width=.45pt] (0.85,10.0)--(7.6499999999999995,10.0);
+\end{tikzpicture}\null
+\end{document}

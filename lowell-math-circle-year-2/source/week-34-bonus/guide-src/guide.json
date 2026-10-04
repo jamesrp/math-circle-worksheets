@@ -1,0 +1,89 @@
+{
+  "week": 34,
+  "topic": "Hidden turns",
+  "overview": [
+    "Prescribed symmetries: matching rotations of an n-ring form a subgroup. If the least positive matching step is d, taking d=n when only identity matches, d divides n and there are n/d matching rotations including identity. If one reflection matches, there are exactly n/d matching reflections, by composing it with those rotations. Positive reflection counts must divide n; a six-ring cannot have exactly four.",
+    "Minimum repair for a fixed motion: every cycle of positions under that motion must become one kind. Its minimum cost is cycle length minus the greatest frequency of one kind there; sum over cycles. Reflections and half-turns have independent paired spots and possible fixed spots. Each mismatched pair costs one change, fixed spots none. The target motion cannot silently change during optimization.",
+    "Layer intersection: when a stack retains the ordered pair of layer statuses at every spot, its matching motions are exactly the intersection of the layers' matching sets. Two different surviving reflections may disappear in the stack; a common half-turn cannot. Layers and kind names may not be exchanged.",
+    "Children design surviving motions, minimize repairs and combine separately symmetric layers. Grades 2-3 build and test; Grades 4-5 explain composition, independent cycles and common-motion invariance. Trials are evidence; complete tests prove a candidate; structural arguments explain impossible requests. Icon orientation is ignored: a turned or mirrored category symbol still denotes the same kind."
+  ],
+  "readiness": [
+    "Shared packet: Grades 2-5. Align tracing copies while keeping the original and kind names fixed. P1-2 count distinct flips; P3-4 count edits from one unchanged start; P5-6 retain both layer identities. Group terminology is optional adult context.",
+    "Optional K-1 entry is one-flip construction or paired mismatch repair after a physical demonstration. Layer work is suitable only when the child independently recognizes first-only, second-only, both and neither. Do not force a motion census or cycle formula."
+  ],
+  "materials": [
+    "Per pair: six/eight-ring mats, 16 counters of each kind A/B, three tracing sheets/clear overlays, pencils, tape and filled-circle/outline-square layer marks. Working spots are 28 mm across; adjacent centers are about 31 mm on six-rings and 28.3 mm on eight-rings, intended for 20 mm counters. Compact rings are records, not counter mats.",
+    "Keep a recorded original for repairs and separate motion cards. No permanent home mark on working rings: it changes symmetry. An overlay flips instead of spilling loose counters. Layer overlaps retain both marks, and no layer swap is permitted. Printed symbol direction is not an extra mark. Estimated preparation 15-20 minutes. Readability from both sides and actual physical fit/procedure remain untested. Five sets serve eleven children at three fixed tables, one adult per table; the upper trio rotates roles."
+  ],
+  "launch": "Allow counter/overlay handling. Demonstrate an aligned flip and point to a mismatch on a non-task pattern; distinguish axes through spots from axes between spots. Before repair, fix one motion card and restore the starting pattern between attempts. Before layers, enact the printed first/second/stack visual so both statuses stay visible at overlaps, without revealing the target construction.",
+  "route": "P1-2: a 20-35 minute first visit; P3-4: a 25-40 minute repair return; P5-6: a 20-35 minute layer visit. These are estimates. Save constructions and leave general explanations for a return.",
+  "investigations": [
+    {
+      "problem": "1-2",
+      "title": "Choose how many flips remain",
+      "entry": "Grades 2-3 build for one, two or three matching flips and let partners test. Grades 4-5 explain the four-flip impossibility. Allow 20-35 minutes. A whole turn is identity, not an additional nonidentity motion.",
+      "solution": [
+        "Adult key convention: index spots 0 through n-1 clockwise from the top of a reference. A rotation is i -> i+r and a reflection i -> k-i, modulo n. These indices describe a candidate for checking; they must not become a fixed mark on the working mat.",
+        "P1 witnesses on six spots: AABBBB has exactly one reflection, k=1. ABBABB has two, k=0,3. ABABAB has three, k=0,2,4. Rotated/flipped versions work too. The six reflection alignments are three axes through opposite vertices and three through opposite edge midpoints. Test all six with the original fixed.",
+        "P2: four matching flips are impossible. Rotations compose and invert, so matching steps form a cyclic subgroup. The least positive step d divides 6, since a nonzero remainder after dividing 6 by d would be a smaller matching step. Thus the number of matching rotations is 6/d. Compose one matching reflection with each such rotation to obtain that many distinct matching reflections. Conversely composing any other matching reflection with the fixed one gives a matching rotation, so no more exist. Positive flip counts are 1,2,3,6, never four. Zero also occurs, e.g. AABABB, but destroying all symmetries is not this task's objective."
+      ],
+      "hints": [
+        "Ask whether the three opposite-vertex and three opposite-edge axes have all been tested. For impossibility, physically perform two matching flips in succession; what kind of motion results?"
+      ],
+      "extensions": [
+        "For an eight-ring, positive flip counts can be 1,2,4,8; witnesses are AABBBBBB, AABBAABB, ABABABAB and AAAAAAAA. A ring with no reflection can have zero. The divisor condition is necessary for any named-kind pattern; do not infer every count is possible under extra restrictions without a construction."
+      ],
+      "notes": "Experiments failing to produce four flips are not the general explanation. Count motions, not the number of axes drawn twice on a tracing sheet."
+    },
+    {
+      "problem": "3-4",
+      "title": "Repair a specified motion with fewest changes",
+      "entry": "Grades 2-3 compare opposite pairs for P3; Grades 4-5 use pairs/cycles for P4. Allow 25-40 minutes. Restore the exact printed start between targets and count changed spots, not moves of the overlay.",
+      "solution": [
+        "The starting eight-word is AAABBABB, with A at spots 0,1,2,5. P3 half-turn pairs are (0,4),(1,5),(2,6),(3,7). Only the first and third mismatch. Each needs a change, and one change per mismatched pair suffices: minimum two.",
+        "There are four best repairs, choosing A or B independently for pairs (0,4) and (2,6), with the other pairs unchanged. Words are AAABAAAB, AABBAABB, BAABBAAB and BABBBABB. Any two distinct such final patterns satisfy P3. Every one changes exactly two starting spots and has matching opposite kinds.",
+        "P4 selected vertical flip has fixed spots 0,4 and pairs (1,7),(2,6),(3,5). All three pairs mismatch, so minimum three; eight minima independently select A/B for those pairs while fixed spots remain unchanged. One-spot turn cycles through all eight: all spots must be A or all B, each costing four since the start has four of each. Two-spot turn has cycles {0,2,4,6},{1,3,5,7}, each containing two As/two Bs, so cost two per cycle, total four. Its four minimum words are the uniform choice on each parity cycle. Thus the selected flip is cheapest, three versus four and four.",
+        "For any fixed motion, its cycles partition the spots. A matching pattern must be constant on each cycle. Retaining the most frequent kind changes the fewest spots, giving length-minus-maximum-frequency; independent choices add. This is both a lower bound and a construction. A reflection's fixed spot never needs to change for that reflection alone."
+      ],
+      "hints": [
+        "Mark paired spots with temporary removable strips on the copy, not a new permanent kind. Point to one mismatch and ask why some change is unavoidable there. For turns, follow one spot until it returns to see which kinds must agree."
+      ],
+      "extensions": [
+        "Count how many optimal repairs a fixed motion admits: each cycle has as many choices as kinds tied for maximum frequency, and independent counts multiply. The printed half-turn has four, selected flip eight, one-step turn two, and two-step turn four. The counts assume named A/B kinds stay fixed."
+      ],
+      "notes": "Preserve the printed starting pattern and the final repair as the only required records. Counting mismatched pairs gives the cost afterward; avoid concurrent move tallying."
+    },
+    {
+      "problem": "5-6",
+      "title": "Stack symmetric layers and compare common motions",
+      "entry": "Grades 2-3 retain both layer identities; Grades 4-5 explain intersection. Allow 20-35 minutes. Adult may read; the child must control marks and comparisons rather than merely watch a stack being made.",
+      "solution": [
+        "P5 witness: first layer has a unique filled mark at spot 0, second a unique outline mark at adjacent spot 1. Each has only identity rotation and exactly one reflection, k=0 and k=2 respectively. No nonidentity motion is common, so their ordered-pair stack has no matching nonidentity turn or flip. A motion preserving each unique mark must fix both adjacent vertices, which no nonidentity regular-polygon motion does.",
+        "Unique marks at opposite spots 0,3 on the six-ring do not work: both layers share the k=0 reflection, and it remains in the stack. More complex successful layers are accepted after a complete motion check. A motion cannot trade a filled-only spot with an outline-only spot; layer identities are fixed.",
+        "P6: the stack cannot lose a half-turn shared by both layers. Example layers with marks {0,3} and {1,4} each have opposite statuses equal; the pair of statuses therefore also agrees at opposite spots. This proves the common half-turn survives for all such layers, not just the example.",
+        "In general, a stack motion matches precisely when it matches the first component and the second component at every spot. This is the intersection rule. The printed four-spot example retains first-only at 0, both at 1, neither at 2 and second-only at 3. An uncolored union would erase which layer supplied a mark, changing the problem and invalidating this rule."
+      ],
+      "hints": [
+        "Test each layer separately and save its working axis on a separate motion card. Ask whether the two axes are the same. At one stack spot, identify both statuses before moving the copy."
+      ],
+      "extensions": [
+        "Add a third layer: the same componentwise argument gives intersection of all three matching sets. Any motion common to every layer must survive. Ask whether separately symmetric layers always share a motion; P5 is the counterexample."
+      ],
+      "notes": "A stack can resemble the base three-kind distinguishing construction, but the new question is how separately symmetric layers interact. Count it as the layer investigation, not another least-kind problem."
+    }
+  ],
+  "sources": [
+    "Current Week 34, Hidden turns, student packets pp. 1-5 and adult guide pp. 1-5 were inspected. Base tasks minimize kinds and minority marks to destroy every symmetry; these encore tasks prescribe surviving motions, optimize repairs and intersect layer symmetries.",
+    "Albertson and Collins, Symmetry Breaking in Graphs, is cited by the base guide for distinguishing-coloring context. The article body was not newly read here. Polygon composition, orbitwise repairs and layer-intersection proofs above are independently derived.",
+    "Laura Givental, Maria Nemirovskaya and Ilya Zakharevich, Math Circle by the Bay, Preface printed pp. viii-x (local PDF pages 9-11): themes with deep context and multiple entry levels, manipulatives, returning to explanations, and no universal estimate for a theme's duration. These are reported principles. The encore tasks, pairing and readiness routes here are local proposals, not classroom results from that book."
+  ],
+  "verification": [
+    "The author recomputed the facts, solutions and extension arguments from the actual tasks and design kernels. Independent mathematical reviews are retained separately with the editable sources.",
+    "Mathematical, render and extracted-source rebuild results belong in the release-validation record. No physical fit or procedure pretest and no classroom pilot has occurred."
+  ],
+  "observations": [
+    "Record each investigation actually used, examples attempted, a saved construction or plan, and where each pair wants to resume. A theme can support several visits; count use by investigation, not by finishing pages.",
+    "Record the child's action or words first; write your interpretation separately. Note whether children retained the choices after the launch or needed an adult to operate the investigation. All readiness and timing estimates below are unpiloted hypotheses.",
+    "Observe whether all flip alignments are tested, whether repairs restore the same start each time, and whether stacking preserves both layer identities. Separate a demonstrated shared motion from a guess that any two symmetric layers must have one."
+  ]
+}

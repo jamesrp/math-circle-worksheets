@@ -1,0 +1,361 @@
+{
+  "week": 46,
+  "title": "Two boards forget their starts",
+  "pages": [
+    [
+      [
+        "title",
+        "Two boards forget their starts"
+      ],
+      [
+        "h",
+        "Mathematics before the session"
+      ],
+      [
+        "p",
+        "A board is a length-three word in R and B. A color-setting instruction (i,c) replaces slot i by c on <b>both</b> boards, even if a slot already has color c. For any fixed instruction story, the final color at a visited slot is its last assigned color; an unvisited slot keeps its starting color. If u slots are unvisited, exactly 2<super>u</super> different final boards can arise from the eight starts."
+      ],
+      [
+        "p",
+        "Two boards can be made to agree with exactly as many chosen color-setting instructions as their number of initially disagreeing slots (their Hamming distance). Each differing slot needs an instruction; one instruction at each such slot suffices. Thus the minimum ranges from zero to three. Once a slot agrees, later shared assignments cannot make it disagree."
+      ],
+      [
+        "p",
+        "A fixed story makes <b>every</b> pair of starts agree if and only if it visits every slot. The shortest such story has three assignments, one per slot. Two particular starts can agree sooner if every unvisited slot already agreed initially. The every-start guarantee and the matching time of one pair are different statements."
+      ],
+      [
+        "h",
+        "Toggle contrast and mixed stories"
+      ],
+      [
+        "p",
+        "A shared toggle changes R to B and B to R in the named slot on both boards. It preserves the entire set of disagreements. Thus two distinct boards can never merge under shared toggles alone. With assignments and toggles mixed, all starts give the same finish if and only if <b>each slot receives at least one color-setting instruction</b>. After that slot’s last assignment, its final color is the assigned color flipped once for each later toggle there. A slot with only toggles still remembers its starting color, possibly complemented."
+      ],
+      [
+        "h",
+        "Random instructions and limits"
+      ],
+      [
+        "p",
+        "For independent uniform draws from the six (slot,color) cards, positions are independent uniform choices and fresh colors are independent fair choices, independent of the positions. Conditional on any fixed position story visiting all slots, the final colors are the independent colors at the three distinct last-visit times. Thus all eight final boards have probability 1/8, regardless of the start."
+      ],
+      [
+        "p",
+        "No finite number of random draws guarantees that every slot has been visited. Even ten draws can revisit one slot. With the stated independent uniform mechanism, all slots are eventually visited with probability one: after m draws, the chance some slot is missing is at most 3(2/3)<super>m</super>, which tends to zero. This is almost-sure eventual forgetting, not a fixed finite deadline. The uniform-color conclusion must not be extended to a stopping rule that chooses when to stop by inspecting colors."
+      ],
+      [
+        "h",
+        "What each group is discovering"
+      ],
+      [
+        "p",
+        "<b>K-1:</b> repair disagreements and distinguish chosen instructions from random repetitions. <b>Grades 2-3:</b> universal guarantees, visited-slot markers, and the contrast with toggles. <b>Grades 4-5:</b> count surviving dependence, prove the mixed-story criterion, and use last assignments to explain an exact uniform distribution."
+      ]
+    ],
+    [
+      [
+        "title",
+        "Running the session"
+      ],
+      [
+        "h",
+        "Materials and readiness"
+      ],
+      [
+        "p",
+        "For ten children in pairs, prepare ten three-slot paper strips, thirty reversible R/B counters, and five cups. If counters are not reversible, use loose R and B paper squares, with enough of each to overwrite a slot. Each pair needs six same-size instruction tickets: 1R, 1B, 2R, 2B, 3R, 3B. Supply three small visited-slot markers per pair and pencils. The printed boards can also serve as mats."
+      ],
+      [
+        "p",
+        "Print four pages per grade band. All groups need left-to-right positions and color matching. Middle work adds tracking visited slots and a simple change of rule. Upper work uses all eight board states and independent equal-weight choices; fraction notation is optional. Test a setting instruction and a toggle yourself before the session so their different effects are unmistakable. Prepared, unpiloted material."
+      ],
+      [
+        "h",
+        "Short shared launch"
+      ],
+      [
+        "p",
+        "Let children build two rows, RBR and BRB. Apply “slot 2 becomes B” to both: the first remains RBR and the second becomes BBB. Point out that the first middle counter stayed blue. Ask, “What could we do next to make these rows match?” Children may choose instructions intentionally at first. Before the random page, demonstrate drawing one ticket, applying it to both boards, returning it, and mixing."
+      ],
+      [
+        "p",
+        "When the toggle rule is introduced, reset RBR and BRB. Toggle slot 2 to get RRR and BBB: both counters change. Put the setting example beside the toggle example. Add a visited marker only when a color-setting story first names that position; the marker is memory of an instruction, not a claim that a visible color changed."
+      ],
+      [
+        "h",
+        "A flexible hour"
+      ],
+      [
+        "p",
+        "<b>0-7 minutes:</b> handle boards and launch assignments. <b>7-22:</b> find minimum repairs for several starts. <b>22-33:</b> test short stories against different starts; introduce visited markers where used. <b>33-36:</b> movement break with three children holding the slot positions. <b>36-49:</b> choose random-draw, toggle, or mixed-story problems by readiness. <b>49-57:</b> show a guarantee and a counterexample; older children may explain last-visit colors. <b>57-60:</b> restore kits."
+      ],
+      [
+        "p",
+        "Stopping after “one overwrite for each disagreement” is sufficient for K-1. For older groups, aim for one fully justified every-start criterion before attempting probabilities. A handful of trials can reveal repeated slots; an explicit unvisited-slot counterexample proves there is no fixed-draw guarantee."
+      ],
+      [
+        "h",
+        "Optional hints and source"
+      ],
+      [
+        "p",
+        "“Which starting slots are still untouched?” “Can one instruction repair two different slots?” “If we start opposite at a slot never assigned a color, what can toggles do?” “Which instruction was the last one to set this final slot?”"
+      ],
+      [
+        "small",
+        "Gautam Iyer, Carnegie Mellon probability notes, <link href=\"https://www.math.cmu.edu/~gautam/c/2025-326/notes/conv3-coupling.html\" color=\"#000000\">Coupling</link>, subsection “Lazy random walk on the binary hypercube,” Proposition 9 proof sketch. The source uses shared coordinate refresh and coordinate coverage. The three-slot setting/toggle comparison and exact keyed examples are independently derived adaptations. Coverage is a sufficient coupling time; a particular pair may couple earlier."
+      ]
+    ],
+    [
+      [
+        "title",
+        "K to 1 answer key"
+      ],
+      [
+        "h",
+        "Problem 1"
+      ],
+      [
+        "p",
+        "RBR versus BRB differs at all three slots, so it needs <b>three</b> instructions. For example, set slots 1, 2, 3 to R; both finish RRR. No instruction can change more than one slot, so fewer cannot repair all three differences. No pair needs more: assigning all three slots always works."
+      ],
+      [
+        "h",
+        "Problem 2"
+      ],
+      [
+        "table",
+        [
+          [
+            "Starting pair in reading order",
+            "Fewest instructions",
+            "One possible repair"
+          ],
+          [
+            "RBR / RRR",
+            "1",
+            "2 becomes R"
+          ],
+          [
+            "RRB / BRR",
+            "2",
+            "1 becomes R; 3 becomes R"
+          ],
+          [
+            "BRB / BRB",
+            "0",
+            "Already equal"
+          ],
+          [
+            "RRR / BBB",
+            "3",
+            "1, 2, 3 each become R"
+          ]
+        ],
+        [
+          2,
+          1,
+          2
+        ]
+      ],
+      [
+        "h",
+        "Problem 3"
+      ],
+      [
+        "p",
+        "Example needing exactly two: RRR versus BBR. They disagree in slots 1 and 2; set those slots to R. No pair needs four because there are only three slots."
+      ],
+      [
+        "h",
+        "Problem 4"
+      ],
+      [
+        "p",
+        "Choose one setting instruction per slot, for example 1 becomes R, 2 becomes B, 3 becomes R. Every start ends RBR. Two instructions cannot guarantee this: at least one slot is never set, and two starts differing at that slot remain different there."
+      ],
+      [
+        "h",
+        "Problem 5"
+      ],
+      [
+        "p",
+        "The story sets slot 1 to R and slot 3 to B. A pair that matches afterward: <b>RRR / BRB</b>, both finishing RRB. A pair that stays different: <b>RRR / BBB</b>, finishing RRB and RBB. Exactly the initial middle color survives, so the starts finish alike precisely when they started with the same middle color."
+      ],
+      [
+        "h",
+        "Problem 6"
+      ],
+      [
+        "p",
+        "Random results vary. Yes, matching can take more than three draws. From RRR/BBB, drawing “1 becomes R” six times leaves RRR/RBB, still different. A chosen story visiting all three slots would work in three instructions, but a random draw can repeat a previously visited slot. Six draws are exploration, not a guaranteed completion rule."
+      ],
+      [
+        "h",
+        "Problem 7"
+      ],
+      [
+        "p",
+        "No. When the boards match, a shared instruction puts the same color into the same slot of each and leaves all other matching slots alone. Agreement therefore persists after every later shared instruction."
+      ]
+    ],
+    [
+      [
+        "title",
+        "Grades 2 to 3 answer key"
+      ],
+      [
+        "h",
+        "Problem 1"
+      ],
+      [
+        "p",
+        "RBR/BRB needs three instructions, one at each differing slot. Examples needing fewer: RRR/RRR needs zero; RBR/RRR needs one; RRR/BBR needs two. No pair needs more than three, since one setting instruction per slot guarantees agreement. The minimum equals the number of disagreements."
+      ],
+      [
+        "h",
+        "Problem 2"
+      ],
+      [
+        "p",
+        "Only the <b>second</b> printed story guarantees every starting pair matches. Its sequence is 2→R, 3→B, 1→R: every slot is assigned, so every start finishes RRB. The first story, 1→R, 1→B, 3→R, leaves slot 2 untouched; the third, 2→B, 2→R, 2→B, leaves slots 1 and 3 untouched."
+      ],
+      [
+        "p",
+        "For counterexamples, start RRR/BBB. Under the first story the finishes are BRR/BBR, which differ at slot 2. Under the third they are RBR/BBB, differing at slots 1 and 3. Visited markers are {1,3}, {1,2,3}, and {2} respectively."
+      ],
+      [
+        "h",
+        "Problem 3"
+      ],
+      [
+        "p",
+        "Yes. RRR/BRR becomes a matching RRR pair after 1→R, even though slots 2 and 3 are unmarked. Those slots agreed initially. In contrast, RRR/BBB under the same one-instruction story finishes RRR/RBB and does not match. For a fixed pair it is enough to visit all initially differing slots."
+      ],
+      [
+        "h",
+        "Problem 4"
+      ],
+      [
+        "p",
+        "A counterexample is 1→R, 1→R, 1→R from RRR/BBB, leaving RRR/RBB. Ten repeats of 1→R also fail. Any fixed number of draws could miss a slot; replacing tickets makes repeated draws legal. This refutes “must,” even if many actual trials do finish quickly."
+      ],
+      [
+        "h",
+        "Problem 5"
+      ],
+      [
+        "p",
+        "A shortest universal story has <b>three</b> instructions, one assignment at each slot; their colors and order are arbitrary. Example: 1→R, 2→B, 3→R. Any shorter story omits a slot. Starts differing there cannot finish alike, so fewer cannot guarantee agreement for every pair."
+      ],
+      [
+        "h",
+        "Problem 6"
+      ],
+      [
+        "p",
+        "Of the three printed pairs, only the <b>third</b>, BRB/BRB, can match; it already does and remains matched under every shared toggle story. RBR/RRR differs at slot 2; RRB/BRR differs at slots 1 and 3. Toggling both bits of a disagreement just exchanges R/B with B/R, so those disagreements persist."
+      ],
+      [
+        "h",
+        "Problem 7"
+      ],
+      [
+        "p",
+        "A mixed story that always works: 1→R, toggle 1, 2→B, 3→R. Every start finishes BBR. A mixed story that can fail: 1→R, toggle 2. From RRR/BBB it produces RBR/RRB. Every slot must have at least one color-setting instruction to erase all starting information; shared toggles neither erase a disagreement nor undo an agreement created by a setting instruction."
+      ]
+    ],
+    [
+      [
+        "title",
+        "Grades 4 to 5 answer key"
+      ],
+      [
+        "h",
+        "Problem 1"
+      ],
+      [
+        "p",
+        "The displayed pairs need 1, 2, 0, 3 instructions in reading order. In general the minimum is the number of initially differing slots. Each needs an assignment and one assignment there suffices; assignments to matching slots do not help the minimum."
+      ],
+      [
+        "h",
+        "Problem 2"
+      ],
+      [
+        "table",
+        [
+          [
+            "Story",
+            "Possible finishes",
+            "Untouched slots"
+          ],
+          [
+            "1→R, 1→B, 3→R",
+            "BRR, BBR (2)",
+            "2"
+          ],
+          [
+            "2→R, 3→B, 1→R",
+            "RRB (1)",
+            "None"
+          ],
+          [
+            "2→B, 2→R, 2→B",
+            "RBR, RBB, BBR, BBB (4)",
+            "1 and 3"
+          ]
+        ],
+        [
+          1.7,
+          2.6,
+          1.4
+        ]
+      ],
+      [
+        "p",
+        "Each visited slot is fixed by its last assignment. The unvisited slots can independently retain either starting color, giving 2<super>u</super> finishes for u unvisited slots."
+      ],
+      [
+        "h",
+        "Problem 3"
+      ],
+      [
+        "p",
+        "A color-setting story forgets every start exactly when all three slots are visited. Sufficiency follows from last assignments. Necessity: an untouched slot preserves its starting color, so starts differing there finish differently. Two particular boards may agree sooner: RRR and BRR match after 1→R, with two untouched slots."
+      ],
+      [
+        "h",
+        "Problem 4"
+      ],
+      [
+        "p",
+        "No. A shared toggle preserves equality or inequality at its slot. Induct over the story: the disagreement set never changes. Equivalently, a shared toggle story is a bijection of the eight boards, so distinct starts cannot merge."
+      ],
+      [
+        "h",
+        "Problem 5"
+      ],
+      [
+        "p",
+        "The criterion is at least one color-setting instruction at <b>each</b> slot. If a slot is assigned, its last assignment fixes its color independently of the start, and later toggles only flip that known color. If a slot is never assigned, its final color is its initial color or its complement, according to the parity of its toggles; two starts opposite there remain opposite. These prove both directions."
+      ],
+      [
+        "h",
+        "Problem 6"
+      ],
+      [
+        "p",
+        "All eight boards tie, with probability 1/8. For the position story 1,3,1,2, write the four fresh colors c1,c2,c3,c4. The final board is (c3,c4,c2); c1 is overwritten. Each target board fixes c2,c3,c4, while c1 has two choices. Thus every final board is produced by exactly two of the 16 equally likely color stories, with no dependence on the starting colors."
+      ],
+      [
+        "h",
+        "Problem 7"
+      ],
+      [
+        "p",
+        "Yes, for any fixed position story visiting every slot: three distinct last-visit times supply independent fair colors. No, four random instructions need not visit every slot. Four draws of 1→R leave slots 2 and 3 unchanged. Drawing four times does not force coverage."
+      ]
+    ]
+  ]
+}

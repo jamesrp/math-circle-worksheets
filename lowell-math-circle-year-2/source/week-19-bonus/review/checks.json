@@ -1,0 +1,276 @@
+{
+  "week": 19,
+  "verified_tasks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8
+  ],
+  "task6": "verified for inclusion-minimal cards; smallest by number of symbols is false",
+  "family_enumerations": {
+    "3": {
+      "intersection_max": 4,
+      "intersection_max_families": 4,
+      "no_nested_triple_max": 6,
+      "no_nested_triple_max_families": 1,
+      "intersection_examples": [
+        [
+          "A",
+          "AB",
+          "AC",
+          "ABC"
+        ],
+        [
+          "B",
+          "AB",
+          "BC",
+          "ABC"
+        ],
+        [
+          "AB",
+          "AC",
+          "BC",
+          "ABC"
+        ],
+        [
+          "C",
+          "AC",
+          "BC",
+          "ABC"
+        ]
+      ]
+    },
+    "4": {
+      "intersection_max": 8,
+      "intersection_max_families": 12,
+      "no_nested_triple_max": 10,
+      "no_nested_triple_max_families": 2,
+      "intersection_examples": [
+        [
+          "A",
+          "AB",
+          "AC",
+          "ABC",
+          "AD",
+          "ABD",
+          "ACD",
+          "ABCD"
+        ],
+        [
+          "B",
+          "AB",
+          "BC",
+          "ABC",
+          "BD",
+          "ABD",
+          "BCD",
+          "ABCD"
+        ],
+        [
+          "AB",
+          "AC",
+          "BC",
+          "ABC",
+          "ABD",
+          "ACD",
+          "BCD",
+          "ABCD"
+        ],
+        [
+          "AB",
+          "AC",
+          "ABC",
+          "AD",
+          "ABD",
+          "ACD",
+          "BCD",
+          "ABCD"
+        ],
+        [
+          "AB",
+          "BC",
+          "ABC",
+          "BD",
+          "ABD",
+          "ACD",
+          "BCD",
+          "ABCD"
+        ],
+        [
+          "AB",
+          "ABC",
+          "AD",
+          "BD",
+          "ABD",
+          "ACD",
+          "BCD",
+          "ABCD"
+        ],
+        [
+          "C",
+          "AC",
+          "BC",
+          "ABC",
+          "CD",
+          "ACD",
+          "BCD",
+          "ABCD"
+        ],
+        [
+          "AC",
+          "BC",
+          "ABC",
+          "ABD",
+          "CD",
+          "ACD",
+          "BCD",
+          "ABCD"
+        ],
+        [
+          "AC",
+          "ABC",
+          "AD",
+          "ABD",
+          "CD",
+          "ACD",
+          "BCD",
+          "ABCD"
+        ],
+        [
+          "BC",
+          "ABC",
+          "BD",
+          "ABD",
+          "CD",
+          "ACD",
+          "BCD",
+          "ABCD"
+        ],
+        [
+          "ABC",
+          "AD",
+          "BD",
+          "ABD",
+          "CD",
+          "ACD",
+          "BCD",
+          "ABCD"
+        ],
+        [
+          "D",
+          "AD",
+          "BD",
+          "ABD",
+          "CD",
+          "ACD",
+          "BCD",
+          "ABCD"
+        ]
+      ]
+    }
+  },
+  "P2_witness": [
+    "AB",
+    "AC",
+    "BC",
+    "ABC"
+  ],
+  "P4_AB_or_D": [
+    "AB",
+    "ABC",
+    "D",
+    "AD",
+    "BD",
+    "ABD",
+    "CD",
+    "ACD",
+    "BCD",
+    "ABCD"
+  ],
+  "P4_A_or_BC": [
+    "A",
+    "AB",
+    "AC",
+    "BC",
+    "ABC",
+    "AD",
+    "ABD",
+    "ACD",
+    "BCD",
+    "ABCD"
+  ],
+  "P5_minimum_triggers": [
+    "B",
+    "AC"
+  ],
+  "P5_minimum_trigger_count": 2,
+  "four_symbol_monotone_rules_checked": 168,
+  "chain_partition_certificates": {
+    "3": [
+      [
+        "empty",
+        "A",
+        "AB",
+        "ABC"
+      ],
+      [
+        "B",
+        "BC"
+      ],
+      [
+        "C",
+        "AC"
+      ]
+    ],
+    "4": [
+      [
+        "empty",
+        "A",
+        "AB",
+        "ABC",
+        "ABCD"
+      ],
+      [
+        "D",
+        "AD",
+        "ABD"
+      ],
+      [
+        "C",
+        "AC",
+        "ACD"
+      ],
+      [
+        "CD"
+      ],
+      [
+        "B",
+        "BC",
+        "BCD"
+      ],
+      [
+        "BD"
+      ]
+    ]
+  },
+  "issues": [
+    {
+      "problem": 6,
+      "page": 3,
+      "issue": "smallest working cards can mean globally least cardinality, which omits larger inclusion-minimal triggers",
+      "counterexample": "P5 rule: B is size 1, AC is size 2, and B alone fails to generate AC/ACD",
+      "smallest_fix": "find every working card with no smaller working card inside it, and use those cards as triggers"
+    }
+  ],
+  "final_audit": {
+    "P6_single_symbol_removal_definition": "verified equivalent to inclusion-minimal for all 168 monotone rules",
+    "empty_working_card_case": "qualifies vacuously; is the sole trigger of the all-working rule",
+    "no_working_card_case": "empty trigger collection recreates the all-failing rule",
+    "issues": [],
+    "source_sha256": "62d32d99f72efb5b620fce1c9d45c6a903fb22ca6997f819bbeef82f607c197a",
+    "pdf_sha256": "615e31a5d7c31a5818b950f2f4b05cfd96ee445dc790c656e56d273c6b107d7d"
+  }
+}

@@ -1,0 +1,100 @@
+% Shared preamble for the three worksheets (compile with xelatex).
+\documentclass[12pt]{article}
+\usepackage[letterpaper,left=0.5in,right=0.5in,top=0.4in,bottom=0.4in,includefoot=false,nohead]{geometry}
+\usepackage{fontspec}
+\setmainfont{Andika}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\setlist{nosep,leftmargin=1.4em}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\hyphenpenalty=10000 \exhyphenpenalty=10000 \sloppy
+\makeatletter\g@addto@macro\@parboxrestore{\raggedright}\makeatother
+\AtBeginDocument{\raggedright}
+
+% ---- pattern block colours ----
+\definecolor{pbgreen}{HTML}{2E9E48}
+\definecolor{pbblue}{HTML}{2160C4}
+\definecolor{pbred}{HTML}{D7302F}
+\definecolor{pbyellow}{HTML}{F2C318}
+\definecolor{pbpurple}{HTML}{7B3FA0}
+\definecolor{ribbontext}{HTML}{A3201C}
+\definecolor{ribbontextB}{HTML}{1E6B32}
+\definecolor{inkgray}{HTML}{555555}
+
+\tikzset{
+  gridline/.style={line width=0.5pt,draw=black!32},
+  dotgrid/.style={line width=0.9pt,draw=black!35,dash pattern=on 1.2pt off 3pt},
+  boardline/.style={line width=1.8pt,draw=black},
+  holefill/.style={fill=black!78},
+  upfill/.style={fill=black!20},
+  recgrid/.style={line width=0.35pt,draw=black!28},
+  recline/.style={line width=1pt,draw=black!85},
+  tileedge/.style={line width=0.9pt,draw=black!85},
+  tileoutline/.style={line width=1.5pt,draw=black},
+  hlfill/.style={fill=pbyellow!60},
+  ribbonfill/.style={fill=pbred!28},
+  ribbonfillB/.style={fill=pbgreen!35},
+  ribbon arrow/.style={-{Stealth[length=5pt]},line width=1.3pt,draw=ribbontext},
+  flip arrow/.style={{Stealth[length=6pt]}-{Stealth[length=6pt]},line width=1.2pt},
+  piece/.style={line width=0.8pt},
+  iconline/.style={line width=0.5pt,draw=black!80},
+  cubeL/.style={fill=black!62},
+  cubeR/.style={fill=black!22},
+  cubeS/.style={fill=white},
+}
+
+% ---- figures and icons ----
+\newcommand{\fig}[1]{\input{fig/#1}}
+\newcommand{\ic}[1]{\raisebox{-0.12em}{\input{fig/icon_#1}}}
+\newcommand{\icb}[1]{\raisebox{-0.2em}{\input{fig/iconbig_#1}}}
+\newcommand{\up}{\raisebox{0.02em}{\input{fig/icon_up}}}
+\newcommand{\dn}{\raisebox{0.02em}{\input{fig/icon_dn}}}
+\newcommand{\UP}{\textbf{UP}~\up}
+\newcommand{\DOWN}{\textbf{DOWN}~\dn}
+
+% ---- answer spaces ----
+\newcommand{\ansbox}[1][0.6in]{\tikz[baseline=0in]\draw[line width=1.2pt,rounded corners=3pt] (0,-0.12in) rectangle (#1,0.38in);}
+\newcommand{\blank}[1][1.2in]{\rule[-0.15em]{#1}{0.6pt}}
+\newcommand{\writelines}[2][7.5in]{% #2 ruled lines, 0.34in apart
+  \par\noindent\begin{tikzpicture}[x=1in,y=1in]
+    \useasboundingbox (0,0.02) rectangle (#1,{-0.34*#2-0.04});
+    \foreach \k in {1,...,#2}{\draw[line width=0.5pt,black!70] (0,-0.34*\k) -- (#1,-0.34*\k);}
+  \end{tikzpicture}\par}
+
+% ---- page header ----
+\newcommand{\bandname}{}
+\newcommand{\bandcolor}{pbblue}
+\newcounter{sheet}
+\newcommand{\sheethead}[1]{%
+  \stepcounter{sheet}%
+  \noindent
+  \begin{tikzpicture}[x=1in,y=1in]
+    \useasboundingbox (0,-0.62) rectangle (7.5,0.24);
+    \node[anchor=west,font=\small,text=inkgray] at (0,0.08) {Bellingham Math Circle \,·\, Week 1: Tiling with pattern blocks};
+    \node[anchor=east,font=\small\bfseries,text=white,fill=\bandcolor,rounded corners=6pt,inner sep=4pt] at (7.5,0.08) {\bandname};
+    \draw[line width=0.6pt,draw=\bandcolor] (0,-0.08) -- (7.5,-0.08);
+    \node[anchor=west,circle,fill=\bandcolor,text=white,font=\large\bfseries,inner sep=2pt,minimum size=0.36in] (n) at (0,-0.38) {\thesheet};
+    \node[anchor=west,font=\LARGE\bfseries] at ($(n.east)+(0.08,0)$) {#1};
+  \end{tikzpicture}\par\vspace{0.14in}}
+\newcommand{\nameline}{\hfill{\large Name: \blank[2.2in]}\par\vspace{0.05in}}
+
+% actual-size note with a 1-inch check bar
+\newcommand{\actualsize}[1][Boards are actual size]{%
+  \par\vfill\noindent
+  {\footnotesize\color{inkgray}#1: each small triangle side is 1~inch. Print at 100\%.\hfill
+   This bar is 1~inch:\,\tikz[baseline=-0.5ex]{\draw[line width=0.8pt] (0,-0.05in)--(0,0.05in) (0,0)--(1in,0) (1in,-0.05in)--(1in,0.05in);}}\par}
+
+% boxes
+\newcommand{\boxit}[3][\linewidth]{%
+  \par\noindent\begin{tcolorbox}[width=#1,colback=\bandcolor!6,colframe=\bandcolor,boxrule=1pt,arc=6pt,
+     left=5pt,right=5pt,top=4pt,bottom=4pt,boxsep=0pt,before skip=0pt,after skip=0pt]
+     \raggedright\textbf{#2} #3
+  \end{tcolorbox}\par}
+\newcommand{\talk}[2][\linewidth]{\boxit[#1]{Talk about it.}{#2}}
+\newcommand{\lab}[1]{\tikz[baseline=-0.6ex]\node[circle,draw=\bandcolor,line width=1.2pt,text=\bandcolor,font=\bfseries,inner sep=1.5pt,minimum size=0.3in]{#1};}

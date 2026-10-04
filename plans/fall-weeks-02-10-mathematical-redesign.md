@@ -1,10 +1,16 @@
 # Weeks 2–10: small investigations with a mathematical destination
 
-Prepared September 19, 2026. These revisions use the revised Week 1 tiling packet as the design benchmark. They are planned activities, not reports of teaching. The grade bands indicate prerequisites and the amount of reasoning support, not placement requirements. The three student levels are joined by one optional grades 6–7 challenge page per week.
+Prepared September 19, 2026; revised September 27 following [Week 1 classroom guidance](fall-weeks-02-10-classroom-guidance-review.md). These revisions use the revised Week 1 tiling packet as the design benchmark. They are planned activities, not reports of teaching. The grade bands indicate prerequisites and the amount of reasoning support, not placement requirements. The three student levels are joined by one optional grades 6–7 investigation per week.
 
 Revised September 20 after the [Weeks 1–10 review](fall-weeks-01-10-review.md): the weekly packets now expose the missing proof steps, qualify the tree/density statements, and use one shared hour with explicit stopping points. The [coprime divisibility scaffold](coprime-divisibility-scaffold.md) supports Weeks 4 and 9. In Week 5, the optional child-level comparison proves that three clues work and the irredundant five-clue set is not smallest; the exhaustive computation establishing the global minimum of three stays separate.
 
 The [print index](../lowell-math-circle-year-2/source/fall-weeks-02-10/README.md) links the student packets, extra pages, solutions, editable sources, and rebuild instructions. The [fall plan](fall-k-5-year-a.md) retains the shared-hour logistics; the [activity guide](fall-k-5-year-a-activities.md) points to each complete weekly plan. Earlier proposals are preserved in [the pre-redesign archive](archive-pre-depth/fall-k-5-year-a-activities.md), so proposed instances are not mistaken for material already taught.
+
+## September 27 classroom-guidance revision
+
+The v3 packets retain these mathematical destinations while expanding the work leading to them. Each new representation follows physical attempts and comparisons, has an explicit purpose, and gets its own worked recording example and tasks. Student pages use numbered problems with essential rules inside the task. Proof follow-ups and readiness decisions belong in the facilitator guide. Several investigations now span additional pages; distribute only the next useful page, not the whole packet.
+
+The [revision review](fall-weeks-02-10-classroom-guidance-review.md) distinguishes the actual Week 1 report from our unpiloted transfer to Weeks 2–10. The [prior v2 plans](archive-before-classroom-guidance-2026-09/) and archived weekly PDFs remain separate.
 
 ## What counts as depth here
 
@@ -14,13 +20,13 @@ Week 1 moves from physical tilings to invariants, a provably optimal packing, an
 2. **A question with a mathematical answer.** Which states are possible? Have we found every case? Is this the fewest moves or clues? Does a strategy work against every response?
 3. **An explanation beyond trying examples.** Pair an optimal construction with a lower bound; explain why a list is exhaustive; distinguish observed repetition from a proof for all sizes. Spoken explanations and arrangements of objects count as proofs.
 4. **A faithful connection.** Identify the exact undergraduate object or theorem instantiated by the activity, then cite a research continuation with its assumptions and limitations. An advanced label is not the student task. A classroom-sized computation is not evidence for a general research claim.
-5. **A real next question.** Each extra page develops one new investigation at roughly grades 6–7 readiness. It is a reserve for a ready child, not a fourth simultaneous teaching group or a required end to the hour.
+5. **A real next question.** Each extra investigation develops one new investigation at roughly grades 6–7 readiness. It is a reserve for a ready child, not a fourth simultaneous teaching group or a required end to the hour.
 
 The new Week 1 extension sources became available during this work and were consulted. Their independent matching, distance, route-counting, and random-walk investigations reinforce the principle of offering one coherent further question, with a separately checked solution.
 
 ## The mathematical progression
 
-| Week | Concrete investigation | Undergraduate destination | Extra page and research direction |
+| Week | Concrete investigation | Undergraduate destination | Extra investigation and research direction |
 | --- | --- | --- | --- |
 | [2. Switches and lamps](week-02-redesign.md) | Flip pairs of counters; decide reachability and the shortest press sequence | Symmetric difference, invariants, linear algebra over two elements, graph incidence | Toggle puzzles on graphs; component parity and minimum edge sets |
 | [3. Repeating secret machines](week-03-redesign.md) | Apply a one-to-one symbol key repeatedly; design a slow-return machine | Permutation cycles, composition, least common multiples, permutation order | Maximize the return time of an eight-symbol machine; Landau's function |

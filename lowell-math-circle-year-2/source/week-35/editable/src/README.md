@@ -1,0 +1,9 @@
+# Week 35 revised student packet
+
+Three student PDFs, four pages each. Draft and unpiloted. Build with `bash build.sh` using Python 3, a standard pdfLaTeX/TikZ installation and Poppler. The builder checks that the original notched F motif has no possible nonidentity polygon isometry: its cyclic edge-length word has neither a nontrivial rotation nor a reflection.
+
+Provide loose motifs in both horizontal-mirror forms and rotated forms, at least 25 mm long, plus the long strips and tracing strips from the outline. The PDF strips are drawing/recording surfaces; the physical work uses separate strips at least 70 by 280 mm. The small A labels in the motion demonstration identify the same moving motif, and do not belong on the constructed borders. All pages treat the endless periodic pattern, indicated by arrows, as the mathematical object. Printed rectangle ends are outside that pattern.
+
+The first example explicitly gives original, reflected, and shifted versions with preserved labels and a separate slide arrow. It does not give a completed glide-only border. Questions separate glide distance from translation length, and upper-band composition questions concern forced motions rather than a seven-frieze classification. The middle-band edit explicitly permits a larger repeating part, so a previous primitive translation may be broken while the revised border remains periodic. Half-turn centers may be chosen anywhere in the plane. K–1 comparisons use shortest matching slides, and glide slides run along the middle line.
+
+Source context: Gallian, Contemporary Abstract Algebra, Chapter 28, https://www.d.umn.edu/~jgallian/Chapter28.pdf ; Quinlan, Groups Week 1, https://maths.nuigalway.ie/~rquinlan/groups/week1/index.shtml . All artwork is original. The writer rendered and inspected every page; physical cutout handling and classroom timing remain untested.

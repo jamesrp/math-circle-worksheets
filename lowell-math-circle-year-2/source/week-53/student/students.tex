@@ -1,0 +1,119 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=0.65in,top=0.77in,bottom=0.65in,headheight=16pt,headsep=14pt,footskip=22pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usetikzlibrary{arrows.meta}
+\definecolor{linkgrey}{gray}{0.48}
+\definecolor{ink}{gray}{0.08}
+\tikzset{available/.style={draw=linkgrey,line width=0.65pt},bought/.style={draw=ink,line width=2.4pt},place/.style={circle,draw=ink,line width=0.9pt,fill=white,inner sep=0pt},price/.style={fill=white,inner sep=1.4pt}}
+\newcommand\pricedots[1]{\begin{tikzpicture}[baseline=-0.7ex]\foreach \i in {1,...,#1}{\fill (\i*0.135,0) circle (0.034);}\end{tikzpicture}}
+\newcommand\coins[1]{\begin{tikzpicture}[baseline=-0.7ex]\foreach \i in {1,...,#1}{\draw[line width=0.6pt] (\i*0.21,0) circle (0.082);}\end{tikzpicture}}
+\newcommand\Band{Grades 2--5}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 53 / Connecting networks / \Band}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 53 / W53-networks-v1}
+\fancyfoot[R]{\scriptsize\thepage}
+\renewcommand\headrulewidth{0pt}\renewcommand\footrulewidth{0pt}
+\setlength\parindent{0pt}\setlength\parskip{8pt}
+\newcommand\problem[2]{\textbf{Problem #1:} #2\par}
+\newcommand\cost{Cost: \rule{1.2cm}{0.4pt}}
+\newcommand\writing[1]{\vspace{#1}\par}
+\newcommand\swaprows{\begin{tabular}{@{}p{1.6cm}p{1.6cm}p{2.5cm}@{}}Return & Buy & New cost\\[3pt]\hline\\[10pt]\hline\\[10pt]\hline\\[10pt]\hline\\[10pt]\hline\end{tabular}}
+\input{generated-diagrams.tex}
+\begin{document}
+Mark whole printed links you buy. Thick links are bought. Pay each link's price once. A price of 2, shown as \pricedots{2}, costs two counters. Return a link to get its counters back. Travel follows bought links and turns only at circled places.
+
+\begin{center}
+\begin{tabular}{@{}c@{\hspace{0.28cm}}c@{\hspace{0.28cm}}c@{}}
+\small Available links & \small Bought and paid & \small Kept record\\[5pt]
+\ExampleAvailable & \ExamplePaid & \ExampleRecord\\[5pt]
+ & \small $2+4=6$\quad\coins{6} & \small All 3 places connected\\
+\end{tabular}
+\end{center}
+\vspace{0.12in}
+\problem{1}{Connect all three places for the fewest counters on each map.}
+\vspace{0.4in}
+\begin{center}
+\begin{minipage}{0.48\linewidth}\centering\TriangleOne\par\vspace{0.45in}\cost\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}\centering\TriangleTwo\par\vspace{0.45in}\cost\end{minipage}
+\end{center}
+\newpage
+
+\problem{2}{Find every cheapest purchase that connects all four places.}
+\vspace{0.6in}
+\begin{center}\FourTies\end{center}
+\vspace{0.4in}
+\cost
+\vspace{0.8in}
+\begin{center}
+\FourTiesRecord\hfill\FourTiesRecord\hfill\FourTiesRecord
+\end{center}
+\newpage
+
+\problem{3}{Connect all four places for the least total cost. Show why a cheaper purchase cannot work.}
+\vspace{0.65in}
+\begin{center}\FourTrap\end{center}
+\vspace{0.35in}
+\cost
+\vspace{0.6in}
+\begin{center}\FourTrapRecord\hspace{1.2in}\FourTrapRecord\end{center}
+\newpage
+
+\problem{4}{Find every cheapest purchase that connects all five places.}
+\vspace{0.6in}
+\begin{center}\FiveTies\end{center}
+\vspace{0.3in}
+\cost
+\vspace{0.65in}
+\begin{center}\FiveTiesRecord\hfill\FiveTiesRecord\hfill\FiveTiesRecord\end{center}
+\newpage
+
+\renewcommand\Band{Grades 4--5}
+\problem{5}{Starting each time from the printed thick purchase, find every cheaper one-link swap: buy one unused link and return one bought link. The result must connect every place.}
+\begin{center}
+\begin{tabular}{@{}c@{\hspace{0.28cm}}c@{\hspace{0.28cm}}c@{}}
+\small Before & \small Buy UW for 3 & \small Return VW for 4\\[4pt]
+\SwapBefore & \SwapMiddle & \SwapAfter\\[4pt]
+\small Cost 6 & \small Cost 9 & \small Cost 5\\
+\end{tabular}
+\end{center}
+\vspace{0.15in}
+\begin{center}
+\begin{minipage}{0.48\linewidth}\centering\SwapFirst\par\vspace{0.25in}\swaprows\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}\centering\SwapSecond\par\vspace{0.25in}\swaprows\end{minipage}
+\end{center}
+\newpage
+
+\problem{6}{Which links must be in every cheapest purchase? Which links are in no cheapest purchase? Give reasons that rule out every competing purchase.}
+\vspace{0.7in}
+\begin{center}\SixCert\end{center}
+\vspace{0.6in}
+\begin{minipage}[t]{0.47\linewidth}Must be bought:\end{minipage}\hfill
+\begin{minipage}[t]{0.47\linewidth}Cannot be bought:\end{minipage}
+\newpage
+
+\problem{7}{Give each link a price of 1, 2, 3 or 4. Make the left map have exactly one cheapest purchase and the right map have at least two. Show why both meet their condition.}
+\vspace{0.75in}
+\begin{center}
+\begin{minipage}{0.48\linewidth}\centering\PriceDesign\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}\centering\PriceDesign\end{minipage}
+\end{center}
+\newpage
+
+\problem{8}{All link prices are positive. A loop follows bought links back to its start without using a link twice. Can a cheapest purchase contain a loop? For each thick purchase, find a cheaper one-link swap or explain why none exists. Can a connected purchase with no loop cost more than the cheapest one even though no one-link swap makes it cheaper?}
+\vspace{0.35in}
+\begin{center}\SixGood\end{center}
+\vspace{0.25in}
+\begin{center}\SixBad\end{center}
+\newpage
+
+\problem{9}{Find the cheapest purchase on this map. Can any map with a different positive price on every link have two different cheapest purchases? Explain your answer.}
+\vspace{0.4in}
+\begin{center}\Distinct\end{center}
+\end{document}

@@ -1,0 +1,135 @@
+\documentclass[12pt]{article}
+\newcommand{\bandname}{Grades 2–3}
+\input{common}
+
+\newcommand{\bodyfont}{\fontsize{13.5}{18.5}\selectfont}
+
+% Small pile picture: numeral, then counters in rows of 5.
+\newcommand{\smallpile}[1]{%
+  \pgfmathtruncatemacro{\nr}{(#1-1)/5+1}%
+  \pgfmathsetmacro{\bl}{-(\nr-1)*0.21-0.12}%
+  \begin{tikzpicture}[baseline={(0,\bl)}]
+    \node[anchor=east] at (-0.15,{-(\nr-1)*0.21}) {#1};
+    \pileat{#1}{0.17}{0}{0.16}{0.42}
+  \end{tikzpicture}}
+
+% Two small piles side by side.
+\newcommand{\twopiles}[2]{%
+  \begin{tikzpicture}[baseline={(0,-0.12)}]
+    \pileat{#1}{0.17}{0}{0.16}{0.42}
+    \pileat{#2}{2.95}{0}{0.16}{0.42}
+    \path (0,0.2) (4.8,-0.7);
+  \end{tikzpicture}}
+
+\newcommand{\tablehead}{\textbf{Pile} & \textbf{Who can always win?} & \textbf{First move}}
+\newenvironment{wintable}[1]{%
+  \renewcommand{\arraystretch}{1}%
+  \begin{tabular}{|>{\centering\arraybackslash}m{#1}|m{6.6cm}|m{5.2cm}|}\hline}
+  {\end{tabular}}
+\newcommand{\rowh}[1]{\rule[-0.45\dimexpr#1\relax]{0pt}{#1}}
+
+% A claim with "right / wrong" to circle at the right.
+\newcommand{\claim}[1]{%
+  \begin{minipage}[t]{0.76\linewidth}#1\end{minipage}\hfill
+  \begin{minipage}[t]{0.2\linewidth}\raggedleft right\hspace{1.1cm}wrong\end{minipage}\par}
+
+\begin{document}
+\bodyfont
+
+Two players take turns taking counters from a pile. Each problem says how many counters you may take on a turn, and you can never take more than are there. Whoever takes the last counter wins.
+
+\vspace{0.6cm}
+\prob{1}The rule is: take 1 or 2 counters. For piles of 7, 9, 11, and 12 counters, decide who can always win, the first player or the second player, however the other one plays. If it is the first player, write the first move.
+
+\vspace{0.4cm}
+\begin{wintable}{5.0cm}
+\rowh{0.75cm}\tablehead \\ \hline
+\rowh{1.4cm}\smallpile{7} & & \\ \hline
+\rowh{1.4cm}\smallpile{9} & & \\ \hline
+\rowh{1.75cm}\smallpile{11} & & \\ \hline
+\rowh{1.75cm}\smallpile{12} & & \\ \hline
+\end{wintable}
+
+\vspace{0.9cm}
+\prob{2}Now the rule is: take 1, 3, or 4 counters. For every pile from 1 to 20, decide who can always win, the first player or the second player. Write 1st or 2nd under each pile.
+
+\vspace{0.4cm}
+\numboxes{1}{20}{10}{1.75}{1.25}
+
+\newpage
+\prob{3}The rule is: take 1, 3, or 4 counters. Four children make claims. Decide if each claim is right. If it is right, show how that child wins whatever the other player does. If it is wrong, show how the other player wins.
+
+\vspace{0.5cm}
+\claim{(a) Maya: “There are 8 counters and I go first. I take 4, because taking the most is best. Then I will win.”}
+\writelines{4}{0.85}
+
+\vspace{0.45cm}
+\claim{(b) Leo: “There are 11 counters and I go first. I take 4. Then I will win.”}
+\writelines{4}{0.85}
+
+\vspace{0.45cm}
+\claim{(c) Ravi: “There are 6 counters and I go first. I take 1. Then I will win.”}
+\writelines{4}{0.85}
+
+\vspace{0.45cm}
+\claim{(d) Zoe: “There are 9 counters. I will go second. Then I will win.”}
+\writelines{4}{0.85}
+
+\newpage
+\prob{4}The rule is: take 1, 3, or 4 counters. For piles of 23, 25, 28, and 31 counters, decide who can always win. If it is the first player, write the first move. Explain how you know who wins with 28 counters.
+
+\vspace{0.4cm}
+\begin{wintable}{2.6cm}
+\rowh{0.75cm}\tablehead \\ \hline
+\rowh{1.0cm}23 & & \\ \hline
+\rowh{1.0cm}25 & & \\ \hline
+\rowh{1.0cm}28 & & \\ \hline
+\rowh{1.0cm}31 & & \\ \hline
+\end{wintable}
+\writelines{5}{0.85}
+
+\newpage
+\prob{5}Here are three other rules. For each rule, find every pile from 1 to 15 where the second player can always win, and describe the pattern.
+
+\vspace{0.4cm}
+(a) Take 1 or 3.
+
+\vspace{0.1cm}
+\numboxes{1}{15}{15}{1.18}{0.95}
+\writelines{2}{0.85}
+
+\vspace{0.7cm}
+(b) Take 1, 2, or 3.
+
+\vspace{0.1cm}
+\numboxes{1}{15}{15}{1.18}{0.95}
+\writelines{2}{0.85}
+
+\vspace{0.7cm}
+(c) Take 1 or 4.
+
+\vspace{0.1cm}
+\numboxes{1}{15}{15}{1.18}{0.95}
+\writelines{2}{0.85}
+
+\newpage
+\prob{6}Now there are two piles. On your turn, take 1, 3, or 4 counters from one of the piles. Whoever takes the last counter wins. For each start, decide who can always win. If it is the first player, write a first move. Explain how the second player wins with piles of 1 and 3.
+
+\vspace{0.4cm}
+\begin{tabular}{|>{\raggedright\arraybackslash}m{5.6cm}|m{5.8cm}|m{5.2cm}|}\hline
+\rowh{0.75cm}\textbf{Start} & \textbf{Who can always win?} & \textbf{First move} \\ \hline
+\rowh{2.2cm}\parbox[c]{5.4cm}{(a) 5 and 5\\[4pt]\twopiles{5}{5}} & & \\ \hline
+\rowh{2.2cm}\parbox[c]{5.4cm}{(b) 1 and 3\\[4pt]\twopiles{1}{3}} & & \\ \hline
+\rowh{2.2cm}\parbox[c]{5.4cm}{(c) 3 and 4\\[4pt]\twopiles{3}{4}} & & \\ \hline
+\rowh{2.2cm}\parbox[c]{5.4cm}{(d) 4 and 6\\[4pt]\twopiles{4}{6}} & & \\ \hline
+\end{tabular}
+\writelines{6}{0.85}
+
+\newpage
+\prob{7}Kai plays “take 1, 3, or 4” with a habit: on every turn he takes as many counters as he can. That means 4 if there are at least 4, all 3 if there are 3, and 1 if there are 1 or 2. Kai always goes first. For which piles from 1 to 20 does Kai win however you play? Write Kai or me under each pile. Then show how you beat Kai when he starts with 13.
+
+\vspace{0.4cm}
+\numboxes{1}{20}{10}{1.75}{1.25}
+\writelines{5}{0.85}
+
+\end{document}

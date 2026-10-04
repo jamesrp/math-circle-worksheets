@@ -1,5 +1,13 @@
 # Weeks 2–10: overall review
 
+## September 27 classroom-guidance revision
+
+The current v3 packets apply the [organizer-approved Week 1 lessons](../../../plans/fall-weeks-02-10-classroom-guidance-review.md) to all nine weeks. They are **unpiloted revisions**. The earlier dated reviews below describe prior versions; their page counts and one-page-extra constraints do not describe the current packets.
+
+The revision expands purposeful concrete examples, makes recording explicit, and gives new representations their own work. All student levels and optional investigations use the agreed numbered-problem format. The guides retain mathematical proofs, source references, readiness conditions, and stopping choices, with a shared concrete action-and-record launch. Start with seven student sheets for the present roster and print likely continuation pages before the meeting, keeping additional pages as masters.
+
+Current combined counts are **28 / 31 / 41 / 27 / 50** (K–1 / middle / upper / extra / guide). All 172 weekly pages were rendered and visually reviewed; the combined sets preserve those pages exactly and pass all 45 bookmark checks. All weekly and independent mathematical checks passed. Detailed per-week counts and final verification are recorded in the September 27 revision review linked above. Earlier v2 PDFs, sources, and plans were preserved before editing. The active assembler permits multi-page extras and checks each student page for numbered problems and obsolete worksheet labels.
+
 ## September 20 revision and integration
 
 Implemented the [Weeks 1–10 review](../../../plans/fall-weeks-01-10-review.md), with Weeks 2–4, 5–7, and 8–10 revised by parallel subagents. The coordinator revised Week 1 and shared guides, checked the changed student proof sequences and shared coprime scaffold, updated the use log, and assembled the final print sets. The implementation table in the review maps each recommendation to the resulting change. All activities remain planned.
@@ -53,3 +61,23 @@ Review led to concrete corrections: two extras were compressed to one page; a mi
 ## Use in the room
 
 Give one page at a time and start with materials. The packets are menus of investigations, not promises that every task fits an hour. The facilitator guides state prerequisites, timing, launch questions, hints, solutions, and when to offer the extra. Record the actual puzzles used and reasoning reached in the [use log](../../../plans/fall-k-5-year-a-use-log.md), especially when a child continues into a higher level. The six-year library will need further varied sessions and evidence from teaching; this batch is one substantial fall sequence.
+
+## September 28 Week 2 staffing and K–1 companion
+
+Reassembled only the 50-page combined core facilitator with `assemble.py --level facilitator`. Week 2 is still PDF pages 2–6, now using F02-FAC-v4. The cover and modified weekly opening page were rendered and visually reviewed; text equality confirms the five embedded Week 2 pages match the current weekly guide. Page size and safe text bounds pass for all 50 pages. The four combined student PDFs were not rebuilt for this change. The new 14-page K–1 auxiliary and its parent guide remain separate, linked in the print indexes. Previous combined core guide is archived under `combined/archive-before-k1-aux-2026-09-28/`.
+
+## September 28 middle/upper visual revision
+
+Rebuilt the middle, upper and facilitator sets using `assemble.py --level grades-2-3 --level grades-4-5 --level facilitator`. Counts are 36, 49 and 51 pages. Week 2 occupies PDF pages 2–9, 2–13 and 2–7 respectively; later ranges and bookmarks are regenerated. Weekly sections match current weekly text exactly. The assembler's page-size/text-bounds checks pass, and the expanded Week 2 pages were separately rendered and visually reviewed. The upper combined cover was visually inspected. K–1 and extra combined sets were not changed. Previous versions are in `combined/archive-before-visual-revision-2026-09-28/`.
+
+## September 28: shared Week 2 collection (current)
+
+The organizer approved replacing the separate Week 2 grade packets and auxiliary with one shared student collection (42 pages, 50 problems, F02-S-v1) and a unified 16-page adult guide (F02-S-FAC-v1). The preceding entries above describe historical builds, including older roster/printing assumptions; current preparation is in [Week 2's source index](../week-02/README.md).
+
+All five consolidated sets were regenerated. Current totals: **67 K–1 / 70 middle / 79 upper / 66 extra / 61 facilitator**. The four student sets embed exactly the same shared Week 2 library on PDF pages **2–43**. The facilitator embeds the unified guide on PDF pages **2–17**. Covers explain that the grade labels distinguish Weeks 3–10 and that Week 2 need only be printed once. All later week ranges and bookmarks were recalculated, and each embedded Week 2 page was compared with the canonical shared PDF text.
+
+The assembler's US Letter, safe-margin and nonempty-page checks pass. All changed weekly pages were rendered and inspected as recorded in [the shared review](../week-02/REVIEW.md); the five regenerated covers were visually reviewed. No Week 3–10 teaching content was revised in this pass. Previous combined PDFs and assembler source are preserved in `archive-before-shared-collection-2026-09-28/`. The shared collection remains unpiloted.
+
+## September 30: concise Week 3 update
+
+Week 3 now uses F03-K/M/U/X-v4 and a six-page adult guide. See its [review](../week-03/REVIEW.md) for the mathematics and all-page visual checks. Refreshed only Week 3 in the five combined PDFs and regenerated contents/bookmarks. All other weekly page text and content streams were checked identical to the preceding combined sets. New totals are K 67, middle 70, upper 78, extra 66, facilitator 62. The previous sets are preserved under `combined/archive-before-week-03-concise-2026-09-30/`; v4 remains unpiloted.

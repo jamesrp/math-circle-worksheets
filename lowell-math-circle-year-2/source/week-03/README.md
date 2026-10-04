@@ -1,25 +1,20 @@
-# Week 3: Code machines, loops, and long returns
+# Week 3: Shuffle machines
 
-Prepared September 19, 2026. Repeat reversible substitutions, classify their loops, and prove a maximum return time. Grade labels describe entry points, not age restrictions. The [redesign plan](../../../plans/week-03-redesign.md) gives mathematical rationale, source references, readiness, the hour, hints, proofs, and prior-use notes.
+Concrete revision of October 3, 2026: F03-K-v5 / F03-M-v5 / F03-U-v5, adult guide F03-FAC-v5. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 ([forecast and pivot](../../../plans/fall-forecast-2026-10-03.md)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
 
-## Print packets
+- [K–1](../../week-03/week-03-k-1.pdf) — 10 pages.
+- [Grades 2–3](../../week-03/week-03-grades-2-3.pdf) — 11 pages.
+- [Grades 4–5](../../week-03/week-03-grades-4-5.pdf) — 8 pages.
+- [Adult guide](../../week-03/week-03-facilitator.pdf) — 10 pages: materials and counts, launch, pairing, answers, hints, and what to record.
 
-- [K–1: The changing-symbol machine](../../week-03/week-03-k-1.pdf) — 2 pages, F03-K-v2. Shape keys, inverse decoding, three-cycles, swaps, and information loss.
-- [Grades 2–3: A code you can undo](../../week-03/week-03-grades-2-3.pdf) — 2 pages, F03-M-v2. Repeated-symbol patterns, repeated keys, all four-symbol cycle types.
-- [Grades 4–5: How long until every letter returns?](../../week-03/week-03-grades-4-5.pdf) — 3 pages, F03-U-v2. Prove maximum order six on five symbols; overlapping swaps need not commute.
-- [Extra, grades 6–7: The slowest eight-letter machine](../../week-03/week-03-extra-grades-6-7.pdf) — 1 page, F03-X-v2. Construct order fifteen and prove a complete upper bound; predict nine letters.
-- [Facilitator guide](../../week-03/week-03-facilitator.pdf) — 4 pages: materials, prerequisites, 60-minute flow, hints, all checked solutions, research boundaries, and sources.
+Permutations as printed arrow mats. One turn moves every object down its own arrow, then the bottom row slides straight up, so the mat enforces the rule that the old letter-key version left in children's heads. Children count turns until everything is home, find loops, build machines with chosen return times, undo and combine machines, and (grades 4–5) treat perfect card shuffles as machines.
 
-Print US Letter, single-sided, preferably Actual Size. These are counter/card activities and do not require the one-inch pattern-block calibration used in Week 1. Give one page at a time. For K,K,1 / 3,3,3 / 5, print 3 K–1, 3 middle, and 1 upper packet: **15 core student sheets**, plus one extra reserve sheet and one facilitator copy if wanted. Do not require all pages in one meeting.
+The mat slots are about 1.2 inches, too small for most pattern blocks; the block pictures above the slots are labels. Use snap cubes or other small objects in matching colours (the adult guide gives counts). The whole-group launch uses five chairs and a taped floor arrow map. Two decks of cards for the 4–5 table.
 
-**Materials:** 18 shape slips (two circle/triangle/square sets per youngest child), 12 A–D cards (one set per middle child), A–E plus F–H for upper/extra, 13 counters (three per K–1 child and one per older child), pencils, paper. Hand-lettered scraps suffice.
+Print US Letter, single-sided, at 100% / Actual Size. Give one page at a time; the packets hold more than an hour, and stopping anywhere is fine.
 
-**Mathematical lineage:** Permutation groups, disjoint cycles, least common multiples, composition, and Landau’s maximal-order function. The extra is a standalone one-page challenge with its solutions in the facilitator packet. Younger children can move to the next entry level; no separate lower-level extras are required.
+The student pages were drafted with the [worksheet workflow](../../../worksheet-workflow/README.md) from the outline `worksheet-workflow/outlines/week-03-shuffle-machines.md`: writer, adversarial review and independent math check, then revision. The run record (prompts, reviews, draft and final PDFs) is in `tmp/worksheet-runs/week-03-shuffle-machines-v1/`. The adult guide was written separately from the final pages; its answers are recomputed by the scripts in `guide-src/`.
 
-## Build and verify
+Rebuild from the repository root: `sh lowell-math-circle-year-2/source/week-03/build.sh`. It builds in `tmp/pdfs/week-03-build/` and copies the four PDFs into `lowell-math-circle-year-2/week-03/`. Requires Python 3 and pdfLaTeX with TikZ and Source Sans Pro. `src/` holds the student pages with their generators and checks; `guide-src/` holds the adult guide and its answer checks, which read `../src`.
 
-From the repository root, run `sh lowell-math-circle-year-2/source/week-03/build.sh`. Requires Python 3 (standard library only for verification), pdfLaTeX with TikZ, Source Sans Pro, microtype, extarticle, fancyhdr, geometry, tabularx, amsmath/amssymb, and hyperref. Editable sources are the five `week-03-*.tex` files and local `common.tex`. The build executes `verify.py`, compiles twice, and copies final files into `lowell-math-circle-year-2/week-03/`. Intermediate build files stay in `tmp/pdfs/week-03-build/`.
-
-`python3 lowell-math-circle-year-2/source/week-03/verify.py` runs the mathematical checks alone. Every permutation for n=4,5,6,8,9 was enumerated; maxima are 4,6,6,15,20. The script checks every printed message trace and both composition orders. The guide supplies independent loop-decomposition and partition upper-bound proofs.
-
-After edits, rebuild and render every page with `pdftoppm`; review layout again. The [review record](REVIEW.md) records this batch's own visual and mathematical checks. Record actual use, including targets/keys/ring sizes and whether the extra was attempted, in the shared [use log](../../../plans/fall-k-5-year-a-use-log.md). These packets are prepared activities, not evidence that a child has encountered them.
+The previous version (F03-*-v4 (September 30 concise revision), with its optional grades 6–7 extra) is preserved in [archive/](archive/README.md) with its sources, and its PDFs are in `lowell-math-circle-year-2/week-03/archive/`. Older versions remain in the `archive-before-*` folders here and beside the PDFs.

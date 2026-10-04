@@ -1,0 +1,87 @@
+{
+  "week": 23,
+  "topic": "Sorting machines",
+  "overview": [
+    "Selection: four lanes need exactly three fixed compare-exchange bars to send the smallest card to lane 1. Comparing lane 1 successively with 2,3,4 works; fewer bars leave the comparison graph disconnected, trapping a smallest card outside lane 1's component. The printed four-bar network puts the lower two values in lanes 1-2 without necessarily sorting either half. All bars compare only dotted endpoints and send the smaller value to the lower-numbered lane.",
+    "Merging: when input lanes 1-2 and 3-4 are already sorted pairs, bars (1,3),(2,4),(2,3) fully sort them. Three bars are optimal: six distinct legal inputs need six distinguishable swap/no-swap records, while two bars give at most four. The input promise matters; the same merger fails on some unsorted pairs. Correctness covers ties, but the lower bound uses distinct ranks.",
+    "Stability: equal-valued cards have identifiers that do not affect comparison; ties never swap. Every neighbor-only machine preserves each equal pair's relative input order, even if it does not fully sort. An adjacent swap changes relative order only for the swapped cards, so equal cards cannot cross. A jumping comparison can cross an equal card indirectly; machine X fails twice among the six printed tagged inputs, while Y preserves order throughout.",
+    "Grades 2-3 can move cards and challenge fixed machines. Grades 4-5 can certify every input and the comparison minimum. Trials reveal failures; invariants and complete pooled input checks explain guarantees. These are partial selection, structural merging and identity preservation, not another base full-sorter search."
+  ],
+  "readiness": [
+    "Shared Grades 2-5 entry: compare four values, track lane order and retain fixed bars. Adults can read. P3 adds a sorted-pair promise; P5-6 distinguish equal values from corner identities. A tag never breaks a value tie.",
+    "Current fixed KK11 / 3333 / 445 tables have one anchored adult each. Choose one investigation and its short launch per table per visit. Adults read or record while children own choices; pool cases into one checkable record. A K-1 oral smallest-card or equal-strip entry is suitable only while the child retains the rule."
+  ],
+  "materials": [
+    "Per pair: a four-lane mat at least 24 by 30 cm, eight removable two-endpoint bars, four rank cards 1-4, six repeated-value cards with corner tags, two pair trays/brackets, pencils and paper. Cards are at least 30 mm square. Optional four unequal-length strips support nonreaders. Compact printed networks are records; operate the large separate mat.",
+    "Prepare cards/bars in about 15-20 minutes with a reusable mat. Move the whole row together to each next bar; crossing an intermediate lane does not compare it. Ties stay put and identities move with their cards. Physical swaps, tray discipline and tag recognition remain untested."
+  ],
+  "launch": "Allow card handling, then show one non-task dotted-endpoint comparison with all cards advancing together. A child judges the result. Before merging, show the two sorted pair trays as the input promise. Before stability, use the printed tagged 3A,1B,3C example; compare values and check equal-card order in lane order. Keep the launch brief.",
+  "route": "Use P1-2 for a 20-35 minute selection visit. P3-4 can form a later 15-25 minute merger visit; P5-6 a 20-30 minute identity-order visit. Times are proposals. Share the 24 P2 inputs and pool one checkable catalog; each child need not copy all cases. Retain a fixed machine and one informative input for a return.",
+  "investigations": [
+    {
+      "problem": "1-2",
+      "title": "Select part of the order",
+      "entry": "Grades 2-3 can construct a smallest-card machine and test the printed lower-half machine. Grades 4-5 can defend their guarantees. Requirements: only fixed dotted endpoints compare; output lanes not requested by the goal may remain unordered. Allow 20-35 minutes.",
+      "solution": [
+        "P1 exact minimum is three bars. (1,2),(1,3),(1,4) successively keeps the smallest value encountered in lane 1, so the final value there is the global minimum. With at most two bars, the graph on four lanes whose edges are those bar pairs is disconnected. Put the smallest card in a component not containing lane 1; comparisons cannot carry it out of that component. Therefore no shorter fixed machine works.",
+        "P2 printed bars are (1,2),(3,4),(1,4),(2,3). After the first two, write a<=b in lanes 1,2 and c<=d in lanes 3,4. Final values are min(a,d),min(b,c),max(b,c),max(a,d). Each first-half value is at most each last-half value: comparator inequalities give two relations; min(a,d)<=a<=b<=max(b,c) and min(b,c)<=c<=d<=max(a,d) give the others. Thus the two lower values occupy lanes 1-2, including ties if tried later.",
+        "Input 3,4,1,2 gives output 2,1,4,3, so the goal does not imply a fully sorted output. The task asks for all 24 distinct input orders to be checked; pairs can divide cases and pool the record. It does not ask for the fewest possible bars for this lower-half goal."
+      ],
+      "hints": [
+        "For P1, track only the candidate minimum after each bar. For a lower bound, draw which lanes any bars have connected. For P2, keep the two initially ordered pairs visible and test a deliberately interleaved input before attempting an all-input explanation."
+      ],
+      "extensions": [
+        "On n>=1 lanes, the smallest-card goal needs exactly n-1 bars: compare lane 1 with every other lane. A graph with fewer than n-1 edges is disconnected, giving the same trapping counterexample. This proves selection cost without asking that the other outputs be sorted."
+      ],
+      "notes": "Moving cards freely outside bars or choosing bars after seeing an input changes the machine. Record those events as observed rule slips rather than attributing them automatically to age or ability."
+    },
+    {
+      "problem": "3-4",
+      "title": "Merge two already sorted pairs",
+      "entry": "Grades 2-3 can operate two physical sorted trays and test all six legal inputs. Grades 4-5 can explain the three-bar minimum. Gate: each pair is sorted before the machine starts. Allow 15-25 minutes.",
+      "solution": [
+        "P3 exact minimum is three bars. (1,3),(2,4),(2,3) works. The two original pair minima are in lanes 1,3, so their comparison puts the global minimum in lane 1. The two original pair maxima are still in lanes 2,4, so their comparison puts the global maximum in lane 4. Comparing the middle lanes completes the order. This includes repeated values.",
+        "The six distinct legal inputs are precisely the printed pair rows: 12/34,13/24,14/23,23/14,24/13,34/12. A fixed swap/no-swap record moves positions by one fixed permutation, so it can carry at most one distinct input to 1,2,3,4. Two bars offer at most four records, too few for six inputs; three attain the bound. Either ordering of the first two disjoint bars gives a merger.",
+        "P4 a failure for either shortest merger is input 2,1,4,3, which remains unchanged and unsorted. Also 1,2,4,3 fails. For the displayed construction, 1,3,4,2 becomes 1,2,4,3. Use the child's actual bars for checking. Three bars give at most eight records, fewer than the 24 distinct unrestricted inputs, so any successful three-bar merger must fail somewhere outside its input promise."
+      ],
+      "hints": [
+        "Ask where the global minimum and maximum could be before any bar, using the pair promise. For the lower bound, reverse one completed swap record to see why it determines only one possible starting order for a fixed sorted output."
+      ],
+      "extensions": [
+        "Prepend (1,2) and (3,4) to the merger. Those two bars establish the input promise for every starting row, so all five bars sort arbitrary four-card input, including ties. This explains the relation to the base sorter without counting it as a new investigation."
+      ],
+      "notes": "A failure after deliberately breaking the promise does not refute merging correctness. Keep sorted-pair cases and unrestricted failure witnesses in one recoverable table, with their input condition clear."
+    },
+    {
+      "problem": "5-6",
+      "title": "Preserve the order of equal cards",
+      "entry": "Grades 2-3 can operate tagged cards and read A-before-B from lane order. Grades 4-5 can explain the invariant for any neighbor-only machine. Requirements: tags are identifiers, not comparison keys; ties never swap. Allow 20-30 minutes.",
+      "solution": [
+        "Worked convention: comparing lanes 1,2 sends 3A,1B,3C to 1B,3A,3C. The equal 3s still have A before C. Machine X is (1,3),(1,2),(2,3); Y is (1,2),(2,3),(1,2). Both sort values, but only Y keeps equal identities in their input order on all six cases.",
+        "P5 exact table, each output in lane order:\n2A,2B,1C: X=1C,2B,2A; Y=1C,2A,2B.\n2A,1C,2B: X=1C,2A,2B; Y=1C,2A,2B.\n2B,2A,1C: X=1C,2A,2B; Y=1C,2B,2A.\n2B,1C,2A: X=1C,2B,2A; Y=1C,2B,2A.\n1C,2A,2B: X=1C,2A,2B; Y=1C,2A,2B.\n1C,2B,2A: X=1C,2B,2A; Y=1C,2B,2A.",
+        "X reverses the equal pair in the first and third input rows: its first jumping swap crosses the other equal card without comparing them directly. Y preserves all six. For value correctness, X first compares lanes 1,3, then 1,2 to settle the minimum in lane 1; its last bar orders the remainder. Y's first two bars settle the maximum in lane 3, and its last bar orders lanes 1,2.",
+        "P6 no. An adjacent swap changes relative order only for the two cards swapped; every other pair keeps its order. Equal values never directly swap. Induction over any number of neighboring bars therefore preserves every equal pair, whether or not the machine fully sorts. This is stability, a guarantee about identities rather than only final values."
+      ],
+      "hints": [
+        "Keep the tags small but visible and read the equal pair's before/after order from lanes, not from the order its cards happen to be handled. Trace X's first long bar in a failing case. Ask what an adjacent swap can change before seeking a general explanation."
+      ],
+      "extensions": [
+        "Try several repeated values with several tags; the same adjacent-pair argument preserves the relative order of every equal pair for any length of machine. If a changed tie rule allows equal cards to swap, even one adjacent bar reverses 2A,2B; the no-swap-on-ties assumption is essential."
+      ],
+      "notes": "A machine can sort values while losing equal-card order. Do not compare tags to repair X: that introduces a different ordering rule. A nonneighbor bar can be harmless on some inputs; the concrete X counterexamples refute its all-input stability guarantee."
+    }
+  ],
+  "sources": [
+    "Current Week 23 base outline and guide pp. 3,11-12 were read for comparator conventions, fixed-record bounds and exclusions. Parallel-stage optimization, binary certification and base full-sorter searches are not counted as encore work.",
+    "University of Liverpool COMP308, Lecture 17, pp. 1-2, is the network context recorded in the base outline/guide. Its body was not newly read here. Selection, merge and stability arguments above were independently derived.",
+    "Math Circle by the Bay, Preface pp. vii-x (local PDF pp. 8-11), actually read: interaction, manipulatives and themes developed across visits. Our physical card/tray routes are proposals, not source-reported classroom tests."
+  ],
+  "verification": [
+    "Independent student math checks re-solved all six tasks, every dotted-bar order and the tagged example. They checked all 24 distinct lower-half inputs, all repeated four-value assignments, both shortest mergers, all six tagged traces and neighbor-swap invariants. This guide uses the final actual task wording, tagged rows and bar orders.",
+    "The final guide received a separate independent mathematical review. Both final PDFs were rendered and inspected and passed a clean extracted-source ZIP rebuild. See release-validation.json in the editable source package. Physical fixed-bar discipline, simultaneous card advances, tray use and tagged ties have not been rehearsed."
+  ],
+  "observations": [
+    "Record actual problems used, retained bar sequence, input promise, failure witness and tagged before/after row; note where the pair wants to return.",
+    "Observe fixed-bar retention, dotted endpoints, sorted-pair starts and whether equal tags are used as comparison keys. Distinguish observed actions and child explanations from hypotheses about executive function or age fit."
+  ]
+}

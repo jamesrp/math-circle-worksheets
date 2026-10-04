@@ -1,0 +1,87 @@
+{
+  "week": 19,
+  "topic": "Subset cards",
+  "overview": [
+    "Pairwise-intersecting families: for n>=1, in a complete n-symbol subset deck, with the empty card forbidden, every two chosen cards must share a symbol. A card and its complement are disjoint, so at most one card from each complement pair can be chosen. The maximum is 2^(n-1), attained by all cards containing one fixed symbol: 4 for three symbols and 8 for four. Pairwise sharing does not require one symbol on every card; AB, AC, BC, ABC is a four-card counterexample.",
+    "Minimal triggers: a working-card rule that stays true when symbols are added is upward closed. Its inclusion-minimal working cards are an antichain and reconstruct the rule uniquely as triggers: every working card contains a minimal one, by finite descent, and every superset of one works. Minimal means no proper working subset, not globally fewest symbols. No working cards gives no triggers; if the empty card works, it alone triggers every card.",
+    "No nested triple: allowing nested pairs but forbidding three distinct cards X inside Y inside Z gives maxima 6 and 10 on three- and four-symbol decks. Complete chain partitions with lengths 4,2,2 and 5,3,3,1,3,1 permit at most two chosen cards per chain, or one in a singleton chain. The middle two ranks attain the bounds. Only these finite cases are proved here, not a general k-Sperner theorem.",
+    "Children investigate intersection bounds, reconstruction and a changed containment obstruction. Trials suggest examples; complement pairing, finite descent and complete chain coverage explain guarantees. Grades 2-3 can test cards; grades 4-5 can defend those certificates."
+  ],
+  "readiness": [
+    "Shared packet: Grades 2-5. Entry requires symbol matching, ordered containment and counting through sixteen; an adult may read. Distinguish every-pair sharing from a symbol common to all cards before P2. P4-6 require retaining one whole-deck works/fails record. P7-8 allow nested pairs: restate the new rule once with real cards.",
+    "Current fixed KK11 / 3333 / 445 tables have one anchored adult each. Choose one investigation and its short launch per table per visit. Adults read or record while children own choices; pool cases into one checkable record. A K-1 oral sharing-card or trigger test entry is suitable only while the child retains the rule."
+  ],
+  "materials": [
+    "Per pair: two complete 16-card decks on A,B,C,D, 20 selection counters, sixteen works/fails markers, four symbol tokens, pencils and blank paper. Physical cards should be at least 45 mm square with consistent symbol positions. Distinct deck backs prevent duplicate cards. Keep the empty card identifiable without adding a symbol. Obtain a three-symbol deck by retaining cards without D.",
+    "Small printed decks are pencil records; use supplied movable cards. Adults cut them beforehand and provide unrestricted blank chain strips. Allow about 20 minutes to prepare a reusable deck. Card handling and preparation estimates remain physically untested."
+  ],
+  "launch": "Let pairs handle cards briefly. Show one sharing pair and one disjoint pair, then judge a legal collection. Before triggers, use the printed AC to ACD example. Before P7, show a newly legal nested pair and an illegal nested triple.",
+  "route": "P1-2 can occupy 15-25 minutes, with P3 for a larger deck. P4-6 and P7-8 offer separate 20-35 minute returns. Times are proposals. Keep each pair's collection or rule to resume; finishing every page is not a goal.",
+  "investigations": [
+    {
+      "problem": "1-3",
+      "title": "Pairwise sharing and complement bounds",
+      "entry": "P1 is the concrete selection entry for grades 2-3; P2 distinguishes pairwise from whole-family intersection. P3's universal bound is a grades 4-5 continuation. Count cards, not repeated occurrences of symbols. Allow 15-30 minutes.",
+      "solution": [
+        "P1 maximum is 4. One witness is A,AB,AC,ABC. Pair each card with the symbols it lacks: empty/ABC, A/BC, B/AC, C/AB. Both cards of a pair cannot be chosen because they share nothing. Four pairs give the upper bound, and the witness attains it. The empty card is expressly forbidden even as a one-card collection.",
+        "P2 is possible: AB,AC,BC,ABC. Every pair intersects, but A is absent from BC, B from AC and C from AB. There is no common symbol. This is the only size-four family with no common symbol on this deck: a chosen singleton would force its symbol into every card, leaving all three pairs and ABC as the only alternative.",
+        "P3 maximum is 8. All eight cards containing A attain it. The sixteen cards form eight complementary pairs, and each allows at most one chosen card. Another maximum is AB,AC,BC,ABC,ABD,ACD,BCD,ABCD, with no symbol common to all eight. Exhaustive search is unnecessary for the upper bound; the pair partition controls every choice."
+      ],
+      "hints": [
+        "First ask a partner to find a disjoint pair in the proposed collection. For P2, keep AB,AC,BC visible and check every pair separately. Only after a serious upper-bound attempt ask what happens if a card and the card of its missing symbols are both selected."
+      ],
+      "extensions": [
+        "For any n>=1 symbols, all cards containing A attain 2^(n-1); complement pairs prove the upper bound. Children can use physical pairs instead of powers notation. Complementing does not generally preserve intersection: ABC and ABD intersect in the four-symbol deck, but their complements D and C do not."
+      ],
+      "notes": "The investigation changes the base containment rule. Overlap is required here; in the base antichain work, overlap was allowed but not required. A partner can check a collection without transcribing the full deck."
+    },
+    {
+      "problem": "4-6",
+      "title": "Reconstruct a rule from its minimal triggers",
+      "entry": "P4 uses the printed input/containment/output convention. Grades 2-3 can test every physical card; grades 4-5 can explain P6's guarantee and edge cases. Requirements: containment and one recoverable works/fails catalog. Allow 20-35 minutes.",
+      "solution": [
+        "P4, AB or D: working cards are D,AB,AD,BD,CD,ABC,ABD,ACD,BCD,ABCD. A or BC: A,AB,AC,AD,BC,ABC,ABD,ACD,BCD,ABCD. Each list has ten cards. At least one whole trigger is enough; having one symbol from each trigger is not enough. Keep the two rules on separate printed catalogs.",
+        "P5 needs exactly the two triggers B and AC. Their supersets are the ten given working cards. B itself works with no proper working subset, so any correct trigger set must include B. Likewise AC has no proper working subset and must be included. The empty trigger would wrongly accept every card. Two triggers suffice and are necessary.",
+        "P6 always reconstructs the rule under its printed promise. Starting at any working card, remove a symbol whenever the result still works. The finite deck guarantees termination at a card that stops working on every single-symbol removal. No smaller working subset can then exist: upward closure would make a one-symbol removal containing that subset work. Hence these are exactly the inclusion-minimal working cards. Every working card contains one; conversely all their supersets work. This proves equality of the original and reconstructed rules.",
+        "Edge cases: an all-failing deck yields no triggers; an all-working deck has the empty card as its only minimal trigger. The empty card satisfies the no-removal condition vacuously. Minimal triggers can have different sizes, as A and BC do."
+      ],
+      "hints": [
+        "For P5, ask which working cards lose success on every removal. For P6, let the partner pick a working card and physically remove symbols while success remains. Do not replace inclusion-minimal by fewest symbols in the whole deck."
+      ],
+      "extensions": [
+        "Give extra redundant triggers: B,AB,AC describes the same rule as B,AC because every AB already contains B. Deleting triggers that contain another trigger leaves precisely the unique minimal trigger set. Ask whether incomparable trigger cards can still overlap; AB and AC can, so an antichain is not a disjoint family."
+      ],
+      "notes": "One marked whole-deck catalog is the rule's external memory. Each pair may share cases. If a purported rule fails upward closure, identify a working card and a failing superset; that rule is outside P6's promise."
+    },
+    {
+      "problem": "7-8",
+      "title": "Nested pairs allowed; triples forbidden",
+      "entry": "Grades 2-3 can select and challenge physical collections; grades 4-5 can adapt the base chain certificate to two seats per chain. Entry gate: a nested pair is legal here and three distinct nested cards are not. Allow 20-35 minutes or a return visit.",
+      "solution": [
+        "P7 maximum is 6: A,B,C,AB,AC,BC. Cover the entire deck exactly once by chains empty/A/AB/ABC; B/BC; C/AC. In any chain, three selected cards would be a forbidden triple. At most two selected cards in each of three chains gives at most six. The witness attains the bound. It is the only maximum family, as the independent finite check confirms; uniqueness is not requested.",
+        "P8 maximum is 10. Witnesses are all four singletons plus all six pairs, or all six pairs plus all four triples. Each uses only two cardinalities, so cannot contain a properly nested triple. A complete chain partition is empty/A/AB/ABC/ABCD; D/AD/ABD; C/AC/ACD; CD; B/BC/BCD; BD. Check one-time coverage and every adjacent containment. Its chain lengths 5,3,3,1,3,1 permit 2+2+2+1+2+1=10 chosen cards. This rules out every larger collection.",
+        "The empty card is allowed in P7-8, unlike P1-3. A certificate omitting a card cannot establish the bound: a proposed larger collection might choose that omitted card. The finite chain partitions prove only the actual three- and four-symbol results."
+      ],
+      "hints": [
+        "Check three chosen cards together before rejecting an allowed pair. If a maximum is conjectured, ask how many selected cards could fit in any one nested row. Offer blank strips and audit a proposed whole-deck cover before giving the answer partition."
+      ],
+      "extensions": [
+        "On the three-symbol deck, forbid a nested chain of four instead. The maximum is 7: omit empty or omit ABC. Every four-card chain has one card of each size and includes both endpoints; all eight cannot work, while omitting either endpoint destroys every four-chain. This is a changed capacity question, not a claim of the general k-Sperner theorem."
+      ],
+      "notes": "A full chain cover is a proof representation. Children need not independently copy every chain if pairs pool one checkable arrangement. Keep their own certificate for a later explanation."
+    }
+  ],
+  "sources": [
+    "Current Week 19 base packets and guide pp. 3-4 and 11: chain certificates, complement reversal and base extensions. These were read for exclusions; the encore changes intersection, rule reconstruction and the forbidden-chain length.",
+    "Richard P. Stanley, MIT 18.318, The Sperner property, pp. 17-25, is the mathematical context documented in the base outline/guide. Its source body was not newly read for this companion. The finite complement, trigger and chain-capacity proofs above were derived directly.",
+    "Math Circle by the Bay, Preface pp. vii-x (local PDF pp. 8-11), actually read: student interaction, manipulatives and themes developed over years. Our paired rule tests and return routes are proposed adaptations, not observations from that source."
+  ],
+  "verification": [
+    "The independent student math review exhaustively checked all 256 three-symbol and 65,536 four-symbol families, the 168 four-symbol monotone rules, all printed deck inventories, trigger outputs and chain covers. It identified the ambiguous word smallest; final P6 now states the single-symbol-removal condition explicitly. This guide uses that corrected final wording.",
+    "The final guide received a separate independent mathematical review. Both final PDFs were rendered and inspected and passed a clean extracted-source ZIP rebuild. See release-validation.json in the editable source package. Card preparation and all classroom procedures remain untested."
+  ],
+  "observations": [
+    "Record investigation and problem numbers used, the chosen collections, rule or chain certificate retained, and a desired next question.",
+    "Observe whether pairwise sharing is confused with one common symbol, whether adding symbols preserves the invented rule, and whether nested pairs remain legal in P7-8. Record actual words/actions separately from hypotheses about difficulty."
+  ]
+}

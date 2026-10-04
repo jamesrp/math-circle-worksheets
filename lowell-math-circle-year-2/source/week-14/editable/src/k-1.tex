@@ -1,0 +1,1177 @@
+\documentclass[letterpaper]{article}
+\usepackage[margin=0in]{geometry}
+\pdfmapfile{+cm.map}
+\usepackage{type1cm}
+\usepackage{tikz}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\begin{document}
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,text width=7.4in,align=left,font=\sffamily\fontsize{10.8}{13.50}\selectfont] at (0.55,0.36) {\bfseries Week 14 / Polygon triangulations and flips / K--1};
+\node[anchor=north west,inner sep=0pt,text width=7.2in,align=left,font=\sffamily\fontsize{12.3}{15.38}\selectfont] at (0.65,0.91) {Join printed corners with straight lines. Lines inside a shape may meet at corners but may not cross. Fill the whole shape with triangles. Keep the corner numbers fixed. Use tracing paper to change printed lines.};
+\node[anchor=north west,inner sep=0pt,text width=7.2in,align=left,font=\sffamily\fontsize{14.2}{17.75}\selectfont] at (0.65,1.78) {\textbf{Problem 1:} Fill each shape with triangles in two different ways.};
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (3.0000,2.8000);
+\coordinate (v1) at (4.4720,3.8695);
+\coordinate (v2) at (3.9098,5.6000);
+\coordinate (v3) at (2.0902,5.6000);
+\coordinate (v4) at (1.5280,3.8695);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (3.0000,2.6100) {1};
+\fill (v1) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (4.6574,3.8279) {2};
+\fill (v2) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (4.0133,5.7593) {3};
+\fill (v3) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (1.9867,5.7593) {4};
+\fill (v4) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (1.3426,3.8279) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (6.7000,2.8750);
+\coordinate (v1) at (7.2520,3.2761);
+\coordinate (v2) at (7.0412,3.9250);
+\coordinate (v3) at (6.3588,3.9250);
+\coordinate (v4) at (6.1480,3.2761);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.7000,2.7550) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.3691,3.2498) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1066,4.0256) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.2934,4.0256) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.0309,3.2498) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (6.7000,4.4750);
+\coordinate (v1) at (7.2520,4.8761);
+\coordinate (v2) at (7.0412,5.5250);
+\coordinate (v3) at (6.3588,5.5250);
+\coordinate (v4) at (6.1480,4.8761);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.7000,4.3550) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.3691,4.8498) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1066,5.6256) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.2934,5.6256) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.0309,4.8498) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (3.0000,6.3000);
+\coordinate (v1) at (4.5155,7.1750);
+\coordinate (v2) at (4.5155,8.9250);
+\coordinate (v3) at (3.0000,9.8000);
+\coordinate (v4) at (1.4845,8.9250);
+\coordinate (v5) at (1.4845,7.1750);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (3.0000,6.1100) {1};
+\fill (v1) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (4.6801,7.0800) {2};
+\fill (v2) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (4.6801,9.0200) {3};
+\fill (v3) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (3.0000,9.9900) {4};
+\fill (v4) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (1.3199,9.0200) {5};
+\fill (v5) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (1.3199,7.0800) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (6.7000,6.4050);
+\coordinate (v1) at (7.2846,6.7425);
+\coordinate (v2) at (7.2846,7.4175);
+\coordinate (v3) at (6.7000,7.7550);
+\coordinate (v4) at (6.1154,7.4175);
+\coordinate (v5) at (6.1154,6.7425);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.7000,6.2850) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.3885,6.6825) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.3885,7.4775) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.7000,7.8750) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.0115,7.4775) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.0115,6.6825) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (6.7000,8.3450);
+\coordinate (v1) at (7.2846,8.6825);
+\coordinate (v2) at (7.2846,9.3575);
+\coordinate (v3) at (6.7000,9.6950);
+\coordinate (v4) at (6.1154,9.3575);
+\coordinate (v5) at (6.1154,8.6825);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.7000,8.2250) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.3885,8.6225) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.3885,9.4175) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.7000,9.8150) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.0115,9.4175) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.0115,8.6225) {6};
+\end{scope}
+\node[anchor=north west,inner sep=0pt,text width=6.9in,align=left,font=\sffamily\fontsize{9}{11.25}\selectfont] at (0.55,10.48) {Bellingham Math Circle / Week 14 / F14-K-v2};
+\node[anchor=north west,inner sep=0pt,text width=0.36in,align=left,font=\sffamily\fontsize{9}{11.25}\selectfont] at (7.56,10.48) {1};
+\end{scope}
+\end{tikzpicture}
+\null
+\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,text width=7.4in,align=left,font=\sffamily\fontsize{10.8}{13.50}\selectfont] at (0.55,0.36) {\bfseries Week 14 / Polygon triangulations and flips / K--1};
+\node[anchor=north west,inner sep=0pt,text width=7.2in,align=left,font=\sffamily\fontsize{14.2}{17.75}\selectfont] at (0.65,0.91) {\textbf{Problem 2:} Find every way to fill this five-corner shape with triangles.};
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (4.2500,2.5750);
+\coordinate (v1) at (6.0112,3.8546);
+\coordinate (v2) at (5.3385,5.9250);
+\coordinate (v3) at (3.1615,5.9250);
+\coordinate (v4) at (2.4888,3.8546);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (4.2500,2.3850) {1};
+\fill (v1) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (6.1966,3.8130) {2};
+\fill (v2) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (5.4420,6.0843) {3};
+\fill (v3) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (3.0580,6.0843) {4};
+\fill (v4) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (2.3034,3.8130) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (1.3500,6.9900);
+\coordinate (v1) at (1.8337,7.3414);
+\coordinate (v2) at (1.6489,7.9100);
+\coordinate (v3) at (1.0511,7.9100);
+\coordinate (v4) at (0.8663,7.3414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.3500,6.8700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.9508,7.3151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.7143,8.0106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (0.9857,8.0106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (0.7492,7.3151) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (3.2800,6.9900);
+\coordinate (v1) at (3.7637,7.3414);
+\coordinate (v2) at (3.5789,7.9100);
+\coordinate (v3) at (2.9811,7.9100);
+\coordinate (v4) at (2.7963,7.3414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.2800,6.8700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.8808,7.3151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.6443,8.0106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.9157,8.0106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.6792,7.3151) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (5.2200,6.9900);
+\coordinate (v1) at (5.7037,7.3414);
+\coordinate (v2) at (5.5189,7.9100);
+\coordinate (v3) at (4.9211,7.9100);
+\coordinate (v4) at (4.7363,7.3414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2200,6.8700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.8208,7.3151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.5843,8.0106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.8557,8.0106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.6192,7.3151) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (7.1500,6.9900);
+\coordinate (v1) at (7.6337,7.3414);
+\coordinate (v2) at (7.4489,7.9100);
+\coordinate (v3) at (6.8511,7.9100);
+\coordinate (v4) at (6.6663,7.3414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,6.8700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.7508,7.3151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.5143,8.0106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.7857,8.0106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.5492,7.3151) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (1.3500,8.4900);
+\coordinate (v1) at (1.8337,8.8414);
+\coordinate (v2) at (1.6489,9.4100);
+\coordinate (v3) at (1.0511,9.4100);
+\coordinate (v4) at (0.8663,8.8414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.3500,8.3700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.9508,8.8151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.7143,9.5106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (0.9857,9.5106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (0.7492,8.8151) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (3.2800,8.4900);
+\coordinate (v1) at (3.7637,8.8414);
+\coordinate (v2) at (3.5789,9.4100);
+\coordinate (v3) at (2.9811,9.4100);
+\coordinate (v4) at (2.7963,8.8414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.2800,8.3700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.8808,8.8151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.6443,9.5106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.9157,9.5106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.6792,8.8151) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (5.2200,8.4900);
+\coordinate (v1) at (5.7037,8.8414);
+\coordinate (v2) at (5.5189,9.4100);
+\coordinate (v3) at (4.9211,9.4100);
+\coordinate (v4) at (4.7363,8.8414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2200,8.3700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.8208,8.8151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.5843,9.5106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.8557,9.5106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.6192,8.8151) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (7.1500,8.4900);
+\coordinate (v1) at (7.6337,8.8414);
+\coordinate (v2) at (7.4489,9.4100);
+\coordinate (v3) at (6.8511,9.4100);
+\coordinate (v4) at (6.6663,8.8414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,8.3700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.7508,8.8151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.5143,9.5106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.7857,9.5106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.5492,8.8151) {5};
+\end{scope}
+\node[anchor=north west,inner sep=0pt,text width=6.9in,align=left,font=\sffamily\fontsize{9}{11.25}\selectfont] at (0.55,10.48) {Bellingham Math Circle / Week 14 / F14-K-v2};
+\node[anchor=north west,inner sep=0pt,text width=0.36in,align=left,font=\sffamily\fontsize{9}{11.25}\selectfont] at (7.56,10.48) {2};
+\end{scope}
+\end{tikzpicture}
+\null
+\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,text width=7.4in,align=left,font=\sffamily\fontsize{10.8}{13.50}\selectfont] at (0.55,0.36) {\bfseries Week 14 / Polygon triangulations and flips / K--1};
+\node[anchor=north west,inner sep=0pt,text width=7.2in,align=left,font=\sffamily\fontsize{14.2}{17.75}\selectfont] at (0.65,0.91) {\textbf{Problem 3:} Can you fill this shape with 3 triangles, or with 4 triangles? Explain why any impossible case cannot work.};
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (4.2500,2.0500);
+\coordinate (v1) at (6.1553,3.1500);
+\coordinate (v2) at (6.1553,5.3500);
+\coordinate (v3) at (4.2500,6.4500);
+\coordinate (v4) at (2.3447,5.3500);
+\coordinate (v5) at (2.3447,3.1500);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (4.2500,1.8600) {1};
+\fill (v1) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (6.3198,3.0550) {2};
+\fill (v2) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (6.3198,5.4450) {3};
+\fill (v3) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (4.2500,6.6400) {4};
+\fill (v4) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (2.1802,5.4450) {5};
+\fill (v5) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (2.1802,3.0550) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (1.3500,6.9000);
+\coordinate (v1) at (1.9129,7.2250);
+\coordinate (v2) at (1.9129,7.8750);
+\coordinate (v3) at (1.3500,8.2000);
+\coordinate (v4) at (0.7871,7.8750);
+\coordinate (v5) at (0.7871,7.2250);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.3500,6.7800) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.0168,7.1650) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.0168,7.9350) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.3500,8.3200) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (0.6832,7.9350) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (0.6832,7.1650) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (3.2800,6.9000);
+\coordinate (v1) at (3.8429,7.2250);
+\coordinate (v2) at (3.8429,7.8750);
+\coordinate (v3) at (3.2800,8.2000);
+\coordinate (v4) at (2.7171,7.8750);
+\coordinate (v5) at (2.7171,7.2250);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.2800,6.7800) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.9468,7.1650) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.9468,7.9350) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.2800,8.3200) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.6132,7.9350) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.6132,7.1650) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (5.2200,6.9000);
+\coordinate (v1) at (5.7829,7.2250);
+\coordinate (v2) at (5.7829,7.8750);
+\coordinate (v3) at (5.2200,8.2000);
+\coordinate (v4) at (4.6571,7.8750);
+\coordinate (v5) at (4.6571,7.2250);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2200,6.7800) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.8868,7.1650) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.8868,7.9350) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2200,8.3200) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5532,7.9350) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5532,7.1650) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (7.1500,6.9000);
+\coordinate (v1) at (7.7129,7.2250);
+\coordinate (v2) at (7.7129,7.8750);
+\coordinate (v3) at (7.1500,8.2000);
+\coordinate (v4) at (6.5871,7.8750);
+\coordinate (v5) at (6.5871,7.2250);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,6.7800) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,7.1650) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,7.9350) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,8.3200) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,7.9350) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,7.1650) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (1.3500,8.6800);
+\coordinate (v1) at (1.9129,9.0050);
+\coordinate (v2) at (1.9129,9.6550);
+\coordinate (v3) at (1.3500,9.9800);
+\coordinate (v4) at (0.7871,9.6550);
+\coordinate (v5) at (0.7871,9.0050);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.3500,8.5600) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.0168,8.9450) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.0168,9.7150) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.3500,10.1000) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (0.6832,9.7150) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (0.6832,8.9450) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (3.2800,8.6800);
+\coordinate (v1) at (3.8429,9.0050);
+\coordinate (v2) at (3.8429,9.6550);
+\coordinate (v3) at (3.2800,9.9800);
+\coordinate (v4) at (2.7171,9.6550);
+\coordinate (v5) at (2.7171,9.0050);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.2800,8.5600) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.9468,8.9450) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.9468,9.7150) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.2800,10.1000) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.6132,9.7150) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.6132,8.9450) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (5.2200,8.6800);
+\coordinate (v1) at (5.7829,9.0050);
+\coordinate (v2) at (5.7829,9.6550);
+\coordinate (v3) at (5.2200,9.9800);
+\coordinate (v4) at (4.6571,9.6550);
+\coordinate (v5) at (4.6571,9.0050);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2200,8.5600) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.8868,8.9450) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.8868,9.7150) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2200,10.1000) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5532,9.7150) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5532,8.9450) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (7.1500,8.6800);
+\coordinate (v1) at (7.7129,9.0050);
+\coordinate (v2) at (7.7129,9.6550);
+\coordinate (v3) at (7.1500,9.9800);
+\coordinate (v4) at (6.5871,9.6550);
+\coordinate (v5) at (6.5871,9.0050);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,8.5600) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,8.9450) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,9.7150) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,10.1000) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,9.7150) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,8.9450) {6};
+\end{scope}
+\node[anchor=north west,inner sep=0pt,text width=6.9in,align=left,font=\sffamily\fontsize{9}{11.25}\selectfont] at (0.55,10.48) {Bellingham Math Circle / Week 14 / F14-K-v2};
+\node[anchor=north west,inner sep=0pt,text width=0.36in,align=left,font=\sffamily\fontsize{9}{11.25}\selectfont] at (7.56,10.48) {3};
+\end{scope}
+\end{tikzpicture}
+\null
+\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,text width=7.4in,align=left,font=\sffamily\fontsize{10.8}{13.50}\selectfont] at (0.55,0.36) {\bfseries Week 14 / Polygon triangulations and flips / K--1};
+\node[anchor=north west,inner sep=0pt,text width=7.2in,align=left,font=\sffamily\fontsize{14.2}{17.75}\selectfont] at (0.65,0.91) {\textbf{Problem 4:} Fill each shape with triangles, keeping the printed line. Find every way.};
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (4.2500,1.9000);
+\coordinate (v1) at (5.4592,2.7785);
+\coordinate (v2) at (4.9973,4.2000);
+\coordinate (v3) at (3.5027,4.2000);
+\coordinate (v4) at (3.0408,2.7785);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\draw[line width=0.85pt] (v0) -- (v2);
+\fill (v0) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (4.2500,1.7100) {1};
+\fill (v1) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (5.6446,2.7369) {2};
+\fill (v2) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (5.1008,4.3593) {3};
+\fill (v3) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (3.3992,4.3593) {4};
+\fill (v4) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (2.8554,2.7369) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (1.3500,4.6500);
+\coordinate (v1) at (1.7706,4.9556);
+\coordinate (v2) at (1.6099,5.4500);
+\coordinate (v3) at (1.0901,5.4500);
+\coordinate (v4) at (0.9294,4.9556);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\draw[line width=0.85pt] (v0) -- (v2);
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.3500,4.5300) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.8877,4.9293) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.6753,5.5506) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.0247,5.5506) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (0.8123,4.9293) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (3.2800,4.6500);
+\coordinate (v1) at (3.7006,4.9556);
+\coordinate (v2) at (3.5399,5.4500);
+\coordinate (v3) at (3.0201,5.4500);
+\coordinate (v4) at (2.8594,4.9556);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\draw[line width=0.85pt] (v0) -- (v2);
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.2800,4.5300) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.8177,4.9293) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.6053,5.5506) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.9547,5.5506) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.7423,4.9293) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (5.2200,4.6500);
+\coordinate (v1) at (5.6406,4.9556);
+\coordinate (v2) at (5.4799,5.4500);
+\coordinate (v3) at (4.9601,5.4500);
+\coordinate (v4) at (4.7994,4.9556);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\draw[line width=0.85pt] (v0) -- (v2);
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2200,4.5300) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.7577,4.9293) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.5453,5.5506) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.8947,5.5506) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.6823,4.9293) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (7.1500,4.6500);
+\coordinate (v1) at (7.5706,4.9556);
+\coordinate (v2) at (7.4099,5.4500);
+\coordinate (v3) at (6.8901,5.4500);
+\coordinate (v4) at (6.7294,4.9556);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\draw[line width=0.85pt] (v0) -- (v2);
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,4.5300) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.6877,4.9293) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.4753,5.5506) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.8247,5.5506) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.6123,4.9293) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (2.3500,6.2750);
+\coordinate (v1) at (3.8439,7.1375);
+\coordinate (v2) at (3.8439,8.8625);
+\coordinate (v3) at (2.3500,9.7250);
+\coordinate (v4) at (0.8561,8.8625);
+\coordinate (v5) at (0.8561,7.1375);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\draw[line width=0.85pt] (v0) -- (v3);
+\fill (v0) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (2.3500,6.0850) {1};
+\fill (v1) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (4.0084,7.0425) {2};
+\fill (v2) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (4.0084,8.9575) {3};
+\fill (v3) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (2.3500,9.9150) {4};
+\fill (v4) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (0.6916,8.9575) {5};
+\fill (v5) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (0.6916,7.0425) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (5.2500,6.4500);
+\coordinate (v1) at (5.8129,6.7750);
+\coordinate (v2) at (5.8129,7.4250);
+\coordinate (v3) at (5.2500,7.7500);
+\coordinate (v4) at (4.6871,7.4250);
+\coordinate (v5) at (4.6871,6.7750);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\draw[line width=0.85pt] (v0) -- (v3);
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2500,6.3300) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.9168,6.7150) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.9168,7.4850) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2500,7.8700) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5832,7.4850) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5832,6.7150) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (5.2500,8.2500);
+\coordinate (v1) at (5.8129,8.5750);
+\coordinate (v2) at (5.8129,9.2250);
+\coordinate (v3) at (5.2500,9.5500);
+\coordinate (v4) at (4.6871,9.2250);
+\coordinate (v5) at (4.6871,8.5750);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\draw[line width=0.85pt] (v0) -- (v3);
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2500,8.1300) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.9168,8.5150) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.9168,9.2850) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2500,9.6700) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5832,9.2850) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5832,8.5150) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (7.1500,6.4500);
+\coordinate (v1) at (7.7129,6.7750);
+\coordinate (v2) at (7.7129,7.4250);
+\coordinate (v3) at (7.1500,7.7500);
+\coordinate (v4) at (6.5871,7.4250);
+\coordinate (v5) at (6.5871,6.7750);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\draw[line width=0.85pt] (v0) -- (v3);
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,6.3300) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,6.7150) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,7.4850) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,7.8700) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,7.4850) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,6.7150) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (7.1500,8.2500);
+\coordinate (v1) at (7.7129,8.5750);
+\coordinate (v2) at (7.7129,9.2250);
+\coordinate (v3) at (7.1500,9.5500);
+\coordinate (v4) at (6.5871,9.2250);
+\coordinate (v5) at (6.5871,8.5750);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\draw[line width=0.85pt] (v0) -- (v3);
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,8.1300) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,8.5150) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,9.2850) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,9.6700) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,9.2850) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,8.5150) {6};
+\end{scope}
+\node[anchor=north west,inner sep=0pt,text width=6.9in,align=left,font=\sffamily\fontsize{9}{11.25}\selectfont] at (0.55,10.48) {Bellingham Math Circle / Week 14 / F14-K-v2};
+\node[anchor=north west,inner sep=0pt,text width=0.36in,align=left,font=\sffamily\fontsize{9}{11.25}\selectfont] at (7.56,10.48) {4};
+\end{scope}
+\end{tikzpicture}
+\null
+\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,text width=7.4in,align=left,font=\sffamily\fontsize{10.8}{13.50}\selectfont] at (0.55,0.36) {\bfseries Week 14 / Polygon triangulations and flips / K--1};
+\node[anchor=north west,inner sep=0pt,text width=7.2in,align=left,font=\sffamily\fontsize{14.2}{17.75}\selectfont] at (0.65,0.91) {\textbf{Problem 5:} Erase one inside line and draw a different one. Keep the shape full of triangles and find every possible result from each drawing.};
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (2.3500,2.0250);
+\coordinate (v1) at (3.8439,2.8875);
+\coordinate (v2) at (3.8439,4.6125);
+\coordinate (v3) at (2.3500,5.4750);
+\coordinate (v4) at (0.8561,4.6125);
+\coordinate (v5) at (0.8561,2.8875);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\draw[line width=0.85pt] (v0) -- (v2);
+\draw[line width=0.85pt] (v0) -- (v3);
+\draw[line width=0.85pt] (v0) -- (v4);
+\fill (v0) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (2.3500,1.8350) {1};
+\fill (v1) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (4.0084,2.7925) {2};
+\fill (v2) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (4.0084,4.7075) {3};
+\fill (v3) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (2.3500,5.6650) {4};
+\fill (v4) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (0.6916,4.7075) {5};
+\fill (v5) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (0.6916,2.7925) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (5.2500,2.2000);
+\coordinate (v1) at (5.8129,2.5250);
+\coordinate (v2) at (5.8129,3.1750);
+\coordinate (v3) at (5.2500,3.5000);
+\coordinate (v4) at (4.6871,3.1750);
+\coordinate (v5) at (4.6871,2.5250);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2500,2.0800) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.9168,2.4650) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.9168,3.2350) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2500,3.6200) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5832,3.2350) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5832,2.4650) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (5.2500,4.0000);
+\coordinate (v1) at (5.8129,4.3250);
+\coordinate (v2) at (5.8129,4.9750);
+\coordinate (v3) at (5.2500,5.3000);
+\coordinate (v4) at (4.6871,4.9750);
+\coordinate (v5) at (4.6871,4.3250);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2500,3.8800) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.9168,4.2650) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.9168,5.0350) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2500,5.4200) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5832,5.0350) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5832,4.2650) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (7.1500,2.2000);
+\coordinate (v1) at (7.7129,2.5250);
+\coordinate (v2) at (7.7129,3.1750);
+\coordinate (v3) at (7.1500,3.5000);
+\coordinate (v4) at (6.5871,3.1750);
+\coordinate (v5) at (6.5871,2.5250);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,2.0800) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,2.4650) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,3.2350) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,3.6200) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,3.2350) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,2.4650) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (7.1500,4.0000);
+\coordinate (v1) at (7.7129,4.3250);
+\coordinate (v2) at (7.7129,4.9750);
+\coordinate (v3) at (7.1500,5.3000);
+\coordinate (v4) at (6.5871,4.9750);
+\coordinate (v5) at (6.5871,4.3250);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,3.8800) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,4.2650) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,5.0350) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,5.4200) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,5.0350) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,4.2650) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (2.3500,6.2750);
+\coordinate (v1) at (3.8439,7.1375);
+\coordinate (v2) at (3.8439,8.8625);
+\coordinate (v3) at (2.3500,9.7250);
+\coordinate (v4) at (0.8561,8.8625);
+\coordinate (v5) at (0.8561,7.1375);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\draw[line width=0.85pt] (v0) -- (v2);
+\draw[line width=0.85pt] (v0) -- (v4);
+\draw[line width=0.85pt] (v2) -- (v4);
+\fill (v0) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (2.3500,6.0850) {1};
+\fill (v1) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (4.0084,7.0425) {2};
+\fill (v2) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (4.0084,8.9575) {3};
+\fill (v3) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (2.3500,9.9150) {4};
+\fill (v4) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (0.6916,8.9575) {5};
+\fill (v5) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (0.6916,7.0425) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (5.2500,6.4500);
+\coordinate (v1) at (5.8129,6.7750);
+\coordinate (v2) at (5.8129,7.4250);
+\coordinate (v3) at (5.2500,7.7500);
+\coordinate (v4) at (4.6871,7.4250);
+\coordinate (v5) at (4.6871,6.7750);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2500,6.3300) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.9168,6.7150) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.9168,7.4850) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2500,7.8700) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5832,7.4850) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5832,6.7150) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (5.2500,8.2500);
+\coordinate (v1) at (5.8129,8.5750);
+\coordinate (v2) at (5.8129,9.2250);
+\coordinate (v3) at (5.2500,9.5500);
+\coordinate (v4) at (4.6871,9.2250);
+\coordinate (v5) at (4.6871,8.5750);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2500,8.1300) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.9168,8.5150) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.9168,9.2850) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2500,9.6700) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5832,9.2850) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.5832,8.5150) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (7.1500,6.4500);
+\coordinate (v1) at (7.7129,6.7750);
+\coordinate (v2) at (7.7129,7.4250);
+\coordinate (v3) at (7.1500,7.7500);
+\coordinate (v4) at (6.5871,7.4250);
+\coordinate (v5) at (6.5871,6.7750);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,6.3300) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,6.7150) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,7.4850) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,7.8700) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,7.4850) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,6.7150) {6};
+\end{scope}
+\begin{scope}
+% polygon: regular n=6
+\coordinate (v0) at (7.1500,8.2500);
+\coordinate (v1) at (7.7129,8.5750);
+\coordinate (v2) at (7.7129,9.2250);
+\coordinate (v3) at (7.1500,9.5500);
+\coordinate (v4) at (6.5871,9.2250);
+\coordinate (v5) at (6.5871,8.5750);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,8.1300) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,8.5150) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.8168,9.2850) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,9.6700) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,9.2850) {5};
+\fill (v5) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.4832,8.5150) {6};
+\end{scope}
+\node[anchor=north west,inner sep=0pt,text width=6.9in,align=left,font=\sffamily\fontsize{9}{11.25}\selectfont] at (0.55,10.48) {Bellingham Math Circle / Week 14 / F14-K-v2};
+\node[anchor=north west,inner sep=0pt,text width=0.36in,align=left,font=\sffamily\fontsize{9}{11.25}\selectfont] at (7.56,10.48) {5};
+\end{scope}
+\end{tikzpicture}
+\null
+\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,text width=7.4in,align=left,font=\sffamily\fontsize{10.8}{13.50}\selectfont] at (0.55,0.36) {\bfseries Week 14 / Polygon triangulations and flips / K--1};
+\node[anchor=north west,inner sep=0pt,text width=7.2in,align=left,font=\sffamily\fontsize{14.2}{17.75}\selectfont] at (0.65,0.91) {\textbf{Problem 6:} Start with this filling and change one inside line at a time. Can you visit every other filling once and then return?};
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (4.2500,2.5750);
+\coordinate (v1) at (6.0112,3.8546);
+\coordinate (v2) at (5.3385,5.9250);
+\coordinate (v3) at (3.1615,5.9250);
+\coordinate (v4) at (2.4888,3.8546);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\draw[line width=0.85pt] (v0) -- (v2);
+\draw[line width=0.85pt] (v0) -- (v3);
+\fill (v0) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (4.2500,2.3850) {1};
+\fill (v1) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (6.1966,3.8130) {2};
+\fill (v2) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (5.4420,6.0843) {3};
+\fill (v3) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (3.0580,6.0843) {4};
+\fill (v4) circle[radius=0.022in];
+\node[inner sep=0pt,font=\sffamily\fontsize{13}{14}\selectfont] at (2.3034,3.8130) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (1.3500,6.9900);
+\coordinate (v1) at (1.8337,7.3414);
+\coordinate (v2) at (1.6489,7.9100);
+\coordinate (v3) at (1.0511,7.9100);
+\coordinate (v4) at (0.8663,7.3414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.3500,6.8700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.9508,7.3151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.7143,8.0106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (0.9857,8.0106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (0.7492,7.3151) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (3.2800,6.9900);
+\coordinate (v1) at (3.7637,7.3414);
+\coordinate (v2) at (3.5789,7.9100);
+\coordinate (v3) at (2.9811,7.9100);
+\coordinate (v4) at (2.7963,7.3414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.2800,6.8700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.8808,7.3151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.6443,8.0106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.9157,8.0106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.6792,7.3151) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (5.2200,6.9900);
+\coordinate (v1) at (5.7037,7.3414);
+\coordinate (v2) at (5.5189,7.9100);
+\coordinate (v3) at (4.9211,7.9100);
+\coordinate (v4) at (4.7363,7.3414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2200,6.8700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.8208,7.3151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.5843,8.0106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.8557,8.0106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.6192,7.3151) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (7.1500,6.9900);
+\coordinate (v1) at (7.6337,7.3414);
+\coordinate (v2) at (7.4489,7.9100);
+\coordinate (v3) at (6.8511,7.9100);
+\coordinate (v4) at (6.6663,7.3414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,6.8700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.7508,7.3151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.5143,8.0106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.7857,8.0106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.5492,7.3151) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (1.3500,8.4900);
+\coordinate (v1) at (1.8337,8.8414);
+\coordinate (v2) at (1.6489,9.4100);
+\coordinate (v3) at (1.0511,9.4100);
+\coordinate (v4) at (0.8663,8.8414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.3500,8.3700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.9508,8.8151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (1.7143,9.5106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (0.9857,9.5106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (0.7492,8.8151) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (3.2800,8.4900);
+\coordinate (v1) at (3.7637,8.8414);
+\coordinate (v2) at (3.5789,9.4100);
+\coordinate (v3) at (2.9811,9.4100);
+\coordinate (v4) at (2.7963,8.8414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.2800,8.3700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.8808,8.8151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (3.6443,9.5106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.9157,9.5106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (2.6792,8.8151) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (5.2200,8.4900);
+\coordinate (v1) at (5.7037,8.8414);
+\coordinate (v2) at (5.5189,9.4100);
+\coordinate (v3) at (4.9211,9.4100);
+\coordinate (v4) at (4.7363,8.8414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.2200,8.3700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.8208,8.8151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (5.5843,9.5106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.8557,9.5106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (4.6192,8.8151) {5};
+\end{scope}
+\begin{scope}
+% polygon: regular n=5
+\coordinate (v0) at (7.1500,8.4900);
+\coordinate (v1) at (7.6337,8.8414);
+\coordinate (v2) at (7.4489,9.4100);
+\coordinate (v3) at (6.8511,9.4100);
+\coordinate (v4) at (6.6663,8.8414);
+\draw[line width=0.95pt,line join=round] (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- cycle;
+\fill (v0) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.1500,8.3700) {1};
+\fill (v1) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.7508,8.8151) {2};
+\fill (v2) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (7.5143,9.5106) {3};
+\fill (v3) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.7857,9.5106) {4};
+\fill (v4) circle[radius=0.014in];
+\node[inner sep=0pt,font=\sffamily\fontsize{8}{14}\selectfont] at (6.5492,8.8151) {5};
+\end{scope}
+\node[anchor=north west,inner sep=0pt,text width=6.9in,align=left,font=\sffamily\fontsize{9}{11.25}\selectfont] at (0.55,10.48) {Bellingham Math Circle / Week 14 / F14-K-v2};
+\node[anchor=north west,inner sep=0pt,text width=0.36in,align=left,font=\sffamily\fontsize{9}{11.25}\selectfont] at (7.56,10.48) {6};
+\end{scope}
+\end{tikzpicture}
+\null
+\end{document}

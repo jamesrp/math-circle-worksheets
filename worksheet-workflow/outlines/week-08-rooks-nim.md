@@ -1,0 +1,17 @@
+Week 8: Rook race and Nim
+
+Page header: "Week 8 / Rook race and Nim / K–1", with "Grades 2–3" and "Grades 4–5" for the other packets. Packet ids: F08-K-v4, F08-M-v4, F08-U-v4; the footer reads "Bellingham Math Circle / Week 8 / <id>".
+
+Mathematical kernels
+
+1. Rook to the corner. A token sits on a square grid with one corner marked by a star. Players take turns moving the token any number of squares straight toward the star's row or the star's column: along a row toward the star's side, or along a column toward the star's side (one direction per move, at least one square, never past the edge). Whoever moves the token onto the star wins. The squares on the diagonal through the star (as far from the star's row as from the star's column) are exactly the losing squares for the player about to move: from a diagonal square every move leaves the diagonal, and from any other square one move reaches the diagonal. A square a steps from the star's column and b steps from the star's row is the same as two piles of a and b counters, where a turn removes any number from one pile and taking the last counter wins; the winning strategy is to make the piles equal and then copy.
+
+2. Three-pile Nim. Three piles; a turn removes one or more counters from one pile; whoever takes the last counter wins. Some small facts: (1, 1, 1) and (1, 1, 2) are wins for the player to move; (1, 2, 3) is a loss for the player to move, because every move leaves a position from which the opponent can reach two equal piles and an empty pile. In general, write each pile as a sum of different numbers from 1, 2, 4, 8 (binary bundles); a position is losing for the player to move exactly when every bundle size is used an even number of times in total. Examples of losing positions: (1, 2, 3), (1, 4, 5), (2, 4, 6), (3, 5, 6), (2, 5, 7). From any position that is not balanced there is a move that balances it, and from a balanced position every move unbalances it. Source: Bouton, "Nim, a game with a complete mathematical theory" (1901).
+
+3. Queen to the corner (extension). If the token may also move diagonally toward the star, the losing squares change: as distances (a, b) from the star they are (0, 0), (1, 2), (2, 1), (3, 5), (5, 3), (4, 7), (7, 4), (6, 10), (10, 6), … (Wythoff's game). Each difference 1, 2, 3, 4, … occurs exactly once, and each whole number appears exactly once among all the coordinates of these pairs (counting each pair once). Source: Wythoff (1907); Berlekamp, Conway and Guy, Winning Ways.
+
+Suggested emphasis by level: K–1 plays the rook race on small boards (3-by-3 and 4-by-4) with a partner and the adult, looking for the squares they want to move to, and plays two-pile games where copying wins; grades 2–3 mark winning and losing squares on a larger board, connect the board to two piles, and play small three-pile games; grades 4–5 play three-pile Nim, find balanced positions and a way to always win, use binary bundles as a later step, and try the queen game as an extension.
+
+Materials
+
+Printed boards from 3-by-3 up to 8-by-8 with squares about 1 inch and a star in one corner square; one token per pair (any pattern block). Counters, plenty. Coloured pencils, paper, pencils, small whiteboards. Children play in pairs; at the 4–5 table the third child plays the adult or referees, rotating every game. The opponent checks that every move is legal (one direction per move, toward the star).

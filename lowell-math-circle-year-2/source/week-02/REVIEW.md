@@ -1,29 +1,33 @@
-# Week 2 review record
+# Week 2 shared collection: review record
 
-Reviewed September 19, 2026, by the authoring agent. This is an author review, not a claim that a fresh independent subagent reviewed this packet. The coordinating agent separately checked core mathematics and visually reviewed the core student pages as part of the full Weeks 2–10 batch.
+Prepared September 28, 2026, after the organizer approved a shared collection. **Unpiloted.** This record describes author and independent review, not observed classroom success. Previous review records and all seven preceding PDFs are preserved in `archive-before-shared-collection-2026-09-28/`.
+
+## Scope and classroom decisions
+
+The new student PDF is **42 US Letter pages, 50 problems, F02-S-v1**. The unified adult guide is **16 pages, F02-S-FAC-v1**. Everyone shares an initial pair-move demonstration. Five groups of pages provide exploration, state collection, shorter solutions, drawing, and networks; they are choices, not a linear completion requirement. No grade labels remain on student pages.
+
+The ten-child roster KK1 / 3333 / 445 and three adults remain the basis for staffing. Stable tables keep adult coverage manageable, while adults offer pages by the next useful action and readiness. The parent receives scripts, simple successful examples, stopping points, and drawing alternatives. Paper/pencils/erasers or whiteboard tablets suffice; existing counters remain an option. No construction accessories were added. Guide page 1 supplies the print recipe and hour; page 2 supplies the complete page finder.
+
+The preceding concrete activities and mathematics are retained. Four-lamp boards now share one diamond orientation. The earlier advanced network packet is expanded from three dense pages to eight pictured investigations with local working mats. The two longer ring investigations retain numbered continuations. A tie between unrestricted move lists is explicitly allowed in Problem 24, while the non-tie claim for the five-ring is restricted to complementary reduced solutions.
 
 ## Mathematical checks
 
-All edge subsets on cycles of sizes 4–7: respectively 8,16,32,64 even targets; exactly two complementary reduced solutions per target; maximum minimum floor(n/2). The two optimization targets, disconnected obstruction, and all 32 even targets on a six-vertex tree also pass.
+- `verify.py`: exhaustive edge subsets on cycles 4–7 confirm all and only even targets, two complementary reduced solutions per reachable target, and worst minimum floor(n/2). Disconnected component examples and all 32 even targets on the printed tree pass, along with the bridge, path, and forced-choice examples.
+- `plans/verify-week-02-shared.py`: runs the independent graph/room model against the shared JSON data. Five graph classifications, nineteen concrete target checks, and ten exact-rational room constructions pass. An independent state-space BFS checks reachability and minimum moves; one-light walks retain the one-light condition at every step. Planar face traversal, area/Euler checks and symbol enumeration check rooms, including corner-only non-adjacency and the T-map requiring three symbols.
+- A separate reviewer checked every adult-guide solution, printed target, page mapping, complement/closure case, cut count, and room argument. The component table includes its added all-OFF and BC examples. Problem 42 stops after three walls even when used with a larger group.
 
-All child-facing claims are accompanied by constructions, invariants, exhaustive cases, or other explanations in the facilitator guide. Research links were checked against primary or author-hosted sources; exact page/section references and the distinction between the classroom result and the broader research are in the redesign plan. Downloaded MSRI and relevant Lowell content were read. No unfinished conjecture is advertised as a current open problem.
+The guide distinguishes a failed attempt from a proof, and setting a starting picture by hand from reaching it through legal moves. Proofs use endpoint counts, path cancellation, components, cycle complements, forced decisions and tree cuts; formal notation and independent writing are not prerequisites.
 
-## Visual and build checks
+## Layout and integration checks
 
-Final output counts: **K–1 2 / grades 2–3 2 / grades 4–5 3 / extra 1 / facilitator 4**. All five PDFs are US Letter, 612×792 points: **12 pages total**. All final pages were rendered to PNG and visually inspected, including corrected pages after rebuilding. Text, diagrams, table headings, answer spaces, and footers are legible with no clipping or overlap. The final builds have no LaTeX warnings and no overfull or underfull boxes.
+All 42 student pages were rendered and visually inspected across their component PDFs. The final changed Problem 24 page was re-rendered at higher resolution. All 16 guide pages were rendered and reviewed; an independent source review additionally checked their mathematics and classroom directions. Working boards are blank so dots can be erased; only target miniatures contain permanent ON states. Page 15 distinguishes a saved all-OFF state from an unused record. Selected-road diagrams remain visually distinct from lamp-state diagrams.
 
-The initial middle packet had an orphaned footer, and the extra spilled onto a second page. Diagram/answer-space adjustment and retaining research exposition in the facilitator corrected both. The final extra is exactly one page. The coordinating review also requested an in-place definition of a tree; this is included in Task 3 and its final page was rendered and inspected again.
+`assemble-shared.py` checks US Letter geometry, text bounds, header/footer IDs, no obsolete grade/name/date labels, exact page-to-problem mappings, all 50 problem numbers, and the 42-page total. The guide receives the same geometry/text checks. The TeX components compile to 8, 12 and 8 pages without overfull boxes; the ReportLab exploration/drawing component contributes 14 pages. Five PDF bookmarks match the adult page finder.
 
-The font hierarchy and monochrome diagram style follow Week 1's printable packet. Core bodies use 14pt for K–1 and 12pt for middle/upper; the compact extra uses 11pt. Facilitator exposition uses 12pt. Explanations may be spoken or demonstrated rather than written into every box.
+The five combined Weeks 2–10 files use the shared student PDF for every Week 2 student section and the shared guide for the Week 2 facilitator section. Their covers explain this and discourage duplicate Week 2 printing. Grade distinctions remain for Weeks 3–10. Assembly regenerates contents ranges and bookmarks and checks every page. Current filenames and links point to the shared outputs; earlier separate packets are kept only in the archive.
 
-## Limits and use history
+Editable sources and mathematical data remain separate from output and render intermediates. Renders and check reports are under `tmp/pdfs/week-02-shared/` and the guide render folder; canonical mathematical results are in `plans/week-02-shared-checks.json`.
 
-This verifies mathematical correctness and print layout; it does not establish classroom pacing or readiness for individual children. The facilitator gives a flexible 60-minute plan with reserve work. Record tasks actually attempted under F02-K/M/U/X-v2, and preserve unused questions for future sessions.
+## What remains to learn in the room
 
-## September 20, 2026 review implementation
-
-Corrected the tree cut rule to odd/even numbers of presses, retaining uniqueness and shortestness only for the solution using each edge at most once. The upper forced-choice prompt now explicitly asks why no later choice remains and why both first choices exhaust the reduced solutions. All three group levels now have a satisfying stopping point and an optional proof continuation. The plan and facilitator use the shared 0–10 / 10–15 / 15–35 / 35–40 movement-reset / 40–55 / 55–60 rhythm.
-
-The revising agent reran the existing `verify.py` via the packet build; all mathematical checks passed. The tree parity, exhaustive partition, and subtraction-strip arguments were also checked as proofs, independently of the finite computations. Relevant downloaded teaching passages were reread: *Math Circle by the Bay*, preface viii–x, and Rozhkovskaya’s Lessons 3, 7, and 8 “At the lesson.” The new scaffolds are our suggestions, not claims quoted from those sources.
-
-Rebuilt all five individual PDFs. Final counts remain K–1 2 / middle 2 / upper 3 / extra 1 / facilitator 4: **12 US Letter pages**. Fresh Poppler rendering and visual inspection covered every page in this week; changed pages were inspected again after the final rebuild. No clipping, overlaps, broken symbols, LaTeX warnings, or overfull/underfull boxes were found. Added stop/proof notes were condensed to keep the four-page facilitator layout. Rendered PDF text was checked for the revised wording. This is revision-author QA, not a claim of independent review or classroom validation.
+Record exact pages and targets used, unprompted legal moves, successful replay of records, room counting, explanations, frustration or repeated adult rescue, and what children wanted next. Record page choices across tables and whether the parent could use the guide without leaving their table. Separate observations from hypotheses. Unused pages remain reserves for future variations; a mathematically checked and printed activity is not yet classroom-tested.

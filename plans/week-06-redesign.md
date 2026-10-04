@@ -1,6 +1,6 @@
 # Week 6: How many tests does a secret need?
 
-Prepared September 19, 2026. Replaces the earlier depth of F06, retaining the common hands-on theme. Grade bands are entry points. The one-page grades 6–7 extra is optional.
+Revised September 27, 2026, applying the adopted Week 1 classroom guidance. Grade bands are entry points. All v3 revisions and their optional multi-page extras are **unpiloted**. The Week 1 observations are evidence about that session, not observations of Week 6.
 
 ## The mathematical work
 
@@ -8,18 +8,27 @@ Adaptive decision trees, minimax query selection, indistinguishability lower bou
 
 | Entry level | Investigation |
 | --- | --- |
-| K–1 · F06-K-v2 | Eliminate candidates physically, make all branches of a two-position decision tree, and show why one test is insufficient. |
-| 2–3 · F06-M-v2 | Build a three-test identification method and show why no two-test method always works, using an unavoidable three-secret branch. |
-| 4–5 · F06-U-v2 | Prove four tests suffice and three cannot for four binary positions, using symmetries and adversarial score partitions. |
-| Extra 6–7 · F06-X-v2 | Decode five-bit words from four fixed probes in a published research construction; prove all 32 signatures differ using pair sums. |
+| K–1 · F06-K-v3 | Eliminate candidates physically, make all branches of a two-position decision tree, and show why one test is insufficient. |
+| 2–3 · F06-M-v3 | Build a three-test identification method and show why no two-test method always works, using an unavoidable three-secret branch. |
+| 4–5 · F06-U-v3 | Prove four tests suffice and three cannot for four binary positions, using symmetries and adversarial score partitions. |
+| Extra 6–7 · F06-X-v3 | Decode five-bit words from four fixed probes in a published research construction; prove all 32 signatures differ using pair sums. |
 
 ## Prerequisites and preparation
 
 K–1: match positions and count 0–2, no independent reading; exclude inconsistent examples. Middle: counts to 3 and ±1 score changes; complete finite cases. Upper: counts to 4 and casework; worst-case reasoning and symmetry. Extra: bits, small sums, variables or placeholder counters; distinguish fixed from adaptive queries.
 
-Two counter types, symbols or R/B labels for accessibility, three folded-paper screens, pencil records, position strips. About 12 counters of each type per group; reuse test counters after recording. Preparation: about 10 minutes.
+Two counter types, symbols or R/B labels for accessibility, three folded-paper screens, pencil records, position strips. Use 12 counters of each type for the K and middle groups, and 16 of each type for the upper group so all six candidate rows and a test can remain visible. Reuse test counters after recording. Preparation: about 10 minutes.
 
-Current roster: K,K,1 / 3,3,3 / 5. Print three K–1 packets (two pages each), three middle (two each), one upper (three): 15 student sheets; add one extra if needed. Facilitator prints separately. US Letter, single-sided, 100%; grids are workspaces rather than calibrated physical templates.
+Current roster: K,K,1 / 3,3,3 / 5. **Start with page 1 for each child: seven student sheets.** Keep remaining pages as continuation masters and copy the next stage only when useful; preserve earlier records beside later tasks. Complete packet lengths are K–1 3, middle 3, upper 4, optional extra 3, facilitator 6 pages. Printing all core packets for the roster would use 22 sheets, but that is not the default session print plan. US Letter, single-sided, 100%; grids are recording spaces rather than calibrated physical templates.
+
+## Concrete work before each new representation
+
+- K–1: score visible secrets and play, filter four concrete candidate rows, compare an unhelpful repeated test with a separating test, then build and replay a tree.
+- Grades 2–3: score and play first, compare four contrasting secrets under the baseline method, recover a hidden secret, then test a difficult three-candidate branch and a concrete color-renaming operation.
+- Grades 4–5: record play and single-position score changes, try four complete baseline signatures, recover a hidden secret, then sort six candidates and test the triple/quartet obstructions. Every-query symmetry proofs remain adult-supported follow-ups.
+- Extra: score visible words and two hidden games, isolate all four two-bit contributions, decode the original example, build all four ambiguous-pair-count cases, and return to the hidden records. The general proof and hypercube language follow successful decoding.
+
+Give one page at a time and choose a continuation by demonstrated readiness. Proof questions and hints remain in the facilitator guide, including complete arguments supporting the finite checks. Each student page now uses only the common header/footer and numbered problems with essential rules, next actions, diagrams, and recording space.
 
 ## Default 60-minute flow, adjusted to the children
 
@@ -31,7 +40,7 @@ Current roster: K,K,1 / 3,3,3 / 5. Print three K–1 packets (two pages each), t
 
 35–40: Movement/reset. Preserve candidate rows and records for the return.
 
-40–55: Continue the current method or choose an adult-supported lower-bound proof below. The upper third page and extra are reserves. Stop repetitive table calculations once the child explains the score structure.
+40–55: Continue the current method or choose an adult-supported lower-bound proof below. The upper comparison/proof continuation and extra are reserves. Stop repetitive table calculations once the child explains the score structure.
 
 55–60: Share one method and why it works, then tidy.
 
@@ -43,7 +52,7 @@ Current roster: K,K,1 / 3,3,3 / 5. Print three K–1 packets (two pages each), t
 
 One adult stays primarily with K,K,1. The organizer alternates middle and upper proof conversations; give the other group a concrete next attempt, such as testing a partner's secret or sorting candidate cards. Preserve two opposing sides and rotate a checker in each triplet. Do not start both older groups' lower-bound proofs at once. A proved upper bound is a complete worthwhile outcome; record RRR-first obstruction separately if the middle symmetry discussion is not reached.
 
-**Hints:** Keep candidate rows and every score visible. Change one place while holding the others at baseline. For lower bounds, be the difficult but consistent setter. Queries need not be possible secrets. The upper third page is a proof reserve, not a required completion target.
+**Hints:** Keep candidate rows and every score visible. Change one place while holding the others at baseline. For lower bounds, be the difficult but consistent setter. Queries need not be possible secrets. The upper final pages are a proof reserve, not a required completion target.
 
 The facilitator packet gives exact checked solutions, prompts, and optional reasoning. Children can point, build, dictate, or draw.
 
@@ -66,4 +75,10 @@ Run **python3 plans/verify-week-06.py**. Computation verifies finite instances; 
 
 JRMF binary rules remain; old fixed histories are replaced by methods and exact bounds. Related Week 3 identification deepens through an ordered-string score model, adaptive queries, adversarial bounds, and hypercube geometry. Save more colors, noisy feedback, coin weighing, and average-case strategy for later.
 
-Status: **prepared, not taught**. Record exact instances, claims proved, hints, and extra branches in the shared use log. Untouched reserves remain available. [Print/source index](../lowell-math-circle-year-2/source/week-06/README.md) and [review](../lowell-math-circle-year-2/source/week-06/REVIEW.md).
+Status: **v3 prepared, unpiloted; no Week 6 classroom observations supplied**. Record exact instances, claims proved, hints, and extra branches in the shared use log. Untouched reserves remain available. [Print/source index](../lowell-math-circle-year-2/source/week-06/README.md) and [review](../lowell-math-circle-year-2/source/week-06/REVIEW.md).
+
+## Review after first use
+
+Record the exact problems attempted, examples built, claims explained, prompts needing repeated adult rescue, time spent recording versus acting, and what children wanted to continue. Distinguish observations from hypotheses and proposed changes. A completed chart is not evidence that its general argument was established; prepared reserves remain unused until recorded otherwise. See the [Week 1 classroom review](week-01-classroom-review.md) for the actual observations behind this revision.
+
+Source distinction: *Math Circle by the Bay*, printed pp. ix–x supports flexible pace, manipulatives, and explanations; Rozhkovskaya, Lessons 3, 7, and 8, “At the lesson,” supports attempts before tables, checking legal actions, and adjusting recording. Our exact added examples, worksheet format, and common launch respond to the organizer's guidance.

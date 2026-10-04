@@ -1,0 +1,167 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc}
+\usepackage[margin=0.65in]{geometry}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\definecolor{ink}{gray}{0.12}
+\definecolor{rulegray}{gray}{0.65}
+\newcommand{\On}{\tikz[baseline=-.5ex]{\fill[ink] (0,0) circle (.11cm);}}
+\newcommand{\Off}{\tikz[baseline=-.5ex]{\draw[ink] (0,0) circle (.11cm);}}
+\newcommand{\framepage}[1]{%
+  \node[anchor=west,font=\sffamily\fontsize{10.7}{12}\selectfont] at ([xshift=1.65cm,yshift=-1.3cm]current page.north west) {Week 2 / Lamp return visits / Grades 2--5};
+  \draw[rulegray,line width=.4pt] ([xshift=1.65cm,yshift=-1.78cm]current page.north west) -- ([xshift=19.94cm,yshift=-1.78cm]current page.north west);
+  \node[anchor=west,font=\sffamily\fontsize{9}{11}\selectfont] at ([xshift=1.65cm,yshift=-26.65cm]current page.north west) {Bellingham Math Circle / Week 2 / F02-R-v1};
+  \node[anchor=east,font=\sffamily\fontsize{9}{11}\selectfont] at ([xshift=19.94cm,yshift=-26.65cm]current page.north west) {#1};
+}
+% Small state row. Arguments: center x, center y, n, comma-separated ON lamps.
+\newcommand{\staterow}[4]{%
+  \foreach \i in {1,...,#3}{%
+    \pgfmathsetmacro{\xx}{#1+(\i-(#3+1)/2)*.66}
+    \def\islit{0}\foreach \j in {#4}{\ifnum\i=\j\relax\xdef\islit{1}\fi}
+    \ifnum\islit=1\filldraw[ink,line width=.6pt] (\xx,#2) circle (.19);\else\draw[ink,line width=.6pt,fill=white] (\xx,#2) circle (.19);\fi
+    \node[font=\sffamily\fontsize{8.5}{10}\selectfont] at (\xx,{#2+.38}) {\i};
+  }
+}
+% Real counter board: each circular position is 21 mm across.
+\newcommand{\ringboard}[4]{%
+  \foreach \i in {1,...,#3}{\pgfmathsetmacro{\ang}{90-360*(\i-1)/#3}\coordinate (r\i) at ($(#1,#2)+(\ang:#4)$);}
+  \foreach \i in {1,...,#3}{\pgfmathtruncatemacro{\j}{mod(\i,#3)+1}\draw[ink,line width=.7pt] (r\i)--(r\j);}
+  \foreach \i in {1,...,#3}{%
+    \draw[ink,line width=.75pt,fill=white] (r\i) circle (1.05);
+    \pgfmathsetmacro{\ang}{90-360*(\i-1)/#3}
+    \node[font=\sffamily\fontsize{12}{14}\selectfont] at ($(#1,#2)+(\ang:{#4+1.34})$) {\i};
+  }
+  \node[font=\sffamily\fontsize{11}{13}\selectfont] at (#1,#2) {#3 lamps};
+}
+\newcommand{\miniring}[4]{%
+  \foreach \i in {1,...,#3}{\pgfmathsetmacro{\ang}{90-360*(\i-1)/#3}\coordinate (m\i) at ($(#1,#2)+(\ang:.78)$);}
+  \foreach \i in {1,...,#3}{\pgfmathtruncatemacro{\j}{mod(\i,#3)+1}\draw[ink,line width=.35pt] (m\i)--(m\j);}
+  \foreach \i in {1,...,#3}{%
+    \def\islit{0}\foreach \j in {#4}{\ifnum\i=\j\relax\xdef\islit{1}\fi}
+    \ifnum\islit=1\filldraw[ink] (m\i) circle (.13);\else\draw[ink,fill=white] (m\i) circle (.13);\fi
+    \pgfmathsetmacro{\ang}{90-360*(\i-1)/#3}
+    \node[font=\sffamily\fontsize{8}{9}\selectfont] at ($(#1,#2)+(\ang:1.08)$) {\i};
+  }
+}
+\begin{document}
+\null
+\begin{tikzpicture}[remember picture,overlay,color=ink,font=\sffamily\fontsize{11.5}{14.3}\selectfont]
+\framepage{1}
+\begin{scope}[shift={([xshift=1.65cm,yshift=-2.35cm]current page.north west)}]
+\node[anchor=north west,align=left,text width=18.25cm] at (0,0) {Choose ON and OFF faces for the counters. In pictures, \On\ = ON and \Off\ = OFF.};
+\node[anchor=north west,align=left,text width=18.25cm] at (0,-.75) {\textbf{Problem 1:} Your partner circles none, some, or all lamp numbers on each switch card and hides the cards. The cards stay fixed during a round. Start with all lamps OFF. Call one or more switches. For each switch you call, your partner flips every lamp named on its card. Find what A, B, and C change. Shade the ON lamps in your trial records, then trade jobs with new cards.};
+% Non-task four-lamp example: the mask acts on an unchanged ON/OFF convention.
+\node[font=\sffamily\fontsize{10}{12}\selectfont] at (3.1,-3.25) {Before};
+\staterow{3.1}{-4.0}{4}{1,3}
+\draw[-{Stealth[length=2mm]},line width=.65pt] (5.05,-4)--(6.2,-4);
+\draw[ink,rounded corners=2pt] (6.55,-4.7) rectangle (11.7,-3.3);
+\node[font=\sffamily\fontsize{10}{12}\selectfont] at (9.125,-3.57) {Switch X};
+\foreach \i in {1,...,4}{\pgfmathsetmacro{\xx}{7.475+(\i-1)*1.1}\node at (\xx,-4.15) {\i};}
+\draw[line width=.8pt] (7.475,-4.15) circle (.29);
+\draw[line width=.8pt] (10.775,-4.15) circle (.29);
+\draw[-{Stealth[length=2mm]},line width=.65pt] (12.05,-4)--(13.2,-4);
+\node[font=\sffamily\fontsize{10}{12}\selectfont] at (15.1,-3.25) {After};
+\staterow{15.1}{-4.0}{4}{3,4}
+% The three-counter playing board.
+\foreach \i in {1,...,3}{\pgfmathsetmacro{\xx}{5.55+(\i-1)*3.55}\draw[line width=.75pt,fill=white] (\xx,-6.7) circle (1.05);\node at (\xx,-5.35) {\i};}
+% Trial sheet: a shaded circle means an ON lamp.
+\node[font=\sffamily\fontsize{10}{12}\selectfont] at (3.0,-8.35) {Switches called};
+\node[font=\sffamily\fontsize{10}{12}\selectfont] at (9.0,-8.35) {Before};
+\node[font=\sffamily\fontsize{10}{12}\selectfont] at (15.0,-8.35) {After};
+\draw[rulegray,line width=.55pt] (0,-8.8) rectangle (18.25,-17.05);
+\draw[rulegray,line width=.55pt] (6.1,-8.8)--(6.1,-17.05);
+\draw[rulegray,line width=.55pt] (12.2,-8.8)--(12.2,-17.05);
+\foreach \r in {1,...,5}{%
+  \pgfmathsetmacro{\yy}{-9.625-(\r-1)*1.65}
+  \node[font=\sffamily\fontsize{9}{11}\selectfont] at (.5,\yy) {\r};
+  \foreach \letter/\xx in {A/1.6,B/3.0,C/4.4}{\draw[ink,line width=.5pt] (\xx-.2,\yy-.18) rectangle (\xx+.2,\yy+.22);\node[anchor=west] at (\xx+.28,\yy) {\letter};}
+  \staterow{9.0}{\yy}{3}{0}\staterow{15.0}{\yy}{3}{0}
+  \ifnum\r<5\pgfmathsetmacro{\liney}{-8.8-\r*1.65}\draw[rulegray,line width=.45pt] (0,\liney)--(18.25,\liney);\fi
+}
+\node[anchor=west,font=\sffamily\fontsize{10.5}{13}\selectfont] at (.2,-18.0) {A changes:};\draw[rulegray] (2.4,-18.15)--(5.65,-18.15);
+\node[anchor=west,font=\sffamily\fontsize{10.5}{13}\selectfont] at (6.3,-18.0) {B changes:};\draw[rulegray] (8.5,-18.15)--(11.75,-18.15);
+\node[anchor=west,font=\sffamily\fontsize{10.5}{13}\selectfont] at (12.4,-18.0) {C changes:};\draw[rulegray] (14.6,-18.15)--(17.85,-18.15);
+% Detachable switch-card strip. Adult preparation is deliberately absent from the student page.
+\draw[rulegray,dashed,line width=.5pt] (0,-19.35)--(18.25,-19.35);
+\foreach \letter/\xx in {A/0.25,B/6.4,C/12.55}{%
+  \draw[ink,line width=.6pt,rounded corners=2pt] (\xx,-22.65) rectangle (\xx+5.45,-20.0);
+  \node at (\xx+2.725,-20.55) {Switch \letter};
+  \foreach \i in {1,...,3}{\pgfmathsetmacro{\pos}{\xx+1.1+(\i-1)*1.625}\node[font=\sffamily\fontsize{15}{17}\selectfont] at (\pos,-21.65) {\i};}
+}
+\end{scope}
+\end{tikzpicture}
+\newpage\null
+\begin{tikzpicture}[remember picture,overlay,color=ink,font=\sffamily\fontsize{11.5}{14.3}\selectfont]
+\framepage{2}
+\begin{scope}[shift={([xshift=1.65cm,yshift=-2.35cm]current page.north west)}]
+\node[anchor=north west,align=left,text width=18.25cm] at (0,0) {\textbf{Problem 2:} Start each target with all lamps OFF and all switch numbers uncircled. Call a switch number; your partner flips that lamp and the next two lamps clockwise. Make each target picture, or cross it out if you think it cannot be made. Circle each switch number when you press it; erase the circle if you press it again.};
+% The worked seven-lamp example demonstrates the wrap across lamp 1.
+\node[font=\sffamily\fontsize{10}{12}\selectfont] at (3.65,-2.6) {Before: 7 lamps};
+\miniring{3.65}{-4.05}{7}{0}
+\draw[-{Stealth[length=2mm]},line width=.65pt] (5.2,-4.05)--(6.7,-4.05);
+\node[align=center,font=\sffamily\fontsize{10.5}{13}\selectfont] at (9.125,-4.05) {Press 6\\flip 6, 7, 1};
+\draw[-{Stealth[length=2mm]},line width=.65pt] (11.55,-4.05)--(13.05,-4.05);
+\node[font=\sffamily\fontsize{10}{12}\selectfont] at (14.6,-2.6) {After};
+\miniring{14.6}{-4.05}{7}{1,6,7}
+% Each edge spacing is greater than the 21 mm counter-position diameter.
+\ringboard{4.4}{-8.7}{4}{1.72}
+\ringboard{13.8}{-8.7}{5}{1.90}
+\foreach \xx/\nn in {4.4/4,13.8/5}{%
+  \node[anchor=east,font=\sffamily\fontsize{9.5}{11}\selectfont] at (\xx-2.1,-12.6) {Target};
+  \staterow{\xx+.4}{-12.6}{\nn}{1}
+  \node[anchor=west,font=\sffamily\fontsize{9.5}{11}\selectfont] at (\xx-2.85,-13.2) {Switches:};\draw[rulegray] (\xx-.85,-13.3)--(\xx+3.0,-13.3);
+  \node[anchor=east,font=\sffamily\fontsize{9.5}{11}\selectfont] at (\xx-2.1,-14.2) {Target};
+  \ifnum\nn=4\staterow{\xx+.4}{-14.2}{4}{1,2,3,4}\else\staterow{\xx+.4}{-14.2}{5}{1,2,3,4,5}\fi
+  \node[anchor=west,font=\sffamily\fontsize{9.5}{11}\selectfont] at (\xx-2.85,-14.8) {Switches:};\draw[rulegray] (\xx-.85,-14.9)--(\xx+3.0,-14.9);
+}
+\ringboard{9.125}{-19.05}{6}{2.30}
+\node[font=\sffamily\fontsize{9.5}{11}\selectfont] at (2.45,-17.1) {Target};
+\staterow{2.45}{-17.9}{6}{1}
+\node[anchor=west,font=\sffamily\fontsize{9.5}{11}\selectfont] at (.25,-18.8) {Switches:};
+\draw[rulegray] (.25,-19.4)--(4.7,-19.4);\draw[rulegray] (.25,-20.2)--(4.7,-20.2);
+\node[font=\sffamily\fontsize{9.5}{11}\selectfont] at (15.8,-17.1) {Target};
+\staterow{15.8}{-17.9}{6}{1,2,3,4,5,6}
+\node[anchor=west,font=\sffamily\fontsize{9.5}{11}\selectfont] at (13.55,-18.8) {Switches:};
+\draw[rulegray] (13.55,-19.4)--(18.0,-19.4);\draw[rulegray] (13.55,-20.2)--(18.0,-20.2);
+\end{scope}
+\end{tikzpicture}
+\newpage\null
+\begin{tikzpicture}[remember picture,overlay,color=ink,font=\sffamily\fontsize{11.5}{14.3}\selectfont]
+\framepage{3}
+\begin{scope}[shift={([xshift=1.65cm,yshift=-2.35cm]current page.north west)}]
+\node[anchor=north west,align=left,text width=18.25cm] at (0,0) {\textbf{Problem 3:} A switch now swaps the two counters at the ends of a join. Your partner makes the swap. Change each BEFORE into its TARGET with as few swaps as you can. Start from BEFORE for both the line and ring. Record the joins you swap. Cross out a target if it cannot be made.};
+\node[font=\sffamily\fontsize{10}{12}\selectfont] at (3.0,-2.2) {Before};
+\staterow{3.0}{-3.0}{4}{1,3}
+\draw[-{Stealth[length=2mm]},line width=.65pt] (5.0,-3.0)--(6.1,-3.0);
+\node[font=\sffamily\fontsize{10}{12}\selectfont] at (9.125,-2.2) {Swap 1-2};
+\filldraw[ink] (8.525,-3.0) circle (.22);\draw[ink,fill=white] (9.725,-3.0) circle (.22);
+\draw[-{Stealth[length=1.7mm]},line width=.55pt] (8.525,-2.7) to[bend left=30] (9.725,-2.7);
+\draw[-{Stealth[length=1.7mm]},line width=.55pt] (9.725,-3.3) to[bend left=30] (8.525,-3.3);
+\node[font=\sffamily\fontsize{8}{10}\selectfont] at (8.525,-3.7) {1};\node[font=\sffamily\fontsize{8}{10}\selectfont] at (9.725,-3.7) {2};
+\draw[-{Stealth[length=2mm]},line width=.65pt] (12.0,-3.0)--(13.1,-3.0);
+\node[font=\sffamily\fontsize{10}{12}\selectfont] at (15.15,-2.2) {After};
+\staterow{15.15}{-3.0}{4}{2,3}
+\node[anchor=west,font=\sffamily\fontsize{10.5}{13}\selectfont] at (0,-4.3) {Line: straight joins only. Ring: also use the curved join.};
+% Six-counter board, with the wrap edge visibly distinguished.
+\foreach \i in {1,...,6}{\pgfmathsetmacro{\xx}{2.5+(\i-1)*2.65}\coordinate (p\i) at (\xx,-6.25);}
+\foreach \i in {1,...,5}{\pgfmathtruncatemacro{\j}{\i+1}\draw[ink,line width=.75pt] (p\i)--(p\j);}
+\draw[ink,line width=.75pt] (2.5,-6.25) .. controls (2.5,-9.5) and (15.75,-9.5) .. (15.75,-6.25);
+\foreach \i in {1,...,6}{\pgfmathsetmacro{\xx}{2.5+(\i-1)*2.65}\draw[ink,fill=white,line width=.75pt] (p\i) circle (1.05);\node at (\xx,-4.9) {\i};}
+\node[fill=white,inner sep=3pt,font=\sffamily\fontsize{9.5}{11}\selectfont] at (9.125,-8.65) {ring only};
+\node[font=\sffamily\fontsize{10}{12}\selectfont] at (4.8,-9.7) {BEFORE};
+\node[font=\sffamily\fontsize{10}{12}\selectfont] at (13.3,-9.7) {TARGET};
+\staterow{4.8}{-10.6}{6}{1}\staterow{13.3}{-10.6}{6}{6}
+\staterow{4.8}{-13.6}{6}{1,2}\staterow{13.3}{-13.6}{6}{5,6}
+\staterow{4.8}{-16.6}{6}{1,3,5}\staterow{13.3}{-16.6}{6}{2,4,6}
+\staterow{4.8}{-19.6}{6}{1,2}\staterow{13.3}{-19.6}{6}{2,4,6}
+\foreach \yy in {-11.6,-14.6,-17.6,-20.6}{%
+  \node[anchor=west,font=\sffamily\fontsize{10}{12}\selectfont] at (.2,\yy) {Line joins:};\draw[rulegray] (2.4,\yy-.13)--(8.7,\yy-.13);
+  \node[anchor=west,font=\sffamily\fontsize{10}{12}\selectfont] at (9.55,\yy) {Ring joins:};\draw[rulegray] (11.85,\yy-.13)--(18.0,\yy-.13);
+  \draw[rulegray,line width=.35pt] (.2,\yy-.95)--(18.0,\yy-.95);
+}
+\end{scope}
+\end{tikzpicture}
+\end{document}

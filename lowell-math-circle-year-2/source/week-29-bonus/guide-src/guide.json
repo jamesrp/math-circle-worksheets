@@ -1,0 +1,87 @@
+{
+  "week": 29,
+  "topic": "Two-length builders",
+  "overview": [
+    "With indistinguishable equal-length rods but a fixed left-to-right word, order matters. For lengths 3,4 let f(0)=1 for the empty word and f(n)=0 below zero. For positive n, f(n)=f(n-3)+f(n-4): split nonempty words by their last rod. Counts for 7,10,14,18 are 2,3,6,11. The initial condition at zero is an exception, not another recurrence application.",
+    "Finite stock has complement symmetry: if all rods total T, a subset makes n exactly when the unused subset makes T-n. With four 3s and three 4s, T=24; gaps in 0-24 are 1,2,5,19,22,23. Equal rows use all four 3s versus all three 4s, each length twelve. Unlimited eventual-coverage conclusions do not apply to this sealed stock.",
+    "In unlimited stock, adding length c changes no reachable targets exactly when c was already buildable: replace every c by its old build, or use c itself as a new target. For 3/5, adding 8 adds none, 7 adds only 7, and 4 adds 4 and 7. Yet redundant 8 reduces minimum rods at 16 from four to two and at 24 from six to three. Reachability and minimum-piece count are different objectives.",
+    "Three investigations study ordered words, finite complements and redundant tools. K-1 can arrange rods or used/unused lanes with recording help; older children organize catalogs and explain recurrences, bijections and lower bounds. Trials suggest rules; last-rod cases, complementary subsets and replacements prove them. Whole rods, common units, no gaps/cuts/overlaps and explicit stock conventions are essential."
+  ],
+  "readiness": [
+    "Fixed tables: KK11 / 3333 / 445, with one anchored adult each. Use one investigation and its brief launch per table visit. Adults read/record while children own the mathematical choices. Entry needs lining rods up and comparing order or used/unused lanes. P2 recurrence, P4's universal rule and P5-6 optimality arguments are return work by readiness.",
+    "The finite sealed box is set aside before P5-6, which restores unlimited copies. Compact drawings are records, not physical rulers. Equal row lengths do not require equal numbers of rods."
+  ],
+  "materials": [
+    "Per pair/trio: ten 3-rods, ten 4-rods, six 5-rods, three 7-rods and three 8-rods, all on a 1 cm unit scale and about 1 cm wide with unit divisions/labels. Separately seal exactly four 3s and three 4s for P3-4. Supply two used/unused lanes, a physical 0-24 ruler or 24 cm strip, pencils and paper. Five pair/trio kits serve eleven children at fixed tables.",
+    "Keep unused lengths off the table and never borrow for the sealed box. Reuse rods between cases; larger infinite claims use count/drawing records. Check the ruler against actual units and print at 100%. Existing kits reduce preparation; new paper rods need measured cutting. Physical scale and finite-kit procedure remain unrehearsed."
+  ],
+  "launch": "Let children align rods first. Use the final non-task 4,3,4 row -> left-to-right word 4,3,4, total eleven. For the finite visit use the printed split: three 3s and one 4 make thirteen; unused one 3 and two 4s make eleven. Keep both lanes visible. Before P5 explicitly set the sealed box aside and restore only the stated unlimited toolkit.",
+  "route": "After a 2-3 minute launch, allow 20-35 minutes for P1-2 or P3-4. Return for P5-6's new-tool and minimum-piece questions. Timings are proposals. Retain word cards or a finite split, pool complete catalogs, and let one investigation occupy a whole visit.",
+  "investigations": [
+    {
+      "problem": "1-2",
+      "title": "Count the order, not just the combination",
+      "entry": "Arrange rods with the fixed left end, then make movable word records. K-1 can compare two arrangements; Grades 2-3 organize small complete lists; Grades 4-5 explain the last-rod rule. Allow 20-35 minutes and return for eighteen or the general count.",
+      "solution": [
+        "P1: length 7 has words 34,43; length 10 has 334,343,433; length 14 has 3344,3434,3443,4334,4343,4433. Here compact digits are rod codes, not decimal numbers; a student record may use commas. Counts are two,three,six. Blank slots beyond a smaller target's count need not be filled.",
+        "P2: eighteen has 333333 and ten words with two 3s/three 4s: 33444,34344,34434,34443,43344,43434,43443,44334,44343,44433. Count eleven; the twelve spaces do not assert twelve answers. The two possible multisets follow by checking the nonnegative solutions of 3x+4y=18.",
+        "For positive n, each word ends in 3 or 4. Removing that last rod bijects its class with words for n-3 or n-4; classes are disjoint and exhaust all nonempty words. Hence f(n)=f(n-3)+f(n-4), with f(0)=1 and negative counts zero. Alternatively x threes/y fours give choose(x+y,x) orders, choosing positions for the threes; sum over the valid count pairs. Objects and drawings can express this without binomial notation."
+      ],
+      "hints": [
+        "After an attempt, pool duplicate-free movable words instead of copying lists repeatedly. For the recurrence ask which last rod a row uses, then remove only that rod. Do not identify reverse orders unless every rod length agrees in those positions."
+      ],
+      "extensions": [
+        "The last-rod argument works for any two distinct positive rod lengths a,b, using f(n-a)+f(n-b) for positive n. If a=1 and b=2, successive counts begin 1,1,2,3,5,8 for lengths zero through five; this is a new counting representation rather than a reachability-gap question."
+      ],
+      "notes": "Identical same-length rods are indistinguishable. Rod order is explicitly changed from the base convention, and every future record must retain that difference."
+    },
+    {
+      "problem": "3-4",
+      "title": "A finite build has a complementary remainder",
+      "entry": "Use only the sealed seven-rod kit and two visible lanes. Children choose used rods; unused rods externalize the complement. Counting/alignment is enough to start. Allow 20-30 minutes; a general correspondence is older return work.",
+      "solution": [
+        "P3 successful cases: 6 uses 3+3, unused 3+3+4+4+4 totals 18; 9 uses 3+3+3, unused 3+4+4+4 totals 15; 10 uses 3+3+4, unused 3+3+4+4 totals 14. These stock-count choices are unique for the listed successful targets; ordering is not the finite-subset question here.",
+        "Nineteen is impossible because the unused rods would need to total five, impossible from 3/4 rods. Twenty-two is impossible because its unused total would be two. There is no unused-build record for a nonexistent successful construction; the final wording requests it only for successful builds.",
+        "P4: a used count pair (x,y) gives n=3x+4y; unused counts (4-x,3-y) give 24-n. Complementing twice returns the original, so possible lengths and gaps pair by 24-n, including zero/twenty-four. Reachable lengths are 0,3,4,6,7,8,9,10,11,12,13,14,15,16,17,18,20,21,24; gaps 1,2,5,19,22,23.",
+        "Two equal rows must each total twelve. The only stock subsets at twelve are four 3s or three 4s, complements of one another. Thus place all threes in one row and all fours in the other. Different rod counts are permitted. For any finite stock of total T the same complementary-subset bijection holds; targets above T cannot be made."
+      ],
+      "hints": [
+        "Keep unused rods beside a claimed successful build. For nineteen/twenty-two ask what the leftover lane would have to contain, only after actual attempts. For equal rows, compare lengths rather than numbers of pieces."
+      ],
+      "extensions": [
+        "Change the finite stock and test its mirror correspondence. The proof still pairs n with T-n, but it does not promise all targets below T or eventual coverage above it. Preserve one stock throughout each trial."
+      ],
+      "notes": "No borrowing from the larger kit. The two lanes give one recoverable split record, avoiding concurrent inventory tallies."
+    },
+    {
+      "problem": "5-6",
+      "title": "A redundant rod can still save pieces",
+      "entry": "Use three separate unlimited toolkits, not cumulative additions. Try substitutions and short minimum-piece builds first. Allow 20-40 minutes; proofs of all new targets and minimum counts can be return work.",
+      "solution": [
+        "P5 original 3/5 gaps are exactly 1,2,4,7. Eight=3+5, nine=3+3+3, ten=5+5 form three consecutive builds; adding 3 proves every target at least eight works. The small gaps fail by checking zero/one 5-rod cases. This base fact supports the new-tool task, not another printed gap investigation.",
+        "Added 8 creates no new target because every 8-rod can be replaced by 3+5. Added 7 creates exactly target 7; 1,2,4 still fail and all other targets were already possible. Added 4 creates exactly 4 and 7 (7=3+4), with 1/2 still impossible. In general a new c adds no target iff c was already reachable: repeated replacement proves one direction, c itself the converse.",
+        "P6 minima: sixteen with 3/5 needs four rods, 3+3+5+5; with 3/5/8 needs two, 8+8. Twenty-four with 3/5 needs six, 3+3+3+5+5+5; with 3/5/8 needs three, 8+8+8. For sixteen, maximum piece lengths five/eight give the lower bounds four/two. For twenty-four without 8, four rods total at most twenty and every five-rod 3/5 sum is 15+2y, odd, so five cannot work. Six attain it. With 8, at least three are needed and suffice.",
+        "Thus 8 changes the optimum piece count without adding any reachable length. The redundancy theorem concerns unlimited stock, not a finite inventory that may lack enough replacement rods."
+      ],
+      "hints": [
+        "After a new-tool trial, ask whether each occurrence of the extra rod can be replaced. For minimum counts, compare the target with the largest total possible from fewer rods; the twenty-four case also needs the five-piece parity obstruction."
+      ],
+      "extensions": [
+        "Finite-stock counterexample: one 3 and one 5 total only eight. Adding one 8 permits sixteen using 3+5+8 even though 8=3+5. Replacement would require a second unavailable 3/5 pair. This verifies why unlimited stock is essential to reachability redundancy."
+      ],
+      "notes": "Child-created extra lengths have different answers; verify their old reachability or exhibit that length as a new target before labeling a tool redundant."
+    }
+  ],
+  "sources": [
+    "Current Week 29 base guide records Chapel Hill Math Circle, The Frobenius Coin Problem, Beginners' Group, 18 January 2025, pp. 1-4 as the reachability precedent. No new direct source reading or claim that it supplies these word/complement/redundancy tasks is made. These arguments were independently derived here.",
+    "Rozhkovskaya, Math Circles for Elementary School Students, Introduction: Berkeley 2009 (OEBPS/part0010.xhtml), reports individual adult assistance. Our paired rods, movable pooled records and return routes are proposals based on local context, not piloted results reported in that source."
+  ],
+  "verification": [
+    "Fresh student math review independently enumerated words, cross-checked binomial counts, every bounded stock choice and each optimum, and justified infinite claims with replacement/certificates rather than a finite search alone. Final P3 wording restricts unused records to successful builds; this guide uses that final packet.",
+    "The final guide received a separate independent mathematical review. Both final PDFs were rendered and inspected and passed a clean extracted-source ZIP rebuild. See release-validation.json in the editable source package. Rod measurements, ruler fit, finite-kit procedure and classroom pacing are physically untested. All bonus material remains unpiloted."
+  ],
+  "observations": [
+    "Record investigations actually used, saved words or splits, proposed new lengths and an interesting continuation.",
+    "Observe whether unlike-rod order is retained, the finite kit stays sealed to borrowing, unused rods lighten memory demands, and reachability is distinguished from minimum-piece count. Separate observations from explanations of them."
+  ]
+}

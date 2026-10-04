@@ -1,0 +1,87 @@
+{
+  "week": 26,
+  "topic": "Same area, different boundaries",
+  "overview": [
+    "Two rooms partitioning the 4 by 4 square satisfy P_R+P_B=16+2L, where L counts shared unit sides. Outside edges count once and internal fence edges twice. With eight tiles in each side-connected room, the minimum L is four, attained by the straight middle horizontal or vertical division.",
+    "For a side-connected square-tile shape with no vertex occupied by exactly two diagonally opposite tiles, convex corners C, concave corners R and hole count H satisfy C-R=4(1-H). Count every boundary, including holes. With tiles on the left, the outer loop has net four left quarter-turns; each hole loop net four right turns. The local no-pinch restriction remains necessary even if the diagonal tiles connect elsewhere.",
+    "For a solid cube building with m footprint squares and k equal positive layers, all exposed faces including bottoms number S=2m+kP, with P including footprint-hole edges. At unequal positive heights z_i, S=2m+sum of exterior-edge heights+sum of neighboring absolute height differences. No gaps or overhangs are allowed. Heights 1,2,3,4 on a 2 by 2 footprint yield minimum 34 and maximum 36 faces.",
+    "Three investigations study internal fences, corner/holes balance and cube surfaces. K-1 can build rooms or small buildings with recording help; Grades 2-3 compare counts concretely; Grades 4-5 certify bounds and general rules. A record found so far is an experiment; a proposed rule is a conjecture; cancellation, turning and complete case arguments explain why a rule holds."
+  ],
+  "readiness": [
+    "Fixed tables: KK11 / 3333 / 445, with one anchored adult each. Use one investigation and its brief launch per table visit. Adults read/record while children own the mathematical choices. P1-2 needs side-connected placement and edge counts; P3 outward/inward corners and holes; P4-6 solid columns and covered/exposed faces. Bottoms always count.",
+    "Start with P1 or P4. P3's relation and P5-6 formulas are return work using objects and drawings. Algebra is adult shorthand, not an entry prerequisite."
+  ],
+  "materials": [
+    "Per table: sixteen square tiles about 20 mm wide, eight of each style for P1; sixteen extra tiles for the larger P3 shape; forty snap cubes; forty edge markers; removable face covers; pencils and large square-grid paper. Distinguish R/B with labels or patterns as well as color. P1's working cells are 20 mm; measure 100% prints against actual tiles. Small later diagrams are records: build beside the page.",
+    "Keep reference models unchanged. Lift/turn a cube model to inspect bottoms, which still count when table-covered. P3's two-hole shape needs thirteen tiles. Preparation: about 10-15 minutes. Handling, fit, face covers and boundary conventions are unrehearsed."
+  ],
+  "launch": "Allow brief free tile handling. Make a small two-color region and mark one internal shared side: each room counts it, the outside does not. Before P3, point to the printed one-tile and three-tile corner examples and the forbidden local pinch. Before cubes, use the printed two-square/two-layer example to show a footprint becoming four cubes; inspect one touching face and one bottom face. Keep the launch brief and let the later rules grow from attempts.",
+  "route": "After a 2-3 minute launch, allow 20-35 minutes for P1-2 or concrete P4 buildings. Return for P3 corners/holes or P5-6 surface/terrain work. These are proposed timings. Save a construction or rule and give pages by readiness.",
+  "investigations": [
+    {
+      "problem": "1-2",
+      "title": "A shared fence belongs to both rooms",
+      "entry": "Make two side-connected rooms with eight R and eight B tiles. Children choose divisions; adults can place edge markers or record counts. Allow 20-35 minutes. General identity and the lower-bound proof are upper return routes.",
+      "solution": [
+        "P1 minimum shared fence is four. A straight middle cut gives two 2 by 4 rooms, each perimeter twelve, in the outside perimeter sixteen square. There are four labeled optima: horizontal/vertical cut with either R/B orientation.",
+        "Lower bound: if all four rows contain both colors, each has at least one horizontal color transition, giving four. If a full R row and full B row occur, every column has a vertical transition, again four. Otherwise take a full R row and no full B row, or exchange colors. Eight B squares occupy at least three mixed rows and at least three columns: each mixed row or such column holds at most three B squares. Those rows give at least three horizontal transitions and columns at least three vertical transitions, hence at least six. The cases exhaust all balanced divisions, so fewer than four cannot work.",
+        "P2: P_R+P_B=16+2L. Each outside edge belongs to one room, each shared edge to both. Balance is unnecessary for this identity; different room sizes still satisfy it. Even disconnected color classes satisfy the arithmetic, though the printed room condition requires side connection."
+      ],
+      "hints": [
+        "Mark the shared sides after children have tried several divisions. For the relation, count the same edge in both room walks. For an optimum argument, inspect rows that contain both colors before offering the complete case split."
+      ],
+      "extensions": [
+        "In any fixed tile region, including one with holes, the same identity is P_R+P_B=P_region+2L when every original boundary edge is counted. This follows from the same edge classification; it is not a claim that the four-side optimum extends to other regions."
+      ],
+      "notes": "The question optimizes an interface. Keeping the outside region fixed prevents it from becoming another base minimum-perimeter task."
+    },
+    {
+      "problem": "3",
+      "title": "Corners remember holes",
+      "entry": "Build the printed shapes and point to every corner on both outside and hole loops. Count to eight is enough to begin. Allow 20-30 minutes. A turning explanation can occupy another visit with a direction marker.",
+      "solution": [
+        "Printed shapes in order have (C,R,H): rectangle (4,0,0); ordinary five-square L (5,1,0); 3 by 3 ring (4,4,1); 5 by 3 rectangle missing its two separated interior squares (4,8,2). The L has six total polygon corners, five outward and one inward, not six outward/two inward.",
+        "All obey C-R=4(1-H). Trace each boundary with tiles on the left. The outer loop turns through one full positive turn: four more left than right quarter-turns. Each hole loop turns through one negative full turn: four more right turns. At a one-occupied-square vertex the turn contributes +1; at a three-occupied-square vertex -1. Summing every loop gives four minus four per hole.",
+        "The crossed-out two-diagonal-tile vertex is excluded locally even if a side path connects the tiles elsewhere. Otherwise a boundary can pinch at that vertex and the simple-loop corner argument no longer has the stated interpretation. Counting only the outside would miss the hole contributions."
+      ],
+      "hints": [
+        "Use one marker per counted vertex and remove it on the second pass. An adult can carry a direction marker around a loop while the child chooses left/right turns. Do not hand over the formula before the contrasting hole examples are experienced."
+      ],
+      "extensions": [
+        "Rearrange a legal no-pinch shape without changing its number of holes: the difference C-R stays fixed although both counts can change. Ask for a second one-hole shape and check its difference is zero. The turning proof certifies the invariant; individual trials only test examples."
+      ],
+      "notes": "C and R count vertices, not tile-edge lengths. Keep the child's built shape unchanged while all counts are made."
+    },
+    {
+      "problem": "4-6",
+      "title": "From footprint to exposed cube surface",
+      "entry": "Build and inspect the three eight-cube structures in P4 before equations. Grade labels are approximate: keeping touching faces covered and bottoms included is the real gate. Allow 25-40 minutes; equal-height and terrain rules are rich return work.",
+      "solution": [
+        "P4: row of eight has 34 exposed faces; 2 by 4 single layer 28; 2 by 2 two-layer block 24. The block is least among the three requested buildings. The task does not ask for or prove a global optimum over all sculptures. All have eight cubes and bottoms count.",
+        "P5: for m footprint squares, perimeter P and k equal positive layers, S=2m+kP and the cube count is mk. Each square gives one top and one bottom; every footprint boundary edge gives k exposed vertical faces. This includes boundaries of holes. It assumes solid vertical columns, no missing cubes or overhangs. The child-created footprint has no unique prescribed answer; apply the rule to their legal building.",
+        "P6: four columns use ten cubes. Tops/bottoms contribute eight. Every column has two outer edges, so outside sides contribute twice (1+2+3+4)=20. Neighboring columns expose the absolute difference of their heights. Thus S=28+the variation around the four-cycle.",
+        "Minimum variation is six: the two paths from height one to height four each vary by at least three. Example heights 1 2 / 3 4 gives S=34. To certify the maximum, fix height one first around the cycle and identify reversal: only cycles (1,2,3,4), (1,2,4,3), (1,3,2,4) remain, with variations six,six,eight. Thus maximum S=36, attained by 1 3 / 4 2. Among all 24 labeled arrangements, sixteen give 34 and eight give 36.",
+        "For any solid positive-height terrain, S=2m+sum of heights over exterior footprint edges+sum of absolute differences over neighboring column pairs. Covered vertical faces cancel; only a neighboring height mismatch remains exposed. P6 uses this rule in a fully visible small instance."
+      ],
+      "hints": [
+        "Cover a pair of touching cube faces before counting the rest. For P5, separate top, bottom and sides. For P6, compare one neighboring stack pair while keeping the footprint unchanged; avoid requiring a simultaneous full tally and height transcript."
+      ],
+      "extensions": [
+        "Add one uniform layer to a fixed footprint: cube count rises by m and surface count by P. This follows immediately from S=2m+kP. In P6, rotations/reflections preserve surface, so pool one representative of each cycle type rather than making each child build all 24 labeled arrangements."
+      ],
+      "notes": "This is a surface investigation, separate from Week 1 encore's rhombus height maps and cube-flip distances. A drawn cube building is a model; only actual inspection supplies a physical handling observation."
+    }
+  ],
+  "sources": [
+    "Current Week 26 base packets establish exposed unit edges and side connectivity. These bonus interface, turning and surface statements are independently derived by cancellation and counting; no downloaded source is claimed for their specific tasks.",
+    "Rozhkovskaya, Math Circles for Elementary School Students, Introduction: Berkeley 2009 and Lesson 12 At the lesson (OEBPS/part0010.xhtml and part0022.xhtml), were read. They report individual adult attention and physical transformation comparisons. Our edge markers, face covers and return routes are proposals, not classroom observations from that source."
+  ],
+  "verification": [
+    "The fresh student mathematical reviewer checked every printed task and visual: all balanced colorings, actual corner/hole counts, explicit cube-face sets, 1,533 constant-height footprint examples and all 24 terrain permutations. The final student revision explicitly scoped bottom faces and local no-pinches; guide answers use those final conventions.",
+    "The final guide received a separate independent mathematical review. Both final PDFs were rendered and inspected and passed a clean extracted-source ZIP rebuild. See release-validation.json in the editable source package. Digital bounds, correct source scale and rendered pages do not establish tile fit, face-cover practicality, procedure rehearsal or classroom pacing. No physical pretest or classroom pilot has occurred."
+  ],
+  "observations": [
+    "Record which investigations were used, the arrangement or rule retained, the child's explanation and where they would like to resume.",
+    "Observe whether shared fences are double-counted deliberately, inner corners are retained, bottoms remain in surface counts, and children control their constructions. Record what happened separately from hypotheses about motor skill or abstraction."
+  ]
+}

@@ -1,0 +1,268 @@
+\documentclass[12pt]{article}
+\usepackage{takeaway}
+\setband{Grades 2--3}
+
+\newcommand{\checkmk}[2]{%
+  \draw[teal,line width=2pt,line cap=round,line join=round,shift={#1},scale=#2]
+    (-0.3,0.02) -- (-0.08,-0.22) -- (0.32,0.3);}
+\newcommand{\xmk}[2]{%
+  \draw[orange,line width=2pt,line cap=round,shift={#1},scale=#2]
+    (-0.28,-0.28) -- (0.28,0.28) (-0.28,0.28) -- (0.28,-0.28);}
+\newcommand{\ex}[1]{{\color{plum}\subheadfont #1}}   % worked-example ink
+\newcommand{\fillbox}[1][1.2cm]{\tikz[baseline=-0.6ex]\node[draw=ink,line width=0.7pt,rounded corners=1mm,minimum width=#1,minimum height=0.75cm]{};}
+
+% record table for games
+\newcommand{\recordtable}[1]{%
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \foreach \c/\w/\t in {0/2.2/Game,2.2/5.5/{Who went first?},7.7/5.5/{Who won?}}{%
+    \draw[teal,line width=0.8pt,fill=tealsoft] (\c,0) rectangle ++(\w,0.8);
+    \node[font=\subheadfont\small] at (\c+\w/2,0.4) {\t};}
+  \foreach \i in {1,...,#1}{%
+    \draw[teal,line width=0.8pt] (0,-\i*0.8+0.8) rectangle ++(2.2,-0.8);
+    \node[font=\subheadfont] at (1.1,-\i*0.8+0.4) {\i};
+    \draw[teal,line width=0.8pt] (2.2,-\i*0.8+0.8) rectangle ++(5.5,-0.8);
+    \draw[teal,line width=0.8pt] (7.7,-\i*0.8+0.8) rectangle ++(5.5,-0.8);}
+\end{tikzpicture}}
+
+% one half of the trap-finder table, rows #1..#2
+\newcommand{\findertable}[3]{%
+\begin{scope}[xshift=#3cm]
+  \def\rh{0.93}
+  \foreach \c/\w/\t in {0/1.45/{pile},1.45/1.75/{take 1},3.2/1.75/{take 3},4.95/1.75/{take 4},6.7/1.7/{W or T}}{%
+    \draw[teal,line width=0.8pt,fill=tealsoft] (\c,0) rectangle ++(\w,1.0);
+    \node[font=\subheadfont\small,align=center] at (\c+\w/2,0.5) {\t};}
+  \foreach \n [count=\r from 1] in {#1,...,#2}{%
+    \pgfmathtruncatemacro{\a}{\n-1}\pgfmathtruncatemacro{\b}{\n-3}\pgfmathtruncatemacro{\d}{\n-4}
+    \pgfmathsetmacro{\y}{-\r*\rh}
+    \draw[teal,line width=0.8pt,fill=tealsoft] (0,\y) rectangle ++(1.45,\rh);
+    \node[font=\subheadfont\large,text=teal] at (0.725,\y+\rh/2) {\n};
+    \foreach \c/\v in {1.45/\a,3.2/\b,4.95/\d}{%
+      \draw[teal,line width=0.8pt] (\c,\y) rectangle ++(1.75,\rh);
+      \ifnum\v<0 \node[text=faint] at (\c+0.875,\y+\rh/2) {--};
+      \else \node[font=\large] at (\c+0.875,\y+\rh/2) {\v}; \fi}
+    \draw[ink,line width=1.2pt] (6.7,\y) rectangle ++(1.7,\rh);
+  }
+\end{scope}}
+
+\begin{document}
+\fontsize{13}{17}\selectfont
+
+%=====================================================================
+\bigtitle{Take-Away Games}{Traps, tricks, and testing strategies}
+\nameline\hfill\nameline[Partner]
+
+\vspace{6pt}
+\begin{rulebox}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Make a pile of counters. Two players take turns.
+\item On your turn you {\subheadfont must} take some counters. The {\subheadfont rule} says how many you may take.
+You can't skip, and you can't take more counters than the pile has.
+\item Whoever takes the {\subheadfont last counter wins}.
+\end{itemize}
+{\small\color{grid} Group of three? Two play and the third is the coach who checks every move. Switch each game.}
+\end{rulebox}
+
+\vspace{2pt}
+{\subheadfont\large\color{orange} Warm-up rule: take 1 or 2.}
+
+\prob Play three games. Start with 10 counters each time.
+
+\begin{center}\recordtable{3}\end{center}
+
+\begin{ideabox}[Win piles and trap piles]
+Imagine it is {\subheadfont your turn}. The pile is a {\subheadfont win pile (W)} if you have a way to win,
+no matter what your partner does. It is a {\subheadfont trap (T)} if you will lose whenever your partner plays well.\\[2pt]
+{\subheadfont 0 is a trap:} if it is your turn and no counters are left, your partner just took the last one!
+\end{ideabox}
+
+\prob With the rule {\subheadfont take 1 or 2}, write W or T under each pile.
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \foreach \n in {0,...,12}{%
+    \draw[grid,line width=0.7pt] (\n*1.3,0) rectangle ++(1.2,-1.0);
+    \node[font=\subheadfont,text=teal] at (\n*1.3+0.6,0.3) {\n};}
+  \node[font=\headfont\Large,text=plum] at (0.6,-0.5) {T};
+\end{tikzpicture}
+\end{center}
+
+\prob What pattern do the traps make? \blank[9.5cm]
+
+\prob A game starts with 20 counters. Do you want to go first or second? \fillbox[2.4cm]\\[4pt]
+If you go first, how many will you take? \fillbox\quad Why? \blank[6.3cm]
+
+\newpage
+%=====================================================================
+\pagetitle{The main game: take 1, 3, or 4}
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \draw[orange,line width=1.2pt,fill=orangesoft,rounded corners=3mm] (-0.6,-0.9) rectangle (16.6,1.7);
+  \foreach \k/\x/\ok in {1/0.5/1,2/3.5/0,3/7.2/1,4/11.6/1}{%
+    \pgfmathsetmacro{\st}{0.62}
+    \foreach \j in {1,...,\k}{\ctr{(\x+\j*0.62-0.62,0)}{0.27}}
+    \pgfmathsetmacro{\mid}{\x+(\k-1)*0.31}
+    \node[font=\subheadfont,text=ink] at (\mid,-0.6) {take \k};
+    \ifnum\ok=1 \checkmk{(\mid,0.95)}{0.75} \else \xmk{(\mid,0.95)}{0.75} \fi}
+  \node[font=\subheadfont\small,text=orange,anchor=west] at (13.9,0.9) {Taking 2};
+  \node[font=\subheadfont\small,text=orange,anchor=west] at (13.9,0.4) {is NOT};
+  \node[font=\subheadfont\small,text=orange,anchor=west] at (13.9,-0.1) {allowed!};
+\end{tikzpicture}
+\end{center}
+
+Last counter still wins. Careful: if only 2 counters are left, the only move is to take 1!
+
+\prob Play at least four games, starting with 10 counters each time.
+
+\begin{center}\recordtable{4}\end{center}
+
+\prob Think back to the ends of your games. Was a player ever stuck with a pile they did not want? Which piles were bad to have on your turn?
+
+\writelines{2}
+
+\prob Make a guess: with 10 counters, is it better to go first or second?\quad \fillbox[2.4cm]\\[2pt]
+{\small\color{grid} You will check your guess on the next page.}
+
+\prob Play tiny games that start with 1, 2, 3, 4, or 5 counters. Try every first move!
+Circle the tiny piles that are traps for the player whose turn it is.
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \foreach \n in {1,...,5}{%
+    \node[circle,draw=teal,line width=1pt,inner sep=0pt,minimum size=1.1cm,font=\subheadfont\Large] at (\n*2.0,0) {\n};}
+\end{tikzpicture}
+\end{center}
+Pick one trap you found. Explain why every move from it is bad.
+
+\writelines{3}
+
+\newpage
+%=====================================================================
+\pagetitle{Trap finder for take 1, 3, or 4}
+\begin{ideabox}[How to find traps]
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
+\item 0 is a trap.
+\item If {\subheadfont some} move leaves your partner a trap, the pile is a {\subheadfont W}.
+\item If {\subheadfont every} move leaves your partner a W, the pile is a trap, {\subheadfont T}.
+\end{itemize}
+Work from the top down. Each row shows how many counters are left after each move.
+{\subheadfont Circle} the leftover piles that are traps. Circled one? Write W. None circled? Write T.
+\end{ideabox}
+
+\vspace{2pt}
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\findertable{0}{10}{0}
+\findertable{11}{20}{9.4}
+% worked examples (rows 0, 1, 2 of the left table)
+\node[font=\headfont\Large,text=plum] at (7.55,-0.465) {T};
+\draw[plum,line width=1.2pt] (2.325,-1.395) circle (0.36);
+\node[font=\headfont\Large,text=plum] at (7.55,-1.395) {W};
+\node[font=\headfont\Large,text=plum] at (7.55,-2.325) {T};
+\end{tikzpicture}
+\end{center}
+
+\prob Check your guess from page 2. Is 10 a W pile or a trap?\quad\fillbox[2.4cm]
+
+\prob If you start with 10 and go first, how many should you take?\quad\fillbox
+
+\vspace{2pt}
+\hfill\upsidedown{Check: from 1 to 20 you should find exactly 5 traps.}
+
+\newpage
+%=====================================================================
+\pagetitle{Test the claims}
+\begin{ideabox}[What makes a strategy work?]
+A {\subheadfont winning strategy} must have a good answer to {\subheadfont every} move your partner might make,
+not just the moves you expect. All the claims on this page use the rule {\subheadfont take 1, 3, or 4}.
+\end{ideabox}
+
+\prob {\subheadfont Ava says:} ``If there are 7 counters and my partner goes first, I can always win!''\\
+Check every first move her partner could make. Fill in each path until the pile is 0.
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm,
+   bx/.style={draw=ink,line width=0.7pt,rounded corners=1mm,minimum width=0.95cm,minimum height=0.7cm},
+   lab/.style={font=\small,anchor=east}]
+  \node[circle,draw=teal,line width=1.4pt,fill=tealsoft,minimum size=1.3cm,font=\headfont\LARGE,text=teal] (root) at (8.9,0.2) {7};
+  \node[font=\small\subheadfont,text=grid,anchor=west] at (9.75,0.2) {partner's turn};
+  \foreach \k/\x in {1/0.2,3/6.2,4/12.2}{%
+    \begin{scope}[xshift=\x cm]
+    \draw[teal,line width=0.8pt,rounded corners=3mm,fill=tealsoft!40] (0,-1.1) rectangle (5.6,-8.7);
+    \draw[-{Stealth[length=3mm]},teal,line width=1.2pt] (root.south) -- (2.8,-1.1);
+    \node[font=\subheadfont,anchor=west] at (0.25,-1.6) {Partner takes \k};
+    \node[lab] at (3.3,-2.35) {leaves}; \node[bx] at (4.2,-2.35) {};
+    \foreach \j/\who/\col in {0/Ava/plum,1/Partner/ink,2/Ava/plum}{%
+      \pgfmathsetmacro{\yy}{-3.55-\j*1.7}
+      \node[font=\subheadfont,anchor=west,text=\col] at (0.25,\yy) {\who\ takes};
+      \node[bx] at (4.2,\yy) {};
+      \node[lab] at (3.3,\yy-0.75) {leaves}; \node[bx] at (4.2,\yy-0.75) {};}
+    \end{scope}}
+\end{tikzpicture}
+\end{center}
+
+Is Ava right? \fillbox[2.0cm]\quad How do you know? \blank[8.2cm]
+
+\prob {\subheadfont Ben says:} ``With 9 counters, I go first and take 1. That leaves 8, and 8 is a lot! So I will win.''\\
+Find a move for Ben's partner that beats Ben's plan.\\[3pt]
+Partner takes \fillbox, which leaves \fillbox\ for Ben.\\[3pt]
+Why is that bad for Ben? \blank[11cm]
+
+\prob {\subheadfont Cleo says:} ``Always take 4. The biggest move is always the best move!''\\
+Find a pile where taking 4 loses, but a different move wins.\\[3pt]
+Pile: \fillbox\qquad Taking 4 leaves \fillbox\qquad A better move is to take \fillbox
+
+\newpage
+%=====================================================================
+\pagetitle{Patterns and predictions}
+Still using the rule {\subheadfont take 1, 3, or 4}.
+
+\prob Circle every trap from your trap finder in this chart. Then look for a pattern and keep circling all the way to 39.
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \foreach \r in {0,...,3}{\foreach \c in {0,...,9}{%
+    \pgfmathtruncatemacro{\n}{10*\r+\c}
+    \draw[grid,line width=0.6pt,fill=white] (\c*1.55,-\r*1.15) rectangle ++(1.45,-1.05);
+    \node[font=\subheadfont\Large] at (\c*1.55+0.725,-\r*1.15-0.525) {\n};}}
+\end{tikzpicture}
+\end{center}
+
+\prob Write the traps in order. In each small box, write the jump from one trap to the next.
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \foreach \i in {0,...,6}{%
+    \node[circle,draw=orange,line width=1.2pt,fill=white,minimum size=1.2cm,inner sep=0pt,font=\subheadfont\Large] (t\i) at (\i*2.7,0) {};}
+  \node[font=\subheadfont\Large,text=plum] at (t0) {0};
+  \node[font=\subheadfont\Large,text=plum] at (t1) {2};
+  \foreach \i [evaluate=\i as \j using int(\i+1)] in {0,...,5}{%
+    \draw[-{Stealth[length=2.5mm]},orange,line width=1pt] (t\i.north east) to[bend left=50] (t\j.north west);
+    \node[draw=ink,line width=0.7pt,rounded corners=1mm,fill=white,minimum width=0.95cm,minimum height=0.75cm] (j\i) at (\i*2.7+1.35,1.05) {};}
+  \node[font=\subheadfont,text=plum] at (j0) {2};
+  \node[font=\subheadfont\Large] at (6*2.7+0.95,0) {\dots};
+\end{tikzpicture}
+\end{center}
+What do you notice about the jumps? \blank[10.2cm]
+
+\prob Use your pattern. Is 50 a trap? \fillbox[1.6cm]\\[3pt]
+How do you know? \blank[13.4cm]
+
+\prob A game starts with 25 counters and you go first. What should you take? \fillbox\\[3pt]
+Explain how you know: \blank[12.6cm]
+
+\begin{challengebox}[Challenge: invent a rule]
+Make up a new rule, for example {\subheadfont take 1, 2, or 3} or {\subheadfont take 1 or 4}. Play it, then find its traps.\\[3pt]
+My rule: take \blank[5cm]
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \foreach \n in {0,...,15}{%
+    \draw[grid,line width=0.7pt,fill=white] (\n*1.05,0) rectangle ++(0.95,-0.9);
+    \node[font=\subheadfont\small,text=plum] at (\n*1.05+0.475,0.28) {\n};}
+\end{tikzpicture}
+\end{center}
+What pattern do the traps make for your rule? \blank[7.6cm]
+\end{challengebox}
+
+\end{document}

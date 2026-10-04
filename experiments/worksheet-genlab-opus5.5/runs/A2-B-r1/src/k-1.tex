@@ -1,0 +1,114 @@
+\input{common}
+\header{Grades K–1}
+
+\newcommand{\ksize}{\fontsize{16}{22}\selectfont}
+% K-1 pile helpers
+\newcommand{\kstar}[1]{\pilestar{#1}{5.4}{2.6}{0.97}{ctr=0.72cm}}
+\newcommand{\kchoice}[1]{\pilechoice{#1}{5.4}{2.6}{0.97}{ctr=0.72cm}}
+
+\begin{document}
+\ksize
+
+Play with a partner, using real counters. Take turns taking counters. Whoever takes the last counter wins.
+
+\vspace{12mm}
+\problem{1} Take 1 or 2 each turn, and you go first. Color the star under each pile where you can always win.
+
+\vspace{10mm}
+\begin{center}
+\kstar{1}\hfill\kstar{2}\hfill\kstar{3}
+
+\vspace{16mm}
+\kstar{4}\hfill\kstar{5}\hfill\kstar{6}
+\end{center}
+
+% ------------------------------------------------------------------
+\newpage
+\problem{2} Take 1 or 2 each turn, and it is your turn. Cross out the counters you should take so that you can always win.
+
+\vspace{10mm}
+\begin{center}
+\pileplain{4}{6.6}{1.9}{1.1}{wctr=0.86cm}\hspace{18mm}\pileplain{5}{6.6}{1.9}{1.1}{wctr=0.86cm}
+
+\vspace{12mm}
+\pileplain{7}{6.6}{3.0}{1.1}{wctr=0.86cm}\hspace{18mm}\pileplain{8}{6.6}{3.0}{1.1}{wctr=0.86cm}
+
+\vspace{12mm}
+\pileplain{10}{6.6}{4.1}{1.1}{wctr=0.86cm}\hspace{18mm}\pileplain{11}{6.6}{4.1}{1.1}{wctr=0.86cm}
+\end{center}
+
+% ------------------------------------------------------------------
+\newpage
+\problem{3} Take 1 or 2 each turn. Circle the number under each pile where your partner can always win if you go first.
+
+\vspace{8mm}
+\begin{center}
+\begin{tikzpicture}
+  \foreach \n in {1,...,15}{
+    \pgfmathsetmacro{\x}{(\n-1)*1.14}
+    \foreach \i in {1,...,\n}{
+      \pgfmathsetmacro{\y}{0.25+(\i-1)*0.4+floor((\i-1)/5)*0.18}
+      \node[ctr=0.33cm, line width=0.7pt] at (\x,\y) {};
+    }
+    \node[font=\fontsize{15}{15}\selectfont, anchor=base] at (\x,-0.6) {\n};
+  }
+\end{tikzpicture}
+\end{center}
+
+\vspace{14mm}
+\problem{4} Take 1 or 2 each turn, and play a grown-up with 20 counters. You choose who goes first, and you color a star each time you win.
+
+\vspace{8mm}
+\begin{center}
+\begin{tikzpicture}
+  \pileinbox{20}{0}{0}{5.4}{4.5}{0.97}{ctr=0.72cm}
+  \foreach \j in {0,...,3}{
+    \node[estar] at ({4.9+\j*1.6},0.9) {};
+    \node[estar] at ({4.9+\j*1.6},-0.9) {};
+  }
+\end{tikzpicture}
+\end{center}
+
+% ------------------------------------------------------------------
+\newpage
+\problem{5} Now take 1, 2, or 3 each turn. Circle 1st or 2nd to show whether you would rather go first or second.
+
+\vspace{10mm}
+\begin{center}
+\kchoice{3}\hfill\kchoice{4}\hfill\kchoice{5}
+
+\vspace{16mm}
+\kchoice{6}\hfill\kchoice{7}\hfill\kchoice{8}
+\end{center}
+
+% ------------------------------------------------------------------
+\newpage
+\problem{6} Now take 1 or 3 each turn, never 2. Color the star under each pile where you can always win if you go first.
+
+\vspace{8mm}
+\begin{center}
+\kstar{1}\hfill\kstar{2}\hfill\kstar{3}
+
+\vspace{7mm}
+\kstar{4}\hfill\kstar{5}\hfill\kstar{6}
+
+\vspace{7mm}
+\kstar{7}\hfill\kstar{8}\hfill\kstar{9}
+\end{center}
+
+% ------------------------------------------------------------------
+\newpage
+\problem{7} Take 1 or 2 counters from just one row each turn. Circle whether you would rather go 1st or 2nd, and tell how you win.
+
+\newcommand{\trp}[2]{\tworowpic{#1}{#2}{6.6}{3.0}{1.05}{1.25}{ctr=0.74cm}{%
+    \node[choice] at (-1.0,-1.1) {1st};
+    \node[choice] at (1.0,-1.1) {2nd};}}
+\vspace{12mm}
+\begin{center}
+\trp{2}{2}\hspace{18mm}\trp{3}{3}
+
+\vspace{14mm}
+\trp{2}{3}\hspace{18mm}\trp{4}{4}
+\end{center}
+
+\end{document}

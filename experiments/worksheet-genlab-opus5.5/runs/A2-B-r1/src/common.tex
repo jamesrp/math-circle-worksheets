@@ -1,0 +1,117 @@
+% Shared preamble for the Week 7 student pages (Take-away games)
+\documentclass[12pt]{article}
+\usepackage[letterpaper, top=0.85in, bottom=0.8in, left=0.75in, right=0.75in,
+            headheight=18pt, headsep=16pt, footskip=30pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{Andika}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+\usepackage{array}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[L]{\fontsize{11}{13}\selectfont Bellingham Math Circle / Week 7}
+\fancyfoot[R]{\fontsize{11}{13}\selectfont \thepage}
+\newcommand{\header}[1]{\fancyhead[L]{\fontsize{12}{14}\selectfont\bfseries Week 7 / Take-away games / #1}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\newcommand{\problem}[1]{\par\textbf{Problem #1:}~}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\AtBeginDocument{\raggedright}
+
+% ---------- drawing styles ----------
+\tikzset{
+  ctr/.style={circle, draw=black, line width=0.9pt, fill=black!22, inner sep=0pt, minimum size=#1},
+  ctr/.default=0.6cm,
+  wctr/.style={circle, draw=black, line width=0.9pt, fill=white, inner sep=0pt, minimum size=#1},
+  wctr/.default=0.7cm,
+  pbox/.style={draw=black!55, line width=0.8pt, rounded corners=7pt},
+  estar/.style={star, star points=5, star point ratio=2.3, draw=black, line width=0.9pt,
+                minimum size=#1, inner sep=0pt},
+  estar/.default=1.15cm,
+  choice/.style={draw=black, line width=0.8pt, rounded corners=8pt, minimum width=1.45cm,
+                 minimum height=0.85cm, font=\fontsize{15}{15}\selectfont},
+}
+
+% counters in rows of five, first counter centred at (#2,#3), spacing #4, node style #5
+\newcommand{\rowsoffive}[5]{%
+  \foreach \ci in {1,...,#1}{%
+    \pgfmathtruncatemacro{\prow}{(\ci-1)/5}%
+    \pgfmathtruncatemacro{\pcol}{\ci-1-5*\prow}%
+    \node[#5] at ({#2+\pcol*#4},{#3-\prow*#4}) {};}}
+
+% a boxed pile of #1 counters centred at (#2,#3); box #4 x #5; spacing #6; style #7
+\newcommand{\pileinbox}[7]{%
+  \draw[pbox] ({#2-#4/2},{#3-#5/2}) rectangle ({#2+#4/2},{#3+#5/2});
+  \pgfmathtruncatemacro{\pcols}{min(#1,5)}%
+  \pgfmathtruncatemacro{\prows}{ceil(#1/5)}%
+  \pgfmathsetmacro{\px}{#2-(\pcols-1)*#6/2}%
+  \pgfmathsetmacro{\py}{#3+(\prows-1)*#6/2}%
+  \rowsoffive{#1}{\px}{\py}{#6}{#7}}
+
+% Standalone pile pictures: #1 n, #2 box width, #3 box height, #4 spacing, #5 counter style
+\newcommand{\pilestar}[5]{%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \pileinbox{#1}{0}{0}{#2}{#3}{#4}{#5}
+    \node[font=\fontsize{15}{15}\selectfont] at (0,{-#3/2-0.42}) {#1};
+    \node[estar] at (0,{-#3/2-1.35}) {};
+  \end{tikzpicture}}
+\newcommand{\pilechoice}[5]{%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \pileinbox{#1}{0}{0}{#2}{#3}{#4}{#5}
+    \node[font=\fontsize{15}{15}\selectfont] at (0,{-#3/2-0.42}) {#1};
+    \node[choice] at (-0.95,{-#3/2-1.35}) {1st};
+    \node[choice] at (0.95,{-#3/2-1.35}) {2nd};
+  \end{tikzpicture}}
+\newcommand{\pileplain}[5]{%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \pileinbox{#1}{0}{0}{#2}{#3}{#4}{#5}
+    \node[font=\fontsize{15}{15}\selectfont] at (0,{-#3/2-0.42}) {#1};
+  \end{tikzpicture}}
+
+% Two rows of counters, each row in its own tray, inside one box.
+% #1 top row, #2 bottom row, #3 box width, #4 box height, #5 spacing, #6 distance between
+% row centres, #7 counter style, #8 what goes underneath (code, y origin at box bottom)
+\newcommand{\tworowpic}[8]{%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \draw[pbox] ({-#3/2},{-#4/2}) rectangle ({#3/2},{#4/2});
+    \pgfmathsetmacro{\trayw}{#3-0.5}%
+    \pgfmathsetmacro{\trayh}{#5*0.95}%
+    \pgfmathsetmacro{\lx}{-\trayw/2+0.25+#5/2}%
+    \draw[black!45, line width=0.6pt, rounded corners=5pt]
+      ({-\trayw/2},{#6/2-\trayh/2}) rectangle ({\trayw/2},{#6/2+\trayh/2});
+    \draw[black!45, line width=0.6pt, rounded corners=5pt]
+      ({-\trayw/2},{-#6/2-\trayh/2}) rectangle ({\trayw/2},{-#6/2+\trayh/2});
+    \foreach \ci in {1,...,#1}{\node[#7] at ({\lx+(\ci-1)*#5},{#6/2}) {};}
+    \foreach \ci in {1,...,#2}{\node[#7] at ({\lx+(\ci-1)*#5},{-#6/2}) {};}
+    \begin{scope}[shift={(0,{-#4/2})}] #8 \end{scope}
+  \end{tikzpicture}}
+
+% Recording strip: numbers #1..#2, #3 cells per row, cell width #4, cell height #5
+\newcommand{\recstrip}[5]{%
+  \begin{tikzpicture}
+    \foreach \k in {#1,...,#2}{%
+      \pgfmathtruncatemacro{\srow}{(\k-#1)/#3}%
+      \pgfmathtruncatemacro{\scol}{\k-#1-#3*\srow}%
+      \pgfmathsetmacro{\sx}{\scol*#4}%
+      \pgfmathsetmacro{\sy}{-\srow*(#5+0.25)}%
+      \draw[line width=0.7pt] (\sx,\sy) rectangle ({\sx+#4},{\sy-#5});
+      \node[font=\fontsize{13}{13}\selectfont\bfseries, anchor=base] at ({\sx+#4/2},{\sy-0.48}) {\k};
+      \draw[black!35, line width=0.4pt] ({\sx+0.12},{\sy-0.66}) -- ({\sx+#4-0.12},{\sy-0.66});
+    }
+  \end{tikzpicture}}
+
+% Strip of numbers to circle: #1..#2, #3 per row, spacing #4, row spacing #5
+\newcommand{\circlestrip}[5]{%
+  \begin{tikzpicture}
+    \foreach \k in {#1,...,#2}{%
+      \pgfmathtruncatemacro{\srow}{(\k-#1)/#3}%
+      \pgfmathtruncatemacro{\scol}{\k-#1-#3*\srow}%
+      \node[font=\fontsize{14}{14}\selectfont, anchor=base] at ({\scol*#4},{-\srow*#5}) {\k};
+    }
+  \end{tikzpicture}}

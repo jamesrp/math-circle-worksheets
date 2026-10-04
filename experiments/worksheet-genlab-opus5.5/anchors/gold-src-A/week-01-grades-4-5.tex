@@ -1,0 +1,128 @@
+\documentclass[12pt]{article}
+\def\activityid{F01-U-v3}\input{common.tex}
+\hypersetup{pdftitle={Week 1: Tiling lab - grades 4 and 5}}
+% Matching lines cross the common edge of the two triangle spaces in one blue.
+\newcommand{\PairingExample}{\begin{tikzpicture}[x=.64in,y=.64in]
+  \draw[gridline] (1,0)--(.5,\hh);
+  \draw[outline] \BluePath;
+  \draw[line width=1.5pt,line cap=round] (.5,{\hh/3})--(1,{2*\hh/3});
+\end{tikzpicture}}
+\newcommand{\RecordBoard}{\begin{minipage}[c]{.235\linewidth}\centering
+ \begin{tikzpicture}[x=.43in,y=.43in]\BoardGrid\draw[outline] \BoardPath;\draw[line width=1.8pt] (0,0)--(1,0);\end{tikzpicture}
+ \end{minipage}}
+\newcommand{\MapCard}[1]{\begin{tikzpicture}[x=.34in,y=.34in]
+ \csname Tiling#1\endcsname\draw[outline] \BoardPath;\draw[line width=1.8pt] (0,0)--(1,0);
+ \node[above,font=\bfseries] at (.5,{4*\hh+.08}) {#1};\end{tikzpicture}}
+\newcommand{\RibbonCard}[1]{\begin{minipage}[c]{.46\linewidth}\centering
+ \textbf{#1}\par\StatePic{#1}{.46}\par Code: \rule{1.1in}{.4pt}\end{minipage}}
+\newcommand{\FlipPatch}{(.5,\hh)--(1.5,\hh)--(2,{2*\hh})--(1.5,{3*\hh})--(.5,{3*\hh})--(0,{2*\hh})--cycle}
+\newcommand{\HighlightedCard}[1]{\begin{tikzpicture}[x=.33in,y=.33in]
+ \fill[black!9] \FlipPatch;\csname Tiling#1\endcsname\draw[outline] \BoardPath;
+ \draw[line width=1.8pt] (0,0)--(1,0);\draw[line width=1.5pt,dashed] \FlipPatch;
+ \node[below,font=\bfseries] at (.5,-.10) {#1};\end{tikzpicture}}
+\newcommand{\AnswerLines}[1]{\par\foreach \n in {1,...,#1}{\vspace{.22in}\hrule height .3pt\relax\par}}
+\begin{document}
+\WorksheetHeader{GRADES 4--5}
+\Problem{1}{Fill the large board using only small blue rhombi. Find as many different tilings as you can. Keep the bold edge at the bottom. Record each tiling on a small board.}
+\begin{center}
+\begin{minipage}[c]{.57\linewidth}\centering
+ \begin{tikzpicture}[x=\blockside,y=\blockside]\BoardGrid\draw[outline] \BoardPath;\draw[line width=2.3pt] (0,0)--(1,0);\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[c]{.36\linewidth}
+ Record each blue rhombus with one line joining the centers of its two triangle spaces.\par
+ \centering\PairingExample
+\end{minipage}
+\end{center}
+\vspace{3pt}
+\RecordBoard\hfill\RecordBoard\hfill\RecordBoard\hfill\RecordBoard\par\vspace{10pt}
+\RecordBoard\hfill\RecordBoard\hfill\RecordBoard\hfill\RecordBoard\par
+How many different tilings did you find?\quad\rule{.65in}{.4pt}
+
+\newpage
+\WorksheetHeader{GRADES 4--5}
+\Problem{2}{A flip changes three blue rhombi inside a small hexagon to its other filling. The other rhombi stay in place. Try the flip shown from A to B, then flip back.}
+\begin{center}
+ \begin{minipage}[c]{.39\linewidth}\centering\FlipExample\end{minipage}\hfill
+ \begin{minipage}[c]{.57\linewidth}\centering
+  \HighlightedCard{A}\hspace{6pt}\raisebox{.64in}{\(\longleftrightarrow\)}\hspace{6pt}\HighlightedCard{B}
+ \end{minipage}
+\end{center}
+Make a map on these six cards. Draw a line between two cards whenever one flip changes one into the other. Check each line with your blocks.
+\begin{center}
+\begin{tikzpicture}[x=1in,y=1in]
+ \node at (0,2.8) {\MapCard{A}};
+ \node at (2.8,2.8) {\MapCard{B}};
+ \node at (5.6,2.8) {\MapCard{C}};
+ \node at (0,0) {\MapCard{D}};
+ \node at (2.8,0) {\MapCard{E}};
+ \node at (5.6,0) {\MapCard{F}};
+\end{tikzpicture}
+\end{center}
+Can you get from every card to every other card by a sequence of flips?
+\AnswerLines{1}
+
+\newpage
+\WorksheetHeader{GRADES 4--5}
+\Problem{3}{Find the shortest route from A to F. Write the cards you visit and count your flips.}
+\vspace{8pt}
+Route: A\quad\rule{4.8in}{.4pt}\par
+Number of flips:\quad\rule{.7in}{.4pt}
+\vspace{12pt}
+\Problem{4}{Can you leave A and return to A in exactly three flips? Five flips? Any odd number of flips? Explain what you notice.}
+\AnswerLines{3}
+\vspace{10pt}
+\Problem{5}{Follow a ribbon from the middle of the bold bottom edge. Cross its rhombus to the middle of its opposite horizontal edge. Keep crossing upward until you reach the top. Follow the example on A, then draw the ribbon on B. Write L for each step to the left and R for each step to the right, reading from bottom to top.}
+\begin{center}
+ \begin{minipage}[c]{.46\linewidth}\centering\textbf{A}\par
+ \begin{tikzpicture}[x=.48in,y=.48in]\TilingA\draw[outline] \BoardPath;\draw[line width=2pt] (0,0)--(1,0);\PathA\end{tikzpicture}\par
+ Code: \rule{1.1in}{.4pt}
+ \end{minipage}\hfill
+ \begin{minipage}[c]{.46\linewidth}\centering\textbf{B}\par\StatePic{B}{.48}\par Code: \rule{1.1in}{.4pt}\end{minipage}
+\end{center}
+At any step, is there a choice of which rhombus to cross next? Could one tiling have two different ribbons starting at the bold edge?
+\AnswerLines{1}
+
+\newpage
+\WorksheetHeader{GRADES 4--5}
+\Problem{6}{Draw the ribbon on each of these tilings. Write its code from bottom to top.}
+\begin{center}
+ \RibbonCard{C}\hfill\RibbonCard{D}\par\vspace{12pt}
+ \RibbonCard{E}\hfill\RibbonCard{F}
+\end{center}
+\Problem{7}{Compare the six ribbon codes from Problems 5 and 6. How many steps does each ribbon take? How many are L? How many are R? Use the shape of the board to explain why.}
+\AnswerLines{2}
+Write every different order you can make with two L's and two R's. Match each order to a tiling card.
+\vspace{5pt}
+\begin{center}\renewcommand{\arraystretch}{1.9}
+\begin{tabular}{c@{\qquad}c@{\qquad}c}
+Code: \rule{.9in}{.4pt}&Code: \rule{.9in}{.4pt}&Code: \rule{.9in}{.4pt}\\
+Card: \rule{.45in}{.4pt}&Card: \rule{.45in}{.4pt}&Card: \rule{.45in}{.4pt}\\[4pt]
+Code: \rule{.9in}{.4pt}&Code: \rule{.9in}{.4pt}&Code: \rule{.9in}{.4pt}\\
+Card: \rule{.45in}{.4pt}&Card: \rule{.45in}{.4pt}&Card: \rule{.45in}{.4pt}
+\end{tabular}\end{center}
+
+\newpage
+\WorksheetHeader{GRADES 4--5}
+\Problem{8}{Rebuild the tiling from each ribbon. Draw the four blue rhombi crossed by the ribbon, then fill the remaining spaces with blue rhombi. Can either ribbon give you two different tilings?}
+\begin{center}
+ \begin{minipage}[c]{.46\linewidth}\centering
+ \begin{tikzpicture}[x=.67in,y=.67in]\BoardGrid\draw[outline] \BoardPath;\draw[line width=2pt] (0,0)--(1,0);\PathD\end{tikzpicture}
+ \end{minipage}\hfill
+ \begin{minipage}[c]{.46\linewidth}\centering
+ \begin{tikzpicture}[x=.67in,y=.67in]\BoardGrid\draw[outline] \BoardPath;\draw[line width=2pt] (0,0)--(1,0);\PathF\end{tikzpicture}
+ \end{minipage}
+\end{center}
+\AnswerLines{1}
+\vspace{7pt}
+\Problem{9}{Compare the ribbon codes before and after each flip on your map. What changes? Write three examples.}
+\vspace{5pt}
+\begin{center}\renewcommand{\arraystretch}{1.75}
+\begin{tabular}{c@{\qquad}c@{\qquad}c}
+Cards&Code before&Code after\\
+\rule{1in}{.4pt}&\rule{1.3in}{.4pt}&\rule{1.3in}{.4pt}\\
+\rule{1in}{.4pt}&\rule{1.3in}{.4pt}&\rule{1.3in}{.4pt}\\
+\rule{1in}{.4pt}&\rule{1.3in}{.4pt}&\rule{1.3in}{.4pt}
+\end{tabular}\end{center}
+\Problem{10}{Circle every neighboring RL or LR in your six codes. Can you make a flip at every circled pair? Are there any flips that do not come from one of these pairs? Check with the cards and blocks, then describe your rule.}
+\AnswerLines{3}
+\end{document}

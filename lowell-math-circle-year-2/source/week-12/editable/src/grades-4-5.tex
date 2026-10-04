@@ -1,0 +1,227 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage[margin=0in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\pdfmapfile{+lm.map}
+\pdfmapfile{+cm.map}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\renewcommand{\familydefault}{\sfdefault}
+\begin{document}
+\begin{tikzpicture}[remember picture,overlay,x=1mm,y=1mm]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{11.5}{14}\selectfont\bfseries] at (18,-15.5) {Week 12 / Catalan bijections / Grades 4--5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{9}{11}\selectfont] at (18,-266.5) {Bellingham Math Circle / Week 12 / W12-45-v3};
+\node[anchor=north east,inner sep=0pt,font=\fontsize{9}{11}\selectfont] at (198,-266.5) {1};
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{12.3}{15.5}\selectfont] at (18,-29) {Draw dots joined by lines called edges. The filled dot at the top is the root. Each edge joins a parent dot to a child dot below it. Every dot except the root has exactly one parent. Keep each parent's children in a fixed left-to-right order. All dots connect to the root. Only the branching and its order matter.};
+\node[anchor=north west,inner sep=0pt,align=left,text width=83mm,font=\fontsize{12.5}{15}\selectfont] at (18,-74) {Example with five edges:};
+\draw[line width=.9pt] (118,-93) -- (103,-108);
+\draw[line width=.9pt] (118,-93) -- (133,-108);
+\draw[line width=.9pt] (140.5,-78) -- (118,-93);
+\draw[line width=.9pt] (163,-93) -- (163,-108);
+\draw[line width=.9pt] (140.5,-78) -- (163,-93);
+\fill (140.5,-78) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (118,-93) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (103,-108) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (133,-108) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (163,-93) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (163,-108) circle (1.5mm);
+\node[anchor=north west,inner sep=0pt,align=left,text width=35mm,font=\fontsize{9}{11}\selectfont] at (146,-75) {root};
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{13}{16.5}\selectfont] at (18,-120) {\textbf{Problem 1:} Draw all different trees with three edges, using these rules. How do you know your collection is complete?};
+\fill (61,-146) circle (1.5mm);
+\fill (155,-146) circle (1.5mm);
+\fill (61,-185) circle (1.5mm);
+\fill (155,-185) circle (1.5mm);
+\fill (61,-224) circle (1.5mm);
+\fill (155,-224) circle (1.5mm);
+\end{scope}
+\end{tikzpicture}
+\null
+\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1mm,y=1mm]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{11.5}{14}\selectfont\bfseries] at (18,-15.5) {Week 12 / Catalan bijections / Grades 4--5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{9}{11}\selectfont] at (18,-266.5) {Bellingham Math Circle / Week 12 / W12-45-v3};
+\node[anchor=north east,inner sep=0pt,font=\fontsize{9}{11}\selectfont] at (198,-266.5) {2};
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{12.3}{15.5}\selectfont] at (18,-29) {Start and finish at the root. Visit each child's whole branch from left to right before visiting the next child. Write U whenever you go away from the root along an edge and D whenever you return along it.};
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{12}{15}\selectfont] at (18,-57) {Example:};
+\draw[line width=.9pt] (52,-72) -- (31,-96);
+\draw[line width=.9pt] (52,-72) -- (73,-96);
+\fill (52,-72) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (31,-96) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (73,-96) circle (1.5mm);
+\draw[-{Stealth[length=1.5mm,width=1.1mm]},line width=.55pt] (47.108,-73.035) -- (31.376,-91.014);
+\node[inner sep=.5pt,fill=white,font=\fontsize{9}{10}\selectfont] at (35.404,-78.666) {1 U};
+\draw[-{Stealth[length=1.5mm,width=1.1mm]},line width=.55pt] (35.892,-94.965) -- (51.624,-76.986);
+\node[inner sep=.5pt,fill=white,font=\fontsize{9}{10}\selectfont] at (47.596,-89.334) {2 D};
+\draw[-{Stealth[length=1.5mm,width=1.1mm]},line width=.55pt] (52.376,-76.986) -- (68.108,-94.965);
+\node[inner sep=.5pt,fill=white,font=\fontsize{9}{10}\selectfont] at (56.404,-89.334) {3 U};
+\draw[-{Stealth[length=1.5mm,width=1.1mm]},line width=.55pt] (72.624,-91.014) -- (56.892,-73.035);
+\node[inner sep=.5pt,fill=white,font=\fontsize{9}{10}\selectfont] at (68.596,-78.666) {4 D};
+\node[anchor=north west,inner sep=0pt,align=left,text width=25mm,font=\fontsize{9}{10}\selectfont] at (56,-69) {root};
+\node[anchor=north west,inner sep=0pt,align=left,text width=89mm,font=\fontsize{10}{12}\selectfont] at (18,-111) {Numbers show the walk order.};
+\node[anchor=north west,inner sep=0pt,align=left,text width=83mm,font=\fontsize{10}{12}\selectfont] at (112,-62) {On the path, U goes up and D goes down.};
+\draw[gray!35,line width=.25pt] (124,-103) -- (124,-79);
+\draw[gray!35,line width=.25pt] (136,-103) -- (136,-79);
+\draw[gray!35,line width=.25pt] (148,-103) -- (148,-79);
+\draw[gray!35,line width=.25pt] (160,-103) -- (160,-79);
+\draw[gray!35,line width=.25pt] (172,-103) -- (172,-79);
+\draw[gray!35,line width=.25pt] (124,-103) -- (172,-103);
+\draw[gray!35,line width=.25pt] (124,-91) -- (172,-91);
+\draw[gray!35,line width=.25pt] (124,-79) -- (172,-79);
+\draw[line width=.8pt] (124,-103) -- (172,-103);
+\draw[line width=1.15pt,line join=round] (124,-103) -- (136,-91) -- (148,-103) -- (160,-91) -- (172,-103);
+\node[anchor=north west,inner sep=0pt,align=left,text width=5mm,font=\fontsize{9}{10}\selectfont] at (128.8,-92) {U};
+\node[anchor=north west,inner sep=0pt,align=left,text width=5mm,font=\fontsize{9}{10}\selectfont] at (140.8,-92) {D};
+\node[anchor=north west,inner sep=0pt,align=left,text width=5mm,font=\fontsize{9}{10}\selectfont] at (152.8,-92) {U};
+\node[anchor=north west,inner sep=0pt,align=left,text width=5mm,font=\fontsize{9}{10}\selectfont] at (164.8,-92) {D};
+\fill (124,-103) circle (1.3mm);
+\draw[fill=white,line width=.8pt] (172,-103) circle (1.3mm);
+\node[anchor=north west,inner sep=0pt,align=left,text width=85mm,font=\fontsize{12}{15}\selectfont] at (112,-111) {Walk code: \texttt{UDUD}};
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{13}{16.5}\selectfont] at (18,-128) {\textbf{Problem 2:} Write the walk code for each tree. Which features of a tree can you read from its code?};
+\draw[line width=.9pt] (61,-185) -- (61,-195);
+\draw[line width=.9pt] (61,-175) -- (61,-185);
+\draw[line width=.9pt] (61,-165) -- (61,-175);
+\draw[line width=.9pt] (61,-155) -- (61,-165);
+\fill (61,-155) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (61,-165) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (61,-175) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (61,-185) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (61,-195) circle (1.5mm);
+\draw[gray!65,line width=.45pt] (33,-200) rectangle (40,-208);
+\draw[gray!65,line width=.45pt] (40,-200) rectangle (47,-208);
+\draw[gray!65,line width=.45pt] (47,-200) rectangle (54,-208);
+\draw[gray!65,line width=.45pt] (54,-200) rectangle (61,-208);
+\draw[gray!65,line width=.45pt] (61,-200) rectangle (68,-208);
+\draw[gray!65,line width=.45pt] (68,-200) rectangle (75,-208);
+\draw[gray!65,line width=.45pt] (75,-200) rectangle (82,-208);
+\draw[gray!65,line width=.45pt] (82,-200) rectangle (89,-208);
+\draw[line width=.9pt] (155,-155) -- (127,-165);
+\draw[line width=.9pt] (155,-155) -- (145.667,-165);
+\draw[line width=.9pt] (155,-155) -- (164.333,-165);
+\draw[line width=.9pt] (155,-155) -- (183,-165);
+\fill (155,-155) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (127,-165) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (145.667,-165) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (164.333,-165) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (183,-165) circle (1.5mm);
+\draw[gray!65,line width=.45pt] (127,-200) rectangle (134,-208);
+\draw[gray!65,line width=.45pt] (134,-200) rectangle (141,-208);
+\draw[gray!65,line width=.45pt] (141,-200) rectangle (148,-208);
+\draw[gray!65,line width=.45pt] (148,-200) rectangle (155,-208);
+\draw[gray!65,line width=.45pt] (155,-200) rectangle (162,-208);
+\draw[gray!65,line width=.45pt] (162,-200) rectangle (169,-208);
+\draw[gray!65,line width=.45pt] (169,-200) rectangle (176,-208);
+\draw[gray!65,line width=.45pt] (176,-200) rectangle (183,-208);
+\draw[line width=.9pt] (47,-227) -- (33,-237);
+\draw[line width=.9pt] (47,-227) -- (61,-237);
+\draw[line width=.9pt] (68,-217) -- (47,-227);
+\draw[line width=.9pt] (68,-217) -- (89,-227);
+\fill (68,-217) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (47,-227) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (33,-237) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (61,-237) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (89,-227) circle (1.5mm);
+\draw[gray!65,line width=.45pt] (33,-254) rectangle (40,-262);
+\draw[gray!65,line width=.45pt] (40,-254) rectangle (47,-262);
+\draw[gray!65,line width=.45pt] (47,-254) rectangle (54,-262);
+\draw[gray!65,line width=.45pt] (54,-254) rectangle (61,-262);
+\draw[gray!65,line width=.45pt] (61,-254) rectangle (68,-262);
+\draw[gray!65,line width=.45pt] (68,-254) rectangle (75,-262);
+\draw[gray!65,line width=.45pt] (75,-254) rectangle (82,-262);
+\draw[gray!65,line width=.45pt] (82,-254) rectangle (89,-262);
+\draw[line width=.9pt] (155,-217) -- (127,-227);
+\draw[line width=.9pt] (183,-237) -- (183,-247);
+\draw[line width=.9pt] (183,-227) -- (183,-237);
+\draw[line width=.9pt] (155,-217) -- (183,-227);
+\fill (155,-217) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (127,-227) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (183,-227) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (183,-237) circle (1.5mm);
+\draw[fill=white,line width=.8pt] (183,-247) circle (1.5mm);
+\draw[gray!65,line width=.45pt] (127,-254) rectangle (134,-262);
+\draw[gray!65,line width=.45pt] (134,-254) rectangle (141,-262);
+\draw[gray!65,line width=.45pt] (141,-254) rectangle (148,-262);
+\draw[gray!65,line width=.45pt] (148,-254) rectangle (155,-262);
+\draw[gray!65,line width=.45pt] (155,-254) rectangle (162,-262);
+\draw[gray!65,line width=.45pt] (162,-254) rectangle (169,-262);
+\draw[gray!65,line width=.45pt] (169,-254) rectangle (176,-262);
+\draw[gray!65,line width=.45pt] (176,-254) rectangle (183,-262);
+\end{scope}
+\end{tikzpicture}
+\null
+\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1mm,y=1mm]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{11.5}{14}\selectfont\bfseries] at (18,-15.5) {Week 12 / Catalan bijections / Grades 4--5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{9}{11}\selectfont] at (18,-266.5) {Bellingham Math Circle / Week 12 / W12-45-v3};
+\node[anchor=north east,inner sep=0pt,font=\fontsize{9}{11}\selectfont] at (198,-266.5) {3};
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{13}{16.5}\selectfont] at (18,-30) {\textbf{Problem 3:} Draw a tree for each code. Can a code describe two different trees?};
+\node[anchor=north west,inner sep=0pt,align=left,text width=82mm,font=\fontsize{16}{19}\selectfont] at (32,-60) {\texttt{UUDDUD}};
+\fill (61,-80) circle (1.5mm);
+\node[anchor=north west,inner sep=0pt,align=left,text width=82mm,font=\fontsize{16}{19}\selectfont] at (126,-60) {\texttt{UDUUDD}};
+\fill (155,-80) circle (1.5mm);
+\node[anchor=north west,inner sep=0pt,align=left,text width=82mm,font=\fontsize{16}{19}\selectfont] at (32,-158) {\texttt{UUDUDUDD}};
+\fill (61,-178) circle (1.5mm);
+\node[anchor=north west,inner sep=0pt,align=left,text width=82mm,font=\fontsize{16}{19}\selectfont] at (126,-158) {\texttt{UUUDDUDD}};
+\fill (155,-178) circle (1.5mm);
+\end{scope}
+\end{tikzpicture}
+\null
+\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1mm,y=1mm]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{11.5}{14}\selectfont\bfseries] at (18,-15.5) {Week 12 / Catalan bijections / Grades 4--5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{9}{11}\selectfont] at (18,-266.5) {Bellingham Math Circle / Week 12 / W12-45-v3};
+\node[anchor=north east,inner sep=0pt,font=\fontsize{9}{11}\selectfont] at (198,-266.5) {4};
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{13}{16.5}\selectfont] at (18,-30) {\textbf{Problem 4:} Which of these codes could come from a tree? Give rules that decide for any string of U's and D's, and explain why they work. Describe how to rebuild a tree from any code that follows your rules.};
+\node[anchor=north west,inner sep=0pt,align=left,text width=82mm,font=\fontsize{17}{20}\selectfont] at (30,-84) {\texttt{UUUUDDDD}};
+\node[anchor=north west,inner sep=0pt,align=left,text width=82mm,font=\fontsize{17}{20}\selectfont] at (127,-84) {\texttt{UUDDDUUD}};
+\node[anchor=north west,inner sep=0pt,align=left,text width=82mm,font=\fontsize{17}{20}\selectfont] at (30,-110) {\texttt{UDUDUUDD}};
+\node[anchor=north west,inner sep=0pt,align=left,text width=82mm,font=\fontsize{17}{20}\selectfont] at (127,-110) {\texttt{UUDUDUDU}};
+\node[anchor=north west,inner sep=0pt,align=left,text width=82mm,font=\fontsize{17}{20}\selectfont] at (30,-136) {\texttt{UUUDUDDD}};
+\node[anchor=north west,inner sep=0pt,align=left,text width=82mm,font=\fontsize{17}{20}\selectfont] at (127,-136) {\texttt{DUUUDDUD}};
+\end{scope}
+\end{tikzpicture}
+\null
+\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1mm,y=1mm]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{11.5}{14}\selectfont\bfseries] at (18,-15.5) {Week 12 / Catalan bijections / Grades 4--5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{9}{11}\selectfont] at (18,-266.5) {Bellingham Math Circle / Week 12 / W12-45-v3};
+\node[anchor=north east,inner sep=0pt,font=\fontsize{9}{11}\selectfont] at (198,-266.5) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{13}{16.5}\selectfont] at (18,-30) {\textbf{Problem 5:} How many different trees have four edges? Organize the count so someone can check that every tree is counted exactly once.};
+\fill (38,-68) circle (1.5mm);
+\fill (84,-68) circle (1.5mm);
+\fill (130,-68) circle (1.5mm);
+\fill (176,-68) circle (1.5mm);
+\fill (38,-112) circle (1.5mm);
+\fill (84,-112) circle (1.5mm);
+\fill (130,-112) circle (1.5mm);
+\fill (176,-112) circle (1.5mm);
+\fill (38,-156) circle (1.5mm);
+\fill (84,-156) circle (1.5mm);
+\fill (130,-156) circle (1.5mm);
+\fill (176,-156) circle (1.5mm);
+\fill (38,-200) circle (1.5mm);
+\fill (84,-200) circle (1.5mm);
+\fill (130,-200) circle (1.5mm);
+\fill (176,-200) circle (1.5mm);
+\end{scope}
+\end{tikzpicture}
+\null
+\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1mm,y=1mm]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{11.5}{14}\selectfont\bfseries] at (18,-15.5) {Week 12 / Catalan bijections / Grades 4--5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{9}{11}\selectfont] at (18,-266.5) {Bellingham Math Circle / Week 12 / W12-45-v3};
+\node[anchor=north east,inner sep=0pt,font=\fontsize{9}{11}\selectfont] at (198,-266.5) {6};
+\node[anchor=north west,inner sep=0pt,align=left,text width=180mm,font=\fontsize{13}{16.5}\selectfont] at (18,-30) {\textbf{Problem 6:} Find the number of trees with five edges, then six edges. Give a counting rule that works for any number of edges, and explain why it counts each tree once.};
+\end{scope}
+\end{tikzpicture}
+\null
+\end{document}

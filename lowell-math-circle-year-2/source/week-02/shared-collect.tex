@@ -1,0 +1,155 @@
+\documentclass[14pt]{extarticle}
+\def\activityid{F02-S-v1}\input{common.tex}
+% Scoped visual vocabulary: every state has the same clockwise lamp order.
+\newcommand{\MRing}[5]{\begin{tikzpicture}[x=1in,y=1in,baseline=-.10in]
+  \foreach \i in {1,...,4}{\coordinate (v\i) at ({90-90*(\i-1)}:#1);}
+  \foreach \i/\j in {1/2,2/3,3/4,1/4}{
+    \draw[black!65,line width=.8pt] (v\i)--(v\j);
+    \ifnum#5=1\node[fill=white,inner sep=3pt,font=\normalsize] at ($(v\i)!.5!(v\j)$){\i\j};\fi}
+  \foreach \i in {1,...,4}{\node[circle,draw=ink,line width=1pt,fill=white,minimum size=#2in,inner sep=0pt,font=#3\bfseries] at(v\i){\i};}
+  \foreach \i in {#4}{\node[circle,draw=ink,line width=1pt,fill=ink,text=white,minimum size=#2in,inner sep=0pt,font=#3\bfseries] at(v\i){\i};}
+\end{tikzpicture}}
+\newcommand{\MMat}{\MRing{.90}{.56}{\large}{}{1}}
+\newcommand{\MTarget}[1]{\MRing{.38}{.28}{\small}{#1}{0}}
+\newcommand{\MRecord}{\MRing{.31}{.25}{\small}{}{0}}
+\newcommand{\MTargetTask}[2]{\begin{minipage}[t]{3.28in}\centering
+  #1\quad\MTarget{#2}\par\vspace{3pt}\raggedright
+  Moves: \rule{2.20in}{.5pt}\par\vspace{8pt}
+\end{minipage}}
+\newcommand{\MTryTarget}[2]{\begin{minipage}[t]{3.28in}\centering
+  #1\quad\MTarget{#2}\par\vspace{3pt}\raggedright
+  Moves: \rule{2.20in}{.5pt}\par
+  $\square$ Not yet\par\vspace{8pt}
+\end{minipage}}
+\newcommand{\MPair}[1]{\begin{tikzpicture}[x=1in,y=1in,baseline=-.12in]
+  \draw[thick](0,0)--(1.12,0);
+  \node[fill=white,inner sep=3pt,font=\small] at(.56,0){12};
+  \foreach\i/\x in{1/0,2/1.12}{\node[circle,draw,fill=white,minimum size=.48in,inner sep=0pt,font=\large\bfseries] at(\x,0){\i};}
+  \foreach\i/\x in{#1}{\node[circle,draw,fill=ink,text=white,minimum size=.48in,inner sep=0pt,font=\large\bfseries] at(\x,0){\i};}
+\end{tikzpicture}}
+\newcommand{\MTrial}[2]{\begin{minipage}{\linewidth}
+  #1\quad\MPair{#2}\hfill$\xrightarrow{\text{press 12}}$\hfill\MPair{}\par
+  \hspace*{.5in}ON before: \rule{.68in}{.5pt}\hfill ON after: \rule{.68in}{.5pt}\hspace*{.15in}\par
+\end{minipage}\par\vspace{17pt}}
+\newcommand{\MSortCard}[2]{\begin{minipage}[t]{1.64in}\centering
+  #1\quad\MRing{.29}{.23}{\small}{#2}{0}\par
+  ON: \rule{.45in}{.5pt}\par
+  {\small made / not yet}\par\vspace{9pt}
+\end{minipage}}
+\newcommand{\MPath}[1]{\begin{tikzpicture}[x=1in,y=1in]
+  \foreach\i in{1,...,4}{\coordinate(v\i)at({90-90*(\i-1)}:.57);}
+  \foreach\i/\j in{1/2,2/3,3/4,1/4}{\draw[black!25,line width=.8pt](v\i)--(v\j);}
+  \foreach\i/\j in{#1}{\draw[-{Stealth[length=7pt]},line width=2pt,shorten <=.18in,shorten >=.18in](v\i)--(v\j);}
+  \foreach\i in{1,...,4}{\node[circle,draw,fill=white,minimum size=.35in,inner sep=0pt,font=\normalsize\bfseries]at(v\i){\i};}
+\end{tikzpicture}}
+\renewcommand{\StudentHeader}[1]{{\fontsize{10}{12}\selectfont\bfseries Week 2 / Lamp lab / Shared collection\par}\vspace{10pt}}
+\begin{document}
+\setcounter{page}{9}
+\fontsize{16}{20}\selectfont
+\StudentHeader{Shared collection}
+\Problem{15}{Use the line names to save your moves. Start all OFF on the big board. Press a line: change \emph{both} end lamps. Add or erase pencil dots, or flip two-sided counters. Dotted or dark means ON.}
+The line joining lamps 1 and 2 is called \textbf{12}. Replay these two moves on the big board.
+\begin{center}
+\begin{tabular}{c@{\hspace{.18in}}c@{\hspace{.18in}}c}
+Start all OFF&Press 12&Then press 23\\[5pt]
+\MTarget{}&\MTarget{1,2}&\MTarget{1,3}
+\end{tabular}
+\end{center}
+Save the moves in order: \textbf{12, 23}. You may ask someone to write while you point.
+\begin{center}\MMat\end{center}
+Get back to all OFF by pressing lines. Save your moves so a partner can replay them.
+\vspace{10pt}\par Moves: \rule{5.85in}{.5pt}
+
+\newpage
+\StudentHeader{Shared collection}
+\Problem{16}{Make each target picture on the big board. Reset all lamps to OFF before each target. Change both ends of one line at a time. Write your moves in order.}
+\begin{center}\MMat\end{center}
+\MTargetTask{A}{1,2}\hfill\MTargetTask{B}{1,3}\par
+\vspace{11pt}
+\MTargetTask{C}{2,4}\hfill\MTargetTask{D}{1,2,3,4}\par
+\vspace{10pt}
+Give a partner one of your move lists. Reset all OFF. Have your partner replay it and point to its target.
+
+\newpage
+\StudentHeader{Shared collection}
+\Problem{17}{Try each target picture. Start all OFF each time. Change both ends of one line at a time. Write a move list that works, or check ``not yet.''}
+\begin{center}\MMat\end{center}
+\MTryTarget{A}{1}\hfill\MTryTarget{B}{2,3}\par
+\vspace{8pt}
+\MTryTarget{C}{1,2,3}\hfill\MTryTarget{D}{1,4}\par
+\vspace{6pt}
+For a ``not yet'' picture, try a different move list on the board. Keep any list that works.
+
+\newpage
+\StudentHeader{Shared collection}
+\Problem{18}{For each row, set up its starting picture by hand on the big board: add dots or turn counters over. Leave lamps 3 and 4 OFF. Then press 12 once. Darken the ON lamps in the answer picture. Count ON lamps before and after.}
+\begin{center}\MMat\end{center}
+\MTrial{A}{}
+\MTrial{B}{1/0,2/1.12}
+\MTrial{C}{1/0}
+
+\newpage
+\StudentHeader{Shared collection}
+\Problem{19}{These are the targets you tried. For each picture, circle ``made'' or ``not yet.'' Count its ON lamps. Use the big board to try any picture again; reset all OFF each time.}
+\vspace{10pt}
+\MSortCard{A}{1,2}\hfill\MSortCard{B}{1,3}\hfill\MSortCard{C}{2,4}\hfill\MSortCard{D}{1,2,3,4}\par
+\vspace{10pt}
+\MSortCard{E}{1}\hfill\MSortCard{F}{2,3}\hfill\MSortCard{G}{1,2,3}\hfill\MSortCard{H}{1,4}\par
+\begin{center}\MMat\end{center}
+Compare the ON counts in the pictures you made.\par
+Point to what is alike. Then compare the ``not yet'' pictures.
+
+\newpage
+\StudentHeader{Shared collection}
+\Problem{20}{Follow each arrow path on the big board: change both ends of each line, in order. Start all OFF for each path. Darken the ON lamps in its final picture.}
+\vspace{7pt}
+\begin{minipage}{3.4in}\centering
+  A: \textbf{12, 23, 34}\par
+  \MPath{1/2,2/3,3/4}
+\end{minipage}\hfill
+\begin{minipage}{2.8in}\centering
+  Final picture:\par\MTarget{}
+\end{minipage}\par
+\vspace{9pt}
+\begin{minipage}{3.4in}\centering
+  B: \textbf{14, 43}\par
+  \MPath{1/4,4/3}
+\end{minipage}\hfill
+\begin{minipage}{2.8in}\centering
+  Final picture:\par\MTarget{}
+\end{minipage}\par
+\begin{center}\MMat\end{center}
+Replay one path slowly. Point to each lamp that changes twice. Point to each lamp changed just once.
+
+\newpage
+\StudentHeader{Shared collection}
+\Problem{21}{Start all OFF on the big board. Try some moves. Copy the result onto a little ring: darken its ON lamps. Reset and make different pictures. Include all OFF. Leave extra rings empty.}
+\begin{center}\MMat\end{center}
+\begin{center}
+\begin{tabular}{@{}c@{\hspace{.67in}}c@{\hspace{.67in}}c@{\hspace{.67in}}c@{}}
+\MRecord&\MRecord&\MRecord&\MRecord\\[-2pt]
+$\square$ saved&$\square$ saved&$\square$ saved&$\square$ saved\\[16pt]
+\MRecord&\MRecord&\MRecord&\MRecord\\[-2pt]
+$\square$ saved&$\square$ saved&$\square$ saved&$\square$ saved\\[16pt]
+\MRecord&\MRecord&\MRecord&\MRecord\\[-2pt]
+$\square$ saved&$\square$ saved&$\square$ saved&$\square$ saved
+\end{tabular}
+\end{center}
+Check ``saved'' under each picture you record, including all OFF. This keeps unused rings separate.
+
+\newpage
+\StudentHeader{Shared collection}
+\Problem{22}{Look at the pictures you saved in Problem 21. Count the ON lamps in each. Write that count beside its little ring. Point to the pictures with the same count. Count how many different pictures you have.}
+\vspace{9pt}
+I saved \rule{.80in}{.5pt} different pictures.\par
+\vspace{10pt}
+Choose a picture whose moves you have not written down. Copy it here. Start all OFF on the big board and find a move list that makes it.
+\begin{center}
+\begin{minipage}{2.2in}\centering My target:\par\MTarget{}\end{minipage}
+\end{center}
+\begin{center}\MMat\end{center}
+My moves: \rule{5.55in}{.5pt}\par
+\vspace{16pt}\rule{\linewidth}{.5pt}\par
+\vspace{8pt}
+Reset all OFF and ask a partner to replay your list. Compare the result with your target.
+\end{document}

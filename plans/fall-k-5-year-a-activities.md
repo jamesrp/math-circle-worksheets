@@ -1,22 +1,22 @@
 # Fall Year A: activities for all three groups
 
-Revised September 20, 2026. Ten meetings, with thirty group activity sequences, for the roster **K, K, 1 / 3, 3, 3 / 5** and two adults. Companion to the [high-level fall plan][fall] and [lesson-format source notes][format]. Grade bands indicate entry points, not placement requirements.
+Updated September 28, 2026 for the current roster and Week 2 shared collection, following the September 27 application of [Week 1 classroom guidance](fall-weeks-02-10-classroom-guidance-review.md). Ten meetings with concrete activity choices for ten children: **K, K, 1 / 3, 3, 3, 3 / 4, 4, 5**. Three adults are available: the organizer, another mathematician, and one non-mathematician parent. Companion to the [high-level fall plan][fall] and [lesson-format source notes][format]. Grade bands indicate entry points, not placement requirements.
 
 Week 1 below and the linked complete weekly plans supply the actual starting puzzles, rules, hints, and answers. Weeks 2–10 have been mathematically deepened; see the [rationale](fall-weeks-02-10-mathematical-redesign.md) and [print index](../lowell-math-circle-year-2/source/fall-weeks-02-10/README.md). The hand-drawn boards and cards described below are sufficient to run it; no apps, purchases, or elaborate worksheets are required. Week 1 has classroom feedback recorded separately; revised tasks and Weeks 2–10 remain proposals unless the use log records otherwise. Exact examples are new constructions unless identified otherwise; familiar ideas deliberately return with new questions. The saved Lowell handouts do not establish everything children encountered last year.
 
 ## How to use the guide
 
-Each week has **one main investigation per group**, followed by a change of question or constraint. Do the entry task and allow sustained play; the extensions are a reserve, not a checklist. A child who spends the whole investigation finding and explaining two constructions has had a successful session.
+Most weeks have **one main investigation per group**, followed by a change of question or constraint. Week 2 instead has one shared collection with several routes; choose by interest and demonstrated readiness. Do the entry task and allow sustained play; the extensions are a reserve, not a checklist. A child who spends the whole investigation finding and explaining two constructions has had a successful session.
 
 Use the existing hour: **0–10** handle materials and explore; **10–15** shared launch; **15–35** group entry and main task; **35–40** movement/reset; **40–55** continue or extend; **55–60** show one discovery and tidy up. The timing suggestions in each group card refer to those two investigation blocks. Introduce only the first task at first.
 
-This is also the default rhythm in the individual plans and facilitator packets. Each level has a satisfying stopping point and an optional explanation or proof continuation. Keep the reset even when a table or proof is unfinished; return to the same question afterward if it still holds attention. In Weeks 4 and 6, omit redundant table entries once the child can explain the structure. Use the [shared divisibility scaffold](coprime-divisibility-scaffold.md) with adult support for the general rules in Weeks 4 and 9.
+This is the default rhythm in the individual plans and facilitator packets. Week 2 uses its own 0–5 handling, 5–10 launch, and 30–35 movement break, as shown in the shared guide. Each level has a satisfying stopping point and an optional explanation or proof continuation. Keep the reset even when a table or proof is unfinished; return to the same question afterward if it still holds attention. In Weeks 4 and 6, omit redundant table entries once the child can explain the structure. Use the [shared divisibility scaffold](coprime-divisibility-scaffold.md) with adult support for the general rules in Weeks 4 and 9.
 
 Record *tried*, *conjectured*, *verified these cases*, *proved*, or *given as a theorem* for each actual claim in the [use log](fall-k-5-year-a-use-log.md). A destination in the facilitator notes is not evidence that a child established it. The timings and new scaffolds are our adaptations; the [book notes][format] document the actual source lessons about trying first, manipulatives, explanation, and flexible pace.
 
-The supporting parent stays primarily with KK1. The organizer demonstrates the common first action with everyone before launching the level tasks, then returns to each group about every five minutes. Keep the fifth grader beside 333 and offer genuine conversation and puzzle exchanges. In weeks 6–8, reserve two short adult play periods within the investigation blocks; the fifth grader also has a supplied investigation to pursue between visits. Independent tasks support that relationship rather than replacing it.
+The organizer demonstrates the common first action with everyone. Then keep one adult anchored to each group: **parent with KK1, other mathematician with 3333, organizer with 445**. The parent reads one prompt at a time, checks the visible rule, and invites children to show a move; the unified Week 2 adult guide supplies a short script, route choices, and answers. If mathematical help is needed, the parent keeps KK1 on a familiar task and signals the organizer. Before visiting, the organizer explicitly hands coverage of 445 to the nearby mathematician, who keeps both older groups on known tasks; no group is left unattended. See the [current coverage plan](fall-k-5-year-a.md#adult-coverage-and-timing). Older two-adult logistics in individual core guides are superseded by this plan. This is the September 28 planning configuration, not a claim about Week 1 attendance.
 
-Give each child construction materials. For exchanges in a triplet, rotate maker, solver, and checker after a short puzzle. For competitive games, use **two opposing sides**: two players and a rotating referee who chooses the next start, or one player against a team of two with alternating movers. Rotate regardless of who won. Do not turn the games into three-player games.
+Give each child a work surface and materials for an individual attempt. In KK1 and 445, rotate maker, solver, and checker after a short puzzle, or let the adult partner the third child while two children work together. In 3333, use two pairs and compare their attempts. For competitive games, preserve **two opposing sides**; rotate players or partners regardless of who won. Do not turn the games into three-player games.
 
 **Readiness:** all instructions may be spoken. K–1 needs matching and small counts; 2–3 adds coordination of constraints; 4–5 adds explanations about all possibilities. The new Week 3 letters function as labels and can be replaced with pictures. Weekly notes state when multiples, remainders, binary place value, or extra-page algebra need support; these ideas grow from concrete models. Keep facilitator solutions out of view until children have tried.
 
@@ -25,7 +25,7 @@ Give each child construction materials. For exchanges in a triplet, rotate maker
 | Week | K–1 | 2–3 | 4–5 |
 | --- | --- | --- | --- |
 | [1. Tiling, impossibility, and flips](#week-1-tiling-impossibility-and-flips) | Fill eight easy outlines; try two ways and single-piece-type fillings | Prove an impossible tiling; minimize gaps; test changed pieces | Enumerate six tilings, map flips, and prove a shortest route |
-| [2. Switches and lamps](week-02-redesign.md) | Flip a pair; undo a move; test a single lit lamp | Find all reachable four-lamp states and explain the parity obstruction | Prove completeness and optimize press sets on a cycle |
+| [2. Switches and lamps](week-02-shared-collection.md) | **Shared collection for everyone:** lamp puzzles, walks, state collection, shorter solutions, drawing, and networks; choose by readiness | — | — |
 | [3. Repeating secret machines](week-03-redesign.md) | Move picture tokens through a reversible key | Build four-symbol machines and compare their return times | Design the slowest five-symbol machine and prove it is best |
 | [4. Around the ring](week-04-redesign.md) | Jump around a small ring and notice missed places | Compare fixed steps on a ten-place ring | Classify twelve-place orbits and explain the gcd rule |
 | [5. Tower cities](week-05-redesign.md) | Find and compare every three-tower skyline | Build cities and prove a clue set singles one out | Distinguish redundant clues, irredundant clues, and a global minimum |
@@ -35,7 +35,7 @@ Give each child construction materials. For exchanges in a triplet, rotate maker
 | [9. Bouncing paths](week-09-redesign.md) | Trace short paths and choose the correct bounce | Unfold a table to explain a first corner hit | Prove the gcd/parity corner rule and count bounces |
 | [10. Bridges and delivery routes](week-10-redesign.md) | Walk every bridge and test a one-stroke drawing | Use odd-degree obstructions and repair a network | Construct Euler tours and prove a shortest closed delivery route |
 
-Every revised week also includes a separate optional grades 6–7 investigation and full facilitator solutions.
+Weeks 3–10 also include separate optional grades 6–7 investigations; Week 2’s component and tree work is part of the shared collection. All have separate facilitator solutions.
 
 ### Reusable supplies
 
@@ -47,7 +47,7 @@ Allow roughly **20–30 minutes of preparation for weeks 1–5**, mostly making 
 
 **Revised September 27, 2026 after classroom feedback.** The preceding K-v3 / M-v2 / U-v2 packets were brought to the previous meeting and were broadly successful. The revised packets below are prepared, not yet taught. See the [classroom review and adopted guidance](week-01-classroom-review.md), [current print index](../lowell-math-circle-year-2/source/week-01/README.md), and separate [facilitator guide](../lowell-math-circle-year-2/week-01/week-01-facilitator.pdf) for the complete prompts, checked constructions, hints, and solutions. Earlier planning text is [archived](archive-pre-depth/week-01-before-classroom-feedback.md).
 
-**Preparation:** print US Letter, single-sided, 100% / Actual Size. Use small 1× blocks, nominal one-inch edges; compare a real block against a printed cell before the meeting. The calibration line is on the adult guide and optional cutout sheet. Larger 2×/3× blocks change the puzzles. Per K–1 child: 6 blues, 12 greens, 3 purples, and a few reds/yellows. Per middle child: 10 blues, 5 greens, 3 purples. Upper child: 8 blues, pencil, and optional string. For the current 3/3/1 roster this is **56 blues, 51 greens, 18 purples**, reused between boards. Use paper rhombi if needed. No pink pieces are needed for the core tasks.
+**Preparation:** print US Letter, single-sided, 100% / Actual Size. Use small 1× blocks, nominal one-inch edges; compare a real block against a printed cell before the meeting. The calibration line is on the adult guide and optional cutout sheet. Larger 2×/3× blocks change the puzzles. Per K–1 child: 6 blues, 12 greens, 3 purples, and a few reds/yellows. Per middle child: 10 blues, 5 greens, 3 purples. Per upper child: 8 blues, pencil, and optional string. For a future use with the current 3/4/3 roster this is **82 blues, 56 greens, 21 purples**, reused between boards. Use paper rhombi if needed. No pink pieces are needed for the core tasks.
 
 **Shared hour:** 0–10 minutes handle materials and explore; 10–15 bring everyone together for a concrete warmup; 15–35 level-appropriate investigations; 35–40 movement/reset; 40–55 continue; 55–60 share and tidy. Before handing out separate level tasks, use middle Problem 1. Invite children to place blues on Board B and then try Board A. Demonstrate covering two whole triangle spaces with each blue, with no overlap or overhang. Show what a completed filling looks like and what being stuck looks like, without explaining away the puzzle. Let children place pieces during the demonstration. Then give each child a suitable first page. Keep later pages in reserve until the child has a next action.
 
@@ -61,7 +61,7 @@ Problem 3 compares blue-only and purple-only packings on six boards, using a blu
 
 **Upper key:** graph edges AB, BC, BD, CE, DE, EF; shortest routes A–B–C–E–F and A–B–D–E–F, each four flips. Codes A–F are RRLL, RLRL, LRRL, RLLR, LRLR, LLRR. Every tiling has one bottom-to-top ribbon; the remaining orientation is forced. All six orders occur. Each adjacent RL or LR is a flip site, and every flip has this form. Add the positions of the two R's: a flip changes the sum by exactly one, so its parity switches. Returning to the same tiling needs even flips. Save “How do you know for sure?” for adult conversation when useful.
 
-**Adult coverage and sources:** after the common warmup, keep the supporting parent mainly with K–1 and the organizer circulating, including substantial conversation with the upper child. Hints follow attempts; avoid supplying the up/down or purple replacement idea immediately. The [teaching source notes](lesson-format-source-notes.md) and [classroom review](week-01-classroom-review.md) distinguish book evidence, observed feedback and new proposals. The [undergraduate](week-01-undergraduate-notes.md) and [research](week-01-research-level-notes.md) notes preserve mathematical lineage. Optional extensions are unchanged apart from removing Name/Date fields and were reported unused. Record specific tried/proved instances, not packet completion or inferred mastery.
+**Adult coverage and sources:** for a future use with the September 28 roster, keep the parent with KK1, the other mathematician with 3333, and the organizer with 445 after the common warmup. Hints follow attempts; avoid supplying the up/down or purple replacement idea immediately. The [teaching source notes](lesson-format-source-notes.md) and [classroom review](week-01-classroom-review.md) distinguish book evidence, observed feedback and new proposals. The [undergraduate](week-01-undergraduate-notes.md) and [research](week-01-research-level-notes.md) notes preserve mathematical lineage. Optional extensions are unchanged apart from removing Name/Date fields and were reported unused. Record specific tried/proved instances, not packet completion or inferred mastery.
 
 <details>
 <summary>Earlier Week 1 proposal: v1 color-ban and minimum-piece tasks, retained as an untaught reserve</summary>
@@ -122,108 +122,111 @@ Give every child enough space to build independently. No printer scaling is invo
 
 ## Week 2: Switches and lamps
 
-Use the **[complete revised activity plan](week-02-redesign.md)** and **[print packet](../lowell-math-circle-year-2/source/week-02/README.md)**. The weekly plan provides prerequisites, materials and preparation, the shared-hour sequence, the exact launch and puzzles, hints, extensions, checked solutions, and undergraduate/research references.
+**Shared collection · F02-S-v1:** use the [current plan](week-02-shared-collection.md), [42-page student collection](../lowell-math-circle-year-2/week-02/week-02-shared.pdf), and [unified adult guide](../lowell-math-circle-year-2/week-02/week-02-shared-facilitator.pdf). Its 50 problems replace the separate grade packets and K–1 auxiliary. All four combined student sets include the identical Week 2 collection; print it only once. The revision is prepared, not taught.
 
-- **K–1:** Flip a pair; undo a move; test a single lit lamp.
-- **2–3:** Find all reachable four-lamp states and explain the parity obstruction.
-- **4–5:** Prove completeness and optimize press sets on a cycle.
-- **Grades 6–7 extra:** Graph toggles, components, and minimum edge sets.
+Start all ten together with the same concrete pair move and page 1. Then offer a few pages based on interest and readiness:
 
-**Kit:** two-sided counters and printed cycle mats. The parent supports KK1 while the organizer alternates between 333 and the fifth grader. Use the supplied independent next question between adult visits. Keep the solutions separate from the student pages.
+- **Pages 1–8 / Problems 1–14:** make targets, undo, walk one light, enlarge a graph, and invent a partner puzzle.
+- **Pages 9–16 / Problems 15–22:** save move lists, compare targets, collect states, and explain parity.
+- **Pages 17–28 / Problems 23–32:** compare solutions, cancel repeated presses, use complementary choices, and investigate shortest lists.
+- **Pages 29–34 / Problems 33–42:** draw shapes, divide rooms, and compare neighboring-room marks. This route can start immediately.
+- **Pages 35–42 / Problems 43–50:** test separate components, add bridges, compare paths, and reason with tree cuts.
+
+**Kit and coverage:** paper and pencil/eraser or whiteboard tablets and markers/erasers; existing two-sided counters are optional. Parent anchors KK1, other mathematician anchors 3333, organizer anchors 445. These stable tables support classroom management; they do not limit which pages a child receives. Read or scribe when useful, skip familiar work after a couple of successful attempts, and keep proofs as adult conversation after concrete work. Use the agreed coverage handoff. The [earlier auxiliary](week-02-k1-aux.md) and [visual redesign](week-02-visual-review.md) remain historical records with original numbering.
 
 ## Week 3: Repeating secret machines
 
 Use the **[complete revised activity plan](week-03-redesign.md)** and **[print packet](../lowell-math-circle-year-2/source/week-03/README.md)**. The weekly plan provides prerequisites, materials and preparation, the shared-hour sequence, the exact launch and puzzles, hints, extensions, checked solutions, and undergraduate/research references.
 
-- **K–1:** Move picture tokens through a reversible key.
-- **2–3:** Build four-symbol machines and compare their return times.
-- **4–5:** Design the slowest five-symbol machine and prove it is best.
+- **K–1:** Move picture tokens repeatedly and record their returns under different keys.
+- **2–3:** Replay four-symbol keys, compare return times, then organize their loops.
+- **4–5:** Build five-symbol machines, compare loops, and search for the slowest return.
 - **Grades 6–7 extra:** Eight-symbol machines and maximum permutation order.
 
-**Kit:** distinct symbol cards and key strips. The parent supports KK1 while the organizer alternates between 333 and the fifth grader. Use the supplied independent next question between adult visits. Keep the solutions separate from the student pages.
+**Kit:** distinct symbol cards and key strips. Parent anchors KK1; the other mathematician anchors 3333; the organizer anchors 445. Use the agreed help handoff when another adult is needed. Keep the solutions separate from the student pages.
 
 ## Week 4: Around the ring
 
 Use the **[complete revised activity plan](week-04-redesign.md)** and **[print packet](../lowell-math-circle-year-2/source/week-04/README.md)**. The weekly plan provides prerequisites, materials and preparation, the shared-hour sequence, the exact launch and puzzles, hints, extensions, checked solutions, and undergraduate/research references.
 
-- **K–1:** Jump around a small ring and notice missed places.
-- **2–3:** Compare fixed steps on a ten-place ring.
-- **4–5:** Classify twelve-place orbits and explain the gcd rule.
+- **K–1:** Make repeated fixed jumps on small rings and mark the places visited.
+- **2–3:** Trace contrasting ten-place routes, then compare their groups of visited places.
+- **4–5:** Trace and compare twelve-place routes before classifying them and explaining gcd.
 - **Grades 6–7 extra:** Perfect out-shuffles and modular multiplication.
 
-**Kit:** numbered rings, counters, and eight cards for the extra. The parent supports KK1 while the organizer alternates between 333 and the fifth grader. Use the supplied independent next question between adult visits. Keep the solutions separate from the student pages.
+**Kit:** numbered rings, counters, and eight cards for the extra. Parent anchors KK1; the other mathematician anchors 3333; the organizer anchors 445. Use the agreed help handoff when another adult is needed. Keep the solutions separate from the student pages.
 
 ## Week 5: Tower cities
 
 Use the **[complete revised activity plan](week-05-redesign.md)** and **[print packet](../lowell-math-circle-year-2/source/week-05/README.md)**. The weekly plan provides prerequisites, materials and preparation, the shared-hour sequence, the exact launch and puzzles, hints, extensions, checked solutions, and undergraduate/research references.
 
-- **K–1:** Find and compare every three-tower skyline.
-- **2–3:** Build cities and prove a clue set singles one out.
-- **4–5:** Distinguish redundant clues, irredundant clues, and a global minimum.
+- **K–1:** Build and view contrasting three-tower rows, then collect their orders.
+- **2–3:** Build legal cities, compare alternatives, then test whether clues determine one.
+- **4–5:** Remove and test clues with alternative cities; compare irredundance and minimum.
 - **Grades 6–7 extra:** Latin trades and certificates for clue selection.
 
-**Kit:** snap cubes, city grids, and movable clue cards. The parent supports KK1 while the organizer alternates between 333 and the fifth grader. Use the supplied independent next question between adult visits. Keep the solutions separate from the student pages.
+**Kit:** snap cubes, city grids, and movable clue cards. Parent anchors KK1; the other mathematician anchors 3333; the organizer anchors 445. Use the agreed help handoff when another adult is needed. Keep the solutions separate from the student pages.
 
 ## Week 6: Code-breaking with guarantees
 
 Use the **[complete revised activity plan](week-06-redesign.md)** and **[print packet](../lowell-math-circle-year-2/source/week-06/README.md)**. The weekly plan provides prerequisites, materials and preparation, the shared-hour sequence, the exact launch and puzzles, hints, extensions, checked solutions, and undergraduate/research references.
 
-- **K–1:** Eliminate hidden two-place codes using exact matches.
-- **2–3:** Identify three binary places with an optimal worst-case strategy.
-- **4–5:** Prove the exact number of queries needed for four binary places.
+- **K–1:** Score visible two-place codes, then play and cross out incompatible secrets.
+- **2–3:** Compare scores and surviving secrets before recording a three-test strategy.
+- **4–5:** Build a four-test method, sort difficult response groups, then investigate the bound.
 - **Grades 6–7 extra:** Fixed queries and Hamming-distance signatures.
 
-**Kit:** two types of counters, code cards, and a screen. The parent supports KK1 while the organizer alternates between 333 and the fifth grader. Use the supplied independent next question between adult visits. Keep the solutions separate from the student pages.
+**Kit:** two types of counters, code cards, and a screen. Parent anchors KK1; the other mathematician anchors 3333; the organizer anchors 445. Use the agreed help handoff when another adult is needed. Keep the solutions separate from the student pages.
 
 ## Week 7: Take-away games
 
 Use the **[complete revised activity plan](week-07-redesign.md)** and **[print packet](../lowell-math-circle-year-2/source/week-07/README.md)**. The weekly plan provides prerequisites, materials and preparation, the shared-hour sequence, the exact launch and puzzles, hints, extensions, checked solutions, and undergraduate/research references.
 
-- **K–1:** Find and explain traps for taking one or two.
-- **2–3:** Classify positions with moves one, three, or four.
-- **4–5:** Prove the repeating pattern and explain a changed rule.
+- **K–1:** Play short one-or-two games and test both replies at a suspected trap.
+- **2–3:** Play one-three-four games; test counterplay before recording winning/losing piles.
+- **4–5:** Test repeating blocks, defend replies, then compare a changed move rule.
 - **Grades 6–7 extra:** Mex values and combinations of games.
 
-**Kit:** counters, move cards, and supplied number strips. The parent supports KK1 while the organizer alternates between 333 and the fifth grader. Use the supplied independent next question between adult visits. Keep the solutions separate from the student pages.
+**Kit:** counters, move cards, and supplied number strips. Parent anchors KK1; the other mathematician anchors 3333; the organizer anchors 445. Use the agreed help handoff when another adult is needed. Keep the solutions separate from the student pages.
 
 ## Week 8: Rooks and piles
 
 Use the **[complete revised activity plan](week-08-redesign.md)** and **[print packet](../lowell-math-circle-year-2/source/week-08/README.md)**. The weekly plan provides prerequisites, materials and preparation, the shared-hour sequence, the exact launch and puzzles, hints, extensions, checked solutions, and undergraduate/research references.
 
-- **K–1:** Find matching safe positions on a small rook board.
-- **2–3:** Prove the matching strategy; test it on three piles.
-- **4–5:** Find and prove the binary-pairing strategy for three-pile Nim.
+- **K–1:** Play matching and mismatched rook starts, then mark places to return to.
+- **2–3:** Test matching replies, translate board moves into piles, then try three piles.
+- **4–5:** Play three piles, make binary bundles, compare balance, and test a winning move.
 - **Grades 6–7 extra:** Diagonal moves and Wythoff pairs.
 
-**Kit:** rook boards, counters, and binary place-value mats. The parent supports KK1 while the organizer alternates between 333 and the fifth grader. Use the supplied independent next question between adult visits. Keep the solutions separate from the student pages.
+**Kit:** rook boards, counters, and binary place-value mats. Parent anchors KK1; the other mathematician anchors 3333; the organizer anchors 445. Use the agreed help handoff when another adult is needed. Keep the solutions separate from the student pages.
 
 ## Week 9: Bouncing paths
 
 Use the **[complete revised activity plan](week-09-redesign.md)** and **[print packet](../lowell-math-circle-year-2/source/week-09/README.md)**. The weekly plan provides prerequisites, materials and preparation, the shared-hour sequence, the exact launch and puzzles, hints, extensions, checked solutions, and undergraduate/research references.
 
-- **K–1:** Trace short paths and choose the correct bounce.
-- **2–3:** Unfold a table to explain a first corner hit.
-- **4–5:** Prove the gcd/parity corner rule and count bounces.
+- **K–1:** Trace and compare several short paths, choosing each bounce at a wall.
+- **2–3:** Trace contrasting tables, unfold copied rooms, then predict the first corner.
+- **4–5:** Compare traced and unfolded tables, count walls, and develop the reduced-side rule.
 - **Grades 6–7 extra:** Rational and irrational directions.
 
-**Kit:** graph-paper table mats, pencils, rulers, and reflected copies. The parent supports KK1 while the organizer alternates between 333 and the fifth grader. Use the supplied independent next question between adult visits. Keep the solutions separate from the student pages.
+**Kit:** graph-paper table mats, pencils, rulers, and reflected copies. Parent anchors KK1; the other mathematician anchors 3333; the organizer anchors 445. Use the agreed help handoff when another adult is needed. Keep the solutions separate from the student pages.
 
 ## Week 10: Bridges and delivery routes
 
 Use the **[complete revised activity plan](week-10-redesign.md)** and **[print packet](../lowell-math-circle-year-2/source/week-10/README.md)**. The weekly plan provides prerequisites, materials and preparation, the shared-hour sequence, the exact launch and puzzles, hints, extensions, checked solutions, and undergraduate/research references.
 
-- **K–1:** Walk every bridge and test a one-stroke drawing.
-- **2–3:** Use odd-degree obstructions and repair a network.
-- **4–5:** Construct Euler tours and prove a shortest closed delivery route.
+- **K–1:** Walk several bridge networks, record routes, and try a one-stroke drawing.
+- **2–3:** Try contrasting routes, pair entrances/exits, then repair a network.
+- **4–5:** Join concrete loops, construct delivery tours, and compare repeated-edge costs.
 - **Grades 6–7 extra:** Weighted route inspection and minimum pairings.
 
-**Kit:** network mats, tokens, and counters to mark used edges. The parent supports KK1 while the organizer alternates between 333 and the fifth grader. Use the supplied independent next question between adult visits. Keep the solutions separate from the student pages.
+**Kit:** network mats, tokens, and counters to mark used edges. Parent anchors KK1; the other mathematician anchors 3333; the organizer anchors 445. Use the agreed help handoff when another adult is needed. Keep the solutions separate from the student pages.
 
 ## What informed the format
 
 These are the source-supported lessons used in the design, separate from our staffing proposal:
 
-- *Math Circle by the Bay*, preface printed pp. viii–x (PDF pp. 9–11), describes weekly elementary circles, available manipulatives, varied participation, extra challenges, practicing explanations, and adjusting depth across age groups. It does not establish our exact seven-child/two-adult schedule.
+- *Math Circle by the Bay*, preface printed pp. viii–x (PDF pp. 9–11), describes weekly elementary circles, available manipulatives, varied participation, extra challenges, practicing explanations, and adjusting depth across age groups. It does not establish our proposed ten-child/three-adult schedule.
 - Rozhkovskaya, Lesson 3 “At the lesson,” item 1 (`part0013.xhtml`), lets children attempt and explain before introducing a table; additional challenges are available without becoming compulsory whole-class material. That informs our attempt-first sequence and local extensions.
 - Lesson 7 “At the lesson,” items 1–2 (`part0017.xhtml`), reports apparently missed legal moves during a game and strong engagement with open K'nex construction. That informs checking rules through a complete example and allowing substantial time with materials.
 - Lesson 8 “At the lesson,” item 2 (`part0018.xhtml`), reports copying/coloring taking different amounts of time. That informs ready-numbered strips, movable clues, and adult scribing rather than extra copying for quick finishers.

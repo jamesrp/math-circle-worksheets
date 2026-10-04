@@ -1,6 +1,25 @@
 # Week 4 redesign: shifts, orbit structure, and perfect shuffles
 
-Prepared September 19, 2026. [Print packets](../lowell-math-circle-year-2/source/week-04/README.md) include three entry levels, one extra page, and a four-page facilitator guide with full checked solutions. Prepared, not yet taught.
+Revised September 27, 2026 from the September 19 design. **All v3 revisions are unpiloted.** The [print packets](../lowell-math-circle-year-2/source/week-04/README.md) contain 3 K pages, 3 middle pages, 4 upper pages, 3 extra pages, and a 5-page facilitator guide. Previous sources and PDFs are preserved in `archive-before-classroom-guidance-2026-09/`.
+
+## Applying the Week 1 classroom guidance
+
+The evidence is the organizer's [Week 1 report](week-01-classroom-review.md): short investigations needed more concrete examples, unclear continuation actions required rescue, and unfamiliar representations needed their own work. The changes below are design inferences for Week 4, not observations about children doing these tasks. No v3 packet has been reported taught.
+
+- K: record one-hop routes from two starts, then two-hop routes from two starts on a second visible ring. Try a missed landing before three-hop and hidden-turn comparisons.
+- Middle: concrete common-shift outputs precede short messages. The +2 routes from A,B,C,D get a whole page and two markings to distinguish their landing sets. Only afterward compare +3 and +5 and test an inverse from four starts.
+- Upper: build all +4 loops, reverse them with +8, and compare +3,+6,+5 before organizing the full table. A supplied eighteen-place ring supports transfer examples. Physical routes precede distance/lap records; inverse and commuting-shift experiments remain explicit tasks. The subtraction-strip/gcd proof stays in the facilitator with its additional readiness gate.
+- Extra: real shuffle rows and tracks of cards 1,3,7 precede the position map. Draw its loops before comparing against doubling/remainders. Six and sixteen cards receive their own page of construction and comparison; the fixed last card and proof of first return remain explicit in the guide.
+
+Every student page now has the consistent week/topic/level header, v3 footer, and sequential numbered problems with needed diagrams and recording space. Name/date lines, duplicate titles, generic encouragement, standalone rules, and unnumbered continuations are removed. Explanation and general proof opportunities remain in the facilitator; they are invitations after concrete work rather than mandatory writing gates.
+
+**Practical printing:** start with one first page per child (three K, three middle, one upper: seven sheets), plus the facilitator. Keep continuation masters ready and copy selected pages as needed; retain earlier mats when later problems reference them. The extra can remain digital until chosen. Expanded page counts provide time and choices, not a requirement to print or complete every page.
+
+**Current satisfying stops:** K one/two-hop routes; middle two +2 orbits; upper +4/+8 loops; extra eight-card return. Continue the same investigation when that is productive. Introduce each table, loop, or compact record with one replayable example, then let the child use it on more than one case before generalizing.
+
+**Evidence to record next time:** exact problems and instances attempted; what children could replay unaided; where an adult had to demonstrate the task or record again; statements or drawings supporting a conjecture or proof; and what they wanted to continue. Keep observations separate from proposed explanations and revision hypotheses. Track tried / conjectured / checked in cases / proved / supplied, and record v3 IDs only after actual use.
+
+**Teaching-source review for this revision:** reread *Math Circle by the Bay*, preface printed viii–x (deep themes, manipulatives, varied pace, explicit statements, and the limits of predicting lesson duration), and Rozhkovskaya, Lessons 3,7,8 “At the lesson” (attempts and explanation before a table; missed legal moves; copying displacing mathematical work). Those are source observations. The exact staged examples, launch, seven-sheet start, and stopping choices here are our proposals.
 
 ## Mathematical destination
 
@@ -10,32 +29,32 @@ Every additive shift is reversible, even when one orbit skips positions. Coprima
 
 | Level / identifier | Prerequisites | Investigation |
 | --- | --- | --- |
-| K–1 / F04-K-v2 | Match four shapes, count hops 1–3 with support; no reading. | Compare one/two/three-hop routes, infer a whole shift from one match, find an undo. |
-| 2–3 / F04-M-v2 | A–J labels; count to 10; follow a single rule. | Decode a short clue, reject incompatible clues, compare +2 and +3 on ten letters, explain disjoint orbits. |
-| 4–5 / F04-U-v2 | Counts/multiples to 18 for finite rings; general proof additionally needs division/gcd and adult-supported coprime divisibility. | Infer +4 on 12 positions, compare or classify shifts, distinguish inverse from orbit size; optionally prove the gcd formula with the divisibility scaffold and explain commuting rotations. |
-| Extra 6–7 / F04-X-v2 | Track numbered positions; repeated doubling and remainders. | Eight-card perfect out-shuffle, order 3, doubling modulo 7 with final position fixed; predict orders for 6 and 16 cards. |
+| K–1 / F04-K-v3 | Match four shapes, count hops 1–3 with support; no reading. | Compare one/two/three-hop routes, infer a whole shift from one match, find an undo. |
+| 2–3 / F04-M-v3 | A–J labels; count to 10; follow a single rule. | Decode a short clue, reject incompatible clues, compare +2 and +3 on ten letters, explain disjoint orbits. |
+| 4–5 / F04-U-v3 | Counts/multiples to 18 for finite rings; general proof additionally needs division/gcd and adult-supported coprime divisibility. | Infer +4 on 12 positions, compare or classify shifts, distinguish inverse from orbit size; optionally prove the gcd formula with the divisibility scaffold and explain commuting rotations. |
+| Extra 6–7 / F04-X-v3 | Track numbered positions; repeated doubling and remainders. | Eight-card perfect out-shuffle, order 3, doubling modulo 7 with final position fixed; predict orders for 6 and 16 cards. |
 
 ## Concrete setup and hour
 
-Use the printed rings and one counter per child. Bring pencils, scratch paper, and eight card scraps numbered 0–7 for the extra; another eight permit the 16-card extension. No wheel cutting or brads. A six-picture K extension can use hand-drawn scraps. Print 3 K,3 middle,1 upper and 1 extra packet. For seven children and two adults, adult A anchors the youngest triplet, organizer alternates middle and upper, and the fifth grader has a scheduled adult discussion of the conjecture.
+Use the printed rings and one counter per child. Bring pencils, scratch paper, and eight card scraps numbered 0–7 for the extra; another eight permit the 16-card extension. No wheel cutting or brads. A six-picture K extension can use hand-drawn scraps. Use the seven-sheet starting plan above and selected continuations. For seven children and two adults, adult A anchors the youngest triplet, organizer alternates middle and upper, and the fifth grader has a scheduled adult discussion of the conjecture.
 
-- **0–10:** play with counters and rings, trying hop lengths.
-- **10–15:** define clockwise and count movements, not the starting place. Launch: “Can a step rule miss some places forever?”
-- **15–35:** K compares one/two-step routes; middle tries the code clue; upper explores the 12-ring. Adult A anchors K; organizer visits middle and upper.
-- **35–40:** movement/reset break; stand, stretch, and leave the work ready to return to.
-- **40–55:** continue orbit comparisons or an optional proof below; offer the shuffle as an alternative.
-- **55–60:** share a route, obstruction, or explanation; tidy counters and cards.
+- **0–10:** handle the materials freely.
+- **10–15:** gather everyone for one concrete legal attempt and its record: Move one hop on the four-shape ring; show a two-hop turn, distinguish the passed-over shape from its landing, and record the landing before taking another turn.
+- **15–35:** K one/two-hop starts; middle common shifts then +2 routes; upper +4/+8. Adult A anchors the youngest group; organizer visits middle and upper.
+- **35–40:** stand, stretch, reset.
+- **40–55:** continue, or choose one next stage when the previous action/record is understood.
+- **55–60:** share one attempt or explanation and tidy. These are proposed intervals, not a completion schedule.
 
 Questions and hints: “Which places did you land on, rather than pass over?” “Has the starting point returned?” “Choose an unused start.” “How many total spaces have you moved, and how many full laps?” Read aloud as needed. The whole twelve-row table is optional recording support, not a requirement to copy before progressing. The extra can follow the first orbit investigation if interest points toward cards.
 
 
-### Satisfying stops and optional proofs
+### Later optional destinations and proofs
 
-- **K–1 stop:** compare one/two-hop routes and find an undo for the hidden turn. **Optional proof:** explain the missed shapes with the two separate loops.
-- **2–3 stop:** decode the clue and compare +2/+3 routes. **Optional proof:** use alternate markings to prove +2 misses half the letters while still having an inverse.
-- **4–5 stop:** explain the +4 and +8 return times on twelve places and show their loops. **Optional proof:** with adult support, use the coprime divisibility scaffold to prove the gcd formula; without that step record the general rule as a conjecture or supplied theorem.
+- **K–1 later destination:** compare one/two-hop routes and find an undo for the hidden turn. **Optional proof:** explain the missed shapes with the two separate loops.
+- **2–3 later destination:** decode the clue and compare +2/+3 routes. **Optional proof:** use alternate markings to prove +2 misses half the letters while still having an inverse.
+- **4–5 later destination:** explain the +4 and +8 return times on twelve places and show their loops. **Optional proof:** with adult support, use the coprime divisibility scaffold to prove the gcd formula; without that step record the general rule as a conjecture or supplied theorem.
 
-These are choices for the shared hour, not a requirement to finish the packet. At the stop, continue playing or comparing examples if that suits the child. Record whether each result was tried, conjectured, verified in these cases, proved, or given as a theorem.
+These are choices for the shared hour, not a requirement to finish the packet. The earlier stops above remain complete sessions; choose these later destinations only when useful. Record whether each result was tried, conjectured, verified in these cases, proved, or given as a theorem.
 
 ## Checked results and proofs
 
@@ -59,4 +78,4 @@ Upper: input 9→output 1 on 12 places determines +4; input 2→6 agrees. Output
 - Lowell Handout 6, problem 6.7, and Handout 7, problem 7.8, mention earlier card-ordering solitaire and its ten-card version. Those were read. Perfect out-shuffling is a different explicit operation, not assumed to repeat the earlier task.
 - *Math Circle by the Bay*, preface printed pp.viii–x, supports common themes across levels, physical exploration, varied pace, and harder reserves. Our staffing and minute allocations are proposals, not attributed to the book.
 
-`lowell-math-circle-year-2/source/week-04/verify.py` independently checks all shifts on ring sizes 4,6,10,12,18, all printed encodings, the 8-card rows, the general position map for 6,8,16 cards, and their first returns. Record actual step/ring sizes and extra use as F04-K/M/U/X-v2. Later returns can investigate prime versus composite sizes, affine permutations, in-shuffles, or shuffle groups without repeating these small cases. See `lowell-math-circle-year-2/source/week-04/REVIEW.md` for visual QA.
+`lowell-math-circle-year-2/source/week-04/verify.py` independently checks all shifts on ring sizes 4,6,10,12,18, all printed encodings, the 8-card rows, the general position map for 6,8,16 cards, and their first returns. Record actual step/ring sizes and extra use as F04-K/M/U/X-v3. Later returns can investigate prime versus composite sizes, affine permutations, in-shuffles, or shuffle groups without repeating these small cases. See `lowell-math-circle-year-2/source/week-04/REVIEW.md` for visual QA.

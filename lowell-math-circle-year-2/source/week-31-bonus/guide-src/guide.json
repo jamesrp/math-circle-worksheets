@@ -1,0 +1,90 @@
+{
+  "week": 31,
+  "topic": "Hidden orchard",
+  "overview": [
+    "Visibility from a lattice lookout L=(c,d): a different target (a,b) is visible precisely when gcd(|a-c|,|b-d|)=1. Only dot centers strictly between lookout and target block. From adjacent lookouts (0,0),(1,0), a positive-height target is doubly hidden exactly when both gcd(a,b)>1 and gcd(a-1,b)>1. A prime-power row cannot be doubly hidden; row 6 can.",
+    "Empty triangles: for a simple nondegenerate lattice triangle, Pick's theorem gives area=I+B/2-1. Empty means I=0 and B=3, so area is 1/2 grid square; conversely area 1/2 forces emptiness. Visible sides alone do not exclude interior dots. The theorem requires straight noncrossing sides, lattice corners and no holes; tested triangles do not prove its general formula.",
+    "Growing directions: start the ordered row (1,0),(0,1), retaining every inserted card. Neighbor vectors u=(a,b), v=(c,d) always have |ad-bc|=1. Inserting u+v preserves this condition and gives coprime coordinates. Every positive coprime direction appears once in the unlimited Stern-Brocot construction; arbitrary addition of visible directions need not do so.",
+    "Children compare visibility from two unchanged stations, distinguish boundary from interior, and construct new visible directions. Grades 2-3 can test and build; Grades 4-5 can explain row obstructions, empty-triangle area and the neighbor invariant. Concrete discoveries, conjectures and general explanations are separate achievements."
+  ],
+  "readiness": [
+    "Shared packet: Grades 2-5. P1-2 need exact collinearity, coordinates and one fixed comparison record; P3-4 need boundary/interior distinction and grid-square area; P5-6 need two-component addition and an ordered card row. Adults may read or record.",
+    "Optional K-1 entry is two-lookout thread testing on selected targets or marking extra triangle dots. Offer it only if the child keeps both references fixed. Area proofs and ordered direction growth are not forced young-child routes."
+  ],
+  "materials": [
+    "Per pair: a square-spaced 0-6 dot grid, two styled lookout markers, thin nonstretch threads, ruler, removable dot markers, pencils and spare dot paper. Working grid spacing is 20 mm. For triangles, ruler lines or rubber bands on a matching pegboard keep all three sides visible; spare boards preserve candidates. The point center counts, not tree outline or thread thickness.",
+    "For directions: movable cards (1,0),(0,1), blank cards and a wide table strip retaining their order. Adults can write chosen cards while children decide where to insert. Print the selected page first; estimated preparation 10-20 minutes. Thread accuracy, pegboard fit and procedural handling remain untested. Five sets serve eleven children at three fixed tables, one adult per table; the upper trio rotates roles."
+  ],
+  "launch": "Allow thread/ruler handling. Set two lookout anchors and demonstrate testing the same non-task target from both, leaving both anchors fixed. For triangles show side versus inside dots without revealing the empty-area theorem. Before direction growth enact the printed (2,1)+(1,1)=(3,2) visual and plot its across/up result; do not prebuild the target directions.",
+  "route": "Use P1-2 or P3-4 for a 20-35 minute first route; reserve P5-6 for a 30-45 minute direction-growth return. These are estimates. Save constructions and let children stay with a promising question.",
+  "investigations": [
+    {
+      "problem": "1-2",
+      "title": "Two lookouts and common blind spots",
+      "entry": "Grades 2-3 test targets with thread and record B/1/0 in one table. Grades 4-5 explain the infinite row claim. Allow 20-30 minutes. The lookup codes are categories, not arithmetic counts to be added.",
+      "solution": [
+        "P1: for across 0,1,2,3,4,5,6 respectively, row 3 records 1,1,B,1,1,B,1; row 6 records 1,1,1,0,0,1,1. The two doubly hidden printed targets are (3,6),(4,6). From L=(0,0), use gcd(a,b); from R=(1,0), use gcd(|a-1|,b). At a=0 the target is blocked from L but visible from R, and at a=1 the roles reverse.",
+        "P2: no target anywhere on row 4 is hidden from both. A common divisor larger than 1 with 4 requires an even across displacement. Both a and a-1 cannot be even. This includes the axes and extends past the printed grid. A complete finite test verifies the displayed cases; consecutive-integer parity proves the unlimited-row statement.",
+        "More generally, on height p^k with prime p, simultaneous hiding would require p to divide consecutive a and a-1. At height 6, double hiding occurs at across values congruent to 3 or 4 modulo 6. For a=3, (1,2) blocks from L and (2,3) blocks from R; the child can display both blockers without factor notation."
+      ],
+      "hints": [
+        "Keep a colored marker at each anchor and a single target marker in place. Ask which exact dot lies between that anchor and target. For row 4, compare even and odd across values."
+      ],
+      "extensions": [
+        "Try rows with different prime factors. Two neighboring lookouts do not guarantee visibility everywhere, as row 6 shows. Ask children to choose another pair of lookouts and test one unchanged collection; translate coordinates separately for each station."
+      ],
+      "notes": "A target visible from exactly one receives the single category 1. Do not update the target or one station after the first test."
+    },
+    {
+      "problem": "3-4",
+      "title": "Visible edges and empty triangles",
+      "entry": "Grades 2-3 mark boundary/interior dots and use copied shapes to compare areas. Grades 4-5 continue to P4's impossibility explanation. Allow 25-40 minutes or a return visit. Formal determinants and a proof of Pick's theorem are not child prerequisites.",
+      "solution": [
+        "P3 A: corners (0,0),(1,0),(0,1), empty, area 1/2. B: (0,0),(1,2),(3,1), not empty; its two interior dots are (1,1),(2,1), with no extra side dots, area 5/2. C: (0,0),(2,0),(0,2), not empty; extra side dots (1,0),(0,1),(1,1), no interior dots, area 2. D: (0,0),(2,1),(1,1), empty, area 1/2. Corner dots are allowed and are not extra dots.",
+        "P3's clear-sided case: triangle B is a witness. Its edge displacements (1,2),(3,1),(2,-1) all have coprime coordinate magnitudes, so no extra boundary dot occurs. Nevertheless (1,1),(2,1) lie strictly inside. Checking sides controls the boundary only.",
+        "P4: three different shapes that fit the printed 3-by-3 grids are A, D, and corners (0,0),(3,1),(2,1). Their squared side-length sets are respectively {1,1,2}, {1,2,5}, {1,5,10}, confirming different shapes. Each has area 1/2 and no extra dots. For D and the third example, the horizontal base has length 1 at height 1, so the altitude from O is 1. Children can use two copies or enclosing rectangles to find area.",
+        "No nondegenerate empty lattice triangle has area greater than 1/2: Pick gives I=0,B=3 and hence area 1/2. Conversely, area 1/2 forces I=0,B=3 because I is nonnegative and B is at least 3. State the theorem as adult support when a general proof is beyond readiness; a proof with drawings of a particular construction is still meaningful. Three collinear corners are not a triangle."
+      ],
+      "hints": [
+        "Touch corners, then trace sides, then inspect inside. For area, place a congruent copy along a side or enclose the triangle in a grid rectangle. Ask what a visible side says about inside dots; do not equate those conditions."
+      ],
+      "extensions": [
+        "The area of any lattice triangle is a multiple of 1/2. For a larger triangle compare area with interior and boundary counts using Pick, retaining its assumptions. Ask whether every visible-sided triangle is empty; B already supplies a counterexample."
+      ],
+      "notes": "The authors of Math Circle by the Bay explicitly distinguish tested formulas from proofs. Children may conjecture the common empty area from their constructions without having proved Pick's theorem."
+    },
+    {
+      "problem": "5-6",
+      "title": "Grow neighboring visible directions",
+      "entry": "Grades 2-3 add and insert physical cards after the worked visual. Grades 4-5 explain why hidden (4,2) is excluded and how any positive coprime target is found. Allow 25-45 minutes, with a separate return for the general rule.",
+      "solution": [
+        "P5: one final increasing-slope row is (1,0),(2,1),(3,2),(4,3),(1,1),(3,4),(2,3),(1,2),(0,1). Build (1,1) first; on its left build (2,1), then (3,2) between (2,1),(1,1), then (4,3) between (3,2),(1,1). On its right build (1,2), then (2,3) between (1,1),(1,2), then (3,4) between (1,1),(2,3). Other insertion orders are valid. Earlier cards remain in order.",
+        "(4,2) cannot occur. If neighbors have |ad-bc|=1, any common divisor of a+c and b+d divides a(b+d)-b(a+c)=ad-bc, so the new coordinates are coprime. The new neighbor determinants equal the old determinant. The initial pair has determinant 1, proving the invariant throughout. Arbitrary visible-vector addition is not enough: (1,1)+(1,3)=(2,4) is hidden, and those directions are not valid neighbors.",
+        "P6: yes for every positive coprime target, in particular every such target bounded by 6. Keep the neighboring pair whose ray wedge contains the target; insert its sum and choose the smaller wedge still containing the target. If the sum is the target, stop. Across/up slopes can be compared visually or by cross products; no decimal angle is needed.",
+        "Adult completeness proof: write target T=A u+B v inside a determinant-one neighbor wedge. The integer inverse gives positive integer coefficients. If A>B, retain neighbors u,u+v and new coefficients A-B,B; if B>A, retain u+v,v and coefficients A,B-A. Their sum decreases. At A=B, coprimeness of T forces A=B=1, giving T=u+v. Forced wedge choices give uniqueness. This is subtraction of coefficients in the current neighbor basis, not direct coordinate subtraction to find a parent. Finite bounded-6 growth gives all 23 positive coprime targets exactly once."
+      ],
+      "hints": [
+        "Keep the target plotted beside the current two boundaries. Ask which side of the new ray it lies on. If arithmetic stalls, an adult can write the new card while the child chooses its place."
+      ],
+      "extensions": [
+        "Try an unbounded coprime target and preserve the same wedge-search procedure. Ask which assumption fails if a target has a shared factor; it cannot be generated by the invariant. The general existence proof is optional return work, not a demand to enumerate a large fan."
+      ],
+      "notes": "One retained ordered card row is the record. Do not require a second traversal word or a catalog copied by every child."
+    }
+  ],
+  "sources": [
+    "Current Week 31, Hidden orchard, student packets pp. 1-5 and adult guide pp. 1-4 were inspected. They establish exact dot visibility and the first-blocker gcd rule; two stations, triangles and constructed neighboring directions are new encore questions.",
+    "Math Circle by the Bay, printed pp. 129-134, Problems 5.30-5.34; the body on pp. 132-134 was read. Pick's formula appears on p. 132, simple lattice-polygon conditions on p. 133, and the distinction between experiments and proofs on p. 134. Our triangle tasks use this context; no pilot claim is transferred to them.",
+    "Translated visibility and Stern-Brocot neighbor proofs are independently derived here. The complete coefficient proof is adult context, not a formal linear-algebra prerequisite.",
+    "Laura Givental, Maria Nemirovskaya and Ilya Zakharevich, Math Circle by the Bay, Preface printed pp. viii-x (local PDF pages 9-11): themes with deep context and multiple entry levels, manipulatives, returning to explanations, and no universal estimate for a theme's duration. These are reported principles. The encore tasks, pairing and readiness routes here are local proposals, not classroom results from that book."
+  ],
+  "verification": [
+    "The author recomputed the facts, solutions and extension arguments from the actual tasks and design kernels. Independent mathematical reviews are retained separately with the editable sources.",
+    "Mathematical, render and extracted-source rebuild results belong in the release-validation record. No physical fit or procedure pretest and no classroom pilot has occurred."
+  ],
+  "observations": [
+    "Record each investigation actually used, examples attempted, a saved construction or plan, and where each pair wants to resume. A theme can support several visits; count use by investigation, not by finishing pages.",
+    "Record the child's action or words first; write your interpretation separately. Note whether children retained the choices after the launch or needed an adult to operate the investigation. All readiness and timing estimates below are unpiloted hypotheses.",
+    "Observe whether both lookout references stay fixed, boundary and interior are distinguished, and a direction row remains ordered. Note which explanations children give independently."
+  ]
+}

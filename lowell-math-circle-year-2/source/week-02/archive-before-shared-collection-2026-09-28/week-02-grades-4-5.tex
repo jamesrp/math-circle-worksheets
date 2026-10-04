@@ -1,0 +1,116 @@
+\documentclass[14pt]{extarticle}
+\def\activityid{F02-U-v4}\input{common.tex}
+\setlength{\parskip}{6pt}
+% Lamp states and selected lines have distinct encodings.
+\newcommand{\URing}[4]{\begin{tikzpicture}[x=1in,y=1in,baseline=(current bounding box.center)]
+\foreach \i in {1,...,#1}{\coordinate(v\i) at({90-360*(\i-1)/#1}:#2);}
+\foreach \i in {1,...,#1}{\pgfmathtruncatemacro{\j}{mod(\i,#1)+1}\draw[line width=.7pt] (v\i)--node[midway,fill=white,inner sep=1.3pt,font=\fontsize{9}{10}\selectfont]{\i\j}(v\j);}
+\foreach \i in {1,...,#1}{\node[circle,draw,fill=white,minimum size=#4,inner sep=0pt,font=\bfseries\fontsize{11}{12}\selectfont]at(v\i){\i};}
+\foreach \i in {#3}{\node[circle,draw,fill=ink,text=white,minimum size=#4,inner sep=0pt,font=\bfseries\fontsize{11}{12}\selectfont]at(v\i){\i};}
+\end{tikzpicture}}
+\newcommand{\UEdges}[1]{\begin{tikzpicture}[x=1in,y=1in,baseline=(current bounding box.center)]
+\foreach \i in {1,...,5}{\coordinate(v\i) at({90-72*(\i-1)}:.44);}
+\foreach \i in {1,...,5}{\pgfmathtruncatemacro{\j}{mod(\i,5)+1}\draw[densely dashed,black!40,line width=.55pt] (v\i)--(v\j);}
+\foreach \i/\j in {#1}{\draw[line width=2.2pt] (v\i)--(v\j);}
+\foreach \i in {1,...,5}{\node[circle,draw,fill=white,minimum size=.22in,inner sep=0pt,font=\fontsize{9}{10}\selectfont]at(v\i){\i};}
+\end{tikzpicture}}
+\newcommand{\UPage}[2]{\StudentHeader{Grades 4--5}\Problem{#1}{#2}}
+\newcommand{\UMat}{\URing{5}{1.03}{}{.56in}}
+\newcommand{\UTarget}[1]{\URing{5}{.43}{#1}{.28in}}
+\newcommand{\UWrite}{\rule{2.85in}{.4pt}}
+\newcommand{\UTargetRow}[2]{\par\begin{minipage}[c]{1.4in}\centering\UTarget{#1}\end{minipage}\hfill\begin{minipage}[c]{5.05in}#2\par First list: \UWrite\par Another list: \UWrite\end{minipage}\par\vspace{5pt}}
+\newcommand{\UChoices}{\mbox{\(\square\) yes\quad\(\square\) no}}
+\newcommand{\UDecisionTable}{\par\renewcommand{\arraystretch}{1.55}\begin{tabularx}{\linewidth}{@{}lXl@{}}Look at lamp&To match the target, press this line?&Circle one\\\hline1&12&yes\quad no\\2&23&yes\quad no\\3&34&yes\quad no\\4&45&yes\quad no\\\end{tabularx}}
+\newcommand{\UTrial}[1]{\par#1\par\renewcommand{\arraystretch}{1.6}\begin{tabularx}{\linewidth}{@{}l*{4}{>{\centering\arraybackslash}X}@{}}Lamp to fix&1&2&3&4\\Line to press?&12&23&34&45\\Circle one&yes / no&yes / no&yes / no&yes / no\\\end{tabularx}\par Lamp 5 matches the target: \UChoices\hfill Total presses: \rule{.45in}{.4pt}\par\vspace{5pt}}
+\newcommand{\UPair}[4]{\begin{center}\begin{tabular}{@{}c@{\hspace{.25in}}c@{\hspace{.30in}}c@{\hspace{.25in}}c@{}}Press these&Color result&Reset. Press these&Color result\\\UEdges{#1}&\UTarget{}&\UEdges{#2}&\UTarget{}\\#3 presses& & #4 presses&\\\end{tabular}\end{center}}
+\begin{document}
+\UPage{1}{Put five two-sided counters on the large ring, all OFF. Press a line by flipping both counters at its ends: OFF becomes ON, and ON becomes OFF.}
+\begin{center}\UMat\end{center}
+Write \textbf{12} for the line joining lamps 1 and 2. A dark lamp means ON; a white lamp means OFF.
+\begin{center}\UTarget{}\quad\(\xrightarrow{\text{press 12}}\)\quad\UTarget{1,2}\quad\(\xrightarrow{\text{press 12}}\)\quad\UTarget{}\end{center}
+Try the two presses shown above. Then start all OFF and choose two presses of your own. Write them in the order you press them.
+\par First press: \rule{1.2in}{.4pt}\hfill Second press: \rule{1.2in}{.4pt}
+\par Get back to all OFF. Write the presses you used.
+\par\Space{.85in}
+\newpage
+\UPage{2}{Start all OFF for each target below. Make the dark lamps ON and the white lamps OFF. Write two different move lists for each target. Circle the shorter list.}
+\begin{center}\UMat\end{center}
+\UTargetRow{1,2}{Make this picture.}
+\UTargetRow{1,3}{Make this picture.}
+\UTargetRow{1,2,3,4}{Make this picture.}
+Choose one target. Test single presses, resetting to all OFF before each press. Can one press make that target? Tell a partner what happened.
+\newpage
+\UPage{3}{Start all OFF for each move list. Read from left to right. Press one line at a time, then color the lamps that finish ON in its small ring.}
+\begin{center}\UMat\end{center}
+\begin{tabularx}{\linewidth}{@{}Xc@{}}
+Press \textbf{12}, then \textbf{23}. & \UTarget{}\\[5pt]
+Press \textbf{23}, then \textbf{12}. & \UTarget{}\\[5pt]
+Press \textbf{12}, then \textbf{23}, then \textbf{12}, then \textbf{12}. & \UTarget{}\\
+\end{tabularx}
+\par Compare the three pictures. In the last list, cross out two copies of the same press. Reset and try the presses left over. Do you get the same picture?\par\Space{.7in}
+\newpage
+\UPage{4}{For each pair, start all OFF. Press each thick line on the left once, then color the lamps that finish ON. Reset to all OFF. Test the thick lines on the right and color that final picture.}
+\begin{center}\UMat\end{center}
+The dashed lines are the lines you do not press. In the first pair, try line 12 on the left; on the right try 23, 34, 45, 51.
+\UPair{1/2}{2/3,3/4,4/5,5/1}{\rule{.3in}{.4pt}}{\rule{.3in}{.4pt}}
+\UPair{1/2,2/3}{3/4,4/5,5/1}{\rule{.3in}{.4pt}}{\rule{.3in}{.4pt}}
+In each pair, count the presses and compare the two final pictures. Circle the side with fewer presses.
+\newpage
+\UPage{4 (continued)}{Try two more pairs. Begin all OFF each time. Press each thick line once and color the lamps that finish ON. Count the presses.}
+\begin{center}\UMat\end{center}
+\UPair{1/2,3/4}{2/3,4/5,5/1}{\rule{.3in}{.4pt}}{\rule{.3in}{.4pt}}
+\UPair{1/2,2/3,3/4}{4/5,5/1}{\rule{.3in}{.4pt}}{\rule{.3in}{.4pt}}
+Compare the two final pictures in each pair. Circle the side with fewer presses.\par
+Finish this sentence with words or a drawing: ``When I press the other lines, \ldots''\par\Space{.8in}
+\newpage
+\UPage{5}{Make your own pair of line pictures. Choose one, two, or three lines on the left ring and trace them thickly. On the right ring, trace every line you did not choose.}
+\begin{center}\begin{tabular}{c@{\hspace{1.1in}}c}My chosen lines&The other lines\\\UEdges{}&\UEdges{}\end{tabular}\end{center}
+Start all OFF on the large mat. Press each chosen line once. Color the first final picture below. Reset and test the other lines; color the second final picture.
+\begin{center}\UMat\end{center}
+\begin{center}\begin{tabular}{c@{\hspace{1.05in}}c}First final picture&Second final picture\\\UTarget{}&\UTarget{}\\\rule{.5in}{.4pt} presses&\rule{.5in}{.4pt} presses\end{tabular}\end{center}
+Compare your pictures. Show your partner the pair and ask them to test it.
+\newpage
+\UPage{6}{Make the target below by fixing one lamp at a time. Start all OFF. This time, do not press line 51. Use each line at most once.}
+\begin{center}\begin{tabular}{c@{\hspace{.35in}}c@{\hspace{.35in}}c}Target&Before 12&Working mat\\\UTarget{1,3}&\UTarget{}&\UMat\end{tabular}\end{center}
+Lamp 1 is OFF, but the target needs it ON. \textbf{Press 12 now.} Circle ``yes'' in the first row. Lamp 1 now matches the target.
+\par Next look at lamp 2. If it differs from the target, press 23; if it matches, leave 23 alone. Do the same for lamps 3 and 4, using the next line each time.
+\UDecisionTable
+\par Stop after 45. Does lamp 5 match the target? \UChoices
+\par Write the lines you pressed, in order.\par\Space{.6in}
+\newpage
+\UPage{6 (continued)}{Try the same target again. Start all OFF. This time, press line 51 first. Then decide about 12, 23, 34, 45, in that order. Use each line at most once.}
+\begin{center}\begin{tabular}{c@{\hspace{.35in}}c@{\hspace{.35in}}c}Target&After 51&Working mat\\\UTarget{1,3}&\UTarget{1,5}&\UMat\end{tabular}\end{center}
+After pressing 51, lamp 1 is already ON, just as the target needs. \textbf{Do not press 12.} Circle ``no'' in the first row.
+\par For each next lamp, compare it to the target. Press the next line only if that lamp needs to change.
+\UDecisionTable
+\par Stop after 45. Does lamp 5 match the target? \UChoices
+\par Write your whole move list, starting with 51.\par\Space{.6in}
+\newpage
+\UPage{7}{Make this new target in two ways. Start all OFF for each trial. Decide about 51 first, then 12, 23, 34, 45. Press each line at most once.}
+\begin{center}\begin{tabular}{c@{\hspace{.8in}}c}Target&Working mat\\\UTarget{1,2,3,4}&\UMat\end{tabular}\end{center}
+Look at each lamp in order. If it differs from the target, press the line below it. If it matches, do not press that line. After lamp 4, stop and check lamp 5. Include 51 in your press count if you used it.
+\UTrial{First trial: leave 51 alone.}
+\UTrial{Reset to all OFF. Second trial: press 51 first.}
+Circle the trial that uses fewer presses. Point to its lines on the working mat.
+\newpage
+\UPage{8}{Try this target: only lamp 1 ON. Start all OFF for each trial. Choose about 51 first, then decide about 12, 23, 34, 45. Press each line at most once.}
+\begin{center}\begin{tabular}{c@{\hspace{.8in}}c}Target&Working mat\\\UTarget{1}&\UMat\end{tabular}\end{center}
+At each lamp, press the next line only if that lamp needs to change to match the target. After deciding about 45, stop. Check lamp 5 carefully. Include 51 in your press count if you used it.
+\UTrial{First trial: leave 51 alone.}
+\UTrial{Reset to all OFF. Second trial: press 51 first.}
+Put a cross beside a trial if its final picture does not match the target. Show a partner which lamp does not match.
+\newpage
+\UPage{9}{Invent three new targets. In each small ring, color two or four lamps ON. Test each target on the large mat, starting all OFF each time.}
+\begin{center}\UMat\end{center}
+Find one move list using each line at most once. For the other list, use every line missing from the first list, once each. Test both. Count the presses and circle the shorter list.
+\UTargetRow{}{My target. \hfill Counts: \rule{.4in}{.4pt}\quad\rule{.4in}{.4pt}}
+\UTargetRow{}{My target. \hfill Counts: \rule{.4in}{.4pt}\quad\rule{.4in}{.4pt}}
+\UTargetRow{}{My target. \hfill Counts: \rule{.4in}{.4pt}\quad\rule{.4in}{.4pt}}
+If you want another puzzle: can you draw a target with two or four ON lamps that needs more than two presses?
+\newpage
+\UPage{10}{Put six counters on this ring, all OFF. Follow one route between the dark lamps of a target. Press each line on that route once. Reset and try the other route. Make both targets below.}
+\begin{center}\URing{6}{1.03}{}{.56in}\end{center}
+\begin{minipage}[c]{1.45in}\centering\URing{6}{.43}{1,4}{.28in}\end{minipage}\hfill\begin{minipage}[c]{5.05in}First route: \UWrite\par Press count: \rule{.7in}{.4pt}\par Other route: \UWrite\par Press count: \rule{.7in}{.4pt}\end{minipage}\par\vspace{12pt}
+\begin{minipage}[c]{1.45in}\centering\URing{6}{.43}{1,3}{.28in}\end{minipage}\hfill\begin{minipage}[c]{5.05in}First route: \UWrite\par Press count: \rule{.7in}{.4pt}\par Other route: \UWrite\par Press count: \rule{.7in}{.4pt}\end{minipage}\par\vspace{8pt}
+Circle each pair of routes that uses the same number of presses. Could two routes around the five-lamp ring use the same number? Draw or write your idea.\par\Space{.65in}
+\end{document}

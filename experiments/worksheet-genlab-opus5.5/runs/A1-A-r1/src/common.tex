@@ -1,0 +1,53 @@
+% Shared preamble for the three packets. Compile with lualatex.
+\usepackage[letterpaper,left=0.5in,right=0.5in,top=0.9in,bottom=0.65in,
+            headheight=22pt,headsep=0.22in,footskip=0.32in]{geometry}
+\usepackage{fontspec}
+\setmainfont{Andika}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+
+\definecolor{pgreen}{RGB}{92,176,74}
+\definecolor{pblue}{RGB}{70,112,205}
+\definecolor{pred}{RGB}{222,66,52}
+\definecolor{ppurple}{RGB}{128,82,172}
+\definecolor{pyellow}{RGB}{246,203,40}
+
+\tikzset{
+  grid/.style={line width=0.5pt, black!38},
+  outline/.style={line width=1.7pt, black, line join=round, line cap=round},
+  kgrid/.style={line width=0.5pt, black!30},
+  koutline/.style={line width=2pt, black, line join=round, line cap=round},
+  cgrid/.style={line width=0.35pt, black!32},
+  coutline/.style={line width=1pt, black, line join=round},
+  boardfill/.style={fill=white},
+  hole/.style={fill=black!45},
+  piece/.style={line width=1.1pt, black, line join=round},
+  pfill/.style={fill=pblue!22},
+  ribbonfill/.style={fill=pblue!62},
+  iconline/.style={line width=0.8pt, black, line join=round},
+  boardlabel/.style={font=\bfseries\Large, inner sep=1pt},
+  ribbonletter/.style={font=\bfseries\large, text=white},
+  cubeL/.style={fill=pblue!40},
+  cubeR/.style={fill=pblue!78},
+  cubeS/.style={fill=pblue!7},
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Bellingham Math Circle}
+\chead{\bandname}
+\rhead{Name \rule[-0.15ex]{2.1in}{0.5pt}}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\raggedright
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+\newcommand{\prob}[1]{\textbf{Problem #1:}\ }
+\newcommand{\ansbox}[1][0.85in]{\tikz[baseline=(b.base)]{\node[draw,line width=0.9pt,rounded corners=3pt,minimum width=#1,minimum height=0.55in](b){\strut};}}
+\newcommand{\fig}[1]{\input{fig/#1.tex}}

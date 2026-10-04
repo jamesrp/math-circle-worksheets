@@ -1,0 +1,86 @@
+{
+  "week": 25,
+  "topic": "Row and column shadows",
+  "overview": [
+    "A labeled 3 by 3 binary picture with one counter in each row and column has six possibilities. Counts on all five complete northwest-to-southeast diagonals distinguish four pictures individually but leave one ambiguous pair: 100/001/010 and 010/100/001 both have counts (0,1,1,1,0). More shadow directions help without necessarily determining the picture.",
+    "A yes/no question about one covered cell identifies a hidden member of that six-picture catalog in at most three adaptive questions, and two never suffice. If all cells must be chosen before any replies, the exact minimum is four. Naming an already determined picture is free. These are worst-case guarantees, not the shortest history in one lucky game.",
+    "Legal individual counts and equal total row/column sums do not ensure a binary picture exists. Any chosen k rows require at most sum over columns of min(k,column count) counters. This capacity bound explains both impossible printed boards. It is a necessary bound; no general sufficiency theorem is needed here.",
+    "Children investigate extra shadows, cell-query information, and impossible margins: three distinct directions. K-1 can place counters or play from visible candidates with reading support; Grades 2-3 can find collisions and useful questions; Grades 4-5 can certify query minima and capacity obstructions. Trials suggest a strategy; indistinguishable candidates refute it; complete separation and counting arguments establish a guarantee."
+  ],
+  "readiness": [
+    "Fixed tables: KK11 / 3333 / 445, with one anchored adult each. Use one investigation and its brief launch per table visit. Adults read/record while children own the mathematical choices. Entry needs fixed rows A-C and columns 1-3, one counter per cell and counts to three. Diagonal shadows use the worked picture; query games retain occupied/empty replies with candidates visible.",
+    "P1 or P2 play is the concrete start. Query lower bounds and the prechosen distinction are return work. Younger children play before planning a complete decision tree."
+  ],
+  "materials": [
+    "Per pair: two 3 by 3 working grids, twelve counters at most 18 mm across, nine opaque cell covers, a folder, six visible candidate-picture cards copied from student page 2, count labels 0-3, pencils and paper. P1/P3/P4 printed cells are 22 mm; measure a print at 100%. P2's candidate diagrams are compact references; use a separate large grid for hiding and placement.",
+    "Adult prepares movable candidate cards with fixed labels/orientation. Zero row/column counts remain part of the board. P2 replies give only occupied/empty. Preparation: about 10-15 minutes for three table sets. Fit, covers and hidden-board procedure remain physically untested."
+  ],
+  "launch": "Give brief free counter handling. Use the printed non-task picture: occupied A1,A2,B3,C1. Point along d1=C1; d2=B1,C2; d3=A1,B2,C3; d4=A2,B3; d5=A3. Its shadow counts are 1,0,1,2,0. For the query visit, hide a practice picture and answer one named cell while keeping the six candidates visible. Keep the reference picture unchanged through every check.",
+  "route": "After a 2-3 minute launch, allow 20-35 minutes for P1 or P2. Return for P3's prechosen queries or P4's capacity work. Timings are proposals. Save a collision or strategy; completing every page is unnecessary.",
+  "investigations": [
+    {
+      "problem": "1",
+      "title": "An extra shadow can still hide a difference",
+      "entry": "Begin by placing three counters with one in every row/column. A younger child can find and compare two actual pictures; an older group can assemble the six-picture catalog and establish completeness. Allow 15-30 minutes.",
+      "solution": [
+        "List occupied columns for rows A,B,C. Catalog pictures 1-6 have columns (1,2,3), (1,3,2), (2,1,3), (2,3,1), (3,1,2), (3,2,1). Their d1-d5 signatures are respectively (0,0,3,0,0), (0,1,1,1,0), (0,1,1,1,0), (1,0,0,2,0), (0,2,0,0,1), (1,0,1,0,1).",
+        "Precisely pictures 2 and 3 match: rows 100/001/010 versus 010/100/001. They also share the ordinary one-per-row/column counts. Any valid picture chooses a different occupied column in each row, so there are exactly 3 times 2 times 1 = 6 and the catalog is complete. Exhibiting the pair answers P1; the catalog establishes that no other pair matches all five extra shadows."
+      ],
+      "hints": [
+        "After children try, hold row A's counter fixed while moving the others legally. Use two unchanged reference boards. If a diagonal is confused with the main diagonal alone, point along the printed membership guides rather than giving the matching pair."
+      ],
+      "extensions": [
+        "A yes/no reveal at any cell where pictures 2 and 3 differ settles this remaining ambiguity. On their common empty cells a reveal adds no information. Explain why an extra clue's usefulness depends on which candidates remain."
+      ],
+      "notes": "Diagonal labels d1-d5 are fixed, not freely reordered counts. Equal totals alone do not mean equal shadows."
+    },
+    {
+      "problem": "2-3",
+      "title": "Choose questions as evidence arrives",
+      "entry": "Play P2 with all candidates visible and retain replies by covering or marking candidate cards. P3 changes only when cells are chosen. Reading support is routine; children should retain the choices. Allow 20-40 minutes, with exact minima as return work.",
+      "solution": [
+        "P2 minimum worst case is three. Ask A1. If occupied, pictures 1/2 remain; B2 separates them, so this branch needs two. If A1 is empty, ask A2. An occupied reply leaves pictures 3/4; an empty reply leaves 5/6. B1 separates either pair, requiring three questions. A determined answer can be named without another paid query.",
+        "Two questions cannot guarantee identification: every reply is binary, so a depth-two tree has at most four reply histories for six possible pictures. A favorable two-question game does not establish a worst-case bound.",
+        "P3 minimum is four. Preselect A1,A2,B1,B2. These replies determine the occupied column in each of rows A and B, then the remaining column in C. Three preselected cells never suffice. Distribute them among rows: (3,0,0) leaves a rectangle in the two empty rows; (2,1,0) leaves a rectangle in the latter two rows using columns avoiding the lone query; (1,1,1) with a repeated queried column leaves a rectangle in those two rows and the other columns.",
+        "In each unqueried rectangle, two pictures using its opposite occupied corners and the same third counter outside give identical replies. In the remaining case, one query in every row and a different column each, relabel to A1,B2,C3. Pictures 010/001/100 and 001/100/010 both answer empty to all three. Thus every three-cell set fails. The diagonal-query case does not have an empty rectangle; its three-cycle collision is a separate part of the proof."
+      ],
+      "hints": [
+        "For a child trying to memorize replies, let them eliminate movable candidates. For a lower bound, ask how many different histories two binary replies can make. In P3, test a proposed set against all six candidates before seeking a general obstruction."
+      ],
+      "extensions": [
+        "A P2 strategy can finish in two for some pictures and three for others. Classify those branches rather than averaging them into a worst-case claim. Use the remaining pair from P1 to compare one useful query with a useless one."
+      ],
+      "notes": "The setter's picture and lists remain unchanged during a game. Choosing a later query from earlier evidence is allowed in P2 and expressly disallowed in P3. The two tasks belong to one information investigation."
+    },
+    {
+      "problem": "4",
+      "title": "Counts that cannot fit",
+      "entry": "Try each printed board with real counters. Allow 15-30 minutes. Counting to three is enough to begin; exact impossibility requires pointing to forced cells or capacity, not simply reporting an unsuccessful attempt.",
+      "solution": [
+        "Reading order: rows (3,3,0), columns (3,3,0) is impossible. Both full rows would put counters in the zero column. Equivalently those two rows demand six counters while the columns can supply only 2+2+0=4 within them.",
+        "Rows (3,2,1), columns (2,2,2) is possible. All three realizations are 111/110/001; 111/101/010; 111/011/100. The full first row leaves one remaining counter per column, and choosing which two belong in row B determines row C.",
+        "Rows (2,2,2), columns (3,3,0) has the unique picture 110/110/110: the first two columns are full and the last empty. Rows (3,3,1), columns (3,3,1) is impossible: the two full rows force at least two counters into the column whose count is one. Its two-row capacity is 2+2+1=5, below the requirement six.",
+        "Every printed local count is between zero and three and the row/column totals agree. The obstruction therefore goes beyond illegal individual counts or unequal totals. For any chosen k rows, column j contributes at most both k and its whole-column count, hence the sum-minimum capacity bound. This guide does not assert that this one demonstrated inequality alone is always sufficient."
+      ],
+      "hints": [
+        "Use a full row or a zero column as a forcing clue after an attempt. For the all-positive impossible board, keep both full rows visible and inspect the last column. Let the child point to the contradiction."
+      ],
+      "extensions": [
+        "Invent another impossible 3 by 3 count set with matching totals and legal counts, then challenge a partner. Check the proposed obstruction on an unchanged board. The printed all-positive impossible set is a verified example that a zero count is not needed."
+      ],
+      "notes": "Putting two counters in one cell changes the binary model. Count cards, empty rows and column labels remain fixed."
+    }
+  ],
+  "sources": [
+    "Current Week 25 base packets establish binary pictures and ordinary margins. The base outline cites Ryser, Combinatorial Properties of Matrices of Zeros and Ones (1957), section 3, for switch connectivity; no attribution of these new diagonal/query tasks or new source-body reading is claimed.",
+    "The diagonal examples, query bounds and capacity arguments are independently derived and checked here. Week 6 whole-word score queries are a related but different information model. Rozhkovskaya, Math Circles for Elementary School Students, Introduction: Berkeley 2009 (OEBPS/part0010.xhtml), actually reports individual adult support; the movable-candidate and fixed-table choices here are our proposals."
+  ],
+  "verification": [
+    "The independent student math critic checked every represented diagonal, all six candidates, optimal adaptive query depth, every three-cell preselected set, and all 512 binary boards against the four margin cases. Final revision added diagonal guides and moved the paid-query convention before use; guide answers were synchronized with the revised final packet.",
+    "The final guide received a separate independent mathematical review. Both final PDFs were rendered and inspected and passed a clean extracted-source ZIP rebuild. See release-validation.json in the editable source package. Rendering and source scale do not certify counter/cover fit or procedural rehearsal. No physical pretest or classroom pilot has occurred."
+  ],
+  "observations": [
+    "Record each investigation actually used, a saved collision or query strategy, and the child's reason for a claimed impossibility.",
+    "Observe whether diagonal membership stays clear, candidate cards reduce memory load, the fixed/adaptive distinction is retained, and a child rather than the adult chooses the next question. Record these events separately from hypotheses about readiness."
+  ]
+}

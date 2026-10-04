@@ -1,0 +1,52 @@
+% Shared preamble for the Week 1 student pages. \bandlabel is defined by each packet.
+\usepackage[letterpaper,top=0.45in,bottom=0.45in,left=0.5in,right=0.5in,
+  includehead,includefoot,headheight=18pt,headsep=12pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}
+
+\usepackage[default]{sourcesanspro}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{array}
+
+\definecolor{pbgreen}{RGB}{110,195,110}
+\definecolor{pbblue}{RGB}{95,150,225}
+\definecolor{pbred}{RGB}{232,95,85}
+\definecolor{pbyellow}{RGB}{250,212,55}
+\definecolor{pbpurple}{RGB}{160,115,205}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Week 1 / Tiling / \bandlabel}
+\lfoot{Bellingham Math Circle / Week 1}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedright
+
+\newcounter{prob}
+\newcommand{\prob}{\stepcounter{prob}\textbf{Problem \theprob:}\ }
+\newcommand{\fig}[1]{\input{figs/#1.tex}\unskip}
+\newcommand{\icon}[1]{$\vcenter{\hbox{\input{figs/icon_#1.tex}}}$}
+\newcommand{\bigicon}[1]{\raisebox{-0.15em}{\input{figs/iconbig_#1.tex}}}
+
+% board with a letter label underneath
+\newcommand{\board}[2]{\begin{tabular}[b]{@{}c@{}}\fig{#2}\\[3pt]\textbf{#1}\end{tabular}}
+
+% ruled writing lines: \writelines{number}{width}
+\newcommand{\writelines}[2]{\begin{tikzpicture}
+  \foreach \i in {1,...,#1}{\draw[black!35,line width=0.5pt] (0.5pt,-\i*0.42in) -- ([xshift=-1pt]#2,-\i*0.42in);}
+  \path (0,0) -- (0,-#1*0.42in-0.05in);
+\end{tikzpicture}}
+
+% answer box
+\newcommand{\abox}{\tikz[baseline=0.18in]\draw[line width=0.9pt] (0,0) rectangle (0.8in,0.5in);}
+
+% figure with an answer box underneath
+\newcommand{\figbox}[1]{\begin{tabular}[b]{@{}c@{}}\fig{#1}\\[8pt]\abox\end{tabular}}
+
+% arrows between pictures
+\newcommand{\twoarrow}{\tikz[baseline=-0.5ex]\draw[<->,>=stealth,line width=1.3pt] (0,0)--(0.6in,0);}
+\newcommand{\onearrow}{\tikz[baseline=-0.5ex]\draw[->,>=stealth,line width=1.2pt] (0,0)--(0.28in,0);}

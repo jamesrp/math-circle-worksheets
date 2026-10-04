@@ -1,0 +1,58 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mc}
+\RequirePackage[letterpaper,top=0.6in,bottom=0.6in,left=0.75in,right=0.75in,includehead,includefoot,headheight=15pt,headsep=16pt,footskip=26pt]{geometry}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[default]{sourcesanspro}
+\RequirePackage{tikz}
+\RequirePackage{fancyhdr}
+\RequirePackage{array}
+
+\setlength{\parindent}{0pt}
+\AtBeginDocument{\raggedright}
+\setlength{\parskip}{5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[L]{\normalsize Bellingham Math Circle / Week 7}
+\fancyfoot[R]{\normalsize \thepage}
+\newcommand{\mcheader}[1]{\fancyhead[L]{\normalsize Week 7 / Take-away games / #1}}
+
+\newcounter{prob}
+\newcommand{\problem}{\par\refstepcounter{prob}\noindent\textbf{Problem \theprob:}\ }
+
+\tikzset{
+  ctr/.style={draw=black, line width=0.6pt, fill=black!15},
+  box/.style={draw=black, line width=0.8pt, rounded corners=5pt},
+  cell/.style={draw=black, line width=0.6pt},
+}
+
+% \counters{x}{y}{n}{per row}{sep}{radius}: n counters centred at (x,y), rows of at most "per row"
+\newcommand{\counters}[6]{%
+  \pgfmathtruncatemacro{\cN}{#3-1}%
+  \pgfmathtruncatemacro{\cC}{min(#3,#4)}%
+  \pgfmathtruncatemacro{\cR}{ceil(#3/#4)}%
+  \foreach \ci in {0,...,\cN}{%
+    \pgfmathtruncatemacro{\cc}{mod(\ci,#4)}%
+    \pgfmathtruncatemacro{\cr}{floor(\ci/#4)}%
+    \draw[ctr] ({#1+(\cc-(\cC-1)/2)*#5},{#2-(\cr-(\cR-1)/2)*#5}) circle (#6);
+  }%
+}
+
+% \numtable{first}{last}{per row}{cell width}{number row height}{blank row height}{gap between blocks}
+\newcommand{\numtable}[7]{%
+  \begin{tikzpicture}
+    \foreach \k in {#1,...,#2}{%
+      \pgfmathtruncatemacro{\idx}{\k-#1}%
+      \pgfmathtruncatemacro{\col}{mod(\idx,#3)}%
+      \pgfmathtruncatemacro{\blk}{floor(\idx/#3)}%
+      \pgfmathsetmacro{\xx}{\col*#4}%
+      \pgfmathsetmacro{\yy}{-\blk*(#5+#6+#7)}%
+      \fill[black!8] (\xx,\yy) rectangle ++(#4,-#5);
+      \draw[cell] (\xx,\yy) rectangle ++(#4,-#5);
+      \draw[cell] (\xx,\yy-#5) rectangle ++(#4,-#6);
+      \node[text height=1.6ex, text depth=0.3ex] at (\xx+#4/2,\yy-#5/2) {\k};
+    }
+  \end{tikzpicture}%
+}
+\endinput

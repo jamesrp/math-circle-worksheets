@@ -1,0 +1,32 @@
+# Week 11 adversarial review
+
+Reviewed `PROMPT.md`, `CRITIC.md`, current `AGENTS.md`, all three pages of `draft/return-visit.pdf`, the exact source, and the current Week 11 base student packets and facilitator guide. The explicit shared-file layout overrides the harness's three-band default. I independently rendered the draft with PyMuPDF and inspected every page. This is only the critic stage; no draft changes were made.
+
+## Required revisions
+
+1. **Define and demonstrate the firing-word convention before its first use.** Page 1's recording table says “Firing letters, in order”; page 2 asks for the “longest firing word”; page 3 asks for “every legal firing word.” Nothing on the student pages explains that a letter records the one circle that fires, or shows how a physical move becomes a letter. The base student pages request sharing counts, rather than firing words; the base adult guide merely offers a word as an optional lighter record. Therefore the word convention cannot be assumed from the delivered student material. Add a small, explicit visual non-task example of chips before a move, the outgoing chips, chips after it, and the corresponding letter/word, with matching circle labels. It should explain recording only, without revealing these tasks' outcomes or a completeness method. Location: source line 69 and lines 77, 83, 94, 100. This is the AGENTS worked-convention requirement, not a request for a worked task solution.
+
+2. **Retain the essential single-circle move rule.** Page 1's shared rules omit the base packets' “Choose one circle at a time.” Without it, simultaneous firing is an available reading, especially when multiple circles qualify, while all word questions require a sequential run. Add that short rule explicitly. Keep the move tied to the selected circle rather than the current phrase “Move one chip along every line,” which omits its starting circle. Location: shared guidance immediately above Problem 1, source line 51.
+
+3. **Make independent avalanche trials unambiguous.** Page 2 tells children to place `(1,1,1)` once and add at “A, B or C”; the table requests all three choices but does not explicitly say to restore the start before changing the added position. A child who adds at A, finishes, and then adds at B is performing the base repeated-addition experiment instead of the intended one-chip perturbation. State once that each trial restores its chosen starting piles and empties the sink, or say briefly in Problem 2 to restart for each choice. This is an essential experimental condition, not optional scaffolding. Location: source line 77 and table rows 84–86.
+
+## Novelty and readiness findings for the owner
+
+- Problem 1 supports a real comparison: two three-chip arrangements behave differently, while four chips exceed the closed board's stable capacity. However, `(2,1,0)` on the sink-free triangle is already a suggested extension in the base facilitator guide, page 12. Describe this encore as an expanded contrasting investigation, rather than claiming that the loop case itself is new.
+- Problem 3's possible starting states are **exactly** the states already sought in base grades 2–3 Problem 3, page 3: distribute six chips on A/B and finish at `(1,1)`. Because each firing sends one chip to the sink, those base trials also have four firings. The genuinely new work here is finding every legal history, distinguishing starts from words, and explaining missing orders. Preserve that worthwhile extension, but make the inventory/guide precise about the reused starting-state question. If children already completed base P3, the adult entry should resume from their known starts rather than make them repeat the search.
+- These are three distinct directions after those qualifications: removing the sink hypothesis, comparing avalanche sizes from stable starts, and recovering legal histories. No forced extra K–1 version is needed. K–1 entry on page 1 requires adult reading/recording and a demonstrated single-circle rule; children can still own the chip moves and repeat detection. Page 3 is a plausible upper-band investigation by concrete trial, without requiring algebra or reverse moves.
+- The adult companion should explicitly allow chip stacks or a nearby labeled reserve: 42 mm working circles cannot hold six 20 mm chips in one layer. This is a preparation note, not a need to shrink the mathematics or enlarge every board. Actual material fit and classroom use remain untested.
+
+## Mathematical checks
+
+Independent direct transition searches, without importing the writer's check code, confirmed:
+
+- Closed triangle: `(3,0,0)` reaches `(1,1,1)` and stops; `(2,1,0)` has the three-state `ABC` cycle and no stable reachable state; `(4,0,0)` has no stable reachable state and can repeat a reachable state. Conservation bounds every stable state to at most three chips. A repeated reachable state need not be the initial state, consistent with the actual wording “an earlier position.”
+- Four-cycle: all 24 stable-start/addition choices were checked through every legal order. The unique largest avalanche occurs from `(1,1,1)` with addition at B, has length four, and has words `BACB` and `BCAB`. Additions at A/C from that full start have length three. There is no numerical error in the prompt.
+- Sink triangle: exactly eight complete legal four-letter histories end at `(1,1,4)`: `(0,6)` gives `BBAB`, `BBBA`; `(3,3)` gives `ABAB`, `ABBA`, `BAAB`, `BABA`; `(6,0)` gives `AAAB`, `AABA`. Conservation excludes any other total, and all seven distributions of six chips were searched. Do not infer that arbitrary reorderings are legal.
+
+## Render and layout checks
+
+All three US Letter pages are legible and unclipped, with consistent headers, footers, consecutive problem numbering, appropriate working circles, clearly attached edges, and useful recording space. The triangle and four-cycle graphs are correctly represented. The source gives working-circle diameter 42 mm and sink diameter 55 mm. No polygons requiring regular side-count checks occur. The small start table on page 1 is acceptable with an adult reading it. There are no extra headings, Name/Date fields, printed theorem/solution giveaways, or directed solution substeps. No clean extracted-source rebuild or physical rehearsal was performed by this critic stage.
+
+**Recommendation:** revise the three convention/experimental-rule issues, retain the substantive investigations, and accurately identify the two reused base seeds in the adult guide and inventory.

@@ -1,0 +1,64 @@
+% Shared preamble for the Week 7 student pages (take-away games).
+% Each packet defines \level and \packetid before \input{common}.
+\usepackage[T1]{fontenc}
+\usepackage{newcent}
+\usepackage[scaled=0.92]{helvet}
+\usepackage[letterpaper,top=0.95in,bottom=0.9in,left=0.5in,right=0.5in,
+  headheight=18pt,headsep=0.3in,footskip=0.45in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedright
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Week 7 / Take-away games / \level}
+\lfoot{Bellingham Math Circle / Week 7 / \packetid}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ---------- problems ----------
+\newcounter{prob}
+\newlength{\probgap}\setlength{\probgap}{0.35in}
+% A problem never splits across pages.
+\newenvironment{problem}%
+  {\par\noindent\begin{minipage}[t]{\linewidth}\raggedright
+   \stepcounter{prob}\textbf{Problem \theprob:}\ }%
+  {\end{minipage}\par\vspace{\probgap}}
+
+% ---------- number tracks ----------
+% A snake: 0 to 10 run left to right in the first row, 11 sits under 10
+% and 11-20 run right to left, 21 sits under 20 and 21-30 run left to
+% right. Consecutive squares always share an edge. Thick walls separate
+% rows except where the track turns.
+\newlength{\sq}\setlength{\sq}{0.676in}
+\newcommand{\tracknum}{\sffamily\large}
+\newcommand{\track}[1]{%
+  \begin{tikzpicture}[x=\sq,y=\sq,line join=miter]
+    \foreach \n in {0,...,#1}{%
+      \pgfmathtruncatemacro{\r}{\n==0 ? 0 : div(\n-1,10)}%
+      \pgfmathtruncatemacro{\k}{\n==0 ? -1 : mod(\n-1,10)}%
+      \pgfmathtruncatemacro{\odd}{mod(\r,2)}%
+      \pgfmathtruncatemacro{\c}{\odd==1 ? 10-\k : \k+1}%
+      \draw[line width=0.8pt] (\c,-\r) rectangle ++(1,1);
+      \node[font=\tracknum,inner sep=0pt,text height=1.6ex,text depth=0pt] at (\c+0.5,-\r+0.5) {\n};
+    }
+    \ifnum#1>20
+      \draw[line width=2.2pt] (1,0) -- (10,0);
+      \draw[line width=2.2pt] (2,-1) -- (11,-1);
+      \draw[line width=2.2pt] (0,1) -- (11,1) -- (11,-2) -- (1,-2) -- (1,0) -- (0,0) -- cycle;
+    \else\ifnum#1>10
+      \draw[line width=2.2pt] (1,0) -- (10,0);
+      \draw[line width=2.2pt] (0,1) -- (11,1) -- (11,-1) -- (1,-1) -- (1,0) -- (0,0) -- cycle;
+    \else
+      \draw[line width=2.2pt] (0,0) rectangle (11,1);
+    \fi\fi
+  \end{tikzpicture}}
+
+% ---------- piles of counters ----------
+% Use inside a tikzpicture with x=1in,y=1in; arguments are the centre.
+\newcommand{\counter}[2]{%
+  \draw[line width=1pt,fill=black!22] ({#1},{#2}) circle (0.2in);}

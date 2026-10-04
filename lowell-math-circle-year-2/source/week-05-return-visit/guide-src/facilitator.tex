@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=0.7in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,tikz,array,fancyhdr}
+\renewcommand\familydefault{\sfdefault}
+\setlength\parindent{0pt}
+\setlength\parskip{5pt}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}\fancyhf{}
+\lhead{Week 5 / Tower cities / Adult return-visit guide}
+\fancyfoot[L]{Bellingham Math Circle / Week 5 / F05-RV-FAC-v1}
+\fancyfoot[R]{\thepage}
+\renewcommand\headrulewidth{0.4pt}
+\newcommand\lead[1]{\textbf{#1}\par}
+\begin{document}
+\lead{Mathematical overview: consistency, repair and climbing}
+A Latin tower city has one tower of each height $1,\ldots,n $ in every row and every column. If two rows and two columns contain $a,b $ in the alternating rectangle $a,b/b,a $, exchanging those two heights at all four selected corners preserves the Latin conditions. Adjacency of the selected rows/columns is unnecessary. No order 3 city has such a rectangle. Every order 4 city has four or twelve; independent enumeration gives 432 cities with four, 144 with twelve. Visibility clues need not survive a trade. Different valid cities differ in at least four squares; the exact minimum is six for order 3 and four for order 4.
+
+Adding the condition that both corner-to-opposite-corner diagonals each contain every height is impossible for order 3, but possible for order 4. Exactly 48 of the 576 labeled order 4 Latin cities satisfy both diagonal conditions. This count includes rotations/reflections and height relabelings as distinct; a child need only construct and test examples, not list 576 cities.
+
+With side-neighbor moves to strictly taller towers, every roof route terminates in at most $n-1$ steps. A peak is a tower with no taller side-neighbor. Every height $n $ tower is a peak; a lower tower can also be one. Every start can reach a tallest tower iff all peaks have height $n $, in which case every maximal climbing route ends at height $n $. Possible peak counts are 3 or 4 in order 3, and 4,5,6,7 or 8 in order 4. These are finite enumeration conclusions, not claims inferred from a few experimental cities.
+
+Experiments give legal trades, consistent diagonals and blocked routes. Preserving selected row/column height sets explains trades; a forced duplicate proves the order 3 diagonal obstruction; strict height increase explains termination. Failed building or route search alone is not impossibility evidence.
+
+\lead{Entries, preparation and a flexible first route}
+Shared Grades 2--5. Concrete height comparisons and climbing routes can suit K--1 with adult reading. Latin consistency requires checking simultaneous row and column conditions against one unchanged city; diagonals add another condition and are a readiness gate. Grades 2--3 can work with three-height cities and test changes; Grades 4--5 can compare order 4 trades, diagonal obstructions and peak designs. Reading numerals 1--4 and comparing heights are enough for entry; advanced algebra is not required.
+
+Per pair: 18 snap cubes for order 3 or 40 for order 4, pencil and a grid with squares at least 25 mm wide if building directly on it. Build on the table and use compact printed grids as number records when appropriate. Give one page at a time; cubes can be reused between examples. Five simultaneous order 4 pairs need 200 cubes; four lower pairs using 18 each and the upper pair using 40 need 112; if three pairs choose order 4 and two choose order 3, prepare 156 cubes. Use the current fixed three adult-led tables, rotating the third upper child as builder/checker/recorder. No new special materials beyond cubes and paper; allow 5--10 minutes to sort/rebuild towers before each visit.
+
+Choose one investigation for 25--40 minutes after a 2--4 minute launch. Start with whichever city operation children retain after a normal demonstration, then return later for the extra condition or proof. Adults may read or record but children choose the city changes and routes.
+
+\lead{Launch together}
+Let children make towers and compare heights. For repair, change an unrelated small row and show how to check its unchanged reference rules without revealing a full rectangle trade. For diagonals, trace both opposite-corner lines on an unchanged city. For roof paths, make one legal side-neighbor climb and show that a diagonal or lower step is not allowed. Demonstrate only the chosen page's action; do not operate all three investigations at once.
+\newpage
+\lead{Problem 1: changing a city without breaking it}
+\textbf{Entry and timing.} Build one printed city at a time, then restore that original city before each new trial. Cubes are reused between cities. Begin with a valid city physically built or recorded. Children choose a small set of towers to exchange and have a partner check every affected row and column. Allow 25--40 minutes; discovering a legal four-corner change can occupy a whole visit.
+
+\textbf{Exact trade.} In the city below, exchange heights 1 and 2 at the top-left four squares. The resulting city is still Latin; towers outside that rectangle stay fixed.
+
+\begin{center}\begin{tabular}{cccc@{\hspace{0.4 in}}cccc}
+\multicolumn{4}{c}{Before}&\multicolumn{4}{c}{After}\\[2mm]
+1&2&3&4&2&1&3&4\\2&1&4&3&1&2&4&3\\3&4&1&2&3&4&1&2\\4&3&2&1&4&3&2&1
+\end{tabular}\end{center}
+
+Each selected row and column trades one $a $ for one $b $ and vice versa, preserving its set of heights. Conversely, a two-height four-corner exchange preserving rows/columns must have the alternating pattern. The two rows or columns need not touch. The outer visibility numbers can change, so this is not a clue-preserving operation.
+
+\textbf{Printed cities.} City A is 1234/2341/3412/4123: four legal four-square repairs exist, choosing rows 1,3 or 2,4 and columns 1,3 or 2,4. City B is 1234/2143/3412/4321: twelve repairs exist. City C is 123/231/312: no four-square repair exists. Every legal change of exactly four cells is an alternating rectangle trade: each changed row/column needs at least two changed cells, forcing two rows and two columns; row/column sets then force the exchange. No city can change validly in fewer than four cells. The 10--11 mm printed grids are height records; build these cities on the table.
+
+\textbf{Why order 3 cannot have a four-corner trade.} Suppose selected rows contain $a,b $ and $b,a $ in two columns. Both rows then require the third value $c $ in their remaining column, contradicting that column's Latin condition. A different valid order 3 city needs at least six changed cells; swapping two entire rows attains six. Any changed row or column must contain at least two changed cells. Fewer than four changes are therefore impossible. With five changes, at most two rows and two columns can be changed, leaving at most four available intersections, a contradiction. A four-cell change would be the prohibited rectangle. In order 4 the minimum is four, attained by a trade.
+
+\textbf{Questions and hints.} ``Which row or column first breaks after this change?'' Keep the starting city unchanged beside the proposed record. If children repair one line and then silently change the reference state, remind them that every row and column must hold simultaneously. Offer an alternating two-height rectangle only after their own trials.
+
+\textbf{Return visits.} Find every trade in a chosen order 4 city; different cities have four or twelve. Pool a checkable table catalog on a return visit; the two printed final records per city support a light first visit rather than twelve transcriptions per child. Ask whether nonadjacent rectangles were overlooked. Follow several trades and see which cities are connected under this move; the existence of trades does not imply every city is connected to every other without further proof.
+
+\textbf{Limits and novelty.} Distinct prescribed heights in every row/column; same cells/unchanged exterior. This is Latin repair rather than another skyline clue puzzle or unique-clue search.
+\newpage
+\lead{Problem 2: both diagonal roads}
+\textbf{Entry and timing.} Use children already comfortable checking a city. Highlight the two long diagonals from corner to opposite corner; each must contain every height once, in addition to the row/column rules. Allow 25--45 minutes and compare order 3 with order 4 on a later visit if needed.
+
+\textbf{Exact results.} No order 3 city can satisfy both diagonal conditions. An order 4 example is:
+
+\begin{center}\begin{tabular}{cccc}
+1&2&3&4\\3&4&1&2\\4&3&2&1\\2&1&4&3
+\end{tabular}\end{center}
+
+Its main diagonal reads 1,4,2,3 and the other reads 4,1,3,2; both use every height. Every row and column also does. There are 48 labeled order 4 examples among 576 Latin cities. This count is adult verification; the printed construction question can be answered by one checked example.
+
+\textbf{Printed boards and convention.} The blank 3-by-3 and 4-by-4 working boards have 25 mm squares and both long diagonals marked. The two-square-per-side non-task city 21/12 shows the dashed diagonal reading 2,2 and dotted diagonal 1,1; it identifies the paths without giving a successful 3- or 4-city. Use the checked four-city above for a solution; use the center-height contradiction for the three-city. The lines below the working boards provide space for an impossibility explanation.
+
+\textbf{Elementary impossibility explanation for order 3.} Let the center height be $c $. Each diagonal must have $a $ and $b $ in its other two corners. The top two corners must differ because they share a row, so they are $a,b $. The bottom corners are forced to be $b,a $. Both top-middle and bottom-middle are now forced to be $c $, because those rows need every height. The middle column repeats $c $, a contradiction. A drawing with three colors can make this argument without notation.
+
+\textbf{Questions and hints.} ``Do both diagonals still work in this same city?'' Do not update one diagonal after checking another and retain obsolete checks; this is simultaneous consistency. A city satisfying only one diagonal is a useful intermediate comparison, not a solution to both. If the extra condition overwhelms row/column checking, let the child return to a completed order 3 city first.
+
+\textbf{Return visits.} Ask which single-diagonal cities exist and how they change under rotation or height relabeling. Relabeling all occurrences of a height preserves Latin/diagonal conditions, while arbitrary row rearrangement may break diagonal conditions. Try an order 5 construction only with sufficient cubes and a new readiness decision; none is required here.
+
+\textbf{Limits and novelty.} The two full main diagonals, not all slanting lines or wraparound diagonals. This adds a genuine simultaneous constraint, unlike the base external visibility information.
+\newpage
+\lead{Problem 3: climbing roof routes}
+\textbf{Entry and timing.} Build a city, then move a finger from a tower to a side-neighbor only when the destination is strictly taller. Retain the city unchanged throughout. Allow 20--40 minutes to compare routes and then design a city with a different peak pattern. A young entry is deciding whether one proposed step is legal. Use a finger pointing from tower to tower while the partner checks their heights and shared side. To mark a covered stopping cell, briefly lift its tower, circle the printed height or mark an exposed corner, and return the same tower; alternatively remove the towers after exploration to record the stops.
+
+\textbf{Exact examples.} The order 3 cities 123/312/231 and 123/231/312 have respectively three and four peaks. In the second, the bottom-right tower of height 2 is a lower peak: both its side-neighbors have height 1. The three height 3 towers remain peaks in both. Thus a local stopping point need not be globally tallest.
+
+In order 4, the city 1234/2143/3412/4321 has only the four height 4 peaks; every start has a climbing route to height 4. The city 1324/3142/2413/4231 has eight peaks, comprising the four height 4 towers and four height 3 towers. For a direct order 4 upper bound, pair adjacent squares across columns 1--2 and 3--4 in every row: these are eight pairs. Each pair has different heights, so both members cannot be peaks. Thus at most eight peaks are possible, attained by the example. Complete order 3 enumeration gives peak-count histogram $3:8,4:4$; order 4 gives $4:226,5:136,6:172,7:8,8:34$. These totals are 12 and 576 respectively.
+
+\textbf{Printed cities and extrema.} D is 123/312/231: stopping squares (row,column) are (1,3), (2,1), (3,2), all height 3. E is 123/231/312: stopping squares are (1,3), (2,2), (3,1), (3,3), with the final one height 2. Their 25 mm squares are working boards. For order 3, D and E attain the fewest/most stopping squares, 3/4. For order 4, the two checked examples above attain 4/8. Compact blank design grids are records, with tabletop construction explicitly requested. The non-task strip 1,3,2 shows one legal side-neighbor climb from height 1 to height 3, preserving the heights.
+
+\textbf{Explanation.} Heights strictly increase, so no route revisits a square and a route has at most $n-1$ steps. Continue any legal climb until no higher side-neighbor remains; the end is a local peak. If every peak has maximal height, every such route ends at a tallest tower. Conversely, a lower peak cannot leave at all, disproving the property that every start can reach a tallest tower. All tallest towers are peaks because no larger height exists. This is independent of skyline visibility.
+
+\textbf{Questions and hints.} ``Does this tower have a taller side-neighbor?'' Use physical height comparison if number records are too abstract. A side-neighbor shares a grid edge; corners and wraparound moves are not allowed. If a child descends to escape a lower peak, let the partner check that step against the rule. Choosing another route can help at a nonpeak, but never at a peak.
+
+\textbf{Return visits.} Make a city with as few or as many peaks as possible; the attainable bounds are 3/4 for order 3 and 4/8 for order 4. Find cities with intermediate order 4 counts 5,6,7. Compare the number of peaks with how many starts can reach each peak; these are different statistics. Permit descending or diagonal steps only as an explicitly changed later rule.
+
+\lead{Evidence and status}
+The base upper Problem 9 (page 8) and adult solution (page 8) already exhibit one middle four-cell swap producing equal visibility clues; return city B reuses that familiar reference city. Problem 1 deepens it into different Latin-preserving repairs in contrasting cities, the three-city obstruction and minimum changed-cell question; visibility preservation is removed. The diagonal and roof investigations are new directions beyond the base tower orders, visibility clues, minimal clues and clue totals. Supplied code independently enumerates all 12/order 3 and 576/order 4 Latin cities; guides distinguish enumeration evidence from child-discovered examples and explanations. \emph{Math Circle by the Bay}, Preface viii--x (PDF 9--11), supports adaptable depth and pace; these tasks are new designs. All outputs are \textbf{unpiloted}; cube placement, view/route procedures and physical preparation are \textbf{untested}. Record the exact city instances, child reasoning and adult-rescue points before the next visit.
+
+\end{document}

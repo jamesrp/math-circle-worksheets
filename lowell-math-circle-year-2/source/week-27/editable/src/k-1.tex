@@ -1,0 +1,504 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\pdfmapfile{+lm.map}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\begin{document}
+\null
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=1in]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{11.5}{14.26}\selectfont] at (0.55,-0.35) {Week 27 / Stable pairings / K--1};
+\draw[black,line width=.55pt] (0.55,-0.66) -- (7.95,-0.66);
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{13.7}{17}\selectfont] at (0.6,-0.9) {Pair each circle with a different square. Each strip uses both choices once, with its first choice on the left. A pairing can stay if no two pieces in different pairs both want each other more than their partners.};
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{14}{17.36}\selectfont] at (0.6,-2.1) {Example: check P with U. First choice is on the left.};
+\node[anchor=north west,inner sep=0pt,text width=3.25in,font=\fontsize{12}{14.879999999999999}\selectfont] at (0.65,-2.9) {Current pairs};
+\draw[black,line width=1.2pt] (1.05,-3.65) -- (3.4,-3.65);
+\draw[black,line width=1.2pt] (1.05,-4.5) -- (3.4,-4.5);
+\draw[gray!65,dashed,line width=.8pt] (1.05,-3.65) -- (3.4,-4.5);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.55in,inner sep=0pt,font=\fontsize{17}{19}\selectfont] at (1.05,-3.65) {P};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.55in,inner sep=0pt,font=\fontsize{17}{19}\selectfont] at (1.05,-4.5) {Q};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.55in,inner sep=0pt,font=\fontsize{17}{19}\selectfont] at (3.4,-3.65) {V};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.55in,inner sep=0pt,font=\fontsize{17}{19}\selectfont] at (3.4,-4.5) {U};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.5in,inner sep=0pt,font=\fontsize{16}{18}\selectfont] at (0.9,-5.65) {P};
+\node[anchor=north west,inner sep=0pt,text width=0.15in,font=\fontsize{16}{19.84}\selectfont] at (1.27,-5.49) {:};
+\draw[black,line width=.65pt] (1.5,-5.32) rectangle (3.6,-5.98);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.5in,inner sep=0pt,font=\fontsize{16}{18}\selectfont] at (2.0100000000000002,-5.65) {U};
+\node[draw,line width=0.8pt,rectangle,fill=gray!22,minimum size=0.5in,inner sep=0pt,font=\fontsize{16}{18}\selectfont] at (3.0,-5.65) {V};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.5in,inner sep=0pt,font=\fontsize{16}{18}\selectfont] at (0.9,-6.45) {U};
+\node[anchor=north west,inner sep=0pt,text width=0.15in,font=\fontsize{16}{19.84}\selectfont] at (1.27,-6.29) {:};
+\draw[black,line width=.65pt] (1.5,-6.12) rectangle (3.6,-6.78);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.5in,inner sep=0pt,font=\fontsize{16}{18}\selectfont] at (2.0100000000000002,-6.45) {P};
+\node[draw,line width=0.8pt,circle,fill=gray!22,minimum size=0.5in,inner sep=0pt,font=\fontsize{16}{18}\selectfont] at (3.0,-6.45) {Q};
+\node[anchor=north west,inner sep=0pt,text width=3.35in,font=\fontsize{13.5}{16.74}\selectfont] at (0.65,-7.25) {P prefers U to V: yes};
+\node[anchor=north west,inner sep=0pt,text width=3.35in,font=\fontsize{13.5}{16.74}\selectfont] at (0.65,-7.8) {U prefers P to Q: yes};
+\node[anchor=north west,inner sep=0pt,text width=3.35in,font=\fontsize{14}{17.36}\selectfont] at (0.65,-8.6) {Both yes: P and U block.};
+\node[anchor=north west,inner sep=0pt,text width=3.25in,font=\fontsize{12}{14.879999999999999}\selectfont] at (4.5,-2.9) {Current pairs};
+\draw[black,line width=1.2pt] (4.9,-3.65) -- (7.25,-3.65);
+\draw[black,line width=1.2pt] (4.9,-4.5) -- (7.25,-4.5);
+\draw[gray!65,dashed,line width=.8pt] (4.9,-3.65) -- (7.25,-4.5);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.55in,inner sep=0pt,font=\fontsize{17}{19}\selectfont] at (4.9,-3.65) {P};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.55in,inner sep=0pt,font=\fontsize{17}{19}\selectfont] at (4.9,-4.5) {Q};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.55in,inner sep=0pt,font=\fontsize{17}{19}\selectfont] at (7.25,-3.65) {V};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.55in,inner sep=0pt,font=\fontsize{17}{19}\selectfont] at (7.25,-4.5) {U};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.5in,inner sep=0pt,font=\fontsize{16}{18}\selectfont] at (4.75,-5.65) {P};
+\node[anchor=north west,inner sep=0pt,text width=0.15in,font=\fontsize{16}{19.84}\selectfont] at (5.12,-5.49) {:};
+\draw[black,line width=.65pt] (5.35,-5.32) rectangle (7.449999999999999,-5.98);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.5in,inner sep=0pt,font=\fontsize{16}{18}\selectfont] at (5.86,-5.65) {U};
+\node[draw,line width=0.8pt,rectangle,fill=gray!22,minimum size=0.5in,inner sep=0pt,font=\fontsize{16}{18}\selectfont] at (6.8500000000000005,-5.65) {V};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.5in,inner sep=0pt,font=\fontsize{16}{18}\selectfont] at (4.75,-6.45) {U};
+\node[anchor=north west,inner sep=0pt,text width=0.15in,font=\fontsize{16}{19.84}\selectfont] at (5.12,-6.29) {:};
+\draw[black,line width=.65pt] (5.35,-6.12) rectangle (7.449999999999999,-6.78);
+\node[draw,line width=0.8pt,circle,fill=gray!22,minimum size=0.5in,inner sep=0pt,font=\fontsize{16}{18}\selectfont] at (5.86,-6.45) {Q};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.5in,inner sep=0pt,font=\fontsize{16}{18}\selectfont] at (6.8500000000000005,-6.45) {P};
+\node[anchor=north west,inner sep=0pt,text width=3.35in,font=\fontsize{13.5}{16.74}\selectfont] at (4.5,-7.25) {P prefers U to V: yes};
+\node[anchor=north west,inner sep=0pt,text width=3.35in,font=\fontsize{13.5}{16.74}\selectfont] at (4.5,-7.8) {U prefers P to Q: no};
+\node[anchor=north west,inner sep=0pt,text width=3.35in,font=\fontsize{14}{17.36}\selectfont] at (4.5,-8.6) {P and U do not block.};
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{12.5}{15.5}\selectfont] at (0.6,-9.35) {Shaded choice = current partner. This check is only for P and U.};
+\node[anchor=north west,inner sep=0pt,text width=6.8in,font=\fontsize{10.2}{12.648}\selectfont] at (0.55,-10.49) {Bellingham Math Circle / Week 27 / W27-K-v3};
+\node[anchor=north west,inner sep=0pt,text width=0.35in,font=\fontsize{10.2}{12.648}\selectfont] at (7.6,-10.49) {1};
+\end{scope}
+\end{tikzpicture}
+\newpage
+\null
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=1in]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{11.5}{14.26}\selectfont] at (0.55,-0.35) {Week 27 / Stable pairings / K--1};
+\draw[black,line width=.55pt] (0.55,-0.66) -- (7.95,-0.66);
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{15.5}{19.22}\selectfont] at (0.6,-1.97) {\textbf{Problem 1:} Circle every pairing that can stay.};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-2.93) {A};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-2.74) {:};
+\draw[black,line width=.65pt] (1.71,-2.5050000000000003) rectangle (3.71,-3.3550000000000004);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-2.93) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-2.93) {Y};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-3.79) {B};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-3.6) {:};
+\draw[black,line width=.65pt] (1.71,-3.365) rectangle (3.71,-4.215);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-3.79) {Y};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-3.79) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-2.93) {X};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-2.74) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-2.5050000000000003) rectangle (7.5600000000000005,-3.3550000000000004);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-2.93) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-2.93) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-3.79) {Y};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-3.6) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-3.365) rectangle (7.5600000000000005,-4.215);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-3.79) {B};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-3.79) {A};
+\draw[black,line width=1.2pt] (1.12,-4.7) -- (3.0199999999999996,-4.7);
+\draw[black,line width=1.2pt] (1.12,-5.57) -- (3.0199999999999996,-5.57);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-4.7) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-5.57) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-4.7) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-5.57) {Y};
+\draw[black,line width=1.2pt] (4.970000000000001,-4.7) -- (6.87,-5.57);
+\draw[black,line width=1.2pt] (4.970000000000001,-5.57) -- (6.87,-4.7);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-4.7) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-5.57) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-4.7) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-5.57) {Y};
+\draw[gray!40,line width=0.5pt] (0.6,-6.18) -- (7.9,-6.18);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-6.91) {A};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-6.72) {:};
+\draw[black,line width=.65pt] (1.71,-6.485) rectangle (3.71,-7.335);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-6.91) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-6.91) {Y};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-7.7700000000000005) {B};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-7.58) {:};
+\draw[black,line width=.65pt] (1.71,-7.345000000000001) rectangle (3.71,-8.195);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-7.7700000000000005) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-7.7700000000000005) {Y};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-6.91) {X};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-6.72) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-6.485) rectangle (7.5600000000000005,-7.335);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-6.91) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-6.91) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-7.7700000000000005) {Y};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-7.58) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-7.345000000000001) rectangle (7.5600000000000005,-8.195);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-7.7700000000000005) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-7.7700000000000005) {B};
+\draw[black,line width=1.2pt] (1.12,-8.68) -- (3.0199999999999996,-8.68);
+\draw[black,line width=1.2pt] (1.12,-9.549999999999999) -- (3.0199999999999996,-9.549999999999999);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-8.68) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-9.549999999999999) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-8.68) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-9.549999999999999) {Y};
+\draw[black,line width=1.2pt] (4.970000000000001,-8.68) -- (6.87,-9.549999999999999);
+\draw[black,line width=1.2pt] (4.970000000000001,-9.549999999999999) -- (6.87,-8.68);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-8.68) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-9.549999999999999) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-8.68) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-9.549999999999999) {Y};
+\node[anchor=north west,inner sep=0pt,text width=6.8in,font=\fontsize{10.2}{12.648}\selectfont] at (0.55,-10.49) {Bellingham Math Circle / Week 27 / W27-K-v3};
+\node[anchor=north west,inner sep=0pt,text width=0.35in,font=\fontsize{10.2}{12.648}\selectfont] at (7.6,-10.49) {2};
+\end{scope}
+\end{tikzpicture}
+\newpage
+\null
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=1in]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{11.5}{14.26}\selectfont] at (0.55,-0.35) {Week 27 / Stable pairings / K--1};
+\draw[black,line width=.55pt] (0.55,-0.66) -- (7.95,-0.66);
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{15.5}{19.22}\selectfont] at (0.6,-0.91) {\textbf{Problem 2:} Draw every pairing that can stay.};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-2.3) {A};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-2.11) {:};
+\draw[black,line width=.65pt] (1.71,-1.8749999999999998) rectangle (3.71,-2.7249999999999996);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-2.3) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-2.3) {Y};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-3.1599999999999997) {B};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-2.9699999999999998) {:};
+\draw[black,line width=.65pt] (1.71,-2.735) rectangle (3.71,-3.585);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-3.1599999999999997) {Y};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-3.1599999999999997) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-2.3) {X};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-2.11) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-1.8749999999999998) rectangle (7.5600000000000005,-2.7249999999999996);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-2.3) {B};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-2.3) {A};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-3.1599999999999997) {Y};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-2.9699999999999998) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-2.735) rectangle (7.5600000000000005,-3.585);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-3.1599999999999997) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-3.1599999999999997) {B};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-4.07) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-4.94) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-4.07) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-4.94) {Y};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-4.07) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-4.94) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-4.07) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-4.94) {Y};
+\draw[gray!40,line width=0.5pt] (0.6,-5.8) -- (7.9,-5.8);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-6.75) {A};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-6.56) {:};
+\draw[black,line width=.65pt] (1.71,-6.325) rectangle (3.71,-7.175);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-6.75) {Y};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-6.75) {X};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-7.61) {B};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-7.42) {:};
+\draw[black,line width=.65pt] (1.71,-7.1850000000000005) rectangle (3.71,-8.035);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-7.61) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-7.61) {Y};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-6.75) {X};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-6.56) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-6.325) rectangle (7.5600000000000005,-7.175);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-6.75) {B};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-6.75) {A};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-7.61) {Y};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-7.42) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-7.1850000000000005) rectangle (7.5600000000000005,-8.035);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-7.61) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-7.61) {B};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-8.52) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-9.389999999999999) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-8.52) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-9.389999999999999) {Y};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-8.52) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-9.389999999999999) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-8.52) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-9.389999999999999) {Y};
+\node[anchor=north west,inner sep=0pt,text width=6.8in,font=\fontsize{10.2}{12.648}\selectfont] at (0.55,-10.49) {Bellingham Math Circle / Week 27 / W27-K-v3};
+\node[anchor=north west,inner sep=0pt,text width=0.35in,font=\fontsize{10.2}{12.648}\selectfont] at (7.6,-10.49) {3};
+\end{scope}
+\end{tikzpicture}
+\newpage
+\null
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=1in]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{11.5}{14.26}\selectfont] at (0.55,-0.35) {Week 27 / Stable pairings / K--1};
+\draw[black,line width=.55pt] (0.55,-0.66) -- (7.95,-0.66);
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{15}{18.6}\selectfont] at (0.6,-0.91) {\textbf{Problem 3:} Swap the two choices on just one strip to make the drawn pairing stay. Circle every strip that works on its own, or cross out the pairing if none works.};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-2.5) {A};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-2.31) {:};
+\draw[black,line width=.65pt] (1.71,-2.075) rectangle (3.71,-2.9250000000000003);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-2.5) {Y};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-2.5) {X};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-3.36) {B};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-3.17) {:};
+\draw[black,line width=.65pt] (1.71,-2.935) rectangle (3.71,-3.785);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-3.36) {Y};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-3.36) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-2.5) {X};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-2.31) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-2.075) rectangle (7.5600000000000005,-2.9250000000000003);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-2.5) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-2.5) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-3.36) {Y};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-3.17) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-2.935) rectangle (7.5600000000000005,-3.785);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-3.36) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-3.36) {B};
+\draw[black,line width=1.2pt] (3.08,-4.27) -- (4.98,-4.27);
+\draw[black,line width=1.2pt] (3.08,-5.14) -- (4.98,-5.14);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.08,-4.27) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.08,-5.14) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.98,-4.27) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.98,-5.14) {Y};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-6.8) {A};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-6.609999999999999) {:};
+\draw[black,line width=.65pt] (1.71,-6.375) rectangle (3.71,-7.225);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-6.8) {Y};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-6.8) {X};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-7.66) {B};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-7.47) {:};
+\draw[black,line width=.65pt] (1.71,-7.235) rectangle (3.71,-8.085);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-7.66) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-7.66) {Y};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-6.8) {X};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-6.609999999999999) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-6.375) rectangle (7.5600000000000005,-7.225);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-6.8) {B};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-6.8) {A};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-7.66) {Y};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-7.47) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-7.235) rectangle (7.5600000000000005,-8.085);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-7.66) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-7.66) {B};
+\draw[black,line width=1.2pt] (3.08,-8.57) -- (4.98,-8.57);
+\draw[black,line width=1.2pt] (3.08,-9.44) -- (4.98,-9.44);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.08,-8.57) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.08,-9.44) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.98,-8.57) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.98,-9.44) {Y};
+\draw[gray!40,line width=0.5pt] (0.6,-5.99) -- (7.9,-5.99);
+\node[anchor=north west,inner sep=0pt,text width=6.8in,font=\fontsize{10.2}{12.648}\selectfont] at (0.55,-10.49) {Bellingham Math Circle / Week 27 / W27-K-v3};
+\node[anchor=north west,inner sep=0pt,text width=0.35in,font=\fontsize{10.2}{12.648}\selectfont] at (7.6,-10.49) {4};
+\end{scope}
+\end{tikzpicture}
+\newpage
+\null
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=1in]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{11.5}{14.26}\selectfont] at (0.55,-0.35) {Week 27 / Stable pairings / K--1};
+\draw[black,line width=.55pt] (0.55,-0.66) -- (7.95,-0.66);
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{15}{18.6}\selectfont] at (0.6,-0.91) {\textbf{Problem 4:} Fill each empty strip so both drawn pairings can stay. If it cannot be done, cross out the empty strip.};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-2.5) {A};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-2.31) {:};
+\draw[black,line width=.65pt] (1.71,-2.075) rectangle (3.71,-2.9250000000000003);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-2.5) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-2.5) {Y};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-3.36) {B};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-3.17) {:};
+\draw[black,line width=.65pt] (1.71,-2.935) rectangle (3.71,-3.785);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-3.36) {Y};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-3.36) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-2.5) {X};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-2.31) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-2.075) rectangle (7.5600000000000005,-2.9250000000000003);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-2.5) {B};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-2.5) {A};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-3.36) {Y};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-3.17) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-2.935) rectangle (7.5600000000000005,-3.785);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-3.36) {};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-3.36) {};
+\draw[black,line width=1.2pt] (1.12,-4.27) -- (3.0199999999999996,-4.27);
+\draw[black,line width=1.2pt] (1.12,-5.14) -- (3.0199999999999996,-5.14);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-4.27) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-5.14) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-4.27) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-5.14) {Y};
+\draw[black,line width=1.2pt] (4.970000000000001,-4.27) -- (6.87,-5.14);
+\draw[black,line width=1.2pt] (4.970000000000001,-5.14) -- (6.87,-4.27);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-4.27) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-5.14) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-4.27) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-5.14) {Y};
+\draw[gray!40,line width=0.5pt] (0.6,-5.99) -- (7.9,-5.99);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-6.8) {A};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-6.609999999999999) {:};
+\draw[black,line width=.65pt] (1.71,-6.375) rectangle (3.71,-7.225);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-6.8) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-6.8) {Y};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-7.66) {B};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-7.47) {:};
+\draw[black,line width=.65pt] (1.71,-7.235) rectangle (3.71,-8.085);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-7.66) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-7.66) {Y};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-6.8) {X};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-6.609999999999999) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-6.375) rectangle (7.5600000000000005,-7.225);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-6.8) {B};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-6.8) {A};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-7.66) {Y};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-7.47) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-7.235) rectangle (7.5600000000000005,-8.085);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-7.66) {};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-7.66) {};
+\draw[black,line width=1.2pt] (1.12,-8.57) -- (3.0199999999999996,-8.57);
+\draw[black,line width=1.2pt] (1.12,-9.44) -- (3.0199999999999996,-9.44);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-8.57) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-9.44) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-8.57) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-9.44) {Y};
+\draw[black,line width=1.2pt] (4.970000000000001,-8.57) -- (6.87,-9.44);
+\draw[black,line width=1.2pt] (4.970000000000001,-9.44) -- (6.87,-8.57);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-8.57) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-9.44) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-8.57) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-9.44) {Y};
+\node[anchor=north west,inner sep=0pt,text width=6.8in,font=\fontsize{10.2}{12.648}\selectfont] at (0.55,-10.49) {Bellingham Math Circle / Week 27 / W27-K-v3};
+\node[anchor=north west,inner sep=0pt,text width=0.35in,font=\fontsize{10.2}{12.648}\selectfont] at (7.6,-10.49) {5};
+\end{scope}
+\end{tikzpicture}
+\newpage
+\null
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=1in]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{11.5}{14.26}\selectfont] at (0.55,-0.35) {Week 27 / Stable pairings / K--1};
+\draw[black,line width=.55pt] (0.55,-0.66) -- (7.95,-0.66);
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{15}{18.6}\selectfont] at (0.6,-0.91) {\textbf{Problem 5:} Fill the strips so only the pairing on the left can stay. Make two different sets of strips.};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-2.5) {A};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-2.31) {:};
+\draw[black,line width=.65pt] (1.71,-2.075) rectangle (3.71,-2.9250000000000003);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-2.5) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-2.5) {};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-3.36) {B};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-3.17) {:};
+\draw[black,line width=.65pt] (1.71,-2.935) rectangle (3.71,-3.785);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-3.36) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-3.36) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-2.5) {X};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-2.31) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-2.075) rectangle (7.5600000000000005,-2.9250000000000003);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-2.5) {};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-2.5) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-3.36) {Y};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-3.17) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-2.935) rectangle (7.5600000000000005,-3.785);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-3.36) {};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-3.36) {};
+\draw[black,line width=1.2pt] (1.12,-4.27) -- (3.0199999999999996,-4.27);
+\draw[black,line width=1.2pt] (1.12,-5.14) -- (3.0199999999999996,-5.14);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-4.27) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-5.14) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-4.27) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-5.14) {Y};
+\draw[black,line width=1.2pt] (4.970000000000001,-4.27) -- (6.87,-5.14);
+\draw[black,line width=1.2pt] (4.970000000000001,-5.14) -- (6.87,-4.27);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-4.27) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-5.14) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-4.27) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-5.14) {Y};
+\draw[gray!40,line width=0.5pt] (0.6,-5.99) -- (7.9,-5.99);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-6.8) {A};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-6.609999999999999) {:};
+\draw[black,line width=.65pt] (1.71,-6.375) rectangle (3.71,-7.225);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-6.8) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-6.8) {};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-7.66) {B};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-7.47) {:};
+\draw[black,line width=.65pt] (1.71,-7.235) rectangle (3.71,-8.085);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-7.66) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-7.66) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-6.8) {X};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-6.609999999999999) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-6.375) rectangle (7.5600000000000005,-7.225);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-6.8) {};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-6.8) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-7.66) {Y};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-7.47) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-7.235) rectangle (7.5600000000000005,-8.085);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-7.66) {};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-7.66) {};
+\draw[black,line width=1.2pt] (1.12,-8.57) -- (3.0199999999999996,-8.57);
+\draw[black,line width=1.2pt] (1.12,-9.44) -- (3.0199999999999996,-9.44);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-8.57) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-9.44) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-8.57) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-9.44) {Y};
+\draw[black,line width=1.2pt] (4.970000000000001,-8.57) -- (6.87,-9.44);
+\draw[black,line width=1.2pt] (4.970000000000001,-9.44) -- (6.87,-8.57);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-8.57) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-9.44) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-8.57) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-9.44) {Y};
+\node[anchor=north west,inner sep=0pt,text width=6.8in,font=\fontsize{10.2}{12.648}\selectfont] at (0.55,-10.49) {Bellingham Math Circle / Week 27 / W27-K-v3};
+\node[anchor=north west,inner sep=0pt,text width=0.35in,font=\fontsize{10.2}{12.648}\selectfont] at (7.6,-10.49) {6};
+\end{scope}
+\end{tikzpicture}
+\newpage
+\null
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=1in]
+\begin{scope}[shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{11.5}{14.26}\selectfont] at (0.55,-0.35) {Week 27 / Stable pairings / K--1};
+\draw[black,line width=.55pt] (0.55,-0.66) -- (7.95,-0.66);
+\node[anchor=north west,inner sep=0pt,text width=7.25in,font=\fontsize{15}{18.6}\selectfont] at (0.6,-0.91) {\textbf{Problem 6:} Fill the strips so both drawn pairings can stay. Find every way to fill the strips.};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-2.5) {A};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-2.31) {:};
+\draw[black,line width=.65pt] (1.71,-2.075) rectangle (3.71,-2.9250000000000003);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-2.5) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-2.5) {};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-3.36) {B};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-3.17) {:};
+\draw[black,line width=.65pt] (1.71,-2.935) rectangle (3.71,-3.785);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-3.36) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-3.36) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-2.5) {X};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-2.31) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-2.075) rectangle (7.5600000000000005,-2.9250000000000003);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-2.5) {};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-2.5) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-3.36) {Y};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-3.17) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-2.935) rectangle (7.5600000000000005,-3.785);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-3.36) {};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-3.36) {};
+\draw[black,line width=1.2pt] (1.12,-4.27) -- (3.0199999999999996,-4.27);
+\draw[black,line width=1.2pt] (1.12,-5.14) -- (3.0199999999999996,-5.14);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-4.27) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-5.14) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-4.27) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-5.14) {Y};
+\draw[black,line width=1.2pt] (4.970000000000001,-4.27) -- (6.87,-5.14);
+\draw[black,line width=1.2pt] (4.970000000000001,-5.14) -- (6.87,-4.27);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-4.27) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-5.14) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-4.27) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-5.14) {Y};
+\draw[gray!40,line width=0.5pt] (0.6,-5.99) -- (7.9,-5.99);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-6.8) {A};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-6.609999999999999) {:};
+\draw[black,line width=.65pt] (1.71,-6.375) rectangle (3.71,-7.225);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-6.8) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-6.8) {};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.05,-7.66) {B};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (1.54,-7.47) {:};
+\draw[black,line width=.65pt] (1.71,-7.235) rectangle (3.71,-8.085);
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (2.2,-7.66) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.1900000000000004,-7.66) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-6.8) {X};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-6.609999999999999) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-6.375) rectangle (7.5600000000000005,-7.225);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-6.8) {};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-6.8) {};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.9,-7.66) {Y};
+\node[anchor=north west,inner sep=0pt,text width=0.2in,font=\fontsize{20}{24.8}\selectfont] at (5.390000000000001,-7.47) {:};
+\draw[black,line width=.65pt] (5.5600000000000005,-7.235) rectangle (7.5600000000000005,-8.085);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.050000000000001,-7.66) {};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (7.040000000000001,-7.66) {};
+\draw[black,line width=1.2pt] (1.12,-8.57) -- (3.0199999999999996,-8.57);
+\draw[black,line width=1.2pt] (1.12,-9.44) -- (3.0199999999999996,-9.44);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-8.57) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (1.12,-9.44) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-8.57) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (3.0199999999999996,-9.44) {Y};
+\draw[black,line width=1.2pt] (4.970000000000001,-8.57) -- (6.87,-9.44);
+\draw[black,line width=1.2pt] (4.970000000000001,-9.44) -- (6.87,-8.57);
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-8.57) {A};
+\node[draw,line width=0.8pt,circle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (4.970000000000001,-9.44) {B};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-8.57) {X};
+\node[draw,line width=0.8pt,rectangle,fill=white,minimum size=0.79in,inner sep=0pt,font=\fontsize{20}{22}\selectfont] at (6.87,-9.44) {Y};
+\node[anchor=north west,inner sep=0pt,text width=6.8in,font=\fontsize{10.2}{12.648}\selectfont] at (0.55,-10.49) {Bellingham Math Circle / Week 27 / W27-K-v3};
+\node[anchor=north west,inner sep=0pt,text width=0.35in,font=\fontsize{10.2}{12.648}\selectfont] at (7.6,-10.49) {7};
+\end{scope}
+\end{tikzpicture}
+\newpage
+\end{document}

@@ -1,15 +1,20 @@
-# Week 6: How many tests does a secret need?
+# Week 6: Code breaking
 
-Adaptive decision trees, minimax query selection, indistinguishability lower bounds, Hamming distance, and resolving sets of hypercubes.
+Concrete revision of October 3, 2026: F06-K-v4 / F06-M-v4 / F06-U-v4, adult guide F06-FAC-v4. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 ([forecast and pivot](../../../plans/fall-forecast-2026-10-03.md)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
 
-- [K–1](../../week-06/week-06-k-1.pdf) — 2 pages.
-- [Grades 2–3](../../week-06/week-06-grades-2-3.pdf) — 2 pages.
-- [Grades 4–5](../../week-06/week-06-grades-4-5.pdf) — 3 pages.
-- [Extra grades 6–7](../../week-06/week-06-extra-grades-6-7.pdf) — 1 page.
-- [Facilitator and solutions](../../week-06/week-06-facilitator.pdf) — 4 pages.
+- [K–1](../../week-06/week-06-k-1.pdf) — 7 pages.
+- [Grades 2–3](../../week-06/week-06-grades-2-3.pdf) — 10 pages.
+- [Grades 4–5](../../week-06/week-06-grades-4-5.pdf) — 9 pages.
+- [Adult guide](../../week-06/week-06-facilitator.pdf) — 10 pages: materials and counts, launch, pairing, answers, hints, and what to record.
 
-Print US Letter, single-sided, 100%. Give one page at a time: the packets are investigations, not a completion quota. Current roster needs three K–1, three middle, one upper packet (15 student sheets), plus the extra if needed. Children may dictate or demonstrate.
+Two partner games about guaranteed information. In guess-my-block, three yes-or-no questions always find one of the eight 21st Century Pattern Block shapes and two never can. In the code game, a secret row of red and yellow counters hides behind a folder; the keeper scores each test mechanically (lay the test copy under the secret, put a green triangle under each match), and breakers look for methods that always work in n tests.
 
-The [redesign plan](../../../plans/week-06-redesign.md) includes prerequisites, materials, staffing, flow, sources, and use history. IDs F06-K-v2/M-v2/U-v2/X-v2 are prepared, not taught.
+The pages call the counter colours red and yellow; substitute the colours your counters have. The code boards are cut along the folder line (see the adult guide). The drawings of the pink triangle, kite and dart are approximate; children use the real blocks. At the K–1 table the adult keeps the secret.
 
-Rebuild from the repository root: `sh lowell-math-circle-year-2/source/week-06/build.sh`. Editable LaTeX/TikZ and local common.tex are included. Requires Python 3 and pdfLaTeX with TikZ, Source Sans Pro, microtype, fancyhdr, geometry, tabularx, hyperref, amsmath. The build runs plans/verify-week-06.py and writes PDFs to `lowell-math-circle-year-2/week-06/`. Re-render after editing. [Review record](REVIEW.md).
+Print US Letter, single-sided, at 100% / Actual Size. Give one page at a time; the packets hold more than an hour, and stopping anywhere is fine.
+
+The student pages were drafted with the [worksheet workflow](../../../worksheet-workflow/README.md) from the outline `worksheet-workflow/outlines/week-06-code-breaking.md`: writer, adversarial review and independent math check, then revision. The run record (prompts, reviews, draft and final PDFs) is in `tmp/worksheet-runs/week-06-code-breaking-v1/`. The adult guide was written separately from the final pages; its answers are recomputed by the scripts in `guide-src/`.
+
+Rebuild from the repository root: `sh lowell-math-circle-year-2/source/week-06/build.sh`. It builds in `tmp/pdfs/week-06-build/` and copies the four PDFs into `lowell-math-circle-year-2/week-06/`. Requires Python 3 and XeLaTeX (student pages) and pdfLaTeX (guide) with TikZ, fontspec and TeX Gyre Heros and Source Sans Pro. `src/` holds the student pages with their generators and checks; `guide-src/` holds the adult guide and its answer checks, which read `../src`.
+
+The previous version (F06-*-v3, with its optional grades 6–7 extra) is preserved in [archive/](archive/README.md) with its sources, and its PDFs are in `lowell-math-circle-year-2/week-06/archive/`. Older versions remain in the `archive-before-*` folders here and beside the PDFs.

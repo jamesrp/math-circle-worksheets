@@ -1,0 +1,88 @@
+\documentclass[12pt]{extarticle}
+\def\activityid{F02-FAC-v5}\input{common.tex}
+\begin{document}
+
+\PageTitle{FACILITATOR / 1}{Prepare the toggle lab}
+\RuleBox{September 28, 2026: ten children, KK1 / 3333 / 445; three adults. Use the K--1 auxiliary and pictured middle/upper v4 packets. All revisions are unpiloted.}
+\Subhead{Materials and readiness}
+For K, use pencils and erasers or whiteboards. Bring 31 two-sided counters plus spares for the four middle and three upper children; existing counters are optional for K. Print auxiliary page 1 for three K children, middle page 1 for four, and upper page 1 for three: ten starting sheets. Preprint selected auxiliary pages; keep other continuations ready. Give the parent the separate auxiliary guide.\par
+\textbf{K:} no independent reading; match pictures and change two marked lamps. Adult scribing is available. \textbf{Middle:} labels 1--4, count to four; pairing can replace odd/even vocabulary. \textbf{Upper:} count to six and track yes/no decisions. \textbf{Extra:} follow paths, count targets within a piece, and reason about a cut.
+\Subhead{Handle, then launch: 0--10 minutes}
+At 0--5, let children handle counters or try marking and erasing lamps. At 5--10, gather around one four-lamp mat. Show all OFF, press 12, then press 23: one ON lamp turns OFF while the other endpoint turns ON. Have a child replay it. Write ``12,23,'' reset, and replay. State the goal: make a chosen picture by changing both ends of one line per move. Distribute starting tasks after this shared legal attempt; save parity for later.
+\Subhead{Adults and a flexible hour}
+Parent anchors KK1 with the auxiliary script; other mathematician anchors 3333; organizer anchors 445. If K needs mathematical help, the parent keeps them on a familiar task. Before visiting, the organizer explicitly asks the other mathematician to cover both older groups.\par
+\textbf{10--30:} K auxiliary route; middle 1--3; upper 1--2. \textbf{30--35:} stand, stretch, reset. \textbf{35--50:} continue or choose a drawing activity. \textbf{50--55:} share one attempt. \textbf{55--60:} tidy. Follow attention and useful attempts, not page completion.
+\Subhead{Stops and transitions}
+\textbf{K:} the 14-page auxiliary packet is a choice menu, mixing shared turns, solo puzzles, larger networks, and drawing. Start with its parent route and give one page at a time. The original K packet is a reserve; its answers remain on pages 2 and 5 here.\par
+\textbf{Middle:} stop after contrasting targets. Introduce the two-end table (4) to examine a difficulty they encountered. Record pictures on the supplied miniature rings (7); completeness can wait.\par
+\textbf{Upper:} stop after shorter lists for the three targets. Compare cancellation and complementary sets before forced choices (6--8). The six-ring is a separate comparison. \textbf{Extra:} stop after component examples; join components before tree cuts.
+\Subhead{Prompts for adult conversation}
+``What changed at each end?'' ``Can your partner replay it?'' Invite explanations by pointing or moving counters. Core solutions are on pages 2--5; visual-task notes on page 6. The auxiliary guide has its own solutions. Record actual tasks used.
+\newpage
+\PageTitle{FACILITATOR / 2}{Parity and all the pictures}
+\Subhead{K--1 solutions and explanations}
+Two identical presses undo each other; replaying any list in reverse undoes it. Top/right (1,2) needs 12. Top/bottom (1,3) uses 12 then 23. A single ON lamp is impossible under the pair rule. Both OFF endpoints become ON (+2), both ON become OFF (-2), or one ON trades places (0). Starting at zero, the number ON stays even. Children may demonstrate these three cases and pair the counters instead of saying ``parity.'' The new one-lamp button breaks this invariant and makes the singleton immediately.
+\Subhead{Middle: the complete set}
+The eight states, listed by their ON lamps, are:
+\begin{center}\begin{tabular}{c|l}Number ON&Possible sets\\\hline 0&none\\2&12, 13, 14, 23, 24, 34\\4&1234\end{tabular}\end{center}
+Here ``13'' in the \emph{state list} means lamps 1 and 3, not a legal edge. Avoid conflating a target list with a move list. All six pairs can be made by a path on the square. Each interior vertex is touched twice and returns OFF; each end is touched once. To make all four, use edges 12 and 34. No odd-size state is possible. This proves both that the list is complete and that every listed state is reachable. There are 12 blank recording boxes so their count does not give away the answer.
+\Subhead{Why paths generalize}
+Pair the desired ON vertices. For each pair, choose a path and press its edges. At an intermediate vertex, contributions cancel in pairs; endpoints give one flip. Shared edges or vertices cause no problem: all flip counts add modulo two. An edge pressed twice can be deleted from the list. On any connected graph, exactly the even targets are reachable. Connectivity matters; see the extra.
+\Subhead{What is being added?}
+Old shape addition used union: a shared stroke was kept once. Toggling is \textbf{symmetric difference}: something present twice cancels. This new operation restores information in the identity \((A\mathbin{\triangle}B)\mathbin{\triangle}B=A\). A one-minute pen-drawn picture comparison is an optional bridge for returners, not a second core activity. Lowell Handout 11, problem 11.3, asked for splitting and recombining shapes; Handout 9, problem 9.1, used door toggles indexed by divisors. Here the adjacent-pair move and reachability problem are new.
+\newpage
+\PageTitle{FACILITATOR / 3}{Two answers, then an optimum}
+\Subhead{Upper Problems 1--2: constructions plus lower bounds}
+Target \{1,3\}: edges \{12,23\} or \{51,45,34\}. Minimum \textbf{2}. One press can light only adjacent lamps; these are not adjacent. Target \{1,2,3,4\}: \{12,34\} or \{23,45,51\}. Minimum \textbf{2}, because one press changes at most two lamps. Children should supply both the successful move list and the reason one press cannot suffice.
+\Subhead{Upper Problems 3--8: exactly two reduced solutions}
+For target \{1,3\}, the decision table is:
+\begin{center}\renewcommand{\arraystretch}{1.4}\begin{tabular}{c|ccccc|c}&51&12&23&34&45&lamp 5\\\hline First no&no&yes&yes&no&no&OFF\\First yes&yes&no&no&yes&yes&OFF\end{tabular}\end{center}
+Once 51 is chosen, lamp 1 forces 12, lamp 2 forces 23, and so on. There can be at most two solutions using each edge zero or one times. Complementing an edge set preserves the target, because each lamp has exactly two incident edges: a flip count of 0, 1, 2 becomes 2, 1, 0, with the same parity. Thus every reachable target has exactly two reduced solutions. There are infinitely many unreduced move lists if repeated presses are permitted; state the distinction.
+For target \{1\}, first-no forces only 12,23,34,45, leaving lamp 5 ON incorrectly; first-yes forces only 51, again leaving lamp 5 ON. Both branches fail. Parity explains the same obstruction globally.
+\Subhead{Upper Problems 9--10: the five-ring speed limit}
+An even target is reachable by paths. Its two reduced press sets have sizes \(k\) and \(5-k\); at least one is at most 2. Any repeated presses can be cancelled without changing the target, so the smaller reduced set is globally shortest. On an odd ring the two sizes never tie. On the six-ring, opposite lamps 1 and 4 have solutions \{12,23,34\} and \{61,56,45\}, each size 3. The same forced-choice proof shows there is no third reduced set, hence no shorter route. More generally the two cycle solutions have sizes \(k,n-k\).
+\Subhead{Undergraduate interpretation}
+Write OFF=0 and ON=1. Each edge is a column with two 1's in a vertex-edge incidence matrix. A move set solves \(Ax=t\) over the two-element field. The all-edge cycle is a nonzero null vector; on a single cycle it is the only one. Our forced-choice proof is binary elimination without matrix notation. The connected-graph image is the even-parity subspace; its dimension is \(n-1\).
+\newpage
+\PageTitle{FACILITATOR / 4}{Networks and real optimization}
+\Subhead{Extra: every component matters}
+Target \{A,D\} is impossible: the triangle and the separate edge each contain an odd number of target vertices, while every move changes two vertices in one component. Target \{A,C,D,E\} uses AC and DE, minimally two presses. In general, a target is reachable \emph{if and only if each component contains an even number of targets}. Necessity is component parity; sufficiency pairs targets within each component and uses paths. Isolated vertices are components too.
+\Subhead{Extra: why a tree has one solution}
+Delete an edge e. Count desired ON vertices on either side. Presses wholly on one side affect its parity by zero; the only move crossing the cut is e. Thus e is pressed an odd number of times exactly when that side has an odd target count; otherwise it is pressed an even number of times (possibly zero). The two sides agree because the whole target is even. These decisions uniquely specify every edge. Existence follows from the path construction. They therefore give the unique reduced solution and a shortest move list; repeated edges can only lengthen it. A leaf-removal algorithm gives another constructive explanation.
+\Subhead{Research connection and its boundary}
+The pressed-edge set has odd degree exactly at the target vertices T: this is a \textbf{T-join}. The children's optimization is exactly minimum-cardinality T-join on a cycle. General networks can have many cycle choices; edge costs lead to the minimum-weight T-join problem and route-inspection algorithms. We prove the elementary parity and tree/cycle cases here, not the general matching algorithm or its polyhedral theorem.
+\textbf{Edmonds and Johnson (1973)}, \emph{Matching, Euler tours and the Chinese postman}, \emph{Mathematical Programming} 5, 88--124. The publisher abstract identifies matching, Euler tours, and the optimization result: \href{https://doi.org/10.1007/BF01580113}{doi:10.1007/BF01580113}.\par
+\textbf{Cornu\'ejols}, \emph{Combinatorial Optimization: Packing and Covering}, Chapter 2, pp. 27--29, defines T-joins, explains shortest-path/matching reduction, and states the Edmonds--Johnson theorem: \href{https://www.sfu.ca/~mdevos/notes/pack-cover/Cornuejols.pdf}{author's monograph}. It uses acyclic representatives; a cycle can be deleted without changing odd-degree vertices and without increasing nonnegative cost.\par
+\textbf{Undergraduate anchor:} MIT 18.06SC, \href{https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/graphs-networks-incidence-matrices/}{Graphs, Networks, Incidence Matrices}. Its usual real-valued matrix framework motivates the representation; the binary adaptation and proof above are ours.
+\Subhead{Teaching sources and use history}
+\emph{Math Circle by the Bay}, preface pp. viii--x, advocates themes with deep mathematical context, manipulatives, varied pace, and reserve challenges. Rozhkovskaya, Lesson 3 ``At the lesson,'' item 1, lets children attempt and explain before a table is introduced; Lesson 7, item 1, warns how missed moves can distort a game investigation. Our staffing and timing are adaptations. Record core K/X as v3 and middle/upper as v4; preparation is not evidence of teaching. Reserve the general graph version for a later year if unused.
+\textbf{Verification:} \texttt{verify.py} enumerates move subsets for 4-, 5-, and 6-cycles, checks two complementary solutions per even target, minima, and the extra examples. The arguments above stand independently of computation.
+
+\newpage
+\PageTitle{FACILITATOR / 5}{Instance checks and observations}
+\Subhead{Added student instances}
+\textbf{K 3:} targets 14,24,1234,empty use 14; 12,14; 12,34; no moves. \textbf{K 5:} the three targets have odd size and all fail under pair flips. \textbf{K 6:} the new button flips only lamp 1. It makes target 1 immediately; target 123 uses that button and edge 23; target 2 uses the button and 12. Thus children can test all three contrasts without changing the button's location.\par
+\textbf{Middle 2--3:} targets 12,13,24,1234 use 12; 12,23; 12,14; 12,34. Target 23 uses 23; target 14 uses 14. Single 1 and triple 123 fail. \textbf{4:} endpoint counts are 0 to 2, 2 to 0, and 1 to 1. \textbf{6:} path 12,23,34 leaves 1,4 ON; path 14,43 leaves 1,3 ON. Edge 43 is the same as 34. \textbf{7--8:} the complete eight states and path proof are on page 2. Ask for completeness orally, after the collection is useful.\par
+\textbf{Upper 2:} adjacent target 12 has lists 12 and 23,34,45,51; its minimum is 1. The other two minima are 2 (page 3). \textbf{3:} all three lists yield target 13. \textbf{4:} complementary pairs have counts 1/4,2/3,2/3,3/2, with targets 12,13,1234,14 respectively. \textbf{6--8:} forced rows for target 1234 are (51,12,23,34,45)=(no,yes,no,yes,no) and its complement; singleton failure is on page 3. \textbf{10:} six-ring target 14 has two lengths 3/3; target 13 has 2/4. Use this to distinguish ties from the odd-ring case.
+\Subhead{Extra: new construction checks}
+\textbf{1:} AC; DE; impossible; AC,DE; impossible; AB,DE. The failures AD and ABCD have odd target count in each component. \textbf{3:} with bridge CD, AD uses AC,CD; ABCD uses AB,CD. \textbf{4:} paths give AC,CD,BC,CD; cancel both CD presses to leave AC,BC, hence AB as desired. \textbf{6:} tree targets AC and ACEF use AB,BC and AB,BC,DE,DF. \textbf{7:} named-side target counts are 1,1,2,1,1, so BD is unused and the other four are used. Proof of every tree target is on page 4.
+\Subhead{Record evidence before revising again}
+Record date, actual problems/targets attempted, successful replay of the rule, which records needed adult demonstration, children's explanations, and what they wanted to continue. Separate observed actions or quotations from interpretations and next-time proposals. Mark each result tried, conjectured, checked in cases, proved, or supplied. Record each current worksheet ID and exact problems only if used. The page expansions and gates are design hypotheses, not classroom findings.
+
+
+\newpage
+\PageTitle{FACILITATOR / 6}{Using the pictured tasks}
+\RuleBox{F02-M-v4 and F02-U-v4 respond to the organizer's review of printed instructions, not classroom outcomes. The three student sets remain separate while a shared collection is under discussion.}
+\Subhead{Launch the action before the record}
+Point to the small target and nearby working mat. Reset all OFF, flip both ends of one line, and let the child replay a pictured example. A child can point while an adult records. A move list records roads; a target picture records lit lamps. Give one page at a time. Added paper supplies visible setups and working space, not a longer assignment. The K--1 auxiliary's partner games and larger boards are also available to older children.
+\Subhead{Middle: comparisons, then a collection}
+Problems 2--3 retain four successful and four mixed targets. ``Not yet'' means no working list has been found; it is not a proof. In Problem 4, children \emph{set up} each pictured state by hand, including the one-ON case, before flipping line 12. Setup is not a legal move from all OFF. The local changes are 0 to 2, 2 to 0, and 1 to 1 ON lamps.\par
+For the paths (6), replay each road and point to both changed lamps. Interior lamps change twice; endpoints remain ON. In 7, record on little rings and check ``saved, including for all OFF. In 8, group the pictures by ON count and replay a construction. Invite the eight-state completeness argument after the collection is useful; page 2 supplies both necessity and constructions.
+\Subhead{Upper: road choices and lamp states}
+A selected road means \emph{press this line}; a dark lamp means \emph{this lamp is ON}. Demonstrate both picture types before 4--5. Use each selected road once. Reset before trying the other roads. The two sets lead to the same target: using every road changes each lamp twice. Repeated presses cancel, and order does not affect the final picture.\par
+In 6--8, fix whether road 51 is used. Decide 12 to finish lamp 1, then 23 to finish lamp 2, and continue. Remaining undecided roads cannot touch already finished lamps. Check lamp 5 at the end. Replay a completed row with counters; a failed closing check rules out that branch. The singleton fails both branches. Choosing a first road is not guessing the whole solution.\par
+Preserve the deeper questions: exactly two reduced solutions, complements, and why the smaller solution is globally shortest. Every reachable five-ring target needs at most two presses; the opposite six-ring pair needs three. Pages 3--4 retain proofs for conversation after concrete trials.
+\Subhead{Notice what the presentation changes}
+Record which tasks children start without rescue, which records need modeling, and which comparisons the pictures support. Separate observations from the hypothesis that this reduces reading and memory demands. Log exact targets and reasoning encountered, not the entire expanded packet.
+
+\end{document}

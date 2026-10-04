@@ -1,0 +1,78 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=.68in,headheight=16pt,headsep=.18in,footskip=.28in]{geometry}
+\usepackage{amsmath,array,enumitem,fancyhdr,hyperref}
+\pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{.3pt}
+\fancyhead[L]{\small Bellingham Math Circle / Week 17 / Return visits}
+\fancyhead[R]{\small Adult guide}
+\fancyfoot[L]{\small RV-17-FAC-v1 / Draft and unpiloted}\fancyfoot[R]{\small\thepage}
+\setlength{\emergencystretch}{2em}
+\setlength{\parindent}{0pt}\setlength{\parskip}{7pt}
+\setlist[itemize]{leftmargin=1.3em,itemsep=3pt,topsep=4pt}
+\hypersetup{hidelinks,pdftitle={Week 17 return-visit facilitator guide}}
+\begin{document}
+{\Large\bfseries Mathematical overview}\par\medskip
+\textbf{Facts and limits.} A deterministic machine reads one R/B symbol at a time, has one outgoing arrow for each symbol at every state, and gives a fixed YES/NO when stopped. Its current state is its whole memory. Histories ending in the same state can never be separated by the same continuation.
+
+Detecting RR anywhere requires exactly three states: no pending R, one pending R, and already seen RR. R moves 0\(\to\)1\(\to\)2\(\to\)2; B resets states 0 and 1 to 0 and leaves 2 fixed. Empty, R and RR are pairwise distinguishable, proving three is minimal.
+
+Accepting exactly when both R and B counts are even needs four states, the four parity pairs. R toggles its coordinate and B toggles its coordinate; only even/even accepts. Empty, R, B and RB are pairwise distinguishable, proving four is minimal.
+
+No fixed finite-state machine recognizes equal R/B counts for arbitrary row length. An m-state machine sends two of the m+1 histories empty,R,\(\ldots\),\(R^m\) to the same state. A common run of blue cards then balances one and not the other, a contradiction. A machine can pass many finite tests without settling the all-length question.
+
+\textbf{Children's destination.} Remember an event after it happens, combine independent memories, and expose a limitation through concrete histories and one shared ending.
+
+\textbf{Entry map.} Problem 1 (page 1): K--1/2--3 with a partner operating and an adult reading/drawing arrows. Problem 2 (page 2): grades 2--3/4--5, two odd/even conditions. Problem 3 (page 3): grades 4--5, compare histories and reason about a proposed finite number of circles. No formal-language notation is required.
+
+\textbf{New versus base.} Base tasks track red remainders, last-card/suffix conditions and distinguish histories. These visits detect an occurrence with persistent memory, combine two counts, and show an unbounded-memory obstruction.
+\newpage {\Large\bfseries Prepare a return visit}\par\medskip
+\textbf{Status and use.} Three investigations extend one familiar theme. These companions are separate from the base packets and may support several visits. All pages are new and unpiloted. Printed labels describe prerequisites, not age restrictions. Offer one investigation’s pages at a time; completing every page is not the goal.
+
+\textbf{Materials and preparation.} For each pair, twelve R and twelve B lettered cards, one marker, at least eight blank state discs about 4 cm wide, pencil and spare paper. Reserve six sets for eleven children. The upper third child can read inputs or referee, rotating. Used cards must be hidden; no remembered count, card piles, marker orientation or extra counters can act as additional machine memory. Both outgoing arrows must remain legible. Separate 4 cm discs are working materials; printed rectangles record machine drawings. Twelve cards of each label support ordinary tests and red-history collision trials for proposals with at most eight states. Use extra cards or prepared written input rows for larger trials; the all-length theorem has no twelve-card limit.
+
+\textbf{Staffing.} Current context: eleven children, fixed KK11 / 3333 / 445 tables, one adult anchored to each table. Use pairs; the upper third child rotates as reader or checker. Routine adult reading, arrow drawing or recording can leave the mathematical decisions with children. If adults must choose every move, use the earlier entry rather than run the investigation for them.
+
+\textbf{Short common launch.} Let children choose and arrange cards. Use the printed non-task two-circle machine: start X (NO), read R to X, then B to Y, then B to Y, hiding each used card. Its RBB input ends YES. Show input, intermediate states and output together. A partner supplies only the next symbol and the stop signal. Then let every child operate one legal run. The reader may correct an illegal arrow, but cannot communicate past symbols.
+
+\textbf{Suggested first route.} Act out the page 1 rules instead of reading them in one uninterrupted block; let every child run the marker before designing. Keep page 1’s rules/example beside any selected later page. Begin with the occurrence detector and partner-generated tests; a young child can seek fewer states through trials, leaving the all-rows minimality proof for later. Before the two-even task, check evenness by pairing cards outside the machine run, then hide them. Move to combined parities when separate parity tracking is familiar. Save the equal-count challenge for a return visit where children can propose a complete machine and understand continuation versus restart.
+
+\textbf{Flexible timing.} Allow 3--5 minutes of material play and 2--4 minutes for the common demonstration, then 15--25 minutes for one investigation and 5 minutes to share. A longer second visit can spend 30--45 minutes on the same investigation, including unfinished examples or its explanation. These are planning estimates, not observed timings. Do not require all three within one hour.
+
+\textbf{Questions and hints.} Start with ``What can you try?'' and ``What would count as success?'' Check the actual rule before giving a strategy. Optional questions and hints are keyed below; use them only after a real attempt. A counter argument or drawing may be a complete explanation.
+
+\textbf{Source and pilot record.} Mathematical examples and arguments here are original local follow-ups to the current base theme. Consulted teaching source: \emph{Math Circle by the Bay}, Preface pp. vii--x (local PDF pp. 8--11), on interaction, manipulatives, hints, explanations and themes spanning multiple years. Our exact launch, entry route and timing are design inferences. Year-1 \emph{Handouts 6}, Problems 6.2--6.6, provided a local example of connecting representations. Record actual problem, starting route, examples tried, what needed adult rescue, and what children want to resume. Distinguish observations from hypotheses. Counter fit, materials stock, procedures and classroom response have not been physically tested.
+\newpage
+\textbf{Problem 1: RR has happened.} Use three states N (no pending R), P (last card R, no RR yet), and F (RR already seen). N is the NO start; P is NO; F is YES.
+\begin{center}\begin{tabular}{c|cc|c}
+State&R&B&Stop\\\hline
+N&P&N&NO\\
+P&F&N&NO\\
+F&F&F&YES
+\end{tabular}\end{center}
+The state meanings are preserved by every arrow. In particular, after reaching F, a later B must not erase the already observed event. The printed test rows RRBB, RBR and BRRB should say YES, NO, YES respectively; later B cards do not erase the occurrence.
+
+\textbf{Minimality.} Consider histories empty, R, RR. Stopping distinguishes RR from each of the other two. Appending R distinguishes empty from R: the first becomes R (NO), the second RR (YES). If any pair had shared a state, that common continuation would give the same answer, so three separate states are necessary. This proves the minimum for arbitrary inputs, not just the sample rows.
+
+\textbf{If needed.} Give a child one pending-R disc and one seen-RR disc and ask what a B should do in each situation. Adult drawing is routine help; children still choose the memory meanings and test rows.
+
+\textbf{Return question.} Detect RBR anywhere. Use states empty-suffix, R-suffix, RB-suffix and found. Their R/B destinations are respectively (R-suffix, empty-suffix), (R-suffix, RB-suffix), (found, empty-suffix), (found, found); only found says YES. Empty, R, RB and RBR need different states: stopping separates found; endings BR and R separate the first three. This is an optional return question, not part of the three-state answer.
+\newpage
+\textbf{Problem 2: two even counts.} Put four circles at the corners of a square, labeled EE, OE, EO, OO; first coordinate is red parity. EE is the YES start, every other circle NO. R switches EE\(\leftrightarrow\)OE and EO\(\leftrightarrow\)OO; B switches EE\(\leftrightarrow\)EO and OE\(\leftrightarrow\)OO. Each card changes only its own count's parity, so the marker always tracks exactly the pair. Printed rows no cards, R, RB, RRBB, BBR, BRBR should say YES, NO, NO, YES, NO, YES respectively.
+
+\textbf{Four are necessary.} Empty, R, B and RB end in the four parity pairs. For any two distinct pairs, append the cards that make the first pair even/even: none, R, B or RB respectively. Those cards toggle both histories in the same way, so the second pair stays different and says NO. Thus every pair of the four histories is distinguishable and must reach a different state.
+
+\textbf{If needed.} Place two ordinary parity boards side by side and operate them together once; then replace the two markers with one marker on the four-pair square. This is a bridge for adults to use after the child has encountered the two conditions, not a printed recipe.
+
+\textbf{Extension.} What if red count is even and the last card is blue? A literal two-by-two memory grid can be compressed to three states because the two odd-red last-card states have identical futures. An exact three-state construction uses E (even red, last card not blue), F (even red, last card blue) and O (odd red). Start E; only F says YES. R sends E/F to O and O to E; B sends E/F to F and O to O. Empty, B and R need distinct states: stopping separates B, and appending B separates empty from R. Combining memories gives an upper bound, not automatically a minimum.
+\newpage
+\textbf{Problem 3: can finitely many circles remember balance?} Printed rows RRBB, RBRB, BRR require YES, YES, NO. These are only sample tests, not certification. Any proposed m-circle machine fails on some input if its only memory is its current circle. Run the m+1 histories with 0,1,\(\ldots\),m red cards, starting fresh each time, and record each final circle. Two histories must finish at the same circle; call their red counts i and j with i\(<\)j.
+
+Now append the same i blue cards to both histories, \emph{continuing} from those final circles. The first row has i reds and i blues and must say YES; the second has j reds and i blues and must say NO. Starting at the same circle and following the same added cards cannot produce different final circles, so the machine is wrong on at least one row. Adding no cards is allowed when i=0.
+
+\textbf{The mathematical limit.} This argument works for every fixed finite m, regardless of how arrows are drawn. It does not say a machine with a finite bound on the allowed input length is impossible. Nor does it rule out an unbounded counter or stack, which is additional memory outside this model.
+
+\textbf{If needed.} For a proposed three-circle machine, make four red histories physically. Keep a small final-circle record outside the machine, used by the experimenters rather than the operator. Pick a collision and append matching blue cards without restarting. The experimenter's record does not become machine memory.
+
+\textbf{Stop meaningfully.} A concrete failed machine, a collision witness, or the arbitrary-m proof can each finish a visit. Do not make a young child build increasingly large diagrams while an adult controls the investigation.
+
+\textbf{Checks.} Independent enumeration tests both finite constructions on every row of length 0–9, and explicit continuation witnesses prove minimality. The equal-count impossibility rests on the all-m argument above, not the finite audit.
+\end{document}

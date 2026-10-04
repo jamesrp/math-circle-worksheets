@@ -1,0 +1,5 @@
+# Final delta mathematics pass — Week 45
+
+Compared final/draft sources/adult notes and rendered/inspected all three final pages. The added initial-choice dots stay on P in both stages of the P/Q/R demonstration; A opens Q, with prize R, exactly as independently solved. Other GB→G,B and hidden B/F→report R examples remain correct after repositioning.
+
+Revised instructions make independent face/host/report tickets and hidden identities, marks, turning and prize placement explicit. Revealing the identity of the empty door does not change the previously verified host answer: separately conditioning on either empty door gives A switching 2/3 and B switching 1/2 under the symmetric tie rule. The ticket/protocol filtering remains the same twelve/six/twelve equal histories; 4/5 repeated-clue posterior, 3/5 noisy-blue posterior and three-honest/one-flip design remain correct. The added choice marker and blank records introduce no math condition; kit arithmetic is consistent. Physical hidden-information execution remains untested. No new blocker.

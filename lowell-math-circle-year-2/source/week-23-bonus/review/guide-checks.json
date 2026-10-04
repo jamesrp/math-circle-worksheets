@@ -1,0 +1,226 @@
+{
+  "week": 23,
+  "status": "verified",
+  "unresolved_mathematical_issues": [],
+  "scope": "All overview, actual final P1-P6 solutions, every explicit trace/table, hints, extensions, assumptions and attribution independently reviewed; corrected five-page guide inspected.",
+  "evidence": {
+    "guide_json_sha256": "f3b3dd3c0788d87e00d2acc579fe33870322c929e094de98912f10a5b9129343",
+    "guide_pdf_sha256": "2f5ed590868b7c9b94b1a4bcb848a7a92632e621792938442aba17c999f4c368",
+    "student_final_pdf_sha256": "bde76b07500f73f57956c8a343e671c0ccb0dcb0054de15c25347931a7312907",
+    "student_final_tex_sha256": "431da350b9ffd27a69c55d6d09593149547c92536a7831f375d6945fcc2cc25b",
+    "student_checker_sha256": "7c26f870522d190d6bed7bd351e3eccfccd492501ca85fb0aa34b4bb4b56c1d1",
+    "student_checks_sha256": "6bf4521816cb1437d7f7bcd01bbbee4ffe57277ea40f861d7d08737395d38b73",
+    "guide_checker_sha256": "5f435aedaf1441c99f3eb98385a071034a76e3d67c5ff714100df0488ef2ce70"
+  },
+  "verified_claims": {
+    "P1": {
+      "minimum_bars": 3,
+      "witness": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "lower_bound": "Fewer than n-1 graph edges leave a component not containing lane1; a minimum in it cannot leave.",
+      "n_lane_extension": {
+        "1": {
+          "bars": 0,
+          "permutations_checked": 1
+        },
+        "2": {
+          "bars": 1,
+          "permutations_checked": 2
+        },
+        "3": {
+          "bars": 2,
+          "permutations_checked": 6
+        },
+        "4": {
+          "bars": 3,
+          "permutations_checked": 24
+        },
+        "5": {
+          "bars": 4,
+          "permutations_checked": 120
+        },
+        "6": {
+          "bars": 5,
+          "permutations_checked": 720
+        }
+      }
+    },
+    "P2": {
+      "network": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "distinct_inputs_checked": 24,
+      "repeated_inputs_checked": 256,
+      "half_order": "Each of lanes1,2 is at most each of lanes3,4; within halves need not sort.",
+      "counterexample": {
+        "input": [
+          3,
+          4,
+          1,
+          2
+        ],
+        "output": [
+          2,
+          1,
+          4,
+          3
+        ]
+      }
+    },
+    "P3": {
+      "minimum_bars": 3,
+      "shortest_mergers": 2,
+      "distinct_legal_inputs": 6,
+      "repeated_legal_inputs_checked_per_merger": 100,
+      "lower_bound": "A fixed successful swap record determines one distinct start from the sorted output; 2^2<6."
+    },
+    "P4": {
+      "unchanged_failures": [
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          1,
+          2,
+          4,
+          3
+        ]
+      ],
+      "corrected_trace": [
+        [
+          1,
+          3,
+          4,
+          2
+        ],
+        [
+          1,
+          3,
+          4,
+          2
+        ],
+        [
+          1,
+          2,
+          4,
+          3
+        ],
+        [
+          1,
+          2,
+          4,
+          3
+        ]
+      ],
+      "all_three_bar_mergers_fail_somewhere": "2^3<24 distinct unrestricted inputs"
+    },
+    "P5": {
+      "six_tagged_cases": 6,
+      "X_equal_order_failures": 2,
+      "Y_equal_order_failures": 0,
+      "tags": "Identifiers never affect compare-exchange; ties stay.",
+      "both_value_sorters": true,
+      "worked_example": [
+        "3A,1B,3C",
+        "1B,3A,3C"
+      ]
+    },
+    "P6": {
+      "general_invariant": "An adjacent swap changes relative order only for its two exchanged cards; equal cards never swap. Induction preserves every equal pair for any machine length even without value sorting.",
+      "atomic_actions_checked": 1278,
+      "tie_swap_counterexample": [
+        "2A,2B",
+        "2B,2A"
+      ]
+    },
+    "five_bar_sorter_extension": {
+      "bars": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "distinct_inputs_checked": 24,
+      "repeated_inputs_checked": 256,
+      "proof": "First two bars establish sorted-pair promise; proved merger then sorts values universally."
+    }
+  },
+  "resolved_findings": [
+    "P4 guide trace corrected: 1,3,4,2 outputs 1,2,4,3. Correction verified in current JSON and rendered PDF."
+  ],
+  "source_attribution": {
+    "base": "Current printed guide pp.3,11-12 support fixed comparator rules and reversible-record bounds; base parallel/binary/full-sorter searches distinguished.",
+    "primary_context": "Liverpool COMP308 Lecture17 pp.1-2 identified as recorded network context, no new body reading asserted.",
+    "teaching": "Math Circle by the Bay Preface vii-x/PDF8-11 supports interaction/manipulatives/long themes; physical tray routes marked proposed."
+  },
+  "limits": [
+    "Record lower bounds use distinct ranks; correctness includes ties.",
+    "Minimum selector claims n>=1; n=1 needs zero bars.",
+    "Physical bar discipline, card advances, tags and tray procedures remain unrehearsed.",
+    "Extracted portable-source rebuilding is a separate release check."
+  ],
+  "status_wording_refresh": {
+    "status": "verified",
+    "only_changed_field": "verification",
+    "before_guide_json_sha256": "327a03ae7a55e2364face1f6dca9344b7365c5886307f524a343e4e783fce405",
+    "current_guide_json_sha256": "f3b3dd3c0788d87e00d2acc579fe33870322c929e094de98912f10a5b9129343",
+    "current_guide_pdf_sha256": "2f5ed590868b7c9b94b1a4bcb848a7a92632e621792938442aba17c999f4c368",
+    "all_other_parsed_fields_identical": true,
+    "unchanged_nonverification_payload_sha256": "4e09903d2da77a72372066b0f3eb31d52c45391710aa71ac98e4cef9999bdf20",
+    "new_verification_paragraphs_read": true,
+    "new_paragraphs_present_on_page5": true,
+    "changed_page5_render_inspected": true,
+    "page_count": 5,
+    "all_json_prose_paragraphs_present": 39,
+    "packaged_guide_json_byte_identical": true,
+    "independent_checker_rerun": "passed",
+    "existing_release_record_reviewed": "Records pass for its recorded reference PDFs; package refresh/revalidation owned by root release process.",
+    "mathematical_content_or_logic_changed": false
+  }
+}

@@ -1,25 +1,20 @@
-# Week 9: Unfolding billiards: corners, gcd, and dynamics
+# Week 9: Bouncing paths
 
-Revised September 20, 2026. Unfolding becomes the main representation instead of a brief optional preview. Middle children coordinate two lists of wall locations and design corners; upper children prove the gcd/parity classification, derive an exact bounce formula, and solve inverse existence/impossibility problems. The extra changes slope and distinguishes avoiding corners from being dense, with the density theorem stated for the origin-start √2 path. The [shared divisibility scaffold](../../../plans/coprime-divisibility-scaffold.md) supports the optional arithmetic proof.
+Concrete revision of October 3, 2026: F09-K-v4 / F09-M-v4 / F09-U-v4, adult guide F09-FAC-v4. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 ([forecast and pivot](../../../plans/fall-forecast-2026-10-03.md)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
 
-## Print packets
+- [K–1](../../week-09/week-09-k-1.pdf) — 8 pages.
+- [Grades 2–3](../../week-09/week-09-grades-2-3.pdf) — 8 pages.
+- [Grades 4–5](../../week-09/week-09-grades-4-5.pdf) — 8 pages.
+- [Adult guide](../../week-09/week-09-facilitator.pdf) — 10 pages: materials and counts, launch, pairing, answers, hints, and what to record.
 
-- [Bounce to a corner / See a straight path](../../week-09/week-09-k-1.pdf) — 2 pages, F09-K-v2. Compare 2×2,2×4,4×2, then fold mirrored rooms around a straight line.
-- [Unbounce the ball / When do walls meet?](../../week-09/week-09-grades-2-3.pdf) — 2 pages, F09-M-v2. Trace 2×3, unfold to (6,6), classify 2×3,3×6,3×9,4×6 and make target tables.
-- [A straight line in many rooms / Every corner / Bounce design](../../week-09/week-09-grades-4-5.pdf) — 3 pages, F09-U-v2. Use whole-room counts to rule out bottom-left and count bounces; optionally prove the reduced-side formula with an adult and classify inverse designs.
-- [Change the slope](../../week-09/week-09-extra-grades-6-7.pdf) — 1 page, F09-X-v2. In a unit square, derive the first lattice point for p/q, prove √2 never reaches a corner, and find a periodic no-corner diamond from a different start.
-- [Facilitator guide and checked solutions](../../week-09/week-09-facilitator.pdf) — 4 pages: prerequisites, realistic materials, 60-minute flow, prompts/hints, proofs, source links, and reuse guidance.
+A ball leaves the bottom-left corner of a grid table at 45 degrees and bounces until it reaches a corner. K–1 starts with a floor walk on a taped grid and traces small tables; grades 2–3 predict corners and bounces and design tables for a partner; grades 4–5 explain the corner and bounce rule with lcm and unfolding into mirror copies.
 
-Print US Letter, single-sided, 100% / Actual Size. No physical fitting requires an exact scale. Give pages one at a time. For the current K,K,1 / 3,3,3 / 5 roster, three K1 packets + three middle packets + one upper packet = **15 student sheets**, plus the optional one-page extra. Grade labels are entry points, not placement rules.
+Set up a taped floor grid of about 3 by 5 large squares (or use floor tiles) for the K–1 walk. Rulers, coloured pencils, scissors and tape for the folding problems.
 
-**Kit:** Seven counters, rulers, pencils, scrap square-grid paper, and two spare copies of the K1 folding page. An adult may trace while a child chooses bounces. No real ball or precision construction is required.
+Print US Letter, single-sided, at 100% / Actual Size. Give one page at a time; the packets hold more than an hour, and stopping anywhere is fine.
 
-Read the [redesign plan](../../../plans/week-09-redesign.md) for the mathematical trajectory and primary research references. These are prepared activities, not teaching records. Record exact use in the [session use log](../../../plans/fall-k-5-year-a-use-log.md).
+The student pages were drafted with the [worksheet workflow](../../../worksheet-workflow/README.md) from the outline `worksheet-workflow/outlines/week-09-billiards.md`: writer, adversarial review and independent math check, then revision. The run record (prompts, reviews, draft and final PDFs) is in `tmp/worksheet-runs/week-09-billiards-v1/`. The adult guide was written separately from the final pages; its answers are recomputed by the scripts in `guide-src/`.
 
-## Rebuild and check
+Rebuild from the repository root: `sh lowell-math-circle-year-2/source/week-09/build.sh`. It builds in `tmp/pdfs/week-09-build/` and copies the four PDFs into `lowell-math-circle-year-2/week-09/`. Requires Python 3 and pdfLaTeX with TikZ and Source Sans Pro. `src/` holds the student pages with their generators and checks; `guide-src/` holds the adult guide and its answer checks, which read `../src`.
 
-Run `sh lowell-math-circle-year-2/source/week-09/build.sh` from the repository root. It runs `verify.py`, compiles all five editable LaTeX sources twice, and places PDFs in `lowell-math-circle-year-2/week-09/`. Requires Python3, pdfLaTeX, TikZ, Source Sans Pro, microtype, geometry, fancyhdr, hyperref, amsmath/amssymb, tabularx, and extarticle. No network access is needed to rebuild.
-
-An independent unit-step reflection tracer verifies all 900 rectangles of side lengths 1–30 against the formulas, plus the complete four-bounce top-right reduced-pair list and several rational-slope event counts.
-
-After edits, render and visually inspect all pages. See [REVIEW.md](REVIEW.md) for the completed checks.
+The previous version (F09-*-v3, with its optional grades 6–7 extra) is preserved in [archive/](archive/README.md) with its sources, and its PDFs are in `lowell-math-circle-year-2/week-09/archive/`. Older versions remain in the `archive-before-*` folders here and beside the PDFs.

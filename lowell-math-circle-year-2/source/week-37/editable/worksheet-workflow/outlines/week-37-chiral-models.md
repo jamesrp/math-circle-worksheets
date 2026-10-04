@@ -1,0 +1,22 @@
+Week 37: Can a mirror twin be turned to match?
+
+Mathematical kernels
+
+1. A rigid object is chiral when its mirror image cannot be superposed on it by translations and rotations in three-dimensional space. A regular tetrahedral frame with four distinctly labeled vertices has two mirror forms. Rotating a model cannot exchange just two labels while keeping the other two labels fixed. A child-accessible obstruction: put a designated label at the top and look down toward the opposite face. The cyclic order of the other three labels is preserved by rotations aligning the designated vertex; reflection reverses it. Keeping viewing direction consistent is essential. This distinguishes a failed attempt from a reason no allowed rigid motion can succeed. Reflection is a comparison operation used to make the second model, not an allowed superposition move.
+
+2. There are exactly 12 orientation-preserving rotational symmetries of an unlabeled regular tetrahedron: choose the destination of one vertex in four ways, then rotate the other three in three ways. The 24 assignments of four distinct labels thus form two rotation classes. Repeating one label removes the chirality of this particular vertex-colored tetrahedron: the reflection that exchanges the two equal labels and fixes the other two is a symmetry. This does not say every object with repeated colors is achiral or every asymmetric-looking object is chiral. The adult guide can connect the two classes to the even and odd permutations, but teaching permutation parity is not required.
+
+Sources: Richard Schwartz, Brown University, Rotations of the Tetrahedron, §3, https://www.math.brown.edu/reschwar/MFS/handout3.pdf ; OpenStax Organic Chemistry §5.1, https://openstax.org/books/organic-chemistry/pages/5-1-enantiomers-and-the-tetrahedral-carbon ; University of Nottingham Powis Group, Chiral Molecules, https://www.chemistry.nottingham.ac.uk/PECD_ChiMol.php . These support the rotational structure and tetrahedral mirror distinction; this is a geometry investigation, not a chemistry lesson.
+
+Suggested emphasis by level:
+K–1: Match physically rotated twins and compare a mirror pair; oral instructions and manipulation, with no expectation of proving all rotations impossible.
+Grades 2–3: Build copies and mirror twins, then discover what changes when two labels become identical.
+Grades 4–5: Explain the cyclic-order certificate and the two rotation classes; counting 12 rotations is optional, not a 24-card sorting assignment.
+
+Materials
+
+Per table: at least six rigid regular tetrahedral frames, edge length 80–100 mm; four clip-on vertex markers each in four distinct colors AND shapes/letters, with duplicates to relabel repeated-color cases; one shatter-resistant mirror; a non-slip tray. Two frames per child is ideal. Use safe preassembled models, not pointed sticks or exposed wire. Labels denote colors/categories only: the direction in which a printed letter or icon points is not extra data or an extra symmetry-breaking mark. If molecular model kits are used, their arms must remain rigid during comparison; bending/swapping arms changes the mathematical object. A page must include a clear physical-model photograph or original perspective drawing with unambiguous front/back edges, plus input-to-turned-output matched labels. Demonstrate a successful rotation on identical twins before asking about a mirror twin, so impossibility is not confused with an unfamiliar task. Perspective-only tests are inadequate for K–1.
+
+Required physical pretest: An adult must build the intended four-label mirror pair, successfully align a true copy, check the orientation certificate from the specified viewing direction, and verify the two-equal-label matching example using the actual models. This pretest has NOT been performed. Mathematical reasoning does not substitute for it. This is a before-classroom-use gate, not a blocker to authoring an unpiloted packet. The rigid tetrahedron construction is mathematically established; computational checks confirm two 12-element rotation classes for four distinct labels and one 12-element class with one repeated label. If rigid models and this pretest cannot be supplied for the actual session, defer classroom use rather than substitute a paper-only activity.
+
+Novelty and readiness: Beyond the atlas. GA-01/Week 3 concern move order; this investigates orientation and mirror non-superposability. Distinct from the planar polyomino-perimeter topic. Draft and unpiloted, with a real materials gate.

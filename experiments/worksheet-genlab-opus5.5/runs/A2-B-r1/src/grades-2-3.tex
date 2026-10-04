@@ -1,0 +1,102 @@
+\input{common}
+\header{Grades 2–3}
+
+\newcommand{\bsize}{\fontsize{13.5}{19}\selectfont}
+\newcommand{\twenty}{\begin{center}\recstrip{1}{20}{10}{1.72}{1.8}\end{center}}
+\newcommand{\blank}[1]{\rule[-0.15em]{#1}{0.5pt}}
+% two rows of counters with an answer line underneath
+\newcommand{\trp}[2]{\tworowpic{#1}{#2}{7.0}{2.6}{0.92}{1.12}{ctr=0.66cm}{%
+    \node[anchor=west, font=\fontsize{13}{13}\selectfont] at (-3.5,-0.75) {First or second?};
+    \draw[line width=0.5pt] (0.4,-0.95) -- (3.5,-0.95);}}
+
+\begin{document}
+\bsize
+
+In every game, two players take turns taking counters. Each problem says how many counters you may take on a turn. Whoever takes the last counter wins. A player can \emph{always win} if they can win no matter how the other player plays.
+
+\vspace{9mm}
+\problem{1} You may take 1 or 2 counters on each turn. For each starting pile from 1 to 20, find out who can always win: the player who goes first, or the player who goes second. Write 1st or 2nd under the number.
+
+\vspace{4mm}
+\twenty
+
+% ------------------------------------------------------------------
+\newpage
+\problem{2} You may still take 1 or 2 counters on each turn. For each pile in the table, would you rather go first or second? If you would go first, how many counters would you take on your first turn?
+
+\vspace{6mm}
+\begin{center}
+\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{|>{\centering\arraybackslash}m{2.6cm}|>{\centering\arraybackslash}m{5.0cm}|>{\centering\arraybackslash}m{6.4cm}|}
+\hline
+\rule[-0.35cm]{0pt}{1.0cm}\textbf{Pile} & \rule[-0.35cm]{0pt}{1.0cm}\textbf{First or second?} & \rule[-0.35cm]{0pt}{1.0cm}\textbf{How many I take first} \\
+\hline
+\rule[-0.6cm]{0pt}{1.5cm}24 counters & & \\ \hline
+\rule[-0.6cm]{0pt}{1.5cm}29 counters & & \\ \hline
+\rule[-0.6cm]{0pt}{1.5cm}31 counters & & \\ \hline
+\rule[-0.6cm]{0pt}{1.5cm}45 counters & & \\ \hline
+\end{tabular}
+\end{center}
+
+\vspace{6mm}
+Then pick one of these piles. Explain why your way of playing wins no matter what your partner does.
+
+% ------------------------------------------------------------------
+\newpage
+\problem{3} Now you may take 1, 3, or 4 counters on each turn. You may not take 2. For each starting pile from 1 to 20, who can always win? Write 1st or 2nd under the number.
+
+\vspace{4mm}
+\twenty
+
+% ------------------------------------------------------------------
+\newpage
+\problem{4} The rule is still: take 1, 3, or 4 counters on each turn. Here is what five children say about this game. Decide whether each one is right, and explain how you know.
+
+\newcommand{\claim}[3]{\vspace{5mm}\par\hangindent=2.1em\hangafter=0
+  \makebox[0pt][r]{#1\hspace{0.6em}}#2: “#3”\par\vspace{30mm}}
+\claim{(a)}{Mia}{With 5 counters, I go first and take 4. Then I can always win.}
+\claim{(b)}{Leo}{With 7 counters, I go second, and I can always win.}
+\claim{(c)}{Zoe}{With 9 counters, I go first, and I can always win.}
+\claim{(d)}{Sam}{With 10 counters, I go first and take 1. Then I can always win.}
+\claim{(e)}{Ana}{When you are allowed to take 4, taking 4 is always the best move.}
+
+% ------------------------------------------------------------------
+\newpage
+\problem{5} The rule is still: take 1, 3, or 4 counters on each turn. Who can always win when the pile starts with 30 counters? With 50 counters? With 100 counters? Explain how you know.
+
+\vspace{8mm}
+\hspace*{2.1em}\makebox[3.6cm][l]{30 counters:}\blank{4cm}
+
+\vspace{6mm}
+\hspace*{2.1em}\makebox[3.6cm][l]{50 counters:}\blank{4cm}
+
+\vspace{6mm}
+\hspace*{2.1em}\makebox[3.6cm][l]{100 counters:}\blank{4cm}
+
+% ------------------------------------------------------------------
+\newpage
+\problem{6} Now the counters are in two rows. On your turn, take 1 or 2 counters from one row (not from both rows). For each start below, would you rather go first or second?
+
+\vspace{6mm}
+\begin{center}
+\trp{4}{4}\hfill\trp{3}{5}
+
+\vspace{8mm}
+\trp{3}{6}\hfill\trp{1}{4}
+\end{center}
+
+\vspace{8mm}
+Then pick one start where you would go second. Explain how you win no matter what your partner does.
+
+% ------------------------------------------------------------------
+\newpage
+\problem{7} For each rule, who can always win when the pile starts with 35 counters?
+
+\vspace{6mm}
+\newcommand{\rl}[2]{\par\hspace*{2.1em}\makebox[1.8em][l]{#1}\makebox[7.2cm][l]{#2}Who can always win? \blank{3.2cm}\par\vspace{7mm}}
+\rl{(a)}{Take 1, 2, or 3 counters.}
+\rl{(b)}{Take 1 or 3 counters.}
+\rl{(c)}{Take 1, 2, 3, or 4 counters.}
+\rl{(d)}{Take 1 or 4 counters.}
+
+\end{document}

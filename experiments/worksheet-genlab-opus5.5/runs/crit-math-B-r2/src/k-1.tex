@@ -1,0 +1,149 @@
+\documentclass[12pt]{article}
+\usepackage{mc}
+\mcheader{K--1}
+
+% \pilerow{list of n}{box w}{box h}{gap}{per row}{sep}{radius}{label: 1 = numeral, 0 = none}{circle choices: 1 = yes}
+\newcommand{\pilerow}[9]{%
+  \begin{tikzpicture}
+    \foreach \n [count=\j from 0] in {#1}{%
+      \pgfmathsetmacro{\bx}{\j*(#2+#4)}%
+      \draw[box] (\bx,0) rectangle ++(#2,-#3);
+      \ifnum#8=1
+        \counters{\bx+#2/2}{-#3/2+0.4}{\n}{#5}{#6}{#7}
+        \node[font=\Large] at (\bx+#2/2,-#3+0.45) {\n};
+      \else
+        \counters{\bx+#2/2}{-#3/2}{\n}{#5}{#6}{#7}
+      \fi
+      \ifnum#9=1
+        \node[font=\Large,anchor=base] at (\bx+#2*0.28,-#3-0.85) {1st};
+        \node[font=\Large,anchor=base] at (\bx+#2*0.72,-#3-0.85) {2nd};
+      \fi
+    }
+  \end{tikzpicture}%
+}
+
+% piles 1..12 in two rows of six
+\newcommand{\twelve}{%
+  \begin{tikzpicture}
+    \foreach \n in {1,...,12}{%
+      \pgfmathtruncatemacro{\col}{mod(\n-1,6)}%
+      \pgfmathtruncatemacro{\row}{floor((\n-1)/6)}%
+      \pgfmathsetmacro{\bx}{\col*3.0}%
+      \pgfmathsetmacro{\by}{-\row*3.7}%
+      \draw[box] (\bx,\by) rectangle ++(2.7,-3.3);
+      \counters{\bx+1.35}{\by-1.25}{\n}{4}{0.56}{0.2}
+      \node[font=\Large] at (\bx+1.35,\by-2.85) {\n};
+    }
+  \end{tikzpicture}%
+}
+
+% one row of n counters with gaps wide enough to draw rings: \ringrow{x}{y}{n}
+\newcommand{\ringrow}[3]{%
+  \foreach \i in {1,...,#3}{%
+    \draw[ctr] ({#1+(\i-1)*1.35},#2) circle (0.28);
+  }%
+}
+
+\begin{document}
+\fontsize{15}{21}\selectfont
+
+Play each game with a partner and a pile of counters. Take turns taking counters from the pile. Whoever takes the last counter wins.
+
+\vspace{14pt}
+\problem Take 1 or 2 counters on each turn. For each pile, circle whether you want to go 1st or 2nd.
+
+\vspace{8pt}
+\pilerow{2,3,4,5}{4.1}{4.0}{0.45}{4}{0.95}{0.36}{1}{1}
+
+\vspace{40pt}
+\problem It is your turn, and you may take 1 or 2 counters. Cross out the counters you would take to be sure to win.
+
+\vspace{8pt}
+\pilerow{4,5,7,8}{4.1}{4.4}{0.45}{4}{0.95}{0.38}{1}{0}
+
+\newpage
+\problem Take 1 or 2 counters on each turn. Color every pile where you would rather go second.
+
+\vspace{8pt}
+\twelve
+
+\vspace{40pt}
+\problem Ben always takes 2 counters when he can, and you take 1 or 2. Circle each pile where you can beat Ben when he goes first.
+
+\vspace{8pt}
+\pilerow{2,3,4,5,6,7}{2.7}{3.6}{0.3}{4}{0.58}{0.21}{1}{0}
+
+\newpage
+\problem Now take 1, 2, or 3 counters on each turn. Color every pile where you would rather go second.
+
+\vspace{8pt}
+\twelve
+
+\vspace{40pt}
+\problem Take 1 or 3 counters on each turn. Color every pile where you would rather go second.
+
+\vspace{8pt}
+\twelve
+
+\newpage
+\problem Start with a pile of 20 counters. For each rule, circle whether you want to go 1st or 2nd.
+
+\vspace{8pt}
+\begin{tikzpicture}
+  \draw[box] (0,0) rectangle (5.4,-5.0);
+  \counters{2.7}{-2.1}{20}{5}{0.9}{0.32}
+  \node[font=\Large] at (2.7,-4.5) {20};
+  \foreach \r/\t in {0/{Take 1 or 2.},1/{Take 1, 2, or 3.},2/{Take 1 or 3.}}{%
+    \node[anchor=base west,font=\Large] at (6.8,-1.0-\r*1.7) {\t};
+    \node[anchor=base,font=\Large] at (12.8,-1.0-\r*1.7) {1st};
+    \node[anchor=base,font=\Large] at (14.8,-1.0-\r*1.7) {2nd};
+  }
+\end{tikzpicture}
+
+\vspace{40pt}
+\problem Take 1 or 2 counters from one of the two piles on each turn. For each pair of piles, circle whether you want to go 1st or 2nd.
+
+\vspace{8pt}
+\begin{tikzpicture}
+  \foreach \a/\b [count=\j from 0] in {2/2,1/2,3/3,1/4}{%
+    \pgfmathsetmacro{\bx}{\j*4.55}%
+    \draw[box] (\bx,0) rectangle ++(4.1,-3.8);
+    \draw[line width=0.6pt, black!50] (\bx+2.05,-0.3) -- (\bx+2.05,-3.5);
+    \counters{\bx+1.025}{-1.5}{\a}{2}{0.75}{0.28}
+    \counters{\bx+3.075}{-1.5}{\b}{2}{0.75}{0.28}
+    \node[font=\Large] at (\bx+1.025,-3.25) {\a};
+    \node[font=\Large] at (\bx+3.075,-3.25) {\b};
+    \node[font=\Large,anchor=base] at (\bx+4.1*0.28,-4.65) {1st};
+    \node[font=\Large,anchor=base] at (\bx+4.1*0.72,-4.65) {2nd};
+  }
+\end{tikzpicture}
+
+\newpage
+\noindent
+\begin{minipage}[t]{0.47\textwidth}\raggedright
+\problem A game starts with 4 counters, and each turn takes 1 or 2. Draw rings around the counters taken on each turn to show every different way the game can go.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.47\textwidth}\raggedright
+\problem Now find every different way a game with 5 counters can go, taking 1 or 2 on each turn.
+\end{minipage}
+
+\vspace{12pt}
+\noindent
+\begin{minipage}[t]{0.47\textwidth}
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+  \draw[box] (0,0) rectangle (6.0,-11.0);
+  \foreach \r in {0,...,6}{%
+    \ringrow{1.05}{-0.8-\r*1.55}{4}
+  }
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.47\textwidth}
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+  \draw[box] (0,0) rectangle (7.6,-15.65);
+  \foreach \r in {0,...,9}{%
+    \ringrow{1.1}{-0.8-\r*1.55}{5}
+  }
+\end{tikzpicture}
+\end{minipage}
+
+\end{document}

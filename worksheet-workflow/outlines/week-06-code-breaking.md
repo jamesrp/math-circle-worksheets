@@ -1,0 +1,19 @@
+Week 6: Code breaking
+
+Page header: "Week 6 / Code breaking / K–1", with "Grades 2–3" and "Grades 4–5" for the other packets. Packet ids: F06-K-v4, F06-M-v4, F06-U-v4; the footer reads "Bellingham Math Circle / Week 6 / <id>".
+
+Mathematical kernels
+
+1. Yes-or-no questions. One yes-or-no question can tell 2 things apart, two questions 4 things, three questions 8, four questions 16: each answer at best halves what is left, so k questions can never be sure of separating more than 2 × 2 × … × 2 (k times) things, and questions that halve each time achieve it. Example: the 8 shapes of the 21st Century Pattern Blocks (green triangle, blue rhombus, red trapezoid, yellow hexagon, purple chevron, pink right triangle, teal kite, gray dart). A partner secretly chooses one; three well-chosen yes-or-no questions always find it, and two questions can never be sure to, because two answers have only four possible patterns. Badly chosen questions ("Is it the kite?") can need seven.
+
+2. Hidden codes with a score. A secret code is a row of n counters, each red or yellow, so there are 4, 8, 16 secrets for n = 2, 3, 4. A test is any row of n counters; its score is the number of positions where test and secret have the same colour, and the code keeper says only that total. One strategy: test all red first (the score is the number of reds in the secret), then change one position at a time; each score goes up or down by one, which tells the colour at the changed position, and the last position follows from the count of reds. This identifies the code with n tests. Checked by computer: for n = 2, 3, 4 no strategy can be sure of knowing every secret with fewer than n tests; if the game ends only when a test scores n (all positions right), the worst case is n + 1 tests. Swapping red and yellow at the same positions in both the test and the secret leaves the score unchanged. (For long codes fewer than n tests can suffice; this is the coin-weighing problem of Erdős and Rényi, 1963. That remark is for adults.)
+
+3. Reliable scoring. A single wrong score makes a game impossible to solve, so the scoring is mechanical. The code keeper hides the secret behind a folder in a row of printed slots. For each test, the keeper lays a copy of the test row directly below the secret and puts a small token on every column where the colours match, then says how many tokens there are. At the end of a game the secret is revealed and every score is checked again.
+
+Sources: Knuth, "The computer as Master Mind" (1976); Erdős and Rényi, "On two problems of information theory" (1963); information-theoretic lower bounds in any combinatorics text (for example, the decision-tree bound in Cormen et al., Introduction to Algorithms, §8.1).
+
+Suggested emphasis by level: K–1 plays the guess-my-block game (an adult or partner holds the secret block) and a two-counter code game with the adult as code keeper; grades 2–3 play both games in pairs, look for questions that always find the block in three tries, and break three-counter codes; grades 4–5 break three- and four-counter codes, find a method that always works in n tests, and explain why fewer tests cannot be guaranteed for these small codes, with guessing a number from 1 to 16 by yes-or-no questions as a further game.
+
+Materials
+
+Two-sided counters, red on one side and yellow on the other, plenty. Small tokens to mark matching columns (green triangles from the pattern blocks work). File folders to use as screens. Printed code boards: a row of secret slots, and test rows below it each with a score box; slots about 1 inch so a counter fits. One each of the eight 21st Century Pattern Block shapes per pair, for the guess-my-block game. Paper, pencils, small whiteboards. Children play in pairs, taking turns as code keeper and code breaker; at the K–1 table the adult keeps the secret.

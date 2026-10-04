@@ -1,0 +1,1 @@
+Generated using the unchanged project make_prompts.py and stage set, then prefixed with the explicit user-requested shared encore output scope and local tool paths. The global templates remain unchanged. Fresh agents are used for writer, adversarial critic, independent math critic and reviser.

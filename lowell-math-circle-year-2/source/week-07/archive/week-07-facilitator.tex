@@ -1,0 +1,91 @@
+\documentclass[11pt]{article}
+\def\activityid{F07-FAC-v3}\input{common.tex}
+\hypersetup{pdftitle={Week 7: facilitator}}
+\begin{document}
+\PageTitle{FACILITATOR}{Games are recursive mathematics}
+\RuleBox{\textbf{Question:} Which player has a strategy against every reply? Can a finite chart justify an infinite pattern? What information is needed when two games are combined?}
+\Subhead{Prepare and launch}
+Bring 25 counters per group, large move cards \textbf{1 or 2}, \textbf{1, 3, 4}, and \textbf{1, 3, 5}, and pencils. Start with page 1 for each child (seven student sheets). Keep the remaining pages as continuation masters, including any earlier records children will compare. Print the extra only when selected. Pre-numbered charts reduce copying. Two distinct mats identify the extra's two piles. For the memory reserve, bring a paper strip and a movable four-cell frame (or two folded scraps).
+
+Let children move and count counters before rules. Demonstrate 1-or-2 from three counters; let a child move and check legality. Remove an allowed positive number no larger than the pile. Taking the last counter wins. Older children then receive the clearly different 1,3,4 card. Do not announce the losing-number pattern at the launch.
+
+K: count/remove 1 or 2 and alternate turns; no reading; examine both replies. Middle: counts and subtraction to 14 (physical allowed); adult can read; distinguish one winning move from all losing options. Upper: subtraction/remainders to 28, with groups of seven as a concrete alternative; two-direction argument and induction. Extra: small nonnegative labels, smallest-missing operation, and decreasing two-pile games; no binary arithmetic needed for the printed proof.
+\Subhead{A shared hour with seven children and two adults}
+0--10: explore materials freely. 10--15: brief launch and rules. 15--35: main investigation. 35--40: movement/reset; preserve work. 40--55: continue or choose an optional proof. 55--60: share and tidy. This flexible default is our proposal, not a source prescription.
+
+One adult stays with K,K,1. The organizer alternates middle and upper, leaving a concrete next attempt and returning for an explanation. In games keep two opposing sides and rotate a checker. Proof continuations need adult attention; pages are not a completion quota.
+
+\textbf{K--1 stop:} Demonstrate both replies that make three a trap. \textbf{Optional proof:} group counters in threes and explain the strategy for all multiples of three.
+
+\textbf{Middle stop:} Defend W/L labels through seven. \textbf{Optional proof:} refute greedy play at eight and justify both winning moves at ten.
+
+\textbf{Upper stop:} Conjecture losing remainders 0,2 and defend sample labels. \textbf{Optional proof:} show both remainder obligations and termination; reserve the paper-window argument for a later step.
+
+\newpage
+\PageTitle{FACILITATOR}{Endgames build the whole strategy}
+\Subhead{K--1: groups of three}
+From 3, go second: answer 1 with 2 or 2 with 1. From 6, do the same, leaving 3; repeat. From 7 take 1 to leave 6; from 8 take 2; from 9 go second. Multiples of 3 are losing for the next player. Each pair of turns removes one group of three; the second player takes the last. Two demonstrated replies are a proof without a formula.
+\Subhead{Middle: backward reasoning}
+For moves 1,3,4, positions 0--20 are:
+\begin{center}\renewcommand{\arraystretch}{1.4}\begin{tabular}{c|ccccccc}Pile&0&1&2&3&4&5&6\\W/L&L&W&L&W&W&W&W\\\hline Pile&7&8&9&10&11&12&13\\W/L&L&W&L&W&W&W&W\\\hline Pile&14&15&16&17&18&19&20\\W/L&L&W&L&W&W&W&W\end{tabular}\end{center}
+Zero is L for the player who would move next. If a position has a move to L, take it: the position is W. If all moves go to W, each gives the opponent a winning strategy: it is L. Every move decreases the pile, so this bottoms out. It is backward induction, not a tally of who happened to win.
+
+From 5 take 3 to leave 2; from 6 take 4. From 7 all moves leave 6,4,3, which are W. Taking 3 from 8 leaves 5, and the opponent can take 3 to leave 2. Take 1 instead, leaving 7. From 10, taking 1 (leave 9) or 3 (leave 7) wins. Both are winning choices; taking 4 leaves W position 6.
+\Subhead{Hints that preserve investigation}
+Ask about one or two counters. For a disputed label, lay out all legal next piles. Check whose turn the label describes. If a child calls 7 winning because they won once, replay as the opponent with correct replies; return the discovery to the child.
+
+\textbf{Returners:} Lowell Handout 2.3 and Handout 3.1--3.3 used 1-through-3 and 1-through-5. Those establish previous materials, not mastery. Handout 3.1 mistakenly calls 5 losing after observing it can move to losing 4; with those old rules, 5 is winning. Use the checked definitions here.
+
+\newpage
+\PageTitle{FACILITATOR}{An infinite proof from finite structure}
+\Subhead{Upper: losing remainders 0 and 2 modulo 7}
+Proposed L piles are \(7k\) and \(7k+2\), including zero. Subtraction of 1,3,4 never connects these remainders. Every other remainder has a legal move into the set:
+\begin{center}\renewcommand{\arraystretch}{1.45}\begin{tabular}{c|ccccc}Remainder&1&3&4&5&6\\Take&1&1&4&3&4\\New remainder&0&2&0&2&2\end{tabular}\end{center}
+Each move is legal even for the smallest positive representative. These are both proof obligations. Starting outside the set, move into it; every opposing reply exits; move back. The decreasing pile ends at zero, reached by your move. Starting inside gives the second player this strategy. The argument covers all piles, not just checked examples.
+\Subhead{Change to 1,3,5}
+Every move is odd and changes parity. No move connects even piles. Every positive odd pile can take 1 to reach even. Even piles are L and odd piles W: second wins from 6 or 100, first from 7. The proof structure persists while the invariant changes. This is different from taking any number 1 through 5.
+\Subhead{Why finite subtraction games eventually repeat}
+Copy labels onto a straight strip and frame four consecutive entries. To add the next label, inspect entries one, three, and four places back: the rightmost, second-from-left, and leftmost cells. Slide the frame one cell right after adding it. Match two windows and physically extend both to see the same next label. For 1,3,4, once four labels exist, the next depends only on those four. There are at most \(2^4=16\) W/L windows. Among 17 windows some pair agrees. Identical windows give identical next labels; induction forces all future labels to repeat. This proves \emph{eventual} periodicity, not repetition from zero or period seven. The remainder proof supplies those stronger facts here.
+
+For any finite move set with maximum \(m\), use \(m\)-label windows, starting after enough entries exist to use the full recurrence. Grundy values (next page) are bounded by the number of allowed moves, so their windows also eventually repeat. Infinitely many allowed moves do not provide a fixed finite-memory argument.
+\Subhead{Adult attention and optional depth}
+The oldest child should defend a disputed label and a strategy to an adult. If the remainder investigation takes the whole session, save the finite-window argument and extra. Record which proof actually appeared; a completed chart alone is not understanding why a pattern continues.
+
+\newpage
+\PageTitle{FACILITATOR}{Beyond W and L: combining games}
+\Subhead{Extra: smallest-missing labels}
+For 1,3,4, labels for piles 0--10 are \textbf{0,1,0,1,2,3,2,0,1,0,1}. Thus (1,1) loses; (1,4) wins by taking 1 from the second pile to leave (1,3). Both (1,3) and (4,6) lose; (5,6) wins by taking 1 from the first pile to leave (4,6). W/L status alone forgets information needed when games combine.
+
+\textbf{The two-pile proof:} By the smallest-missing definition, no option from label \(a\) has label \(a\), and every smaller nonnegative label occurs among its options. A move from equal labels changes exactly one, destroying equality. With unequal labels, change the larger to the smaller; the definition guarantees such a move. Both losing-position obligations hold. Total size decreases, and terminal (0,0) has equal labels. This is the two-component case of Sprague--Grundy theory. For three or more piles the rule is bitwise XOR.
+\Subhead{Undergraduate and research lineage}
+Ferguson's UCLA \href{https://www.math.ucla.edu/~tom/GameTheory.html}{Math 167 course} includes take-away, Nim, graph games, and sums. His \emph{Game Theory}, Part I, \S1.3--1.4 develops winning/losing and subtraction games; \S3.2 defines Sprague--Grundy values and \S4.2 treats sums. Our proofs are concrete instances.
+
+Shenxing Zhang, \href{https://zhangshenxing.github.io/publications/Zhang2024tcs%20On%20the%20linearity%20of%20the%20periods%20of%20subtraction%20games.pdf}{\emph{On the linearity of the periods of subtraction games}} (2024), \S1, Lemma 1.1 and Conjectures 1.2--1.3, investigates changes in periods and preperiods when one move is added to a fixed set; Theorem 1.4 proves the predicted behavior in several families. Our seven-period example is elementary; predicting whole families is research. We describe the paper's conjectures, not an exhaustive survey of their current status.
+\Subhead{Sources, reserves, and verification}
+JRMF \emph{Countdown Teaching Guide}, PDF pp. 1--2: play-first questions; pp. 4--5: W/L reasoning; p. 8, challenge 4 explicitly uses 1,3,4. Our parity comparison, finite-window scaffold, and extra extend it. \emph{Math Circle by the Bay}, printed pp. ix--x supports manipulatives and local extensions; the two-adult arrangement is ours.
+
+Use F07-K-v3/M-v3/U-v3/X-v3, prepared, not taught. Save mis\`ere play, other move sets, and three-pile XOR for later. \texttt{plans/verify-week-07.py} checks 1,001 single-pile values and independently solves two-pile games with each pile at most 30; proofs above establish the unbounded claims.
+
+
+\newpage
+\PageTitle{FACILITATOR}{Stages and new concrete checks}
+\Subhead{Revision v3: unpiloted}
+No Week 7 session evidence is supplied. This revision applies the Week 1 feedback by putting repeated play and legal-option records before W/L, grouped counters before remainders, actual window extensions before a finite-state proof, and two-pile games before number labels. These design choices await classroom evidence.
+
+After handling the counters, gather everyone for 1-or-2 play from three. Let a child make one legal move, say the number taken, and record the number left. Check the final move. Then distribute first pages. Introduce older groups' 1,3,4 move card explicitly. A win in one game is an observation, not a guarantee against every reply. Demonstrate W/L only when a child has met that distinction in small endgames.
+\Subhead{K and middle}
+K page 1 records actual games. Page 2's replies are 2 after 1 and 1 after 2, from either 3 or 6; from 6 they leave 3. Page 3: choose first from 7 (take 1), first from 8 (take 2), second from 9. From 12, paired-turn replies leave \textbf{9,6,3,0}. The general groups-of-three argument remains an oral follow-up, not a required written conclusion.
+
+Middle page 1's pile 2 can only leave 1; pile 4 can leave 3,1,0. Page 2 builds the labels through 7 with complete legal destinations. Stop there if all-versus-one reasoning still needs play. Page 3: from 8 the options are 7L,5W,4W; from 10 they are 9L,7L,6W. Therefore 8 has just the winning take-1 move; 10 has winning takes 1 and 3. For self-chosen strategy cards through 14, use the checked chart on page 2 of this guide.
+\Subhead{Upper: each representation has a task}
+Page 2 Problem 4: 14 reaches 13W,11W,10W; 16 reaches 15W,13W,12W; 15 reaches 14L,12W,11W; 17 reaches 16L,14L,13W. Page 3 builds these as two sevens plus leftovers 0,2,1,3. The remainder table has L at 0,2. From 0, subtraction of 1,3,4 reaches remainders 6,4,3; from 2 it reaches 1,6,5. W remainders have the winning moves on this guide's page 3. From 24 take 1 to leave 23, a losing pile; later replies maintain remainder 0 or 2. Discuss both losing-position obligations and legal boundary cases after the table, preserving the full proof.
+
+Page 4's changed game has even losing piles. In the old game's windows, starts 0 and 7 read LWLW; next is W and the slide gives WLWW. Starts 1 and 8 read WLWW; next is W and the slide gives LWWW. Other valid matching windows differ by seven in the displayed chart. Only after these actual extensions introduce 16 possible windows and the eventual-periodicity argument. It does not by itself prove period seven or repetition from zero.
+\Subhead{Extra: use the labels after meeting the problem}
+Page 1 outcomes: (1,1) L, (1,3) L, (1,4) W, (4,4) L. From (1,4), the winning first moves take 1 or 3 from the pile of 4 to leave (1,3) or (1,1). Page 2's g-values are on this guide's page 4. From pile 4, next labels are 1,1,0 (missing 2); from 5 they are 2,0,1 (missing 3). Page 3 adds (3,4), won by taking 1 or 3 from the pile of 4 to equalize labels.
+
+For (4,6), first moves from pile 4 of 1,3,4 can be answered from pile 6 by 3,3,4 respectively. First moves from pile 6 of 1,3,4 can be answered by: take 1 again from that pile; take 1 from pile 4; take 4 from pile 4. Each restores equal labels. Then offer the general mex/equality proof; do not infer it solely from these examples.
+
+Start with seven first-page sheets and continuation masters. Keep earlier charts with later pages; stop after a defended small strategy, one general argument, or a tested label comparison. Record actual moves, misunderstood rules, adult rescue, voluntary continuations, and claims justified, separating observations from explanations. Flexible pace and action before tables are supported by \emph{Math Circle by the Bay}, pp. ix--x, and Rozhkovskaya, Lessons 3,7,8; this sequence is our adaptation.
+
+\end{document}

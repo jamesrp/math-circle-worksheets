@@ -1,0 +1,120 @@
+\documentclass[14pt]{extarticle}
+\def\activityid{F02-S-v1}\input{common.tex}
+\setlength{\parskip}{6pt}
+\renewcommand{\StudentHeader}[1]{{\fontsize{10}{12}\selectfont\bfseries Week 2 / Lamp lab / Shared collection\par}\vspace{10pt}}
+\newcommand{\NPage}[2]{\StudentHeader{}\Problem{#1}{#2}}
+% The large mats are deliberately blank: children can add/erase dots or flip counters.
+\newcommand{\NGraph}[4]{\begin{tikzpicture}[x=#1in,y=#1in,baseline=(current bounding box.center)]
+\coordinate(A)at(0,1.05);\coordinate(B)at(-.8,-.25);\coordinate(C)at(.8,-.25);\coordinate(D)at(2.25,.65);\coordinate(E)at(3.25,.65);
+\foreach\a/\b in {A/B,A/C,B/C,D/E}{\draw[thick](\a)--(\b);}
+\ifnum#4=1\draw[thick](C)--(D);\fi
+\foreach\a in {A,B,C,D,E}{\node[circle,draw,fill=white,minimum size=#2,inner sep=0pt,font=\bfseries\fontsize{10}{11}\selectfont]at(\a){\a};}
+\foreach\a in {#3}{\node[circle,draw,fill=ink,text=white,minimum size=#2,inner sep=0pt,font=\bfseries\fontsize{10}{11}\selectfont]at(\a){\a};}
+\end{tikzpicture}}
+\newcommand{\NMat}[1]{\NGraph{1}{.52in}{}{#1}}
+\newcommand{\NTarget}[2]{\NGraph{.38}{.25in}{#1}{#2}}
+\newcommand{\NCard}[1]{\begin{minipage}[t]{3.25in}\centering\NTarget{#1}{0}\par\raggedright Moves, or ``not yet'':\par\rule{3.05in}{.4pt}\end{minipage}}
+\newcommand{\NCounts}[1]{\begin{minipage}[t]{3.25in}\centering\NTarget{#1}{0}\par\raggedright ON in triangle: \rule{.35in}{.4pt}\quad in pair: \rule{.35in}{.4pt}\par Made / not yet\end{minipage}}
+\newcommand{\TGraph}[3]{\begin{tikzpicture}[x=#1in,y=#1in,baseline=(current bounding box.center)]
+\coordinate(A)at(-1.4,.6);\coordinate(B)at(0,.6);\coordinate(C)at(0,1.35);\coordinate(D)at(0,-.3);\coordinate(E)at(-1.4,-.3);\coordinate(F)at(1.4,-.3);
+\foreach\a/\b in {A/B,B/C,B/D,D/E,D/F}{\draw[thick](\a)--(\b);}
+\foreach\a in {A,B,C,D,E,F}{\node[circle,draw,fill=white,minimum size=#2,inner sep=0pt,font=\bfseries\fontsize{10}{11}\selectfont]at(\a){\a};}
+\foreach\a in {#3}{\node[circle,draw,fill=ink,text=white,minimum size=#2,inner sep=0pt,font=\bfseries\fontsize{10}{11}\selectfont]at(\a){\a};}
+\end{tikzpicture}}
+\newcommand{\TMat}{\TGraph{1}{.52in}{}}
+\newcommand{\TTarget}[1]{\TGraph{.43}{.27in}{#1}}
+\newcommand{\TCut}[2]{\begin{tikzpicture}[x=.58in,y=.58in,baseline=(current bounding box.center)]
+\coordinate(A)at(-1.4,.6);\coordinate(B)at(0,.6);\coordinate(C)at(0,1.35);\coordinate(D)at(0,-.3);\coordinate(E)at(-1.4,-.3);\coordinate(F)at(1.4,-.3);
+\foreach\a/\b in {A/B,B/C,B/D,D/E,D/F}{\draw[thick](\a)--(\b);}
+\draw[white,line width=5pt](#1)--(#2);\draw[densely dashed,line width=.9pt](#1)--(#2);
+\foreach\a in {A,B,C,D,E,F}{\node[circle,draw,fill=white,minimum size=.29in,inner sep=0pt,font=\bfseries\fontsize{10}{11}\selectfont]at(\a){\a};}
+\foreach\a in {A,C,E,F}{\node[circle,draw,fill=ink,text=white,minimum size=.29in,inner sep=0pt,font=\bfseries\fontsize{10}{11}\selectfont]at(\a){\a};}
+\end{tikzpicture}}
+\begin{document}\setcounter{page}{35}
+\NPage{43}{Start all OFF on the large mat. Press a line to flip the lamps at both ends. Make each target below: dark means ON; white means OFF. Use dots you can erase or counters you can flip.}
+\begin{center}\NMat{0}\end{center}
+Write \textbf{AC} for a press of the line joining A and C. A move cannot jump across the gap. Reset to all OFF for every target.
+\begin{center}
+\NCard{A,C}\hfill\NCard{D,E}\par\vspace{12pt}
+\NCard{A,D}\hfill\NCard{A,C,D,E}\par\vspace{12pt}
+\NCard{A,B,C,D}\hfill\NCard{A,B,D,E}
+\end{center}
+\newpage
+\NPage{44}{Try these targets, starting all OFF each time. In each picture, count the dark lamps in the triangle. Then count the dark lamps in the pair. Write the two counts and circle ``made'' or ``not yet.''}
+\begin{center}\NGraph{.78}{.46in}{}{0}\end{center}
+\begin{center}
+\NCounts{A,C}\hfill\NCounts{D,E}\par\vspace{9pt}
+\NCounts{A,D}\hfill\NCounts{A,C,D,E}\par\vspace{9pt}
+\NCounts{A,B,C,D}\hfill\NCounts{A,B,D,E}\par\vspace{9pt}
+\NCounts{}\hfill\NCounts{B,C}
+\end{center}
+Point to the pictures you made. What do you notice about their two counts? Show a partner a rule that predicts which pictures can be made.
+\newpage
+\NPage{45}{The two pieces now have a bridge: line CD. Start all OFF and try each target below. Press a line to flip both ends. Write the lines you press in order.}
+\begin{center}\NMat{1}\end{center}
+\begin{center}\NTarget{A,D}{1}\end{center}
+Make this picture. Moves: \rule{4.55in}{.4pt}
+\par Reset to all OFF. Make the next picture.
+\begin{center}\NTarget{A,B,C,D}{1}\end{center}
+Moves: \rule{5.25in}{.4pt}
+\par Point to a line your solution needs that was missing from Problem 43. What changed when we added it? Tell a partner, or draw your idea.
+\par\Space{1.5in}
+\newpage
+\NPage{46}{Make the pictured target by trying the two routes shown below. Begin all OFF on the large mat. Press the lines in the first route, then the lines in the second route.}
+\begin{center}\begin{tabular}{c@{\hspace{.4in}}c}Target&Working mat\\\NTarget{A,B}{1}&\NGraph{.82}{.48in}{}{1}\end{tabular}\end{center}
+\par First route: A--C--D. \quad Then: B--C--D.
+\par Try the full list: \textbf{AC, CD, BC, CD}.
+\par Color the lamps that finish ON in this small picture.
+\begin{center}\NTarget{}{1}\end{center}
+In the list below, cross out both copies of the repeated press.
+\begin{center}\Large AC\qquad CD\qquad BC\qquad CD\end{center}
+Reset to all OFF. Try only the presses you did not cross out. Color that final picture below.
+\begin{center}\NTarget{}{1}\end{center}
+Compare your two pictures with the target. Do both lists work?\par
+Find a longer list of your own that makes this target. Give it to a partner to shorten and test.
+\par\Space{.85in}
+\newpage
+\NPage{47}{Invent a network with two separate pieces. Draw at least three lamps in each piece, joined by lines. Leave a gap with no line between the pieces.}
+\par\Space{3in}
+Choose one target you predict can be made from all OFF. Show it by coloring lamps in your drawing. Try it with dots on a whiteboard, or counters on this page. Write a move list or trace the lines you used.
+\par\Space{.7in}
+Copy your network below. Color a target you predict cannot be made from all OFF. Ask a partner to try it. Point to the lamps that helped you choose it.
+\par\Space{2in}
+\newpage
+\NPage{48}{This network has no closed loop. Start all OFF. Press a line to flip both ends. Make each pictured target using every line at most once. Use dots you can erase or counters you can flip.}
+\begin{center}\TMat\end{center}
+\begin{minipage}[c]{1.8in}\centering\TTarget{A,C}\end{minipage}\hfill\begin{minipage}[c]{4.65in}Make this picture.\par Moves: \rule{3.55in}{.4pt}\par\vspace{12pt}\rule{4.4in}{.4pt}\end{minipage}
+\par\vspace{16pt}Reset to all OFF before making the next picture.\par\vspace{10pt}
+\begin{minipage}[c]{1.8in}\centering\TTarget{A,C,E,F}\end{minipage}\hfill\begin{minipage}[c]{4.65in}Make this picture.\par Moves: \rule{3.55in}{.4pt}\par\vspace{12pt}\rule{4.4in}{.4pt}\end{minipage}
+\par\vspace{18pt}Choose one target. Trade move lists with a partner and replay their list. Point to any lines you both used.
+\par\Space{1in}
+\newpage
+\NPage{49}{Use the target shown below. Imagine cutting one line at a time. Count the dark target lamps on the named side of the cut. Predict which lines to press, then test from all OFF.}
+\begin{center}\begin{tabular}{c@{\hspace{.6in}}c}Target&Working mat\\\TTarget{A,C,E,F}&\TGraph{.82}{.48in}{}\end{tabular}\end{center}
+\begin{center}\begin{tabular}{c@{\hspace{.7in}}c}Imagine cutting AB&Imagine cutting BD\\\TCut{A}{B}&\TCut{B}{D}\end{tabular}\end{center}
+At cut AB, the A side has \textbf{1} target lamp. Press AB once. At cut BD, the A,B,C side has \textbf{2} target lamps. Leave BD alone.
+\par Complete the other rows. Use each line at most once.
+\par\renewcommand{\arraystretch}{1.5}\begin{tabularx}{\linewidth}{@{}lXcc@{}}Cut line&Count on this side&Target count&Press?\\\hline
+AB&A&1&yes\\
+BC&C&\rule{.35in}{.4pt}&yes / no\\
+BD&A, B, C&2&no\\
+DE&E&\rule{.35in}{.4pt}&yes / no\\
+DF&F&\rule{.35in}{.4pt}&yes / no\\
+\end{tabularx}
+\par Try your predicted list. Does it make the target? Show a partner how the counts helped you choose the lines.
+\newpage
+\NPage{50}{Invent another target on this tree. Color 2, 4, or 6 lamps ON in the small picture. Choose a different target from Problem 48. Leave the large working mat all OFF.}
+\begin{center}\begin{tabular}{c@{\hspace{.6in}}c}My target&Working mat\\\TTarget{}&\TGraph{.82}{.48in}{}\end{tabular}\end{center}
+Before trying moves, imagine cutting each line. Count the ON lamps in your target on the named side. Predict whether to press the line. Use each line at most once.
+\par\renewcommand{\arraystretch}{1.75}\begin{tabularx}{\linewidth}{@{}lXcc@{}}Cut line&Count on this side&Target count&Press?\\\hline
+AB&A&\rule{.35in}{.4pt}&yes / no\\
+BC&C&\rule{.35in}{.4pt}&yes / no\\
+BD&A, B, C&\rule{.35in}{.4pt}&yes / no\\
+DE&E&\rule{.35in}{.4pt}&yes / no\\
+DF&F&\rule{.35in}{.4pt}&yes / no\\
+\end{tabularx}
+\par Write your predicted move list: \rule{3.6in}{.4pt}
+\par\vspace{5pt}\rule{\linewidth}{.4pt}
+\par Now test it from all OFF. Compare the result with your target. If they differ, circle a row to check again.
+\par Trade targets with a partner. Predict the presses for their target and test them together.
+\end{document}

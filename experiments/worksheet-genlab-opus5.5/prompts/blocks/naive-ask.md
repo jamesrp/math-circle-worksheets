@@ -1,0 +1,1 @@
+Make an activity PDF for each of three grade levels (K–1, grades 2–3, and grades 4–5) targeting a 1-hour math circle where the kids will get to work with each other and also with professional mathematicians guiding them. High-level activity outline is below.

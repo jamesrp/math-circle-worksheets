@@ -1,0 +1,21 @@
+Week 23: A sorting machine that handles every input
+
+Unscheduled library slot, unpiloted. This is a fixed compare-exchange network, distinct from the atlas's finite-state memory and the existing permutation-return activities. The writer chooses the student problems; the examples below are mathematical checks, not a prescribed sequence.
+
+Mathematical kernels
+
+1. Binary tests can certify arbitrary inputs. A comparator joins two numbered lanes, sends the smaller of their current values to the lower-numbered lane and the larger to the other, and leaves the remaining lanes unchanged. Ties may stay put. A network is a finite fixed list of comparators: its locations and order cannot change in response to the input. It sorts if the final lane values are nondecreasing for every input. The zero–one principle says it suffices to sort every input made of 0 and 1. Proof: replace every value at or below a threshold by 0 and every larger value by 1. This replacement commutes with each comparator, since comparing first or replacing first gives the same two output bits. If some numerical output had an earlier large value followed by a smaller value, choose a threshold between them. The thresholded input would then produce an earlier 1 followed by a 0, contradicting the binary audit. This proves all real-number inputs, including repetitions; testing a few randomly chosen number orders does not.
+
+2. An exact small optimum. On three lanes, (1,2), (2,3), (1,2) sorts all inputs. On four lanes, (1,2), (3,4), (1,3), (2,4), (2,3) sorts all inputs: all 16 binary inputs were checked independently, as were all 24 orders of four distinct ranks. Five comparators are necessary on four lanes. There are 24 possible input orders of four distinct tokens; a fixed sequence of k comparators has at most 2^k swap/no-swap histories. One history moves tokens by one fixed permutation and can therefore correctly sort at most one distinct input order. Four comparators have at most 16 histories, too few; five attain the bound. The same argument gives three comparators as the three-lane minimum, because six orders exceed four possible histories. This is a count of comparisons, not of parallel time steps: disjoint comparators may share a stage, but comparators sharing a lane cannot be simultaneous. General optimal sorting networks are outside this kernel.
+
+Sources: University of Liverpool COMP308, Lecture 17, pp. 1–2, comparison-network definition and zero–one proof, https://cgi.csc.liv.ac.uk/~igor/COMP308/files/Lecture17.pdf . Mathematical body read 2026-10-03. The small networks and elementary decision-history lower bounds here were independently derived and checked; the four-lane computer audit includes all 1,296 length-four comparator lists and finds no sorter.
+
+Suggested emphasis by level
+
+- K–1: build and challenge genuinely fixed two- or three-lane devices using comparable lengths or dot counts; the fixed-rule constraint, not ordinary free sorting, is the mathematical entry.
+- Grades 2–3: invent or repair small networks and find a failing input or a complete small certificate, using visible token order rather than heavy written recording.
+- Grades 4–5: use the threshold argument to justify a finite audit and establish the exact three- or four-lane comparator minimum with a counting argument.
+
+Materials
+
+For each of three tables: one reusable four-lane mat at least 24 × 30 cm, sixteen identical-backed cards at least 3 × 3 cm (four distinct ranks, four additional duplicate-value cards, four 0 cards, four 1 cards), eight removable comparator strips, a dry-erase marker, and blank paper. For nonreaders, supply four stiff strips of different lengths with a shared baseline, and dot versions of 0/1. Lanes must be clearly numbered or otherwise consistently ordered. Cards should be moved to the next comparator together; do not let a token pass a later comparator before its partner arrives. Comparator bars must identify exactly two lanes; crossing an intermediate lane is not an extra comparison. A reusable diagram is sufficient; no floor installation is required. Keep spare comparator strips available so a printed frame does not reveal the optimum. Allow repeated values in later checks. Manual rearrangement outside a comparator or choosing a different bar after seeing values changes the problem and is not a legal sorting network.

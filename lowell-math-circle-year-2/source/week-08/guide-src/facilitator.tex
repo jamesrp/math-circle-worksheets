@@ -1,0 +1,451 @@
+% Week 8 adult guide.  Build with ./build.sh (runs check.py first, which
+% recomputes every answer and redraws the pictures in figs/).
+\documentclass[10pt]{article}
+\usepackage[letterpaper, left=0.75in, right=0.75in, top=0.8in, bottom=0.8in,
+  headheight=14pt, headsep=12pt, footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[default]{sourcesanspro}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta}
+\usepackage{array, longtable, booktabs}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{amsmath, amssymb}
+
+\colorlet{ans}{red!45}
+\definecolor{boxbg}{gray}{0.92}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Week 8 / Rook race and Nim / Adult guide}
+\fancyfoot[L]{Bellingham Math Circle / Week 8 / F08-FAC-v4}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3.5pt}
+\raggedright
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+\titleformat{\section}{\large\bfseries}{\thesection\quad}{0pt}{}
+\titlespacing*{\section}{0pt}{10pt}{3pt}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{7pt}{2pt}
+
+\setlist{itemsep=1pt, topsep=1pt, parsep=0pt, leftmargin=13pt}
+% Hints in a table cell: numbered lines with a hanging indent (a list would
+% start one line low in a p-column).
+\newcounter{hintc}
+\newenvironment{hints}{\begin{minipage}[t]{\linewidth}\raggedright
+  \setcounter{hintc}{0}\setlength{\parskip}{1.5pt}%
+  \renewcommand{\item}{\par\stepcounter{hintc}\noindent\hangindent=11pt\hangafter=1%
+  \makebox[11pt][l]{\arabic{hintc}.}}}{\par\end{minipage}}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\renewcommand{\arraystretch}{1.12}
+\setlength{\tabcolsep}{5pt}
+\setlength{\LTpre}{3pt}
+\setlength{\LTpost}{0pt}
+
+% Problem tables: column widths add up to the text width.
+\newlength{\colA}\setlength{\colA}{1.25in}
+\newlength{\colB}\setlength{\colB}{2.85in}
+\newlength{\colC}\setlength{\colC}{\dimexpr\textwidth-\colA-\colB-4\tabcolsep\relax}
+\newenvironment{probtable}{\small\begin{longtable}{@{}P{\colA}P{\colB}P{\colC}@{}}
+\toprule \textbf{Problem} & \textbf{Answer} & \textbf{Hints, in order}\\ \midrule \endhead}
+{\end{longtable}}
+% \prow{number}{core/further, page}{what they do}{picture}{answer}{hints}
+\newcommand{\prow}[6]{\textbf{Problem #1}\newline #2\newline #3\if\relax\detokenize{#4}\relax\else\par\smallskip #4\fi & #5 & #6 \\ \midrule}
+\newcommand{\core}{\textbf{Core}}
+\newcommand{\further}{Further}
+\newcommand{\fig}[1]{\input{figs/#1}}
+
+\newcommand{\gbox}[1]{\par\smallskip\noindent\colorbox{boxbg}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{#1}}\par\smallskip}
+
+\begin{document}
+
+\textbf{For the three table adults.} 1 The idea (p.\,\pageref{s1}) \;·\; 2 Materials and preparation (p.\,\pageref{s2}) \;·\; 3 The hour (p.\,\pageref{s3}) \;·\; 4 Tables: K--1 (p.\,\pageref{k1}), 2--3 (p.\,\pageref{m23}), 4--5 (p.\,\pageref{u45}) \;·\; 5 Mathematics (p.\,\pageref{s5}) \;·\; 6 Notes after the session (p.\,\pageref{s6}).
+
+Squares are named \textbf{(right, up)}: squares to the right of the star, then squares up from it. The star is (0,\,0). \textbf{1st} means the first player can always win (``rather go first''); \textbf{2nd} means the second player can always win (``rather go second'').
+
+\section{The idea of the week}\label{s1}
+
+Two players take turns sliding one token toward a star. Whoever puts the token on the star wins. Some squares are good to move to: if you leave the token there, whatever your partner does, you can move it to another good square, and in the end onto the star. On these boards the good squares are the diagonal through the star, the squares as far to the right of the star as they are above it.
+
+The board is a game with two piles of counters in disguise. How far the token is from the star's column is one pile, how far from the star's row is the other, and a move takes from one pile. The diagonal squares are equal piles, and the way to win is to make the piles equal and then copy your partner. With three piles (Nim) the good positions are harder to see; the older children hunt for them.
+
+\textbf{A good session looks like this.}
+\begin{itemize}
+\item \textbf{K--1.} Every child plays many games on the paper boards and with two piles of counters, and circles 1st or 2nd because of what happened in the games. Most can point to a square, or make a pair of piles, that they want to leave for their partner. One or two beat the adult at 7 and 7 by copying.
+\item \textbf{2--3.} Both pairs color the 8-by-8 board (the red squares are the diagonal) and play two-pile games. At least one child can say why a board square is the same as two piles and why copying always wins. Quick children find that 1, 2, 3 is the only small three-pile start where you would rather go second.
+\item \textbf{4--5.} The children find several three-pile starts where the second player wins, find the rule about stacks of 1, 2, 4, 8 (every stack size an even number of times), and use it to beat the organizer from a large start. One child starts explaining why the rule always works. The queen game is extra.
+\end{itemize}
+
+\section{Materials and preparation}\label{s2}
+
+Children: K--1 four (two pairs), 2--3 four (two pairs), 4--5 three (one pair and a referee).
+
+{\small
+\begin{longtable}{@{}P{1.75in}P{1.1in}P{1.05in}P{1.2in}P{\dimexpr\textwidth-5.1in-8\tabcolsep\relax}@{}}
+\toprule
+\textbf{Item} & \textbf{K--1} & \textbf{2--3} & \textbf{4--5} & \textbf{Total, with spares}\\ \midrule \endhead
+Token: small green triangle (pattern block) or a counter & 3 (one per pair, one for the adult) & 3 (one per pair, one for the adult) & 2 (the pair; third child vs adult) & 8 + 1 launch + 3 spare = \textbf{12}\\ \midrule
+Counters & 40 (20 per pair; biggest start is 7 and 7) & 50 (25 per pair) & 60 (Problem 6 needs 46) & \textbf{200}\\ \midrule
+Separate boards, 1-inch squares & 8-by-8: 2 & 8-by-8: 2; 5-by-5: 2 & 8-by-8: 2 & \textbf{7} 8-by-8, \textbf{3} 5-by-5\\ \midrule
+Green and red pencils, pencils & 1 of each per child & 1 of each per child & 1 of each per child & \textbf{14} of each\\ \midrule
+Small whiteboards, markers & -- & 2 (one per pair) & 3 (one each) & + 1 launch, 1 spare = \textbf{7}\\ \bottomrule
+\end{longtable}}
+
+\subsection{What to print}
+Single-sided, US Letter, at 100\% (``actual size'', not ``fit to page'').
+
+{\small
+\begin{longtable}{@{}P{1.85in}P{0.45in}P{1.1in}P{\dimexpr\textwidth-3.4in-6\tabcolsep\relax}@{}}
+\toprule
+\textbf{What} & \textbf{Pages} & \textbf{Copies} & \textbf{How it is used}\\ \midrule \endhead
+K--1 packet (F08-K-v4) & 7 & 6 (4 children, adult, spare) & One page at a time. The boards on pages 1--3 and 5 have 1-inch squares: the pair plays on one child's page; each child circles on their own.\\ \midrule
+2--3 packet (F08-M-v4) & 5 & 6 (4 children, adult, spare) & One page at a time. The boards on the pages are too small for the token: play on the separate boards, record on the page.\\ \midrule
+4--5 packet (F08-U-v4) & 7 & 5 (3 children, adult, spare) & Pages 1--4 first, the rest when a child reaches them. Play on the separate 8-by-8.\\ \midrule
+Pages to color again: K--1 p.\,5; 2--3 p.\,2; 4--5 pp.\,1, 6, 7 & 1 each & 2 extra of each & For a child who wants a clean board.\\ \midrule
+Separate boards & 1 each & 7 (8-by-8), 3 (5-by-5) & 1-inch squares, a star outlined in one corner square, nothing else.\\ \midrule
+This guide & all & 3 & One per adult.\\ \bottomrule
+\end{longtable}}
+
+\subsection{Set up}
+\begin{itemize}
+\item An 8-by-8 board with 1-inch squares is 8 inches wide, leaving \(\tfrac14\)-inch margins on Letter. Print one first. If an edge is cut off, print each 8-by-8 as two 8-by-4 halves and tape them together on the back (the squares at the seam must still be 1 inch), or print on 11-by-17 paper.
+\item Launch board: on one small whiteboard draw a 4-by-4 grid as large as it fits, with a star in the bottom-left square.
+\item On each table: tokens, a cup of counters per pair, the separate boards, pencils. Seat each pair \textbf{side by side}, facing the same way, star at the bottom left for both. The pages say ``left or down, toward the star's side''; a child sitting opposite sees the star at the top right.
+\end{itemize}
+
+\subsection{Test with the real materials (ten minutes, the evening before)}
+\begin{itemize}
+\item Put the token on a square of K--1 page 1 and of a separate board. It must sit inside one square without covering the next; if not, use a counter.
+\item Measure a square on each printed sheet: 1 inch. If smaller, the printer scaled the page; print again at 100\%.
+\item Play two games on K--1 page 2 with the real token, once going first and once second, using the strategies below.
+\item Lay out 7 and 7 counters in two columns like the picture on K--1 page 6. If they roll, put them on a sheet of paper.
+\item Color one square red and one green on a printed board. The two must be easy to tell apart.
+\end{itemize}
+
+\subsection{How to win when you play}
+Know these so you can play to win; then a child has to find the idea to beat you.
+\begin{itemize}
+\item \textbf{Board.} Leave the token on the diagonal through the star (as many squares right of the star as up). From any other square, slide the longer way until the two distances are equal. If you are handed a diagonal square you cannot force a win: make a one-square move and wait for a mistake.
+\item \textbf{Two piles.} Leave equal piles, then copy: whatever your partner takes from one pile, take the same from the other.
+\item \textbf{Three piles.} Split each pile into stacks of 1, 2, 4, 8, 16 (each pile in only one way, no size twice). Leave every stack size an even number of times in all three piles together. Shortcut: if two piles are equal, take all of the third. Starts to leave: 1, 2, 3;\; 1, 4, 5;\; 1, 6, 7;\; 2, 4, 6;\; 2, 5, 7;\; 3, 4, 7;\; 3, 5, 6.
+\item \textbf{Queen game} (4--5 only: the token may also slide diagonally toward the star). Leave the token on one of these squares or its mirror image: (1,\,2), (3,\,5), (4,\,7), (6,\,10), (8,\,13), (9,\,15), (11,\,18), (12,\,20). The differences are 1, 2, 3, 4, \dots
+\end{itemize}
+
+\section{The hour}\label{s3}
+
+\textbf{0:00} running around \;·\; \textbf{0:05} whole-group launch, led by the organizer \;·\; \textbf{0:08} pairs at the three tables \;·\; \textbf{0:50} sharing \;·\; \textbf{0:55} tidy up; adults write notes (Section~6).
+
+\subsection{Launch (about three minutes)}
+Everyone stands around one table. The 4-by-4 whiteboard lies flat, star at the bottom left, a token on the top-right square.
+\begin{enumerate}[leftmargin=15pt]
+\item Adult points: ``This is the star. This is the token. Two players take turns. On your turn you slide the token straight left or straight down, toward the star, as many squares as you like, but at least one. Whoever puts the token on the star wins.''
+\item Adult slides the token two squares left along the top row: ``That was my move: straight left, two squares.''
+\item ``Who can show me a move from here?'' One child slides the token (one square left, or one, two or three squares down). Adult asks the group: ``Was it straight? Toward the star? Only one direction?''
+\item Adult slides the token diagonally on purpose: ``Is that allowed?'' (No.) ``At your table, the other player checks every move like that.''
+\item Put the token back where the child left it. ``Who can win from here?'' Play it out with children's moves until someone puts it on the star. ``You'll find out where to put the token so you always win. You'll also play with piles of counters.'' Children go to their tables.
+\end{enumerate}
+
+\subsection{Pairs}
+\begin{itemize}
+\item \textbf{K--1:} two pairs, each a kindergartner with a first grader, one token and one page per pair. The adult reads each problem aloud once, points to the dot (``The token starts here''), and lets them play. Partners take turns going first. The adult plays Problems 6 and 7 against each child.
+\item \textbf{2--3:} two pairs, each with a token and the separate boards. Partners take turns going first; each child writes on their own page. The adult moves between pairs and plays any child who says they can always win.
+\item \textbf{4--5:} one pair plays; the third child referees, checks every move and keeps a tally of who went first and who won. Rotate every game: A--B with C refereeing, then B--C, then C--A. Some games the third child plays the organizer instead.
+\end{itemize}
+\textbf{The opponent or referee checks every move.} Board: straight left or straight down, toward the star, one direction only, at least one square; never diagonal (except in the 4--5 queen game), up, right, or an L-shape. Piles: from one pile only, at least one counter.
+
+\subsection{Fallback when attention runs out}
+\begin{itemize}
+\item \textbf{K--1: beat the grown-up.} The child builds two piles of up to 10 counters and chooses who goes first; the adult plays. When the child wins, the child builds new piles.
+\item \textbf{2--3: take 1, 2 or 3.} One pile of 20 counters; a move takes 1, 2 or 3; whoever takes the last counter wins. Pairs play each other. (Leave a multiple of 4; from 20 you would rather go second.)
+\item \textbf{4--5: last counter loses.} Three-pile Nim where taking the last counter loses (play as in ordinary Nim until your move would leave only piles of 1, then leave an odd number of them), or the queen game on a separate 8-by-8 against the organizer.
+\end{itemize}
+
+\subsection{Sharing (about five minutes)}
+One child from each table, with their board or counters: \textbf{``Show us a start where you would rather go second, and show how you win from it.''} Likely: K--1 two equal piles or a far corner; 2--3 a diagonal square, or 52 and 37 made equal; 4--5 1, 2, 3 or a start split into stacks that pair up.
+
+% ===================================================================== K-1
+\section{Table by table, problem by problem}
+In the pictures: grey dot = the start; arrow = the winning first move; red = the square to move to, or the squares where you would rather go second.
+
+\subsection{K--1 table (parent volunteer)}\label{k1}
+\textbf{Core of the hour: Problems 1, 2, 5, 6.} Further: 3, 4, 7, 8. If the table is slow or restless after Problem 2, go straight to Problem 5: counters are easier to handle than boards. Read each problem once, exactly as printed; the children cannot read it yet. ``1st'' and ``2nd'' are the boxes they circle.
+
+\gbox{\textbf{Things to say.} ``Show me every square the token can go to.'' \;``Is that move allowed? Check: straight, toward the star.'' \;``Who put it on the star?'' \;``Let's play again; this time you go second.'' \;``Where do you want to put the token so your partner can't win?'' \;``How did you beat me?''}
+
+\begin{probtable}
+\prow{1}{\core, page 1}{Two 3-by-3 boards. Play from the dot; circle 1st or 2nd.}
+{\fig{k1-p1-1}\hspace{0.08in}\fig{k1-p1-2}}
+{Left: \textbf{2nd}. Right: \textbf{1st}: slide down one square, to (1,\,1). From there your partner must move next to the star, and you slide onto it.}
+{\begin{hints}
+\item ``Put the token on the dot. Show me every square it can go to.''
+\item Play the child on the left board: you go first, then the child goes first. ``Which did you like?''
+\item ``Which squares would you hate to leave for your partner?'' (Any square in the star's row or column: the partner slides onto the star.)
+\end{hints}}
+\prow{2}{\core, pages 2--3}{Four 4-by-4 boards, same question.}
+{{\scriptsize page 2\hspace{0.33in}page 3}\par
+\begin{tabular}{@{}c@{\hspace{0.08in}}c@{}}\fig{k1-p2-1}&\fig{k1-p2-3}\\[3pt]\fig{k1-p2-2}&\fig{k1-p2-4}\end{tabular}}
+{Page 2 top (far corner): \textbf{2nd}. Page 2 bottom (bottom row): \textbf{1st}, slide left onto the star. Page 3 top (2 right, 2 up): \textbf{2nd}. Page 3 bottom (1 right, 3 up): \textbf{1st}, slide down two to (1,\,1).}
+{\begin{hints}
+\item ``Can the token reach the star in one move from the dot?''
+\item ``After your move, can your partner reach the star?''
+\item Point to (1,\,1): ``What happens if you leave the token here?'' (The partner must move next to the star, and you win.)
+\end{hints}}
+\prow{3}{\further, page 4}{Four 5-by-5 boards. Color the square to move to so that you win.}
+{\begin{tabular}{@{}c@{\hspace{0.06in}}c@{}}\fig{k1-p3-1}&\fig{k1-p3-2}\\[3pt]\fig{k1-p3-3}&\fig{k1-p3-4}\end{tabular}}
+{Each board has exactly one winning move. Top left: the star itself (slide down 3). Top right: (1,\,1), slide left 2. Bottom left: (2,\,2), slide down 2. Bottom right: (3,\,3), slide left 1.}
+{\begin{hints}
+\item ``Point to each square the token can go to. For each one: could your partner win from there?''
+\item ``Is there a square as far across from the star as it is up?''
+\item Point to (1,\,1) and (2,\,2): ``These are squares you like. Can you reach one like them?''
+\end{hints}}
+\prow{4}{\further, page 5}{6-by-6 board, any start except the star. Color every square you want to move to.}
+{\fig{k1-p4}}
+{The six diagonal squares: the star, and 1 right 1 up, 2 right 2 up, \dots, 5 right 5 up.}
+{\begin{hints}
+\item ``Put a counter on each square you liked moving to on the other boards.''
+\item ``Is the square one right and one up from the star one of them? Two right and two up?''
+\item ``Do you see a line? Where does it go?''
+\end{hints}}
+\prow{5}{\core, page 6}{Four pairs of piles. Play each; circle 1st or 2nd.}{}
+{Top left, 3 and 3: \textbf{2nd}. Top right, 4 and 1: \textbf{1st}, take 3 from the 4 to leave 1 and 1. Bottom left, 2 and 2: \textbf{2nd}. Bottom right, 5 and 3: \textbf{1st}, take 2 from the 5 to leave 3 and 3.}
+{\begin{hints}
+\item ``Make the piles with counters. Play once with you first and once with me first.''
+\item ``When you won, what did the two piles look like after your move?''
+\item ``Can you make the two piles the same?''
+\end{hints}}
+\prow{6}{\core, page 6}{7 and 7. Partner goes first; show the adult you always win.}{}
+{Copy. Whatever the partner takes from one pile, take the same number from the other. The piles are equal after each of your turns, so you take the last counter. A child might say: ``I make them the same again.''}
+{\begin{hints}
+\item Go first: take 3 from one pile. ``What will you do?''
+\item ``Make the piles look the same as each other.''
+\item ``Take what I took, from the other pile.''
+\end{hints}}
+\prow{7}{\further, page 7}{Separate 8-by-8, token in the corner farthest from the star (top right). Partner goes first.}{}
+{\textbf{2nd} wins by copying: if the partner slides left 3, slide down 3, and the other way round. The token comes back to the diagonal every time, and finally you land on the star.}
+{\begin{hints}
+\item Go first: slide left 2. ``Where do you want it now?''
+\item ``What did you do with the piles of 7 and 7?''
+\item ``I went left 2. You go down 2.''
+\end{hints}}
+\prow{8}{\further, page 7}{Four sets of three piles. Play each; circle.}{}
+{1, 1, 1: \textbf{1st} (take any whole pile, leaving 1 and 1). 1, 1, 2: \textbf{1st} (take the 2). 1, 2, 3: \textbf{2nd}. 2, 2, 3: \textbf{1st} (take the 3; or take 1 from a 2, leaving 1, 2, 3).}
+{\begin{hints}
+\item ``Play 1, 1, 1 going first. Who takes the last one?''
+\item ``Can you leave two piles that are the same, and nothing else?''
+\item For 1, 2, 3, you go first: ``Each time, can you leave two equal piles?''
+\end{hints}}
+\end{probtable}
+
+% ===================================================================== 2-3
+\subsection{2--3 table}\label{m23}
+\textbf{Core: Problems 1--5.} Further: 6--9. If a pair is struggling, do Problem 4 (two piles with counters) before Problem 2, and skip 3 and 6. Problem 1 is played on the separate 5-by-5 with the token on the square matching the dot; Problems 2, 3 and 5 on the separate 8-by-8. Problem 6 is meant to be reasoned out, not built.
+
+\begin{probtable}
+\prow{1}{\core, page 1}{Four starts on a 5-by-5. Rather go first or second?}
+{\begin{tabular}{@{}c@{\hspace{0.08in}}c@{}}\fig{m-p1-1}&\fig{m-p1-2}\\[3pt]\fig{m-p1-3}&\fig{m-p1-4}\end{tabular}}
+{Top left (4,\,4): \textbf{2nd}. Top right (4,\,2): \textbf{1st}, only by sliding left 2 to (2,\,2). Bottom left (3,\,3): \textbf{2nd}. Bottom right (1,\,4): \textbf{1st}, only by sliding down 3 to (1,\,1).}
+{\begin{hints}
+\item ``Start nearer the star. From which squares next to it would you rather go first?''
+\item ``Put the token on (1,\,1). What can your partner do?''
+\item ``Can you move to a square as far right as it is up?''
+\end{hints}}
+\prow{2}{\core, page 2}{Color the 8-by-8: green = rather go first, red = rather go second.}
+{\fig{diag8}}
+{Red: the 7 diagonal squares (1,\,1) to (7,\,7). The other 56 squares are green.}
+{\begin{hints}
+\item ``Color the star's row and column first. Who wins from there?''
+\item ``Now (1,\,1): where can it go? Are those all green?''
+\item ``A square is red when every move from it lands on green. Work outward from the star.''
+\end{hints}}
+\prow{3}{\core, page 2}{Partner goes first from the top-right corner of an 8-by-8. Explain how you always win.}{}
+{Copy across the diagonal: if your partner slides left 4, you slide down 4, and the other way round. After your move the token is again as far from the star's column as from its row. One move changes only one of those, so your partner can never reach the star; you do.}
+{\begin{hints}
+\item Go first from the corner and play it out. ``What did you do after each of my moves?''
+\item ``After your move, count the squares to the left edge and to the bottom.''
+\item ``If I slide left 3, what do you do?''
+\end{hints}}
+\prow{4}{\core, page 3}{Two piles: 4 and 4, 6 and 2, 5 and 3, 7 and 7.}{}
+{4 and 4: \textbf{2nd}. 6 and 2: \textbf{1st}, take 4 from the 6. 5 and 3: \textbf{1st}, take 2 from the 5. 7 and 7: \textbf{2nd}.}
+{\begin{hints}
+\item ``Play 4 and 4 twice: once going first, once going second.''
+\item ``Which piles did you leave when you won?''
+\item ``Can you always make the piles equal again?''
+\end{hints}}
+\prow{5}{\core, page 3}{Which two piles make the same game as the board with the dot? How do moves match?}{}
+{\textbf{5 and 2.} The dot can still go 5 squares left and 2 down. Sliding left 3 is taking 3 from the 5-pile; sliding down is taking from the 2-pile. The star is both piles empty; the red diagonal is equal piles.}
+{\begin{hints}
+\item ``Count how many squares the token can still go left, and how many down.''
+\item ``Slide it left 2. What changed? What would that be with counters?''
+\item ``Where is the star in the counter game?''
+\end{hints}}
+\prow{6}{\further, page 4}{Piles of 52 and 37. First or second? Explain.}{}
+{\textbf{1st}. Take 15 from the 52, leaving 37 and 37 (the only winning first move). Then copy: whatever the other player takes from one pile, take the same from the other. The piles are equal after each of your turns, so the other player can never take the last counter; you do.}
+{\begin{hints}
+\item ``What did you do with 6 and 2, and with 5 and 3?''
+\item ``How many do you take from the 52 to make the piles equal?''
+\item ``After that, what do you do on every turn?''
+\end{hints}}
+\prow{7}{\further, page 4}{Three piles: 1, 1, 1;\; 1, 1, 2;\; 2, 2, 3;\; 1, 2, 3.}{}
+{1, 1, 1: \textbf{1st} (take any pile). 1, 1, 2: \textbf{1st} (take the 2). 2, 2, 3: \textbf{1st} (take the 3, or 1 from a 2). 1, 2, 3: \textbf{2nd}: answer every move by leaving two equal piles and nothing else. They take the 1: take 1 from the 3. The 2: take 2 from the 3. 1 from the 2: take the 3. The 3: take 1 from the 2. 1 from the 3: take the 1. 2 from the 3: take the 2.}
+{\begin{hints}
+\item ``Play 1, 1, 2 going first. Which pile do you take?''
+\item ``Two equal piles and one more: what can you do?''
+\item For 1, 2, 3: ``I go first. Find an answer to each move I make.''
+\end{hints}}
+\prow{8}{\further, page 5}{All starts with piles of 1, 2 or 3 where you would rather go second; explain why that is all.}{}
+{\textbf{Only 1, 2, 3} (of the 10 starts). If two piles are equal, go first: take all of the third pile, then copy. So the three piles must be different, and with 1, 2 or 3 counters that is only 1, 2, 3, a second-player start (Problem 7).}
+{\begin{hints}
+\item ``Write down every start. How many are there?'' (10.)
+\item ``Which can you cross out straight away? Why?''
+\item ``How many starts have three different piles?''
+\end{hints}}
+\prow{9}{\further, page 5}{All starts with piles of 1 to 6 where you would rather go second.}{}
+{\textbf{1, 2, 3;\; 1, 4, 5;\; 2, 4, 6;\; 3, 5, 6} (4 of the 56 starts). Crossing out starts with two equal piles leaves 20 to test.}
+{\begin{hints}
+\item ``Cross out starts with two equal piles. How many are left?'' (20.)
+\item ``Try 1, 4, 5 with counters, going second. Can your partner beat you?''
+\item ``A start is 2nd when every move from it can be answered with a start you already know is 2nd.''
+\end{hints}}
+\end{probtable}
+
+% ===================================================================== 4-5
+\subsection{4--5 table (organizer)}\label{u45}
+\textbf{Core: Problems 1, 3, 4, 5, 6.} Further: 2, 7, 8, 9. Give Problem 4 about ten minutes and move on even if the list is incomplete; Problem 5 brings its own data. If the table is slow, skip Problem 2 and cut Problem 4 short. Stacks are physical: counters split into piles of 1, 2, 4, 8, 16; the whiteboards are for writing them down once piles get large.
+
+\begin{probtable}
+\prow{1}{\core, page 1}{Color the 8-by-8; explain why the second player wins from red.}{}
+{Red: the diagonal (1,\,1) to (7,\,7); 56 green (picture: 2--3 Problem 2). On a red square the token is as far from the star's column as from its row. A move changes only one of these, so it always leaves the diagonal. From a green square, slide the longer way until they are equal: back on red. The star is on the diagonal, so whoever keeps leaving red squares reaches it.}
+{\begin{hints}
+\item ``Start next to the star. Which squares are green?''
+\item ``Is (1,\,1) red? Why?''
+\item ``From a red square, can one move reach another red square?''
+\end{hints}}
+\prow{2}{\further, page 2}{Two piles that match the board with the dot; 23 and 17; 30 and 30.}{}
+{\textbf{6 and 3} (the dot is 6 right, 3 up). Sliding left is taking from the 6-pile, sliding down from the 3-pile; the star is both empty. 23 and 17: \textbf{first} player, take 6 from the 23. 30 and 30: \textbf{second} player, by copying.}
+{\begin{hints}
+\item ``Count the squares from the dot to the star's column and to its row.''
+\item ``Slide the token. What happens to each count?''
+\item ``What are the red squares, as piles?''
+\end{hints}}
+\prow{3}{\core, page 3}{Six three-pile starts: which player wins?}{}
+{1, 1, 1: \textbf{first}. 1, 1, 2: \textbf{first} (take the 2). 1, 2, 3: \textbf{second}. 2, 2, 5: \textbf{first} (take the 5). 1, 3, 4: \textbf{first}, only by taking 2 from the 4 (leaving 1, 3, 2). 1, 4, 5: \textbf{second}.}
+{\begin{hints}
+\item ``Play 2, 2, 5 going first. Is there a move that leaves something you know?''
+\item ``From two equal piles and one more, what do you do?''
+\item For 1, 3, 4: ``Can you leave 1, 2, 3?''
+\end{hints}}
+\prow{4}{\core, page 3}{All starts with piles 1 to 7 where the second player wins.}{}
+{Seven of the 84 starts: \textbf{1, 2, 3;\; 1, 4, 5;\; 1, 6, 7;\; 2, 4, 6;\; 2, 5, 7;\; 3, 4, 7;\; 3, 5, 6}.}
+{\begin{hints}
+\item ``Which starts can you cross out straight away?'' (Two equal piles: take the third.)
+\item ``Fix two piles, say 1 and 4. Which third pile makes a second-player start?''
+\item ``A start is second-player when every move from it can be answered with a move to one you already know.''
+\end{hints}}
+\prow{5}{\core, page 4}{Given starts; split piles into stacks of 1, 2, 4, 8, \dots; find a rule.}{}
+{\textbf{The second player wins exactly when every stack size appears an even number of times} (twice or not at all). 1, 4, 5 is 1 \,|\, 4 \,|\, 4+1. 2, 5, 7 is 2 \,|\, 4+1 \,|\, 4+2+1. In each first-player start some size is odd: 1, 2, 4 (all once); 2, 3, 5 (one 4); 2, 4, 7 and 3, 4, 6 (one 1).}
+{\begin{hints}
+\item ``Lay out the stacks for 1, 2, 3 and for 1, 4, 5 side by side. What is the same?''
+\item ``Count all the stacks of 1, then of 2, then of 4.''
+\item ``Now do 1, 2, 4. What is different?''
+\end{hints}}
+\prow{6}{\core, page 4}{Which player wins? If the first, find a first move.}{}
+{3, 5, 7: \textbf{first}; take 1 from any pile. 6, 10, 12: \textbf{second} (4+2 \,|\, 8+2 \,|\, 8+4). 13, 9, 7: \textbf{first}; only move: take 3 from the 7, leaving 13, 9, 4. 11, 14, 21: \textbf{first}; only move: take 16 from the 21, leaving 11, 14, 5.}
+{\begin{hints}
+\item ``Write each pile as stacks on the whiteboard.''
+\item ``Which sizes appear an odd number of times? One pile has to fix all of them.''
+\item ``Change a pile that has the biggest odd stack.''
+\end{hints}}
+\prow{7}{\further, page 5}{Explain why the rule is right for every start.}{}
+{Call a start balanced if every size appears an even number of times. (a) From a balanced start a move changes one pile, and a pile splits into stacks in only one way, so some size changes in that pile only: it becomes odd. (b) From an unbalanced start, find the biggest odd size and a pile with a stack of that size. Rebuild that pile, switching every odd size (remove it if the pile has it, add it if not). The pile gets smaller: it loses the big stack, and all smaller sizes together are less (\(1+2+4<8\)). Now the start is balanced. (c) The empty table is balanced, so whoever always leaves a balanced start takes the last counter.}
+{\begin{hints}
+\item ``Start from 1, 2, 3 and make any move. Is it still balanced? Why can it not be?''
+\item ``From 13, 9, 7, which pile did you change, and how did you choose it?''
+\item ``Why is 8 more than 4 + 2 + 1, and why does that matter?''
+\end{hints}}
+\prow{8}{\further, page 6}{Queen game (diagonal moves too) on an 8-by-8: color.}
+{\fig{queen8}}
+{Red: \textbf{(1,\,2), (2,\,1), (3,\,5), (5,\,3), (4,\,7), (7,\,4)}. The other 57 squares are green.}
+{\begin{hints}
+\item ``Which squares reach the star in one move now?'' (Its row, column and diagonal.)
+\item ``Find the red square nearest the star: every move from it lands on green.''
+\item ``Can two red squares share a row? A column? A diagonal?''
+\end{hints}}
+\prow{9}{\further, page 7}{Queen game on a 20-by-20: all red squares, and why that is all.}
+{\fig{queen20}}
+{14 red squares: \textbf{(1,\,2), (3,\,5), (4,\,7), (6,\,10), (8,\,13), (9,\,15), (11,\,18)} and their mirror images. The next pair, (12,\,20), is just off the board. Why that is all: a red square cannot reach another red square, so each row, column and diagonal has at most one. Going up row by row, the red square in a row is the first square not in the column or diagonal of a red square already found. In pairs: each new pair starts at the smallest number not used yet, and the difference goes up by one each time.}
+{\begin{hints}
+\item ``On your 8-by-8, shade the row, column and diagonal through each red square. What is left?''
+\item ``List the red squares as pairs (right, up). Look at the differences.''
+\item ``Which numbers have not appeared in a pair yet?''
+\end{hints}}
+\end{probtable}
+
+% ===================================================================== math
+\section{The mathematics behind the week}\label{s5}
+
+\textbf{Outcomes.} All three games are impartial (both players have the same moves), finite, and won by whoever makes the last move. Every position is a \emph{P-position} (the previous player, who just moved, wins: ``rather go second'', red) or an \emph{N-position} (the next player wins: ``rather go first'', green). A position is P exactly when every move from it goes to an N-position; the end position is P. Induction on the length of the game sorts every position this way.
+
+\textbf{Rook race = two-pile Nim.} Square \((a,b)\) is piles \(a\) and \(b\); a move lowers one coordinate. The P-positions are \(a=b\): from \(a=b\) every move breaks equality, and from \(a\neq b\) lowering the larger restores it. The winning strategy is the copy strategy.
+
+\textbf{Nim (Bouton 1901).} Let \(a\oplus b\oplus c\) be the nim-sum: write each pile in binary and add without carrying (count each bundle 1, 2, 4, 8, \dots\ modulo 2). A position is P exactly when \(a\oplus b\oplus c=0\). Proof: the empty position has nim-sum 0. If the nim-sum is 0, changing one pile changes its binary expansion, so the nim-sum becomes nonzero. If the nim-sum \(s\) is nonzero, let \(2^k\) be its highest bit and \(x\) a pile with that bit. Then \(x\oplus s<x\) (bit \(k\) goes from 1 to 0, higher bits stay), so replacing \(x\) by \(x\oplus s\) is a legal move, and it makes the nim-sum 0. The same proof works for any number of piles. The children's ``every stack size an even number of times'' is nim-sum zero, and the move in Problem 6 is \(x\mapsto x\oplus s\).
+
+\textbf{Wythoff's game (1907): the queen.} The P-positions are \((a_n,b_n)\) and \((b_n,a_n)\) for \(n\ge 0\), where \(a_n\) is the smallest number not among \(a_0,b_0,\dots,a_{n-1},b_{n-1}\) and \(b_n=a_n+n\): (0,\,0), (1,\,2), (3,\,5), (4,\,7), (6,\,10), (8,\,13), (9,\,15), (11,\,18), (12,\,20), \dots\ No move joins two of these (they never share a row, column or diagonal), and every other square shares a row, column or diagonal with one of them nearer the star, so it has a move to it. In closed form \(a_n=\lfloor n\varphi\rfloor\), \(b_n=\lfloor n\varphi^2\rfloor\), \(\varphi=(1+\sqrt5)/2\). Since \(1/\varphi+1/\varphi^2=1\), Beatty's theorem says the two sequences together contain every positive integer exactly once.
+
+\textbf{Where it goes next.}
+\begin{itemize}
+\item Sprague--Grundy theory: every finite impartial game behaves like one Nim pile, and a sum of games behaves like Nim with those piles. The rook race is the sum of two one-pile games.
+\item Mis\`ere Nim (last counter loses): play normal Nim until your move would leave only piles of size 1, then leave an odd number of them.
+\item Subtraction games such as ``take 1, 2 or 3'': the P-positions are the multiples of 4; other move sets give patterns that eventually repeat.
+\item Moore's Nim\(_k\) (take from up to \(k\) piles at once): count each binary digit modulo \(k+1\).
+\item Reading: C.\,L.\ Bouton, ``Nim, a game with a complete mathematical theory'', Annals of Mathematics (1901); W.\,A.\ Wythoff, ``A modification of the game of Nim'' (1907); Berlekamp, Conway and Guy, \emph{Winning Ways}, vol.\ 1.
+\end{itemize}
+
+Every answer in this guide was recomputed by guide-src/check.py, which reads the boards, dots and piles from the student page sources and solves each game by brute force.
+
+% ===================================================================== notes
+\newpage
+\section{What to write down after the session}\label{s6}
+
+Five minutes, before you leave. For each claim, tick how far it got: \textbf{tried} (played it), \textbf{guessed} (said it without checking), \textbf{checked} in some cases, or \textbf{explained} (gave a reason that covers every case). Keep or photograph one page or drawing worth showing next week, and give this sheet to the organizer.
+
+\newcommand{\notesblock}[3]{%
+\subsection{#1}
+Problems reached (circle each one a child worked on): \quad #2\\[1pt]
+{\small
+\begin{tabular}{@{}p{3.45in}|p{0.5in}|p{0.42in}|p{0.55in}|p{0.6in}|p{0.6in}@{}}
+\textbf{Claim} & \textbf{Child} & \textbf{Tried} & \textbf{Guessed} & \textbf{Checked} & \textbf{Explained}\\ \hline
+#3
+\rule{0pt}{12pt} & & & & & \\ \hline
+\end{tabular}}\\[2pt]
+What children tried and said, and a drawing or claim worth keeping:\\[13pt]
+\rule{\textwidth}{0.4pt}\\[13pt]
+\rule{\textwidth}{0.4pt}
+}
+
+\notesblock{K--1 table}{1 \;\; 2 \;\; 3 \;\; 4 \;\; 5 \;\; 6 \;\; 7 \;\; 8}{%
+From the far corner I would rather go second. & & & & & \\ \hline
+Make the piles the same; copy what my partner does. & & & & & \\ \hline
+The squares I want to move to make a slanted line. & & & & & \\ \hline}
+
+\notesblock{2--3 table}{1 \;\; 2 \;\; 3 \;\; 4 \;\; 5 \;\; 6 \;\; 7 \;\; 8 \;\; 9}{%
+The red squares are the diagonal. & & & & & \\ \hline
+A square on the board is the same as two piles. & & & & & \\ \hline
+From equal piles, copying always wins. & & & & & \\ \hline
+Two equal piles and one more: go first and take the third. & & & & & \\ \hline
+1, 2, 3 is the only small start where you want to go second. & & & & & \\ \hline}
+
+\notesblock{4--5 table}{1 \;\; 2 \;\; 3 \;\; 4 \;\; 5 \;\; 6 \;\; 7 \;\; 8 \;\; 9}{%
+Second-player starts up to 7 (found \underline{\hspace{0.25in}} of 7). & & & & & \\ \hline
+Second player wins when every stack size appears an even number of times. & & & & & \\ \hline
+From balanced every move unbalances; from unbalanced one move balances. & & & & & \\ \hline
+Queen game: the red squares' differences are 1, 2, 3, \dots & & & & & \\ \hline}
+
+\end{document}

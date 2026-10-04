@@ -1,0 +1,87 @@
+{
+  "week": 18,
+  "topic": "Hidden changes",
+  "overview": [
+    "Known holes: a fixed-position binary codebook recovers after every choice of at most e erased positions exactly when every two original rows differ in at least e+1 positions. A hole shows where evidence is missing; a hidden flip does not. Four messages need at least three entries to survive one erasure, and 000,011,101,110 attain three.",
+    "Parity detection: making the total number of filled counters even detects precisely an odd number of distinct flipped positions. It detects damage; it cannot by itself locate a single flip or recover the original. An even number of flips can pass.",
+    "Grid location: in a binary array with an added check row and check column, every full row and column can be made even. A single flip, including a check-counter flip, creates exactly one odd row and one odd column; their intersection locates it. Nonempty invisible damage needs at least four flips, achieved by a rectangle's four corners. Two flips can be ambiguous. These claims require fixed orientation and flipping each selected counter once.",
+    "Children investigate recovering missing evidence, detecting changes and locating one change. Trials suggest rules; indistinguishable observations refute guarantees. Differing positions and pairing arguments explain them. Grades 2-3 can play and classify; grades 4-5 can defend the limits with objects and drawings."
+  ],
+  "readiness": [
+    "Shared Grades 2-5 packet: match ordered positions and counter faces; pair or count to five. Adults may read. P1-2 use holes, P3-4 use even/odd pairing, and P5-7 retain both row and column checks.",
+    "Optional K\u20131 oral entry to P1 or the row-check game is appropriate only if a child reliably distinguishes a covered position from an open-face counter. The adult may read and record while the child chooses the hole or flips. Do not make the adult operate the investigation.",
+    "Current group: fixed KK11 / 3333 / 445 tables, one anchored adult at each. Choose one investigation and one brief launch per table per visit. Pool cases and retain one checkable record. Adults may read or record; children choose the key, flips and repairs."
+  ],
+  "materials": [
+    "Per pair: 36 two-sided filled/open counters (15\u201320 mm), 12 neutral hole covers, two folders, four picture-message labels A\u2013D, pencils, spare paper, six fixed-position strips and two 4-by-4 reusable grid mats. Make physical strip/mat cells at least 25 mm wide. Compact printed strips are records; use the separate larger strips for handling counters. Preserve position numbers when a counter is covered.",
+    "Shade or label the added row/column as checks; distinguish them without relying on color. Keep counters on all positions, including open/zero faces. No count is a missing position. Adults prepare mats/covers before the visit. Counter handling, hiding and physical mat fit have not been rehearsed."
+  ],
+  "launch": "Allow a minute of counter handling. Show a three-position practice strip with a cover on one numbered position; let a receiver identify possible originals from a tiny visible key. Before strip checks, use the printed non-task four-counter pairing. Before grid work, enact the printed non-task visual: data 11/01, then row checks 110/011, then the full array 110/011/101. Keep the original visible while making each check; use only received evidence across a folder.",
+  "route": "Choose P1-2 or P3-4 for a 20-35 minute first visit after a 2-3 minute launch; use another visit for P5-7. Retain a key or marked damage pattern to resume. Times are estimates; mathematical conversation can continue.",
+  "investigations": [
+    {
+      "problem": "1\u20132",
+      "title": "Recover after a known hole",
+      "entry": "Grades 2\u20133: P1 with the printed key; match the two surviving entries. Grades 4\u20135: P2's shortest-key question. Allow 15\u201325 minutes. Requirements: ordered positions, two counter faces, and comparing rows; no arithmetic beyond counting entries.",
+      "solution": [
+        "P1: the key is A=000, B=011, C=101, D=110. Erasing position1 leaves 00,11,01,10 respectively; erasing2 leaves 00,01,11,10; erasing3 leaves 00,01,10,11. All four observations are distinct in each case, so every one-hole transmission decodes. The hole's position itself is part of the observation.",
+        "P2: shortest length is3, using the printed key or a relabeling. With only two positions, erasing the same chosen position leaves one binary face, so there are only two possible observations for four messages. Even two empty/full faces cannot distinguish four originals. More generally, erase all differing positions to show failure when distance is at most e; if distance exceeds e, a difference survives every e-hole choice."
+      ],
+      "hints": [
+        "Offer only after a genuine attempt: place the four possible originals visibly beside the received strip; eliminate mismatches. For a lower bound, keep the covered position the same for all four messages."
+      ],
+      "extensions": [
+        "Try two known holes, then formulate the differing-position rule. A repeated all-open/all-filled pair of length 3 survives two holes; the four-message problem is separate. Compare the same short key under a hidden-flip channel, where the changed position is unknown."
+      ],
+      "notes": "A receiver's inability to decide between two legal originals is mathematical evidence of ambiguity, not a failed guess. Keep hole covers visually distinct from open faces."
+    },
+    {
+      "problem": "3\u20134",
+      "title": "Detect damage with a check counter",
+      "entry": "Grades 2\u20133 can make rows and test flips after the printed pairing example. Grades 4\u20135 can classify all distinct flip counts. Allow 15\u201325 minutes. Requirements: pairing/evenness; count to 5; no binary arithmetic notation.",
+      "solution": [
+        "P3: exactly one flip always changes an even filled-face count to odd. This includes flipping the check counter. The receiver detects damage but cannot know which position to reverse from this single check alone.",
+        "P4: with five checked positions and each chosen counter flipped once, 2 and4 flips pass; 1,3 and5 do not. Zero would pass too, although it is outside the listed positive counts. One flip toggles even/odd; repeating that toggling k times gives the classification independently of the starting row. Two flips need not restore the original, only its parity."
+      ],
+      "hints": [
+        "Use physical pairs of filled counters rather than addition symbols. Compare one flip with a second distinct flip. Preserve one before/after row, not a separate tally of every operation."
+      ],
+      "extensions": [
+        "Can two different checked originals turn into the same received row after permitted damage? Use this to separate detection from recovery. Ask whether flipping one counter twice is the same damage as flipping two different counters once; it restores that counter and is excluded by P4's distinct-position convention."
+      ],
+      "notes": "Replace 'it worked in ten trials' with 'every flip changes the parity' only when the child has an explanation. Pairing is a proof representation."
+    },
+    {
+      "problem": "5\u20137",
+      "title": "Locate a change; investigate invisible damage",
+      "entry": "Grades 2\u20133 start with P5's visible row/column checks; Grades 4\u20135 continue to minimum invisible damage and two-flip ambiguity. Allow 20\u201340 minutes or a whole return visit. Requirements: unchanged4-by-4 orientation, completing each check, and tracking two conditions at once. Adult can mark odd rows/columns at first while the child chooses the intersection.",
+      "solution": [
+        "Printed non-task grid convention: two data rows 11 and 01 first receive row checks 0 and 1, giving 110 and 011. Column checks are 1 and 0, and the corner is 1, giving bottom row 101. Every completed row and column has two filled counters. These are added checks, not missing data positions. This demonstrates the representation before the 4-by-4 investigation without giving its invisible-damage rule.",
+        "P5 printed data rows are110,010,100. Completed rows are1100,0101,1001,0000. The check row is000, and the corner is0. Each full row and column is even. In any such array, a single flipped cell toggles its row and column, leaving all others even. Correct the intersection of the only odd row and odd column. If none are odd, the single-or-zero-flip promise permits no flip.",
+        "Completion always works: append each data-row parity, then each data-column parity. The two proposed values for the corner agree because both count the same total number of filled data cells modulo 2. No separate corner convention is needed.",
+        "P6: the nonempty minimum is 4. Flip corners(r1,c1),(r1,c2),(r2,c1),(r2,c2); another rectangle provides a different example. Check rows/columns may be used too. No 1, 2 or3 distinct flips can be invisible: any used row and column needs at least two flipped cells. One flipped cell forces another in its row and another in its column; those create an odd new row/column unless there is at least a fourth flip. Exactly-four invisible patterns are rectangle corners; in a4-by-4 array there are 6 choices of row pair and6 of column pair, hence 36 patterns.",
+        "P7: yes. Flips (r1,c1),(r2,c2) and flips (r1,c2),(r2,c1) give the same odd rows r1,r2 and odd columns c1,c2. If two flips share a row, that row is even and their two columns are odd; the row of damage is then unknown from parity alone. Analogously for a shared column. The single-flip guarantee cannot be extended to arbitrary two flips."
+      ],
+      "hints": [
+        "For P5, mark odd row and column with strips and let their crossing locate the cell. For P6, start with a flip, repair its row, then inspect columns; do not hand children the rectangle answer immediately. For P7, keep two unchanged blank arrays beside one another and compare only their odd-check locations."
+      ],
+      "extensions": [
+        "Classify every invisible pattern in a smaller array. General invisible patterns have an even number of flipped cells in every row and column. Ask why a larger array does not improve the guarantee for two arbitrary changes. Generalize the rectangle argument to show that the minimum remains4 whenever there are at least two rows and two columns."
+      ],
+      "notes": "Keep original, received array and damage marks conceptually distinct. Children need only one recoverable damage picture per trial. The sender should record the actual flipped cells privately so the receiver can check a claimed correction after deciding."
+    }
+  ],
+  "sources": [
+    "Current Week18 base student packets and guide establish the hidden-one-flip model. The encore adds known erasures, parity detection and spatial parity location; it does not repeat the base's search for optimal one-error keys.",
+    "R.W.Hamming, Error Detecting and Error Correcting Codes (1950), section 5, supplies coding-distance context as recorded in the base outline/guide. The encore erasure and parity arguments above are independently derived here; no new source-body reading is claimed.",
+    "Math Circle by the Bay, Preface printed pp.vii\u2013x (PDF8\u201311): student interaction, manipulatives, themes developed over long periods, and carefully separated teacher/context notes. Our paired transmissions and return routes are proposed adaptations, not classroom evidence reported by that book."
+  ],
+  "verification": [
+    "A fresh independent math critic recomputed every printed task and example. Its standalone standard-library script exhaustively checks all 65,536 flip subsets, 512 three-by-three data arrays with 8,192 possible single flips, every one-hole observation and the parity classifications. The positive invisible minimum is 4 with 36 rectangles. The guide mathematics was independently verified too.",
+    "The final guide received a separate independent mathematical review. Both final PDFs were rendered and inspected and passed a clean extracted-source ZIP rebuild. See release-validation.json in the editable source package. Digital checks do not certify fit or rehearsal; no physical pretest or classroom pilot has occurred."
+  ],
+  "observations": [
+    "Record which investigations each pair used, the key or damage pattern retained, and where they would like to resume.",
+    "Observe whether covers are distinguished from open faces; whether the receiver retains the position of a hole; whether one check is mistaken for a correction rule; and whether grid checks need an adult to operate them. Record what happened separately from hypotheses about why."
+  ]
+}

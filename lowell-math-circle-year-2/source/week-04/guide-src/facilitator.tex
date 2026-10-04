@@ -1,0 +1,588 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper, left=0.7in, right=0.7in, top=0.75in, bottom=0.75in,
+  headheight=14pt, headsep=0.2in, footskip=0.4in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[default]{sourcesanspro}
+\usepackage{inconsolata}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{needspace}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Week 4 / Stars and wheels / Adult guide}
+\fancyfoot[L]{Bellingham Math Circle / Week 4 / F04-FAC-v4}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlist{nosep, leftmargin=1.3em, topsep=1pt}
+
+\titleformat{\section}{\Large\bfseries}{\thesection.}{0.45em}{}
+\titlespacing*{\section}{0pt}{10pt}{3pt}
+\titleformat{\subsection}{\large\bfseries}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{7pt}{1pt}
+
+\newcommand{\lbl}[1]{\colorbox{black!10}{\footnotesize\strut #1}}
+\newcommand{\core}{\lbl{core}}
+\newcommand{\further}{\lbl{further}}
+\newcommand{\ext}{\lbl{extension}}
+% \pb{number}{tag}{what the children do}
+\newcommand{\pb}[3]{\par\needspace{4\baselineskip}\vspace{3pt}\noindent\textbf{Problem #1}\enspace #2\enspace #3\par}
+\newcommand{\ans}{\textbf{Answer.}\ }
+\newcommand{\say}{\textbf{Say.}\ }
+\newenvironment{hints}{\begin{enumerate}[label={\textit{Hint \arabic*.}}, leftmargin=*, align=left]}{\end{enumerate}}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\renewcommand{\arraystretch}{1.15}
+
+\begin{document}
+
+% =====================================================================================
+\section{The idea of the week}
+
+Put dots evenly around a circle. A \emph{hop of 3} means: move 3 dots clockwise and draw a straight line from
+where you were to where you land. Keep making the same hop until you are back where you began. Sometimes the line
+reaches every dot and draws a star. Sometimes it comes back early; then you start again at a dot with no line,
+with the same hop, until every dot has a line.
+
+The question all week: when does one hop reach every dot, and how many starts does it take? The answer: the
+number of starts is the biggest number that goes evenly into both the number of dots and the hop. On 12 dots,
+hop 8 needs 4 starts (four triangles), because 4 goes into 12 and into 8 and no bigger number does. On 7 dots
+every hop reaches every dot.
+
+The code wheel is the same idea with 26 letters. Turning the inner wheel 3 places moves every letter 3 along,
+which is a hop of 3 on a ring of 26. Two turns in a row make one turn, turning back undoes a turn, and since
+there are only 25 real turns, a code can be cracked by trying them. The K--1 table does the same with a ring of
+six pictures and no letters.
+
+\textbf{What a good session looks like}
+\begin{itemize}
+\item \textbf{K--1.} Every child hops a counter correctly (the first count lands on the next dot, not the one
+  the counter is on) and draws hops on the small rings. Each child can say, for at least one ring, which hops
+  landed on every dot and which came back early. A very good session reaches the ring of 7 or the pictures.
+\item \textbf{2--3.} Every child draws hops on 8, 10 or 12 dots and counts the starts, guesses before drawing,
+  and also codes and decodes a message on their own wheel with a partner. The best sign is a guess with a reason:
+  ``hop 3 on 12 only lands on 0, 3, 6 and 9''.
+\item \textbf{4--5.} The children state a rule for the number of pieces, test it on the big numbers of
+  Problem 3, and try to say why it works. They crack codes from clues and find that two settings make one.
+\end{itemize}
+
+% =====================================================================================
+\section{Materials and preparation}
+
+Eleven children: K--1 four (two pairs), 2--3 four (two pairs), 4--5 three (a pair and a referee).
+
+{\small\begin{tabularx}{\textwidth}{@{}l c c c c L@{}}
+\toprule
+Item & K--1 & 2--3 & 4--5 & Total & What for \\
+\midrule
+Counters & 20 & 20 & 20 & 61 & K--1: per pair, 1 to hop and 7 of another colour to mark landings, plus spares.
+  2--3 and 4--5: equal-pile explanations. One more for the launch. \\
+Coloured pencils, 6+ colours & 2 sets & 2 sets & 2 sets & 6 sets & One set per pair (4--5: one for the pair, one for the referee); a new colour for each start. \\
+Pencils with erasers & 5 & 5 & 4 & 14 & One per child and adult. \\
+Rulers, 6-inch & 2 & 4 & 3 & 9 & Straight lines on the small rings. K--1 rulers are for first graders who want one. \\
+Scissors & -- & 4 & 3 & 8 & Children cut their own wheels; one pair for the adults' spare wheels. \\
+Brass fasteners & -- & 4 & 3 & 10 & One per wheel: 7 for the children, 3 for spare wheels. Bring all 20; legs bend. \\
+Small whiteboards, markers & -- & 1 & 1 & 3 & Trying settings; one more, pre-drawn, for the launch. \\
+Scrap paper & -- & 10 & 10 & 20 & Messages and fallback code games. \\
+\bottomrule
+\end{tabularx}}
+
+\medskip
+\textbf{What to print.} Single-sided, US Letter, at 100\% (``Actual size'', not ``Fit to page''). Every child
+gets their own copy, because every child draws.
+
+{\small\begin{tabularx}{\textwidth}{@{}l l c L@{}}
+\toprule
+Table & Pages & Copies & How to hand out \\
+\midrule
+K--1 & \texttt{k-1.pdf} pp.\ 1--10 & 6 each & 4 children, 1 adult, 1 spare. One page at a time; keep the rest in order with you. \\
+2--3 & \texttt{grades-2-3.pdf} pp.\ 1--7 & 6 each & 4 children, 1 adult, 1 spare. Staple pp.\ 1--7. \\
+2--3 & \texttt{grades-2-3.pdf} pp.\ 8--9 (wheels) & 6 each & 4 children, 2 for spare wheels. Card stock if the printer takes it. \\
+4--5 & \texttt{grades-4-5.pdf} pp.\ 1--9 & 5 each & 3 children, 1 adult, 1 spare. Staple pp.\ 1--9. \\
+4--5 & \texttt{grades-4-5.pdf} pp.\ 10--11 (wheels) & 4 each & 3 children, 1 for a spare wheel. \\
+\bottomrule
+\end{tabularx}}
+
+\medskip
+\textbf{Before the session}
+\begin{enumerate}
+\item \textbf{Check the scale.} The outer wheel must measure 5.5 inches across and the inner wheel 4 inches. If
+  not, the printer shrank the page: reprint at actual size.
+\item \textbf{Check the counters on the K--1 dots.} The dots on the big rings (K--1 pp.\ 1--3, 6, 7) are
+  0.8 inch (20 mm) across. Put a real counter on a printed page 1: it should sit on one dot without touching the
+  next. A 3/4-inch counter fits inside a dot; a 1-inch counter overhangs a little and is fine if you can still see
+  which dot it is on. If the counters are too big, use pennies. On the picture rings (pp.\ 8--10) a counter
+  covers the picture, so children set it just outside the picture's circle.
+\item \textbf{Pierce the wheel centres.} Stack the outer-wheel pages and push a pushpin through the centre cross;
+  do the same with the inner-wheel pages. Children then only need to push the fastener through.
+\item \textbf{Make 3 spare wheels} (2 for the 2--3 table, 1 for 4--5). Cut both circles on the line, put the
+  inner wheel on top, push a fastener through both centres, and open the legs flat on the back, not tight.
+  \textbf{Test one:} turn the inner A to the outer D; the inner C, A, T must sit beside the outer F, D, W, the
+  inner wheel must turn freely, and every outer letter must show around the inner wheel.
+\item \textbf{Cutting time.} Children cut their own wheels when they reach Problem 4. Cutting both circles and
+  fastening takes a third grader about 10 minutes and a fourth or fifth grader about 5--7 minutes. Rough cutting
+  is fine as long as no letter is cut; cut the inner wheel on its line or just inside it. A child still cutting
+  after 10 minutes gets a spare wheel and finishes their own at home.
+\item \textbf{Launch board.} On a whiteboard draw a ring of 5 dots as large as the board allows, each dot about
+  1 inch across. Fill in the top dot and draw a clockwise arrow inside the ring. Have 1 counter.
+\item \textbf{K--1 kits.} For each pair, a cup with 1 counter of one colour (the hopper) and 7 of another
+  colour (markers). K--1 gets no letter wheel: its secret hops use the printed ring of pictures (pp.\ 8--10).
+\end{enumerate}
+
+% =====================================================================================
+\section{The hour}
+
+{\small\begin{tabularx}{\textwidth}{@{}l l L@{}}
+\toprule
+0:00--0:05 & Running around & \\
+0:05--0:08 & Launch & Everyone stands around one table; the organizer leads. \\
+0:08--0:48 & Tables & About 40 minutes. 2--3 and 4--5 should reach the wheel (Problem 4) by about 0:28. \\
+0:48--0:55 & Sharing & One question, one answer from each table. \\
+\bottomrule
+\end{tabularx}}
+
+\subsection{Launch: one hop, 2--3 minutes}
+The organizer holds the launch board (ring of 5, black dot at the top) and one counter.
+\begin{enumerate}
+\item Adult puts the counter on the black dot. Says: \emph{``Five dots. A hop of 2 moves the counter two dots the
+  way the arrow points.''}
+\item Adult hops once, touching each dot: \emph{``One, two.''} Draws a straight line from the black dot to the
+  dot where the counter landed.
+\item Adult makes one wrong move on purpose: counts the dot the counter is sitting on as ``one'' and moves only one
+  dot. Asks: \emph{``Was that a hop of 2?''} The children say no; the adult moves it back.
+\item Says: \emph{``Who will do the next hop?''} One child moves the counter, touching each dot and saying ``one,
+  two''. A legal move goes exactly two dots clockwise, with ``one'' on the next dot. The adult draws the line. The
+  child keeps going until the counter is back on the black dot. The drawing is a five-pointed star.
+\item Says: \emph{``Every dot got a line. Does that always happen? At your tables you will find out with other
+  rings and other hops. The older tables will also make hops on a wheel of letters, to make secret codes.''}
+\end{enumerate}
+
+\subsection{Pairs at each table}
+\begin{itemize}
+\item \textbf{K--1, two pairs:} a kindergartner with a first grader. One child hops the counter and counts aloud;
+  the partner puts a marker on each dot it lands on and says ``back'' when it reaches the black dot. Both draw the
+  hop on their own small ring. Swap jobs for every new hop.
+\item \textbf{2--3, two pairs.} On ring pages one child draws while the partner counts each hop aloud on the dots
+  and checks that the line ends on the right dot; swap every ring. With wheels each child codes on their own wheel;
+  in Problem 5 partners code for each other.
+\item \textbf{4--5, a pair and a referee,} rotating at each new problem. On ring pages the referee chooses which
+  rings each player draws and checks the lines and the count. With codes the referee writes a code with a secret
+  setting and the pair cracks it.
+\end{itemize}
+
+\subsection{When attention runs out}
+\begin{itemize}
+\item \textbf{K--1: pass the counter.} Stand around the table: 4 children and the adult make 5 people. Pass a
+  counter to the person 2 places along, everyone saying ``one, two''. Does everyone get it before it comes back?
+  (Yes.) Then the adult steps out, leaving 4, and they pass by 2 again: two children never get it. Ask which pass
+  would reach everyone (1 or 3).
+\item \textbf{2--3: secret names.} One child writes an animal's name in code with a secret setting; the partner
+  cracks it with their wheel; swap. Before wheels are made: colour each start of a finished drawing a different
+  colour and count the colours.
+\item \textbf{4--5: crack race.} The referee writes one word in code with a secret setting; the other two race to
+  crack it; the winner is the next referee.
+\end{itemize}
+
+\subsection{Sharing question}
+\emph{``Name a ring and a hop where you had to start again. Could you have told before you drew it?''}
+
+% =====================================================================================
+\section{Table by table}
+
+\subsection{K--1 (parent volunteer)}
+Read each problem aloud once, then show it with the counter. The children do not read; the rings and boxes carry
+the task. ``Lands on every dot'' means every dot gets a marker before the counter is back on the black dot. In the
+drawings, a line goes from the dot the counter left to the dot where it landed. Counting starts on the next dot:
+on 4 dots, hop 3 from the top lands on the dot to the left of the top.
+
+\textbf{Core:} Problems 1--4. \textbf{Further:} 8, then 6--7, 5, 9, 10. If drawing gets tiring after Problem 3
+or 4, switch to Problem 8 (pictures). \textbf{If a child is struggling:} the child hops and you draw the lines;
+do hops 1 and 2 on each ring; skip Problems 5, 9 and 10.
+
+\pb{1--3}{\core}{Rings of 4, 5 and 6 dots, hops 1, 2, 3. Hop the counter on the big ring, draw each hop on its
+small ring, circle the hops that land on every dot.}
+\ans Circle hops 1 and 3 on 4 dots; all three on 5 dots; only hop 1 on 6 dots.
+
+{\small\begin{tabularx}{\textwidth}{@{}l L L L@{}}
+\toprule
+& hop 1 & hop 2 & hop 3 \\
+\midrule
+4 dots & all 4 dots: a square \checkmark & 2 dots: one line, there and back & all 4: same square, other way \checkmark \\
+5 dots & all 5: a pentagon \checkmark & all 5: a five-pointed star \checkmark & all 5: the same star the other way \checkmark \\
+6 dots & all 6: a hexagon \checkmark & 3 dots: a triangle & 2 dots: one line across \\
+\bottomrule
+\end{tabularx}}
+\begin{hints}
+\item ``Put your finger on the next dot and say one. Where does the last number land?''
+\item ``Put a marker on every dot the counter lands on. When it is back on the black dot, is any dot bare?''
+\item ``Count the markers. How many dots are on the ring?''
+\end{hints}
+\say ``On 6 dots, hop 2 came back after 3 hops. Why so soon?'' (2, 4, 6: three hops make one trip round.)
+
+\pb{4}{\core}{Draw the hops; when you are back and a dot has no line, start again there with the same hop.
+Write how many times you started.}
+\ans 6 dots, hop 2: \textbf{2} (two triangles make a six-pointed star). 6 dots, hop 3: \textbf{3} (three lines
+through the middle). 8 dots, hop 2: \textbf{2} (two squares). 8 dots, hop 3: \textbf{1} (an eight-pointed star).
+The first start counts: a child who writes 1, 2, 1, 0 is counting only the restarts. Ask ``How many times did you
+put your pencil down to start?''
+\begin{hints}
+\item ``You are back at the black dot. Point to a dot with no line.''
+\item ``Start there with the same hop, in a new colour.''
+\item ``Count the colours.''
+\end{hints}
+
+\pb{5}{\further}{Find every hop from 1 to 5 that draws each picture. The four small rings are for trying.}
+\ans Pentagon: hops \textbf{1, 4}. Five-pointed star: \textbf{2, 3}. Hexagon: \textbf{1, 5}. Six-pointed star:
+\textbf{2, 4}. Three crossing lines: \textbf{3}. (Hop 5 on 5 dots does not move.)
+\begin{hints}
+\item ``Count the dots of this picture. Which ring has that many?''
+\item ``Look back at your drawings on pages 2--4. Which one matches?''
+\item ``Try hop 4 on a small ring of 5 dots. Which picture does it make?'' (Hop 4 on 5 dots is one step backwards.)
+\end{hints}
+
+\pb{6--7}{\further}{Ring of 7 dots: hops 1, 2, 3, then hops 4, 5, 6.}
+\ans Every hop lands on every dot: circle all six. Hops 1 and 6 draw the seven-sided shape, hops 2 and 5 one
+seven-pointed star, hops 3 and 4 a pointier seven-pointed star.
+\begin{hints}
+\item Markers again: ``Is any dot bare when it is back?''
+\item ``On 6 dots some hops missed dots. Does any hop miss on 7?''
+\item ``Put hop 6 next to hop 1. Same picture?''
+\end{hints}
+\say ``Seven counters cannot be put into equal piles, unless each pile is just one. That is why no hop comes back
+early.''
+
+\pb{8}{\further}{Hop 2 on the ring of pictures, row by row, until the top row comes back.}
+\ans Clockwise from the top, the ring is sun, moon, heart, tree, fish, house. The rows are
+\textbf{heart, house, sun}; then \textbf{fish, moon, heart}; then \textbf{sun, tree, fish} (the top row again).
+The last two rows of boxes stay empty.
+\begin{hints}
+\item ``Put a counter beside the sun on the ring and hop it 2. Which picture is it next to?''
+\item ``Draw that picture in the box under the sun. Now do the tree.''
+\item ``Is the new row the same as the top row? If not, keep going.''
+\end{hints}
+
+\pb{9}{\further}{Which hop changes the picture back?}
+\ans Hop 1 is undone by hop \textbf{5}, hop 2 by \textbf{4}, hop 3 by \textbf{3}, hop 4 by \textbf{2}. Each
+pair adds to 6: once round the ring.
+\begin{hints}
+\item ``Put the counter on the middle picture. Hop one place at a time until you reach the picture on the right.
+  Count the hops.''
+\item ``Write that number in the box.''
+\item ``Look at hop 1 and its answer, and hop 2 and its answer. What do they add up to?''
+\end{hints}
+
+\pb{10}{\further}{A secret hop changed the sun into the tree. Draw what it does to four pictures.}
+\ans The secret hop is 3. Moon $\to$ \textbf{fish}, heart $\to$ \textbf{house}, fish $\to$ \textbf{moon},
+house $\to$ \textbf{heart}.
+\begin{hints}
+\item ``Put the counter on the sun. Hop one place at a time to the tree and count.''
+\item ``Start on the moon and make the same number of hops.''
+\end{hints}
+
+% -------------------------------------------------------------------------------------
+\subsection{Grades 2--3 (mathematician)}
+The rule is printed at the top of page 1. \textbf{Core:} Problems 1, 3, 4, 5, and 2 as time allows.
+\textbf{Further:} 6, 7, 8, 9. Move every child to Problem 4 (the wheel) by about 20 minutes into table time, even
+with Problems 2--3 unfinished; they can return to them. \textbf{If a child is struggling:} on Problem 2 draw only
+hops 2 and 5; skip the guesses on Problem 3; decode two of the codes in Problem 4.
+
+\pb{1, 2, 3, 6}{\core\ (6: \further)}{Draw each hop and count the starts; on Problems 3 and 6, guess first.}
+
+{\small\begin{tabularx}{\textwidth}{@{}l l c L@{}}
+\toprule
+Problem & Ring, hop & Starts & What appears \\
+\midrule
+1 & 8 dots: hop 1, 2, 3, 4 & 1, 2, 1, 4 & octagon; two squares; eight-pointed star; four lines through the middle \\
+2 & 10 dots: hop 2, 3, 4, 5 & 2, 1, 2, 5 & two pentagons; ten-pointed star; two five-pointed stars; five lines through the middle \\
+3 & 12 dots: hop 2, 3, 4, 5, 6 & 2, 3, 4, 1, 6 & two hexagons; three squares; four triangles; twelve-pointed star; six lines through the middle \\
+6 & 9 dots, hop 2 & 1 & nine-pointed star \\
+  & 15 dots, hop 5 & 5 & five triangles \\
+  & 16 dots, hop 6 & 2 & two eight-pointed stars \\
+  & 12 dots, hop 8 & 4 & four triangles, the same picture as hop 4 drawn the other way \\
+\bottomrule
+\end{tabularx}}
+\begin{hints}
+\item ``Put your pencil on a dot and count the hop aloud, touching each dot.''
+\item ``You are back where you started. Is there a dot with no line? Start there in a new colour.''
+\item ``How many dots did one start reach? How many groups that size make all the dots?'' (Problem 6, 12 dots
+  hop 8: ``Count the other way round. Which smaller hop lands on the same dot?'')
+\end{hints}
+On Problem 3 many children guess ``starts = hop''. It is right for hops 2, 3, 4, 6 (they go evenly into 12) and
+wrong for hop 5. Ask why hop 5 is different.
+
+\pb{4}{\core}{Cut out and join the wheel; with the wheel set to D, find what each code came from.}
+\ans VWDU = \textbf{STAR}; IRA = \textbf{FOX}; ZKHHO = \textbf{WHEEL}; SHQFLO = \textbf{PENCIL};
+L FDQ GUDZ D VWDU = \textbf{I CAN DRAW A STAR}. To decode, find the code letter on the outer wheel and read the
+inner letter beside it. The usual mistake is to go inner to outer, which codes it again (VWDU becomes YZGX).
+\begin{hints}
+\item ``Is your inner A beside the outer D? Check that CAT gives FDW.''
+\item ``Find V on the outer wheel. Which inner letter is beside it?''
+\item ``You made code by going from inner to outer. Which way undoes it?''
+\end{hints}
+
+\pb{5}{\core}{Write a message of five or more words in code for your partner; swap and decode.}
+\ans No fixed answer. Check that the partner's decoding gives back the message. Nonsense usually means a wrong
+setting or a wheel that slipped.
+\begin{hints}
+\item ``Find each letter on the inner wheel and write the outer letter beside it.''
+\item ``Hold the wheel still with your thumb while you code.''
+\item ``Decode the first word together and compare.''
+\end{hints}
+
+\pb{7}{\further}{On rings of 9, 16, 18, 15 dots find a hop bigger than 3 with exactly 3 starts, or explain why
+there is none.}
+\ans All hops smaller than the ring: 9 dots \textbf{6}; 16 dots \textbf{none}; 18 dots \textbf{15} only (6, 9, 12
+give 6, 9, 6 starts); 15 dots \textbf{6, 9 or 12}.
+\textbf{Why not 16, with counters:} every start reaches the same number of dots, and the starts together use all
+16 dots. Three starts would put 16 counters into 3 equal piles, but 16 counters make 5, 5, 5 with 1 left over.
+\begin{hints}
+\item ``Which hop gave 3 starts on 12 dots, in Problem 3?''
+\item ``On 9 dots, hop 3 gives 3 starts. Which bigger hop lands on the same dots, going the other way?''
+\item ``For 16 dots: put 16 counters into 3 equal piles.''
+\end{hints}
+
+\pb{8}{\further}{Crack two codes made with unknown settings.}
+\ans Setting H: \textbf{A STAR CAN HAVE TEN POINTS}. Setting Q: \textbf{MEET ME BY THE BIG TREE}. The one-letter
+word H must be A or I; A $\to$ H is setting H. In the second message CUUJ and JHUU have double letters; setting
+Q codes E as U, so UU decodes to EE.
+\begin{hints}
+\item ``Which words have one letter? If H came from A, where must the wheel be set?''
+\item ``Set it there and try the next word. Is it a word?''
+\item ``CUUJ has a double letter in the middle. Think of four-letter words like that, and try the setting.''
+\end{hints}
+
+\pb{9}{\further}{Second setting that gives the word back.}
+\ans D $\to$ \textbf{X}; H $\to$ \textbf{T}; N $\to$ \textbf{N}; W $\to$ \textbf{E}. The two turns add up to one
+full turn of 26 (D is 3 places, X is 23).
+\begin{hints}
+\item ``Set the wheel to D and code A. Which setting takes that letter back to A?''
+\item ``How many places did D move A? How many more to get all the way round?''
+\item ``Why is N its own undo?'' (13 and 13 make 26.)
+\end{hints}
+
+% -------------------------------------------------------------------------------------
+\subsection{Grades 4--5 (organizer)}
+\textbf{Core:} Problems 1, 2, 3, 4, 6, 7. \textbf{Further:} 5, 8, 9, 10, 11; 12 is the extension. ``Pieces''
+means starts: the page-1 rule says so, and the pieces of a drawing cross each other, so counting connected parts
+would give 1 every time. \textbf{If a child is struggling:} draw only the first row of Problem 2 and go on to
+Problem 4.
+
+\pb{1--3}{\core}{Count the pieces: 12 dots with hops 1--6; six mixed rings; then seven cases without drawing.}
+
+{\small\begin{tabularx}{\textwidth}{@{}l l c L@{}}
+\toprule
+Problem & Ring, hop & Pieces & What appears \\
+\midrule
+1 & 12 dots: hop 1, 2, 3, 4, 5, 6 & 1, 2, 3, 4, 1, 6 & 12-gon; 2 hexagons; 3 squares; 4 triangles; 12-pointed star \{12/5\}; 6 lines through the middle \\
+2 & 10 dots, hop 4 & 2 & two five-pointed stars \\
+  & 9 dots, hop 6 & 3 & three triangles \\
+  & 15 dots, hop 10 & 5 & five triangles \\
+  & 16 dots, hop 12 & 4 & four squares \\
+  & 18 dots, hop 8 & 2 & two nine-pointed stars \{9/4\} \\
+  & 24 dots, hop 9 & 3 & three eight-pointed stars \{8/3\} \\
+3 & 20/8, 24/10, 30/12, 36/27 & 4, 2, 6, 9 & 20/8: four five-pointed stars; 24/10: two \{12/5\} stars \\
+  & 17/5, 100/35, 60/45 & 1, 5, 15 & \\
+\bottomrule
+\end{tabularx}}
+\begin{hints}
+\item ``Colour each piece differently and count the colours.''
+\item ``Number the dots 0, 1, 2, \dots{} Which numbers does the first piece land on?''
+\item ``What does the number of pieces have to do with the dots and the hop? Try the biggest number that goes
+  into both.''
+\end{hints}
+
+\pb{4}{\core}{Make the wheel; crack four codes; find two words for MROOB.}
+\ans Setting J: \textbf{I DREW A STAR WITH TWELVE POINTS}. Setting S: \textbf{WE MEET AT NOON BY THE BIG TREE}.
+Setting X: \textbf{BALLOON}. MROOB: \textbf{CHEER} (setting K) and \textbf{JOLLY} (setting D); the only other
+dictionary word is DIFFS (setting J). Clues: a one-letter word is A or I; YXIILLK has two double letters.
+\begin{hints}
+\item ``Which words have one letter? If R came from I, where is the wheel set?''
+\item ``Look at the double letters. Which seven-letter word has two pairs of doubles?''
+\item ``For MROOB, try every setting and write all 25 results.''
+\end{hints}
+
+\pb{5}{\further}{Code a message of six or more words with a secret setting; a partner cracks it.}
+\ans No fixed answer; the referee checks. Good as a fallback.
+\begin{hints}
+\item ``Find each letter on the inner wheel and write the outer letter beside it.''
+\item Referee: ``Decode the first word yourself and compare.''
+\end{hints}
+
+\pb{6}{\core}{Two settings in a row: which single setting does the same?}
+\ans H, K $\to$ \textbf{R}; D, F $\to$ \textbf{I}; T, M $\to$ \textbf{F}; P, L $\to$ \textbf{A}; missing second
+setting after H for A: \textbf{T}. Add the places (A = 0, B = 1, \dots), going round past Z: T then M is
+19 + 12 = 31, and 31 $-$ 26 = 5, which is F.
+\begin{hints}
+\item ``Code A with H, then code the result with K. Where did A go?''
+\item ``How many places does H move a letter? K? Both together?''
+\item ``T then M moves 31 places. Where is that on a ring of 26?''
+\end{hints}
+
+\pb{7}{\core}{Write the rule for the number of pieces and explain it.}
+\ans Pieces = the biggest number that goes into both the number of dots and the hop.
+\textbf{An explanation a child can give on the 12-dot ring with hop 8.} Number the dots 0 to 11. The first piece
+lands on 0, 8, 4 and back to 0. Those are all in the 4-times table, because 8 and 12 are, and going past 12 just
+takes 12 away. So dots 1, 2, 3 are never reached and each needs its own start: at least 4 pieces. Each piece is
+the first one turned one dot along, so every piece has the same number of dots. The pencil is back when the hops
+add up to whole laps: 8, 16, 24, and 24 is two laps after 3 hops. So a piece has 3 dots, and 12 dots make
+12 $\div$ 3 = 4 pieces. The same two steps work for any ring and hop.
+\begin{hints}
+\item ``Make a table of dots, hop and pieces from Problems 1--3. What do you notice?''
+\item ``Which dots does the first piece land on? Which times table are they in?''
+\item ``Why can the first piece never reach dot 1?''
+\end{hints}
+
+\pb{8}{\further}{Rings from 4 to 20 dots where every hop draws a line to every dot with one start.}
+\ans \textbf{5, 7, 11, 13, 17, 19.}
+\textbf{Why the list is complete.} If the number of dots is in a smaller number's times table (other than 1), hop
+by that number: you land only on its times table and miss dots. Hop 2 rules out 4, 6, 8, 10, 12, 14, 16, 18, 20,
+and hop 3 rules out 9 and 15. For 5, 7, 11, 13, 17, 19: the pieces all have the same number of dots, so they share
+the dots out in equal piles. Seven counters make equal piles only as one pile of 7 or seven piles of 1, and a
+piece of one dot means the hop never moved. So every hop gives one piece.
+\begin{hints}
+\item ``Try 6: which hop misses dots? Now try 7.''
+\item ``For a ring that fails, how is the failing hop related to the number of dots?''
+\item ``Can 7 counters go into equal piles, with more than one pile and more than one in each?''
+\end{hints}
+
+\pb{9}{\further}{Erased dots: find the number of dots and a hop.}
+\ans Top left \textbf{15 dots, hop 6 or 9} (three five-pointed stars). Top right \textbf{20 dots, hop 5 or 15}
+(five squares). Bottom left \textbf{14 dots, hop 6 or 8} (two seven-pointed stars). Bottom right \textbf{21 dots,
+hop 6 or 15} (three seven-pointed stars). Either hop is right: hop $k$ and hop $n-k$ draw the same lines.
+\begin{hints}
+\item ``Every dot was the end of a line. Count the points around the outside.''
+\item ``Follow one line from a point to its other end. Counting around the outside, how many points along is that?''
+\item ``Count the separate shapes and the corners of one. Does shapes $\times$ corners give the dots?''
+\end{hints}
+
+\pb{10}{\further}{Is coding twice harder to crack?}
+\ans No. Two settings in a row are one setting (H then K is R, Problem 6), so Lee's code is an ordinary
+one-setting code and still falls in at most 25 tries. If his two settings add to a full turn, such as H then T,
+the message comes out not coded at all.
+\begin{hints}
+\item ``Look at Problem 6. What did H then K make?''
+\item ``How many different single settings are there?''
+\end{hints}
+
+\pb{11}{\further}{Setting C from A; which settings take A through all 26 letters?}
+\ans Setting C: A, C, E, G, I, K, M, O, Q, S, U, W, Y, then A again (13 letters). All 26:
+\textbf{B, D, F, H, J, L, P, R, T, V, X, Z} (12 settings).
+\textbf{Why the list is complete.} The letters are a ring of 26 dots and a setting is a hop. An even setting
+(C, E, \dots, Y) lands only on A, C, E, \dots{} and never on B. N goes A, N, A. A does not move. Every other
+setting is odd and not N; the only numbers that go into 26 are 1, 2, 13, 26, so the biggest number going into
+both is 1: one piece, all 26 letters.
+\begin{hints}
+\item ``List the letters for C. Which never appear?''
+\item ``Try B, D and E. What do the ones that fail have in common?''
+\item ``The wheel is a ring of 26 dots. Use your rule from Problem 7.''
+\end{hints}
+
+\pb{12}{\ext}{Times tables on 24 numbered dots: $m \to 2m$ and $m \to 3m$, counting round past 23.}
+\ans $\times2$: a heart shape (cardioid) with its dent at dot 0, at the top. Dot 0 gets no line; 8--16 is drawn
+twice (8 $\to$ 16 and 16 $\to$ 8), so there are 22 different lines. $\times3$: a two-lobed shape (nephroid) with
+dents at dots 0 and 12. Dots 0 and 12 get no line; 3--9, 6--18 and 15--21 are each drawn twice, so there are
+19 different lines.
+\begin{hints}
+\item ``Where does dot 12 go? Dot 13?''
+\item ``Draw from dot 1, 2, 3, \dots{} in order and watch the curve appear.''
+\end{hints}
+
+% =====================================================================================
+\section{The mathematics behind the week}
+
+\textbf{Model.} Number the dots $0,\dots,n-1$ clockwise. A hop of $k$ is $i \mapsto i+k \pmod n$. A start at $s$
+draws $s, s+k, s+2k,\dots$ until it returns to $s$.
+
+\textbf{Pieces.} Let $g=\gcd(n,k)$. Then every piece has $n/g$ dots and there are $g$ pieces.
+\emph{Proof.} $s+jk\equiv s \pmod n$ iff $n \mid jk$ iff $\tfrac{n}{g} \mid j\tfrac{k}{g}$ iff $\tfrac{n}{g}\mid j$,
+since $\gcd(\tfrac{n}{g},\tfrac{k}{g})=1$. So each piece has $n/g$ dots and the $n$ dots split into $g$ pieces.
+The piece through 0 is the set of multiples of $k$ mod $n$, which is the set of multiples of $g$ (Bézout:
+$g=ak+bn$); the others are its turns by $1,\dots,g-1$ dots. Each piece is the regular star polygon
+$\{m/j\}$ with $m=n/g$, $j=k/g$: a polygon when $j\equiv\pm1 \pmod m$, a segment when $m=2$.
+
+\textbf{Hop $k$ and hop $n-k$} draw the same lines in opposite directions, since $-k\equiv n-k$.
+
+\textbf{One piece for every hop iff $n$ is prime.} If $n=ab$ with $1<a<n$, hop $a$ gives $a$ pieces. If $n$ is
+prime, $\gcd(n,k)=1$ for $1\le k<n$. In general $\varphi(n)$ hops give one piece, making $\varphi(n)/2$ different
+pictures (12 dots: hops 1, 5, 7, 11; two pictures).
+
+\textbf{The wheel is $\mathbb{Z}/26$.} With A $=0,\dots,$ Z $=25$, setting $s$ codes $x\mapsto x+s \pmod{26}$:
+hop $s$ on a ring of 26. Two settings make one, $(x+s)+t=x+(s+t)$, and $26-s$ undoes $s$. The 26 shifts form a
+group, so coding twice never leaves them (Problem 10), and any code falls in at most 25 tries. Shifts keep word
+lengths and repeated letters, which is why BALLOON and one-letter words give a code away.
+
+\textbf{Full cycles.} Repeating setting $s$ from A visits $26/\gcd(26,s)$ letters, by the pieces fact with
+$n=26$. All 26 iff $\gcd(s,26)=1$, that is $s$ odd and $s\neq13$: $\varphi(26)=12$ settings, the generators of
+$\mathbb{Z}/26$. Setting C ($s=2$) gives 13 letters.
+
+\textbf{Times tables.} As $n$ grows, the chords $m\mapsto km \pmod n$ outline an epicycloid with $k-1$ cusps
+(the cardioid for $k=2$, the nephroid for $k=3$). The cusps sit at the fixed points, $(k-1)m\equiv0 \pmod n$:
+dot 0 for $\times2$ and dots 0 and 12 for $\times3$ on 24 dots.
+
+\textbf{Where it goes next.} Generators of cyclic groups and Euler's $\varphi$; the multiplying code
+$x\mapsto ax$ and the affine code $x\mapsto ax+b$, which can be undone exactly when $\gcd(a,26)=1$ (Problem 11
+again, seen through multiplication); codes that change setting letter by letter (Vigenère), which defeat the
+try-all-settings attack; the order of a perfect shuffle of a deck of cards; Coxeter's star polygons $\{n/k\}$.
+
+% =====================================================================================
+\section{After the session: what to write down}
+
+For each table, write which problems the children reached, what they tried and said (their words), and a
+drawing or claim worth keeping (photograph the page). For each claim, tick how far it got: \textbf{tried} (one
+case), \textbf{guessed} (said without checking), \textbf{checked} in some cases, or \textbf{explained} (a reason
+given).
+
+\newcommand{\rec}[1]{%
+\par\needspace{14\baselineskip}\vspace{6pt}\noindent\textbf{#1}\par
+\noindent Problems reached (circle):}
+\newcommand{\claimrow}[1]{#1 & $\square$ & $\square$ & $\square$ & $\square$ \\}
+\newcommand{\claimhead}{\begin{tabularx}{\textwidth}{@{}L c c c c@{}}
+\toprule Claim to listen for & tried & guessed & checked & explained \\ \midrule}
+\newcommand{\notelines}[1]{\par\noindent #1\par\vspace{2pt}\noindent\rule{\textwidth}{0.4pt}\par\vspace{14pt}\noindent\rule{\textwidth}{0.4pt}\par}
+
+\rec{K--1} 1 \quad 2 \quad 3 \quad 4 \quad 5 \quad 6 \quad 7 \quad 8 \quad 9 \quad 10
+\par\smallskip
+\claimhead
+\claimrow{Hop 1 lands on every dot.}
+\claimrow{On 6 dots, hop 2 and hop 3 come back too soon.}
+\claimrow{On 7 dots every hop lands on every dot.}
+\claimrow{A hop and the hop that changes a picture back make 6.}
+\claimrow{Other: \hrulefill}
+\bottomrule
+\end{tabularx}
+\notelines{What they tried and said; a drawing worth keeping:}
+
+\rec{Grades 2--3} 1 \quad 2 \quad 3 \quad 4 \quad 5 \quad 6 \quad 7 \quad 8 \quad 9
+\par\smallskip
+\claimhead
+\claimrow{The number of starts is the hop (true only when the hop goes evenly into the dots).}
+\claimrow{The number of starts goes evenly into the number of dots.}
+\claimrow{Hop 8 on 12 dots is hop 4 the other way.}
+\claimrow{16 dots cannot have 3 starts, because 16 does not split into 3 equal piles.}
+\claimrow{A setting and its undo add up to 26.}
+\bottomrule
+\end{tabularx}
+\notelines{What they tried and said; a drawing worth keeping:}
+
+\rec{Grades 4--5} 1 \quad 2 \quad 3 \quad 4 \quad 5 \quad 6 \quad 7 \quad 8 \quad 9 \quad 10 \quad 11 \quad 12
+\par\smallskip
+\claimhead
+\claimrow{Pieces = the biggest number that goes into both the dots and the hop.}
+\claimrow{A ring has one piece for every hop exactly when its number has no smaller factors (prime).}
+\claimrow{Two settings make one: add them, going round past Z.}
+\claimrow{The odd settings other than N take A through all 26 letters.}
+\claimrow{Coding twice is no harder to crack.}
+\bottomrule
+\end{tabularx}
+\notelines{What they tried and said; a drawing or claim worth keeping:}
+
+\end{document}

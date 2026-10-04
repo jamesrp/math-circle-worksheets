@@ -1,0 +1,88 @@
+{
+  "week": 21,
+  "topic": "Shortest routes",
+  "overview": [
+    "Two ordered parallel-wall contacts: with both endpoints strictly between the walls, reflect the finish across the last wall, then across the first. Every legal broken route has the same length as its unfolded copy and is at least the straight distance to that image. When that segment crosses both wall copies in order and within the allowed segments, folding back attains the unique minimum. Reversing contact order generally changes the image and length. Printed minima are sqrt(136) and sqrt(232) grid units, with lower-then-upper shorter.",
+    "Closed contact windows: for endpoints strictly off the line on the same side, the sum of their two contact distances is strictly convex along the line. It decreases toward the unique reflected optimum and increases away from it. A closed window missing that optimum is minimized at its nearer endpoint along the line. For the printed two windows, contact (2,1) wins; endpoints are allowed. Open windows or on-line endpoints change the assumptions.",
+    "Rectangle obstacles: with open interior forbidden and boundary allowed, unnecessary bends can be straightened; a shortest detour bends only at visible corners. For the printed opposite endpoints there are two candidates, around the lower or upper corners. P4 uniquely favors the lower route; P5's mid-height symmetry gives exactly two shortest geometric routes, each 9 units. This is a different boundary rule from wall-touch routes and does not claim a general obstacle algorithm.",
+    "Grades 2-3 can compare strings and trace copies; ordered contacts and global explanations suit grades 4-5. Measurements suggest a winner; distance preservation and a lower bound establish optimality. Coordinates are adult checks."
+  ],
+  "readiness": [
+    "Shared Grades 2-5: hold string at dot centers, make straight legs and retain the stated legal region. Adults can read and help trace. P1-2 require two ordered contacts; P3 requires a closed-window rule; P4-5 allow travel along the obstacle edge. No fractions, square roots, protractor or coordinate calculations are required of children.",
+    "Current fixed KK11 / 3333 / 445 tables have one anchored adult each. Choose one investigation and its short launch per table per visit. Adults read or record while children own choices; pool cases into one checkable record. A K-1 oral rectangle-route comparison entry is suitable only while the child retains the rule."
+  ],
+  "materials": [
+    "Per pair: two 80 cm nonstretch strings, two straightedges, six tracing sheets, six plain Letter sheets, pencils, erasers, removable tape and a flat paper rectangle. Print the 160 mm square boards at 100%; each grid unit is 20 mm. Dot centers and ideal edges determine lengths, not string wrapped around thick pegs.",
+    "Tape an extra Letter sheet above or below a board for reflected images that fall off the printed page, preserving grid scale and wall labels. Prepare materials in about 10-15 minutes. Tracing registration, string handling and exact physical scale have not been rehearsed."
+  ],
+  "launch": "Let children handle string. Show one legal two-contact route and use the printed folded/upper-reflected/lower-reflected practice visual to match its contacts and lengths. Do not straighten it into a task answer. For a later obstacle visit demonstrate that boundary travel is legal while the shaded interior is forbidden. Keep the shared action launch brief.",
+  "route": "Allow roughly 20-35 minutes for P1-2, P3 or P4-5, on separate visits. Times are proposals. Begin concretely, then offer proof conversation. Retain one tracing or best route to resume.",
+  "investigations": [
+    {
+      "problem": "1-2",
+      "title": "Contact two walls in a prescribed order",
+      "entry": "Ready grades 2-3 can trace and fold with an adult; grades 4-5 can explain the length certificate. Gate: lower then upper is a different action from upper then lower. Allow 20-35 minutes, possibly an entire return visit.",
+      "solution": [
+        "Grid coordinates on both boards: lower y=1, upper y=7, A=(1,3), B=(7,5). P1 reflect B across y=7 to (7,9), then across y=1 to B''=(7,-7). Segment A-B'' meets lower at M=(11/5,1) and the unfolded upper copy y=-5 at (29/5,-5). Folding gives upper contact N=(29/5,7). Minimum is sqrt(136) units, or 20 sqrt(136) mm. Both contacts have x between 0 and 8, so the actual finite wall segments permit them.",
+        "P2 reflect B across y=1 to (7,-3), then across y=7 to (7,17). The straight segment meets upper at (19/7,7) and the unfolded lower copy y=13 at (37/7,13), folding to lower contact (37/7,1). Minimum is sqrt(232) units. Since 136<232, lower-then-upper is shorter. Both routes stay in the strip, use exactly the specified contacts and do not travel along a wall.",
+        "For either order, unfold any competitor by reflecting its final leg and then its last two legs. All leg lengths are preserved. Triangle inequality makes its total at least the corresponding straight image distance. Equality requires the straight segment, which fixes both contacts uniquely. A measured search alone cannot exclude every other contact pair.",
+        "Practice visual: A=(0.4,1), M=(1,0), N=(3,2), B=(4,1.2). The upper reflection gives B'=(4,2.8); the lower reflection gives N'=(3,-2), B''=(4,-2.8). It remains a broken path, legitimately illustrating the convention without supplying the shortest task route."
+      ],
+      "hints": [
+        "Ask which leg can be copied across the wall without changing its length. Match M and N to their primed images before drawing a straight candidate. If a construction seems illegal, check contact order and finite wall limits rather than treating every straight image line as automatically valid."
+      ],
+      "extensions": [
+        "If endpoint heights are hA,hB inside a strip of height H, the unfolded vertical magnitudes are 2H+hA-hB for lower-then-upper and 2H+hB-hA for upper-then-lower. Horizontal separation is unchanged. Thus the orders tie exactly when hA=hB, favor lower first when the finish is higher than the start, and upper first when the finish is lower. Any finite wall segments must contain the resulting contacts before this comparison applies."
+      ],
+      "notes": "These are finite shortest routes, distinct from a periodic billiard-return task. A string or tracing argument is a substantive proof representation; coordinate formulas remain adult checks."
+    },
+    {
+      "problem": "3",
+      "title": "Find a new optimum inside allowed windows",
+      "entry": "Grades 2-3 can slide string contacts along the two heavy windows; grades 4-5 can explain why their endpoints control every competitor. Gate: the light remainder of the line is not a legal contact. Allow 15-25 minutes.",
+      "solution": [
+        "Line y=1, A=(1,3), B=(7,5). Reflecting B gives (7,-3), so the unrestricted best contact is (3,1). It is outside both closed windows, x in [1/2,2] and x in [5,15/2]. The best left-window contact is x=2; the best right-window contact is x=5.",
+        "Left length is sqrt(5)+sqrt(41); right is 2 sqrt(20)=4 sqrt(5). Left wins because sqrt(41)<3 sqrt(5), equivalent to 41<45. Thus (2,1) is the unique legal optimum, with length about 8.639 units. The other window's best length is about 8.944 units.",
+        "Adult certificate for all contacts: each distance to an endpoint off the line is strictly convex along the line, by the triangle inequality applied to an intermediate contact. Their sum f is strictly convex with unique minimum x=3. If 3<c<d, c is between the minimum and d, and strict convexity gives f(c)<f(d); similarly on the other side. Therefore each closed window is minimized uniquely at its endpoint nearest 3. Comparing those two winners handles every allowed contact."
+      ],
+      "hints": [
+        "First locate the old reflected best point and check its legality. If children keep sliding to the illegal gap, put a paper cover there. Ask where each window's best attempt lies before comparing the two windows."
+      ],
+      "extensions": [
+        "If a closed window contains the unrestricted contact, the reflected route remains the unique optimum. If the winning window endpoint is excluded instead, the displayed minimum need not exist: lengths can approach that endpoint's value without attaining it. Use this as a distinction between an attained best route and an approaching lower bound, only with a ready pair."
+      ],
+      "notes": "This task asks for the replacement optimum when the old one is forbidden. It goes beyond the base packet's yes/no question about whether the old optimum remains allowed. String trials are the concrete entry; formal convexity is an adult explanation."
+    },
+    {
+      "problem": "4-5",
+      "title": "Shortest routes around a rectangle",
+      "entry": "Concrete string entry suits grades 2-3 and selected K-1 oral work; proof of all possible routes is a grades 4-5 return. Gate: obstacle edges may be followed here. Allow 20-30 minutes.",
+      "solution": [
+        "P4 rectangle is [2,6] by [2,5], with A=(0,3), B=(8,3). Lower-corner route A-(2,2)-(6,2)-B has length 4+2 sqrt(5), about 8.472 units. Upper-corner route A-(2,5)-(6,5)-B has length 4+2 sqrt(8), about 9.657 units. The lower route is uniquely shortest.",
+        "Why corners suffice: straighten a bend in free space; locally both legs remain away from the rectangle. At an interior point of a straight obstacle edge, both legs lie in its outside half-plane and can likewise be straightened unless they simply follow the edge. A shortest route therefore needs genuine bends only at corners. Removing loops cannot increase length. For the printed endpoints on opposite sides and between the rectangle's heights, the visible corner chains are the lower pair or upper pair; extra corners add a longer detour. The direct segment crosses the forbidden interior.",
+        "P5 endpoints are A=(0,3.5), B=(8,3.5), halfway up the same rectangle. Both lower and upper chains have outer legs 2.5 units and middle leg 4, total 9 units=180 mm. Mid-height reflection interchanges them and preserves lengths. There are exactly two geometric shortest routes; adding redundant points on a straight leg is the same route, not a new one. The corner certificate excludes other shapes.",
+        "Continuous straight legs may cross grid cells freely; the grid is not a road restriction. Wrapping around raised blocks or peg circumferences would change lengths and cannot certify this ideal flat-board problem."
+      ],
+      "hints": [
+        "After several trials, ask which bends could be pulled straight without entering the rectangle. Compare the two corner chains with the same string. For P5, fold along the rectangle's mid-height and match the routes before concluding a tie."
+      ],
+      "extensions": [
+        "With both endpoints at height h between the rectangle's sides and equal horizontal outside distances, the two chains tie exactly at its mid-height. Their outer leg squared lengths differ only by (h-bottom)^2 versus (top-h)^2. Below mid-height the lower wins; above it the upper wins. This is a restricted symmetric family, not a formula for arbitrary obstacles."
+      ],
+      "notes": "Boundary travel is legal only for this investigation. Record whether a child changes this rule from the earlier wall setting; a repeated reminder is evidence to retain, not a reason to abandon rich route mathematics."
+    }
+  ],
+  "sources": [
+    "Current Week 21 base outline and guide pp. 1,13-17 were read for the single-line theorem, its explicit restricted-window limit and existing extensions. These new questions change wall count/order, the constrained optimum or the obstacle rule.",
+    "Anton Petrunin, Euclidean Plane and Its Relatives, sections 1C and 5D, is the triangle-inequality/reflection context recorded in the base guide. Its body was not newly read here. All route certificates and finite coordinates above were independently derived.",
+    "Math Circle by the Bay, Preface pp. vii-x (local PDF pp. 8-11), actually read: manipulatives, student interaction and deep themes over time. Our string launch and readiness routes are proposals, not source-reported classroom outcomes."
+  ],
+  "verification": [
+    "The independent student math review checked every final-draft task and practice image with rational coordinates, reflection lengths, finite wall/window membership and equal scaling. It enumerated simple visible-corner paths for both obstacle boards. This guide maps the actual final wording and coordinates.",
+    "The final guide received a separate independent mathematical review. Both final PDFs were rendered and inspected and passed a clean extracted-source ZIP rebuild. See release-validation.json in the editable source package. No tracing, string-length, exact-scale or classroom rehearsal has occurred."
+  ],
+  "observations": [
+    "Record the investigations used, retained contact/corner routes and whether the child has a conjecture, a measured comparison or a global explanation.",
+    "Observe contact-order retention, legal window endpoints, boundary-rule changes, slipping string and mismatched reflection labels. Keep actual events separate from hypotheses about why a procedure needed adult support."
+  ]
+}

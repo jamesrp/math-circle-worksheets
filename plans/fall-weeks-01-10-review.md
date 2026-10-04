@@ -1,3 +1,5 @@
+> Later revision: the [September 27 application of Week 1 classroom guidance](fall-weeks-02-10-classroom-guidance-review.md) updates Weeks 2–10 again. The dated implementation record below describes the earlier packets; use the current print index and v3 plans for teaching.
+
 **Implementation update — September 20, 2026**
 
 The recommendations below have been implemented in the active plans, student/facilitator sources, preparation notes, and use log. Three subagents revised Weeks 2–4, 5–7, and 8–10 in parallel; the coordinator revised Week 1 and the shared materials, read the changed proof steps, and checked integration. The original September 19 review remains below as the rationale; its line references describe the pre-revision files and may now point to shifted lines.

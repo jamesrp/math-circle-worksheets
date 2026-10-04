@@ -1,0 +1,1184 @@
+{
+  "method": "Independent explicit transcription and exhaustive candidate/blocking-edge enumeration.",
+  "mutual": {
+    "left": {
+      "A": "XY",
+      "B": "YX"
+    },
+    "right": {
+      "X": "AB",
+      "Y": "BA"
+    },
+    "candidates": [
+      {
+        "matching": "AX/BY",
+        "blockers": []
+      },
+      {
+        "matching": "AY/BX",
+        "blockers": [
+          "AX",
+          "BY"
+        ]
+      }
+    ],
+    "stable": [
+      "AX/BY"
+    ]
+  },
+  "shared": {
+    "left": {
+      "A": "XY",
+      "B": "XY"
+    },
+    "right": {
+      "X": "AB",
+      "Y": "AB"
+    },
+    "candidates": [
+      {
+        "matching": "AX/BY",
+        "blockers": []
+      },
+      {
+        "matching": "AY/BX",
+        "blockers": [
+          "AX"
+        ]
+      }
+    ],
+    "stable": [
+      "AX/BY"
+    ]
+  },
+  "two": {
+    "left": {
+      "A": "XY",
+      "B": "YX"
+    },
+    "right": {
+      "X": "BA",
+      "Y": "AB"
+    },
+    "candidates": [
+      {
+        "matching": "AX/BY",
+        "blockers": []
+      },
+      {
+        "matching": "AY/BX",
+        "blockers": []
+      }
+    ],
+    "stable": [
+      "AX/BY",
+      "AY/BX"
+    ]
+  },
+  "cross": {
+    "left": {
+      "A": "YX",
+      "B": "XY"
+    },
+    "right": {
+      "X": "BA",
+      "Y": "AB"
+    },
+    "candidates": [
+      {
+        "matching": "AX/BY",
+        "blockers": [
+          "AY",
+          "BX"
+        ]
+      },
+      {
+        "matching": "AY/BX",
+        "blockers": []
+      }
+    ],
+    "stable": [
+      "AY/BX"
+    ],
+    "single_strip_tests": {
+      "A": [
+        "BX"
+      ],
+      "B": [
+        "AY"
+      ],
+      "X": [
+        "AY"
+      ],
+      "Y": [
+        "BX"
+      ]
+    }
+  },
+  "one_blocker": {
+    "left": {
+      "A": "YX",
+      "B": "YX"
+    },
+    "right": {
+      "X": "AB",
+      "Y": "AB"
+    },
+    "candidates": [
+      {
+        "matching": "AX/BY",
+        "blockers": [
+          "AY"
+        ]
+      },
+      {
+        "matching": "AY/BX",
+        "blockers": []
+      }
+    ],
+    "stable": [
+      "AY/BX"
+    ],
+    "single_strip_tests": {
+      "A": [],
+      "B": [
+        "AY"
+      ],
+      "X": [
+        "AY"
+      ],
+      "Y": []
+    }
+  },
+  "unique3": {
+    "left": {
+      "A": "XYZ",
+      "B": "XZY",
+      "C": "YXZ"
+    },
+    "right": {
+      "X": "CBA",
+      "Y": "ACB",
+      "Z": "BAC"
+    },
+    "candidates": [
+      {
+        "matching": "AX/BY/CZ",
+        "blockers": [
+          "BX",
+          "BZ",
+          "CX",
+          "CY"
+        ]
+      },
+      {
+        "matching": "AX/BZ/CY",
+        "blockers": [
+          "BX"
+        ]
+      },
+      {
+        "matching": "AY/BX/CZ",
+        "blockers": [
+          "CX"
+        ]
+      },
+      {
+        "matching": "AY/BZ/CX",
+        "blockers": []
+      },
+      {
+        "matching": "AZ/BX/CY",
+        "blockers": [
+          "AY"
+        ]
+      },
+      {
+        "matching": "AZ/BY/CX",
+        "blockers": [
+          "AY",
+          "BZ",
+          "CY"
+        ]
+      }
+    ],
+    "stable": [
+      "AY/BZ/CX"
+    ]
+  },
+  "three3": {
+    "left": {
+      "A": "ZXY",
+      "B": "YXZ",
+      "C": "XYZ"
+    },
+    "right": {
+      "X": "BAC",
+      "Y": "ACB",
+      "Z": "CBA"
+    },
+    "candidates": [
+      {
+        "matching": "AX/BY/CZ",
+        "blockers": [
+          "CY"
+        ]
+      },
+      {
+        "matching": "AX/BZ/CY",
+        "blockers": [
+          "BX"
+        ]
+      },
+      {
+        "matching": "AY/BX/CZ",
+        "blockers": []
+      },
+      {
+        "matching": "AY/BZ/CX",
+        "blockers": [
+          "AX",
+          "BX"
+        ]
+      },
+      {
+        "matching": "AZ/BX/CY",
+        "blockers": []
+      },
+      {
+        "matching": "AZ/BY/CX",
+        "blockers": []
+      }
+    ],
+    "stable": [
+      "AY/BX/CZ",
+      "AZ/BX/CY",
+      "AZ/BY/CX"
+    ]
+  },
+  "four4": {
+    "left": {
+      "A": "WXYZ",
+      "B": "XWZY",
+      "C": "YZWX",
+      "D": "ZYXW"
+    },
+    "right": {
+      "W": "BACD",
+      "X": "ABDC",
+      "Y": "DCAB",
+      "Z": "CDBA"
+    },
+    "candidates": [
+      {
+        "matching": "AW/BX/CY/DZ",
+        "blockers": []
+      },
+      {
+        "matching": "AW/BX/CZ/DY",
+        "blockers": []
+      },
+      {
+        "matching": "AW/BY/CX/DZ",
+        "blockers": [
+          "BW",
+          "BX",
+          "CY",
+          "CZ"
+        ]
+      },
+      {
+        "matching": "AW/BY/CZ/DX",
+        "blockers": [
+          "BW",
+          "BX",
+          "CY",
+          "DY"
+        ]
+      },
+      {
+        "matching": "AW/BZ/CX/DY",
+        "blockers": [
+          "BW",
+          "BX",
+          "CZ",
+          "DZ"
+        ]
+      },
+      {
+        "matching": "AW/BZ/CY/DX",
+        "blockers": [
+          "BW",
+          "BX",
+          "DY",
+          "DZ"
+        ]
+      },
+      {
+        "matching": "AX/BW/CY/DZ",
+        "blockers": []
+      },
+      {
+        "matching": "AX/BW/CZ/DY",
+        "blockers": []
+      },
+      {
+        "matching": "AX/BY/CW/DZ",
+        "blockers": [
+          "AW",
+          "BW",
+          "CY",
+          "CZ"
+        ]
+      },
+      {
+        "matching": "AX/BY/CZ/DW",
+        "blockers": [
+          "AW",
+          "BW",
+          "CY",
+          "DY"
+        ]
+      },
+      {
+        "matching": "AX/BZ/CW/DY",
+        "blockers": [
+          "AW",
+          "BW",
+          "CZ",
+          "DZ"
+        ]
+      },
+      {
+        "matching": "AX/BZ/CY/DW",
+        "blockers": [
+          "AW",
+          "BW",
+          "DY",
+          "DZ"
+        ]
+      },
+      {
+        "matching": "AY/BW/CX/DZ",
+        "blockers": [
+          "AX",
+          "BX",
+          "CY",
+          "CZ"
+        ]
+      },
+      {
+        "matching": "AY/BW/CZ/DX",
+        "blockers": [
+          "AX",
+          "BX",
+          "CY",
+          "DY"
+        ]
+      },
+      {
+        "matching": "AY/BX/CW/DZ",
+        "blockers": [
+          "AW",
+          "AX",
+          "CY",
+          "CZ"
+        ]
+      },
+      {
+        "matching": "AY/BX/CZ/DW",
+        "blockers": [
+          "AW",
+          "AX",
+          "CY",
+          "DY"
+        ]
+      },
+      {
+        "matching": "AY/BZ/CW/DX",
+        "blockers": [
+          "AW",
+          "AX",
+          "BW",
+          "BX",
+          "CY",
+          "CZ",
+          "DY",
+          "DZ"
+        ]
+      },
+      {
+        "matching": "AY/BZ/CX/DW",
+        "blockers": [
+          "AW",
+          "AX",
+          "BW",
+          "BX",
+          "CW",
+          "CY",
+          "CZ",
+          "DX",
+          "DY",
+          "DZ"
+        ]
+      },
+      {
+        "matching": "AZ/BW/CX/DY",
+        "blockers": [
+          "AX",
+          "BX",
+          "CZ",
+          "DZ"
+        ]
+      },
+      {
+        "matching": "AZ/BW/CY/DX",
+        "blockers": [
+          "AX",
+          "BX",
+          "DY",
+          "DZ"
+        ]
+      },
+      {
+        "matching": "AZ/BX/CW/DY",
+        "blockers": [
+          "AW",
+          "AX",
+          "CZ",
+          "DZ"
+        ]
+      },
+      {
+        "matching": "AZ/BX/CY/DW",
+        "blockers": [
+          "AW",
+          "AX",
+          "DY",
+          "DZ"
+        ]
+      },
+      {
+        "matching": "AZ/BY/CW/DX",
+        "blockers": [
+          "AW",
+          "AX",
+          "AY",
+          "BW",
+          "BX",
+          "BZ",
+          "CY",
+          "CZ",
+          "DY",
+          "DZ"
+        ]
+      },
+      {
+        "matching": "AZ/BY/CX/DW",
+        "blockers": [
+          "AW",
+          "AX",
+          "AY",
+          "BW",
+          "BX",
+          "BZ",
+          "CW",
+          "CY",
+          "CZ",
+          "DX",
+          "DY",
+          "DZ"
+        ]
+      }
+    ],
+    "stable": [
+      "AW/BX/CY/DZ",
+      "AW/BX/CZ/DY",
+      "AX/BW/CY/DZ",
+      "AX/BW/CZ/DY"
+    ]
+  },
+  "older4": {
+    "left": {
+      "A": "XWZY",
+      "B": "XYWZ",
+      "C": "XYZW",
+      "D": "XYWZ"
+    },
+    "right": {
+      "W": "BCDA",
+      "X": "DBAC",
+      "Y": "BCAD",
+      "Z": "BDAC"
+    },
+    "candidates": [
+      {
+        "matching": "AW/BX/CY/DZ",
+        "blockers": [
+          "DW",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AW/BX/CZ/DY",
+        "blockers": [
+          "CY",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AW/BY/CX/DZ",
+        "blockers": [
+          "AX",
+          "BX",
+          "DW",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AW/BY/CZ/DX",
+        "blockers": []
+      },
+      {
+        "matching": "AW/BZ/CX/DY",
+        "blockers": [
+          "AX",
+          "BW",
+          "BX",
+          "BY",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AW/BZ/CY/DX",
+        "blockers": [
+          "BW",
+          "BY"
+        ]
+      },
+      {
+        "matching": "AX/BW/CY/DZ",
+        "blockers": [
+          "BX",
+          "BY",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AX/BW/CZ/DY",
+        "blockers": [
+          "BX",
+          "BY",
+          "CY",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AX/BY/CW/DZ",
+        "blockers": [
+          "BX",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AX/BY/CZ/DW",
+        "blockers": [
+          "BX",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AX/BZ/CW/DY",
+        "blockers": [
+          "BW",
+          "BX",
+          "BY",
+          "CY",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AX/BZ/CY/DW",
+        "blockers": [
+          "BW",
+          "BX",
+          "BY",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AY/BW/CX/DZ",
+        "blockers": [
+          "AX",
+          "BX",
+          "BY",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AY/BW/CZ/DX",
+        "blockers": [
+          "AZ",
+          "BY",
+          "CY"
+        ]
+      },
+      {
+        "matching": "AY/BX/CW/DZ",
+        "blockers": [
+          "CY",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AY/BX/CZ/DW",
+        "blockers": [
+          "AZ",
+          "CY",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AY/BZ/CW/DX",
+        "blockers": [
+          "BW",
+          "BY",
+          "CY"
+        ]
+      },
+      {
+        "matching": "AY/BZ/CX/DW",
+        "blockers": [
+          "AX",
+          "BW",
+          "BX",
+          "BY",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AZ/BW/CX/DY",
+        "blockers": [
+          "AX",
+          "BX",
+          "BY",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AZ/BW/CY/DX",
+        "blockers": [
+          "BY"
+        ]
+      },
+      {
+        "matching": "AZ/BX/CW/DY",
+        "blockers": [
+          "CY",
+          "DX"
+        ]
+      },
+      {
+        "matching": "AZ/BX/CY/DW",
+        "blockers": [
+          "DX"
+        ]
+      },
+      {
+        "matching": "AZ/BY/CW/DX",
+        "blockers": []
+      },
+      {
+        "matching": "AZ/BY/CX/DW",
+        "blockers": [
+          "AX",
+          "BX",
+          "DX"
+        ]
+      }
+    ],
+    "stable": [
+      "AW/BY/CZ/DX",
+      "AZ/BY/CW/DX"
+    ],
+    "left_schedules": [
+      {
+        "matching": "AW/BY/CZ/DX",
+        "requests": 8
+      }
+    ],
+    "right_schedules": [
+      {
+        "matching": "WC/XD/YB/ZA",
+        "requests": 7
+      }
+    ],
+    "left_sample_trace": {
+      "matching": "AW/BY/CZ/DX",
+      "log": [
+        {
+          "request": "AX",
+          "kept": "A",
+          "released": null
+        },
+        {
+          "request": "BX",
+          "kept": "B",
+          "released": "A"
+        },
+        {
+          "request": "AW",
+          "kept": "A",
+          "released": null
+        },
+        {
+          "request": "CX",
+          "kept": "B",
+          "released": "C"
+        },
+        {
+          "request": "CY",
+          "kept": "C",
+          "released": null
+        },
+        {
+          "request": "DX",
+          "kept": "D",
+          "released": "B"
+        },
+        {
+          "request": "BY",
+          "kept": "B",
+          "released": "C"
+        },
+        {
+          "request": "CZ",
+          "kept": "C",
+          "released": null
+        }
+      ]
+    },
+    "right_sample_trace": {
+      "matching": "WC/XD/YB/ZA",
+      "log": [
+        {
+          "request": "WB",
+          "kept": "W",
+          "released": null
+        },
+        {
+          "request": "XD",
+          "kept": "X",
+          "released": null
+        },
+        {
+          "request": "YB",
+          "kept": "Y",
+          "released": "W"
+        },
+        {
+          "request": "WC",
+          "kept": "W",
+          "released": null
+        },
+        {
+          "request": "ZB",
+          "kept": "Y",
+          "released": "Z"
+        },
+        {
+          "request": "ZD",
+          "kept": "X",
+          "released": "Z"
+        },
+        {
+          "request": "ZA",
+          "kept": "Z",
+          "released": null
+        }
+      ]
+    }
+  },
+  "construct2": {
+    "left": {
+      "A": "XYZ",
+      "B": "YXZ",
+      "C": "ZXY"
+    },
+    "right": {
+      "X": "BAC",
+      "Y": "ABC",
+      "Z": "CAB"
+    },
+    "candidates": [
+      {
+        "matching": "AX/BY/CZ",
+        "blockers": []
+      },
+      {
+        "matching": "AX/BZ/CY",
+        "blockers": [
+          "BX",
+          "BY",
+          "CZ"
+        ]
+      },
+      {
+        "matching": "AY/BX/CZ",
+        "blockers": []
+      },
+      {
+        "matching": "AY/BZ/CX",
+        "blockers": [
+          "AX",
+          "BX",
+          "CZ"
+        ]
+      },
+      {
+        "matching": "AZ/BX/CY",
+        "blockers": [
+          "AY",
+          "BY",
+          "CZ"
+        ]
+      },
+      {
+        "matching": "AZ/BY/CX",
+        "blockers": [
+          "AX",
+          "AY",
+          "CZ"
+        ]
+      }
+    ],
+    "stable": [
+      "AX/BY/CZ",
+      "AY/BX/CZ"
+    ]
+  },
+  "keep_first": {
+    "left": {
+      "A": "XYZ",
+      "B": "XYZ",
+      "C": "ZXY"
+    },
+    "right": {
+      "X": "BAC",
+      "Y": "ABC",
+      "Z": "CAB"
+    },
+    "candidates": [
+      {
+        "matching": "AX/BY/CZ",
+        "blockers": [
+          "BX"
+        ]
+      },
+      {
+        "matching": "AX/BZ/CY",
+        "blockers": [
+          "BX",
+          "BY",
+          "CZ"
+        ]
+      },
+      {
+        "matching": "AY/BX/CZ",
+        "blockers": []
+      },
+      {
+        "matching": "AY/BZ/CX",
+        "blockers": [
+          "AX",
+          "BX",
+          "CZ"
+        ]
+      },
+      {
+        "matching": "AZ/BX/CY",
+        "blockers": [
+          "AY",
+          "CZ"
+        ]
+      },
+      {
+        "matching": "AZ/BY/CX",
+        "blockers": [
+          "AX",
+          "AY",
+          "BX",
+          "CZ"
+        ]
+      }
+    ],
+    "stable": [
+      "AY/BX/CZ"
+    ],
+    "sample_trace": {
+      "matching": "AX/BY/CZ",
+      "log": [
+        {
+          "request": "AX",
+          "kept": "A",
+          "released": null
+        },
+        {
+          "request": "BX",
+          "kept": "A",
+          "released": "B"
+        },
+        {
+          "request": "BY",
+          "kept": "B",
+          "released": null
+        },
+        {
+          "request": "CZ",
+          "kept": "C",
+          "released": null
+        }
+      ]
+    },
+    "chosen_bad_result": {
+      "matching": "AX/BY/CZ",
+      "blockers": [
+        "BX"
+      ]
+    }
+  },
+  "last3": {
+    "left": {
+      "A": "XYZ",
+      "B": "YXZ",
+      "C": "ZXY"
+    },
+    "right": {
+      "X": "BCA",
+      "Y": "ACB",
+      "Z": "ABC"
+    },
+    "candidates": [
+      {
+        "matching": "AX/BY/CZ",
+        "blockers": []
+      },
+      {
+        "matching": "AX/BZ/CY",
+        "blockers": [
+          "BX",
+          "CX"
+        ]
+      },
+      {
+        "matching": "AY/BX/CZ",
+        "blockers": []
+      },
+      {
+        "matching": "AY/BZ/CX",
+        "blockers": [
+          "BX"
+        ]
+      },
+      {
+        "matching": "AZ/BX/CY",
+        "blockers": [
+          "AY"
+        ]
+      },
+      {
+        "matching": "AZ/BY/CX",
+        "blockers": [
+          "AY"
+        ]
+      }
+    ],
+    "stable": [
+      "AX/BY/CZ",
+      "AY/BX/CZ"
+    ]
+  },
+  "blank_Y_tests": {
+    "top": {
+      "AB": [
+        "AX/BY",
+        "AY/BX"
+      ],
+      "BA": [
+        "AX/BY"
+      ]
+    },
+    "bottom": {
+      "AB": [
+        "AY/BX"
+      ],
+      "BA": [
+        "AY/BX"
+      ]
+    }
+  },
+  "all_16_two_pair_profiles": [
+    {
+      "A": "XY",
+      "B": "XY",
+      "X": "AB",
+      "Y": "AB",
+      "stable": [
+        "AX/BY"
+      ]
+    },
+    {
+      "A": "XY",
+      "B": "XY",
+      "X": "AB",
+      "Y": "BA",
+      "stable": [
+        "AX/BY"
+      ]
+    },
+    {
+      "A": "XY",
+      "B": "XY",
+      "X": "BA",
+      "Y": "AB",
+      "stable": [
+        "AY/BX"
+      ]
+    },
+    {
+      "A": "XY",
+      "B": "XY",
+      "X": "BA",
+      "Y": "BA",
+      "stable": [
+        "AY/BX"
+      ]
+    },
+    {
+      "A": "XY",
+      "B": "YX",
+      "X": "AB",
+      "Y": "AB",
+      "stable": [
+        "AX/BY"
+      ]
+    },
+    {
+      "A": "XY",
+      "B": "YX",
+      "X": "AB",
+      "Y": "BA",
+      "stable": [
+        "AX/BY"
+      ]
+    },
+    {
+      "A": "XY",
+      "B": "YX",
+      "X": "BA",
+      "Y": "AB",
+      "stable": [
+        "AX/BY",
+        "AY/BX"
+      ]
+    },
+    {
+      "A": "XY",
+      "B": "YX",
+      "X": "BA",
+      "Y": "BA",
+      "stable": [
+        "AX/BY"
+      ]
+    },
+    {
+      "A": "YX",
+      "B": "XY",
+      "X": "AB",
+      "Y": "AB",
+      "stable": [
+        "AY/BX"
+      ]
+    },
+    {
+      "A": "YX",
+      "B": "XY",
+      "X": "AB",
+      "Y": "BA",
+      "stable": [
+        "AX/BY",
+        "AY/BX"
+      ]
+    },
+    {
+      "A": "YX",
+      "B": "XY",
+      "X": "BA",
+      "Y": "AB",
+      "stable": [
+        "AY/BX"
+      ]
+    },
+    {
+      "A": "YX",
+      "B": "XY",
+      "X": "BA",
+      "Y": "BA",
+      "stable": [
+        "AY/BX"
+      ]
+    },
+    {
+      "A": "YX",
+      "B": "YX",
+      "X": "AB",
+      "Y": "AB",
+      "stable": [
+        "AY/BX"
+      ]
+    },
+    {
+      "A": "YX",
+      "B": "YX",
+      "X": "AB",
+      "Y": "BA",
+      "stable": [
+        "AX/BY"
+      ]
+    },
+    {
+      "A": "YX",
+      "B": "YX",
+      "X": "BA",
+      "Y": "AB",
+      "stable": [
+        "AY/BX"
+      ]
+    },
+    {
+      "A": "YX",
+      "B": "YX",
+      "X": "BA",
+      "Y": "BA",
+      "stable": [
+        "AX/BY"
+      ]
+    }
+  ],
+  "full_three_pair_audit": {
+    "profiles": 46656,
+    "candidate_matchings_tested": 279936,
+    "stable_matchings_total": 60324,
+    "histogram_stable_count": {
+      "1": 34080,
+      "2": 11484,
+      "3": 1092
+    },
+    "maximum_last_choices": 3
+  },
+  "student_pdf_sha256": {
+    "k-1.pdf": "9878f74175848d43f72d05e7bf0033e7571ca5019d8401efbb8d74d8dd6a2344",
+    "grades-2-3.pdf": "31d2747948a08578a2627c62ec4c7c810caffee5203330b8cfb2a32d69ac1fe3",
+    "grades-4-5.pdf": "1efaaaea7950b26762c08d15eedb521d214280cbd6ca01ac051de9756ec75d03"
+  }
+}

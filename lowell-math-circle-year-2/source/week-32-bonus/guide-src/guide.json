@@ -1,0 +1,90 @@
+{
+  "week": 32,
+  "topic": "Square recipes",
+  "overview": [
+    "Greedy is not always minimum. For whole-grid axis-aligned square tilings, a 6-by-5 rectangle needs at least five squares, and five fit; the familiar biggest-square rule uses six. The contrast 4-by-3 needs four and greedy achieves four. Area and pairwise geometric fit supply lower bounds, not the greedy rule itself.",
+    "Restricted tiles: a 5-by-5 or 7-by-5 rectangle cannot be tiled with only side-2 and side-3 squares, although its area is a sum of 4s and 9s. A 6-by-5 can. Boundary decompositions and disjoint projections give obstructions that area alone misses.",
+    "Compressed recipes: consecutive equal square sizes are replaced by their counts. A nonsquare recipe q1,...,qk with qk>=2 determines the long/short ratio by the finite continued fraction q1+1/(q2+1/(...+1/qk)). All whole-grid rectangles with that recipe are integer enlargements of its coprime one. Sizes are lost; ratio is retained. A square has recipe [1].",
+    "Children compare a familiar rule with unrestricted choices, explain why permitted sizes may fail, and reconstruct a missing scale. Grades 2-3 can fit and count; Grades 4-5 can defend minima and reconstruction. All limits here require axis-aligned whole-grid squares with no gaps or overlaps. They make no claim about arbitrary tilted or noninteger squares."
+  ],
+  "readiness": [
+    "Shared packet: Grades 2-5. The concrete entry requires fitting whole-grid squares, counting pieces and understanding the base square-removal action. Multiplication/area to 35 supports lower bounds. P4 requires distinguishing a square's size from a group's count; formal continued fractions are adult context.",
+    "Optional K-1 entry is covering a prepared small board, comparing piece counts or trying P3's allowed pieces. Do not offer the compressed recipe if the adult would have to choose and execute every step."
+  ],
+  "materials": [
+    "Per pair: duplicated rectangle boards, square pieces of sides 1-5, pencils, ruler and spare graph paper. Suggested stock: ten side-1, six side-2, four side-3 and two each side-4/5 pieces; reuse between trials. Working unit spacing is 10 mm. Print at 100% and precut with adult scissors if loose pieces are used; colored-pencil tile boundaries are a low-preparation alternative.",
+    "Keep the greedy reference beside the competing tiling. During P3 remove all pieces except side-2/3; side-1 squares would change the question. P4's blank work grids are capacities: draw a subrectangle that fits the recipe. Estimated preparation 15-25 minutes with reusable pieces. Exact physical fit and the procedure have not been pretested. Keep spare graph paper for enlarged P4 reconstructions beyond the printed 8-by-4 spaces. Five sets serve eleven children at three fixed tables, one adult per table; the upper trio rotates roles."
+  ],
+  "launch": "Let children freely handle square pieces. Demonstrate one legal largest-square removal at one end of a non-task rectangle, leaving a rectangular remainder, then let a child try a free tiling on spare paper. Before P4, enact the printed 5-by-2 visual: two size-2 squares and two size-1 squares become count recipe 2,2. A count is not a side length.",
+  "route": "P1-2: a 25-40 minute first visit. P3: a restricted-pieces return. P4: a 20-35 minute recipe visit. These are estimates. Save both greedy and best free tilings; proofs and reconstruction can continue later.",
+  "investigations": [
+    {
+      "problem": "1-2",
+      "title": "Biggest squares versus fewest squares",
+      "entry": "Grades 2-3 keep two physical tilings and compare counts. Grades 4-5 defend P2's minimum. Allow 25-40 minutes. Pairwise fit arguments can be shown with paper squares; equations are optional.",
+      "solution": [
+        "P1, 6-by-5: greedy uses one side-5 square and five side-1 squares, six pieces. Five fit: two side-3 squares in a 6-by-3 strip, with three side-2 squares in the remaining 6-by-2 strip. Using (x,y,side) from one corner, tiles are (0,0,3),(3,0,3),(0,3,2),(2,3,2),(4,3,2). Their interiors are disjoint and areas total 30.",
+        "P1, 4-by-3: greedy uses one side-3 square plus three side-1 squares, four pieces, and this is optimal. One or two positive square areas cannot sum to 12. The only three-piece area decomposition is 4+4+4, requiring three side-2 squares. Every pair overlaps in vertical projection because 2+2>3, so horizontal projections must be disjoint, requiring width 6>4. Thus three cannot fit.",
+        "P2: five is the minimum for 6-by-5. Tile sides can only be 1-5. One square does not have area 30; no two square areas sum to 30. The only three-square area decomposition is 25+4+1. Side-5 and side-2 squares cannot be disjoint because their side sum 7 exceeds both board dimensions 6 and 5. The only four-square decomposition is 16+9+4+1, where side-4 and side-3 likewise have sum 7. These area lists can be pooled from a finite square-area card search.",
+        "For disjoint axis-aligned squares, at least one pair of horizontal/vertical projections has disjoint interiors; if both projections overlap in their interiors, the squares overlap. This proves the geometric exclusions. The five-piece witness gives the matching upper bound, so the optimum is exactly five."
+      ],
+      "hints": [
+        "Ask which reference square causes the greedy count to grow. For a bound, list possible square areas, then check whether the largest two proposed pieces could fit side by side in either direction. Do not give the five-piece witness before experimentation."
+      ],
+      "extensions": [
+        "Find another board where greedy is optimal and another where it fails. A failed search alone does not establish a minimum. Keep the whole-grid restriction explicit; allowing arbitrary square sizes requires a different argument."
+      ],
+      "notes": "The same 6-by-5 witness supports P3. It is not a fourth investigation, and children may reuse their saved tiling."
+    },
+    {
+      "problem": "3",
+      "title": "Allowed square sizes and hidden obstructions",
+      "entry": "Grades 2-3 attempt all three boards using only side-2/3 pieces. Grades 4-5 turn failure into boundary or packing explanations. Allow 20-35 minutes. Adult may write area counts while children arrange tiles.",
+      "solution": [
+        "5-by-5: impossible. Area 25=4u+9v forces four side-2 squares and one side-3 square: v must be 1 modulo 4 and cannot exceed 2. Each horizontal boundary of length 5 must contain a side-3 edge, because side-2 edges alone sum to an even length. But the single side-3 square cannot touch both opposite boundaries 5 units apart. Thus the area-permitted collection does not fit.",
+        "6-by-5: possible by two side-3 and three side-2 squares, arranged in the two strips from P1. Area is 18+12=30. Rotations/reflections of that tiling are accepted.",
+        "7-by-5: impossible. Area 35=4u+9v forces two side-2 and three side-3 squares. Any two side-3 vertical projections overlap because 3+3>5; their horizontal projections must therefore be disjoint. Three horizontal intervals of length 3 need width at least 9, exceeding 7. No placement can avoid this obstruction.",
+        "Area divisibility and side-length decompositions are necessary but need not be sufficient. The impossible boards were chosen to reveal two different reasons: boundary demand and packing, not merely a shortage of pieces."
+      ],
+      "hints": [
+        "For 5-by-5 ask how an odd-length outside edge can be covered with lengths 2 and 3. For 7-by-5 try sliding two side-3 pieces vertically; can they avoid overlap without moving apart horizontally?"
+      ],
+      "extensions": [
+        "A strip of height 5 admits at most floor(width/3) side-3 squares, since all their vertical intervals overlap pairwise. This gives a reusable packing bound. It is not a complete classification of every 2/3-square tiling."
+      ],
+      "notes": "Supply ample allowed pieces. A missing physical piece is not an impossibility proof."
+    },
+    {
+      "problem": "4",
+      "title": "Rebuild a size-free recipe",
+      "entry": "Grades 2-3 draw or assemble from groups once the count convention is understood. Grades 4-5 explain scaling and unique ratio. Allow 20-35 minutes or a full return. No fraction-expression fluency is required.",
+      "solution": [
+        "Recipe 1,2: smallest whole-grid rectangle 3-by-2, square sizes 2,1,1. Recipe 2,1,2: 8-by-3, sizes 3,3,2,1,1. Recipe 1,1,3: 7-by-4, sizes 4,3,1,1,1. All fit as subrectangles in the supplied 8-by-4 work grids. The grids themselves are not the rectangles to be fully tiled.",
+        "Yes, different-sized rectangles share a recipe: 6-by-4 has recipe 1,2; 16-by-6 has 2,1,2; 14-by-8 has 1,1,3. Multiplying every length by the same positive integer preserves all size-group counts. Turning alone does not give a different-sized rectangle. End removal keeps each Euclidean remainder rectangular; the free tilings in P1 have no end-removal constraint.",
+        "For geometric reversal, choose final square side 1. The final group qk is a qk-by-1 strip. If the reconstructed remainder has long side s and short side t, the preceding group q rebuilds a rectangle with sides q*s+t and s: attach q squares of side s beside that remainder. Repeat backward. For 2,1,2 this gives 2-by-1, then 3-by-2, then 8-by-3.",
+        "For a nonsquare rectangle the final count is at least 2. With one size group, the integer long/short ratio is at least 2. With several groups, the preceding distinct size is a larger positive integer multiple of the last, so their ratio is at least 2. The canonical count list determines a unique reduced ratio; integer side lengths are then integer multiples of that coprime pair. A list ending in 1 can be an alternate continued-fraction notation, but is not the distinct-size removal record used here. The only square recipe is [1]."
+      ],
+      "hints": [
+        "Separate cards for group counts from square-size labels. Ask what happens if every drawn square is doubled. For reversal, an adult can hold a last-unit-square strip while the child decides where the next equal-square group belongs."
+      ],
+      "extensions": [
+        "Give a partner a new positive recipe ending with a count at least 2, and reconstruct its reduced rectangle. Ask what extra information would determine actual scale: the last square size suffices. A full list of actual square sizes also fixes scale."
+      ],
+      "notes": "Check the final drawing by the forward biggest-square rule. Reconstruction without that check may accidentally build an arbitrary square tiling with the requested counts."
+    }
+  ],
+  "sources": [
+    "Current Week 32, Squares inside rectangles, student packets pp. 1-5 and adult guide were inspected. The base studies last-square gcd and identical tiles; this encore studies algorithm optimality, restrictions and compressed reconstruction.",
+    "Euclid VII.2 is cited by the base materials for common-divisor context. Its text was not newly read here and is not the source of the new minimum-tiling claims. The area/fit and reconstruction arguments above are independently derived.",
+    "Laura Givental, Maria Nemirovskaya and Ilya Zakharevich, Math Circle by the Bay, Preface printed pp. viii-x (local PDF pages 9-11): themes with deep context and multiple entry levels, manipulatives, returning to explanations, and no universal estimate for a theme's duration. These are reported principles. The encore tasks, pairing and readiness routes here are local proposals, not classroom results from that book."
+  ],
+  "verification": [
+    "The author recomputed the facts, solutions and extension arguments from the actual tasks and design kernels. Independent mathematical reviews are retained separately with the editable sources.",
+    "Mathematical, render and extracted-source rebuild results belong in the release-validation record. No physical fit or procedure pretest and no classroom pilot has occurred."
+  ],
+  "observations": [
+    "Record each investigation actually used, examples attempted, a saved construction or plan, and where each pair wants to resume. A theme can support several visits; count use by investigation, not by finishing pages.",
+    "Record the child's action or words first; write your interpretation separately. Note whether children retained the choices after the launch or needed an adult to operate the investigation. All readiness and timing estimates below are unpiloted hypotheses.",
+    "Observe whether greedy and competing tilings are preserved separately, whether physical piece shortage is mistaken for impossibility, and whether recipe counts are confused with side lengths."
+  ]
+}

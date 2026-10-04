@@ -1,0 +1,194 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\newcommand{\bodyfont}{\fontsize{13.5}{17}\selectfont}
+\newcommand{\puttext}[4]{\node[anchor=north west,inner sep=0pt,text width=#3in,align=left] at (#1,-#2) {\bodyfont #4};}
+\newcommand{\pagebase}[2]{%
+  \node[anchor=north west,inner sep=0pt] at (0,0) {\fontsize{12.5}{15}\selectfont Week 7 / Take-away games / #1};
+  \draw[line width=.45pt] (0,-.30) -- (7.4,-.30);
+  \node[anchor=west,inner sep=0pt] at (0,-9.82) {\fontsize{9.5}{11}\selectfont Bellingham Math Circle / Week 7 / F07-RV-v1};
+  \node[anchor=east,inner sep=0pt] at (7.4,-9.82) {\fontsize{9.5}{11}\selectfont #2};}
+\newcommand{\counter}[2]{\fill[black!78] (#1,-#2) circle[radius=.065];}
+\newcommand{\passcard}[3]{%
+  \draw[rounded corners=2pt,line width=.7pt,fill=white] (#1-.38,-#2-.23) rectangle (#1+.38,-#2+.23);
+  \node at (#1,-#2) {\fontsize{10}{11}\selectfont #3};}
+\newcommand{\lastcard}[3]{%
+  \draw[rounded corners=2pt,line width=.7pt,fill=white] (#1-.39,-#2-.28) rectangle (#1+.39,-#2+.28);
+  \node at (#1,-#2+.09) {\fontsize{8}{9}\selectfont LAST};
+  \node at (#1,-#2-.10) {\fontsize{13}{14}\selectfont #3};}
+\newcommand{\tinyrow}[4]{%
+  \foreach \i in {1,...,#3} {
+    \pgfmathsetmacro{\xx}{#1+(\i-1)*.20}
+    \draw[line width=.45pt] (\xx,-#2) rectangle (\xx+.20,-#2-.20);
+    \ifnum\i=#4\relax\else\fill[black!78] (\xx+.10,-#2-.10) circle[radius=.055];\fi
+  }}
+\newcommand{\board}[3]{%
+  \foreach \i in {1,...,#3} {
+    \pgfmathsetmacro{\xx}{#1+(\i-1)*.80}
+    \draw[line width=.7pt] (\xx,-#2) rectangle (\xx+.80,-#2-.80);
+  }}
+\begin{document}
+\null
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=1in,>=Stealth]
+\begin{scope}[shift={([xshift=.55in,yshift=-.55in]current page.north west)}]
+\pagebase{Grades 2--5}{1}
+\puttext{0}{.55}{7.4}{Take turns taking 1 or 2 counters. Either player may turn the shared face-up PASS card face down instead of taking counters. Taking the last counter ends the game and wins.}
+
+\foreach \x/\label in {1.10/Before,3.70/Turn the card over,6.30/After} {
+  \node at (\x,-1.65) {\fontsize{11}{12}\selectfont \label};
+  \node at (\x,-1.91) {\fontsize{10}{11}\selectfont 14 counters};
+  \foreach \j in {0,...,6} {
+    \pgfmathsetmacro{\cx}{\x-.66+\j*.22}
+    \counter{\cx}{2.16}\counter{\cx}{2.40}
+  }
+}
+\passcard{1.10}{2.84}{PASS}
+\begin{scope}[shift={(3.70,-2.84)},rotate=32]
+  \draw[rounded corners=2pt,line width=.7pt,fill=black!8] (-.38,-.23) rectangle (.38,.23);
+  \node {\fontsize{10}{11}\selectfont PASS};
+\end{scope}
+\draw[->,line width=.65pt] (3.24,-2.75) to[out=95,in=85] (4.15,-2.78);
+\passcard{6.30}{2.84}{used}
+\draw[->,line width=.7pt] (2.18,-2.31) -- (2.71,-2.31);
+\draw[->,line width=.7pt] (4.71,-2.31) -- (5.20,-2.31);
+
+\puttext{0}{3.40}{7.4}{\textbf{Problem 1:} Play with 1 to 12 counters. When does one PASS card change which player can make sure they win? Circle the starts where the first player can make sure they win in each list.}
+\draw[rounded corners=3pt,line width=.45pt] (0,-4.65) rectangle (3.55,-7.35);
+\draw[rounded corners=3pt,line width=.45pt] (3.85,-4.65) rectangle (7.40,-7.35);
+\node at (1.775,-4.98) {\bodyfont PASS face up};
+\node at (5.625,-4.98) {\bodyfont PASS already used};
+\foreach \offset in {0,3.85} {
+  \foreach \n in {1,...,12} {
+    \pgfmathtruncatemacro{\rownum}{int((\n-1)/4)}
+    \pgfmathtruncatemacro{\colnum}{mod(\n-1,4)}
+    \pgfmathsetmacro{\xx}{\offset+.47+.87*\colnum}
+    \pgfmathsetmacro{\yy}{5.58+.64*\rownum}
+    \node at (\xx,-\yy) {\fontsize{18}{21}\selectfont \n};
+  }
+}
+\end{scope}
+\end{tikzpicture}
+
+\newpage\null
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=1in,>=Stealth]
+\begin{scope}[shift={([xshift=.55in,yshift=-.55in]current page.north west)}]
+\pagebase{Grades 4--5}{2}
+\puttext{0}{.55}{7.4}{Take turns taking 1, 2 or 3 counters. You may not take the number on the face-up LAST card. After each turn, turn the old LAST card face down and the matching card face up. Taking the last counter wins; if you cannot make a legal move, you lose. No face-up LAST card means there is no previous move.}
+
+\foreach \x/\label in {1.10/Before,3.70/Take 2,6.30/After} {
+  \node at (\x,-1.96) {\fontsize{11}{12}\selectfont \label};
+}
+\node at (1.10,-2.21) {\fontsize{10}{11}\selectfont 13 counters};
+\node at (3.70,-2.21) {\fontsize{10}{11}\selectfont remove 2};
+\node at (6.30,-2.21) {\fontsize{10}{11}\selectfont 11 counters};
+\foreach \j in {0,...,6} {
+  \pgfmathsetmacro{\cx}{.44+\j*.22}
+  \counter{\cx}{2.45}
+}
+\foreach \j in {0,...,5} {
+  \pgfmathsetmacro{\cx}{.44+\j*.22}
+  \counter{\cx}{2.69}
+}
+\foreach \j in {0,...,6} {
+  \pgfmathsetmacro{\cx}{3.04+\j*.22}
+  \counter{\cx}{2.45}
+}
+\foreach \j in {0,...,3} {
+  \pgfmathsetmacro{\cx}{3.04+\j*.22}
+  \counter{\cx}{2.69}
+}
+\foreach \j in {4,5} {
+  \pgfmathsetmacro{\cx}{3.04+\j*.22}
+  \fill[black!15] (\cx,-2.69) circle[radius=.065];
+  \draw[line width=.7pt] (\cx-.05,-2.64) -- (\cx+.05,-2.74);
+  \draw[line width=.7pt] (\cx-.05,-2.74) -- (\cx+.05,-2.64);
+}
+\foreach \j in {0,...,6} {
+  \pgfmathsetmacro{\cx}{5.64+\j*.22}
+  \counter{\cx}{2.45}
+}
+\foreach \j in {0,...,3} {
+  \pgfmathsetmacro{\cx}{5.64+\j*.22}
+  \counter{\cx}{2.69}
+}
+\lastcard{1.10}{3.09}{1}
+\lastcard{3.70}{3.09}{1}
+\lastcard{6.30}{3.09}{2}
+\draw[->,line width=.7pt] (2.18,-2.58) -- (2.71,-2.58);
+\draw[->,line width=.7pt] (4.71,-2.58) -- (5.20,-2.58);
+
+\puttext{0}{3.72}{7.4}{\textbf{Problem 2:} Can changing the LAST card change whether the first player can make sure they win? Play with piles of 1 to 8 counters and circle the winning starts in each column. Find a rule that predicts the winners for larger piles.}
+\draw[line width=.45pt] (0,-4.92) rectangle (7.40,-8.68);
+\foreach \x in {1.85,3.70,5.55} {\draw[line width=.45pt] (\x,-4.92) -- (\x,-8.68);}
+\node[align=center] at (.925,-5.28) {\fontsize{11}{12}\selectfont No previous\\move};
+\lastcard{2.775}{5.28}{1}
+\lastcard{4.625}{5.28}{2}
+\lastcard{6.475}{5.28}{3}
+\draw[line width=.45pt] (0,-5.67) -- (7.40,-5.67);
+\foreach \n in {1,...,8} {
+  \pgfmathsetmacro{\yy}{5.86+(\n-1)*.375}
+  \foreach \x in {.925,2.775,4.625,6.475} {
+    \node at (\x,-\yy) {\fontsize{16}{18}\selectfont \n};
+  }
+}
+\draw[black!35,line width=.4pt] (0,-9.02) -- (7.40,-9.02);
+\draw[black!35,line width=.4pt] (0,-9.44) -- (7.40,-9.44);
+\end{scope}
+\end{tikzpicture}
+
+\newpage\null
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=1in,>=Stealth]
+\begin{scope}[shift={([xshift=.55in,yshift=-.55in]current page.north west)}]
+\pagebase{Grades K--5}{3}
+\puttext{0}{.55}{7.4}{Take turns removing exactly 2 counters from neighbouring squares in one row. Gaps stay empty; counters do not slide. If you cannot take a pair, you lose.}
+\foreach \x/\label in {.10/Before,2.98/Take this pair,5.90/After} {
+  \node[anchor=west] at (\x,-1.58) {\fontsize{10}{11}\selectfont \label};
+}
+\foreach \i in {1,...,7} {
+  \pgfmathsetmacro{\xx}{.10+(\i-1)*.20}
+  \draw[line width=.45pt] (\xx,-1.85) rectangle (\xx+.20,-2.05);
+  \fill[black!78] (\xx+.10,-1.95) circle[radius=.055];
+  \pgfmathsetmacro{\xx}{2.98+(\i-1)*.20}
+  \draw[line width=.45pt] (\xx,-1.85) rectangle (\xx+.20,-2.05);
+  \ifnum\i=2
+    \fill[black!15] (\xx+.10,-1.95) circle[radius=.055];
+    \draw[line width=.7pt] (\xx+.05,-1.90) -- (\xx+.15,-2.00);
+    \draw[line width=.7pt] (\xx+.05,-2.00) -- (\xx+.15,-1.90);
+  \else\ifnum\i=3
+    \fill[black!15] (\xx+.10,-1.95) circle[radius=.055];
+    \draw[line width=.7pt] (\xx+.05,-1.90) -- (\xx+.15,-2.00);
+    \draw[line width=.7pt] (\xx+.05,-2.00) -- (\xx+.15,-1.90);
+  \else\fill[black!78] (\xx+.10,-1.95) circle[radius=.055];\fi\fi
+  \pgfmathsetmacro{\xx}{5.90+(\i-1)*.20}
+  \draw[line width=.45pt] (\xx,-1.85) rectangle (\xx+.20,-2.05);
+  \ifnum\i=2\else\ifnum\i=3\else\fill[black!78] (\xx+.10,-1.95) circle[radius=.055];\fi\fi
+}
+\draw[->,line width=.7pt] (1.67,-1.95) -- (2.76,-1.95);
+\draw[->,line width=.7pt] (4.55,-1.95) -- (5.67,-1.95);
+
+\puttext{0}{2.42}{7.4}{\textbf{Problem 3:} Choose a start and put a counter in each square. Play all six starts and circle those where the first player can make sure they win.}
+
+\node at (1.60,-3.72) {\bodyfont A};
+\board{0}{4.10}{4}
+\node at (5.80,-3.45) {\bodyfont B};
+\board{5.00}{3.70}{2}
+\board{5.00}{4.60}{2}
+\draw[line width=.65pt] (4.87,-3.70) -- (4.77,-3.70) -- (4.77,-5.40) -- (4.87,-5.40);
+
+\node at (2.00,-5.60) {\bodyfont C};
+\board{0}{5.85}{5}
+\node at (6.00,-5.60) {\bodyfont D};
+\board{4.80}{5.85}{3}
+
+\node at (3.00,-6.90) {\bodyfont E};
+\board{.60}{7.15}{6}
+\node at (3.70,-8.20) {\bodyfont F};
+\board{.10}{8.45}{9}
+\end{scope}
+\end{tikzpicture}
+\end{document}

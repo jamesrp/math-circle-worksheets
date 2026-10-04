@@ -1,0 +1,45 @@
+=== K-1 Problem 1: cover with blue blocks only ===
+PASS K1-P1a: 6 small triangles (3 up, 3 down); most blues that fit = 3; blue-only coverings = 2 -> POSSIBLE
+PASS K1-P1b: 4 small triangles (3 up, 1 down); most blues that fit = 1; blue-only coverings = 0 -> IMPOSSIBLE
+PASS K1-P1c: 8 small triangles (4 up, 4 down); most blues that fit = 4; blue-only coverings = 1 -> POSSIBLE
+PASS K1-P1d: 12 small triangles (7 up, 5 down); most blues that fit = 5; blue-only coverings = 0 -> IMPOSSIBLE
+
+=== K-1 Problem 2: blues plus as few greens as possible (big triangles) ===
+PASS K1-P2a (triangle side 2): fewest greens = 2 (= up 3 - down 1); blues used = 1
+PASS K1-P2b (triangle side 3): fewest greens = 3 (= up 6 - down 3); blues used = 3
+PASS K1-P2c (triangle side 4): fewest greens = 4 (= up 10 - down 6); blues used = 6
+
+=== K-1 Problem 3: all the ways to cover the long hexagons with blues ===
+PASS K1-P3a hexagon (1, 1, 1): 2 ways; every way has exactly one standing blue; its centre x-positions (inches from the bottom-left corner of the bottom edge) are [0.0, 1.0]
+PASS K1-P3b hexagon (2, 1, 1): 3 ways; every way has exactly one standing blue; its centre x-positions (inches from the bottom-left corner of the bottom edge) are [0.0, 1.0, 2.0]
+PASS K1-P3c hexagon (3, 1, 1): 4 ways; every way has exactly one standing blue; its centre x-positions (inches from the bottom-left corner of the bottom edge) are [0.0, 1.0, 2.0, 3.0]
+
+=== K-1 Problem 4: fewest blocks (yellow, red, blue, green) ===
+PASS K1-P4a: fewest blocks = 3 (example: {'R': 3}); allowing purple chevrons too still gives 3
+INFO K1-P4a: there are only 2 fewest-block coverings, by kind of block: {(('R', 3),): 2}
+PASS K1-P4b: fewest blocks = 6 (example: {'Y': 3, 'B': 3}); allowing purple chevrons too still gives 6
+INFO K1-P4b: there are only 2 fewest-block coverings, by kind of block: {(('B', 3), ('Y', 3)): 2}
+PASS K1-P4c: fewest blocks = 5 (example: {'R': 3, 'Y': 1, 'G': 1}); allowing purple chevrons too still gives 5
+INFO K1-P4c: there are only 3 fewest-block coverings, by kind of block: {(('G', 1), ('R', 3), ('Y', 1)): 3}
+PASS K1-P4a: if the yellow goes in the middle (the only place it fits), the best possible is 4 blocks (yellow + 3 greens); three reds give 3
+PASS K1-P4a: a yellow fits in exactly one place on the size-3 triangle
+PASS K1-P4b: with a yellow in the very middle of the big hexagon the best possible is 7 blocks (e.g. {'R': 6} + yellow); the true fewest is 6
+PASS K1-P4b: at most 3 yellows fit in the big hexagon (so 4 blocks is impossible; 5 blocks would have to be 3 yellows + 2 reds, which the search rules out)
+PASS K1-P4c: without a yellow (or purple) the fewest is 6 (e.g. 5 reds + 1 green); with one yellow it is 5
+PASS K1-P4c: only one yellow fits at a time in the size-4 triangle
+
+=== K-1 Problem 5: big shapes from small blocks of the same colour ===
+PASS K1-P5a (big green from greens): 4 small triangles = 4 blocks by area; coverings = 1; most that fit without overlap = 4
+PASS K1-P5b (big red from reds): 12 small triangles = 4 blocks by area; coverings = 1; most that fit without overlap = 4
+PASS K1-P5c (big yellow from yellows): 24 small triangles = 4 blocks by area; coverings = 0; most that fit without overlap = 3
+PASS K1-P5d (big purple from purples): 16 small triangles = 4 blocks by area; coverings = 0; most that fit without overlap = 3
+
+=== K-1 Problem 6: blue-block game, last block wins ===
+PASS K1-P6a (6 triangles): SECOND player wins with best play; all 6 first moves lose
+PASS K1-P6b (8 triangles): FIRST player wins with best play; winning first moves cover triangles [2, 3], [4, 5], [6, 7]
+PASS K1-P6c (10 triangles): FIRST player wins with best play; winning first moves cover triangles [5, 6]
+PASS K1-P6a: after any first move, the second player has exactly one winning reply: cover the middle two of the four triangles left, leaving two triangles that do not touch
+PASS K1-P6c: covering triangles 5 and 6 (the middle) leaves 4 + 4, a second-player win: the first player then copies on the other side
+INFO strip of n triangles, who wins with best play: 2:first, 3:first, 4:first, 5:second, 6:first, 7:first, 8:first, 9:second, 10:first, 11:first, 12:first
+
+ALL K-1 CHECKS PASSED

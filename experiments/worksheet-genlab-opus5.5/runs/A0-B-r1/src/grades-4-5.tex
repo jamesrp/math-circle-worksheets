@@ -1,0 +1,281 @@
+\documentclass[12pt]{article}
+\usepackage{takeaway}
+\setband{Grades 4--5}
+
+\newcommand{\fillbox}[1][1.2cm]{\tikz[baseline=-0.6ex]\node[draw=ink,line width=0.7pt,rounded corners=1mm,minimum width=#1,minimum height=0.72cm]{};}
+\newcommand{\rul}[1]{{\subheadfont\{#1\}}}
+
+% labelled strip of boxes; #1 from, #2 to, #3 box width (cm); optional prefilled first label #4
+\newcommand{\labelstrip}[4]{%
+  \begin{tikzpicture}[x=1cm,y=1cm]
+  \foreach \n [count=\c from 0] in {#1,...,#2}{%
+    \draw[grid,line width=0.6pt,fill=white] (\c*#3,0) rectangle ++(#3,-0.85);
+    \node[font=\subheadfont\footnotesize,text=teal] at (\c*#3+0.5*#3,0.25) {\n};}
+  \node[font=\headfont\large,text=plum] at (0.5*#3,-0.425) {#4};
+  \end{tikzpicture}}
+
+\begin{document}
+\fontsize{12}{16}\selectfont
+
+%=====================================================================
+\bigtitle{Take-Away Games}{Patterns that repeat, and why they must}
+\nameline
+
+\vspace{4pt}
+\begin{rulebox}
+\begin{itemize}[leftmargin=1.2em,itemsep=0pt,topsep=1pt]
+\item Two players share one pile of counters and take turns. On your turn you must take some counters;
+the {\subheadfont rule} says how many you may take. You can't take more than the pile has.
+\item Whoever takes the {\subheadfont last counter wins}.
+\item We write a rule in braces: \rul{1, 2} means ``take 1 or take 2.''
+\end{itemize}
+{\small\color{grid} Group of three? Two play and the third is the referee who checks every move. Rotate each game.}
+\end{rulebox}
+
+\begin{ideabox}[W piles and L piles]
+Always look at a pile from the point of view of the player {\subheadfont about to move}.
+\begin{itemize}[leftmargin=1.2em,itemsep=0pt,topsep=1pt]
+\item {\subheadfont W pile:} the player to move can force a win, whatever the opponent does.
+\item {\subheadfont L pile} (a trap): the player to move will lose if the opponent plays well.
+\end{itemize}
+{\subheadfont Working backward.} 0 is L (your opponent just took the last counter).
+A pile is {\subheadfont W} if {\subheadfont at least one} move leads to an L pile.
+A pile is {\subheadfont L} if {\subheadfont every} move leads to a W pile.
+\end{ideabox}
+
+{\subheadfont\large\color{orange} Warm-up rule: \{1, 2\}}
+
+\prob Play a few games starting with 10 or 11 counters. Who wins, the first or the second player?
+
+\prob Label each pile W or L for the rule \rul{1, 2}.
+
+\begin{center}\labelstrip{0}{15}{1.1}{L}\end{center}
+
+\prob Every multiple of 3 is an L pile. Explain why. Your explanation must work against {\subheadfont every}
+move your opponent could make. (What do you do after they take 1? After they take 2?)
+
+\writelines{3}
+
+\prob You face a pile that is {\subheadfont not} a multiple of 3. What is your winning move?
+
+\writelines{1}
+
+\newpage
+%=====================================================================
+\pagetitle{A new rule: \{1, 3, 4\}}
+Take 1, 3, or 4 counters (not 2). With 2 counters left, the only move is to take 1.
+
+\prob Play a few games starting with 10 to 15 counters. Make a guess: which piles do you {\subheadfont not} want on your turn?
+
+\writelines{1}
+
+\prob Label every pile from 0 to 29 as W or L. Work from small to large, using the rules for working backward.
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \foreach \r in {0,1,2}{\foreach \c in {0,...,9}{%
+    \pgfmathtruncatemacro{\n}{10*\r+\c}
+    \draw[grid,line width=0.6pt,fill=white] (\c*1.7,-\r*1.75) rectangle ++(1.6,-1.0);
+    \node[font=\subheadfont\footnotesize,text=teal] at (\c*1.7+0.8,-\r*1.75+0.27) {\n};}}
+  \node[font=\headfont\large,text=plum] at (0.8,-0.5) {L};
+\end{tikzpicture}
+\end{center}
+
+\prob List the L piles you found: \blank[11.2cm]
+
+\prob Describe the pattern. Can you say it using remainders?\\[2pt]
+A pile is L exactly when dividing it by \fillbox[0.9cm] leaves a remainder of \fillbox[0.9cm] or \fillbox[0.9cm].
+
+\prob Predict W or L, and explain how you know.\\[4pt]
+50: \fillbox\quad 100: \fillbox\quad 1000: \fillbox\quad \blank[7.9cm]
+
+\prob The pile has 1000 counters and it is your turn. How many should you take? Why?
+
+\writelines{2}
+
+\newpage
+%=====================================================================
+\pagetitle{Why does the pattern repeat?}
+To label pile \textit{n} under \rul{1, 3, 4}, you only need the labels of piles \textit{n}\,−\,1, \textit{n}\,−\,3, and \textit{n}\,−\,4.
+All three sit inside the {\subheadfont window} of 4 piles just before \textit{n}.
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \foreach \t [count=\i from 0] in {\textit{n}\,−\,6,\textit{n}\,−\,5,\textit{n}\,−\,4,\textit{n}\,−\,3,\textit{n}\,−\,2,\textit{n}\,−\,1,\textit{n}}{%
+    \draw[grid,line width=0.7pt,fill=white] (\i*1.9,0) rectangle ++(1.6,-1.0);
+    \node[font=\subheadfont\small,text=teal] at (\i*1.9+0.8,0.3) {\t};}
+  \fill[tealsoft] (2*1.9-0.12,-1.15) rectangle (5*1.9+1.72,0.62);
+  \foreach \t [count=\i from 0] in {\textit{n}\,−\,6,\textit{n}\,−\,5,\textit{n}\,−\,4,\textit{n}\,−\,3,\textit{n}\,−\,2,\textit{n}\,−\,1,\textit{n}}{%
+    \draw[grid,line width=0.7pt,fill=white] (\i*1.9,0) rectangle ++(1.6,-1.0);
+    \node[font=\subheadfont\small,text=teal] at (\i*1.9+0.8,0.3) {\t};}
+  \draw[teal,line width=1.4pt,rounded corners=2mm] (2*1.9-0.12,-1.15) rectangle (5*1.9+1.72,0.62);
+  \node[font=\subheadfont\small,text=teal] at (3.5*1.9+0.8,0.95) {the window};
+  \draw[ink,line width=1.6pt] (6*1.9,0) rectangle ++(1.6,-1.0);
+  \node[font=\headfont\Large] at (6*1.9+0.8,-0.5) {?};
+  \foreach \k/\d/\o in {1/0.55/-0.4,3/1.3/0,4/2.1/0.4}{%
+    \pgfmathsetmacro{\xa}{6*1.9+0.8+\o}\pgfmathsetmacro{\xb}{6*1.9-\k*1.9+0.95}
+    \draw[-{Stealth[length=3mm]},orange,line width=1.2pt] (\xa,-1.05) .. controls (\xa,-1.05-\d) and (\xb,-1.05-\d) .. (\xb,-1.05);
+    \node[anchor=east,inner sep=1pt,font=\footnotesize\subheadfont,text=orange] at (\xb-0.1,-1.4) {take \k};}
+  \pgfresetboundingbox
+  \path (-0.1,1.2) rectangle (13.1,-2.75);
+\end{tikzpicture}
+\end{center}
+
+\prob Copy your labels from page 2 into these two windows.
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \foreach \s/\x in {0/0,7/9.4}{%
+    \foreach \i in {0,...,3}{%
+      \pgfmathtruncatemacro{\n}{\s+\i}
+      \draw[grid,line width=0.7pt,fill=white] (\x+\i*1.5,0) rectangle ++(1.3,-0.9);
+      \node[font=\subheadfont\footnotesize,text=teal] at (\x+\i*1.5+0.65,0.25) {\n};}
+    \draw[teal,line width=1.2pt,rounded corners=2mm] (\x-0.15,-1.05) rectangle (\x+4*1.5-0.05,0.55);}
+  \node[font=\subheadfont\small] at (2.85,-1.45) {piles 0 to 3};
+  \node[font=\subheadfont\small] at (12.25,-1.45) {piles 7 to 10};
+\end{tikzpicture}
+\end{center}
+What do you notice? \blank[13.2cm]
+
+\prob Suppose two windows have exactly the same labels. Explain why the label just after each window must be
+the same too, and then why the labels keep matching forever.
+
+\writelines{2}
+
+\prob A window has 4 labels, each W or L. How many different windows are possible?\quad\fillbox
+
+\begin{ideabox}[The pigeonhole principle]
+If more pigeons than holes fly into the holes, then some hole gets at least two pigeons.
+\end{ideabox}
+
+\prob Explain why {\subheadfont every} rule whose biggest move is 4 must have a win/lose pattern that
+eventually repeats. Hint: think about the windows that start at piles 0, 1, 2, \dots, 16.
+
+\writelines{3}
+
+\prob If the biggest move is 10, how many different windows are possible?\quad\fillbox[1.9cm]
+
+\newpage
+%=====================================================================
+\pagetitle{Change the rule}
+\prob Label piles 0 to 19 as W or L for each rule. Then write how long the repeating block is.
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \foreach \r/\name in {0/{\{1, 2, 3\}},1/{\{1, 4\}},2/{\{1, 3, 5\}},3/{\{1, 2, 4\}},4/{\{\ \ \ \ \ \ \ \ \ \ \}}}{%
+    \begin{scope}[yshift=-\r*2.05cm]
+    \node[font=\subheadfont,anchor=west] at (-0.1,-0.42) {\name};
+    \foreach \n in {0,...,19}{%
+      \draw[grid,line width=0.6pt,fill=white] (2.2+\n*0.79,0) rectangle ++(0.72,-0.85);
+      \node[font=\subheadfont\scriptsize,text=teal] at (2.2+\n*0.79+0.36,0.22) {\n};}
+    \node[font=\headfont,text=plum] at (2.56,-0.425) {L};
+    \node[font=\small,anchor=east] at (16.4,-1.25) {repeating block length:};
+    \draw[ink,line width=0.7pt,rounded corners=1mm] (16.55,-0.98) rectangle ++(1.0,-0.6);
+    \end{scope}}
+  \node[font=\footnotesize\itshape,text=grid,anchor=west] at (-0.1,-8.2+0.3) {your rule:};
+\end{tikzpicture}
+\end{center}
+
+\prob Under \rul{1, 3, 5} the L piles are exactly the even numbers. Explain why.
+(Hint: every move takes an odd number.)
+
+\writelines{2}
+
+\prob \rul{1, 2} and \rul{1, 2, 4} have the same L piles. Why doesn't the extra move ``take 4'' help anyone?
+
+\writelines{2}
+
+\prob {\subheadfont Greedy Gus} always takes the biggest number the rule allows. Under \rul{1, 3, 4}, find a pile
+where Gus's move loses, but a different move would have won.\\[4pt]
+Pile: \fillbox\quad Gus takes \fillbox\quad A winning move is to take \fillbox
+
+\newpage
+%=====================================================================
+\pagetitle{Challenge: two piles}
+\begin{rulebox}[Two-pile rule]
+There are {\subheadfont two} piles. On your turn, choose {\subheadfont one} pile and take 1 or 2 counters from it.
+Whoever takes the very last counter wins.
+\end{rulebox}
+
+\prob Label each position W or L. The cell in row \textit{a} and column \textit{b} means ``\textit{a} counters in one pile and
+\textit{b} in the other.'' A move goes 1 or 2 cells up, or 1 or 2 cells left (the arrows show the moves from the shaded cell, which means piles of 4 and 5).
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \def\s{1.25}
+  \foreach \a in {0,...,6}{%
+    \node[font=\subheadfont,text=teal] at (-0.55,-\a*\s-0.5*\s) {\a};
+    \node[font=\subheadfont,text=teal] at (\a*\s+0.5*\s,0.45) {\a};
+    \foreach \b in {0,...,6}{%
+      \draw[grid,line width=0.6pt,fill=white] (\b*\s,-\a*\s) rectangle ++(\s,-\s);}}
+  \node[font=\subheadfont\small,text=teal,anchor=south] at (3.5*\s,0.75) {pile B};
+  \node[font=\subheadfont\small,text=teal,rotate=90,anchor=south] at (-0.95,-3.5*\s) {pile A};
+  \node[font=\headfont\large,text=plum] at (0.5*\s,-0.5*\s) {L};
+  % example moves from (a,b)=(4,5)
+  \fill[plumsoft] (5*\s+0.04,-4*\s-0.04) rectangle ++(\s-0.08,-\s+0.08);
+  \fill[plum] (5.5*\s,-4.5*\s) circle (0.09);
+  \foreach \tx/\ty in {4.5/4.5,3.5/4.5,5.5/3.5,5.5/2.5}{\draw[plum,line width=1pt,fill=white] (\tx*\s,-\ty*\s) circle (0.09);}
+  \draw[-{Stealth[length=2.3mm]},plum,line width=1.1pt,shorten <=2pt,shorten >=3pt] (5.5*\s,-4.5*\s) -- (4.5*\s,-4.5*\s);
+  \draw[-{Stealth[length=2.3mm]},plum,line width=1.1pt,shorten <=2pt,shorten >=3pt] (5.5*\s,-4.5*\s) to[bend left=35] (3.5*\s,-4.5*\s);
+  \draw[-{Stealth[length=2.3mm]},plum,line width=1.1pt,shorten <=2pt,shorten >=3pt] (5.5*\s,-4.5*\s) -- (5.5*\s,-3.5*\s);
+  \draw[-{Stealth[length=2.3mm]},plum,line width=1.1pt,shorten <=2pt,shorten >=3pt] (5.5*\s,-4.5*\s) to[bend right=35] (5.5*\s,-2.5*\s);
+\end{tikzpicture}
+\end{center}
+
+\prob Which positions are L? Describe the pattern. \blank[8.9cm]
+
+\writelines{1}
+
+\prob Explain why two {\subheadfont equal} piles (like 5 and 5, or 100 and 100) are always L. (Hint: copycat.)
+
+\writelines{2}
+
+\prob Without drawing a bigger grid: is the position with piles 14 and 20 W or L? \fillbox[1.4cm]
+
+\newpage
+%=====================================================================
+\pagetitle{Challenge: beyond win and lose}
+Mathematicians give each pile a number called its {\subheadfont Grundy value}. It tells you more than just W or L.
+
+\begin{ideabox}[Grundy values]
+The {\subheadfont mex} of a list of numbers is the {\subheadfont smallest} of 0, 1, 2, 3, \dots{} that is
+{\subheadfont not} in the list. For example, mex of (0, 1, 3) is 2, and mex of (1, 2) is 0.\\[3pt]
+The {\subheadfont Grundy value} of a pile is the mex of the values of all the piles you can move to.
+A pile of 0 has value 0. A pile is L exactly when its value is 0.
+\end{ideabox}
+
+\prob Find the Grundy values for the rule \rul{1, 3, 4}. Two are done for you. What pattern do you see?
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \foreach \n in {0,...,14}{%
+    \draw[grid,line width=0.6pt,fill=white] (\n*1.2,0) rectangle ++(1.1,-0.95);
+    \node[font=\subheadfont\footnotesize,text=teal] at (\n*1.2+0.55,0.25) {\n};}
+  \node[font=\headfont\large,text=plum] at (0.55,-0.475) {0};
+  \node[font=\headfont\large,text=plum] at (1.75,-0.475) {1};
+\end{tikzpicture}
+\end{center}
+{\small\color{grid} Example: from pile 1 you can only move to pile 0 (value 0). The mex of (0) is 1.}
+
+Pattern: \blank[15.6cm]
+
+\begin{ideabox}[A fact about two piles]
+Play two piles that both use the same rule; on your turn, take from one pile only.
+The player about to move is in an {\subheadfont L} position exactly when the two piles have {\subheadfont equal} Grundy values.
+\end{ideabox}
+
+\prob Under \rul{1, 3, 4}, piles of 4 and of 6 are both W piles on their own. What are their Grundy values?
+What happens if you play with {\subheadfont two} piles, 4 and 6? Check by playing!
+
+\writelines{2}
+
+\prob Find a pile \textit{n} that is not 5 such that two piles, 5 and \textit{n}, make an L position.\quad\fillbox
+
+\begin{challengebox}[Still unsolved]
+In some take-away games you may also split a pile into two piles. For a big family of games like these,
+called finite octal games, the mathematician Richard Guy guessed that the pattern of Grundy values always repeats in the end.
+Nobody has proved it yet, and nobody has found a game where it fails. It is a real open question!\\[3pt]
+{\small\color{grid} To read more: Berlekamp, Conway, and Guy, {\itshape Winning Ways}; Siegel, {\itshape Combinatorial Game Theory}.}
+\end{challengebox}
+
+\end{document}

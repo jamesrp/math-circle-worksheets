@@ -1,0 +1,5 @@
+# Week 37 revision verification
+
+Revised the 4/4/5-page packets. Marker direction is excluded from matching; each merge trial resets to the original four-label mirror pair; rotations are counted by vertex destinations rather than motion histories. Middle-band search language is more concrete. Independent signed-coordinate-matrix enumeration confirms 12 proper vertex maps, two distinct-label orbits, all six pair merges, and both outcomes when restoring a distinct label. All 13 pages were rendered and inspected. The actual-model pretest has NOT been performed. It remains mandatory before class: true-copy alignment, intended mirror-pair comparison, the specified viewing-direction certificate, and repeated-label alignment. If rigid models or this pretest cannot be supplied, defer classroom use.
+
+Run `bash build.sh` with Python 3, pdfLaTeX/TikZ and Poppler. The build regenerates source, runs both the existing and independent checks, compiles twice, and renders every page. The source uses no machine-specific runtime paths. A fixed default SOURCE_DATE_EPOCH is included for reproducible metadata. These are student PDFs and source/QA records, not an adult guide.

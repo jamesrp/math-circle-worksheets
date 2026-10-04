@@ -1,60 +1,71 @@
-# Week 3 redesign: reversible code machines and maximum return time
+# Week 3: reversible code machines, concise investigations
 
-Prepared September 19, 2026. The [print packets](../lowell-math-circle-year-2/source/week-03/README.md) replace routine alphabet invention with a finite investigation of permutations. The facilitator PDF gives exact solutions and the full accessible proofs. Prepared, not yet taught.
+Prepared September 30, 2026. **Unpiloted v4.** The [current print packets and build instructions](../lowell-math-circle-year-2/source/week-03/README.md) replace v3 in the main Week 3 output folder. Each student packet has three pages; the adult guide has six. Previous files are separated in `archive-before-concise-2026-09-30/` under the source and output folders; the previous plan is [here](archive-before-concise-2026-09-30/week-03-redesign.md).
 
-## The mathematical destination
+## Reference and design decision
 
-Repeat the same reversible substitution. When does **every** symbol first return? Can a key on five symbols take longer than five turns? This is the concrete form of permutation order, disjoint-cycle decomposition, and least common multiples. Maximizing the return time on n symbols is exactly Landau's function, a genuine research subject. The worksheet problem is a small proven instance, not a claim of novel research.
+The actual models reviewed were the current, top-level [Week 2 compact catalog](../lowell-math-circle-year-2/week-02/week-02-shared-catalog.pdf) and [upper catalog](../lowell-math-circle-year-2/week-02/week-02-shared-catalog-upper.pdf), plus the [upper catalog's adult notes](week-02-catalog-upper.md). Their key principle is a clear goal that supports substantial independent work, with contrasting examples and little prescribed method. The response here is not to make all mathematics diagram-based: key tables specify the mapping, message pairs supply clues, and blank areas leave the record to the child.
 
-Week 3 allows arbitrary bijections; Week 4 will restrict them to fixed circular shifts. Encoding and decoding remain concrete entry points, but the main task is to construct, classify, and prove a maximum.
+The earlier Week 3 edition had 35 numbered tasks, often telling children to trace, draw loops, mark multiples, or enumerate prescribed partitions. This edition has 17 problems: K 5, middle 5, upper 4, extra 3. Shared rules are stated once, while optional scaffolding moves to the facilitator guide. Central completeness, impossibility, and optimality questions remain explicit. The guide includes all required prerequisites, materials/preparation, timing, launch, exploration prompts, hints, extensions, and checked solutions.
 
-| Level / identifier | Prerequisites | Investigation |
-| --- | --- | --- |
-| K–1 / F03-K-v2 | Match shapes, follow arrows, count to three with help; no reading. | Three-shape cycle, inverse decoding, repeated encoding. Then a swap plus a fixed symbol and a deliberately noninvertible key. |
-| 2–3 / F03-M-v2 | Letters A–D as labels, count to six; coordinate a one-to-one rule. | Equality patterns survive substitution; compare a 3-cycle+fixed point with two swaps; design order 4 and explain why order 6 is impossible on four symbols. |
-| 4–5 / F03-U-v2 | Count/multiples to six; classify all loop partitions and justify completeness. | A 3-cycle plus 2-cycle has order 6. Classify all seven partitions of five to prove the maximum. Compare two overlapping swaps in both orders; their composition has order 3. |
-| Extra 6–7 / F03-X-v2 | Common multiples to 15 and cases by largest loop. | Construct an eight-symbol key of order 15 and prove no key is slower; predict and justify g(9)=20. |
+The three approximate entry levels and the extra packet are retained. The user asked to transfer the Week 2 principles, not to replace all weeks with a shared-book format. Adults can offer any page by readiness; reading or handwriting does not determine mathematical access.
 
-## Exact keys, constructions, and proof
+## Problems and mathematical purpose
 
-K key: circle→triangle→square→circle. The message circle–triangle–circle becomes triangle–square–triangle; backward decoding is unique. Changing to circle↔triangle with square fixed gives whole-key return time 2, although one symbol returns after 1. Collapsing two inputs to square loses information.
+| Packet / page | Problems | Concrete work and depth |
+|---|---|---|
+| K / 1 | 1–2 | Six forward/backward shape-message examples, including repeated shapes; partner message invention. |
+| K / 2 | 3 | Two keys and three starting messages: the whole message can return later than one fixed symbol. |
+| K / 3 | 4–5 | Invent keys whose messages can always be recovered; find all four inputs that produce two squares under a non-injective key. |
+| Middle / 1 | 1 | Six hidden-key clues: two, one, zero, zero, two, one solutions. Distinguish inconsistent repeated inputs from merged distinct inputs. |
+| Middle / 2 | 2–3 | Nine return experiments using three keys and three messages; two keys can agree on ABBA but have different whole-key return times. |
+| Middle / 3 | 4–5 | Construct all four-letter return times, then achieve six with five letters and explain the four-letter obstruction. |
+| Upper / 1 | 1 | Four five-letter keys return in 5,6,4,2 turns. The longest single loop need not produce the longest return. |
+| Upper / 2 | 2 | Construct and justify all possible five-letter first return times, including the maximum six. No classification algorithm is supplied. |
+| Upper / 3 | 3–4 | Overlapping swaps fail to commute, disjoint swaps commute, and inverse three-cycles overlap but commute. Repeat and undo a combined machine. |
+| Extra / 1 | 1 | Build eight-letter keys with returns 4,6,8,12,15, without supplied loop sizes. |
+| Extra / 2 | 2 | Construct and prove the records for eight and nine letters: 15 and 20. |
+| Extra / 3 | 3 | Find the record for sizes 1–9, disprove strict growth using five/six letters, and prove adding a letter can never lower the record. |
 
-Middle P maps ABCD→BCAD; Q maps ABCD→BADC. P sends ABBA to BCCB and decodes CAAC to BCCB. One-to-one substitution preserves both equal and unequal positions, so ABBA cannot become ABCD. P has order 3; Q has order 2. Four-symbol loop partitions 4, 3+1, 2+2, 2+1+1, 1+1+1+1 have orders 4,3,2,2,1. Thus order 6 needs at least five symbols.
+## Preparation, prerequisites, and the hour
 
-Upper maps ABCDE→BCAED, with loops (ABC)(DE). The successive full messages are ABCDE, BCAED, CABDE, ABCED, BCADE, CABED, ABCDE. Cover the supplied partition table first; classify with the A–E cards by largest loop. Largest 5 or 4 leaves one split each; largest 3 leaves 2 or 1+1; largest 2 leaves 2+1 or 1+1+1; largest 1 forces five singletons. The resulting seven partitions give orders 5,4,6,3,2,2,1, proving maximum 6. Uncover the table to compare after explaining why no split was missed. In the second investigation P swaps A/B and Q swaps B/C: P then Q sends ABCDE to CABDE, while Q then P sends it to BCADE. The first composite is (ACB) and has order 3. Disjoint swaps such as A/B and D/E commute; reversing the pipeline Q then P undoes P then Q.
+Use the current **ten-child roster, KK1 / 3333 / 445, with three adults**, replacing the obsolete seven-child example. Parent anchors the youngest table; the other mathematician the four third graders; organizer the three oldest. Start with ten first sheets: 3 K, 4 middle, 3 upper. Keep selected continuation masters, blank paper/whiteboards, and adult notes. No room printer is assumed. Cards are optional hand-drawn scraps: two sets of three shapes per K child; A–D per middle child; A–E per upper child; F–I in reserve.
 
-**Why the loop method is exhaustive:** following a finite key eventually repeats. The first repeated symbol must be the start, because a later first repeat would have two different predecessors, forbidden by bijectivity. Remove that loop and repeat. A loop of length a returns exactly at multiples of a; simultaneous return is the LCM.
+K starts with shape matching and adult reading, then counting to three. Middle uses letters as labels, small counts to six, and a one-to-one rule. Upper coordinates several return times and justifies completeness. Extra uses common multiples through 20 and a bound covering every case. Children can act, point, dictate, or use their own records. Formal group theory, factorials, and written proof are not entry requirements.
 
-Extra: 5+3 gives order 15 on eight letters. Upper bound by largest loop: 8→8; 7→7; 6→6; 5→at most 15; 4→at most 12 (4+3+1); largest≤3→at most 6. For nine letters, 5+4 gives 20; cases largest 9,8,7,6,5,4,≤3 give maxima 9,8,14,6,20,12,6. Adding a fixed symbol never lowers g(n), but strict increase fails: g(5)=g(6)=6.
+Proposed hour: 0–4 handle materials; 4–8 common demonstration; 8–28 sustained investigation; 28–33 movement/reset; 33–50 continue or choose another question; 50–55 share; 55–60 tidy. Show one turn without changing a newly written output again in that same turn. Demonstrate an empty input before an arrow and a letter-key column. Do not show a solving algorithm. Ordinary problems may occupy 8–15 minutes, bounds 15–30 or longer; these are planning allowances, not classroom evidence.
 
-## Practical hour and facilitation
+A recovered message, a useful impossible clue, or the five-versus-six return comparison can be a complete session. The facilitator may introduce arrow loops only after children have followed repeated substitutions and need a useful record. Largest-loop case organization and common-multiple markings are optional hints, not required intermediate work.
 
-Prepare 18 small shape slips for three K children (two copies of each shape per child); 12 A–D cards for three middle children; A–E for the fifth grader plus F–H in reserve; 13 counters (three per K–1 child and one per older child), paper, pencils. Cards can be hand-lettered scraps. Print 3 K, 3 middle, 1 upper, and 1 extra packet. No full 26-symbol alphabet is needed.
+## Mathematical checks and complete arguments
 
-- **0–10:** explore symbol cards and invent a short key.
-- **10–15:** show the three-shape cycle. Launch: “What happens if we code the code again?”
-- **15–35:** K follows shape keys; middle compares P/Q; upper tests the five-symbol key. Adult A anchors K; organizer visits middle and upper.
-- **35–40:** movement/reset break; stand, stretch, and leave the work ready to return to.
-- **40–55:** continue with loop classification or an optional proof below; composition and the eight-letter extra are alternatives.
-- **55–60:** share a machine and its return time; tidy cards.
+The six middle clue solution sets, as output rows for inputs ABCD, are: `{CDAB,CDBA}`, `{BCDA}`, empty, empty, `{ABCD,ABDC}`, `{DBAC}`. Identical inputs have identical outputs for any function; distinct inputs have distinct outputs for a reversible key. Equality patterns are therefore preserved exactly.
 
-Ask where one letter goes next, whether all letters are home, and where two arrows entering the same place would break the rule. Only introduce partitions/LCM after children have followed actual counters. For a child who stalls, use a single loop first, then add a separate swap. Give one page at a time; the third upper page is an alternative direction, not prerequisite work before the extra. Triplets rotate encoder/decoder/checker; the fifth grader gets an adult explanation challenge.
+Under middle P/Q/R, starting messages D, ABBA, ABCD have return rows `[1,2,4]`, `[3,2,4]`, `[3,2,4]`. The keys BCAD and BCDA both encode ABBA as BCCB, while their whole-key orders are three and four. The message does not test all key entries.
 
+Following a finite reversible key gives disjoint loops: a first repeat other than the start would give one symbol two distinct predecessors. Remove each loop and continue. A loop returns at multiples of its length; all letters return together at the least common multiple. Four-letter partitions give orders 1,2,3,4; five-letter partitions give 1,2,3,4,5,6. The guide supplies every partition and explains completeness. A 3+2 key attains six and requires five letters.
 
-### Satisfying stops and optional proofs
+For composition, P/Q yield CABDE versus BCADE, P/L yield BACED in either order, and V/W yield ABCDE in either order. Disjoint moved sets suffice for commuting, but overlap alone decides nothing. The exact test checks both routes on every input. The P-then-Q machine has order three; Q-then-P undoes it, since both component swaps are self-inverse.
 
-- **K–1 stop:** repeat the three-shape key until all shapes return, then undo a message. **Optional proof:** explain why a key with two inputs sent to the same output cannot be decoded uniquely.
-- **2–3 stop:** compare P/Q return times and build a four-turn key. **Optional proof:** classify the five loop-size partitions to rule out a six-turn key on four letters.
-- **4–5 stop:** build the 3+2-loop key and explain its first return at six. **Optional proof:** cover the supplied table, organize every partition by largest loop, and prove six is the maximum.
+Eight-letter constructions with loop sizes 4+4,6+2,8,4+3+1,5+3 give 4,6,8,12,15. The eight-letter largest-loop bounds for 8,7,6,5,4,at most 3 are 8,7,6,15,12,6. Nine-letter bounds for 9,8,7,6,5,4,at most 3 are 9,8,14,6,20,12,6. The guide expands the leftover partitions and justifies the bounds.
 
-These are choices for the shared hour, not a requirement to finish the packet. At the stop, continue playing or comparing examples if that suits the child. Record whether each result was tried, conjectured, verified in these cases, proved, or given as a theorem.
+Maxima for sizes 1–9 are **1,2,3,4,6,6,12,15,20**. Five and six give a plateau; adding a fixed new letter proves that the maximum never decreases at any size. The optional g(7)=12 is justified by all largest-loop cases as well as construction 4+3.
 
-## Source lineage and prior use
+[verify.py](../lowell-math-circle-year-2/source/week-03/verify.py) exhausts every permutation for sizes 1–9, checks every stated clue/witness/return/composition, and verifies the exact largest-loop bounds. [Results](week-03-checks.json) are mathematical data, not evidence of teaching. Computation supplements the guide's proofs.
 
-- Judson, *Abstract Algebra: Theory and Applications*, [university-hosted textbook](https://people.hsc.edu/faculty-staff/blins/books/JudsonAbstractAlgebra.pdf), Chapter 5, §5.1, printed pp. 59–63, especially Examples 5.5–5.7 and Theorem 5.9 (disjoint-cycle decomposition). This is ordinary undergraduate algebra made tangible; no group axioms are required of children.
-- Deléglise, Nicolas, Zimmermann, [*Landau's function for one million billions*](https://arxiv.org/abs/0803.2160), 2008 arXiv manuscript, [§1.1–1.3, pp.1–3](https://arxiv.org/pdf/0803.2160). The definition of maximal permutation order and its loop-LCM representation is the exact classroom question. The paper studies efficient computation at large n. We prove only our finite cases, not the paper's algorithm or asymptotics.
-- Downloaded Rozhkovskaya, *Math Circles for Elementary School Students*, Lesson 2, problems 2.2–2.8 (`OEBPS/part0012.xhtml`), supplies a secret-code entry; those examples include shifts. Our arbitrary bijections and maximum-order investigation are an adaptation.
-- Lowell Handout 8, problem 8.1, uses divisibility to distribute apples for possible guest counts 3–6. We revisit common multiples through synchronized loops, with a new extremal question. This source was read; prepared old handouts do not establish that every child encountered it.
-- *Math Circle by the Bay*, preface pp.viii–x, supports deep mathematical themes, manipulatives, reserve problems, and explanation. Rozhkovskaya Lesson 3, “At the lesson” item 1 (`part0013.xhtml`) supports attempts and explanation before a table is displayed. The specific keys, hour, and staffing are ours.
+## Source findings and our adaptations
 
-`lowell-math-circle-year-2/source/week-03/verify.py` exhaustively checks all permutations for n=4,5,6,8,9 and verifies all printed message traces and compositions. Record F03-K/M/U/X-v2 and the exact keys/loop sizes actually used. Future returns can examine orders for larger n, permutation parity, or sorting by swaps; the week 4 shift restriction is a deliberate immediate progression. See `lowell-math-circle-year-2/source/week-03/REVIEW.md` for visual QA.
+Locally reviewed during this revision:
+
+- **Rozhkovskaya, Math Circles for Elementary School Students**, Lesson 2, Problems 2.2–2.8 and “At the lesson” (`OEBPS/part0012.xhtml`): coded messages, repeated-letter clues, and successful reasoning by children not yet fluent readers. Hidden short-alphabet keys and arbitrary permutations are our adaptation; the source mainly uses shifts.
+- **Lesson 3**, “At the lesson,” item 1 (`part0013.xhtml`): children attempted and explained before a table was supplied; reserve problems accommodated different experience. **Lesson 8**, item 2 (`part0018.xhtml`): copying and coloring speed divided the group. Moving procedural tables into adult support is our response, not a source prescription.
+- **Math Circle by the Bay**, preface printed viii–x (PDF 9–11): substantial themes, manipulatives, independent work, clear statements, varied pace/depth, and reserve questions. These findings support our approach; they do not establish the exact prompts or their duration.
+- **Lowell year 1, Handout 8, Problem 8.1**: apples shared evenly for possible guest counts, providing a prior common-multiple connection. A saved handout does not establish which children encountered it.
+
+Existing mathematical lineage remains: Judson, *Abstract Algebra: Theory and Applications*, Chapter 5 §5.1, on permutations and cycle decomposition; Deléglise, Nicolas, Zimmermann, *Landau's function for one million billions* (2008), §1.1–1.3, for the maximal-permutation-order question. This revision relies on self-contained finite proofs and makes no claim about current research status. Week 4 deliberately narrows arbitrary reversible keys to fixed circular shifts.
+
+## Review and future evidence
+
+[REVIEW.md](../lowell-math-circle-year-2/source/week-03/REVIEW.md) records mathematical, visual, and combined-packet checks. Previous combined print sets are preserved in `combined/archive-before-week-03-concise-2026-09-30/`. Only Week 3 and the contents/bookmarks are refreshed in the combined files; their already embedded Week 2 collection is preserved.
+
+Record F03-K/M/U/X-v4 only for actual use, with problem numbers, keys, starting messages, children's records, adult rescue, and requests to continue. Distinguish observed behavior from proposed explanations, and tried/conjectured/checked/proved/supplied claims. Future returns can change the alphabet, composition question, or extremal size rather than repeat the same examples. This revision has not been classroom-tested.

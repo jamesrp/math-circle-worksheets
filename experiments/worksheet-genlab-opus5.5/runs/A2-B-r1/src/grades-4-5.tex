@@ -1,0 +1,132 @@
+\input{common}
+\header{Grades 4–5}
+
+\newcommand{\bsize}{\fontsize{13}{18.5}\selectfont}
+\newcommand{\blank}[1]{\rule[-0.15em]{#1}{0.5pt}}
+\newcommand{\subq}[2]{\par\hangindent=2.1em\hangafter=0\makebox[0pt][r]{#1\hspace{0.6em}}#2\par}
+\newcommand{\circles}{\begin{center}\circlestrip{1}{24}{12}{1.42}{1.05}\end{center}}
+
+% grid of two-pile starts: #1 largest pile, #2 cell size (cm)
+\newcommand{\pgrid}[2]{%
+  \begin{tikzpicture}
+    \fill[black!30] (0,0) rectangle (#2,#2);
+    \pgfmathsetmacro{\gs}{(#1+1)*#2}
+    \draw[line width=0.6pt] (0,0) grid[step=#2] (\gs,\gs);
+    \foreach \k in {0,...,#1}{
+      \node[font=\fontsize{11}{11}\selectfont, anchor=base] at ({(\k+0.5)*#2},-0.45) {\k};
+      \node[font=\fontsize{11}{11}\selectfont, anchor=east] at (-0.08,{(\k+0.5)*#2}) {\k};
+    }
+    \node[font=\fontsize{12}{12}\selectfont] at ({\gs/2},-0.95) {counters in the first pile};
+    \node[font=\fontsize{12}{12}\selectfont, rotate=90] at (-0.85,{\gs/2}) {counters in the second pile};
+  \end{tikzpicture}}
+
+\begin{document}
+\bsize
+
+In every game, two players take turns taking counters. Each problem says how many counters you may take on a turn. Whoever takes the last counter wins. A player can \emph{always win} if they can win no matter how the other player plays.
+
+\vspace{8mm}
+\problem{1} For each rule below, and for each starting pile from 1 to 20, find out who can always win: the player who goes first, or the player who goes second. Write 1st or 2nd under the number.
+
+\vspace{5mm}
+\subq{(a)}{You may take 1 or 2 counters on each turn.}
+\vspace{1mm}
+\begin{center}\recstrip{1}{20}{10}{1.72}{1.8}\end{center}
+
+\vspace{5mm}
+\subq{(b)}{You may take 1, 2, or 3 counters on each turn.}
+\vspace{1mm}
+\begin{center}\recstrip{1}{20}{10}{1.72}{1.8}\end{center}
+
+% ------------------------------------------------------------------
+\newpage
+\problem{2} A game starts with 100 counters. For each rule, who can always win? Explain exactly how that player should play so that they win no matter what the other player does.
+
+\vspace{5mm}
+\subq{(a)}{You may take 1 or 2 counters on each turn.}
+
+\vspace{95mm}
+\subq{(b)}{You may take 1, 2, or 3 counters on each turn.}
+
+% ------------------------------------------------------------------
+\newpage
+\problem{3} Now you may take 1, 3, or 4 counters on each turn. You may not take 2. For each starting pile from 1 to 30, who can always win? Write 1st or 2nd under the number.
+
+\vspace{1mm}
+\begin{center}\recstrip{1}{30}{10}{1.72}{1.8}\end{center}
+
+\vspace{10mm}
+\problem{4} With the rule “take 1, 3, or 4,” who can always win when the pile starts with 100 counters? With 1000 counters? Explain why the pattern you found keeps going the same way forever, so that you can be sure of your answers.
+
+\vspace{5mm}
+\hspace*{2.1em}\makebox[3.6cm][l]{100 counters:}\blank{4cm}
+
+\vspace{5mm}
+\hspace*{2.1em}\makebox[3.6cm][l]{1000 counters:}\blank{4cm}
+
+% ------------------------------------------------------------------
+\newpage
+\problem{5} For each rule, circle the starting piles from 1 to 24 from which the second player can always win. Describe each pattern you find. Then explain why the pattern for rule (a) is right.
+
+\vspace{5mm}
+\subq{(a)}{Take 1, 3, or 5 counters on each turn.}
+\circles
+\vspace{14mm}
+
+\subq{(b)}{Take 1 or 4 counters on each turn.}
+\circles
+\vspace{14mm}
+
+\subq{(c)}{Take 1, 4, or 5 counters on each turn.}
+\circles
+
+% ------------------------------------------------------------------
+\newpage
+\problem{6} Each rule below adds one more number to the rule “take 1 or 2.” For each rule, circle the starting piles from 1 to 24 from which the second player can always win.
+
+\vspace{4mm}
+\subq{(a)}{Take 1, 2, or 4 counters on each turn.}
+\circles
+\vspace{3mm}
+\subq{(b)}{Take 1, 2, or 5 counters on each turn.}
+\circles
+\vspace{3mm}
+\subq{(c)}{Take 1, 2, or 6 counters on each turn.}
+\circles
+\vspace{3mm}
+\subq{(d)}{Take 1, 2, or 7 counters on each turn.}
+\circles
+
+\vspace{5mm}
+Which extra numbers change the pattern you found for “take 1 or 2,” and which leave it the same? Explain why.
+
+% ------------------------------------------------------------------
+\newpage
+\problem{7} A rule is a list of how many counters you may take, and every rule must let you take 1. For each list of starting piles below, find a rule that makes these the only piles from which the second player can always win, or explain why no rule can do it.
+
+\vspace{6mm}
+\subq{(a)}{5, 10, 15, 20, 25, and so on.}
+\vspace{36mm}
+\subq{(b)}{4, 8, 12, 16, 20, and so on, with a rule that lets you take 5.}
+\vspace{36mm}
+\subq{(c)}{2, 4, 6, 8, 10, and so on, with a rule that lets you take 2.}
+\vspace{36mm}
+\subq{(d)}{Only the pile of 3, and no other pile.}
+
+% ------------------------------------------------------------------
+\newpage
+\problem{8} Now there are two piles. On your turn, take counters from one pile only, following the rule. In each grid, the square in column 3 and row 5 stands for a start with 3 counters in the first pile and 5 in the second; a pile may start empty. Mark every square where the second player can always win. Describe the patterns you find, and explain the pattern in grid (a).
+
+\vspace{7mm}
+\begin{center}
+\begin{minipage}[t]{8.6cm}
+\centering (a) Rule: take 1 or 2.\par\vspace{4mm}
+\pgrid{8}{0.8}
+\end{minipage}\hfill
+\begin{minipage}[t]{8.6cm}
+\centering (b) Rule: take 1, 3, or 4.\par\vspace{4mm}
+\pgrid{10}{0.66}
+\end{minipage}
+\end{center}
+
+\end{document}

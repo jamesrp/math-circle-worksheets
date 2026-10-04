@@ -1,0 +1,22 @@
+"""A separate practice transmission; no codebook or decoding answer."""
+def training(p,rules):
+    p.page()
+    p.text(0,.45,18.4,rules,14,18)
+    p.text(.5,3.4,18,'Example: a practice row',15,19)
+    p.text(.5,4.8,10,'Sender and changer',14,18)
+    p.text(11.9,4.8,6.5,'Receiver',14,18)
+    p.parts.append(r'\draw[gray!60,dashed,line width=1pt] (11,6) -- (11,16);')
+    p.parts.append(r'\node[rotate=90,font=\sffamily\fontsize{11}{13}\selectfont,fill=white,inner sep=3pt] at (11,8.5) {folder};')
+    mode='number' if p.filename=='grades-4-5' else 'circle'
+    p.text(2.5,6.2,7,'Start row',12,15)
+    p.strip(2.5,7,'0101',1.5,1.5,mode)
+    p.parts.append(r'\draw[gray!65,dashed,line width=1pt] (5.5,7) rectangle (7,8.5);')
+    p.text(.5,9.2,9.7,'Turn over only the third counter.' if mode=='circle' else 'Change only the third entry.',14,18)
+    p.parts.append(r'\draw[->,line width=.9pt] (6.25,8.75) -- (6.25,9.05);')
+    p.text(2.5,10.7,7,'Final row',12,15)
+    p.strip(2.5,11.5,'0111',1.5,1.5,mode)
+    p.parts.append(r'\draw[->,line width=1pt] (9,12.25) -- (11.8,12.25);')
+    p.strip(12.2,11.5,'0111',1.3,1.5,mode)
+    p.text(11.9,14.2,6.7,'The receiver sees only this row.',14,18)
+    p.text(.5,17.2,17.5,'In the game, the start row and the changed position stay hidden behind the folder.',14,18)
+    p.text(.5,19.6,17.5,'The changer may also leave the row as it is.',14,18)

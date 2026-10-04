@@ -1,0 +1,196 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage[margin=0.58in,top=0.72in,bottom=0.64in,headheight=15pt,headsep=17pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{fancyhdr}
+\usepackage{array}
+\pagestyle{fancy}
+\fancyhf{}
+\newcommand{\Band}{Grades K--1}
+\fancyhead[L]{\small Week 13 / Routes / \Band}
+\fancyfoot[L]{\small Bellingham Math Circle / Week 13 / W13-RV-v1}
+\fancyfoot[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+\newcommand{\Problem}[2]{\par\textbf{Problem #1:} #2\par}
+\tikzset{
+  road/.style={line width=1.0pt,-{Stealth[length=3.0mm,width=2.0mm]}},
+  point/.style={circle,fill=black,inner sep=0pt,minimum size=4pt},
+  letter/.style={font=\large,inner sep=0pt},
+  capacity/.style={fill=white,inner sep=2pt,font=\large}
+}
+
+% Full-size working maps. Coordinates are centimetres, never independently scaled.
+\newcommand{\DotMap}[1]{%
+  \begin{tikzpicture}[x=1cm,y=1cm]
+    \path[use as bounding box] (-.40,-3.10) rectangle (16.45,3.10);
+    \coordinate (S) at (0,0); \coordinate (A) at (3.7,1.7);
+    \coordinate (B) at (3.7,-1.7); \coordinate (H) at (8,0);
+    \coordinate (C) at (12.3,1.7); \coordinate (D) at (12.3,-1.7);
+    \coordinate (T) at (16,0);
+    \foreach \u/\v in {S/A,S/B,A/H,B/H,H/C,H/D,C/T,D/T}
+      \draw[road] (\u)--(\v);
+    \ifnum#1=1 \draw[road] (A)--(C); \fi
+    \foreach \p in {S,A,B,H,C,D,T} \node[point] at (\p) {};
+    \node[letter] at (0,.80) {S}; \node[letter] at (16,.80) {T};
+    % Nearest label-box edge is 9.5 mm from each reservable dot.
+    % A 15 mm diameter marker has radius 7.5 mm; visible ink clears it.
+    \node[letter,anchor=south] at (3.7,2.65) {A};
+    \node[letter,anchor=north] at (3.7,-2.65) {B};
+    \node[letter,anchor=south] at (8,.95) {H};
+    \node[letter,anchor=south] at (12.3,2.65) {C};
+    \node[letter,anchor=north] at (12.3,-2.65) {D};
+  \end{tikzpicture}%
+}
+
+\newcommand{\DotExample}[2]{%
+  \begin{tikzpicture}[x=1cm,y=1cm]
+    \path[use as bounding box] (-.3,-1.10) rectangle (4.6,1.05);
+    \coordinate (U) at (0,0); \coordinate (V) at (2.1,0);
+    \coordinate (W) at (4.2,0);
+    \ifnum#1=2 \fill[gray!35] (V) circle (.75cm); \fi
+    \draw[road] (U)--(V); \draw[road] (V)--(W);
+    \ifnum#1>0
+      \draw[line width=1.6pt,densely dashed] (U)--(V)--(W);
+    \fi
+    \foreach \p in {U,V,W} \node[point] at (\p) {};
+    \node[letter] at (0,-.42) {U};
+    \node[letter] at (2.1,-.97) {V};
+    \node[letter] at (4.2,-.42) {W};
+    \node[font=\small] at (2.1,.94) {#2};
+  \end{tikzpicture}%
+}
+
+\newcommand{\PairMap}{%
+  \begin{tikzpicture}[x=1cm,y=1cm]
+    \path[use as bounding box] (-.40,-2.38) rectangle (16.45,2.38);
+    \coordinate (P) at (0,1.55); \coordinate (Q) at (0,-1.55);
+    \coordinate (A) at (3.5,1.55); \coordinate (B) at (3.5,-1.55);
+    \coordinate (C) at (7.8,0); \coordinate (D) at (11.4,0);
+    \coordinate (X) at (16,1.55); \coordinate (Y) at (16,-1.55);
+    \foreach \u/\v in {P/A,Q/B,A/X,B/Y,A/C,B/C,C/D,D/X,D/Y}
+      \draw[road] (\u)--(\v);
+    \foreach \p in {P,Q,A,B,C,D,X,Y} \node[point] at (\p) {};
+    \node[letter] at (0,2.22) {P}; \node[letter] at (0,-2.22) {Q};
+    \node[letter] at (3.5,2.22) {A}; \node[letter] at (3.5,-2.22) {B};
+    \node[letter] at (7.8,.78) {C}; \node[letter] at (11.4,.78) {D};
+    \node[letter] at (16,2.22) {X}; \node[letter] at (16,-2.22) {Y};
+  \end{tikzpicture}%
+}
+
+\newcommand{\CapacityMap}[1]{%
+  \begin{tikzpicture}[x=1cm,y=1cm]
+    \path[use as bounding box] (-.40,-2.45) rectangle (16.45,2.45);
+    \coordinate (S) at (0,0); \coordinate (A) at (5,1.7);
+    \coordinate (B) at (5,-1.7); \coordinate (C) at (10.8,0);
+    \coordinate (T) at (16,0);
+    \draw[road] (S)--node[capacity,above=3pt]{3} (A);
+    \draw[road] (S)--node[capacity,below=3pt]{2} (B);
+    \draw[road] (A)--node[capacity,below=3pt]{2} (C);
+    \draw[road] (B)--node[capacity,above=3pt]{2} (C);
+    \draw[road] (C)--node[capacity,below=5pt]{#1} (T);
+    \draw[road] (A)--node[capacity,above=5pt]{1} (T);
+    \foreach \p in {S,A,B,C,T} \node[point] at (\p) {};
+    \node[letter] at (0,.80) {S}; \node[letter] at (16,-.80) {T};
+    \node[letter] at (5,2.36) {A}; \node[letter] at (5,-2.36) {B};
+    \node[letter] at (10.8,-.80) {C};
+  \end{tikzpicture}%
+}
+
+\newcommand{\CapacityExample}[2]{%
+  \begin{tikzpicture}[x=1cm,y=1cm]
+    \path[use as bounding box] (-.2,-1.43) rectangle (4.9,.92);
+    \coordinate (U) at (0,0); \coordinate (V) at (2.2,0);
+    \coordinate (W) at (4.4,0);
+    \draw[road] (U)--node[capacity,above=2pt]{2} (V);
+    \draw[road] (V)--node[capacity,above=2pt]{3} (W);
+    \foreach \p in {U,V,W} \node[point] at (\p) {};
+    \foreach \p/\x in {U/0,V/2.2,W/4.4}
+      \node[font=\normalsize] at (\x,-.35) {\p};
+    \node[font=\small] at (2.2,.85) {#2};
+    \ifnum#1>0 \node[anchor=west,font=\normalsize] at (.35,-.82) {1: U V W}; \fi
+    \ifnum#1=2 \node[anchor=west,font=\normalsize] at (.35,-1.28) {2: U V W}; \fi
+  \end{tikzpicture}%
+}
+
+\newcommand{\RouteList}{%
+  \vspace{-3pt}
+  \begin{tabular}{@{}p{.47\linewidth}@{\hspace{.06\linewidth}}p{.47\linewidth}@{}}
+    1: \hrulefill & 4: \hrulefill \\[8pt]
+    2: \hrulefill & 5: \hrulefill \\[8pt]
+    3: \hrulefill & 6: \hrulefill
+  \end{tabular}\par
+  Routes: \rule{1.1cm}{.4pt}\hfill Crossed-out numbers add to: \rule{1.1cm}{.4pt}\par
+}
+
+\begin{document}
+\fontsize{13.5}{17}\selectfont
+
+A route follows the arrows. Keep all routes in one attempt drawn at once; no two routes may use the same arrow. Use solid and dashed lines.
+
+For one route per middle dot, leave a marker on every middle dot the route uses.
+
+\begin{center}
+  \DotExample{0}{Map}\hfill
+  \DotExample{1}{One route}\hfill
+  \DotExample{2}{Middle dot reserved}
+\end{center}
+
+\Problem{1}{Fit as many S-to-T routes as you can on each map. Try sharing middle dots, then erase the routes and remove the markers before trying one route per middle dot.}
+
+\begin{center}\DotMap{0}\end{center}
+Shared middle dots: \rule{1.0cm}{.4pt}\hfill One route per middle dot: \rule{1.0cm}{.4pt}
+
+\vspace{9pt}
+\begin{center}\DotMap{1}\end{center}
+Shared middle dots: \rule{1.0cm}{.4pt}\hfill One route per middle dot: \rule{1.0cm}{.4pt}
+
+\newpage
+\renewcommand{\Band}{Grades 2--3}
+\fontsize{13}{16.5}\selectfont
+
+Keep both routes drawn at once. They follow the arrows and may share a dot, but cannot share an arrow. Use solid and dashed lines.
+
+\Problem{2}{Which pairings can fit at the same time? On the last map, choose two different finishes for P and Q so that both routes fit.}
+
+\vspace{5pt}
+\(\mathrm{P}\longrightarrow\mathrm{X}\qquad \mathrm{Q}\longrightarrow\mathrm{Y}\)
+\hfill Fits / Impossible
+\begin{center}\PairMap\end{center}
+
+\vspace{7pt}
+\(\mathrm{P}\longrightarrow\mathrm{Y}\qquad \mathrm{Q}\longrightarrow\mathrm{X}\)
+\hfill Fits / Impossible
+\begin{center}\PairMap\end{center}
+
+\vspace{7pt}
+\(\mathrm{P}\longrightarrow\)\rule{1.05cm}{.4pt}\qquad
+\(\mathrm{Q}\longrightarrow\)\rule{1.05cm}{.4pt}
+\begin{center}\PairMap\end{center}
+
+\newpage
+\renewcommand{\Band}{Grades 4--5}
+\fontsize{13}{16.5}\selectfont
+
+Each row reserves one whole route. A number beside an arrow limits how many reserved routes may use it. Keep all rows for one attempt; repeated routes are allowed.
+
+\begin{center}
+  \CapacityExample{0}{Map}\hfill
+  \CapacityExample{1}{One route reserved}\hfill
+  \CapacityExample{2}{Two routes reserved}
+\end{center}
+
+\Problem{3}{Fit the most S-to-T routes on each map. Cross out arrows that stop every S-to-T route, with numbers adding to your route count.}
+
+\begin{center}\CapacityMap{3}\end{center}
+\RouteList
+
+\vspace{10pt}
+\begin{center}\CapacityMap{4}\end{center}
+\RouteList
+
+\end{document}

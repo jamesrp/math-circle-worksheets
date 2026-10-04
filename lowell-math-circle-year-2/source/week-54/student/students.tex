@@ -1,0 +1,224 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[scaled=0.96]{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\pagestyle{empty}
+\setlength\parindent{0pt}
+\pdfinfo{/Title (Week 54: Partitions and rebuilding) /Author (Bellingham Math Circle)}
+\definecolor{ink}{gray}{0.12}
+\definecolor{rulegray}{gray}{0.66}
+\definecolor{gridgray}{gray}{0.84}
+\definecolor{squaregray}{gray}{0.94}
+\newcommand{\beginpage}[1]{%
+  \begin{tikzpicture}[remember picture,overlay,x=1in,y=1in]
+  \begin{scope}[shift={(current page.south west)},color=ink]
+  \node[anchor=north west,inner sep=0,font=\fontsize{11.5}{14}\selectfont] at (0.6,10.42)
+       {Week 54 / Partitions and rebuilding / Grades #1};
+  \draw[rulegray,line width=0.45pt] (0.6,10.12)--(7.9,10.12);
+  \node[anchor=south west,inner sep=0,font=\fontsize{9.5}{12}\selectfont] at (0.6,0.35)
+       {Bellingham Math Circle / Week 54 / W54-S-v1};
+  \node[anchor=south east,inner sep=0,font=\fontsize{9.5}{12}\selectfont] at (7.9,0.35) {\thepage};
+}
+\newcommand{\finishpage}{\end{scope}\end{tikzpicture}\null\newpage}
+\newcommand{\lastpage}{\end{scope}\end{tikzpicture}\null}
+\newcommand{\textat}[3]{\node[anchor=north west,inner sep=0,text width=7.3in,align=left,font=\fontsize{13.5}{17}\selectfont] at (#1,#2) {#3};}
+\newcommand{\labelat}[3]{\node[anchor=north west,inner sep=0,font=\fontsize{11.5}{14}\selectfont] at (#1,#2) {#3};}
+\newcommand{\centerlabel}[3]{\node[anchor=north,inner sep=0,font=\fontsize{11.5}{14}\selectfont] at (#1,#2) {#3};}
+\newcommand{\problem}[3]{\textat{0.6}{#1}{\textbf{Problem #2:} #3}}
+% A strip diagram has a small gap between rows; labels give each strip's size.
+\newcommand{\strips}[4]{%
+ \foreach \n [count=\r from 0] in {#4}{%
+  \pgfmathsetmacro{\yy}{#2-\r*(#3+0.045)}
+  \foreach \c in {1,...,\n}{%
+   \pgfmathsetmacro{\xx}{#1+(\c-1)*#3}
+   \draw[fill=squaregray,line width=0.55pt] (\xx,\yy) rectangle ++(#3,-#3);
+  }
+  \pgfmathsetmacro{\lx}{#1+\n*#3+0.07}
+  \node[anchor=west,inner sep=0,font=\fontsize{10}{11}\selectfont] at (\lx,{\yy-#3/2}) {\n};
+ }
+}
+% A row/column diagram uses touching squares, with equal scale in both axes.
+\newcommand{\rows}[4]{%
+ \foreach \n [count=\r from 0] in {#4}{%
+  \foreach \c in {1,...,\n}{%
+   \pgfmathsetmacro{\xx}{#1+(\c-1)*#3}
+   \pgfmathsetmacro{\yy}{#2-\r*#3}
+   \draw[fill=squaregray,line width=0.55pt] (\xx,\yy) rectangle ++(#3,-#3);
+  }
+ }
+}
+\newcommand{\arrowat}[5]{%
+ \draw[-{Stealth[length=5pt]},line width=0.7pt] (#1,#3)--(#2,#3);
+ \node[anchor=south,inner sep=2pt,font=\fontsize{10.5}{12}\selectfont] at ({(#1+#2)/2},#3) {#4};
+ \ifx\relax#5\relax\else\node[anchor=north,inner sep=2pt,font=\fontsize{10.5}{12}\selectfont] at ({(#1+#2)/2},#3) {#5};\fi
+}
+\newcommand{\cataloggrid}[5]{%
+ \draw[rulegray,line width=0.5pt] (#1,#2) rectangle ++(#3,-#4);
+ \foreach \i in {1,...,#5}{%
+   \pgfmathsetmacro{\yy}{#2-\i*#4/(#5+1)}
+   \draw[gridgray,line width=0.4pt] (#1,\yy)--++(#3,0);
+ }
+}
+\newcommand{\tinygrid}[2]{%
+ \foreach \i in {0,...,6}{%
+  \draw[gridgray,line width=0.35pt] ({#1+\i*0.18},#2)--++(0,-1.08);
+  \draw[gridgray,line width=0.35pt] (#1,{#2-\i*0.18})--++(1.08,0);
+ }
+}
+\begin{document}
+
+\beginpage{2--5}
+\textat{0.6}{9.78}{Use all the units in a collection of straight strips. Every strip has at least one unit. Moving or reordering strips does not make a new collection.}
+\centerlabel{1.38}{8.89}{Strips}
+\draw[fill=squaregray,line width=0.55pt] (1.38,8.48) rectangle ++(0.22,-0.22);
+\draw[fill=squaregray,line width=0.55pt] (1.03,8.13) rectangle ++(0.22,-0.22);
+\draw[fill=squaregray,line width=0.55pt] (1.25,8.13) rectangle ++(0.22,-0.22);
+\arrowat{2.02}{3.05}{8.28}{arrange}{}
+\centerlabel{3.92}{8.89}{Longest first}
+\strips{3.65}{8.48}{0.22}{2,1}
+\arrowat{4.8}{5.7}{8.28}{record}{}
+\centerlabel{6.62}{8.89}{Sizes}
+\node[font=\fontsize{21}{25}\selectfont] at (6.62,8.26) {$2+1$};
+\problem{7.53}{1}{Find every collection you can make with 4 units, and with 5 units. Record each once, as rows or sizes.}
+\labelat{0.6}{6.78}{4 units}
+\draw[rulegray,line width=0.5pt] (0.6,6.51) rectangle (7.9,4.43);
+\draw[gridgray,line width=0.4pt] (0.6,5.47)--(7.9,5.47);
+\foreach \xx in {3.03333,5.46666}{\draw[gridgray,line width=0.4pt] (\xx,6.51)--(\xx,4.43);}
+\labelat{0.6}{4.12}{5 units}
+\draw[rulegray,line width=0.5pt] (0.6,3.85) rectangle (7.9,0.9);
+\draw[gridgray,line width=0.4pt] (0.6,2.375)--(7.9,2.375);
+\foreach \xx in {2.425,4.25,6.075}{\draw[gridgray,line width=0.4pt] (\xx,3.85)--(\xx,0.9);}
+\finishpage
+
+\beginpage{2--5}
+\textat{0.6}{9.78}{Odd sizes are $1,3,5,7,\ldots$. ``All sizes different'' means no size repeats.}
+\problem{9.0}{2}{Choose 6 or 7 units. Find every collection of each kind below.}
+\labelat{0.6}{8.29}{Total: \underline{\hspace{0.7in}} units}
+\centerlabel{2.32}{7.79}{Only odd sizes}
+\centerlabel{6.18}{7.79}{All sizes different}
+\cataloggrid{0.6}{7.47}{3.45}{6.57}{5}
+\cataloggrid{4.45}{7.47}{3.45}{6.57}{5}
+\finishpage
+
+\beginpage{2--5}
+\textat{0.6}{9.78}{A join replaces two equal-size strips with one strip.}
+\centerlabel{1.45}{9.16}{Before}
+\centerlabel{3.85}{9.16}{One join}
+\centerlabel{6.73}{9.16}{All sizes different}
+\strips{0.98}{8.78}{0.14}{3,3,1,1,1,1}
+\arrowat{1.98}{2.9}{8.38}{join 3 and 3}{}
+\strips{3.18}{8.78}{0.14}{6,1,1,1,1}
+\arrowat{4.55}{5.67}{8.38}{keep joining}{}
+\strips{6.08}{8.78}{0.14}{6,4}
+\problem{7.31}{3}{Build each collection. Join equal-size pairs until all sizes are different. Record the final collection.}
+\centerlabel{1.59}{6.66}{Before}
+\centerlabel{5.37}{6.66}{All sizes different}
+\foreach \top in {6.34,4.48,2.62}{%
+ \draw[rulegray,line width=0.5pt] (0.6,\top) rectangle ++(7.3,-1.58);
+ \draw[gridgray,line width=0.4pt] (2.6,\top)--++(0,-1.58);
+}
+\strips{0.87}{6.18}{0.105}{1,1,1,1,1,1,1,1,1}
+\strips{0.87}{4.3}{0.13}{5,5,3,3,3,1,1}
+\strips{0.87}{2.44}{0.19}{5,3,1}
+\finishpage
+
+\beginpage{2--5}
+\textat{0.6}{9.78}{A split breaks one even-size strip into two equal halves.}
+\centerlabel{1.46}{9.16}{Before}
+\centerlabel{3.96}{9.16}{One split}
+\centerlabel{6.79}{9.16}{Only odd sizes}
+\strips{0.98}{8.77}{0.16}{4,3,2}
+\arrowat{2.05}{2.97}{8.39}{split 4}{}
+\strips{3.43}{8.77}{0.16}{3,2,2,2}
+\arrowat{4.71}{5.67}{8.39}{keep splitting}{}
+\strips{6.3}{8.77}{0.12}{3,1,1,1,1,1,1}
+\problem{7.34}{4}{Build each collection. Split even-size strips until only odd sizes remain. Join equal pairs until all sizes are different again. Does each starting collection return?}
+\centerlabel{1.46}{6.33}{Before}
+\centerlabel{3.73}{6.33}{Only odd sizes}
+\centerlabel{6.51}{6.33}{After joining}
+\foreach \top in {6.01,4.28,2.55}{%
+ \draw[rulegray,line width=0.5pt] (0.6,\top) rectangle ++(7.3,-1.5);
+ \foreach \xx in {2.28,5.08}{\draw[gridgray,line width=0.4pt] (\xx,\top)--++(0,-1.5);}
+}
+\strips{0.76}{5.79}{0.105}{10,7,4,2,1}
+\strips{0.76}{4.06}{0.105}{12,6,3}
+\strips{0.76}{2.31}{0.13}{7,3,1}
+\finishpage
+
+\beginpage{2--5}
+\problem{9.78}{5}{With 8 units, find every pair of collections connected by joining and splitting. One collection uses only odd sizes; the other uses all different sizes. Record their sizes.}
+\centerlabel{2.18}{8.73}{Only odd sizes}
+\centerlabel{6.32}{8.73}{All sizes different}
+\foreach \i in {0,...,7}{%
+ \pgfmathsetmacro{\top}{8.39-\i*0.91}
+ \draw[rulegray,line width=0.5pt] (0.6,\top) rectangle ++(3.16,-0.77);
+ \draw[rulegray,line width=0.5pt] (4.74,\top) rectangle ++(3.16,-0.77);
+ \draw[{Stealth[length=4pt]}-{Stealth[length=4pt]},line width=0.65pt] (3.95,{\top-0.385})--(4.54,{\top-0.385});
+}
+\finishpage
+
+\beginpage{4--5}
+\problem{9.78}{6}{Start with four 3-unit strips and six 1-unit strips. Try different legal joining routes until all sizes are different. Can the routes end with different collections? Decide whether this can happen from any all-odd collection.}
+\strips{0.87}{8.54}{0.13}{3,3,3,3,1,1,1,1,1,1}
+\centerlabel{3.72}{8.78}{Route 1}
+\centerlabel{6.54}{8.78}{Route 2}
+\draw[rulegray,line width=0.5pt] (2.4,8.5) rectangle (5.04,4.55);
+\draw[rulegray,line width=0.5pt] (5.22,8.5) rectangle (7.86,4.55);
+\draw[rulegray,line width=0.5pt] (0.6,4.18) rectangle (7.9,0.9);
+\finishpage
+
+\beginpage{4--5}
+\textat{0.6}{9.78}{Put the longest row first, with left edges aligned. To exchange rows and columns, make a new row as long as each column.}
+\centerlabel{1.41}{9.02}{Rows}
+\centerlabel{4.11}{9.02}{Read columns}
+\centerlabel{6.84}{9.02}{New rows}
+\rows{1.01}{8.61}{0.15}{5,3,3,1}
+\arrowat{2.05}{3.08}{8.27}{exchange}{}
+\rows{3.73}{8.61}{0.15}{5,3,3,1}
+\foreach \n [count=\c from 0] in {4,3,3,1,1}{%
+ \pgfmathsetmacro{\xx}{3.73+\c*0.15}
+ \draw[ink,line width=0.9pt] (\xx,8.61) rectangle ++(0.15,{-\n*0.15});
+ \node[anchor=north,inner sep=0,font=\fontsize{10}{11}\selectfont] at ({\xx+0.075},7.91) {\n};
+}
+\arrowat{4.76}{5.78}{8.27}{rebuild}{}
+\rows{6.55}{8.61}{0.15}{4,3,3,1,1}
+\problem{7.45}{7}{Exchange rows and columns twice for each collection. Draw the results. What does the second exchange do?}
+\centerlabel{1.61}{6.7}{Before}
+\centerlabel{4.23}{6.7}{Once}
+\centerlabel{6.77}{6.7}{Twice}
+\foreach \top in {6.38,4.59,2.8}{%
+ \draw[rulegray,line width=0.5pt] (0.6,\top) rectangle ++(7.3,-1.54);
+ \foreach \xx in {2.68,5.3}{\draw[gridgray,line width=0.4pt] (\xx,\top)--++(0,-1.54);}
+ \pgfmathsetmacro{\gg}{\top-0.2}
+ \tinygrid{3.45}{\gg}
+ \tinygrid{6.07}{\gg}
+ \draw[-{Stealth[length=4pt]},line width=0.65pt] (2.89,{\top-0.75})--(3.22,{\top-0.75});
+ \draw[-{Stealth[length=4pt]},line width=0.65pt] (5.51,{\top-0.75})--(5.84,{\top-0.75});
+}
+\rows{0.88}{6.09}{0.22}{5,2,1}
+\rows{0.88}{4.27}{0.22}{4,4}
+\rows{0.88}{2.57}{0.22}{3,3,1,1}
+\finishpage
+
+\beginpage{4--5}
+\problem{9.78}{8}{Find all 8-unit collections with at most 3 strips. Exchange rows and columns, and record their sizes. Which collections can result? Explain a rule that works for any \mbox{total}.}
+\centerlabel{2.28}{8.73}{At most 3 strips}
+\centerlabel{6.21}{8.73}{After exchanging}
+\foreach \i in {0,...,11}{%
+ \pgfmathsetmacro{\top}{8.41-\i*0.46}
+ \draw[rulegray,line width=0.5pt] (0.6,\top) rectangle ++(3.37,-0.46);
+ \draw[rulegray,line width=0.5pt] (4.53,\top) rectangle ++(3.37,-0.46);
+ \draw[-{Stealth[length=4pt]},line width=0.65pt] (4.12,{\top-0.23})--(4.39,{\top-0.23});
+}
+\draw[rulegray,line width=0.5pt] (0.6,2.55) rectangle (7.9,0.9);
+\finishpage
+
+\beginpage{4--5}
+\problem{9.78}{9}{For any total, are there exactly as many collections with only odd sizes as collections with all sizes different? Explain how joining and splitting can decide this without making every catalog.}
+\draw[rulegray,line width=0.5pt] (0.6,8.57) rectangle (7.9,0.9);
+\lastpage
+\end{document}

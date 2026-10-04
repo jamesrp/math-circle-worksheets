@@ -1,0 +1,255 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.65in,top=0.75in,bottom=0.65in,headheight=14pt,headsep=12pt,footskip=22pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage{microtype,tikz,fancyhdr,array,booktabs,enumitem,amsmath}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 53 / Connecting networks / Facilitator}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 53 / W53-guide-v1}
+\fancyfoot[R]{\scriptsize\thepage}
+\renewcommand\headrulewidth{0pt}\renewcommand\footrulewidth{0pt}
+\setlength\parindent{0pt}\setlength\parskip{6pt}
+\setlist[itemize]{leftmargin=1.25em,itemsep=2pt,topsep=2pt}
+\newcommand\topic[1]{\par\vspace{5pt}{\large\bfseries #1}\par}
+\newcommand\task[2]{\par\vspace{3pt}\textbf{Problem #1 (student p. #1): #2}\par}
+\newcommand\edges[1]{\{\mathrm{#1}\}}
+\newcommand\tri[3]{%
+\begin{tikzpicture}[x=0.7cm,y=0.7cm,baseline=(current bounding box.center)]
+\coordinate (U) at (0,0);\coordinate (V) at (2,1.5);\coordinate (W) at (4,0);
+\draw[gray,line width=0.6pt] (U)--(V)--(W)--cycle;
+\ifnum#1=1\draw[line width=2pt] (U)--(V);\fi
+\ifnum#2=1\draw[line width=2pt] (V)--(W);\fi
+\ifnum#3=1\draw[line width=2pt] (U)--(W);\fi
+\node[fill=white,inner sep=1pt] at (0.8,0.95) {2};
+\node[fill=white,inner sep=1pt] at (3.2,0.95) {4};
+\node[fill=white,inner sep=1pt] at (2,-0.23) {3};
+\foreach \v in {U,V,W}{\node[circle,draw,fill=white,inner sep=2pt] at (\v) {\v};}
+\end{tikzpicture}}
+\begin{document}
+\topic{Mathematical overview: the destination}
+For a \textbf{finite, connected, undirected available graph} with fixed places and \textbf{strictly positive fixed link prices paid once}, every least-cost purchase connecting all places is a \textbf{spanning tree}: it is connected and has no loop. A tree on $n$ places has $n-1$ links. That count alone proves neither connection nor least cost. Prices describe whole-link purchases, not geometric lengths or repeated journeys. Unmarked crossings are not places; new links, partial links and new junctions are unavailable.
+
+\textbf{Cut and cycle facts.} A cut separates all places into two nonempty sides. A link uniquely cheapest among the available links crossing a cut belongs to \emph{every} cheapest purchase. A link uniquely most expensive on an available cycle belongs to \emph{none}. With ties, a cheapest crossing link can be used in some optimum; being tied for cheapest does not make it compulsory. Actual cuts and cycles for Problem 6 appear on guide p. 4.
+
+\textbf{Exchange certificate.} For a connected loop-free purchase $T$, there is no cheaper legal one-link swap exactly when $T$ is globally cheapest. Equivalently, every unused link costs at least the largest price on the $T$-path between its endpoints. Buy the unused link, find the resulting cycle, and return a bought link on that cycle; the final purchase remains connected. A connected purchase containing a loop does not satisfy this local-to-global theorem just by lacking an improving swap.
+
+\textbf{Uniqueness.} Distinct link prices guarantee exactly one cheapest purchase. Distinct prices are sufficient, not necessary: Problem 6 has repeated prices and one optimum. Ties can allow several optima, as in Problems 1, 2, 4 and 7, but need not.
+
+\textbf{Assumptions and limits.} Zero prices can leave a loop in a cheapest connected purchase; negative prices can make an extra loop profitable. Tree-to-tree exchange theory still works with real weights, but the positive-price purchase conclusion above needs positivity. A disconnected available map has no purchase connecting all places. A graph bridge is forced by connectivity; a uniquely cheapest cut edge can be forced by price even when it is not a bridge.
+
+\topic{Experiments, conjectures and explanations}
+Children first buy, trace reachability, compare payments and change purchases. A cheaper example disproves an alleged minimum; failing to find one does not prove it. Catalogs of the tiny maps prove only those cases when coverage is complete. A cut/cycle exchange or the transformation proof on guide p. 7 explains why a claim holds beyond experiments. Proof can be enacted with removable marks and two drawn regions; formal notation is optional.
+
+\textbf{Actual packet map.} Student pp. 1--4 are headed Grades 2--5: read labels and short oral/written prompts, count dot prices, then numerals 1--6; adults may total and record. The destination is all-place connection, cheaper alternatives and complete small optimum catalogs. Student pp. 5--9 are headed Grades 4--5: retain a fixed input, trace paths, compare prices and distinguish every/some/none. Inverse pricing and arbitrary-map proofs require greater readiness than arithmetic. Use several visits if useful. Supported K--1 entry uses p. 1, possibly p. 2, with adult reading/payment and genuine child link choices; there is no independent K--1 theorem route or separate young packet.
+\newpage
+
+\topic{Preparation, staffing and launch}
+\textbf{Current arrangement: eleven children, KK11 / 3333 / 445.} Keep three adults anchored: the parent volunteer with two young pairs, the second mathematician with two third-grade pairs, and the organizer with the upper trio. In the trio, rotate chooser, payer/checker and recorder. At every table the child chooses links; adults may read, pay or record, but should not operate the investigation for them.
+
+\textbf{Five kits:} each has 30 equal-value counters (about 12--15 mm), ten removable bought-link markers, one small-base pawn or a pointing finger, a sleeve/tracing sheet, dry-erase pen, off-map payment tray and spare paper. Total: 150 counters, 50 markers, five pawns, five sleeves/pens/trays. Add 15 counters and four markers for the shared demonstration: 165 counters and 54 markers overall. A fixed map's complete purchase costs at most 26; an inverse six-link map costs at most 24. Ten markers cover the largest nine-link map, including buy-first intermediates.
+
+\textbf{Print single-sided US Letter at 100\%.} For one possible first visit, print p. 1 twice for young pairs, pp. 1--3 twice for third-grade pairs, and pp. 1, 3, 5 once for the upper trio (11 sheets); one full adult reference packet adds nine sheets. Use only the pages chosen for that visit. Keep extra copies or blank paper for alternatives; later select pp. 4 and 6--9. An adult can redraw/enlarge the non-task X/Y/Z launch map to about 15 cm wide on a board. Print one guide per adult if each needs a key.
+
+\textbf{Prepare in a proposed 10--15 minutes:} print chosen pages, count kits and put maps in sleeves. This estimate is unmeasured. Counters belong in the payment tray, never along links. Membership has one recoverable marker/trace per bought link; count payment after a complete candidate rather than maintaining a second running tally.
+
+Main place circles are about 10.4 mm across; nearest centers are 56.8 mm on p. 1, 67.5 mm on pp. 2--4, 64.6 mm on p. 5, \textbf{51.0 mm on p. 6}, 40.3 mm on p. 7, \textbf{37.5 mm on p. 8}, and 98.6 mm on p. 9. Compact records/examples have 5.6-mm circles and are \textbf{pen-only records}. Use a finger if a pawn hides a place. The small page-8 bypass clearance needs a physical check; printed BD passes C and CE passes D without turning there.
+
+\textbf{Whole group, about 4--6 minutes after 5 minutes of movement.} First let children handle a kit's counters, markers and pawn. On the non-task X/Y/Z map (XY=2, YZ=4, XZ=3), say: ``Choose whole roads to buy. Pay once for each. Can your traveler reach every circled place on the roads you bought?'' Mark XY and YZ, move $2+4=6$ counters to the tray, then trace X--Y--Z. Trace it again without paying again. Point from price dots to the matching numeral and kept bold record. This legal attempt is deliberately nonoptimal; do not announce a strategy. Demonstrate returning a link and its exact refund, then let children try.
+
+\textbf{Flexible first route.} Allow about 30--35 minutes at tables, a short movement break if needed, then 5 minutes sharing. Young pairs can stay with p. 1 and compare actual piles; offer p. 2 orally only if they retain the choices. If the parent must choose everything, use an accepted prior concrete activity instead. Third graders may spend the hour on pp. 2--3. Upper children can explore p. 5; pp. 6--9 can sustain later visits. Finishing nine pages is not the goal. Ask what they changed or found impossible; keep hints discretionary.
+\newpage
+
+\topic{Complete small-map keys: Problems 1--4}
+Here and below AB names the whole printed link from A to B. A set of links is one purchase; changing the order of buying does not create another solution.
+
+\task{1}{two three-place maps}
+Left: minimum \textbf{3}, only \textbf{AB, BC}. Right: minimum \textbf{3}, exactly \textbf{AB, BC} and \textbf{AB, AC}. All three possible two-link purchases are connected: left totals $3,4,5$ for AB/BC, AB/AC, BC/AC; right totals $3,3,4$. Fewer than two links cannot connect three places; buying the third positive-price link costs more.
+
+\textbf{Adult prompt/hint:} let the pawn test all three places, then compare payment piles. If only a journey from A to B is checked, ask whether C can be reached too. The shared X/Y/Z record costs 6; its unused XZ=3 would allow a cost-5 purchase, but that example is a convention demonstration, not a target solution. Ready children can notice that repeated prices on the right allow two optima.
+
+\task{2}{all cheapest four-place purchases}
+Minimum \textbf{4}; complete catalog:
+\begin{center}
+\begin{tabular}{lll}
+AB, AC, CD & AB, BC, CD & AC, BC, CD
+\end{tabular}
+\end{center}
+D needs a link priced at least 2 and a connecting four-place tree needs two more links, each at least 1. Thus cost is at least $2+1+1=4$. Equality requires CD and two price-1 links; any two of AB, AC, BC connect A/B/C. AD=3 cannot occur in a cost-4 tree. There are exactly three choices, not six: buying order does not matter.
+
+\textbf{Adult hint:} physically cover D, then restore it: which available links can reach it? Do not prescribe a sorting routine. Children may divide the three triangle cases and pool their pen records. A new entry can stop after constructing and comparing two candidates; ``every'' is the next readiness step.
+
+\task{3}{the cheapest-links trap}
+Minimum \textbf{7}, uniquely \textbf{AB, BC, CD}. AB/BC/AC costs 6 but forms a triangle leaving D alone. A cheapest purchase is a three-link tree. It needs CD=4 or AD=5; any two further distinct available links cost at least $1+2=3$. Hence total is at least 7. Equality requires CD=4, AB=1 and BC=2, and that purchase connects all four places. Merely having three links is insufficient.
+
+\textbf{Adult hint:} trace to D using the child's bought marks. If they have the cost-7 construction but no explanation, ask what the cheapest possible link into D costs and what must still connect the other places. They can arrange counters into one unavoidable pile of four and two further piles of at least one and two. This is a lower-bound argument with objects.
+
+\task{4}{all cheapest five-place purchases}
+Minimum \textbf{6}; complete catalog:
+\begin{center}
+\begin{tabular}{l}
+AB, AC, CD, DE\quad /\quad AB, BC, CD, DE\\[2pt]
+AC, BC, CD, DE
+\end{tabular}
+\end{center}
+A five-place tree has four links. Only three links have price 1 and those three make the A/B/C triangle, so a tree can use at most two of them. Its other two links each cost at least 2: total at least 6. Equality uses two triangle links, CD=2 and DE=2, giving exactly the three displayed trees. Buying the first four cheapest links can omit E.
+
+\textbf{Adult prompt/extension:} which earlier records can be extended to reach E? Let children actually pay for contrasting designs before asking for completeness. On a return visit, move one price and ask whether the catalog changes; calculate/check that new instance rather than treating the current key as universal.
+\newpage
+
+\topic{Fixed-input swaps and forced choices: Problems 5--6}
+\task{5}{all cheaper one-link swaps}
+Before the task, enact the printed U/V/W convention. Keep the original picture as a reference; build its bought links with removable marks on a copy. Buy UW, then return VW and refund four counters. \textbf{Final connectivity} is the condition. Preprinted thick links cannot be erased: using a bold pen over that picture cannot represent a returned link. Use removable marks, an unthickened copy/redraw, or separate result records.
+\begin{center}
+\begin{tabular}{ccc}
+Before & Buy UW=3 & Return VW=4\\[2pt]
+\tri{1}{1}{0} & \tri{1}{1}{1} & \tri{1}{0}{1}\\[2pt]
+Cost 6 & Cost 9 & Cost 5
+\end{tabular}
+\end{center}
+Each row starts again from the \emph{same printed input}; it is not a chain of swaps. Left input AB/AD/AC costs \textbf{10}. Complete cheaper-swap catalog:
+\begin{center}\small
+\begin{tabular}{llll}
+\toprule Return & Buy & New cost & Final bought set\\\midrule
+AC=5 & BC=2 & 7 & AB, AD, BC\\
+AC=5 & CD=3 & 8 & AB, AD, CD\\
+AD=4 & CD=3 & 9 & AB, AC, CD\\\bottomrule
+\end{tabular}
+\end{center}
+Buy BC: its input-tree path is B--A--C, so only AB or AC can be returned; AC is dearer. Buy CD: its path is C--A--D, so AC or AD can be returned and both are dearer. These are the only unused links, proving completeness. Returning AD for BC lowers the arithmetic total but isolates D and is illegal.
+
+Right input AB/BC/CD costs \textbf{6} and has no cheaper legal swap. Unused AD=4 has path prices 1,2,3; unused AC=5 has path prices 1,2. No path link is more expensive than the proposed buy. \textbf{Hint:} buy first and trace the one newly closed loop; let the child decide which mark can be returned. General justification is on guide p. 7.
+
+\task{6}{every / none on the six-place map}
+Unique optimum \textbf{AB, BC, CD, DE, EF}, cost \textbf{8}. These five are in every optimum. The following cuts certify each, because the named link is uniquely cheapest across that cut:
+\begin{center}\small
+\begin{tabular}{lll}
+\toprule One side & All crossing links/prices & Forced\\\midrule
+A & AB=1, AC=3 & AB\\
+A,B & BC=2, AC=3, BD=5 & BC\\
+A,B,C & CD=2, BD=5, CE=6 & CD\\
+E & DE=1, EF=2, CE=6 & DE\\
+F & EF=2, DF=4 & EF\\\bottomrule
+\end{tabular}
+\end{center}
+\textbf{AC, DF, BD, CE} occur in no optimum: each is uniquely most expensive on ABC $(1,2,3)$, DEF $(1,2,4)$, BCD $(2,2,5)$, CDE $(2,1,6)$ respectively. The available graph has \textbf{no bridges}. CD=2 is forced by price, not by being the only connection; BD and CE bypass C and D. \textbf{Hint:} circle a group of places and inspect all ways out, or enact replacing an expensive loop edge. Repeated prices here still yield a unique optimum.
+\newpage
+
+\topic{Inverse design and enumeration: Problem 7}
+\begingroup\setlength\parskip{4pt}\renewcommand\arraystretch{0.92}
+\task{7}{assign prices to create one / several optima}
+Every one of the six links gets a price in $\{1,2,3,4\}$, independently; repetition is allowed and not all four values need occur. Children can keep one map, invent, then test competitors with markers. The two following witnesses answer the printed goals, not a required recipe.
+
+\begin{center}
+\begin{tabular}{lrrrrrr}
+\toprule Map & AB & BC & AC & AD & BD & CD\\\midrule
+Unique witness & 1 & 1 & 3 & 2 & 3 & 4\\
+Multiple witness & 1 & 2 & 2 & 1 & 4 & 4\\\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Unique:} AB/BC/AD costs \textbf{4}. A tree needs three links; only AB and BC cost 1, and the cheapest link attaching D is AD=2. Equality in $1+1+2=4$ requires all three named links. No other purchase costs 4. This witness contains repeated prices: six distinct prices cannot even be assigned from four allowed values, and distinctness is unnecessary.
+
+\textbf{Multiple:} AB/AD/BC and AB/AD/AC both cost \textbf{4}, and they are the complete optimum catalog for this witness. Only AB and AD cost 1; every tree needs a third link costing at least 2. Equality requires both price-1 links and BC or AC. Both final purchases connect all four places.
+
+\textbf{Adult hints, only if needed:} ask the child to show their alleged winning purchase and one real competitor. For multiple optima, look for a replaceable equal-price link; for uniqueness, ask what would have to change in any different purchase. Two tied pictures alone do not prove they are cheapest. Children can show a lower bound with counter piles or certify the proposed tree by path comparisons. Do not suggest enumerating all price assignments as a first-hour task.
+
+\textbf{Full inverse audit.} The underlying complete four-place graph has 16 spanning trees and 38 connected purchases among 64 edge subsets. All $4^6=4096$ allowed price assignments were checked. Exactly \textbf{1956} have one optimum and \textbf{2140} have several. Full multiplicity distribution:
+\begin{center}
+\begin{tabular}{lrrrrrrrrr}
+\toprule Optima & 1 & 2 & 3 & 4 & 5 & 6 & 8 & 9 & 16\\
+Assignments & 1956 & 936 & 768 & 144 & 96 & 96 & 72 & 24 & 4\\\bottomrule
+\end{tabular}
+\end{center}
+The four all-equal assignments make every spanning tree cheapest. The audit is adult checking, not an age-fit claim or a general proof.
+
+\topic{Coverage of every fixed available map}
+Counts include all connected purchases, even those with loops. The convention maps are non-task instances; the two p. 5 inputs share one available map, as do pp. 6 and 8.
+\begin{center}\small
+\begin{tabular}{lrrrr}
+\toprule Map & Subsets & Connected & Trees & Minimum / optima\\\midrule
+X/Y/Z convention & 8 & 4 & 3 & 5 / 1\\
+P1 left; P1 right & 8 each & 4 each & 3 each & 3 / 1; 3 / 2\\
+P2; P3 & 32 each & 14 each & 8 each & 4 / 3; 7 / 1\\
+P4 & 256 & 134 & 45 & 6 / 3\\
+U/V/W swap convention & 8 & 4 & 3 & 5 / 1\\
+P5 & 32 & 14 & 8 & 6 / 1\\
+P6/P8 & 512 & 164 & 55 & 8 / 1\\
+P9 & 64 & 38 & 16 & 6 / 1\\\bottomrule
+\end{tabular}
+\end{center}
+All 152 trees were checked for every legal cheaper swap and path inequality. The standalone verifier regenerates complete connected/tree catalogs and inverse assignments. These finite checks support the keys; the proofs address arbitrary maps.
+\endgroup
+\newpage
+
+\topic{Loops and local tests: Problem 8}
+\task{8}{two candidate trees and the general question}
+\textbf{Positive-cost loops cannot be cheapest.} Remove one link on a loop: its endpoints remain connected by the rest of the loop, so any route that used it can take that detour. All places remain connected and its positive price is refunded. A closed trail with no repeated link contains a cycle; use a simple one when enacting the argument. Thus an optimum has no loop. Starting with $n$ isolated places, each added forest link joins two components; reaching one component takes $n-1$ links. This explains tree edge count, not least cost by itself.
+
+Top printed input \textbf{AB, BC, CD, DE, EF} has cost \textbf{8}. It has no improving legal one-link swap. Inspect every unused link and its path in this \emph{unchanged} tree:
+\begin{center}
+\begin{tabular}{llll}
+\toprule Buy & Tree path & Path prices & Largest\\\midrule
+AC=3 & A--B--C & 1,2 & 2\\
+DF=4 & D--E--F & 1,2 & 2\\
+BD=5 & B--C--D & 2,2 & 2\\
+CE=6 & C--D--E & 2,1 & 2\\\bottomrule
+\end{tabular}
+\end{center}
+Each buy costs more than every removable link on its new cycle. No other unused link exists. The certificate on guide p. 7 establishes global optimality. This tree is the unique optimum from Problem 6.
+
+Bottom printed input \textbf{AB, AC, BD, DE, DF} costs \textbf{14}. Its complete improving-swap list is:
+\begin{center}\small
+\begin{tabular}{llll}
+\toprule Return & Buy & New cost & Final bought set\\\midrule
+AC=3 & BC=2 & 13 & AB, BC, BD, DE, DF\\
+AC=3 & CD=2 & 13 & AB, BD, CD, DE, DF\\
+BD=5 & CD=2 & 11 & AB, AC, CD, DE, DF\\
+DF=4 & EF=2 & 12 & AB, AC, BD, DE, EF\\\bottomrule
+\end{tabular}
+\end{center}
+All results are connected five-link trees. Unused BC=2 has input path B--A--C, so only AC=3 can be returned more cheaply. Unused CD=2 has path C--A--B--D, so AC=3 or BD=5 can be returned. Unused EF=2 has path E--D--F, so DF=4 can be returned. Unused CE=6 has path C--A--B--D--E with prices 3,1,5,1; no link is dearer than 6. This covers all unused links and proves there are exactly four improvements. Each row resets to the bottom printed input.
+
+\textbf{Adult hint:} enact one buy, trace its loop, and compare possible refunds. A cheaper arithmetic exchange off that loop disconnects the result. Use the input picture plus one removable result, rather than updating the reference while writing a list. If children chain improvements afterward, label it as a new exploration.
+
+\textbf{Printed general answer: no.} A connected loop-free purchase cannot cost above the minimum while lacking a cheaper legal one-link swap. The next page gives the proof. ``Connected and loop-free'' alone is not enough: the bottom cost-14 tree is the printed counterexample. Conversely, dropping ``loop-free'' invalidates the claim: buying all three price-1 links on a triangle has no unused link to swap in, but costs 3 instead of 2. Simple deletion is then the useful move.
+\newpage
+
+\topic{From local tests to all competitors}
+\textbf{Problem 8, necessity.} Let $T$ be a tree. Buy unused link $f$; the unique $T$-path between its endpoints plus $f$ forms one cycle. Exactly the bought links on that path can be returned while preserving connection. Thus an improving swap exists precisely when some path link costs more than $f$. A cheapest tree cannot have such a swap.
+
+\textbf{Sufficiency, with ties allowed.} Suppose every unused link is at least as expensive as every link on its $T$-path. Remove one candidate link $e$ from $T$, making two sides. Every other available link $f$ crossing these sides has $e$ on its $T$-path, so $f$ costs at least $e$. Only $e$ among the candidate's own links crosses these sides.
+
+Take any competing tree $S$ missing $e$. Add $e$ to $S$. Its new cycle must cross those sides again in a link $f$; that link is outside $T$. Return $f$. The competing tree remains connected, its cost does not increase, and it has one more link in common with $T$. Repeat for a missing candidate link until the competitor becomes $T$. Therefore $T$ costs no more than \emph{any} competing tree. Any connected competing purchase can first lose its loops, lowering cost under positive prices. So $T$ is globally cheapest among all connected purchases.
+
+\textbf{Concrete proof enactment.} Draw the two regions made by removing $e$ from a copy of the candidate. Keep that drawing fixed. In a separately marked competitor, buy $e$, trace the new loop and find its other crossing. Exchange without raising the payment pile; count the increase in shared marks. This is a readiness-dependent explanation, possibly spread over another visit. Children can first test it on two chosen competitors; those experiments alone are not the universal proof.
+
+\textbf{Optional strategy discussion after invention.} A cheapest available link among all links joining different current components safely extends a chosen forest contained in some optimum: separate one component from the rest, add that link to the optimum, and return an at-least-as-expensive crossing link from the new cycle. No already chosen link crosses the cut, so none is lost. Induction explains Kruskal's method. ``Buy the cheapest links'' needs the different-components condition; P3 supplies the failure. Strictly cheaper swaps eventually stop because there are finitely many trees. This is an adult continuation, not a prescribed student procedure.
+
+\textbf{Why the P6 certificates rule out every competitor.} If an optimal tree omits a uniquely cheapest cut link $e$, add $e$. The new cycle crosses the cut again in a dearer link $f$; returning $f$ contradicts optimality. If an optimal tree uses a uniquely most expensive available-cycle link $e$, remove $e$ to make two sides. The rest of that available cycle contains another crossing link $f$, cheaper than $e$; buy $f$ to reconnect for less. Strict comparisons force/exclude the named links; ties do not justify those universal conclusions.
+
+\task{9}{distinct prices and uniqueness}
+Printed minimum \textbf{6}, uniquely \textbf{AB, BC, CD}. Any connected purchase needs at least three links; the three cheapest available prices sum to $1+2+3=6$, and these links form a connected tree. Equality requires those three. The unmarked diagonal crossing is not a fifth place.
+
+\textbf{Arbitrary-map answer: no two optima with distinct prices.} Positivity makes all optima trees. Suppose two optimal trees $T_1,T_2$ differ. Let $e$ be the cheapest link appearing in exactly one of them, say $T_1$. Add $e$ to $T_2$. Its cycle contains a link $f$ of $T_2$ outside $T_1$; otherwise $T_1$ would contain that cycle too. Since prices differ and $e$ was cheapest among the differing links, $e$ costs strictly less than $f$. Replacing $f$ by $e$ makes $T_2$ cheaper, a contradiction.
+
+\textbf{Adult hint/return visit:} compare two alleged winning link sets side by side and identify their cheapest disagreement. Equal-price ties remove the strict inequality; the P7 witnesses show both possible outcomes. A child may draw or physically enact the exchange before using letters for general trees. Preserve the proof opportunity without requiring every upper child to finish it in one hour.
+\newpage
+
+\topic{Source evidence, authorship and use limits}
+\textbf{Mathematical precedent.} Computer Science Unplugged, Activity 9, \emph{The Muddy City---Minimal Spanning Trees} (2005 activity PDF), printed pp. 76--80 / PDF pp. 1--5: counters model whole-network cost, exploration precedes strategy discussion, and a later representation uses labeled graph links. The source marks \textbf{ages 9 and up} and about 40 counters per child (p. 76). That is source evidence, not validation of our smaller 30-counter maps or supported younger entry. Its city drawing and prose are not reproduced.\par
+\href{https://classic.csunplugged.org/documents/activities/minimal-spanning-trees/unplugged-09-minimal_spanning_trees.pdf}{Primary Activity 9 PDF at classic.csunplugged.org}
+
+Robert Sedgewick and Kevin Wayne, \emph{Algorithms}, 4th ed., companion \textbf{\S4.3, Minimum Spanning Trees}: ``Assumptions'' distinguishes positive purchase costs from general MST weights; ``Underlying principles'' gives tree/cut facts, with distinct weights assumed in its cut statement; ``Kruskal's algorithm'' gives safe component joining. The saved page's \textbf{Exercise 3} proves distinct-weight uniqueness, \textbf{Exercise 15} handles a new edge by cycle exchange, and \textbf{Creative Problem 33, Certification} states the cut test. The tied-price local-to-global proof in this guide is explicit, not inferred from its distinct-weight cut wording.\par
+\url{https://algs4.cs.princeton.edu/43mst/}
+
+\textbf{Teaching evidence actually consulted.} Laura Givental, Maria Nemirovskaya and Ilya Zakharevich, \emph{Math Circle by the Bay: Topics for Grades 1--5} (AMS, 2018), ``How we teach,'' printed p. ix / PDF p. 10: manipulatives for young learners, independent problem solving, statements that are both comprehensible and unambiguous, and returning to explanation after successful solving. These are sourced lessons. Our off-map tray, removable membership marks, fixed-table staffing, map sizes, print route and timing estimates are design adaptations, not observations reported by that book.
+
+\textbf{Local lineage.} Organizer \emph{Handouts 4.docx}, P4.6, and \emph{Handouts 5.docx}, P5.3--5.4, are concrete act/trace-before-record precedents identified in Week 53 research. They are not MST sources. \emph{Handouts 2.docx}, P2.5, says only ``Tree problem (to be explained in class)''; prior tree content is unknown. Current staffing follows the October 3 workflow context, KK11 / 3333 / 445, rather than the older ten-child README entry.
+
+\textbf{Authorship and verification.} This separately authored guide uses the actual final nine-page student packet, fresh adversarial/math reviews and independently transcribed audit data. Its prose, launch diagram, source/build/check code are original adaptations of established mathematics. The independent math reviewer reconstructed all 27 printed graph instances and exhaustively tested all fixed subsets, all legal swaps on 152 trees, and all 4096 inverse assignments without importing the student's checker. The standalone guide verifier supplies a second enumeration; finite checks accompany the proofs, not replace them. Guide render inspection and clean copy/ZIP builds check digital consistency. Independent guide review follows separately.
+
+\textbf{Pretest before use: unperformed.} At actual print scale, try the chosen pawn/finger and ten markers on pp. 6 and 8, including BD/CE bypasses; check compact records with a pen; buy every link with the 30-counter kit; enact exact payment/refund and buy-first return; have the parent try facilitating two young pairs after the short launch. Physical material fit, refund procedure rehearsal, preparation timing and classroom piloting are \textbf{unperformed}. Source experience and digital checks do not establish them.
+
+\textbf{Record after use.} Note actual pages/cases used, choices children retained, adult rescues, methods invented, unclear conventions and questions they wanted to continue. Distinguish observations from explanations guessed afterward. Resume unfinished work or inverse designs on later visits rather than replaying the same puzzles. No remote copy, publication clearance or classroom-tested status is claimed. The lean source excludes prompts, borrowed exemplars, books and reference PDFs; the unchanged root \texttt{REPUBLISHING.md} caveat remains separate.
+\end{document}

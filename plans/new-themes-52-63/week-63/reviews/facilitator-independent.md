@@ -1,0 +1,24 @@
+# Week 63 independent facilitator review — accepted
+
+Coordinator, 4 October 2026. Read the complete guide source and actual revised nine student/three material pages. Independently reconstructed inclusion–exclusion and both inverse constructions without importing author modules. Rendered and inspected every current guide page at 108 dpi. Current guide: ten Letter pages, W63-G-v1, SHA-256 `c407bcddf48fa6ea1cbd51f0a5371dc335fef10f2c54a728563a9101c9fd887e`. Every table, formula, original-label arrow, footer and page reference is legible; no clipping or overlap found.
+
+The opening overview states a fixed labeled bijection, simultaneous home checks, inclusive (n−k)! intersections, alternating cancellation, recurrence domain n≥2 and D0=1/D1=0 before individual answers. For an outcome with a nonempty match set, pairing subsets without/with one chosen match cancels their opposite weights; the empty match set contributes one. This proves the general count, rather than extrapolating finite catalogs. No shuffle uniformity or prescribed swap claim is made.
+
+The reciprocal family removes distinguished z, destination h and both homes when h occupies z; the longer family redirects the unique x at z to h and removes only z. In the latter x differs from h and z, so no forbidden home is created. Both original-label inverses are unique. The two families exhaust whether h is at z, and the n−1 destinations are disjoint, proving Dn=(n−1)(Dn−1+Dn−2). The empty case and n=2 are handled exactly, with no negative index. The formula is explicitly limited to own-home prohibitions.
+
+`guide-review-independent.py` independently enumerates permutations through eight cards (counts 1,0,1,2,9,44,265,1854,14833), every specified intersection through five, and every reciprocal/longer branch and both inverses through seven. Exact-home histograms, partial A/B avoidance (3 and14), all four-card catalog rows, fixed D-at-A (three), fixed E-at-A (two reciprocal/nine longer) agree. A separate literal-table check read all 44 printed P9 rows from the actual source and compared them with the independent five-card universe; they are distinct and exhaustive. Every P5 intersection and P6 specified-subset list, examples AECDB, factorial multiplicity and per-outcome weight was also read and checked. Finite enumeration supplements the universal arguments.
+
+All recording conventions are correct: QRSTP in P/Q/R/S/T homes gives P→T→S→R→Q→P. Six-label reciprocal input UTQRSP reduces on Q/R/S/T homes to TQRS; longer input UPQRST reduces on P/Q/R/S/T homes to TPQRS. P7 DCBA reduces to CB on B/C; DABC→CAB and DCAB→BCA on A/B/C. Every P8 printed smaller row matches its exact inverse. P9 retains the shared E-at-A branch, then three children can contribute B/C/D branches, each11, so no branch is omitted. Children pool a checkable catalog without listing120 outcomes.
+
+The five-kit plan matches actual KK11 /3333 /445 and three anchored adults. Handling precedes a short whole-group legal-placement/whole-outcome demonstration using the stable VUWX row and two memberships. Honest oral K–1 access leaves choices with children; no fictitious independent packet. P3–4 first route, overlap versus reversible return routes, substantial proof and operational readiness gates are clear.
+
+Actual material counts: five p1 copies yield50 cards/10 whole strips; five p2 copies yield30 small outcomes/25 group labels/60 blank records; two p3 copies yield48 four-card outcomes. Total12 sheets/223 cut pieces. 30×40 cards bottom-align in35×45 homes, preserving the top5-mm labels. 56×27 whole-outcome cards belong on the tabletop; the24-card area exceeds the student writing boxes. Two rings are scoped to two properties; several lettered markers support four/five properties. Initial cutting forecast45–90 minutes and reuse5–10 are untested, with a lighter page1-only first route. Physical fit, grouping, label retention, both reversals, table space, staffing and classroom piloting remain unperformed and require pretests.
+
+Precise CMU mathematical sources and actual MSRI teaching passages are distinguished from the newly authored age adaptation. Week43's BCA/CAB entry is acknowledged as prior use; novelty centers on four/five-card overlap and reversible families. Source assets/prose are original, local and lean. Accepted for local packaging after independent full mathematical and every-page visual review.
+
+
+Record note: this is the completed authored stage report. Stage-local render/build
+evidence referenced under `tmp/` is historical and is not included in source ZIPs.
+Current released-file hashes and actual ZIP-extraction text/dimension/pixel checks
+are recorded in `../release-checks.json`; coordinator page coverage is recorded
+in `../../final-visual-review.json`. Physical pretests and piloting remain unperformed.

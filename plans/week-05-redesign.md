@@ -1,6 +1,6 @@
 # Week 5: How much information determines a city?
 
-Prepared September 19, 2026. Replaces the earlier depth of F05, retaining the common hands-on theme. Grade bands are entry points. The one-page grades 6–7 extra is optional.
+Revised September 27, 2026, applying the adopted Week 1 classroom guidance. Grade bands are entry points. All v3 revisions and their optional multi-page extras are **unpiloted**. The Week 1 observations are evidence about that session, not observations of Week 5.
 
 ## The mathematical work
 
@@ -8,10 +8,10 @@ Permutations, Latin-square completion, uniqueness, minimal versus minimum clue s
 
 | Entry level | Investigation |
 | --- | --- |
-| K–1 · F05-K-v2 | Enumerate all six skylines, distinguish viewpoints, and prove why one visible tower from each end is impossible. |
-| 2–3 · F05-M-v2 | Classify all cities with a top clue of three, add a second clue for uniqueness, and prove one visibility clue never determines a 3-by-3 city. |
-| 4–5 · F05-U-v2 | Give a complete case proof for a five-clue 4-by-4 city; optionally check five deletion certificates and prove a different three-clue set determines the same target. |
-| Extra 6–7 · F05-X-v2 | Use four disjoint Latin trades to prove an entry-clue lower bound, then explain why touching those four trades is not sufficient. |
+| K–1 · F05-K-v3 | Enumerate all six skylines, distinguish viewpoints, and prove why one visible tower from each end is impossible. |
+| 2–3 · F05-M-v3 | Classify all cities with a top clue of three, add a second clue for uniqueness, and prove one visibility clue never determines a 3-by-3 city. |
+| 4–5 · F05-U-v3 | Give a complete case proof for a five-clue 4-by-4 city; optionally check five deletion certificates and prove a different three-clue set determines the same target. |
+| Extra 6–7 · F05-X-v3 | Use four disjoint Latin trades to prove an entry-clue lower bound, then explain why touching those four trades is not sufficient. |
 
 ## Prerequisites and preparation
 
@@ -19,7 +19,16 @@ K–1: count to 3 and compare heights, no reading; distinguish arrangements and 
 
 112 snap cubes plus a few for demonstration: 6 per K–1 child, 18 per middle child, 40 for the upper child. Height slips record further solutions; use cubes first. Build on the table or draw scrap-paper grids with one-inch cells; printed smaller grids record solutions rather than holding every brand of cube. Preparation: about 15 minutes to prebuild towers and print.
 
-Current roster: K,K,1 / 3,3,3 / 5. Print three K–1 packets (two pages each), three middle (two each), one upper (three): 15 student sheets; add one extra if needed. Facilitator prints separately. US Letter, single-sided, 100%; grids are workspaces rather than calibrated physical templates.
+Current roster: K,K,1 / 3,3,3 / 5. **Start with page 1 for each child: seven student sheets.** Keep remaining pages as continuation masters and copy the next stage only when useful; preserve earlier records beside later tasks. Complete packet lengths are K–1 3, middle 3, upper 5, optional extra 2, facilitator 5 pages. Printing all core packets for the roster would use 23 sheets, but that is not the default session print plan. US Letter, single-sided, 100%; grids are recording spaces rather than calibrated physical templates.
+
+## Concrete work before each new representation
+
+- K–1: copy two contrasting rows and record both views; construct the three possible left-view counts; enumerate rows; only then compare impossible views or try a tiny city.
+- Grades 2–3: check four viewpoints, build a city and a whole-row swap, construct both top-clue cities, then add and remove clues. Separate grids preserve each comparison.
+- Grades 4–5: test row views, solve a city, build row candidates under five clues, organize surviving cases, then optionally check deletion witnesses and a three-clue construction. The case table now follows physical row work.
+- Extra: execute and check each of four block switches, then try two different three-entry selections and finally construct two cities that keep four clues. The trade lower bound and every-trade argument remain facilitator follow-ups.
+
+Give one page at a time and choose a continuation by demonstrated readiness. Proof questions and hints remain in the facilitator guide, including complete arguments supporting the finite checks. Each student page now uses only the common header/footer and numbered problems with essential rules, next actions, diagrams, and recording space.
 
 ## Default 60-minute flow, adjusted to the children
 
@@ -31,7 +40,7 @@ Current roster: K,K,1 / 3,3,3 / 5. Print three K–1 packets (two pages each), t
 
 35–40: Movement/reset. Leave cities or records intact and step away from the tables.
 
-40–55: Continue the current investigation or take its optional proof continuation below. Give one page at a time; the upper certificate page and extra are reserves.
+40–55: Continue the current investigation or take its optional proof continuation below. Give one page at a time; the upper certificate pages and extra are reserves.
 
 55–60: Share one concrete result and reason, then tidy.
 
@@ -65,4 +74,10 @@ Run **python3 plans/verify-week-05.py**. Computation verifies finite instances; 
 
 Related Lowell material: Handout 2.1–2.2 seating constraints. Proposed S1/S3/S4 clues are reused and substantially deepened; this does not establish that those instances were taught. Reserve larger skyline-count recurrences, Latin transversals, and full trade classification for later.
 
-Status: **prepared, not taught**. Record exact instances, claims proved, hints, and extra branches in the shared use log. Untouched reserves remain available. [Print/source index](../lowell-math-circle-year-2/source/week-05/README.md) and [review](../lowell-math-circle-year-2/source/week-05/REVIEW.md).
+Status: **v3 prepared, unpiloted; no Week 5 classroom observations supplied**. Record exact instances, claims proved, hints, and extra branches in the shared use log. Untouched reserves remain available. [Print/source index](../lowell-math-circle-year-2/source/week-05/README.md) and [review](../lowell-math-circle-year-2/source/week-05/REVIEW.md).
+
+## Review after first use
+
+Record the exact problems attempted, examples built, claims explained, prompts needing repeated adult rescue, time spent recording versus acting, and what children wanted to continue. Distinguish observations from hypotheses and proposed changes. A completed chart is not evidence that its general argument was established; prepared reserves remain unused until recorded otherwise. See the [Week 1 classroom review](week-01-classroom-review.md) for the actual observations behind this revision.
+
+Source distinction: *Math Circle by the Bay*, printed pp. ix–x supports flexible pace, manipulatives, and explanations; Rozhkovskaya, Lessons 3, 7, and 8, “At the lesson,” supports attempts before tables, checking legal actions, and adjusting recording. Our exact added examples, worksheet format, and common launch respond to the organizer's guidance.

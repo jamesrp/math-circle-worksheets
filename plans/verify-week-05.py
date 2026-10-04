@@ -44,3 +44,14 @@ for r in (0,2):
 entryids=((0,0),(0,2),(2,0),(2,2))
 assert len([a for a in L4 if all(a[i][j]==V[i][j] for i,j in entryids)])>1
 print('Week 05 PASS: Latin counts 12/576; two-clue 3x3 unique and optimal; five-clue deletion counts',counts,'; target minimum perimeter clues',minimum)
+
+# v3 concrete row comparisons and deletion-view records.
+assert [(visible(r), visible(r[::-1])) for r in [(1,4,2,3),(2,1,4,3),(4,1,2,3),(4,2,1,3)]] == [(2,2),(2,2),(1,2),(1,2)]
+witness_rows = ['1234/3412/2341/4123','1234/4123/3412/2341','1324/2431/3142/4213','1324/3142/2431/4213','1234/2143/3412/4321']
+for removed, txt, actual in zip(indices,witness_rows,[3,3,3,3,4]):
+    a=tuple(tuple(map(int,row)) for row in txt.split('/'))
+    assert a in L4 and a!=T and clues(a)[removed]==actual
+    assert all(clues(a)[i]==tc[i] for i in indices if i!=removed)
+alt=((1,2,3,4),(4,3,2,1),(3,4,1,2),(2,1,4,3))
+assert alt in L4 and alt!=V and all(alt[i][j]==V[i][j] for i,j in entryids)
+print('Week 05 v3 PASS: concrete views, all deletion witnesses, four-entry alternative')

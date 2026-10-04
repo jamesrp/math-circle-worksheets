@@ -1,0 +1,9 @@
+# Independent final mathematical audit — Week 18
+
+Inspected all four rendered final pages and `final/src/bonus.tex`; unchanged mathematical data agree with the independently verified draft. Re-ran the independent script with checks for the newly added three-by-three worked example and revised task assumptions.
+
+- **New convention example before P5: verified.** Input data 11/01; row checks give 110/011; bottom check row 101 yields completed rows 110/011/101. Every row and column has exactly two filled entries. The final corner is 1 whichever of its two checks is used. All three actual rendered stages match these values, check labels and shading; no main-task answer is shown.
+- **P7 same-reference revision: verified.** The printed task now starts with a mat that passes every check and explicitly compares two choices from the same starting mat. The previous diagonal/off-diagonal two-flip witnesses give the same odd row/column locations from every checked starting array.
+- **P6 nonempty/once revision: verified; both alternative readings are resolved.** The patched actual final PDF/source now say “Choose at least one counter and flip each chosen counter once.” The independent source check and direct final-PDF text extraction confirm that wording; the re-rendered page was inspected. It excludes zero flips and excludes repeatedly flipping a single counter to cancel its change. The minimum is exactly four, with 36 rectangle patterns as previously verified. No remaining mathematical ambiguity located.
+
+`checks.json` retains the draft review record and adds `final_audit`, with final PDF/source hashes and explicit checks for the new example, same-reference P7, nonempty constraint and P6's explicit “once.” The existing draft adult guide mathematics is correct under its explicit once-per-position assumption. Physical handling and classroom use remain untested.

@@ -6,6 +6,7 @@ PDFs are built by their own build.sh scripts before this command is run.
 from io import BytesIO
 from pathlib import Path
 import json
+import argparse
 
 from pypdf import PdfReader, PdfWriter
 import pdfplumber
@@ -27,7 +28,7 @@ LEVELS = {
     "k-1": ("K-1", "Spoken instructions; matching, building, and small counts."),
     "grades-2-3": ("Grades 2-3", "Small counts and concrete arguments; adult reading help is welcome."),
     "grades-4-5": ("Grades 4-5", "Investigate all cases, prove an obstruction, or explain an optimum."),
-    "extra-grades-6-7": ("Extra / grades 6-7", "One optional investigation per week; offer by readiness."),
+    "extra-grades-6-7": ("Extra / grades 6-7", "Optional investigations; offer the next page by readiness."),
     "facilitator": ("Facilitator guides", "Preparation, pacing, hints, proofs, source notes, and extra-page solutions."),
 }
 
@@ -48,16 +49,19 @@ def register_cover_fonts():
     raise RuntimeError("Install Arial or DejaVu Sans to build embedded-font covers.")
 
 
-def check_pdf(path, extra=False):
+def check_pdf(path, student=False):
     reader = PdfReader(path)
     assert not reader.is_encrypted, path
-    if extra:
-        assert len(reader.pages) == 1, (path, "extra must be exactly one page")
     for number, page in enumerate(reader.pages, 1):
         assert tuple(round(float(x)) for x in page.mediabox[2:]) == (612, 792), (path, number)
         text = page.extract_text() or ""
         assert len(text.strip()) > 80, (path, number, "empty or almost empty page")
         assert "\ufffd" not in text, (path, number, "replacement glyph")
+        if student:
+            assert "Problem " in text, (path, number, "missing numbered problem")
+            for label in ("Name:", "Date:", "Go further:", "Build first.",
+                          "Try it with objects."):
+                assert label not in text, (path, number, "obsolete worksheet label", label)
     with pdfplumber.open(path) as doc:
         for number, page in enumerate(doc.pages, 1):
             for char in page.chars:
@@ -82,9 +86,9 @@ def cover(level, description, entries):
     c.setFont("CoverSans", 10.5)
     c.drawString(47, 629, description)
     lines = [
-        "Grade bands are entry points. Begin with objects, then try to explain what happens.",
+        "Week 2 is one shared collection; grade bands below apply to Weeks 3-10.",
         "Give one page at a time. The packet is a menu, not a checklist for one hour.",
-        "Keep facilitator solutions separate from student pages.",
+        "Each student set includes the same Week 2 library. Print its chosen pages once.",
     ]
     for i, text in enumerate(lines):
         c.drawString(47, 596-17*i, text)
@@ -104,7 +108,7 @@ def cover(level, description, entries):
         "Print US Letter, single-sided, at 100% / Actual Size.",
         "Page ranges above count this cover as page 1. Bookmarks open each week.",
         "Weekly footers retain their own page numbers and activity IDs for the use log.",
-        "Revised September 20, 2026. Planned activities; record actual use after teaching.",
+        "Unpiloted. Week 3 updated September 30; other edition IDs remain in footers.",
     ]
     for i, text in enumerate(footer):
         c.drawString(47, 155-17*i, text)
@@ -115,16 +119,24 @@ def cover(level, description, entries):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--level', action='append', choices=list(LEVELS),
+                        help='Rebuild selected set(s); default is all five.')
+    args = parser.parse_args()
     register_cover_fonts()
     QA.mkdir(parents=True, exist_ok=True)
     OUT.mkdir(parents=True, exist_ok=True)
-    manifest = {}
+    manifest_path = QA / "manifest.json"
+    manifest = json.loads(manifest_path.read_text()) if args.level and manifest_path.exists() else {}
     for suffix, (level, description) in LEVELS.items():
+        if args.level and suffix not in args.level:
+            continue
         entries = []
         next_page = 2
         for week in WEEKS:
-            path = YEAR2 / f"week-{week:02d}" / f"week-{week:02d}-{suffix}.pdf"
-            count = check_pdf(path, suffix == "extra-grades-6-7")
+            week_suffix = ('shared-facilitator' if suffix == 'facilitator' else 'shared') if week == 2 else suffix
+            path = YEAR2 / f"week-{week:02d}" / f"week-{week:02d}-{week_suffix}.pdf"
+            count = check_pdf(path, student=suffix != "facilitator")
             entries.append({"week": week, "file": str(path.relative_to(ROOT)),
                             "pages": count, "start_page": next_page,
                             "end_page": next_page+count-1})

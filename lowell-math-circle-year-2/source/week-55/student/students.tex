@@ -1,0 +1,167 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper,landscape,left=17mm,right=17mm,top=22mm,bottom=18mm,headheight=15pt,headsep=6mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Week 55 / Few sums and equal spacing / Grades 3--5}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 55 / W55-S-v2}
+\fancyfoot[R]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\newcommand{\canvas}{\begin{tikzpicture}[x=1mm,y=-1mm,>=Stealth, every node/.style={font=\fontsize{12}{15}\selectfont}]\useasboundingbox (0,0) rectangle (245,171);}
+\newcommand{\finishcanvas}{\end{tikzpicture}}
+\newcommand{\txt}[4]{\node[anchor=north west,inner sep=0,text width=#3mm,align=left] at (#1,#2) {#4};}
+\newcommand{\prob}[3]{\txt{0}{#2}{245}{\textbf{Problem #1:} #3}}
+\newcommand{\cards}[4]{%
+  \node[anchor=east] at (#1-3,#2+7) {#3};%
+  \foreach \v [count=\i from 0] in {#4} {%
+    \draw[rounded corners=\ifx#3A2mm\else0mm\fi,line width=.6pt] (#1+15*\i,#2) rectangle ++(13,14);%
+    \ifx#3B\draw[line width=.35pt] (#1+15*\i+1.2,#2+1.2) rectangle ++(10.6,11.6);\fi
+    \node at (#1+15*\i+6.5,#2+7) {\v};%
+  }}
+\newcommand{\pair}[3]{\cards{9}{#1}{A}{#2}\cards{121}{#1}{B}{#3}}
+\newcommand{\lane}[2]{%
+  \foreach \i in {0,...,18} {%
+    \draw[line width=.4pt] (#1+12*\i,#2) rectangle ++(12,18);%
+    \node[font=\fontsize{9}{11}\selectfont] at (#1+12*\i+6,#2+3.6) {\i};%
+  }}
+\newcommand{\blankpair}[3]{%
+  \node[anchor=east] at (6,#1+7) {A};%
+  \foreach \i in {1,...,#2} {\draw[rounded corners=2mm,line width=.6pt] (9+15*\i-15,#1) rectangle ++(13,14);}%
+  \node[anchor=east] at (118,#1+7) {B};%
+  \foreach \i in {1,...,#3} {\draw[line width=.6pt] (121+15*\i-15,#1) rectangle ++(13,14);\draw[line width=.35pt] (122.2+15*\i-15,#1+1.2) rectangle ++(10.6,11.6);}}
+\newcommand{\arraygrid}[5]{%
+  % x, bottom y, A list (bottom to top), B list (left to right), step mm
+  \foreach \a [count=\i from 0] in {#3} {%
+    \node[anchor=east,font=\small] at (#1-9,#2-#5*\i) {\a};%
+    \foreach \b [count=\j from 0] in {#4} {%
+      \pgfmathtruncatemacro{\s}{\a+\b}%
+      \ifnum\i>0 \draw[gray!45] (#1+#5*\j,#2-#5*\i) -- ++(0,#5);\fi%
+      \ifnum\j>0 \draw[gray!45] (#1+#5*\j,#2-#5*\i) -- ++(-#5,0);\fi%
+      \node[draw,fill=white,circle,inner sep=0,minimum size=9mm,line width=.45pt] at (#1+#5*\j,#2-#5*\i) {\s};%
+    }}%
+  \foreach \b [count=\j from 0] in {#4} {\node[font=\small] at (#1+#5*\j,#2+10) {\b};}%
+  \node[anchor=east,font=\small] at (#1-9,#2+10) {A / B};}
+\begin{document}
+\canvas
+\txt{0}{0}{245}{Choose one card from A and one from B. Keep each input fixed while finding all its totals. Put one counter at each different total. Mark occupied cells before reusing counters. Each input has different numbers. Use cards 0--9 unless a problem says otherwise.}
+\txt{9}{21}{50}{\small Inputs}
+\cards{9}{28}{A}{1,4}
+\cards{9}{45}{B}{0,3}
+\draw[->] (58,42)--(69,42);
+\txt{75}{21}{75}{\small Three tries}
+\txt{75}{29}{75}{$1+3=4$\quad\small counter at 4}
+\txt{75}{39}{75}{$4+0=4$\quad\small 4 stays occupied}
+\txt{75}{49}{75}{$1+0=1$\quad\small counter at 1}
+\draw[->] (154,42)--(164,42);
+\txt{169}{21}{72}{\small Positions so far}
+\foreach \v [count=\i from 0] in {1,4} {
+  \draw (170+19*\i,29) rectangle ++(17,27);
+  \node at (178.5+19*\i,35) {\v};
+  \draw[fill=black!15,line width=.6pt] (178.5+19*\i,47) circle (4.5);
+}
+\prob{1}{68}{Find every different total in each trial. Which trial has fewer?}
+\pair{85}{0,2}{1,3}\lane{9}{103}
+\pair{135}{0,2}{1,4}\lane{9}{153}
+\finishcanvas\newpage
+
+\canvas
+\prob{2}{0}{Find every different total in these three trials. Which has the fewest? Which has the most?}
+\pair{24}{0,1,2}{0,1,2}\lane{9}{42}
+\pair{74}{0,1,3}{0,1,3}\lane{9}{92}
+\pair{124}{0,1,2}{0,3,6}\lane{9}{142}
+\finishcanvas\newpage
+
+\canvas
+\prob{3}{0}{Choose three cards for A and three for B. Make as few different totals as you can. Then make as many as you can.}
+\blankpair{24}{3}{3}\lane{9}{40}
+\blankpair{61}{3}{3}\lane{9}{77}
+\blankpair{98}{3}{3}\lane{9}{114}
+\blankpair{135}{3}{3}\lane{9}{151}
+\finishcanvas\newpage
+
+\canvas
+\prob{4}{0}{For each pair of sizes, choose cards that make the fewest possible different totals. What rule would you predict for other sizes?}
+\blankpair{25}{2}{3}\lane{9}{43}
+\blankpair{75}{2}{4}\lane{9}{93}
+\blankpair{125}{3}{4}\lane{9}{143}
+\finishcanvas\newpage
+
+\canvas
+\prob{5}{0}{Keep A fixed. Find every two-card B from 0--9 that gives exactly four different totals.}
+\cards{9}{23}{A}{0,3,6}
+\foreach \y in {45,70,95,120} {
+  \cards{9}{\y}{B}{\phantom{0},\phantom{0}}
+  \txt{47}{\y+1}{70}{\small Totals:}
+  \draw (47,\y+13)--(116,\y+13);
+  \cards{136}{\y}{B}{\phantom{0},\phantom{0}}
+  \txt{174}{\y+1}{65}{\small Totals:}
+  \draw (174,\y+13)--(239,\y+13);
+}
+\lane{9}{151}
+\finishcanvas\newpage
+
+\canvas
+\txt{0}{0}{245}{An input is equally spaced when neighboring numbers in increasing order have the same difference. That difference is its gap.}
+\prob{6}{12}{Find the different totals for each pair. Each input is equally spaced. Does that always give the fewest possible totals for these sizes?}
+\pair{26}{1,3,5}{2,4}\lane{9}{42}
+\pair{63}{0,2,4}{0,3}\lane{9}{79}
+\pair{100}{0,2,4}{1,3}\lane{9}{116}
+\pair{137}{0,3,6}{1,4}\lane{9}{153}
+\finishcanvas\newpage
+
+\canvas
+\prob{7}{0}{Find the different totals. Give a rule for the number of totals when A has one card and B has any number of cards. Does B need equal spacing?}
+\pair{27}{4}{0,1,3}\lane{9}{43}
+\pair{68}{2}{0,2,4}\lane{9}{84}
+\pair{109}{0}{1,4,6,9}\lane{9}{125}
+\draw[gray!40] (9,155)--(237,155);
+\draw[gray!40] (9,169)--(237,169);
+\finishcanvas\newpage
+
+\canvas
+\txt{0}{0}{245}{In a grid, A increases from bottom to top and B from left to right. Each dot holds the row card plus the column card. A route starts at the bottom-left dot, ends at the top-right dot, and moves one dot right or one dot up.}
+\txt{9}{23}{50}{\small Inputs}
+\cards{9}{31}{A}{1,5}\cards{9}{48}{B}{0,2,6}
+\draw[->] (67,43)--(76,43);
+\txt{82}{25}{61}{\small A row: 1\\B column: 2\\$1+2=3$}
+\draw[->] (138,43)--(147,43);
+\arraygrid{165}{58}{1,5}{0,2,6}{20}
+\draw[->,line width=1.4pt] (169.5,58)--(180.5,58);
+\draw[->,line width=1.4pt] (185,53.5)--(185,42.5);
+\draw[->,line width=1.4pt] (189.5,38)--(200.5,38);
+\txt{151}{73}{91}{\small Route totals: 1, 3, 7, 11}
+\prob{8}{91}{Draw several routes in each grid. Can a route repeat a total? How many different totals does every route visit? Explain what makes this happen.}
+\arraygrid{34}{152}{0,2,5}{1,3,4}{17}
+\arraygrid{158}{152}{1,3,5}{0,2,4,6}{17}
+\finishcanvas\newpage
+
+\canvas
+\txt{0}{0}{245}{The letters $m$ and $n$ count the cards in A and B.}
+\cards{9}{14}{A}{1,4}\cards{9}{31}{B}{0,2,5,8}
+\draw[->] (73,29)--(85,29);
+\txt{91}{9}{44}{\small Card counts}
+\txt{91}{18}{44}{$m=2$ cards in A\\$n=4$ cards in B}
+\draw[->] (137,29)--(148,29);
+\txt{155}{9}{90}{\small Substitute counts}
+\txt{155}{18}{90}{$m+n-1=2+4-1=5$\\$m\times n=2\times4=8$}
+\prob{9}{58}{Cards may now be any whole numbers. A has $m$ different cards and B has $n$ different cards; each input has at least one card. Can they have fewer than $m+n-1$ different totals? Can they have more than $m\times n$? Explain your answers for every possible choice of cards.}
+\foreach \y in {92,117,142,167} {\draw[gray!30] (9,\y)--(237,\y);}
+\finishcanvas\newpage
+
+\canvas
+\prob{10}{0}{A has $m$ different whole-number cards and B has $n$. Each input has at least two cards. Suppose they give exactly $m+n-1$ different totals. Must both inputs be equally spaced, with the same gap in A and B? Explain why, or find a pair that breaks the claim. Also explain why any two equally spaced inputs with the same gap give exactly $m+n-1$ totals.}
+\foreach \y in {59,84,109,134,159} {\draw[gray!30] (9,\y)--(237,\y);}
+\finishcanvas
+\end{document}

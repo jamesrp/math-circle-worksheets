@@ -1,0 +1,403 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper, left=0.65in, right=0.65in, top=0.75in, bottom=0.75in,
+            headheight=13pt, headsep=0.18in, footskip=0.36in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[default]{sourcesanspro}
+\usepackage[italic]{mathastext}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{xltabular}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{needspace}
+
+\definecolor{pbgreen}{HTML}{3AA655}
+\definecolor{pbblue}{HTML}{2F6FD6}
+\definecolor{pbred}{HTML}{E03A3A}
+\definecolor{pbyellow}{HTML}{F5C400}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{\small Week 1 encore / Pattern blocks / Adult guide}
+\fancyfoot[L]{\small Bellingham Math Circle / Week 1 encore / F01E-FAC-v1}
+\fancyfoot[R]{\small\thepage}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\raggedright
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.4em}{}
+\titlespacing*{\section}{0pt}{10pt}{3pt}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{8pt}{2pt}
+\setlist{nosep, leftmargin=1.2em, topsep=2pt}
+\renewcommand{\arraystretch}{1.15}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\core}{\newline{\footnotesize core}}
+\newcommand{\more}{\newline{\footnotesize further}}
+\newcommand{\pic}[1]{\input{figs/#1}}
+\input{figs/cdpos}
+
+\begin{document}
+
+{\Large\bfseries Pattern blocks II: adult guide}\par
+\smallskip
+One table each: K--1 (parent volunteer, 4 children), 2--3 (mathematician, 4), 4--5 (organizer, 3). Every answer below was recomputed by guide-src/check.py from the boards as printed on the student pages.
+
+\section{The idea of the week}
+
+Last session children filled boards with blue rhombi and found that a blue always covers one small triangle pointing up and one pointing down. This session uses the same blocks for three new things.
+\begin{itemize}
+\item \textbf{A two-player game.} Players take turns putting one blue on two empty small triangles of a printed board. A player who cannot place a blue loses. On a board that looks the same after a half turn, one player can win every game by copying: answer each move with the same move on the opposite side.
+\item \textbf{Fewest pieces.} The biggest piece first is not always best. Three reds fill the triangle with 3 small edges per side; starting with a yellow forces 4 pieces.
+\item \textbf{Counts that every filling shares.} At 2--3, the numbers of up- and down-triangles decide how many red trapezoids of each kind any filling uses. At 4--5, a blue filling of a hexagon is a picture of a pile of cubes, and each flip adds or removes one cube.
+\end{itemize}
+
+\textbf{A good session.}
+\begin{itemize}
+\item \textbf{K--1:} every child handles blocks from the first minute. Pairs play the game many times and start to say who wins on a board (``on the hexagon the second one always wins''). They find a shape that cannot be filled and say why in their own words. Reaching Problem~4 is a good hour.
+\item \textbf{2--3:} children play enough games to make a claim about each board, then find the copying strategy and test it against the adult. They find fewest-piece fillings and give a reason for the 2$\times$ hexagon. Best case: someone predicts the trapezoid counts in Problem~7 by counting up- and down-triangles.
+\item \textbf{4--5:} children explain copying, why some boards need the centre move first, and why copying does not apply to the triangles. They build cube piles from shaded pictures and explain with cubes why A to B takes 8 flips and why no route of flips returns after an odd number. Best case: they find a 3-move round trip with red trapezoids.
+\end{itemize}
+
+\section{Materials and preparation}
+
+\textbf{Pieces on each table.} Children in a pair share one board and one tray; counts are what the largest task needs at once.
+
+\begin{xltabular}{\linewidth}{L{1.25in} Y Y Y}
+\toprule
+ & \textbf{K--1} (2 pairs) & \textbf{2--3} (2 pairs) & \textbf{4--5} (3 children)\\
+\midrule
+Green triangles & 25 per pair (``most'' on the 2$\times$ hexagon is 24); 52 in all & 12 per pair; 26 in all & 12\\
+Blue rhombi & 12 per pair; 26 in all & 12 per pair (the hexagon game board); 26 in all & 40 (15 per filling of the Problem~6 hexagon, two fillings side by side, plus a game)\\
+Red trapezoids & 9 per pair; 20 in all & 14 per pair (12 for the big triangle); 30 in all & 30 (8 per filling of the hexagon, three side by side)\\
+Yellow hexagons & 7 per pair; 16 in all & 7 per pair; 16 in all & 8\\
+Upscale blocks & 3$\times$ triangle, rhombus, trapezoid, hexagon: one set per pair if there are two, Problem~1 only & none & none\\
+Other & pencils; 1 whiteboard per pair for tallies & pencils; 1 whiteboard per pair & 30 snap cubes; 1 or 2 box corners; a light, a medium and a dark coloured pencil per child; 1 whiteboard\\
+\bottomrule
+\end{xltabular}
+
+\textbf{Specific notes.}
+\begin{itemize}
+\item Boards are printed at actual size: the small triangle's edge is 1 inch. Print at 100\% (``Actual size'', not ``Fit to page''). Check one board against a green triangle: a green must cover one small triangle of a game board exactly, and four greens must fill the green outline on K--1 page~1 exactly. If not, reprint.
+\item Upscale 2$\times$ and 3$\times$ pieces make fewest-piece tasks trivial. Keep them for the K--1 bigger-copy problem (Problem~1) and put them away before K--1 Problem~3. Keep them off the 2--3 and 4--5 tables.
+\item Snap cubes and the inside corner of a small box are needed at the 4--5 table for cube stacks (Problems 4--6).
+\item This is the second pattern-block session. The first went well and was not finished, so bring the unused pages of each table's first-session packet (check last week's notes for where each table stopped) as extra work.
+\item Take the purple, pink, teal and gray pieces off all tables. No problem uses them, and they change the fewest-piece answers.
+\end{itemize}
+
+\textbf{What to print} (single-sided, US Letter, 100\%). Do not staple: blocks need flat pages. Hand out one page at a time; children keep earlier pages, because several problems refer back.
+
+\begin{xltabular}{\linewidth}{L{0.8in} L{1.5in} L{1.1in} Y}
+\toprule
+Table & File & Copies & How used\\
+\midrule
+K--1 & k-1.pdf, 7 pages & 5 (4 + adult) & A pair builds or plays on one copy; each child circles and writes on their own.\\
+2--3 & grades-2-3.pdf, 7 pages & 5 (4 + adult) & Same.\\
+4--5 & grades-4-5.pdf, 10 pages & 4 (3 + adult) & The pair plays on one copy; the referee keeps the tally on theirs.\\
+All & first-session pages not reached & 1 per child & Only when a child wants more.\\
+Adults & this guide & 3 & \\
+\bottomrule
+\end{xltabular}
+
+\textbf{Set up before the children arrive.}
+\begin{itemize}
+\item Sort pieces by colour into one tray per pair, with the counts above.
+\item K--1: put one 3$\times$ Upscale set per pair in a bag, out of sight until Problem~1.
+\item 4--5: cut a small cardboard box so that the floor and two walls meet in a corner (cut off the lid and the two front walls). The floor must take 3 by 3 snap cubes; the walls must be at least 2 cubes high. Put it with the corner away from the children, so they look in from the front and a little above. Then the floor is at the bottom of their view and the walls are upper left and upper right, as in picture~A on page~4.
+\end{itemize}
+
+\textbf{Test with the real materials.}
+\begin{itemize}
+\item One board against a green triangle (above).
+\item K--1 page 1: lay the 2$\times$ Upscale pieces on their outlines; each should match exactly. Put small yellows on the 3$\times$ Upscale hexagon to see that 7 fit and gaps remain.
+\item 4--5: build pile B (8 cubes, 2 by 2 by 2) and the full pile of Problem~6 (9 cubes, 3 by 3 by 1) in the box corner.
+\item 4--5: shade one small copy on page 4 with the three pencils; the three shades must be easy to tell apart.
+\end{itemize}
+
+\section{The hour}
+
+\begin{xltabular}{\linewidth}{L{0.9in} Y}
+\toprule
+0:00--0:05 & Running around.\\
+0:05--0:08 & Launch, whole group (below).\\
+0:08--0:48 & Pairs at the three tables.\\
+0:48--0:52 & Blocks back into the trays by colour.\\
+0:52--0:57 & Sharing question, whole group.\\
+\bottomrule
+\end{xltabular}
+
+\textbf{Launch (2--3 minutes, organizer).} Children stand around one table. The adult holds K--1 page~2 (the 2-by-2 board, top right) and four blue rhombi.
+\begin{enumerate}
+\item The adult puts one blue on the board so it covers two small triangles and says: ``This is a game for two players. You take turns. On your turn you put one blue on the board so it covers two small triangles that are still empty. It has to stay inside the board. If it is your turn and there is no room for a blue, you lose.'' The adult takes the blue off again.
+\item ``Who will show me a move?'' One child puts a blue on two empty triangles. The adult: ``Two empty triangles, inside the board. That is a move.''
+\item The adult puts a blue half off the board, then one on top of the child's: ``Can I do this?'' The children say no.
+\item The adult finishes the game with the child, going second and copying each move on the opposite side, and wins. ``Did the first player or the second player win? At your tables, find out whether that always happens.''
+\end{enumerate}
+
+\textbf{Pairs.}
+\textbf{K--1:} two pairs, each a kindergartner with a first grader. A pair shares one board; switch who goes first every game.
+\textbf{2--3:} two pairs. Play each board at least four times, switching who starts, with a tally on the whiteboard.
+\textbf{4--5:} one pair plays; the third child is referee (checks every move, keeps the tally) or plays the adult's side against the winner. Rotate every two games or every problem. For the cube problems: one child shades, one builds the pile, one checks the pile against the picture.
+
+\textbf{When attention runs out.}
+\textbf{K--1:} ``Beat the grown-up'': the adult plays the game against one child on the small hexagon or the 2-by-2 board (page~2), and the child chooses who goes first. Problem~7 is short and works as a reset.
+\textbf{2--3:} ``Copycat building'': one child puts any block on a printed board, and the partner must put the same block in the half-turn position. Then the game on the 3-by-3 board (page~5) against the adult.
+\textbf{4--5:} the game against the organizer on the big hexagon of page~6 (sides 1,3,3, printed at actual size; the second player wins by copying), or the first-session pages.
+
+\textbf{Sharing question (one, whole group).} ``Show us a board where the second player can always win. What does the second player do?''
+
+\section{Table by table}
+
+\subsection{K--1 table (parent volunteer)}
+
+Read each problem aloud once, put the pieces in front of the children, and wait. Useful things to say: ``Show me.'' ``Is there another way?'' ``How do you know it can't be done?'' ``Who won? Does that happen every time?''
+Core: Problems 1--4. Further: 5--7. If a child is struggling, skip the big Upscale pieces in Problem~1 and the ``as many as you can'' half of Problems 3 and 6, and go to Problem~7.
+
+\textbf{Why copying wins (Problems 2 and 4).} On the hexagon, the 2-by-2 board and the 4-by-2 board, the second player answers each move by putting a blue in the matching place on the opposite side, as if the board were turned halfway round. There is always room for that copy, so the first player runs out first. On the 3-by-1 strip and the 3-by-2 board, one blue sits right across the middle; the first player wins by taking it first and then copying.
+
+\textbf{Answer pictures.}\par\smallskip
+\begin{tabular}{@{}l@{\hspace{0.3in}}l@{\hspace{0.3in}}l@{}}
+\pic{firstK} & \pic{k3ans} & \pic{k6ans}\\[1pt]
+{\footnotesize P2, P4: the winning first move (blue)} & {\footnotesize P3: fewest} & {\footnotesize P6: fewest}\\[8pt]
+\end{tabular}
+
+\begin{tabular}{@{}l@{\hspace{0.4in}}l@{}}
+\pic{k5ans} & \pic{k7ans}\\[1pt]
+{\footnotesize P5: arrow, arrow, trapezoid, hexagon} & {\footnotesize P7: the 3 red ways and the 2 blue ways}\\
+\end{tabular}
+
+\needspace{2.5in}
+{\small
+\begin{xltabular}{\linewidth}{L{0.42in} L{1.45in} Y Y}
+\toprule
+& \textbf{Children do} & \textbf{Answer} & \textbf{Hints, in order}\\
+\midrule
+P1\core & Fill each printed shape with small pieces of its own colour, then the biggest Upscale pieces. Write the number or an X. &
+Printed shapes: triangle 4, rhombus 4, trapezoid 4 (only one way), hexagon X (at most 3 small yellows fit; gaps remain).
+Upscale pieces: 9, 9, 9, X (at most 7 small yellows fit). &
+1.~``Put one piece in a corner. Where can the next one go?''
+2.~``How many fit along the bottom edge?''
+3.~Hexagon: ``Is there a gap? Could a yellow fit in it?'' No piece may stick out over the edge.\\
+P2\core & Play the game on three boards; circle the player who can always win. &
+Hexagon: 2nd. 2-by-2: 2nd. Strip: 1st, but only if the first blue goes in the exact middle (picture below); any other first move loses to good play. &
+1.~``Play again; this time you go second.''
+2.~``Turn the board halfway round. Where would your partner's piece be? Put yours there.''
+3.~Strip: ``What if the first blue goes right in the middle?''\\
+P3\core & Fill each picture with as few pieces as possible, then with as many. &
+Triangle: fewest 3 (three reds), most 9 (greens).
+Star: fewest 6 (for example six blues), most 12 (greens). Every point of the star needs its own piece, so 6 is the least. &
+1.~``How many pieces did that take? Can two small pieces become one bigger one?''
+2.~Triangle: ``Try it without the yellow.''
+3.~Star: ``How many points does the star have? Can one piece cover two points?''\\
+P4\core & The game on three more boards. &
+Top (3-by-2): 1st, only by putting the first blue across the middle of the board (picture). Triangle: 1st; every first move wins, because the game always lasts exactly 3 moves. Bottom (4-by-2): 2nd, by copying. &
+As in Problem~2. On the triangle: ``Count the moves in each game.''\\
+P5\more & Fill each shape with only reds, then with only blues. Number or X. &
+Arrow: 4 reds (3 ways), 6 blues (1 way).
+Trapezoid: 5 reds; blues X: it has 9 triangles pointing up and 6 pointing down, and a blue covers one of each.
+Hexagon: reds X (16 small triangles, and reds go 3, 6, 9, 12, 15, 18); 8 blues. &
+1.~``Start at a pointy corner. Which way can the piece go there?''
+2.~Blues on the trapezoid: ``Does a blue cover a triangle pointing up or down? Count the ups and the downs.''
+3.~Reds on the hexagon: ``Fill it with greens and count.''\\
+P6\more & Fewest and most again. &
+Boat: fewest 5 (1 yellow, 3 reds, 1 green; the only way), most 16.
+2$\times$ hexagon: fewest 6 (3 yellows and 3 blues), most 24. &
+1.~``Start with the biggest piece that fits. How many did that take?''
+2.~Hexagon: ``How many yellows fit at once? What shape are the gaps?''
+3.~Boat: ``Where can the yellow go?''\\
+P7\more & Fill the yellow hexagon with 2 reds in every way and draw each; then with 3 blues. &
+2 reds: 3 ways (the line between the reds joins opposite corners; there are 3 such lines). 3 blues: 2 ways. All five are drawn below. A child who draws a fourth red way has drawn one of the three again. &
+1.~``Put down one red. What shape is left?''
+2.~``Now start the first red on a different side.''\\
+\bottomrule
+\end{xltabular}
+}
+
+\newpage
+\subsection{2--3 table (mathematician)}
+
+Core: Problems 1--4. Further: 5--7. If a child is struggling, skip the explanation in Problem~3 and Problem~7; play Problems 1 and 2 again and do the triangle in Problem~4.
+
+{\small
+\begin{xltabular}{\linewidth}{L{0.42in} L{1.45in} Y Y}
+\toprule
+& \textbf{Children do} & \textbf{Answer} & \textbf{Hints, in order}\\
+\midrule
+P1\core & Play four small boards; circle who can always win. &
+Hexagon 1,1,1: 2nd. 2-by-2: 2nd. 3-by-2: 1st, only by taking the centre blue (1 of 13 first moves). Hexagon 1,1,2: 1st, only the centre blue (1 of 11). &
+1.~``Play four games, switching who starts. Keep a tally.''
+2.~``After your partner's move, turn the board halfway round. Where does their blue land?''
+3.~3-by-2 and 1,1,2: ``Which blue lands on itself when you turn the board? Who should take it?''\\
+P2\core & Three more boards. &
+Triangle 3: 1st; every first move wins (each of the 3 down-triangles has a corner partner no other blue can use, so every game has exactly 3 moves).
+Triangle 4: 2nd; all 18 first moves lose. No short reason is known to us; children can only gather evidence.
+4-by-2: 2nd, by copying. &
+1.~``Does the triangle look the same after a half turn?''
+2.~Triangle 3: ``Count the moves in each game.''
+3.~Triangle 4: ``Keep a tally. Has the first player ever won?''\\
+P3\core & Fewest pieces on the 2$\times$ hexagon and the triangle 4; explain the hexagon. &
+2$\times$ hexagon: 6, always 3 yellows and 3 blues. Triangle 4: 5, always 1 yellow, 3 reds, 1 green (only one yellow fits).
+Explanation: see below. &
+1.~``How many yellows can you fit at once?''
+2.~``With three yellows in, what is left?''
+3.~``With only two yellows, how many triangles are left? How many can each other piece cover?''\\
+P4\core & Every trapezoid filling of triangle 3, several of the hexagon; count two-up and two-down. &
+Triangle: 2 fillings (mirror-image pinwheels, below), each 3 two-up and 0 two-down.
+Hexagon: 9 fillings (drawn, turned a quarter turn, in the 4--5 section), every one 4 two-up and 4 two-down. &
+1.~``Put a finger on each triangle under this trapezoid. Which way does each point?''
+2.~``Compare the counts for your different fillings.''
+3.~``Count the up- and down-triangles of the whole board.''\\
+P5\more & Strategy on the hexagon 2,2,2 and the 3-by-3 board; explain. &
+Hexagon: the 2nd player copies with a half turn about the centre point.
+3-by-3: the 1st player puts the first blue across the centre (picture), then copies.
+Explanation: see below. &
+1.~``Who won on these boards? Who started?''
+2.~``Try copying: answer each move with the move on the opposite side.''
+3.~3-by-3: ``Which blue is its own copy? What happens if nobody takes it?''\\
+P6\more & Fewest pieces on the 3$\times$ hexagon. &
+12: 6 yellows and 6 reds (exactly two such fillings, each the other turned a sixth of a turn; one is drawn below). 7 yellows fit, but then at least 6 more pieces are needed: 13. &
+1.~``How many yellows fit?''
+2.~``Is the most yellows best? Finish a filling with 7 yellows; then try 6.''
+3.~``With 6 yellows in, what shapes are the gaps?''\\
+P7\more & Triangle 6 with reds: most two-down trapezoids; explain. &
+3. All 220 fillings have 9 two-up and 3 two-down. Explanation: see below. &
+1.~``Count the two-down trapezoids in your filling.''
+2.~``Count the up- and down-triangles, row by row.''
+3.~``A two-up trapezoid covers one more up than down. How many more ups than downs does the board have?''\\
+\bottomrule
+\end{xltabular}
+}
+
+\textbf{Explanations a child can give with the blocks.}
+\begin{itemize}
+\item \textbf{P3, the 2$\times$ hexagon.} ``Every yellow covers at least two of the six triangles around the middle point, so at most three yellows fit. With three yellows in, the gaps are three separate blue-shaped holes, so we need three more pieces: 6. With two yellows or fewer, at least 12 triangles are left and no other piece covers more than 3, so we need at least 4 more: 6 again, or more.''
+\item \textbf{P5, copying.} ``Whatever you do, I put my blue where yours lands when the board is turned halfway round. After my turn the board looks the same both ways, so if you have a move, my copy has room too. You run out first.'' On the 3-by-3 board one blue is its own copy (the one across the centre), so the first player takes it and then copies.
+\item \textbf{P7.} ``The board has 21 up-triangles and 15 down-triangles (rows 1+2+\dots+6 and 1+\dots+5), so 6 more ups. A two-up trapezoid uses one more up than down, a two-down one more down. There are 36/3 = 12 trapezoids. With 3 two-down there are 9 two-up, and 9 $-$ 3 = 6. With 4 two-down there would be 8 two-up and only 4 more ups. So it is always 3.''
+\end{itemize}
+
+
+\needspace{2.6in}
+\textbf{Answer pictures.}\par\smallskip
+\begin{tabular}{@{}l@{\hspace{0.35in}}l@{\hspace{0.35in}}l@{}}
+\pic{firstM} & \pic{m4tri} & \\[1pt]
+{\footnotesize P1, P5: winning first moves (blue)} & {\footnotesize P4: the 2 triangle fillings} & \\[6pt]
+\pic{m3ans} & \pic{bighexans} & \\[1pt]
+{\footnotesize P3: fewest} & {\footnotesize P6: 12 pieces} & \\
+\end{tabular}
+
+\needspace{3in}
+\subsection{4--5 table (organizer)}
+
+Core: Problems 1--5. Further: 6--10. If a child is struggling, skip Problems 3 and 6; after Problem~5 go to Problem~7, then Problem~9. Problems 1 and 2 are 2--3 Problems 1 and 5 (answers above); Problem~10 is 2--3 Problem~6 (12 pieces, picture in the 2--3 section).
+
+{\small
+\begin{xltabular}{\linewidth}{L{0.42in} L{1.45in} Y Y}
+\toprule
+& \textbf{Children do} & \textbf{Answer} & \textbf{Hints, in order}\\
+\midrule
+P3\core & The game on triangles 3 and 4. &
+Triangle 3: 1st (every game has exactly 3 moves). Triangle 4: 2nd; all 18 first moves lose (computer search). Neither looks the same after a half turn, so copying does not apply. &
+1.~``Does copying work here?''
+2.~``Count the moves in each game on triangle 3.''\\
+P4\core & Fill the hexagon with blues, shade like A and B, build the pile, count the cubes; as many fillings as possible. &
+20 fillings, one for each pile in a 2 by 2 by 2 box with no overhangs, listed below (0 to 8 cubes). &
+1.~``Build piles A and B in the corner and compare them with the pictures.''
+2.~``Which faces of a cube are light? Which are dark?''
+3.~``Start from A, add one cube in the corner, and draw the new picture.''\\
+P5\core & Fewest flips from A to B; explain. Can a route return after an odd number of flips? &
+8 flips. No odd round trip. Explanation: see below. &
+1.~``Do one flip. What happened to the pile?''
+2.~``How many cubes are in A? In B?''
+3.~``On a round trip, what happens to every cube you add?''\\
+P6\more & Several fillings of the 1,3,3 hexagon, shaded; count the shades; flips from no cubes to the most. &
+Every filling (there are 20) has 9 light, 3 medium and 3 dark. 9 flips (the box is 3 by 3 by 1). &
+1.~``Build the pile with no cubes and the pile with the most.''
+2.~``Look straight down at the pile. What do you see over each floor square?''\\
+P7\more & Every red filling of the hexagon; explain why the list is complete. &
+9 fillings: 3 rings times 3 ways to cut the middle (all below). Explanation: see below. &
+1.~``What can the small hexagon in the middle look like?''
+2.~``Go round the outer ring. Once one trapezoid is down, is the next one forced?''
+3.~``Can a trapezoid reach from the ring into the middle?''\\
+P8\more & A route of two-trapezoid moves returning after an odd number; C to D with moves of at most five? &
+Keep the ring and re-cut the middle hexagon: cut 1, cut 2, cut 3, cut 1 is a 3-move round trip. C to D: no. Explanation: see below. &
+1.~``Which two trapezoids can you pick up and put back differently?''
+2.~``Which trapezoids of C are in the same place in D?''
+3.~``If one ring trapezoid stays where it is, what must the rest of the ring be?''\\
+P9\more & Who wins on four boards drawn small, and how. &
+Hexagon 3,3,3: 2nd. Hexagon 1,2,3: 1st. 4-by-4: 2nd. 5-by-2: 1st. All by copying; the first player takes the centre blue first. &
+1.~``Which boards look the same after a half turn?''
+2.~``Is the centre a corner of the grid or the middle of an edge?''
+3.~``If it is the middle of an edge, which blue is its own copy?''\\
+\bottomrule
+\end{xltabular}
+}
+
+\needspace{2in}
+\textbf{Explanations a child can give with the blocks and cubes.}
+\begin{itemize}
+\item \textbf{P5.} ``A flip turns the three faces of one small hexagon the other way. In the pile, that adds one cube or takes one away. A has no cubes and B has 8, so we need at least 8 flips, and adding one cube at a time takes exactly 8. On a round trip every cube we add must be taken away again, so the number of flips is even.''
+\item \textbf{P6.} ``Each of the 9 floor squares has exactly one light face over it: the floor or the top of its stack. Each of the 3 squares of a wall has exactly one face of that wall's shade in front of it. So 9, 3 and 3 every time. No cubes is 0 and the most is 9, and each flip changes the count by one: 9 flips.''
+\item \textbf{P7.} ``The two trapezoids in the middle cut the small hexagon along one of its 3 long lines. The 18 triangles around it form a loop, and a trapezoid in the ring covers 3 of them in a row, so once one is placed the rest of the ring is forced: 3 rings. 3 times 3 is 9.'' Why nothing reaches across: number the loop 0, 1, 2, 0, 1, 2, \dots{} so that the 2s are the six triangles touching the middle. A trapezoid inside the ring covers one of each number, so the trapezoids that reach into the middle must cover equally many 0s, 1s and 2s of the ring. Each of them covers a 2 and at most one 0 or 1, so they cover at least as many 2s as 0s and 1s together. Both can hold only if there are none.
+\item \textbf{P8.} ``C and D have different rings. Two different rings share no trapezoid, so if a move leaves even one ring trapezoid where it is, the ring stays the same. To change the ring you must pick up all six ring trapezoids at once. Five is not enough.''
+\item \textbf{P9.} A board has a centre for the half turn. If the centre is a corner of the grid (hexagon 3,3,3; 4-by-4), no blue is its own copy and the second player copies. If it is the middle of a grid edge (hexagon 1,2,3; 5-by-2), exactly one blue is its own copy; the first player takes it, then copies.
+\end{itemize}
+
+\needspace{2.6in}
+\begin{minipage}[t]{2.8in}
+\textbf{P4: the 20 piles.} Stack heights written back, left, right, front (back is the stack in the corner; the front stack is nearest you). A is 0000, B is 2222.\par\smallskip
+{\small
+\begin{tabular}{@{}r@{\hspace{6pt}}l@{}}
+cubes & piles\\
+\midrule
+\input{figs/piles}
+\end{tabular}}
+\end{minipage}\hfill
+\begin{minipage}[t]{3.9in}
+\textbf{P7: the 9 red fillings.} Rows are the three rings: pinwheel, frame, pinwheel the other way. Columns are the three cuts of the middle. C is ring~\Cring, D is ring~\Dring{} (counting rows from the top), both in column~\CDmid.\par\smallskip
+\pic{u7ans}
+\end{minipage}
+
+
+\needspace{3in}
+\section{The mathematics behind the week}
+
+\textbf{Copying.} Suppose a half turn about a point $O$ takes the board to itself. A blue is its own image exactly when $O$ is the midpoint of the edge its two triangles share. If $O$ is a grid point, no blue is its own image; the second player answers each move $m$ with its image $m'$. After each of her moves the position is symmetric, so $m'$ is free, and $m'$ is disjoint from $m$ (a common triangle $t$ would force $m=\{t,t'\}$ to be its own image). So she always has a move and wins. If $O$ is an edge midpoint, exactly one blue is its own image; the first player takes it and then copies. The centre of an $a$-by-$b$ board is a grid point exactly when $a,b$ are both even; that of the hexagon $a,b,c,a,b,c$ exactly when $a,b,c$ are all even or all odd. Triangles have no half-turn symmetry: on triangle 3 every game has 3 moves; triangle 4 is a second-player win by search, with no short argument known to us. This is the Tweedledum--Tweedledee strategy of Berlekamp, Conway and Guy, \emph{Winning Ways} (compare Cram).
+
+\textbf{Up and down.} A red covers two up and one down (``two-up'') or one up and two down. With $x$ two-up and $y$ two-down reds, $x-y=U-D$ and $x+y=(U+D)/3$, so $x$ and $y$ are the same in every filling. The triangle with $n$ small edges per side has $U=n(n+1)/2$, $D=n(n-1)/2$; for $n=6$, $x-y=6$, $x+y=12$, so $x=9$, $y=3$. A hexagon $a,b,c$ has $U=D$, so $x=y$. This is the simplest case of Conway and Lagarias's and Thurston's tiling-group invariants (Thurston, ``Conway's tiling groups'', 1990).
+
+\textbf{Cubes.} A blue filling of the hexagon $a,b,c$ is the picture of a pile of unit cubes in an $a\times b\times c$ box, pushed into the corner with no overhangs: a plane partition (David and Tomei, ``The problem of the calissons'', 1989). The light rhombi are the tops over the $ab$ floor squares, and the other shades are the faces seen against the two walls, $bc$ and $ca$ of them. A flip adds or removes one cube. So the number of cubes changes by exactly one per flip: the flip graph is bipartite, the flip distance from the empty box is the number of cubes, and empty to full takes $abc$ flips. The number of fillings is MacMahon's product $\prod_{i\le a,\,j\le b,\,k\le c}\frac{i+j+k-1}{i+j+k-2}$: 20 for 2,2,2 and for 1,3,3, and 6 for 1,2,2 (4 flips from emptiest to fullest).
+
+\textbf{Reds behave differently.} The 9 red fillings of the 2,2,2 hexagon are 3 rings times 3 middles. Turning the middle pair gives a round trip of 3 moves, so no ``cube count'' changes by one with each red move. Moves of five or fewer reds never change the ring; changing it means rebuilding all six ring pieces at once. For blues, by contrast, flips connect all the fillings of a hexagon.
+
+\textbf{Fewest pieces.} With $h$ yellows in a region of $N$ small triangles, at least $h+\lceil (N-6h)/3\rceil$ pieces are needed, so the question is where yellows fit. 2$\times$ hexagon ($N=24$): at most 3 yellows, and 3 leave three separate 2-triangle holes, so 6. Triangle 4 ($N=16$): one yellow at most, so 5. 3$\times$ hexagon ($N=54$): at most 7 yellows, in exactly 2 positions, which leave six 2-triangle holes (13 pieces) or twelve single triangles (19); with 6 or fewer yellows at least $18-h\ge 12$, and 6 yellows with 6 reds reach 12.
+
+\textbf{Where it goes next.} Cram and Domineering in \emph{Winning Ways}; plane partitions and MacMahon's formula (MIT 18.312 lecture notes on rhombus tilings and plane partitions); Thurston's height functions and tiling groups.
+
+\section{What to write down after the session}
+
+One sheet per table, the same evening. Keep the children's pages with the most interesting drawings.
+
+{\small
+\begin{xltabular}{\linewidth}{L{2.0in} Y}
+\toprule
+Problems reached & K--1: 1 2 3 4 5 6 7 \quad 2--3: 1 2 3 4 5 6 7 \quad 4--5: 1 2 3 4 5 6 7 8 9 10 (circle; note who)\\
+What children tried & Which boards they played and how many games; fillings they built; anyone who copied a move on purpose.\\
+What children said & Quotes, with the child's name: who wins where, why a shape cannot be filled, why a count is always the same.\\
+A drawing or claim worth keeping & For example: a shaded cube picture with its pile; a list of fillings a child says is complete; a tally of wins on triangle~4.\\
+Status of each claim & For each claim write: \emph{tried} (did it once), \emph{guessed} (said it without testing), \emph{checked in some cases}, or \emph{explained} (gave a reason for all cases).\\
+Next time & Where each table stopped; which pages to bring back.\\
+\bottomrule
+\end{xltabular}
+}
+
+\textbf{Look for at each table.}
+\textbf{K--1:} did a child copy a move on purpose? Did anyone say why the yellow hexagon cannot be filled, or why a blue cannot fill the trapezoid?
+\textbf{2--3:} who first stated the copying strategy, and on which board? Did anyone predict ``3 two-down'' in Problem~7 before building?
+\textbf{4--5:} did the children read the pictures as piles in a corner (or as cubes hanging from a ceiling)? Did anyone find the 3-move round trip with reds, and could they say why blues have none?
+
+\end{document}

@@ -1,0 +1,342 @@
+{
+  "week": 32,
+  "title": "Squares inside rectangles",
+  "pages": [
+    [
+      [
+        "title",
+        "Squares inside rectangles"
+      ],
+      [
+        "h",
+        "The mathematics in one view"
+      ],
+      [
+        "p",
+        "Begin with an a-by-b rectangle whose side lengths are positive integers. All square edges lie on grid lines. At each step remove a largest square from one end of the remaining rectangle; rotate your viewpoint if needed. If the remainder is square, remove it and stop."
+      ],
+      [
+        "p",
+        "<b>Invariant and termination.</b> For a&gt;b, replacing (a,b) by (a-b,b) preserves the entire set of positive common divisors: d divides a and b exactly when it divides a-b and b. The sum of the positive remaining sides strictly decreases, so the process terminates. The last square has side gcd(a,b). Repeating the same subtraction several times is the usual division-with-remainder Euclidean algorithm."
+      ],
+      [
+        "p",
+        "<b>Geometric meaning.</b> Identical axis-aligned whole-grid squares of side s tile the original rectangle exactly when s divides both side lengths. Hence their largest possible side is gcd(a,b), precisely the last side produced by the biggest-square rule. The successive squares generally have different sizes; the last size tells us a different, equal-square tiling is possible."
+      ],
+      [
+        "p",
+        "<b>Limits.</b> The last square need not be a unit square. The theorem concerns positive integer lengths and grid-aligned squares. It does not claim that this dissection minimizes the number of squares among all possible unequal-square tilings. “Most different sizes” also differs from “most pieces.”"
+      ],
+      [
+        "h",
+        "What each group is doing"
+      ],
+      [
+        "p",
+        "<b>K-1:</b> Cover and compare small rectangles, then test whether the last side matches the largest equal tile. Counting side lengths to 12 and recognizing a square are enough; adults can draw outlines instead of requiring cutting."
+      ],
+      [
+        "p",
+        "<b>Grades 2-3:</b> Record successive sides, vary one rectangle side, and conjecture the connection with common factors. Multiplication or repeated grouping helps with equal-square tilings. A tested example illustrates the rule but is not yet a proof for every rectangle."
+      ],
+      [
+        "p",
+        "<b>Grades 4-5:</b> Explain common-divisor preservation and termination, then conduct a bounded search for the most distinct square sizes. Factors, subtraction and organized casework are enough; division with remainder makes the search shorter."
+      ],
+      [
+        "h",
+        "Materials and preparation"
+      ],
+      [
+        "p",
+        "Use the printed rectangle grids, pencils or two colored pencils, rulers, graph paper and scissors. Drawing each square boundary is the lowest-prep option. For younger children, provide four 3-by-3 cutouts per child for K P5 (12 cutouts for the current KK1 group); trace or cut other squares from matching grid paper as needed. Do not fit physical cutouts to separately scaled diagrams: use a fresh rectangle on the same grid paper instead."
+      ],
+      [
+        "small",
+        "This geometric use of Euclid revisits the subtraction-gcd idea in Week 4 and the coprimality ingredient in Week 9. The concrete dissection investigation is new in this sequence; gcd itself is not. Unpiloted."
+      ]
+    ],
+    [
+      [
+        "h",
+        "Launch and a flexible hour"
+      ],
+      [
+        "p",
+        "<b>0-6 minutes:</b> Let children cover a small grid rectangle. Then show the printed 5-by-2 example: a 2-by-2 square at an end leaves a 3-by-2 rectangle. The next square must fit the <i>remaining</i> rectangle. Show that a long strip is not a square and that taking a square from the middle need not leave one rectangle."
+      ],
+      [
+        "p",
+        "<b>6-23:</b> K P1-3, 2-3 P1-2, upper P1-2. <b>23-28:</b> Stand and compare two dissections. <b>28-48:</b> Offer equal-square tilings and the invariant, or stay with concrete comparisons. <b>48-60:</b> Share a prediction about a last square and justify it. For the upper search, divide the 49 candidates among pairs rather than insist each child cut all of them."
+      ],
+      [
+        "h",
+        "K-1 answer key"
+      ],
+      [
+        "p",
+        "Square lists below give <b>side lengths in removal order</b>, including repeated sizes. Either orientation is fine; the original area should equal the sum of the listed square areas."
+      ],
+      [
+        "table",
+        [
+          [
+            "Problem",
+            "Rectangle",
+            "Square sides in order",
+            "Last side"
+          ],
+          [
+            "P1",
+            "6×4",
+            "4,2,2",
+            "2"
+          ],
+          [
+            "P1",
+            "8×4",
+            "4,4",
+            "4"
+          ],
+          [
+            "P2",
+            "7×4",
+            "4,3,1,1,1",
+            "1"
+          ],
+          [
+            "P2",
+            "8×5",
+            "5,3,2,1,1",
+            "1"
+          ],
+          [
+            "P3",
+            "9×6",
+            "6,3,3",
+            "3"
+          ],
+          [
+            "P3",
+            "10×6",
+            "6,4,2,2",
+            "2"
+          ]
+        ],
+        [
+          1,
+          1.2,
+          2.4,
+          1
+        ]
+      ],
+      [
+        "p",
+        "<b>P1-3 comparisons.</b> P1 ends differently; P2 ends the same; P3 ends differently. A longer side or larger area does not by itself determine the last square."
+      ],
+      [
+        "p",
+        "<b>P4.</b> For both 6×4 and 8×6 the largest equal square has side 2. Side 2 tiles by 3×2 and 4×3 arrays respectively. No larger integer side divides both dimensions. Let children check the possible side lengths up to the shorter edge rather than demand factor vocabulary."
+      ],
+      [
+        "p",
+        "<b>P5.</b> There are exactly two rectangle shapes using four 3×3 squares, up to turning: 3×12 and 6×6. Their biggest-square sequences are 3,3,3,3 and 6. <b>The last sides do not match.</b> Four small supplied tiles can make a region that admits a larger first (and last) square. To prove the shape list complete, the numbers of 3-unit tiles along adjacent edges multiply to 4: only 1×4 and 2×2, up to order."
+      ],
+      [
+        "h",
+        "Hints, only when needed"
+      ],
+      [
+        "p",
+        "Ask “What is the shorter side of what remains?” For equal tiles, first test a boundary edge: must it be a whole number of tile sides? For a conjectured last-square rule, compare 12×8 with 12×9, which changes only one side."
+      ]
+    ],
+    [
+      [
+        "h",
+        "Grades 2-3 answer key"
+      ],
+      [
+        "p",
+        "<b>P1.</b> 10×6: 6,4,2,2 (last 2). 8×5: 5,3,2,1,1 (last 1)."
+      ],
+      [
+        "p",
+        "<b>P2.</b> 12×8: 8,4,4 (last 4). 12×9: 9,3,3,3 (last 3). Raising a side by one changes the common factors and makes the final square smaller here; there is no general “larger rectangle, larger last square” rule."
+      ],
+      [
+        "p",
+        "<b>P3.</b> For 12×8, all allowed equal-square sides are 1,2,4; the largest is 4. For 10×6, the sides are 1,2; the largest is 2. A square side must divide both rectangle sides, and each common divisor gives a rectangular array of squares."
+      ],
+      [
+        "p",
+        "<b>P4.</b> 7×6: 6,1,1,1,1,1,1, last 1. 8×6: 6,2,2,2, last 2. 9×6: 6,3,3, last 3. Predict 10×6 ends at 2, not 4: after 6 the remainder is 6×4, which gives 4,2,2. The last side is governed by common divisors, not by continuing 1,2,3 numerically."
+      ],
+      [
+        "p",
+        "<b>P5.</b> The last square side equals the largest side that works for an equal-square tiling of the original. For example 10×6 ends at 2 and tiles with 15 equal 2×2 squares. The invariant proof below establishes why this always happens; the single example alone establishes only that case."
+      ],
+      [
+        "p",
+        "<b>P6.</b> One valid trio: 12×3 gives 3,3,3,3; 9×6 gives 6,3,3; 12×9 gives 9,3,3,3. First sides 3,6,9 differ and every last side is 3. All starting sides belong to {3,6,9,12}. Other choices with gcd 3 and three distinct shorter sides also work."
+      ],
+      [
+        "h",
+        "Grades 4-5 answer key, P1-5"
+      ],
+      [
+        "p",
+        "<b>P1.</b> The same lists as middle P1: 6,4,2,2 and 5,3,2,1,1. Repeated sides must be recorded because the question asks for every square."
+      ],
+      [
+        "p",
+        "<b>P2.</b> 15×9: 9,6,3,3, last 3. 14×8: 8,6,2,2,2, last 2. Conjecture: the final side is the greatest common divisor."
+      ],
+      [
+        "p",
+        "<b>P3.</b> For 12×8: sides 1,2,4. For 15×9: sides 1,3. Completeness follows from the boundary-divisibility test, not merely failing to draw other tilings."
+      ],
+      [
+        "p",
+        "<b>P4.</b> Both before the cut (14,8) and after it (6,8), the complete common-divisor list is {1,2}. Generally, any common divisor of a,b divides a-b; any common divisor of a-b,b divides (a-b)+b=a. Thus neither direction loses any divisor."
+      ],
+      [
+        "p",
+        "<b>P5.</b> Every cut preserves the common-divisor set. At the end, a square of side g remains and the common divisors are precisely the divisors of g; the greatest is g itself. The sum of the two remaining positive side lengths decreases at each nonsquare step, so this endpoint is reached. In the starting rectangle an equal-grid-square side works exactly when it divides both edges. The largest such side is therefore g."
+      ]
+    ],
+    [
+      [
+        "h",
+        "Grades 4-5 P6: complete bounded search"
+      ],
+      [
+        "p",
+        "The unique winner is <b>13×8</b>, with square sides 8,5,3,2,1,1: five different sizes. Two final unit squares still count as one size. The following table checks all allowed rectangles; entries count different sizes, not the number of pieces."
+      ],
+      [
+        "table",
+        [
+          [
+            "Long side ↓ / short →",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          [
+            "9",
+            "2",
+            "1",
+            "2",
+            "3",
+            "2",
+            "3",
+            "2"
+          ],
+          [
+            "10",
+            "1",
+            "2",
+            "2",
+            "1",
+            "3",
+            "3",
+            "2"
+          ],
+          [
+            "11",
+            "2",
+            "3",
+            "3",
+            "2",
+            "3",
+            "4",
+            "4"
+          ],
+          [
+            "12",
+            "1",
+            "1",
+            "1",
+            "3",
+            "1",
+            "4",
+            "2"
+          ],
+          [
+            "13",
+            "2",
+            "2",
+            "2",
+            "4",
+            "2",
+            "3",
+            "<b>5</b>"
+          ],
+          [
+            "14",
+            "1",
+            "3",
+            "2",
+            "3",
+            "2",
+            "1",
+            "3"
+          ],
+          [
+            "15",
+            "2",
+            "1",
+            "3",
+            "1",
+            "2",
+            "2",
+            "3"
+          ]
+        ],
+        [
+          3,
+          0.7,
+          0.7,
+          0.7,
+          0.7,
+          0.7,
+          0.7,
+          0.7
+        ]
+      ],
+      [
+        "p",
+        "<b>How to verify a cell.</b> For a≥b, all initial b-squares contribute one distinct size. Write a=qb+r with 0≤r&lt;b. If r=0, the count is 1. Otherwise the remaining b×r rectangle has only smaller squares, so the count is 1 plus its count. For 13×8 this produces 8 → 5 → 3 → 2 → 1, then stops. For 12×7 it produces 7 → 5 → 2 → 1, four sizes. This recurrence independently verifies every cell and every possible tie."
+      ],
+      [
+        "p",
+        "<b>What children may reasonably establish.</b> A successful example is not yet an optimum. A completed shared table, with each entry explained by a dissection or remainder sequence, is a finite exhaustive proof of the optimum on the specified 49 rectangles. An unfinished search supports a current record, not a claim that no better rectangle exists."
+      ],
+      [
+        "h",
+        "Optional extension"
+      ],
+      [
+        "p",
+        "Ask a group to double both sides of a rectangle and predict the entire square list. For 10×6, the list 6,4,2,2 becomes 12,8,4,4 for 20×12. Every comparison and subtraction scales by 2, so the pattern and number of pieces stay the same while all square sides double. This directly tests the structure of the process."
+      ],
+      [
+        "h",
+        "Primary source and scope"
+      ],
+      [
+        "small",
+        "Alan and Toni Beardon, NRICH (University of Cambridge), “Euclid’s Algorithm I,” 2011, rectangle diagrams and successive remainder equations. <link href=\"https://nrich.maths.org/articles/euclids-algorithm-i\" color=\"#214E69\">Read the authors’ article</link>. The article identifies Euclid, <i>Elements</i> VII.2 as the historical algorithm source. It is an older-student article; its use here supports the mathematics and representation, not a claim that its full Diophantine-equation treatment is appropriate for K-5."
+      ],
+      [
+        "small",
+        "The current small-rectangle tasks, complete answer lists and 49-case maximum were checked independently. The general gcd connection is justified above without importing continued fractions, complexity estimates or a larger-school proof assignment."
+      ]
+    ]
+  ]
+}

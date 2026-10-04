@@ -1,0 +1,269 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage[margin=0in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usepackage{amssymb,amsmath}
+\pdfmapfile{+lm.map}
+\pdfmapfile{+symbols.map}
+\usetikzlibrary{arrows.meta}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\renewcommand{\familydefault}{\sfdefault}
+\definecolor{cardred}{RGB}{203,45,45}
+\definecolor{cardblue}{RGB}{34,95,176}
+\tikzset{state/.style={circle,draw=black,line width=1.1pt,minimum size=.66in,inner sep=0pt,font=\sffamily\bfseries\fontsize{13}{14}\selectfont},edge/.style={-{Stealth[length=7pt,width=5pt]},line width=1.15pt},lab/.style={fill=white,inner sep=2pt,font=\sffamily\bfseries\fontsize{12}{13}\selectfont}}
+\newcommand{\R}{\tikz[baseline=-.045in,x=1in,y=1in]{\node[draw=cardred,fill=cardred!10,rectangle,minimum size=.23in,inner sep=0pt,line width=.85pt,text=black,font=\sffamily\bfseries\fontsize{11}{12}\selectfont] {R};}}
+\newcommand{\B}{\tikz[baseline=-.045in,x=1in,y=1in]{\node[draw=cardblue,fill=cardblue!10,circle,minimum size=.23in,inner sep=0pt,line width=.85pt,text=black,font=\sffamily\bfseries\fontsize{11}{12}\selectfont] {B};}}
+\newcommand{\Y}{$\checkmark$}
+\newcommand{\N}{$\times$}
+\begin{document}
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in,shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.3in,font=\sffamily\fontsize{11}{13}\selectfont] at (0.6,0.34) {Week 17 / Machine memory / K--1};
+\draw[line width=.45pt] (.6,.66)--(7.9,.66);
+\node[anchor=north west,inner sep=0pt,align=left,text width=6.8in,font=\sffamily\fontsize{9}{11}\selectfont] at (0.6,10.49) {Bellingham Math Circle / Week 17 / W17-K-v2};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.35in,font=\sffamily\fontsize{9}{11}\selectfont] at (7.55,10.49) {1};
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{12.5}{16}\selectfont] at (0.65,0.88) {Start at the small arrow with one marker. Read left to right. Follow one matching arrow for each card, then hide the card. Each circle has one arrow for each kind of card and a fixed \Y\ or \N.};
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{16}{20.0}\selectfont] at (0.65,1.78) {\textbf{Problem 1:} Try each row, starting fresh each time, and circle its answer. Make three different six-card rows that finish at \Y.};
+\node[state] (s0) at (2.6,3.47) {\shortstack{{\fontsize{9}{10}\selectfont 1}\\\Y}};
+\node[state] (s1) at (5.9,3.47) {\shortstack{{\fontsize{9}{10}\selectfont 2}\\\N}};
+\draw[edge] (1.6500000000000001,3.47)--(s0.west);
+\draw[edge] (s0) edge[loop above,min distance=.57in] node[lab] {\B} (s0);
+\draw[edge] (s1) edge[loop above,min distance=.57in] node[lab] {\B} (s1);
+\draw[edge] (s0) to[bend left=24] node[lab,above] {\R} (s1);
+\draw[edge] (s1) to[bend left=24] node[lab,below] {\R} (s0);
+\node[anchor=north west,inner sep=0pt,align=left,text width=6.9in,font=\sffamily\fontsize{12}{15}\selectfont] at (0.8,4.14) {Example B R: start 1 $\xrightarrow{\ B\ }$ 1 $\xrightarrow{\ R\ }$ 2; stop at $\times$.};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.2in,font=\sffamily\fontsize{12}{14}\selectfont] at (1.45,4.71) {no cards};
+\node[font=\fontsize{22}{24}\selectfont] at (6.75,4.85) {\Y};\node[font=\fontsize{22}{24}\selectfont] at (7.4,4.85) {\N};
+\node[draw=cardblue,fill=cardblue!10,circle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.45,5.35) {B};
+\node[font=\fontsize{22}{24}\selectfont] at (6.75,5.35) {\Y};\node[font=\fontsize{22}{24}\selectfont] at (7.4,5.35) {\N};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.45,5.85) {R};
+\node[draw=cardblue,fill=cardblue!10,circle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.85,5.85) {B};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (2.25,5.85) {R};
+\node[font=\fontsize{22}{24}\selectfont] at (6.75,5.85) {\Y};\node[font=\fontsize{22}{24}\selectfont] at (7.4,5.85) {\N};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.45,6.35) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.85,6.35) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (2.25,6.35) {R};
+\node[font=\fontsize{22}{24}\selectfont] at (6.75,6.35) {\Y};\node[font=\fontsize{22}{24}\selectfont] at (7.4,6.35) {\N};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.45,6.85) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.85,6.85) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (2.25,6.85) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (2.6500000000000004,6.85) {R};
+\node[font=\fontsize{22}{24}\selectfont] at (6.75,6.85) {\Y};\node[font=\fontsize{22}{24}\selectfont] at (7.4,6.85) {\N};
+\node[draw=cardblue,fill=cardblue!10,circle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.45,7.35) {B};
+\node[draw=cardblue,fill=cardblue!10,circle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.85,7.35) {B};
+\node[draw=cardblue,fill=cardblue!10,circle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (2.25,7.35) {B};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (2.6500000000000004,7.35) {R};
+\node[draw=cardblue,fill=cardblue!10,circle,minimum size=0.31in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (3.05,7.35) {B};
+\node[font=\fontsize{22}{24}\selectfont] at (6.75,7.35) {\Y};\node[font=\fontsize{22}{24}\selectfont] at (7.4,7.35) {\N};
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.27,7.92) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.92,7.92) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.57,7.92) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.22,7.92) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.8699999999999997,7.92) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (4.52,7.92) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.27,8.67) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.92,8.67) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.57,8.67) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.22,8.67) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.8699999999999997,8.67) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (4.52,8.67) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.27,9.42) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.92,9.42) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.57,9.42) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.22,9.42) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.8699999999999997,9.42) rectangle ++(0.46,0.46);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (4.52,9.42) rectangle ++(0.46,0.46);
+\end{tikzpicture}\null\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in,shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.3in,font=\sffamily\fontsize{11}{13}\selectfont] at (0.6,0.34) {Week 17 / Machine memory / K--1};
+\draw[line width=.45pt] (.6,.66)--(7.9,.66);
+\node[anchor=north west,inner sep=0pt,align=left,text width=6.8in,font=\sffamily\fontsize{9}{11}\selectfont] at (0.6,10.49) {Bellingham Math Circle / Week 17 / W17-K-v2};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.35in,font=\sffamily\fontsize{9}{11}\selectfont] at (7.55,10.49) {2};
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{17}{21.25}\selectfont] at (0.65,0.96) {\textbf{Problem 2:} Make every four-card row that finishes at \Y. Show each row once.};
+\node[state] (s0) at (2.6,2.58) {\N};
+\node[state] (s1) at (5.9,2.58) {\Y};
+\draw[edge] (1.6500000000000001,2.58)--(s0.west);
+\draw[edge] (s0) edge[loop above,min distance=.57in] node[lab] {\B} (s0);
+\draw[edge] (s1) edge[loop above,min distance=.57in] node[lab] {\R} (s1);
+\draw[edge] (s0) to[bend left=24] node[lab,above] {\R} (s1);
+\draw[edge] (s1) to[bend left=24] node[lab,below] {\B} (s0);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (0.81,3.66) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.4600000000000002,3.66) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.1100000000000003,3.66) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.76,3.66) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (4.51,3.66) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (5.16,3.66) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (5.81,3.66) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (6.46,3.66) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (0.81,4.71) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.4600000000000002,4.71) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.1100000000000003,4.71) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.76,4.71) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (4.51,4.71) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (5.16,4.71) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (5.81,4.71) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (6.46,4.71) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (0.81,5.76) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.4600000000000002,5.76) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.1100000000000003,5.76) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.76,5.76) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (4.51,5.76) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (5.16,5.76) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (5.81,5.76) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (6.46,5.76) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (0.81,6.81) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.4600000000000002,6.81) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.1100000000000003,6.81) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.76,6.81) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (4.51,6.81) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (5.16,6.81) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (5.81,6.81) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (6.46,6.81) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (0.81,7.859999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.4600000000000002,7.859999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.1100000000000003,7.859999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.76,7.859999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (4.51,7.859999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (5.16,7.859999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (5.81,7.859999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (6.46,7.859999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (0.81,8.91) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.4600000000000002,8.91) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.1100000000000003,8.91) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.76,8.91) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (4.51,8.91) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (5.16,8.91) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (5.81,8.91) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (6.46,8.91) rectangle ++(0.48,0.48);
+\end{tikzpicture}\null\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in,shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.3in,font=\sffamily\fontsize{11}{13}\selectfont] at (0.6,0.34) {Week 17 / Machine memory / K--1};
+\draw[line width=.45pt] (.6,.66)--(7.9,.66);
+\node[anchor=north west,inner sep=0pt,align=left,text width=6.8in,font=\sffamily\fontsize{9}{11}\selectfont] at (0.6,10.49) {Bellingham Math Circle / Week 17 / W17-K-v2};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.35in,font=\sffamily\fontsize{9}{11}\selectfont] at (7.55,10.49) {3};
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{17}{21.25}\selectfont] at (0.65,0.96) {\textbf{Problem 3:} Make six different rows that give these machines different answers. Use six cards in each row.};
+\node[state] (a0) at (1.75,2.8) {\Y};
+\node[state] (a1) at (3.25,2.8) {\N};
+\draw[edge] (0.8,2.8)--(a0.west);
+\draw[edge] (a0) edge[loop above,min distance=.57in] node[lab] {\B} (a0);
+\draw[edge] (a1) edge[loop above,min distance=.57in] node[lab] {\B} (a1);
+\draw[edge] (a0) to[bend left=24] node[lab,above] {\R} (a1);
+\draw[edge] (a1) to[bend left=24] node[lab,below] {\R} (a0);
+\node[state] (b0) at (5.35,2.8) {\N};
+\node[state] (b1) at (6.85,2.8) {\Y};
+\draw[edge] (4.3999999999999995,2.8)--(b0.west);
+\draw[edge] (b0) edge[loop above,min distance=.57in] node[lab] {\B} (b0);
+\draw[edge] (b1) edge[loop above,min distance=.57in] node[lab] {\R} (b1);
+\draw[edge] (b0) to[bend left=24] node[lab,above] {\R} (b1);
+\draw[edge] (b1) to[bend left=24] node[lab,below] {\B} (b0);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.21,3.96) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.86,3.96) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.51,3.96) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.16,3.96) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.8099999999999996,3.96) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (4.46,3.96) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.21,5.01) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.86,5.01) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.51,5.01) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.16,5.01) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.8099999999999996,5.01) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (4.46,5.01) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.21,6.06) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.86,6.06) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.51,6.06) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.16,6.06) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.8099999999999996,6.06) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (4.46,6.06) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.21,7.109999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.86,7.109999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.51,7.109999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.16,7.109999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.8099999999999996,7.109999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (4.46,7.109999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.21,8.16) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.86,8.16) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.51,8.16) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.16,8.16) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.8099999999999996,8.16) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (4.46,8.16) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.21,9.209999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (1.86,9.209999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (2.51,9.209999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.16,9.209999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (3.8099999999999996,9.209999999999999) rectangle ++(0.48,0.48);
+\draw[black!35,line width=.6pt,rounded corners=1.5pt] (4.46,9.209999999999999) rectangle ++(0.48,0.48);
+\end{tikzpicture}\null\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in,shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.3in,font=\sffamily\fontsize{11}{13}\selectfont] at (0.6,0.34) {Week 17 / Machine memory / K--1};
+\draw[line width=.45pt] (.6,.66)--(7.9,.66);
+\node[anchor=north west,inner sep=0pt,align=left,text width=6.8in,font=\sffamily\fontsize{9}{11}\selectfont] at (0.6,10.49) {Bellingham Math Circle / Week 17 / W17-K-v2};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.35in,font=\sffamily\fontsize{9}{11}\selectfont] at (7.55,10.49) {4};
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{17}{21.25}\selectfont] at (0.65,0.96) {\textbf{Problem 4:} Use two circles to make a machine that says \Y\ exactly when the last card is blue. With no cards, it must say \N.};
+\node[state] (e0) at (2.2,3.3) {};
+\node[state] (e1) at (6.15,3.3) {};
+\draw[edge] (1.2,3.3)--(e0.west);
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{17}{21.25}\selectfont] at (0.65,5.45) {\textbf{Problem 5:} Make a machine that says \Y\ when no red cards appear and \N\ when any red card appears. Use as few circles as you can.};
+\end{tikzpicture}\null\newpage
+\begin{tikzpicture}[remember picture,overlay,x=1in,y=-1in,shift={(current page.north west)}]
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.3in,font=\sffamily\fontsize{11}{13}\selectfont] at (0.6,0.34) {Week 17 / Machine memory / K--1};
+\draw[line width=.45pt] (.6,.66)--(7.9,.66);
+\node[anchor=north west,inner sep=0pt,align=left,text width=6.8in,font=\sffamily\fontsize{9}{11}\selectfont] at (0.6,10.49) {Bellingham Math Circle / Week 17 / W17-K-v2};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.35in,font=\sffamily\fontsize{9}{11}\selectfont] at (7.55,10.49) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{17}{21.25}\selectfont] at (0.65,0.96) {\textbf{Problem 6:} For each pair, can you add the same cards in the same order after both printed rows to get \Y\ and \N? Adding no cards is allowed.};
+\node[state] (t0) at (2.0,2.88) {\Y};
+\node[state] (t1) at (4.25,2.88) {\N};
+\node[state] (t2) at (6.5,2.88) {\N};
+\draw[edge] (1.05,2.88)--(t0.west);
+\draw[edge] (t0) edge[loop above,min distance=.56in] node[lab] {\B} (t0);
+\draw[edge] (t1) edge[loop above,min distance=.56in] node[lab] {\B} (t1);
+\draw[edge] (t2) edge[loop above,min distance=.56in] node[lab] {\B} (t2);
+\draw[edge] (t0)--node[lab,above] {\R} (t1);
+\draw[edge] (t1)--node[lab,above] {\R} (t2);
+\draw[edge] (t2.south) .. controls (6.5,3.91) and (2.0,3.91) .. node[lab,below] {\R} (t0.south);
+\draw[black!45,line width=.6pt] (.8,4.430000000000001)--(.72,4.430000000000001)--(.72,5.37)--(.8,5.37);
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.2in,font=\sffamily\fontsize{12}{14}\selectfont] at (1.25,4.510000000000001) {no cards};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.3in,font=\sffamily\fontsize{18}{19}\selectfont] at (3.25,4.5200000000000005) {+};
+\draw[black!38,line width=.45pt] (3.75,4.800000000000001)--(6.4,4.800000000000001);
+\node[font=\fontsize{22}{24}\selectfont] at (7.03,4.65) {\Y};\node[font=\fontsize{22}{24}\selectfont] at (7.680000000000001,4.65) {\N};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.28in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.25,5.130000000000001) {R};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.3in,font=\sffamily\fontsize{18}{19}\selectfont] at (3.25,5.000000000000001) {+};
+\draw[black!38,line width=.45pt] (3.75,5.280000000000001)--(6.4,5.280000000000001);
+\node[font=\fontsize{22}{24}\selectfont] at (7.03,5.130000000000001) {\Y};\node[font=\fontsize{22}{24}\selectfont] at (7.680000000000001,5.130000000000001) {\N};
+\draw[black!45,line width=.6pt] (.8,5.760000000000001)--(.72,5.760000000000001)--(.72,6.7)--(.8,6.7);
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.28in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.25,5.98) {R};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.3in,font=\sffamily\fontsize{18}{19}\selectfont] at (3.25,5.8500000000000005) {+};
+\draw[black!38,line width=.45pt] (3.75,6.130000000000001)--(6.4,6.130000000000001);
+\node[font=\fontsize{22}{24}\selectfont] at (7.03,5.98) {\Y};\node[font=\fontsize{22}{24}\selectfont] at (7.680000000000001,5.98) {\N};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.28in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.25,6.460000000000001) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.28in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.6,6.460000000000001) {R};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.3in,font=\sffamily\fontsize{18}{19}\selectfont] at (3.25,6.330000000000001) {+};
+\draw[black!38,line width=.45pt] (3.75,6.610000000000001)--(6.4,6.610000000000001);
+\node[font=\fontsize{22}{24}\selectfont] at (7.03,6.460000000000001) {\Y};\node[font=\fontsize{22}{24}\selectfont] at (7.680000000000001,6.460000000000001) {\N};
+\draw[black!45,line width=.6pt] (.8,7.09)--(.72,7.09)--(.72,8.03)--(.8,8.03);
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.28in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.25,7.31) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.28in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.6,7.31) {R};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.3in,font=\sffamily\fontsize{18}{19}\selectfont] at (3.25,7.18) {+};
+\draw[black!38,line width=.45pt] (3.75,7.46)--(6.4,7.46);
+\node[font=\fontsize{22}{24}\selectfont] at (7.03,7.31) {\Y};\node[font=\fontsize{22}{24}\selectfont] at (7.680000000000001,7.31) {\N};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.28in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.25,7.789999999999999) {R};
+\node[draw=cardblue,fill=cardblue!10,circle,minimum size=0.28in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.6,7.789999999999999) {B};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.28in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.95,7.789999999999999) {R};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.3in,font=\sffamily\fontsize{18}{19}\selectfont] at (3.25,7.659999999999999) {+};
+\draw[black!38,line width=.45pt] (3.75,7.9399999999999995)--(6.4,7.9399999999999995);
+\node[font=\fontsize{22}{24}\selectfont] at (7.03,7.789999999999999) {\Y};\node[font=\fontsize{22}{24}\selectfont] at (7.680000000000001,7.789999999999999) {\N};
+\draw[black!45,line width=.6pt] (.8,8.42)--(.72,8.42)--(.72,9.360000000000001)--(.8,9.360000000000001);
+\node[draw=cardblue,fill=cardblue!10,circle,minimum size=0.28in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.25,8.64) {B};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.3in,font=\sffamily\fontsize{18}{19}\selectfont] at (3.25,8.51) {+};
+\draw[black!38,line width=.45pt] (3.75,8.790000000000001)--(6.4,8.790000000000001);
+\node[font=\fontsize{22}{24}\selectfont] at (7.03,8.64) {\Y};\node[font=\fontsize{22}{24}\selectfont] at (7.680000000000001,8.64) {\N};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.28in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.25,9.120000000000001) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.28in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.6,9.120000000000001) {R};
+\node[draw=cardred,fill=cardred!10,rectangle,minimum size=0.28in,inner sep=0pt,line width=.9pt,font=\bfseries\fontsize{12}{13}\selectfont] at (1.95,9.120000000000001) {R};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.3in,font=\sffamily\fontsize{18}{19}\selectfont] at (3.25,8.99) {+};
+\draw[black!38,line width=.45pt] (3.75,9.270000000000001)--(6.4,9.270000000000001);
+\node[font=\fontsize{22}{24}\selectfont] at (7.03,9.120000000000001) {\Y};\node[font=\fontsize{22}{24}\selectfont] at (7.680000000000001,9.120000000000001) {\N};
+\end{tikzpicture}\null
+\end{document}

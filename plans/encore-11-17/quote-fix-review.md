@@ -1,0 +1,7 @@
+# Shared adult-guide quotation correction — 2026-10-04
+
+Parent root found that the generator's single-quoted Python raw string consumed TeX closing apostrophe pairs by literal concatenation. `build_guides.py` now uses a double-quoted raw string. The guarded `refresh_guide.py --punctuation-only 11 12 13 14 15 16 17` checked source/cache and delivered/reference byte equality, then inserted only the two closing quotation pairs into each saved current TeX. It preserves all previous math, preparation and handoff wording, including root's completed Week13 content.
+
+All seven corrected adult page2s were individually viewed at full readable1.5x. Both prompt quotations are now paired, their surrounding paragraph remains readable, and no clipping/footer collision occurs. Every other adult page has identical extracted text and1.5xpixels to its pre-fix snapshot; all seven student PDFs remain byte-identical. `quote-fix-audit.json` records every page comparison and current guide/ZIP hashes.
+
+Each source folder/referencePDF/ZIP was synchronized. All seven ZIPs were freshly extracted into separate system-temporary folders outside the repository and built from cwd/tmp; all62page texts and1.4xpixels match. Per-week rebuild-audit.json and outside-build.json were updated, and current page-audit.json statuses are passed. Original full-page inspections plus verified unchanged pixels apply to unchanged pages; the seven changed page2s were re-inspected. Physical readiness and piloting remain untested.

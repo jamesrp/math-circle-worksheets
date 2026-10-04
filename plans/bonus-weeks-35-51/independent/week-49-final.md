@@ -1,0 +1,5 @@
+# Final delta mathematics pass — Week 49
+
+Compared final/draft sources and adult notes; rendered/inspected all three final pages. The draft five-round scope issue is resolved: “Which start…” now asks children to select the successful alternating start, whose fifth state has magnitude 16; the contrasting 0011 run has maximum 4 at round five. The adult note explicitly retains that contrast. The subsequent any-ceiling question refers to the selected successful run. Independent trajectories and first-above-ten rounds 5/9 remain recorded in the draft script/result.
+
+Page 2 now explicitly compares current with next in numbered cyclic order, including the last-to-first wrap. New table column numbers match the six/eight numbered sites. Page 3's A/B/C/D table columns match both fixed-label starts. Page 1 only repositions the same targets/records. Both worked gap/signed examples and all numerical catalogs/dynamics are unchanged, so no new enumeration is needed. No new mathematical blocker. Physical old/new and signed-card procedures remain untested.

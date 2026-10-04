@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+\def\activityid{F10-F-v3}\input{common.tex}
+\begin{document}
+
+\PageTitle{FACILITATOR / 1 OF 6}{Walk before counting degrees}
+\RuleBox{F10 v3, September 2026: prepared and unpiloted. Week 1 feedback motivates more contrasting walks and records before parity, splicing or optimization. No Week 10 classroom outcome has been supplied. Maps are connected and undirected; parallel bridges are allowed, self-loops are not used.}
+\Subhead{Preparation and access}
+Print page 1 for each child at the appropriate starting level (3 K--1, 3 middle, 1 upper: 7 sheets). Keep continuation masters and the 3-page extra; copy on demand. Retain earlier maps for comparisons. Bring seven moving counters, about 35 used-edge markers, pencils and scraps for route strips. Optional strings and paper islands enlarge a map; no calibrated printing is needed.
+
+K: adult reads; distinguish an island from a bridge and track used bridges. Middle: counts to 4 and odd/even; adults may write route lists. Upper: follow route lists, pair arrivals/departures and compare constructions with lower bounds. Extra: add small lengths, compare three choices; shortest connections are a new idea introduced through actual walks.
+\Subhead{Common launch before separate starts}
+0--10: children freely build little maps or move along printed ones. 10--15: gather at a triangle. Walk a counter A--B--C--A, putting a marker on each used bridge. Say: ``Visit every bridge once; revisiting an island is allowed.'' Show how the route list records each visited island. Invite a child to try another start and mark a used bridge. Add a branch and start an attempt, then distribute starting pages. Save odd/even language for after contrasting attempts.
+
+15--35: try walks and compare starts. 35--40: movement/reset. 40--55: repair a map, splice a second loop, or improve a delivery route at the children's current stage. 55--60: share a route and a reason; tidy. Parent mainly stays with K; organizer alternates middle/upper about every five minutes. Triplets rotate walker, marker, and checker. These times are flexible proposals.
+\Subhead{Hints, gates and stopping}
+First ask which bridge is unused and where the counter is. Next compare a successful and a stuck attempt. Only then pair arrivals/departures. K may stop with two-leaf versus three-leaf attempts and one repair. Middle may stop with forced house endpoints or a repaired map. Upper may stop with two concrete splices; delivery becomes a new stage with a changed rule (repetition allowed). The full Euler construction and postman lower bounds are discretionary adult conversations on pages 2--3. Children need not finish every page to encounter substantial mathematics.
+\newpage
+
+\PageTitle{FACILITATOR / 2 OF 6}{One-walk maps: checks and proof}
+\Subhead{K--1 answers}
+A triangle has a closed route, e.g. A--B--C--A. Add a branch A--D: a trail is D--A--B--C--A, with endpoints D and A. At a degree-1 leaf, a walk cannot arrive and then leave by a different unused bridge. Thus the three-leaf star cannot have a trail covering every edge once: it would need three endpoints, while a walk has at most two.
+
+Adding a bridge B--C between two leaves repairs the star: D--A--B--C--A is a complete trail. It begins/ends at the remaining leaf D and center A. Accept another pair of leaves with relabeled route.
+\Subhead{Middle and upper map answers}
+House degrees: A=2, B=2, C=3, D=3, E=2. One trail is D--A--B--C--D--E--C. Every complete trail must start at one of C,D and end at the other. No closed Euler trail exists.
+
+For the triangle with center D, all four vertices A,B,C,D have degree 3. It has no every-edge-once trail. Add a second AB bridge; now A,B are even and C,D odd. A valid trail is C--A--B--D--A--B--C--D, using the two distinct AB bridges separately. Middle children may draw the added bridge as a curve; a crossing without a dot is not a new junction.
+\Subhead{Euler criterion with a construction}
+In any completed trail, arrivals and departures at an internal vertex pair. A closed Euler trail therefore has only even degrees; an open Euler trail has exactly two odd vertices, its endpoints. The necessity argument includes repeated visits to a vertex: each visit contributes another pair.
+
+First physically splice the two triangles ABC and ADE sharing A. Mark AB, BC, CA used after A--B--C--A; AD, DE, EA remain. Insert the strip A--D--E--A at a visit to A to obtain, for example, A--D--E--A--B--C--A. Trace it and mark all six roads. This one construction motivates the next general argument.
+
+For sufficiency, assume a finite connected graph with at least one edge and all degrees even. Follow unused edges until stuck. At a vertex other than the start, arriving uses one edge of an even available count and leaves at least one to depart; so only the start can be where the walk stops. If unused edges remain, connectedness ensures that some vertex of the current closed walk touches unused edges (take a path toward an unused edge). Start a new closed walk there in the remaining even-degree graph and splice it into the first. Repeat. Finitely many edges guarantee completion.
+
+For exactly two odd vertices, add one temporary edge between them, construct the closed Euler trail, then remove that temporary edge to obtain an open Euler trail. Parallel edges are allowed. This proves existence; it does not promise that every arbitrary greedy walk uses all edges without splicing.
+
+\newpage
+
+\PageTitle{FACILITATOR / 3 OF 6}{Delivery routes and optimality}
+\Subhead{Upper: six unit-length roads}
+The triangle-and-center network is $K_4$, with six unit roads. Every closed covering walk must repeat at least two road crossings: all four original vertices are odd, and each added traversal changes parity at its two endpoints only. A closed walk has even traversal-degree everywhere. Thus six original plus at least two repeats gives a lower bound of 8.
+
+A matching route is A--B--C--D--A--C--D--B--A. It repeats AB and CD; all other roads occur once. The three possible odd-vertex pairings are AB+CD, AC+BD, AD+BC. Each adds two roads and creates an even connected multigraph, so each admits a closed Euler trail of length 8.
+
+If finishing anywhere is allowed, at most two odd vertices may remain. At least one repeated crossing is necessary, giving a lower bound of 7. A--B--C--A--D--C--D--B attains 7, repeating CD.
+
+For the design brief, a star with five leaves has six odd vertices: five degree-1 leaves and the degree-5 center. But its leaves are not adjacent, so it cannot meet the three-extra-step target. A workable design is two triangles joined by three corresponding cross edges (a triangular prism graph). All six degrees are 3. Duplicate those three cross edges; now all degrees are 4, so a closed tour exists with exactly three extra crossings, meeting the parity lower bound. Label the triangles ABC and DEF, with cross edges AD, BE, CF. One 12-step closed route is A--B--C--A--D--E--B--E--F--C--F--D--A. Children may find other designs.
+\Subhead{Extra: six roads of different lengths}
+Original total is $2+3+7+1+6+1=20$. Distances between odd vertices are $d(A,B)=2$, $d(A,C)=2$ via D, $d(A,D)=1$, $d(B,C)=3$, $d(B,D)=3$ via A, $d(C,D)=1$.
+
+Pair costs: AB+CD=3; AC+BD=5; AD+BC=4. Choosing the cheapest available AD first is not guaranteed optimal. Duplicate AB and CD to obtain minimum total 23. The same A--B--C--D--A--C--D--B--A route has length 23. Long roads AC and BD must still be serviced once; shortest connections are used only for the \emph{extra} travel.
+
+For a general lower bound, subtract one required copy of every road from a closed covering walk. The remaining multigraph has odd degree exactly at the original odd vertices. Its edges can be decomposed into paths pairing those odd vertices and closed loops: follow unused edges from an odd vertex to another odd one, remove that path, and continue, then remove cycles. Each path costs at least the shortest distance of its endpoint pair, and loops cannot improve a nonnegative-cost total. Thus every solution pays at least the best pairing cost. Duplicating shortest paths for that pairing attains the bound by Euler's construction.
+
+\newpage
+
+\PageTitle{FACILITATOR / 4 OF 6}{The mathematics behind the workshop}
+\Subhead{Undergraduate graph theory}
+The optional proof conversation completes the Euler trail criterion, including its constructive direction; the physical splice is a satisfying earlier step. It distinguishes feasibility from optimization and separates an example route (an upper bound) from an obstruction (a lower bound). The upper activity turns parity into an algorithm for a small route-inspection problem.
+
+Cornell CS 2800, Spring 2017, \emph{Lecture 36: Paths}, gives the even-degree theorem and a cycle-splicing proof. \href{https://www.cs.cornell.edu/courses/cs2800/2017sp/lectures/lec36-graphs2.html}{Official course notes}. Our maps, graded questions, and counter-based launch are original adaptations.
+\Subhead{A real research connection}
+Edmonds and Johnson, \emph{Matching, Euler tours and the Chinese postman}, \emph{Mathematical Programming} 5 (1973), pp. 88--124, studies the weighted route-inspection problem using matching theory. The introduction describes the problem and its structure; \S4 concerns a matching algorithm and \S5 Euler tours. \href{https://research.ibm.com/publications/matching-euler-tours-and-the-chinese-postman}{IBM publication record}; \href{https://web.eecs.umich.edu/~pettie/matching/Edmonds-Johnson-chinese-postman.pdf}{Paper hosted by University of Michigan}.
+
+The extra packet performs an exact four-odd-vertex instance of the same reduction. It does not teach the general blossom algorithm, polyhedral proof, or directed/mixed variants. For $2k$ odd vertices, exhaustive pairings number $(2k-1)(2k-3)\cdots1$; efficient weighted matching makes large instances practical. The research is a historical solved result, not a claimed present-day open problem.
+\Subhead{Local sources and returners}
+Rozhkovskaya, \emph{Math Circles for Elementary School Students}, M.4.1 ``Make your own problem,'' EPUB \texttt{part0031.xhtml}, inspires making under constraints. Its animal/figure/number prompt is different; our connected-map/parity specifications are our design. Lesson 3 ``At the lesson'' supports child attempts and explanations before an organizing display.
+
+\emph{Math Circle by the Bay}, preface printed pp. viii--x, supports adjustable depth and extra challenges. Our timetable and two-adult allocation are proposals for this roster.
+
+Lowell Handout 10's password-window puzzle is related to directed Euler/de Bruijn constructions; do not call graph traversal wholly new. Here the representation is an undirected bridge map, and the claims concern odd-degree obstructions and minimum repeated travel. Week 1's flip graph concerned states and distance; here edges are roads that must all be serviced. Generic old workshop starters remain optional future reserves.
+\Subhead{Use history and checks}
+IDs F10-K/M/U/X-v3. Record maps, repairs, exact routes, whether optimality was justified, and child-designed problems with their solutions. \texttt{verify.py} independently searches states (current vertex, set of roads already visited) and confirms closed/open/weighted optima 8, 7, 23. It also checks printed routes. The mathematical certificates above explain why the results hold.
+
+
+\newpage
+\PageTitle{FACILITATOR / 5 OF 6}{Stages that can stop independently}
+\Subhead{Concrete attempts before the invariant}
+\textbf{K:} triangle versus branch, then two-leaf path versus three-leaf star, give contrasting successful and stuck walks. Demonstrate resetting used-edge markers before another start. The two clean star diagrams make repairs genuinely different trials. Ask about leaving a leaf only after children have met one. Their own small map is discretionary; no degree vocabulary is necessary for the endpoint argument.
+
+\textbf{Middle:} page 1 gives routes and several house starts before page 2 requests degree counts. A failed route is recorded as an attempt, not a proof. At an internal visit, put two fingers on arrival/departure lines and repeat if the route returns to that dot. Page 3 gives two distinct repairs (AB and AC), with fresh maps and space for routes. Then join the remaining odd dots to make a closed version. Page 4 designs on supplied dots; preserve the child's solution as well as the map. If numbering roads is easier than a letter list, use it.
+
+\textbf{Upper:} actual attempts precede parity. Page 2 splices a loop at A and then at an internal B visit, so insertion is not just a slogan or an abstract algorithm. Page 3 explicitly changes from every road once to every road at least once, allowing repeats. Try two routes before counting the extra copies. Page 4 makes three concrete pair repairs, then changes the endpoint requirement. Page 5 compares two six-odd maps: the count alone gives the same lower bound, but one attains it and one does not.
+\Subhead{Proof reserves and extra}
+For Euler necessity, repeated visits still pair arrivals and departures; only endpoints can have one unpaired incident road. The two splices motivate, but do not prove, all-even sufficiency. Page 2 preserves the connectedness, finite-edge, leftover-even and temporary-edge arguments. For delivery, match a concrete route with a parity lower bound. Do not equate ``six odd dots'' with ``three repeats suffice.'' The star is the counterexample.
+
+The extra first totals actual weighted routes, then distinguishes a required long road from a cheap extra connection. Walk A--D--C to compare with AC; B--A--D to compare with BD. All original roads still require service. Only after that comparison introduce the three pairings. AD and CD tie for cheapest first pair but lead to different totals: greedy tie choice is not guaranteed safe. The augmentation decomposition proof on page 3 is an optional adult discussion after the child draws their own extras. Preserve shortest-path costs, not direct-road-only pairing costs.
+\Subhead{Record actual learning}
+Save route lists and failed attempts, which rule needed rescue, whether paired fingers or strips helped, and which challenges children wanted to continue. Distinguish observations from hypotheses, construction from optimality proof, and explained results from supplied theorems. Record each actually attempted v3 page; the rest remain unpiloted. The exact cases/sequence are our Week 1-informed adaptation, not claims about prior students' behavior.
+\newpage
+\PageTitle{FACILITATOR / 6 OF 6}{Additional v3 solution checks}
+\Subhead{K and middle}
+K triangle: A--B--C--A or B--C--A--B. Branch: D--A--B--C--A; B cannot be the endpoint of a complete route because it has even degree while A,D are odd. The two-edge path A--B--C works; the three-leaf star cannot. With BC added, use D--A--B--C--A. With BD added, use C--A--B--D--A. Each ends at the center and unjoined leaf. Child maps need direct checking, not one assumed answer.
+
+Middle house attempts from A cannot finish every edge once; C and D work as opposite endpoints. The branch degrees are A=3,B=2,C=2,D=1. K4 degrees all equal 3. House degrees and route are on page 2. With duplicate AB, a trail is C--A--B--D--A--B--C--D. With duplicate AC, a trail is B--A--C--B--D--A--C--D. Add CD in the first repair, or BD in the second, to make all degrees even. Closed routes appear below. For the five-dot design, the existing house is one valid answer; adding CD makes every degree even. Many designs work.
+\Subhead{Upper construction and costs}
+Problem 3: A--D--E--A--B--C--A. Problem 4: A--D--E--A--B--F--G--B--C--A. The degree at B changes from 2 to 4; all 9 roads appear once. Problem 5 optimum 8 and lower bound are on page 3. For that route, AB and CD are crossed twice; others once; every crossing-degree is 4. One extra copy fixes two of four odd degrees, so cannot make a closed walk possible.
+
+Problem 8 closed routes: AB+CD uses A--B--C--D--A--C--D--B--A; AC+BD uses A--C--B--D--A--B--D--C--A; AD+BC uses A--D--B--C--A--B--C--D--A. Each costs 8. Problem 9 can duplicate CD, using A--B--C--A--D--C--D--B, length 7 with endpoints A,B. Problem 10 can add AD,BE,CF between triangles ABC and DEF and repeat those same three links; the 12-step route on page 3 uses every road. Problem 11's five-leaf star requires all five roads twice: A--B--A--C--A--D--A--E--A--F--A, length 10, five repeats. Each leaf requires both arrival and departure on its only road.
+\Subhead{Extra route certificates}
+Problem 1: any complete route is admissible; optimal total is 23. Problem 2 original sum 20. Cheapest connections and all pairing totals are on page 3. Problem 5's best AB+CD route is A--B--C--D--A--C--D--B--A, total 23. AD+BC can use A--D--B--C--A--B--C--D--A, total 24. Choosing AD first forces BC, adding 1+3=4; choosing CD first leaves AB, adding 1+2=3. This refutes an unconditional cheapest-first guarantee, not every greedy run. Problem 7 for the optimum leaves separate AB and CD copies; their four endpoints are the original odd vertices. General augmentation pairing, including multi-road paths and nonnegative-cost cycles, is proved on page 3.
+
+\end{document}

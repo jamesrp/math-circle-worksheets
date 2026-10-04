@@ -1,0 +1,198 @@
+\documentclass[12pt]{extarticle}
+\newcommand{\level}{Grades 4--5}
+\newcommand{\packetid}{F07-U-v4}
+\input{common}
+\renewcommand{\tracknum}{\sffamily\Large}
+\linespread{1.08}
+
+\newcommand{\gap}{\par\vspace{0.3in}}
+\newcommand{\rulelabel}[1]{\par\vspace{0.14in}#1\par\vspace{0.08in}}
+
+% One row per pile: "first" and "second" to circle, and a blank for the
+% number of counters taken on the first turn.
+\newcommand{\pilerecord}[1]{%
+  \begin{tikzpicture}[x=1in,y=1in]
+    \foreach \n [count=\i] in {#1}{%
+      \pgfmathsetmacro{\y}{-(\i-1)*0.58}
+      \node[anchor=base west,font=\Large] at (0.1,\y) {Pile of \n};
+      \node[anchor=base,font=\Large] at (2.9,\y) {first};
+      \node[anchor=base,font=\Large] at (4.2,\y) {second};
+      \node[anchor=base west,font=\Large] at (5.2,\y) {take};
+      \draw[line width=0.6pt] (5.85,\y-0.04) -- (6.9,\y-0.04);
+    }
+  \end{tikzpicture}}
+
+% Chart for two piles: rows are the first pile, columns the second pile.
+\newcommand{\pilechart}[1]{%
+  \begin{tikzpicture}[x=0.39in,y=0.39in]
+    \foreach \a in {0,...,#1}{%
+      \foreach \b in {0,...,#1}{\draw[line width=0.9pt] (\b,-\a) rectangle ++(1,-1);}
+      \node[font=\sffamily\large,inner sep=0pt,text height=1.6ex,text depth=0pt] at (-0.45,-\a-0.5) {\a};
+      \node[font=\sffamily\large,inner sep=0pt,text height=1.6ex,text depth=0pt] at (\a+0.5,0.4) {\a};
+    }
+    \pgfmathsetmacro{\mid}{(#1+1)/2}
+    \node[font=\large] at (\mid,1.1) {second pile};
+    \node[font=\large,rotate=90] at (-1.2,-\mid) {first pile};
+  \end{tikzpicture}}
+
+\begin{document}
+
+Two players take turns. Whoever takes the last counter wins, and a player
+who cannot move while counters are left loses. On a track, the token
+starts on the number of counters and moves toward 0 by the number of
+counters taken, and whoever puts it on 0 wins. When you play, two of you
+are the players and the third is the referee, and you switch roles after
+every game.
+
+\vspace{0.25in}
+
+\begin{problem}
+Take 1 or 2 counters on each turn. Play each pile with real counters until
+you are sure whether you would rather go first or second, and circle your
+choice. If you would rather go first, write how many counters you take on
+your first turn.
+
+\vspace{0.3in}
+\pilerecord{7,9,11,12,16}
+\end{problem}
+
+\begin{problem}
+For each rule, colour every square where you would like to leave the token
+for your opponent.
+
+\rulelabel{Take 1 or 2 counters.}
+\track{20}
+\rulelabel{Take 1, 2 or 3 counters.}
+\track{20}
+\end{problem}
+
+\newpage
+
+\begin{problem}
+Now take 1, 3 or 4 counters on each turn. Play each pile until you are
+sure whether you would rather go first or second, and circle your choice.
+If you would rather go first, write how many counters you take on your
+first turn.
+
+\vspace{0.3in}
+\pilerecord{5,8,9,11,14}
+\end{problem}
+
+\begin{problem}
+With moves of 1, 3 or 4, colour every square where you would like to leave
+the token for your opponent.
+
+\vspace{0.2in}
+\track{30}
+\end{problem}
+
+\newpage
+
+\begin{problem}
+Kai plays with moves of 1, 3 or 4. He goes first and takes as many counters
+as he is allowed on his first turn. Find every pile from 1 to 30 where the
+player who goes first can win, but Kai's first move leaves a pile from
+which his opponent can win. Colour those piles.
+
+\vspace{0.2in}
+\track{30}
+\end{problem}
+
+\begin{problem}
+A pile has 100 counters. Would you rather go first or second with moves of
+1 or 2? With moves of 1, 2 or 3? With moves of 1, 3 or 4? Whenever you
+would go first, write how many counters you take. Explain how you would
+win whatever your opponent does.
+\vspace{3.2in}
+\end{problem}
+
+\newpage
+
+\begin{problem}
+For each rule, colour every square where you would like to leave the token
+for your opponent.
+
+\rulelabel{Take 1 or 4 counters.}
+\track{30}
+\rulelabel{Take 2 or 3 counters.}
+\track{30}
+\rulelabel{Take 1, 3 or 5 counters.}
+\track{30}
+\end{problem}
+
+\newpage
+
+\begin{problem}
+With moves of 1, 3 or 4, does the pattern of coloured squares keep going
+the same way forever? Explain.
+\vspace{3in}
+\end{problem}
+
+\begin{problem}
+Choose which moves are allowed so that the squares you would like to leave
+are exactly 0, 5, 10, 15, and so on. Then find as many different choices as
+you can that make them exactly 0, 3, 6, 9, and so on. Explain how you can
+tell which choices work.
+\vspace{3.5in}
+\end{problem}
+
+\newpage
+
+\begin{problem}
+Now whoever takes the last counter loses. Take 1 or 2 counters on each
+turn. Play each pile until you are sure whether you would rather go first
+or second, and circle your choice. If you would rather go first, write how
+many counters you take on your first turn.
+
+\vspace{0.3in}
+\pilerecord{1,3,5,7,8}
+\end{problem}
+
+\begin{problem}
+Whoever takes the last counter still loses, so whoever puts the token on 0
+loses. For each rule, colour every square where you would like to leave the
+token for your opponent.
+
+\rulelabel{Take 1 or 2 counters.}
+\track{20}
+\rulelabel{Take 1, 2 or 3 counters.}
+\track{20}
+\end{problem}
+
+\newpage
+
+\begin{problem}
+Now there are two piles. On your turn, take 1 or 2 counters from one pile,
+whichever you choose. Whoever takes the last counter on the table wins.
+Play piles of 7 and 7. Would you rather go first or second? Explain why
+your way of playing wins whatever your opponent does.
+
+\vspace{0.35in}
+\begin{tikzpicture}[x=1in,y=1in]
+  \foreach \k in {1,...,7}{\counter{(\k-1)*0.47+0.25}{0}}
+  \foreach \k in {1,...,7}{\counter{(\k-1)*0.47+4.0}{0}}
+\end{tikzpicture}
+\vspace{1.75in}
+\end{problem}
+
+\begin{problem}
+In the two-pile game of Problem 12, colour every square of the chart where
+you would like to leave the two piles for your opponent. Then decide
+whether you would rather go first or second with piles of 20 and 11, and
+explain.
+
+\vspace{0.15in}
+\hspace*{0.5in}\pilechart{9}
+\end{problem}
+
+\newpage
+
+\begin{problem}
+Kim says that for any list of allowed moves, such as 2, 5 or 6, the coloured
+squares on a long enough track end up repeating. Is Kim right? Explain.
+
+\rulelabel{Take 2, 5 or 6 counters.}
+\track{30}
+\end{problem}
+
+\end{document}

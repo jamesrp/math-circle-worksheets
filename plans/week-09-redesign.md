@@ -1,45 +1,47 @@
 # Week 9: Unfolding billiards: corners, gcd, and dynamics
 
-Redesigned September 19, 2026; review revisions September 20, 2026. Prepared, not taught. Use Week 1’s standard of an approachable experiment leading to a theorem, obstruction, optimization, or controlled mathematical question. Three core entry levels plus **one optional grades 6–7 page**. Full launch prompts, hints, checked solutions, and the 60-minute operating plan are in the [four-page facilitator guide](../lowell-math-circle-year-2/week-09/week-09-facilitator.pdf) and its [editable source](../lowell-math-circle-year-2/source/week-09/week-09-facilitator.tex).
+Revised September 27, 2026 in response to the [Week 1 classroom review](week-01-classroom-review.md) and the adopted AGENTS.md guidance. **F09-K/M/U/X-v3 are prepared, unpiloted revisions.** No observations about a Week 9 session have been supplied. The previous v2 source and PDFs are preserved separately in the weekly `archive-before-classroom-guidance-2026-09/` directories.
 
-## What changed
+## What changed, and why
 
-Unfolding becomes the main representation instead of a brief optional preview. Middle children coordinate two lists of wall locations and design corners; upper children prove the gcd/parity classification, derive an exact bounce formula, and solve inverse existence/impossibility problems. The extra changes slope and distinguishes avoiding corners from being dense.
+Several contrasting bounce traces now precede mirrored rooms. Original and unfolded paths are paired with numbered crossings; two more concrete room pictures and endpoint-count records support folding before multiples are used to predict. Upper tasks separate scaled copies, first-corner failure, wall-count work and inverse design. The extra now has five rational-slope trials and a visible midpoint diamond before discussing irrational direction and density.
+
+These changes infer what may help from the organizer's reported Week 1 experience: sufficient contrasting work, explicit actions, and records introduced for a purpose. They are proposals, not claims that these new sequences succeeded with children. Formal generalizations, hints and discretionary proof follow-ups are in the [six-page facilitator guide](../lowell-math-circle-year-2/week-09/week-09-facilitator.pdf); numbered student problems state concrete actions with the space/diagrams needed to perform them.
 
 ## Entry points and mathematical work
 
-Grade labels are approximate. Reading can always be supported by adult scribing/read-aloud; moving objects and giving an oral explanation count as mathematical work.
+Grades are approximate. Choose by prerequisites; read aloud, scribe and accept oral or drawn explanations. The additional pages provide flexible continuations, not a one-hour completion quota.
 
-| ID suffix | Investigation | Student pages | Prerequisites: reading/arithmetic/reasoning | Main work |
-| --- | --- | --- | --- | --- |
-| K | Bounce to a corner / See a straight path | 2 | No reading/arithmetic; follow a diagonal, distinguish side from corner, and reverse only the blocked direction. | Compare 2×2,2×4,4×2, then fold mirrored rooms around a straight line. |
-| M | Unbounce the ball / When do walls meet? | 2 | Count lengths and multiples through 12; coordinate two repeating lists and use odd/even whole-room counts. | Trace 2×3, unfold to (6,6), classify 2×3,3×6,3×9,4×6 and make target tables. |
-| U | A straight line in many rooms / Every corner / Bounce design | 3 | Multiples, parity, and division; gcd/lcm follow a picture. The optional general lemma adds adult-supported subtraction of multiples and Euclid’s argument. Coordinate geometry and necessity/sufficiency reasoning. | Prove first-corner LCM and reduced-parity rules, show no return to start at first corner, count a+b−2 bounces, design exactly four and rule out three at top-right. |
-| X | Change the slope | 1 | Positive fractions, coordinate pairs, and the supplied irrationality fact for √2. Distinguish rational-direction proof from a deeper density theorem. | In a unit square, derive the first lattice point for p/q, prove √2 never reaches a corner, and find a periodic no-corner diamond from a different start. |
+| ID | Pages | Prerequisites | Concrete sequence |
+| --- | --- | --- | --- |
+| F09-K-v3 | 3 | Adult reads/draws as needed; track diagonals and change only the blocked direction; no independent arithmetic. | Square, tall, wide and taller traces; two separate folding panels after comparisons. |
+| F09-M-v3 | 4 | Counts and multiples through 12; coordinate two room counts and alternate sides. | Three traces; bounce/crossing correspondence; two additional unfolding pictures; endpoint strip/table; target designs on supplied grids. |
+| F09-U-v3 | 5 | Multiples, division and parity; optional gcd/coprime proof needs adult-supported subtraction of multiples. | Contrasting traces; paired original/copied rooms; scaling and raw-parity counterexample; first-corner check; separate wall counts; three inverse candidates. |
+| F09-X-v3 | 3 | Positive fractions and coordinates; irrationality of square root of 2 may be supplied. | Five rational traces including an unreduced slope; corner design; irrationality argument; offset diamond distinguishes no-corner from density. |
 
-The complete IDs are **F09-K/M/U/X-v2**. There is no extra packet for the lower groups; offer the next entry level when appropriate.
+## Materials, launch, and flexible hour
 
-## Materials, launch, and hour
+Counters, rulers, pencils, scrap square-grid paper and adult scissors. Copy K page 3 separately and cut between the two panels before folding; keep traced earlier pages available for comparison. An adult may draw while a child chooses each direction.
 
-Seven counters, rulers, pencils, scrap square-grid paper, and two spare copies of the K1 folding page. An adult may trace while a child chooses bounces. No real ball or precision construction is required. Print three K1 packets, three middle packets, and one upper packet: **15 core student sheets**, plus the single extra sheet if wanted. Print single-sided, US Letter; actual size is recommended but no physical fitting depends on calibration. Introduce one page at a time.
+**Print a starting set:** page 1 of the appropriate level for each child (3 K–1 + 3 middle + 1 upper = **7 starting sheets**), with one master of each continuation and the optional three-page extra. Copy additional pages as needed and offer one at a time. The complete core packet lengths are 3/4/5 pages; the full roster set would be 26 sheets, but is not the default print instruction. Use US Letter, single-sided, actual size. No activity depends on physical scale calibration.
 
-**Launch:** Which part of the direction must change at this wall? Show two proposed arrows at the right wall, then let a child choose. Later ask what happens if the wall opens into a mirror copy and the path keeps going straight.
+**Whole-group launch:** After handling counters and tracing grid diagonals, gather at a visible 2×4 table. Move to its right wall, ask a child for the legal next direction, dot the bounce, and circle the ending corner. Show that interior path crossings are not walls. Only then give separate starting tasks. Delay mirror rooms until children have actual paths to compare.
 
-**Proposed hour:** 0–10 explore counters and mirrored grid rooms; 10–15 brief reflection launch; 15–35 main investigation: trace, fold, and predict corners; 35–40 movement/reset; 40–55 continue with inverse design or an optional proof; 55–60 share a prediction with its reason and tidy.
+**Proposed hour:** 0–10 handle materials; 10–15 short common action-and-record demonstration; 15–35 concrete attempts; 35–40 movement/reset; 40–55 revisit, compare or continue at the child's current stage; 55–60 share one result and tidy. Change this rhythm to fit actual exploration. Parent mainly supports K–1; organizer alternates middle/upper about every five minutes and leaves a specific next attempt. The upper child receives actual adult mathematical conversation. Roles rotate so each child acts.
 
-One parent stays mainly with K,K,1; the organizer alternates between 3,3,3 and the fifth grader, aiming for a return within five minutes and leaving a concrete next attempt. Roles rotate within triplets, preserving two opposing sides for games. The fifth grader needs actual adult mathematical conversation. The exact timetable and staffing are this project’s proposal, not a documented arrangement from the books.
+## Stopping points and proof continuations
 
-**Hints and pacing:** first ask a child to demonstrate the rule and show their current attempt; next ask for a smaller example or counterexample; only then offer the organizing representation on the next page. The facilitator gives specific hint ladders. A corrected conjecture is valuable. Do not fill time with copying or require finishing every task.
-
-## Stopping points and optional proof continuations
-
-| Group | Satisfying stopping point | Optional proof continuation |
+| Group | Satisfying stop | Optional facilitator continuation |
 | --- | --- | --- |
-| K–1 | Predict a corner and show how folding turns a straight path into its bounces. | Explain why the 2×4 and 4×2 paths end at different corners using the reflected rooms. |
-| 2–3 | Make a target table and explain its endpoint with whole-room counts. | Show why the first shared wall multiple gives the first corner, then justify a new target design. |
-| 4–5 | Use an earlier-corner argument to rule out bottom-left and explain the bounce count in whole-room counts. | With adult support, prove the coprime-divisibility lemma and reduced-side formula, then classify every four-bounce top-right design. |
+| K–1 | Predict and show contrasting corners; one physical fold if ready. | Explain the tall/wide corner difference through the reflected panels. |
+| 2–3 | Match bounce numbers to unfolded crossings, or explain a target rectangle. | Why the first common wall distance is the first corner; verify a new target design. |
+| 4–5 | Use room-count parity and verify a bounce-count rule from separate wall lists. | Earlier-corner obstruction; adult-supported coprime lemma; full reduced-side and inverse-design classification. |
 
-The [shared coprime-divisibility scaffold](coprime-divisibility-scaffold.md) supplies the additional arithmetic reasoning also used in Week 4. The general lemma requires adult-supported subtraction of multiples and following Euclid’s repeated-subtraction argument; it is not implied by being able to count multiples. If supplied rather than explained, record it as **given as a theorem**.
+Do not require every table cell, map or page. Demonstrate each unfamiliar record once with the real objects. When a representation is causing copying rather than helping compare attempts, scribe or return to objects. Preserve both construction and explanation; the guide keeps complete arguments so they are available when children are ready.
+
+## Observation plan and reuse
+
+After the session record which exact pages/instances children attempted, what they tried, what needed adult rescue, what they explained and what they wanted to continue. Label adult hypotheses separately from observed behavior. Distinguish a child's explanation from a supplied theorem. Unused stages remain prepared reserves; do not mark a whole printed packet as taught. The existing use log records actual use; this revision makes no new teaching claims.
 
 ## Verified mathematical backbone
 
@@ -73,6 +75,6 @@ Lowell has 7×5, 4×3, 8×10, consecutive sides, 1×n, 2×odd, scaling, and heig
 
 ## Verification and outputs
 
-An independent unit-step reflection tracer verifies all 900 rectangles of side lengths 1–30 against the formulas, plus the complete four-bounce top-right reduced-pair list and several rational-slope event counts.
+An independent unit-step reflection tracer checks all 900 rectangles with sides 1–30. Added assertions cover the height-6, swapped/square, scaled and inverse-design examples, and first vertices for 1/2, 2/4, 2/3, 3/2 and 3/4. Origin-start and normalized-slope qualifications remain in the guide; density is supplied as a separate theorem. Finite checks support the printed cases; general proofs remain in the facilitator guide.
 
-Run `python3 lowell-math-circle-year-2/source/week-09/verify.py`, then `sh lowell-math-circle-year-2/source/week-09/build.sh`. Builds write five PDFs in `lowell-math-circle-year-2/combined/`; LaTeX is editable in the week folder. The [print index](../lowell-math-circle-year-2/source/week-09/README.md) and [review record](../lowell-math-circle-year-2/source/week-09/REVIEW.md) describe the delivered files and visual checks.
+Run `python3 lowell-math-circle-year-2/source/week-09/verify.py`, then `sh lowell-math-circle-year-2/source/week-09/build.sh`. The five PDFs are written to `lowell-math-circle-year-2/week-09/`; editable TeX sources remain in the weekly source folder and intermediates in `tmp/pdfs/`. The [print index](../lowell-math-circle-year-2/source/week-09/README.md) and [review record](../lowell-math-circle-year-2/source/week-09/REVIEW.md) record final page counts and checks.

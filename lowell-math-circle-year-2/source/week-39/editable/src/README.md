@@ -1,0 +1,9 @@
+# Week 39 revised student source
+
+Revised and unpiloted. Run `bash build.sh` using Python 3, pdfLaTeX, TikZ, Latin Modern, AMS fonts, and Poppler. Portable build scripts use the caller's environment. Output is a six-page K–1 student PDF and two four-page older-band student PDFs, with QA images one directory above this folder.
+
+The fixed road map is never erased. Use a pawn and ordered road-step records; an adult may record, and the youngest children replay rather than transcribe letter strings. The visual example shows four directed mini-map step tiles, removal of the adjacent B→C→B pair, and replay of the two surviving steps. A real tabletop trial of large physical tiles or adult recording with the exact child group remains unperformed. All recording needs to preserve the actual edge and its direction, including on hypothetical parallel-road maps. Staying at the initial vertex is the empty journey.
+
+`check_math.py` checks all listed routes and bounded constructions independently of the drawing code, as well as all tree walks through ten steps. New K–1 ring constructions have five reduced home results for eight steps and four reduced A-to-C results for six steps. These are finite checks; the arbitrary-length unique-reduction and tree claims require the mathematical explanation, not extrapolation from enumeration. No stack algorithm or general solution method is printed for students.
+
+The October 4 targeted entry revision starts K–1 with three- and four-step tree trips on ordered physical step tiles, then four-step ring trips. The four-step ring has eight legal trips home and three reduced results: stay at A or one circuit in either direction. All five previous K–1 problems remain afterward as Problems 3–7, retaining their board sizes; use those for a continuation or return visit. Both older-band packets are unchanged. Exact physical tiles, replay, and adult recording have not been rehearsed with the children.

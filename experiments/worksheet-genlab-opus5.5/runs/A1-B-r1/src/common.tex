@@ -1,0 +1,53 @@
+% Shared layout for the Week 7 student pages (compile with xelatex)
+\usepackage[letterpaper, top=0.95in, bottom=0.75in, left=0.8in, right=0.8in,
+            headheight=20pt, headsep=16pt, footskip=28pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{Andika}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Bellingham Math Circle \enspace\textperiodcentered\enspace Week 7
+       \enspace\textperiodcentered\enspace \gradeband}
+\rhead{\small Name \rule[-2pt]{5cm}{0.5pt}}
+\cfoot{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\AtBeginDocument{\raggedright}
+
+\newcounter{prob}
+\newcommand{\problem}{\stepcounter{prob}\par\textbf{Problem \theprob:}\enspace}
+
+\newtcolorbox{rulebox}{enhanced, colback=white, colframe=black!55,
+  boxrule=0.7pt, arc=2mm, left=8pt, right=8pt, top=6pt, bottom=6pt,
+  before upper=\raggedright}
+
+% ---- counters -------------------------------------------------------------
+\tikzset{
+  ctr/.style={circle, draw=black, fill=black!18, line width=0.6pt,
+              minimum size=#1, inner sep=0pt},
+  ctr/.default=5mm,
+  xmark/.style={line width=1.4pt, line cap=round},
+  ansbox/.style={draw=black, line width=0.6pt, minimum size=#1, inner sep=0pt},
+  ansbox/.default=9mm,
+}
+% \pile[size]{n}{crossed}{per row}{step}  (drawn with top-left counter at origin)
+\newcommand{\pile}[5][5mm]{%
+  \foreach \i in {1,...,#2} {%
+    \pgfmathtruncatemacro{\col}{mod(\i-1,#4)}%
+    \pgfmathtruncatemacro{\row}{(\i-1)/#4}%
+    \node[ctr=#1] (p\i) at (\col*#5, -\row*#5) {};%
+    \pgfmathtruncatemacro{\thr}{#2-#3}%
+    \ifnum\i>\thr
+      \draw[xmark] ($(p\i)+(-0.62*#1,0.62*#1)$) -- ($(p\i)+(0.62*#1,-0.62*#1)$)
+                   ($(p\i)+(0.62*#1,0.62*#1)$) -- ($(p\i)+(-0.62*#1,-0.62*#1)$);
+    \fi
+  }}

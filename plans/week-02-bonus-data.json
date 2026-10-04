@@ -1,0 +1,47 @@
+{
+  "student_id": "F02-BONUS-v1",
+  "prepared": "2026-09-30",
+  "status": "Prepared reserve; unpiloted",
+  "graphs": {
+    "path4": {
+      "xy": [[0, 0], [1, 0], [2, 0], [3, 0]],
+      "edges": [[1, 2], [2, 3], [3, 4]]
+    },
+    "ring5": {
+      "cycle": 5,
+      "edges": [[1, 2], [2, 3], [3, 4], [4, 5], [5, 1]]
+    },
+    "square_diagonal": {
+      "xy": [[-1, 1], [1, 1], [1, -1], [-1, -1]],
+      "edges": [[1, 2], [2, 3], [3, 4], [4, 1], [1, 3]]
+    },
+    "bridge": {
+      "xy": [[-2.4, 0.8], [-2.4, -0.8], [-1.2, 0], [1.2, 0], [2.4, 0.8], [2.4, -0.8]],
+      "edges": [[1, 2], [2, 3], [3, 1], [4, 5], [5, 6], [6, 4], [3, 4]],
+      "sides": [[1, 2, 3], [4, 5, 6]],
+      "bridge_index": 6
+    },
+    "ring6": {
+      "cycle": 6,
+      "edges": [[1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 1]],
+      "special_lamp": 1
+    },
+    "priced_square": {
+      "xy": [[-1, 1], [1, 1], [1, -1], [-1, -1]],
+      "edges": [[1, 2], [2, 3], [3, 4], [4, 1]],
+      "costs": [5, 1, 1, 1]
+    }
+  },
+  "do_nothing": [
+    {"label": "A", "graph": "path4", "expected_nonempty_sets": []},
+    {"label": "B", "graph": "ring5", "expected_nonempty_sets": [[0, 1, 2, 3, 4]]},
+    {"label": "C", "graph": "square_diagonal", "expected_nonempty_sets": [[0, 1, 4], [2, 3, 4], [0, 1, 2, 3]]}
+  ],
+  "bridge_cases": [
+    {"label": "A", "start": [1, 4], "target": [2, 3], "must_press": true, "example_edges": [0, 6]},
+    {"label": "B", "start": [1, 4], "target": [2, 5], "must_press": false, "example_edges": [0, 3]}
+  ],
+  "solo_targets": [[1], [2], [4]],
+  "priced_target": [1, 2],
+  "index_convention": "Lamp numbers start at 1; edge indices start at 0. Labels are for the mathematical check and adult key only."
+}

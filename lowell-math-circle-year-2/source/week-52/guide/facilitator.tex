@@ -1,0 +1,264 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[margin=0.66in,top=0.72in,bottom=0.68in,headheight=15pt,headsep=15pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=.94]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{tikz,amsmath,amssymb,array,tabularx,fancyhdr,microtype,xcolor,enumitem}
+\usetikzlibrary{arrows.meta}
+\usepackage[hidelinks]{hyperref}
+\definecolor{blue}{RGB}{20,73,112}
+\pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{\small Week 52 / Hinged frames and braces / Adult guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 52 / F52-FAC-v2}\fancyfoot[R]{\scriptsize\thepage}
+\setlength{\emergencystretch}{2em}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\setlist[itemize]{leftmargin=16pt,itemsep=2pt,topsep=3pt}
+\setlist[enumerate]{leftmargin=18pt,itemsep=2pt,topsep=3pt}
+\newcommand{\titleline}[1]{\par{\large\bfseries #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+\newcommand{\task}[3]{\sub{Problem #1 / student page #2 / #3}}
+\newcommand{\hints}[3]{\textbf{Hints, in order:} (1) #1 (2) #2 (3) #3\par}
+\newcommand{\grid}[4]{\begin{tikzpicture}[x=#3mm,y=#3mm,baseline=(current bounding box.center)]
+\foreach \x in {0,...,#2}{\draw[gray] (\x,0)--(\x,#1);}
+\foreach \y in {0,...,#1}{\draw[gray] (0,\y)--(#2,\y);}
+\foreach \r/\c in {#4}{\draw[blue,line width=1.6pt] ({\c-1},{#1-\r})--(\c,{#1-\r+1});}
+\foreach \x in {0,...,#2}{\foreach \y in {0,...,#1}{\filldraw[fill=white] (\x,\y) circle(1.6pt);}}
+\foreach \r in {1,...,#1}{\node[anchor=east,font=\scriptsize] at (-.1,{#1-\r+.5}) {R\r};}
+\foreach \c in {1,...,#2}{\node[anchor=south,font=\scriptsize] at ({\c-.5},{#1+.08}) {C\c};}
+\end{tikzpicture}}
+\newcommand{\links}[3]{\begin{tikzpicture}[x=1cm,y=.65cm,baseline=(current bounding box.center)]
+\foreach \r in {1,...,#1}{\coordinate(R\r) at (0,{#2-\r});}
+\foreach \c in {1,...,#2}{\coordinate(C\c) at (2.4,{#2-\c});}
+\foreach \r/\c in {#3}{\draw[blue,line width=1pt](R\r)--(C\c);}
+\foreach \r in {1,...,#1}{\filldraw[fill=white](R\r)circle(2pt);\node[anchor=east,font=\scriptsize]at(-.1,{#2-\r}){R\r};}
+\foreach \c in {1,...,#2}{\filldraw[fill=white](C\c)circle(2pt);\node[anchor=west,font=\scriptsize]at(2.5,{#2-\c}){C\c};}
+\end{tikzpicture}}
+\begin{document}
+\titleline{Mathematical overview: what actually holds}
+\textbf{A fixed-bar triangle is rigid in the plane. A hinged square is flexible; one rigid diagonal makes it rigid.} Bars keep their lengths, pins turn without sliding, and all joints stay in one plane. Moving the entire frame is allowed and does not change its shape. A cardboard polygon with fixed corners is a different object. A braced quadrilateral can fold out of the plane; this session makes no general three-dimensional rigidity claim.
+
+\textbf{Complete square-grid theorem.} For an initially square, complete $m$-by-$n$ cell grid, make one dot for every row strip and every column strip. A brace in cell $(i,j)$ makes the link $R_iC_j$. The grid is \emph{infinitesimally rigid exactly when this link graph is connected}. With $k$ connected groups, there are $k-1$ nontrivial first-order shape motions, after removing whole-frame motions. This is a statement about ideal bar constraints, not about stiffness under a child's push.
+
+\textbf{Here connectedness also decides finite continuous motion, by a separate geometric argument.} Near the square placement, each four-bar cell remains a parallelogram. All vertical bars across a row strip share a direction, and all horizontal bars across a column strip share a direction. A square-length diagonal fixes those two directions at a right angle. Linked right-angle relations propagate through a connected group. If all dots are linked, every horizontal strip has one direction and every vertical strip its perpendicular: only a whole-frame turn/slide remains. If the groups are separate, rotate each group's strip directions by a different small angle and place joints by sums of the horizontal and vertical vectors. All side and braced-diagonal lengths remain fixed while an unbraced cell changes angle. This constructs a real flex; it does not assume that every infinitesimal flex can be integrated. See page 9 for the formulas.
+
+\textbf{The minimum is $m+n-1$ braces.} There are $m+n$ initially separate dots, and one link joins at most two groups. A spanning tree attains the bound. Having that many braces is insufficient unless the dots are connected; neither touching every strip nor a cycle elsewhere repairs a separate group. A link on a cycle can be removed without disconnecting a connected graph; a bridge cannot.
+
+\textbf{Scope.} Every side bar is present, every cell starts nondegenerate and square, braces are rigid cell diagonals of length $L\sqrt2$, and at most one is used in a cell. Keep all row/column dots, even unlinked ones. Link crossings are not joints. Do not apply this criterion to grids with holes or missing bars, strings, sliding/locked joints, long diagonals, or lifted frames. The grid theorem concerns continuous local motion from the initial nondegenerate square placement, not all configurations reached after removing a brace and passing through collapse, distant embeddings or mechanical strength.
+
+\sub{What children are meant to discover}
+K--1, Problems 1--3: a triangle resists a shape change; a square can shear; a chosen diagonal constrains it. Grades 2--3, Problems 4--5: placement matters, and three braces suffice in a 2-by-2 grid. Grades 3--5, Problems 6--11: physical contrasts acquire a useful link picture after the handoff on page 4. Ready Grades 4--5, Problems 12--14: minimum and universal claims need an argument, not only examples. Grade labels are approximate; no algebra or calculus is required. A hand test is an \emph{experiment}; a proposed rule is a \emph{conjecture}; propagation or a length-preserving construction is an \emph{explanation}.
+
+\newpage
+\titleline{Materials and preparation for eleven children}
+Three anchored adults: parent with KK11; mathematician with four third graders; organizer with 445. Two pairs at each younger table; at the upper table rotate builder, tester and recorder after each design. The spare upper kit permits two designs to stay assembled at once.
+
+\begin{tabularx}{\linewidth}{@{}Xrrrr@{}}\textbf{Preassembled kit} &\textbf{Number}&\textbf{Sides}&\textbf{Braces}&\textbf{Pins}\\\hline
+K--1: separate triangle and square &2&14&2&14\\
+Grades 2--3: 2-by-2 cell grid &2&24&8&18\\
+Upper: 2-by-3 cell grid, including spare &2&34&12&24\\
+Common demonstration square &1&4&1&4\\\hline
+\textbf{Base totals} &&\textbf{76}&\textbf{23}&\textbf{60}\\
+Loose spares &&8&4&12\\
+\textbf{Prepare altogether} &&\textbf{84}&\textbf{27}&\textbf{72}
+\end{tabularx}
+
+Each K--1 kit uses 7 side bars, 1 brace and 7 pins. A 2-by-2 uses 12 sides, 4 braces and 9 pins. A 2-by-3 uses 17 sides, 6 braces and 12 pins. Braces reuse existing corner pins; they do not add pins at crossings. Count 72 \emph{complete} pin fasteners, including backs/washers if the chosen system needs them. The main route needs no 3-by-3 kit. Optional direct testing of paper 3-by-3 cases adds 24 sides, 9 braces and 16 pins, separately rehearsed.
+
+\sub{Fabrication and fit}
+Use stiff straight prepunched strip bars with freely turning removable pins, or a compatible reusable hinged-bar kit. Proposed strips are 14 mm wide, with holes centered 8 mm from each end. Side hole spacing is 60 mm, total length 76 mm. Diagonal hole spacing is $60\sqrt2=84.853$ mm, total length 100.853 mm. These are \emph{hole-center} dimensions. Do not substitute a bar of total length 84.85 mm. The center spans are 60-by-60 mm for a square, 120-by-120 mm for a 2-by-2 and 180-by-120 mm for a 2-by-3; strip ends extend beyond them. Student diagrams are smaller recording maps, not full-size assembly mats.
+
+Before assembly, cut all strips using one measured side template and one diagonal template; transfer/punch both holes from the same template, then check the actual hole-center distances. Use stiff sheet stock or rigid kit bars that resist bending under gentle testing; soft single-layer card is a poor proxy. Match hole size to pins to permit rotation without appreciable sliding. At an interior joint allow four side strips and potentially four incident braces; pins must accommodate that stack without clamping it. Adults cut/punch and service fasteners. Children choose the brace cell and the push.
+
+\textbf{Preparation forecast:} 45--60 minutes if suitable straight strip stock/fasteners and bulk cutting/punching are already available: about 20 minutes cutting/punching, 20--25 assembling, 10--15 checking/resetting. Raw-material sourcing or drilling a rigid stock can take longer; use an earlier kit-making evening. These times are estimates, not measured. Later reset/check is about 10--15 minutes. Do not spend children's exploration time fabricating kits.
+
+Also prepare 13 pencils (11 plus 2 spares), 6 blue/red marker pairs (5 work groups plus spare), and 15 removable label tabs: $R1,R2,C1,C2,C3$ for each upper model plus a spare set. Supply 5 uncluttered work areas roughly 30-by-25 cm, one per pair/trio; spare upper model sits alongside. Keep loose pins in adult-controlled trays.
+
+\newpage
+\titleline{Printing, physical pretest and the hour}
+\sub{Print from the current 12-page student packet, F52-S-v2}
+Print single-sided, US Letter, 100\% scale. K--1: 2 copies each of pages 1--2, one set per pair (4 sheets). Grades 2--3: 2 copies each of pages 3--4 (4 sheets). Upper: 1 copy each of pages 5--9 (5 sheets), shared by the trio; give one at a time. Keep 1 copy each of pages 10--12 for a ready continuation/return visit (3 sheets). Total 16 student sheets. Print 3 copies of this adult guide. The spare frame does not require an extra worksheet set; its brace map can remain on the same page.
+
+\sub{Required physical pretest: unperformed}
+Check every assembled unbraced square/grid changes shape gently while flat; each triangle does not. Fit the same diagonal into a square and check that it restricts shear without forcing the holes. Check P4A/B flex and P4C/D hold, then P7A/B on the upper kits. Try the two-group handoff and every spare bar/pin. If friction makes an unbraced frame seem rigid, loosen/service pins; if a braced frame bends, slides or has slack, replace the material or diagonal. A diagram or code check does not certify these operations. Physical fabrication, fit, pin friction/slop, adult servicing workload and classroom piloting remain \textbf{unperformed}.
+
+\sub{A flexible 60-minute route}
+\begin{tabularx}{\linewidth}{@{}lX@{}}0--5 & Running around, then settle at fixed tables.\\
+5--8 & Children handle their preassembled triangle/square/grid, turning whole objects and trying gentle flat pushes. No general rule yet.\\
+8--11 & Whole-group legal-attempt launch below.\\
+11--30 & K--1 P1--3; third graders P4 then P5; upper P6 then physical P7. Adults read/service pins without selecting cells.\\
+30--48 & Stay with fruitful concrete designs. Ready upper children do the page-4 handoff, then choose P8 or P9--10. P11 is optional. Third graders may try P6 with an available upper kit after its group finishes.\\
+48--55 & Keep working or use a fallback. P12--14 normally wait for a return visit; a ready group may start one.\\
+55--60 & Each table shares one changed shape or brace design. Ask: ``What did you try, and what makes you think your claim holds?'' Identify experiment, conjecture or explanation.
+\end{tabularx}
+
+\sub{Launch: materials first, then one legal attempt}
+Place the demonstration square flat. Say: ``Keep the bars straight and the frame on the table. Can its shape change?'' Invite a child to hold one side lightly and choose a gentle sideways push. Turn/slide the whole frame once: ``That moved it; did its shape change?'' Return to a square. Let the child choose either pair of opposite corners; the adult opens those two pins and fits the one diagonal. The child tests it. Say: ``This diagonal is a brace. Choose where braces go, then test and mark your design.'' Stop there; do not announce the grid criterion.
+
+\textbf{Fallbacks that retain choices.} K--1: one child makes a rhombus, partner copies it with the other square; swap. Third graders: one pair invents a 2-by-2 brace design; the other predicts then tests it. Upper: design a 2-by-3 frame that holds using four braces; partner chooses a removal and predicts its effect. Photograph/mark the reference before changing it. If children lose the two-label meaning, continue physical work; adults do not operate the investigation for them.
+
+\newpage
+\titleline{The handoff: physical bar directions to links}
+Do this at the upper table after physical P7 and before using paper-only P8/11--14. P7's contrast has an isolated column; children need a covered-but-separated contrast too. Use the spare 2-by-3 kit with braces $(1,1),(1,2),(2,3)$. This avoids moving the anchored adults or borrowing another table's active kit. Alternatively borrow a finished 2-by-2 P4B model: $(1,1),(2,2)$.
+
+\begin{center}
+\grid{2}{3}{17}{1/1,1/2,2/3}\hspace{15mm}\links{2}{3}{1/1,1/2,2/3}
+\end{center}
+The 2-by-3 model has two groups: $\{R1,C1,C2\}$ and $\{R2,C3\}$. Every strip has a brace, but the groups can turn differently. Any empty cell, $(1,3),(2,1),(2,2)$, joins them. In P4B the groups are $\{R1,C1\}$ and $\{R2,C2\}$; either empty cell joins them.
+
+\begin{enumerate}
+\item Keep the brace record. Put R1/R2 tabs beside the \emph{vertical} bars across the row strips, and C1/C2/C3 beside the \emph{horizontal} bars across the column strips. A row dot stands for a common vertical bar direction; it is not a physical pin. A column dot stands for a common horizontal direction.
+\item Children choose gentle flat pushes. Ask: ``Which bars stay parallel? Which cells stay square?'' Supply this fact if needed: equal opposite side lengths keep each nondegenerate cell on its parallelogram branch near the starting square, so its opposite bars stay parallel. Propagate that across each strip. A diagonal keeps its braced cell's two directions perpendicular.
+\item Use student page 6's non-task example before asking for any conversion: the 1-by-3 input has its only brace in the middle cell; the intermediate identifies R1 and C2; the output is the R1--C2 link with C1 and C3 still present. Draw the same link for one brace in this model, then let children complete the picture. Links may cross without joining.
+\item Ask children to identify the two groups and find a push that lets their bar directions turn relative to one another. Let a child choose an empty cell for one added brace and predict what it couples. Adult services the pin; child tests the prediction, keeps the new map and explains what changed.
+\item Give the geometric reason: linked right-angle relations propagate within a group; separate groups can have separate small turns. Ask children to point to the physical directions represented by both ends of a chosen link. Only then use links to predict a new paper frame.
+\end{enumerate}
+
+\textbf{Readiness check.} Can children distinguish a cell address from a bar direction, retain every dot, and tell a tested observation from a prediction or a fixed-length explanation? If yes, they can choose P8 or P9--11. If they can only transcribe cell addresses, return to P4--7 and preserve their map for another day. Adult reading and pin assistance are ordinary support; adult choosing every placement and tracing every group would remove the mathematical choices. This route is proposed and untested.
+
+\textbf{No masks or frozen portions.} All side bars remain in the complete grid. Do not hold a region fixed with tape, remove cells, cover dots, or apply the criterion to a modified frame. Holding one side lightly removes whole-frame movement during a test; it must not lock internal angles. The optional additional 3-by-3 model supplies an experiment after its own rehearsal, not a substitute for the meaning of links.
+
+\newpage
+\titleline{K--1 and Grades 2--3: concrete answers}
+\task{1}{1}{K--1 core}
+Children try a triangle and square and draw actual new shapes. The triangle's three sides/joints are fixed in shape; the square's four sides/joints can shear into non-square rhombi. Reflections or turning a triangle are not continuous shape changes from its fixed-length placement. A child explanation is: ``The third corner has to be the same distance from both ends of this side.'' Adults can show the two possible circle intersections; there is no continuous path between them with the lengths fixed.
+\hints{Try holding one side lightly on the table and push a different corner.}{Check whether the bars bent or the whole object just moved.}{Compare the square with a narrow rhombus made from its same four bars.}
+
+\task{2}{2}{K--1 core}
+One diagonal is the minimum. Either opposite-corner choice works. Zero allows shear; one splits the square into two fixed triangles. The child selects corners and records the brace. Adults attach it without squeezing side pins tight.
+\hints{Point to the corners you want to join.}{Try one diagonal and the same flat push.}{Where are the two triangles now?}
+
+\task{3}{2}{K--1 core or continuation}
+Keep \emph{that same} removed diagonal. On the ordinary nondegenerate simple rhombus branch, only a square fits it. A 60-degree rhombus with 60 mm sides has diagonals 60 and $60\sqrt3\approx103.92$ mm; neither is 84.85 mm.
+
+\textbf{The full ideal answer also allows overlap.} Call the diagonal ends $A,C$. Each other corner $B,D$ must be one of two circle intersections, distance $L$ from both ends. Distinct choices give the square; coincident choices give a doubled right-isosceles triangle with $B=D$. The unbraced frame can reach it through a fully collapsed placement. The student question forbids neither overlap nor coincident joints: credit this noticed exception. A real kit may physically prevent it; do not force pins or substitute a different bar.
+\hints{Try to fit the removed bar into your new shape without bending anything.}{Compare a very thin rhombus with a shape close to square.}{Where are the four corners when both holes fit?}
+If drawing is a bottleneck, an adult draws the child's chosen shape. Stay with physical copying/refitting instead of adding graph work. Optional deeper question: can a different diagonal hold a different rhombus? It can, with its appropriate length; that is a new kit/model, outside the square-grid criterion.
+
+\task{4}{3}{Grades 2--3 core}
+Rows count from the top; columns from the left. Let each pair build/test all four contrasting maps. Circle \textbf{C and D}. A has only $(1,1)$ and flexes. B has $(1,1),(2,2)$ and flexes despite a brace in every strip. C has $(1,1),(1,2),(2,1)$ and holds. D has all four and holds; its fourth brace is redundant. Draw a changed shape only for A/B. For B, two braced squares can change their relative direction through the unbraced cells; no braced square itself has to shear.
+\hints{Choose a gentle push on a corner away from a braced cell.}{Can two square cells turn relative to one another?}{Try C after B using the same model and push; keep the old record.}
+
+\task{5}{4}{Grades 2--3 core; several designs can occupy the hour}
+Minimum \textbf{three}. All four minimum cell sets work: $(11,12,21)$, $(11,12,22)$, $(11,21,22)$, $(12,21,22)$, where $ij=(R_i,C_j)$. Equivalently omit any one cell. Either diagonal orientation gives the same constraint, so orientations are not extra required cases. With two links four strip dots cannot all be joined; three can make a connected tree. Children can compare all two-brace types physically: adjacent braces miss a strip; opposite braces leave two groups. No two works.
+\hints{Try removing one brace from D and test.}{Can you find a different empty cell with the same count?}{Compare adjacent and opposite two-brace placements.}
+Skip counting every orientation or transcribing a complete catalog. Keep child-selected designs and a contrasting failed attempt. An extension is to choose one brace of a minimum design and predict the effect of removing it: every one is essential.
+
+\newpage
+\titleline{Grades 3--5: physical designs and first link contrasts}
+\task{6}{5}{Upper-table core}
+Minimum \textbf{four} for the 2-by-3 model. One example is $(11,12,13,21)$: all top-row cells and bottom-left. There are 12 minimum cell sets; the task asks for several, not all. An economical full adult characterization: from all six cells omit any pair \emph{except the two cells in one column}. Thus every remaining four-cell set covers the columns and connects both rows through a column having two braces. Two omissions in one column isolate that column. With five strip dots three links cannot suffice.
+\hints{Try a design that holds, then remove one brace and test.}{Can you leave one column without a brace?}{Look for a column that joins both row directions.}
+Do not supply a placement algorithm first. Children should choose and revise their designs. Further: compare successful designs with the same count rather than require all 12.
+
+\task{7}{6}{Core if children can retain two label systems}
+Keep the worked conversion at the top of page 6 before first use. For A draw links $11,12,21,22$; for B draw $11,12,13,21$. \textbf{Circle B only}. Both have four braces. A's group is $\{R1,R2,C1,C2\}$ plus isolated C3, so its right-hand strip can change. B links all five dots. The figures below are answer pictures, not physical pins.
+\begin{center}
+\begin{tabular}{cc}A: flexible&B: holds\\
+\links{2}{3}{1/1,1/2,2/1,2/2}&\links{2}{3}{1/1,1/2,1/3,2/1}
+\end{tabular}
+\end{center}
+\hints{Build both designs and choose where to push.}{Point to one brace's row and column before drawing its link.}{Keep all five dots; which physical direction has no link in A?}
+The hand test supports a conjecture. Complete the page-4 two-group handoff before generalizing from pictures alone. If it does not land, physical P6/7 already provide a substantial hour.
+
+\task{8}{7}{Readiness-dependent continuation/return visit}
+\textbf{No}: covering every row/column is insufficient. A links $11,12,21,22,33$ and has groups $\{R1,R2,C1,C2\}$ and $\{R3,C3\}$. Its two groups can turn differently, preserving every braced cell. B links $11,12,13,21,31$, connects all six dots and holds. Both have five braces and complete strip coverage. Children draw \emph{both} link pictures before deciding the universal question.
+\begin{center}
+\begin{tabular}{cc}A: flexible&B: holds\\
+\links{3}{3}{1/1,1/2,2/1,2/2,3/3}&\links{3}{3}{1/1,1/2,1/3,2/1,3/1}
+\end{tabular}
+\end{center}
+\hints{Recall the physical covered two-group frame.}{Trace only actual links from a chosen dot; a crossing does not join.}{Which two physical direction groups could take separate small turns?}
+If the model explanation remains unclear, save this claim as a conjecture and revisit with the handoff or a rehearsed optional 3-by-3 model. Do not claim the paper design was physically tested. Extension: in A, any empty cell bridges the two groups, so any one new brace makes it hold.
+
+\newpage
+\titleline{Grades 3--5: removal and addition answers}
+For adult lookup on this page, call the top-row cells $a,b,c$ and the bottom-row cells $d,e,f$, both from left to right. A letter denotes a cell/row--column link, never a physical joint. Student pages use the row/column labels.
+
+\task{9}{8}{Continuation after the handoff}
+The starting set is $a,b,c,d,e$ (all except bottom-right $f$). Removable single braces are \textbf{$a,b,d,e$}, cells $(11),(12),(21),(22)$. Mark those four on both pictures. \textbf{$c=(13)$ is essential}: its removal isolates C3. The other four links form a cycle, and each can be removed while a path through the other three remains. This is four \emph{separate} tests, not removal of all four together. Restore the same design before each next trial.
+\hints{Choose one brace, remove it, test, then restore it.}{In the link picture, is there another route between that link's ends?}{Which column has only one connection?}
+Extension: after a permitted removal, the four remaining links make a tree; every further single removal then destroys rigidity. Ask children to choose the next removal and test that new reference deliberately.
+
+\task{10}{8}{Continuation; can remain wholly physical}
+Start afresh with all six cells braced; remove both braces in each chosen pair simultaneously. There are 15 unordered pairs. The \textbf{three failing pairs} are $ad,be,cf$: both cells of one column are removed, isolating that direction. The \textbf{12 successful pairs} are $ab,ac,ae,af,bc,bd,bf,cd,ce,de,df,ef$. Every surviving four-link design is connected. Each starts from the full six-brace reference, not from P9's five-brace frame or the previous trial. Four printed maps are for chosen contrasting trials; children need not reproduce all 15.
+\hints{Choose two removals and keep their combined record.}{What happens if both come from the same column?}{If every column remains linked, is there a column that still joins both rows?}
+Child explanation: with four braces among three columns, some column has both rows. If no column is empty, each other column links to a row already in that group, so all dots join. Extension: pool independently chosen tests and keep a checkable catalog rather than impose a long individual transcription.
+
+\task{11}{9}{Paper continuation after the handoff}
+\textbf{A: no place works.} Its links $11,12,21,22$ form one four-dot group with R3 and C3 separate: three groups. One new link can reduce their number by only one. Adding $33$ joins the two isolated dots but still leaves two groups. Adding a third-row or third-column brace connects only one isolated direction.
+
+\textbf{B: exactly four places work}, $(13),(23),(31),(32)$. Its links $11,12,22$ join $\{R1,R2,C1,C2\}$, and $33$ joins $\{R3,C3\}$. The four listed cells bridge these two groups. The remaining empty cell $(21)$ stays inside the first group and adds a cycle without joining the other group. Mark all four working cells, rather than just one example.
+\begin{center}
+\begin{tabular}{cc}A: three groups&B: two groups\\
+\links{3}{3}{1/1,1/2,2/1,2/2}&\links{3}{3}{1/1,1/2,2/2,3/3}
+\end{tabular}
+\end{center}
+\hints{Trace the separate groups, retaining unused dots.}{Choose an empty cell; point to the two groups its link would join.}{Can one link join three separate groups?}
+If children are struggling, use the physical two-group comparison again instead of adult tracing all answers. Extension: A needs two additions; for example $(13)$ and $(31)$ connect all groups. Let children invent other two-addition repairs.
+
+\newpage
+\fontsize{10.5}{12.3}\selectfont
+\titleline{Ready Grades 4--5: minima and universal claims}
+These are ideal complete-grid problems after the physical-to-link handoff, usually a return visit. No 4-by-5 or 4-by-4 physical kit is promised. Children choose a design, counterexample or drawing argument; adults can read/record their explanation.
+
+\task{12}{10}{Ready continuation/return visit}
+Minimum \textbf{eight}: there are four row dots and five column dots. Start with nine groups. Each brace joins at most two, decreasing the number by at most one; seven braces cannot leave just one group. An eight-brace example is all five top-row cells plus the first-column cells in rows 2, 3, 4: $11,12,13,14,15,21,31,41$. Those links connect every dot. This proves necessity \emph{and} sufficiency; the count alone is not a test of a particular placement.
+\hints{Draw the row and column dots before adding links.}{What is the greatest number of separate groups one new link can join?}{Try making a connected picture with exactly eight links.}
+Extension: remove any brace from a minimum design; its tree splits. Adding a ninth creates a cycle and may provide a removal choice. Children can search for this on their own diagram.
+
+\task{13}{11}{Ready universal argument}
+\textbf{Yes}, for this precise 3-by-3, six-brace, complete-coverage situation. Suppose its link picture were disconnected. Coverage means every component has at least one row and one column. If it has two groups, their row sizes must be $1+2$ and column sizes $1+2$. Matching large with large allows at most $1\cdot1+2\cdot2=5$ distinct links; matching large with small allows at most $1\cdot2+2\cdot1=4$. If it has three groups, each has one row/column and there are at most three links. Thus six cannot fit without a cross-group link: all dots are connected. One brace per cell matters to this bound.
+\hints{Try to build a covered design that stays in two separate groups.}{For each group, count the available row--column pairs inside it.}{Can two such groups contain six different cells?}
+A drawing explanation can circle two proposed groups and shade every cell available inside them. Code checked all 84 six-cell subsets: 78 cover all strips, and all 78 are connected. Exhaustive testing is supporting evidence; the capacity argument explains why all must work. Optional next question: what changes with four rows/columns?
+
+\task{14}{12}{Ready counterexample; depth worth preserving}
+\textbf{No}. Brace eight cells of the upper-left 3-by-3 block, leaving its $(3,3)$ empty, and also brace $(4,4)$. That is exactly nine: $11,12,13,21,22,23,31,32,44$. Every row/column has a brace. The first six strip dots form one connected group, and $\{R4,C4\}$ is another. All cells crossing between these groups are empty; the groups can take different small turns while preserving the diagonal lengths. This supplies a finite-flex counterexample, not just a brace-count objection.
+\begin{center}\grid{4}{4}{13}{1/1,1/2,1/3,2/1,2/2,2/3,3/1,3/2,4/4}\end{center}
+\hints{Try dividing rows and columns into a big group and a small group.}{How many brace positions fit inside a 3-row/3-column block?}{Can you use eight there and one in the remaining row/column without linking the groups?}
+Extension: with coverage, a disconnected 4-by-4 graph has at most $3\cdot3+1\cdot1=10$ links (other two-group splits yield at most 8, and three/four groups at most 6/4). Eleven braces therefore force connectivity; ten can still fail using all nine cells in that block plus $(4,4)$. Treat this as optional further work, not a requirement to finish the packet.
+
+\newpage
+\fontsize{11}{13.6}\selectfont
+\titleline{Short proofs for the adults and source record}
+\sub{First order and finite motion are separate arguments}
+At square joints $p(i,j)=(j,i)$, a velocity $(u,v)$ satisfies horizontal bars only if $u(i,j)=a_i$, and vertical bars only if $v(i,j)=b_j$. Let $A_i=a_i-a_{i-1}$, $B_j=b_j-b_{j-1}$. Either diagonal orientation imposes $A_i+B_j=0$. Thus row turns $-A_i$ equal column turns $B_j$ precisely along links. One turn per component gives $k$ variables, one being whole-frame rotation; two more variables are translations. The rank is $2(m+1)(n+1)-2-k$. This establishes the infinitesimal criterion at the square placement.
+
+For finite motion, write a joint locally as
+\[
+p(i,j)=p(0,0)+\sum_{t=1}^{j}H_t+\sum_{s=1}^{i}V_s,\qquad |H_t|=|V_s|=L.
+\]
+Equal opposite cell sides preserve the parallelogram branch near the nondegenerate start. A brace fixes $|H_j\pm V_i|=L\sqrt2$, hence $H_j\cdot V_i=0$. In a connected graph these right angles propagate, so every $H$ is the same rotated horizontal vector and every $V$ the same perpendicular vertical vector. Local motion is only rigid motion, hence no continuous shape-changing path can start here. For disconnected components rotate each component's $H$ and $V$ together by its own small angle. The sums define joint positions with every bar and chosen diagonal length unchanged; a cross-component cell changes angle. This is an actual flex construction. For triangle rigidity, fixing a side restricts the third vertex to at most two circle intersections; it cannot follow a continuous shape-changing path.
+
+\sub{Exact primary mathematical sources}
+Bolker and Crapo, \emph{Bracing Rectangular Frameworks. I}, SIAM J. Appl. Math. 36(3), 1979, pp. 473--490, \href{https://epubs.siam.org/doi/abs/10.1137/0136036}{DOI 10.1137/0136036}. The publisher abstract was inspected and identifies minimal planar square-grid bracings with bipartite spanning trees. The full original paper was unavailable; no internal proof/page was claimed read.
+
+Grasegger and Legersk\'y, \emph{Bracing frameworks consisting of parallelograms}, \href{https://arxiv.org/abs/2008.11521v1}{arXiv:2008.11521v1} (2020), Theorem 1.1 p. 3; Definition 3.8 p. 8 and 3.17/3.19 pp. 13--14; finite-flex/graph proofs pp. 16--17. Those pages were read in the local downloaded primary PDF. The paper treats the broader class of braced P-frameworks; this guide uses a separately written elementary proof for complete square grids only. Its p. 17 explicitly distinguishes grids with holes.
+
+\sub{Teaching lessons actually found, and our design inferences}
+Rozhkovskaya, \emph{Math Circles for Elementary School Students} (AMS, 2014), Lesson 7, ``At the lesson,'' \S2, printed p. 122 (local EPUB part0017): reports sustained, enthusiastic K'nex polygon construction. Givental, Nemirovskaya and Zakharevich, \emph{Math Circle by the Bay} (AMS, 2018), ``How we teach,'' printed p. ix (PDF p. 10): discusses manipulatives, accessible unambiguous statements, independent solving and practice verbalizing ideas. Neither reports piloting this bracing packet.
+
+Local precedents: year-1 \emph{Handouts 3}, P3.4--3.7, pattern-block hexagon/symmetry work; \emph{Handouts 4}, P4.2--4.5, varied filling and symmetry grouping. The organizer's stronger classroom evidence is the concrete handling versus paper-rule difficulty recorded in the current workflow context. Our preassembled kits, strip dimensions, chosen handoff, routes and timing are \emph{untested design inferences}. Mathematical ideas are established; guide wording, proofs, lookup tables and figures are newly authored. No borrowed exemplar text, prompt bundle, third-party figure or book excerpt belongs in this guide source.
+
+\newpage
+\titleline{Return visits, records and verification limits}
+\sub{Use the same theme for a deeper investigation}
+First visit can end after concrete P1--7, with no graph criterion claimed as understood. Save one brace map per pair/trio and the physical question they wanted to keep trying. On return, reconstruct their own design before new work. K--1 can investigate which different-length diagonal fits a chosen rhombus, with an adult-prepared matching bar; this changes the model and is not a square-grid application. Third graders can invent hard-to-classify 2-by-2/2-by-3 designs and exchange predictions. The upper table can revisit its two-group physical frame, then choose redundancy/repair P9--11 or minimum/universal P12--14. These are different investigations of constraints, not merely larger numbers.
+
+Keep the concrete entry available alongside proofs. For the eleven-child group, adults remain at their tables and grade labels do not change the staffing. If third graders use the spare 2-by-3 kit, make the handoff after the upper table finishes with it, without requiring an adult to supervise another table. A second visit can focus on one substantial proof/counterexample rather than finish every page.
+
+\sub{Write down after the session}
+For each work group record date, table, problems actually used and the designs saved. Distinguish ``printed/available'' from ``used.'' Record a child's claim or drawing, what they tried, and whether it was guessed, hand-tested, checked in several cases or explained from fixed lengths. Note whether children understood shape change versus whole-frame motion, brace-to-direction meaning, all dots/crossings, and restore-before-next-test. Record where adults read/serviced pins versus chose placements or traced groups. Log confusing instructions, favorite continuations, waiting for pin service and physical fit problems. Separate observations from hypotheses about why they happened; use the evidence to change pacing or materials next time.
+
+\begin{tabularx}{\linewidth}{@{}lX@{}}\textbf{Group/date} & \rule{.8\linewidth}{.3pt}\\[8pt]
+\textbf{Problems used} & \rule{.8\linewidth}{.3pt}\\[8pt]
+\textbf{Saved design/claim} & \rule{.8\linewidth}{.3pt}\\[8pt]
+\textbf{Evidence status} & guessed / tested / cases checked / explained\\[8pt]
+\textbf{Adult help/fit} & \rule{.8\linewidth}{.3pt}\\[8pt]
+\textbf{Wanted next} & \rule{.8\linewidth}{.3pt}
+\end{tabularx}
+
+\sub{Independent digital checks for this guide}
+The authored \texttt{verify\_guide.py} re-computes every stated minimum, printed-design component set, single/pair deletion, addition location, P13 exhaustive result and P14 counterexample without importing student checks. Exact rational rigidity-matrix ranks independently agree with the graph predictions. A small finite-flex vector construction checks unchanged side lengths and both diagonal orientations, and measures a changed unbraced diagonal. K--1 lengths and kit counts are also recalculated. Optional actual-PDF auditing reads brace paths and equal cell axes from all printed braced task grids in the relevant student pages; no source comments are used as answer evidence.
+
+Every guide page is rendered and visually checked. A copied-source clean build compares page count, Letter dimensions, text and rendered pixels from another working directory. These checks establish digital/math consistency, \emph{not} physical fabrication, handling, staffing rehearsal or classroom results. Both physical rehearsal and classroom piloting remain unperformed. The guide is separately authored for F52-S-v2; current digital checks cover this guide. No remote copy has been updated by this work.
+\end{document}

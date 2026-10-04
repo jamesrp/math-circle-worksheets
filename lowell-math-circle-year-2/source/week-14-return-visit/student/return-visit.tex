@@ -1,0 +1,221 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage[margin=0in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta}
+\usepackage{xcolor}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\renewcommand{\familydefault}{\sfdefault}
+\definecolor{quiet}{gray}{0.48}
+\definecolor{rulegray}{gray}{0.76}
+\definecolor{demoblue}{RGB}{29,83,139}
+\definecolor{demored}{RGB}{150,54,46}
+
+% All diagrams use the same unit in both axes. Main boards have a
+% circumdiameter of four inches; small diagrams are convention examples
+% or copies for saving a configuration, rather than material-fit boards.
+\newcommand{\pageopen}[2]{%
+  \begin{tikzpicture}[remember picture,overlay,x=1in,y=1in]
+  \begin{scope}[shift={(current page.south west)}]
+  \node[anchor=west,inner sep=0pt,font=\fontsize{13}{16}\selectfont]
+    at (0.65,10.49) {Week 14 / Triangulations / Grades #1};
+  \draw[rulegray,line width=.45pt] (0.65,10.27)--(7.85,10.27);
+  \node[anchor=west,inner sep=0pt,font=\fontsize{9}{11}\selectfont]
+    at (0.65,.40) {Bellingham Math Circle / Week 14 / W14-RV-draft};
+  \node[anchor=east,inner sep=0pt,font=\fontsize{9}{11}\selectfont]
+    at (7.85,.40) {#2};
+}
+\newcommand{\pageclose}{\end{scope}\end{tikzpicture}\null\newpage}
+\newcommand{\textat}[3]{%
+  \node[anchor=north west,inner sep=0pt,text width=7.2in,
+    align=left,font=\fontsize{13}{17}\selectfont] at (#1,#2) {#3};}
+\newcommand{\smalltextat}[3]{%
+  \node[anchor=north west,inner sep=0pt,text width=7.2in,
+    font=\fontsize{11}{14}\selectfont] at (#1,#2) {#3};}
+
+% A at the top; A,B,C,D,E,F follow clockwise. Names stay fixed.
+\newcommand{\hexagon}[3]{%
+  \begin{scope}[shift={(#1,#2)}]
+  \foreach \i/\lab in {0/A,1/B,2/C,3/D,4/E,5/F}{%
+    \pgfmathsetmacro{\ang}{90-60*\i}
+    \coordinate (h\lab) at (\ang:#3in);
+    \pgfmathsetmacro{\lr}{#3+0.18}
+    \node[font=\fontsize{12}{14}\selectfont,inner sep=0pt]
+      at (\ang:\lr in) {\lab};
+  }
+  \draw[line width=.9pt] (hA)--(hB)--(hC)--(hD)--(hE)--(hF)--cycle;
+}
+\newcommand{\fanlines}{\draw[line width=.85pt] (hA)--(hC) (hA)--(hD) (hA)--(hE);}
+\newcommand{\centrallines}{\draw[line width=.85pt] (hA)--(hC)--(hE)--cycle;}
+\newcommand{\hexdots}{%
+  \foreach \lab in {A,B,C,D,E,F}{\fill (h\lab) circle[radius=1.4pt];}}
+\newcommand{\colorcorners}{%
+  \foreach \lab in {A,B,C,D,E,F}{%
+    \draw[fill=white,line width=.7pt] (h\lab) circle[radius=.12in];}}
+\newcommand{\hexend}{\end{scope}}
+
+% A pentagon convention example; its scale is equal in x and y.
+\newcommand{\pentagon}[2]{%
+  \begin{scope}[shift={(#1,#2)}]
+  \foreach \i/\lab in {0/A,1/B,2/C,3/D,4/E}{%
+    \pgfmathsetmacro{\ang}{90-72*\i}
+    \coordinate (p\lab) at (\ang:.49in);
+    \node[font=\fontsize{9}{11}\selectfont,inner sep=0pt]
+      at (\ang:.62in) {\lab};
+  }
+}
+\newcommand{\peelrow}[1]{%
+  \node[anchor=west,inner sep=0pt,font=\fontsize{12}{15}\selectfont]
+    at (.75,#1) {Peeled corners:};
+  \draw[rulegray,line width=.5pt] (2.08,#1-.08)--(4.50,#1-.08);
+  \node[anchor=west,inner sep=0pt,font=\fontsize{12}{15}\selectfont]
+    at (4.83,#1) {Last triangle:};
+  \draw[rulegray,line width=.5pt] (6.04,#1-.08)--(7.73,#1-.08);
+}
+\newcommand{\savehex}[2]{%
+  \hexagon{#1}{#2}{.81}
+  \hexdots
+  \hexend
+  \node[anchor=west,inner sep=0pt,font=\fontsize{11}{13}\selectfont]
+    at (#1-.95,#2-1.13) {Turn:};
+  \draw[rulegray,line width=.5pt] (#1-.48,#2-1.18)--(#1+.96,#2-1.18);
+}
+
+\begin{document}
+
+\pageopen{K--1}{1}
+\textat{.65}{10.03}{An ear is a triangle with two sides on the outside edge.
+Peel it by erasing those sides and their meeting corner. Keep its third side.
+Trace a drawing, then lift the tracing off this page before peeling.}
+
+% Worked convention: input, removal, output; a different polygon from
+% the investigation boards, with the removed corner explicitly identified.
+\pentagon{1.85}{8.53}
+  \draw[line width=.8pt] (pA)--(pB)--(pC)--(pD)--(pE)--cycle;
+  \draw[line width=.7pt] (pA)--(pC) (pA)--(pD);
+\end{scope}
+\pentagon{4.25}{8.53}
+  \fill[demoblue!15] (pA)--(pB)--(pC)--cycle;
+  \draw[line width=.8pt] (pA)--(pB)--(pC)--(pD)--(pE)--cycle;
+  \draw[line width=.7pt] (pA)--(pC) (pA)--(pD);
+  \draw[demored,line width=1.1pt] ($(pB)+(-.09,-.09)$)--($(pB)+(.09,.09)$)
+    ($(pB)+(-.09,.09)$)--($(pB)+(.09,-.09)$);
+  \draw[demored,line width=1.1pt] (pA)--(pB)--(pC);
+\end{scope}
+\begin{scope}[shift={(6.65,8.53)}]
+  \foreach \i/\lab in {0/A,2/C,3/D,4/E}{%
+    \pgfmathsetmacro{\ang}{90-72*\i}
+    \coordinate (p\lab) at (\ang:.49in);
+    \node[font=\fontsize{9}{11}\selectfont,inner sep=0pt]
+      at (\ang:.62in) {\lab};
+  }
+  \draw[line width=.8pt] (pA)--(pC)--(pD)--(pE)--cycle;
+  \draw[line width=.7pt] (pA)--(pD);
+\end{scope}
+\foreach \x/\lab in {1.85/Before,4.25/Peel B,6.65/After}{%
+  \node[font=\fontsize{11}{14}\selectfont,inner sep=0pt] at (\x,7.83) {\lab};}
+\draw[-{Stealth[length=4pt]},quiet,line width=.6pt] (2.64,8.53)--(3.40,8.53);
+\draw[-{Stealth[length=4pt]},quiet,line width=.6pt] (5.04,8.53)--(5.80,8.53);
+
+\textat{.65}{7.43}{\textbf{Problem 1:} Peel ears from each large drawing on these two pages until one
+triangle remains, writing the peeled corner letters in order. Can your choices
+leave different last triangles?}
+\hexagon{4.25}{4.54}{2}
+  \fanlines\hexdots
+\hexend
+\peelrow{1.90}
+\peelrow{1.29}
+\pageclose
+
+\pageopen{K--1}{2}
+\textat{.65}{10.03}{Extra workspace for Problem 1}
+\hexagon{4.25}{7.37}{2}
+  \centrallines\hexdots
+\hexend
+\peelrow{4.53}
+\peelrow{3.84}
+\peelrow{3.15}
+\peelrow{2.46}
+\peelrow{1.77}
+\pageclose
+
+\pageopen{2--3}{3}
+\textat{.65}{10.03}{Use red, blue and yellow. Give each corner one color.}
+\textat{.65}{9.43}{\textbf{Problem 2:} Color the corners of each large drawing on these two pages so
+every triangle has all three colors. Circle as few corners as possible so every
+triangle touches a circled corner.}
+\hexagon{4.25}{6.27}{2}
+  \fanlines\colorcorners
+\hexend
+\smalltextat{.65}{3.58}{Extra workspace}
+\hexagon{2.55}{2.03}{1.08}
+  \fanlines\colorcorners
+\hexend
+\hexagon{5.95}{2.03}{1.08}
+  \fanlines\colorcorners
+\hexend
+\pageclose
+
+\pageopen{2--3}{4}
+\textat{.65}{10.03}{Extra workspace for Problem 2}
+\hexagon{4.25}{7.17}{2}
+  \centrallines\colorcorners
+\hexend
+\hexagon{2.55}{2.85}{1.08}
+  \centrallines\colorcorners
+\hexend
+\hexagon{5.95}{2.85}{1.08}
+  \centrallines\colorcorners
+\hexend
+\pageclose
+
+\pageopen{4--5}{5}
+\textat{.65}{10.03}{Join corners with straight lines to divide the hexagon into
+triangles. Lines may meet only at corners. Keep the corner letters fixed;
+different sets of lines count as different drawings.}
+\textat{.65}{9.23}{Trace the inside lines and the center mark. Turn the tracing
+about that mark. It matches when every turned line lands on an original line.}
+
+% Worked rotation convention: one diagonal, deliberately not a complete
+% hexagon triangulation. Fixed corner labels show A -> D and C -> F.
+\hexagon{1.85}{7.97}{.47}
+  \draw[demoblue,line width=1.1pt] (hA)--(hC);
+  \draw[quiet,line width=.5pt] (-.035,0)--(.035,0) (0,-.035)--(0,.035);
+\hexend
+\hexagon{4.25}{7.97}{.47}
+  \draw[demoblue!40,line width=.8pt,dashed] (hA)--(hC);
+  \draw[demored,line width=1.1pt] (hD)--(hF);
+  \draw[-{Stealth[length=3.5pt]},quiet,line width=.7pt]
+    (90:.20in) arc[start angle=90,end angle=-90,radius=.20in];
+  \draw[quiet,line width=.5pt] (-.035,0)--(.035,0) (0,-.035)--(0,.035);
+\hexend
+\hexagon{6.65}{7.97}{.47}
+  \draw[demored,line width=1.1pt] (hD)--(hF);
+  \draw[quiet,line width=.5pt] (-.035,0)--(.035,0) (0,-.035)--(0,.035);
+\hexend
+\foreach \x/\lab in {1.85/Before,4.25/Half-turn,6.65/After}{%
+  \node[font=\fontsize{11}{14}\selectfont,inner sep=0pt] at (\x,7.03) {\lab};}
+\draw[-{Stealth[length=4pt]},quiet,line width=.6pt] (2.61,7.97)--(3.49,7.97);
+\draw[-{Stealth[length=4pt]},quiet,line width=.6pt] (5.01,7.97)--(5.89,7.97);
+
+\textat{.65}{6.65}{\textbf{Problem 3:} Find all triangulations that match after
+a half-turn, a one-third-turn or a one-sixth-turn. Save each with its turn on the
+next page. Explain why each list is complete.}
+\hexagon{4.25}{3.57}{2}
+  \hexdots
+  \draw[quiet,line width=.6pt] (-.06,0)--(.06,0) (0,-.06)--(0,.06);
+\hexend
+\pageclose
+
+\pageopen{4--5}{6}
+\textat{.65}{10.03}{Extra workspace for Problem 3}
+\foreach \y in {8.62,6.17,3.72}{%
+  \foreach \x in {1.75,4.25,6.75}{\savehex{\x}{\y}}}
+\smalltextat{.65}{2.15}{Explanation:}
+\draw[rulegray,line width=.45pt] (.65,1.58)--(7.85,1.58);
+\draw[rulegray,line width=.45pt] (.65,1.12)--(7.85,1.12);
+\end{scope}\end{tikzpicture}\null
+
+\end{document}

@@ -1,0 +1,679 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[default]{sourcesanspro}
+\usepackage[letterpaper,top=0.85in,bottom=0.8in,left=0.7in,right=0.7in,
+  headheight=14pt,headsep=0.25in,footskip=0.4in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{needspace}
+\usepackage{microtype}
+\usepackage[italic]{mathastext}
+
+\definecolor{rule}{gray}{0.55}
+\definecolor{head}{gray}{0.90}
+\definecolor{box}{gray}{0.95}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\linespread{1.04}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Week 7 / Take-away games / Adult guide}
+\fancyfoot[L]{Bellingham Math Circle / Week 7 / F07-FAC-v4}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.6em}{}
+\titlespacing*{\section}{0pt}{12pt}{4pt}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing*{\subsection}{0pt}{9pt}{3pt}
+
+\setlist{nosep,leftmargin=1.2em,topsep=2pt}
+\setlist[itemize]{label=\textbullet}
+
+% table helpers
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\renewcommand{\arraystretch}{1.12}
+\setlength{\tabcolsep}{4pt}
+\newcommand{\hd}{\rowcolor{head}}
+% problem tables: one small table per problem, so page breaks fall between
+% problems
+\newlength{\cA}\newlength{\cB}
+\newenvironment{probtable}[2]{\par\setlength{\cA}{#1}\setlength{\cB}{#2}%
+  \setlength{\parskip}{0pt}\noindent
+  \begin{tabularx}{\linewidth}{@{}L{\cA}L{\cB}Y@{}}\toprule
+  \hd Problem and what they do & Answer & If stuck, in this order \\ \midrule
+  \end{tabularx}\par\nopagebreak}{\par}
+\newcommand{\prow}[3]{\noindent
+  \begin{tabularx}{\linewidth}{@{}L{\cA}L{\cB}Y@{}}#1 & #2 & #3 \\ \midrule
+  \end{tabularx}\par}
+% numbered hint lines inside a cell
+\newcommand{\hi}[1]{\par\noindent\hangindent=0.9em\hangafter=1\makebox[0.9em][l]{#1}}
+% something to say
+\newcommand{\say}[1]{\par\textit{Say:} \textit{``#1''}}
+\newcommand{\core}{\textsc{core}}
+\newcommand{\further}{\textsc{further}}
+\newcommand{\tagc}{\par{\footnotesize\textbf{core}}}
+\newcommand{\tagf}{\par{\footnotesize\textbf{further}}}
+\newcommand{\ra}{$\to$}
+\newcommand{\shaded}[1]{\par\noindent\colorbox{box}{\parbox{\dimexpr\linewidth-2\fboxsep}{#1}}\par}
+
+\begin{document}
+
+\section{The idea of the week}
+
+Two players take turns taking counters from a pile. Each turn takes an allowed
+number (for example 1 or 2), and whoever takes the last counter wins. The same
+game is played by moving one token down a number track toward 0 by the number
+taken; whoever puts the token on 0 wins.
+
+Every pile size is either one you want to hand to your opponent or one you
+want to be handed. Working up from 0 sorts them all: a pile is one you want to
+hand over when every move from it leads to a pile you do not want to hand
+over. With 1 or 2 those piles are 0, 3, 6, 9, \dots{} The pattern always
+repeats, and it changes when the rule changes. Taking as many as you can is
+often wrong. A winning strategy must answer every reply, not only the one you
+expect.
+
+\textbf{What a good session looks like}
+
+\begin{itemize}
+\item \textbf{K--1.} Every child plays many short games with real counters and
+with the token, loses a few to the grown-up, then says the grown-up's secret
+(``land on 9, 6, 3'') and uses it to win against a partner. Quick children see
+that the secret changes when the rule changes.
+\item \textbf{2--3.} Pairs play the 1, 3 or 4 game until they choose first or
+second correctly, colour the squares they want to leave (0, 2, 7, 9, 14, 16),
+and test the claims about Lena and Omar against every reply, not one.
+\item \textbf{4--5.} The children play each rule before colouring it, find
+the repeating pattern for several rules, and explain why the 1, 3 or 4 pattern
+repeats every 7. The quickest reach the last-counter-loses and two-pile games.
+\end{itemize}
+
+\section{Materials and preparation}
+
+\noindent\begin{tabularx}{\linewidth}{@{}L{1.35in}YYYL{0.75in}@{}}
+\toprule
+\hd Item & K--1: 4 children, 2 pairs & 2--3: 4 children, 2 pairs & 4--5: 3 children & Total \\
+\midrule
+Counters, one colour &
+12 per pair (largest pile 10) + 6 spare = 30 &
+12 per pair (largest 5 + 6 = 11) + 6 spare = 30 &
+20 for the pair (largest 16) + 12 to build 20 and 11 + 4 spare = 36 &
+96, plus 7 for the launch \\
+Tokens for the track &
+1 per pair + 1 spare = 3 & 1 per pair + 1 spare = 3 & 1 + 1 spare = 2 &
+8, plus 1 for the launch \\
+Coloured pencils, light colours &
+2 per child = 8 & 2 per child = 8 & 2 per child = 6 & 22 \\
+Pencils & 4 + 1 adult = 5 & 4 + 1 = 5 & 3 + 1 = 4 & 14 \\
+Small whiteboards and markers & none & 1 per pair + 1 adult = 3 & 1 per child + 1 adult = 4 & 7 \\
+Blank paper & none & 4 sheets & 6 sheets & 10 \\
+\bottomrule
+\end{tabularx}
+
+\textbf{Tokens.} The track squares are about 0.68 inch (17\,mm). Use a small
+token: a snap cube or a counter of a different colour from the pile counters.
+A pattern block is too big.
+
+\textbf{Printing.} US Letter, single-sided, at 100\% (``Actual size'', not
+``Fit to page''); the track squares must come out about 0.68 inch. Each child
+gets their own copy and one page at a time: hand out the next page when a
+child finishes one. Spare track pages are for children who want to play again.
+
+\noindent\begin{tabularx}{\linewidth}{@{}L{1.2in}L{1.3in}Y@{}}
+\toprule
+\hd Table & Pages & Copies \\
+\midrule
+K--1 & 1--6 (Problems 1--9) & 6 of each page (4 + 2 spare) = 36 sheets, plus 4 more of page 2 (six 0--10 tracks) \\
+2--3 & 1--5 (Problems 1--9) & 6 of each page = 30 sheets, plus 2 more of page 1 (two 0--20 tracks) \\
+4--5 & 1--8 (Problems 1--14) & 5 of each page (3 + 2 spare) = 40 sheets \\
+Adults & this guide; the packet for their table & 3 guides; 1 packet per table \\
+Launch & K--1 page 2 & 1 extra copy (its 0--10 track) \\
+\bottomrule
+\end{tabularx}
+
+\textbf{Set up.} Nothing to cut or tape. Before the children arrive, put at
+each table a cup with that table's counters (counted), the tokens, the
+pencils and coloured pencils, and the pages face down in order with page 1 on
+top. Put 7 counters, a token and the extra K--1 page 2 at the table where the
+launch happens.
+
+\needspace{5\baselineskip}
+\textbf{Test with the real materials (five minutes).}
+\begin{itemize}
+\item Put your token on a printed track. It should sit on one square without
+hiding the numbers next to it. (A 2\,cm snap cube may hide the number it sits
+on; that is fine.)
+\item The real counters are bigger than the drawn circles (0.4 inch). Children
+build each pile next to the picture, not on it. Check that a pile of 10 fits
+in front of a pair.
+\item Colour one square with each coloured pencil; the number must still be
+readable. Leave out dark colours.
+\item Play your table's first rule once against yourself using the tables in
+Section 4, so the winning moves are familiar.
+\end{itemize}
+
+\textbf{Tears.} Competitive games can bring tears. Keep rounds short (a pile
+of 10 takes under a minute), swap who goes first every game, and start the next
+game at once instead of dwelling on a loss. At 4--5 the roles rotate every
+game. A child who is upset chooses the pile and who starts in the next game.
+
+\section{The hour}
+
+\noindent\begin{tabularx}{\linewidth}{@{}L{0.95in}Y@{}}
+\toprule
+\hd Time & What happens \\
+\midrule
+0:00--0:05 & Running around. \\
+0:05--0:08 & Whole-group launch (organizer), script below. \\
+0:08--0:48 & Work at the three tables in pairs. \\
+0:48--0:55 & Sharing: one question, below. \\
+0:55--1:00 & Counters back in the cups (count them); pages collected. \\
+\bottomrule
+\end{tabularx}
+
+\textbf{Launch, two to three minutes.} Everyone stands around one table with
+7 counters in a row and the token on square 7 of a 0--10 track.
+\begin{enumerate}[leftmargin=1.4em]
+\item Point to the counters. \textit{``Here are 7 counters. Two players take
+turns. On your turn you take 1 counter or 2 counters. Whoever takes the last
+counter wins.''}
+\item Point to the track. \textit{``The token shows how many are left. When
+you take counters, move the token that many squares toward 0.''}
+\item \textit{``Who will play me? I'll go first.''} Take 1 counter and move the
+token from 7 to 6. \textit{``I took 1. Six left, and the token is on 6.''}
+\item The child takes 1 or 2 counters and moves the token the same number of
+squares. Ask the group: \textit{``Is that allowed?''} If a child tries to take
+3: \textit{``Only 1 or 2. Put one back.''}
+\item You take whatever makes 3 with the child's take, so the token lands on
+3. The child moves; you take the rest. \textit{``I took the last counter, so I
+win.''}
+\item \textit{``The grown-ups know a secret way to win. Your job today is to
+beat the grown-up and find the secret. Some tables change the rule, so listen
+to your page.''} Send the children to their tables.
+\end{enumerate}
+
+\textbf{Pairs.}
+\begin{itemize}
+\item \textbf{K--1}: two pairs, the two kindergartners together and the two
+first graders together, so games are even. Each pair shares a cup of counters
+and a token; each child has a page. When the page says ``play the
+grown-up'', play one pair as a team (the two children take turns making the
+team's move) while the other pair keeps playing the problem before; then swap.
+\item \textbf{2--3}: two pairs. For Problem 3 the adult plays one pair while
+the other works on Problem 2 or 4.
+\item \textbf{4--5}: two players and a referee, switching after every game
+(A and B with C refereeing, then B and C, then C and A). The referee checks
+that each move is legal, says whose turn it is and keeps count. Instead of
+refereeing, the third child may play the adult: choose the pile and who goes
+first, and try to win. The organizer plays whoever is waiting.
+\end{itemize}
+
+\textbf{When attention runs out.} A standing-up counting game; each is a
+take-away game in disguise, and the adult plays to win.
+\begin{itemize}
+\item \textbf{K--1, Race to 10.} Count aloud together from 1. On your turn
+say one or two numbers. Whoever says 10 wins. The grown-up goes first and says
+1, then makes sure to say 4, 7 and 10.
+\item \textbf{2--3, Race to 21.} Say one, two or three numbers. The adult goes
+first and says 1, then 5, 9, 13, 17 and 21.
+\item \textbf{4--5, Race to 100.} Add any whole number from 1 to 10 to the
+running total. Whoever reaches exactly 100 wins. The organizer goes first and
+says 1, then 12, 23, 34, 45, 56, 67, 78, 89 and 100.
+\end{itemize}
+
+\textbf{Sharing question} (organizer, to everyone): \textit{``Tell us a pile
+where you would rather go second, and what the rule was.''} Write the answers on
+the board in one column per rule.
+
+\section{Table by table}
+
+\subsection*{How the adult wins, every rule on the pages}
+
+Play to win, and let the children hunt for the secret. If you are handed one
+of the squares you want to leave, there is no good move: take 1 and wait for
+a mistake. ``Remainder'' means the remainder on dividing by the number in the
+second column.
+
+\noindent\begin{tabularx}{\linewidth}{@{}L{1.05in}L{1.45in}L{2.15in}Y@{}}
+\toprule
+\hd Rule & Where & Squares to leave & From any other pile, take \\
+\midrule
+1 or 2 & Launch; K--1 P1--5; 4--5 P1, P2, P6 & 0, 3, 6, 9, 12, \dots{} (multiples of 3) & what makes 3 with their take: they 1, you 2; they 2, you 1 \\
+1, 2 or 3 & K--1 P6; 4--5 P2, P6 & 0, 4, 8, 12, 16, 20 (multiples of 4) & what makes 4 with their take \\
+1 or 4 & K--1 P7; 2--3 P8, P9; 4--5 P7 & 0, 2, 5, 7, 10, 12, 15, 17, \dots{} (remainder 0 or 2, dividing by 5) & remainder 1: take 1; 3: take 1; 4: take 4 \\
+1, 3 or 4 & 2--3 P1--7; 4--5 P3--6, P8 & 0, 2, 7, 9, 14, 16, 21, 23, 28, 30, \dots{} (remainder 0 or 2, dividing by 7) & remainder 1: take 1; 3: take 1 or 3; 4: take 4; 5: take 3; 6: take 4 \\
+2 or 3 & 4--5 P7 & 0, 1, 5, 6, 10, 11, \dots{} (remainder 0 or 1, dividing by 5) & remainder 2: take 2; 3: take 2 or 3; 4: take 3 \\
+1, 3 or 5 & 2--3 P9; 4--5 P7 & the even squares & take 1 \\
+Last counter loses, 1 or 2 & K--1 P9; 4--5 P10, P11 & 1, 4, 7, 10, 13, 16, 19 & remainder 2: take 1; remainder 0: take 2 \\
+Last counter loses, 1, 2 or 3 & 4--5 P11 & 1, 5, 9, 13, 17 & remainder 2: take 1; 3: take 2; 0: take 3 \\
+Two piles, take from one & K--1 P8; 2--3 P7; 4--5 P12, P13 & equal piles; with 1 or 2, any two piles with the same remainder dividing by 3 & from equal piles: copy their move in the other pile \\
+2, 5 or 6 & 4--5 P14 (colouring only) & 0, 1, 4, 8, 11, 12, 15, 19, 22, 23, 26, 30 & \\
+\bottomrule
+\end{tabularx}
+
+\needspace{6\baselineskip}
+\subsection{K--1 table (parent volunteer)}
+
+\shaded{\textbf{The grown-up's secret with 1 or 2:} land on 9, 6, 3, then 0.
+Whatever the child takes, you take enough to make 3 together: they take 1, you
+take 2; they take 2, you take 1. If the token is already on 3, 6 or 9 when it
+is your turn, there is no good move: take 1 and hope. Read each problem aloud
+once and point to the picture. Do not tell the secret; say \textit{``Watch
+where I put the token.''}}
+
+\textbf{Core:} Problems 1--5. \textbf{Further:} 6--9. \textbf{If a child is
+struggling:} in Problem 1 do piles 2 to 5 only, then Problems 2 and 3; skip 4
+and 5.
+
+\begin{probtable}{1.85in}{2.2in}
+\prow{\textbf{P1} \textit{(core)} Make piles of 2 to 8 counters, play each many times with the
+partner, circle 1st or 2nd.
+\say{Play it again, and swap who goes first.}}
+{Go \textbf{2nd} with 3 and 6. Go \textbf{1st} with the others: from 2 take 2;
+from 4 take 1; from 5 take 2; from 7 take 1; from 8 take 2 (always leave 3 or
+6, or take the last).}
+{\hi{1}Make 3 counters. ``You go first. What can you take? What does your
+partner do then?''
+\hi{2}``Would you rather hand your partner 2 counters or 3?''
+\hi{3}``From 5, can you leave your partner 3?''}
+\prow{\textbf{P2} \textit{(core)} The pair plays the grown-up from 10 as a team; the grown-up goes
+first. They colour each square where the grown-up puts the token. Three
+games.
+\say{I'm going first, and I'm going to try to win. Colour my square every
+time I move. Can you find my secret?}}
+{You take 1 (10 \ra{} 9), then make 3 with their take each time. You land on
+9, 6, 3, 0 in every game, so the same four squares get coloured on all three
+tracks.}
+{\hi{1}``Look at your three tracks. Which squares are coloured on all of them?''
+\hi{2}``Where did I put the token first, every time?''
+\hi{3}``If the token is on 3 and it is your turn, can you win?''}
+\prow{\textbf{P3} \textit{(core)} The child goes first from 10 against the partner and colours
+their own squares.}
+{The first player wins by landing on 9, 6, 3, 0 (take 1 first). A child who
+colours exactly 9, 6, 3, 0 and wins has found the secret.}
+{\hi{1}``Where did I go first in Problem 2?''
+\hi{2}``Put the token on 9. What can your partner do now?''
+\hi{3}``Your partner moved to 7. Can you get to 6?''}
+\prow{\textbf{P4} \textit{(core)} Piles of 5, 7, 8, 10. The child goes first and circles the
+counters they take first so they can win.}
+{5: take 2 (leave 3). 7: take 1 (leave 6). 8: take 2 (leave 6). 10: take 1
+(leave 9). Each is the only winning first move.}
+{\hi{1}``Which piles did you want to give your partner in Problem 1?''
+\hi{2}Make the pile of 7. ``How many do you take to leave 6?''
+\hi{3}Play it out with the child's choice and see.}
+\prow{\textbf{P5} \textit{(core)} The partner puts the token on a square from 1 to 10; the child
+circles it and circles 1st or 2nd. Three games.}
+{On 3, 6 or 9: \textbf{2nd}. Anywhere else: \textbf{1st}, and move to the next
+of 9, 6, 3, 0 below (from 1, 4, 7, 10 take 1; from 2, 5, 8 take 2).}
+{\hi{1}``Is the token on one of my secret squares?''
+\hi{2}``If it is, do you want to move first?''
+\hi{3}``If not, which secret square can you reach?''}
+\prow{\textbf{P6} \textit{(further)} Now 1, 2 or 3 squares from 10. First the grown-up goes first
+(two games), then the child goes first against the partner (three games).
+They colour the first player's squares.}
+{The first player lands on 8, 4, 0: take 2 first, then make 4 with their take
+(they 1, you 3; they 2, you 2; they 3, you 1). The old secret fails: from 6
+the other player takes 2 and lands on 4.}
+{\hi{1}``Is the secret still 9, 6, 3? Leave your partner 6 and see.''
+\hi{2}``Which squares did the grown-up colour?''
+\hi{3}``How far apart are 8, 4 and 0?''}
+\prow{\textbf{P7} \textit{(further)} Now 1 or 4 squares from 8, the same way as P6.}
+{The first player takes 1 (8 \ra{} 7). The partner goes to 6 or 3. From 6 go
+to 5 (take 1) or 2 (take 4); from 3 go to 2. From 5 or 2 the first player
+reaches 0 next. So the coloured squares are 7, then 5 or 2, then 0. Taking 4
+first (8 \ra{} 4) loses: the other player takes 4 and lands on 0.}
+{\hi{1}``Take 4 first. What happens?''
+\hi{2}``Where did the grown-up go first?''
+\hi{3}``If the token is on 2 and it's your partner's turn, what can they do?''}
+\prow{\textbf{P8} \textit{(further)} Two piles; take 1 or 2 from one pile; whoever takes the last
+counter on the table wins. Circle 1st or 2nd for 2 and 2, 1 and 2, 3 and 3,
+2 and 4, 4 and 4.}
+{Equal piles (2 and 2, 3 and 3, 4 and 4): \textbf{2nd}, then copy: whatever
+your partner takes from one pile, take the same from the other. 1 and 2:
+\textbf{1st}, take 1 from the 2. 2 and 4: \textbf{1st}, take 2 from the 4.
+Why copying wins: ``After my turn the piles are the same. Whatever you do, I
+can do the same, so I always have a move, and I take the last one.''}
+{\hi{1}Make 2 and 2. ``You go first. What happens?''
+\hi{2}``What if you do exactly what your partner did, in the other pile?''
+\hi{3}``With 1 and 2, can you make the piles the same?''}
+\prow{\textbf{P9} \textit{(further)} Now whoever takes the last counter loses. Piles 1 to 6, circle
+1st or 2nd.}
+{1: \textbf{2nd}. 2: 1st, take 1. 3: 1st, take 2. 4: \textbf{2nd}. 5: 1st,
+take 1. 6: 1st, take 2. Leave your partner 1 or 4.}
+{\hi{1}``With 1 counter, who has to take it?''
+\hi{2}``Can you leave your partner just 1?''
+\hi{3}``Which pile makes your partner end up with 1?''}
+\end{probtable}
+
+\needspace{6\baselineskip}
+\subsection{2--3 table (mathematician)}
+
+\shaded{Rule for P1--P7: take 1, 3 or 4. Squares to leave: 0, 2, 7, 9, 14,
+16, 21, 23, 28, 30, \dots{} (remainder 0 or 2 on dividing by 7). Replies are in
+the table at the start of this section.}
+
+\textbf{Core:} Problems 1--5. \textbf{Further:} 6--9. \textbf{If a child is
+struggling:} Problem 1 with piles 2, 5 and 7 only, then play the adult
+(Problem 3); skip Problems 2 and 4.
+
+\begin{probtable}{1.7in}{2.45in}
+\prow{\textbf{P1} \textit{(core)} Piles 2, 5, 6, 7, 8, moves 1, 3 or 4; circle first or second
+and the first take.}
+{2: \textbf{second}. 5: first, take 3. 6: first, take 4. 7:
+\textbf{second}. 8: first, take 1. Each winning first move is the only one.}
+{\hi{1}``With 2 counters, what can the first player take?''
+\hi{2}``Which small piles do you want to hand your partner?''
+\hi{3}``From 7, try each move (to 6, 4, 3). Can your partner always leave you
+2 or 0?''}
+\prow{\textbf{P2} \textit{(core)} Colour every square of 0--20 they would like to leave. Second
+track for a fresh try.}
+{0, 2, 7, 9, 14, 16.}
+{\hi{1}``Is 1 a square you want to leave? Is 2?''
+\hi{2}``Go up one square at a time. Can your opponent move from this square
+to a coloured one? Then don't colour it.''
+\hi{3}``Check 7: your opponent can go to 6, 4 or 3. Can you reach a coloured
+square from each?''}
+\prow{\textbf{P3} \textit{(core)} The pair plays the adult. The adult puts the token on 10--20;
+the pair chooses who goes first, circles the start and colours their
+squares.}
+{Go second from 14 or 16. Otherwise go first and move to: from 10, 9 or 7;
+11 \ra{} 7; 12 \ra{} 9; 13 \ra{} 9; 15 \ra{} 14; 17 \ra{} 16 or 14; 18 \ra{}
+14; 19 \ra{} 16; 20 \ra{} 16. Use 14 and 16 early, then starts like 13 and
+18 where only one move wins. If they choose wrongly, win with the reply
+table.}
+{\hi{1}``Is the start one of your coloured squares?''
+\hi{2}``If the start is 14, do you want to move first?''
+\hi{3}``From 18, which coloured square can you reach?''}
+\prow{\textbf{P4} \textit{(core)} Start 9. Lena says that if her opponent goes first she wins
+whatever the opponent does. Right? Explain.}
+{\textbf{Yes.} The opponent can go to 8, 6 or 5; Lena answers 8 \ra{} 7, 6
+\ra{} 2, 5 \ra{} 2. From 7 the opponent goes to 6, 4 or 3; Lena answers 6
+\ra{} 2, 4 \ra{} 0, 3 \ra{} 0. From 2 the opponent must take 1; Lena takes
+the last. A child's explanation: ``Whatever you do from 9, I can get to 7 or
+2. From 7, whatever you do, I get to 2 or 0. From 2 you can only take 1.''}
+{\hi{1}``Be Lena. I'll go first from 9.'' Then: ``Now I'll try a different
+first move.''
+\hi{2}``How many different first moves does the opponent have?''
+\hi{3}``For each one, where can Lena go?''}
+\prow{\textbf{P5} \textit{(core)} Omar always takes as many as he is allowed and goes first from
+13. Does he win whatever the opponent does? Then find a way that does.}
+{\textbf{No.} His first move (take 4, to 9) is right, but later ones go wrong.
+Opponent to 8: Omar takes 4 (to 4), opponent takes 4 and wins. Opponent to 5:
+Omar takes 4 (to 1), opponent takes the last. (Opponent to 6: Omar wins.)
+Winning way: take 4 to 9, then play Lena's answers from P4.}
+{\hi{1}``Play Omar's way from 13. I'll be the opponent.''
+\hi{2}``After Omar goes to 9, try each move for the opponent.''
+\hi{3}``From 8, where should Omar go?'' (7)}
+\prow{\textbf{P6} \textit{(further)} Piles of 50 and 100: first or second, and how many to take.
+Explain.}
+{50: \textbf{first, take 1} (to 49). 100: \textbf{second}. The coloured
+squares come in pairs 7 apart: 0, 2, 7, 9, 14, 16, \dots{} Each multiple of 7
+and the square 2 above it. 49 = 7 $\times$ 7, so 49 and 51 are coloured and 50
+is not; 98 = 7 $\times$ 14, so 98 and 100 are coloured. Why it keeps going: a
+square only looks at the squares 1, 3 and 4 below it, and 7 to 10 look like 0
+to 3, so the pattern copies itself every 7.}
+{\hi{1}``Colour the 0--30 track. How far apart are the coloured squares?''
+\hi{2}On a whiteboard write 0 to 34 in rows of 7 and circle the coloured ones
+(two columns appear).
+\hi{3}``Count by 7s up to 50.''}
+\prow{\textbf{P7} \textit{(further)} Two piles, 1, 3 or 4 from one pile: 5 and 5, then 5 and 6.
+First or second? Explain why it wins whatever the opponent does.}
+{5 and 5: \textbf{second}, copy the opponent in the other pile. 5 and 6:
+\textbf{first}, take 1 from the 6, then copy. Why: ``After my turn the piles
+are equal. Whatever you take, I can take the same from the other pile, so I
+always have a move and I take the last counter.'' (Taking 1 from the 5, to 4
+and 6, also wins; see Section 5.)}
+{\hi{1}``Play 5 and 5. Whatever I do in one pile, what could you do in the
+other?''
+\hi{2}``If the piles are equal after your turn, can your opponent take the
+last counter?''
+\hi{3}``With 5 and 6, can you make them equal?''}
+\prow{\textbf{P8} \textit{(further)} Moves 1 or 4; piles 5, 6, 8, 9, 10: first or second and the
+first take.}
+{5: \textbf{second}. 6: first, take 1 or 4. 8: first, take 1. 9: first, take
+4. 10: \textbf{second}.}
+{\hi{1}``Which small piles do you want to hand over? Try 1, 2 and 3.''
+\hi{2}``From 5, where can your opponent go?'' (4 or 1; you take all.)
+\hi{3}``Colour a 0--10 track for this rule first.''}
+\prow{\textbf{P9} \textit{(further)} Colour the squares to leave for 1 or 4, and for 1, 3 or 5.}
+{1 or 4: 0, 2, 5, 7, 10, 12, 15, 17, 20 (repeats every 5). 1, 3 or 5: every
+even square, 0 to 20. Why: every move is odd, so from an even square you
+always land on an odd one, and from an odd square you take 1.}
+{\hi{1}``Which of 0, 1, 2 do you colour?''
+\hi{2}``Compare with Problem 8.''
+\hi{3}For 1, 3, 5: ``What happens to odd and even when you take an odd
+number?''}
+\end{probtable}
+
+\needspace{6\baselineskip}
+\subsection{4--5 table (organizer)}
+
+\textbf{Core:} Problems 1--6. \textbf{Further:} 7--14 (7--9 change the rule and
+explain the repetition; 10--11 last counter loses; 12--13 two piles; 14
+pigeonhole). \textbf{If a child is struggling:} play more games of Problems 1
+and 3 with the referee, and leave the colouring (2 and 4) and Kai (5) until
+the games are settled.
+
+\begin{probtable}{1.6in}{2.75in}
+\prow{\textbf{P1} \textit{(core)} Moves 1 or 2; piles 7, 9, 11, 12, 16.}
+{7: first, take 1. 9: \textbf{second}. 11: first, take 2. 12:
+\textbf{second}. 16: first, take 1.}
+{\hi{1}``Which pile would you hand over: 1, 2 or 3?''
+\hi{2}``Play 6 a few times. Can the first player win against a careful
+second player?''
+\hi{3}``What do 3, 6, 9 and 12 have in common?''}
+\prow{\textbf{P2} \textit{(core)} Colour squares to leave, 0--20, for 1 or 2 and for 1, 2 or 3.}
+{1 or 2: 0, 3, 6, 9, 12, 15, 18. 1, 2 or 3: 0, 4, 8, 12, 16, 20. Strategy:
+answer a take of $k$ with $3-k$ (or $4-k$).}
+{\hi{1}``Start at 0. Is 1 a square you want to leave? 2? 3?''
+\hi{2}``Colour a square when every move from it lands on an uncoloured one.''
+\hi{3}``If your opponent takes 1, what do you take so the round removes 4?''}
+\prow{\textbf{P3} \textit{(core)} Moves 1, 3 or 4; piles 5, 8, 9, 11, 14.}
+{5: first, take 3. 8: first, take 1. 9: \textbf{second}. 11: first, take 4. 14:
+\textbf{second}.}
+{\hi{1}``Is a pile of 2 good to hand over?''
+\hi{2}``Work up from 0 to 14 on the Problem 4 track first.''
+\hi{3}``From 11, which of 0, 2, 7, 9 can you reach?''}
+\prow{\textbf{P4} \textit{(core)} Squares to leave for 1, 3 or 4, 0--30.}
+{0, 2, 7, 9, 14, 16, 21, 23, 28, 30 (remainder 0 or 2 on dividing by 7).}
+{\hi{1}``Which of the piles in Problem 3 did you want to hand over?''
+\hi{2}``For each square, look 1, 3 and 4 squares down.''
+\hi{3}Write 0--34 in rows of 7 on a whiteboard.}
+\prow{\textbf{P5} \textit{(core)} Kai goes first and takes as many as allowed on his first turn.
+Colour every pile 1--30 that the first player can win but Kai's first move
+spoils.}
+{5, 8, 10, 12, 15, 17, 19, 22, 24, 26, 29: remainder 1, 3 or 5 on dividing by
+7, from 5 up. From $n \ge 4$ Kai leaves $n-4$, a pile to leave only when $n$
+has remainder 4 or 6. If a child reads it as greedy for the whole game, add
+13, 18, 20, 25, 27 (16 piles; e.g.\ 13 \ra{} 9 \ra{} 8 \ra{} 4 \ra{} 0).
+Greedy all game wins against every reply only from 1, 3, 4, 6, 11.}
+{\hi{1}``From 12, where does Kai's first move go? Is that square coloured?''
+\hi{2}``Kai always lands 4 below the start. Which starts land on a coloured
+square?''
+\hi{3}``Slide the coloured squares up by 4.''}
+\prow{\textbf{P6} \textit{(core)} Pile of 100 with 1 or 2, with 1, 2 or 3, with 1, 3 or 4: first
+or second, first take, and why it wins against every reply.}
+{1 or 2: \textbf{first, take 1} (to 99), then answer $k$ with $3-k$; the pile
+goes 99, 96, \dots, 3, 0. 1, 2 or 3: \textbf{second}; answer $k$ with $4-k$;
+100 = 25 $\times$ 4. 1, 3 or 4: \textbf{second}, since 100 = 98 + 2; keep the
+pile at remainder 0 or 2 (dividing by 7) with the reply table at the start of
+this section.}
+{\hi{1}``Play the same rule with 10 counters first.''
+\hi{2}``If your opponent takes 1, what do you take so the two of you took 3?''
+\hi{3}For 1, 3, 4: ``Which coloured squares are near 100?'' (91, 93, 98, 100)}
+\prow{\textbf{P7} \textit{(further)} Squares to leave, 0--30, for 1 or 4; 2 or 3; 1, 3 or 5.}
+{1 or 4: 0, 2, 5, 7, 10, 12, 15, 17, 20, 22, 25, 27, 30. 2 or 3: 0, 1, 5, 6, 10,
+11, 15, 16, 20, 21, 25, 26, 30 (1 is coloured because no move is possible from
+it). 1, 3 or 5: the even squares.}
+{\hi{1}``With 2 or 3, who wins from a pile of 1?''
+\hi{2}``Work up from 0.''
+\hi{3}``How long before each pattern repeats?''}
+\prow{\textbf{P8} \textit{(further)} With 1, 3 or 4, does the pattern repeat forever? Explain.}
+{\textbf{Yes, every 7.} A square's colour depends only on the squares 1, 3 and
+4 below it. Squares 7, 8, 9, 10 are coloured like 0, 1, 2, 3 (yes, no, yes,
+no), so 11 looks at 10, 8, 7, which look like 3, 1, 0; 11 is coloured like 4,
+and so on forever. Or by remainders: from 0 or 2 every move lands on 1, 3, 4,
+5 or 6, and from those take 1, 1, 4, 3, 4 to get back.}
+{\hi{1}``Compare squares 0--6 with 7--13.''
+\hi{2}``To decide square 11, which squares do you look at?''
+\hi{3}``Those look like 3, 1, 0. Which square used 3, 1, 0?''}
+\prow{\textbf{P9} \textit{(further)} Choose moves so the squares to leave are 0, 5, 10, \dots; then
+as many choices as possible for 0, 3, 6, \dots; explain.}
+{0, 5, 10: moves 1, 2, 3, 4 (exactly the lists containing 1, 2, 3, 4 and no
+multiple of 5). 0, 3, 6: exactly the lists containing 1 and 2 and no multiple
+of 3: 1, 2; 1, 2, 4; 1, 2, 5; 1, 2, 4, 5; 1, 2, 7; 1, 2, 4, 7; 1, 2, 8;
+infinitely many. Why: piles 1 and 2 must be wins, and from them the only
+coloured square in reach is 0, so 1 and 2 must be allowed. A move of 3, 6,
+\dots{} would jump from a coloured square to a coloured one. With those two
+conditions, from any other square take 1 or 2 down to the coloured square.}
+{\hi{1}``Try moves 1, 2, 3, 4. Which squares are coloured?''
+\hi{2}``For 0, 3, 6: does 1, 2 work? 1, 2, 4? 1, 2, 3?''
+\hi{3}``Which moves would let you jump from one coloured square to
+another?''}
+\prow{\textbf{P10} \textit{(further)} Last counter loses, 1 or 2; piles 1, 3, 5, 7, 8.}
+{1: \textbf{second}. 3: first, take 2. 5: first, take 1. 7: \textbf{second}. 8:
+first, take 1. Leave 1, 4, 7, \dots}
+{\hi{1}``With a pile of 1, who has to take the last counter?''
+\hi{2}``Which piles do you want to hand over? Start with 1.''
+\hi{3}``Compare with Problem 1.''}
+\prow{\textbf{P11} \textit{(further)} Last counter loses; colour 0--20 for 1 or 2, and 1, 2 or 3.}
+{1 or 2: 1, 4, 7, 10, 13, 16, 19. 1, 2 or 3: 1, 5, 9, 13, 17. Square 0 is not
+coloured.}
+{\hi{1}``Is 0 a good square to leave now?''
+\hi{2}``Compare with Problem 2. What moved?''}
+\prow{\textbf{P12} \textit{(further)} Two piles, 1 or 2 from one pile: 7 and 7. Explain.}
+{\textbf{Second}: copy the opponent's move in the other pile. After each of
+your moves the piles are equal, so you always have a reply and take the last
+counter.}
+{\hi{1}``Play 2 and 2, then 3 and 3.''
+\hi{2}``What if you do what your opponent just did, in the other pile?''
+\hi{3}``After your move the piles are equal. Can your opponent take the
+last counter?''}
+\prow{\textbf{P13} \textit{(further)} Colour the 0--9 chart for the P12 game; then 20 and 11.}
+{Colour the 34 squares where the two piles have the same remainder on dividing
+by 3 (the diagonal and the lines 3, 6 and 9 off it). 20 and 11 both leave 2:
+\textbf{second}. Why: as with one pile, only the remainders matter. When they
+match, any move changes one; take 1 or 2 from the pile with the bigger
+remainder to make them match again. Note 1 and 4 is coloured though unequal.}
+{\hi{1}``Fill row 0 and column 0 first: those are one-pile games.''
+\hi{2}``Is 1 and 4 a good pair to leave? Play it.''
+\hi{3}``Describe the coloured squares in words; use the words for 20 and
+11.''}
+\prow{\textbf{P14} \textit{(further)} Kim: for any list of moves the colouring repeats. Track for 2,
+5 or 6.}
+{2, 5 or 6: 0, 1, 4, 8, 11, 12, 15, 19, 22, 23, 26, 30, repeating every 11
+(11--16 look like 0--5). \textbf{Kim is right} for a finite list: a square
+depends only on the 6 squares below it (6 is the largest move); 6 squares can
+be coloured in only 64 ways, so two of the first 65 blocks of 6 match, and
+from there everything repeats.}
+{\hi{1}``Colour the track. Where does it start to repeat?''
+\hi{2}``To decide square 20, which squares do you look at?''
+\hi{3}``How many ways can 6 squares in a row be coloured?''}
+\end{probtable}
+
+\section{The mathematics behind the week}
+
+\textbf{Outcomes.} Call a pile \emph{P} if the player about to move loses with
+best play (the squares the pages ask children to colour) and \emph{N}
+otherwise. Pile 0 is P. A pile is N if some move reaches a P pile, and P if
+every move reaches an N pile (or no move is possible). Induction on the pile
+size labels every pile and gives the strategy: from N, move to P; from P every
+move goes to N, so the opponent never reaches P and never reaches 0. A
+strategy has to answer every reply; Lena and Omar test exactly that.
+
+\textbf{Moves 1 to $k$.} P = multiples of $k+1$. From a multiple, a move of 1
+to $k$ leaves a non-multiple; from $q(k+1)+r$ with $1 \le r \le k$, take $r$.
+In play, answer a take of $s$ with $k+1-s$.
+
+\textbf{The other rules, by remainders.} With 1, 3 or 4, P = remainder 0 or 2
+on dividing by 7: from remainder 0 or 2 the three moves give remainders 6, 4,
+3 or 1, 6, 5; from remainders 1, 3, 4, 5, 6, take 1, 1, 4, 3, 4. Likewise 1 or
+4 gives 0, 2 mod 5; 2 or 3 gives 0, 1 mod 5 (1 is P because no move is
+possible); and 1, 3 or 5 gives the even piles, since every move changes
+parity. Greedy is often wrong: with 1, 3 or 4, from 8 the move to 4 loses.
+
+\textbf{Periodicity.} If the largest move is $s$, the label of $n \ge s$
+depends only on the labels of $n-1, \dots, n-s$. There are at most $2^s$ such
+windows, so two of the windows starting at $0, 1, \dots, 2^s$ coincide
+(pigeonhole), and from the first of them on the labels repeat. For 1, 3 or 4
+the window 7--10 equals 0--3, so the period is 7 from the start; for 2, 5 or 6
+the period is 11, with P $\equiv$ 0, 1, 4, 8 (mod 11).
+
+\textbf{Designing a rule.} The P piles are exactly the multiples of $m$ if and
+only if the move set contains $1, \dots, m-1$ and no multiple of $m$. Each of
+$1, \dots, m-1$ must be N, and 0 is its only P option; a move that is a
+multiple of $m$ would join two P piles. Sufficiency is the argument for moves
+1 to $k$.
+
+\textbf{Last counter loses.} With moves 1 to $k$, P = remainder 1 on dividing
+by $k+1$: the player facing 1 must take it, and the same complement strategy
+aims at 1 instead of 0. (The shift by one is special to moves 1 to $k$.)
+
+\textbf{Two piles.} Copying (Tweedledum and Tweedledee) shows equal piles are
+P in any game of this kind. In general give each pile its Grundy value $g(n)$,
+the smallest number not among the values of the piles you can move to; two
+piles are P exactly when $g(a) = g(b)$, and several piles when the XOR of the
+values is 0 (Sprague--Grundy). With 1 or 2, $g(n) = n \bmod 3$, which gives the
+34 squares of the 4--5 chart and makes 20 and 11 P. With 1, 3 or 4, $g$ repeats
+0, 1, 0, 1, 2, 3, 2, so 5 and 6 (values 3 and 2) is N and 4 and 6 (both 2) is P.
+In K--1 P8, 1 and 4 is P though unequal.
+
+\textbf{Where it goes next.} Nim (any number from one of several piles; P
+exactly when the XOR of the pile sizes is 0) and Sprague--Grundy for sums of
+games; octal games such as Kayles, where a move may split a pile, and Guy's
+open conjecture that every finite octal game is eventually periodic; misère
+play; Wythoff's game. Sources: Berlekamp, Conway and Guy, \emph{Winning Ways};
+Siegel, \emph{Combinatorial Game Theory}.
+
+\newpage
+\section{What to write down after the session}
+
+Fill in one block per table in the five minutes after the session, and keep
+the children's pages that show a claim. For each claim, circle how far it got:
+\textbf{tried} (played a few games), \textbf{guessed} (said it without
+testing), \textbf{checked in some cases} (tested on several piles or
+replies), or
+\textbf{explained} (gave a reason that covers every pile or every reply).
+
+Claims to listen for. K--1: ``go 2nd with 3 and 6''; ``land on 9, 6, 3'';
+``the secret changes with 1, 2 or 3''; ``copy your partner''. 2--3: ``leave 2
+or 7''; ``the coloured squares go 2 then 5''; ``take as many as you can''
+(false). 4--5: ``it repeats every 7''; ``when the last counter loses, every
+coloured square moves up 1''; ``every rule repeats''.
+
+\newcommand{\st}{\footnotesize tried \enspace guessed \enspace checked in some cases \enspace explained}
+\newcommand{\recordblock}[2]{%
+\textbf{#1}\par
+\vspace{2pt}
+#2\par
+\vspace{4pt}
+\noindent\begin{tabularx}{\linewidth}{@{}Xl@{}}
+\toprule
+\hd What a child tried, said or claimed (who) & How far it got (circle) \\
+\midrule
+\rule{0pt}{17pt} & \st \\ \arrayrulecolor{rule}\midrule
+\rule{0pt}{17pt} & \st \\ \midrule
+\rule{0pt}{17pt} & \st \\ \arrayrulecolor{black}\bottomrule
+\end{tabularx}\par
+\vspace{6pt}
+A drawing or claim worth keeping:\par
+\vspace{18pt}\hrule\vspace{12pt}}
+
+\recordblock{K--1 table}{Last problem reached by each pair: \quad Pair 1: \underline{\hspace{0.6in}} \quad Pair 2: \underline{\hspace{0.6in}} \quad (of 9)}
+
+\recordblock{2--3 table}{Last problem reached by each pair: \quad Pair 1: \underline{\hspace{0.6in}} \quad Pair 2: \underline{\hspace{0.6in}} \quad (of 9)}
+
+\recordblock{4--5 table}{Last problem reached by each child: \quad \underline{\hspace{0.6in}} \quad \underline{\hspace{0.6in}} \quad \underline{\hspace{0.6in}} \quad (of 14)}
+
+\end{document}

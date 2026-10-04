@@ -1,0 +1,82 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=0.7in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,tikz,array,fancyhdr}
+\renewcommand\familydefault{\sfdefault}
+\setlength\parindent{0pt}
+\setlength\parskip{5pt}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}\fancyhf{}
+\lhead{Week 4 / Stars and wheels / Adult return-visit guide}
+\fancyfoot[L]{Bellingham Math Circle / Week 4 / F04-RV-FAC-v1}
+\fancyfoot[R]{\thepage}
+\renewcommand\headrulewidth{0.4pt}
+\newcommand\lead[1]{\textbf{#1}\par}
+\begin{document}
+\lead{Mathematical overview: clocks, choices and symmetry}
+On a ring with $n\ge3$ positions, counters starting at $a,b$ and hopping $u,v$ clockwise each turn meet at time $t$ exactly when $(u-v)t\equiv b-a\pmod n$. A meeting exists iff $\gcd(n,u-v)$ divides $b-a$. Starting together, the first positive meeting is $n/\gcd(n,u-v)$. Both counters move before checking; crossings between positions are not meetings. A meeting need not return either counter home.
+
+With a choice of clockwise hops $r$ or $s$ each turn, positions reachable from 0 are precisely the multiples of $\gcd(n,r,s)$ modulo $n$. Thus on twelve positions, hops 4 and 3 together reach all positions even though neither alone does; hops 4 and 6 reach only the six even positions. Shortest routes are a separate question, obtained by searching successive possible positions rather than by this count alone.
+
+Six-bead patterns with three red and three blue beads have four types under rotation only. If turning over/reflection is also allowed, there are three types: two rotation types are mirror partners. A pattern's shortest rotational repeat length divides the number of beads. The alternating six-bead design has repeat length 2 and three matching rotations including the identity; the other three types have no nonidentity matching rotation. Marks registering the starting dot do not belong to the design.
+
+Experiments give meeting times, routes and candidate pattern classes. Difference-of-hops explains meeting obstructions; generated step differences explain reachability; organizing cyclic runs explains the small necklace classification. Finite trials alone do not prove a general formula or complete list.
+
+\lead{Entries, materials and flexible visits}
+The shared packet is Grades 2--5. K--1 can handle physical necklace comparisons or short hopping experiments with adult reading, but synchronizing two different hop counts and retaining an offset is a real readiness demand. Grades 2--3 can find routes and compare cases; Grades 4--5 can establish impossible meetings or classify all patterns. Concrete entries require counting/reading positions through twelve; fractions, modular notation and algebra are adult explanations only.
+
+Per pair: at least three red and three blue counters, numbered ring sheets for movement, pencil and spare paper. Use two of those counters for meeting experiments. Five trays for the current eleven children require 15 red and 15 blue counters, plus a demonstration set; prepare one chosen-page copy per pair and one adult reference. For Problem 3, also give each pair a loose second copy of Page 3 for a movable candidate drawing, keeping its original record sheet fixed. The two numbered working rings have 21 mm circles, with center spacing about 23.8 mm; use counters at most 20 mm across. The large six-bead board also has 21 mm circles, spaced 26.5 mm center-to-center. Its small necklace drawings are records, not counter mats. When two counters meet, stack them or let two fingers point to the same circle; the positions are sized for one counter, not two side by side. One adult remains at each fixed table; the third upper child rotates as mover/checker/recorder.
+
+Select one investigation for 20--40 minutes plus a short launch; preserve the rest for other visits. Let children handle the counters first. Keep a current state and an unchanged start/target visible. Adult reading or marking a route should not become choosing the route.
+
+\lead{Launch together}
+For meetings, demonstrate one synchronized turn on an unrelated start: both counters hop, then everyone checks their landing positions. Show that two counters sharing a position can be stacked or pointed to together. For two-hop routes, make one legal choice and show the destination without demonstrating how to reach every dot. For necklaces, draw an unrelated four-bead pattern on two separate sheets, using R/B labels or colors. Leave one fixed and turn the other alone, comparing every color; explicitly distinguish turning around from turning over. Use only the action for the chosen page.
+\newpage
+\lead{Problem 1: when do the counters meet?}
+\textbf{Entry and timing.} Use two different colors and rotate mover/checker roles. Keep starting dots and hop counts visible. Allow 20--35 minutes of predictions and trials. Check only after both counters complete each turn, including a stationary counter if the allowed hop is zero.
+
+\textbf{Exact rule and illustrative cases.} On twelve positions, starting together with hops 2 and 5, first meet at turn 4 on position 8. Their first joint return home is turn 12, so a meeting is a different event. With red starting 0 and blue starting 1, the same speeds never meet; with blue starting 3, first meet at turn 3 on position 6. The relative hop is $2-5=-3$, so only offsets divisible by 3 can be closed.
+
+\textbf{Printed starts.} On the twelve-position ring, red always hops 2 and blue hops 5. Starts (red, blue) = $(0,0)$, $(0,1)$, $(0,3)$ give first positive meetings at turns 4, never, and 3, respectively; meeting positions are 8 and 6 for the two successful rows. For a child-chosen start $(a,b)$, meet exactly when $b-a$ is divisible by 3, with the first positive turn satisfying $-3t\equiv b-a\pmod{12}$. Equal starts also count as meeting at turn zero, but the printed question explicitly concerns turns after at least one move. The worked start red 11, blue 6 ends at (1,11) after one turn, demonstrating wrapping without solving any printed start.
+
+\textbf{Explanation.} At time $t$ the positions are $a+ut$ and $b+vt$ around the ring; equality asks whether the relative displacement $(u-v)t$ closes the initial offset $b-a$. Multiples of a hop visit exactly the positions divisible by its greatest common divisor with $n$, as in the base stars lesson. If counters start together, return of their relative position gives the first positive meeting. Equal speeds preserve the initial offset: they always coincide if they start together and never coincide otherwise.
+
+\textbf{Questions and hints.} ``Where are both counters after this same turn?'' A crossing drawn between dots is not a meeting. If different start offsets overwhelm the concrete action, begin with both at the same dot and introduce the offset only after children can operate synchronized turns themselves. Preserve an unchanged record of the start.
+
+\textbf{Return visits.} Change one speed while holding the ring and starts fixed, looking for meetings that happen away from home. Find an offset that makes meeting impossible, then explain it with repeating relative positions. Try three counters only after two-counter reasoning is secure; pairwise meetings at different times do not establish a simultaneous three-way meeting.
+
+\textbf{Limits and novelty.} Landing positions, synchronized integer turns, clockwise hops, fixed speeds; no continuous-time chase claim. The base one-counter orbit/return formulas cannot alone distinguish first meeting from first joint return.
+\newpage
+\lead{Problem 2: choose either hop}
+\textbf{Entry and timing.} A child chooses one of two permitted hops, the partner checks it, and a single route word records the choice. Allow 20--40 minutes, with a second visit if children want shortest routes. Do not require concurrent hop tallies and state lists.
+
+\textbf{Exact examples.} On twelve positions, with hops 4 or 3, all twelve positions can be reached from 0. Position 1 can be reached in four hops by 4,3,3,3, since their sum is 13; no sum of at most three chosen hops is 1 modulo 12, so this is shortest. With hops 4 or 6, exactly $0,2,4,6,8,10$ are reachable, and no odd position can be reached. Each individual hop alone misses positions in the first example, yet the choices together remove the obstruction.
+
+\textbf{Printed target routes.} With hop choices 3 or 4, target 1 needs four hops, for example 4,3,3,3; target 2 also needs four, for example 4,4,3,3. With choices 4 or 6, target 1 is impossible and target 2 needs three hops, for example 4,4,6. No shorter allowed sum reaches these targets modulo 12. A route word is the recoverable record; count its hops afterward. The reachable-position catalogs are all twelve dots for the first rule and exactly the six even dots for the second. The printed word 4,4,3,4 visits 0,4,8,11,3, showing the hop-to-position bridge without giving a shortest target solution.
+
+\textbf{Explanation.} Every total displacement is a sum of $r$ and $s$, so every reachable position is divisible by $d=\gcd(n,r,s)$. Conversely, on a finite ring each reverse hop can be replaced by enough clockwise repetitions of that same hop. Therefore all integer combinations of $n,r,s$ modulo $n$ are reachable; these are exactly multiples of$d$. An adult may use the greatest-common-divisor argument; children can demonstrate the twelve-position example by actual routes or a complete reachable-position diagram. A general number-theory proof is an optional continuation, not a prerequisite.
+
+\textbf{Questions and hints.} ``What position can you reach from a position already in your collection?'' Preserve one route to each discovered position if the child wants a map. If only one hop is being used, invite a single change of hop without telling them which target it solves. Ask a partner to check a claimed shortest route and look for a shorter one.
+
+\textbf{Return visits.} Find two hops that individually miss dots but together reach every dot. Compare being able to reach a dot with reaching it in as few turns as possible. Try a directed branching ring with different allowed hops at different dots; the uniform gcd rule no longer applies and a reachability map becomes useful.
+
+\textbf{Limits and novelty.} A hop choice is available at every position and can be repeated. The ring wraps around. No backwards hop is printed as a new legal move; reverse displacements in the explanation are realized by several forwards moves. This is generated reachability rather than another fixed-hop star drawing.
+\newpage
+\lead{Problem 3: colored necklaces}
+\textbf{Entry and timing.} Give each pair three red and three blue counters. Arrange six positions around a circle; a necklace can turn but not turn over for the initial classification. Preserve a sketch with R/B labels or colored marks on the original record sheet. Pencil labels suffice; colored pencils are optional. Copy a candidate onto the loose second Page 3 and turn that sheet alone while the original stays still, comparing every color. Children still choose and construct the candidate with counters first. A paper drawing rotates as a unit; loose counters require repositioning when the sheet beneath them turns. Allow 20--40 minutes, keeping one unchanged comparison drawing. This can suit K--1 with adult reading and physical comparison; organizing all classes is a later readiness-dependent goal. For a complete catalog, pairs can pool a checkable collection instead of each child copying every class.
+
+\textbf{Exact rotation classes.} Use B for blue and R for red, reading clockwise from any chosen start. Representatives are BBBRRR, BBRBRR, BBRRBR and BRBRBR. Their numbers of distinct labeled rotations are 6,6,6,2, totaling the twenty possible labeled three-red/three-blue patterns. The middle two classes are reflected versions of each other and cannot be made equal by rotation. Allowing reflection merges them, giving three classes. No color swap is allowed unless separately stated. The printed four-bead convention example moves the lone red bead from the top to the right by a one-position clockwise turn; all three blue beads move with it. It does not supply any six-bead class.
+
+\textbf{Completeness without listing twenty patterns.} Count the runs of consecutive red beads around the circle. One red run means RRRBBB. Three red runs force alternating colors. With two red runs, their lengths are 2 and 1, and the blue runs also have lengths 2 and 1. The two ways to pair the long and short gaps around those red runs give the two middle classes. This exhausts one, two or three red runs and therefore gives exactly four rotation classes. A clockwise-versus-counterclockwise comparison distinguishes the mirror pair.
+
+\textbf{Symmetry.} The alternating design matches after rotating 2 or 4 positions (and 0/6); the other three classes match only after a full turn. If a design repeats after $d$ positions, repeated shifts partition the positions, and the smallest positive repeat length divides $n$. There are $n/d$ symmetry rotations. A bead-label registration mark would destroy some symmetries, so exclude it from the design being tested.
+
+\textbf{Questions and hints.} ``Can you turn the whole necklace to match every color?'' If a child starts counting from a different dot and calls it new, rotate the real counters or drawing for comparison. If they flip over a necklace during the rotation-only task, retain the original beside it and name the changed rule. Do not supply the four representatives before children have tried organizing their own collection.
+
+\textbf{Return visits.} Permit reflection and investigate which formerly different designs merge. Vary color counts or bead number only after the equivalence question is understood; duplicate-label symmetries change the counts. Ask for a design with a desired repeat length and explain why it must divide the bead count.
+
+\lead{Evidence, novelty and status}
+These add relative-speed meetings, two-generator routes and color-pattern equivalence beyond base fixed hops, cipher settings and multiplication webs. All represented examples and finite counts are checked independently. \emph{Math Circle by the Bay}, Preface viii--x (PDF 9--11), supports theme depth and variable pace; these investigations are new designs. All pages are \textbf{unpiloted}, with synchronized movement and physical comparison \textbf{untested}. Record actual cases used, child explanations and where adult operation was needed before revising the next visit.
+
+\end{document}

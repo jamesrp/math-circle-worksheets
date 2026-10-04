@@ -1,0 +1,124 @@
+K-1
+ P1 (all should be possible)
+  k1a: 3 islands 3 bridges; degrees A2 B2 C2; odd []; starts A->A; B->B; C->C 
+  k1b: 5 islands 6 bridges; degrees L12 L22 O4 R12 R22; odd []; starts L1->L1; L2->L2; O->O; R1->R1; R2->R2 
+  k1c: 4 islands 5 bridges; degrees T2 P3 Q3 B2; odd ['P', 'Q']; starts P->Q; Q->P 
+  k1d: 5 islands 6 bridges; degrees BL2 BR2 TR3 TL3 AP2; odd ['TR', 'TL']; starts TR->TL; TL->TR 
+ P2 (colour start islands)
+  k2a: 6 islands 7 bridges; degrees b02 b13 b22 t02 t13 t22; odd ['b1', 't1']; starts b1->t1; t1->b1 
+  k2b: 6 islands 9 bridges; degrees A2 D4 B2 F4 E4 C2; odd []; starts A->A; D->D; B->B; F->F; E->E; C->C 
+ P3 (check / X)
+  k3a: 4 islands 3 bridges; degrees O3 L01 L11 L21; odd ['O', 'L0', 'L1', 'L2']; starts NONE X
+  k3b: 2 islands 3 bridges; degrees A3 B3; odd ['A', 'B']; starts A->B; B->A CHECK
+  k3c: 4 islands 4 bridges; degrees A2 B2 C3 D1; odd ['C', 'D']; starts C->D; D->C CHECK
+  k3d: 5 islands 6 bridges; degrees A3 B2 C3 D2 O2; odd ['A', 'C']; starts A->C; C->A CHECK
+  k3e: 4 islands 6 bridges; degrees A3 C3 B3 D3; odd ['A', 'C', 'B', 'D']; starts NONE X
+ P4 (closed walk check / X)
+  k4a: 3 islands 4 bridges; degrees L2 M4 R2; odd []; starts L->L; M->M; R->R CHECK
+  k4b: 3 islands 3 bridges; degrees L2 M3 R1; odd ['M', 'R']; starts M->R; R->M X
+  k4c: 4 islands 5 bridges; degrees A3 B3 C2 D2; odd ['A', 'B']; starts A->B; B->A X
+  k4d: 7 islands 9 bridges; degrees O6 P02 Q02 P12 Q12 P22 Q22; odd []; starts O->O; P0->P0; Q0->Q0; P1->P1; Q1->Q1; P2->P2; Q2->Q2 CHECK
+  k4e: 6 islands 8 bridges; degrees b02 t02 b14 t14 b22 t22; odd []; starts b0->b0; t0->t0; b1->b1; t1->t1; b2->b2; t2->t2 CHECK
+ P5 pictures (possible iff 0 or 2 odd points)
+  house: odd points 2 -> one stroke; fewest strokes 1
+  sqdiamond: odd points 0 -> one stroke; fewest strokes 1
+  envelope: odd points 4 -> cannot; fewest strokes 2
+  circdiam: odd points 2 -> one stroke; fewest strokes 1
+  wheel: odd points 4 -> cannot; fewest strokes 2
+  triforce: odd points 0 -> one stroke; fewest strokes 1
+ P6 (impossible; one new bridge between which islands works?)
+  k6a: 4 islands 3 bridges; degrees O3 L01 L11 L21; odd ['O', 'L0', 'L1', 'L2']; starts NONE 
+   working additions: ['OL0', 'OL1', 'OL2', 'L0L1', 'L0L2', 'L1L2']
+  k6b: 5 islands 8 bridges; degrees A3 B3 C3 D3 O4; odd ['A', 'B', 'C', 'D']; starts NONE 
+   working additions: ['AB', 'AC', 'AD', 'BC', 'BD', 'CD']
+  k6c: 6 islands 6 bridges; degrees A2 B2 C3 D3 E1 F1; odd ['C', 'D', 'E', 'F']; starts NONE 
+   working additions: ['CD', 'CE', 'CF', 'DE', 'DF', 'EF']
+ P8 (which doubled bridge works)
+  k8a: 4 islands 6 bridges; degrees A3 C3 B3 D3; odd ['A', 'C', 'B', 'D']; starts NONE 
+   bridges that work: ['AC', 'AB', 'AD', 'CB', 'CD', 'BD'] of 6
+  k8b: 6 islands 6 bridges; degrees A3 B2 C3 D2 E1 F1; odd ['A', 'C', 'E', 'F']; starts NONE 
+   bridges that work: ['EA', 'CF'] of 6
+  k8c: 5 islands 8 bridges; degrees A3 B3 C3 D3 O4; odd ['A', 'B', 'C', 'D']; starts NONE 
+   bridges that work: ['AB', 'BC', 'CD', 'DA'] of 8
+
+Grades 2-3
+ degrees present in P1-P2: [1, 2, 3, 4, 5, 6]
+ P1
+  m1a: 5 islands 6 bridges; degrees D2 E2 C3 B3 A2; odd ['C', 'B']; starts C->B; B->C 
+   sample walk: C E D B C A B
+  m1b: 4 islands 4 bridges; degrees D2 B2 C3 A1; odd ['C', 'A']; starts C->A; A->C 
+   sample walk: C B D C A
+  m1c: 3 islands 4 bridges; degrees A2 B4 C2; odd []; starts A->A; B->B; C->C 
+   sample walk: A B C B A
+ P2
+  m2a: 6 islands 6 bridges; degrees D5 E2 B2 C1 F1 A1; odd ['D', 'C', 'F', 'A']; starts NONE 
+  m2b: 6 islands 7 bridges; degrees D5 E2 B2 C2 F2 A1; odd ['D', 'A']; starts D->A; A->D 
+  m2c: 6 islands 8 bridges; degrees D3 A2 E2 B4 F3 C2; odd ['D', 'F']; starts D->F; F->D 
+  m2d: 7 islands 9 bridges; degrees D6 B2 A2 C2 F2 G2 E2; odd []; starts D->D; B->B; A->A; C->C; F->F; G->G; E->E 
+ P3
+  m3a: 6 islands 9 bridges; degrees D2 E4 F2 B4 C4 A2; odd []; starts D->D; E->E; F->F; B->B; C->C; A->A 
+  m3b: 3 islands 4 bridges; degrees A3 C3 B2; odd ['A', 'C']; starts A->C; C->A 
+  m3c: 4 islands 6 bridges; degrees B3 C3 D3 A3; odd ['B', 'C', 'D', 'A']; starts NONE 
+  m3d: 5 islands 7 bridges; degrees D3 E3 B3 A2 C3; odd ['D', 'E', 'B', 'C']; starts NONE 
+ P4 (one new bridge)
+  m4a: 4 islands 3 bridges; degrees B3 A1 C1 D1; odd ['B', 'A', 'C', 'D']; starts NONE 
+   working additions: ['BA', 'BC', 'BD', 'AC', 'AD', 'CD']
+  m4b: 6 islands 6 bridges; degrees E3 F2 B3 A2 D1 C1; odd ['E', 'B', 'D', 'C']; starts NONE 
+   working additions: ['EB', 'ED', 'EC', 'BD', 'BC', 'DC']
+  m4c: 8 islands 10 bridges; degrees E2 F3 G3 H2 A2 B3 C3 D2; odd ['F', 'G', 'B', 'C']; starts NONE 
+   working additions: ['FG', 'FB', 'FC', 'GB', 'GC', 'BC']
+ P5 (fewest new bridges for closed walk = odd/2, parallel bridges allowed)
+  m5a: 5 islands 6 bridges; degrees D2 E2 C3 B3 A2; odd ['C', 'B']; starts C->B; B->C -> 1 new bridges
+  m5b: 4 islands 6 bridges; degrees B3 C3 D3 A3; odd ['B', 'C', 'D', 'A']; starts NONE -> 2 new bridges
+  m5c: 6 islands 5 bridges; degrees D1 A1 E3 B3 F1 C1; odd ['D', 'A', 'E', 'B', 'F', 'C']; starts NONE -> 3 new bridges
+ P7 pictures
+  house: odd points 2 -> one stroke; fewest strokes 1
+  window: odd points 4 -> cannot; fewest strokes 2
+  starpent: odd points 0 -> one stroke; fewest strokes 1
+  envelope: odd points 4 -> cannot; fewest strokes 2
+  olympic: odd points 0 -> one stroke; fewest strokes 1
+  sqdiamond: odd points 0 -> one stroke; fewest strokes 1
+ P8 specs (at most two bridges between two islands, so each can be built with craft sticks)
+  4 islands 6 bridges, all even: ((0, 1), (0, 1), (0, 2), (0, 2), (0, 3), (0, 3))
+  5 islands 5 bridges, more than 2 odd: ((0, 1), (0, 1), (0, 2), (0, 3), (0, 4))
+  6 islands 8 bridges, odd exactly A and F: ((0, 1), (0, 1), (0, 2), (0, 2), (0, 3), (0, 3), (0, 4), (4, 5))
+  3 islands 5 bridges, odd exactly A and B: ((0, 1), (0, 2), (0, 2), (1, 2), (1, 2))  (with single bridges only: None )
+ P9: a full walk can always be reversed, so starts come in pairs or every island works -> impossible
+ P10 (fewest doubled bridges, closed)
+  m10a: 4 islands 6 bridges; degrees B3 C3 D3 A3; odd ['B', 'C', 'D', 'A']; starts NONE postman(closed, open) = (2, 1)
+  m10b: 4 islands 3 bridges; degrees B3 A1 C1 D1; odd ['B', 'A', 'C', 'D']; starts NONE postman(closed, open) = (3, 1)
+
+Grades 4-5
+ degrees present in P1-P3: [1, 2, 3, 4, 5, 6]
+ P1
+  u1a: 5 islands 6 bridges; degrees D2 E2 C3 B3 A2; odd ['C', 'B']; starts C->B; B->C postman=(1, 0)
+  u1b: 4 islands 4 bridges; degrees D2 B2 C3 A1; odd ['C', 'A']; starts C->A; A->C postman=(1, 0)
+  u1c: 3 islands 4 bridges; degrees A2 B4 C2; odd []; starts A->A; B->B; C->C postman=(0, 0)
+ P2
+  u2a: 6 islands 6 bridges; degrees D5 E2 B2 C1 F1 A1; odd ['D', 'C', 'F', 'A']; starts NONE postman=(3, 1)
+  u2b: 6 islands 7 bridges; degrees D5 E2 B2 C2 F2 A1; odd ['D', 'A']; starts D->A; A->D postman=(1, 0)
+  u2c: 6 islands 8 bridges; degrees D3 A2 E2 B4 F3 C2; odd ['D', 'F']; starts D->F; F->D postman=(2, 0)
+  u2d: 7 islands 9 bridges; degrees D6 B2 A2 C2 F2 G2 E2; odd []; starts D->D; B->B; A->A; C->C; F->F; G->G; E->E postman=(0, 0)
+ P3
+  u3a: 8 islands 10 bridges; degrees E2 F3 G3 H2 A2 B3 C3 D2; odd ['F', 'G', 'B', 'C']; starts NONE postman=(2, 1)
+  u3b: 5 islands 6 bridges; degrees A2 D2 C4 B2 E2; odd []; starts A->A; D->D; C->C; B->B; E->E postman=(0, 0)
+  u3c: 9 islands 13 bridges; degrees A2 B4 C2 D4 E4 F3 G2 H3 I2; odd ['F', 'H']; starts F->H; H->F postman=(2, 0)
+ P5 Koenigsberg
+  degrees {'A': 5, 'B': 3, 'C': 3, 'D': 3} odd ['A', 'B', 'C', 'D'] postman(closed, open) = (2, 1)
+  one new bridge works between: ['AB', 'AC', 'AD', 'BC', 'BD', 'CD']
+ P7 pictures (fewest strokes = max(1, odd/2))
+  house: odd points 2 -> one stroke; fewest strokes 1
+  window: odd points 4 -> cannot; fewest strokes 2
+  cube: odd points 8 -> cannot; fewest strokes 4
+  grid33: odd points 8 -> cannot; fewest strokes 4
+  olympic: odd points 0 -> one stroke; fewest strokes 1
+  starpent: odd points 0 -> one stroke; fewest strokes 1
+ P8 Lee
+  u8a: 10 islands 18 bridges; degrees A2 B4 C4 D2 I4 J6 E4 H4 F4 G2; odd []; starts A->A; B->B; C->C; D->D; I->I; J->J; E->E; H->H; F->F; G->G 
+  valid walks: 448; example: A B C D E C J B I J E F J H F G H I A
+ P10 delivery (closed, open)
+  u10a: 4 islands 6 bridges; degrees A3 D3 B3 C3; odd ['A', 'D', 'B', 'C']; starts NONE postman=(2, 1)
+  u10b: 4 islands 3 bridges; degrees B3 A1 C1 D1; odd ['B', 'A', 'C', 'D']; starts NONE postman=(3, 1)
+  u10c: 6 islands 8 bridges; degrees D3 A2 E2 B4 F3 C2; odd ['D', 'F']; starts D->F; F->D postman=(2, 0)
+
+ALL CHECKS PASSED

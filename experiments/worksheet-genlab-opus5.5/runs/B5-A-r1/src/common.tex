@@ -1,0 +1,43 @@
+% Shared preamble for the three Week 1 packets. Compile with xelatex.
+\usepackage[letterpaper, left=0.5in, right=0.5in, top=0.75in, bottom=0.7in,
+            headheight=16pt, headsep=0.17in, footskip=0.36in]{geometry}
+\usepackage{fontspec}
+\setmainfont{Andika}[Ligatures=TeX]
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+
+\definecolor{pbgreen}{HTML}{3AA83C}
+\definecolor{pbblue}{HTML}{2E6BC6}
+\definecolor{pbred}{HTML}{E2382F}
+\definecolor{pbyellow}{HTML}{F6C700}
+\definecolor{pbpurple}{HTML}{7D3FA3}
+\colorlet{rhfill}{pbblue!14}
+\colorlet{chainfill}{pbblue!45}
+
+\tikzset{
+  gridline/.style={line width=0.5pt, black!38},
+  gridsmall/.style={line width=0.35pt, black!35},
+  gridpage/.style={line width=0.55pt, black!45},
+  ruleline/.style={line width=0.5pt, black!55},
+}
+
+\newcommand{\ansbox}{\raisebox{-0.17in}{\setlength{\fboxrule}{0.9pt}\setlength{\fboxsep}{0pt}\fbox{\rule{0pt}{0.52in}\rule{0.52in}{0pt}}}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[L]{\normalsize Bellingham Math Circle / Week 1}
+\fancyfoot[R]{\normalsize \thepage}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedright
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\pagenumbering{arabic}
+
+\newcommand{\problem}[1]{\textbf{Problem #1:}}
+\newcommand{\fig}[1]{\par\noindent\input{fig/#1}\par}

@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=.65in,headheight=18pt,headsep=18pt,footskip=25pt]{geometry}
+\usepackage[T1]{fontenc}\usepackage{helvet}\renewcommand{\familydefault}{\sfdefault}
+\usepackage{tikz,array,fancyhdr}\usetikzlibrary{arrows.meta}
+\pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{\small Week 31 / Hidden orchard encore / Grades 2--5}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 31 / W31-BON-v1}\fancyfoot[R]{\scriptsize\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{9pt}
+\newcommand{\problem}[2]{\par\textbf{Problem #1:} #2\par}
+\newcommand{\smallgrid}[2]{\begin{tikzpicture}[x=2cm,y=2cm]\foreach \x in {0,...,3}{\foreach \y in {0,...,3}{\fill[black!55] (\x,\y) circle (1pt);}}#2\node[anchor=north west] at (0,-.3){#1};\end{tikzpicture}}
+\newcommand{\corner}[2]{\draw[line width=.8pt] (#1,#2) circle (3pt);}
+\begin{document}
+A target is hidden from a lookout if another dot lies exactly between them. Only dot centers count. Keep both lookouts fixed. The regularly spaced orchard continues beyond the printed grid.
+\problem{1}{Test every target on rows $3$ and $6$ from both lookouts. Mark B if both can see it, 1 if exactly one can see it, and 0 if neither can see it.}
+\begin{center}\begin{tikzpicture}[x=2cm,y=2cm]
+\foreach \x in {0,...,6}{\foreach \y in {0,...,6}{\fill[black!65] (\x,\y) circle (1.15pt);}}
+\foreach \x in {0,...,6}{\node[font=\small,anchor=north] at (\x,-.25){\x};\draw (\x,3) circle (2.5pt);\draw (\x,6) circle (2.5pt);}
+\foreach \y in {0,...,6}{\node[font=\small,anchor=east] at (-.25,\y){\y};}
+\fill (-.06,-.06) rectangle (.06,.06);\draw[line width=1pt] (1,0) circle (3pt);
+\node[font=\small,anchor=north east] at (-.03,-.55){lookout L};\node[font=\small,anchor=north west] at (1,-.55){lookout R};
+\node[font=\small] at (3,-1.05){across};\node[font=\small,rotate=90] at (-.8,3){up};
+\end{tikzpicture}\end{center}
+\renewcommand{\arraystretch}{1.8}
+\begin{center}\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+Across&0&1&2&3&4&5&6\\\hline Row 3&&&&&&&\\\hline Row 6&&&&&&&\\\hline
+\end{tabular}\end{center}
+\problem{2}{Along row $4$, can any target be hidden from both lookouts? You may go farther across than the printed grid. Find one or explain why none exists.}
+\vspace{1.2cm}
+\newpage
+An empty triangle has no dots on its sides or inside except its three corners.
+\problem{3}{Make these four triangles with a ruler or rubber bands. Which are empty? Which have clear sides but dots inside? Mark every extra dot.}
+\begin{center}\begin{tabular}{cc}
+\smallgrid{A}{\corner{0}{0}\corner{1}{0}\corner{0}{1}}&\smallgrid{B}{\corner{0}{0}\corner{1}{2}\corner{3}{1}}\\[8mm]
+\smallgrid{C}{\corner{0}{0}\corner{2}{0}\corner{0}{2}}&\smallgrid{D}{\corner{0}{0}\corner{2}{1}\corner{1}{1}}
+\end{tabular}\end{center}
+\vspace{1cm}
+\vspace{3cm}
+\newpage
+\problem{4}{Make three empty triangles with different shapes on these grids. Find their areas in grid squares. Can an empty triangle have area larger than half a grid square? Explain your answer.}
+\begin{center}\begin{tabular}{cc}
+\smallgrid{}{ }&\smallgrid{}{ }\\[8mm]
+\multicolumn{2}{c}{\smallgrid{}{ }}
+\end{tabular}\end{center}
+\vspace{2cm}
+\newpage
+A direction card gives \emph{across, up}. To insert a card between two neighboring cards, add their across numbers and add their up numbers. Earlier cards stay in their order.
+\begin{center}\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth]
+\node[draw,minimum width=2cm,minimum height=.8cm] (a) at (0,0){$(2,1)$};
+\node[draw,minimum width=2cm,minimum height=.8cm] (b) at (3,0){$(1,1)$};
+\node (sum) at (1.5,-1){$(2+1,\,1+1)$};
+\node[draw,minimum width=2cm,minimum height=.8cm] (c) at (1.5,-2){$(3,2)$};
+\draw[->] (a)--(sum);\draw[->] (b)--(sum);\draw[->] (sum)--(c);
+\begin{scope}[shift={(7,-2)},x=.65cm,y=.65cm]
+\foreach \x in {0,...,3}{\foreach \y in {0,...,2}{\fill (\x,\y) circle (1pt);}}
+\draw[->] (0,0)--(3,2);\draw[line width=.8pt] (3,2) circle (3pt);
+\node[font=\small,anchor=north] at (1.5,-.4){3 across};\node[font=\small,anchor=west] at (3.3,1){2 up};
+\end{scope}
+\end{tikzpicture}\end{center}
+\problem{5}{Start your ordered row with $(1,0)$ and $(0,1)$. Grow it until it contains both $(4,3)$ and $(3,4)$. Can the same rule ever produce $(4,2)$? Explain your answer.}
+\begin{center}\begin{tikzpicture}[x=1cm,y=1cm]
+\draw (0,0) rectangle (2,.9);\node at (1,.45){$(1,0)$};
+\draw (10,0) rectangle (12,.9);\node at (11,.45){$(0,1)$};
+\draw[dashed] (2.4,.45)--(9.6,.45);
+\foreach \x in {0,3,6,9}{\foreach \y in {-2,-3.8}{\draw (\x,\y) rectangle +(2.4,1.1);}}
+\end{tikzpicture}\end{center}
+\vspace{1cm}
+\problem{6}{Your partner names a direction with positive across and up numbers no larger than $6$, and no shared factor except $1$. Can you always grow the row to reach it? Try several directions, then explain a way to decide where to insert cards.}
+\vspace{2cm}
+\end{document}

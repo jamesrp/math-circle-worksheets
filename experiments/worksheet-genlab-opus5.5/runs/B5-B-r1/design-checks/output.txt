@@ -1,0 +1,210 @@
+[K-1] all rules on the pages allow taking 1 (no stuck positions): ok
+[2-3] all rules on the pages allow taking 1 (no stuck positions): ok
+[4-5] all rules on the pages allow taking 1 (no stuck positions): ok
+
+===== check_k1.py (exit 0) =====
+K-1 Problem 1: take 1 or 2, piles 3, 4, 5
+  ok   pile 3: 2nd, winning first take(s) []
+  ok   pile 4: 1st, winning first take(s) [1]
+  ok   pile 5: 1st, winning first take(s) [2]
+  ok   pile 4: the greedy take of 2 leaves 2, which the partner takes -> greedy loses
+K-1 Problem 2: take 1 or 2, piles 6, 7, 8
+  ok   pile 6: 2nd, winning first take(s) []
+  ok   pile 7: 1st, winning first take(s) [1]
+  ok   pile 8: 1st, winning first take(s) [2]
+K-1 Problem 3: partner starts from 6 (take 1 or 2); every partner move and the reply
+partner takes 1 from 6 -> 5 left; you take [2] -> 3 left
+    partner takes 1 from 3 -> 2 left; you take [2] -> 0 left
+    partner takes 2 from 3 -> 1 left; you take [1] -> 0 left
+partner takes 2 from 6 -> 4 left; you take [1] -> 3 left
+    partner takes 1 from 3 -> 2 left; you take [2] -> 0 left
+    partner takes 2 from 3 -> 1 left; you take [1] -> 0 left
+  ok   from 6, each of the 4 possible partner lines has exactly one winning reply (5 -> take 2, 4 -> take 1, then 2 -> take 2, 1 -> take 1)
+K-1 Problem 4: take 1 or 2, piles 1..12, which piles you do not want on your turn
+  ok   trap piles = [3, 6, 9, 12]
+K-1 Problem 5: take 1, 2, or 3, piles 3, 4, 5, 8
+  ok   pile 3: 1st, winning first take(s) [3]
+  ok   pile 4: 2nd, winning first take(s) []
+  ok   pile 5: 1st, winning first take(s) [1]
+  ok   pile 8: 2nd, winning first take(s) []
+  ok   traps 1..12 under 1,2,3 are 4, 8, 12
+K-1 Problem 6: take 1 or 3, piles 1..10
+  ok   trap piles = [2, 4, 6, 8, 10]
+K-1 Problem 7: two rows, take 1 or 2 from one row
+  ok   rows (2, 2): 2nd; winning moves []
+  ok   rows (4, 4): 2nd; winning moves []
+  ok   rows (4, 5): 1st; winning moves ['take 2 from the row of 4', 'take 1 from the row of 5']
+  ok   copying the partner's move in the other row wins for the 2nd player for equal rows 1..10
+  ok   rows 4 and 5: the two winning first moves are take 1 from the 5-row (-> 4,4) and take 2 from the 4-row (-> 2,5)
+K-1 Problem 8: poison game (whoever takes the last counter LOSES), take 1 or 2
+  ok   pile 3: 1st, winning first take(s) [2]
+  ok   pile 4: 2nd, winning first take(s) []
+  ok   pile 5: 1st, winning first take(s) [1]
+  ok   pile 7: 2nd, winning first take(s) []
+  ok   poison-game traps 1..12 are 1, 4, 7, 10
+K-1 Problem 9: three rows, take 1 or 2 from one row
+  ok   rows (1, 1, 1): 1st; winning moves [(0, 1), (1, 1), (2, 1)]
+  ok   rows (2, 2, 2): 1st; winning moves [(0, 2), (1, 2), (2, 2)]
+  ok   rows (3, 3, 3): 2nd; winning moves []
+  ok   rows 2,2,2: the only winning first moves take a whole row of 2
+  ok   rows 3,3,3: whatever the 1st player takes from a row, the 2nd player takes the rest of that row (2 -> take 2, 1 -> take 1), leaving rows 3,3 (+ empty), which is losing
+
+ALL K-1 CHECKS PASSED
+
+
+===== check_23.py (exit 0) =====
+2-3 Problem 1: take 1 or 2; piles 7, 9, 11, 12
+  ok   pile 7: 1st, winning first take(s) [1]
+  ok   pile 9: 2nd, winning first take(s) []
+  ok   pile 11: 1st, winning first take(s) [2]
+  ok   pile 12: 2nd, winning first take(s) []
+2-3 Problem 2: take 1, 3, or 4; piles 1..20
+  ok   piles where you'd rather go 2nd: [2, 7, 9, 14, 16]
+  adult table (pile: winning take(s)):
+    1:1  2:2nd  3:1/3  4:4  5:3  6:4  7:2nd  8:1  9:2nd  10:1/3  11:4  12:3  13:4  14:2nd  15:1  16:2nd  17:1/3  18:4  19:3  20:4
+  ok   piles with more than one winning take: [3, 10, 17] (3: take 1 or 3; 10, 17: take 1 or 3)
+  ok   winning piles (>=4) where taking 4 is a mistake: 5, 8, 10, 12, 15, 17, 19
+2-3 Problem 3: test the claims (take 1, 3, or 4)
+  ok   Maya (8, take 4) is WRONG: 4 are left and the partner takes all 4. Right move: take 1
+  ok   Leo (11, take 4) is RIGHT: 7 is a losing pile; take 4 is the only winning first move
+  ok   Ravi (6, take 1) is WRONG: from 5 the partner takes 3 (the only refutation) leaving 2; Ravi must take 1 and the partner takes the last. Right move: take 4
+  ok   Zoe (9, go second) is RIGHT
+  Leo's full plan after taking 4 from 11 (7 left, partner to move):
+    they take 1 (6 left) -> take 4 (2 left)
+        they take 1 (1 left) -> take 1 (0 left)
+    they take 3 (4 left) -> take 4 (0 left)
+    they take 4 (3 left) -> take 1 or 3 (2, 0 left)
+        they take 1 (1 left) -> take 1 (0 left)
+  Zoe's full plan from 9 (partner moves first):
+    they take 1 (8 left) -> take 1 (7 left)
+        they take 1 (6 left) -> take 4 (2 left)
+            they take 1 (1 left) -> take 1 (0 left)
+        they take 3 (4 left) -> take 4 (0 left)
+        they take 4 (3 left) -> take 1 or 3 (2, 0 left)
+            they take 1 (1 left) -> take 1 (0 left)
+    they take 3 (6 left) -> take 4 (2 left)
+        they take 1 (1 left) -> take 1 (0 left)
+    they take 4 (5 left) -> take 3 (2 left)
+        they take 1 (1 left) -> take 1 (0 left)
+  ok   both RIGHT claims have a winning answer to every reply at every stage (trees above)
+2-3 Problem 4: take 1, 3, or 4; piles 23, 25, 28, 31
+  ok   pile 23: 2nd, winning first take(s) []
+  ok   pile 25: 1st, winning first take(s) [4]
+  ok   pile 28: 2nd, winning first take(s) []
+  ok   pile 31: 1st, winning first take(s) [1, 3]
+  ok   losing piles up to 35 are exactly the numbers leaving remainder 0 or 2 on division by 7
+2-3 Problem 5: three more rules, piles 1..15
+  ok   rule (1, 3): rather go 2nd at [2, 4, 6, 8, 10, 12, 14]
+  ok   rule (1, 2, 3): rather go 2nd at [4, 8, 12]
+  ok   rule (1, 4): rather go 2nd at [2, 5, 7, 10, 12, 15]
+2-3 Problem 6: two piles, take 1, 3, or 4 from ONE pile
+  ok   piles (5, 5): 2nd; winning first moves []
+  ok   piles (1, 3): 2nd; winning first moves []
+  ok   piles (3, 4): 1st; winning first moves ['take 1 from the pile of 4', 'take 3 from the pile of 4']
+  ok   piles (4, 6): 2nd; winning first moves []
+  ok   piles 1, 3, 4, 6 are each a 1st-player win ON THEIR OWN, yet 1&3 and 4&6 are 2nd-player wins
+  second player's answers from piles 1 and 3:
+    they take 1 from the pile of 1 -> (0, 3); reply ['take 1 from the pile of 3', 'take 3 from the pile of 3']
+    they take 1 from the pile of 3 -> (1, 2); reply ['take 1 from the pile of 1', 'take 1 from the pile of 2']
+    they take 3 from the pile of 3 -> (1, 0); reply ['take 1 from the pile of 1']
+  second player's answers from piles 4 and 6:
+    they take 1 from the pile of 4 -> (3, 6); reply ['take 3 from the pile of 6']
+    they take 3 from the pile of 4 -> (1, 6); reply ['take 3 from the pile of 6']
+    they take 4 from the pile of 4 -> (0, 6); reply ['take 4 from the pile of 6']
+    they take 1 from the pile of 6 -> (4, 5); reply ['take 1 from the pile of 5']
+    they take 3 from the pile of 6 -> (4, 3); reply ['take 1 from the pile of 4', 'take 3 from the pile of 4']
+    they take 4 from the pile of 6 -> (4, 2); reply ['take 4 from the pile of 4']
+  ok   every first move from (1,3) and from (4,6) has a winning reply (listed above)
+2-3 Problem 7: Kai always takes as many as allowed (4, else 3, else 1); Kai goes first
+  ok   Kai's plan wins (against every reply) only from piles [1, 3, 4, 6, 11]
+  ok   winning piles that Kai still loses: 5, 8, 10, 12, 13, 15, 17, 18, 19, 20
+  ok   13, 18, 20: Kai's FIRST move is correct, but his habit loses later
+    from 13: Kai takes 4 (9 left); you take 1 (8 left); Kai takes 4 (4 left); you take 4 (0 left)
+    from 18: Kai takes 4 (14 left); you take 1 (13 left); Kai takes 4 (9 left); you take 1 (8 left); Kai takes 4 (4 left); you take 4 (0 left)
+    from 20: Kai takes 4 (16 left); you take 1 (15 left); Kai takes 4 (11 left); you take 1 (10 left); Kai takes 4 (6 left); you take 1 (5 left); Kai takes 4 (1 left); you take 1 (0 left)
+    from 5: Kai takes 4 (1 left); you take 1 (0 left)
+    from 8: Kai takes 4 (4 left); you take 4 (0 left)
+
+ALL 2-3 CHECKS PASSED
+
+
+===== check_45.py (exit 0) =====
+4-5 Problem 1: take 1 or 2, and take 1, 2, or 3; piles 1..20
+  ok   1 or 2: 3, 6, 9, 12, 15, 18
+  ok   1, 2, or 3: 4, 8, 12, 16, 20
+  ok   1 or 2: losing exactly at multiples of 3 for every pile up to 600
+  ok   1, 2, or 3: losing exactly at multiples of 4 for every pile up to 600
+  ok   1, 2, or 3: from a non-multiple of 4 the ONLY winning take is the remainder (n mod 4)
+4-5 Problem 2: take 1, 3, or 4; piles 1..30
+  ok   losing piles 1..30: [2, 7, 9, 14, 16, 21, 23, 28, 30]
+  ok   losing exactly when n mod 7 is 0 or 2, checked to 600
+4-5 Problem 3: take 1, 3, or 4; piles 50, 53, 54, 56, 100 and why the pattern lasts
+  ok   pile 50 (remainder 1): go 1st, take [1]
+  ok   pile 53 (remainder 4): go 1st, take [4]
+  ok   pile 54 (remainder 5): go 1st, take [3]
+  ok   pile 56 (remainder 0): go 2nd
+  ok   pile 100 (remainder 2): go 2nd
+    remainder 1: take [1] to reach remainder [0]
+    remainder 3: take [1, 3] to reach remainder [2, 0]
+    remainder 4: take [4] to reach remainder [0]
+    remainder 5: take [3] to reach remainder [2]
+    remainder 6: take [4] to reach remainder [2]
+  ok   remainder argument: from remainders 0, 2 every move leaves 1,3,4,5,6; from each of 1,3,4,5,6 some legal move reaches remainder 0 or 2 -> the pattern holds for ALL piles
+4-5 Problem 4: four more rules; piles 1..20
+  ok   rule (1, 4): [2, 5, 7, 10, 12, 15, 17, 20]; repeats every 5 from the start
+  ok   rule (1, 4, 5): [2, 8, 10, 16, 18]; repeats every 8 from the start
+  ok   rule (1, 2, 4): [3, 6, 9, 12, 15, 18]; repeats every 3 from the start
+  ok   rule (1, 3, 5): [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]; repeats every 2 from the start
+  ok   adding one move x (3..30) to 'take 1 or 2' keeps the multiples of 3 exactly when x is not a multiple of 3
+  ok   1, 3, or 5: losing exactly at even piles (odd moves always change odd/even)
+4-5 Problem 5: find a rule (1 allowed) for each list, or show none exists
+    a: 2, 4, 6, 8, ... (every even pile): 64 rules with moves <= 14 work; smallest: (1,)
+    b: 5, 10, 15, 20, ...: 256 rules with moves <= 14 work; smallest: (1, 2, 3, 4)
+    c: 3, 5, 8, 10, 13, 15, ...: 0 rules with moves <= 14 work; smallest: None
+    d: 3, 7, 10, 14, 17, 21, 24, ...: 32 rules with moves <= 14 work; smallest: (1, 2, 6)
+  ok   a: a rule works exactly when every allowed move is odd (e.g. take 1 only, or 1 or 3)
+  ok   b: every working rule contains 1, 2, 3, 4 and no multiple of 5; 1,2,3,4 itself works
+  ok   c: NO rule works (moves up to 14 all tried)
+  ok   d: every working rule contains 1, 2, 6 and avoids remainders 0, 3, 4 (mod 7); 1, 2, 6 itself works
+  ok   c: 3 and 5 are both on the list, so taking 2 cannot be allowed (it would lead from one losing pile to another)
+  ok   c: without the move 2, pile 2's only move is to 1, so 2 would be losing - but 2 is not on the list. Contradiction, for every rule.
+  ok   d: 1,2,6 gives 3, 7, 10, 14, 17, 21, 24, 28, 31, 35, 38
+4-5 Problem 6: take 1, 6, or 9; piles 1..35
+  ok   losing piles 1..35: [2, 4, 7, 12, 14, 17, 19, 22, 24, 27, 29, 32, 34]
+  ok   for every pile 1..2000: losing exactly when the last digit is 2, 4, 7, or 9 - except 9
+  ok   pattern of losing piles settles to period 5 starting at pile 10
+  ok   9 is winning only because you can take all 9 at once
+4-5 Problem 7: can a rule's pattern never repeat?  (outline: always eventually periodic)
+  ok   all 511 rules with 1 and moves up to 10: a window of the last (largest move) labels repeats within 2^(largest move)+1 steps, and from there the labels repeat forever
+    longest preperiod+period seen among them: ((1, 6, 9, 10), (0, 33))
+    rules with 2 or 3 moves (<= 12) whose losing piles do NOT repeat from the start: [((1, 4, 10), (11, 11)), ((1, 6, 9), (10, 5)), ((1, 8, 11), (12, 19))]
+4-5 Problem 8: two piles, take 1 or 2 from one pile; both piles 0..6
+  ok   losing exactly when both piles leave the same remainder on division by 3 (checked to 24)
+  ok   17 losing squares in the 7x7 grid: [(0, 0), (0, 3), (0, 6), (1, 1), (1, 4), (2, 2), (2, 5), (3, 0), (3, 3), (3, 6), (4, 1), (4, 4), (5, 2), (5, 5), (6, 0), (6, 3), (6, 6)]
+  second player's answers from piles 2 and 5:
+    they take 1 from the pile of 2 -> (1, 5); reply ['take 1 from the pile of 5']
+    they take 2 from the pile of 2 -> (0, 5); reply ['take 2 from the pile of 5']
+    they take 1 from the pile of 5 -> (2, 4); reply ['take 1 from the pile of 2', 'take 2 from the pile of 4']
+    they take 2 from the pile of 5 -> (2, 3); reply ['take 2 from the pile of 2', 'take 1 from the pile of 3']
+  ok   every first move from 2 and 5 has a reply that makes the remainders equal again
+4-5 Problem 9: two piles, take 1, 3, or 4 from one pile; both piles 0..7
+  ok   in the 8x8 grid, losing exactly when both piles are in the same family {0,2,7}, {1,3}, {4,6}, {5}
+  ok   18 losing squares (13 up to swapping): [(0, 0), (0, 2), (0, 7), (1, 1), (1, 3), (2, 2), (2, 7), (3, 3), (4, 4), (4, 6), (5, 5), (6, 6), (7, 7)]
+  ok   brute force agrees with Sprague-Grundy: losing iff g(a) == g(b), checked to 40x40; g(0..13) = [0, 1, 0, 1, 2, 3, 2, 0, 1, 0, 1, 2, 3, 2]
+  ok   piles 4 and 6: second player wins
+  ok   the four families are exactly the piles with Grundy value 0, 1, 2, 3
+  second player's answers from piles 4 and 6:
+    they take 1 from the pile of 4 -> (3, 6); reply ['take 3 from the pile of 6']
+    they take 3 from the pile of 4 -> (1, 6); reply ['take 3 from the pile of 6']
+    they take 4 from the pile of 4 -> (0, 6); reply ['take 4 from the pile of 6']
+    they take 1 from the pile of 6 -> (4, 5); reply ['take 1 from the pile of 5']
+    they take 3 from the pile of 6 -> (4, 3); reply ['take 1 from the pile of 4', 'take 3 from the pile of 4']
+    they take 4 from the pile of 6 -> (4, 2); reply ['take 4 from the pile of 4']
+Outline claims
+  ok   {1,3,4}: period 7, losing at 0 and 2 mod 7
+  ok   mixed sum (a pile under 1,2 and a pile under 1,3,4): losing iff the two Grundy values match
+
+ALL 4-5 CHECKS PASSED
+
+
+EVERYTHING PASSED

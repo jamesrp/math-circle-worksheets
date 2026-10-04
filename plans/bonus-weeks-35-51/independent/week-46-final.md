@@ -1,0 +1,3 @@
+# Final delta mathematics pass — Week 46
+
+Compared final/draft sources and adult notes. The sole mathematical wording delta now restricts the without-replacement comparison to three draws. This resolves the draft scope concern: all six three-ticket permutations cover, whereas a fourth draw without replacing/exhausting tickets was undefined. Replacement coverage counts 6/27 and 36/81, absence of a finite guaranteed coverage time, copying/reset shortest words and rotation synchronization targets are unchanged and retain the independent enumeration evidence. No new worked example or changed numerical target. Physical ticket/board operation remains untested. No new blocker.

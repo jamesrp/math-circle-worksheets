@@ -1,0 +1,419 @@
+{
+  "week": 43,
+  "title": "Shuffling picture cards",
+  "pages": [
+    [
+      [
+        "title",
+        "Shuffling picture cards"
+      ],
+      [
+        "h",
+        "Mathematics before the session"
+      ],
+      [
+        "p",
+        "A fair shuffle of three distinct cards gives each of the six orders probability 1/6. Choosing the first card uniformly from three, the second uniformly from the two remaining, and the last by necessity does this: every final order has exactly one first-two choice story, of probability (1/3)(1/2)."
+      ],
+      [
+        "p",
+        "The ticket-and-swap version is Fisher-Yates in a left-to-right form. From slots 1, 2, 3, first swap slot 1 with a uniformly chosen slot in {1,2,3}; then swap slot 2 with a uniformly chosen slot in {2,3}. The six equally likely ticket stories give six distinct orders. Swapping a slot with itself is allowed. After a position is settled, later swaps do not revisit it."
+      ],
+      [
+        "p",
+        "For n distinct cards, at step i choose uniformly among slots i through n and swap that slot with i. The last slot is forced. There are n! equally likely stories, and each target order determines a unique story: choose the current location of its first card, then of its second, and so on. Thus any fixed starting order produces a uniform output."
+      ],
+      [
+        "h",
+        "What can go wrong"
+      ],
+      [
+        "p",
+        "The tempting rule that swaps slot 1, then 2, then 3 with a fresh choice from all three slots has 3³ = 27 equally likely stories. Uniformity among six outputs would require 27/6 histories per output, which is not an integer. In order ABC, ACB, BAC, BCA, CAB, CBA, the exact counts are 4, 5, 5, 5, 4, 4. Random choices at each step alone do not make the final order uniform."
+      ],
+      [
+        "p",
+        "Forbidding self-swaps also changes the mechanism: the printed alternative, swapping 1 with 2 or 3 and then swapping 2 with 3, produces only BCA and CAB. They can be equally likely without constituting a fair shuffle of all six orders."
+      ],
+      [
+        "p",
+        "One fixed swap history is a bijection of starting orders, so it cannot merge two different starts. This does not conflict with the uniform distribution from every start when the history itself is random. Distinguish “the same history gives the same answer” from “the random answers have the same distribution.”"
+      ],
+      [
+        "h",
+        "Assumptions and discoveries by band"
+      ],
+      [
+        "p",
+        "All eligible tickets must have equal conditional chances at each fresh draw; reset the ticket sets between full shuffles. Cards must be distinct and equally selectable. A small sample need not show each order equally often. <b>K-1:</b> build all six orders, follow the two swaps, and investigate missing choices. <b>Grades 2-3:</b> match histories to outputs and contrast a six-story rule with a 27-story rule. <b>Grades 4-5:</b> prove the bijection, find algorithm failures, and design four- and five-card versions."
+      ]
+    ],
+    [
+      [
+        "title",
+        "Running the session"
+      ],
+      [
+        "h",
+        "Materials and preparation"
+      ],
+      [
+        "p",
+        "Prepare five sets of three same-size cards A, B, C, with square, circle, triangle pictures, a cup, tickets 1, 2, 3, and a three-slot strip per pair. After the first swap, empty the cup and put tickets 2 and 3 back into it, including a ticket just drawn. For each new full shuffle reset all three tickets. Keep a second ABC set at each adult table for comparing starts. Upper-group D/E tasks can stay on paper."
+      ],
+      [
+        "p",
+        "Print four pages per grade band and distribute gradually. K-1 needs positional language, matching, and adult reading; no written multiplication is needed. The middle group needs to organize six cases. The upper group should understand equal-weight choices and either division with remainder or equal sharing of 27 objects into six piles. Allow children to act out swaps before recording them. Prepared, unpiloted material."
+      ],
+      [
+        "h",
+        "Short shared launch"
+      ],
+      [
+        "p",
+        "Let children arrange the three cards. Draw C and then A from a cup without replacement, giving C A B. Show that this is one legal choice story. Before anyone begins the swap page, demonstrate its different procedure: ABC, choose ticket 3 for slot 1 to get CBA; choose ticket 2 for slot 2, leaving CBA. Put each ticket beside the swap it controls. Explicitly demonstrate that a self-swap changes nothing."
+      ],
+      [
+        "h",
+        "A flexible hour"
+      ],
+      [
+        "p",
+        "<b>0-6 minutes:</b> handle cards and demonstrate direct choosing. <b>6-19:</b> find all six orders. <b>19-23:</b> demonstrate the ticket-and-swap representation. <b>23-35:</b> match its six stories to rows. <b>35-38:</b> movement break with three children or objects acting as slots. <b>38-51:</b> missing tickets for K-1, the wrong-range rule for the middle group, or algorithm design for the upper group. <b>51-58:</b> share one proof or counterexample. <b>58-60:</b> reset kits."
+      ],
+      [
+        "p",
+        "Stop with a complete six-story collection if that is rich enough. Do not make children list all 27 histories: six equal piles cannot hold 27 identical-weight tokens, so the divisibility argument is already a proof of unfairness. Upper Problems 6-7 are alternatives if time is short, not a page-completion demand."
+      ],
+      [
+        "h",
+        "Optional hints"
+      ],
+      [
+        "p",
+        "For completeness: “Fix the first card; what can happen to the last two?” For swaps: “Which slot contains the card you want first?” For the wrong rule: “How many equally likely stories would each row need?” For identical histories from different starts: “Can you undo each swap in reverse order?”"
+      ],
+      [
+        "h",
+        "Sources and adaptation"
+      ],
+      [
+        "small",
+        "Robert Sedgewick and Kevin Wayne, Princeton <i>Algorithms</i>, <link href=\"https://algs4.cs.princeton.edu/11model/Knuth.java.html\" color=\"#000000\">Knuth.java</link>, especially shuffleAlternate and its uniform-independent random-source assumption. Their <link href=\"https://www.cs.princeton.edu/courses/archive/fall13/cos226/lectures/21ElementarySorts-2x2.pdf\" color=\"#000000\">Elementary Sorts lecture</link>, slide 71 (PDF p. 18), identifies the wrong-range bug and the valid suffix-range variant. The three-card enumerations and child tasks here are independently checked adaptations."
+      ]
+    ],
+    [
+      [
+        "title",
+        "K to 1 answer key"
+      ],
+      [
+        "h",
+        "Problem 1"
+      ],
+      [
+        "p",
+        "The six rows are ABC, ACB, BAC, BCA, CAB, CBA: three choices of first card and two orders of the remaining cards."
+      ],
+      [
+        "h",
+        "Problem 2"
+      ],
+      [
+        "p",
+        "In the three displayed cases the crossed-out card is the card already drawn first. If <b>A</b> is first, the rows are ABC and ACB; if <b>B</b> is first, BAC and BCA; if <b>C</b> is first, CAB and CBA. Two different first-two draws cannot make the same row because that row displays both draws in its first two positions."
+      ],
+      [
+        "h",
+        "Problem 3"
+      ],
+      [
+        "p",
+        "Write a ticket story as (first ticket, second ticket), not as card names. The complete correspondence from ABC is:"
+      ],
+      [
+        "table",
+        [
+          [
+            "Ticket story",
+            "Final row",
+            "Ticket story",
+            "Final row"
+          ],
+          [
+            "(1,2)",
+            "ABC",
+            "(1,3)",
+            "ACB"
+          ],
+          [
+            "(2,2)",
+            "BAC",
+            "(2,3)",
+            "BCA"
+          ],
+          [
+            "(3,2)",
+            "CBA",
+            "(3,3)",
+            "CAB"
+          ]
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      [
+        "p",
+        "No final row comes from two different stories. First ticket 1, 2, or 3 puts A, B, or C first, and the second ticket chooses between the two remaining orders."
+      ],
+      [
+        "h",
+        "Problem 4"
+      ],
+      [
+        "p",
+        "Remove first ticket <b>1</b>: ABC and ACB become impossible. Remove <b>2</b>: BAC and BCA become impossible. Remove <b>3</b>: CAB and CBA become impossible. Each removal prevents one particular card from ever being first. The second set remains {2,3}."
+      ],
+      [
+        "h",
+        "Problem 5"
+      ],
+      [
+        "p",
+        "No. A swap is undone by repeating it. If the finishes matched, undoing the shared swaps would recover equal starts, contradicting ABC versus CBA. Here are all six comparisons."
+      ],
+      [
+        "table",
+        [
+          [
+            "Story",
+            "Finish from ABC",
+            "Finish from CBA"
+          ],
+          [
+            "(1,2)",
+            "ABC",
+            "CBA"
+          ],
+          [
+            "(1,3)",
+            "ACB",
+            "CAB"
+          ],
+          [
+            "(2,2)",
+            "BAC",
+            "BCA"
+          ],
+          [
+            "(2,3)",
+            "BCA",
+            "BAC"
+          ],
+          [
+            "(3,2)",
+            "CBA",
+            "ABC"
+          ],
+          [
+            "(3,3)",
+            "CAB",
+            "ACB"
+          ]
+        ],
+        [
+          1,
+          1.4,
+          1.4
+        ]
+      ]
+    ],
+    [
+      [
+        "title",
+        "Grades 2 to 3 answer key"
+      ],
+      [
+        "h",
+        "Problem 1"
+      ],
+      [
+        "p",
+        "ABC, ACB, BAC, BCA, CAB, CBA each has one first-two draw story: AB, AC, BA, BC, CA, CB respectively. Every story has probability 1/3 × 1/2 = 1/6. Therefore none is favored. This proof is about all possible choices, not six observed runs."
+      ],
+      [
+        "h",
+        "Problem 2"
+      ],
+      [
+        "p",
+        "In the printed order, the mappings are (1,2) → ABC; (2,2) → BAC; (3,2) → CBA; (1,3) → ACB; (2,3) → BCA; (3,3) → CAB. The six stories are equally likely, and every row appears once, so this rule is fair."
+      ],
+      [
+        "h",
+        "Problem 3"
+      ],
+      [
+        "p",
+        "Starting with BAC changes the target-to-ticket correspondence, but all six rows remain possible and equally likely."
+      ],
+      [
+        "table",
+        [
+          [
+            "Target",
+            "Ticket story",
+            "Target",
+            "Ticket story"
+          ],
+          [
+            "ABC",
+            "(2,2)",
+            "ACB",
+            "(2,3)"
+          ],
+          [
+            "BAC",
+            "(1,2)",
+            "BCA",
+            "(1,3)"
+          ],
+          [
+            "CAB",
+            "(3,2)",
+            "CBA",
+            "(3,3)"
+          ]
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      [
+        "h",
+        "Problem 4"
+      ],
+      [
+        "p",
+        "Use (1,2) for each of six random shuffles. From ABC that produces ABC six times, and every one of those ticket draws is legal. More generally repeating any one valid story refutes the claim. Uniform probability does not force a perfectly representative batch of six results."
+      ],
+      [
+        "h",
+        "Problem 5"
+      ],
+      [
+        "p",
+        "Under the new three-swap rule, four different histories produce ABC: (1,2,3), (1,3,2), (2,1,3), and (3,2,1). For example, the first uses three self-swaps; the second swaps the last two twice; the third swaps the first two twice; the fourth swaps the first and last twice. These are exact collisions in the rule, not repeated observations of a single story. Other valid collisions are acceptable."
+      ],
+      [
+        "h",
+        "Problem 6"
+      ],
+      [
+        "p",
+        "No. There are 3 × 3 × 3 = 27 equally likely histories. If all six rows were equally likely, each would need the same whole number of histories. But six equal integer counts cannot sum to 27. The exact distribution below is for the facilitator; enumeration is not required of children."
+      ],
+      [
+        "table",
+        [
+          [
+            "Final order",
+            "ABC",
+            "ACB",
+            "BAC",
+            "BCA",
+            "CAB",
+            "CBA"
+          ],
+          [
+            "History count",
+            "4",
+            "5",
+            "5",
+            "5",
+            "4",
+            "4"
+          ]
+        ],
+        [
+          1.6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      [
+        "p",
+        "The fact that there are collisions alone does not prove unfairness: all outputs might have had the same number of histories. The unequal allocation forced by 27 versus 6 supplies the proof."
+      ]
+    ],
+    [
+      [
+        "title",
+        "Grades 4 to 5 answer key"
+      ],
+      [
+        "h",
+        "Problems 1 and 2"
+      ],
+      [
+        "p",
+        "Direct-choice stories AB, AC, BA, BC, CA, CB produce ABC, ACB, BAC, BCA, CAB, CBA. Each story has probability 1/6. For the two-swap rule from ABC, the complete list is (1,2) → ABC, (1,3) → ACB, (2,2) → BAC, (2,3) → BCA, (3,2) → CBA, (3,3) → CAB. Again each equally likely story has a different output, proving uniformity."
+      ],
+      [
+        "h",
+        "Problem 3"
+      ],
+      [
+        "p",
+        "Every order still has chance 1/6 from CBA. Relabel A and C throughout the original experiment: its start becomes CBA, the allowed ticket histories and their weights do not change, and the output labels are permuted bijectively. Alternatively, for any target choose its first card from the three current slots, then its second from the two remaining slots; this determines a unique story regardless of the starting order."
+      ],
+      [
+        "h",
+        "Problem 4"
+      ],
+      [
+        "p",
+        "No. The 27 equally likely histories cannot be divided into six equal-sized output classes. Exact counts for ABC, ACB, BAC, BCA, CAB, CBA are 4, 5, 5, 5, 4, 4. The argument relies on equiprobable histories; merely knowing a total number of possible histories would not suffice if they had unequal weights."
+      ],
+      [
+        "h",
+        "Problem 5"
+      ],
+      [
+        "p",
+        "First swap 1 with 2: ABC → BAC → BCA after swapping 2 with 3. First swap 1 with 3: ABC → CBA → CAB. Thus only BCA and CAB occur. If the initial two choices are equally likely, these have probability 1/2 each, but four orders have probability zero. It is not a fair shuffle of all six orders."
+      ],
+      [
+        "h",
+        "Problem 6"
+      ],
+      [
+        "p",
+        "For ABCD, swap slot 1 with a uniform ticket from {1,2,3,4}; swap slot 2 with a uniform ticket from {2,3,4}; swap slot 3 with a uniform ticket from {3,4}. Leave slot 4. Permit self-swaps. At each stage empty the cup and use exactly the indicated ticket set; for a new full shuffle reset the starting row and all ticket sets. There are 4 × 3 × 2 = 24 equally likely stories."
+      ],
+      [
+        "p",
+        "A target order uniquely specifies the ticket at each step: locate the target first card, swap it into slot 1, then locate the target second card in the suffix, then the third. Later steps cannot disturb a settled slot. Consequently each of the 24 orders has exactly one story, of probability 1/24."
+      ],
+      [
+        "h",
+        "Problem 7"
+      ],
+      [
+        "p",
+        "Use sets {1,2,3,4,5}, {2,3,4,5}, {3,4,5}, {4,5} for swaps of slots 1, 2, 3, 4 respectively, then leave slot 5. Reset the cup to the prescribed set before each choice and reset the full procedure for each new shuffle. With uniform fresh choices, 5 × 4 × 3 × 2 = 120 histories have equal probability. The same unique-target construction proves one story per order, hence probability 1/120 for each."
+      ]
+    ]
+  ]
+}

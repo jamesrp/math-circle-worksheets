@@ -1,0 +1,260 @@
+{
+  "week": 17,
+  "title": "Week 17 Machine memory facilitator guide",
+  "pages": [
+    {
+      "title": "Machine memory mathematical overview",
+      "elements": [
+        "Adult theorem map | Draft and unpiloted",
+        {
+          "h": "Machine model"
+        },
+        "A deterministic machine has finitely many states, one designated start, one R transition and one B transition from every state, and a fixed YES/NO answer on each state. Each card consumes exactly one transition, including a loop. The current state is the only stored information. Read a finite row from the start; its final state answers, including for the empty row.",
+        {
+          "h": "Distinguishing histories"
+        },
+        "If two histories reach the same state, every identical continuation leaves them with the same answer. Consequently, histories that require different answers after some common continuation must occupy different states in every correct machine. A set of k pairwise distinguishable histories proves that at least k states are necessary; the distinguishing continuation may depend on the pair and may be empty.",
+        {
+          "h": "Exact targets in this activity"
+        },
+        "To recognize a red count divisible by m, for any integer m at least 1, use m states recording the remainder; R advances cyclically and B stays. The histories with 0 through m-1 red cards are pairwise distinguishable, so m states are necessary. Recognizing the suffix RB needs exactly three states, recording the longest ending that is a prefix of RB: empty, R or RB. Rows shorter than two cards give NO. Simpler last-card and has-seen-R tasks need two states.",
+        {
+          "h": "Across the bands"
+        },
+        "K-1 operates pictures and invents small machines. Grades 2-3 compares continuations and builds the three-state cycle and suffix machine. Grades 4-5 uses invariants for correctness and distinguishing histories for minimum-state lower bounds, then generalizes the cycle size.",
+        {
+          "h": "Experiment and explanation"
+        },
+        "Running sample rows tests a proposal; it does not prove correctness for every length. An invariant explains what each state means after every prefix. A working machine supplies an upper bound, and distinguishable histories supply the matching lower bound. Keep these arguments after hands-on operation; marker position, hidden counts and card layout may not provide extra memory."
+      ]
+    },
+    {
+      "title": "Machine memory facilitator guide",
+      "elements": [
+        "<b>Week 17 is an unscheduled library label. Draft and unpiloted.</b> This separate adult guide follows the FINAL W17-K-v2, W17-23-v2, and W17-45-v2 packets, five pages each. Student pages have not been edited. The key idea is that the current circle must retain every distinction needed later.",
+        {
+          "h": "Before children arrive"
+        },
+        "For each of three tables: 12 blank state discs about 4 cm across; 2 marker tokens; 12 R cards and 12 B cards about 3 cm across; pencils, erasers, blank Letter paper, and an erasable board. Put R in a square and B in a circle so color is optional. Draw arrows on paper beneath discs. One marker operates one run; the spare compares another run, never adds memory.",
+        "Allow about 15 minutes to prepare if cards already exist, 25 minutes from scratch. Print student packets single-sided at 100%. Keep this guide at the adult table. Put used cards face down out of the operator's sight. Test that every state has exactly one R and one B arrow, a fixed answer, and one designated start.",
+        {
+          "h": "A short shared launch"
+        },
+        "Let children handle cards for 3 minutes. In about 3 more minutes, operate the K-1 first diagram on RBR: start, read one card, move once, hide it; answer only when told to stop. Restart for a fresh row. Then contrast continuing from the current circle with restarting. Do not name parity or give the minimum-state proof.",
+        {
+          "h": "A flexible hour"
+        },
+        {
+          "table": [
+            [
+              "Minutes",
+              "Choice"
+            ],
+            [
+              "0-7",
+              "Handling and shared launch"
+            ],
+            [
+              "7-20",
+              "K-1 P1-P2; middle P1-P3; upper P1-P2"
+            ],
+            [
+              "20-40",
+              "Choose a construction or continuation question. Stay with a productive search."
+            ],
+            [
+              "40-53",
+              "K-1 P5-P6; middle P5 or P6; upper P4 or P5. P6 is surplus."
+            ],
+            [
+              "53-60",
+              "One machine and one reason a smaller one cannot work; collect observations."
+            ]
+          ],
+          "widths": [
+            65,
+            439
+          ]
+        },
+        "Finishing the packet is not the goal. Reserve time to test another child's proposed machine. Record what children actually did, which rule needed repeating, and what they wanted to pursue before calling any revision classroom-tested."
+      ]
+    },
+    {
+      "title": "Readiness and the central argument",
+      "elements": [
+        {
+          "h": "Choose by prerequisites"
+        },
+        "K-1 entry: match R/B, follow one arrow, maintain left-to-right order, count four or six cards; adult reads and draws. Middle entry: organize a short list and understand the same continuation after two different histories. Upper entry: distinguish testing examples from proving a claim for every input. No long division, algebra, or formal-language vocabulary is needed.",
+        "<b>Gate before construction:</b> a child can finish a row without consulting hidden cards. <b>Gate before minimality:</b> the child can run two histories and append the same suffix without restarting. If not, return to two markers and one shared new card. An oral or physical explanation counts as a proof.",
+        {
+          "h": "Why a shared circle cannot remember a difference"
+        },
+        "If two histories reach the same circle, the next shared card takes both along the same arrow. Repeating this argument for each remaining card keeps the markers together, so their fixed final answers agree. Thus if some common continuation requires different answers, those histories must reach different circles in every correct machine. Different pairs may use different continuations, including stopping immediately.",
+        {
+          "h": "A red count in groups of three"
+        },
+        {
+          "diagram": "cycle3"
+        },
+        "Circle 0 means no red cards left outside complete groups; 1 and 2 mean one or two left. R advances one place; B stays. Only 0 says YES. This invariant is true initially and survives each card, so it proves correctness for all finite rows.",
+        "<b>Three circles are necessary.</b> Use histories empty, R, RR. Empty/R are separated by stopping; empty/RR by stopping; R/RR by appending R. If only two circles existed, two of these three histories would share one, contradicting the shared-circle argument.",
+        "<b>Common pitfalls:</b> a loop consumes its card; NO states can be different; a YES answer is fixed by the state; hidden counts, marker orientation, or leftover-card layout are extra memory and are not allowed."
+      ]
+    },
+    {
+      "title": "K-1 solutions for Problems 1 to 3",
+      "elements": [
+        {
+          "h": "Problem 1  Operating and inventing rows  Student page 1"
+        },
+        "<b>Answer and reasoning.</b> In printed order the answers are YES, YES, YES, NO, YES, NO for empty, B, RBR, RRR, RRRR, BBBRB. Three valid six-card examples are BBBBBB, RRBBBB, and RRRRBB. R switches circles and B does nothing, so exactly an even number of Rs returns to YES. Each example has 0, 2, or 4 Rs. Accept any three distinct six-card rows with 0, 2, 4, or 6 Rs; the listed examples are not the only solutions.",
+        "<b>Hold back, then offer.</b> First ask the child to move the marker for one R, then another. Later ask what B changes. Do not announce the even-red rule before the child has tried contrasting rows.",
+        {
+          "h": "Problem 2  Every four-card YES row  Student page 2"
+        },
+        "<b>Answer and reasoning.</b> The complete list is RRRR, RRBR, RBRR, RBBR, BRRR, BRBR, BBRR, BBBR. The final R always lands on YES, and the final B always lands on NO, from either state. Therefore precisely the rows ending R work. The first three positions can be any of the eight R/B triples. Listing those triples systematically proves no row is omitted.",
+        "<b>Hold back, then offer.</b> Ask what the last arrow does from either circle. If the list has repetitions, sort the physical rows by first card, then second. Provide blank paper rather than treating the twelve printed slots as an answer count.",
+        {
+          "h": "Problem 3  Six disagreements of length six  Student page 3"
+        },
+        "<b>Answer and reasoning.</b> For example: BBBBBB, RRBBBB, RBRBBB give left YES/right NO; BBBBBR, BRBBRR, RBBBRR give left NO/right YES. The left machine accepts an even red count; the right accepts last R. They disagree exactly when a row ends B with an even red count, or ends R with an odd red count. There are 32 such length-six rows; the task asks for six, not all 32. Every example above has exactly six cards.",
+        "<b>Hold back, then offer.</b> Run the same row on both machines with separate markers. Try changing one card rather than simply lengthening a row. Accept any six distinct examples satisfying the criterion."
+      ]
+    },
+    {
+      "title": "K-1 solutions for Problems 4 to 6",
+      "elements": [
+        {
+          "h": "Problem 4  Last card blue  Student page 4"
+        },
+        "<b>Answer and reasoning.</b> Use states N (start, NO) and B (YES). From either state, R goes to N and B goes to B. The state says whether the latest card was blue; initially there is no last card, so NO is right. One state cannot work because empty must be NO and B must be YES.",
+        "<b>Hold back, then offer.</b> Ask where the marker should be immediately after B, whatever came before. Then ask the same for R. Two outgoing arrows may have the same destination.",
+        {
+          "h": "Problem 5  No red ever  Student page 4"
+        },
+        "<b>Answer and reasoning.</b> Use states Clean (start, YES) and Seen (NO). Clean: B stays, R goes to Seen. Seen: both R and B stay. The exact minimum is two. Clean means no R has occurred; Seen means at least one has. Once an R has appeared, later blue cards cannot undo it. Empty and R require different answers, ruling out one circle.",
+        "<b>Hold back, then offer.</b> Try RB on a proposed machine. If it forgets the red, ask whether a later blue can make the earlier red disappear. This differs from remembering only the last card.",
+        {
+          "h": "Problem 6  Same cards after two histories  Student page 5"
+        },
+        "<b>Answer and reasoning.</b> Pair 1 empty/R: append nothing, giving YES/NO. Pair 2 R/RR: append R, giving NO/YES. Pair 3 RR/RBR: impossible. Pair 4 B/RRR: impossible. The last two pairs already have the same leftover red count, respectively 2 and 0. Any common continuation adds the same number of Rs, so their remainders and answers stay equal. For the first pair, B is also a valid nonempty witness. Never require a nonempty addition: the FINAL task explicitly permits none.",
+        "<b>Hold back, then offer.</b> Put a marker where each printed history finishes; only then read the shared new cards. If markers coincide, ask whether one matching arrow could separate them.",
+        {
+          "h": "Oral exit and optional extension"
+        },
+        "Ask a child to invent a row that defeats a friend's last-blue machine, or explain why a correct one cannot be defeated. If P6 is still unclear, stay with one shared card and two markers; do not replace the task with counting red cards aloud as hidden machine memory."
+      ]
+    },
+    {
+      "title": "Grades 2-3 solutions for Problems 1 to 4",
+      "elements": [
+        {
+          "h": "Problem 1  Every disagreement of length four  Student page 1"
+        },
+        "<b>Answer and reasoning.</b> The eight rows are RRBR, RRBB, RBRR, RBRB, BRRR, BRRB, BBBR, BBBB. Exactly one machine says YES when an even red count ends B, or an odd red count ends R. For the ending-B case the first three cards have an even red count: RRB, RBR, BRR, BBB. The same four prefixes followed by R give the ending-R case. This accounts for all possibilities.",
+        "<b>Hold back, then offer.</b> Compare the meaning of the two states in each machine. If enumeration stalls, group rows by their last card; do not dictate all prefixes.",
+        {
+          "h": "Problem 2  At least one red  Student page 2"
+        },
+        "<b>Answer and reasoning.</b> Use N (start, NO) and Y (YES). N: B stays, R goes to Y. Y: R and B stay. Minimum two. Y records that R has occurred at least once. Empty and R require different answers, so a one-state machine cannot work.",
+        "<b>Hold back, then offer.</b> Try RBB on a proposed machine. Does it remember that the first card was R?",
+        {
+          "h": "Problem 3  Last blue  Student page 2"
+        },
+        "<b>Answer and reasoning.</b> Use N (start, NO) and Y (YES). From both states, R goes to N and B to Y. Minimum two. The most recent card determines the answer; empty is NO. Empty and B rule out one state. Contrast this reset behavior with P2's irreversible seen-red state.",
+        "<b>Hold back, then offer.</b> Test B, BR, RB, and empty. Ask where each final card sends the marker from both possible states.",
+        {
+          "h": "Problem 4  Continuations for groups of three  Student page 3"
+        },
+        "<b>Answer and reasoning.</b> In printed order: empty/R, append nothing -> YES/NO; R/RR, append R -> NO/YES; RR/RRR, append nothing -> NO/YES; RBR/RR, impossible; B/RRR, impossible; RB/BR, impossible. The impossible pairs have equal red remainders, respectively 2, 0, and 1. Every suffix adds the same red count to both; equal remainders cannot diverge. Stopping already separates two of the first three pairs.",
+        "<b>Hold back, then offer.</b> Ask whether the printed rows have already ended at different kinds of circle. Keep the original histories in place conceptually; a continuation is not a new run."
+      ]
+    },
+    {
+      "title": "Grades 2-3 solutions for Problems 5 and 6",
+      "elements": [
+        {
+          "h": "Problem 5  Minimum memory for groups of three  Student page 4"
+        },
+        "<b>Answer and reasoning.</b> The exact minimum is three circles. Use the red cycle with blue loops shown on guide page 3, starting and accepting only at 0. The invariant proves that it works for every length. For the lower bound, empty, R, and RR must all be in different states: stopping separates empty from either other history, and adding R separates R from RR. Two circles would force two of those histories together, which would erase a required future distinction.",
+        "<b>Hold back, then offer.</b> First ask what should happen after a third R. If a two-circle proposal fails, do not stop at the counterexample: ask which of empty, R, RR it has merged. The proof must exclude every two-circle design.",
+        {
+          "h": "Problem 6  Last two cards RB  Student page 5"
+        },
+        "<b>Answer and reasoning.</b> The exact minimum is three. N means no useful suffix (start, NO); R means last card R (NO); RB means last two cards RB (YES). From every state, R goes to R. On B: N goes to N, R goes to RB, RB goes to N. Each transition preserves the stated suffix meaning. Empty/R require distinct states because adding B produces NO/YES. RB differs from both by stopping, so all three histories need separate states. The construction and this lower bound together prove optimality.",
+        "<b>Hold back, then offer.</b> Use RRB, RBB, BRB, and empty to test candidates. A machine that remembers only whether any RB appeared will wrongly accept RBB.",
+        {
+          "diagram": "suffix"
+        },
+        "<b>How to read this answer diagram.</b> Every circle has exactly one R and one B move. N has a B loop; R has an R loop. The arrow from RB back to R is R. The bottom return from RB to N is B. Labels name memory meanings, not extra stored cards."
+      ]
+    },
+    {
+      "title": "Grades 4-5 solutions for Problems 1 to 4",
+      "elements": [
+        {
+          "h": "Problem 1  Every five-card YES row  Student page 1"
+        },
+        "<b>Answer and reasoning.</b> The eleven rows are BBBBB, RRRBB, RRBRB, RRBBR, RBRRB, RBRBR, RBBRR, BRRRB, BRRBR, BRBRR, BBRRR. A length-five row is accepted with zero or three Rs. BBBBB is the zero case. The other ten rows are precisely the choices of two B positions among five. For arbitrary length the rule is red count divisible by three, including zero; the cycle invariant on guide page 3 proves it.",
+        "<b>Hold back, then offer.</b> Ask what each circle records after repeated Rs; then insert B between two Rs. A finite test list alone does not establish the arbitrary-length description.",
+        {
+          "h": "Problem 2  Shared continuations  Student page 2"
+        },
+        "<b>Answer and reasoning.</b> empty/R: stop -> YES/NO. R/RR: append R -> NO/YES. RR/BRR: impossible. BBB/RRR: impossible. The last two pairs have equal remainders 2 and 0. A common suffix keeps the remainders equal. Other separating suffixes are valid; the guide gives short witnesses.",
+        "<b>Hold back, then offer.</b> Count only Rs in the shared continuation; its Bs make no difference to this target rule.",
+        {
+          "h": "Problem 3  Shared-state principle  Student page 2"
+        },
+        "<b>Answer and reasoning.</b> No common continuation can separate two histories already at the same state. For no extra cards they have the same fixed answer. For one card the same state and same input select the same arrow. Repeat this one-card fact for each card of any longer continuation. This argument uses determinism and no hidden memory, so it applies to every permitted machine.",
+        "<b>Hold back, then offer.</b> Have two children put markers together and read one identical new card. Ask how they could separate without breaking a rule.",
+        {
+          "h": "Problem 4  Groups of four  Student page 3"
+        },
+        "<b>Answer and reasoning.</b> Minimum four: states 0,1,2,3 in an R cycle, B loops everywhere; start/YES only at 0. State i records the red count remainder. Histories empty, R, RR, RRR need separate states: for a pair with i&lt;j reds, append 4-i reds (or none if i=0). The first becomes a multiple of four, while the second has remainder j-i, which is 1, 2, or 3. Any three-state design would merge a separated pair.",
+        "<b>Hold back, then offer.</b> Ask what four different partial red counts will need after more red cards. A broken three-state sketch is not by itself a lower bound."
+      ]
+    },
+    {
+      "title": "Grades 4-5 solutions and further questions",
+      "elements": [
+        {
+          "h": "Problem 5  Ending RB  Student page 4"
+        },
+        "<b>Answer and reasoning.</b> Minimum three, using N, R, RB and the full transition diagram on guide page 7. The states preserve the longest useful suffix: no useful suffix, R, or RB. Empty and R differ after B; RB differs from both when stopping. These three pairwise distinguishable histories force three separate states in every correct machine. Matching final answers alone does not make states mergeable: N and R both answer NO but react differently to B.",
+        "<b>Hold back, then offer.</b> Ask why two NO states might still be needed. Let children choose their own state names and layout; check transition meaning, not similarity to this drawing.",
+        {
+          "h": "Problem 6  Groups of five, six, and any positive size  Student page 5"
+        },
+        "<b>Answer and reasoning.</b> The minima are five, six, and in general m for a group size m >= 1. Use states 0 through m-1. R advances by one cyclically; B stays. Only state 0 is start/YES. The remainder invariant holds initially and after each input, proving correctness for every row. For each pair 0 <= i &lt; j &lt; m, append enough Rs to complete i to a multiple of m: choose 0 if i=0, otherwise m-i. The i-history becomes YES and the j-history has nonzero remainder j-i. Hence the m histories with 0 through m-1 Rs are pairwise distinguishable and need m distinct states. For m=1 a single YES state with both loops works; every machine requires a start state, so zero is impossible.",
+        "<b>Hold back, then offer.</b> First use physical discs for m=5 or 6. Then ask what changes in the construction and what stays the same in the lower-bound explanation.",
+        {
+          "h": "Extensions after a sound explanation"
+        },
+        "Change groups of three to exactly two reds: four states suffice (0,1,2,too many), with YES only at 2. R advances then stays at too many; B loops. Histories empty, R, RR, RRR are pairwise separable: complete the shorter of two counts at most 2 to 2, and separate any such count from too many by completing it. Thus four is minimal.",
+        "Ask for a last-R machine and a last-B machine and compare them on the empty row. Or let pairs invent a rule, exchange constructions, and locate a counterexample. Treat an unproved proposed minimum as a conjecture."
+      ]
+    },
+    {
+      "title": "Sources and verification record",
+      "elements": [
+        {
+          "h": "What this guide draws from"
+        },
+        "Luca Trevisan, Stanford CS103, <i>Notes on the Myhill-Nerode Theorem</i>, Lecture 15, May 12, 2014, section 1, Lemmas 2 and 4, PDF pages 1-2. These support the indistinguishable-state implication and pairwise-distinguishable-history lower bound. Verified against the source body on October 3, 2026. <link href=\"https://theory.stanford.edu/~trevisan/cs103-14/lecture15.pdf\" color=\"blue\">Read the lecture notes</link>.",
+        "The finite machines, complete lists, continuation witnesses, and small-case proofs here were independently worked out against the FINAL student packets. The full Myhill-Nerode classification in section 2, infinite languages, and the pumping lemma are adult context only and are not prerequisites or claimed outcomes of this hour.",
+        "Natasha Rozhkovskaya, <i>Math Circles for Elementary School Students</i>, Introduction: Berkeley 2009 (local EPUB, Part 1). The introduction describes individual adult assistance and active parent participation. Our short launch, hint timing, and hour menu are proposed adaptations, not reported classroom results.",
+        {
+          "h": "Checks that can be reproduced"
+        },
+        "Included independent_checks.py generates strings directly and compares deterministic machines by exact reachable-product search, not merely by testing short inputs. It independently finds eight length-four disagreement rows, eleven accepted length-five rows, and 32 length-six disagreement rows. It rules out all 66 labeled one/two-state machines for each three-state target and all 5,898 labeled machines of up to three states for the four-cycle target.",
+        "Code is a supplementary audit. The guide gives child-accessible constructions and universal arguments for the mathematical claims, including arbitrary m. The FINAL numbering is six problems per band; revision-sensitive answers include the six-card requirement in K-1 P3 and the explicit empty continuation in K-1 P6.",
+        {
+          "h": "Limits and pilot notes"
+        },
+        "No session using these new packets or this guide has been observed. Time estimates and the proposed readiness gates are planning judgments. Record whether children could distinguish continuation from restart, whether operation accidentally used hidden memory, and whether the lower-bound idea needed more concrete work. Preserve their examples and failed machines before deciding what to change.",
+        "<b>Artifact scope:</b> this adult guide and its editable source bundle are new. The three FINAL student PDFs remain untouched. The Week 17 label does not assign a date."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+Week 7: Take-away games - return visits
+
+Mathematical kernels
+
+1. A shared one-use resource changes a subtraction game. Take1or2 counters; last counter wins. One shared PASS card can instead be spent for a turn without removing counters. The game ends immediately when the last counter is taken, so passing from an empty pile is impossible. Without the card, losing positive piles are multiples of3. With it available, losing piles are4,7,10,... (n=1mod3, n>=4); piles1,2,3 are winning. State must include whether PASS remains; the exception at1 matters. Inductive explanation: a losing available state can only move to available winners or pass to an ordinary winner; each other positive state can move to an available loser or use PASS when the ordinary state is losing.
+
+2. A remembered last move can make the same pile good or bad. Take1,2or3, but may not repeat the number just taken by the previous player. Last counter wins; inability to move loses. A visible LAST card externalizes this single memory item. With no previous move, losing piles are0mod4. If LAST=1, losing residues are0or1mod4; if LAST=2, losing residue0; if LAST=3, losing residues0or3. At n=0 the game has ended. Exact recurrence W(n,last)=any(not W(n-k,k)) for legal k<=n and k!=last; use it for small classifications before conjecturing general patterns. This changes state, rather than just allowed numerical moves.
+
+3. Removing a pair of adjacent counters from a row splits the remaining position; gaps stay gaps and counters never slide together. Players remove exactly two neighbours in one surviving run; no legal move loses. Single row lengths1-12 are losing at1,5,9 (0 also terminal); equal duplicate rows are losing by replying in the other row. Symmetry after a central pair wins for every even-length single row. The game is not determined by total count: two rows2+2 lose, while one row4 wins. Avoid an unproved general period or analogy with unrestricted Nim; use exhaustive recursion on run-length tuples for every depicted position.
+
+Sources: own finite-state game recurrences; current Week7 F07-v4 includes ordinary subtraction, periodicity, last-counter-loses, two piles, but none of these three state changes. Related disjunctive sums appear in Week8; do not teach binary Nim as a prerequisite here.
+
+Suggested emphasis by level: K-1: adjacent pairs with counters on a printed row and a partner checking empty gaps. Grades2-3: shared PASS and short row games. Grades4-5: remembered moves, state charts, constructive guarantees and comparison of positions. Counting up to15 and small subtraction; adults can read rules aloud. No concurrent tallying or remembering hidden rules.
+
+Materials
+
+Per pair:24 counters at most0.75in diameter, one PASS card, three LAST cards1/2/3, pencil. Printed row squares at least0.8in or ordinary counters on a table; each empty place remains visible. Use one move word or final state, not simultaneous tallies. Let partners act as referees; adult demonstrates spending PASS and moving LAST before use.
+
+Return-visit scope and format
+
+This is a separate companion to the current week, not a replacement or a one-hour completion plan. Create one shared student PDF `draft/return-visit.pdf`, with three distinct numbered investigations (normally one page each, more if space is needed). Use page-level headers for genuine suitable bands. Do not make three copies or invent a K-1 version of a kernel that lacks a young-child entry. This explicit scope overrides the harness's three-band filenames. Number Problems 1, 2, 3 consecutively. Provide enough purposeful examples and work space to sustain an investigation. Use existing manipulatives and short shared rules; any unfamiliar representation needs a small worked visual before first use, using a non-task instance. The visual must show input, a meaningful intermediate and output with matching labels, without giving away the intended discovery. Leave problem choice to the writer, but each of the three kernels must support one substantial investigation. Sources and novelty facts below are mathematical context, not prescribed problems. Use LaTeX/TikZ. Save portable sources and a build.sh inside draft/src. No facilitator guide in this stage. PDFs are prepared, unpiloted reviewable drafts. All files stay in this run directory. No base files or global indexes may be edited.

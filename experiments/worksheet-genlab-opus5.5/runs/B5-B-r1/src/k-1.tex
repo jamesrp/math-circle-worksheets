@@ -1,0 +1,190 @@
+\documentclass[12pt]{article}
+\newcommand{\bandname}{Grades K–1}
+\input{common}
+
+\newcommand{\kfont}{\fontsize{16.5}{22}\selectfont}
+
+% The two answer chips, first chip centred at (#1,#2).
+\newcommand{\chipsat}[2]{%
+  \draw[line width=1.3pt,fill=white] (#1,#2) circle (0.85);
+  \node[font=\bfseries\fontsize{20}{20}\selectfont] at (#1,#2) {1st};
+  \draw[line width=1.3pt,fill=white] ({#1+2.3},#2) circle (0.85);
+  \node[font=\bfseries\fontsize{20}{20}\selectfont] at ({#1+2.3},#2) {2nd};}
+
+% One pile on its own line: numeral, counters (rows of 5), chips.
+\newcommand{\kpile}[1]{%
+  \begin{tikzpicture}
+    \pgfmathtruncatemacro{\nrows}{(#1-1)/5+1}
+    \pgfmathsetmacro{\midy}{-(\nrows-1)*1.5/2}
+    \node[font=\fontsize{18}{18}\selectfont,text=black!65] at (0.35,\midy) {#1};
+    \pileat{#1}{1.6}{0}{0.65}{1.5}
+    \chipsat{14.4}{\midy}
+    \path (0,0.9) (0,{\midy-0.9}) (0,{-(\nrows-1)*1.5-0.7});
+  \end{tikzpicture}\par}
+
+% A box holding a pile of n counters with its numeral.
+% \kbox{n}{x}{y}{h}: top-left corner (x,y), height h; counters in rows of 5, centred vertically.
+\newcommand{\kbox}[4]{%
+  \pgfmathsetmacro{\bx}{#2}\pgfmathsetmacro{\by}{#3}
+  \pgfmathtruncatemacro{\bnr}{(#1-1)/5+1}
+  \pgfmathsetmacro{\bxx}{\bx+0.425}
+  \pgfmathsetmacro{\byy}{\by-(#4+0.6)/2+(\bnr-1)*0.3}
+  \draw[line width=1pt,rounded corners=3pt] (\bx,\by) rectangle ({\bx+3.25},{\by-#4});
+  \node[anchor=north west,font=\fontsize{15}{15}\selectfont,inner sep=2pt] at ({\bx+0.08},{\by-0.06}) {#1};
+  \pileat{#1}{\bxx}{\byy}{0.27}{0.6}}
+
+% Boxes for piles 1..N in rows of 5: \kboxes{N}{box height}
+\newcommand{\kboxes}[2]{%
+  \begin{tikzpicture}
+    \foreach \n in {1,...,#1} {
+      \pgfmathtruncatemacro{\brow}{(\n-1)/5}
+      \pgfmathtruncatemacro{\bcol}{mod(\n-1,5)}
+      \kbox{\n}{\bcol*3.72}{-\brow*(#2+0.42)}{#2}
+    }
+  \end{tikzpicture}\par}
+
+% A light tray behind a row of n counters, first counter centre (x,y), pitch p, radius r
+\newcommand{\tray}[5]{%
+  \fill[black!9,rounded corners=8pt] ({#2-#5-0.18},{#3-#5-0.16}) rectangle ({#2+(#1-1)*#4+#5+0.18},{#3+#5+0.16});}
+
+% A case made of rows (one row of counters per entry), with chips at the right.
+% \krows{list of row lengths}{number of rows}
+\newcommand{\krows}[2]{%
+  \begin{tikzpicture}
+    \pgfmathsetmacro{\midy}{-(#2-1)*1.9/2}
+    \draw[black!35,line width=0.8pt,rounded corners=6pt] (0,1.05) rectangle (\linewidth-1pt,{-(#2-1)*1.9-1.05});
+    \foreach \len [count=\r] in {#1} {
+      \tray{\len}{1.6}{-(\r-1)*1.9}{1.42}{0.65}
+      \foreach \c in {1,...,\len} {
+        \cnt{({0.18+\c*1.42},{-(\r-1)*1.9})}{0.65}
+      }
+    }
+    \chipsat{14.1}{\midy}
+  \end{tikzpicture}\par}
+
+\begin{document}
+\kfont
+
+Play with a partner. Take turns. On your turn, take 1 counter or 2 counters. Whoever takes the last counter wins.
+
+\vspace{0.55cm}
+\prob{1}Play with 3 counters, then 4, then 5. Circle who you would rather be.
+
+\vspace{0.45cm}
+\kpile{3}\vspace{0.35cm}
+\kpile{4}\vspace{0.35cm}
+\kpile{5}
+
+\vspace{0.7cm}
+\prob{2}Play with 6 counters, then 7, then 8. Circle who you would rather be.
+
+\vspace{0.45cm}
+\kpile{6}\vspace{0.35cm}
+\kpile{7}\vspace{0.35cm}
+\kpile{8}
+
+\newpage
+\prob{3}Your partner goes first with 6 counters. In each picture, cross out what you take so that you win.
+
+\vspace{0.9cm}
+\begin{tikzpicture}[>={Stealth[length=3.5mm,width=3mm]}]
+  \def\r{0.56}\def\p{1.3}
+  % Panel A: 6 counters, the first one already taken
+  \draw[line width=1pt,rounded corners=6pt] (0,1) rectangle (8.3,-1);
+  \node[anchor=south west,font=\bfseries] at (0,1.05) {A};
+  \gone{(0.65,0)}{\r}
+  \foreach \i in {1,...,5} {\cnt{({0.65+\i*\p},0)}{\r}}
+  % Panel B: 6 counters, the first two already taken
+  \draw[line width=1pt,rounded corners=6pt] (9.9,1) rectangle (18.2,-1);
+  \node[anchor=south west,font=\bfseries] at (9.9,1.05) {B};
+  \gone{(10.55,0)}{\r}
+  \gone{(10.55+\p,0)}{\r}
+  \foreach \i in {2,...,5} {\cnt{({10.55+\i*\p},0)}{\r}}
+  % middle node
+  \node[draw,line width=1pt,rounded corners=6pt,inner sep=7pt,align=center] (mid) at (9.1,-3.9)
+     {3 left.\\ Your partner's turn again.};
+  \draw[->,line width=1.3pt] (4.15,-1.1) -- (mid.north west);
+  \draw[->,line width=1.3pt] (14.05,-1.1) -- (mid.north east);
+  % Panel C: 3 counters, the first one already taken
+  \draw[line width=1pt,rounded corners=6pt] (2.0,-6.6) rectangle (6.3,-8.6);
+  \node[anchor=south west,font=\bfseries] at (2.0,-6.55) {C};
+  \gone{(2.85,-7.6)}{\r}
+  \foreach \i in {1,2} {\cnt{({2.85+\i*\p},-7.6)}{\r}}
+  % Panel D: 3 counters, the first two already taken
+  \draw[line width=1pt,rounded corners=6pt] (11.9,-6.6) rectangle (16.2,-8.6);
+  \node[anchor=south west,font=\bfseries] at (11.9,-6.55) {D};
+  \gone{(12.75,-7.6)}{\r}
+  \gone{(12.75+\p,-7.6)}{\r}
+  \cnt{({12.75+2*\p},-7.6)}{\r}
+  \draw[->,line width=1.3pt] (mid.south west) -- (4.15,-6.05);
+  \draw[->,line width=1.3pt] (mid.south east) -- (14.05,-6.05);
+\end{tikzpicture}
+
+\newpage
+\prob{4}Here are piles from 1 to 12. Color every pile you would not want on your turn.
+
+\vspace{0.8cm}
+\kboxes{12}{4.4}
+
+\newpage
+\prob{5}Now you may take 1, 2, or 3 counters. Play with 3, 4, 5, and 8 counters, and circle who you would rather be.
+
+\vspace{0.6cm}
+\kpile{3}\vspace{0.5cm}
+\kpile{4}\vspace{0.5cm}
+\kpile{5}\vspace{0.5cm}
+\kpile{8}
+
+\vspace{0.9cm}
+\prob{6}Now you may take 1 or 3 counters, but not 2. Color every pile you would not want on your turn.
+
+\vspace{0.6cm}
+\kboxes{10}{2.75}
+
+\newpage
+\prob{7}Make two rows like the picture. Take turns taking 1 or 2 counters from one row, and circle who you would rather be.
+
+\vspace{0.5cm}
+\krows{2,2}{2}\vspace{0.6cm}
+\krows{4,4}{2}\vspace{0.6cm}
+\krows{4,5}{2}
+
+\newpage
+\begin{minipage}[t]{0.82\linewidth}
+\prob{8}Now whoever takes the last counter loses. Play with 3, 4, 5, and 7 counters, taking 1 or 2 on each turn, and circle who you would rather be.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.15\linewidth}\vspace{0pt}\raggedleft
+\begin{tikzpicture}
+  \cnt{(0,0)}{0.65}
+  \fill (-0.22,0.17) circle (0.075);
+  \fill (0.22,0.17) circle (0.075);
+  \draw[line width=1.3pt] (-0.3,-0.33) arc[start angle=150,end angle=30,radius=0.35];
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{0.4cm}
+\kpile{3}\vspace{0.35cm}
+\kpile{4}\vspace{0.35cm}
+\kpile{5}\vspace{0.35cm}
+\kpile{7}
+
+\vspace{0.6cm}
+\prob{9}Whoever takes the last counter wins again. Make three rows like the picture, take 1 or 2 counters from one row on your turn, and circle who you would rather be.
+
+\vspace{0.5cm}
+\begin{tikzpicture}
+  \foreach \len [count=\j] in {1,2,3} {
+    \pgfmathsetmacro{\cx}{(\j-1)*6.15+2.95}
+    \draw[black!35,line width=0.8pt,rounded corners=6pt] ({\cx-2.9},0.8) rectangle ({\cx+2.9},-5.75);
+    \pgfmathsetmacro{\xs}{\cx-(\len-1)*1.22/2}
+    \foreach \r in {0,1,2} {
+      \tray{\len}{\xs}{-\r*1.5}{1.22}{0.53}
+      \foreach \c in {1,...,\len} {
+        \cnt{({\xs+(\c-1)*1.22},{-\r*1.5})}{0.53}
+      }
+    }
+    \chipsat{\cx-1.15}{-4.7}
+  }
+\end{tikzpicture}
+
+\end{document}

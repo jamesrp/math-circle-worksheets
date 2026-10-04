@@ -1,0 +1,43 @@
+% Shared layout for the Week 3 packets.  Each packet defines \packetlevel and \packetid first.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{sourcesanspro}
+\usepackage[letterpaper, left=0.5in, right=0.5in, top=0.72in, bottom=0.68in,
+            headheight=18pt, headsep=0.2in, footskip=0.34in]{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{fancyhdr}
+\usepackage{array}
+
+\definecolor{pbgreen}{HTML}{3FAE4A}
+\definecolor{pbblue}{HTML}{2F6FD6}
+\definecolor{pbred}{HTML}{D8343C}
+\definecolor{pbyellow}{HTML}{F5C518}
+\definecolor{pbpurple}{HTML}{7D46A8}
+\definecolor{pbpink}{HTML}{F07AB4}
+\definecolor{pbteal}{HTML}{1EA59B}
+\definecolor{pbgray}{HTML}{8C9099}
+\definecolor{slotfill}{gray}{0.975}
+\definecolor{framecol}{gray}{0.6}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\normalsize Week 3 / Shuffle machines / \packetlevel}
+\fancyfoot[L]{\small Bellingham Math Circle / Week 3 / \packetid}
+\fancyfoot[R]{\small \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedright
+\pagenumbering{arabic}
+
+\newcommand{\labelfont}{\small}
+\newcommand{\cardfont}{\normalsize\bfseries}
+
+\newcounter{prob}
+\newcommand{\problem}[1]{\stepcounter{prob}\par\textbf{Problem \theprob:} #1\par}
+% a diagram, centred, with space above it
+\newcommand{\fig}[2][10pt]{\par\vspace{#1}{\centering\input{fig/#2}\par}}

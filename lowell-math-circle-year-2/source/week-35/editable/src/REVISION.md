@@ -1,0 +1,5 @@
+# Week 35 revision verification
+
+Revised all three four-page packets. K–1 compares shortest translations and glides only along the reflection line. Half-turn centers are freely chosen points in the plane. Guide lines are excluded from matching data. The middle-band edit permits a larger repeating part and freely moved footprints; it therefore resolves the editing-convention ambiguity without claiming the former wording was unconditionally impossible. Independent distance-matrix and oriented-periodic-model checks verify the asymmetric motif, requested constructions, shortest glide/translation relationship in the target example, and a larger-repeat edit breaking an old translation. All 12 pages were rendered and inspected. Physical cutout handling and classroom timing remain untested.
+
+Run `bash build.sh` with Python 3, pdfLaTeX/TikZ and Poppler. The build regenerates source, runs both the existing and independent checks, compiles twice, and renders every page. The source uses no machine-specific runtime paths. A fixed default SOURCE_DATE_EPOCH is included for reproducible metadata. These are student PDFs and source/QA records, not an adult guide.

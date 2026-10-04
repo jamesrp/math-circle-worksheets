@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+\usepackage{mc}
+\mcheader{Grades 2--3}
+
+% a framed plan: \plan{height}{text}
+\newcommand{\plan}[2]{%
+  \begin{tikzpicture}
+    \draw[box] (0,0) rectangle (17.6,-#1);
+    \node[anchor=north west, text width=12.6cm, align=left, inner sep=0pt] at (0.35,-0.3) {#2};
+    \node[anchor=north, font=\normalsize] at (15.4,-0.3) {wins every time};
+    \node[anchor=north, font=\normalsize] at (15.4,-1.0) {can lose};
+  \end{tikzpicture}%
+}
+
+\begin{document}
+\fontsize{13}{18}\selectfont
+
+Each game is for two players and a pile of counters. The players take turns taking counters from the pile, and each problem says how many counters a turn may take. Whoever takes the last counter wins.
+
+\vspace{12pt}
+\problem In this game, each turn takes 1 or 2 counters. Play with each starting pile below until you are sure whether you would rather go first or second, and circle your choice.
+
+\vspace{8pt}
+\begin{tikzpicture}
+  \foreach \n [count=\j from 0] in {4,6,7,9,11,12}{%
+    \pgfmathtruncatemacro{\col}{mod(\j,3)}%
+    \pgfmathtruncatemacro{\row}{floor(\j/3)}%
+    \pgfmathsetmacro{\bx}{\col*6.05}%
+    \pgfmathsetmacro{\by}{-\row*5.1}%
+    \draw[box] (\bx,\by) rectangle ++(5.5,-3.4);
+    \counters{\bx+2.75}{\by-1.35}{\n}{5}{0.7}{0.25}
+    \node[font=\large] at (\bx+2.75,\by-2.9) {\n\ counters};
+    \node[anchor=base] at (\bx+1.6,\by-4.25) {first};
+    \node[anchor=base] at (\bx+3.9,\by-4.25) {second};
+  }
+\end{tikzpicture}
+
+\newpage
+\problem Each child below has a plan for the game where a turn takes 1 or 2 counters. Decide whether each plan wins every time, whatever the partner does, and circle your answer. If a plan can lose, write down a game where it loses by listing how many counters are left after each turn.
+
+\vspace{6pt}
+\plan{4.4}{Mia: \textit{I start with 8 counters and go first. I take 2. After that, when my partner takes 1, I take 2, and when my partner takes 2, I take 1.}}
+
+\vspace{4pt}
+\plan{4.4}{Leo: \textit{I start with 10 counters and go first. I always take 2, unless only 1 counter is left.}}
+
+\vspace{4pt}
+\plan{4.4}{Ana: \textit{I start with 9 counters and go second. When my partner takes 1, I take 2, and when my partner takes 2, I take 1.}}
+
+\vspace{4pt}
+\plan{4.4}{Sam: \textit{I start with 11 counters and go first. I take 1. After that, when my partner takes 1, I take 2, and when my partner takes 2, I take 1.}}
+
+\newpage
+\problem Now each turn takes 1, 3, or 4 counters. For every starting pile from 1 to 20 counters, decide whether you would rather go first or second. Write 1st or 2nd under the number.
+
+\vspace{8pt}
+\numtable{1}{20}{10}{1.75}{0.8}{1.2}{0.5}
+
+\vspace{24pt}
+\problem Each turn still takes 1, 3, or 4 counters. For starting piles of 25, 30, 37, and 50 counters, would you rather go first or second? Explain how you know.
+
+\vspace{8pt}
+\begin{tikzpicture}
+  \foreach \n [count=\j from 0] in {25,30,37,50}{%
+    \pgfmathtruncatemacro{\col}{mod(\j,2)}%
+    \pgfmathtruncatemacro{\row}{floor(\j/2)}%
+    \pgfmathsetmacro{\bx}{\col*8.95}%
+    \pgfmathsetmacro{\by}{-\row*5.3}%
+    \draw[box] (\bx,\by) rectangle ++(8.65,-5.0);
+    \node[anchor=base west, font=\large] at (\bx+0.25,\by-0.75) {\n\ counters};
+    \node[anchor=base] at (\bx+5.4,\by-0.75) {first};
+    \node[anchor=base] at (\bx+7.3,\by-0.75) {second};
+  }
+\end{tikzpicture}
+
+\newpage
+\problem Each turn takes 1, 3, or 4 counters. Decide whether each plan below wins every time, whatever the partner does, and circle your answer. If a plan can lose, write down a game where it loses.
+
+\vspace{6pt}
+\plan{6.6}{Kai: \textit{I start with 10 counters and go first. On every turn, I take the largest number I am allowed to.}}
+
+\vspace{4pt}
+\plan{6.6}{Theo: \textit{I start with 7 counters and go second. On every turn, I take the same number my partner just took. If I can't, I take 1.}}
+
+\vspace{4pt}
+\plan{6.6}{Zoe: \textit{I start with 9 counters and go second. After each of my partner's turns, I leave 7 counters or 2 counters if I can. If I can't, I take all the counters that are left.}}
+
+\newpage
+\problem Jon says that when a turn may take 1, 2, or 4 counters, the starting piles where you would rather go second are different from when a turn may take only 1 or 2. Is Jon right? Check every starting pile from 1 to 15 counters.
+
+\vspace{8pt}
+\begin{tikzpicture}
+  \foreach \k in {1,...,15}{%
+    \pgfmathsetmacro{\xx}{2.85+(\k-1)*0.98}%
+    \fill[black!8] (\xx,0) rectangle ++(0.98,-0.75);
+    \draw[cell] (\xx,0) rectangle ++(0.98,-0.75);
+    \node at (\xx+0.49,-0.375) {\k};
+    \draw[cell] (\xx,-0.75) rectangle ++(0.98,-1.1);
+    \draw[cell] (\xx,-1.85) rectangle ++(0.98,-1.1);
+  }
+  \node[anchor=east] at (2.7,-1.3) {take 1 or 2};
+  \node[anchor=east] at (2.7,-2.4) {take 1, 2, or 4};
+\end{tikzpicture}
+
+\vspace{30pt}
+\problem Now there are two piles. Each turn takes 1 or 2 counters from one of the piles, and whoever takes the very last counter wins. For each pair of piles below, circle whether you would rather go first or second. For the two piles of 5, explain why your choice wins every time.
+
+\vspace{8pt}
+\begin{tikzpicture}
+  \foreach \a/\b [count=\j from 0] in {5/5,3/6,1/5,2/5}{%
+    \pgfmathsetmacro{\bx}{\j*4.5}%
+    \draw[box] (\bx,0) rectangle ++(4.1,-3.6);
+    \draw[line width=0.6pt, black!50] (\bx+2.05,-0.3) -- (\bx+2.05,-3.3);
+    \counters{\bx+1.025}{-1.45}{\a}{2}{0.55}{0.2}
+    \counters{\bx+3.075}{-1.45}{\b}{2}{0.55}{0.2}
+    \node at (\bx+1.025,-3.1) {\a};
+    \node at (\bx+3.075,-3.1) {\b};
+    \node[anchor=base] at (\bx+1.05,-4.35) {first};
+    \node[anchor=base] at (\bx+3.0,-4.35) {second};
+  }
+  \draw[box] (0,-5.0) rectangle (17.6,-11.2);
+\end{tikzpicture}
+
+\end{document}

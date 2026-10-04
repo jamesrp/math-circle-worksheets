@@ -1,6 +1,6 @@
 # Week 7: A strategy against every reply
 
-Prepared September 19, 2026. Replaces the earlier depth of F07, retaining the common hands-on theme. Grade bands are entry points. The one-page grades 6–7 extra is optional.
+Revised September 27, 2026, applying the adopted Week 1 classroom guidance. Grade bands are entry points. All v3 revisions and their optional multi-page extras are **unpiloted**. The Week 1 observations are evidence about that session, not observations of Week 7.
 
 ## The mathematical work
 
@@ -8,10 +8,10 @@ Backward induction, recursive W/L classification, modular losing sets, finite-st
 
 | Entry level | Investigation |
 | --- | --- |
-| K–1 · F07-K-v2 | Use both reply branches to prove a trap of three, then maintain groups of three across pairs of turns. |
-| 2–3 · F07-M-v2 | Classify 1/3/4 positions by all legal options, refute greedy play, and find multiple winning moves. |
-| 4–5 · F07-U-v2 | Prove losing remainders 0,2 modulo 7, compare 1/3/5 parity, and explain why finite subtraction rules force eventual repetition. |
-| Extra 6–7 · F07-X-v2 | Compute mex labels and prove two piles lose exactly when their labels agree, exposing the information lost by W/L alone. |
+| K–1 · F07-K-v3 | Use both reply branches to prove a trap of three, then maintain groups of three across pairs of turns. |
+| 2–3 · F07-M-v3 | Classify 1/3/4 positions by all legal options, refute greedy play, and find multiple winning moves. |
+| 4–5 · F07-U-v3 | Prove losing remainders 0,2 modulo 7, compare 1/3/5 parity, and explain why finite subtraction rules force eventual repetition. |
+| Extra 6–7 · F07-X-v3 | Compute mex labels and prove two piles lose exactly when their labels agree, exposing the information lost by W/L alone. |
 
 ## Prerequisites and preparation
 
@@ -19,7 +19,16 @@ K–1: count/remove 1 or 2, alternate turns; no reading; check both replies. Mid
 
 25 counters per group, distinct move cards 1-or-2 / 1,3,4 / 1,3,5, pencils and numbered charts. Two mats for extra two-pile play. For the finite-memory reserve, bring a straight paper strip and a movable paper frame (or two folded scraps) that exposes four consecutive chart entries; no special printing is needed. Preparation: about 10 minutes.
 
-Current roster: K,K,1 / 3,3,3 / 5. Print three K–1 packets (two pages each), three middle (two each), one upper (three): 15 student sheets; add one extra if needed. Facilitator prints separately. US Letter, single-sided, 100%; grids are workspaces rather than calibrated physical templates.
+Current roster: K,K,1 / 3,3,3 / 5. **Start with page 1 for each child: seven student sheets.** Keep remaining pages as continuation masters and copy the next stage only when useful; preserve earlier records beside later tasks. Complete packet lengths are K–1 3, middle 3, upper 4, optional extra 3, facilitator 5 pages. Printing all core packets for the roster would use 22 sheets, but that is not the default session print plan. US Letter, single-sided, 100%; grids are recording spaces rather than calibrated physical templates.
+
+## Concrete work before each new representation
+
+- K–1: play and record several games from 4 and 5 before checking both replies from 3 and 6; then test first/second choices and grouped-counter replies through 12.
+- Grades 2–3: play each of 5, 6, and 7 twice, list every move from 2 and 4, build a small W/L chart with all legal destinations, then compare every move from 8 and 10 and test a strategy card.
+- Grades 4–5: play before classifying, record W with a concrete winning move, compare all moves from contrasting piles, group those same piles in sevens, then use a remainder table in a game. A rule change and actual four-cell window extensions each receive their own tasks.
+- Extra: play contrasting two-pile positions before introducing g-labels; list legal destinations and reachable labels for every computed case; then test equalization and every reply from (4,6). The mex proof follows these checks.
+
+Give one page at a time and choose a continuation by demonstrated readiness. Proof questions and hints remain in the facilitator guide, including complete arguments supporting the finite checks. Each student page now uses only the common header/footer and numbered problems with essential rules, next actions, diagrams, and recording space.
 
 ## Default 60-minute flow, adjusted to the children
 
@@ -65,4 +74,10 @@ Run **python3 plans/verify-week-07.py**. Computation verifies finite instances; 
 
 Lowell Handout 2.3 and 3.1–3.3 used 1-through-3 and 1-through-5. Handout 3.1 incorrectly labels 5 losing after identifying a move to losing 4. Do not retain that error. JRMF already contains 1/3/4; it is not our invention. Reserve misère play, more move sets, and three-pile XOR for later years.
 
-Status: **prepared, not taught**. Record exact instances, claims proved, hints, and extra branches in the shared use log. Untouched reserves remain available. [Print/source index](../lowell-math-circle-year-2/source/week-07/README.md) and [review](../lowell-math-circle-year-2/source/week-07/REVIEW.md).
+Status: **v3 prepared, unpiloted; no Week 7 classroom observations supplied**. Record exact instances, claims proved, hints, and extra branches in the shared use log. Untouched reserves remain available. [Print/source index](../lowell-math-circle-year-2/source/week-07/README.md) and [review](../lowell-math-circle-year-2/source/week-07/REVIEW.md).
+
+## Review after first use
+
+Record the exact problems attempted, examples built, claims explained, prompts needing repeated adult rescue, time spent recording versus acting, and what children wanted to continue. Distinguish observations from hypotheses and proposed changes. A completed chart is not evidence that its general argument was established; prepared reserves remain unused until recorded otherwise. See the [Week 1 classroom review](week-01-classroom-review.md) for the actual observations behind this revision.
+
+Source distinction: *Math Circle by the Bay*, printed pp. ix–x supports flexible pace, manipulatives, and explanations; Rozhkovskaya, Lessons 3, 7, and 8, “At the lesson,” supports attempts before tables, checking legal actions, and adjusting recording. Our exact added examples, worksheet format, and common launch respond to the organizer's guidance.
