@@ -1,0 +1,35 @@
+1. Last counter loses: is it the ordinary pattern shifted up by one?
+   move lists tested: 255 (all subsets of 1..9 with 1-4 moves), piles 0..60
+   4-5 page rule (stuck player loses): shift fails for 0 lists []
+   textbook misere (stuck player wins): shift fails for 162 lists; any containing 1? []
+   S=(1, 3, 4): ordinary [0, 2, 7, 9, 14, 16]; last-counter-loses [1, 3, 8, 10, 15, 17]
+   S=(1, 4): ordinary [0, 2, 5, 7, 10, 12, 15, 17, 20]; last-counter-loses [1, 3, 6, 8, 11, 13, 16, 18]
+   S=(2, 3): ordinary [0, 1, 5, 6, 10, 11, 15, 16, 20]; last-counter-loses [1, 2, 6, 7, 11, 12, 16, 17]
+   S=(1, 3, 5): ordinary [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]; last-counter-loses [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+   S=(2, 5, 6): ordinary [0, 1, 4, 8, 11, 12, 15, 19]; last-counter-loses [1, 2, 5, 9, 12, 13, 16, 20]
+   Two piles, take 1 or 2 from one pile, last counter loses:
+     (1,1): mover loses? False
+     (2,2): mover loses? True
+     (1,4): mover loses? False
+     (0,1): mover loses? True
+     (2,1): mover loses? False
+     two-pile last-counter-loses squares to leave, piles up to 6: [(0, 1), (0, 4), (1, 3), (1, 6), (2, 2), (2, 5), (3, 4), (4, 6), (5, 5)]
+
+2. Does every outcome pattern repeat from the start?
+   move lists (subsets of 1..9, 1-4 moves) whose pattern only repeats after a start-up: 9
+     S=(1, 6, 9): repeats every 5 only from square 10; squares to leave up to 30: [0, 2, 4, 7, 12, 14, 17, 19, 22, 24, 27, 29]
+     S=(2, 4, 7): repeats every 3 only from square 4; squares to leave up to 30: [0, 1, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+     S=(2, 7, 8): repeats every 5 only from square 10; squares to leave up to 30: [0, 1, 4, 5, 10, 14, 15, 19, 20, 24, 25, 29, 30]
+     S=(2, 8, 9): repeats every 11 only from square 11; squares to leave up to 30: [0, 1, 4, 5, 11, 15, 16, 21, 22, 26, 27]
+     S=(3, 5, 9): repeats every 2 only from square 11; squares to leave up to 30: [0, 1, 2, 8, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
+     S=(3, 7, 8): repeats every 5 only from square 8; squares to leave up to 30: [0, 1, 2, 6, 11, 12, 16, 17, 21, 22, 26, 27]
+     S=(3, 7, 9): repeats every 2 only from square 11; squares to leave up to 30: [0, 1, 2, 6, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
+     S=(2, 4, 5, 8): repeats every 3 only from square 5; squares to leave up to 30: [0, 1, 7, 10, 13, 16, 19, 22, 25, 28]
+     S=(2, 4, 6, 9): repeats every 8 only from square 4; squares to leave up to 30: [0, 1, 8, 11, 16, 19, 24, 27]
+   packet rule S=(1, 2): (start, period) = (0, 3)
+   packet rule S=(1, 2, 3): (start, period) = (0, 4)
+   packet rule S=(1, 3, 4): (start, period) = (0, 7)
+   packet rule S=(1, 4): (start, period) = (0, 5)
+   packet rule S=(2, 3): (start, period) = (0, 5)
+   packet rule S=(1, 3, 5): (start, period) = (0, 2)
+   packet rule S=(2, 5, 6): (start, period) = (0, 11)
