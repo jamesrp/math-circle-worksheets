@@ -1,0 +1,202 @@
+== Solver results (exhaustive adaptive search)
+  n=2: 4 secrets; fewest tests that always identify = 2; fewest that always end on a full score = 3
+  n=3: 8 secrets; fewest tests that always identify = 3; fewest that always end on a full score = 4
+  n=4: 16 secrets; fewest tests that always identify = 4; fewest that always end on a full score = 5
+  n=5: identify in 3 always? False; in 4? True
+  ok       second method: 1 test cannot do 2 counters
+  ok       second method: 2 tests cannot do 3 counters
+  ok       second method: 3 tests cannot do 4 counters
+  ok       second method: 2/3/4 tests do 2/3/4 counters
+== Block drawings: number of sides as drawn (K-1 p2): {'green triangle': 3, 'blue rhombus': 4, 'red trapezoid': 4, 'yellow hexagon': 6, 'purple chevron': 6, 'pink right triangle': 3, 'teal kite': 4, 'gray dart': 4}
+  ok       k-1 p1: triangle and hexagon drawn regular, equal x/y scale
+  ok       k-1 p1: chevron = 2 rhombi in area, concave, 6 sides
+  ok       k-1 p1: same side counts as K-1 p2
+  ok       k-1 p2: triangle and hexagon drawn regular, equal x/y scale
+  ok       k-1 p2: chevron = 2 rhombi in area, concave, 6 sides
+  ok       k-1 p2: same side counts as K-1 p2
+  ok       grades-2-3 p1: triangle and hexagon drawn regular, equal x/y scale
+  ok       grades-2-3 p1: chevron = 2 rhombi in area, concave, 6 sides
+  ok       grades-2-3 p1: same side counts as K-1 p2
+  ok       grades-2-3 p2: triangle and hexagon drawn regular, equal x/y scale
+  ok       grades-2-3 p2: chevron = 2 rhombi in area, concave, 6 sides
+  ok       grades-2-3 p2: same side counts as K-1 p2
+== K-1
+ P1: four blocks, two questions
+  ok       K-1 P1 two questions always suffice for 4 (exhaustive split search)
+  ok       guide K-1 P1 "Does it have four sides?" splits the four 2/2
+  ok       guide says: "Yes leaves rhombus and trapezoid; no leaves triangle and hexagon."
+ P2: pointing only
+  ok       K-1 P2 / 2-3 P1 pointing only: worst case 7 questions before sure
+  ok       guide says: "After seven "no" answers one block is left, so you are sure without asking."
+ P3: eight blocks, three questions
+  ok       K-1 P3 three questions suffice for 8; two never
+  ok       guide K-1 P3 plan (top row?, four sides?, point) ends at one block for all 8: {'green triangle': 'YNY', 'blue rhombus': 'YYY', 'red trapezoid': 'YYN', 'yellow hexagon': 'YNN', 'purple chevron': 'NNY', 'pink right triangle': 'NNN', 'teal kite': 'NYY', 'gray dart': 'NYN'}
+  ok       guide says: "Is it in the top row of the picture?" (triangle, rhombus, trapezoid, hexagon). "Does it ha..."
+ P4: two questions
+  ok       K-1 P4 / 2-3 P3: every adaptive 2-question plan (all 256 subsets each time) leaves >= 2 blocks for some secret
+  ok       ... and 3 questions can leave 1
+  ok       guide says: "Whatever the first question is, the yes pile or the no pile has at least four blocks. The ..."
+ P5, P8: counting secrets
+  ok       K-1 P5: 4 two-counter secrets; trays on p3 hold 6
+  ok       K-1 P8: 8 three-counter secrets; trays on p6 hold 10
+  ok       guide K-1 P8 hint: 1, 3, 3, 1 secrets with 3, 2, 1, 0 reds
+ P6: two-counter game
+  ok       K-1 P6 one test never always enough (every test leaves a group of 2)
+  ok       K-1 P6 two tests always enough
+  ok       guide: every test has two secrets that score 1
+  ok       guide: after RR scores 1, the second test must have one red and one yellow: ['RY', 'YR']
+  ok       guide: RR scoring 0 or 2 settles it at once
+  ok       guide says: "Test red-red: 2 means red-red; 0 means yellow-yellow; 1 means red-yellow or yellow-red, so..."
+  ok       K-1 p4 board: 2 slots secret/copy, 2 triangle outlines, 3 test rows with score boxes
+ P7: drawn tests
+  ok       K-1 P7 drawn counters: fill colour matches letter on every counter
+  ok       K-1 P7 row 1 [['RR', 2]]: answer ['RR'] (two trays per row)
+  ok       K-1 P7 row 2 [['RY', 0]]: answer ['YR'] (two trays per row)
+  ok       K-1 P7 row 3 [['RR', 1]]: answer ['RY', 'YR'] (two trays per row)
+  ok       K-1 P7 row 4 [['RR', 1], ['YR', 0]]: answer ['RY'] (two trays per row)
+  ok       K-1 P7 row 5 [['RY', 1], ['RR', 0]]: answer ['YY'] (two trays per row)
+  ok       guide says: "Row 1 (RR scores 2): RR. Row 2 (RY scores 0): YR. Row 3 (RR scores 1): RY and YR, both tra..."
+ P9: three-counter game
+  ok       K-1 P9 three tests always enough
+  ok       guide K-1 P9 rule: YRR/RYR score up by one = yellow there, down by one = red
+  ok       guide method RRR, YRR, RYR separates all 8 (fixed in advance)
+  ok       K-1 p7 board: 3 slots, 3 outlines, 4 test rows
+== Grades 2-3
+  ok       2-3 P1 naming one block: at most 7
+  ok       guide says: "Naming one block at a time: at most 7 (the round ends when you are sure; 8 if they also as..."
+ P2: the guide's three fixed questions
+  ok       2-3 P2 guide patterns match the drawn shapes and colours: {'green triangle': 'YNN', 'blue rhombus': 'YYN', 'red trapezoid': 'YYY', 'yellow hexagon': 'YNY', 'purple chevron': 'NNY', 'pink right triangle': 'NNN', 'teal kite': 'NYN', 'gray dart': 'NYY'}
+  ok       2-3 P2 guide patterns all different
+  ok       guide says: "Q1 "Is it the triangle, rhombus, trapezoid or hexagon?" (top row of the picture)"
+  NOTE     2-3 P2 picture is ONE row of eight blocks, so the guide's "(top row of the picture)" has no top row on that page (the two-row picture is on 2-3 p1): green triangle blue rhombus red trapezoid yellow hexagon purple chevron pink right triangle teal kite gray dart
+ P3
+  ok       2-3 P3 two questions never always enough
+ P4, P5: two counters
+  ok       2-3 P4 two tests suffice; RR then RY
+  ok       guide 2-3 P5 fixed pair RR, RY vectors: {'RR': (2, 1), 'RY': (1, 2), 'YR': (1, 0), 'YY': (0, 1)}
+  ok       guide 2-3 P5: the two one-turn rows of any test both score 1
+  ok       2-3 p3 board: 2 counters, 3 test rows
+  ok       2-3 p4 record tables: 4 tables x 5 rows x (2+1) cells
+ P6
+  ok       2-3 P6 three tests suffice, two never
+  ok       2-3 p5 board: 3 counters, 4 test rows
+ P7: finished games (read from PDF)
+  ok       2-3 P7 game 1 [['RRR', 2]]: ['RRY', 'RYR', 'YRR']
+  ok       2-3 P7 game 2 [['RYR', 1], ['YYR', 2]]: ['YRR', 'YYY']
+  ok       2-3 P7 game 3 [['RYY', 2], ['YRY', 2], ['RRR', 2]]: ['RRY']
+  ok       2-3 P7 game 4 [['RRY', 2], ['RYR', 2], ['YRR', 2]]: ['RRR']
+  ok       2-3 P7 game 5 [['RRR', 3], ['RYR', 1]]: []
+  ok       guide 2-3 P7 game 3: each row alone leaves 3, each pair leaves 2, so all three needed: {1: [3, 3, 3], 2: [2, 2, 2]}
+  ok       guide says: "Game 5 (RRR 3, RYR 1): none. RRR scoring 3 means the secret is RRR, and then RYR would sco..."
+  ok       2-3 p6 cell fills: R cells pink, Y cells yellow
+ P8: lookup table in the guide PDF
+  ok       guide p7 score table RRR/YRR/RYR: all 8 rows correct (layout text): [('RRR', '3', '2', '2'), ('RRY', '2', '1', '1'), ('RYR', '2', '1', '3'), ('YRR', '2', '3', '1'), ('RYY', '1', '0', '2'), ('YRY', '1', '2', '0'), ('YYR', '1', '2', '2'), ('YYY', '0', '1', '1')]
+ P9: ending on a full score
+  ok       2-3 P9: the breaker can always end by the 4th test
+  ok       guide 2-3 P9: ending by the 3rd test cannot be promised
+ P10, P11: four counters
+  ok       2-3 P10 four tests suffice, three never
+  ok       guide 2-3 P11 RRRR, YRRR, RYRR, RRYR separates all 16
+  ok       guide 2-3 P11: all red plus one test per place (5 tests) also works
+  ok       guide says: "Testing every place separately without the count takes 5."
+  NOTE     guide 2-3 P11 "Testing every place separately without the count takes 5": the four one-place tests YRRR, RYRR, RRYR, RRRY alone (no all-red test) separate all 16 secrets in 4 tests: RRRR -> (3, 3, 3, 3), YYYY -> (1, 1, 1, 1), RYRY -> (1, 3, 1, 3); higher scores mark the yellow places
+  ok       2-3 p9 board: 4 counters, 4 test rows
+== Grades 4-5
+  ok       4-5 P1: 1-16 needs 4; 1-20 needs 5 (exhaustive split search)
+  ok       guide 4-5 P1 chain 20, 10, 5, 3, 2, 1 (worst side each time)
+  ok       guide: 2^3 = 8 < 16 and 2^4 = 16 < 20; 7 for 1-100 (64 < 100)
+ P3: finished games (read from PDF)
+  ok       4-5 P3 game 1 [['RRY', 2], ['RYR', 2], ['YRR', 2]]: ['RRR']
+  ok       4-5 P3 game 2 [['RRR', 2], ['RYY', 2]]: ['RRY', 'RYR']
+  ok       4-5 P3 game 3 [['RRYY', 3], ['YRYR', 1], ['RRRY', 2]]: ['RYYY']
+  ok       4-5 P3 game 4 [['RRYY', 2], ['RYRY', 2], ['RYYR', 2]]: ['RRRR', 'YYYY']
+  ok       4-5 P3 game 5 [['RYRY', 1], ['RRYY', 3], ['YYYY', 2]]: []
+  ok       guide 4-5 P3 game 5: all three tests have an even number of Y
+  ok       guide parity rule: score parity = parity of Y in secret when the test has an even number of Y (n=4, all pairs)
+  ok       guide child reason: changing two counters of a test changes any score by 0 or 2
+  ok       guide says: "Game 4 (RRYY 2, RYRY 2, RYYR 2): RRRR and YYYY."
+ P4-P6
+  ok       4-5 P4 three-counter method in 3 tests exists
+  ok       4-5 P6 four-counter method in 4 tests exists
+  ok       guide 4-5 P6: each later score is one more (yellow) or one less (red) than the first
+ P7
+  ok       4-5 P7: turning over both counters in one place never changes the score (n = 1..5, every place)
+ P8
+  ok       4-5 P8 one test cannot do two counters
+  ok       4-5 P8 two tests cannot do three counters (adaptive)
+  ok       guide: 4*4 = 16 >= 8, so counting alone does not settle it
+  ok       guide: turning over one counter changes a row's score on any test by exactly 1 (n = 2..4)
+  ok       guide says: "Turning over one counter changes a row's score on any other test by exactly 1."
+ P9: the guide's argument, checked case by case
+  ok       guide formula s - 2 + 2|Q n D| for the six two-turn rows (all 16 first tests, all 16 later tests)
+  ok       guide splits by |D| = 0..4: 6; 3+3; 1+4+1; 3+3; 6: {0: {(6,)}, 1: {(3, 3)}, 2: {(1, 1, 4)}, 3: {(3, 3)}, 4: {(6,)}}
+  ok       guide: every group of >= 3 left after test 2 keeps two secrets together under any test 3
+  ok       guide: "never two, two and two"
+  ok       guide says: "As |D| = 0, 1, 2, 3, 4, test 2 splits the six as 6; 3+3; 1+4+1; 3+3; 6, so a group of 3 or..."
+  NOTE     guide 4-5 P9 "so a group of 3 or 4 is left": for |D| = 0 or 4 the group left is all six, a case the next sentences do not treat (three values for six rows still leaves two together)
+ P10
+  ok       4-5 P10 three counters: 4 tests to be sure of ending; four counters: 5
+  ok       guide reduction: ending by test k implies knowing after k-1 (n = 2..4, k = 1..n+1)
+  ok       4-5 p9 record tables: 2 three-counter and 2 four-counter tables of 6 rows
+== Guide: overview, materials, launch, section 5
+  ok       guide says: "One wrong score makes a game impossible to solve"
+  info     n=2, the guide's way, stopping when one secret fits: one score off by 1 -> fits no secret 4 times, fits one WRONG secret 4 times, still right 0 times
+  info     n=3, the guide's way, stopping when one secret fits: one score off by 1 -> fits no secret 24 times, fits one WRONG secret 6 times, still right 0 times
+  info     n=4, the guide's way, stopping when one secret fits: one score off by 1 -> fits no secret 84 times, fits one WRONG secret 8 times, still right 0 times
+  NOTE     guide overview "One wrong score makes a game impossible to solve": with the guide's own ways, a wrong score often leaves exactly one WRONG secret fitting: examples (n, secret, test misreported, by): [(2, 'RY', 1, -1), (2, 'RY', 1, 1), (2, 'YR', 1, -1), (2, 'YR', 1, 1)]
+  ok       full boards take 10, 18, 24 counters
+  ok       K-1 pair 45 >= eight 3-counter secrets (24) + full 3-counter board (18) = 42
+  ok       counter totals: 2*45+10 = 100, 2*30+10 = 70, 30+10+10 = 50, sum 220
+  ok       green triangles: 2*3+2 = 8, 2*4+2 = 10, 4+2 = 6, total 24
+  ok       folders 3+3+2 = 8, pencils 5+5+4 = 14, whiteboards 2+2+3 = 7
+  ok       guide says: "a cut two-counter board (an extra copy of 2-3 p. 3), one folder, 6 counters, 2 green trian..."
+  ok       guide says: "Take the copy and the triangles away. A second child makes the next test; score it the sam..."
+  NOTE     guide launch: 6 counters are too few for the scripted second test: secret 2 + first test row 2 (kept) + second test row 2 + copy of the second test 2 = 8
+  ok       launch: secret RY, test RR scores 1 under column 1; RY and YR fit
+  ok       section 5: smallest k with (n+1)^k >= 2^n is 2 for n = 2, 3, 4
+  ok       section 5: true minimum 2, 3, 4; full-score ending 3, 4, 5
+  ok       section 5: n one-turn neighbours all score n-1 and any later test gives them at most two values
+  ok       section 5: parity rule d(t,s) = w(t)+w(s) mod 2 (n = 1..5)
+  ok       section 5: fixed tests RRRRR, RRRYY, RRYRY, RYRRY give all 32 secrets different scores
+  ok       section 5: five counters need 4 (3 adaptive tests are not enough)
+  ok       section 5: smallest fixed set for five counters is 4
+  ok       section 5: with the red count known, the score gives how many of the test's yellow places are yellow
+  ok       section 5 / attention: 2^6 = 64 < 100 <= 128 = 2^7
+== Guide page references and board pages
+  ok       guide "Problem N page P" lines for k-1 match the PDF: [(1, 1), (2, 1), (3, 2), (4, 2), (5, 3), (6, 4), (7, 5), (8, 6), (9, 7)]
+  ok       k-1: problems numbered 1..9 consecutively
+  info     k-1: headers {'Week 6 / Code breaking / K–1'}; footers {'Bellingham Math Circle / Week 6 / F06-K-v4'}
+  ok       guide "Problem N page P" lines for grades-2-3 match the PDF: [(1, 1), (2, 2), (3, 2), (4, 3), (5, 4), (6, 5), (7, 6), (8, 7), (9, 8), (10, 9), (11, 10)]
+  ok       grades-2-3: problems numbered 1..11 consecutively
+  info     grades-2-3: headers {'Week 6 / Code breaking / Grades 2–3'}; footers {'Bellingham Math Circle / Week 6 / F06-M-v4'}
+  ok       guide "Problem N page P" lines for grades-4-5 match the PDF: [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7), (8, 7), (9, 8), (10, 9)]
+  ok       grades-4-5: problems numbered 1..10 consecutively
+  info     grades-4-5: headers {'Week 6 / Code breaking / Grades 4–5'}; footers {'Bellingham Math Circle / Week 6 / F06-U-v4'}
+  ok       guide set-up list of code-board pages (K-1 pp. 4, 7; 2-3 pp. 3, 5, 9; 4-5 pp. 2, 5): {'k-1': [4, 7], 'grades-2-3': [3, 5, 9], 'grades-4-5': [2, 5]}
+  ok       guide says: "Set up every code board page (K-1 pp. 4, 7; 2-3 pp. 3, 5, 9; 4-5 pp. 2, 5)."
+  ok       guide says: "the slots must be 1 inch for a counter, and the triangle outlines must fit a green triangl..."
+  ok       guide says: "A counter fits inside a printed slot and a green triangle inside a printed outline. If not..."
+  NOTE     triangle outlines on every board are equilateral with side exactly the green block's 1 in (path centre, 0.7 pt line), so a 1 in triangle covers the outline rather than fitting inside it: sides [1.0] in
+== Return visit (F06-RV-v1)
+  ok       RV P1: one weighing cannot find 1 of 9; two can (search over actual card sets)
+  ok       RV guide plan 123|456 then one-each identifies all 9
+  ok       RV guide: 27 labels need exactly 3
+  info     equal-pan weighings never cost more than ceil(log3 N) for N = 1..30: True
+  ok       RV guide says: "an equal-pan constraint may forbid a desired split, though uniform powers of three avoid t..."
+  ok       RV P2: least total 14; every optimal plan has depths A1 B2 C3 D3, worst case 3: (14, [(1, 2, 3, 3), (1, 2, 3, 3)])
+  ok       RV P2: tree shapes with 4 leaves have depth profiles {2,2,2,2} and {1,2,3,3} only
+  ok       RV P2: balanced plan costs 16
+  info     Book 1: uniquely decodable (Sardinas-Patterson) = False; collisions among messages of length <= 8: 5661; first [(('B',), ('A', 'C'), 'RY')]
+  info     Book 2: uniquely decodable (Sardinas-Patterson) = True; collisions among messages of length <= 8: 0; first []
+  info     Book 3: uniquely decodable (Sardinas-Patterson) = True; collisions among messages of length <= 8: 0; first []
+  ok       RV P3: only Book 1 has collisions; B and AC both give RY
+  ok       RV p3 example: M=YR, N=R gives Y R | R then Y R R, counter colours match letters
+  ok       RV p1 pan boxes 3.05 x 1.35 in, as the guide says
+
+0 MISMATCH lines; 6 NOTE lines
+  NOTE: 2-3 P2 picture is ONE row of eight blocks, so the guide's "(top row of the picture)" has no top row on that page (the two-row picture is on 2-3 p1)
+  NOTE: guide 2-3 P11 "Testing every place separately without the count takes 5": the four one-place tests YRRR, RYRR, RRYR, RRRY alone (no all-red test) separate all 16 secrets in 4 tests
+  NOTE: guide 4-5 P9 "so a group of 3 or 4 is left": for |D| = 0 or 4 the group left is all six, a case the next sentences do not treat (three values for six rows still leaves two together)
+  NOTE: guide overview "One wrong score makes a game impossible to solve": with the guide's own ways, a wrong score often leaves exactly one WRONG secret fitting
+  NOTE: guide launch: 6 counters are too few for the scripted second test
+  NOTE: triangle outlines on every board are equilateral with side exactly the green block's 1 in (path centre, 0.7 pt line), so a 1 in triangle covers the outline rather than fitting inside it
