@@ -1,0 +1,51 @@
+== P1-P2 ordered 3/4 words
+     7: 2 words ['34', '43']
+     10: 3 words ['334', '343', '433']
+     11: 3 words ['344', '434', '443']
+     14: 6 words ['3344', '3434', '3443', '4334', '4343', '4433']
+     18: 11 words ['333333', '33444', '34344', '34434', '34443', '43344', '43434', '43443', '44334', '44343', '44433']
+PASS launch row 4,3,4 is a word for 11
+PASS P1 word lists match the guide
+PASS P1 six answer slots per column suffice (largest count 6, for 14)
+PASS P2: 18 has 11 words: 333333 plus the ten listed; page has 12 slots
+PASS guide recurrence f(n)=f(n-3)+f(n-4), f(0)=1, negatives 0, matches brute force n<40
+PASS overview counts 7,10,14,18 -> 2,3,6,11
+PASS binomial alternative sum C(x+y,x) agrees
+PASS last-rod rule holds for any distinct a<b (a,b<=6, n<25)
+PASS a=1,b=2 counts 1,1,2,3,5,8 for lengths 0..5
+
+== P3-P4 sealed box (four 3s, three 4s)
+PASS printed used/unused rows together are the box
+     box totals [0, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 24]; gaps in 0..24 [1, 2, 5, 19, 22, 23]
+PASS guide reachable/gap lists
+PASS P3 6: unique stock choice [(2, 0)], unused total 18
+PASS P3 9: unique stock choice [(3, 0)], unused total 15
+PASS P3 10: unique stock choice [(2, 1)], unused total 14
+PASS P3 19: impossible from the box; complement 5 is not a box total either
+PASS P3 22: impossible from the box; complement 2 is not a box total either
+PASS P4 complement symmetry n <-> 24-n
+PASS P4 equal rows: subsets of total 12 are [(0, 3), (4, 0)] (all 3s vs all 4s)
+PASS with unlimited rods 19 and 22 would be possible: the box matters
+
+== P5-P6 added rods
+PASS 3/5 gaps 1,2,4,7
+PASS P5 added 8: new targets []
+PASS P5 added 7: new targets [7]
+PASS P5 added 4: new targets [4, 7]
+PASS theorem: new c adds no target iff c already reachable (a<b<=8, c<25)
+     fewest rods {(16, (3, 5)): 4, (16, (3, 5, 8)): 2, (24, (3, 5)): 6, (24, (3, 5, 8)): 3}
+PASS P6 minima 4,2,6,3 as in guide
+PASS P6 builds 3+3+5+5 and 3+3+3+5+5+5
+PASS P6 guide: five 3/5 rods sum to 15+2y (odd); four rods at most 20
+PASS finite counterexample: one 3, one 5, one 8 make 16
+PASS finite stock {3,5} alone cannot make 16
+
+== Kit sufficiency (ten 3s, ten 4s, six 5s, three 7s, three 8s)
+PASS [3, 4] target 18: a fewest-rod build fits the kit: [(2, 3)]
+PASS [3, 5] target 16: a fewest-rod build fits the kit: [(2, 2)]
+PASS [3, 5, 8] target 16: a fewest-rod build fits the kit: [(0, 0, 2)]
+PASS [3, 5] target 24: a fewest-rod build fits the kit: [(3, 3)]
+PASS [3, 5, 8] target 24: a fewest-rod build fits the kit: [(0, 0, 3)]
+PASS every multiset for 18 (P2) fits ten 3s/ten 4s
+
+35 checks, 0 failures
