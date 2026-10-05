@@ -8,11 +8,11 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Review card format, calibrated on Weeks 1, 2 and 15; mark Week 15 piloted (plan item 3) | Claude, Review card calibration thread | `claude/review-card-calibration-2n0xch` | done: [plans/review/](plans/review/README.md) |
 | Review card: Week 4, stars and code wheels (wave 1) | | | open |
 | Review card: Week 7, take-away games (wave 1) | | | open |
-| Review card: Week 13, route packing (wave 1) | | | open |
+| Review card: Week 13, route packing (wave 1) | Claude, Route packing and cheapest networks thread | `claude/wave1-networks-kqynkj` | in progress |
 | Review card: Week 18, error-correcting codebooks (wave 1) | | | open |
 | Review card: Week 23, sorting networks (wave 1) | Claude, Sorting networks thread | `claude/wave1-sorting-networks-srwvtc` | in progress |
 | Review card: Week 25, hidden pictures (wave 1) | | | open |
-| Review card: Week 53, cheapest networks (wave 1) | | | open |
+| Review card: Week 53, cheapest networks (wave 1) | Claude, Route packing and cheapest networks thread | `claude/wave1-networks-kqynkj` | in progress |
 | Review card: Week 62, scheduling as colouring (wave 1) | | | open |
 | Review cards: the weeks James will teach next | | | open; ask James which |
 | Review cards: the remaining themes | | | open; split into lines when claimed |
