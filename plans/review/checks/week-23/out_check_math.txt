@@ -1,0 +1,96 @@
+=== General facts used throughout
+ok   3-lane minimum is 3; all 6 three-bar sorters: [((1, 2), (1, 3), (2, 3)), ((1, 2), (2, 3), (1, 2)), ((1, 3), (1, 2), (2, 3)), ((1, 3), (2, 3), (1, 2)), ((2, 3), (1, 2), (2, 3)), ((2, 3), (1, 3), (1, 2))]
+ok   4-lane minimum is 5 (all 6^4 = 1296 four-bar lists fail); 12 five-bar sorters
+ok   4-lane neighbour-only minimum is 6 (all 3^5 = 243 five-bar lists fail); 16 six-bar sorters
+ok   guide machines S3, Q, S4, N4 are sorters
+ok   zero-one principle: for all 121 lists of <= 4 bars on 3 lanes, "sorts all 8 binary" <=> "sorts all 27 inputs with repeats"
+ok   zero-one principle: for all 9331 lists of <= 5 bars on 4 lanes, "sorts all 16 binary" <=> "sorts all 256 inputs with repeats"
+ok   3 lanes, <= 4 bars: no record is shared by two sorted distinct starts; records never exceed 2^k
+ok   4 lanes, <= 5 bars: no record is shared by two sorted distinct starts; records never exceed 2^k
+
+=== K-1
+ok   P1 machine read from PDF [((1, 2), (2, 3))]
+P1 pictured starts (top->bottom lane), row by row: ['123', '132', '213', '231', '312', '321']
+ok   P1 pictures are the six orders in the guide's order
+P1 outcomes under T: {'123': '123', '132': '123', '213': '123', '231': '213', '312': '123', '321': '213'}
+ok   P1 circled: 123 132 213 312; 231,321 -> 213
+ok   guide p4 table (After T / After S3)
+P2: minimum 3 (see general facts)
+ok   P3 machines read ((1, 2), (2, 3), (1, 2)) / ((1, 2), (1, 2), (2, 3))
+ok   P3 failures: upper []; lower [('231', '213'), ('321', '213')]
+ok   P4 card sets read ['0dots', '0dots', '1dots', '0dots', '1dots', '1dots']
+P4 left-not-right: shortest 2 bars; all such: [((1, 2), (2, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3))]
+P4 right-not-left: shortest 2 bars; all such: [((1, 2), (1, 3)), ((1, 3), (1, 2)), ((2, 3), (1, 2))]
+ok   guide P4: T sorts 001 set, fails only 110 -> 101
+ok   guide P4: R sorts 011 set, fails only 100 -> 010
+ok   P5 machines read [((1, 2), (2, 3)), ((2, 3), (1, 2)), ((1, 3), (1, 2))]
+ok   P5 ((1, 2), (2, 3)): fails as printed; working last bars [(1, 2)] (guide: (1, 2), unique)
+ok   P5 ((2, 3), (1, 2)): fails as printed; working last bars [(2, 3)] (guide: (2, 3), unique)
+ok   P5 ((1, 3), (1, 2)): fails as printed; working last bars [(2, 3)] (guide: (2, 3), unique)
+P6: minimum 5 (see general facts)
+
+=== Grades 2-3
+ok   P1 machines read [((1, 2), (2, 3)), ((2, 3), (1, 2)), ((1, 3), (1, 2), (2, 3))]
+  ((1, 2), (2, 3)): sorts ['123', '132', '213', '312']; fails [('231', '213'), ('321', '213')]
+  ((2, 3), (1, 2)): sorts ['123', '132', '213', '231']; fails [('312', '132'), ('321', '132')]
+  ((1, 3), (1, 2), (2, 3)): sorts ['123', '132', '213', '231', '312', '321']; fails []
+ok   guide P1: R sorts 123,132,213,231; 312,321 -> 132
+ok   guide P2 table: nine distinct lists, each stated start fails with the stated final order
+ok   P3 machines read [((1, 2), (3, 4), (1, 3), (2, 4)), ((1, 3), (2, 4), (1, 2), (3, 4)), ((1, 2), (3, 4), (1, 4), (2, 3))]
+  P3 ((1, 2), (3, 4), (1, 3), (2, 4)): sorts as printed? False; working last bars [(2, 3)]
+  P3 ((1, 3), (2, 4), (1, 2), (3, 4)): sorts as printed? False; working last bars [(2, 3)]
+  P3 ((1, 2), (3, 4), (1, 4), (2, 3)): sorts as printed? False; working last bars []
+ok   P3: (2,3), (2,3), impossible
+ok   guide P3 witness 2413 -> 2143 on the bottom machine
+  P3 bottom: two-bar repairs exist: [((1, 2), (3, 4)), ((3, 4), (1, 2))]... (2)
+ok   P4 machine read ((1, 2), (1, 3), (2, 3), (2, 4))
+ok   P4 cards 0 0 1 1
+ok   P4: all 6 arrangements of 0011 sort
+P4: binary failures of W (start, finish): [('0010', '0010'), ('0100', '0010'), ('1000', '0010'), ('1110', '1011')]
+ok   P4 failures computed
+FAIL guide p7: "1110 finishes 1101"
+    trace 1110: ['1110', '1110', '1110', '1110', '1011']
+ok   guide P5 S4 16-row audit table
+ok   N4 sorts all 16 binary starts
+ok   guide N4 trace of 4321: ['4321', '3421', '3241', '3214', '2314', '2134', '1234']
+
+=== Grades 4-5
+ok   P1 machines read [((1, 2), (2, 3)), ((1, 3), (1, 2), (2, 3))]
+  P1 ((1, 2), (2, 3)) on (1, 2, 3): fails [('231', '213'), ('321', '213')]
+  P1 ((1, 2), (2, 3)) on (1, 1, 3): fails []
+  P1 ((1, 2), (2, 3)) on (1, 3, 3): fails [('331', '313')]
+  P1 ((1, 3), (1, 2), (2, 3)) on (1, 2, 3): fails []
+  P1 ((1, 3), (1, 2), (2, 3)) on (1, 1, 3): fails []
+  P1 ((1, 3), (1, 2), (2, 3)) on (1, 3, 3): fails []
+ok   guide P1: T sorts 113 set; only 331 fails (-> 313)
+ok   P3 starts read [(-2, 8, 5, 8), (6, 2, 9, 4), (4, 4, 4, 4)]
+ok   P3 example t=4: 3 7 4 -> 0 1 0
+  P3 (-2, 8, 5, 8): rows over all t ['1111', '0111', '0101', '0000']; using only t = 0,1,2,... gives 3 rows ['0000', '0101', '0111']
+ok   guide P3 rows for (-2, 8, 5, 8)
+  P3 (6, 2, 9, 4): rows over all t ['1111', '1011', '1010', '0010', '0000']; using only t = 0,1,2,... gives 5 rows ['0000', '0010', '1010', '1011', '1111']
+ok   guide P3 rows for (6, 2, 9, 4)
+  P3 (4, 4, 4, 4): rows over all t ['1111', '0000']; using only t = 0,1,2,... gives 2 rows ['0000', '1111']
+ok   guide P3 rows for (4, 4, 4, 4)
+ok   P3 second part: thresholding commutes with one comparator (all a,b in -3..5, t in -4..6)
+ok   P4: none of the 912 binary sorters with <= 6 bars ever finishes 9 in lane 2 above 4 in lane 3 (all 81 inputs over {1,4,9})
+ok   P5 machines read ((1, 2), (3, 4), (1, 3), (2, 4), (2, 3)) / ((1, 2), (3, 4), (1, 3), (2, 3), (2, 4))
+ok   P5 upper sorts all 256 inputs over 1..4
+ok   P5 lower binary failures [('0100', '0010'), ('1000', '0010')] (guide: 0100, 1000 -> 0010, all others sort)
+  P5 lower distinct-value failures: [('1423', '1243'), ('1432', '1243'), ('2413', '1243'), ('2431', '1243'), ('3412', '1243'), ('3421', '1243'), ('4123', '1243'), ('4132', '1243'), ('4213', '1243'), ('4231', '1243'), ('4312', '1243'), ('4321', '1243')]
+ok   guide P5 trace 1000 -> 0100 -> 0100 -> 0100 -> 0010 -> 0010
+ok   P6 example: 3,1 -> swap -> 1,3 -> stay; record SN
+ok   P6 machines read ((1, 2), (2, 3)) / ((1, 2), (2, 3), (1, 2))
+  P6 ((1, 2), (2, 3)): {'NN': ['123'], 'NS': ['132', '231'], 'SN': ['213'], 'SS': ['312', '321']}
+ok   guide P6 record table for ((1, 2), (2, 3))
+  P6 ((1, 2), (2, 3), (1, 2)): {'NNN': ['123'], 'NSN': ['132'], 'SNN': ['213'], 'NSS': ['231'], 'SSN': ['312'], 'SSS': ['321']}
+ok   guide P6 record table for ((1, 2), (2, 3), (1, 2))
+P7: minima 3 and 5; record bound 2^k (see general facts)
+
+=== Guide extensions
+ok   S4 = stages {(1,2),(3,4)}, {(1,3),(2,4)}, {(2,3)}
+ok   no 4-lane network of two stages sorts (9 possible stages)
+ok   n=5 repeated-pass neighbour network: 10 bars, sorts
+ok   n=5 neighbour-only minimum by exhaustive search over binary output sets: 10
+
+SUMMARY: 1 check(s) failed:
+  - guide p7: "1110 finishes 1101"
