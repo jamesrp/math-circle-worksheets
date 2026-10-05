@@ -15,8 +15,8 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Review card: Week 53, cheapest networks (wave 1) | Claude, Route packing and cheapest networks thread | `claude/wave1-networks-kqynkj` | done: [revise](plans/review/week-53.md) |
 | Review card: Week 62, scheduling as colouring (wave 1) | Claude, New groups in four families thread | `claude/wave1-groups-uag4d4` | done: [keep](plans/review/week-62.md) |
 | Review card: Week 63, derangements (wave 2, equally likely cases) | Claude, Mixed-up cups thread | `claude/wave2-equally-likely-x8ns4d` | done: [revise](plans/review/week-63.md) |
-| Review card: Week 33, necklaces (wave 2, bead rings) | Claude, Bead rings thread | `claude/wave2-bead-rings-q6ikal` | in progress |
-| Review card: Week 34, distinguishing colourings (wave 2, bead rings) | Claude, Bead rings thread | `claude/wave2-bead-rings-q6ikal` | in progress |
+| Review card: Week 33, necklaces (wave 2, bead rings) | Claude, Bead rings thread | `claude/wave2-bead-rings-q6ikal` | done: [keep](plans/review/week-33.md) |
+| Review card: Week 34, distinguishing colourings (wave 2, bead rings) | Claude, Bead rings thread | `claude/wave2-bead-rings-q6ikal` | done: [keep](plans/review/week-34.md) |
 | Review card: Week 39, path reduction (wave 2, graph board) | Claude, Path reduction and bracing frames thread | `claude/wave2-graph-39-52-g84api` | in progress |
 | Review card: Week 52, bracing frames (wave 2, graph board) | Claude, Path reduction and bracing frames thread | `claude/wave2-graph-39-52-g84api` | in progress |
 | Review card: Week 31, lattice visibility (wave 2, Mirror Couriers) | Claude, Lattice visibility thread | `claude/wave2-lattice-visibility-f3eowo` | in progress |

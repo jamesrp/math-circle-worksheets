@@ -1,0 +1,106 @@
+=== Three-bead rings (all bands P1-P2) ===
+rings: ['AAA', 'AAB', 'ABB', 'BBB'] family sizes: [1, 3, 3, 1]
+PASS there are 4 three-bead A/B rings (one-colour allowed)
+PASS only 2 of them use both A and B: ['AAB', 'ABB']
+NOTE k-1 P1: 2 blank three-bead boards printed for a 4-ring answer (2 = the mixed-only count)
+NOTE grades-2-3 P1: 2 blank three-bead boards printed for a 4-ring answer (2 = the mixed-only count)
+NOTE grades-4-5 P1: 2 blank three-bead boards printed for a 4-ring answer (2 = the mixed-only count)
+PASS guide 3-bead row AAA: readouts ['AAA'] are exactly the rotations
+PASS guide 3-bead row AAA: card numbers 1 = printed cards [1]
+PASS guide 3-bead row AAB: readouts ['AAB', 'ABA', 'BAA'] are exactly the rotations
+PASS guide 3-bead row AAB: card numbers 2,3,5 = printed cards [2, 3, 5]
+PASS guide 3-bead row ABB: readouts ['ABB', 'BBA', 'BAB'] are exactly the rotations
+PASS guide 3-bead row ABB: card numbers 4,6,7 = printed cards [4, 6, 7]
+PASS guide 3-bead row BBB: readouts ['BBB'] are exactly the rotations
+PASS guide 3-bead row BBB: card numbers 8 = printed cards [8]
+PASS family sizes 1,3,3,1 (not all equal)
+PASS 2+(8-2)/3 = 4; 8/3 is not a whole number
+
+=== K-1 P3: four beads, two A and two B ===
+['AABB', 'ABAB']
+PASS exactly two rings: AABB, ABAB (guide P3)
+NOTE K-1 P3 page prints 4 boards for this 2-ring answer
+
+=== Four-bead readout counts (K-1 P4, 2-3 P3, 4-5 P3) ===
+{'AAAA': 1, 'AAAB': 4, 'AABB': 4, 'ABAB': 2, 'ABBB': 4, 'BBBB': 1}
+PASS possible numbers of readouts: 1, 2, 4; 3 impossible
+PASS guide 4-5 P3: six rings AAAA,BBBB (1), ABAB (2), AAAB,AABB,ABBB (4)
+PASS guide K-1 P4: AAAB readouts AAAB,AABA,ABAA,BAAA
+PASS guide K-1 P4: ABAB readouts ABAB,BABA
+  coincidences between readouts at starts i<j, by step j-i, for mixed 4-bead words:
+    {2: ['ABAB']}
+PASS mixed 4-bead rings repeat only after 2 steps (ABAB); a 1- or 3-step repeat forces one colour
+NOTE guide 2-3 P3 "physical alternative" treats only the 3-step repeat; the 2-step repeat (ABAB, 2 readouts) must also be excluded for "exactly three" - see report
+
+=== K-1 P5: five beads, two A and three B ===
+PASS exactly two rings: ['AABBB', 'ABABB']
+PASS each has five readouts
+PASS guide list for AABBB = its rotations in order
+PASS guide list for ABABB = its rotations in order
+NOTE K-1 P5 page prints 4 boards for this 2-ring answer
+
+=== K-1 P6: six beads, both colours ===
+{2: ['ABABAB'], 3: ['AABAAB', 'ABBABB'], 6: ['AAAAAB', 'AAAABB', 'AAABAB', 'AAABBB', 'AABABB', 'AABBAB', 'AABBBB', 'ABABBB', 'ABBBBB']}
+PASS two, three and six readouts all occur; nothing else (1,4,5) occurs
+PASS guide examples ABABAB=2, AABAAB=3, AAAAAB=6
+PASS each example fits a pair-kit of six A and six B
+
+=== Five-bead cards (2-3 P4, 4-5 P4) ===
+  AAAAA: cards [1]
+  AAAAB: cards [2, 3, 5, 9, 17]
+  AAABB: cards [4, 7, 13, 18, 25]
+  AABAB: cards [6, 10, 11, 19, 21]
+  AABBB: cards [8, 15, 20, 26, 29]
+  ABABB: cards [12, 14, 22, 23, 27]
+  ABBBB: cards [16, 24, 28, 30, 31]
+  BBBBB: cards [32]
+PASS 8 rings; guide table has 8 rows
+PASS guide row AAAAA: cards 1, size 1
+PASS guide row AAAAB: cards 2,3,5,9,17, size 5
+PASS guide row AAABB: cards 4,7,13,18,25, size 5
+PASS guide row AABAB: cards 6,10,11,19,21, size 5
+PASS guide row AABBB: cards 8,15,20,26,29, size 5
+PASS guide row ABABB: cards 12,14,22,23,27, size 5
+PASS guide row ABBBB: cards 16,24,28,30,31, size 5
+PASS guide row BBBBB: cards 32, size 1
+PASS two singletons and six families of five
+PASS 2-3 P6: 32/5 is not whole; 2+(32-2)/5 = 8
+PASS 2-3 P5: every mixed five-bead ring has exactly five readouts (no counterexample exists)
+PASS guide 2-3 P5: steps of 2 visit [0, 2, 4, 1, 3, 0]; steps of 3 visit [0, 3, 1, 4, 2, 0] (reverse)
+
+=== Theory: prime lengths, period, counting (4-5 P5, P6, overview) ===
+PASS all binary words n<=12 and ternary n<=8: least period d divides n and equals the number of readouts; prime n: every mixed word has n readouts
+PASS a mixed binary ring repeats early exactly when the length is composite (n=2..12)
+PASS c=1, p=2: 1 rings = c+(c^p-c)/p
+PASS c=1, p=3: 1 rings = c+(c^p-c)/p
+PASS c=1, p=5: 1 rings = c+(c^p-c)/p
+PASS c=1, p=7: 1 rings = c+(c^p-c)/p
+PASS c=2, p=2: 3 rings = c+(c^p-c)/p
+PASS c=2, p=3: 4 rings = c+(c^p-c)/p
+PASS c=2, p=5: 8 rings = c+(c^p-c)/p
+PASS c=2, p=7: 20 rings = c+(c^p-c)/p
+PASS c=3, p=2: 6 rings = c+(c^p-c)/p
+PASS c=3, p=3: 11 rings = c+(c^p-c)/p
+PASS c=3, p=5: 51 rings = c+(c^p-c)/p
+PASS c=3, p=7: 315 rings = c+(c^p-c)/p
+PASS c=4, p=2: 10 rings = c+(c^p-c)/p
+PASS c=4, p=3: 24 rings = c+(c^p-c)/p
+PASS c=4, p=5: 208 rings = c+(c^p-c)/p
+PASS c=4, p=7: 2344 rings = c+(c^p-c)/p
+PASS 4-5 P6: 243 readouts, 3 constant, 48 families of five, 51 rings
+PASS p | c^p - c for c<60, primes p<40
+PASS n=4, c=2: prime formula fails ((c^n-c)/n = 3.50, true count 6)
+PASS n=6, c=2: prime formula fails ((c^n-c)/n = 10.33, true count 14)
+PASS n=4, c=3: prime formula fails ((c^n-c)/n = 19.50, true count 24)
+PASS converse fails: 341 = 11*31 divides 2^341 - 2 (guide "not a converse primality test")
+PASS guide 4-5 P5: for prime p and 0<m,k<p, p does not divide mk
+
+=== Guide optional extension: AABABB vs AABBAB ===
+PASS listed rotations of AABABB are correct and in order
+PASS AABBAB is a flip of AABABB but not a turn of it
+PASS smallest binary length with a flip-only pair is 6: ['AABABB', 'AABBAB']
+
+=== Guide period proof: n = q d + r restores r ===
+PASS restoring rotations are exactly the multiples of d; R_i = R_j iff i = j (mod d), n<=10
+
+67 passed, 0 failed

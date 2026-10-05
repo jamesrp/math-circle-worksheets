@@ -1,0 +1,67 @@
+=== P1: six printed eight-rings ===
+{'a': 'AABABBBB', 'b': 'ABBBBABA', 'c': 'BAABABBB', 'd': 'AABBABBB', 'e': 'ABBBABBA', 'f': 'BBAABBAB'}
+turns only: [['a', 'c'], ['b'], ['d', 'f'], ['e']]  turns and flips: [['a', 'b', 'c'], ['d', 'e', 'f']]
+PASS turns only: {a,c},{b},{d,f},{e} (guide)
+PASS turns and flips: {a,b,c},{d,e,f} (guide)
+PASS guide word a=11010000 matches the printed ring read clockwise from the top
+PASS guide word b=10000101 matches the printed ring read clockwise from the top
+PASS guide word c=01101000 matches the printed ring read clockwise from the top
+PASS guide word d=11001000 matches the printed ring read clockwise from the top
+PASS guide word e=10001001 matches the printed ring read clockwise from the top
+PASS guide word f=00110010 matches the printed ring read clockwise from the top
+  a: AABABBBB A-gaps [1, 2, 5]
+  b: ABBBBABA A-gaps [5, 2, 1]
+  c: BAABABBB A-gaps [1, 2, 5]
+  d: AABBABBB A-gaps [1, 3, 4]
+  e: ABBBABBA A-gaps [4, 3, 1]
+  f: BBAABBAB A-gaps [1, 3, 4]
+PASS a has gaps 1,2,5; b has the reversed cyclic order
+PASS d has gaps 1,3,4; e reversed
+PASS c rotates a; f rotates d
+PASS every P1 ring uses 3 A and 5 B
+PASS n<=12, three A beads: flip differs from every turn exactly when the three gaps are all different
+PASS every set of <=2 spots on an n-gon (n<=12) is preserved by some reflection
+PASS no binary ring of length <=5 has a mirror twin
+
+=== P2: two kinds, different neighbours ===
+  n=4: ['ABAB']
+PASS n=4: guide answer
+  n=5: []
+PASS n=5: guide answer
+  n=6: ['ABABAB']
+PASS n=6: guide answer
+PASS two kinds: a proper ring exists exactly at even lengths (n=2..12)
+
+=== P3: three kinds, five beads, different neighbours ===
+  classes: ['ABABC', 'ABACB', 'ABCAC', 'ABCBC', 'ACACB', 'ACBCB']
+PASS 30 fixed words, 6 rotation classes
+PASS guide representatives are proper, pairwise different by turning, and cover every class
+PASS every proper word has multiplicities 2,2,1
+PASS allowing flips merges them into 3 classes (one per singleton kind)
+PASS five views for each of the six rings
+PASS proper n-ring count (c-1)^n+(-1)^n(c-1) = c*D_n = brute force (c=2..5, n=3..9 where feasible)
+
+=== P4-P7: windows ===
+PASS window example: starting at the marked B, first window is BAB
+PASS k=2: no ring of length 1 has every 2-letter window exactly once
+PASS k=2: no ring of length 2 has every 2-letter window exactly once
+PASS k=2: no ring of length 3 has every 2-letter window exactly once
+  k=2, n=4: rotation classes ['AABB']
+PASS P4: AABB is the unique shortest ring (up to turning)
+PASS k=3: no ring of length 1 has every 3-letter window exactly once
+PASS k=3: no ring of length 2 has every 3-letter window exactly once
+PASS k=3: no ring of length 3 has every 3-letter window exactly once
+PASS k=3: no ring of length 4 has every 3-letter window exactly once
+PASS k=3: no ring of length 5 has every 3-letter window exactly once
+PASS k=3: no ring of length 6 has every 3-letter window exactly once
+PASS k=3: no ring of length 7 has every 3-letter window exactly once
+  k=3, n=8: rotation classes ['AAABABBB', 'AAABBBAB']
+PASS P6/P7: exactly two shortest rings, AAABABBB and AAABBBAB
+PASS P7: the flip of each is a turn of the other (mirror twins)
+PASS allowing flips gives one class
+PASS 16 of the 256 indexed eight-words qualify (2 classes x 8 turns)
+PASS guide P4: windows of AABB are AA,AB,BB,BA
+PASS guide P6: windows of AAABABBB in the listed order
+NOTE P7 pair uses 8 A and 8 B; two P1 rings side by side use 6 A and 10 B
+
+43 passed, 0 failed
