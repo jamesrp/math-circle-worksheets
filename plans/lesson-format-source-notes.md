@@ -53,7 +53,7 @@ The books support different levels of challenge, active adult help, time for ind
 
 Try the arrangement, then record where children waited, which rules needed adult help, and whether each child had time to manipulate, think, and explain. Use those observations to change the next week's staffing and tasks. The operational timetable is in [“A shared hour” in the fall plan][fall].
 
-[fall]: /Users/jamespfeiffer/math-circle/plans/fall-k-5-year-a.md
-[bay]: </Users/jamespfeiffer/math-circle/external-resources/msri-math-circle-books/Math Circle by the Bay.pdf>
-[elementary]: </Users/jamespfeiffer/math-circle/external-resources/msri-math-circle-books/Math Circles for Elementary School Students.epub>
-[decade]: </Users/jamespfeiffer/math-circle/external-resources/msri-math-circle-books/A decade of the Berkeley Math Circle.pdf>
+[fall]: fall-k-5-year-a.md
+[bay]: <../external-resources/msri-math-circle-books/Math Circle by the Bay.pdf>
+[elementary]: <../external-resources/msri-math-circle-books/Math Circles for Elementary School Students.epub>
+[decade]: <../external-resources/msri-math-circle-books/A decade of the Berkeley Math Circle.pdf>

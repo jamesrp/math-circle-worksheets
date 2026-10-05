@@ -12,7 +12,7 @@ Use the existing hour: **0–10** handle materials and explore; **10–15** shar
 
 This is the default rhythm in the individual plans and facilitator packets. Week 2 uses its own 0–5 handling, 5–10 launch, and 30–35 movement break, as shown in the shared guide. Each level has a satisfying stopping point and an optional explanation or proof continuation. Keep the reset even when a table or proof is unfinished; return to the same question afterward if it still holds attention. In Weeks 4 and 6, omit redundant table entries once the child can explain the structure. Use the [shared divisibility scaffold](coprime-divisibility-scaffold.md) with adult support for the general rules in Weeks 4 and 9.
 
-Record *tried*, *conjectured*, *verified these cases*, *proved*, or *given as a theorem* for each actual claim in the [use log](fall-k-5-year-a-use-log.md). A destination in the facilitator notes is not evidence that a child established it. The timings and new scaffolds are our adaptations; the [book notes][format] document the actual source lessons about trying first, manipulatives, explanation, and flexible pace.
+Record *tried*, *conjectured*, *verified these cases*, *proved*, or *given as a theorem* for each actual claim in the [use log](../LOCAL-RESOURCES.md#private-records). A destination in the facilitator notes is not evidence that a child established it. The timings and new scaffolds are our adaptations; the [book notes][format] document the actual source lessons about trying first, manipulatives, explanation, and flexible pace.
 
 The organizer demonstrates the common first action with everyone. Then keep one adult anchored to each group: **parent with KK1, other mathematician with 3333, organizer with 445**. The parent reads one prompt at a time, checks the visible rule, and invites children to show a move; the unified Week 2 adult guide supplies a short script, route choices, and answers. If mathematical help is needed, the parent keeps KK1 on a familiar task and signals the organizer. Before visiting, the organizer explicitly hands coverage of 445 to the nearby mathematician, who keeps both older groups on known tasks; no group is left unattended. See the [current coverage plan](fall-k-5-year-a.md#adult-coverage-and-timing). Older two-adult logistics in individual core guides are superseded by this plan. This is the September 28 planning configuration, not a claim about Week 1 attendance.
 
@@ -258,18 +258,18 @@ Source PDFs remain references; there is no need to print whole activity guides. 
 - [Math Circles for Elementary School Students][elementary] and [Math Circle by the Bay][bay].
 - [Lowell fall handouts][lowell] and [shape-operation source][shapes].
 
-[fall]: /Users/jamespfeiffer/math-circle/plans/fall-k-5-year-a.md
-[format]: /Users/jamespfeiffer/math-circle/plans/lesson-format-source-notes.md
-[use-log]: /Users/jamespfeiffer/math-circle/plans/fall-k-5-year-a-use-log.md
-[verify]: /Users/jamespfeiffer/math-circle/plans/verify-fall-year-a.py
-[blocks]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Changing-Colors-Activity-Guide.pdf
-[blocks-beginner]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Changing-Colors-Beginner-Version-Activity-Guide.pdf
-[skyscrapers]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Skyscrapers-Teaching-Guide.pdf
-[code]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/JRMF-Crack-the-Code.pdf
-[countdown]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Countdown-Teaching-Guide.pdf
-[rook]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Rooks-Move-Activity-Guide.pdf
-[billiards]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/JRMF-Billiards-Geometry.pdf
-[elementary]: </Users/jamespfeiffer/math-circle/external-resources/msri-math-circle-books/Math Circles for Elementary School Students.epub>
-[bay]: </Users/jamespfeiffer/math-circle/external-resources/msri-math-circle-books/Math Circle by the Bay.pdf>
-[lowell]: </Users/jamespfeiffer/math-circle/lowell-math-circle-year-1/lowell-math-circle/Math Circle Fall 2025>
-[shapes]: /Users/jamespfeiffer/math-circle/lowell-math-circle-year-1/subtract-shapes/subtract_shapes2.tex
+[fall]: fall-k-5-year-a.md
+[format]: lesson-format-source-notes.md
+[use-log]: ../LOCAL-RESOURCES.md#private-records
+[verify]: verify-fall-year-a.py
+[blocks]: ../external-resources/jrmf/Changing-Colors-Activity-Guide.pdf
+[blocks-beginner]: ../external-resources/jrmf/Changing-Colors-Beginner-Version-Activity-Guide.pdf
+[skyscrapers]: ../external-resources/jrmf/Skyscrapers-Teaching-Guide.pdf
+[code]: ../external-resources/jrmf/JRMF-Crack-the-Code.pdf
+[countdown]: ../external-resources/jrmf/Countdown-Teaching-Guide.pdf
+[rook]: ../external-resources/jrmf/Rooks-Move-Activity-Guide.pdf
+[billiards]: ../external-resources/jrmf/JRMF-Billiards-Geometry.pdf
+[elementary]: <../external-resources/msri-math-circle-books/Math Circles for Elementary School Students.epub>
+[bay]: <../external-resources/msri-math-circle-books/Math Circle by the Bay.pdf>
+[lowell]: <../lowell-math-circle-year-1/lowell-math-circle/Math Circle Fall 2025>
+[shapes]: ../lowell-math-circle-year-1/subtract-shapes/subtract_shapes2.tex

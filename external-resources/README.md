@@ -1,6 +1,6 @@
 # External resources
 
-Downloaded reference material for planning the circle. Whole downloaded files are ignored local inputs, preserved on the organizer's Mac and excluded from GitHub history. Authored indexes and manifests remain committed; the links below work when the corresponding local files are available. See [LOCAL-RESOURCES.md](../LOCAL-RESOURCES.md) and [RESOURCE-MANIFEST.tsv](../RESOURCE-MANIFEST.tsv) for placement and hashes.
+Downloaded reference material for planning the circle. Whole downloaded files are ignored local inputs, preserved on the organizer's Mac and excluded from GitHub history. Authored indexes and manifests remain committed; the links below work when the corresponding local files are available. For references retained in the deprecated archive, set `MATH_CIRCLE_RESOURCE_ROOT` to its reference directory and use the lookup guidance in [LOCAL-RESOURCES.md](../LOCAL-RESOURCES.md) and [RESOURCE-MANIFEST.tsv](../RESOURCE-MANIFEST.tsv) for placement and hashes.
 
 - `beast-academy/`
 - `earlyfamilymath/`

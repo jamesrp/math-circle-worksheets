@@ -2,7 +2,7 @@
 
 Draft for discussion, September 10, 2026. Ten fall meetings and ten possible summer meetings, about one hour each. This proposes the experiences and their sequence; individual puzzles, handouts, and complete facilitator guides come after review.
 
-The [aligned K–5 fall plan](/Users/jamespfeiffer/math-circle/plans/fall-k-5-year-a.md) places K–1 and 4–5 versions alongside these ten fall activities, with shared materials and level-specific guidance.
+The [aligned K–5 fall plan](fall-k-5-year-a.md) places K–1 and 4–5 versions alongside these ten fall activities, with shared materials and level-specific guidance.
 
 Build the year around what worked: shape subtraction, ciphers, pattern blocks, strategy games, logic puzzles, and billiards. Introduce new mathematics through similar kinds of play. Fibonacci numbers, triangular numbers, and binomial coefficients were less engaging for most of last year's group, so they are not main topics here. Counting questions can remain optional extensions for interested children.
 
@@ -116,18 +116,18 @@ Summer must work for children who missed fall. Reintroduce each activity's rules
 
 The main recommendation is to keep the fall close to the demonstrated favorites, then use summer to try more new formats. The largest choices are whether two consecutive cipher sessions feel right, whether the existing group has already tried the proposed new games, and whether the speculative unfolding session should instead become another logic or shape workshop. Group size, adult help, and available manipulatives will affect preparation and grouping, but need not hold up reviewing the mathematical menu.
 
-[changing]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Changing-Colors-Activity-Guide.pdf
-[shapes]: /Users/jamespfeiffer/math-circle/lowell-math-circle-year-1/subtract-shapes/subtract_shapes2.tex
-[elementary]: </Users/jamespfeiffer/math-circle/external-resources/msri-math-circle-books/Math Circles for Elementary School Students.epub>
-[skyscrapers]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Skyscrapers-Teaching-Guide.pdf
-[code]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/JRMF-Crack-the-Code.pdf
-[countdown]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Countdown-Teaching-Guide.pdf
-[rook]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Rooks-Move-Activity-Guide.pdf
-[billiards]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/JRMF-Billiards-Geometry.pdf
-[pentominoes]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Pentominoes-Beginner-Version-Activity-Guide.pdf
-[folding]: </Users/jamespfeiffer/math-circle/external-resources/earlyfamilymath/EFM Educator Games All 9.16.23/PK-3 Cutting Symmetric Shapes.pdf>
-[rolling]: /Users/jamespfeiffer/math-circle/external-resources/mathforlove/HinduPuzzle18.pdf
-[maps]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Map-Coloring-Teaching-Guide.pdf
-[frogs]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Frogs-and-Toads-Activity-Guide.pdf
-[sticks]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Toothpick-Triangles-Activity-Guide.pdf
-[decade]: </Users/jamespfeiffer/math-circle/external-resources/msri-math-circle-books/A decade of the Berkeley Math Circle.pdf>
+[changing]: ../external-resources/jrmf/Changing-Colors-Activity-Guide.pdf
+[shapes]: ../lowell-math-circle-year-1/subtract-shapes/subtract_shapes2.tex
+[elementary]: <../external-resources/msri-math-circle-books/Math Circles for Elementary School Students.epub>
+[skyscrapers]: ../external-resources/jrmf/Skyscrapers-Teaching-Guide.pdf
+[code]: ../external-resources/jrmf/JRMF-Crack-the-Code.pdf
+[countdown]: ../external-resources/jrmf/Countdown-Teaching-Guide.pdf
+[rook]: ../external-resources/jrmf/Rooks-Move-Activity-Guide.pdf
+[billiards]: ../external-resources/jrmf/JRMF-Billiards-Geometry.pdf
+[pentominoes]: ../external-resources/jrmf/Pentominoes-Beginner-Version-Activity-Guide.pdf
+[folding]: <../external-resources/earlyfamilymath/EFM Educator Games All 9.16.23/PK-3 Cutting Symmetric Shapes.pdf>
+[rolling]: ../external-resources/mathforlove/HinduPuzzle18.pdf
+[maps]: ../external-resources/jrmf/Map-Coloring-Teaching-Guide.pdf
+[frogs]: ../external-resources/jrmf/Frogs-and-Toads-Activity-Guide.pdf
+[sticks]: ../external-resources/jrmf/Toothpick-Triangles-Activity-Guide.pdf
+[decade]: <../external-resources/msri-math-circle-books/A decade of the Berkeley Math Circle.pdf>

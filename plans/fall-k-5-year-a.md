@@ -1,8 +1,8 @@
 # Fall math circle across K–1, 2–3, and 4–5
 
-> **October 3, 2026:** after the organizer's report on Weeks 1 and 2, Weeks 3–10 were replaced by concrete revisions and a [Week 1 encore](../lowell-math-circle-year-2/source/week-01-encore/README.md) was added; see the [forecast and pivot](fall-forecast-2026-10-03.md) and the [print index](../lowell-math-circle-year-2/README.md). The roster is now eleven children at fixed tables (KK11 / 3333 / 445) with a five-minute run before the launch. The weekly descriptions below are the September plan; the archived packets they describe are in each week's `archive/` folder.
+> **October 3, 2026:** after the organizer's report on Weeks 1 and 2, Weeks 3–10 were replaced by concrete revisions and a [Week 1 encore](../lowell-math-circle-year-2/source/week-01-encore/README.md) was added; see the [forecast and pivot](../LOCAL-RESOURCES.md#private-records) and the [print index](../lowell-math-circle-year-2/README.md). The roster is now eleven children at fixed tables (KK11 / 3333 / 445) with a five-minute run before the launch. The weekly descriptions below are the September plan; the archived packets they describe are in each week's `archive/` folder.
 
-Updated September 28, 2026 for the current roster, adult coverage, and Week 2 shared collection; the September 27 revision applied the [Week 1 classroom guidance](fall-weeks-02-10-classroom-guidance-review.md) to Weeks 2–10. Ten weekly meetings of about one hour. Weeks 2–10 now develop explicit undergraduate and research mathematics through concrete investigations, using revised Week 1 as the benchmark. The [redesign rationale](fall-weeks-02-10-mathematical-redesign.md) explains the progression; the [print index](../lowell-math-circle-year-2/source/fall-weeks-02-10/README.md) provides a shared Week 2 collection, three student levels and optional grades 6–7 investigations for Weeks 3–10, and separate facilitator solutions. The [companion activity guide](/Users/jamespfeiffer/math-circle/plans/fall-k-5-year-a-activities.md) links full instructions, hints, and checked solutions. Record actual use in the [session log](/Users/jamespfeiffer/math-circle/plans/fall-k-5-year-a-use-log.md).
+Updated September 28, 2026 for the current roster, adult coverage, and Week 2 shared collection; the September 27 revision applied the [Week 1 classroom guidance](fall-weeks-02-10-classroom-guidance-review.md) to Weeks 2–10. Ten weekly meetings of about one hour. Weeks 2–10 now develop explicit undergraduate and research mathematics through concrete investigations, using revised Week 1 as the benchmark. The [redesign rationale](fall-weeks-02-10-mathematical-redesign.md) explains the progression; the [print index](../lowell-math-circle-year-2/source/fall-weeks-02-10/README.md) provides a shared Week 2 collection, three student levels and optional grades 6–7 investigations for Weeks 3–10, and separate facilitator solutions. The [companion activity guide](fall-k-5-year-a-activities.md) links full instructions, hints, and checked solutions. Record actual use in the [session log](../LOCAL-RESOURCES.md#private-records).
 
 Each week shares a mathematical idea, a launch, and most of its materials. The levels change how children enter the problem and how far they investigate it. All three use physical exploration. Explanations can be spoken, drawn, or demonstrated with objects.
 
@@ -59,7 +59,7 @@ Keep the older groups close enough for an explicit help handoff. If KK1 needs ma
 
 These times are flexible. A productive construction or game can run across a boundary; a stalled group needs a change sooner. The important rhythm is trying, talking about an attempt, and trying again. The [Week 2 shared plan](week-02-shared-collection.md) gives its specific launch, routes, stopping choices, and earlier 30–35 movement break. Its drawing choices are open to every table.
 
-Except for Week 2’s specific timing, the individual weekly plans and facilitator packets retain their mathematical activities and the **35–40 movement/reset**; any older references there to seven children, two adults, or a lone fifth grader are superseded by this September 28 coverage plan. Each group has a satisfying stopping point plus an optional proof continuation. A proof can wait until another visit; note whether a claim was tried, conjectured, checked in named cases, proved, or given as a theorem in the [use log](fall-k-5-year-a-use-log.md). For the general arithmetic in Weeks 4 and 9, the [shared divisibility scaffold](coprime-divisibility-scaffold.md) provides an adult-supported bridge beyond finite examples.
+Except for Week 2’s specific timing, the individual weekly plans and facilitator packets retain their mathematical activities and the **35–40 movement/reset**; any older references there to seven children, two adults, or a lone fifth grader are superseded by this September 28 coverage plan. Each group has a satisfying stopping point plus an optional proof continuation. A proof can wait until another visit; note whether a claim was tried, conjectured, checked in named cases, proved, or given as a theorem in the [use log](../LOCAL-RESOURCES.md#private-records). For the general arithmetic in Weeks 4 and 9, the [shared divisibility scaffold](coprime-divisibility-scaffold.md) provides an adult-supported bridge beyond finite examples.
 
 ### Working in threes and fours
 
@@ -212,15 +212,15 @@ Keep a record of the actual challenges each cohort encounters, not only the them
 
 The common-theme approach is supported by [Math Circle by the Bay][bay], preface pp. viii–x (PDF pp. 9–11), which describes using themes across age groups with different pace and depth, manipulatives, and repeated practice explaining ideas. The specific level assignments here are our proposed adaptations, to be adjusted after observing the children. Relevant MSRI teaching notes and the broader source review remain in the [original plan][year-a].
 
-[year-a]: /Users/jamespfeiffer/math-circle/plans/grades-2-3-year-a.md
-[lesson-format]: /Users/jamespfeiffer/math-circle/plans/lesson-format-source-notes.md
-[blocks-beginner]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Changing-Colors-Beginner-Version-Activity-Guide.pdf
-[blocks]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Changing-Colors-Activity-Guide.pdf
-[shape-source]: /Users/jamespfeiffer/math-circle/lowell-math-circle-year-1/subtract-shapes/subtract_shapes2.tex
-[elementary]: </Users/jamespfeiffer/math-circle/external-resources/msri-math-circle-books/Math Circles for Elementary School Students.epub>
-[skyscrapers]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Skyscrapers-Teaching-Guide.pdf
-[code]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/JRMF-Crack-the-Code.pdf
-[countdown]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Countdown-Teaching-Guide.pdf
-[rook]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/Rooks-Move-Activity-Guide.pdf
-[billiards]: /Users/jamespfeiffer/math-circle/external-resources/jrmf/JRMF-Billiards-Geometry.pdf
-[bay]: </Users/jamespfeiffer/math-circle/external-resources/msri-math-circle-books/Math Circle by the Bay.pdf>
+[year-a]: grades-2-3-year-a.md
+[lesson-format]: lesson-format-source-notes.md
+[blocks-beginner]: ../external-resources/jrmf/Changing-Colors-Beginner-Version-Activity-Guide.pdf
+[blocks]: ../external-resources/jrmf/Changing-Colors-Activity-Guide.pdf
+[shape-source]: ../lowell-math-circle-year-1/subtract-shapes/subtract_shapes2.tex
+[elementary]: <../external-resources/msri-math-circle-books/Math Circles for Elementary School Students.epub>
+[skyscrapers]: ../external-resources/jrmf/Skyscrapers-Teaching-Guide.pdf
+[code]: ../external-resources/jrmf/JRMF-Crack-the-Code.pdf
+[countdown]: ../external-resources/jrmf/Countdown-Teaching-Guide.pdf
+[rook]: ../external-resources/jrmf/Rooks-Move-Activity-Guide.pdf
+[billiards]: ../external-resources/jrmf/JRMF-Billiards-Geometry.pdf
+[bay]: <../external-resources/msri-math-circle-books/Math Circle by the Bay.pdf>
