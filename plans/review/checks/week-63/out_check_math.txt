@@ -1,0 +1,138 @@
+== P1 (student p. 1): home-free A-C rows; exactly two matches?
+home-free A-C rows: ['BCA', 'CAB']
+rows with exactly two matches: []
+ok   P1: two home-free rows BCA, CAB; no row has exactly two matches
+ok   guide P1 table row ABC: printed ('A, B, C', '3') vs ('A, B, C', '3')
+ok   guide P1 table row ACB: printed ('A', '1') vs ('A', '1')
+ok   guide P1 table row BAC: printed ('C', '1') vs ('C', '1')
+ok   guide P1 table row BCA: printed ('none', '0') vs ('none', '0')
+ok   guide P1 table row CAB: printed ('none', '0') vs ('none', '0')
+ok   guide P1 table row CBA: printed ('B', '1') vs ('B', '1')
+ok   Week 43 grades 4-5 p. 3 P5 procedure gives ['BCA', 'CAB'] = the two home-free rows
+
+== P2 (student p. 2): outside both A-home and B-home groups (6 cards)
+A-home ['ABC', 'ACB'] B-home ['ABC', 'CBA'] both ['ABC'] outside ['BAC', 'BCA', 'CAB']
+ok   P2: outside both = 3 = 6-2-2+1; printed student count 6-2-2 = 2 is the subtract-only count
+ok   guide P2 groups/outside/total match
+ok   student p. 2 prints the count 6 - 2 - 2 = 2
+
+== P3 (student p. 3): home-free A-D rows
+9 ['BADC', 'BCDA', 'BDAC', 'CADB', 'CDAB', 'CDBA', 'DABC', 'DCAB', 'DCBA']
+ok   P3: 9 home-free A-D rows
+ok   guide P3 branch B: ['BADC', 'BCDA', 'BDAC'] vs ['BADC', 'BCDA', 'BDAC']
+ok   guide P3 branch C: ['CADB', 'CDAB', 'CDBA'] vs ['CADB', 'CDAB', 'CDBA']
+ok   guide P3 branch D: ['DABC', 'DCAB', 'DCBA'] vs ['DABC', 'DCAB', 'DCBA']
+ok   guide: two-pair rows ['BADC', 'CDAB', 'DCBA'], four-cycles 6
+
+== P4 (student p. 4): A away from A and B away from B
+14 ['BACD', 'BADC', 'BCAD', 'BCDA', 'BDAC', 'BDCA', 'CABD', 'CADB', 'CDAB', 'CDBA', 'DABC', 'DACB', 'DCAB', 'DCBA']
+ok   P4: 14 = 24-6-6+2 (intersection ABCD, ABDC); student check count 24-6-6 = 12
+ok   guide P4 branch B: ['BACD', 'BADC', 'BCAD', 'BCDA', 'BDAC', 'BDCA'] vs ['BACD', 'BADC', 'BCAD', 'BCDA', 'BDAC', 'BDCA']
+ok   guide P4 branch C: ['CABD', 'CADB', 'CDAB', 'CDBA'] vs ['CABD', 'CADB', 'CDAB', 'CDBA']
+ok   guide P4 branch D: ['DABC', 'DACB', 'DCAB', 'DCBA'] vs ['DABC', 'DACB', 'DCAB', 'DCBA']
+
+== P5 (student p. 5): four home-groups, inclusion-exclusion
+ok   P5: alternating sum = 9 = 9 home-free rows
+ok   guide P5 arithmetic 24-24+12-4+1 = 9
+ok   guide P5 intersection A: (['ABCD', 'ABDC', 'ACBD', 'ACDB', 'ADBC', 'ADCB'], 6)
+ok   guide P5 intersection B: (['ABCD', 'ABDC', 'CBAD', 'CBDA', 'DBAC', 'DBCA'], 6)
+ok   guide P5 intersection C: (['ABCD', 'ADCB', 'BACD', 'BDCA', 'DACB', 'DBCA'], 6)
+ok   guide P5 intersection D: (['ABCD', 'ACBD', 'BACD', 'BCAD', 'CABD', 'CBAD'], 6)
+ok   guide P5 intersection AB: (['ABCD', 'ABDC'], 2)
+ok   guide P5 intersection AC: (['ABCD', 'ADCB'], 2)
+ok   guide P5 intersection AD: (['ABCD', 'ACBD'], 2)
+ok   guide P5 intersection BC: (['ABCD', 'DBCA'], 2)
+ok   guide P5 intersection BD: (['ABCD', 'CBAD'], 2)
+ok   guide P5 intersection CD: (['ABCD', 'BACD'], 2)
+ok   guide P5 intersection ABCD: (['ABCD'], 1)
+ok   triple ABC = [ABCD]
+ok   triple ABD = [ABCD]
+ok   triple ACD = [ABCD]
+ok   triple BCD = [ABCD]
+ok   forbidding 1 specified own homes leaves 18 (guide says 18)
+ok   forbidding 2 specified own homes leaves 14 (guide says 14)
+ok   forbidding 3 specified own homes leaves 11 (guide says 11)
+ok   forbidding 4 specified own homes leaves 9 (guide says 9)
+ok   guide extension arithmetic
+ok   every A-D row has weight 1 if home-free else 0
+
+== P6 (student p. 6): five groups
+ok   120 A-E rows
+intersection sizes by k: {0: {120}, 1: {24}, 2: {6}, 3: {2}, 4: {1}, 5: {1}}
+ok   P6: alternating sum 44 = 44 home-free rows
+ok   guide P6 table sizes 120,24,6,2,1,1
+ok   guide P6 totals 120,120,60,20,5,1
+ok   guide: ACD intersection ['ABCDE', 'AECDB']
+ok   guide: match distribution [44, 45, 20, 10, 0, 1]
+ok   AECDB has match set {A,C,D}
+ok   every A-E row has alternating weight 1 if home-free else 0
+ok   guide prints 120-120+60-20+5-1 = 44
+note guide p. 6 calls k-group intersections "intersections of size k" right after a table whose "Each size" column means number of rows (wording only)
+
+== Student p. 7 bridge example
+ok   QRSTP: P is in home T
+ok   QRSTP arrows form P->T->S->R->Q->P
+
+== P7 (student p. 7): D in home A
+['DABC', 'DCAB', 'DCBA']
+ok   P7: three rows DABC, DCAB, DCBA
+{'DABC': ('longer', 'ABC', 'CAB'), 'DCAB': ('longer', 'ABC', 'BCA'), 'DCBA': ('reciprocal', 'BC', 'CB')}
+ok   guide P7 reductions DCBA->CB, DABC->CAB, DCAB->BCA
+ok   only DCBA has A in home D
+ok   guide P7 arrows D->A->B->C->D and D->A->C->B->D (same cycles)
+ok   D at home A: three rows
+ok   D at home B: three rows
+ok   D at home C: three rows
+
+== Student p. 8 non-task removal examples
+ok   top input row UTQRSP
+ok   top output Q/R/S/T row TQRS (4-cycle)
+ok   bottom input row UPQRST
+ok   bottom output row TPQRS
+ok   bottom output arrows P->Q->R->S->T->P
+ok   both restorations return the input
+
+== P8 (student p. 8): E in home A
+11 ['EABCD', 'EADBC', 'EADCB', 'ECABD', 'ECBAD', 'ECDAB', 'ECDBA', 'EDABC', 'EDACB', 'EDBAC', 'EDBCA']
+ok   P8: 11 rows with E at home A
+ok   P8 families: reciprocal ['ECDBA', 'EDBCA'], longer 9
+ok   P8 reductions are bijections onto D(BCD) and D(ABCD)
+ok   P8 every reduction restores uniquely; longer reduction = last entry moved to first
+ok   guide P8 table has 11 rows
+ok   guide P8 ECDBA reciprocal -> CDB
+ok   guide P8 EDBCA reciprocal -> DBC
+ok   guide P8 EABCD longer -> DABC
+ok   guide P8 EADBC longer -> CADB
+ok   guide P8 EADCB longer -> BADC
+ok   guide P8 ECABD longer -> DCAB
+ok   guide P8 ECBAD longer -> DCBA
+ok   guide P8 ECDAB longer -> BCDA
+ok   guide P8 EDABC longer -> CDAB
+ok   guide P8 EDACB longer -> BDAC
+ok   guide P8 EDBAC longer -> CDBA
+ok   guide example EADBC -> CADB
+
+== P9 (student p. 9): pooled catalog and recurrence
+ok   44 home-free A-E rows
+ok   E at A: 11 rows, 2 reciprocal
+ok   E at B: 11 rows, 2 reciprocal
+ok   E at C: 11 rows, 2 reciprocal
+ok   E at D: 11 rows, 2 reciprocal
+ok   branches disjoint and pool to 44
+ok   guide P9 branch A: reciprocal ['ECDBA', 'EDBCA'], longer 9 rows
+ok   guide P9 branch B: reciprocal ['CEDAB', 'DEACB'], longer 9 rows
+ok   guide P9 branch C: reciprocal ['BDEAC', 'DAEBC'], longer 9 rows
+ok   guide P9 branch D: reciprocal ['BCAED', 'CABED'], longer 9 rows
+D_0..D_7 by enumeration: [1, 0, 1, 2, 9, 44, 265, 1854]
+ok   D0..D5 = 1,0,1,2,9,44
+ok   D_n = (n-1)(D_{n-1}+D_{n-2}) for 2<=n<=7
+ok   inclusion-exclusion formula for 0<=n<=7
+ok   two-family deletion is a bijection for every n<=6, card z and destination h
+ok   guide overview recurrence and base cases
+
+== Guide preparation arithmetic (p. 3)
+ok   cut pieces 223, sheets 12
+ok   outcome area 36,288 mm^2 exceeds both boxes
+ok   48 blank records for 44 rows; 16 writing rows for an 11-row branch
+
+FAILURES: 0
