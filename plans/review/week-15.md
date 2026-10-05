@@ -2,7 +2,7 @@
 
 **Verdict: keep.** No must. The maps, their order and the inverse tasks deliver real Voronoi mathematics in all three bands and the answers check; the fixes are rule wording and guide repairs.
 
-Reviewed October 5, 2026 by Claude, blind (calibration round 3), with the math check in [week-15-math.md](week-15-math.md); classroom evidence added afterwards. Packets: week-15-k-1.pdf (F15-K-v1), week-15-grades-2-3.pdf (F15-23-v1), week-15-grades-4-5.pdf (F15-45-v1), 8 pp each. Adult guide: week-15-facilitator.pdf (15 pp). Companions noticed but not reviewed: week-15-return-visit.pdf and its adult guide (farthest-site cells, taxi-distance ties, largest-clearance placement). Status: piloted. The organizer taught it and judged it good (reported October 4, 2026), so the guide now says piloted; the student pages are unchanged. Which bands were used, and how the string and folds went, is not recorded.
+Reviewed October 5, 2026 by Claude, blind (calibration round 3), with the math check in [week-15-math.md](week-15-math.md); classroom evidence added afterwards. Packets: week-15-k-1.pdf (F15-K-v1), week-15-grades-2-3.pdf (F15-23-v1), week-15-grades-4-5.pdf (F15-45-v1), 8 pp each. Adult guide: week-15-facilitator.pdf (15 pp). Companions noticed but not reviewed: week-15-return-visit.pdf and its adult guide (farthest-site cells, taxi-distance ties, largest-clearance placement). Status: piloted at home, not yet in the circle. The organizer tried the core maps by hand with three children and judged it good (see Classroom evidence); the guide now says piloted at home, and the student pages are unchanged.
 
 ## The mathematics
 
@@ -18,7 +18,7 @@ Each dot owns the closed set of places nearest to it. Two dots split the plane a
 | Concreteness | adequate | String settles any single comparison. A fold gives a bisector. The guide launch (p. 2) demonstrates one string comparison and A/B/AB recording. Drawing a whole region is pencil work that nothing enforces. |
 | Correctness | strong | [week-15-math.md](week-15-math.md) finds every student answer right; my exact spot checks (2–3 P5, P7; 4–5 P3; cross margins) agree. |
 | Adult guide | strong | Theorem-first overview on p. 1, exact keys with answer diagrams, a held hint per problem, sources cited. Small repairs in fixes 2–5. |
-| Age fit, K–1 | adequate | P1, P4 (crosses), P5 and P8 suit an adult reading aloud. Prediction, not yet checked against the pilot: the oblique boundaries in P2, P6 and P7 will need adult hands. |
+| Age fit, K–1 | adequate | P1, P4 (crosses), P5 and P8 suit an adult reading aloud. Prediction, untested by the pilot: the oblique boundaries in P2, P6 and P7 will need adult hands. |
 | Age fit, grades 2–3 | strong | Little reading and no arithmetic. Straightedge drawing. The open placement in P7 and the corner target in P8 suit third graders. |
 | Age fit, grades 4–5 | strong | Proof questions come after drawing. P6–P8 give the quickest children a minimum, an exact construction and an impossibility. |
 
@@ -68,4 +68,5 @@ Draw on K–1 P8, 2–3 P7–P8 and 4–5 P5–P8.
 
 ## Classroom evidence
 
-The organizer taught Week 15 and counted it among the weeks tested with children and good (reported October 4, 2026). That agrees with the verdict. The report does not say which bands or problems were used, how the string and folds worked at the tables, or where children needed help, so the K–1 prediction above stays a prediction and no rating was changed. When those details are known, record them here; they outrank this card's predictions.
+- **At home, observed.** The organizer tried Week 15 at home with three children: the organizer's two and one other child. The printer was out of paper, so the maps were drawn by hand: two dots, A and B, first, then a third dot, C, added on top to compete with them. The organizer judged it good (reported October 4–5, 2026), which agrees with the verdict.
+- **What that does not test.** It covers the opening idea of every band: the dividing line between two dots, then a third dot that takes part of it (K–1 P1, P2 and P4; 2–3 and 4–5 P1–P2). It did not use the printed packets, the launch, the hour or the three tables, and it has not been tried in the circle. The children's ages, and whether string or folds were used, are not recorded. So the ratings for student pages, concreteness and age fit are still this card's predictions, and none was changed. Record what the circle shows here; it outranks them.
