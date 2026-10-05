@@ -1,0 +1,116 @@
+=== Compact catalog (F02-S-CAT-v2) ===
+C-P1 square []->[1, 2]: reachable=True min=1 rule=True
+C-P1 square []->[1, 3]: reachable=True min=2 rule=True
+C-P1 square []->[1, 2, 3, 4]: reachable=True min=2 rule=True
+C-P2 ring6 [1]->[3]: reachable=True min=2 rule=True
+C-P2 ring6 [1]->[4]: reachable=True min=3 rule=True
+C-P3 ring6 [1]->[1]: reachable=True min=0 rule=True
+C-P4 tree8 [1]->[5]: reachable=True min=4 rule=True
+C-P4 tree8 [1]->[7]: reachable=True min=4 rule=True
+C-P4 tree8 [1]->[8]: reachable=True min=4 rule=True
+C-P5 tree8 []->[1, 8]: reachable=True min=4 rule=True
+C-P6 ring6 []->[1, 2]: reachable=True min=1 rule=True
+C-P6 ring6 []->[1, 4]: reachable=True min=3 rule=True
+C-P6 ring6 []->[1, 2, 4, 5]: reachable=True min=2 rule=True
+C-P6 ring6 []->[1, 2, 3, 4, 5, 6]: reachable=True min=3 rule=True
+C-P7 grid9 []->[1, 5]: reachable=True min=2 rule=True
+C-P7 grid9 []->[2, 8]: reachable=True min=2 rule=True
+C-P7 grid9 []->[1, 3, 7, 9]: reachable=True min=4 rule=True
+C-P7 grid9 []->[1, 3, 4, 6, 7, 9]: reachable=True min=4 rule=True
+C-P8 islands8 [1]->[5]: reachable=False min=None rule=False
+OK   C-P3 guide tour 1-2..6-1 
+OK   C-P9 every one-line bridge makes the trip possible 
+--- archived shared guide (F02-S-FAC-v1) move lists for catalog problems ---
+OK   guide P2 {1,2} got [1, 2]
+OK   guide P2 {1,3} got [1, 3]
+OK   guide P2 all got [1, 2, 3, 4]
+OK   guide P5 to 3 got [3]
+OK   guide P5 to 4 got [4]
+OK   guide P7 to 5 got [5]
+OK   guide P7 to 7 got [7]
+OK   guide P7 to 8 got [8]
+OK   guide P8 {1,8} got [1, 8]
+OK   guide P9 {1,2} got [1, 2]
+OK   guide P9 {1,4} got [1, 4]
+OK   guide P9 {1,2,4,5} got [1, 2, 4, 5]
+OK   guide P9 all got [1, 2, 3, 4, 5, 6]
+OK   guide P10 {1,5} got [1, 5]
+OK   guide P10 {2,8} got [2, 8]
+OK   guide P10 corners got [1, 3, 7, 9]
+OK   guide P10 six got [1, 3, 4, 6, 7, 9]
+OK   guide P12 bridge 2-5 then 1-2; 2-5 
+OK   guide P11 impossible on printed map 
+
+=== Upper catalog (F02-S-CAT-UP-v1) ===
+OK   U-P1A ring4 []->[1, 3] guide says possible reachable=True min=2 on-count 0->2
+OK   U-P1B ring5 [1]->[3] guide says possible reachable=True min=2 on-count 1->1
+OK   U-P1C ring6 []->[1, 3, 5] guide says impossible reachable=False min=None on-count 0->3
+OK   U-P1D star5 [1, 2, 3]->[2] guide says possible reachable=True min=1 on-count 3->1
+OK   U-P1E grid9 [1, 5]->[3, 7, 9] guide says impossible reachable=False min=None on-count 2->3
+OK   U-P1F path6 [1, 2]->[5, 6] guide says possible reachable=True min=2 on-count 2->2
+OK   U-P1 parity rule exact on ring4 
+OK   U-P1 parity rule exact on ring5 
+OK   U-P1 parity rule exact on ring6 
+OK   U-P1 parity rule exact on star5 
+OK   U-P1 parity rule exact on grid9 
+OK   U-P1 parity rule exact on path6 
+OK   U-P2A triangle_pair [1]->[3] guide says possible reachable=True min=1 per-component rule=True
+OK   U-P2B triangle_pair [1]->[4] guide says impossible reachable=False min=None per-component rule=False
+OK   U-P2C triangle_bridge [1]->[4] guide says possible reachable=True min=2 per-component rule=True
+OK   U-P2D two_squares [1, 5]->[2, 8] guide says possible reachable=True min=2 per-component rule=True
+OK   U-P2E two_trees []->[1, 4] guide says impossible reachable=False min=None per-component rule=False
+OK   U-P2F two_trees [1, 4]->[2, 6] guide says possible reachable=True min=2 per-component rule=True
+OK   U-P2 per-component rule exact on triangle_pair 
+OK   U-P2 per-component rule exact on triangle_bridge 
+OK   U-P2 per-component rule exact on two_squares 
+OK   U-P2 per-component rule exact on two_trees 
+OK   U-P2D guide: odd ON count in each component before and after 
+OK   U-P2F guide: odd ON count in each component before and after 
+OK   U-P3A ring4 []->[] 2 solutions sizes (0, 4): [[], [(1, 2), (2, 3), (3, 4), (4, 1)]]
+OK   U-P3B ring5 [1]->[3] 2 solutions sizes (2, 3): [[(1, 2), (2, 3)], [(3, 4), (4, 5), (5, 1)]]
+OK   U-P3C ring6 []->[1, 4] 2 solutions sizes (3, 3): [[(1, 2), (2, 3), (3, 4)], [(4, 5), (5, 6), (6, 1)]]
+OK   U-P3D ring7 [1, 3]->[2, 4] 2 solutions sizes (2, 5): [[(1, 2), (3, 4)], [(2, 3), (4, 5), (5, 6), (6, 7), (7, 1)]]
+OK   cycle C3: even targets have exactly 2 subset solutions, odd none 
+OK   cycle C4: even targets have exactly 2 subset solutions, odd none 
+OK   cycle C5: even targets have exactly 2 subset solutions, odd none 
+OK   cycle C6: even targets have exactly 2 subset solutions, odd none 
+OK   cycle C7: even targets have exactly 2 subset solutions, odd none 
+OK   cycle C8: even targets have exactly 2 subset solutions, odd none 
+OK   U-P4A ring8 min to [1, 2, 5, 6] (guide 2) BFS min=2
+OK   U-P4B ring8 min to [1, 3, 5, 7] (guide 4) BFS min=4
+OK   U-P4C ring6 min to [1, 2, 3, 4, 5, 6] (guide 3) BFS min=3
+OK   U-P4D path6 min to [1, 6] (guide 5) BFS min=5
+OK   U-P4E star5 min to [2, 3, 4, 5] (guide 4) BFS min=4
+OK   U-P4F grid9 min to [1, 3, 7, 9] (guide 4) BFS min=4
+OK   U-P4A guide: the two lit adjacent pairs got [1, 2, 5, 6]
+OK   U-P4C guide: alternate edges got [1, 2, 3, 4, 5, 6]
+OK   U-P4D guide: all five got [1, 6]
+OK   U-P4E guide: four spokes got [2, 3, 4, 5]
+OK   U-P4F guide: top and bottom rows got [1, 3, 7, 9]
+OK   U-P4F guide: outer columns got [1, 3, 7, 9]
+--- U-P5 ring records ---
+OK   ring 3: record 1 (floor(n/2)=1) 3 record targets, e.g. [[1, 2], [2, 3], [1, 3]]
+OK   ring 4: record 2 (floor(n/2)=2) 3 record targets, e.g. [[1, 3], [1, 2, 3, 4], [2, 4]]
+OK   ring 5: record 2 (floor(n/2)=2) 10 record targets, e.g. [[1, 3], [1, 2, 3, 4], [1, 2, 4, 5]]
+OK   ring 5: lamps 1 and 3 attain record 
+OK   ring 6: record 3 (floor(n/2)=3) 10 record targets, e.g. [[1, 4], [1, 3, 4, 5], [1, 3, 5, 6]]
+OK   ring 6: lamps 1 and 4 attain record 
+OK   ring 7: record 3 (floor(n/2)=3) 35 record targets, e.g. [[1, 4], [1, 3, 4, 5], [1, 3, 5, 6]]
+OK   ring 7: lamps 1 and 4 attain record 
+OK   ring 8: record 4 (floor(n/2)=4) 35 record targets, e.g. [[1, 5], [1, 4, 5, 6], [1, 4, 6, 7]]
+OK   ring 8: lamps 1 and 5 attain record 
+OK   ring 9: record 4 (floor(n/2)=4) 126 record targets, e.g. [[1, 5], [1, 4, 5, 6], [1, 4, 6, 7]]
+OK   ring 10: record 5 (floor(n/2)=5) 126 record targets, e.g. [[1, 6], [1, 5, 6, 7], [1, 5, 7, 8]]
+OK   ring 11: record 5 (floor(n/2)=5) 462 record targets, e.g. [[1, 6], [1, 5, 6, 7], [1, 5, 7, 8]]
+OK   ring 12: record 6 (floor(n/2)=6) 462 record targets, e.g. [[1, 7], [1, 6, 7, 8], [1, 6, 8, 9]]
+OK   U-P6A tree6 []->[1, 3, 5, 6] solution count (data 1) [[(1, 2), (2, 3), (4, 5), (4, 6)]]
+OK   U-P6B star7 [2, 4]->[3, 5, 6, 7] solution count (data 1) [[(1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7)]]
+OK   U-P6C tree8 [1, 7]->[5] solution count (data 0) []
+OK   U-P6D path6 [2, 5]->[2, 5] solution count (data 1) [[]]
+OK   tree tree6: every even target exactly one subset, odd none 
+OK   tree star7: every even target exactly one subset, odd none 
+OK   tree tree8: every even target exactly one subset, odd none 
+OK   tree path6: every even target exactly one subset, odd none 
+OK   guide P3 extension: complementing preserves the result iff all degrees even 
+
+All checks passed.

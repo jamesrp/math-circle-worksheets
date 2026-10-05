@@ -4,7 +4,7 @@ The week number and the run folder are in the message that started you. Write th
 
 Read these first. They are the bar.
 - AGENTS.md, especially the facilitator overview, student-page format, substantial problems, and design-and-review sections.
-- worksheet-workflow/blocks/spec.md and worksheet-workflow/blocks/neg.md: the organizer's standard for student pages and the list of things he deletes by hand.
+- worksheet-workflow/blocks/spec.md and worksheet-workflow/blocks/neg.md: the organizer's standard for student pages and the list of things the organizer deletes by hand.
 - worksheet-workflow/context.md: the children, adults and hour these pages are for.
 - lowell-math-circle-year-2/week-02/week-02-shared-catalog.pdf and week-02-shared-catalog-upper.pdf: the organizer's approved examples of brief directions, substantial tasks and room to think. Their diagram-heavy format suits that topic; other topics may need another presentation.
 
@@ -23,19 +23,21 @@ Do a thorough, adversarial review, then write the card in the format of plans/re
 - adequate: usable as printed; the fixes listed would make it better.
 - weak: a child or adult cannot use it as intended.
 
-For "Mathematics", ask whether a mathematician would enjoy it: a real structure, invariant or theorem that children reach through the tasks, rather than arithmetic practice in costume or one fact repeated. For "Problems", ask whether each numbered problem gives five or more minutes of real thinking, and whether the order of problems carries the development. For "Student pages", hold them to spec.md and neg.md: no slop, no hints or method on the page, no narration of diagrams, the next action always clear, diagrams the right size. For "Concreteness", ask whether the materials or a partner enforce the rules, and whether the launch shows the action before the pages go out. For age fit, judge each band by what it asks of a child who cannot yet read (K–1, where an adult reads aloud), of reading, arithmetic and abstraction, and of keeping track of several things at once; harder questions late in a packet are for the quickest children and are not a defect.
+For "Mathematics", ask whether a mathematician would enjoy it: a real structure, invariant or theorem that children reach through the tasks, rather than arithmetic practice in costume or one fact repeated. For "Problems", ask whether each numbered problem gives five or more minutes of real thinking, whether each idea gets several contrasting concrete cases before children must explain or compare it, and whether the order of problems carries the development. For "Student pages", hold them to spec.md and neg.md: no slop, no hints or method on the page, no narration of diagrams, the next action always clear, diagrams the right size. For "Concreteness", ask whether the materials or a partner enforce the rules, and whether one short whole-group launch shows the shared action before the bands split up. For age fit, judge each band by what it asks of a child who cannot yet read (K–1, where an adult reads aloud), of reading, arithmetic and abstraction, and of keeping track of several things at once; harder questions late in a packet are for the quickest children and are not a defect.
 
 Severity in the fix list:
-- must: as printed, a child or adult would be stuck or misled. A wrong answer, an impossible or ambiguous task, a diagram that contradicts the text, a rule a child cannot act on, a missing board.
+- must: as printed, a child or adult would be stuck or misled. A wrong answer, an impossible or ambiguous task, a diagram that contradicts the text, a rule a child cannot act on, a missing board, a missing adult guide. Also a neg.md item on most pages, because the organizer would have to delete it by hand before printing.
 - should: usable, but it costs the session. A slop sentence, a hint or method on the student page, a thin problem, a guide that lacks its theorem-first overview.
 - could: taste.
 
 The verdict follows from the fixes, not from how many there are:
-- keep: no must on the student pages. Should and could items may remain, for whoever next touches the theme.
-- revise: the theme and design are right, and at least one must, or a cluster of should items, needs the reviser. Every fix is listed precisely enough to make without asking.
-- rework: the design does not deliver the mathematics to children, for example tasks too thin to think about, a rule nothing enforces, or a band whose demands no small fix can repair. Say what a new outline needs.
+- keep: no must. Any number of should and could items may remain, for whoever next touches the theme.
+- revise: the theme and design are right, and at least one must needs the reviser. Should items alone never make a revise, however many there are. Every fix is listed precisely enough to make without asking.
+- rework: the problems themselves have to be replaced, because they do not deliver the mathematics to children: tasks too thin to think about, mathematics the tasks never reach, or a band whose demands no small fix can repair. Say what a new outline needs. When the problems can stay and the fix lies in materials, boards, the launch or the guide, the verdict is revise.
 - merge: another theme covers the same object and theorem as well or better. Name it and what to carry over.
 
 Keep the card honest in both directions. A finding needs a location and evidence; "could be clearer" without a way a child goes wrong is a could. Do not count one issue in three bands as three findings. Do not ask for more words on the student page to fix something an adult can say at the table. Untested concerns about children are predictions; label them so, and do not let them decide the verdict alone. Name what works as carefully as what does not, because a reviser will keep only what the card protects.
 
-Write the card in plain prose, as the organizer would: short sentences, no headings beyond the template's, no preamble or summary at the end, about one to two printed pages. Then reply with the verdict and one sentence on why.
+A page's history does not change a finding's severity. Whether it was taught, approved by the organizer, or written before a rule in AGENTS.md existed, a must is still a must. Record the history in the status line and under "Classroom evidence"; observed classroom results, not history, are what may change a rating.
+
+Write the card in plain prose, as the organizer would: short sentences, no headings beyond the template's, no preamble or summary at the end, and under about 1,200 words. Give each could one line. Then reply with the verdict and one sentence on why.
