@@ -1,0 +1,136 @@
+
+== Direct chooser (K-1 shared rule p2, 2-3 P1, 4-5 P1)
+PASS 6 first-two stories give the 6 rows once each: [('AB', 'ABC'), ('AC', 'ACB'), ('BA', 'BAC'), ('BC', 'BCA'), ('CA', 'CAB'), ('CB', 'CBA')]
+PASS each story has probability 1/3*1/2 = 1/6
+PASS k-1: chooser picture draws C (triangle) then A (square), row CAB
+PASS k-1: caption matches the picture
+PASS grades-2-3: chooser picture draws C (triangle) then A (square), row CAB
+PASS grades-2-3: caption matches the picture
+PASS grades-4-5: chooser picture draws C (triangle) then A (square), row CAB
+PASS grades-4-5: caption matches the picture
+PASS example story CA gives CAB
+
+== Two-swap rule (Fisher-Yates, tickets {1,2,3} then {2,3})
+     from ABC: {(1, 2): 'ABC', (1, 3): 'ACB', (2, 2): 'BAC', (2, 3): 'BCA', (3, 2): 'CBA', (3, 3): 'CAB'}
+PASS from ABC: six stories give six different rows
+PASS from ABC: bijection onto all six rows
+PASS from ACB: bijection onto all six rows
+PASS from BAC: bijection onto all six rows
+PASS from BCA: bijection onto all six rows
+PASS from CAB: bijection onto all six rows
+PASS from CBA: bijection onto all six rows
+PASS k-1 p3: printed demo ABC -1 with 3-> CBA -2 with 2-> CBA
+PASS grades-2-3 p2: printed demo ABC -1 with 3-> CBA -2 with 2-> CBA
+PASS grades-4-5 p2: printed demo ABC -1 with 3-> CBA -2 with 2-> CBA
+PASS demo story (3,2) = CBA, which is one of the six answers (see notes)
+
+== K-1
+PASS P1 shows the three cards A B C
+PASS P1 prints 6 three-card record rows for 6 answers
+PASS P2 crossed-out first cards: ['A', 'B', 'C']
+     P2 printed three-card rows per crossed-out card: {'A': 4, 'B': 4, 'C': 4}
+     reading "crossed-out = already drawn first" (guide): {'A': ['ABC', 'ACB'], 'B': ['BAC', 'BCA'], 'C': ['CAB', 'CBA']}
+     reading "crossed-out = cannot come first": {'A': ['BAC', 'BCA', 'CAB', 'CBA'], 'B': ['ABC', 'ACB', 'CAB', 'CBA'], 'C': ['ABC', 'ACB', 'BAC', 'BCA']}
+PASS guide reading: 2 rows per case
+PASS printed space (4 rows per case) equals the count for the "cannot come first" reading, not the guide's 2
+PASS P2: two different first-two draws never give the same row
+PASS P3 prints 6 (two tickets + row) records
+PASS P3: no row from two stories
+PASS P3 guide table (1,2) ABC
+PASS P3 guide table (1,3) ACB
+PASS P3 guide table (2,2) BAC
+PASS P3 guide table (2,3) BCA
+PASS P3 guide table (3,2) CBA
+PASS P3 guide table (3,3) CAB
+PASS K-1 P3 guide table parsed [('1', '2', 'ABC'), ('1', '3', 'ACB'), ('2', '2', 'BAC'), ('2', '3', 'BCA'), ('3', '2', 'CBA'), ('3', '3', 'CAB')]
+PASS P4 printed first-ticket sets [(2, 3), (1, 3), (1, 2)]
+PASS P4 prints 2 rows per missing ticket
+     P4 missing ticket 1: impossible ['ABC', 'ACB']
+PASS P4 guide: remove 1 -> ['ABC', 'ACB']
+     P4 missing ticket 2: impossible ['BAC', 'BCA']
+PASS P4 guide: remove 2 -> ['BAC', 'BCA']
+     P4 missing ticket 3: impossible ['CAB', 'CBA']
+PASS P4 guide: remove 3 -> ['CAB', 'CBA']
+PASS P5 shows starts ABC and CBA
+PASS P5 guide table has six stories
+PASS P5 guide row (1, 2): ABC->ABC, CBA->CBA
+PASS P5 guide row (1, 3): ABC->ACB, CBA->CAB
+PASS P5 guide row (2, 2): ABC->BAC, CBA->BCA
+PASS P5 guide row (2, 3): ABC->BCA, CBA->BAC
+PASS P5 guide row (3, 2): ABC->CBA, CBA->ABC
+PASS P5 guide row (3, 3): ABC->CAB, CBA->ACB
+PASS P5 in general: a fixed story never merges two different starts (all pairs, all stories)
+PASS P5 guide: undoing the swaps in reverse order recovers the start
+
+== Grades 2-3
+PASS P1 prints 6 record rows
+PASS P1 guide: six stories, 1/6 each
+PASS P1 guide story->row order
+     P2 printed ticket pairs (reading order): [(1, 2), (2, 2), (3, 2), (1, 3), (2, 3), (3, 3)]
+PASS P2 printed pairs = guide "printed order"
+PASS P2 prints all six stories exactly once
+PASS P2 guide mappings [('1', '2', 'ABC'), ('2', '2', 'BAC'), ('3', '2', 'CBA'), ('1', '3', 'ACB'), ('2', '3', 'BCA'), ('3', '3', 'CAB')]
+PASS P2 prints six answer rows
+PASS P3 printed targets ['ABC', 'ACB', 'BAC', 'BCA', 'CAB', 'CBA']
+     P3 from BAC: {'BAC': (1, 2), 'BCA': (1, 3), 'ABC': (2, 2), 'ACB': (2, 3), 'CAB': (3, 2), 'CBA': (3, 3)}
+PASS P3: from BAC every row is reachable exactly once
+PASS P3 guide table [('ABC', '2', '2'), ('ACB', '2', '3'), ('BAC', '1', '2'), ('BCA', '1', '3'), ('CAB', '3', '2'), ('CBA', '3', '3')]
+PASS P3 prints two ticket boxes under each of the 6 targets (12 boxes)
+     P4: chance six fair shuffles show all six rows once = 6!/6^6 = 5/324 ~ 0.0154
+PASS P4 guide: (1,2) six times gives ABC six times
+PASS P4: that outcome has positive chance (1/6)^6
+     naive 27-story counts from ABC: [4, 5, 5, 5, 4, 4] for ['ABC', 'ACB', 'BAC', 'BCA', 'CAB', 'CBA']
+PASS guide: counts 4,5,5,5,4,4
+PASS P5 guide: exactly four stories give ABC: [(1, 2, 3), (1, 3, 2), (2, 1, 3), (3, 2, 1)]
+     p4 printed demo transitions: [('1 with 3', 'ABC', 'CBA'), ('2 with 2', 'CBA', 'CBA'), ('3 with 1', 'CBA', 'ABC')]
+PASS p4 demo is the complete story (3,2,1): ABC -> CBA -> CBA -> ABC
+PASS printed demo (3,2,1) ends at ABC, as does the all-self-swap story (1,2,3): the page itself shows a P5 collision (see report)
+     alternative demo endings: {(3, 2, 3): 'CBA', (3, 2, 2): 'CAB'}; all stories for CBA: [(1, 2, 1), (2, 1, 1), (3, 2, 3), (3, 3, 2)]; all stories for CAB: [(1, 1, 1), (2, 2, 1), (3, 2, 2), (3, 3, 3)]
+PASS P5 prints three story records
+PASS P6: 27 is not a multiple of 6
+PASS P6 guide table matches
+PASS P5 guide lists the four ABC stories
+PASS P5 guide description of (1, 3, 2): swaps [2, 3] twice
+PASS P5 guide description of (2, 1, 3): swaps [1, 2] twice
+PASS P5 guide description of (3, 2, 1): swaps [1, 3] twice
+
+== Grades 4-5
+PASS P1 prints 6 record rows
+PASS P3 shows start CBA
+PASS P3: from CBA still uniform (bijection)
+PASS P3 guide: relabel A<->C maps ABC-experiment to CBA-experiment
+PASS P4: wrong-range rule not uniform
+PASS wrong-range rule n=3: n^n=27 not divisible by n!=6
+PASS wrong-range rule n=4: n^n=256 not divisible by n!=24
+PASS wrong-range rule n=5: n^n=3125 not divisible by n!=120
+PASS wrong-range rule n=6: n^n=46656 not divisible by n!=720
+PASS wrong-range rule n=7: n^n=823543 not divisible by n!=5040
+PASS wrong-range rule n=3: unequal counts (min 4, max 5)
+PASS wrong-range rule n=4: unequal counts (min 8, max 15)
+PASS wrong-range rule n=5: unequal counts (min 16, max 47)
+PASS wrong-range rule n=6: unequal counts (min 32, max 159)
+     P5 no-self-swap rule: {(2, 3): 'BCA', (3, 3): 'CAB'}
+PASS P5: only BCA and CAB
+PASS P5 guide intermediate rows BAC, BCA, CBA, CAB
+PASS P6: left-to-right FY for 4 cards: 24 stories, bijective from every start
+PASS P7: left-to-right FY for 5 cards: 120 stories, bijective from every start
+PASS overview: FY n=2 gives n! orders once each
+PASS overview: FY n=3 gives n! orders once each
+PASS overview: FY n=4 gives n! orders once each
+PASS overview: FY n=5 gives n! orders once each
+PASS overview: FY n=6 gives n! orders once each
+PASS guide unique-target construction works for every target, n=3
+PASS guide unique-target construction works for every target, n=4
+PASS guide unique-target construction works for every target, n=5
+PASS P6/P7 guide counts 24 and 120
+PASS P6/P7 card strips ABCD and ABCDE
+
+== Guide overview and session pages
+PASS overview: 3^3 = 27
+PASS overview counts present
+PASS overview: no-self-swap gives only BCA, CAB
+PASS launch chooser example CAB
+PASS launch swap demo: ticket 3 -> CBA, ticket 2 -> CBA
+PASS route note typo "The27-story" (cosmetic)
+
+check_base: 108 checks, 0 failures

@@ -1,0 +1,60 @@
+ok   student PDF has 7 pages (7)
+== Headers, footers, problem numbers ==
+ok   p1 header: 'Week 60 / Take it or pass / Grades 3–5'
+ok   p1 footer present
+ok   p2 header: 'Week 60 / Take it or pass / Grades 3–5'
+ok   p2 footer present
+ok   p3 header: 'Week 60 / Take it or pass / Grades 3–5'
+ok   p3 footer present
+ok   p4 header: 'Week 60 / Take it or pass / Grades 4–5'
+ok   p4 footer present
+ok   p5 header: 'Week 60 / Take it or pass / Grades 4–5'
+ok   p5 footer present
+ok   p6 header: 'Week 60 / Take it or pass / Grades 3–5'
+ok   p6 footer present
+ok   p7 header: 'Week 60 / Take it or pass / Grades 4–5'
+ok   p7 footer present
+  problems by page: {1: [1, 2], 2: [3], 3: [4], 4: [5], 5: [6], 6: [7], 7: [8, 9]}
+ok   problems numbered 1-9 consecutively
+
+== Page 1: practice round (tickets 1, 2, 5) ==
+ok   practice boxes read in order: ['offer 2', 'two counters', 'pass 2; return it', 'mix; one counter left', 'next offer 1', 'must take 1', 'round score: 1']
+ok   legal under the rules: pass 2 with two counters, remove one, compulsory 1 with one counter -> score 1
+ok   counter convention: n counters at the first of n offers; one counter at the last
+
+== Page 2: practice card and the nine 0/4/6 cards ==
+ok   practice complete card reads (3, 1)
+ok   practice outcome boxes: take 3, later 1 unseen, score 3
+ok   rule 'take 3 or 5, pass 1' on (3, 1) scores 3
+ok   nine dashed cards are exactly the nine 0/4/6 pairs, once each: [(0, 0), (0, 4), (0, 6), (4, 0), (4, 4), (4, 6), (6, 0), (6, 4), (6, 6)]
+
+== Page 3: the 27 three-offer cards ==
+ok   27 dashed cards are exactly the 27 0/4/6 triples, once each (27 cards)
+ok   plans A and B printed as checked in check_math.py
+
+== Page 4: position boxes for Problem 5 ==
+  box at x=88: label ['2 offers left, including this one'], current ['4'], 2 counters, round=True, diameters {17.28} pt
+  box at x=319: label ['3 offers left, including this one'], current ['4'], 3 counters, round=True, diameters {17.28} pt
+ok   two position boxes
+ok   left box: current 4, 2 offers left, two counters
+ok   right box: current 4, 3 offers left, three counters
+ok   all counters are equal circles
+
+== Page 6: the two new bags ==
+  bag labels: [('Bag: 0, 3, 6', 108), ('Bag: 0, 5, 6', 391)]
+ok   labels 'Bag: 0, 3, 6' then 'Bag: 0, 5, 6'
+ok   cards under 'Bag: 0, 3, 6' are its nine pairs: [(0, 0), (0, 3), (0, 6), (3, 0), (3, 3), (3, 6), (6, 0), (6, 3), (6, 6)]
+ok   cards under 'Bag: 0, 5, 6' are its nine pairs: [(0, 0), (0, 5), (0, 6), (5, 0), (5, 5), (5, 6), (6, 0), (6, 5), (6, 6)]
+
+== Card anatomy and equal sizes ==
+ok   every card has exactly one 'score' line
+ok   two-offer cards have one divider, three-offer cards two
+  two-offer card sizes (pt): {(154.8, 63.36)}; three-offer: {(154.8, 50.4)}
+ok   all cards of each length have equal size (equal weight when sorted/pooled)
+ok   digits on cards of each length share one font size
+
+== Page 7 ==
+ok   Problem 8 bag 0,5,6, horizons three and four
+ok   Problem 9 asks both questions
+
+0 FAIL line(s)

@@ -1,0 +1,175 @@
+# Week 42 independent mathematics check
+repo: /home/claude/math-circle-worksheets
+
+## Core: three red, one blue, independent draws with replacement
+labelled colour classes: {'RR': 9, 'RB': 3, 'BR': 3, 'BB': 1} total 16
+PASS class sizes 9,3,3,1 of 16
+fair colour-only rules (of 81): [{'RR': 'N', 'RB': 'S', 'BR': 'C', 'BB': 'N'}, {'RR': 'N', 'RB': 'C', 'BR': 'S', 'BB': 'N'}]
+PASS exactly two fair rules: BR/RB to opposite shapes, RR and BB skipped
+PASS every fair rule skips exactly 10 labelled pairs (min skip = 10)
+PASS no fair rule gives a shape on every pair (G2-3 P7, G4-5 P4)
+PASS RR class (9) exceeds the other seven pictures
+PASS with RR skipped, giving BB a shape never balances (K-1 P3 key)
+PASS each shape 3/16, conditional 1/2
+
+## K-1
+PASS P1: all four colour pairs possible with replacement (BB too)
+PASS P1: removing blue loses RB, BR, BB
+P4 RBBB: square 3, circle 3, none 10 of 16
+PASS P4 RBBB gives square/circle (3, 3)
+P4 RRBB: square 4, circle 4, none 8 of 16
+PASS P4 RRBB gives square/circle (4, 4)
+P4 RRRR: square 0, circle 0, none 16 of 16
+PASS P4 RRRR gives square/circle (0, 0)
+P4 BBBB: square 0, circle 0, none 16 of 16
+PASS P4 BBBB gives square/circle (0, 0)
+P5 mixed labelled pairs by red count 0..4: [0, 6, 8, 6, 0]
+PASS P5: 0,6,8,6,0 -> two red/two blue best under kept rule
+PASS P5: no four-counter bag gives a shape on every pair under kept rule
+P5 other reading: fair colour-only rules that ALWAYS give a shape, by bag:
+    BBBB 0 []
+    RBBB 0 []
+    RRBB 6 [{'RR': 'S', 'RB': 'S', 'BR': 'C', 'BB': 'C'}, {'RR': 'S', 'RB': 'C', 'BR': 'S', 'BB': 'C'}, {'RR': 'S', 'RB': 'C', 'BR': 'C', 'BB': 'S'}, {'RR': 'C', 'RB': 'S', 'BR': 'S', 'BB': 'C'}]
+    RRRB 0 []
+    RRRR 0 []
+PASS P5 other reading: RRBB with "first counter red -> square, blue -> circle" is fair and gives a shape on EVERY pair (answer flips to yes if the rule may change)
+PASS only the 2R/2B bag admits such a rule
+P6 guide story "no shapes": ['RR', 'RR', 'RR', 'RR', 'RR', 'RR'] -> {'N': 6}
+P6 guide story "exactly one square and no circles": ['BR', 'RR', 'RR', 'RR', 'RR', 'RR'] -> {'S': 1, 'N': 5}
+P6 guide story "exactly three circles and no squares": ['RB', 'RB', 'RB', 'RR', 'RR', 'RR'] -> {'C': 3, 'N': 3}
+PASS P6 no-shape story valid
+PASS P6 one-square story valid
+PASS P6 three-circle story valid
+PASS P6: six RR pairs have positive probability (9/16)^6 = 531441/16777216
+
+## Grades 2-3
+    R1 ['RR', 'RR', 'RR', 'RB']
+    R2 ['RR', 'RR', 'RR', 'RB']
+    R3 ['RR', 'RR', 'RR', 'RB']
+    B1 ['BR', 'BR', 'BR', 'BB']
+PASS P2 highlighted cell row R2, column B is the colour pair RB
+PASS P2 grid classes 9,3,3,1
+PASS P3 RRBB: RB = BR = 4 of 16 (fair)
+PASS P3 RBBB: RB = BR = 3 of 16 (fair)
+PASS P4: two-red bag 8/16 output vs three-red bag 6/16 -> choose two-red
+P5 cross-bag weights: {'RR': 3, 'RB': 9, 'BR': 1, 'BB': 3}
+PASS P5 counts RR 3, RB 9, BR 1, BB 3
+PASS P5 conditional circle 9/10, square 1/10 -> unfair
+PASS P5 neither fair rule stays fair
+PASS P6 RRRRRR... story is legal and has chance (9/16)^6
+
+## Grades 4-5
+PASS P3 RRRRRBB: 10 RB and 10 BR among 49
+PASS P3 RRRBBBB: 12 RB and 12 BR among 49
+PASS P3 general: r red, b blue gives rb of each mixed order among (r+b)^2; fair iff r,b > 0 (r,b <= 8)
+P5 RRRB then RBBB: {'RR': 3, 'RB': 9, 'BR': 1, 'BB': 3} of 16; RB 9/16, BR 1/16
+PASS P5 RRRB -> RBBB fair = False
+P5 RRRB then RRRRRRBB: {'RR': 18, 'RB': 6, 'BR': 6, 'BB': 2} of 32; RB 3/16, BR 3/16
+PASS P5 RRRB -> RRRRRRBB fair = True
+P5 RRBB then RB: {'RR': 2, 'RB': 2, 'BR': 2, 'BB': 2} of 8; RB 1/4, BR 1/4
+PASS P5 RRBB -> RB fair = True
+PASS P5 case 2: 6/32 = 3/16
+PASS P5 case 3: 2/8 = 1/4
+PASS p(1-q) = (1-p)q iff p = q (13x13 rational grid)
+P6 without replacement: {'RR': 6, 'RB': 3, 'BR': 3} total 12
+PASS P6: 12 ordered pairs, RR 6, RB 3, BR 3, BB 0 -> fair, each shape 3/12
+PASS P6 kept rule still fair without replacement
+PASS without replacement RB = BR for every bag (exchangeability), r,b <= 6
+PASS P7 BR,RR x5 -> one square, no circles
+
+## Base guide overview
+PASS P(RB) = P(BR) = p(1-p), output rate 2p(1-p) for bags up to 5+5
+PASS chance of no output after m pairs = [p^2+(1-p)^2]^m (m <= 3, four bags)
+PASS independent draws with p != q are NOT fair: "independence" alone is not sufficient (needs the same bag, i.e. identically distributed draws)
+PASS dependent but exchangeable (no replacement) draws are fair
+
+## Bonus Problem 1 (three draws, three shapes)
+lone-colour-position rule: {'RRB': 'triangle', 'RBR': 'circle', 'RBB': 'square', 'BRR': 'square', 'BRB': 'circle', 'BBR': 'triangle'}
+PASS guide P1 rule pairs words as printed
+assignments of the six mixed words, fair for every p (polynomial identity): 36
+PASS 36 = 3! x 3! universal rules: each shape gets one one-R and one two-R word
+  RRRB: {'skip': 28, 'triangle': 12, 'circle': 12, 'square': 12} of 64
+PASS RRRB: each output 12, skip 28 of 64
+  RB: {'skip': 2, 'triangle': 2, 'circle': 2, 'square': 2} of 8
+PASS RB: each output 2, skip 2 of 8
+  RRB: {'skip': 9, 'triangle': 6, 'circle': 6, 'square': 6} of 27
+PASS RRB: each output 6, skip 9 of 27
+PASS each output weight p(1-p), total 3p(1-p) (bags up to 5+5)
+
+## Bonus Problem 2 (recycling skipped pairs)
+  RB: basic {'C': 8, 'S': 8} per-block {0: 4, 1: 8, 2: 4}; recycled {'C': 9, 'S': 9} per-block {0: 2, 1: 10, 2: 4}
+PASS RB: basic (8, 8), recycled (9, 9)
+  RRRB: basic {'C': 96, 'S': 96} per-block {0: 100, 1: 120, 2: 36}; recycled {'C': 105, 'S': 105} per-block {0: 82, 1: 138, 2: 36}
+PASS RRRB: basic (96, 96), recycled (105, 105)
+PASS balanced bag basic per-block counts 0:4, 1:8, 2:4
+PASS recycling turns two zero-output words into one-output words
+PASS 3R/1B: 192/256 vs 210/256
+PASS expected outputs per block 4p(1-p) -> 4p(1-p)+2p^2(1-p)^2 (bags up to 4+4)
+PASS both-skipped words RRRR, RRBB, BBRR, BBBB
+
+## Bonus Problem 3 (fair positions vs fair pairs)
+  fair-position cup: ('SS', 'SS', 'CC', 'CC') support 2 counts {'SS': 2, 'CC': 2}
+  fair-position cup: ('SS', 'SC', 'CS', 'CC') support 4 counts {'SS': 1, 'SC': 1, 'CS': 1, 'CC': 1}
+  fair-position cup: ('SC', 'SC', 'CS', 'CS') support 2 counts {'SC': 2, 'CS': 2}
+PASS exactly three four-ticket cups have fair positions
+PASS two cups give two pairs (SS,SS,CC,CC and SC,SC,CS,CS); one gives all four
+PASS Cup 2 SS,SC,CS,CC is the unique all-four cup
+PASS EVERY fair-position four-ticket cup gives equal chances to each pair it can give (so "whole pair fair" = "equal chances among pairs that come out" makes the answer yes)
+PASS no fair-position cup of 2..10 tickets has exactly three possible pairs (guide extension)
+  smallest fair-position cup with unequal possible-pair chances: ('SS', 'SS', 'SC', 'CS', 'CC', 'CC')
+
+## Printed numbers in the base guide
+PASS guide prints: sizes 9, 3, 3, 1 for RR, RB, BR, BB
+PASS guide prints: Thus ten of the sixteen labeled outcomes must be skipped
+PASS guide prints: 8 of 16 pairs produce a shape, versus 6 of 16 for a 3-to-1 bag
+PASS guide prints: One red/three blue gives each shape in 3 of 16 marked pairs. Two red/two blue gives each shape in 4 of 16
+PASS guide prints: For red counts 0, 1, 2, 3, 4, the numbers of mixed labeled pairs are 0, 6, 8, 6, 0 out of 16
+PASS guide prints: no shapes: RR, RR, RR, RR, RR, RR
+PASS guide prints: Exactly one square, no circles: BR, RR, RR, RR, RR, RR
+PASS guide prints: Exactly three circles, no squares: RB, RB, RB, RR, RR, RR
+PASS guide prints: three outcomes for either shape and ten skipped outcomes
+PASS guide prints: Two red/two blue gives four labeled RB and four BR outcomes out of 16
+PASS guide prints: One red/three blue gives three RB and three BR outcomes
+PASS guide prints: The two-red bag produces a shape in 8 of 16 pairs; the three-red bag in 6 of 16
+PASS guide prints: RR 3, RB 9, BR 1, BB 3 among 16
+PASS guide prints: circle has 9 ways and square 1; conditional on a shape, their chances are 9/10 and 1/10
+PASS guide prints: five red/two blue has 10 RB and 10 BR outcomes among 49; three red/four blue has 12 and 12 among 49
+PASS guide prints: the RR class alone has weight 9 > 8
+PASS guide prints: all other classes total only 7
+PASS guide prints: The minimum is 10 skipped labeled pairs
+PASS guide prints: RB 9/16 and BR 1/16, so unfair
+PASS guide prints: each 6/32 = 3/16, so fair
+PASS guide prints: each mixed order 2/8 = 1/4, so fair
+PASS guide prints: 4 x 3 = 12 equally likely ordered pairs
+PASS guide prints: RR has six, RB three, BR three, BB none
+PASS guide prints: Each shape has probability 3/12
+PASS guide prints: giving equal shape probabilities 3/16 and conditional probabilities 1/2
+PASS guide p.4 grid table matches the 16 labelled colour pairs
+PASS guide prints (9/16)^6
+PASS guide p.1 sentence "Independence is sufficient, not necessary" present (see finding)
+
+## Printed numbers in the bonus guide
+PASS bonus guide prints: equal weight p(1-p)^2
+PASS bonus guide prints: equal weight p^2(1-p)
+PASS bonus guide prints: each output has weight p(1-p)
+PASS bonus guide prints: Total output rate is 3p(1-p)
+PASS bonus guide prints: RRBB and BBRR have equal probability p^2(1-p)^2
+PASS bonus guide prints: rises from 4p(1-p) to 4p(1-p)+2p^2(1-p)^2
+PASS bonus guide prints: produce 16 versus 18 outputs in total
+PASS bonus guide prints: Thus RBB and BRR give square; BRB and RBR give circle; BBR and RRB give triangle
+PASS bonus guide prints: all 64 identity triples are equally likely. Each output has 12 histories; 28 skip
+PASS bonus guide prints: each output has two of eight stories and two skip
+PASS bonus guide prints: each output has six of 27 identity histories and nine skip
+PASS bonus guide prints: Basic output totals: square 8, circle 8, overall 16. Recycled: square 9, circle 9, overall 18
+PASS bonus guide prints: Basic per-block counts are zero in 4 words, one in 8, two in 4
+PASS bonus guide prints: each basic shape occurs 96 times
+PASS bonus guide prints: hence 105 each, total 210
+PASS bonus guide prints: Compare 192/256 with 210/256
+PASS bonus guide prints: Cup 1 can hold SS,SS,CC,CC. Cup 2 can hold SS,SC,CS,CC
+PASS bonus guide prints: Other valid Cup 1 examples use SC,SC,CS,CS
+PASS bonus guide prints: Four equally likely tickets SS,SS,CC,CC give each position S/C chances 1/2, but only SS and CC occur
+PASS bonus guide prints: it is impossible with four equal tickets
+PASS bonus materials: 40 tickets, 20 counters, 160 mm strip
+
+## Summary
+114 checks, 0 failures

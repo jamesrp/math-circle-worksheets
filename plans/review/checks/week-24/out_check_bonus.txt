@@ -1,0 +1,32 @@
+ok   bonus page 1 prints A=(2,4,9), B=(1,6,8), C=(3,5,7)
+ok   bonus page 2 prints A=(2,4,9), B=(1,6,8), C=(3,5,7)
+
+=== P1: largest of one draw from each bag ===
+wins by bag: {'C': 7, 'B': 10, 'A': 10}  wins by card: {3: 1, 4: 1, 5: 2, 6: 4, 7: 4, 8: 6, 9: 9}
+ok   A 10, B 10, C 7 of 27 (A and B tie)
+ok   guide per-card counts 0,1,9 / 0,4,6 / 1,2,4
+ok   guide text present: "A's cards 2,4,9 win 0,1,9 triples; B's 1,6,8 win 0,4,6; C's 3,5,7 win 1,2,4."
+
+=== P2: two draws with replacement, totals ===
+totals by first card: {'A': [[4, 6, 11], [6, 8, 13], [11, 13, 18]], 'B': [[2, 7, 9], [7, 12, 14], [9, 14, 16]], 'C': [[6, 8, 10], [8, 10, 12], [10, 12, 14]]}
+ok   guide P2 rows of totals
+frequencies: {'A': {4: 1, 6: 2, 8: 1, 11: 2, 13: 2, 18: 1}, 'B': {2: 1, 7: 2, 9: 2, 12: 1, 14: 2, 16: 1}, 'C': {6: 1, 8: 2, 10: 3, 12: 2, 14: 1}}
+ok   guide total frequencies
+
+=== P3: sums of two draws, 2 points for higher, 1 each for a tie ===
+{'AB': (37, 44, 0, 74, 88), 'BC': (39, 38, 4, 82, 80), 'CA': (39, 38, 4, 82, 80)}
+ok   A/B: 37 wins, 44 losses, 0 ties; points 74 and 88 (B better)
+ok   B/C: 39, 38, 4 ties; points 82 and 80 (B better)
+ok   C/A: 39, 38, 4 ties; points 82 and 80 (C better)
+ok   every pairing totals 162 points over 81 outcomes
+ok   guide text present: "A/B has wins 37/44 with no ties; B/C and C/A each have wins 39/38 with four ties."
+
+=== P4-P5: hidden label bags ===
+{('A', 'A'): '1', ('A', 'B'): '10/9', ('A', 'C'): '8/9', ('B', 'A'): '8/9', ('B', 'B'): '1', ('B', 'C'): '10/9', ('C', 'A'): '10/9', ('C', 'B'): '8/9', ('C', 'C'): '1'}
+ok   pure rows (1,10/9,8/9), (8/9,1,10/9), (10/9,8/9,1)
+ok   self-comparison: 3 wins, 3 losses, 3 ties
+ok   mixture averages 1+(c-b)/9, 1+(a-c)/9, 1+(b-a)/9; they sum to 3; none beats 1 against all three; min=1 only at a=b=c (grid of 91 bags)
+ok   a revealed label lets the opponent hold the chooser to 8/9
+ok   guide text present: "pure A averages (1,10/9,8/9) points, B (8/9,1,10/9), C (10/9,8/9,1)."
+
+FAILURES: 0

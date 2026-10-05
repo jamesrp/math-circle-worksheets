@@ -1,0 +1,161 @@
+=== Printed decks agree with the intended data ===
+ok   K-1 P1 deck rows are A=(2,4,9), B=(1,6,8)
+ok   K-1 P2 deck rows are B=(1,6,8), C=(3,5,7)
+ok   K-1 P3 deck rows are C=(3,5,7), A=(2,4,9)
+ok   K-1 P1: the nine pictured pairs are labelled A then B and are exactly all 9 pairs, each once
+     pictured pairs: [(2, 1), (2, 6), (2, 8), (4, 1), (4, 6), (4, 8), (9, 1), (9, 6), (9, 8)]
+ok   K-1 P2: the nine pictured pairs are labelled B then C and are exactly all 9 pairs, each once
+     pictured pairs: [(1, 3), (1, 5), (1, 7), (6, 3), (6, 5), (6, 7), (8, 3), (8, 5), (8, 7)]
+ok   K-1 P3: the nine pictured pairs are labelled C then A and are exactly all 9 pairs, each once
+     pictured pairs: [(3, 2), (3, 4), (3, 9), (5, 2), (5, 4), (5, 9), (7, 2), (7, 4), (7, 9)]
+ok   grades-2-3 P1 decks are A=(2,4,9), B=(1,6,8), C=(3,5,7)
+ok   grades-4-5 P1 decks are A=(2,4,9), B=(1,6,8), C=(3,5,7)
+
+=== Original decks: all 27 pairs ===
+A over B: 5/9, reverse 4/9, ties 0; winning pairs [(2, 1), (4, 1), (9, 1), (9, 6), (9, 8)]
+ok   A beats B 5 to 4
+B over C: 5/9, reverse 4/9, ties 0; winning pairs [(6, 3), (6, 5), (8, 3), (8, 5), (8, 7)]
+ok   B beats C 5 to 4
+C over A: 5/9, reverse 4/9, ties 0; winning pairs [(3, 2), (5, 2), (5, 4), (7, 2), (7, 4)]
+ok   C beats A 5 to 4
+ok   (2, 4, 9) does not beat both others
+ok   (1, 6, 8) does not beat both others
+ok   (3, 5, 7) does not beat both others
+ok   all three totals are 15 (4-5 P1: totals do not settle it)
+K-1 key matrices (row deck / column deck):
+    A vs B [['A', 'B', 'B'], ['A', 'B', 'B'], ['A', 'A', 'A']]
+    B vs C [['C', 'C', 'C'], ['B', 'B', 'C'], ['B', 'B', 'B']]
+    C vs A [['C', 'A', 'A'], ['C', 'C', 'A'], ['C', 'C', 'A']]
+ok   guide p.3 Problem 1 matrix
+ok   guide p.3 Problem 2 matrix
+ok   guide p.3 Problem 3 matrix
+ok   guide text present: "A wins (2,1),(4,1),(9,1),(9,6),(9,8): five pairs; B wins four."
+ok   guide text present: "B wins (6,3),(6,5),(8,3),(8,5),(8,7): five pairs; C wins four."
+ok   guide text present: "C wins (3,2),(5,2),(5,4),(7,2),(7,4): five pairs; A wins four."
+
+=== K-1 P4 / 2-3 P2 / extension: short games ===
+ok   deck that beats each deck: {'A': ['C'], 'B': ['A'], 'C': ['B']}
+ok   guide text present: "Against A choose C; against B choose A; against C choose B."
+favoured deck strictly ahead after 6: 240625/531441 = 0.4528; 3-3 tie 160000/531441 = 0.3011; behind 0.2462
+lose all six: (4/9)^6 = 4096/531441 = 0.00771
+ok   guide: favoured deck ahead "about 45.3%"
+ok   guide: 3-3 tie "about 30.1%"
+ok   favoured deck is ahead after six rounds with chance below one half
+ok   guide text present: "about 45.3%"
+ok   guide text present: "about 30.1%"
+ok   2-3 P2: in every ordered matchup each bag wins some pairs and loses some, so no finite winner record is impossible under either assignment
+
+=== K-1 P5 ===
+ok   K-1 P5 diagram: A=(2,4,_), B=(1,6,8), candidates 3,5,7,9
+A wins / B wins for each candidate: {3: (3, 6), 5: (3, 6), 7: (4, 5), 9: (5, 4)}
+ok   only 9 makes A win more pairs than B
+ok   guide: A totals 3,3,4,5
+ok   guide text present: "Thus A totals 3,3,4,5 out of nine"
+
+=== K-1 P6: every single swap ===
+  swap A2/B1: B wins 5, A wins 4; A=(1, 4, 9) B=(2, 6, 8)
+  swap A2/B6: B wins 2, A wins 7; A=(4, 6, 9) B=(1, 2, 8)
+  swap A2/B8: B wins 1, A wins 8; A=(4, 8, 9) B=(1, 2, 6)
+  swap A4/B1: B wins 6, A wins 3; A=(1, 2, 9) B=(4, 6, 8)
+  swap A4/B6: B wins 3, A wins 6; A=(2, 6, 9) B=(1, 4, 8)
+  swap A4/B8: B wins 2, A wins 7; A=(2, 8, 9) B=(1, 4, 6)
+  swap A9/B1: B wins 9, A wins 0; A=(1, 2, 4) B=(6, 8, 9)
+  swap A9/B6: B wins 6, A wins 3; A=(2, 4, 6) B=(1, 8, 9)
+  swap A9/B8: B wins 5, A wins 4; A=(2, 4, 8) B=(1, 6, 9)
+ok   guide p.4 swap table entries (B wins) all correct
+ok   exactly five swaps work: [(2, 1), (4, 1), (9, 1), (9, 6), (9, 8)]
+
+=== K-1 P7: two three-card decks from 1-6 with equal wins ===
+ok   no split of 1-6 into two decks of three gives equal win counts (all 20 splits tried)
+
+=== K-1 P8 / 2-3 P7: three two-card decks from 1-6 ===
+ok   none of the 90 labelled arrangements is a cycle; the deck holding 1 never wins more than 2 of 4
+
+=== 2-3 P3 / 4-5 P2: keep 9 in A, 8 in B, 7 in C ===
+ok   grades-2-3 P3 diagram: blanks + 9/8/7, pool 1-6
+ok   grades-4-5 P2 diagram: blanks + 9/8/7, pool 1-6
+ok   90 cases (15 x 6)
+   cycle: ((1, 5, 9), (3, 4, 8), (2, 6, 7), (5, 5, 5))
+   cycle: ((2, 3, 9), (1, 6, 8), (4, 5, 7), (5, 5, 6))
+   cycle: ((2, 4, 9), (1, 6, 8), (3, 5, 7), (5, 5, 5))
+ok   exactly three arrangements, the guide's three rows (so two besides Problem 1)
+ok   directed counts 5,5,5 and 5,5,6
+ok   guide W(a,b)>=2 / W(b,c)>=2 / W(c,a)>=3 formulas exact (asserted for all 90)
+ok   guide p.9 certificate table: all 15 rows, both columns, match the computation
+ok   guide text present: "(1,6) (2,5), (3,4), (3,5), (4,5) None"
+ok   guide text present: "(5,6) (1,4), (2,3), (2,4), (3,4) None"
+ok   guide p.9: (1,5) against a B pair containing 6 wins at most 1
+ok   guide p.9: B=(2,3)/C=(4,6) gives 0, B=(2,4)/C=(3,6) gives 1
+ok   guide p.9: low counts 2,2,3
+
+=== 2-3 P4: A=(2,x,9) ===
+ok   2-3 P4 diagram: A=(2,_,9), choices 0,2,4,9,10
+  x=0: A>B 4, B>C 5, C>A 6; cycle False
+  x=2: A>B 5, B>C 5, C>A 6; cycle True
+  x=4: A>B 5, B>C 5, C>A 5; cycle True
+  x=9: A>B 7, B>C 5, C>A 3; cycle False
+  x=10: A>B 7, B>C 5, C>A 3; cycle False
+ok   only x=2 and x=4 keep the cycle
+ok   guide p.7 table counts
+
+=== 2-3 P5 / 4-5 P4: duplicated decks ===
+ok   2-3 P5 six-card decks as intended
+ok   4-5 P4 six-card decks as intended
+ok   4-5 P4 four-card decks copy each smallest value once
+six-card wins /36: {('A', 'B'): 20, ('B', 'A'): 16, ('B', 'C'): 20, ('C', 'B'): 16, ('C', 'A'): 20, ('A', 'C'): 16}
+four-card wins /16: {('A', 'B'): 10, ('B', 'A'): 6, ('B', 'C'): 7, ('C', 'B'): 9, ('C', 'A'): 10, ('A', 'C'): 6}
+ok   six-card: 20 to 16 out of 36 each way, same winners
+ok   guide p.10 four-card table: 10/6, 7/9, 10/6 out of 16
+ok   every four-card chance differs from the original
+ok   every six-card chance equals the original
+ok   four-card relation: C over A, A over B, C over B (no cycle)
+ok   guide text present: "Counting distinct printed number-pairs as equally likely gives the wrong answer."
+   six-card A/B: distinct number-pairs equally likely? True; distinct-pair count gives 5/9, true chance 5/9
+   six-card B/C: distinct number-pairs equally likely? True; distinct-pair count gives 5/9, true chance 5/9
+   four-card A/B: distinct number-pairs equally likely? False; distinct-pair count gives 5/9, true chance 5/8
+   four-card B/C: distinct number-pairs equally likely? False; distinct-pair count gives 5/9, true chance 7/16
+FAIL guide gate sentence holds for the six-card decks too (expected FAIL: there the 9 distinct number-pairs are equally likely, 4 physical copies each, and give the right 5/9)
+ok   four-card decks: distinct-pair counting gives B over C 5/9, true 7/16 (wrong winner) -- the gate is right here
+ok   guide row sums 2+2+2+4, 0+0+3+4, 2+2+3+3
+
+=== 2-3 P6: nine different cards from 1-12, totals 15/18/21 ===
+ok   2-3 P6 pool is 1-12
+   solution: ((3, 5, 7), (2, 4, 12), (1, 9, 11), (5, 5, 6))
+ok   guide example A=(3,5,7), B=(2,4,12), C=(1,9,11) works with counts 5,5,6
+ok   guide p.13 "exactly one solution to the revised 15,18,21 construction": found 1
+   context: 119 labelled assignments meet all three totals; 1 of them is a cycle
+
+=== 4-5 P3: values 1-6, repeats only within a deck ===
+   30 labelled multiset solutions; e.g. [((1, 4, 4), (3, 3, 3), (2, 2, 5)), ((1, 4, 4), (3, 3, 3), (2, 2, 6)), ((1, 4, 5), (3, 3, 3), (2, 2, 6)), ((1, 5, 5), (3, 3, 3), (2, 2, 6))]
+ok   a cycle exists using only values 1-6
+ok   guide example A=(1,4,4), B=(3,3,3), C=(2,2,5) works: 6, 6, 5 out of 9
+   solutions containing a deck of three equal cards: 24
+   solutions that use every value 1-6 at least once: 12; e.g. [((1, 4, 5), (3, 3, 3), (2, 2, 6)), ((1, 5, 5), (3, 3, 4), (2, 2, 6))]
+
+=== 4-5 P5: two-card decks ===
+ok   4-5 P5 printed pairs
+    {('A', 'B'): (2, 2), ('C', 'D'): (3, 1), ('E', 'F'): (4, 0), ('G', 'H'): (1, 3)}
+ok   guide p.11 table: 2-2 neither, 3-1 C, 4-0 E, 1-3 H
+ok   rule "sorted, both coordinates larger" <=> majority, all 812 disjoint two-card deck pairs over 1-8 (repeats allowed)
+
+=== 4-5 P6: fewest cards per deck ===
+ok   no one-card cycle
+ok   no two-card cycle over values 1-8 with repeats inside decks (exhaustive)
+ok   three cards suffice (5,5,5)
+ok   two-card majority relation is transitive (overview claim)
+
+=== 4-5 P7 / guide audit: all labelled partitions of 1-9 ===
+ok   4-5 P7 pool is 1-9
+ok   1680 labelled partitions (84 x 20)
+ok   guide: 15 labelled strict cycles -> found 15
+   5 unlabelled nontransitive partitions: [[(1, 5, 9), (2, 6, 7), (3, 4, 8)], [(1, 6, 8), (2, 3, 9), (4, 5, 7)], [(1, 6, 8), (2, 4, 9), (3, 5, 7)], [(1, 7, 8), (2, 3, 9), (4, 5, 6)], [(1, 7, 8), (2, 4, 9), (3, 5, 6)]]
+ok   no partition has all three cyclic counts >= 6 (best cycle minimum is 5)
+ok   guide step 3: if A=(a,b,9) wins >= 6 against B then at least two B cards are below b
+
+=== Extensions ===
+ok   strictly increasing relabelling keeps every count
+ok   r and s copies keep every fraction
+ok   guide text present: "Replacement restores the same probabilities in each round."
+
+FAILURES: 1
+   guide gate sentence holds for the six-card decks too (expected FAIL: there the 9 distinct number-pairs are equally likely, 4 physical copies each, and give the right 5/9)

@@ -1,0 +1,60 @@
+NOTE model from PDF diagrams: show {1: 'R', 2: 'R', 3: 'R', 4: 'B', 5: 'B', 6: 'B'}; hide {1: 'R', 2: 'R', 3: 'B', 4: 'R', 5: 'B', 6: 'B'}; cards {(1, 2): 'RR', (3, 4): 'RB', (5, 6): 'BB'}
+PASS guide: "RR has faces 1 and 2; RB has faces 3 and 4; BB has faces 5 and 6"
+PASS guide overview table [('1 or 2', 'R', 'R'), ('3', 'R', 'B'), ('4', 'B', 'R'), ('5 or 6', 'B', 'B')] matches the diagram model
+PASS guide: P(hidden red | red showing) = 2/3
+PASS guide: given blue showing, hidden blue 2/3
+PASS guide: after a red clue RR has two eligible faces, RB one {'RR': 2, 'RB': 1, 'BB': 0}
+PASS guide: chooser {1,3} gives 1/2 each
+PASS guide: fair red clue <=> 3 present and exactly one of 1,2 (checked over all 63 non-empty subsets)
+PASS guide: 16 fair subsets (16)
+PASS guide: only two fair subsets are two-ticket cups ['{1,3}', '{2,3}']
+PASS guide: no whole-card selection is fair
+PASS only the BB-only card selection never shows red
+NOTE --- K-1
+PASS K-1 P1: red underneath [1, 2, 4], blue underneath [3, 5, 6]
+PASS K-1 P1: same shown, different hidden pairs [(1, 3), (2, 3), (4, 5), (4, 6)] (guide: four unordered pairs)
+PASS guide K-1 P1 text agrees
+PASS K-1 P2: red showing gives hidden R 2 vs B 1; tie removals [1, 2]
+NOTE K-1 P2: red-clue counts after each removal {1: (1, 1), 2: (1, 1), 3: (2, 0), 4: (2, 1), 5: (2, 1), 6: (2, 1)}
+PASS guide K-1 P2 text agrees
+PASS K-1 P3: blue showing hidden R/B (1, 2); tie removals [5, 6]
+PASS guide K-1 P3 text agrees
+PASS K-1 P4: chooser tickets 1 and 3 both name red faces, so the chooser always shows red
+PASS K-1 P4: before tie 1-1; after adding x: {2: (2, 1), 4: (1, 1), 5: (1, 1), 6: (1, 1)}
+PASS guide K-1 P4 alternative reading (all rounds): {2: (2, 1), 4: (2, 1), 5: (1, 2), 6: (1, 2)} = "adding 2 or 4 favors red 2-to-1; adding 5 or 6 favors blue 2-to-1"
+PASS K-1 P5: three-ticket cups with red possible and always hiding blue: ['{3,4,5}', '{3,4,6}', '{3,5,6}'] (page prints 3 slots)
+PASS guide K-1 P5 list agrees
+PASS K-1 P6: red-clue (hidden R, hidden B) after removing each card {'RR': (0, 1), 'RB': (2, 0), 'BB': (2, 1)}: RB removal -> always red; RR removal -> always blue
+PASS K-1 P7: fair two-ticket cups ['{1,3}', '{2,3}'] (page prints 2 slots)
+PASS guide K-1 P7 agrees
+NOTE --- grades 2-3
+PASS 2-3 P1: tickets with the same colour on both faces [1, 2, 5, 6]
+PASS guide 2-3 P1 table agrees
+PASS 2-3 P2: red showing -> red is better guess, 2/3
+PASS 2-3 P3: blue showing -> blue is better guess, 2/3 (the guess changes colour; "guess the showing colour" is the same rule)
+PASS 2-3 P4: two-ticket chooser 1/2 vs six-ticket 2/3: not the same
+PASS 2-3 P5: certain red (remove RB) yes; certain blue (remove RR) yes; equal chance: no {'RR': (Fraction(0, 1), Fraction(1, 1)), 'RB': (Fraction(1, 1), Fraction(0, 1)), 'BB': (Fraction(2, 3), Fraction(1, 3))}
+PASS 2-3 P6: same as K-1 P7, {1,3} and {2,3}
+PASS guide 2-3 P6 agrees
+NOTE --- grades 4-5
+PASS 4-5 P1: 2/3,1/3 and 1/3,2/3
+PASS 4-5 P2: P(card | red) = {'RR': Fraction(2, 3), 'RB': Fraction(1, 3), 'BB': Fraction(0, 1)}; friend's 1/2-1/2 is wrong
+PASS 4-5 P3: a revealed mark determines the hidden colour (1,2,4 red; 3,5,6 blue)
+PASS 4-5 P4: 1/2 vs 2/3
+PASS 4-5 P5: all 64 six-round hidden-colour sequences have positive probability under both rules -> no proof possible
+PASS guide 4-5 P5: six hidden reds have probabilities (2/3)^6=0.0878 and (1/2)^6=0.0156
+PASS 4-5 P6: 16 fair subsets
+PASS guide 4-5 P6: T list has the 8 subsets of {4,5,6}
+PASS guide 4-5 P6: the two families give exactly the 16 fair subsets, without repeats
+PASS 4-5 P7: no whole-card selection (1, 2 or 3 cards) gives a fair red clue
+NOTE   4-5 P7 keep ['RR']: red-clue (hidden R, hidden B) = (2, 0)
+NOTE   4-5 P7 keep ['RB']: red-clue (hidden R, hidden B) = (0, 1)
+NOTE   4-5 P7 keep ['BB']: red-clue (hidden R, hidden B) = (0, 0)
+NOTE   4-5 P7 keep ['RB', 'RR']: red-clue (hidden R, hidden B) = (2, 1)
+NOTE   4-5 P7 keep ['BB', 'RR']: red-clue (hidden R, hidden B) = (2, 0)
+NOTE   4-5 P7 keep ['BB', 'RB']: red-clue (hidden R, hidden B) = (0, 1)
+NOTE   4-5 P7 keep ['BB', 'RB', 'RR']: red-clue (hidden R, hidden B) = (2, 1)
+NOTE --- simulation of the printed protocol (draw ticket, set named face up, read the other face)
+PASS simulation: six-ticket 0.662 (~2/3), chooser {1,3} 0.500 (~1/2)
+
+45 passed, 0 failed

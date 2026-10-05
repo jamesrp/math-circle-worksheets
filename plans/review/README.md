@@ -40,14 +40,20 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 13 | Route packing and bottlenecks | keep | [card](week-13.md), [math check](week-13-math.md) |
 | 18 | Error-correcting codebooks | keep | [card](week-18.md), [math check](week-18-math.md) |
 | 23 | Sorting networks | revise: a print-and-cut mat, cards and bars, which the guide specifies but nothing supplies | [card](week-23.md), [math check](week-23-math.md) |
+| 24 | Nontransitive dice and decks | keep | [card](week-24.md), [math check](week-24-math.md) |
 | 25 | Row and column shadows | revise: a guide hint calls the natural lower-bound proof wrong (two switches, because four cells must empty and a switch empties two) | [card](week-25.md), [math check](week-25-math.md) |
 | 30 | Two-pan weight kits (balanced ternary) | keep | [card](week-30.md), [math check](week-30-math.md) |
 | 31 | Hidden orchard (lattice visibility) | revise: the guide's optional extension gives (4,3) as a sight line that changes when O moves to (1,1), and it doesn't, so an adult may correct a right answer | [card](week-31.md), [math check](week-31-math.md) |
 | 33 | Prime-length necklaces | keep | [card](week-33.md), [math check](week-33-math.md) |
 | 34 | Hidden turns (distinguishing colourings) | keep | [card](week-34.md), [math check](week-34-math.md) |
 | 39 | Road detours (path reduction) | revise: K–1 Problem 7 has two readings, and the key tells the adult that the natural one is wrong, so an adult may correct a right answer | [card](week-39.md), [math check](week-39-math.md) |
+| 42 | Fair results from a bag (von Neumann's fair coin) | keep | [card](week-42.md), [math check](week-42-math.md) |
+| 43 | Shuffling picture cards (fair shuffles) | revise: K–1 Problem 2's crossed-out cards and four rows fit "this card can't be first", while the key reads them as drawn first, so an adult may mark a right answer wrong | [card](week-43.md), [math check](week-43-math.md) |
+| 44 | The bag that copies (Pólya's urn) | keep | [card](week-44.md), [math check](week-44-math.md) |
+| 45 | The visible side (conditioning on a clue) | keep | [card](week-45.md), [math check](week-45-math.md) |
 | 52 | Hinged frames and braces | revise: the K–1 route is three problems the guide finishes by minute 30, and Problem 13's "Yes" rests on a one-brace-per-cell rule no upper page states | [card](week-52.md), [math check](week-52-math.md) |
 | 53 | Cheapest connected networks | revise: two price labels on page 8 sit on the wrong link, and the K–1 route is one page long | [card](week-53.md), [math check](week-53-math.md) |
+| 60 | Take it or pass (optimal stopping) | keep | [card](week-60.md), [math check](week-60-math.md) |
 | 62 | Conflict networks and scheduling | keep | [card](week-62.md), [math check](week-62-math.md) |
 | 63 | Cards away from home (derangements) | revise: the K–1 table has no route after the launch, though placing and checking cards suits it | [card](week-63.md), [math check](week-63-math.md) |
 

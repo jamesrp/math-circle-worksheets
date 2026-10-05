@@ -1,0 +1,58 @@
+
+== Problem 1: repeated pictures
+     24 labeled orders -> {'AABB': 4, 'ABAB': 4, 'ABBA': 4, 'BAAB': 4, 'BABA': 4, 'BBAA': 4}
+PASS six picture rows, four labeled orders each
+PASS each picture row has chance 1/6
+PASS guide picture words ['AABB', 'ABAB', 'ABBA', 'BAAB', 'BABA', 'BBAA']
+PASS guide AABB labelings ['A1A2B1B2', 'A1A2B2B1', 'A2A1B1B2', 'A2A1B2B1']
+PASS page 1 prints 8 record rows for 6 picture rows
+PASS multiplicities (3, 1): 4 words x {6} labelings (n!/prod m!)
+PASS multiplicities (3, 2): 10 words x {12} labelings (n!/prod m!)
+PASS multiplicities (2, 2, 1): 30 words x {4} labelings (n!/prod m!)
+PASS multiplicities (2, 1, 1): 12 words x {2} labelings (n!/prod m!)
+PASS guide extension A1,A2,A3,B1: 4 rows x 6 (checked above)
+
+== Problem 2: cuts and reversals
+PASS printed cut example and start ['WXYZ', 'YZWX', 'ABCD']
+     cuts only: ['ABCD', 'BCDA', 'CDAB', 'DABC']; cuts + reversal: ['ABCD', 'ADCB', 'BADC', 'BCDA', 'CBAD', 'CDAB', 'DABC', 'DCBA']
+PASS cuts only: exactly the four rotations
+PASS reversal adds exactly DCBA, CBAD, BADC, ADCB
+PASS ABDC impossible under both rules
+PASS guide: ADBC never appears
+PASS guide: ABDC never appears
+PASS guide: ACBD never appears
+PASS guide catalogs match
+PASS invariant: every card keeps its two cyclic neighbours
+PASS guide: A has cyclic neighbours B,D vs B,C in ABDC
+PASS guide extension: 5 cards -> 5 and 10 rows
+PASS one uniform cut: each card first with chance 1/4
+PASS repeated random cuts: 4 rows at 1/4, 20 orders at 0
+PASS guide: random cut after a uniform shuffle stays uniform
+PASS guide closure argument: rotation of rotation is a rotation; reversed rotation is rotation of reversal
+
+== Problem 3: random insertion
+PASS printed insertion example ['XY', 'Z', 'XZY']
+PASS gap 2 of XY is between X and Y
+PASS 6 old rows x 4 gaps = 24 stories, all different final orders
+PASS printed targets ['ABCD', 'DACB', 'BDCA', 'CBAD']
+PASS target ABCD: old row ABC, gap 4
+PASS guide states ABCD <- ('ABC', 4)
+PASS target DACB: old row ACB, gap 1
+PASS guide states DACB <- ('ACB', 1)
+PASS target BDCA: old row BCA, gap 2
+PASS guide states BDCA <- ('BCA', 2)
+PASS target CBAD: old row CBA, gap 4
+PASS guide states CBAD <- ('CBA', 4)
+PASS each final order has chance 1/24
+PASS guide: fair gaps cannot repair a biased old shuffle (example: ABC at 1/2)
+PASS a gap draw that depends on the old row can have uniform gap marginal yet reach only 12 orders
+PASS insertion of card 5: 24*5=120 stories, bijective
+PASS insertion of card 6: 120*6=720 stories, bijective
+PASS guide E extension count 120
+
+== Student text
+PASS P2 shared rule: uniform cut size 0..3
+PASS P3 states independence and four gaps
+PASS P3 gap numbering convention stated
+
+check_bonus: 46 checks, 0 failures
