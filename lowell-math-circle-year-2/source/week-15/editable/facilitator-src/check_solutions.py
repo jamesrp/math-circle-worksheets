@@ -133,7 +133,7 @@ pdf=PdfReader(ROOT/'build/facilitator-guide.pdf');assert len(pdf.pages)==15
 for i,p in enumerate(pdf.pages,1):
     assert tuple(p.mediabox)==(0,0,612,792)
     text=p.extract_text();assert len(text)>1000
-    assert 'Draft unpiloted' in text
+    assert 'Adult guide / Piloted' in text
     assert 'extquotesingle' not in text
 for i in range(3,15):
     t=pdf.pages[i].extract_text()
