@@ -8,8 +8,8 @@ October 5, 2026. The plan says to calibrate the card on Weeks 1, 2 and 15 before
 |---|---|---|---|
 | Week 1 | Current F01-K-v4, F01-M-v3, F01-U-v3 | An earlier version was taught in September and went well overall; children loved handling the blocks. The organizer approved these revised packets on September 27. On October 4 the organizer counted Week 1 among the weeks tested with children and good. | keep |
 | Week 1, old | The September classroom packets in `week-01/archive-classroom-2026-09/` | The organizer's report on that session ([week-01-classroom-review.md](../week-01-classroom-review.md)): starting different sheets at two tables needed too much adult management; the first 2–3 problem was too short; children could not tell what to do in the triangle continuation; the chevron idea was undersupported; the two-pink-triangle question did not land; the upper progression was compelling but its instructions and order needed work. The packets were revised in response. | revise, finding those problems |
-| Week 2 | The compact and upper catalogs, F02-S-CAT-v2 and F02-S-CAT-UP-v1 | AGENTS.md names these catalogs as approved examples of the page format. `worksheet-workflow/context.md` records that a paper lamp session went poorly: the two-lamp rule lived only on paper, children changed just the lamp they wanted, and many could not tell what was asked. Children love the same puzzles in the app, where a tap flips both lamps. On October 4 the organizer counted Week 2 among the good weeks. | Pages and mathematics at the bar; the paper-only rule found as the problem |
-| Week 15 | F15-K-v1, F15-23-v1, F15-45-v1 | Tested with children and judged good, reported October 4. No details are recorded. | keep |
+| Week 2 | The compact and upper catalogs, F02-S-CAT-v2 and F02-S-CAT-UP-v1 | AGENTS.md names these catalogs as approved examples of the page format. `worksheet-workflow/context.md` records that a paper lamp session went poorly: the two-lamp rule lived only on paper, children changed just the lamp they wanted, and many could not tell what was asked. Children love the same puzzles in the app, where a tap flips both lamps. On October 4 the organizer counted Week 2 among the good weeks, and later explained that the activity is good, especially in the app, while paper was harder to enforce in a larger group. | Pages and mathematics at the bar; the paper-only rule found as the problem |
+| Week 15 | F15-K-v1, F15-23-v1, F15-45-v1 | Judged good, reported October 4. Details came on October 5, after the runs: the organizer drew the maps by hand at home with three children, two dots and then a third added on top, without the printed packets and not in the circle. | keep |
 
 ## How the runs were set up
 
@@ -60,7 +60,7 @@ One adjustment was made by hand. Ratings varied between runs: of the four Week 2
 
 - One run per case per round, and findings vary between runs: the old Week 1's undefined task was found in round 1 and missed in round 2, and its undersupported chevrons were missed in all three. Verdicts were stable once the rules were sharp, but a card is one reviewer's read, and it will miss some of what children would show.
 - The only negative control is one packet, on a theme whose mathematics is strong. The format has not yet been tested on a packet whose mathematics is thin; the first wave-1 cards should be read with that in mind.
-- The evidence is the organizer's summaries, not per-problem observations, and Week 15 has no detail at all.
+- The evidence is the organizer's summaries, not per-problem observations. Week 15's is the weakest: a hand-drawn version of its core at home with three children. It shows the idea lands, not that the printed packets do, so Week 15 tests the card's leniency less than Weeks 1 and 2.
 - Reviewer and writer are the same model family, as in the worksheet workflow.
 
 ## Process rules that came out of this

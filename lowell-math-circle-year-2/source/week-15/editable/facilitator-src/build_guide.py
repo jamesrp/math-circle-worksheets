@@ -104,7 +104,7 @@ pre=r'''\documentclass[letterpaper,11pt]{article}
 \usepackage{amsmath,amssymb,tikz,fancyhdr,enumitem,hyperref,textcomp}
 \hypersetup{hidelinks,pdftitle={Week 15 Nearest site regions Facilitator guide},pdfauthor={Bellingham Math Circle}}
 \pagestyle{fancy}\fancyhf{}
-\fancyhead[L]{\small Bellingham Math Circle}\fancyhead[R]{\small Week 15 / Adult guide / Piloted}
+\fancyhead[L]{\small Bellingham Math Circle}\fancyhead[R]{\small Week 15 / Adult guide / Piloted at home}
 \fancyfoot[L]{\small Nearest-site regions}\fancyfoot[R]{\small\thepage}
 \renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}
 \setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
@@ -114,7 +114,7 @@ pre=r'''\documentclass[letterpaper,11pt]{article}
 \begin{document}
 {\LARGE\bfseries Nearest site regions}\par
 {\large Facilitator guide for Week 15}\par
-\textbf{Piloted.} The organizer tested this week with children and judged it good (reported October 4, 2026). This adult guide accompanies the three eight-page student packets, with Problems 1--8 in each. The hour below is the original proposal.
+\textbf{Piloted at home.} The organizer drew two dots, then added a third, with three children at home and judged it good (October 2026). The circle has not yet used these packets or this guide, which accompanies the three eight-page student packets (Problems 1--8 each). The hour below is the original proposal.
 
 \heading{What the children are exploring}
 A place belongs to every site that is nearest to it. Two sites give a straight dividing line; other sites can erase parts of that line. Whole regions come from satisfying all comparisons at once. Children can discover these ideas through string comparisons, folds and drawings; the coordinates in this guide are adult checks, not prerequisites.

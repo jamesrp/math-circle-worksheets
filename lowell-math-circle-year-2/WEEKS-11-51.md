@@ -1,6 +1,6 @@
 # Generated activity sets: weeks 11–51
 
-Revised October 4, 2026 after the organizer-approved fresh review. These activity numbers identify themes in a library, not an adopted meeting schedule. A theme can support several investigations and return visits. All sets except Week 15 remain unpiloted, and their physical rehearsals remain unperformed. The organizer tested Week 15 with children and judged it good (reported October 4, 2026); its adult guide now says piloted, and its student pages are unchanged.
+Revised October 4, 2026 after the organizer-approved fresh review. These activity numbers identify themes in a library, not an adopted meeting schedule. A theme can support several investigations and return visits. All sets except Week 15 remain unpiloted, and their physical rehearsals remain unperformed. The organizer tried Week 15's core maps at home with three children and judged it good (reported October 4–5, 2026); its adult guide now says piloted at home, and its student pages are unchanged.
 
 The separate [bonus investigations and return-visit index](BONUS-AND-RETURN-VISITS.md) lists three new investigations per theme across Weeks 1–51, with release status, suitable entries and local student/adult/source links.
 
@@ -18,7 +18,7 @@ The approved [fresh-review revision report](../plans/fresh-review-revision-2026-
 | 12. Catalan bijections | [PDF](week-12/week-12-k-1.pdf) | [PDF](week-12/week-12-grades-2-3.pdf) | [PDF](week-12/week-12-grades-4-5.pdf) | [PDF](week-12/week-12-facilitator.pdf) | [Sources](source/week-12/README.md) |
 | 13. Route packing and bottlenecks | [PDF](week-13/week-13-k-1.pdf) | [PDF](week-13/week-13-grades-2-3.pdf) | [PDF](week-13/week-13-grades-4-5.pdf) | [PDF](week-13/week-13-facilitator.pdf) | [Sources](source/week-13/README.md) |
 | 14. Polygon triangulations and flips | [PDF](week-14/week-14-k-1.pdf) | [PDF](week-14/week-14-grades-2-3.pdf) | [PDF](week-14/week-14-grades-4-5.pdf) | [PDF](week-14/week-14-facilitator.pdf) | [Sources](source/week-14/README.md) |
-| 15. Nearest-site regions (piloted) | [PDF](week-15/week-15-k-1.pdf) | [PDF](week-15/week-15-grades-2-3.pdf) | [PDF](week-15/week-15-grades-4-5.pdf) | [PDF](week-15/week-15-facilitator.pdf) | [Sources](source/week-15/README.md) |
+| 15. Nearest-site regions (piloted at home) | [PDF](week-15/week-15-k-1.pdf) | [PDF](week-15/week-15-grades-2-3.pdf) | [PDF](week-15/week-15-grades-4-5.pdf) | [PDF](week-15/week-15-facilitator.pdf) | [Sources](source/week-15/README.md) |
 | 16. Three-color triangles | [PDF](week-16/week-16-k-1.pdf) | [PDF](week-16/week-16-grades-2-3.pdf) | [PDF](week-16/week-16-grades-4-5.pdf) | [PDF](week-16/week-16-facilitator.pdf) | [Sources](source/week-16/README.md) |
 | 17. How much memory does a machine need? | [PDF](week-17/week-17-k-1.pdf) | [PDF](week-17/week-17-grades-2-3.pdf) | [PDF](week-17/week-17-grades-4-5.pdf) | [PDF](week-17/week-17-facilitator.pdf) | [Sources](source/week-17/README.md) |
 | 18. Error-correcting codebooks | [PDF](week-18/week-18-k-1.pdf) | [PDF](week-18/week-18-grades-2-3.pdf) | [PDF](week-18/week-18-grades-4-5.pdf) | [PDF](week-18/week-18-facilitator.pdf) | [Sources](source/week-18/README.md) |
