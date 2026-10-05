@@ -23,8 +23,8 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Review card: Week 60, optimal stopping (wave 2, equally likely cases) | Claude, Mixed-up cups thread | `claude/wave2-equally-likely-x8ns4d` | in progress |
 | Review card: Week 33, necklaces (wave 2, bead rings) | Claude, Bead rings thread | `claude/wave2-bead-rings-q6ikal` | done: [keep](plans/review/week-33.md) |
 | Review card: Week 34, distinguishing colourings (wave 2, bead rings) | Claude, Bead rings thread | `claude/wave2-bead-rings-q6ikal` | done: [keep](plans/review/week-34.md) |
-| Review card: Week 39, path reduction (wave 2, graph board) | Claude, Path reduction and bracing frames thread | `claude/wave2-graph-39-52-g84api` | in progress |
-| Review card: Week 52, bracing frames (wave 2, graph board) | Claude, Path reduction and bracing frames thread | `claude/wave2-graph-39-52-g84api` | in progress |
+| Review card: Week 39, path reduction (wave 2, graph board) | Claude, Path reduction and bracing frames thread | `claude/wave2-graph-39-52-g84api` | done: [keep](plans/review/week-39.md) |
+| Review card: Week 52, bracing frames (wave 2, graph board) | Claude, Path reduction and bracing frames thread | `claude/wave2-graph-39-52-g84api` | done: [revise](plans/review/week-52.md) |
 | Review card: Week 31, lattice visibility (wave 2, Mirror Couriers) | Claude, Lattice visibility thread | `claude/wave2-lattice-visibility-f3eowo` | in progress |
 | Review card: Week 30, balanced ternary weights (wave 2, balance) | Claude, Balance and jugs groups thread | `claude/wave2-balance-jugs-ce8w14` | in progress |
 | Review card: Week 29, two rod lengths (wave 2, Water jugs) | Claude, Balance and jugs groups thread | `claude/wave2-balance-jugs-ce8w14` | claimed; after Week 30 |
