@@ -43,6 +43,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 25 | Row and column shadows | revise: a guide hint calls the natural lower-bound proof wrong (two switches, because four cells must empty and a switch empties two) | [card](week-25.md), [math check](week-25-math.md) |
 | 53 | Cheapest connected networks | revise: two price labels on page 8 sit on the wrong link, and the K–1 route is one page long | [card](week-53.md), [math check](week-53-math.md) |
 | 62 | Conflict networks and scheduling | keep | [card](week-62.md), [math check](week-62-math.md) |
+| 63 | Cards away from home (derangements) | revise: the K–1 table has no route after the launch, though placing and checking cards suits it | [card](week-63.md), [math check](week-63-math.md) |
 
 ## Calibration
 
