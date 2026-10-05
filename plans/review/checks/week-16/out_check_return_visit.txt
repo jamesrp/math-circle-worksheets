@@ -1,0 +1,56 @@
+== Problem 1: star (one interior dot joined to the three corners)
+   centre R: 1 RBY cells, 1 cells with three different letters
+   centre B: 1 RBY cells, 1 cells with three different letters
+   centre Y: 1 RBY cells, 1 cells with three different letters
+   centre G: 0 RBY cells, 3 cells with three different letters
+ok   only G leaves no RBY triangle (answer to "Find every choice": G alone)
+
+== Problem 2: three-step mesh, G allowed only at the interior dot
+ok   256 legal four-label fillings (2^6 boundary x 4 interior)
+   27 fillings with no RBY; any-three counts among them: {3: 18, 5: 9}
+ok   guide: 27 with no RBY, 18 with three any-three, nine with five
+ok   every no-RBY filling has G at the single interior dot
+ok   that sentence is in the guide overview
+   witness RRBB/RGB/YY/Y cell label sets: {'R': 1, 'RG': 1, 'RBG': 1, 'BG': 1, 'B': 1, 'RYG': 1, 'YG': 1, 'BYG': 1, 'Y': 1}
+ok   witness legal; three monochrome, three two-label, one each RBG, RYG, BYG, no RBY
+ok   recolouring argument and the bound "at least three" hold in 2401 random no-RBY labelings
+ok   each of RBG, RYG, BYG occurs an odd number of times whenever RBY is absent
+
+== Problem 3: square split by a diagonal; corners 1 LL, 2 LR, 3 UR, 4 UL
+ok   switching the diagonal changes the rainbow count for 12 of 81 corner labellings
+ok   for all 81 labellings and both diagonals, rainbow count has the parity of the number of R-B sides
+ok   guide example RBRB: 4 doors, diagonal 1-3 gives 0, diagonal 2-4 gives 0
+ok   guide example RBYY: 1 doors, diagonal 1-3 gives 1, diagonal 2-4 gives 1
+ok   guide example RBRY: 2 doors, diagonal 1-3 gives 0, diagonal 2-4 gives 2
+
+== Problem 4: signed rainbows (counterclockwise reading from R)
+   (positive, negative) over the 192 legal fillings: {(1, 0): 108, (2, 1): 72, (3, 2): 12}
+ok   guide: (1,0), (2,1), (3,2) in 108, 72, 12 fillings
+ok   positive minus negative = 1 in 3000 random legal labelings of random triangulations
+ok   mirror image (corners R, B, Y clockwise) gives -1 every time
+ok   refining any two-label triangle with the missing colour adds one + and one - rainbow
+
+== Student PDF diagrams
+ok   4 pages
+ok   p.1: four dots
+ok   p.1: equilateral R-B-Y (side 102.87 mm), blank dot at the centroid
+ok   p.1: lines are the three sides and the three spokes
+     dot ring diameter 7.11 mm (guide: about 7.1 mm)
+ok   p.1 dot rings about 7.1 mm across
+ok   p.2: ten dots exactly on a side-3 lattice, spacing 38.1 mm
+ok   p.2: the 18 mesh edges are drawn
+ok   p.2: only the corners are lettered, R bottom left, B bottom right, Y top
+ok   p.2: side rules "R or Y" left, "B or Y" right, "R or B" below ('RYor' 'BYor' 'R or B')
+ok   p.4: ten dots exactly on a side-3 lattice, spacing 35.6 mm
+ok   p.4: the 18 mesh edges are drawn
+ok   p.4: only the corners are lettered, R bottom left, B bottom right, Y top
+ok   p.4: side rules "R or Y" left, "B or Y" right, "R or B" below ('RYor' 'BYor' 'R or B')
+ok   p.3: four squares with sixteen corner dots
+ok   p.3: squares are square; diagonals by row are left 1-3, right 2-4 (['13', '24', '13', '24']), as the guide says
+ok   p.4: two small example triangles
+ok   p.4 example RBY: three arrows, all counterclockwise
+ok   p.4 example: counterclockwise reading from R is RBY, caption "R → B → Y: +" gives +
+ok   p.4 example RYB: three arrows, all counterclockwise
+ok   p.4 example: counterclockwise reading from R is RYB, caption "R → Y → B: −" gives -
+
+0 failures

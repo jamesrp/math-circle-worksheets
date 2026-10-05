@@ -1,0 +1,140 @@
+== Foundations
+  ok   n=3: subset enumeration and root-edge recursion agree (1)
+  ok   n=4: subset enumeration and root-edge recursion agree (2)
+  ok   n=5: subset enumeration and root-edge recursion agree (5)
+  ok   n=6: subset enumeration and root-edge recursion agree (14)
+  ok   n=7: subset enumeration and root-edge recursion agree (42)
+  ok   n=8: subset enumeration and root-edge recursion agree (132)
+  counts n=3..9: [1, 2, 5, 14, 42, 132, 429]
+  ok   guide table: 1, 2, 5, 14, 42, 132 labeled fillings for 3..8 corners
+  ok   n=3: every filling has n-2=1 triangles and n-3=0 diagonals
+  ok   n=4: every filling has n-2=2 triangles and n-3=1 diagonals
+  ok   n=5: every filling has n-2=3 triangles and n-3=2 diagonals
+  ok   n=6: every filling has n-2=4 triangles and n-3=3 diagonals
+  ok   n=7: every filling has n-2=5 triangles and n-3=4 diagonals
+  ok   n=8: every filling has n-2=6 triangles and n-3=5 diagonals
+  ok   n=9: every filling has n-2=7 triangles and n-3=6 diagonals
+  ok   n=4: of 3 noncrossing chord sets, exactly the 2 of size n-3 cut the polygon into triangles only (so 3 triangles in a hexagon is impossible)
+  ok   n=5: of 11 noncrossing chord sets, exactly the 5 of size n-3 cut the polygon into triangles only (so 3 triangles in a hexagon is impossible)
+  ok   n=6: of 45 noncrossing chord sets, exactly the 14 of size n-3 cut the polygon into triangles only (so 3 triangles in a hexagon is impossible)
+  ok   n=7: of 197 noncrossing chord sets, exactly the 42 of size n-3 cut the polygon into triangles only (so 3 triangles in a hexagon is impossible)
+  ok   n=8: of 903 noncrossing chord sets, exactly the 132 of size n-3 cut the polygon into triangles only (so 3 triangles in a hexagon is impossible)
+  ok   n=4: every filling has exactly n-3=1 distinct flip neighbours (overview)
+  ok   n=4: two fillings are flip neighbours iff they share exactly n-4 diagonals
+  ok   n=4: flip graph connected
+  ok   n=5: every filling has exactly n-3=2 distinct flip neighbours (overview)
+  ok   n=5: two fillings are flip neighbours iff they share exactly n-4 diagonals
+  ok   n=5: flip graph connected
+  ok   n=6: every filling has exactly n-3=3 distinct flip neighbours (overview)
+  ok   n=6: two fillings are flip neighbours iff they share exactly n-4 diagonals
+  ok   n=6: flip graph connected
+  ok   n=7: every filling has exactly n-3=4 distinct flip neighbours (overview)
+  ok   n=7: two fillings are flip neighbours iff they share exactly n-4 diagonals
+  ok   n=7: flip graph connected
+  ok   n=8: every filling has exactly n-3=5 distinct flip neighbours (overview)
+  ok   n=8: two fillings are flip neighbours iff they share exactly n-4 diagonals
+  ok   n=8: flip graph connected
+  ok   n=9: every filling has exactly n-3=6 distinct flip neighbours (overview)
+  ok   n=9: two fillings are flip neighbours iff they share exactly n-4 diagonals
+  ok   n=9: flip graph connected
+  ok   pentagon: any two diagonals without a common endpoint cross (guide p.3 proof)
+  ok   pentagon: the five fillings are exactly the five fans
+
+== K-1
+  P1: pentagon has 5 fillings, hexagon 14 -> two different ways exist; triangles 3 and 4
+  ok   guide K-1 P1 examples {13,14},{24,25},{13,14,15},{24,25,26} are fillings
+  P2: 5 fillings; page has 8 small blank copies + 1 large
+  ok   guide K-1 P2 list = all five fillings
+  P3: hexagon fillings all have 4 triangles (see foundations); 3 is impossible
+  P4: printed lines 13 / 14; completions 2 / 4; recording copies with the line printed: 4 / 4
+      pentagon completions: ['13 14', '13 35']
+      hexagon completions : ['13 14 15', '13 14 46', '14 15 24', '14 24 46']
+  ok   K-1 P4: 2 pentagon and 4 hexagon completions
+  ok   guide K-1 P4 catalog complete and correct
+  NOTE K-1 P4: the pentagon has 4 pre-lined copies but only 2 answers
+  P5: start 13 14 15 -> 3 results: ['14 15 24', '13 15 35', '13 14 46']
+  P5: start 13 15 35 -> 3 results: ['15 25 35', '13 35 36', '13 14 15']
+  ok   guide K-1 P5 neighbour lists (both starts) correct
+      blank copies per start: 4
+  P6: start 13 14
+      Hamiltonian cycles from start: 2 ['A -> D -> B -> E -> C -> A', 'A -> C -> E -> B -> D -> A']
+  ok   K-1 P6: yes, 2 loops (one each direction)
+  ok   guide K-1 P6 route legal, visits all five
+
+== Grades 2-3
+  ok   guide 2-3 P1 examples are fillings (hexagon, heptagon)
+  P2: 5 fillings; small copies: 8
+  P3: start AC AD AE -> ['AD AE BD', 'AC AE CE', 'AC AD DF']
+  P3: start AC AE CE -> ['AE BE CE', 'AC CE CF', 'AC AD AE']
+  ok   guide 2-3 P3 neighbour lists correct
+  ok   P4: the five printed pentagons are the five different fillings
+  ok   P4 example: AC then BD (one flip of the quadrilateral)
+  P4: joins ['FA-FC', 'FA-FD', 'FB-FD', 'FB-FE', 'FC-FE'] (5)
+  ok   guide 2-3 P4: exactly five joins FA-FC, FC-FE, FE-FB, FB-FD, FD-FA
+  P4 layout clockwise: ['FA', 'FC', 'FE', 'FB', 'FD']
+  ok   P4: the page places the drawings in their cycle order (no crossing joins needed)
+  ok   P5 start = FA
+  P5: shortest odd return = 5
+  ok   guide 2-3 P5: shortest odd return is 5 flips
+  ok   guide extension: quadrilateral has no odd return
+  P6: start BD BE BF, target AC AD AE, distance 3
+  ok   P6 minimum 3
+  P6: simple-route lengths possible: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  ok   guide 2-3 P6 3-flip route legal and repeat-free
+  ok   guide 2-3 P6 4-flip route legal and repeat-free
+  P6 recording copies: 8 (+1 large board)
+  P7: 14 fillings; recording outlines on pp.7-8: 17
+  P7: by third corner of the triangle on AF: {'B': 5, 'C': 2, 'D': 2, 'E': 5}
+  ok   guide 2-3 P7: 5+2+2+5 by triangle on AF
+  ok   guide 2-3 P7 catalog = all 14, no repeats
+  ok   guide catalog group B correctly grouped
+  ok   guide catalog group C correctly grouped
+  ok   guide catalog group D correctly grouped
+  ok   guide catalog group E correctly grouped
+
+== Grades 4-5
+  ok   P2 starts = 2-3 P3 starts
+  ok   P3: five printed pentagons = all fillings; odd return of 5 exists (see 2-3 P5)
+  ok   P3: pentagon flip graph is not bipartite
+  P4: starts ['BD BE BF', 'AC AE CE', 'AD BD DF'] target AC AD AE
+  ok   P4 fourth filling = fan at A
+  P4: distances [3, 1, 2] missing target diagonals [3, 1, 2]
+  ok   guide 4-5 P4: 3, 1, 2, each equal to the missing-diagonal bound
+  ok   guide 4-5 P4 right-start route legal
+  ok   guide 4-5 P4 middle-start flip legal
+  P4 recording copies: 8
+  P5: start AC AD DF DG DH; to fan A 3, to fan E 5; degrees A=2, E=0
+  ok   guide 4-5 P5: 3 and 5
+  ok   guide 4-5 P5 route to fan A legal
+  ok   guide 4-5 P5 route to fan E legal
+  ok   guide fan lists correct
+  P5 recording copies: 8 (guide routes need 3+5=8 new pictures)
+  ok   n=3: distance to the fan at any corner v = n-3-d_v for all 1 fillings
+  ok   n=4: distance to the fan at any corner v = n-3-d_v for all 2 fillings
+  ok   n=5: distance to the fan at any corner v = n-3-d_v for all 5 fillings
+  ok   n=6: distance to the fan at any corner v = n-3-d_v for all 14 fillings
+  ok   n=7: distance to the fan at any corner v = n-3-d_v for all 42 fillings
+  ok   n=8: distance to the fan at any corner v = n-3-d_v for all 132 fillings
+  ok   n=9: distance to the fan at any corner v = n-3-d_v for all 429 fillings
+  ok   n=4: every non-fan filling has a flip that adds a diagonal at A (guide p.11 construction)
+  ok   n=5: every non-fan filling has a flip that adds a diagonal at A (guide p.11 construction)
+  ok   n=6: every non-fan filling has a flip that adds a diagonal at A (guide p.11 construction)
+  ok   n=7: every non-fan filling has a flip that adds a diagonal at A (guide p.11 construction)
+  ok   n=8: every non-fan filling has a flip that adds a diagonal at A (guide p.11 construction)
+  ok   n=9: every non-fan filling has a flip that adds a diagonal at A (guide p.11 construction)
+  P7: S=AC AD DF DG DH T=AE BD BE EG EH distance 5 shared diagonals 0
+  ok   P7 distance 5 (guide: five-flip route is shortest)
+  ok   guide 4-5 P7 route legal
+  P7: route length through each fan: {'A': 7, 'B': 8, 'C': 9, 'D': 5, 'E': 6, 'F': 9, 'G': 8, 'H': 8}
+  ok   guide: through the A fan 3+4=7
+
+== Guide extensions
+  heptagon by third corner on root side: [14, 5, 4, 5, 14]
+  ok   guide: 14+5+4+5+14=42
+  ok   guide recursion T_n = sum T_{k+1} T_{n-k}
+  nonfan example: first flips add ['AC', 'BE', 'DF'] distance 4
+  ok   guide nonfan example: first flip adds AC/BE/DF only; distance 4
+  ok   guide nonfan 4-flip route legal
+  hexagon: (distance - missing diagonals) over all ordered pairs: {0: 188, 1: 8}
+
+FAILED CHECKS: 0

@@ -1,0 +1,159 @@
+== Problem statements as printed (pdftotext), for reference
+ok   K-1: Problems 1-6 numbered consecutively (Problem 1 printed 1 times)
+   K-1 P1: Fill the dots with counters. Move the counters to put a little triangle with R, B, and Y in each of the four places, one at a time.
+   K-1 P2: Can you fill the dots without making a little triangle with R, B, and Y?
+   K-1 P3: Fill the dots to make as many little triangles with R, B, and Y as you can. Y
+   K-1 P4: Keep every printed letter. Fill the empty dots to make as many little triangles with R, B, and Y as you can.
+   K-1 P5: Make just one little triangle with R, B, and Y. Move the counters to put it in as many different places as you can.
+   K-1 P6: The bottom side now allows R, B, or Y. Find four different fillings with no little triangle that has R, B, and Y.
+ok   2-3: Problems 1-6 numbered consecutively (Problem 1 printed 2 times)
+   2-3 P1: Find a filling with as few little triangles containing R, B, and Y as you can. Find another filling with as many as you can.
+   2-3 P2: An edge with R at one end and B at the other is a door. Mark every door. Draw every route that starts at an outside door. A route must leave a two-door triangle through its other door; it stops at a one-door triangle or outside. Which entrances lead back outside? R Example: enter one thick door and leave through the other. The dashed route crosses edges; it does not follow them. R
+   2-3 P3: Put R, B, or Y on each dot. Find every different filling, counting turns and flips as the same. Mark the doors in each filling. Could a triangle have three doors?
+   2-3 P4: Write R or B on every empty dot and mark the doors. Can any row have an even number of doors? Explain why or why not.
+   2-3 P5: Fill the dots so that exactly three little triangles have R, B, and Y. Draw all routes that start at outside doors. Can all those routes end outside?
+   2-3 P6: Can the dots be filled so that no little triangle has R, B, and Y? Give a reason that covers every filling allowed by the side rules.
+ok   4-5: Problems 1-6 numbered consecutively (Problem 1 printed 2 times)
+   4-5 P1: Find a filling with as few little triangles containing R, B, and Y as you can, and another with as many as you can. Which counts between your two records can you make?
+   4-5 P2: Call an edge with R at one end and B at the other a door. Mark every door. A route crosses through doors and uses no door twice. In a two-door triangle it must use both doors. Draw all the routes, including any that stay inside the big triangle. Can every route from outside return outside? R Example: enter one thick door and leave through the other. The dashed route crosses edges; it does not follow them. R
+   4-5 P3: Put R, B, or Y on each dot. Find every different filling, counting turns and flips as the same. Record the number of doors in each filling. Which fillings have exactly one door? Could a triangle have three doors?
+   4-5 P4: Write R or B on every empty dot and mark the doors. Decide which rows must have an odd number of doors and which must have an even number. Explain your answer for rows of any length.
+   4-5 P5: Must the number of little triangles with R, B, and Y be odd? Explain your answer for every filling allowed by the side rules, on this board and on any division into little triangles that meet only at corners or along whole edges.
+   4-5 P6: The starred dot may now use R, B, or Y. All other side rules still hold. Find a filling with no little triangle that has R, B, and Y. Explain why this does not contradict your answer to Problem 5.
+
+== K-1 Problem 1: side-2 board (4 cells)
+ok   side 2: 8 legal fillings, every one has exactly one all-three cell: {1: 8}
+ok   each of the four cells is the sole all-three cell in some filling
+   cell 1 sole in: RBB/YB/Y, RBB/YY/Y
+   cell 2 sole in: RBB/RY/Y, RRB/YB/Y
+   cell 3 sole in: RRB/RY/Y, RRB/YY/Y
+   cell 4 sole in: RRB/RB/Y, RBB/RB/Y
+ok   guide states the same ("All eight ... exactly one")
+
+== Side-3 board: K-1 P2, P3; Grades 2-3 P1; Grades 4-5 P1
+   distribution of all-three counts over 192 legal fillings: {1: 108, 3: 72, 5: 12}
+ok   guide: "108 legal fillings have 1, 72 have 3, and 12 have 5, among 192"
+ok   that sentence is in the guide
+ok   K-1 P2: zero impossible; K-1 P3/2-3 P1/4-5 P1: min 1, max 5, attainable {1,3,5}
+ok   witness RRRB/RRB/RB/Y is legal
+   RRRB/RRB/RB/Y -> all-three cells [9] (count 1)
+ok   RRRB/RRB/RB/Y gives cells [9]
+ok   witness RRRB/RRY/RB/Y is legal
+   RRRB/RRY/RB/Y -> all-three cells [5, 8, 9] (count 3)
+ok   witness RBRB/RYB/RB/Y is legal
+   RBRB/RYB/RB/Y -> all-three cells [2, 3, 4, 7, 9] (count 5)
+ok   RBRB/RYB/RB/Y gives cells [2, 3, 4, 7, 9]
+ok   RRRB/RRY/RB/Y has exactly 3 (middle witness)
+
+-- guide p.5 proof: rotate/rename so the centre is Y, then a formula
+ok   rotation maps R corner->B corner->Y corner->R corner
+ok   rotation maps cells to cells
+ok   rotate+rename (R->B->Y->R) maps legal fillings to legal fillings with the same count
+ok   centre takes all three labels; rotating 1 or 2 times sends any centre label to Y
+ok   cells 6, 8 are the left/right middle-strip up cells
+ok   cells 7, 9 are the two cells on edge V-U
+ok   with centre Y: count = [L!=M] + [L=B] + [M=R] + 2[V=R,U=B], and every group claim holds (64 fillings)
+ok   bottom-contribution table RR 1, RB 1, BR 3, BB 1: {('R', 'R'): 1, ('R', 'B'): 1, ('B', 'R'): 3, ('B', 'B'): 1}
+
+== Fan board (K-1 P4 with printed letters; 2-3 P6 and 4-5 P5 free)
+ok   fan board: 10 vertices, 12 little cells
+ok   edge-to-edge: 6 boundary + 15 interior edges, each interior edge in two cells
+   free fan board distribution over 648 fillings: {1: 264, 3: 288, 5: 90, 7: 6}
+ok   2-3 P6 / 4-5 P5: no legal filling of the fan board has zero; all counts odd
+ok   guide reads the K-1 P4 printed letters as bottom RRB, next row YB, top Y
+   K-1 P4 counts over the 81 centre choices: {1: 24, 3: 36, 5: 18, 7: 3}
+ok   K-1 P4 maximum is 7
+ok   exactly three maximum fillings: lower-left B, lower-right Y, top R, central any: [('B', 'R', 'Y', 'R'), ('B', 'B', 'Y', 'R'), ('B', 'Y', 'Y', 'R')]
+ok   lowerleft region max 2, only with B: {'R': 0, 'B': 2, 'Y': 0}
+ok   central RBY region contributes exactly 1 for any centre: {'R': 1, 'B': 1, 'Y': 1}
+ok   lowerright region max 2, only with Y: {'R': 0, 'B': 0, 'Y': 2}
+ok   top region max 2, only with R: {'R': 2, 'B': 0, 'Y': 0}
+
+== Side-4 board: K-1 P5, 2-3 P5, 4-5 P2, 4-5 P6
+   distribution over 13824 fillings: {1: 2920, 3: 6192, 5: 3840, 7: 848, 9: 24}
+ok   guide: 1,3,5,7,9 in 2,920; 6,192; 3,840; 848; 24
+ok   that sentence is in the guide
+ok   K-1 P5: each of the 16 cells is the only all-three cell in some filling
+   number of one-cell fillings per sole cell: {1: 176, 2: 176, 3: 176, 4: 192, 5: 176, 6: 176, 7: 176, 8: 176, 9: 192, 10: 232, 11: 192, 12: 176, 13: 176, 14: 176, 15: 176, 16: 176}
+ok   2-3 P5: fillings with exactly three exist (6192)
+ok   read all 16 row codes from the guide table
+ok   table cell  1: RBRRB/YBRB/YBB/YB/Y legal, all-three cells [1]
+ok   table cell  2: RRRRB/YBRB/YBB/YB/Y legal, all-three cells [2]
+ok   table cell  3: RRBRB/RYBB/RYB/RY/Y legal, all-three cells [3]
+ok   table cell  4: RRRRB/RYBB/RYB/RY/Y legal, all-three cells [4]
+ok   table cell  5: RRRBB/RRYB/RRY/RY/Y legal, all-three cells [5]
+ok   table cell  6: RRRRB/RRYB/RRY/RY/Y legal, all-three cells [6]
+ok   table cell  7: RRRRB/RRRY/RRY/RY/Y legal, all-three cells [7]
+ok   table cell  8: RRRRB/RBRB/YBB/YB/Y legal, all-three cells [8]
+ok   table cell  9: RRRRB/RRRB/YBB/YB/Y legal, all-three cells [9]
+ok   table cell 10: RRRRB/RRBB/RYB/RY/Y legal, all-three cells [10]
+ok   table cell 11: RRRRB/RRRB/RYB/RY/Y legal, all-three cells [11]
+ok   table cell 12: RRRRB/RRRB/RRY/RY/Y legal, all-three cells [12]
+ok   table cell 13: RRRRB/RRRB/RBB/YB/Y legal, all-three cells [13]
+ok   table cell 14: RRRRB/RRRB/RRB/YB/Y legal, all-three cells [14]
+ok   table cell 15: RRRRB/RRRB/RRB/RY/Y legal, all-three cells [15]
+ok   table cell 16: RRRRB/RRRB/RRB/RB/Y legal, all-three cells [16]
+ok   example RRRRB/RRRB/RRB/RB/Y makes only cell 16 all-three
+
+== Boundary exceptions: K-1 P6 (whole bottom side may use Y) and 4-5 P6 (one starred dot)
+   K-1 P6: 52 zero-cell fillings of the side-3 board when the bottom side allows R/B/Y
+ok   K-1 P6: at least four zero-cell fillings exist
+ok   guide gives four distinct codes: ['RRYB/RRY/RY/Y', 'RRYB/RRY/YY/Y', 'RRYB/RYB/RY/Y', 'RRYB/RYB/YB/Y']
+ok   K-1 P6 code RRYB/RRY/RY/Y: legal with the new bottom rule, zero all-three cells, bottom RRYB
+ok   K-1 P6 code RRYB/RRY/YY/Y: legal with the new bottom rule, zero all-three cells, bottom RRYB
+ok   K-1 P6 code RRYB/RYB/RY/Y: legal with the new bottom rule, zero all-three cells, bottom RRYB
+ok   K-1 P6 code RRYB/RYB/YB/Y: legal with the new bottom rule, zero all-three cells, bottom RRYB
+   bottom rows among the zero fillings: {'RRYB': 16, 'RYYB': 20, 'RYBB': 16}
+ok   4-5 P6: 208 zero-cell fillings with the one-dot exception (guide: 208)
+ok   every zero-cell filling puts Y on the starred dot
+ok   4-5 P6 witness RRYBB/RRYB/RRY/RY/Y: only the star breaks the rule, zero all-three cells
+
+== Grades 2-3 Problem 2 (printed board)
+ok   printed board RBRB/RRB/RB/Y obeys the side rules
+ok   9 doors, the 3 boundary doors are the 3 bottom edges
+ok   cell 9 is the only all-three cell
+   component: seg1 - c1 - c2 - c3 - seg2  loop=False doors=4
+   component: seg3 - c5 - c4 - c8 - c7 - c9  loop=False doors=5
+ok   routes: entrance 1 - cells 1,2,3 - entrance 2; entrance 3 - cells 5,4,8,7,9; no internal component
+
+== Grades 4-5 Problem 2 (printed board) and the 2-3 P5 key that reuses it
+ok   printed board RRBRB/YBRB/RBB/RB/Y obeys the side rules
+ok   14 doors (got 14)
+ok   boundary doors are bottom segments 2,3,4 (got [2, 3, 4])
+ok   all-three cells 2, 8, 16 (got [2, 8, 16])
+   component: seg2 - c3 - c2  loop=False doors=2
+   component: seg3 - c5 - c4 - c10 - c11 - c12 - c6 - c7 - seg4  loop=False doors=8
+   component: c16 - c14 - c13 - c9 - c8  loop=False doors=4
+ok   three components exactly as the guide lists them
+ok   door counts 2, 8, 4 (total 14); no closed loop
+ok   cell 1 has no door
+ok   2-3 P5 key: this filling has exactly three all-three cells
+
+== Problem 3 (both older bands): one triangle, labels R/B/Y, turns and flips identified
+ok   10 classes (S3 acts on the three vertices, so classes = multisets)
+   by door count: {0: ['RRR', 'RRY', 'RYY', 'BBB', 'BBY', 'BYY', 'YYY'], 2: ['RRB', 'RBB'], 1: ['RBY']}
+ok   guide table: 0 doors 7 classes, 1 door RBY only, 2 doors RRB/RBB, never 3
+
+== Problem 4 rows
+ok   Grades 2-3 rows (2..6 edges): [[1], [1, 3], [1, 3], [1, 3, 5], [1, 3, 5]]
+ok   Grades 4-5 rows: [[1, 3], [0, 2, 4], [1, 3, 5], [0, 2, 4, 6], [1, 3, 5, 7]]
+ok   sample RRRB has 3 edges and the fewest doors (1)
+ok   sample RRRRR has 4 edges and the fewest doors (0)
+ok   sample RRRRRB has 5 edges and the fewest doors (1)
+ok   sample RRRRRRR has 6 edges and the fewest doors (0)
+ok   sample RRRRRRRB has 7 edges and the fewest doors (1)
+ok   parity rule (odd iff the ends differ) holds for every row of 1..12 edges and all end pairs
+
+== The general statements in the guide overview and p.11, tested on random triangulations
+ok   odd number of all-three cells and of boundary doors in 4000 random legal labelings of 400 random triangulations
+ok   incidence identity T + 2U = b + 2I holds every time
+ok   odd number of paths joining an entrance to an all-three cell every time
+   closed door loops met in the random sample: 1041 (the overview allows them)
+ok   with Y allowed on the bottom side, even counts (including 0) occur: 469 of 4000
+
+== Preparation arithmetic
+ok   3 sets x 45 = 135; 4 x 45 = 180; 2 x 45 = 90
+ok   no K-1 board ever needs more than 10 counters of one letter (15 provided)
+ok   largest K-1 board (side 4) has 15 vertices
+
+0 failures

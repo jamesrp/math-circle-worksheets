@@ -38,6 +38,8 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 4 | Stars and secret wheels | revise: the adult guide puts the 4–5 times-table dents where the curve touches the circle, so an adult would correct a right drawing | [card](week-04.md), [math check](week-04-math.md) |
 | 7 | Take-away games | keep | [card](week-07.md), [math check](week-07-math.md) |
 | 13 | Route packing and bottlenecks | keep | [card](week-13.md), [math check](week-13-math.md) |
+| 14 | Polygon triangulations and flips | keep | [card](week-14.md), [math check](week-14-math.md) |
+| 16 | Three-colour triangles (Sperner's lemma) | keep | [card](week-16.md), [math check](week-16-math.md) |
 | 18 | Error-correcting codebooks | keep | [card](week-18.md), [math check](week-18-math.md) |
 | 23 | Sorting networks | revise: a print-and-cut mat, cards and bars, which the guide specifies but nothing supplies | [card](week-23.md), [math check](week-23-math.md) |
 | 24 | Nontransitive dice and decks | keep | [card](week-24.md), [math check](week-24-math.md) |

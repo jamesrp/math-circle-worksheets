@@ -1,0 +1,66 @@
+== Problem 1 (ears)
+  ok   P1 drawings: fan at A (p.1) and central triangle ACE (p.2)
+  AC AD AE: 8 complete peel words; last triangles {'AEF': 1, 'ADE': 3, 'ACD': 3, 'ABC': 1}
+     words: ['BCD', 'BCF', 'BFC', 'BFE', 'FBC', 'FBE', 'FEB', 'FED']
+     ears at start: ['B', 'F']
+  AC AE CE: 12 complete peel words; last triangles {'AEF': 2, 'ACE': 6, 'CDE': 2, 'ABC': 2}
+     words: ['BDC', 'BDF', 'BFA', 'BFD', 'DBC', 'DBF', 'DFB', 'DFE', 'FBA', 'FBD', 'FDB', 'FDE']
+     ears at start: ['B', 'D', 'F']
+  ok   guide: fan has 8 words, central drawing 12
+  ok   guide: fan B,C,D leaves AEF; F,E,D leaves ABC
+  ok   guide: central B,D,F leaves ACE; D,F,E leaves ABC
+  ok   AC AD AE: every triangle can be the last one
+  ok   AC AE CE: every triangle can be the last one
+  ok   example before/peel: pentagon with AC, AD
+  ok   example: ABC is an ear at B
+  ok   n=4: ears between 2 and floor(n/2)=2; no two ear corners adjacent; a fan has exactly 2
+  ok   n=5: ears between 2 and floor(n/2)=2; no two ear corners adjacent; a fan has exactly 2
+  ok   n=6: ears between 2 and floor(n/2)=3; no two ear corners adjacent; a fan has exactly 2
+  ok   n=7: ears between 2 and floor(n/2)=3; no two ear corners adjacent; a fan has exactly 2
+  ok   n=8: ears between 2 and floor(n/2)=4; no two ear corners adjacent; a fan has exactly 2
+  ok   n=9: ears between 2 and floor(n/2)=4; no two ear corners adjacent; a fan has exactly 2
+  ok   n=10: ears between 2 and floor(n/2)=5; no two ear corners adjacent; a fan has exactly 2
+  ok   n=4: triangle-adjacency graph is a tree with n-2 nodes, n-3 edges
+  ok   n=5: triangle-adjacency graph is a tree with n-2 nodes, n-3 edges
+  ok   n=6: triangle-adjacency graph is a tree with n-2 nodes, n-3 edges
+  ok   n=7: triangle-adjacency graph is a tree with n-2 nodes, n-3 edges
+  ok   n=8: triangle-adjacency graph is a tree with n-2 nodes, n-3 edges
+  ok   n=9: triangle-adjacency graph is a tree with n-2 nodes, n-3 edges
+
+== Problem 2 (three colours, corner covers)
+  ok   P2 drawings: three fan-at-A copies (p.3), three central copies (p.4)
+  AC AD AE: 6 colourings (= 6 means unique up to renaming); class sizes [1, 2, 3]; fewest circled corners 1: ['A']
+  AC AE CE: 6 colourings (= 6 means unique up to renaming); class sizes [2, 2, 2]; fewest circled corners 2: ['AC', 'AD', 'AE', 'BE', 'CE', 'CF']
+  ok   guide: fan at A, unique minimum is A alone
+  ok   guide: central drawing needs 2; the six minimum pairs are AC, AD, AE, BE, CE, CF
+  ok   guide labelling R,Y,B,R,Y,B is valid on the central drawing
+  ok   n=3: colouring unique up to renaming; smallest class has <= floor(n/3) corners and touches every triangle
+  ok   n=4: colouring unique up to renaming; smallest class has <= floor(n/3) corners and touches every triangle
+  ok   n=5: colouring unique up to renaming; smallest class has <= floor(n/3) corners and touches every triangle
+  ok   n=6: colouring unique up to renaming; smallest class has <= floor(n/3) corners and touches every triangle
+  ok   n=7: colouring unique up to renaming; smallest class has <= floor(n/3) corners and touches every triangle
+  ok   n=8: colouring unique up to renaming; smallest class has <= floor(n/3) corners and touches every triangle
+  ok   n=9: colouring unique up to renaming; smallest class has <= floor(n/3) corners and touches every triangle
+  page 3: printed open circles on corners of each drawing: [6, 6, 6]
+  page 4: printed open circles on corners of each drawing: [6, 6, 6]
+  ok   P2 diagram: every corner of every drawing already carries a printed circle (radius 0.12 in)
+  page 3: letters whose glyph box enters their corner ring (count over drawings): {'A': 3, 'B': 3, 'C': 3, 'E': 3, 'F': 3}
+  page 4: letters whose glyph box enters their corner ring (count over drawings): {'A': 3, 'B': 3, 'C': 3, 'E': 3, 'F': 3}
+
+== Problem 3 (turn symmetry)
+  half-turn: ['BF CE CF', 'BE BF CE', 'AC CF DF', 'AC AD DF', 'AE BD BE', 'AD AE BD']
+  third-turn: ['BD BF DF', 'AC AE CE']
+  sixth-turn: []
+  ok   counts 6, 2, 0 (guide overview)
+  ok   guide half-turn list correct
+  ok   guide one-third list correct
+  ok   no filling has both (so 8 different answers; page 6 has 9 boxes)
+  boxes on page 6: 9
+  board centre (corner mean) 306.004,257.034; centre mark 306.004,257.034; offset 0.0000 pt
+  ok   P3: the printed centre mark is at the hexagon centre
+  ok   turn by 60 deg about the mark carries corners to corners (max error 0.0004 pt)
+  ok   turn by 120 deg about the mark carries corners to corners (max error 0.0004 pt)
+  ok   turn by 180 deg about the mark carries corners to corners (max error 0.0000 pt)
+  ok   example: AC turned half-way lands on DF, as drawn
+
+FAILED CHECKS: 0
