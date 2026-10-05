@@ -1,0 +1,107 @@
+== Basic data for every board
+  diamond: 2 routes; max packing 2 (1 maximum collections); min closure 2 (4 minimum closures); equal: True
+  greedy: 3 routes; max packing 2 (1 maximum collections); min closure 2 (3 minimum closures); equal: True
+  bowtie: 4 routes; max packing 2 (2 maximum collections); min closure 2 (8 minimum closures); equal: True
+  doubletrap: 9 routes; max packing 2 (2 maximum collections); min closure 2 (6 minimum closures); equal: True
+  funnel: 2 routes; max packing 1 (2 maximum collections); min closure 1 (2 minimum closures); equal: True
+  threetwo: 6 routes; max packing 2 (6 maximum collections); min closure 2 (4 minimum closures); equal: True
+  three: 3 routes; max packing 3 (1 maximum collections); min closure 3 (8 minimum closures); equal: True
+  bottleneck: 18 routes; max packing 2 (36 maximum collections); min closure 2 (4 minimum closures); equal: True
+  endpoint_two: 12 routes; max packing 2 (12 maximum collections); min closure 2 (8 minimum closures); equal: True
+  backward: 6 routes; max packing 2 (1 maximum collections); min closure 2 (5 minimum closures); equal: True
+  staircase: 5 routes; max packing 3 (1 maximum collections); min closure 3 (7 minimum closures); equal: True
+
+== K-1 P1 (greedy, bowtie): largest collections
+  greedy: max 2; collections: {s-A-t, s-B-t}
+  bowtie: max 2; collections: {s-A-C-D-t, s-B-C-E-t}; {s-A-C-E-t, s-B-C-D-t}
+  stuck single route on greedy? s-A-B-t blocks all others: True
+
+== K-1 P2 (diamond, funnel): minimum closures
+  diamond: min 2: {sA, sB} {sA, Bt} {sB, At} {At, Bt}
+  funnel: min 1: {CD} {Dt}
+
+== K-1 P3 (threetwo, three)
+  threetwo: max 2, min 2; minimum closures: {DE, DF} {DE, Ft} {DF, Et} {Et, Ft}
+  three: max 3, min 3; minimum closures: {sA, sB, sC} {sA, sB, Ct} {sA, sC, Bt} {sA, Bt, Ct} {sB, sC, At} {sB, At, Ct} {sC, At, Bt} {At, Bt, Ct}
+
+== K-1 P4: single closures that still allow two routes
+  threetwo: 6 arrows: {sA, sB, sC, AD, BD, CD}
+  greedy: 1 arrows: {AB}
+
+== K-1 P5 / 2-3 P3: every pair of arrows that stops all travel on the bowtie
+  8 pairs: {sA, sB} {sA, BC} {sB, AC} {AC, BC} {CD, CE} {CD, Et} {CE, Dt} {Dt, Et}
+  single arrows that block: []
+
+== K-1 P6 / 2-3 P6: closing game (move that leaves no route wins)
+  diamond: first player wins: False; winning first moves: {}
+  greedy: first player wins: True; winning first moves: {AB}
+    greedy after closing sA: routes ['s-B-t']; common arrows {Bt, sB}
+    greedy after closing sB: routes ['s-A-B-t', 's-A-t']; common arrows {sA}
+    greedy after closing AB: routes ['s-A-t', 's-B-t']; common arrows {}
+    greedy after closing At: routes ['s-A-B-t', 's-B-t']; common arrows {Bt}
+    greedy after closing Bt: routes ['s-A-t']; common arrows {At, sA}
+
+== 2-3 P1
+  bowtie: max 2, min 2; {sA,sB} blocks: True
+  greedy: max 2, min 2; {sA,sB} blocks: True
+
+== 2-3 P2 / 4-5 P2 (bottleneck)
+  routes 18; max 2; unordered maximum collections 36; min 2; minimum closures: {DE, DF} {DE, FG} {DF, EG} {EG, FG}
+  out-arrows of {s,A,B,C,D}: {DE, DF}  in-arrows: {}
+  guide routes s-A-D-E-G-H-t, s-C-D-F-G-J-t are routes and edge-disjoint: True
+
+== 2-3 P4: one new arrow between inside dots (not s or t) giving three routes
+  bottleneck: 16 working arrows: AG AH AI AJ BG BH BI BJ CG CH CI CJ DG DH DI DJ
+  endpoint_two: 0 working arrows: 
+  guide DG routes valid and disjoint: True
+  e.g. AH: max 3 with ['s-A-H-t', 's-B-D-E-G-I-t', 's-C-D-F-G-J-t']
+
+== 2-3 P5 / 4-5 P1: reserved routes, stuck?, largest collections, change-walks
+  greedy: reserved {AB, Bt, sA}; no route fits beside: True; max 2; 1 maximum collections: {s-A-t, s-B-t}
+    routes on board: 3; simple change-walks: 1
+      s-B-A-t  cancels ['AB']  reserves ['sB', 'At']  -> routes ['s-A-t', 's-B-t'] disjoint simple: True leftover set()
+  doubletrap: reserved {AB, BC, CD, DE, Et, sA}; no route fits beside: True; max 2; 2 maximum collections: {s-A-C-D-t, s-B-C-E-t}; {s-A-C-E-t, s-B-C-D-t}
+    routes on board: 9; simple change-walks: 1
+      s-B-A-C-E-D-t  cancels ['AB', 'DE']  reserves ['sB', 'AC', 'CE', 'Dt']  -> routes ['s-A-C-D-t', 's-B-C-E-t'] disjoint simple: True leftover set()
+
+== 4-5 P3 (backward): splits with exactly two cut arrows and at least one arrow back into the Start side
+  S={A,s} out {sB, AC} in {BA}; closing out blocks: True
+  S={A,B,s} out {AC, BD} in {CB}; closing out blocks: True
+  S={A,B,D,s} out {AC, Dt} in {CD, CB}; closing out blocks: True
+  all splits by out-count: [2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5]
+  max packing 2
+
+== 4-5 P4 (backward): minimum closures and routes using two of their arrows
+  routes 6: ['s-A-C-t', 's-A-C-D-t', 's-A-C-B-D-t', 's-B-D-t', 's-B-A-C-t', 's-B-A-C-D-t']
+  minimum closure {sA, sB}: routes using two of its arrows []; largest collection containing each: []
+  minimum closure {sB, AC}: routes using two of its arrows ['s-B-A-C-t', 's-B-A-C-D-t']; largest collection containing each: [1, 1]
+  minimum closure {AC, BD}: routes using two of its arrows ['s-A-C-B-D-t']; largest collection containing each: [1]
+  minimum closure {AC, Dt}: routes using two of its arrows ['s-A-C-D-t', 's-A-C-B-D-t', 's-B-A-C-D-t']; largest collection containing each: [1, 1, 1]
+  minimum closure {Ct, Dt}: routes using two of its arrows []; largest collection containing each: []
+
+== 4-5 P5 (staircase)
+  no route fits beside the reserved routes: True
+  simple change-walks: 1
+    s-A-D-B-E-C-F-t  cancels ['BD', 'CE']  -> routes ['s-A-D-t', 's-B-E-t', 's-C-F-t'] valid: True
+  max packing 3 min closure 3
+
+== 4-5 P6 (bottleneck with two reserved routes)
+  reachable ['A', 'B', 'C', 'D', 's']; out-arrows {DE, DF} (all reserved: True); in-arrows {}
+  reserved routes valid: True  change-walk exists: False
+  any route fits beside the reserved routes: False
+
+== Return visit P1: shared dots vs one route per middle dot
+  hub: edge-disjoint max 2; internally vertex-disjoint max 1; min arrow closure 2; dots on every route: ['H']
+  hub_bypass: edge-disjoint max 2; internally vertex-disjoint max 2; min arrow closure 2; dots on every route: []
+  three-branch hub extension: edge-disjoint max 3, min arrow closure 3, vertex max 1
+
+== Return visit P2: assigned pairs
+  P->X, Q->Y: routes ['P-A-X', 'P-A-C-D-X'] / ['Q-B-Y', 'Q-B-C-D-Y']; fitting pairs [('P-A-X', 'Q-B-Y'), ('P-A-X', 'Q-B-C-D-Y'), ('P-A-C-D-X', 'Q-B-Y')]
+  P->Y, Q->X: routes ['P-A-C-D-Y'] / ['Q-B-C-D-X']; fitting pairs []
+  third map, two different finishes from {X,Y}: only (P->X, Q->Y) and (P->Y, Q->X) exist; the first is map 1.
+  if a finish may be any dot: 18 ordered choices fit, e.g. [('A', 'B'), ('A', 'C'), ('A', 'D'), ('A', 'X'), ('A', 'Y'), ('C', 'B')]
+  one-arrow additions allowing P->Y and Q->X: ['AB', 'AD', 'AY', 'BA', 'BD', 'BX', 'CA', 'CB', 'CX', 'CY', 'PB', 'PD', 'PY', 'QA', 'QD', 'QX', 'XB', 'XD', 'XY', 'YA', 'YD', 'YX']
+
+== Return visit P3: lane capacities
+  capacity3: route types ['s-A-C-t', 's-A-t', 's-B-C-t']; max 4; optimal multiplicities [(1, 1, 2), (2, 1, 1)]; min cut 4; cuts of that value: [['A', 'B', 'C', 's']]
+  capacity4: route types ['s-A-C-t', 's-A-t', 's-B-C-t']; max 5; optimal multiplicities [(2, 1, 2)]; min cut 5; cuts of that value: [['A', 'B', 'C', 's'], ['A', 'B', 's'], ['A', 's'], ['B', 's'], ['s']]
