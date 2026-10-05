@@ -1,5 +1,9 @@
 # Nearest-site regions: Week 15 editable release
 
+## Piloted, October 5 release
+
+The organizer tested Week 15 with children and judged it good (reported October 4, 2026). Which pages, bands and timings were used is not recorded in this package. Only the adult guide changed: its running header and opening note now say piloted, and two sentences describing the activity as untested were removed or reworded. The three student PDFs are byte-identical to the October 3 release. The guide was rebuilt with TeX Live 2023, which breaks one line on page 14 differently from the previous build; the text is the same. `reference-pdfs/` and `review/reference-pdf-sha256.txt` describe this release. The other files in `review/` are the October 3 release records. The October 3 release remains in the math-circle-worksheets Git history.
+
 ## Mathematical overview and examples revision
 
 The guide now begins with a one-page mathematical overview: precise setting and hypotheses, main facts and limits, grade-band progression, and the distinction between experimentation, conjecture and proof. Original detailed solutions remain afterward, with guide-page references updated.
@@ -14,7 +18,7 @@ Grades 2–3 and grades 4–5 Problem 2 now asks only for the three nearest-site
 
 The PDFs in `reference-pdfs/` match this revised delivery. `build.sh` checks the current 46 student probes, and `verify_rebuild.py` compares all 39 rebuilt pages against these revised references. The existing narrative files in `review/` are historical records of the original release; their P/Q descriptions and 50-probe count describe that earlier version. `reference-pdf-sha256.txt` records the current revised files.
 
-**New, unpiloted draft.** Week 15 is an unscheduled activity-library slot, not a calendar booking. The student workflow's writing, adversarial review, and revision stages are completed. Both required wording repairs were applied. The facilitator guide is a separate, untested teaching step with checked mathematical solutions; neither the lesson nor its proposed pacing has been classroom-tested. Prepared October 3, 2026.
+**Piloted since October 4, 2026** (see above). Week 15 is an activity-library slot, not a calendar booking. The student workflow's writing, adversarial review, and revision stages are completed. Both required wording repairs were applied. The facilitator guide was written as a separate teaching step with checked mathematical solutions; its proposed pacing has not been compared with what happened in the room. Prepared October 3, 2026.
 
 ## Print-ready PDFs
 

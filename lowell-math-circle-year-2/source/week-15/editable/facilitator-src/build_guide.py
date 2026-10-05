@@ -104,7 +104,7 @@ pre=r'''\documentclass[letterpaper,11pt]{article}
 \usepackage{amsmath,amssymb,tikz,fancyhdr,enumitem,hyperref,textcomp}
 \hypersetup{hidelinks,pdftitle={Week 15 Nearest site regions Facilitator guide},pdfauthor={Bellingham Math Circle}}
 \pagestyle{fancy}\fancyhf{}
-\fancyhead[L]{\small Bellingham Math Circle}\fancyhead[R]{\small Week 15 / Adult guide / Draft unpiloted}
+\fancyhead[L]{\small Bellingham Math Circle}\fancyhead[R]{\small Week 15 / Adult guide / Piloted}
 \fancyfoot[L]{\small Nearest-site regions}\fancyfoot[R]{\small\thepage}
 \renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}
 \setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
@@ -114,7 +114,7 @@ pre=r'''\documentclass[letterpaper,11pt]{article}
 \begin{document}
 {\LARGE\bfseries Nearest site regions}\par
 {\large Facilitator guide for Week 15}\par
-\textbf{Draft and unpiloted.} This adult guide accompanies the finalized three eight-page student packets, with Problems 1--8 in each. Week 15 is a library label, not a scheduled event. The guide is a separate, untested teaching step. Student pages are unchanged.
+\textbf{Piloted.} The organizer tested this week with children and judged it good (reported October 4, 2026). This adult guide accompanies the three eight-page student packets, with Problems 1--8 in each. The hour below is the original proposal.
 
 \heading{What the children are exploring}
 A place belongs to every site that is nearest to it. Two sites give a straight dividing line; other sites can erase parts of that line. Whole regions come from satisfying all comparisons at once. Children can discover these ideas through string comparisons, folds and drawings; the coordinates in this guide are adult checks, not prerequisites.
@@ -165,12 +165,12 @@ String and folding give evidence. Exact symmetry and the arguments below settle 
 This supplies the exact half-plane checks used for the answer diagrams.
 
 \heading{Use hints sparingly and observe}
-Let children make and test a proposal before offering the hint printed with each answer. Accept a fold, a drawing or a spoken argument. Ask ``Is some other dot closer?'' when an extra bisector remains; ``Does the region really stop there?'' when the frame is mistaken for a boundary. Record which pages were used, what children tried, and where adult rescue was needed. Classroom effectiveness remains unverified.
+Let children make and test a proposal before offering the hint printed with each answer. Accept a fold, a drawing or a spoken argument. Ask ``Is some other dot closer?'' when an extra bisector remains; ``Does the region really stop there?'' when the frame is mistaken for a boundary. Record which pages were used, what children tried, and where adult rescue was needed.
 
 \heading{Sources and scope of adaptation}
 \textbf{Mathematical reference:} David M. Mount, \emph{CMSC 754 Lecture 10: Voronoi Diagrams and Fortune's Algorithm}, Fall 2021, pp. 1--3. The definition, half-plane description, convexity and nearest-tie circle interpretation inform this lesson. The source uses open cells and assumes no four cocircular sites for its three-edge vertex claim. Here cells include their boundaries, and the square intentionally has a four-way meeting. The concrete arrangements, inverse examples, proofs and answer checks are independently worked for these packets.\par
 {\small\url{https://www.cs.umd.edu/class/fall2021/cmsc754/Lects/lect10-vor.pdf}}\par
-\textbf{Pedagogical consultation:} Natasha Rozhkovskaya, \emph{Math Circles for Elementary School Students}, ``Introduction: Berkeley 2009'' (local EPUB, section beginning with that heading). It describes individual adult attention, two additional instructors, and parents helping children and distributing handouts. The pacing, launch and hint choices here are new suggestions shaped by this project's concrete-first guidance, not a reported trial of this activity or a copied lesson from that book.
+\textbf{Pedagogical consultation:} Natasha Rozhkovskaya, \emph{Math Circles for Elementary School Students}, ``Introduction: Berkeley 2009'' (local EPUB, section beginning with that heading). It describes individual adult attention, two additional instructors, and parents helping children and distributing handouts. The pacing, launch and hint choices here are this project's own suggestions, shaped by its concrete-first guidance, not a lesson copied from that book.
 \endgroup
 '''
 
