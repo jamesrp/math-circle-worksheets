@@ -41,6 +41,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 18 | Error-correcting codebooks | keep | [card](week-18.md), [math check](week-18-math.md) |
 | 23 | Sorting networks | revise: a print-and-cut mat, cards and bars, which the guide specifies but nothing supplies | [card](week-23.md), [math check](week-23-math.md) |
 | 25 | Row and column shadows | revise: a guide hint calls the natural lower-bound proof wrong (two switches, because four cells must empty and a switch empties two) | [card](week-25.md), [math check](week-25-math.md) |
+| 31 | Hidden orchard (lattice visibility) | revise: the guide's optional extension gives (4,3) as a sight line that changes when O moves to (1,1), and it doesn't, so an adult may correct a right answer | [card](week-31.md), [math check](week-31-math.md) |
 | 33 | Prime-length necklaces | keep | [card](week-33.md), [math check](week-33-math.md) |
 | 34 | Hidden turns (distinguishing colourings) | keep | [card](week-34.md), [math check](week-34-math.md) |
 | 39 | Road detours (path reduction) | keep | [card](week-39.md), [math check](week-39-math.md) |

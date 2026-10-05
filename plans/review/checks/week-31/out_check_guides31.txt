@@ -1,0 +1,101 @@
+== Base guide (week-31-facilitator.pdf)
+ok   overview: guide prints "The first lattice point on the ray is (a/d,b/d), and the interior points are exactly k(a/d..."
+ok   overview: interior points are exactly k(a/d,b/d), k=1..d-1 (all targets on 0..24, axes included)
+ok   overview: guide prints "On an axis use gcd(a,0)=a; only the first unit point is visible."
+ok   overview: on each axis only (1,0) / (0,1) is visible
+ok   overview: guide prints "On these rectangular grids every intermediate lattice point is present."
+ok   overview: every blocker of a 0..6 target lies on the 0..6 board
+ok   catalog: guide prints "The K grid has 13 visible dots; the 0-6 grid has 25."
+ok   catalog row y=0: printed ('1', '1'), computed ('1', '1')
+ok   catalog row y=1: printed ('0,1,2,3,4', '0,1,2,3,4,5,6'), computed ('0,1,2,3,4', '0,1,2,3,4,5,6')
+ok   catalog row y=2: printed ('1,3', '1,3,5'), computed ('1,3', '1,3,5')
+ok   catalog row y=3: printed ('1,2,4', '1,2,4,5'), computed ('1,2,4', '1,2,4,5')
+ok   catalog row y=4: printed ('1,3', '1,3,5'), computed ('1,3', '1,3,5')
+ok   catalog row y=5: printed ('X', '1,2,3,4,6'), computed ('X', '1,2,3,4,6')
+ok   catalog row y=6: printed ('X', '1,5'), computed ('X', '1,5')
+ok   K P2: guide prints "First picture: targets (4,4),(4,2),(2,4),(3,3) are all hidden; their nearest blockers are ..."
+ok   K P2 first picture nearest blockers
+ok   K P2: guide prints "(4,0) is blocked first by (1,0); (0,4) by (0,1); (2,2) by (1,1); (4,3) is visible and has ..."
+ok   K P2 second picture
+ok   K P3 one-blocker list (9 printed) is complete and correct
+ok   K P3 two-blocker list (5 printed) is complete and correct
+ok   K P4: guide prints "Row y=1 contains only visible dots, including (0,1), so there cannot be a hidden dot in ev..."
+ok   K P4: (0,y) hidden for y=2..6
+ok   K P5: guide prints "Three first dots tie: (1,0),(0,1),(1,1). Each hides five dots, its multiples 2 through 6."
+ok   K P5: guide prints "Every other primitive direction has some coordinate at least 2, so it reaches at most thre..."
+ok   K P5: every other first dot hides at most 2
+ok   2-3 P1: guide prints "Three possible first-blocker marks: (6,4) → (3,2), (6,3) → (2,1), (4,4) → (1,1)."
+ok   2-3 P1 sample first blockers
+ok   2-3 P2 table has 6 rows (6 parsed)
+ok   2-3 P2 table (6, 4): printed [(3, 2)], computed [(3, 2)]
+ok   2-3 P2 table (6, 3): printed [(2, 1), (4, 2)], computed [(2, 1), (4, 2)]
+ok   2-3 P2 table (5, 3): printed [], computed []
+ok   2-3 P2 table (5, 2): printed [], computed []
+ok   2-3 P2 table (4, 4): printed [(1, 1), (2, 2), (3, 3)], computed [(1, 1), (2, 2), (3, 3)]
+ok   2-3 P2 table (4, 1): printed [], computed []
+ok   2-3 P3: guide prints "“One blocker” means gcd 2, not just “both coordinates even”: (4,4) has three blockers and ..."
+ok   2-3 P3: (4,4) three, (6,6) five
+ok   2-3 P5: guide prints "(12,8) is hidden (first point (3,2), three blockers); (10,7) is visible; (15,5) is hidden ..."
+ok   2-3 P5 predictions
+ok   2-3 P6: guide prints "Every interior point of the segment to (x,1) has height strictly between 0 and 1, so canno..."
+ok   4-5 P1: guide prints "Hidden examples with distinct counts: (2,2) has (1,1); (3,3) has (1,1),(2,2); (4,4) has (1..."
+ok   4-5 P1 samples
+ok   4-5 P2: guide prints "For (6,4), first (3,2), only blocker (3,2). For (6,3), first (2,1), blockers (2,1),(4,2). ..."
+ok   4-5 P2 (6,4),(6,3),(5,3)
+ok   4-5 P2 (6,6),(6,0),(0,6)
+ok   4-5 P3: guide prints "Targets (12,8),(15,10),(21,14) all have first point (3,2) and respectively 3,4,6 blockers...."
+ok   4-5 P3 predictions
+ok   4-5 P4: guide prints "Write t=r/s in lowest terms. Since ra/s and rb/s are integers and gcd(r,s)=1, s divides bo..."
+ok   4-5 P4: every blocker t(a,b) has lowest-terms denominator s > 1 dividing a and b (1 <= a, b <= 30)
+ok   4-5 P4: guide prints "Do not assume every blocker is the first one or that its coordinates divide the target coo..."
+ok   4-5 P4 caution: blocker (4,2) of (6,3) has 4 not dividing 6
+ok   4-5 P5: guide prints "For (6,4), the group is {(3,2),(6,4)}. For (6,3), it is {(2,1),(4,2),(6,3)}. For (6,6), it..."
+ok   4-5 P5 group of (6, 4)
+ok   4-5 P5 group of (6, 3)
+ok   4-5 P5 group of (6, 6)
+ok   4-5 P6: guide prints "Its denominator must divide both u and v, hence is 1."
+ok   4-5 P7: guide prints "Target (100,100) has exactly 99 blockers, (k,k) for k=1,...,99; (100,0) is another valid e..."
+ok   4-5 P7: 99 blockers
+ok   extension: guide prints "for example (3,3) remains hidden behind (2,2), while (4,3) is now visible."
+   from O: (3,3) blockers [(1, 1), (2, 2)]; (4,3) visible = True
+   from (1,1): (3,3) blockers [(2, 2)]; (4,3) visible = True
+ok   extension: from (1,1), (3,3) is hidden behind (2,2) only ("remains hidden" is right)
+FAIL extension: "(4,3) is NOW visible" needs (4,3) hidden from O -- but gcd(4,3)=1, it was already visible
+   on the 0..6 board, dots hidden from O but visible from (1,1): [(0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (2, 0), (2, 2), (2, 4), (2, 6), (3, 0), (3, 6), (4, 0), (4, 2), (4, 6), (5, 0), (6, 0), (6, 2), (6, 3), (6, 4)]
+   on the 0..6 board, dots visible from O but hidden from (1,1): [(1, 3), (1, 4), (1, 5), (1, 6), (3, 1), (3, 5), (4, 1), (5, 1), (5, 3), (6, 1)]
+ok   extension fix candidates: (4,2) becomes visible, (3,5) becomes hidden
+
+== Bonus guide (week-31-bonus-facilitator.pdf)
+ok   overview: guide prints "a different target (a,b) is visible precisely when gcd(|a-c|,|b-d|)=1."
+ok   overview: translated visibility criterion (lookouts in 0..2 x 0..2, targets in -4..7 square)
+ok   overview: guide prints "A prime-power row cannot be doubly hidden; row 6 can."
+ok   overview: guide prints "Empty means I=0 and B=3, so area is 1/2 grid square; conversely area 1/2 forces emptiness."
+ok   overview: Pick holds and "empty <=> area 1/2" for every lattice triangle in a 6 x 6 dot square
+ok   overview: guide prints "Neighbor vectors u=(a,b), v=(c,d) always have |ad-bc|=1."
+ok   P1: guide prints "row 3 records 1,1,B,1,1,B,1; row 6 records 1,1,1,0,0,1,1. The two doubly hidden printed ta..."
+ok   P1 table
+ok   P2 depth: guide prints "At height 6, double hiding occurs at across values congruent to 3 or 4 modulo 6. For a=3, ..."
+ok   P2 depth: blockers of (3,6) from L and R
+ok   P2 depth: residues 3, 4 mod 6
+ok   P3: guide prints "B: (0,0),(1,2),(3,1), not empty; its two interior dots are (1,1),(2,1), with no extra side..."
+ok   P3: guide prints "C: (0,0),(2,0),(0,2), not empty; extra side dots (1,0),(0,1),(1,1), no interior dots, area..."
+ok   P3 A: side [], inside [], area 1/2
+ok   P3 B: side [], inside [(1, 1), (2, 1)], area 5/2
+ok   P3 C: side [(0, 1), (1, 0), (1, 1)], inside [], area 4/2
+ok   P3 D: side [], inside [], area 1/2
+ok   P4: guide prints "Their squared side-length sets are respectively {1,1,2}, {1,2,5}, {1,5,10}"
+ok   P4 sample shapes and emptiness
+ok   P4 depth: guide prints "The area of any lattice triangle is a multiple of 1/2."
+ok   P5: guide prints "one final increasing-slope row is (1,0),(2,1),(3,2),(4,3),(1,1),(3,4),(2,3),(1,2),(0,1)."
+ok   P5 final row: every neighbour pair has |det| = 1
+ok   P5 final row: slopes increase
+ok   P5: guide prints "(1,1)+(1,3)=(2,4) is hidden, and those directions are not valid neighbors."
+ok   P5: (1,1),(1,3) have det 2; (2,4) hidden
+ok   P6 proof: guide prints "If A>B, retain neighbors u,u+v and new coefficients A-B,B; if B>A, retain u+v,v and coeffi..."
+ok   P6 proof: coefficient step rewrites T correctly; A=B forces T=u+v (all wedges within 9 levels, coprime T up to 12)
+ok   P6: guide prints "Finite bounded-6 growth gives all 23 positive coprime targets exactly once."
+ok   P6: 23 coprime targets with 1 <= a, b <= 6
+ok   materials: guide prints "Working grid spacing is 20 mm."
+
+1 failures
+FAILED: extension: "(4,3) is NOW visible" needs (4,3) hidden from O -- but gcd(4,3)=1, it was already visible
