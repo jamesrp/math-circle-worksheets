@@ -2,7 +2,7 @@
 
 **Verdict: keep | revise | rework | merge.** One or two sentences: what decides it.
 
-Reviewed <date> by <model or person>. Packets: <file names, packet ids and page counts>. Adult guide: <file>. Companions noticed but not reviewed: <return visit, bonus, extensions>. Status: <piloted, with the evidence | unpiloted>.
+Reviewed <date> by <reviewer: Claude, Codex or a person>. Packets: <file names, packet ids and page counts>. Adult guide: <file>. Companions noticed but not reviewed: <return visit, bonus, extensions>. Status: <piloted, with the evidence | unpiloted>.
 
 ## The mathematics
 

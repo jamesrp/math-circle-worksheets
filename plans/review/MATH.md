@@ -10,6 +10,6 @@ For every problem in every band:
 
 Then check the adult guide: its mathematical overview (are the stated facts true, with the right hypotheses and limits?) and every solution, hint and extension it gives.
 
-Report only located problems, each with the band, page, problem, the exact quoted text or diagram, your evidence (computation or counterexample), and the smallest fix that makes it correct while keeping its intent. If a band or the guide checks out completely, say so in one line. Keep your scripts in the run folder.
+Report only located problems, each with the band, page, problem, the exact quoted text or diagram, your evidence (computation or counterexample), and the smallest fix that makes it correct while keeping its intent. If a band or the guide checks out completely, say so in one line. Keep your scripts and their saved outputs in the run folder; they are committed with the report. Have each script find the repository from its own location (four folders up from plans/review/checks/week-NN/) rather than from a fixed path, so it runs from the committed copy.
 
 Write the report to <run folder>/math.md. Then reply with one sentence saying how many problems you found.
