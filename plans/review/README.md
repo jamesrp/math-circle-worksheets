@@ -35,10 +35,14 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 1 | Tiling lab (pattern blocks) | keep | [card](week-01.md), [math check](week-01-math.md) |
 | 2 | Switches and lamps | revise: a working board that enforces the pair rule, and an adult guide for the compact catalog | [card](week-02.md), [math check](week-02-math.md) |
 | 15 | Nearest-site regions | keep | [card](week-15.md), [math check](week-15-math.md) |
+| 4 | Stars and secret wheels | revise: the adult guide puts the 4–5 times-table dents where the curve touches the circle, so an adult would correct a right drawing | [card](week-04.md), [math check](week-04-math.md) |
+| 7 | Take-away games | keep | [card](week-07.md), [math check](week-07-math.md) |
 | 13 | Route packing and bottlenecks | keep | [card](week-13.md), [math check](week-13-math.md) |
+| 18 | Error-correcting codebooks | keep | [card](week-18.md), [math check](week-18-math.md) |
 | 23 | Sorting networks | revise: a print-and-cut mat, cards and bars, which the guide specifies but nothing supplies | [card](week-23.md), [math check](week-23-math.md) |
 | 25 | Row and column shadows | revise: a guide hint calls the natural lower-bound proof wrong (two switches, because four cells must empty and a switch empties two) | [card](week-25.md), [math check](week-25-math.md) |
 | 53 | Cheapest connected networks | revise: two price labels on page 8 sit on the wrong link, and the K–1 route is one page long | [card](week-53.md), [math check](week-53-math.md) |
+| 62 | Conflict networks and scheduling | keep | [card](week-62.md), [math check](week-62-math.md) |
 
 ## Calibration
 
