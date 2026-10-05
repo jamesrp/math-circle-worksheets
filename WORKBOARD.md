@@ -10,7 +10,7 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Review card: Week 7, take-away games (wave 1) | | | open |
 | Review card: Week 13, route packing (wave 1) | | | open |
 | Review card: Week 18, error-correcting codebooks (wave 1) | | | open |
-| Review card: Week 23, sorting networks (wave 1) | | | open |
+| Review card: Week 23, sorting networks (wave 1) | Claude, Sorting networks thread | `claude/wave1-sorting-networks-srwvtc` | in progress |
 | Review card: Week 25, hidden pictures (wave 1) | | | open |
 | Review card: Week 53, cheapest networks (wave 1) | | | open |
 | Review card: Week 62, scheduling as colouring (wave 1) | | | open |
