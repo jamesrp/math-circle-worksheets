@@ -1,0 +1,89 @@
+=== Fixed priced maps: complete catalogs ===
+convention available   subsets    8 connected    4 trees   3  min  5  optima 1: XY/XZ  (sum of all prices 9, links 3)
+P1 left                subsets    8 connected    4 trees   3  min  3  optima 1: AB/BC  (sum of all prices 6, links 3)
+P1 right               subsets    8 connected    4 trees   3  min  3  optima 2: AB/AC; AB/BC  (sum of all prices 5, links 3)
+P2                     subsets   32 connected   14 trees   8  min  4  optima 3: AB/AC/CD; AB/BC/CD; AC/BC/CD  (sum of all prices 8, links 5)
+P3                     subsets   32 connected   14 trees   8  min  7  optima 1: AB/BC/CD  (sum of all prices 15, links 5)
+P4                     subsets  256 connected  134 trees  45  min  6  optima 3: AB/AC/CD/DE; AB/BC/CD/DE; AC/BC/CD/DE  (sum of all prices 21, links 8)
+P5 demo before         subsets    8 connected    4 trees   3  min  5  optima 1: UV/UW  (sum of all prices 9, links 3)
+P5 left                subsets   32 connected   14 trees   8  min  6  optima 1: AB/BC/CD  (sum of all prices 15, links 5)
+P6                     subsets  512 connected  164 trees  55  min  8  optima 1: AB/BC/CD/DE/EF  (sum of all prices 26, links 9)
+P9                     subsets   64 connected   38 trees  16  min  6  optima 1: AB/BC/CD  (sum of all prices 21, links 6)
+Total trees over the ten fixed weighted maps listed in the guide: 152
+
+=== P1 ===
+P1 left two-link purchases: AB/AC=4, AB/BC=3, AC/BC=5
+P1 right two-link purchases: AB/AC=3, AB/BC=3, AC/BC=4
+
+=== P3 trap ===
+three cheapest links ['AB', 'BC', 'AC'] cost 6 connected? False
+cheapest connected purchase costing < 7 exists? False
+second-cheapest connected purchase cost: [7, 8, 9]
+
+=== P4: greedy-by-price failure ===
+price order [('AB', 1), ('AC', 1), ('BC', 1), ('CD', 2), ('DE', 2), ('CE', 3), ('AD', 5), ('BE', 6)]
+four cheapest AB/AC/BC/CD connect all five? False
+
+=== P5 swap demo ===
+demo before ['UV', 'VW'] cost 6 ; after buy UW 9 ; after return VW 5
+
+=== P5 left: input AB/AC/AD cost 10 ===
+cheaper legal swaps (3): return AC buy BC -> 7; return AC buy CD -> 8; return AD buy CD -> 9
+cheaper-total but disconnected swaps: return AD buy BC -> 8
+input is optimal? False (min 6)
+
+=== P5 right: input AB/BC/CD cost 6 ===
+cheaper legal swaps (0): none
+cheaper-total but disconnected swaps: none
+input is optimal? True (min 6)
+
+=== P8 top: input AB/BC/CD/DE/EF cost 8 ===
+cheaper legal swaps (0): none
+cheaper-total but disconnected swaps: none
+input is optimal? True (min 8)
+
+=== P8 bottom: input AB/AC/BD/DE/DF cost 14 ===
+cheaper legal swaps (4): return AC buy BC -> 13; return AC buy CD -> 13; return BD buy CD -> 11; return DF buy EF -> 12
+cheaper-total but disconnected swaps: return BD buy BC -> 11; return DF buy BC -> 12; return DF buy CD -> 12; return AC buy EF -> 13; return BD buy EF -> 11
+input is optimal? False (min 8)
+
+=== P6: every / some / none ===
+  AB=1 in 1 of 1 optima -> every
+  AC=3 in 0 of 1 optima -> none
+  BC=2 in 1 of 1 optima -> every
+  BD=5 in 0 of 1 optima -> none
+  CD=2 in 1 of 1 optima -> every
+  CE=6 in 0 of 1 optima -> none
+  DE=1 in 1 of 1 optima -> every
+  DF=4 in 0 of 1 optima -> none
+  EF=2 in 1 of 1 optima -> every
+bridges: none
+  cut {A}: [(1, 'AB'), (3, 'AC')] -> uniquely cheapest AB
+  cut {A,B}: [(2, 'BC'), (3, 'AC'), (5, 'BD')] -> uniquely cheapest BC
+  cut {A,B,C}: [(2, 'CD'), (5, 'BD'), (6, 'CE')] -> uniquely cheapest CD
+  cut {E}: [(1, 'DE'), (2, 'EF'), (6, 'CE')] -> uniquely cheapest DE
+  cut {F}: [(2, 'EF'), (4, 'DF')] -> uniquely cheapest EF
+  cycle AB-BC-AC: [(1, 'AB'), (2, 'BC'), (3, 'AC')] -> uniquely dearest AC
+  cycle DE-EF-DF: [(1, 'DE'), (2, 'EF'), (4, 'DF')] -> uniquely dearest DF
+  cycle BC-CD-BD: [(2, 'BC'), (2, 'CD'), (5, 'BD')] -> uniquely dearest BD
+  cycle CD-DE-CE: [(1, 'DE'), (2, 'CD'), (6, 'CE')] -> uniquely dearest CE
+Second-best purchases on P6 (cost, count): [(8, 1), (9, 1), (10, 2)]
+
+=== P7: all 4^6 price assignments on the K4 map ===
+K4: subsets 64, connected 38 trees 16
+optimum-count distribution: {1: 1956, 2: 936, 3: 768, 4: 144, 5: 96, 6: 96, 8: 72, 9: 24, 16: 4}
+unique: 1956 several: 2140
+unique witness {'AB': 1, 'BC': 1, 'AC': 3, 'AD': 2, 'BD': 3, 'CD': 4} -> min 4 optima ['AB/AD/BC']
+multiple witness {'AB': 1, 'BC': 2, 'AC': 2, 'AD': 1, 'BD': 4, 'CD': 4} -> min 4 optima ['AB/AC/AD', 'AB/AD/BC']
+
+=== P8 general claims (finite sanity checks; the proof is in the guide) ===
+fixed maps: 152 trees checked, local/global mismatches 0
+random graphs: 86417 trees checked, local/global mismatches 0
+triangle all bought: cost 3 swaps available 0 min 2
+
+=== P9 and distinct-price uniqueness ===
+P9 optimum ['AB/BC/CD'] cost 6
+random distinct-price graphs: 2413 checked, non-unique 0
+
+=== Guide p.6 bottom-input data ===
+bottom input links/prices: [('AB', 1), ('AC', 3), ('BD', 5), ('DE', 1), ('DF', 4)] unused: [('BC', 2), ('CD', 2), ('CE', 6), ('EF', 2)]
