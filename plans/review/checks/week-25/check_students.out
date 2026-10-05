@@ -1,0 +1,70 @@
+== Generic: scale, labels, printed counts vs printed counters
+done (only failures are listed above)
+
+== K-1
+PASS p1 example: A1,A2 occupied -> rows 2,0 and columns 1,1
+PASS p1 example sweeps stay in their own row/column and end within 4 pt (an arrowhead) of that line's circled count: [('row A', 0, 3.0), ('row B', 1, 3.0), ('column 1', 0, 2.2), ('column 2', 1, 2.2)]
+-- P1 (p2): "Make two different pictures for each pair of grids."
+PASS pair ((1, 1), (1, 1)): 2 pictures: 10/01, 01/10
+PASS pair ((1, 1), (1, 0, 1)): 2 pictures: 100/001, 001/100
+PASS pair ((2, 1), (1, 1, 1)): 3 pictures: 110/001, 101/010, 011/100
+-- P2 (p3): "Find and draw every different picture for each set of counts." (6 grids)
+PASS ((1, 2), (1, 1, 1)): 3 pictures, 3 grids: 100/011, 010/101, 001/110
+PASS ((2, 1), (1, 1, 1)): 3 pictures, 3 grids: 110/001, 101/010, 011/100
+-- P3 (p4-5): "Find and draw every different three-counter picture with these counts." (4+2 grids)
+PASS 6 pictures, 6 grids
+-- P4 (p5 bottom): "Can you make two different pictures with these counts?"
+PASS ((3, 1), (2, 1, 1)): 1 picture(s): 111/100 -> answer "no"
+-- P4 (p6): "Make two different pictures for each pair of grids, if you can."
+     ((2, 1, 0), (2, 1, 0)): 1 picture(s): 110/100/000
+     ((2, 1, 1), (2, 1, 1)): 5 picture(s): 110/100/001, 110/001/100, 101/100/010, 101/010/100, 011/100/100
+-- P5/P6 (p7-8): four-counter pictures, unique versus ambiguous counts
+     2x3, 4 counters: 9 unique margin classes (9 pictures), 3 ambiguous classes (6 pictures)
+PASS 2x3: both a unique and an ambiguous four-counter choice exist (P6 possible)
+     3x3, 4 counters: 45 unique margin classes (45 pictures), 27 ambiguous classes (81 pictures)
+PASS 3x3: both a unique and an ambiguous four-counter choice exist (P6 possible)
+
+== Grades 2-3
+-- P1 (p1): "make two different pictures that match the counts, if you can"
+     ((2, 1), (1, 1, 1)): 3 picture(s): 110/001, 101/010, 011/100
+     ((3, 1), (2, 1, 1)): 1 picture(s): 111/100
+     ((2, 2), (2, 1, 1)): 2 picture(s): 110/101, 101/110
+-- P2 (p2-3): "Find and draw every different picture with these counts." (4+2 grids)
+PASS 5 pictures, 6 grids: 110/100/001, 110/001/100, 101/100/010, 101/010/100, 011/100/100
+     switch distances inside this catalog: 110/100/001->110/001/100=1; 110/100/001->101/100/010=1; 110/100/001->101/010/100=2; 110/100/001->011/100/100=1; 110/001/100->101/100/010=2; 110/001/100->101/010/100=1; 110/001/100->011/100/100=1; 101/100/010->101/010/100=1; 101/100/010->011/100/100=1; 101/010/100->011/100/100=1
+-- P3 (p3): "Move exactly two counters from the filled picture to make a different picture with the same counts."
+PASS start 100/000/001: other pictures 001/000/100
+PASS cells vacated going to the only alternative: 2
+-- P3 (p4): "Find every switch in each picture. Which pictures have none?"
+PASS switch example 10/01 -> 01/10 is the one legal switch
+     110/100/000: 0 switch(es); pictures with these counts: 1
+     100/000/001: 1 switch(es): rows A,C cols 1,3 -> 001/000/100; pictures with these counts: 2
+     110/001/100: 3 switch(es): rows A,B cols 1,3 -> 011/100/100; rows A,B cols 2,3 -> 101/010/100; rows B,C cols 3,1 -> 110/100/001; pictures with these counts: 5
+     111/110/100: 0 switch(es); pictures with these counts: 1
+-- P4 (p5): one switch / exactly two switches from 1100/0011
+PASS all 6 pictures reachable
+     distance 1: 0101/1010, 0110/1001, 1001/0110, 1010/0101
+     distance 2: 0011/1100
+PASS exactly one picture needs two switches (answer forced: 0011/1100)
+-- P5 (p6): four counters; choose a picture that no different picture matches
+PASS 2x3: 9 four-counter pictures are unique, e.g. 001/111
+PASS 2x3: unique <=> no switch on all four-counter pictures
+PASS 3x3: 45 four-counter pictures are unique, e.g. 000/001/111
+PASS 3x3: unique <=> no switch on all four-counter pictures
+
+== Grades 4-5
+-- P1 (p1-2): every picture with rows 2,2 and columns 1,1,1,1 (3+3 grids)
+PASS 6 pictures, 6 grids
+-- P2 (p3): connected? greatest shortest distance?
+PASS switch graph on the 6 pictures is connected
+PASS greatest shortest distance = 2
+     one-switch neighbours per picture: [4, 4, 4, 4, 4, 4]
+-- P3 (p4-5): 111000/000111 -> 000111/111000, fewest switches
+PASS distance = 3; two blank route grids on p5 = intermediates of a 3-switch route
+PASS pictures with these counts: 20
+-- P4 (p6): 110100/100011 -> 100011/110100
+PASS fewest switches = 2
+PASS pictures sharing these counts = 6
+PASS largest shortest distance = 2
+-- P5 (p7): two-row rule for any number of columns (checked for 1..8 columns)
+PASS 501078 ordered same-margin pairs on 2x1..2x8: connected, distance = #(top in start, not in target), diameter = min(k, s-k)
