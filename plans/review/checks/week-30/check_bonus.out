@@ -1,0 +1,77 @@
+== P1: kit 1,2,3, one weight removed, targets 1,2,3
+PASS P1 cards ['1', '2', '3']
+PASS P1 table rows (removed, target): 9 rows
+PASS removed 1, kit [2, 3], target 1: 1 + 2 = 3
+PASS removed 1, kit [2, 3], target 2: 2 = 2
+PASS removed 1, kit [2, 3], target 3: 3 = 3
+PASS removed 2, kit [1, 3], target 1: 1 = 1
+PASS removed 2, kit [1, 3], target 2: 2 + 1 = 3
+PASS removed 2, kit [1, 3], target 3: 3 = 3
+PASS removed 3, kit [1, 2], target 1: 1 + 1 = 2; 1 = 1
+PASS removed 3, kit [1, 2], target 2: 2 = 2
+PASS removed 3, kit [1, 2], target 3: 3 = 1 + 2
+PASS guide P1 balance "1+2=3" uses only [2, 3]
+PASS guide P1 balance "2+1=3" uses only [1, 3]
+PASS guide P1 balance "3=1+2" uses only [1, 2]
+
+== P2/P3: kits that survive any one removal
+PASS P2 card strip ['1', '2', '3', '4', '5', '6', '7', '8']
+PASS pairs (<=200, equal values allowed) covering 1..3: [(1, 2), (1, 3), (2, 3)]
+PASS pairs (<=200, equal values allowed) covering 1..4: [(1, 3)]
+PASS P2 robust triples of different weights from 1..8: [(1, 2, 3)]
+PASS P2 without the cap (weights <= 60): [(1, 2, 3)]
+PASS P2 with equal-valued cards allowed (<= 60): [(1, 2, 3)]
+PASS P3 robust triples for 1..4 (different weights <= 60): []
+PASS P3 with equal-valued cards allowed (<= 60): []
+   => allowing equal-valued cards changes neither conclusion (P2 still only {1,2,3}; P3 still impossible)
+PASS guide p. 2 asks "how the conclusion changes" with equal-valued cards (it does not change; see above)
+PASS guide: {1,3,9} minus 1 leaves 3, 9, which cannot balance 1 or 2
+
+== P4/P5: find a hidden card by comparisons with a known whole-number mass
+PASS P4 card strip ['1', '2', '3', '4', '5', '6', '7']
+PASS example candidates 8, 9, 10
+PASS example: compare with 9, heavier -> keep 10
+   candidates 1..1: 0 comparisons needed
+   candidates 1..2: 1 comparisons needed
+   candidates 1..3: 1 comparisons needed
+   candidates 1..4: 2 comparisons needed
+   candidates 1..5: 2 comparisons needed
+   candidates 1..6: 2 comparisons needed
+   candidates 1..7: 2 comparisons needed
+   candidates 1..8: 3 comparisons needed
+   candidates 1..9: 3 comparisons needed
+   candidates 1..10: 3 comparisons needed
+   candidates 1..11: 3 comparisons needed
+   candidates 1..12: 3 comparisons needed
+   candidates 1..13: 3 comparisons needed
+   candidates 1..14: 3 comparisons needed
+   candidates 1..15: 3 comparisons needed
+   candidates 1..16: 4 comparisons needed
+PASS P4 seven need 2; P5 eight need 3 (so "no")
+PASS largest set for k comparisons: {0: 1, 1: 3, 2: 7, 3: 15} = 2^(k+1)-1
+PASS non-consecutive sets: same bound
+PASS guide P4 plan (4; then 2 or 6) finds every card 1..7
+PASS P4 first thresholds that allow a two-comparison plan: [4]
+PASS guide depth: 15 candidates in three comparisons (threshold 8, then 4 or 12, then middle)
+PASS guide P4 text matches the plan checked
+
+== P6/P7: equal-weight teams
+P6 kit [1, 2, 3, 4] into 2 teams (2 trays printed): 1 partition(s) [((1, 4), (2, 3))]
+PASS    trays printed = teams requested (2 = 2)
+P6 kit [1, 2, 3, 4, 5, 6] into 3 teams (3 trays printed): 1 partition(s) [((1, 6), (2, 5), (3, 4))]
+PASS    trays printed = teams requested (3 = 3)
+P6 kit [1, 2, 5] into 2 teams (2 trays printed): 0 partition(s) []
+PASS    trays printed = teams requested (2 = 2)
+P6 kit [1, 2, 3, 4, 5, 6, 7, 8] into 4 teams (4 trays printed): 1 partition(s) [((1, 8), (2, 7), (3, 6), (4, 5))]
+PASS    trays printed = teams requested (4 = 4)
+PASS P6 counts: 1, 1, impossible, 1
+PASS P6 {1,2,5}: total even yet impossible (5 > 4)
+PASS P7 every split of 1..6 into three equal teams: [((1, 6), (2, 5), (3, 4))]
+PASS endpoint pairing 1..2 into 1 teams of 3
+PASS endpoint pairing 1..4 into 2 teams of 5
+PASS endpoint pairing 1..6 into 3 teams of 7
+PASS endpoint pairing 1..8 into 4 teams of 9
+PASS endpoint pairing 1..10 into 5 teams of 11
+PASS endpoint pairing 1..12 into 6 teams of 13
+PASS guide depth: if m divides r, 1..2r splits into m equal teams (r <= 6)
+-- 0 FAIL line(s)

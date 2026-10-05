@@ -1,0 +1,127 @@
+== Weight cards: printed number equals dot count; dots clear of the border
+PASS K p.1 Plaunch card 1: 1 dots
+PASS K p.1 Plaunch card 4: 4 dots
+PASS K p.1 Plaunch board target ['3']: two pans, '=', 'target' label
+PASS K p.1 P1 card 1: 1 dots
+PASS K p.1 P1 card 3: 3 dots
+PASS K p.1 P1 board target ['2']: two pans, '=', 'target' label
+PASS K p.1 P1 board target ['4']: two pans, '=', 'target' label
+PASS K p.2 P2 card 1: 1 dots
+PASS K p.2 P2 card 2: 2 dots
+PASS K p.2 P2 board target ['3']: two pans, '=', 'target' label
+PASS K p.2 P2 board target ['4']: two pans, '=', 'target' label
+PASS K p.2 P2 board target ['5']: two pans, '=', 'target' label
+PASS K p.3 P3 card 1: 1 dots
+PASS K p.3 P3 card 4: 4 dots
+PASS K p.3 P3 card 1: 1 dots
+PASS K p.3 P3 card 3: 3 dots
+PASS K p.3 P3 board target ['2']: two pans, '=', 'target' label
+PASS K p.3 P3 board target ['5']: two pans, '=', 'target' label
+PASS K p.4 P4 card 1: 1 dots
+PASS K p.4 P4 card 2: 2 dots
+PASS K p.4 P4 card 3: 3 dots
+PASS K p.4 P4 card 4: 4 dots
+PASS K p.4 P4 board target ['2']: two pans, '=', 'target' label
+PASS K p.4 P4 board target ['4']: two pans, '=', 'target' label
+PASS K p.5 P5 card 1: 1 dots
+PASS K p.5 P5 card 3: 3 dots
+PASS K p.5 P5 card 8: 8 dots
+PASS K p.5 P5 card 9: 9 dots
+PASS K p.5 P5 card 10: 10 dots
+WARN K p.5 card 10: lowest dot is 0.21 pt from the card's bottom edge (dot diameter 3 pt, border 0.7 pt): it sits on the border
+PASS K p.5 P5 board target ['5']: two pans, '=', 'target' label
+PASS K p.5 P5 board target ['13']: two pans, '=', 'target' label
+PASS 23 p.1 Plaunch card 1: 1 dots
+PASS 23 p.1 Plaunch card 4: 4 dots
+PASS 23 p.1 Plaunch board target ['3']: two pans, '=', 'target' label
+PASS 23 p.1 P1 board target ['2']: two pans, '=', 'target' label
+PASS 23 p.2 P2 card 1: 1 dots
+PASS 23 p.2 P2 card 3: 3 dots
+PASS 23 p.2 P2 board target ['5']: two pans, '=', 'target' label
+PASS 23 p.2 P2 board target ['8']: two pans, '=', 'target' label
+PASS 23 p.2 P2 board target ['13']: two pans, '=', 'target' label
+PASS 23 p.4 P4 board target ['4']: two pans, '=', 'target' label
+PASS 23 p.4 P4 board target ['4']: two pans, '=', 'target' label
+PASS 23 p.4 P4 board target ['4']: two pans, '=', 'target' label
+PASS 45 p.1 Plaunch card 1: 1 dots
+PASS 45 p.1 Plaunch card 4: 4 dots
+PASS 45 p.1 Plaunch board target ['3']: two pans, '=', 'target' label
+PASS 45 p.1 P1 board target ['2']: two pans, '=', 'target' label
+PASS 45 p.1 P1 board target ['4']: two pans, '=', 'target' label
+PASS 45 p.2 P2 board target ['5']: two pans, '=', 'target' label
+PASS 45 p.2 P2 board target ['7']: two pans, '=', 'target' label
+PASS 45 p.3 P3 board target ['4']: two pans, '=', 'target' label
+PASS 45 p.3 P3 board target ['7']: two pans, '=', 'target' label
+
+== Launch example: target 3; weights 1 and 4; "put 1 beside the target"; 3 + 1 = 4
+PASS K: board shows 3 + 1 = 4; cards [1, 4]
+PASS 23: board shows 3 + 1 = 4; cards [1, 4]
+PASS 45: board shows 3 + 1 = 4; cards [1, 4]
+   note: kit {1,4} with target 3 is also a task instance (K-1 P3, 2-3 P1), ways: [([1], [4])]
+
+== K-1
+PASS P1 cards [1, 3]
+PASS P1 target 1 with 1,3: 1 = 1
+PASS P1 target 2 with 1,3: 2 + 1 = 3
+PASS P1 target 3 with 1,3: 3 = 3
+PASS P1 target 4 with 1,3: 4 = 1 + 3
+PASS P1 boards [2, 4] are requested targets
+P2 kit 1,2 balances [1, 2, 3] of 1..5; strip [1, 2, 3, 4, 5]; boards [3, 4, 5]
+PASS P2 answer 1, 2, 3 (4 and 5 impossible: total is 3)
+   boards 4 and 5 are targets that cannot be balanced (consistent with "Which targets ... can you balance?")
+P3 kit 1,4 -> [1, 3, 4, 5]; kit 1,3 -> [1, 2, 3, 4]; strip [1, 2, 3, 4, 5, 6]; cards [1, 4, 1, 3]
+PASS P3 tie: each kit balances four of 1..6, so neither balances more
+   board target 2: kit 1,4 no, kit 1,3 yes
+   board target 5: kit 1,4 yes, kit 1,3 no
+P4 kit (1, 2): balances [1, 2, 3] of 1..4
+P4 kit (1, 3): balances [1, 2, 3, 4] of 1..4
+P4 kit (1, 4): balances [1, 3, 4] of 1..4
+P4 kit (2, 3): balances [1, 2, 3] of 1..4
+P4 kit (2, 4): balances [2, 4] of 1..4
+P4 kit (3, 4): balances [1, 3, 4] of 1..4
+PASS P4 only kit: [(1, 3)]
+PASS P4 cards [1, 2, 3, 4]
+P5 kit 1,3,8: misses [13] in 5..13
+P5 kit 1,3,9: misses [] in 5..13
+P5 kit 1,3,10: misses [5] in 5..13
+PASS P5 unique answer 9
+PASS P5 strip [5, 6, 7, 8, 9, 10, 11, 12, 13]
+PASS P5 cards [1, 3, 8, 9, 10]
+   board 5 with 1,3,9: 5 + 1 + 3 = 9
+   board 13 with 1,3,9: 13 = 1 + 3 + 9
+
+== Grades 2-3
+PASS P1 three labelled rows ['1 and 2', '1 and 3', '1 and 4'], each with boxes 1..6
+P1 kit [1, 2]: balances [1, 2, 3] of 1..6
+P1 kit [1, 3]: balances [1, 2, 3, 4] of 1..6
+P1 kit [1, 4]: balances [1, 3, 4, 5] of 1..6
+P1 board target [2]: kits that balance 2: [[1, 2], [1, 3]]
+PASS P2 whole-number w in 1..199 completing 1..13: [9]
+PASS P2 strip [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+   board 5 with 1,3,9: 5 + 1 + 3 = 9
+   board 8 with 1,3,9: 8 + 1 = 9
+   board 13 with 1,3,9: 13 = 1 + 3 + 9
+PASS P3 first target each kit cannot balance: {8: 13, 9: 14, 10: 5}
+PASS P3 kit labels
+P4 ways to balance 4 with 1,3,8: 4 + 1 + 3 = 8; 4 = 1 + 3
+P4 ways to balance 4 with 1,3,9: 4 = 1 + 3
+PASS P4 two ways / one way; boards printed: 2 under "1, 3, 8" and 1 under "1, 3, 9" (board count equals way count)
+P5 counting bound: 3^3 = 27 placements; 0 once; others pair by sign -> at most 13 positive targets
+PASS P5 most distinct positive targets of any 3-weight kit with weights <= 40 (repeats allowed): 13
+PASS P6 best fourth weight: [27] with run 1..40; neighbours: w=26 -> 39, w=28 -> 13
+
+== Grades 4-5
+PASS P1 two different weights (each < 60) covering 1..4: [(1, 3)]
+   boards [2, 4] with 1,3: 2 + 1 = 3; 4 = 1 + 3
+PASS P2 best w [9], run 13
+   runs by w: 1:5, 2:6, 3:7, 4:8, 5:9, 6:10, 7:11, 8:12, 9:13, 10:4, 11:4, 12:4, 13:4, 14:4, 15:4
+PASS P2 strip [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+PASS P3 1,3,9 balances 1..13, each in exactly one way
+   board 4: 4 = 1 + 3
+   board 7: 7 + 3 = 1 + 9
+PASS P4/P5 most distinct positive targets, three different weights <= 60: 13 (28588 kits reach 13, e.g. [(1, 3, 9), (1, 3, 10), (1, 3, 11), (1, 3, 12)])
+PASS P4 no three-weight kit (<= 60) covers 1..14
+PASS P6 add 27: run 1..40, every target in exactly one way
+PASS P7 1,3,9,27,81 reaches 1..121 uniquely; bound (3^5-1)/2 = 121
+PASS P7 five-weight kits reaching 121 (sorted search): [(1, 3, 9, 27, 81)]
+-- 0 FAIL line(s)

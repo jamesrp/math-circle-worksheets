@@ -1,0 +1,89 @@
+== Overview (guide p. 1)
+PASS balanced ternary m=1: [1] covers 1..1, all 3^m placements distinct
+PASS balanced ternary m=2: [1, 3] covers 1..4, all 3^m placements distinct
+PASS balanced ternary m=3: [1, 3, 9] covers 1..13, all 3^m placements distinct
+PASS balanced ternary m=4: [1, 3, 9, 27] covers 1..40, all 3^m placements distinct
+PASS balanced ternary m=5: [1, 3, 9, 27]... covers 1..121, all 3^m placements distinct
+PASS balanced ternary m=6: [1, 3, 9, 27]... covers 1..364, all 3^m placements distinct
+PASS balanced ternary m=7: [1, 3, 9, 27]... covers 1..1093, all 3^m placements distinct
+PASS endpoints 4, 13, 40, 121 for m = 2..5
+PASS optimality m=1, weights 1..60 (repeats allowed): max distinct positive targets 1
+PASS optimality m=2, weights 1..60 (repeats allowed): max distinct positive targets 4
+PASS optimality m=3, weights 1..40 (repeats allowed): max distinct positive targets 13
+PASS optimality m=4, weights 1..25 (repeats allowed): max distinct positive targets 40
+PASS S=1: adding 3 covers -(3S+1)..3S+1 uniquely; heavier misses S+1=2; lighter falls short
+PASS S=4: adding 9 covers -(3S+1)..3S+1 uniquely; heavier misses S+1=5; lighter falls short
+PASS S=13: adding 27 covers -(3S+1)..3S+1 uniquely; heavier misses S+1=14; lighter falls short
+PASS S=40: adding 81 covers -(3S+1)..3S+1 uniquely; heavier misses S+1=41; lighter falls short
+
+== Small-kit key (guide p. 2)
+PASS parsed 6 table rows
+PASS kit 1,2: guide "1,2,3" vs computed [1, 2, 3]
+PASS kit 1,3: guide "1,2,3,4" vs computed [1, 2, 3, 4]
+PASS kit 1,4: guide "1,3,4,5" vs computed [1, 3, 4, 5]
+PASS kit 1,3,8: guide "1 through 12" vs computed [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+PASS kit 1,3,9: guide "1 through 13" vs computed [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+PASS kit 1,3,10: guide "1...4 and 6...14" vs computed [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+PASS 1,3,8 reason: 8 + (-4..4) = 4..12
+PASS 1,3,9 reason: 9 + (-4..4) = 5..13
+PASS 1,3,10 reason: new interval starts at 6
+
+== K-1 answer key (guide p. 2)
+PASS P1 "1=1" valid with kit 1,3
+PASS P1 "2+1=3" valid with kit 1,3
+PASS P1 "3=3" valid with kit 1,3
+PASS P1 "4=1+3" valid with kit 1,3
+PASS P2
+PASS P3 tie
+PASS P4 parsed 6 kits
+PASS P4 {1,2} -> {1,2,3}
+PASS P4 {1,3} -> {1,2,3,4}
+PASS P4 {1,4} -> {1,3,4,5}
+PASS P4 {2,3} -> {1,2,3,5}
+PASS P4 {2,4} -> {2,4,6}
+PASS P4 {3,4} -> {1,3,4,7}
+PASS P5 8-kit total 12
+PASS P5 10-kit misses 5
+PASS P5 cross-reference: table on guide p. 3
+
+== Grades 2-3 answer key (guide p. 3)
+PASS P1 cross-reference to p. 2
+PASS P2 table rows: 13 (targets 1..13)
+PASS P2 target 1: "1 = 1"
+PASS P2 target 8: "8+1 = 9"
+PASS P2 target 2: "2+1 = 3"
+PASS P2 target 9: "9 = 9"
+PASS P2 target 3: "3 = 3"
+PASS P2 target 10: "10 = 9+1"
+PASS P2 target 4: "4 = 3+1"
+PASS P2 target 11: "11+1 = 9+3"
+PASS P2 target 5: "5+3+1 = 9"
+PASS P2 target 12: "12 = 9+3"
+PASS P2 target 6: "6+3 = 9"
+PASS P2 target 13: "13 = 9+3+1"
+PASS P2 target 7: "7+3 = 9+1"
+PASS P2 9 is the only choice
+PASS P3 first misses
+PASS P4 two / one balances of 4
+PASS P5 29 > 27
+PASS P6 27 + (-13..13) = 14..40
+PASS P6 below 27: total < 40; above 27: misses 14
+
+== Grades 4-5 answer key (guide p. 4)
+PASS P1 for 0<a<b the positive targets are among a, b, b-a, a+b (checked a<b<80)
+PASS P2 w<9 total < 13; w>9 misses 5
+PASS P3 inequalities 8<9, 2<3, 0<1
+PASS P3 no two distinct placements of 1,3,9 give the same difference
+PASS P4 cross-reference: the 27-placement bound is on guide p. 3
+PASS P5 1,2,3 reaches only 1-6
+PASS P5 1,4,16 -> [1, 3, 4, 5, 11, 12, 13, 15, 16, 17, 19, 20, 21]
+PASS P6 intervals [-40,-14], [-13,13], [14,40]; 27 > 26
+PASS P7 [-121,-41], [-40,40], [41,121]; 243 placements
+PASS Extension: weights opposite only, 1,2,4 cover 1-7 uniquely
+
+== Launch, timing and route note
+PASS Launch example matches the student pages (3 + 1 = 4)
+PASS Route note K-1 references P4/P5 correctly
+PASS Route note 4-5 references P3, P4-5, P6-7 correctly
+PASS Route note 2-3 references P4, P5-6 correctly
+-- 0 FAIL line(s)
