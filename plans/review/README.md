@@ -44,7 +44,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 31 | Hidden orchard (lattice visibility) | revise: the guide's optional extension gives (4,3) as a sight line that changes when O moves to (1,1), and it doesn't, so an adult may correct a right answer | [card](week-31.md), [math check](week-31-math.md) |
 | 33 | Prime-length necklaces | keep | [card](week-33.md), [math check](week-33-math.md) |
 | 34 | Hidden turns (distinguishing colourings) | keep | [card](week-34.md), [math check](week-34-math.md) |
-| 39 | Road detours (path reduction) | keep | [card](week-39.md), [math check](week-39-math.md) |
+| 39 | Road detours (path reduction) | revise: K–1 Problem 7 has two readings, and the key tells the adult that the natural one is wrong, so an adult may correct a right answer | [card](week-39.md), [math check](week-39-math.md) |
 | 52 | Hinged frames and braces | revise: the K–1 route is three problems the guide finishes by minute 30, and Problem 13's "Yes" rests on a one-brace-per-cell rule no upper page states | [card](week-52.md), [math check](week-52-math.md) |
 | 53 | Cheapest connected networks | revise: two price labels on page 8 sit on the wrong link, and the K–1 route is one page long | [card](week-53.md), [math check](week-53-math.md) |
 | 62 | Conflict networks and scheduling | keep | [card](week-62.md), [math check](week-62-math.md) |
