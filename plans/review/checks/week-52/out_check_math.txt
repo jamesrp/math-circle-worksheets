@@ -1,0 +1,113 @@
+Week 52 independent math check
+============================================================
+
+[P1] triangle and square, fixed side lengths, plane
+ok   equilateral triangle: rigidity-matrix rank 3 = 2*3-3 (rigid in the plane)
+ok   unbraced square flexes (explicit rhombus motion)
+ok   square with one diagonal holds (rank 5 = 2*4-3)
+ok   square with the other diagonal holds
+ok   exact ranks over Q: square 4, braced square 5
+
+[P3] four bars of length L=1, the removed diagonal has length sqrt2
+     the 4 choices of (B, D): ['B=D doubled right isosceles triangle', 'square', 'square', 'B=D doubled right isosceles triangle']
+ok   only the square, or the degenerate B=D overlap, accepts that diagonal
+ok   the unbraced four-bar reaches B=D with |AC|=sqrt2 through the flat (collinear) placement
+ok   guide numbers: 60-degree rhombus diagonals 60 and 103.92; 60*sqrt2 = 84.853
+
+[P4] 2-by-2 printed designs
+      {'A': 'flexes', 'B': 'flexes', 'C': 'holds', 'D': 'holds'}
+ok   circle C and D only (guide agrees)
+
+[P5] fewest braces for 2-by-2, all subsets
+ok   every 2-by-2 subset certified
+      minimum 3 minimum designs ['11,12,21', '11,12,22', '11,21,22', '12,21,22']
+ok   minimum 3; all four 3-cell sets hold
+ok   every orientation choice of a 3-cell set also holds
+
+[P6] fewest braces for 2-by-3, all subsets
+ok   every 2-by-3 subset certified
+      minimum 4 number of minimum designs 12
+ok   minimum 4 with 12 minimum cell sets
+ok   guide rule 'omit any pair except the two cells of one column' gives exactly the 12
+ok   guide example 11,12,13,21 holds
+
+[P7] printed 2-by-3 designs
+ok   A flexes, B holds: circle B only
+ok   worked example 1-by-3 with middle brace flexes (non-task example)
+
+[P8] printed 3-by-3 designs, both covering every row and column
+ok   A and B each have a brace in every row and column
+ok   A flexes, B holds: answer No
+ok   guide extension: every empty cell of A repairs it (13,23,31,32)
+
+[P9] single removals from 11,12,13,21,22
+ok   starting design holds
+      removable: 11,12,21,22
+ok   removable singles are 11,12,21,22; 13 is essential
+ok   guide extension: after one permitted removal, every further single removal flexes
+
+[P10] pairs removed from the full 2-by-3
+      failing pairs: ['11,21', '12,22', '13,23']
+ok   3 failing pairs (same column), 12 succeed
+
+[P11] one added brace
+      A works at: none   B works at: 13,23,31,32
+ok   A: none; B: 13,23,31,32 (guide agrees)
+ok   guide extension: A + 13 + 31 holds
+      all two-addition repairs of A: ['13,31', '13,32', '13,33', '23,31', '23,32', '23,33', '31,33', '32,33']
+
+[P12] 4-by-5: fewest braces
+ok   guide example 11,12,13,14,15,21,31,41 holds (exact rank mod p)
+ok   all 77520 seven-brace designs have an explicit finite flex, so 7 or fewer never hold
+      eight-brace designs that hold: 32000 (spanning trees of K_{4,5} = 4^4*5^3 = 32000 )
+ok   count of holding 8-brace designs equals spanning-tree count
+
+[P13] 3-by-3, six braces, every row and column covered (one brace per cell)
+      six-cell sets 84 covering 78 holding 78
+ok   guide: 84 subsets, 78 cover, all 78 hold -> Yes
+   alternative reading: two braces (both diagonals) allowed in one cell
+      both diagonals in 11, 22, 33 (six braces, every row and column): flexes  ranks mod p [27, 27] needed 29
+      11,12,21,22 plus both diagonals in 33: flexes
+ok   with doubled braces allowed, six covering braces can flex: P13 answer depends on the one-per-cell rule
+      covering six-brace placements with doubles allowed: 804 of which flex: 321
+
+[P14] 4-by-4, nine braces, every row and column
+ok   guide counterexample has 9 braces, covers, and flexes (explicit finite motion) -> No
+      covering designs by size (total, flexing): {4: (24, 24), 5: (432, 432), 6: (2248, 2248), 7: (5776, 1680), 8: (9066, 642), 9: (9696, 144), 10: (7480, 16), 11: (4272, 0), 12: (1812, 0), 13: (560, 0), 14: (120, 0), 15: (16, 0), 16: (1, 0)}
+ok   guide extension: covering 4-by-4 can flex with up to 10 braces; 11 always hold
+ok   guide: all nine cells of the 3-by-3 block plus 44 (ten braces) flexes
+
+[overview] link-graph criterion and rank formula 2(m+1)(n+1)-2-k, exhaustive on small grids
+ok   1-by-1: all 2 subsets satisfy rank = 2V-2-k (k = number of link groups)
+ok   1-by-2: all 4 subsets satisfy rank = 2V-2-k (k = number of link groups)
+ok   1-by-3: all 8 subsets satisfy rank = 2V-2-k (k = number of link groups)
+ok   2-by-2: all 16 subsets satisfy rank = 2V-2-k (k = number of link groups)
+ok   2-by-3: all 64 subsets satisfy rank = 2V-2-k (k = number of link groups)
+ok   3-by-3: all 512 subsets satisfy rank = 2V-2-k (k = number of link groups)
+ok   2-by-4: all 256 subsets satisfy rank = 2V-2-k (k = number of link groups)
+ok   3-by-4: all 4096 subsets satisfy rank = 2V-2-k (k = number of link groups)
+ok   3-by-3: every disconnected design has an explicit finite flex
+ok   either diagonal of a cell imposes the same first-order constraint (guide: 'either orientation')
+ok   P4B exact rank over Q = 2V-2-k with k=2
+ok   P7A exact rank over Q = 2V-2-k with k=2
+ok   P8A exact rank over Q = 2V-2-k with k=2
+ok   P8B exact rank over Q = 2V-2-k with k=1
+ok   handoff exact rank over Q = 2V-2-k with k=2
+
+[planarity] fold out of the plane (the flat rule is printed only on the K-1 page)
+ok   a fully braced 2-by-3 lifted off the table folds along grid line x=1 with every bar length kept
+ok   P8B (which holds in the plane) folds along an interior grid line in 3D
+ok   a braced square folds along its brace in 3D (guide overview says so too)
+
+[guide handoff] covered but separated models
+ok   spare 2-by-3 with 11,12,23 covers every strip and flexes
+ok   each empty cell 13,21,22 makes it hold
+ok   P4B plus either empty cell holds
+
+[guide materials] kit counts
+ok   per-kit sides/braces/pins
+ok   table totals 76/23/60 and 84/27/72
+ok   diagonal strip total length 100.853 mm
+ok   printing total 16 student sheets
+
+ALL CHECKS PASSED
