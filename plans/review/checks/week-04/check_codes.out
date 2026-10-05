@@ -1,0 +1,74 @@
+== Wheels
+2-3 outer wheel: diameter 5.500 in (x) / 5.500 in (y); 26 letters: True; A at 359.999 deg from top; clockwise step 13.845-13.847 deg (360/26 = 13.846); letter radius 163.5-176.7pt
+2-3 inner wheel: diameter 4.000 in (x) / 4.000 in (y); 26 letters: True; A at 359.998 deg from top; clockwise step 13.844-13.849 deg (360/26 = 13.846); letter radius 113.0-124.0pt
+2-3: closest outer-letter glyph box to the centre 153.1pt; inner wheel radius 144.0pt -> outer letters visible around the inner wheel: True
+2-3: wheel set to D codes CAT as FDW; every letter moves 3 along: True
+2-3: outer->inner on the wheel decodes VWDU as STAR; inner->outer (the usual mistake) gives YZGX
+4-5 outer wheel: diameter 5.500 in (x) / 5.500 in (y); 26 letters: True; A at 359.999 deg from top; clockwise step 13.845-13.847 deg (360/26 = 13.846); letter radius 163.5-176.7pt
+4-5 inner wheel: diameter 4.000 in (x) / 4.000 in (y); 26 letters: True; A at 359.998 deg from top; clockwise step 13.844-13.849 deg (360/26 = 13.846); letter radius 113.0-124.0pt
+4-5: closest outer-letter glyph box to the centre 153.1pt; inner wheel radius 144.0pt -> outer letters visible around the inner wheel: True
+4-5: wheel set to D codes CAT as FDW; every letter moves 3 along: True
+4-5: outer->inner on the wheel decodes VWDU as STAR; inner->outer (the usual mistake) gives YZGX
+
+== 2-3 Problem 4 (setting D)
+codes read: ['VWDU', 'IRA', 'ZKHHO', 'SHQFLO', 'L FDQ GUDZ D VWDU']
+decoded with D: ['STAR', 'FOX', 'WHEEL', 'PENCIL', 'I CAN DRAW A STAR']
+
+== 2-3 Problem 8 (unknown settings); codes that wrap are joined
+lines read: ['H ZAHY JHU OHCL ALU', 'WVPUAZ', 'CUUJ CU RO JXU RYW', 'JHUU']
+H ZAHY JHU OHCL ALU WVPUAZ: all-word settings (60k common words) [('H', 'A STAR CAN HAVE TEN POINTS')]; (web2, 235k words) [('H', 'A STAR CAN HAVE TEN POINTS')]
+CUUJ CU RO JXU RYW JHUU: all-word settings (60k common words) [('Q', 'MEET ME BY THE BIG TREE')]; (web2, 235k words) [('Q', 'MEET ME BY THE BIG TREE')]
+
+== 4-5 Problem 4 (unknown settings)
+lines read: ['R MANF J BCJA FRCQ', 'CFNUEN YXRWCB', 'OW EWWL SL FGGF TQ LZW', 'TAY LJWW', 'YXIILLK', 'MROOB']
+R MANF J BCJA FRCQ CFNUEN YXRWCB: all-word settings (common) [('J', 'I DREW A STAR WITH TWELVE POINTS')]; (web2) [('J', 'I DREW A STAR WITH TWELVE POINTS')]
+OW EWWL SL FGGF TQ LZW TAY LJWW: all-word settings (common) [('S', 'WE MEET AT NOON BY THE BIG TREE')]; (web2) [('S', 'WE MEET AT NOON BY THE BIG TREE')]
+YXIILLK: all-word settings (common) [('X', 'BALLOON')]; (web2) [('X', 'BALLOON')]
+last code MROOB: every setting
+   A MROOB  zipf=0.00 common=False web2=False
+   B LQNNA  zipf=0.00 common=False web2=False
+   C KPMMZ  zipf=0.00 common=False web2=False
+   D JOLLY  zipf=3.57 common=True web2=True
+   E INKKX  zipf=0.00 common=False web2=False
+   F HMJJW  zipf=0.00 common=False web2=False
+   G GLIIV  zipf=0.00 common=False web2=False
+   H FKHHU  zipf=0.00 common=False web2=False
+   I EJGGT  zipf=0.00 common=False web2=False
+   J DIFFS  zipf=1.73 common=False web2=False
+   K CHEER  zipf=4.06 common=True web2=True
+   L BGDDQ  zipf=0.00 common=False web2=False
+   M AFCCP  zipf=0.00 common=False web2=False
+   N ZEBBO  zipf=0.00 common=False web2=False
+   O YDAAN  zipf=0.00 common=False web2=False
+   P XCZZM  zipf=0.00 common=False web2=False
+   Q WBYYL  zipf=0.00 common=False web2=False
+   R VAXXK  zipf=0.00 common=False web2=False
+   S UZWWJ  zipf=0.00 common=False web2=False
+   T TYVVI  zipf=0.00 common=False web2=False
+   U SXUUH  zipf=0.00 common=False web2=False
+   V RWTTG  zipf=0.00 common=False web2=False
+   W QVSSF  zipf=0.00 common=False web2=False
+   X PURRE  zipf=0.00 common=False web2=True
+   Y OTQQD  zipf=0.00 common=False web2=False
+   Z NSPPC  zipf=0.00 common=False web2=False
+   settings giving a listed word: [('D', 'JOLLY'), ('K', 'CHEER'), ('X', 'PURRE')]
+
+seven-letter words shaped like BALLOON (ab cc dd e): 18, e.g. ['BALLOON', 'BARROOM', 'BASSOON', 'BUFFOON', 'CASSOON', 'COFFEES', 'COLLEEN', 'COWWEED', 'GALLOON', 'KILLEEN', 'KIPPEEN', 'PUCCOON']; shifts of YXIILLK among them: ['BALLOON']
+
+== 2-3 Problem 9: second setting that gives the word back
+   first D: second ['X']
+   first H: second ['T']
+   first N: second ['N']
+   first W: second ['E']
+== 4-5 Problem 6: two settings in a row
+   H then K = ['R']
+   D then F = ['I']
+   T then M = ['F']
+   P then L = ['A']
+   H then ? = A: ['T']
+== 4-5 Problem 10: is every double coding a single setting?
+   every pair is one setting: True; pairs of non-A settings that leave the message uncoded: 25 (e.g. ('H', 'T'))
+== 4-5 Problem 11: repeating a setting from A
+   setting C from A: ACEGIKMOQSUWY (13 letters); settings through all 26: ['B', 'D', 'F', 'H', 'J', 'L', 'P', 'R', 'T', 'V', 'X', 'Z'] (12)
+
+SUMMARY: all checks agree

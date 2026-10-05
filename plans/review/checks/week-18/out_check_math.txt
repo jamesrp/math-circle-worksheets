@@ -1,0 +1,132 @@
+=== Printed data read from the PDFs
+PASS k-1 p1 training: start 0101, final 0111, receiver 0111
+PASS k-1 p1 training: only the third entry changes
+PASS grades-2-3 p1 training: start 0101, final 0111, receiver 0111
+PASS grades-2-3 p1 training: only the third entry changes
+PASS grades-4-5 p1 training: start 0101, final 0111, receiver 0111
+PASS grades-4-5 p1 training: only the third entry changes
+
+=== K-1
+PASS K-1 P1 key is triangle 000 / square 111
+PASS K-1 P1: 000/111 always works -> the changer cannot fool the receiver
+   triangle outcomes {000,001,010,100}  square outcomes {011,101,110,111}
+PASS K-1 P2 keys 000/111 and 00/11
+PASS K-1 P2 final rows as transcribed
+   decodes: {'000': ['triangle'], '101': ['square'], '010': ['triangle'], '111': ['square'], '00': ['triangle'], '01': ['triangle', 'square'], '10': ['triangle', 'square'], '11': ['square']}
+PASS guide quote present: "000 triangle; 101 square; 010 triangle; 111 square"
+PASS guide quote present: "00 triangle; 01 both pictures; 10 both pictures; 11 square"
+PASS K-1 P2 guide decodes for the three-counter rows
+PASS K-1 P2 guide decodes for the two-counter rows; the two-counter key is the one that fails
+PASS K-1 P3: no ordered pair of two-counter rows works (16 pairs incl. equal rows)
+PASS K-1 P4 prints 6 key slots
+   working ordered keys: [('000', '111'), ('001', '110'), ('010', '101'), ('011', '100'), ('100', '011'), ('101', '010'), ('110', '001'), ('111', '000')]
+PASS K-1 P4: exactly 8 ordered keys, each a row and its opposite
+PASS guide quote present: "000/111, 001/110, 010/101, 011/100, 100/011, 101/010, 110/001, 111/000"
+PASS K-1 P4 guide list equals the computed list
+PASS K-1 P5 triangles 0011, 0100 with blank square rows
+   0011: mixed partners ['0100', '1000', '1100', '1101', '1110']; all partners ['0100', '1000', '1100', '1101', '1110']
+   0100: mixed partners ['0011', '1001', '1010', '1011']; all partners ['0011', '1001', '1010', '1011', '1111']
+PASS guide quote present: "For triangle 0011, the square may be 0100, 1000, 1100, 1101, or 1110"
+PASS guide quote present: "For triangle 0100, the square may be 0011, 1001, 1010, or 1011"
+PASS K-1 P5 guide list for 0011 (5 rows) is complete and correct
+PASS K-1 P5 guide list for 0100 (4 rows) is complete and correct
+PASS K-1 P5 guide: changing 1011 in its second position gives 1111
+PASS K-1 extension: every fixed length-4 row has exactly 5 reliable partners (complement and its 4 neighbours)
+PASS K-1 P6: no three distinct three-counter rows work (all 56 triples fail)
+PASS K-1 P6 guide: two reliable three-counter rows are opposites
+
+=== Grades 2-3
+PASS 2-3 P1 keys 000/111 and 001/101
+PASS 2-3 P1: 000/111 works, 001/101 fails
+   001/101 shared rows: {001,101}
+PASS 2-3 P1 guide witness: 001 is unchanged triangle or square 101 flipped at position 1
+PASS 2-3 P2 four keys as transcribed
+   0000/0001: distance 1, common rows {0000,0001}
+   0101/0110: distance 2, common rows {0100,0111}
+   0001/1111: distance 3, common rows {}
+   0011/1100: distance 4, common rows {}
+PASS guide quote present: "For 0000/0001, use 0000 (also 0001). For 0101/0110, use 0100 (also 011..."
+PASS 2-3 P2 guide answers (complete common sets)
+PASS 2-3 P2 guide: the pairs differ in 1, 2, 3, 4 positions
+PASS 2-3 P3 prints length-1, -2, -3 slots
+PASS 2-3 P3: shortest two-picture key is length 3
+PASS 2-3 P4 prints 4 key slots
+   balanced working keys: [('0011', '1100'), ('0101', '1010'), ('0110', '1001'), ('1001', '0110'), ('1010', '0101'), ('1100', '0011')]
+PASS guide quote present: "0011/1100, 0101/1010, 0110/1001, 1001/0110, 1010/0101, 1100/0011"
+PASS 2-3 P4: exactly the guide's 6 ordered keys
+PASS 2-3 P4 guide parity claim: two weight-2 rows differ in an even number of positions
+PASS 2-3 P5 prints four five-cell slots
+PASS 2-3 P5 / 4-5 P2 guide key 00000, 00111, 11001, 11110 works
+PASS guide pairwise distances 3,3,4,4,3,3 (computed [3, 3, 4, 4, 3, 3])
+PASS guide quote present: "00000, 00001, 00010, 00100, 01000, 10000"
+PASS guide p7 table row for 00000 equals its received set
+PASS guide quote present: "00011, 00101, 00110, 00111, 01111, 10111"
+PASS guide p7 table row for 00111 equals its received set
+PASS guide quote present: "01001, 10001, 11000, 11001, 11011, 11101"
+PASS guide p7 table row for 11001 equals its received set
+PASS guide quote present: "01110, 10110, 11010, 11100, 11110, 11111"
+PASS guide p7 table row for 11110 equals its received set
+PASS the 24 received rows are distinct
+   rows outside the promise: ['01010', '01011', '01100', '01101', '10010', '10011', '10100', '10101']
+PASS guide quote present: "01010, 01011, 01100, 01101, 10010, 10011, 10100, 10101"
+PASS guide p10: the 8 rows outside all outcome sets
+   working four-picture length-5 keys: 120 unordered sets, 2880 ordered keys
+PASS 2-3 P6 prints two triangle/square answer-line pairs
+PASS 2-3 P6: shortest two-picture key for up to two changes is 5 (within the "at most five" limit)
+PASS 2-3 P6 guide key 00000/11111 works for two changes
+PASS 2-3 P6 guide: majority decodes; triangle outcomes have <=2 filled, square outcomes >=3
+PASS 2-3 P6 guide hint: 0011 comes from 0000 and 1111 with two changes
+PASS 2-3 P6 guide: every pair with d<=4 has a common row (halfway construction)
+
+=== Grades 4-5
+PASS 4-5 P1 keys 00/11, 000/111, 0010/0100
+PASS guide quote present: "{00,01,10}"
+PASS 4-5 P1 guide set for 00
+PASS guide quote present: "{01,10,11}"
+PASS 4-5 P1 guide set for 11
+PASS guide quote present: "{000,001,010,100}"
+PASS 4-5 P1 guide set for 000
+PASS guide quote present: "{011,101,110,111}"
+PASS 4-5 P1 guide set for 111
+PASS guide quote present: "{0000,0010,0011,0110,1010}"
+PASS 4-5 P1 guide set for 0010
+PASS guide quote present: "{0000,0100,0101,0110,1100}"
+PASS 4-5 P1 guide set for 0100
+   00/11: shared {01,10} -> fails
+   000/111: shared {} -> works
+   0010/0100: shared {0000,0110} -> fails
+PASS 4-5 P1: only 000/111 works; 0010/0100 shares 0000 and 0110
+PASS 4-5 P2 prints four five-cell slots (key checked under 2-3 P5)
+PASS 4-5 P3 pairs as transcribed
+   000000/110000: distance 2, differing positions [1, 2], common {010000,100000}
+   010010/101010: distance 3, differing positions [1, 2, 3], common {}
+PASS 4-5 P3 guide: common observations 100000 and 010000
+PASS 4-5 P3 guide: 010010/101010 differ in exactly the first three positions; no common row
+PASS 4-5 P3: for lengths 1..7, two rows are separable after one change iff they differ in >= 3 positions
+PASS overview: disjoint t-change outcome sets iff distance >= 2t+1 (all pairs, n<=6, t<=3)
+PASS 4-5 P4 rows 010, 0110, 00111
+PASS guide quote present: "{000,010,011,110}"
+PASS 4-5 P4 guide set for 010
+PASS guide quote present: "{0010,0100,0110,0111,1110}"
+PASS 4-5 P4 guide set for 0110
+PASS guide quote present: "{00011,00101,00110,00111,01111,10111}"
+PASS 4-5 P4 guide set for 00111
+PASS 4-5 P4: a length-10 row has 11 received rows (n+1 for n=1..10)
+PASS 4-5 P5: shortest length for four pictures is 5
+PASS 4-5 P5 guide counting: 4(n+1) > 2^n for n=1..4
+PASS 4-5 P6 prints three four-entry slots
+PASS 4-5 P6: no three-row length-4 key works, although 3*5 <= 16
+PASS overview: sum of the three pairwise distances among three length-4 rows is at most 8
+PASS 4-5 P6 guide: B and C disagree exactly where exactly one of them agrees with A
+PASS guide p8: 00101 decodes to square 00111 only
+PASS guide p3 diagram: 00 flip right and 11 flip left both give 01
+
+=== Packing bound vs actual maximum (one change)
+   n=1: max pictures 1, packing bound floor(2^n/(n+1)) = 1
+   n=2: max pictures 1, packing bound floor(2^n/(n+1)) = 1
+   n=3: max pictures 2, packing bound floor(2^n/(n+1)) = 2
+   n=4: max pictures 2, packing bound floor(2^n/(n+1)) = 3
+   n=5: max pictures 4, packing bound floor(2^n/(n+1)) = 5
+   n=6: max pictures 8, packing bound floor(2^n/(n+1)) = 9
+
+FAILURES: 0
