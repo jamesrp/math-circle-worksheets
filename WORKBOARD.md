@@ -17,6 +17,8 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Review card: Week 63, derangements (wave 2, equally likely cases) | Claude, Mixed-up cups thread | `claude/wave2-equally-likely-x8ns4d` | in progress |
 | Review card: Week 33, necklaces (wave 2, bead rings) | Claude, Bead rings thread | `claude/wave2-bead-rings-q6ikal` | in progress |
 | Review card: Week 34, distinguishing colourings (wave 2, bead rings) | Claude, Bead rings thread | `claude/wave2-bead-rings-q6ikal` | in progress |
+| Review card: Week 39, path reduction (wave 2, graph board) | Claude, Path reduction and bracing frames thread | `claude/wave2-graph-39-52-g84api` | in progress |
+| Review card: Week 52, bracing frames (wave 2, graph board) | Claude, Path reduction and bracing frames thread | `claude/wave2-graph-39-52-g84api` | in progress |
 | Review cards: the weeks James will teach next | | | open; ask James which |
 | Review cards: the remaining themes | | | open; split into lines when claimed |
 | Worksheet revisions from the cards | | | open; after the agentic review pass |
