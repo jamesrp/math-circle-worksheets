@@ -28,6 +28,8 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Review card: Week 31, lattice visibility (wave 2, Mirror Couriers) | Claude, Lattice visibility thread | `claude/wave2-lattice-visibility-f3eowo` | done: [revise](plans/review/week-31.md) |
 | Review card: Week 30, balanced ternary weights (wave 2, balance) | Claude, Balance and jugs groups thread | `claude/wave2-balance-jugs-ce8w14` | in progress |
 | Review card: Week 29, two rod lengths (wave 2, Water jugs) | Claude, Balance and jugs groups thread | `claude/wave2-balance-jugs-ce8w14` | claimed; after Week 30 |
+| Review card: Week 16, three-colour triangles (wave 2, triangle grid) | Claude, Week 1 triangle tiling thread | `claude/wave2-triangle-tiling-2dlym5` | in progress |
+| Review card: Week 14, triangulations and flips (wave 2, triangle grid) | Claude, Week 1 triangle tiling thread | `claude/wave2-triangle-tiling-2dlym5` | claimed; after Week 16 |
 | Review cards: the weeks James will teach next | | | open; ask James which |
 | Review cards: the remaining themes | | | open; split into lines when claimed |
 | Worksheet revisions from the cards | | | open; after the agentic review pass |
