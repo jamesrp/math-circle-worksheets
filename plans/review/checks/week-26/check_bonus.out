@@ -1,0 +1,35 @@
+=== P1-P2: two rooms in the 4x4 square
+PASS P2: P_R + P_B = 16 + 2L for every split of the square (any sizes, connected or not)
+PASS P1: least shared fence 4; optimal labelled colourings 4: ['####/####', '##/##/##/##', '##/##/##/##', '####/####']
+PASS P1: even without the connectedness rule, a balanced split needs a fence of 4
+PASS P1: each half (2x4) has boundary 12
+
+=== P3: corners and holes
+PASS shape 1 ###/### (6 tiles): C=4, R=0, holes=0, pinches=0
+PASS shape 2 #../#../### (5 tiles): C=5, R=1, holes=0, pinches=0
+PASS shape 3 ###/#.#/### (8 tiles): C=4, R=4, holes=1, pinches=0
+PASS shape 4 #####/#.#.#/##### (13 tiles): C=4, R=8, holes=2, pinches=0
+PASS the two-hole shape needs thirteen tiles
+PASS outward example: circled vertex touches 1 tile(s) (#)
+PASS inward example: circled vertex touches 3 tile(s) (#./##)
+PASS crossed-out example is two diagonal tiles: .#/#.
+PASS C - R = 4(1 - H) on all 48416 pinch-free fixed polyominoes with <= 10 tiles
+  with a pinch the rule can fail, e.g. (shape, C, R, pinches, H closed, H leaky): [('..#/..#/..#/.##/#.#/###', 6, 4, 1, 1, 0), ('..#/..#/..#/###/#.#/.##', 6, 4, 1, 1, 0)]
+
+=== P4-P6: exposed cube faces
+PASS P4: row of eight 34, 2x4 one layer 28, 2x2 two layers 24 (all 8 cubes)
+PASS opening example: two squares, two layers = 4 cubes
+PASS P5: S = 2m + kP for 11384 equal-height buildings (all footprints <= 8 tiles, and the ring and two-hole footprints), hole walls included
+PASS P6: 24 arrangements give {34: 16, 36: 8}: fewest 34, most 36
+PASS guide examples: 1 2 / 3 4 gives 34; 1 3 / 4 2 gives 36
+PASS cycle (1, 2, 3, 4): variation 6, S = 34
+PASS cycle (1, 2, 4, 3): variation 6, S = 34
+PASS cycle (1, 3, 2, 4): variation 8, S = 36
+PASS guide terrain rule S = 2m + exterior-edge heights + neighbour height differences (400 random terrains)
+
+=== drawn footprints and working grids
+PASS P1: two 4x4 working grids of square 20 mm cells: [(4, 4, 20.0, 20.0, 39), (4, 4, 20.0, 20.0, 39)]
+  page 3 line grids (cols, rows, cell w, cell h, top mm): [(2, 1, 5.5, 5.5, 44), (8, 1, 7.48, 7.48, 81), (2, 2, 7.51, 7.51, 97), (4, 2, 7.48, 7.51, 97), (3, 2, 48.82, 5.26, 128)]
+PASS P4: drawn footprints 8x1, 4x2 and 2x2 with square cells: [(2, 2), (4, 2), (8, 1)]
+PASS P6: six 2x2 recording grids with square cells
+== 0 FAIL line(s)

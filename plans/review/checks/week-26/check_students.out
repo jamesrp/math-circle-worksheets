@@ -1,0 +1,89 @@
+Census of fixed polyominoes n <= 12 done.
+PASS P = 4n - 2e on every fixed polyomino (direct edge count)
+PASS P >= 2(rows + columns), with equality iff every row and column is one run
+PASS n=1: perimeters [4] (min 2*ceil(2*sqrt n), max 2n+2, every even value between)
+PASS n=2: perimeters [6] (min 2*ceil(2*sqrt n), max 2n+2, every even value between)
+PASS n=3: perimeters [8] (min 2*ceil(2*sqrt n), max 2n+2, every even value between)
+PASS n=4: perimeters [8, 10] (min 2*ceil(2*sqrt n), max 2n+2, every even value between)
+PASS n=5: perimeters [10, 12] (min 2*ceil(2*sqrt n), max 2n+2, every even value between)
+PASS n=6: perimeters [10, 12, 14] (min 2*ceil(2*sqrt n), max 2n+2, every even value between)
+PASS n=7: perimeters [12, 14, 16] (min 2*ceil(2*sqrt n), max 2n+2, every even value between)
+PASS n=8: perimeters [12, 14, 16, 18] (min 2*ceil(2*sqrt n), max 2n+2, every even value between)
+PASS n=9: perimeters [12, 14, 16, 18, 20] (min 2*ceil(2*sqrt n), max 2n+2, every even value between)
+PASS n=10: perimeters [14, 16, 18, 20, 22] (min 2*ceil(2*sqrt n), max 2n+2, every even value between)
+PASS n=11: perimeters [14, 16, 18, 20, 22, 24] (min 2*ceil(2*sqrt n), max 2n+2, every even value between)
+PASS n=12: perimeters [14, 16, 18, 20, 22, 24, 26] (min 2*ceil(2*sqrt n), max 2n+2, every even value between)
+PASS no tree (e = n - 1) contains a 2-by-2 block
+trees with a hole when diagonal contact seals (complement 4-connected): {12: 22656, 11: 5220, 10: 1152, 9: 236, 8: 40, 7: 4} first examples {12: '..#/..#/..#/..#/..#/.##/#.#/###', 11: '..#/..#/..#/..#/.##/#.#/###', 10: '..#/..#/..#/.##/#.#/###', 9: '..#/..#/.##/#.#/###', 8: '..#/.##/#.#/###', 7: '##./#.#/###'}
+PASS no tree has a hole when holes must be sealed by sides (corner gaps leak), n <= 12
+
+=== K-1
+PASS P1: five tetrominoes; square P=8, other four P=10; 6 grids printed (one spare)
+PASS P1: six 4x4 grids, every tetromino fits
+P2: n=5: shortest 10 (1 free shapes), longest 12 (11 free shapes)
+P2: n=6: shortest 10 (1 free shapes), longest 14 (27 free shapes)
+P3: n=7: shortest 12 (4 free shapes), longest 16 (83 free shapes)
+P3: n=8: shortest 12 (2 free shapes), longest 18 (255 free shapes)
+PASS P2/P3 grids hold a straight row of 6 (7 cols) and of 8 (8 cols)
+P4: six tiles, P=10: 1 free shapes
+P4: six tiles, P=12: 7 free shapes
+P4: six tiles, P=14: 27 free shapes
+PASS P4: only 12 and 14 can be made in two different ways (10 is the 2x3 only)
+PASS P5: with five tiles only 10 and 12 occur among 8..13
+P6 starts (from PDF): ['######', '####/#.#.', '####/#.../#...'] [14, 14, 14]
+  start ######: best after one move 14, optimal (source, destination) moves 22, optimal results ['##/#./#./#./#.', '#./##/#./#./#.', '#./#./##/#./#.', '#/#/#/#/#/#']
+  start ####/#.#.: best after one move 10, optimal (source, destination) moves 1, optimal results ['##/##/##']
+  start ####/#.../#...: best after one move 12, optimal (source, destination) moves 2, optimal results ['###/##./#..', '##/##/#./#.']
+PASS P6: best one-move boundaries 14, 10, 12; middle and bottom can shorten
+PASS P6: result grids (8x5) hold the 6-row and the 2x3 result
+
+=== Grades 2-3
+PASS P1: eight tiles: shortest 12 (2 free shapes: ['##/##/##/##', '###/###/##.']), longest 18 (255 free shapes)
+PASS P2: ##### before 12: changes [2] (cells per change {2: 12})
+PASS P2: ##./.##/..# before 12: changes [0, 2] (cells per change {0: 3, 2: 6})
+PASS P2: ###/#.# before 12: changes [-2, 2] (cells per change {2: 9, -2: 1})
+PASS P2: ###/#.#/### before 16: changes [-4, 2] (cells per change {2: 12, -4: 1})
+PASS P2: two 6x4 recording grids per start; at most two changes per start
+PASS P3: ten tiles: e = 9..13 all possible (P range [14, 16, 18, 20, 22]); P = 40 - 2e gives 22, 20, 18, 16, 14
+PASS P3: e cannot exceed 13 or go below 9 for 10 tiles
+PASS P4: longest boundaries 10, 16, 22, 26 (grids 14 wide hold a 12-row)
+P5 shapes (PDF reading order by row, then x): [('########', 8, 18, 7, 8), ('#...#/#####/..#..', 8, 18, 7, 5), ('###/#.#/###', 8, 16, 8, 3), ('####/####', 8, 12, 10, 4)]
+PASS P5: the row and the branch reach 18; the frame (16) and the 2x4 (12) do not
+PASS P5: 64 free 8-tile shapes with P=18 and no straight run of four
+PASS P5: 64 of them fit the 10x5 drawing grids
+PASS P6: least start sizes per change {2: 1, 0: 3, -2: 5, -4: 7} (exhaustive over starts of <= 7 tiles)
+
+=== Grades 4-5
+PASS P1: n=7: least boundary 12; 4 free shapes reach it; 4 fit a 7x5 grid
+PASS P1: n=10: least boundary 14; 6 free shapes reach it; 6 fit a 7x5 grid
+PASS P1: n=13: least boundary 16; 11 free shapes reach it; 11 fit a 7x5 grid
+PASS P2: twelve tiles: longest boundary 26
+   (trees of 12 cells contain no 2x2 block; holes exist only if a diagonal contact seals: see census)
+PASS P2: a 12-tile P=26 shape whose centre is enclosed only through a corner contact: hole if corners seal, no hole if corner gaps leak
+P3 given ######/######: n=12 rows 2 columns 6 boundary 16
+P3 given ####/####/####: n=12 rows 3 columns 4 boundary 14
+P3 given #####/###../##.../##...: n=12 rows 4 columns 5 boundary 18
+PASS P3: (rows, columns, boundary) = (2,6,16), (3,4,14), (4,5,18)
+PASS P3: least boundary over every connected shape spanning exactly 4 rows and 5 columns = 18
+PASS P3: twelve-tile 4x5-span shapes have boundaries [18, 20, 22, 24, 26]
+PASS P4: boundary 12: the 3x3 rectangle has 9 tiles and P=12; 10 tiles need at least 14 (exhaustive box search)
+PASS P4: boundary 14: the 3x4 rectangle has 12 tiles and P=14; 13 tiles need at least 16 (exhaustive box search)
+PASS P4: boundary 16: the 4x4 rectangle has 16 tiles and P=16; 17 tiles need at least 18 (exhaustive box search)
+PASS P4: boundary 18: the 4x5 rectangle has 20 tiles and P=18; 21 tiles need at least 20 (exhaustive box search)
+PASS P5: n=12: least boundary 14 (exhaustive box search; 1 free shapes reach it)
+PASS P5: n=13: least boundary 16 (exhaustive box search; 11 free shapes reach it)
+PASS P5: n=17: least boundary 18 (exhaustive box search; 11 free shapes reach it)
+PASS P5: n=20: least boundary 18 (exhaustive box search; 1 free shapes reach it)
+PASS P5: n=21: least boundary 20 (exhaustive box search; 28 free shapes reach it)
+PASS P6: greatest area for even P >= 4 is floor(s/2)*ceil(s/2) = floor(P^2/16), s = P/2 (P <= 80)
+PASS P6: n=37: least boundary 26
+PASS P6: n=50: least boundary 30
+PASS P6: n=73: least boundary 36
+PASS P6: 11x10 grids hold 6x6+1, 7x7+1 and 8x9+1 shapes
+
+=== Diagrams
+PASS every working grid and printed tile is square
+PASS k1: problems numbered [1, 2, 3, 4, 5, 6], one per page
+PASS g23: problems numbered [1, 2, 3, 4, 5, 6], one per page
+PASS g45: problems numbered [1, 2, 3, 4, 5, 6], one per page
+== 0 FAIL line(s)
