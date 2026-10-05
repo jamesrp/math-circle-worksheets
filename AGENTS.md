@@ -76,6 +76,16 @@ To draft a week's student worksheets, use [worksheet-workflow/](worksheet-workfl
 
 Keep the workflow's prompt files as a set. Change them only deliberately, and log each change in `worksheet-workflow/README.md`. `worksheet-workflow/blocks/spec.md` is the writer-facing version of the student-page guidance above; if either changes, update the other. The workflow produces student pages only; a facilitator guide is a separate, untested step.
 
+## Who does what
+
+| Who | Owns |
+|---|---|
+| Claude | Product owner of the app: story, progression and stars, and the brief for every art slot and voice line. The preferred author of front-end work, especially puzzle UI. |
+| Dot/Codex | Art, animation, video and voice for the app. |
+| Any agent | Game logic, validators, content packs and other internals; worksheet work; reviews of anything. |
+| James | Testing with children, and the final word on story, quality and releases. |
+
+- **Claim work on [WORKBOARD.md](WORKBOARD.md) first.** Change the item's line to your name, branch and state and push that change to `main` before starting. A rejected push means someone moved first: fetch, re-read the board and choose again. A claimed item's files belong to its owner until it merges. The plan is in the app repository's [docs/plan/](https://github.com/jamesrp/small-math-adventure/tree/main/docs/plan).
 
 ## GitHub source and agent integration
 
