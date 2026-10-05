@@ -1,0 +1,121 @@
+PDF page -> printed page: {1: None, 2: 1, 3: 2, 4: 3, 5: 4, 6: 5, 7: 6, 8: 7, 9: 8, 10: 9, 11: 10, 12: 11, 13: 12, 14: 13, 15: 14, 16: 15, 17: 16, 18: 17, 19: 18, 20: 20}
+
+== Overview (unnumbered) and general claims
+PASS unique <=> no legal switch <=> nested row sets, on all 14160 boards of sizes 2x2..2x6, 3x3, 3x4, 4x3
+PASS every margin class on 3x3 and 3x4 is switch-connected (cited Ryser theorem, finite check)
+PASS p18 "every binary 2-by-4, 2-by-6, and 3-by-3 board, totaling 4,864"
+
+== p2 launch
+PASS launch A1,A3,B2 -> rows 2,1; columns 1,1,1
+PASS "a different matching picture" 110/001
+
+== p3 K-1 P1
+PASS top pair: guide shows 2, complete list has 2
+PASS middle pair: guide shows 2, complete list has 2
+PASS bottom pair: guide shows 3, complete list has 3
+     caption "A1 and B2" -> 10/01
+     caption "A2 and B1" -> 01/10
+     caption "A1 and B3" -> 100/001
+     caption "A3 and B1" -> 001/100
+     caption "B counter in column 3" -> 110/001
+     caption "B counter in column 2" -> 101/010
+     caption "B counter in column 1" -> 011/100
+
+== p4 K-1 P2
+PASS left grids (rows 1,2): guide shows 3, complete list has 3
+PASS right grids (rows 2,1): guide shows 3, complete list has 3
+PASS left captions name the A counter column
+PASS right captions name the B counter column
+
+== p5 K-1 P3
+PASS permutation pictures: guide shows 6, complete list has 6
+PASS captions match pictures
+
+== p6 K-1 P4
+PASS page-5 forced picture 111/100 is the only one
+PASS page-6 top forced picture 110/100/000 is the only one
+PASS page-6 bottom five pictures: guide shows 5, complete list has 5
+PASS stated answers no, no, yes; counts 1, 1, 5
+
+== p7 K-1 P5-P6
+     "Left 2-by-3: unique": 111/100  counters 4  solutions 1
+     "Right 2-by-3: ambiguous": 110/101  counters 4  solutions 2
+     "Alternative for right": 101/110  counters 4  solutions 2
+     "Left 3-by-3: unique": 111/100/000  counters 4  solutions 1
+     "Right 3-by-3: ambiguous": 110/001/100  counters 4  solutions 5
+     "Alternative for right": 101/010/100  counters 4  solutions 5
+PASS left examples unique
+PASS 2x3 ambiguous pair, exactly two solutions
+PASS 3x3 ambiguous pair, five solutions "all displayed on guide page 6"
+PASS every displayed picture uses four counters
+
+== p8 G2-3 P1
+PASS top pair: guide shows 3, complete list has 3
+PASS middle pair: guide shows 1, complete list has 1
+PASS bottom pair: guide shows 2, complete list has 2
+PASS captions B1, B2, B3 match
+
+== p9 G2-3 P2
+PASS five pictures: guide shows 5, complete list has 5
+     "A uses columns 2 and 3" -> 011/100/100
+     "A1, A3; B2" -> 101/010/100
+     "A1, A3; B1" -> 101/100/010
+     "A uses 1 and 2; B3" -> 110/001/100
+     "A uses 1 and 2; B1" -> 110/100/001
+
+== p10 G2-3 P3
+PASS page 3: start and its only alternative
+PASS "Top left: 0 switches": 0 switch(es)
+PASS "Top right: 1 switch": 1 switch(es)
+PASS "Bottom left: 3 switches": 3 switch(es)
+PASS "Bottom right: 0 switches": 0 switch(es)
+PASS bottom-left results ['011/100/100', '101/010/100', '110/100/001']
+
+== p11 G2-3 P4-P5
+PASS start 1100/0011 -> 0110/1001 (1) -> 0011/1100 (2)
+PASS route "switches columns 1,3 and then 2,4": (0, 1, 1, 3), (0, 1, 2, 4)
+PASS one-switch answers A={1,3},{1,4},{2,3},{2,4}
+PASS P5 unique choices 111/100 and 111/100/000
+
+== p12 G4-5 P1-P2
+PASS six pictures: guide shows 6, complete list has 6
+PASS captions match top columns
+PASS "12 to 23 to 34 ... boards appear on guide page 11": they do (G2-3 P4 boards)
+
+== p13 G4-5 P3
+PASS route 1,4; 2,5; 3,6 legal: [(0, 1, 1, 4), (0, 1, 2, 5), (0, 1, 3, 6)]
+PASS and shortest (3)
+PASS twenty pictures
+
+== p14 G4-5 P4
+PASS six pictures: guide shows 6, complete list has 6
+PASS captions match
+PASS route {2,4} -(2,5)-> {4,5} -(4,6)-> {5,6} legal
+PASS "intermediate board is the first board in the second row"
+
+== p15 G4-5 P5
+PASS example: unwanted top columns 2,4; missing 5,6; distance 2
+
+== p16 no switch means unique
+PASS 111/110/100 nested, unique
+PASS 110/001/100 has a switch
+
+== p17 extensions
+PASS three-row pair: same counts, same top row, distance 1
+PASS 2x2 rows (2,0), columns (2,0): no picture
+PASS two-row count "s choose k" (with feasibility conditions), all margins up to 7 columns
+
+== p18 verification claims
+PASS 2x3 four-counter margin classes: 9 unique, 3 ambiguous
+PASS 3x3 four-counter margin classes: 45 unique, 27 ambiguous
+PASS pages 15-17 hold the G4-5 P5 proof, the no-switch proof, extensions
+
+== cross-references
+PASS "no-switch test on guide page 16" / "criterion on guide page 16"
+PASS "110/101 or 110/001/100 from guide page 7"
+PASS "broader interchange theorem cited on page 18"
+     note (layout only): the appended route-note page is numbered 20; the page before it is numbered 18
+
+== lower bound used by the G2-3 P4 hint (p11)
+PASS "wrong counters / 2" is a valid lower bound on all 32698 same-margin pairs (2x4, 2x6, 3x3, 3x4); for 1100/0011 -> 0011/1100 it gives 4/2 = 2
+     G2-3 P4: cells occupied in start, empty in target = 4; each switch empties exactly 2 cells
