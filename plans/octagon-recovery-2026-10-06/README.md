@@ -1,6 +1,6 @@
-# Octagon draft recovery and verification
+# Octagon recovery and verification
 
-Prepared October 6, 2026. The [Week 64–65 draft index](../../lowell-math-circle-year-2/WEEKS-64-65-DRAFT.md) links the regenerated PDFs and current portable sources. Both packets await organizer review and approval. They remain physically untested and unpiloted.
+Prepared October 6, 2026. The [Week 64–65 index](../../lowell-math-circle-year-2/WEEKS-64-65-DRAFT.md) links the regenerated PDFs and current portable sources. The organizer authorized main-branch integration on October 6. Both activities remain physically untested and unpiloted.
 
 ## What was recovered
 
@@ -23,6 +23,8 @@ All 34 regenerated pages were rendered and individually reviewed during recovery
 
 The source ZIPs and extracted source directories match file for file. The packages include original authored source and recovery documentation, with no downloaded references, copied style exemplars, raw recovery work records, build logs, credentials or rendering caches. The existing repository-wide [source caveat](../../REPUBLISHING.md) is unchanged.
 
-## Review gate
+## Integration authorization and remaining limits
 
-Rehearse the actual print/cut/trace kit for Week 64 and the slim 10 mm arrow on Week 65's boards. Digital geometry and clean builds do not establish successful classroom use. Record the organizer's decision before canonical promotion. A draft backup does not constitute approval, main-branch integration or classroom validation.
+The organizer explicitly authorized publishing the recovered files and integrating them into main on October 6. This permission concerns repository integration; it is not evidence of classroom testing or a successful session.
+
+Rehearse the actual print/cut/trace kit for Week 64 and the slim 10 mm arrow on Week 65's boards. Digital geometry and clean builds do not establish successful classroom use. Record actual use and observations separately.

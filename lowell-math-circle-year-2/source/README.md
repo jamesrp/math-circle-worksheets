@@ -2,7 +2,7 @@
 
 LaTeX/TikZ, geometry generators, build scripts, mathematical checks, packet notes, and review records live here. For printable PDFs, use the [year-2 print index](../README.md).
 
-The additional [octagon investigation drafts, Weeks 64–65](../WEEKS-64-65-DRAFT.md), contain restored portable sources and separate regenerated student/adult PDFs. They remain organizer-review drafts pending approval and canonical promotion.
+The additional [octagon investigations, Weeks 64–65](../WEEKS-64-65-DRAFT.md), contain restored portable sources and separate regenerated student/adult PDFs. The organizer authorized main-branch integration on October 6; both activities remain unpiloted and physically untested.
 
 Each `week-NN/` source folder corresponds to the PDF folder `../week-NN/`. The `fall-weeks-02-10/` builder assembles the nine weeks into `../combined/`. Supporting plans and mathematical data stay in the project's top-level `plans/`; build and rendering files go in top-level `tmp/`.
 

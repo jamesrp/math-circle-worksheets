@@ -1,8 +1,8 @@
-# Octagon investigations 64–65: organizer-review drafts
+# Octagon investigations 64–65
 
-These additional investigations await organizer approval. They are draft material, not adopted sessions or additions promoted to the released collection. All material remains unpiloted; physical preparation and handling rehearsals have not been performed.
+The organizer authorized main-branch integration of these prepared investigations on October 6, 2026. Repository integration does not establish classroom validation or adopt a session schedule. Both activities remain unpiloted; physical preparation and handling rehearsals have not been performed.
 
-| Week | Investigation | Entry and continuation | Draft PDFs | Editable source |
+| Week | Investigation | Entry and continuation | PDFs | Editable source |
 | --- | --- | --- | --- | --- |
 | 64 | Straight paths on strange surfaces | Grades 3–5; later Grades 4–5 continuations | [Students: 9 pages](week-64/week-64-students.pdf) · [Facilitator: 12 pages](week-64/week-64-facilitator.pdf) | [Build and preparation](source/week-64/README.md) · [Portable ZIP](source/week-64-source.zip) |
 | 65 | Hyperbolic octagon streets | Shared Grades 3–5, with readiness-based return routes | [Students: 6 pages](week-65/week-65-students.pdf) · [Facilitator: 7 pages](week-65/week-65-facilitator.pdf) | [Build and preparation](source/week-65/README.md) · [Portable ZIP](source/week-65-source.zip) |
