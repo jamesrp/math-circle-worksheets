@@ -1,0 +1,76 @@
+\topic{Adult background: exact octagon calculations}
+Set \(a=1+\sqrt2\), \(b=a+1\). In clockwise order the vertices are
+\[
+\begin{array}{llll}
+v_0=(1,a),&v_1=(a,1),&v_2=(a,-1),&v_3=(1,-a),\\
+v_4=(-1,-a),&v_5=(-a,-1),&v_6=(-a,1),&v_7=(-1,a).
+\end{array}
+\]
+Every side has length 2: a diagonal side's coordinate differences have magnitude \(\sqrt2\), so its length is \(\sqrt{2+2}=2\). A side from \(v_i\) to \(v_{i+1}\) matches the opposite side by \(v_i\leftrightarrow v_{i+5}\), \(v_{i+1}\leftrightarrow v_{i+4}\), modulo 8. Paired arrows agree as vectors in the printed plane; they do not both follow the clockwise boundary.
+\par\begin{tabularx}{\linewidth}{@{}p{1.52in}p{1.08in}X@{}}
+\toprule
+Exit $\to$ entry & Translation & A check on an arbitrary point \\
+\midrule
+Right $\to$ left & $(-2a,0)$ & $(a,y)\mapsto(-a,y)$ \\
+NE $\to$ SW & $(-b,-b)$ & $(b-y,y)\mapsto(-y,y-b)$ \\
+SE $\to$ NW & $(-b,+b)$ & $(y,y-b)\mapsto(y-b,y)$ \\
+Top $\to$ bottom & $(0,-2a)$ & $(x,a)\mapsto(x,-a)$ \\
+\bottomrule
+\end{tabularx}\par
+Reverse crossings use inverse translations. Neither direction nor speed changes.\par
+\labelled{Middle-band loop.}{For \(-1<y<1\), the complete horizontal chord runs from \((-a,y)\) to \((a,y)\). Its endpoints match. Any interior start returns after distance \(2a\), with one seam crossing. Count the final piece from the left edge back to the start as well as the initial piece from the start to the right edge.}
+\labelled{Outer-band loop.}{Fix \(1<y<a\). The upper chord runs from \((y-b,y)\) to \((b-y,y)\), with length \(2(b-y)\). Its right endpoint jumps to \((-y,y-b)\). The lower chord runs to \((y,y-b)\), with length \(2y\), and that endpoint jumps to \((y-b,y)\). Thus
+\[
+L=2(b-y)+2y=2b=4+2\sqrt2.
+\]
+There are two crossings. Both chords have positive length and lie at different heights, so an interior start cannot return before completing this circuit. The chords are equal exactly when \(y=b/2\). Moving the upper line upward shortens its chord and lengthens its partner by the same amount. A lower-band start lies on the same family of loops.}
+\labelled{Excluded lines.}{At \(y=\pm1\), a horizontal ray hits a vertex; stop it. At \(y=\pm a\) it lies along a boundary edge rather than starting in the interior. A failed or incomplete hand trace is not a proof that no loop exists.}
+\labelled{Useful comparisons.}{The middle length is \(2+2\sqrt2\approx4.828\); the outer length is \(4+2\sqrt2\approx6.828\). Their difference is 2, exactly one octagon side. Printed sizes scale all lengths by the same factor. Children can put traced segments end to end; measuring only the visible first piece gives the wrong comparison.}
+\newpage
+\topic{Adult background: corners, topology, and limits of the picture}
+\labelled{One corner class, explicitly.}{Endpoint identifications give
+\[
+v_0\sim v_5\sim v_2\sim v_7\sim v_4\sim v_1\sim v_6\sim v_3\sim v_0.
+\]
+For example, NE/SW gives \(v_0\sim v_5\), \(v_1\sim v_4\); right/left gives \(v_1\sim v_6\), \(v_2\sim v_5\). Every step in the chain is an allowed endpoint match. It visits all eight vertices, proving one class. Coloring nearby printed corners alike would not prove this.}
+\labelled{Three turns around one point.}{Each regular-octagon angle is \(135^\circ\), or three \(45^\circ\) pieces. Eight corners supply 24 pieces. Eight pieces make an ordinary full turn, so the glued neighborhood contains three turns: \(8\times135^\circ=1080^\circ=6\pi\). Paper sectors overlap in one plane; a planar model cannot display the whole neighborhood isometrically. Overlap creates no extra corner identifications.}
+\labelled{Why stop a path there?}{At a regular point a fixed incoming direction has one continuation in a Euclidean chart. The glued corner has three turns of angle, so it is not an ordinary Euclidean chart. The directional flow has no uniquely prescribed outgoing branch there. Do not choose whichever ray looks straight on paper. Topologically its neighborhood is still a disk; the singularity describes the metric, not a tear or hole.}
+\labelled{Why genus 2?}{All edges are paired, so the quotient is closed. The polygon is connected, and translations give compatible orientations. The quotient counts are \(F=1\), \(E=8/2=4\), \(V=1\), so \(\chi=V-E+F=-2\). A connected closed orientable surface has \(\chi=2-2g\), hence \(g=2\). Two handles summarizes that classification theorem. It does not assert that uncreased flat paper can embed in three dimensions with all lengths preserved.}
+\labelled{Translated copies are not a planar tiling.}{Develop a route by translating a new copy so its entry edge coincides with the previous exit edge. Give every sheet a copy number. Nonadjacent copies may overlap; overlapping ink is not automatically the same surface point. An integer number of \(135^\circ\) sectors cannot total \(360^\circ\), so regular octagons alone cannot make an edge-to-edge Euclidean tiling. A route drawing is not such a tiling.}
+\labelled{Flat versus hyperbolic.}{Our metric is flat except at its cone point, with concentrated angle excess \(720^\circ\). A smooth hyperbolic metric has negative curvature throughout. In a regular hyperbolic octagon picture with eight corners around a smooth point, each angle is \(360^\circ/8=45^\circ\); curved-looking disk-picture edges are hyperbolic geodesics. Same genus does not mean same angles, lengths, planar straight-path rule, or metric. [S4]}
+\labelled{What a long path cannot establish.}{Many distinct-looking segments do not prove density; density is weaker than equidistribution. Ergodicity is a measure-theoretic property, not a synonym for a complicated drawing. The octagon's important special dynamics [S1, p. 10] are outside this activity. Do not substitute the unit-torus rational-slope rule.}
+\newpage
+\topic{Adult background: the exact three-square lab}
+\labelled{Keep square label and local coordinates.}{Put A at \([0,1]\times[0,1]\), B at \([1,2]\times[0,1]\), C at \([0,1]\times[1,2]\). Local coordinates start from each square's own lower-left corner. Right-edge crossing applies \(r=(A\ B)\); top-edge crossing applies \(u=(A\ C)\). Thus \(r(C)=C\), \(u(B)=B\). Left/bottom use inverse permutations, here the same swaps. Edge position and heading stay fixed. Interior A/B and A/C seams count like boundary jumps.}
+\labelled{Horizontal and vertical.}{One right crossing occurs per unit horizontal distance. A/B swap, so their first return distance is 2; C is fixed, so its is 1. Vertically, A/C have first return distance 2 and B has 1. Use interior local coordinates; seam-following paths and corner hits require separate care.}
+\labelled{One right, one up.}{From A at local \((1/2,1/4)\), velocity \((1,1)\), the seam times and resulting labels are
+\[
+\begin{array}{c|rrrrrr}
+\text{time}&1/2&3/4&3/2&7/4&5/2&11/4\\
+\text{edge}&r&u&r&u&r&u\\
+\text{square after}&B&B&A&C&C&A.
+\end{array}
+\]
+At times 1, 2, 3, local coordinates return while labels are B, C, A. First full return is time 3, length \(3\sqrt2\). Events never coincide, so no vertex is hit. The center \((1/2,1/2)\) would hit a corner and is not an interchangeable start.}
+\labelled{Two right, one up.}{From local \((1/4,1/2)\), velocity \((2,1)\), each unit block has \(r,u,r\) at \(3/8,1/2,7/8\). From A: \(A\to B\to B\to A\), so first return time is 1, length \(\sqrt5\). From B: \(B\to A\to C\to C\), then \(C\to C\to A\to B\); first return time 2, length \(2\sqrt5\). From C these two blocks occur in reverse order, again period 2. Children can count displacement blocks rather than use radicals or time fractions.}
+\labelled{All twelve corner sectors meet.}{Subdivide long boundaries into unit edges. Write square corners BL, BR, TR, TL. One complete class is
+\[
+\begin{split}
+A_{BL}&\sim B_{BR}\sim B_{TR}\sim A_{TL}\sim C_{BL}\sim C_{BR}\\
+&\sim A_{TR}\sim B_{TL}\sim B_{BL}\sim A_{BR}\sim C_{TR}\sim C_{TL}\sim A_{BL}.
+\end{split}
+\]
+Every equivalence is an edge match. The angle is \(12\times90^\circ=1080^\circ\). The cell counts are \(F=3\), \(E=12/2=6\), \(V=1\), giving \(\chi=-2\), genus 2. Count square-corner sectors, including those along internal seams, not just the L's six visible boundary bends. [S2, S3]}
+\newpage
+\topic{Adult background: why the square-lab return argument works}
+\labelled{Assumptions.}{Use finitely many unit squares with right edges paired to left edges and top edges to bottom edges by translations. Fix a nonzero rational direction: a scalar multiple of an integer vector \((p,q)\). Start in an interior and assume the forward path avoids vertices.}
+\begin{enumerate}
+\item \textbf{A repeated local-position block.} Forget the square name, keeping local coordinates modulo 1. After displacement \((p,q)\), both coordinates return modulo 1. Choose coprime \(p,q\) for the smallest base block. The square-torus projection repeats the same local positions, heading and seam-event order every block.
+\item \textbf{The block permutes square names.} Each crossing is a reversible permutation, \(r\), \(u\), or an inverse. Their composition is a permutation \(P\). Corner avoidance prevents ambiguous simultaneous right/top events; the start fixes the order. In this square-tiled model, the projected block has the same corner-event times for every square name.
+\item \textbf{A finite permutation orbit returns to its start.} Block-end labels are \(s,P(s),P^2(s),\ldots\). A permutation is a union of cycles, so \(P^k(s)=s\) for some positive \(k\) at most the number of squares. Coordinates and direction already return each block, making this a full return. Reversibility matters: a general finite-state rule can enter a cycle without returning to its start.
+\end{enumerate}
+\labelled{For the exact examples.}{The one-right/one-up block applies \(r\) then \(u\): A to B, B to C, C to A, a three-cycle. The two-right/one-up block applies \(r,u,r\): it fixes A and swaps B/C. For directions \((1,1)\) and \((2,1)\), local coordinates can repeat only at integer times, so no shorter interval was missed.}
+\labelled{Scope of the proof.}{This proves closure for rational directions on a finite square-tiled surface, assuming no vertex hit. It does not prove that every L direction closes, give a density theorem for irrational directions, or extend the rational-slope criterion to a regular octagon. Octagon coordinates involve \(\sqrt2\); no three-square label permutation underlies an arbitrary octagon trace.}
+\labelled{A child-sized explanation.}{After one whole step-pattern, we are at the same little spot, maybe in a different square. The pattern moves square names reversibly. There are only three names. Repeating the pattern eventually brings our name back too. Check this with cards A, B, C; naming a theorem alone is not an explanation.}
+\labelled{Same topology, different metric.}{Corner counts and Euler characteristic make both constructions genus-two surfaces with one \(6\pi\) cone angle. They do not identify the flat metrics. The square model is a companion lab for exact returns, not a dissection of the regular octagon; its period formulas do not transfer to the octagon.}
+\newpage

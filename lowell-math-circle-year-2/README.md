@@ -20,6 +20,8 @@ Give only a few selected pages at a time. Familiar examples may be skipped after
 
 The additional [generated activity library, Weeks 11–51](WEEKS-11-51.md), has three student bands and an adult guide per activity, with complete portable source packages. These numbers are library identifiers, not an adopted meeting schedule. Its October 4 worked-example revisions are recorded in that index; all sets remain unpiloted.
 
+The separate [octagon investigation drafts, Weeks 64–65](WEEKS-64-65-DRAFT.md), await organizer review and approval. Their restored sources and regenerated PDFs are documented separately; they are not yet promoted to the released collection.
+
 | Week and preparation notes | K–1 | Grades 2–3 | Grades 4–5 | Optional extras | Facilitator |
 |---|---|---|---|---|---|
 | [1. Tiling, impossibility, and flips](source/week-01/README.md) | [PDF](week-01/week-01-k-1.pdf) | [PDF](week-01/week-01-grades-2-3.pdf) | [PDF](week-01/week-01-grades-4-5.pdf) | [PDF](week-01/week-01-extensions.pdf) | [PDF](week-01/week-01-facilitator.pdf) |

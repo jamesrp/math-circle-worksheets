@@ -2,6 +2,8 @@
 
 LaTeX/TikZ, geometry generators, build scripts, mathematical checks, packet notes, and review records live here. For printable PDFs, use the [year-2 print index](../README.md).
 
+The additional [octagon investigation drafts, Weeks 64–65](../WEEKS-64-65-DRAFT.md), contain restored portable sources and separate regenerated student/adult PDFs. They remain organizer-review drafts pending approval and canonical promotion.
+
 Each `week-NN/` source folder corresponds to the PDF folder `../week-NN/`. The `fall-weeks-02-10/` builder assembles the nine weeks into `../combined/`. Supporting plans and mathematical data stay in the project's top-level `plans/`; build and rendering files go in top-level `tmp/`.
 
 **October 3, 2026 concrete revision.** Weeks 3–10 and the new [Week 1 encore](week-01-encore/README.md) each have `src/` (student pages), `guide-src/` (adult guide and answer checks) and a `build.sh` that builds in `tmp/pdfs/week-NN-build/` and writes four PDFs to `../week-NN/`. Run, for example, `sh lowell-math-circle-year-2/source/week-07/build.sh`. Each week's previous sources are in `week-NN/archive/`, whose patched `build.sh` writes only to `../week-NN/archive/`. The combined Weeks 2–10 sets were not rebuilt; the September sets are in `combined/archive-before-concrete-2026-10-03/`.

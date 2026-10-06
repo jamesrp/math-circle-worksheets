@@ -1,0 +1,36 @@
+# Week 65: Hyperbolic octagon streets
+
+Design and source record, 2026-10-05. Prepared activity; not yet classroom-tested.
+
+## Mathematical scope
+
+The activity uses the genuine regular hyperbolic {8,4} tiling: four congruent right-angled octagons meet at each vertex. It is a new concrete investigation inspired by an uncertain recollection of an octagon seminar, not a reconstruction or identification of that seminar. There is no edge-identification or portal convention. This differs from a Euclidean octagon with sides identified, and from the {8,8} hyperbolic octagon often used for a genus-two surface.
+
+Four connected mathematical destinations govern the design: eight equal-edge local left turns close a room boundary where four fail; the outside of two side-sharing octagons has twelve quarter-turns and two straight junctions, compared with four quarter-turns for two ordinary squares; two complete straight-through roads through one point both miss a third complete road; different two-door routes can have the same destination. Early room growth is optional background, not a tiny-map counting exercise. The grade label is a readiness hypothesis. Rendering, code checks, and adult review are not classroom evidence.
+
+## Sources inspected
+
+- David E. Joyce, **Hyperbolic Tessellations**, Clark University, introduction and “The Poincaré Disk.” https://mathcs.clarku.edu/~djoyce/poincare/poincare.html . Inspected 2026-10-05. Source for the {p,q} notation, angle 360°/q, Poincaré representation, and the fact that equal hyperbolic tiles appear smaller toward the disk boundary. The site explicitly includes {8,4}. All packet diagrams are newly generated from circle equations; none are copied from Joyce's images.
+- Cornell Mathematics Explorers' Club, **Geometries of Surfaces**, “The Hyperbolic Plane” and Activity 5. https://pi.math.cornell.edu/~mec/Winter2009/Victor/part4.htm . Inspected 2026-10-05. Relevant octagon precedent: its final construction uses {8,8}, with 45° octagon angles. Its line discussion supports the contrast with Euclidean uniqueness of parallels. The packet neither relies on the old Java applets nor claims to reproduce this activity.
+- Kathryn Mann, **DIY Hyperbolic Geometry**, Mathcamp 2015, pp. 1–8, especially Day 1 (action with models) and Day 2 (maps). https://e.math.cornell.edu/people/mann/papers/DIYhyp.pdf . Inspected 2026-10-05. Supports learning through building, drawing and exploring before formalism; its polyhedral model is explicitly an approximation. This is a pedagogical precedent, not evidence that this Grades 3–5 packet has been tested. No text or figures reproduced.
+- David Henderson and Daina Taimina, **Constructions of Hyperbolic Planes**. https://pi.math.cornell.edu/~dtaimina/crochet/hplane.htm . Inspected 2026-10-05. Relevant caution about polygonal approximations and singular vertices; no seven-triangle fan is being presented as a smooth exact hyperbolic plane here.
+
+The optional private MSRI book library is absent from this cloud checkout. No claim is made to have consulted those books during this production pass. The current repository's classroom guidance and workflow context supply the group-specific pedagogy. The workflow's borrowed style exemplars are inputs only; they are excluded from this week's portable source package. See the repository's REPUBLISHING.md for the broader existing-source caveat.
+
+## Original construction and proof checks
+
+Use the unit disk in the complex plane. Put r = sqrt(sqrt(2) − 1) and v[k] = r exp(i(pi/8 + k pi/4)), for k = 0,...,7. For vertices p,q not on a common diameter, the supporting geodesic circle has center c satisfying Re(conj(c)p) = (|p|²+1)/2 and the same equation for q. Its squared radius is |c|²−1, so it meets the unit circle orthogonally. A geodesic through the disk center is a diameter and uses ordinary reflection in that line. Otherwise side reflection is circle inversion; successive reflected tiles are hyperbolically congruent. Sampling a true circle arc is a drawing step, not substitution of Euclidean chords as the mathematical streets.
+
+For the three complete roads, let C = 2^(1/4). The supporting circles of sides 0,7,3 have centers C exp(i pi/4), C, and −C, with common Euclidean radius r. The red supporting circle lies wholly at x < 0; the other two lie wholly at x > 0 because C/sqrt(2) > r. Thus the complete hyperbolic red road misses both others, not just the finite portions of a plot. The two other circles meet at v[0] inside the disk and represent distinct lines. Their second circle intersection is outside the disk.
+
+At a corner, two incident sides have perpendicular tangent directions. Continuing through the opposite edge is therefore the same complete geodesic. Eight same-direction quarter-turn moves follow a single octagon boundary and restore position and heading; four end at the opposite vertex. For two adjacent rooms, centering the view at m = 2^(1/4) − r on their common side makes a usable pair: T(z) = (z−m)/(1−mz), with the other room reflected across the imaginary axis. Its outside has fourteen edges, twelve right-angle turns and two straight junctions. There is no junction at the middle of the shared side. At the actual scale of 3.6 inches per disk unit, the closest marked boundary vertices are 17.8502 mm apart. This is a digital spacing check, not a physical rehearsal. A zero-turn street has infinitely many equal hyperbolic edges and never reaches the ideal circle, however short the printed edges become.
+
+Side-adjacency breadth-first search, independently deduplicated by tile centers and vertex sets, gives layer counts 1,8,48. Among 56 non-backtracking two-door routes, 40 destinations appear once and 8 twice. The four-room corner explains each duplication. These finite counts do not establish a formula for later layers or license “multiply by seven forever.” The shared-destination phenomenon also occurs in an ordinary square grid; it prevents a false tree model, rather than by itself distinguishing hyperbolic geometry.
+
+## Relation to earlier activities
+
+Weeks 39 and 41 concern route words/free-group cancellation and torus wraparound. This packet does not depend on remembering a portal or code-cancellation convention. Week 56 includes Euclidean triangle fans and angle defect, and Week 61 covers spherical geometry. Week 65's distinctive geometric core is local right-angle steering in an exact hyperbolic tiling and complete-road nonintersection; shared room destinations provide a concrete check before any growth extension. Week 64 is a separate flat octagon edge-identification investigation. Familiar counter movement is reused, while the geometric phenomenon changes.
+
+## Classroom uncertainties to test
+
+Can children retain the counter's arriving heading and choose the left branch without adult operation? Does an enlarged local view make four rooms at a corner directly checkable? Can they distinguish a street-edge walk from crossing room sides when the mode changes? Can the road labels/patterns be followed on an ordinary monochrome printer? Start with the main concrete encounter and save later ideas for a return visit if representation demands dominate. Record actual attempts and revisions after use.
