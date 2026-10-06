@@ -1,0 +1,72 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=.7in,headheight=16pt,headsep=16pt,footskip=25pt]{geometry}
+\usepackage{fancyhdr,amsmath,amssymb,booktabs,array,hyperref}
+\pdfmapfile{+cm.map}\pdfmapfile{+cmextra.map}\pdfmapfile{+symbols.map}\pdfmapfile{+latxfont.map}
+\hypersetup{hidelinks}\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 67 / Meeting on shortest roads / Adult guide}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 67 / GGT67-FAC-v1}
+\fancyfoot[R]{\footnotesize\thepage}
+\newcommand{\heading}[1]{\par\vspace{5pt}{\large\bfseries #1}\par}
+\begin{document}
+\heading{Mathematical destination}
+A meeting vertex $m$ must satisfy three simultaneous shortest-path tests:
+\[
+d(A,m)+d(m,B)=d(A,B),\quad
+ d(A,m)+d(m,C)=d(A,C),\quad
+ d(B,m)+d(m,C)=d(B,C).
+\]
+Here $d$ counts roads, with every road worth one step. Each equation says that \emph{some} shortest route for that pair passes through $m$. The meeting vertex need not lie on \emph{every} shortest route. Keep all three homes and the proposed meeting counter fixed while checking.
+
+\textbf{Facts children can uncover.} Every triple on a full rectangular grid has exactly one meeting vertex: take the middle of the three horizontal coordinates and the middle of the three vertical coordinates. Every triple in a tree also has exactly one, the center of its three-path tripod. On a cube, take the majority digit in each label position. A triangle graph has no meeting vertex for its three different vertices. Thus existence is a property of the road network, not a rule true of every map.
+
+\textbf{Why the grid rule holds.} Grid distance is $|x_1-x_2|+|y_1-y_2|$. A detour-free route through $m$ exists exactly when each coordinate of $m$ lies between those of the pair. On a number line, the three pairwise intervals have exactly their middle coordinate in common. Apply this independently horizontally and vertically. This proves both existence and uniqueness, even when coordinates repeat. It assumes the full grid with no missing roads or diagonal shortcuts.
+
+\textbf{Readiness map.} Grades 3--5 can begin with moving counters and counting roads; an adult may read. They need to compare path lengths and preserve the same proposal through three tests. Problem 2 invites a conjecture before its proof. Coordinate language and binary labels are later options, particularly for the older table; a child need not know either to solve Problem 1. No K--1 adaptation or tested age-fit claim is intended.
+
+\heading{Materials and a short launch}
+Per pair: three distinguishable home counters marked A, B, C; a smaller meeting counter; three colored pencils; an eraser; and the four student pages. Print single-sided at 100\%. A transparent counter or a small paper ring keeps labels and road junctions visible. No cube construction is necessary. Prepare three sets for the two third-grade pairs and the older pair with a rotating referee. One adult anchors each older table.
+
+Let children move the counters, then use the printed two-home example. Trace P to M in two steps and M to Q in one; compare the total three with the three-step shortest P--Q distance. Move M to the upper-left dot of that little grid: it also works. This shows why checking one drawn path is insufficient. Explain that with three homes the same M must pass all three pair tests. One partner draws the three colors side by side on shared roads; the other checks each length, then swap.
+
+\heading{Manageable first route}
+Spend about 15 minutes on Problem 1, then 10--15 minutes inventing examples in Problem 2. A useful stopping point is a tested prediction of one meeting dot plus an explanation for one pair. Return to the uniqueness argument and Problem 3 when ready. The cube page is a separate continuation, not a required finish in one hour. Keep drawing and testing with children; do not turn each failed guess into an adult lecture.
+\newpage
+\heading{Numbered answers and hints}
+\textbf{Problem 1.} Coordinates below start at the lower-left dot, increasing right and up. On the left map the only meeting dot is \textbf{$(1,1)$}: one right and one up from A. On the right it is \textbf{$(4,3)$}: the rightmost dot on A's row. The table checks all pairs.
+\begin{center}\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}clll@{}}\toprule
+Map & A--B through M & A--C through M & B--C through M\\\midrule
+Left & $2+3=5$ & $2+3=5$ & $3+3=6$\\
+Right & $4+3=7$ & $4+1=5$ & $3+1=4$\\\bottomrule
+\end{tabular}\end{center}
+For each pair, join each home to M without reversing horizontal or vertical direction; these lengths equal the unavoidable coordinate changes. The grid argument on page 1 excludes every other dot. \emph{Hint:} test one candidate against all pairs; a place that works for just two pairs is not enough.
+
+\textbf{Problem 2.} Neither requested counterexample exists on this board: \textbf{exactly one} meeting dot works for every three different homes. The middle-coordinate rule proves it for all placements; repeated trials alone do not. If a pair reports two solutions, ask them to exhibit all three shortest routes through each. If none, compare the three home columns and then the three home rows. The meeting point may be one of the homes.
+
+\textbf{Problem 3.} On the tree, the only meeting dot is the \textbf{central junction directly below C}, where C's branch meets the long left--right path. Each home is two roads from this dot, and all three pair distances are four. The unused lower-right and upper-left branches do not shorten a path. In any tree there is a unique simple path between two vertices: two different simple paths would create a cycle. The three paths between A, B, C form a tripod; its center is the sole common point. An arm may have length zero.
+
+On the triangle, \textbf{none} works. Each pair is one road apart. Choosing A as meeting point makes B--A--C two roads, not one; choosing B or C fails in the same way for the opposite pair. These are all its vertices. On the four-cycle, only \textbf{B} works: A--B and B--C each take one step; A--B--C takes two and is shortest. Their pairwise intersections force B. \emph{Hint:} count roads rather than drawn inches; the large square has four roads, not a hidden finer grid.
+
+\textbf{Problem 4.} The left cube's unique meeting label is \textbf{100}. The three routes are
+\[
+000\!\to\!100\!\to\!110,\qquad
+000\!\to\!100\!\to\!101,\qquad
+110\!\to\!100\!\to\!101.
+\]
+The right cube's unique meeting label is \textbf{011}, with routes
+\[
+001\!\to\!011\!\to\!010,\qquad
+001\!\to\!011\!\to\!111,\qquad
+010\!\to\!011\!\to\!111.
+\]
+Every displayed pair differs in two digits, so two roads are necessary and sufficient. Crossed lines are not junctions unless a labeled dot is present. \emph{Hint:} follow the labels and change only one digit on each road.
+
+\textbf{Problem 5.} Take the \textbf{majority in each of the three positions}. If two homes agree in a position, a shortest route between them cannot change that digit and change it back. Their common value therefore forces the meeting digit. The majority label satisfies this for every pair: where a pair differs, either digit lies on a shortest route; where it agrees, the majority preserves its value. Thus the label exists and is unique. This is a proof for every choice, not only the two examples.
+
+\heading{Sources and checking limits}
+Dru\c{t}u and Kapovich, \href{https://www.math.ucdavis.edu/~kapovich/EPR/ggt.pdf}{\emph{Geometric Group Theory}}, Definitions 6.1--6.3, printed p.\ 177 (PDF 197), and Examples 6.19(1)--(5), printed p.\ 180 (PDF 200), supply intervals, medians, grid and tree context. The small maps and teaching sequence are authored specializations. Do not replace the three interval tests by minimizing total travel on an arbitrary graph.
+
+The independent checker uses graph search for the exact printed maps and checks all 2,300 distinct grid triples and 56 distinct cube triples. General conclusions rest on the coordinate, majority, and tripod proofs. Final student diagrams and every guide page were digitally inspected. This is an \textbf{unpiloted prototype}; counter placement, colored-route legibility, pacing, and physical setup have \textbf{not been rehearsed}.
+\end{document}

@@ -1,0 +1,76 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=.7in,headheight=16pt,headsep=16pt,footskip=25pt]{geometry}
+\usepackage{fancyhdr,amsmath,amssymb,booktabs,array,hyperref}
+\pdfmapfile{+cm.map}\pdfmapfile{+cmextra.map}\pdfmapfile{+symbols.map}\pdfmapfile{+latxfont.map}
+\hypersetup{hidelinks}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4.5pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 66 / Lamplighter streets / Adult guide}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 66 / GGT66-FAC-v1}
+\fancyfoot[R]{\footnotesize\thepage}
+\newcommand{\heading}[1]{\par\vspace{5pt}{\large\bfseries #1}\par}
+\newcommand{\word}[1]{\texttt{#1}}
+\begin{document}
+\heading{Mathematical destination}
+A state records \textbf{both} the walker's position and the lamps that are on. Each move costs one: walk one place left or right, or flip just the lamp under the walker. Starting with all lamps off at 0, the minimum number of moves is
+\[
+\text{number of target lamps on}+
+\text{shortest walk visiting those lamps and ending at the target position}.
+\]
+Every target lamp needs an odd number of flips, hence at least one. Extra flips cannot shorten the necessary walk. Conversely, a shortest visiting walk can flip each required lamp exactly once. This proves the decomposition, rather than merely suggesting it from trials.
+
+The destination is a \textbf{dead end for distance from the start}: the state with lamps $-1,0,1$ on and walker at 0 has distance 7, yet each of its three one-move neighbors has distance 6. A longer move word can therefore describe an easier target. ``Dead end'' does not mean the walker is unable to move.
+
+\textbf{Assumptions and scope.} The mathematical street is the integer line with finitely many lamps on. All printed targets have optimal routes inside the displayed $-4$ to 4 street; no edge extension is needed for this packet. Walks and flips are separate moves. Distance always means fewest moves \emph{from all-off at 0}, not from the preceding target.
+
+\textbf{What children discover.} Experiment with move words; conjecture which routes are shortest; then justify them by unavoidable flips and walking. Grades 3--5 share the concrete entry. Prerequisites are reading signed positions, counting a short word, and preserving a two-part state. An adult can read and record. General formulas are an optional older-table continuation, not an entry requirement.
+
+\heading{Materials and preparation}
+Per pair: nine two-sided lamp counters, one visibly different walker pawn, the four student pages, and a pencil. The large lamp circles are about 13 mm across at actual size; test counter fit and finger access before use. Counters may be placed beside a lamp if they obscure its label. Keep the walker next to its counter, not on top of it. Print single-sided at 100\%; no cutting or specialist kit is needed.
+
+For the two older tables, prepare three working sets: two pairs of third graders, and an older pair with a rotating referee. One adult anchors each table. A partner controls flips and first points to the walker's location; the other controls movement. Swap roles between targets. Keep one move word as the recoverable record; count it afterward.
+
+\heading{Brief common launch and first route}
+Let pairs handle the counters. Use the printed non-target demonstration: start at $-2$ with lamps off, execute \word{R}, then \word{F}; the walker stays at $-1$ during the flip. Have a partner replay \word{RF} and name both parts of the resulting state. Reset all-off at 0 for Problem 1.
+
+Allow roughly 10--15 minutes for Problem 1 and 10--15 for Problem 2. Pause when children can replay and improve a route. A feasible first visit ends with Problem 3 and a shared lower-bound explanation; reserve Problems 4--5 for remaining time or a return visit. The older table can reach the dead-end comparison sooner. These times are planning estimates, not classroom observations.
+\newpage
+\heading{Numbered answers and optional hints}
+All words below are read left to right and start all-off at 0. Different shortest words are welcome. The walker position is $p$; $S$ is the set of lit lamps.
+
+\textbf{Problem 1.} The three targets have the following minima.
+\begin{center}\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}clcrr@{}}\toprule
+Target & $(p,S)$ & One shortest word & Walks + flips & Total\\\midrule
+A & $(1,\{1\})$ & \word{RF} & $1+1$ & 2\\
+B & $(1,\{-1,1\})$ & \word{LFRRF} & $3+2$ & 5\\
+C & $(0,\{0,2\})$ & \word{FRRFLL} & $4+2$ & 6\\\bottomrule
+\end{tabular}\end{center}
+For B, visiting $-1$ then ending at 1 needs at least three walks. For C, reaching 2 and returning needs at least four. \emph{Hint:} temporarily ignore flips and trace only where the walker must go.
+
+\textbf{Problem 2.} All three have lamps $-2,0,2$ on, so three flips are unavoidable. A ends at $-2$: \textbf{9}, using \word{FRRFLLLLF}. B ends at 0: \textbf{11}, using \word{FLLFRRRRFLL}. C ends at 2: \textbf{9}, using \word{FLLFRRRRF}. To end at an extreme requires at least six walks: two to the other extreme, then four across. Returning to 0 requires eight. \emph{Hint:} compare only the final walker positions; the lit lamps have not changed.
+
+\textbf{Problem 3.} \textbf{7}, for example \word{FLFRRFL}. Three target lamps force three flips. Visiting both $-1$ and 1 and returning to 0 forces four walks. The exhibited word attains $3+4$. A trial with seven moves alone is only an upper bound; the unavoidable-moves argument proves optimality.
+
+\textbf{Problem 4.} Reset to Problem 3 before each of the following changes. The minima in the last column are from the \emph{original} start.
+\begin{center}\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}clcrr@{}}\toprule
+Change & New $(p,S)$ & Shortest word from start & Walks + flips & Total\\\midrule
+L & $(-1,\{-1,0,1\})$ & \word{FRFLLF} & $3+3$ & 6\\
+R & $(1,\{-1,0,1\})$ & \word{FLFRRF} & $3+3$ & 6\\
+F & $(0,\{-1,1\})$ & \word{LFRRFL} & $4+2$ & 6\\\bottomrule
+\end{tabular}\end{center}
+The same required-visit and flip arguments give all three lower bounds. Do not merely append a letter to the seven-move word: that produces an eight-move route, not a shortest route. \emph{Hint:} build the new target, reset completely, and solve it afresh.
+
+\textbf{Problem 5.} \textbf{No.} Problem 3 supplies a counterexample covering \emph{every} legal next move: L, R, and F all reduce distance from 7 to 6. One unsuccessful attempt would not settle an ``always'' question; these are the complete alternatives at that state.
+
+\heading{General rule and limits}
+For an optional extension, let $\ell=\min(S\cup\{0\})$ and $r=\max(S\cup\{0\})$. The exact distance to $(p,S)$ is
+\[
+|S|+\min\bigl(-\ell+(r-\ell)+|p-r|,\quad r+(r-\ell)+|p-\ell|\bigr).
+\]
+A walk must visit the two extremes in one order or the other. Each displayed length is necessary for its order and attained by walking directly between those stops, flipping required lamps once. The formula also covers $S=\varnothing$. The independent checker replays every printed answer and performs coordinate-unbounded breadth-first search through distance 12; the argument above, not that finite check, proves the general rule.
+
+\textbf{Sources and readiness.} Cleary and Taback, \href{https://arxiv.org/pdf/math/0309344}{\emph{Dead end words in lamplighter groups and other wreath products}}, $\S$3.1, pp.\ 4--6, and $\S$4.1, p.\ 9, supply the lamplighter and dead-end lineage. Dru\c{t}u and Kapovich, \href{https://www.math.ucdavis.edu/~kapovich/EPR/ggt.pdf}{\emph{Geometric Group Theory}}, Exercise 7.82, printed p.\ 233 (PDF 253), gives the wreath-product distance framework. These small tasks are authored specializations. Final-page targets and guide answers were digitally checked; the prototype is \textbf{unpiloted and its physical setup unrehearsed}.
+\end{document}

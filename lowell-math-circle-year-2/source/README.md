@@ -42,3 +42,7 @@ The [random-ten worksheet builder](atlas-random-ten/README.md) makes a separate 
 The [Week 2 shared collection](week-02/README.md) uses ReportLab for exploration, drawing, and network pages, LaTeX/TikZ for ring investigations, and a unified adult guide. Run `week-02/build.sh` for the current outputs; the earlier grade packets and auxiliary are preserved under `archive-before-shared-collection-2026-09-28/` in the source and PDF folders. The combined builder includes the identical shared Week 2 library in all four student sets and the unified guide in the facilitator set. Their grade labels apply only to Weeks 3–10; print Week 2 once.
 
 To refresh only a changed week in the existing combined sets, use `fall-weeks-02-10/refresh-week.py --week 3` (with the bundled Python, changing the week number as needed). This preserves all other embedded pages and regenerates contents/bookmarks; the current combined PDFs and build manifest are required.
+
+## Geometric group theory prototypes 66–75
+
+The [review index](../WEEKS-66-75-PROTOTYPES.md) links each student packet, theorem-first adult guide, source README and portable ZIP. Each package rebuilds both PDFs independently and includes the mathematical checkers. These focused prototypes remain unpiloted.
