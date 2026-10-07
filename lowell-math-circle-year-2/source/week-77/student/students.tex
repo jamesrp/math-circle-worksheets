@@ -1,0 +1,119 @@
+\pdfmapfile{+cm.map}
+\pdfmapfile{+cmextra.map}
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=0.65in,headheight=15pt,headsep=16pt,footskip=24pt]{geometry}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usetikzlibrary{arrows.meta}
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\fontsize{11}{13}\selectfont Week 77 / Persistent holes / Grades 4--5}
+\fancyfoot[L]{\fontsize{9}{11}\selectfont Bellingham Math Circle / Week 77 / F77-45-v1}
+\fancyfoot[R]{\fontsize{9}{11}\selectfont\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\newcommand{\textat}[4]{\node[anchor=north west,inner sep=0pt,text width=#3cm,align=left,font=\fontsize{12}{16}\selectfont] at (#1,#2) {#4};}
+\newcommand{\smallat}[4]{\node[anchor=north west,inner sep=0pt,text width=#3cm,align=left,font=\fontsize{11}{14}\selectfont] at (#1,#2) {#4};}
+\newcommand{\lineat}[3]{\draw[black!28,line width=.4pt] (#1,#2)--(#3,#2);}
+\newcommand{\token}[4]{\node[draw=black!60,rounded corners=1pt,minimum width=.83cm,minimum height=.5cm,inner sep=1pt,font=\fontsize{10}{12}\selectfont] (#4) at (#1,#2) {#3};}
+\newcommand{\squareboard}[3]{%
+ \begin{scope}[shift={(#1,#2)}]
+ \coordinate (A) at (0,0); \coordinate (B) at (6.2,0); \coordinate (C) at (6.2,6.2); \coordinate (D) at (0,6.2);
+ \draw[black!50,dash pattern=on 4pt off 4pt,line width=.9pt] (A)--(B)--(C)--(D)--cycle (A)--(C);
+ \ifnum#3=1 \draw[line width=1.5pt] (A)--(B)--(C)--(D); \fi
+ \foreach \v/\pos in {A/above left,B/above right,C/below right,D/below left}{\fill (\v) circle(2.2pt);\node[\pos,inner sep=4pt,font=\large] at (\v) {\v};}
+ \end{scope}}
+\newcommand{\pagebegin}{\begin{tikzpicture}[x=1cm,y=-1cm]\path[use as bounding box] (0,0) rectangle (18.2,22.15);}
+\newcommand{\pageend}{\end{tikzpicture}}
+\begin{document}
+\pagebegin
+\smallat{0}{0}{18.2}{Use only the printed edge places. During a build, add pieces and keep them. Fill a triangle by covering it with its matching tile. A partner checks that all three edges are in place when a triangle is filled. Dashed lines are places for edges; solid lines are already present. AB and BA name the same edge.}
+\smallat{0}{2.3}{18.2}{A loop follows edges back to its starting dot without repeating an edge. Save its edge list. To test it, copy those tokens, add the edge tokens of any filled triangles you choose, and remove matching pairs. The loop is gone if a choice leaves no tokens. Only the test tokens change.}
+\smallat{0}{4.65}{18.2}{For example, using filled triangle XYZ on the tokens XY and YZ:}
+\begin{scope}[shift={(.55,5.55)}]
+ \fill[black!18] (0,1.4)--(1.8,1.4)--(.9,0)--cycle;
+ \draw[line width=1pt] (0,1.4)--(1.8,1.4)--(.9,0)--cycle;
+ \node[below left,inner sep=3pt] at (0,1.4) {X};\node[above,inner sep=3pt] at (.9,0) {Y};\node[below right,inner sep=3pt] at (1.8,1.4) {Z};
+\end{scope}
+\token{3.4}{6.25}{XY}{inxy}\token{4.35}{6.25}{YZ}{inyz}
+\draw[-{Stealth[length=2mm]},line width=.8pt] (5.05,6.25)--(6.2,6.25);
+\node[font=\small] at (5.6,6.85) {add XYZ};
+\token{6.95}{6.25}{XY}{a}\token{7.95}{6.25}{YZ}{b}\token{8.95}{6.25}{XY}{c}\token{9.95}{6.25}{YZ}{d}\token{10.95}{6.25}{XZ}{e}
+\foreach \n in {a,b,c,d}{\draw[line width=.8pt] (\n.south west)--(\n.north east);}
+\draw[-{Stealth[length=2mm]},line width=.8pt] (11.7,6.25)--(13.45,6.25);
+\node[font=\small] at (12.6,6.85) {cancel pairs};
+\token{14.2}{6.25}{XZ}{out}
+\textat{0}{8.1}{18.2}{\textbf{Problem 1:} Start with the dots only. Build a loop that can disappear after just one triangle is filled. Save its edge list. Start again and build a loop that survives either choice of a single filled triangle. Save that loop too. Test the two choices in separate builds.}
+\squareboard{.65}{12.1}{0}
+\smallat{8.2}{11.9}{9.7}{Loop that can disappear with one filling:}
+\lineat{8.2}{13.2}{18.2}\lineat{8.2}{14.45}{18.2}
+\smallat{8.2}{16.0}{9.7}{Loop that survives either single filling:}
+\lineat{8.2}{17.3}{18.2}\lineat{8.2}{18.55}{18.2}
+\lineat{0}{20.55}{18.2}\lineat{0}{21.95}{18.2}
+\pageend
+\newpage
+\pagebegin
+\textat{0}{0}{18.2}{\textbf{Problem 2:} Save the first loop when it closes. Find every schedule in which that saved loop first disappears at stage 8. Explain why you have all of them.}
+\textat{0}{3.65}{18.2}{Count each enclosed, unfilled region as one hole. Every allowed schedule has 0, 1, 2, 1, 0 holes after stages 0, 2, 4, 5, 8.}
+\squareboard{10.6}{6.3}{1}
+\smallat{0.5}{6.0}{7.8}{Stage 0: AB, BC, CD}
+\smallat{0.5}{7.35}{7.8}{Stage 2: one of DA and AC}
+\smallat{0.5}{8.70}{7.8}{Stage 4: the other edge}
+\smallat{0.5}{10.05}{7.8}{Stage 5: fill ABC or ACD}
+\smallat{0.5}{11.40}{7.8}{Stage 8: fill the other triangle}
+\lineat{0}{14.0}{18.2}\lineat{0}{15.5}{18.2}\lineat{0}{17.0}{18.2}\lineat{0}{18.5}{18.2}\lineat{0}{20.0}{18.2}\lineat{0}{21.5}{18.2}
+\pageend
+\newpage
+\pagebegin
+\textat{0}{0}{18.2}{\textbf{Problem 3:} Start with the four solid edges. Add one dashed edge at stage 2 and the other at stage 4. Fill one triangle at stage 5 and the other at stage 8. Make one build where the first loop is gone at 5, and another where it first disappears at 8. Save the first loop's edges each time and record a schedule your partner can replay.}
+\begin{scope}[shift={(3.25,5.45)}]
+ \coordinate (A) at (0,0);\coordinate (B) at (0,5.8);\coordinate (C) at (5.8,2.9);\coordinate (D) at (11.6,0);\coordinate (E) at (11.6,5.8);
+ \draw[line width=1.5pt] (A)--(C)--(B) (D)--(C)--(E);
+ \draw[black!50,dash pattern=on 4pt off 4pt,line width=.9pt] (A)--(B) (D)--(E);
+ \foreach \v/\pos in {A/above left,B/below left,C/below,D/above right,E/below right}{\fill (\v) circle(2.2pt);\node[\pos,inner sep=4pt,font=\large] at (\v) {\v};}
+\end{scope}
+\smallat{0}{12.45}{18.2}{First loop gone at stage 5:}
+\lineat{0}{13.55}{18.2}\lineat{0}{14.85}{18.2}
+\smallat{0}{16.0}{18.2}{First loop disappears at stage 8:}
+\lineat{0}{17.1}{18.2}\lineat{0}{18.4}{18.2}
+\textat{0}{19.55}{18.2}{Both builds have 0, 1, 2, 1, 0 holes after stages 0, 2, 4, 5, 8. Can those counts alone tell you when the first loop disappears?}
+\lineat{0}{21.85}{18.2}
+\pageend
+\newpage
+\pagebegin
+\textat{0}{0}{18.2}{\textbf{Problem 4:} Build this schedule. Stage 4 is one step: place its edge, then its tile, and check only after both are in place. Does it ever have two holes at a finished stage? Move exactly one of those two additions to stage 3 or 5 so that it does. Find every legal change. Keep all other additions at their original stages.}
+\squareboard{10.6}{5.3}{1}
+\smallat{0.5}{5.15}{7.8}{Stage 0: AB, BC, CD}
+\smallat{0.5}{6.55}{7.8}{Stage 2: DA}
+\smallat{0.5}{7.95}{7.8}{Stage 4: AC and filled ABC}
+\smallat{0.5}{9.35}{7.8}{Stage 8: filled ACD}
+\lineat{0}{12.9}{18.2}\lineat{0}{14.2}{18.2}
+\textat{0}{16.0}{18.2}{\textbf{Problem 5:} Could a saved loop be gone at one stage and survive again at a later stage, if no edge or filled triangle is removed? Explain why your answer works for every legal growing board.}
+\lineat{0}{19.1}{18.2}\lineat{0}{20.45}{18.2}\lineat{0}{21.8}{18.2}
+\pageend
+
+\newpage
+\pagebegin
+\textat{0}{0}{18.2}{\textbf{Problem 6:} Start with all eight edges and filled triangles ABO and BCO. Save two loops with different sets of edges. Both must survive now and first disappear at the last filling, whichever of the two unfilled triangles your partner fills first.}
+\begin{scope}[shift={(9.5,4.15)}]
+ \coordinate (A) at (0,0);\coordinate (B) at (8,0);\coordinate (C) at (8,8);\coordinate (D) at (0,8);\coordinate (O) at (4,4);
+ \draw[line width=1.5pt] (A)--(B)--(C)--(D)--cycle (A)--(O)--(C) (B)--(O)--(D);
+ \foreach \v/\pos in {A/above left,B/above right,C/below right,D/below left}{\fill (\v) circle(2.2pt);\node[\pos,inner sep=4pt,font=\large] at (\v) {\v};}
+ \fill (O) circle(2.2pt);\node[above,fill=white,inner sep=2pt,font=\large] at (4,3.7) {O};
+\end{scope}
+\smallat{0}{4.15}{8.3}{First saved loop:}
+\lineat{0}{5.35}{8.3}\lineat{0}{6.65}{8.3}
+\smallat{0}{8.55}{8.3}{Second saved loop:}
+\lineat{0}{9.75}{8.3}\lineat{0}{11.05}{8.3}
+\textat{0}{13.65}{18.2}{Can you choose your pair so that either loop can disappear first on a fresh board with all eight edges and no filled triangles? Keep the two saved edge lists unchanged. Fill all four triangles, one at a time. Show a filling order for each outcome, or explain why it is impossible.}
+\smallat{0}{17.4}{18.2}{First saved loop disappears first:}
+\lineat{0}{18.65}{18.2}
+\smallat{0}{20.0}{18.2}{Second saved loop disappears first:}
+\lineat{0}{21.25}{18.2}
+\pageend
+\end{document}
