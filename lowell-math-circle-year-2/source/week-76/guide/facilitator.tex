@@ -1,0 +1,165 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[left=17mm,right=17mm,top=19mm,bottom=18mm,headheight=14pt,headsep=4mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\pdfmapfile{+lm.map}
+\usepackage{amsmath,amssymb,array,tabularx,fancyhdr,enumitem,url}
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Week 76 / Substitution strips / Adult guide}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 76 / F76-FAC-v1}
+\fancyfoot[R]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4.5pt}
+\setlist[itemize]{leftmargin=14pt,itemsep=2pt,topsep=3pt,parsep=0pt}
+\setlist[enumerate]{leftmargin=17pt,itemsep=2pt,topsep=3pt,parsep=0pt}
+\urlstyle{same}
+\newcommand{\head}[1]{\par\vspace{5pt}{\large\bfseries #1}\par\vspace{1pt}}
+\newcommand{\problem}[2]{\par\vspace{5pt}{\bfseries Problem #1\quad #2}\par}
+\newcommand{\word}[1]{\texttt{#1}}
+\newcommand{\hint}[1]{\textbf{Hints in order.} #1}
+\newcommand{\chain}[1]{\par\hspace{8pt}$#1$\par}
+\newcommand{\A}{\mathrm{A}}
+\newcommand{\B}{\mathrm{B}}
+\begin{document}
+\fontsize{10.5pt}{13.1pt}\selectfont
+
+\head{Mathematical destination}
+Let $\mu$ replace $\A$ by $\A\B$ and $\B$ by $\B\A$, simultaneously once per old tile. The rows $\mu^n(\A)$ are nested prefixes; they define one endless word $T$, the Thue--Morse word. A \emph{whole row} is exactly one full generation grown from a single $\A$. A \emph{crop} may start or end inside a replacement pair.
+
+\begin{itemize}
+\item \textbf{Pair invariant.} Number $T$ from 0. True child-pairs start at even positions and have unequal letters. Equal neighbors therefore mark a gap between child-pairs.
+\item \textbf{Local theorems.} No genuine row contains \word{AAA}, \word{BBB}, \word{ABABA} or \word{BABAB}. Every genuine crop of at least five tiles has exactly one pairing into \word{AB}/\word{BA}, allowing at most one lone tile at each end. A shorter crop can have two immediate pairings.
+\item \textbf{Infinite theorem.} There are no $p>0$ and $N\geq0$ with $T[n+p]=T[n]$ for every $n\geq N$. The word is not eventually periodic. Equal neighbors rule out odd periods; decoding halves even periods. Page 4 supplies the proof.
+\end{itemize}
+\textbf{Limits.} Passing short tests does not certify a crop or a whole row. The repeating \word{ABBA} strip passes the four bans above. Finite repeats do occur in $T$; the claim concerns an endless repeating tail. Recovering pair alignment does not locate a crop's original position. Computation checks finite examples, not the infinite theorem.
+
+\textbf{Intended discoveries.} Children grow and reverse the rule, distinguish whole rows from crops, and use equal neighbors to recover hidden seams. A successful first visit reaches Problems 1--4 with children choosing and checking. Problems 5--6 deepen the explanation; Problem 7 needs adult proof support unless children supply the arbitrary-period argument themselves.
+
+\head{Who uses this prototype}
+Start with the three children at the grades 4--5 table and the organizer: one pair, one referee, rotate after each row or claim. Prerequisites: read A/B strings, preserve order, and work with a partner; odd/even reasoning is needed only late. The four third graders may use the same packet in two pairs with their mathematician if they retain these choices. Their useful stopping point is Problem 4. This is not a K--1 packet. The parent stays at K--1 with a separately chosen activity; arrange that before the session. Do not have an adult perform the decoding for children.
+
+\head{Prepare and print}
+\textbf{Per pair or rotating trio:} 32 reversible A/B tiles plus 4 spare (36 total), four small divider markers, two pencils, one handwritten key \word{A -> AB; B -> BA}, two blank recording sheets, and two loose row labels, ``old'' and ``new.'' Label both faces; color alone is insufficient. Use tiles at least 15 mm wide. Allow 16 tile-widths plus working room per row (about 30 cm for 15 mm tiles). Separate child-pairs with small gaps; use markers locally. The largest build keeps 8 old and 16 new tiles at once. The printed boxes are references, not exact-fit tile mats.
+
+\textbf{Totals:} for the target table, one kit and two spare dividers: 36 tiles, 6 dividers, 2 pencils, 1 key, 2 labels, 2 blank sheets. With the third-grade table added, prepare three kits and two shared spare dividers: 108 tiles, 14 dividers, 6 pencils, 3 keys, 6 labels, 6 blank sheets. Use a kit for the launch; no extra demonstration set is needed.
+
+Print \textbf{students.pdf pages 1--4}, US Letter, single-sided at 100\%: four sets for grades 4--5 (one per child plus one spare, 16 sheets). Add five sets for third graders (20 more sheets) if participating. Print one four-page guide per participating adult. Keep pages 2--4 back and issue one page at a time. No cutting or taping is required; isolate crops with fingers or spare paper. If cutting spare paper strips, supply one pair of scissors per active table. Before use, rehearse one growth, one undo and one clipped crop with the actual tiles. \textbf{Physical rehearsal and classroom piloting remain unperformed.}
+
+\newpage
+\head{The hour}
+\textbf{0--5 minutes:} running around. \textbf{5--8:} short launch with the group. Put \word{BA} in the old row and let children handle the tiles. Say: ``Each old tile makes one pair below it. A makes AB; B makes BA. Keep the old row until the checker agrees.'' Replace the old B with a separate BA pair. Ask one child to put AB below the old A. Point to the two parents and read the new \word{BAAB}. Say: ``Stop. We have used each old tile once.''
+
+\textbf{8--20:} Problems 1--2. \textbf{20--32:} Problem 3. \textbf{32--45:} Problem 4 and, if ready, 5. \textbf{45--53:} Problem 6, a return to unfinished work, or the fallback below. \textbf{53--60:} sharing and clearing up. Problem 7 can be a later visit; do not squeeze its proof into the final minute. Pause for movement if needed. These are planning estimates, not tested timings.
+
+\textbf{Fallback for either participating table:} a child makes a 4- or 8-tile genuine row, then either leaves it alone or flips exactly one tile. The partner checks whether it is the claimed whole row and gives a reason; swap roles. With three children, the referee records the maker's choice privately and checks the verdict. If growing itself is tiring, take turns making one legal replacement from the existing row. End with: ``Which strip looked possible at first, and what finally settled it?''
+
+\problem{1}{Core, student page 1}
+Children grow from A to 16 tiles, keeping old and new rows separate, then collect every neighboring triple. The full growth history is
+\chain{\A\ \longrightarrow\ \mathrm{AB}\ \longrightarrow\ \mathrm{ABBA}\ \longrightarrow\ \mathrm{ABBABAAB}\ \longrightarrow\ \mathrm{ABBABAABBAABABBA}.}
+The complete answer is \word{AAB, ABA, ABB, BAA, BAB, BBA}. The eight blank recording slots do not mean eight answers. A complete check slides a three-tile window one place at a time through the 14 possible starting places; repeated triples are recorded only once.
+
+\hint{1. ``Which old tile are you replacing? Can your partner point to it?'' 2. Slide two fingers around three neighboring tiles, moving one place each time. 3. Sort the recorded triples by first letter and check duplicates.}
+
+\textbf{If struggling:} stop at 8 tiles, preserve that row, and finish the 16-tile build together without taking over choices. All six triples already appear at length 8. Do not demand repeated copying of the growth history; one checked final row and a collection of triples suffice.
+
+\problem{2}{Core, student page 1}
+Neither \word{AAA} nor \word{BBB} can appear at any generation. Every stretch of three tiles contains a complete true replacement pair: either its first two tiles or its last two. That pair is AB or BA, so those two letters differ. A child can point to the complete pair in each of the two positions of a three-tile window.
+
+\hint{1. ``Mark the pairs you just made. Where could three equal tiles sit?'' 2. Move a three-tile window so it starts first on a pair, then halfway through one. 3. ``In either place, is one whole pair trapped inside your window?''}
+
+\textbf{If struggling:} keep the pair markers and ask only about one attempted \word{AAA}. Skip the verbal generalization for now; record whether the child checked examples or explained both positions.
+
+\problem{3}{Core, student page 2}
+These are \emph{whole-row} claims, so pair from the left edge with no lone tiles. Only the first claim is right. In printed order, the settling records are:
+\begin{enumerate}
+\item \word{ABBABAAB} $\to$ \word{ABBA} $\to$ \word{AB} $\to$ \word{A}: genuine.
+\item \word{ABBAABBA} $\to$ \word{ABAB} $\to$ \word{AA}: the pair AA cannot decode.
+\item \word{ABBABBAB}: its first split is \word{AB | BA | BB | AB}; BB fails immediately.
+\item \word{ABBABAABABBABAAB} $\to$ \word{ABBAABBA} $\to$ \word{ABAB} $\to$ \word{AA}: fails at AA.
+\end{enumerate}
+\hint{1. ``Show which two tiles came from the first old tile.'' 2. Decode one pair and compare with the replacement key. 3. ``Does one successful undo reach A, or must you check an older row too?''}
+
+\textbf{If struggling:} start with claims 1 and 3, then 2 and 4. One bad pair settles a rejection. The worked example decodes to \word{BAB}; it makes no whole-row claim.
+
+\newpage
+\head{Hidden seams and forged strips}
+\problem{4}{Core, student page 3}
+Children try both possible pair alignments. Parentheses below mark lone end tiles; bars separate complete pairs and end pieces. Decode \emph{only complete pairs}. The full list, in page order, is:
+
+\renewcommand{\arraystretch}{1.22}
+\begin{tabularx}{\linewidth}{@{}p{25mm}X p{35mm}@{}}
+\textbf{Crop} & \textbf{All legal pairings} & \textbf{Old tiles kept} \\\hline
+\word{ABA} & \word{AB | (A)} \quad or \quad \word{(A) | BA} & \word{A} \quad or \quad \word{B} \\
+\word{BAABA} & \word{BA | AB | (A)} & \word{BA} \\
+\word{AABB} & \word{(A) | AB | (B)} & \word{A} \\
+\word{ABBAABBA} & \word{AB | BA | AB | BA} & \word{ABAB} \\\hline
+\end{tabularx}
+
+\textbf{Why complete:} either the first tile belongs to a pair, or it is lone. Each choice forces every later pair and the possible final lone tile. For \word{BAABA}, the other choice contains AA; for \word{AABB}, pairing at the first tile starts with AA; for \word{ABBAABBA}, leaving its first A alone starts with BB. Both choices work for \word{ABA}.
+
+\textbf{Important contrast:} \word{ABBAABBA} really is a genuine crop, even though Problem 3 rejects it as a whole row. Its kept parent \word{ABAB} is also a crop; it need not decode from its own left edge all the way to a single A. No contradiction arises from a cut edge or a lone tile.
+
+\hint{1. ``Could the cut have split the first pair? Try leaving the first tile alone.'' 2. ``Can equal neighbors belong to one replacement pair?'' 3. ``Once one pair is placed, can the next pair move independently?''}
+
+\textbf{If struggling:} compare \word{ABA} with \word{AABB}, then stop. Use movable tiles and markers; a child may dictate the retained parent instead of copying it. The worked crop \word{AABBA} has \word{(A) | AB | BA}, keeping \word{AB}.
+
+\problem{5}{Further, student page 3}
+No genuine five-tile crop permits two pairings. An equal neighboring pair must straddle a seam, so it fixes the alignment everywhere in that crop. A five-tile crop without equal neighbors would have to be \word{ABABA} or \word{BABAB}; both are impossible.
+
+\textbf{Why those two are impossible:} the first, third and fifth tiles have the same letter. They occupy the same half of three consecutive true child-pairs. If they are first halves, their parent letters are those letters; if second halves, their parent letters are the opposite letters. Either way the parent has AAA or BBB, forbidden by Problem 2. A child can extend the clipped end-pair with a tile to see the three equal parents. Adult help may be needed to account for the clipped pair.
+
+\hint{1. ``Try the two alignments on your chosen five tiles. What breaks one?'' 2. ``What would a five-tile strip with no equal neighbors look like?'' 3. For that alternating attempt, complete its clipped end-pair and inspect its three parents.}
+
+\textbf{Stopping point:} an explained seam in one crop is worthwhile. If children only test several crops, record a conjecture rather than an all-crops explanation. The proof above is the additional step.
+
+\problem{6}{Further, student page 4}
+\textbf{Repeating AB:} take the finite piece \word{ABABA}. It is forbidden by the preceding argument (\word{BABAB} also works).\par
+\textbf{Repeating ABBA:} take its first ten tiles, \word{ABBAABBAAB}. Its BB forces the split
+\chain{\mathrm{AB\ |\ BA\ |\ AB\ |\ BA\ |\ AB}\ \longrightarrow\ \mathrm{ABABA}.}
+If this ten-tile crop came from a genuine row, its five decoded letters would be a genuine parent crop. They are forbidden. This is a finite certificate, with no discarded or invented endpoint. The eight-tile \word{ABBAABBA} alone is \emph{not} a certificate; it occurs genuinely.
+
+\hint{1. ``Mark a short piece of each repeating strip that you want to test.'' 2. ``Which seams are forced? What do the complete pairs become?'' 3. If eight tiles give only \word{ABAB}, extend the piece by one complete pair and decode again.}
+
+\textbf{If struggling:} settle the AB strip and postpone the other. Avoid arguing that a strip is false merely because it fails to shrink to A: that test applies to the whole-row claims in Problem 3.
+
+\newpage
+\head{The endless word and the adult proof}
+\problem{7}{Adult-supported continuation, student page 4}
+\textbf{Answer: no.} Let children propose block lengths and show how marked seams behave under their shifts. Such experiments motivate the proof below; they cannot settle every length.
+
+\hint{1. ``If this tail really repeats, what happens to an equal neighboring pair when you move it one full block?'' 2. ``What happens to its seam after an odd shift?'' 3. ``If the shift is even, keep the first tile in each true pair. How big is the shift now? Can you keep halving forever?''}
+
+\textbf{Readiness and stopping:} two marked copies of a short row can demonstrate a shift. If arbitrary lengths or the difference between a patch and an infinite tail is unclear, save this for another visit. Distinguish an adult-supplied proof from a child's explanation.
+
+\head{Mathematics behind the week}
+\textbf{Definition and self-similarity.} Since $\mu(\A)$ begins with A, applying $\mu$ preserves the prefix relation; every generated row begins with the preceding one. The limiting word satisfies $T[2n]=T[n]$ and $T[2n+1]=\overline{T[n]}$ for $n\geq0$, where the bar exchanges A and B. Thus reading the first letter of every true child-pair recovers $T$ itself. This follows from the defining replacement, not a long inspection.
+
+\textbf{Local facts.} A three-tile window always contains an unequal child-pair. An alternating five-tile window forces three equal consecutive parents in either alignment (Problem 5). This proves the four local bans. An equal pair then fixes the seams in every genuine five-tile crop.
+
+\textbf{No eventual period.} Suppose $T[n+p]=T[n]$ whenever $n\geq N$, for positive $p$.
+\begin{enumerate}
+\item Equal neighbors occur arbitrarily far out: each aligned four-tile block is $\mu^2(\A)=\word{ABBA}$ or $\mu^2(\B)=\word{BAAB}$, whose middle letters agree. Such an equal pair starts at an odd index.
+\item If $p$ is odd, choose such a pair entirely beyond $N$. Shifting it by $p$ preserves equality and puts its first letter at an even index, inside a true child-pair. But true child-pairs are unequal. Contradiction.
+\item If $p=2q$, then for every sufficiently large $n$,
+$T[n+q]=T[2n+2q]=T[2n]=T[n]$.
+So $q$ is an eventual period of the same word; a changed finite starting point is harmless. Repeatedly halve an even positive period. A positive integer eventually becomes odd, contradicting step 2.
+\end{enumerate}
+This proves Problem 7 for every proposed period and every finite discarded beginning.
+
+\textbf{Where next.} Compare substitutions with ambiguous inverses, or investigate recurring finite patches. Order enforced across scales also matters in aperiodic tilings; this one-dimensional proof establishes no geometric tiling theorem.
+
+\head{Source lineage}
+Classical substitution facts; independently arranged packet instances and seam/period-halving presentation. Researcher-authored references:
+\begin{itemize}
+\item Richard G. Swan, \emph{The Morse Sequence}, Lemma 2.2: \url{https://www.math.uchicago.edu/~swan/expo/Morse.pdf}
+\item Carl D. Offner, \emph{Repetitions of Words and the Thue-Morse sequence}, \S3: \url{https://www.cs.umb.edu/~offner/files/thue.pdf}
+\item Jean-Paul Allouche and Jeffrey Shallit, \emph{The ubiquitous Prouhet-Thue-Morse sequence}, \S\S2--4: \url{https://cs.uwaterloo.ca/~shallit/Papers/ubiq15.pdf}
+\end{itemize}
+
+\head{After the session}
+Record each table's stopping point, what children tried or said, a drawing or claim worth keeping, and any adult support. Label each claim \emph{tried}, \emph{guessed}, \emph{checked in some cases}, or \emph{explained}. Note handling or reading bottlenecks and where to resume. Classroom use remains unpiloted.
+\end{document}
