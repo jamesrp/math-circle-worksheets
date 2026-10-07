@@ -1,0 +1,13 @@
+# Mathematical destination and limits
+
+Use the min-plus convention throughout. The tropical line with junction (a,b) is the set where the minimum of x-a, y-b and 0 is attained at least twice. The three possible minimal ties give exactly the east ray (a+t,b), north ray (a,b+t), and southwest ray (a-t,b-t), for t>=0. A tie between larger values does not qualify. A common constant added to all three expressions leaves the line unchanged. All real points count, not just integer grid dots.
+
+Two distinct such lines always meet. Their intersection is exactly one point except in three cases: equal x-coordinates give a common north ray starting at the higher junction; equal y-coordinates give a common east ray starting at the rightmost junction; equal x-y values give a common southwest ray starting at the more southwesterly junction. Identical junctions give the same entire three-armed line.
+
+An elementary proof uses the rectangle whose opposite corners are the junctions. For northwest/southeast junctions, the northwest east arm and southeast north arm meet at the northeast corner. For southwest/northeast junctions, follow the northeast junction's southwest arm until it reaches the left or bottom rectangle side. Unequal width and height give one meeting; equality gives the diagonal shared ray. Zero width or height gives the vertical or horizontal overlap. Checking the other ray pairs proves no additional meetings. A finite drawing can hide the intersection; the arms continue indefinitely.
+
+For a fixed point P, possible junctions lie on the reversed fan pointing west, south and northeast from P. A line passes through distinct P and Q exactly when its junction belongs to both reversed fans. Reflecting those fans through the origin reduces their intersection to the preceding theorem. Thus one line passes through an unaligned pair, and infinitely many pass through pairs aligned horizontally, vertically or along slope 1. Coincident targets impose only one condition and are excluded from the distinct-point theorem.
+
+The full six-sector algebraic classification and all-real proof are included in `checks/independent_check.py`. The final student data include both unequal southwest/northeast cases and an off-window example meeting at (10,7). The adult guide gives every exact final answer and diagram-supported proof. Independent exact-rational regressions supplement the proof; a finite grid search does not prove an all-real claim.
+
+These are ordinary set intersections. A shared ray is genuinely infinite, not secretly one stable intersection point. Stable intersection, multiplicity and general tropical Bezout theorems are outside this prototype. Physical printing/tracing and classroom age fit remain untested.

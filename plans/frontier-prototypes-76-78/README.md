@@ -20,6 +20,6 @@ Research/outlines and editable-source milestones are checkpointed before long re
 
 - Week 76: complete reviewed student/adult pair and extracted-source reconstruction; organizer review pending.
 - Week 77: five-page revised student packet, including a new equivalence/order investigation; adult guide and final release checks in progress.
-- Week 78: revised student/adult pair; one guide wording clarification and final release checks in progress.
+- Week 78: complete reviewed student/adult pair, parameter-domain clarification rechecked, and extracted-source reconstruction; organizer review pending.
 
 The print index is [Weeks 76–78](../../lowell-math-circle-year-2/WEEKS-76-78-PROTOTYPES.md). Individual research notes preserve pre-production reasoning and finite checks; final release evidence is in each week’s release-checks.json. Physical preparation/handling and classroom piloting remain unperformed.

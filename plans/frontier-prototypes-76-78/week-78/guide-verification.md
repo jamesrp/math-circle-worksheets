@@ -19,8 +19,8 @@ The rectangle proof and reverse-junction construction supply the adult reasoning
 
 ## Final artifacts
 
-- `final/facilitator.pdf`: 4 US Letter pages, 179,431 bytes.
-- PDF SHA-256: `da98efdc88847f5cbafe741586f7c438a11f8093790dfe554594a01d834ac1bc`.
+- `final/facilitator.pdf`: 4 US Letter pages, 179,447 bytes.
+- PDF SHA-256: `1b22c5b28f6d0eb6d15661dcfe4346556246e17206c1b701dd83db79904c12d9`.
 - `final/guide-src/`: exactly `facilitator.tex`, `build.py`, `check_math.py`,
   and `README.md`; no external fonts, figures, papers, format files or prompts.
 - Student pages were read and rendered, not edited. Current student PDF SHA-256:
@@ -79,3 +79,12 @@ No downloaded papers or borrowed figures are packaged. Physical handling and
 material rehearsal, classroom piloting and observed learning outcomes remain
 unperformed. No commits, pushes, student edits or additional production stages
 were undertaken in this guide-writing stage.
+
+## Post-pair-review wording correction (2026-10-07)
+
+PR78-01 is resolved: page 1 now states “Coordinates may be any real numbers; t
+is any nonnegative real number.” The current artifact hash and size above are
+for this revision. The checker, fresh source-ZIP rebuild and visual inspection
+of all four pages passed again; the student PDF and all five source files remain
+byte-for-byte unchanged. Pages 2–4 also render identically to the prior guide.
+See `guide-revision.md` for exact prior/current hashes and evidence.
