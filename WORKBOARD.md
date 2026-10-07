@@ -4,7 +4,7 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 
 | Item | Owner | Branch | State |
 |---|---|---|---|
-| Ten geometric-group-theory prototypes, Weeks 66–75 | dot | `dot/ggt-prototypes-2026-10-06` | in progress: ten reviewable, unpiloted prototypes; checked batches to main authorized October 6 |
+| Ten geometric-group-theory prototypes, Weeks 66–75 | dot | `dot/ggt-prototypes-2026-10-06` | done: ten reviewable prototypes, PDFs, theorem-first guides, portable sources and digital checks; organizer review pending; unpiloted |
 | Restored octagon worksheet drafts, Weeks 64–65 | dot | `dot/octagon-recovery-2026-10-06` | done: restored sources and digital checks; main integration authorized October 6; unpiloted |
 | Work board and claim rule (plan item 1) | Claude, Review card calibration thread | `main` | done |
 | Review card format, calibrated on Weeks 1, 2 and 15; mark Week 15 piloted (plan item 3) | Claude, Review card calibration thread | `claude/review-card-calibration-2n0xch` | done: [plans/review/](plans/review/README.md) |

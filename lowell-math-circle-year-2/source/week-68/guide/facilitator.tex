@@ -1,0 +1,59 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=.7in,headheight=16pt,headsep=16pt,footskip=25pt]{geometry}
+\usepackage{fancyhdr,amsmath,amssymb,booktabs,array,hyperref}
+\pdfmapfile{+cm.map}\pdfmapfile{+cmextra.map}\pdfmapfile{+symbols.map}\pdfmapfile{+latxfont.map}
+\hypersetup{hidelinks}\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4.5pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 68 / How many ways out / Adult guide}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 68 / GGT68-FAC-v1}
+\fancyfoot[R]{\footnotesize\thepage}
+\newcommand{\heading}[1]{\par\vspace{5pt}{\large\bfseries #1}\par}
+\begin{document}
+\heading{Mathematical destination}
+Remove finitely many vertices and every road incident to them. A \textbf{forever piece} is a connected component that reaches arbitrarily far, not merely a piece touching an arrow in the drawing. The model is an infinite graph; each page is a finite window with a specified continuation.
+
+The two-way line and the two-rail endless ladder have \textbf{two ends}: at most two forever pieces can remain after any finite deletion, and two can be attained. The full square grid has \textbf{one end}: every finite deletion leaves exactly one forever piece, though finite pockets may be trapped. The endlessly branching tree has \textbf{infinitely many ends}: deleting the center and all vertices within $r$ roads leaves $3\cdot2^r$ forever pieces. In particular the counts for $r=0,1,2,3$ are \textbf{3, 6, 12, 24}.
+
+\textbf{Why these facts hold.} On the line and ladder, all blockers lie between two far-out columns, leaving two connected tails. Every forever piece must contain at least one tail. On the grid, all blockers fit inside a box, and the exterior connects around it. In the tree, each branch continues and splits into two without ever rejoining. The detailed arguments below justify the conclusions about infinity; finite drawings alone do not.
+
+\textbf{What children discover.} A barrier can create finite pockets without separating ways to escape forever. Counting arrows is unreliable: several arrows may be joined outside the window. Children experiment and conjecture first, then explain what remains true however far the pattern is extended. An end records a persistent direction of escape as finite regions are removed; it is not the count of components for one arbitrary placement. The tree investigation shows there is no finite bound, without claiming to enumerate its individual ends.
+
+\textbf{Prerequisites and band map.} Grades 3--5 enter by placing blockers and tracing routes. Children need to recognize connected pieces and distinguish ``large but finite'' from ``keeps going.'' Adults may read and scribe. The box argument and arbitrary-radius tree rule are readiness-dependent older-table continuations. No K--1 version or classroom-tested age fit is claimed.
+
+\heading{Preparation and common launch}
+Per pair: \textbf{ten opaque blockers 6--8 mm across}, pencil, eraser, and four student pages. The smallest grid spacing is 10 mm at 100\% print size. Rehearse placing a blocker on one vertex without obscuring a neighboring one; verbally close every incident road. Print single-sided. Prepare three sets for two third-grade pairs and an older pair with a rotating referee, each table anchored by an adult. Ten blockers cover the tree through radius 2; radius 3 can be reasoned about or marked with Xs.
+
+Let children place and remove counters. Use the printed four-dot example: cover the upper-right vertex, identify its two closed roads, and trace the two surviving roads as one connected piece. Mark X before removing the counter so the attempt remains recoverable. One partner blocks, the other traces; then swap. Explain the continuation arrows before asking for forever pieces.
+
+\textbf{First route.} Spend about 10 minutes on the line, then 15--20 on the ladder. Stop when pairs can separate a trapped pocket from two infinite tails. The grid and branching tree can be separate return visits; finishing all eight problems is not an hour-long requirement. These are planning estimates.
+
+\heading{Numbered answers and hints}
+\textbf{Problem 1.} The maximum is \textbf{2} with one, two, or four blockers. Every placement on distinct line vertices leaves the left and right tails. Any surviving pieces between the first and last blockers are finite. Adjacent blockers enclose no open piece. \emph{Hint:} extend the same picture several steps farther; which pieces can keep growing?
+
+\textbf{Problem 2.} Number the nine visible dots 1--9 from left to right. Block \textbf{2, 4, 5, 7}. Dots \textbf{3 and 6} are exactly the two trapped pieces; the left and right tails still count as two forever pieces. Other placements work. Do not count a covered dot or the empty space between adjacent blockers as a component.
+\newpage
+\heading{Answers continued and the reasons they hold}
+\textbf{Problem 3.} One blocked ladder dot leaves the graph \textbf{connected}: use the other rail to bypass it. With two blockers, cover both dots of one rung. This makes \textbf{two forever pieces}, since no road crosses that blocked column. For a connected contrasting example, cover two adjacent dots on the same rail; the opposite rail and surviving rungs still join every open dot. \emph{Hint:} make an actual detour before deciding that a gap in one rail is a separation.
+
+\textbf{Problem 4.} \textbf{No.} All four blockers lie between some leftmost and rightmost column. Beyond each side is one intact, connected ladder tail. The intervening ladder has finitely many vertices, so every forever piece reaches a tail. Each tail belongs to one component, giving at most two forever pieces.
+
+Four blockers can make \emph{three components}, but that is a different count: block both vertices at each of two rungs with one intact rung between. The middle rung is a finite two-dot pocket; the two outside pieces are infinite. \emph{Hint:} where could a third forever piece go after passing all blocked columns? Far-away rungs are still present.
+
+\textbf{Problem 5.} On the left, leave a dot open and block its four immediate neighbors: above, below, left, right. This isolates that dot. All other open dots belong to \textbf{one forever piece}; the isolated dot does not count. On the right, \textbf{one forever piece} contains every open dot, including P and Q.
+
+A concrete right-grid route is \textbf{3 up, 4 right, 3 down}, going around the top of the five-X wall. It has \textbf{10 steps}; the reflected bottom route also works. Although shortest is not requested, 10 is optimal: a route must cross the wall's column at least three rows above or below P, requiring six vertical steps and at least four horizontal steps. A route beyond the printed window is legal too. \emph{Hint:} a finite wall has ends; trace around one instead of treating the edge of the page as a wall.
+
+\textbf{Problem 6.} \textbf{No finite collection can produce two forever pieces.} Enclose every blocker in a square of grid vertices. Its exterior is connected: given two exterior points, choose a still larger square containing both. From each point, move outward along a coordinate already outside the blocked box to this larger boundary, then join them along the boundary. Every infinite component contains a point in this exterior, since the box has only finitely many vertices. All such points are connected, so there is exactly one infinite component. Finite pockets inside the box are allowed.
+
+\emph{Hint sequence:} extend the barrier past the paper; ask whether all its \emph{finitely many} blockers fit in a box; then offer the exterior route. Unsuccessful experiments alone cannot prove impossibility.
+
+\textbf{Problem 7.} Covering only the center leaves \textbf{3} forever pieces. Covering the center and its three neighbors leaves \textbf{6}. Covering through two roads leaves \textbf{12}. These stages use \textbf{1, 4, and 10 blockers} in total. Count surviving branches, not removed vertices. Each branch is infinite by the stated continuation rule, and different branches cannot reconnect because the model has no cycles. \emph{Hint:} follow one of the three initial branches and see what happens when its first remaining vertex is removed.
+
+\textbf{Problem 8.} Blocking through three roads leaves \textbf{24} forever pieces and would cover \textbf{22 vertices}. Each further radius doubles the count: each outgoing branch is replaced by its two child branches. Starting from 3 proves $3\cdot2^r$ by repeated doubling. This produces arbitrarily many separate forever pieces using a finite blocked ball, hence infinitely many ends. It does not mean the tree has only 24 ends, or that all ends are counted by the arrows currently visible.
+
+\heading{Sources and checking limits}
+Dru\c{t}u and Kapovich, \href{https://www.math.ucdavis.edu/~kapovich/EPR/ggt.pdf}{\emph{Geometric Group Theory}}, $\S$9.1, especially Definition 9.3 and Exercise 9.4, printed pp.\ 287--289 (PDF 307--309), supplies the ends and unbounded-component framework. The blockers, small maps, and prompts are authored specializations.
+
+The independent standard-library checker verifies the line example, contrasting ladder deletions, grid pocket and 10-step wall route, and branching counts. Its finite windows do \emph{not} prove assertions about infinity; the tail, exterior, and continuing-branch arguments do. Final student pages and every guide page were digitally inspected. This remains an \textbf{unpiloted prototype with no physical setup rehearsal}; fit and pacing need testing.
+\end{document}

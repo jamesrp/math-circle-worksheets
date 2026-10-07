@@ -1,0 +1,11 @@
+# Week 72 student prototype
+
+One five-page shared Grades 4–5 independently reviewed prototype awaiting organizer review, unpiloted. Four investigation pages are followed by one reusable apparatus page. Page 1 needs addition of small nonnegative integers and ordered E/N cards. From page 2, addition and subtraction of signed integers are genuine prerequisites; one reusable extendable memory strip and column labels externalize the state but do not teach signed arithmetic. The last page's unrestricted construction is readiness-dependent. Partners operate the position and memory separately, preserve the ordered route, and swap roles. Physical materials and classroom use have not been rehearsed.
+
+Build with `python3 build.py` or `python3 build.py --out /chosen/directory`; requires Python 3 and pdfLaTeX/TikZ with geometry, fancyhdr, amsmath, amssymb, array and Latin Modern. No network or repository files are needed. `students.tex` is the editable entrypoint. Run `python3 check_math.py` to check the non-task EENE example, all six two-E/two-N routes, all 24 four-card loops, translated loops, the L-shaped loop and signed-memory constructions.
+
+Primary reference: Moon Duchin and Christopher Mooney, *Fine asymptotic geometry in the Heisenberg group*, PDF p. 3, https://arxiv.org/pdf/1106.5276 . The source uses symmetric exponential height coordinates. This packet's memory is the integral convention sum(x times vertical step), whose symmetric height is memory minus xy/2. For closed loops these agree. No source text is bundled.
+
+Digital QA: five final pages built, rendered and inspected individually at 120 dpi; isolated source-only rebuild and exact mathematical checks pass, with no overfull box warnings. The build writes `students.pdf` and `build.log` into the requested output directory.
+
+Page 5 supplies the single memory strip used beside every problem: integers -10 through 10 at 7.2 mm spacing, two blank matching extensions, and eight each of E/W/N/S cards. Match one tick when joining an extension and continue numbering in the appropriate direction. Prepare the cuts before the session, supply tape and a small memory marker, and allow further same-spacing paper strips. Long words can be recorded as letters rather than requiring unlimited move cards. Physical marker/strip handling has not been rehearsed.

@@ -1,0 +1,208 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=.7in,top=.78in,bottom=.7in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,hyperref}
+\hypersetup{hidelinks}
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 75 / Twists on a cylinder / Adult guide}
+\fancyfoot[L]{\small Bellingham Math Circle / Week 75 / GGT75-FAC-v1}
+\fancyfoot[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\setlength{\headheight}{14pt}
+\newcommand{\sect}[1]{\par\vspace{5pt}{\large\bfseries #1}\par}
+\newcommand{\prob}[1]{\par\vspace{3pt}\textbf{Problem #1}\par}
+
+\begin{document}
+\sect{The mathematics first}
+A cylinder surface is an annulus: $(\mathbb R/\mathbb Z)\times[0,1]$.
+Horizontal coordinate is measured in turns, so adding an integer returns to the
+same place. A route is a simple arc from the fixed mark A on the bottom rim to
+the fixed mark B on the top, with all other points strictly between the rims.
+The printed tasks use upward routes. Their winding is the signed number of seam
+crossings. In repeated rectangles, a lift starting at $(1/2,0)$ ends at
+$(1/2+n,1)$ exactly when the winding is the integer $n$.
+
+Winding cannot change during a continuous slide on the surface with both
+endpoints fixed. Upward routes with the same winding can be slid into each other.
+A full twist is the whole-surface map
+\[
+ T_k(\theta,t)=(\theta+kt\pmod1,t),\qquad k\in\mathbb Z.
+\]
+It fixes both rims pointwise, adds $k$ to every joining route's winding, and has
+inverse $T_{-k}$. Composition adds: $T_jT_k=T_{j+k}$. Thus a twist word's effect
+is its number of pluses minus minuses; its shortest equivalent word has that
+signed sum's absolute value as its length.
+
+For two simple joining routes of windings $a,b$ with \emph{these same fixed
+endpoints}, the smallest number of interior intersections is
+\[
+ i(a,b)=\max\{|a-b|-1,0\}.
+\]
+Exclude the shared endpoints; shared pieces and non-crossing touches are not
+allowed final comparisons. Arbitrary drawings may have extra intersections.
+A common twist preserves the minimum. Twisting only one route can increase,
+decrease or leave it unchanged. Children may discover a recoverable winding
+record, cancellation, and how a difference controls unavoidable crossings.
+
+\textbf{Who this fits.} One Grades 4--5 prototype for children ready to track
+signed crossings, transfer a route between a cylinder and repeated strips, and
+keep endpoints fixed. An adult may read or record. Sliding and lift arguments
+need a mathematically confident adult; the general lower bound is a later
+extension. There is no separate younger packet or classroom-tested age-fit claim.
+
+\sect{Materials and preparation}
+At the older three-child table, use a pair and rotating checker with one adult.
+Per pair: the four-page packet, one extra page 1 for cutting, two or three spare
+copies of page 2, two contrasting yarns about $60$ inches long for later high
+windings, removable tape, scissors, pencils and blank paper. Coil excess yarn;
+shorter pieces suffice for initial small-winding play.
+
+Print at actual size. The cut rectangle is $6$ by $2.4$ inches. Tape its left and
+right edges together without overlap; the dotted quarter-height lines should
+meet. Keep the cylinder still, with A and B vertically aligned away from the
+seam. Secure yarn at the geometric marks while leaving spare length beyond both
+ends. Rehearse feeding slack through the fastening without shifting either mark.
+If tape grips too tightly or the sleeve buckles, improve the fastening or keep
+a drawn route as the mathematical record. This physical operation is unrehearsed.
+
+\sect{Launch and a feasible first visit}
+Let children handle the tube and yarn. Trace the printed seam example: an exit
+through the right edge re-enters the left edge at the \emph{same height}, counting
+$+1$. Show a route with fixed A and B and let a partner check it. Demonstrate how
+one continues into the next repeated rectangle before giving out page 2.
+Spend the first visit on Problems 1--3: route building, recording and same-winding
+sliding may use the full hour. A useful stopping point is two different-looking
+routes sharing a winding and an explanation of why different windings cannot
+slide together. Save twist words and intersection minimization for a return visit
+or a pair already secure with the cylinder-to-strip bridge.
+\newpage
+\sect{Answers and optional hints}
+\prob{1}
+\textbf{All four requested windings exist.} In normalized repeated rectangles,
+draw the straight lift $x(t)=1/2+nt$, $0\le t\le1$, for $n=0,1,-1,2$.
+Project the route back to the cylinder by wrapping x modulo $1$. These are simple
+upward routes with signed seam totals $0,+1,-1,+2$. To change appearance without
+changing winding, add a small sideward bulge away from both endpoints.
+For example, $x(t)=1/2+nt+\tfrac14t(1-t)$ has the same endpoints.
+
+\textit{Hint:} count signed crossings as you travel from A to B, rather than
+counting every contact with the seam as a positive turn. Move a route slightly
+if it lies along the seam or merely touches it; the counting convention needs
+clear transverse crossings. A drawing or recorded lift is more reliable than
+remembering how the yarn was laid.
+
+\prob{2}
+\textbf{Winding $+2$ ends at B in copy 2; winding $-1$ at B in copy $-1$.}
+With A at $(1/2,0)$, the endpoints are $(5/2,1)$ and $(-1/2,1)$.
+For each winding, the straight and gently bulged lifts above give two examples.
+Every passage through a vertical copy boundary corresponds to a seam crossing;
+height stays unchanged when returning to the base rectangle.
+The copy endpoint records the net winding even for routes with extra opposite
+seam crossings. \textit{Hint:} ask the partner to point to the matching B copy
+before smoothing a drawn route.
+
+\prob{3}
+\textbf{Two distinct routes with the same winding can slide together; a pair
+with different windings cannot.} Use the straight and bulged winding-$+1$
+routes as the first pair, and windings $0,+1$ as the second.
+For upward lifts $x_0(t),x_1(t)$ with the same endpoint copy, the interpolation
+$(1-s)x_0(t)+sx_1(t)$, $0\le s\le1$, is an explicit slide. Height t remains
+unique on each route, so no route crosses itself; endpoints remain fixed.
+
+During any continuous fixed-endpoint slide, the lifted top endpoint moves
+continuously but must always be one of the separated B copies. It cannot jump
+from one copy to another. This proves winding invariance and the impossibility
+for different windings. A different-looking route is not necessarily a different
+winding. \textit{Hint:} ``Which B copy would its endpoint have to reach?''
+
+\prob{4}
+\textbf{Words have the same effect exactly when their signed sums agree.}
+From winding $0$, a word with p pluses and m minuses ends at winding $p-m$.
+Its shortest replacement is $p-m$ pluses if positive, $m-p$ minuses if negative,
+and the empty word if zero. Each twist changes winding by only $1$, so fewer
+than $|p-m|$ twists cannot suffice; repeating the needed sign attains it.
+For examples, $++-$ has winding $1$ and reduces to $+$;
+$+--$ reduces to $-$; $+--+$ reduces to no twists.
+
+The displayed shifts are fractions of a full turn: at heights
+$0,1/4,1/2,3/4,1$, a plus twist shifts by those same turn amounts.
+At the top a full turn fixes every point modulo $1$.
+Adding shifts proves $T_jT_k=T_{j+k}$ on the whole surface, so cancellation
+works on every route. Do not physically rotate a marked rim to imitate this map.
+
+\prob{5}
+\textbf{Any word with three pluses and three minuses works}, such as $+++---$.
+It has net shift zero, so composition is $T_0$, the identity, regardless of the
+starting winding. Conversely, a length-six word has net zero only if it contains
+three of each sign. There are $\binom63=20$ such words if children choose to
+catalog them. Trying each possible starting route is unnecessary because the
+same signed sum is added to all of them.
+\newpage
+\prob{6}
+\begin{center}
+\begin{tabular}{@{}ccccccc@{}}\toprule
+Windings & $(0,1)$ & $(0,2)$ & $(0,3)$ & $(-1,1)$ & $(-1,2)$ & $(2,4)$\\
+Fewest interior crossings & 0 & 1 & 2 & 1 & 2 & 1\\\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Construction.} For unequal windings use straight lifts
+$(1/2+at,t)$ and $(1/2+bt,t)$. Their projections meet at an interior height
+exactly when $(a-b)t$ is an integer. For $d=|a-b|\ge1$, those heights are
+$1/d,2/d,\ldots,(d-1)/d$, giving $d-1$ crossings. They are distinct interior
+points and genuine crossings. When $a=b$, put one route slightly alongside the
+other, with the sideward gap shrinking to zero only at A and B. There are then
+zero interior crossings; laying identical yarns on top of each other is not a
+valid zero-crossing answer.
+
+\textbf{Why no drawing can do better.} For upward lifts, the horizontal
+difference of the two routes varies continuously from $0$ to $b-a$. It must
+attain each integer strictly between those values. At every such height the
+projected routes meet, and different attained integers need different heights.
+Thus at least $|a-b|-1$ interior intersections are forced if the difference has
+absolute value at least $2$. For differences $0$ or $1$, zero is the lower bound.
+
+The same bound holds even for proper simple arcs that wiggle up and down.
+Cut along the first arc to form a rectangle, straighten its two cut edges, then
+reglue. This is a boundary-fixing homeomorphism sending it to a vertical arc;
+the other arc's relative winding becomes $b-a$. In repeated copies, the first
+arc's lifts are integer-spaced vertical barriers. A lift of the second must cross
+each barrier strictly between its starting and ending copies. Simplicity prevents
+two such forced meetings from being the same projected interior point. Together
+with the construction, this proves the minimum rather than just a pattern in
+examples. This general cut-and-reglue argument can remain with the adult.
+
+\textit{Hint:} compare the two top copies in a repeated strip, or first test
+one nearly straight vertical route against a winding route. Do not announce
+the difference rule before children have minimized several contrasting pairs.
+
+\prob{7}
+\textbf{The minima are 4 for $(2,7)$ and 0 for $(5,5)$.} The general rule is
+$\max(|a-b|-1,0)$. Adding the same integer twist k replaces $(a,b)$ by
+$(a+k,b+k)$, leaving the difference and the minimum unchanged.
+A twist on only one route can increase, decrease or preserve the answer:
+$(0,2)\to(0,3)$ changes $1\to2$;
+$(0,2)\to(1,2)$ changes $1\to0$;
+$(5,5)\to(6,5)$ stays $0\to0$.
+
+\sect{Physical meaning and source limits}
+The rigid tube is a stationary strand-routing model. Lifting yarn to construct
+a new route is permitted; it is not a legal continuous surface slide and cannot
+prove two surface routes disjoint. Visible yarn overlaps represent intersections
+of their projected centerlines on the surface, not knot over/under information.
+No literal twisting paper sleeve is required. Keep fixed endpoints, rim marks,
+proper interiors and excluded shared endpoints throughout; changing them changes
+the question and can change the formula.
+
+Diana Davis, \emph{Billiards, Surfaces, and Geometry}, Chapter 4,
+\href{https://dianadavis.github.io/billiards-book.pdf}{Problem 111 and Figure 83, printed p.\ 111 (PDF p.\ 129)}, supplies related torus-shear and reassembly imagery.
+It does not give this fixed-endpoint annulus model or intersection formula;
+those are independently developed and proved here.
+
+\textbf{Review status:} matched to final four-page GGT75-S-v1 student pages.
+The independent checker covers the exact printed instances, twist words and
+rational composition tests; general results use the proofs above. The guide is
+built, rendered and visually checked. Physical preparation, surface sliding,
+yarn fit and classroom pacing remain unrehearsed and unpiloted.
+\end{document}

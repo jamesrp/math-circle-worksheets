@@ -1,0 +1,105 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=.72in,top=.73in,bottom=.70in,headheight=15pt,headsep=15pt,footskip=25pt]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern}
+\usepackage{amsmath,amssymb,tikz,array,fancyhdr,hyperref}
+\usetikzlibrary{arrows.meta}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 72 / A robot that remembers / Adult guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 72 / GGT72-FAC-v1}
+\fancyfoot[R]{\scriptsize\thepage}
+\renewcommand{\headrulewidth}{.3pt}\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{7pt}
+\newcommand{\sectiontitle}[1]{\par\vspace{4pt}{\large\bfseries #1}\par}
+\newcommand{\answer}[1]{\par\vspace{3pt}\textbf{Problem #1.} }
+\begin{document}
+\sectiontitle{The mathematics first}
+\textbf{The endpoint does not determine the robot's memory.} Its state is $(x,y,z)$: column, row, and signed integer memory. East/west change $x$ only. A north step adds the current column $x$ to $z$; a south step subtracts $x$. For a path beginning with memory zero,
+\[
+ z=\sum_{\text{vertical steps}}x\,\Delta y.
+\]
+For instance, EN and NE both end at $(1,1)$, but their memories are $1$ and $0$. The order of moves matters.
+
+\textbf{A closed simple lattice loop remembers signed area:} positive for counterclockwise traversal and negative for clockwise. Translating a closed loop does not change its memory. Repeated or self-crossing loops instead record algebraic area, counting orientation and repetitions; they do not generally record the unsigned area of their drawn union. The cancellation proof is on page 2.
+
+\textbf{Every integer memory is possible at the ring $(2,2)$.} A unit loop ENWS at O adds $1$ and returns to O; its reverse NESW adds $-1$. Repeat either as often as needed, then take NNEE to the ring with no further memory change. This is an arbitrary-integer construction, not an inference from a finite search.
+
+\textbf{Important convention.} For an \emph{open} path from the origin to $(x,y)$, the worksheet memory $z$ is not generally the signed area closed by a straight chord. That area is $z-xy/2$. This distinction matters when connecting the activity to Heisenberg geometry; it disappears for closed loops.
+
+\textbf{What children discover.} Different orders can leave different states at the same place; loops can change memory without changing position; orientation and area explain their values; repeatable loops give unbounded control. Exact experiments in Problems 1--3 motivate these facts. Children can explain with cards and unit squares without using the displayed formulas.
+
+\textbf{Entry and depth.} This shared Grades 4--5 prototype begins with small nonnegative additions. From Problem 2, signed columns and adding/subtracting negative numbers are genuine prerequisites. The strip supports bookkeeping but does not teach that arithmetic automatically. Keep a concrete Problem 1 route available; leave the all-integer explanation for a readiness-dependent continuation.
+
+\sectiontitle{Prepare and launch}
+\textbf{Per pair:} a robot counter, a distinct small memory marker, pencil, tape, blank paper, the five student pages, and a prepared apparatus sheet. Pre-cut page 5 into the $-10$ to $10$ memory strip, two extensions and 32 move cards (eight each of E/W/N/S). Print at actual size: ticks are $7.2$ mm apart and cards are $1.8$ cm square. A large marker should not hide several ticks. Write longer routes as ordered letters.
+
+Overlap one tick when adding an extension: to the right, label $10,11,\ldots,20$; to the left, $-20,\ldots,-10$. Keep the old $10$ or $-10$ aligned with its duplicate. More paper extends the line further; its printed ends are not limits on memory. Use the same loose strip beside every task page.
+
+\textbf{Common launch, about 5 minutes.} Let partners move both markers, then replay the printed EENE demonstration: after EE, position $(2,0)$ and memory $0$; after N, $(2,1)$ and memory $2$; after E, $(3,1)$ and memory still $2$. Have one child move and the other check memory, then swap. At the older table, the third child can be rotating referee. Keep the route visible so errors can be replayed.
+\newpage
+\sectiontitle{A manageable route and the first answers}
+\textbf{First visit:} spend 10--15 minutes making and organizing Problem 1 routes, then use Problem 2 if both partners can operate the signed strip. Pool the three possible memories and stop with a comparison of a loop and its reverse. Problem 3 deserves a fresh block of exploration; Problem 4 can be a return visit. Do not let the adult become the only memory operator.
+
+\textbf{Physical rehearsal still needed.} Try an extension on each side and a north/south pair on a negative column. At column $-2$, N changes memory $0$ to $-2$ and S brings it back to $0$ by subtracting $-2$. Check that tick spacing, taped overlap and role-swapping work with the actual materials. No physical rehearsal or classroom pilot has occurred.
+
+\answer{1} There are \textbf{six distinct routes}. All end at $(2,2)$, with five different possible memories:
+\begin{center}\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}cccccc@{}}
+EENN & ENEN & ENNE & NEEN & NENE & NNEE\\\hline
+$4$ & $3$ & $2$ & $2$ & $1$ & $0$
+\end{tabular}\end{center}
+For completeness, a route is determined by choosing which two of its four positions hold E. The possibilities are $12,13,14,23,24,34$; the other positions are N. This gives exactly the six words above. Swapping identical E cards is not a new route.
+
+\textit{Hint:} ``How could you tell whether a route is new without walking it again?'' If useful, sort by the first card, then the next. A child's complete card collection is a suitable explanation.
+
+\answer{2} Exactly \textbf{$-1,0,+1$} are possible. Witnesses are NESW for $-1$, EWNS for $0$, and ENWS for $+1$. Among all 24 orders, the counts are $4,16,4$, respectively; children need not list all orders to prove the memory range.
+
+Only the N and S steps change memory, giving $z=x_N-x_S$. With just one E and one W, the visited columns are contained either in $\{0,1\}$ or in $\{-1,0\}$, according to which horizontal move comes first. Their difference is therefore only $-1$, $0$ or $1$, and the three witnesses attain them all.
+
+\textit{Hint:} compare a loop with the same loop walked backward. To investigate zero, try immediately undoing a move. Keep negative-column arithmetic tied to the printed column, not to the direction the robot faces.
+
+\answer{3} Each of the three $2$-by-$1$ rectangles gives \textbf{$+2$ counterclockwise, $-2$ clockwise}. The L outline gives \textbf{$+3$ counterclockwise, $-3$ clockwise}. Record arrows so the signs are interpretable.
+
+For a rectangle whose left column is $a$, the counterclockwise trip EENWWS adds $(a+2)-a=2$. The three printed placements give $2-0$, $4-2$ and $(-1)-(-3)$, all equal to $2$. Reversing the route negates every contribution. For the L route EENWNWSS the upward contributions are $2+1$ and the two downward steps are on column $0$, leaving $3$.
+
+\textbf{Why area appears.} One counterclockwise unit square with left column $a$ contributes $(a+1)-a=1$. Tile a simple lattice region by unit squares and add their boundary contributions: every internal edge occurs in opposite directions and cancels. Only the outer loop remains, contributing one per square. Reverse it to change the sign. Translating a closed loop horizontally by $h$ adds $h\sum\Delta y=0$; vertical translation never changes column numbers.
+
+\textit{Hint:} ``What changed in the two vertical contributions when you slid the rectangle?'' For a more complicated loop, ask whether repeated or oppositely oriented regions should count again or cancel before calling memory ``area.''
+\newpage
+\sectiontitle{Controlling memory and the deeper connection}
+\answer{4} Many routes work. Two short witnesses, both entirely within the printed board and initial memory strip, are:
+\begin{center}\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}lll@{}}
+Wanted memory & Route & Memory at successive vertical moves\\\hline
+$7$ & EEEENWNW & $4$, then $7$\\
+$-3$ & NNNENESS & $0,0,0,1,-1,-3$
+\end{tabular}\end{center}
+Both use eight moves and finish at $(2,2)$. Eight is only a convenient witness length here; the problem does not ask for shortest routes. For the negative example, after NNNEN the robot is at $(1,4)$ with memory $1$; the final E moves to column $2$, where the two S moves subtract $2$ each.
+
+\textbf{Every integer, with a uniform plan.} For a desired integer $k>0$, repeat ENWS at O $k$ times, then take NNEE. For $k<0$, repeat NESW at O $-k$ times, then take NNEE. For $k=0$, take NNEE directly.
+
+Every unit loop returns to O while changing only memory by $1$ or $-1$. The final NNEE has both N moves on column $0$, so it changes memory by $0$. All these constructions remain in the small square $0\leq x,y\leq2$ of the printed mat, and first reach the ring at the end. The route length and required memory strip may grow; the movement board need not grow.
+
+\textit{Hint sequence:} ``Can you change memory and get back to where you started?'' Then ``Can you repeat that without changing its effect?'' Let children decide which returning route to use before suggesting the unit loop.
+
+\sectiontitle{Adult mathematical extension}
+The state law is the integer Heisenberg law
+\[
+(x,y,z)(a,b,c)=(x+a,\ y+b,\ z+c+xb).
+\]
+It is ordinary multiplication of the matrices
+$\left(\begin{smallmatrix}1&x&z\\0&1&y\\0&0&1\end{smallmatrix}\right)$,
+so it is associative. Appending E/W/N/S on the right gives exactly the worksheet rules. States $(0,0,k)$ commute with every state: loop memory is an extra \emph{central} coordinate. No matrix vocabulary is needed for the children's investigation.
+
+\textbf{Do not substitute symmetric height for memory.} Duchin--Mooney use the coordinate $t=z-xy/2$, with law
+\[
+(x,y,t)(a,b,s)=(x+a,\ y+b,\ t+s+(xb-ya)/2).
+\]
+Thus their upper-right matrix entry is $t+xy/2$, which is the worksheet's integer memory $z$. For EENN, the endpoint is $(2,2)$, memory is $4$, and symmetric height is $2$. A straight closing chord contributes $-xy/2$ to $\int x\,dy$, explaining the difference. For a loop at the origin, the two conventions agree. For repeated/self-crossing loops, signed area includes multiplicity; two identical unit loops remember $2$ even though the drawn union has area $1$.
+
+\sectiontitle{Source and verification}
+Moon Duchin and Christopher Mooney, \href{https://arxiv.org/pdf/1106.5276}{\emph{Fine asymptotic geometry in the Heisenberg group}}, \S1.1 and Lemma~1, p.~3; exponential-coordinate group law, p.~15. This is the Heisenberg/signed-area source; the finite card tasks and apparatus are authored specializations, with the convention conversion above essential.
+
+The independent checker verifies the numerical answers and finite samples of the identities. General claims rest on the proofs above. This guide matches five-page GGT72-S-v1. Digitally checked and unpiloted; signed-arithmetic independence and physical setup remain to be tested.
+\end{document}

@@ -1,0 +1,197 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=.7in,top=.78in,bottom=.7in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,hyperref}
+\hypersetup{hidelinks}
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 74 / Doubling elevators / Adult guide}
+\fancyfoot[L]{\small Bellingham Math Circle / Week 74 / GGT74-FAC-v1}
+\fancyfoot[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\setlength{\headheight}{14pt}
+\newcommand{\sect}[1]{\par\vspace{5pt}{\large\bfseries #1}\par}
+\newcommand{\prob}[1]{\par\vspace{3pt}\textbf{Problem #1}\par}
+\begin{document}
+
+\sect{The mathematics first}
+The board is an infinite graph with states $(x,h)$, where $x$ is any integer and
+$h$ is a nonnegative integer. A horizontal move changes $x$ by $\pm2^h$;
+an up or down move changes only $h$ by $1$. Every move costs one. All questions
+start at $(0,0)$ and finish at height $0$; the printed window is not a boundary.
+
+For any ground-to-ground trip using at most $N$ moves and reaching maximum
+height $H$, at least $2H$ moves are vertical. Its absolute displacement is at most
+\[
+ (N-2H)2^H,\qquad 0\le H\le\lfloor N/2\rfloor.
+\]
+This includes leftward motion, repeated climbs and horizontal moves on several
+levels. The farthest possible right endpoint for a budget $N$ is exactly the
+maximum of this expression: climb to a chosen H, use all remaining moves to the
+right there, and descend. Thus reaching $16$ needs \textbf{8 moves}.
+
+Children may discover that a longer-looking detour can save moves, and that
+``I found a short trip'' differs from ``no trip can be shorter.'' For destination
+$23$, going to $24$ and stepping left takes $10$ moves, whereas every trip with
+no left moves needs at least $11$. Overshooting $15$ via $16$ only ties the
+no-left optimum; it does not demonstrate a strict saving.
+
+\textbf{Who this fits.} One Grades 4--5 prototype, requiring signed-coordinate
+tracking, adding and subtracting the printed step sizes, and a partner who can check a rule
+while recording one move word. Powers notation and general lower bounds are
+optional adult-supported reasoning. There is no separate younger packet or
+tested age-fit claim. This nonnegative-height toy graph is related to exponential
+distortion in Baumslag--Solitar groups; it is not their full Cayley graph.
+
+\sect{Materials and preparation}
+Use the older table of three children as a moving pair and rotating referee,
+with one anchored adult. Per pair: one four-page student packet, a spare board
+page, pencil and eraser, and a very small pointed marker or pencil tip. Keep one
+move word as the recoverable record; count its letters after the trip.
+
+Print at actual size. Adjacent coordinate dots are $0.23$ inches, about
+$5.84$ mm, apart. A normal broad pawn can obscure its position; check the chosen
+marker before the session. Rehearse U/D at an odd coordinate and R/L on an upper
+level. For example, from $(1,1)$ an R goes to $(3,1)$; at $(1,2)$ it goes to
+$(5,2)$. Vertical movement must preserve $x$ even when its label is not printed.
+Use an extra sheet if a child goes beyond the window; do not forbid the move.
+No physical marker-fit or partner-operation rehearsal has yet occurred.
+
+\sect{Launch and a feasible first visit}
+Let children move the marker briefly. Show the student example beginning at
+coordinate $1$, level $0$: U reaches $(1,1)$, R reaches $(3,1)$, D reaches
+$(3,0)$. The recorder writes URD, three moves. Reset to $(0,0)$ for the tasks.
+Have a child check a second legal attempt before the pair works independently.
+
+Allow about 10 minutes for Problem 1 and 15--20 for Problem 2, exchanging roles
+after a trip. Stop the first exploration with an eight-move route to $16$ and
+an explicit distinction between ``best found'' and ``proved best.''
+Problem 3's budgets can supply a later proof investigation before Problem 4.
+Problem 5, especially the no-left lower bound for $23$, is a readiness-dependent
+continuation or return visit; completing every page is not the session goal.
+\newpage
+\sect{Answers and optional hints}
+Each word below begins at $(0,0)$ and finishes on the ground. Other shortest
+words are welcome; replay them against the move rule rather than matching spelling.
+
+\prob{1}
+\textbf{Coordinate 3 takes 3 moves: RRR. Coordinate 7 takes 6: URRRDR.}
+Two moves cannot reach $3$: a ground trip stays at level zero unless its entire
+budget is spent going up and down, so its displacement is at most $2$.
+Five moves reach at most $6$, by the height bound with $H=0,1,2$ giving
+$5,6,4$. Thus the proposed trips to $3$ and $7$ are optimal.
+\textit{Hint:} ask what the elevator ride costs before counting the longer strides.
+
+\prob{2}
+\textbf{Two optimal eight-move words are UURRRRDD and UUURRDDD.}
+They use four strides of $4$ and two strides of $8$ respectively.
+Problem 4 proves the lower bound. Do not reject different routes just because
+they use intermediate heights; a valid shorter claim should be replayed.
+
+\prob{3}
+\begin{center}
+\begin{tabular}{@{}ccl@{}}\toprule
+Budget & Farthest coordinate & One attaining word\\\midrule
+4 & 4 & RRRR\\
+5 & 6 & URRRD\\
+6 & 8 & UURRDD\\
+7 & 12 & UURRRDD\\
+8 & 16 & UUURRDDD\\\bottomrule
+\end{tabular}
+\end{center}
+For every permitted H, at most $N-2H$ moves remain horizontal, each worth no more
+than $2^H$. Maximize $(N-2H)2^H$ over these finitely many heights. The ascent,
+right-strides, descent construction attains every corresponding bound, so the
+largest bound is the actual optimum. Using fewer than N moves does not evade
+the bound. \textit{Hint:} ``If the highest floor is H, which moves must already
+have been spent getting there and home?''
+
+\prob{4}
+\textbf{No trip of seven or fewer moves can reach 16 and return to ground.}
+For seven moves, the complete height cases are
+\begin{center}
+\begin{tabular}{@{}ccccc@{}}\toprule
+Maximum height H & 0 & 1 & 2 & 3\\
+Displacement bound $(7-2H)2^H$ & 7 & 10 & 12 & 8\\\bottomrule
+\end{tabular}
+\end{center}
+All are below $16$; reaching height $4$ and returning already costs $8$ moves.
+The triangle inequality is the key to the generality: the absolute value of a
+sum of signed strides is at most the sum of their absolute values. Repeated
+climbs use \emph{more} vertical moves, intermediate floors give \emph{smaller}
+strides, and left steps cannot exceed the absolute-value allowance. None makes
+a loophole. Together with Problem 2, this proves an exact optimum of $8$.
+
+\sect{Keep the argument concrete}
+Before writing powers, children can set aside two move tokens for every level
+climbed, then ask how far each remaining horizontal token could possibly go.
+These tokens represent an upper bound, not a requirement that all actual trips
+use only one level. Let the partner challenge a bound with a route and explain
+which allowance it uses. This preserves children's route choices while making
+the exhaustive height cases visible.
+\newpage
+\prob{5}
+\begin{center}
+\begin{tabular}{@{}cclc@{}}\toprule
+Target & Minimum & One shortest word & Minimum with no L\\\midrule
+9 & 7 & UURRDDR & 7\\
+15 & 9 & UUURRDDDL & 9\\
+17 & 9 & UUURRDDDR & 9\\
+23 & 10 & UUURRRDDDL & 11\\\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Lower bounds for 9 and 17.} Six moves reach at most $8$, and eight
+moves reach at most $16$ (Problem 3), so these targets need at least $7$ and $9$.
+
+\textbf{Why 15 needs 9.} With budget $8$, heights $0$ and $1$ allow only $8$
+and $12$ displacement; height $4$ spends all moves vertically. At height $2$,
+at most four horizontal moves remain. An odd endpoint needs an odd stride,
+which is possible only on level $0$, leaving displacement at most
+$1+4+4+4=13$. At height $3$, only two horizontal moves remain; the analogous
+bound is $1+8=9$. These are all cases, so eight moves cannot reach $15$.
+
+\textbf{Why 23 needs 10.} For budget $9$, the height bounds for
+$H=0,1,2,3,4$ are $9,14,20,24,16$. Only $H=3$ could reach $23$.
+It permits at most three horizontal moves; one must be a ground stride to
+produce an odd endpoint. Their absolute displacement is at most $1+8+8=17$.
+So nine moves cannot suffice. The displayed ten-move word reaches $24$ at
+height zero and then steps left to $23$.
+
+\textbf{The no-left comparison needs its own proof.} If the largest visited
+height is H, rightward strides are coins of values $1,2,\ldots,2^H$.
+The fewest coins totaling an integer target $n$ is
+\[
+ c_H(n)=\lfloor n/2^H\rfloor+\operatorname{ones}(n\bmod2^H),
+\]
+where $\operatorname{ones}$ counts the $1$s in a binary expansion. Combining
+two equal smaller coins into the next size shows that a minimum collection has
+at most one of each size below $2^H$; the remaining smaller coins are precisely
+the binary remainder. Every trip therefore needs at least $2H+c_H(n)$ moves.
+This bound is attained by ascending to H and taking the required strides while
+descending through their levels.
+
+For $n=23$, the bounds at heights $0,1,2,3,4$ are
+$23,14,11,11,12$. Heights at least $5$ already use ten vertical moves and need
+at least one horizontal move, so cannot beat $11$. The eleven-move no-left
+word UUURRDRDRDR gives $16+4+2+1=23$; the ten-move word with L is strictly better.
+For the other targets, no-left witnesses are UURRDDR for $9$,
+UURRRDRDR for $15$, and UUURRDDDR for $17$. Since these attain the unrestricted
+minima, leftward motion cannot improve them. \textit{Hint:} ``Can passing the
+target by one help? Does it improve the best no-left route, or merely tie it?''
+
+\sect{Source lineage and status}
+Nicholas Touikan, \emph{An Introduction to Combinatorial and Geometric Group
+Theory}, \href{https://ntouikan.ext.unb.ca/MATH6022/IntroCGGT/html_output/section-15.html}{Section 3.2.3, HNN extensions and dual tracks}, discusses
+$BS(1,2)=\langle a,t\mid t^{-1}at=a^2\rangle$ and its distorted cyclic subgroup.
+This supplies the exponential-shortcut connection. The stated graph, route
+instances and optimality proofs here are independently developed, not a literal
+Cayley-graph activity taken from that source.
+
+\textbf{Review status:} matched to the final four-page GGT74-S-v1 packet.
+An independent, coordinate-unbounded finite-depth search checks every numerical
+answer and route; the proofs above establish the all-routes conclusions.
+The guide is built, rendered and visually checked. It remains an unpiloted
+prototype with physical setup and classroom pacing unrehearsed.
+
+\end{document}

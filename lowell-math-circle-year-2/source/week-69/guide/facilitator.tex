@@ -1,0 +1,61 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=.7in,headheight=16pt,headsep=16pt,footskip=25pt]{geometry}
+\usepackage{fancyhdr,amsmath,amssymb,booktabs,array,hyperref}
+\pdfmapfile{+cm.map}\pdfmapfile{+cmextra.map}\pdfmapfile{+symbols.map}\pdfmapfile{+latxfont.map}
+\hypersetup{hidelinks}\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4.5pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 69 / Thin and fat road triangles / Adult guide}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 69 / GGT69-FAC-v1}
+\fancyfoot[R]{\footnotesize\thepage}
+\newcommand{\heading}[1]{\par\vspace{5pt}{\large\bfseries #1}\par}
+\begin{document}
+\heading{Mathematical destination}
+A road triangle consists of three homes \emph{and one chosen shortest route for each pair}. A dot's \textbf{gap} from its colored side is its shortest road distance to the union of the other two sides. All roads, including uncolored interior roads, remain available for measuring that distance. The largest gap measures this chosen triangle's thinness at vertices.
+
+\textbf{Two facts drive the investigation.} Every triangle in a tree has gap 0 everywhere: its routes form a tripod, possibly with one arm of length zero. The square grid has triangles with gaps as large as desired. It also has zero-gap triangles. Homes alone do not determine thinness when shortest routes can be chosen in different ways.
+
+For the grid construction, take $A=(0,0)$, $B=(n,0)$, $C=(n,n)$. Use the bottom for AB, the right side for BC, and the left then top for AC. The lengths $n,n,2n$ are shortest, because those coordinate changes are unavoidable. The opposite corner $(0,n)$ has gap \textbf{$n$}: reaching the bottom needs at least $n$ downward steps, and reaching the right needs at least $n$ rightward steps. Both can be achieved. Since $n$ is arbitrary, the infinite grid has \textbf{no uniform finite gap bound for all its triangles}.
+
+\textbf{Assumptions and limits.} Roads cost one step regardless of drawn length; there are no diagonal shortcuts. A tree is connected and has no cycles. A grid has all of its drawn interior roads. The printed tasks measure gaps at dots; the tree conclusion and the displayed grid construction also work when edges are treated as continuous unit segments. The full definition of a uniformly thin space quantifies over \emph{every} chosen geodesic triangle. A few large examples support a conjecture; the arbitrary-$n$ construction proves the absence of a uniform bound.
+
+\textbf{What children discover.} They choose and check shortest routes, notice shared roads on trees, then change a grid triangle while preserving its homes. They separate three questions: ``Is this side shortest?'', ``How far is this dot from either other side?'', and ``Can a larger map beat any proposed bound?''
+
+\textbf{Readiness map.} This is a Grades 4--5 prototype for the older table: one working pair and a rotating referee, with an adult nearby. Entry requires counting edges and checking paths; later work requires comparing a dot with an entire side and explaining an arbitrary-size construction. Coordinate notation is for adults and ready children, not a prerequisite. These operational demands and age fit remain unpiloted.
+
+\heading{Materials and common launch}
+Prepare one four-page packet per pair, three colored pencils, pencil and eraser, three small home counters, and spare grid paper. A ruler may guide a straight mark but must not replace counting roads. Print single-sided at 100\%; colored paths should be drawn side by side where they overlap. No cutting or string construction is required. Try the mark-and-erase procedure and label visibility before a session; no physical rehearsal has been performed.
+
+Let children place homes and trace routes. Use the printed P--Q example: two right steps and one up step make three roads. Draw a different three-road route between the same endpoints and compare. Then introduce three colors, one per home pair; the referee checks every chosen side is shortest. Save the gap definition until page 2, where the printed dashed path reaches the dark side in three steps. Have a child point to possible arrival dots on that whole side.
+
+\heading{A feasible first visit}
+Allow roughly 10--15 minutes for the two trees and 15--20 for the two contrasting grid triangles in Problem 2. Stop once children can show a zero-gap example and correctly check one positive gap. Problem 3 can follow or begin a return visit; Problems 4--5 invite the general explanations. The pacing is a suggestion, not an observed result. Preserve children's route choices; offer hints only when they cannot retain the task after the shared demonstration.
+\newpage
+\heading{Numbered answers and proof prompts}
+\textbf{Problem 1.} \textbf{No road can belong to exactly one route.} Every used road belongs to exactly two. Remove a tree edge: it separates the tree into two components. If the homes are all on one side, their paths avoid that edge. Otherwise they split one versus two, and exactly the two cross-component pairs use it. A shortest route never backtracks. This covers every home choice. \emph{Hint:} cover a road with a finger; which pairs of homes are now separated?
+
+\textbf{Problem 2.} For \textbf{gap 0 everywhere}, take AB along the bottom and BC along the right, then let AC follow bottom and right through B. The AC route is still shortest: it has eight steps on this $4$-by-$4$ board. Every point of each side lies on another side.
+
+For a \textbf{positive gap}, leave AB and BC unchanged and take AC up the left and across the top. Circle the top-left dot. Its gap is \textbf{4}, which meets the requested ``2 or more.'' Mark four downward steps to A or four rightward steps to C. No route can reach the bottom or right in fewer than four steps. \emph{Hint:} a marked four-step route proves only that the gap is at most four; ask why three cannot work. The shared home locations have not changed, only the choice of AC.
+
+\textbf{Problem 3.} The largest achievable gaps are:
+\begin{center}\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}cccc@{}}\toprule
+Square side in roads & AB and BC lengths & AC length & Maximum possible gap\\\midrule
+2 & 2 each & 4 & \textbf{2}\\
+4 & 4 each & 8 & \textbf{4}\\
+6 & 6 each & 12 & \textbf{6}\\\bottomrule
+\end{tabular}\end{center}
+The left/top construction attains each maximum at the top-left corner. To prove no choice can do better on the $n$-by-$n$ board, AB is forced along the bottom and BC along the right. A dot $(x,y)$ on any AC path can reach the bottom in $y$ steps or the right in $n-x$ steps, so its gap is at most $\min(y,n-x)\le n$. Any dot on AB or BC can reach B, which is on the other of those two sides, in at most $n$ steps. Thus \emph{every} side's gap is bounded by $n$, and the witness is optimal. \emph{Hint:} let the referee try interior-road shortcuts; measuring only along the colored outline overestimates gaps.
+
+\textbf{Problem 4.} If the partner names a whole number $k$, choose \textbf{$n=k+1$}. Draw an $n$-by-$n$ grid with the same corner homes and bottom/right/left-top routes. The three side lengths are $n,n,2n$, all shortest; the marked top-left dot has gap $n>k$ by the coordinate-change argument on page 1. A labeled plan suffices for a huge $k$. \emph{Hint:} ask which part of the earlier construction depended on using exactly four rows.
+
+This is an all-sizes proof: any proposed finite bound is beaten by a suitable larger integer $n$. It does not say that every grid triangle has a positive gap, as Problem 2 already disproves that stronger claim.
+
+\textbf{Problem 5.} \textbf{No tree triangle has a positive gap.} There is exactly one simple path between two vertices of a tree: two different simple paths would produce a cycle. The three paths between homes therefore form a tripod, possibly collapsed along one arm. Each arm belongs to two of the three pair paths, so every dot on a side is already on another side and has gap 0. The edge-separation argument in Problem 1 gives a second proof that applies to any tree, not just the two drawings. \emph{Hint:} identify where the three pair routes branch and follow each arm in its two colors.
+
+\heading{Sources and checking limits}
+Dru\c{t}u and Kapovich, \href{https://www.math.ucdavis.edu/~kapovich/EPR/ggt.pdf}{\emph{Geometric Group Theory}}, Definitions 11.1--11.2, printed p.\ 363 (PDF 383), supplies the chosen-geodesic-triangle and uniform-thinness framework. The finite maps, corner construction, and classroom prompts are authored specializations, not copied exercises.
+
+Independent checks cover all 385 home triples on the printed trees and all 6, 70, and 924 shortest AC routes on the $2$, $4$, and $6$ boards. These certify finite instances; the proofs handle all trees and grid sizes. All student and guide pages were digitally inspected. \textbf{Unpiloted; physical materials and partner checking unrehearsed.}
+\end{document}
