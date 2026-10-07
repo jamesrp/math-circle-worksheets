@@ -1,0 +1,215 @@
+{
+  "source": {
+    "fixed_strips": 23,
+    "pages": 4,
+    "geometry": "within canvas"
+  },
+  "intro_example": {
+    "input": "BA",
+    "output": "BAAB"
+  },
+  "problem_1": {
+    "asks": "Grow 16 tiles and list distinct triples",
+    "row": "ABBABAABBAABABBA",
+    "triples": [
+      "AAB",
+      "ABA",
+      "ABB",
+      "BAA",
+      "BAB",
+      "BBA"
+    ],
+    "count": 6
+  },
+  "problem_2": {
+    "asks": "Can constant triples appear?",
+    "answer": "Neither can"
+  },
+  "problem_3": {
+    "asks": "Which claims are whole rows from A?",
+    "cases": [
+      {
+        "word": "ABBABAAB",
+        "genuine_whole_row": true,
+        "history": [
+          "ABBABAAB",
+          "ABBA",
+          "AB",
+          "A"
+        ],
+        "stop": "root A"
+      },
+      {
+        "word": "ABBAABBA",
+        "genuine_whole_row": false,
+        "history": [
+          "ABBAABBA",
+          "ABAB",
+          "AA"
+        ],
+        "stop": "contains a forbidden aligned child-pair"
+      },
+      {
+        "word": "ABBABBAB",
+        "genuine_whole_row": false,
+        "history": [
+          "ABBABBAB"
+        ],
+        "stop": "contains a forbidden aligned child-pair"
+      },
+      {
+        "word": "ABBABAABABBABAAB",
+        "genuine_whole_row": false,
+        "history": [
+          "ABBABAABABBABAAB",
+          "ABBAABBA",
+          "ABAB",
+          "AA"
+        ],
+        "stop": "contains a forbidden aligned child-pair"
+      }
+    ]
+  },
+  "problem_4": {
+    "asks": "Find every crop pairing and decode complete pairs",
+    "cases": [
+      {
+        "crop": "ABA",
+        "first_witness": 3,
+        "alignments": [
+          {
+            "offset": 0,
+            "left": "",
+            "pairs": [
+              "AB"
+            ],
+            "right": "A",
+            "parent": "A"
+          },
+          {
+            "offset": 1,
+            "left": "A",
+            "pairs": [
+              "BA"
+            ],
+            "right": "",
+            "parent": "B"
+          }
+        ]
+      },
+      {
+        "crop": "BAABA",
+        "first_witness": 8,
+        "alignments": [
+          {
+            "offset": 0,
+            "left": "",
+            "pairs": [
+              "BA",
+              "AB"
+            ],
+            "right": "A",
+            "parent": "BA"
+          }
+        ]
+      },
+      {
+        "crop": "AABB",
+        "first_witness": 5,
+        "alignments": [
+          {
+            "offset": 1,
+            "left": "A",
+            "pairs": [
+              "AB"
+            ],
+            "right": "B",
+            "parent": "A"
+          }
+        ]
+      },
+      {
+        "crop": "ABBAABBA",
+        "first_witness": 20,
+        "alignments": [
+          {
+            "offset": 0,
+            "left": "",
+            "pairs": [
+              "AB",
+              "BA",
+              "AB",
+              "BA"
+            ],
+            "right": "",
+            "parent": "ABAB"
+          }
+        ]
+      }
+    ]
+  },
+  "problem_5": {
+    "asks": "Can a genuine five-tile crop have two pairings?",
+    "answer": "No",
+    "legal_fives": [
+      "AABAB",
+      "AABBA",
+      "ABAAB",
+      "ABABB",
+      "ABBAA",
+      "ABBAB",
+      "BAABA",
+      "BAABB",
+      "BABAA",
+      "BABBA",
+      "BBAAB",
+      "BBABA"
+    ]
+  },
+  "problem_6": {
+    "asks": "Find impossible finite pieces in each periodic strip",
+    "cases": [
+      {
+        "period": "AB",
+        "shortest_forbidden_length": 5,
+        "shortest_witnesses": [
+          "ABABA",
+          "BABAB"
+        ]
+      },
+      {
+        "period": "ABBA",
+        "shortest_forbidden_length": 8,
+        "shortest_witnesses": [
+          "AABBAABB",
+          "BBAABBAA"
+        ]
+      }
+    ],
+    "fully_decodable_witness": "ABBAABBAAB"
+  },
+  "problem_7": {
+    "asks": "Could a tail of the infinite limit repeat one block?",
+    "answer": "No",
+    "proof": "See the general period-halving proof in this file"
+  },
+  "exact_factor_counts_1_through_16": [
+    2,
+    4,
+    6,
+    10,
+    12,
+    16,
+    20,
+    22,
+    24,
+    28,
+    32,
+    36,
+    40,
+    42,
+    44,
+    46
+  ],
+  "status": "PASS: all explicit finite examples and exact language checks"
+}
