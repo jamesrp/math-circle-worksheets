@@ -1,0 +1,19 @@
+# Mathematical destination and limits
+
+Each board is a fixed noncrossing planar triangulation. A build is a growing subcomplex: pieces only arrive, and every edge of a filled face must be present. A tied stage is one recorded frame after all its pieces arrive; temporary physical placement order does not create an extra positive-duration feature.
+
+Use mod-2 edge chains: an edge used twice cancels. A saved loop is tested without changing its original edge list. It is gone exactly when some subset of available filled-face boundaries cancels it completely. Two loops are equivalent when their difference is such an available boundary. Inclusions send the same saved edge chain forward; visible empty regions are not assigned arbitrary persistent identities. A successful cancellation witness remains available at every later stage, proving that a vanished saved loop cannot reappear in this growing model.
+
+For the two-half square let O be the outer rim and P,Q the triangular rims. O=P+Q because the diagonal cancels twice. When the outer rim is created before the diagonal, the first half-fill leaves the original class nonzero, represented by the other triangular rim; only the second fill kills it. If the triangular rim closes first, filling its own face first can kill the older class instead. Exactly three of the four printed Problem 2 schedules preserve the first loop until stage 8. Vertex-touching triangles allow either death order, despite the same hole counts. Thus dimension counts do not determine loop survival or persistence. The exact inclusion maps, not counts alone, are checked independently.
+
+The simultaneous-edge/face task has exactly two legal successful repairs: move AC to stage 3 or its face ABC to stage 5. Moving the edge later or its face earlier violates the boundary rule. The unmodified tied stage has no recorded two-hole frame.
+
+## The four-triangle continuation
+
+Name the fan faces t1=ABO, t2=BCO, t3=CDO and t4=DAO. All eight edges are present, and t1,t2 are initially filled. A finite face subset has a unique mod-2 boundary: each fan face has its own outside edge, so no nonempty subset has zero boundary.
+
+A saved loop survives initially and survives either single remaining fill, then vanishes after both, precisely when its unique filling support contains t3 and t4. The four possibilities are the boundaries of U, U+t1, U+t2 and U+t1+t2, where U=t3+t4. Since t1,t2 are initially available, all four represent the same nonzero class [boundary(U)]. The equality is established by available face boundaries, not visual resemblance. The class survives either first remaining fill and vanishes after the second.
+
+On the fresh board with no filled faces, each fixed loop dies when every face in its unique support is filled. If one support contains the other, its loop cannot die strictly earlier. Hence only the incomparable supports U+t1 and U+t2 can produce both strict death orders. Their loops are A-B-O-C-D-A and A-O-B-C-D-A. Fill t1,t3,t4,t2 for the first to die earlier, and t2,t3,t4,t1 for the second. Among all 24 face orders, each strict outcome occurs six times and a tie occurs twelve times. This is an exact small model of equivalent loop classes and inclusion behavior; it is not a universal barcode-pairing algorithm.
+
+The adult guide gives every final answer, case list, physical convention and proof route. Independent checkers enumerate actual cycle and boundary spaces and inclusion images using exact finite arithmetic. General no-resurrection and equivalence arguments are stated separately from those finite tests. These are weighted simplicial filtrations, not automatically metric Vietoris–Rips or Cech complexes. No general stability theorem or claim that long-lived features must be scientific signal is made. Physical preparation/handling and classroom piloting remain unperformed.
