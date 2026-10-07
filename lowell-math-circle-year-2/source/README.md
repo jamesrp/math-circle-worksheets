@@ -46,3 +46,7 @@ To refresh only a changed week in the existing combined sets, use `fall-weeks-02
 ## Geometric group theory prototypes 66–75
 
 The [review index](../WEEKS-66-75-PROTOTYPES.md) links each student packet, theorem-first adult guide, source README and portable ZIP. Each package rebuilds both PDFs independently and includes the mathematical checkers. These focused prototypes remain unpiloted.
+
+## Frontier prototypes 76–78
+
+The [three-topic review index](../WEEKS-76-78-PROTOTYPES.md) links the substitution, persistence and tropical-geometry student/adult pairs and portable ZIPs. Every package reconstructs both PDFs independently and includes its mathematical verifiers and source lineage. These are unpiloted prototypes with explicit prerequisites and material-rehearsal limits.

@@ -24,6 +24,8 @@ The [octagon investigations, Weeks 64–65](WEEKS-64-65-DRAFT.md), contain resto
 
 The [ten geometric group theory prototypes, Weeks 66–75](WEEKS-66-75-PROTOTYPES.md), offer focused student investigations and separate theorem-first adult guides, with portable sources and independent digital checks. They are prepared for organizer review and remain unpiloted.
 
+The [three frontier prototypes, Weeks 76–78](WEEKS-76-78-PROTOTYPES.md), investigate substitution order, persistent holes and tropical line geometry. Each has a separate theorem-first adult guide, portable sources and independent mathematical, page and extracted-ZIP checks. They are prepared for organizer review; physical rehearsal and classroom use remain untested.
+
 | Week and preparation notes | K–1 | Grades 2–3 | Grades 4–5 | Optional extras | Facilitator |
 |---|---|---|---|---|---|
 | [1. Tiling, impossibility, and flips](source/week-01/README.md) | [PDF](week-01/week-01-k-1.pdf) | [PDF](week-01/week-01-grades-2-3.pdf) | [PDF](week-01/week-01-grades-4-5.pdf) | [PDF](week-01/week-01-extensions.pdf) | [PDF](week-01/week-01-facilitator.pdf) |

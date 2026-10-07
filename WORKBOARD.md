@@ -4,7 +4,7 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 
 | Item | Owner | Branch | State |
 |---|---|---|---|
-| Three frontier prototypes, Weeks 76–78: substitution order, persistent holes, tropical geometry | dot | `dot/frontier-prototypes-2026-10-07` | in progress: research, independent worksheet stages, theorem-first guides and portable-source verification; unpiloted |
+| Three frontier prototypes, Weeks 76–78: substitution order, persistent holes, tropical geometry | dot | `dot/frontier-prototypes-2026-10-07` | done: three reviewed prototypes, PDFs, theorem-first guides, portable sources and digital checks; organizer review pending; unpiloted |
 | Ten geometric-group-theory prototypes, Weeks 66–75 | dot | `dot/ggt-prototypes-2026-10-06` | done: ten reviewable prototypes, PDFs, theorem-first guides, portable sources and digital checks; organizer review pending; unpiloted |
 | Restored octagon worksheet drafts, Weeks 64–65 | dot | `dot/octagon-recovery-2026-10-06` | done: restored sources and digital checks; main integration authorized October 6; unpiloted |
 | Work board and claim rule (plan item 1) | Claude, Review card calibration thread | `main` | done |

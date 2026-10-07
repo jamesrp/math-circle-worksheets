@@ -2,6 +2,8 @@
 
 ## Start here
 
+- [Three frontier prototypes, Weeks 76–78](frontier-prototypes-76-78/README.md): substitution order, persistent holes and tropical geometry; source research, independent stages, final pairs and reconstruction evidence.
+
 - [Mathematics atlas](atlas/README.md): the broad research map, 90 prerequisite-based investigation plans, sources, reviews and remaining frontier.
 - [Remaining eighty worksheet investigations](atlas/worksheet-expansion/README.md): the continuation of the approved ten-entry trial, with staged student problems, complete keys, independent reviews and an [exact page finder](atlas/worksheet-expansion/INDEX.md).
 

@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-10-07T16:09:20.488155+00:00",
+  "stage": "fresh independent final student/adult pair review",
+  "verdict": "PASS_DIGITAL_REVIEW_NO_ACTIONABLE_ISSUES",
+  "blocking_issues": [],
+  "nonblocking_issues": [],
+  "failed_checks": [],
+  "pdfs": {
+    "students": {
+      "path": "final/students.pdf",
+      "sha256": "e27735de07fee5b65d5f8ea1be06e260f4724a12ca039e10bd8b8d704a4d4787",
+      "bytes": 60534,
+      "page_count": 5,
+      "inspected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "render_dpi": 110
+    },
+    "facilitator": {
+      "path": "final/facilitator.pdf",
+      "sha256": "86d65e917d1b11f04e107921a26189a68cc777a03b53f65c9d9d1021fd6775fc",
+      "bytes": 120076,
+      "page_count": 4,
+      "inspected_pages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "render_dpi": 110
+    }
+  },
+  "checks": [
+    {
+      "id": "page_inspection",
+      "status": "passed",
+      "detail": "All five student and four guide pages rendered at 110 dpi and individually visually inspected. No clipping, overlap, missing labels, wrong diagram incidences, or broken footers.",
+      "evidence": "pair-review/render/"
+    },
+    {
+      "id": "pdf_identity_and_sizes",
+      "status": "passed",
+      "detail": "US Letter; 5 student pages / 60534 bytes; 4 guide pages / 120076 bytes. Exact input hashes preserved."
+    },
+    {
+      "id": "launch_and_problem_1",
+      "status": "passed",
+      "detail": "Input/intermediate/output cancellation leaves XZ; the square has exactly P, Q, R; only the outer rim survives either single tile.",
+      "evidence": "pair-review/independent-math-results.json"
+    },
+    {
+      "id": "problem_2_complete_list",
+      "status": "passed",
+      "detail": "All four schedules checked. Deaths 8,8,5,8 match the guide; exactly three satisfy the target. All count sequences 0,1,2,1,0."
+    },
+    {
+      "id": "problem_3_complete_list",
+      "status": "passed",
+      "detail": "All four schedules checked. First-loop deaths 5,8,8,5 match; matching hole counts do not fix history."
+    },
+    {
+      "id": "problem_4_all_changes",
+      "status": "passed",
+      "detail": "Tied baseline has counts 0,1,1,0. Only AC to 3 and ABC to 5 are legal and create two holes; the other two changes violate face legality."
+    },
+    {
+      "id": "problem_5_general_proof",
+      "status": "passed",
+      "detail": "Same filled-triangle witness remains available under inclusion. Proof is valid generally, independently of planar uniqueness or finite tests."
+    },
+    {
+      "id": "problem_6_full_candidates",
+      "status": "passed",
+      "detail": "Exactly four qualifying edge loops, their required triangle sets, common nonzero starting class, and survival of either next filling verified."
+    },
+    {
+      "id": "problem_6_reversible_pair",
+      "status": "passed",
+      "detail": "All six unordered candidate pairs and all 24 orders checked. Only L1/L2 realizes both strict orders; printed witnesses give deaths (3,4) and (4,3)."
+    },
+    {
+      "id": "general_planar_proofs",
+      "status": "passed",
+      "detail": "Finite exposed-boundary-edge argument establishes injectivity; graph spanning forest and independent face boundaries establish E-V+C-F. Square basis proves the stated intervals with ties and omitted zero bars."
+    },
+    {
+      "id": "supplemental_exhaustive_checks",
+      "status": "passed",
+      "detail": "555 legal subcomplexes and 296 square timing schedules checked; rank invariants reproduce printed barcodes. Finite checks are not claimed as general proofs.",
+      "evidence": "pair-review/independent_math.py"
+    },
+    {
+      "id": "theorem_first_assumptions_limits",
+      "status": "passed",
+      "detail": "Opening states facts before timing/solutions, planarity, common-face incidence, mod 2, increasing pieces, face boundaries, tied stages; cautions against arbitrary loop-to-interval identification, signal/noise claims, and unsupported stability."
+    },
+    {
+      "id": "prerequisites_staffing_route",
+      "status": "passed",
+      "detail": "Single prerequisite-led Grades 4-5 trio plus mathematical adult; other eight children need separate activities. Core 1-3, optional 4/5, separate 6 continuation, fallback and progressive hints are explicit."
+    },
+    {
+      "id": "materials_counts",
+      "status": "passed",
+      "detail": "16 student sheets, four guide sheets, 17 tiles, 44 edge tokens, seven active edge strips plus two spares, six numbered plus two blank stage cards. Three copies per edge suffice."
+    },
+    {
+      "id": "digital_geometry",
+      "status": "passed",
+      "detail": "Final-PDF measurements: squares about 6.2001 cm, diagonal 8.7682 cm, joined missing edges 5.8001 cm, fan square 8.0001 cm. Matching-copy cutting instructions agree.",
+      "evidence": "pair-review/pdf-output-results.json"
+    },
+    {
+      "id": "portable_guide_rebuild",
+      "status": "passed",
+      "detail": "Only four portable files copied. Build with TEXMF and TEXFORMATS unset succeeds by temporary distribution-format initialization. No run-local source or runtime asset required.",
+      "evidence": "pair-review/isolated/rebuild-console.log"
+    },
+    {
+      "id": "guide_rebuild_output_match",
+      "status": "passed",
+      "detail": "Four decoded page content streams, extracted layout text and four 110-dpi PNG files exactly match. Whole PDF metadata/IDs differ.",
+      "evidence": "pair-review/pdf-output-results.json"
+    },
+    {
+      "id": "embedded_fonts",
+      "status": "passed",
+      "detail": "All final PDF fonts embedded. No overfull/underfull boxes or missing glyphs; default pdftex.map warning harmless with explicit installed font maps.",
+      "evidence": "pair-review/facilitator-fonts.txt"
+    },
+    {
+      "id": "primary_source_verification",
+      "status": "passed",
+      "detail": "Direct paper inspection confirms boundaries/filtration on PDF pp2-3 and persistence from p4; author and institutional records confirm authors/title/2002. Independent examples are correctly scoped.",
+      "evidence": "https://pub.ista.ac.at/~edels/Papers/2002-J-04-TopologicalPersistence.pdf"
+    },
+    {
+      "id": "portable_provenance",
+      "status": "passed",
+      "detail": "Four owned files in each source folder; no symlinks, papers/books, borrowed figures, workflow exemplars, fonts, runtime dumps, or external dependencies beyond standard Python/TeX."
+    },
+    {
+      "id": "physical_print",
+      "status": "unrun",
+      "detail": "Actual printing, printer scaling and paper handling not performed."
+    },
+    {
+      "id": "physical_preparation",
+      "status": "unrun",
+      "detail": "Cutting, fitting, labels/token handling and cancellation/reset rehearsal not performed."
+    },
+    {
+      "id": "classroom_pilot",
+      "status": "unrun",
+      "detail": "Child participation, learning, whole-group launch visibility and classroom pacing not tested."
+    },
+    {
+      "id": "preparation_time",
+      "status": "unrun",
+      "detail": "Real adult preparation time not measured."
+    },
+    {
+      "id": "other_operating_systems",
+      "status": "unrun",
+      "detail": "Normal TeX Live/MacTeX prerequisite reviewed; not executed on another operating system."
+    },
+    {
+      "id": "publication",
+      "status": "unrun",
+      "detail": "No public publication, source edit, commit or push performed in this review-only stage."
+    }
+  ],
+  "limits": [
+    "Digital review does not establish physical readiness or classroom piloting.",
+    "Physical rehearsal required before use remains unperformed."
+  ],
+  "artifacts": {
+    "review": "pair-review.md",
+    "independent_results": "pair-review/independent-math-results.json",
+    "pdf_output_results": "pair-review/pdf-output-results.json"
+  },
+  "portable_rebuild": {
+    "pdf_sha256": "37994674c055ced9e47b1c950f7368417d4c5f9307b5351cf022da93bc66f4fb",
+    "text_match": true,
+    "raster_match_all_pages": true,
+    "decoded_content_stream_match_all_pages": true,
+    "source_files": [
+      "README.md",
+      "build.py",
+      "check_math.py",
+      "facilitator.tex"
+    ],
+    "custom_environment_variables_required": false
+  }
+}
