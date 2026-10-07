@@ -1,0 +1,96 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[letterpaper,left=.6in,right=.6in,top=.68in,bottom=.65in,headheight=14pt,headsep=14pt,footskip=23pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{fancyhdr}
+\pdfmapfile{+lm.map}
+\pdfcompresslevel=9
+\pdfobjcompresslevel=3
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\fontsize{10.5}{12}\selectfont Week 78 / Three-armed lines / Grades 4--5}
+\fancyfoot[L]{\fontsize{9}{11}\selectfont Bellingham Math Circle / Week 78 / F78-S-v1}
+\fancyfoot[R]{\fontsize{9}{11}\selectfont\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\renewcommand{\familydefault}{\sfdefault}
+\AtBeginDocument{\fontsize{12}{15}\selectfont}
+\newcommand{\problem}[2]{\par\noindent\textbf{Problem #1:} #2\par}
+\newcommand{\board}[3]{%
+\begin{tikzpicture}[x=#1cm,y=#1cm]
+ \path[use as bounding box] (-.52,-.52) rectangle (8.42,8.35);
+ \draw[step=1,gray!37,line width=.25pt] (0,0) grid (8,8);
+ \draw[gray!65,line width=.4pt] (0,0) rectangle (8,8);
+ \foreach \v in {0,2,4,6,8}{
+   \node[below,font=\fontsize{8}{9}\selectfont] at (\v,0) {\v};
+   \node[left,font=\fontsize{8}{9}\selectfont] at (0,\v) {\v};
+ }
+ #2
+ #3
+\end{tikzpicture}%
+}
+\newcommand{\junction}[3]{\fill (#1,#2) circle[radius=2.2pt];\node[above right,inner sep=3pt,font=\fontsize{10}{12}\selectfont,fill=white,fill opacity=.85,text opacity=1] at (#1,#2) {#3};}
+\newcommand{\target}[3]{\draw[line width=.8pt,fill=white] (#1,#2) circle[radius=2.4pt];\node[above right,inner sep=3pt,font=\fontsize{10}{12}\selectfont,fill=white,fill opacity=.85,text opacity=1] at (#1,#2) {#3};}
+\input{cases.tex}
+\begin{document}
+For a point $(x,y)$, compare $x$, $y$, and $2$. When the least number occurs at least twice, the point lies on this line.
+\vspace{-2pt}
+\begin{center}
+\begin{minipage}[c]{.36\linewidth}\centering
+\begin{tikzpicture}[x=.61cm,y=.61cm]
+ \path[use as bounding box] (-.5,-.45) rectangle (5.3,5.3);
+ \draw[step=1,gray!37,line width=.25pt] (0,0) grid (5,5);
+ \foreach \v in {0,2,4}{\node[below,font=\fontsize{8}{9}\selectfont] at (\v,0){\v};\node[left,font=\fontsize{8}{9}\selectfont] at (0,\v){\v};}
+ \draw[-{Stealth[length=4pt]},line width=1.1pt] (2,2)--(5.2,2);
+ \draw[-{Stealth[length=4pt]},line width=1.1pt] (2,2)--(2,5.2);
+ \draw[-{Stealth[length=4pt]},line width=1.1pt] (2,2)--(-.2,-.2);
+ \fill (2,2) circle[radius=2.2pt];
+ \node[below right,font=\fontsize{9}{11}\selectfont,inner sep=4pt,fill=white] at (2,2){junction};
+ \fill (4,2) circle[radius=2.2pt];
+ \node[above right,font=\fontsize{9}{11}\selectfont] at (4,2){$P$};
+ \draw[line width=.8pt,fill=white] (4,4) circle[radius=2.4pt];
+ \node[above right,font=\fontsize{9}{11}\selectfont] at (4,4){$Q$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[c]{.60\linewidth}
+$P=(4,2):\quad 4,\ \underline{2},\ \underline{2}$\par
+The least number is tied. $P$ is on the line.\par\vspace{5pt}
+$Q=(4,4):\quad 4,\ 4,\ \underline{2}$\par
+The least number occurs once. $Q$ is off the line.
+\end{minipage}
+\end{center}
+\vspace{-5pt}
+The arms point east, north, and diagonally southwest. They continue without end. Every line in this packet has this shape, moved without turning. Points between grid dots count too.
+\problem{1}{On each grid, draw a line with junction $A$. Choose a place for junction $B$ and draw its line in another colour. Make the lines meet in as many different ways as you can. Circle single shared points and trace shared stretches heavily.}
+\vspace{1pt}
+\TrialBoards
+\newpage
+\problem{2}{Draw the lines with junctions $A$ and $B$ on each grid. Mark every part they share. How many shared points does each pair have?}
+\vspace{5pt}
+\IntersectionBoards
+\vspace{8pt}
+\problem{3}{Can two lines with different junctions share exactly two points? Draw an example, or explain why this cannot happen.}
+\vfill
+\newpage
+\problem{4}{Draw a line through both points on each grid. Its junction may be anywhere, including between grid dots or outside the grid. Can you find a second line through the same two points?}
+\vspace{8pt}
+\GeneralBoards
+\vspace{16pt}
+\problem{5}{Find all possible junctions of a line through each pair of points. Mark a whole stretch if every point on it works.}
+\vspace{9pt}
+\AlignedBoards
+\vfill
+\newpage
+\problem{6}{Can two lines ever miss each other? Explain your answer. Give a rule for when two lines share more than one point. Your rule must also work for junctions between grid dots or outside this page.}
+\vspace{8pt}
+\noindent\board{.76}{}{}\hfill\begin{minipage}[b][2.65in][t]{3.7in}\strut\end{minipage}
+\vspace{14pt}
+\problem{7}{Find a rule that tells how many lines can pass through two different points. Explain why your rule works.}
+\vspace{8pt}
+\noindent\board{.76}{}{}\hfill\begin{minipage}[b][2.65in][t]{3.7in}\strut\end{minipage}
+\vfill
+\end{document}
