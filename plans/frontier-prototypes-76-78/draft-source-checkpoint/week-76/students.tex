@@ -1,0 +1,98 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[left=16mm,right=16mm,top=20mm,bottom=17mm,headheight=14pt,headsep=5mm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{fancyhdr}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Week 76 / Substitution strips / Grades 3--5}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 76 / F76-35-v1}
+\fancyfoot[R]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\newcommand{\Text}[4]{\node[anchor=north west,inner sep=0pt,text width=#3mm,align=left] at (#1,#2) {#4};}
+\newcommand{\Label}[3]{\node[anchor=south,font=\small,inner sep=1pt] at (#1,#2) {#3};}
+\newcommand{\Strip}[4]{%
+ \foreach \letter [count=\i from 0] in {#3} {%
+  \draw[line width=.45pt,fill=white] ({#1+\i*#4},#2) rectangle ++(#4,#4);
+  \node[font=\large,inner sep=0pt] at ({#1+(\i+.5)*#4},{#2+.5*#4}) {\letter};}}
+\newcommand{\Blank}[4]{%
+ \foreach \i in {1,...,#3} {\draw[line width=.4pt,gray!65] ({#1+(\i-1)*#4},#2) rectangle ++(#4,#4);}}
+\newcommand{\Arrow}[4]{\draw[-{Stealth[length=2.2mm]},line width=.65pt] (#1,#2)--(#3,#4);}
+\newcommand{\CanvasStart}{\begin{tikzpicture}[x=1mm,y=-1mm]\path[use as bounding box] (0,0) rectangle (183,235);}
+\newcommand{\CanvasEnd}{\end{tikzpicture}}
+\begin{document}
+\CanvasStart
+\Text{0}{0}{182}{Replace A by AB and B by BA. Replace each old tile once. Keep the old and new rows separate while your partner checks.}
+\Label{20}{31}{old row}
+\Label{84}{31}{replacement pairs}
+\Label{150}{31}{new row}
+\Strip{10}{35}{B,A}{10}
+\Arrow{35}{40}{53}{40}
+\Strip{61}{35}{B,A}{10}
+\Strip{86}{35}{A,B}{10}
+\Arrow{112}{40}{124}{40}
+\Strip{130}{35}{B,A,A,B}{10}
+\draw[line width=.6pt] (60,49)--(60,51)--(82,51)--(82,49);
+\draw[line width=.6pt] (85,49)--(85,51)--(107,51)--(107,49);
+\node[font=\small,anchor=north,inner sep=0pt] at (71,54) {from B};
+\node[font=\small,anchor=north,inner sep=0pt] at (96,54) {from A};
+\Text{0}{76}{182}{\textbf{Problem 1:} Grow a row of 16 tiles from A. Find every different strip of three neighboring tiles in your row. Record each short strip once.}
+\Blank{11}{105}{16}{10}
+\foreach \x in {9,54,99,144}{\Blank{\x}{130}{3}{10}\Blank{\x}{153}{3}{10}}
+\Text{0}{183}{182}{\textbf{Problem 2:} Could AAA or BBB ever appear in a longer row grown from A? Explain why, or build a row that contains one.}
+\CanvasEnd
+\newpage
+\CanvasStart
+\Text{0}{0}{182}{\textbf{Problem 3:} Undo a replacement by turning each pair AB into A and each pair BA into B.}
+\Label{25}{28}{new row}
+\Label{92}{28}{pairs}
+\Label{157}{28}{old row}
+\Strip{4}{32}{B,A,A,B,B,A}{7}
+\Arrow{50}{35.5}{59}{35.5}
+\Strip{64}{32}{B,A}{8}
+\Strip{84}{32}{A,B}{8}
+\Strip{104}{32}{B,A}{8}
+\Arrow{126}{36}{138}{36}
+\Strip{145}{32}{B,A,B}{8}
+\Text{0}{54}{182}{Each row below claims to be a whole row grown from a single A. Which claims can be right? Keep a record that settles each decision.}
+\Strip{5}{83}{A,B,B,A,B,A,A,B}{8}
+\Strip{5}{122}{A,B,B,A,A,B,B,A}{8}
+\Strip{5}{161}{A,B,B,A,B,B,A,B}{8}
+\Strip{5}{200}{A,B,B,A,B,A,A,B,A,B,B,A,B,A,A,B}{8}
+\CanvasEnd
+\newpage
+\CanvasStart
+\Text{0}{0}{182}{\textbf{Problem 4:} Each piece below was cut from a longer row grown from A. Find every way to pair the tiles as AB or BA. A cut may leave one lone tile at either end. Decode only complete pairs.}
+\Label{24}{38}{cut piece}
+\Label{91}{38}{pairs}
+\Label{156}{38}{old tiles kept}
+\Strip{4}{42}{A,A,B,B,A}{8}
+\Arrow{48}{46}{58}{46}
+\draw[dashed,line width=.5pt] (64,42) rectangle (72,50);
+\node[font=\large,inner sep=0pt] at (68,46) {A};
+\Strip{77}{42}{A,B}{8}
+\Strip{98}{42}{B,A}{8}
+\node[font=\scriptsize,anchor=north,inner sep=0pt] at (68,53) {lone};
+\Arrow{121}{46}{138}{46}
+\Strip{148}{42}{A,B}{8}
+\Strip{7}{80}{A,B,A}{9}
+\Strip{100}{80}{B,A,A,B,A}{9}
+\Strip{7}{127}{B,B,A,A,B}{9}
+\Strip{100}{127}{A,B,B,A,A,B,B,A}{9}
+\Text{0}{178}{182}{\textbf{Problem 5:} Cut a piece with five tiles from a row grown from A. Can it have two different pair placements that fit the replacement rule? Find one, or explain why no such piece exists.}
+\CanvasEnd
+\newpage
+\CanvasStart
+\Text{0}{0}{182}{\textbf{Problem 6:} One strip repeats AB forever. Another repeats ABBA forever. For each strip, find a finite piece that cannot occur in any row grown from A. Explain why your piece is impossible.}
+\Strip{7}{38}{A,B,A,B,A,B,A,B,A,B,A,B,A,B,A,B}{9}
+\node[anchor=west,font=\Large,inner sep=0pt] at (155,42.5) {$\cdots$};
+\Strip{7}{108}{A,B,B,A,A,B,B,A,A,B,B,A,A,B,B,A}{9}
+\node[anchor=west,font=\Large,inner sep=0pt] at (155,112.5) {$\cdots$};
+\Text{0}{178}{182}{\textbf{Problem 7:} Imagine continuing the A-grown rows forever. Could everything after some point repeat one fixed block forever? Explain why, or describe a block and where the repeating part starts.}
+\CanvasEnd
+\end{document}
