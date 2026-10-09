@@ -41,3 +41,4 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Review cards: the weeks James will teach next | | | open; ask James which |
 | Review cards: the remaining themes | | | open; split into lines when claimed |
 | Worksheet revisions from the cards | | | open; after the agentic review pass |
+| Six infinity/ordinal/surreal/public-knowledge drafts, Weeks 79–84 | Codex | `drafts/infinity-six-activities` | six reviewed draft pairs and portable ZIPs complete; feature-branch-only claim follows user’s one-draft-PR/no-merge request; unpiloted, rehearsal untested |

@@ -2,6 +2,8 @@
 
 ## Start here
 
+- [Six infinity, ordinal, surreal and knowledge drafts, Weeks 79–84](infinity-prototypes-79-84/README.md): hands-on selected-band packets, primary-source adaptation notes, independent reviews and clean reconstruction evidence.
+
 - [Three frontier prototypes, Weeks 76–78](frontier-prototypes-76-78/README.md): substitution order, persistent holes and tropical geometry; source research, independent stages, final pairs and reconstruction evidence.
 
 - [Mathematics atlas](atlas/README.md): the broad research map, 90 prerequisite-based investigation plans, sources, reviews and remaining frontier.
