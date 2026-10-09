@@ -24,6 +24,7 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Review card: Week 45, the visible side (wave 2, equally likely cases) | Claude, Mixed-up cups thread | `claude/wave2-equally-likely-x8ns4d` | done: [keep](plans/review/week-45.md) |
 | Review card: Week 24, nontransitive decks (wave 2, equally likely cases) | Claude, Mixed-up cups thread | `claude/wave2-equally-likely-x8ns4d` | done: [keep](plans/review/week-24.md) |
 | Review card: Week 60, optimal stopping (wave 2, equally likely cases) | Claude, Mixed-up cups thread | `claude/wave2-equally-likely-x8ns4d` | done: [keep](plans/review/week-60.md) |
+| Review card: Week 3, shuffle machines (wave 2, a group in Cup swaps) | Claude, Mixed-up cups thread | `claude/wave2-equally-likely-x8ns4d` | claimed |
 | Review card: Week 33, necklaces (wave 2, bead rings) | Claude, Bead rings thread | `claude/wave2-bead-rings-q6ikal` | done: [keep](plans/review/week-33.md) |
 | Review card: Week 34, distinguishing colourings (wave 2, bead rings) | Claude, Bead rings thread | `claude/wave2-bead-rings-q6ikal` | done: [keep](plans/review/week-34.md) |
 | Review card: Week 39, path reduction (wave 2, graph board) | Claude, Path reduction and bracing frames thread | `claude/wave2-graph-39-52-g84api` | done: [revise](plans/review/week-39.md) |
