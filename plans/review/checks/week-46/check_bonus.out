@@ -1,0 +1,52 @@
+PASS bonus page 1 prints: "COPY i to j reads slot i and gives its color to slot j, on each board separately"
+     copy-only reachable maps: 22
+PASS P1 / overview: copies alone keep RRR as RRR and BBB as BBB
+PASS P1: the pairs copies can never make alike are exactly the 4 complementary pairs [('RRR', 'BBB'), ('RRB', 'BBR'), ('RBR', 'BRB'), ('RBB', 'BRR')]
+PASS bonus guide prints: "RRR and BBB cannot match using any number of copies"
+PASS P1: no story of length <= 2 (any copies/resets) makes all starts finish alike; shortest is 3
+PASS P1: with exactly one RESET the shortest universal story has length 3; 12 such stories, each starting with the RESET
+     all shortest one-RESET stories: RESET 1; COPY 1 to 2; COPY 1 to 3 | RESET 1; COPY 1 to 2; COPY 2 to 3 | RESET 1; COPY 1 to 3; COPY 1 to 2 | RESET 1; COPY 1 to 3; COPY 3 to 2 | RESET 2; COPY 2 to 1; COPY 1 to 3 | RESET 2; COPY 2 to 1; COPY 2 to 3 | RESET 2; COPY 2 to 3; COPY 2 to 1 | RESET 2; COPY 2 to 3; COPY 3 to 1 | RESET 3; COPY 3 to 1; COPY 1 to 2 | RESET 3; COPY 3 to 1; COPY 3 to 2 | RESET 3; COPY 3 to 2; COPY 2 to 1 | RESET 3; COPY 3 to 2; COPY 3 to 1
+PASS P1 guide: RESET 1; COPY 1 to 2; COPY 1 to 3 sends every start to RRR
+PASS bonus guide prints: "RESET 1 to R; COPY 1 to 2; COPY 1 to 3 sends every start to RRR"
+PASS P1 guide: a story of at most two instructions has at most two destination slots
+PASS P1 extension: for all 64 directed copy graphs on 3 sites and each reset site (192 cases), one reset synchronises iff the reset site reaches every site []
+PASS P1 extension: for all 4096 directed copy graphs on 4 sites and each reset site (16384 cases), one reset synchronises iff the reset site reaches every site []
+PASS bonus guide prints: "synchronization from one reset is possible exactly when the reset site can reach every sit"
+PASS P2: 6 of 27 three-draw and 36 of 81 four-draw stories cover
+PASS P2 guide: probabilities 2/9 and 4/9
+PASS P2 guide counting: 3 x 6 x 2 = 36 and 3 x 2 x 1 = 6
+PASS P2 guide: in every covering four-draw story one label appears twice and the others once
+PASS P2: without replacement all 6 three-draw stories cover
+PASS P2: 1,1,...,1 never covers, for every length
+PASS P2 overview: m=1: P(not covered) = 1 <= 3(2/3)^m = 2
+PASS P2 overview: m=2: P(not covered) = 1 <= 3(2/3)^m = 4/3
+PASS P2 overview: m=3: P(not covered) = 7/9 <= 3(2/3)^m = 8/9
+PASS P2 overview: m=4: P(not covered) = 5/9 <= 3(2/3)^m = 16/27
+PASS P2 overview: m=5: P(not covered) = 31/81 <= 3(2/3)^m = 32/81
+PASS P2 overview: m=6: P(not covered) = 7/27 <= 3(2/3)^m = 64/243
+PASS P2 overview: m=7: P(not covered) = 127/729 <= 3(2/3)^m = 128/729
+PASS P2 overview: m=8: P(not covered) = 85/729 <= 3(2/3)^m = 256/2187
+PASS P2 overview: m=9: P(not covered) = 511/6561 <= 3(2/3)^m = 512/6561
+PASS bonus guide prints: "coverage occurs in 6 of the 27 length-three stories and 36 of the 81 length-four stories"
+PASS bonus guide prints: "the probability a particular position is missing after m draws is (2/3)^m"
+PASS P2 extension: covering position story + fresh fair colours gives uniform final board (with replacement, 4 draws)
+PASS P2 extension: covering position story + fresh fair colours gives uniform final board (without replacement)
+PASS P3 picture: T sends RBB to BBR
+PASS P3: shortest synchronising word length 5, words ['STSTS']
+PASS P3 guide trajectory ['Ryz', 'yzR', 'RzR', 'zRR', 'RRR']
+PASS bonus guide prints: "From (x,y,z), STSTS gives (R,y,z), (y,z,R), (R,z,R), (z,R,R), (R,R,R)"
+PASS P3 guide: every synchronising word up to length 8 has at least three S and at least two T
+PASS P3 extension: n=2 slots: shortest length 3 = 2n-1, unique word ['STS']
+PASS P3 extension: n=3 slots: shortest length 5 = 2n-1, unique word ['STSTS']
+PASS P3 extension: n=4 slots: shortest length 7 = 2n-1, unique word ['STSTSTS']
+PASS P3 extension: n=5 slots: shortest length 9 = 2n-1, unique word ['STSTSTSTS']
+PASS P3 extension: n=6 slots: shortest length 11 = 2n-1, unique word ['STSTSTSTSTS']
+PASS P3: STSTS sends all 8 actual boards to RRR
+PASS P3: no word of length <= 4 sends all 8 actual boards to one finish
+PASS guide: working circles 21.87 mm across (builder radius 31 pt)
+PASS bonus guide prints: "Large circles are 21.9 mm across"
+PASS guide: KK11 / 3333 / 445 is eleven children
+PASS guide totals: 10 rows, 30 counters, 15 tickets, 5 cups, 15 markers, 5 pencils for 5 pair kits
+PASS bonus guide prints: "Totals: ten working rows, thirty reversible counters (or thirty of each single color), fif"
+PASS guide: six red and six blue paper circles per pair -> thirty of each colour
+check_bonus: 49 checks, 0 failures

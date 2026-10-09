@@ -1,0 +1,114 @@
+PASS for all 64 ordered pairs the BFS minimum equals the number of disagreeing slots
+PASS largest minimum over all pairs is 3
+     unordered pairs (incl. equal) by minimum: {0: 8, 1: 12, 2: 12, 3: 4}
+PASS k-1 P1: boards ['RBR', 'BRB'] need 3 (no pair needs more)
+PASS grades-2-3 P1: boards ['RBR', 'BRB'] need 3 (no pair needs more)
+PASS k-1 P2: pairs [('RBR', 'RRR'), ('RRB', 'BRR'), ('BRB', 'BRB'), ('RRR', 'BBB')] need [1, 2, 0, 3] (guide: 1, 2, 0, 3)
+PASS k-1 P2: the four pairs show every possible minimum 0-3 once
+PASS grades-4-5 P1: pairs [('RBR', 'RRR'), ('RRB', 'BRR'), ('BRB', 'BRB'), ('RRR', 'BBB')] need [1, 2, 0, 3] (guide: 1, 2, 0, 3)
+PASS grades-4-5 P1: the four pairs show every possible minimum 0-3 once
+PASS K-1 P3: 12 unordered pairs need exactly 2; none needs 4
+PASS length 0: a setting story synchronises all 8 starts iff it names all three slots (0/1)
+PASS length 0: every setting story has exactly 2^u finishes (u = unnamed slots)
+PASS length 1: a setting story synchronises all 8 starts iff it names all three slots (0/6)
+PASS length 1: every setting story has exactly 2^u finishes (u = unnamed slots)
+PASS length 2: a setting story synchronises all 8 starts iff it names all three slots (0/36)
+PASS length 2: every setting story has exactly 2^u finishes (u = unnamed slots)
+PASS length 3: a setting story synchronises all 8 starts iff it names all three slots (48/216)
+PASS length 3: every setting story has exactly 2^u finishes (u = unnamed slots)
+PASS length 4: a setting story synchronises all 8 starts iff it names all three slots (576/1296)
+PASS length 4: every setting story has exactly 2^u finishes (u = unnamed slots)
+PASS length 5: a setting story synchronises all 8 starts iff it names all three slots (4800/7776)
+PASS length 5: every setting story has exactly 2^u finishes (u = unnamed slots)
+PASS shortest universal story has length 3; there are 48 = 3!*2^3 of them (K-1 P4, 2-3 P5)
+PASS guide prints: "1 becomes R, 2 becomes B, 3 becomes R"
+PASS K-1 P4 guide: 1R,2B,3R sends every start to RBR
+PASS K-1 P5: under [(1, 'R'), (3, 'B')] two starts finish alike iff their middle colours agree (12 distinct pairs match, 16 stay different)
+PASS guide prints: "A pair that matches afterward: RRR / BRB, both finishing RRB"
+PASS K-1 P5 guide: RRR/BRB both finish RRB
+PASS guide prints: "A pair that stays different: RRR / BBB, finishing RRB and RBB"
+PASS K-1 P5 guide: RRR/BBB finish RRB and RBB
+PASS grades-2-3 P2 story 1 [(1, 'R'), (1, 'B'), (3, 'R')]: finishes ['BBR', 'BRR'] (2), unnamed slots [2]
+PASS grades-2-3 P2 story 2 [(2, 'R'), (3, 'B'), (1, 'R')]: finishes ['RRB'] (1), unnamed slots []
+PASS grades-2-3 P2 story 3 [(2, 'B'), (2, 'R'), (2, 'B')]: finishes ['BBB', 'BBR', 'RBB', 'RBR'] (4), unnamed slots [1, 3]
+PASS grades-2-3 P2: only the second story is universal
+PASS 2-3 P2: marker sets {1,3}, {1,2,3}, {2}
+PASS guide prints: "Under the first story the finishes are BRR/BBR, which differ at slot 2"
+PASS 2-3 P2 guide: story 1 on RRR/BBB gives BRR/BBR
+PASS guide prints: "Under the third they are RBR/BBB, differing at slots 1 and 3"
+PASS 2-3 P2 guide: story 3 on RRR/BBB gives RBR/BBB
+PASS guide prints: "every start finishes RRB"
+PASS grades-4-5 P2 story 1 [(1, 'R'), (1, 'B'), (3, 'R')]: finishes ['BBR', 'BRR'] (2), unnamed slots [2]
+PASS grades-4-5 P2 story 2 [(2, 'R'), (3, 'B'), (1, 'R')]: finishes ['RRB'] (1), unnamed slots []
+PASS grades-4-5 P2 story 3 [(2, 'B'), (2, 'R'), (2, 'B')]: finishes ['BBB', 'BBR', 'RBB', 'RBR'] (4), unnamed slots [1, 3]
+PASS grades-4-5 P2: only the second story is universal
+PASS 2-3 P3 / 4-5 P3: 360 (pair, story) cases match with fewer than 3 slots named
+PASS a particular pair matches under a setting story iff every initially differing slot is named
+PASS 2-3 P3 / 4-5 P3 other reading: each of the 8 identical pairs (RRR/RRR, ...) already matches with no instruction and no marker
+PASS guide prints: "RRR/BRR becomes a matching RRR pair after 1→R"
+PASS 2-3 P3 guide: RRR/BRR match after 1→R
+PASS guide prints: "RRR/BBB under the same one-instruction story finishes RRR/RBB"
+PASS 2-3 P3 guide: RRR/BBB -> RRR/RBB
+PASS guide prints: "RRR and BRR match after 1→R, with two untouched slots"
+PASS guide prints: "RRR/RRR needs zero"
+PASS 2-3 P1 guide: ('RRR', 'RRR') needs 0
+PASS guide prints: "RBR/RRR needs one"
+PASS 2-3 P1 guide: ('RBR', 'RRR') needs 1
+PASS guide prints: "RRR/BBR needs two"
+PASS 2-3 P1 guide: ('RRR', 'BBR') needs 2
+PASS guide prints: "Example needing exactly two: RRR versus BBR"
+PASS K-1 P3 guide: RRR/BBR needs exactly two
+PASS K-1 P2 guide repair [(2, 'R')] works on ('RBR', 'RRR')
+PASS K-1 P2 guide repair [(1, 'R'), (3, 'R')] works on ('RRB', 'BRR')
+PASS K-1 P2 guide repair [(1, 'R'), (2, 'R'), (3, 'R')] works on ('RRR', 'BBB')
+PASS guide prints: "Example: 1→R, 2→B, 3→R"
+PASS 2-3 P5 guide: 1→R, 2→B, 3→R is universal
+PASS K-1 P7 / overview: a shared setting instruction never turns an agreeing slot into a disagreeing one
+PASS K-1 P6 starts ['RRR', 'BBB']
+PASS K-1 P6: P(still unmatched after 3 draws) = 7/9 (match by 3 = 2/9 = 6/27)
+PASS K-1 P6: unmatched after 6 draws 7/27 = 0.259; after 10 0.0520 > 0
+PASS from RRR/BBB, P(unmatched after m) = P(some slot unnamed) = 3(2/3)^m - 3(1/3)^m exactly
+PASS overview union bound 3(2/3)^m holds
+PASS guide prints: "From RRR/BBB, drawing “1 becomes R” six times leaves RRR/RBB"
+PASS K-1 P6 guide example
+PASS guide prints: "A counterexample is 1→R, 1→R, 1→R from RRR/BBB, leaving RRR/RBB"
+PASS 2-3 P4 guide 3-draw counterexample
+PASS 2-3 P4: ten repeats of 1→R also fail
+PASS 2-3 P4: 168 of 216 three-draw stories fail some pair
+PASS toggle picture: toggling slot 2 sends RBR/BRB to RRR/BBB
+PASS toggle picture read from page: [('RBR', 'BRB'), ('RRR', 'BBB')]
+PASS 4-5 P4: every toggle story of length <= 6 preserves the disagreement set of every pair
+PASS 4-5 P4 guide: each toggle story is a bijection of the eight boards
+PASS 2-3 P6: pairs [('RBR', 'RRR'), ('RRB', 'BRR'), ('BRB', 'BRB')]; can be matched by toggles: [False, False, True] (only the already-equal pair)
+PASS 2-3 P7 / 4-5 P5 / overview: over all 66430 mixed stories of length <= 5, every start gives the same finish iff each slot gets at least one colour-setting instruction
+PASS mixed stories of length <= 4: finishes = 2^(slots never assigned)
+PASS guide prints: "1→R, toggle 1, 2→B, 3→R"
+PASS 2-3 P7 guide: 1→R, toggle 1, 2→B, 3→R sends every start to BBR
+PASS guide prints: "Every start finishes BBR"
+PASS guide prints: "A mixed story that can fail: 1→R, toggle 2. From RRR/BBB it produces RBR/RRB"
+PASS 2-3 P7 guide: 1→R, toggle 2 on RRR/BBB gives RBR/RRB
+PASS 2-3 P7 guide: a shared toggle neither erases nor creates agreement
+PASS 4-5 P6 position story read from the TeX statement: 1,3,1,2
+PASS 4-5 P6: for each of the 8 starts, each of the 8 final boards comes from exactly 2 of the 16 colour stories
+PASS 4-5 P6 guide: final board is (c3, c4, c2)
+PASS 4-5 P7: every covering position story of length 3-7 gives all 8 boards equal weight from any start
+PASS overview: 3 random draws, conditional on covering, give each final board probability 1/8 from every start
+PASS overview: 4 random draws, conditional on covering, give each final board probability 1/8 from every start
+PASS overview: 5 random draws, conditional on covering, give each final board probability 1/8 from every start
+PASS overview: 6 random draws, conditional on covering, give each final board probability 1/8 from every start
+PASS 4-5 P7: after 4 random draws the final distribution still depends on the start (P(RRR) = 11/54 from RRR vs 1/18 from BBB)
+PASS 4 random draws cover all slots in 36/81 = 4/9 of slot stories
+PASS guide prints: "Four draws of 1→R leave slots 2 and 3 unchanged"
+PASS overview caution: stopping at the first covered board whose slot 1 is R gives only 4 of the 8 boards, so the stopped board is not uniform
+PASS guide prints: "BRR, BBR (2)"
+PASS guide prints: "RRB (1)"
+PASS guide prints: "RBR, RBB, BBR, BBB (4)"
+PASS guide prints: "The displayed pairs need 1, 2, 0, 3 instructions in reading order"
+PASS guide prints: "For ten children in pairs, prepare ten three-slot paper strips, thirty reversible R/B coun"
+PASS materials: 5 pairs x 2 strips = 10; 10 strips x 3 = 30 counters; 5 cups
+PASS guide prints: "Print four pages per grade band"
+PASS each band has four pages
+PASS guide prints: "Toggle slot 2 to get RRR and BBB"
+PASS guide prints: "the first remains RBR and the second becomes BBB"
+PASS guide prints: "after m draws, the chance some slot is missing is at most 3(2/3)"
+check_base: 112 checks, 0 failures

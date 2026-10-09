@@ -1,0 +1,138 @@
+Week 47 base packet: independent enumeration
+
+
+== Problem 1 (all bands): clues read from the board
+NOTE  k-1: 5 sites, clues {0: 1, 4: 1} -> 18 completions; middle (site 2) can be [0, 1, 2, 3]; tallest marker 3 (board top 4)
+PASS  k-1 P1: at least four different landscapes exist (18)
+PASS  k-1 P1: middle height 0 possible and 3 possible
+PASS  k-1 P1: every completion fits on the printed board
+NOTE  grades-2-3: 5 sites, clues {0: 1, 4: 1} -> 18 completions; middle (site 2) can be [0, 1, 2, 3]; tallest marker 3 (board top 4)
+PASS  grades-2-3 P1: at least four different landscapes exist (18)
+PASS  grades-2-3 P1: middle height 0 possible and 3 possible
+PASS  grades-2-3 P1: every completion fits on the printed board
+NOTE  grades-4-5: 5 sites, clues {0: 1, 4: 1} -> 18 completions; middle (site 2) can be [0, 1, 2, 3]; tallest marker 3 (board top 4)
+PASS  grades-4-5 P1: at least four different landscapes exist (18)
+PASS  grades-4-5 P1: middle height 0 possible and 3 possible
+PASS  grades-4-5 P1: every completion fits on the printed board
+PASS  guide P1: its four examples [(1, 0, 0, 0, 1), (1, 1, 1, 1, 1), (1, 2, 1, 2, 1), (1, 2, 3, 2, 1)] are different legal completions
+PASS  guide P1: "full possible range is 0-3" for the middle
+
+== Problem 2 (all bands): starred marker
+NOTE  k-1: clues {0: 0, 4: 2}, star over site 2 -> star heights [0, 1, 2] (9 completions)
+PASS  k-1 P2: star can be exactly 0, 1, 2 (highest 2, lowest 0)
+NOTE  grades-2-3: clues {0: 0, 4: 2}, star over site 2 -> star heights [0, 1, 2] (9 completions)
+PASS  grades-2-3 P2: star can be exactly 0, 1, 2 (highest 2, lowest 0)
+NOTE  grades-4-5: clues {0: 0, 4: 2}, star over site 2 -> star heights [0, 1, 2] (9 completions)
+PASS  grades-4-5 P2: star can be exactly 0, 1, 2 (highest 2, lowest 0)
+PASS  guide P2: witnesses [(0, 0, 0, 1, 2), (0, 0, 1, 1, 2), (0, 1, 2, 2, 2)] are legal with star heights 0,1,2
+PASS  guide P2: states exactly 0, 1, 2
+PASS  guide P2: the left clue alone bounds the star above by 2 (right clue alone allows 4)
+
+== Problem 3: forced ramp
+NOTE  k-1 P3 row clues {0: 0, 4: 4} -> completions [(0, 1, 2, 3, 4)]
+PASS  k-1 P3: exactly one landscape, (0,1,2,3,4)
+PASS  grades-2-3 P3: left clue 0 printed, right clue box shaded and blank
+NOTE  grades-2-3 P3: completions by right-clue height {0: 9, 1: 12, 2: 9, 3: 4, 4: 1, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0}
+PASS  grades-2-3 P3: the only right-clue height that forces every marker is 4
+PASS  grades-4-5 P3: left clue 0 printed, right clue box shaded and blank
+NOTE  grades-4-5 P3: completions by right-clue height {0: 9, 1: 12, 2: 9, 3: 4, 4: 1, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0}
+PASS  grades-4-5 P3: the only right-clue height that forces every marker is 4
+PASS  guide P3: r=0 least (0, 0, 0, 0, 0) and greatest (0, 1, 2, 1, 0) differ
+PASS  guide P3: r=1 least (0, 0, 0, 0, 1) and greatest (0, 1, 2, 2, 1) differ
+PASS  guide P3: r=2 least (0, 0, 0, 1, 2) and greatest (0, 1, 2, 3, 2) differ
+PASS  guide P3: r=3 least (0, 0, 1, 2, 3) and greatest (0, 1, 2, 3, 3) differ
+PASS  guide P3: larger heights (5..11) are impossible
+
+== Problem 4: which clue sets can be completed
+NOTE  k-1 P4 rows (top to bottom): [({0: 0, 2: 3}, 0, None), ({0: 3, 4: 0}, 4, 3), ({1: 0, 3: 3}, 0, None)]; board levels 0..3
+PASS  k-1 P4: first impossible, second possible, third impossible
+PASS  k-1 P4: every completion of the possible set fits the board (max 3)
+NOTE  grades-2-3 P4 rows (top to bottom): [({0: 0, 2: 3}, 0, None), ({0: 3, 4: 0}, 4, 3), ({1: 0, 3: 3}, 0, None)]; board levels 0..3
+PASS  grades-2-3 P4: first impossible, second possible, third impossible
+PASS  grades-2-3 P4: every completion of the possible set fits the board (max 3)
+NOTE  grades-4-5 P4 rows (top to bottom): [({0: 0, 2: 3}, 0, None), ({0: 3, 4: 0}, 4, 3), ({1: 0, 3: 3}, 0, None)]; board levels 0..3
+PASS  grades-4-5 P4: first impossible, second possible, third impossible
+PASS  grades-4-5 P4: every completion of the possible set fits the board (max 3)
+NOTE  P4 second set: all 4 completions [(3, 2, 1, 0, 0), (3, 2, 1, 1, 0), (3, 2, 2, 1, 0), (3, 3, 2, 1, 0)]
+PASS  guide P4: (3,2,1,0,0) is a completion
+
+== Problem 5: seven-site landscape
+NOTE  k-1 P5: clues {0: 1, 4: 3, 6: 1} -> 10 completions; pointwise min (1, 0, 1, 2, 3, 2, 1), max (1, 2, 3, 4, 3, 2, 1); totals [10, 11, 12, 12, 13, 13, 14, 14, 15, 16]; board top 5; answer rows 2
+PASS  k-1 P5: pointwise min and max are themselves landscapes
+PASS  k-1 P5: the fewest-block landscape is unique and is the pointwise min; same for most/max
+PASS  k-1 P5: every completion fits the board
+PASS  k-1 P5: three different landscapes exist; one board + two rows = three slots
+NOTE  k-1 P5: white-column totals only: 5 to 11
+NOTE  grades-2-3 P5: clues {0: 1, 4: 3, 6: 1} -> 10 completions; pointwise min (1, 0, 1, 2, 3, 2, 1), max (1, 2, 3, 4, 3, 2, 1); totals [10, 11, 12, 12, 13, 13, 14, 14, 15, 16]; board top 5; answer rows 2
+PASS  grades-2-3 P5: pointwise min and max are themselves landscapes
+PASS  grades-2-3 P5: the fewest-block landscape is unique and is the pointwise min; same for most/max
+PASS  grades-2-3 P5: every completion fits the board
+NOTE  grades-2-3 P5: white-column totals only: 5 to 11
+NOTE  grades-4-5 P5: clues {0: 1, 4: 3, 6: 1} -> 10 completions; pointwise min (1, 0, 1, 2, 3, 2, 1), max (1, 2, 3, 4, 3, 2, 1); totals [10, 11, 12, 12, 13, 13, 14, 14, 15, 16]; board top 5; answer rows 2
+PASS  grades-4-5 P5: pointwise min and max are themselves landscapes
+PASS  grades-4-5 P5: the fewest-block landscape is unique and is the pointwise min; same for most/max
+PASS  grades-4-5 P5: every completion fits the board
+NOTE  grades-4-5 P5: white-column totals only: 5 to 11
+PASS  guide P5: least/greatest landscapes as printed
+PASS  guide P5: totals 10 and 16
+PASS  guide P5: third K-1 answer (1, 1, 1, 2, 3, 2, 1) is legal and different
+PASS  guide P5: exactly 10 completions
+
+== K-1 Problem 6: fewest one-level moves
+PASS  K-1 P6: start (1, 2, 1, 2, 1) and finish (1, 0, 0, 0, 1) are legal
+PASS  K-1 P6: board clues match the shaded ends of both rows
+PASS  K-1 P6: BFS shortest = 5 moves with heights capped at 3 (one route: [(1, 2, 1, 2, 1), (1, 1, 1, 2, 1), (1, 0, 1, 2, 1), (1, 0, 1, 1, 1), (1, 0, 0, 1, 1), (1, 0, 0, 0, 1)])
+PASS  K-1 P6: BFS shortest = 5 moves with heights capped at 10 (one route: [(1, 2, 1, 2, 1), (1, 1, 1, 2, 1), (1, 0, 1, 2, 1), (1, 0, 1, 1, 1), (1, 0, 0, 1, 1), (1, 0, 0, 0, 1)])
+NOTE  K-1 P6: number of different 5-move routes = 16
+PASS  guide K-1 P6: printed 5-move route is legal step by step
+PASS  K-1 P6: lowering the middle first is illegal (2,0,2) - order matters
+
+== K-1 Problem 7: two new clues (board of Problem 6, levels 0..3)
+NOTE  K-1 P7 on the P6 board: 130 consistent two-clue puzzles with clue heights 0..3; forcing (no ceiling) []; forcing if the drawn top is a ceiling []
+PASS  K-1 P7: no two-clue puzzle drawable on the P6 board (levels 0..3) has a unique answer
+PASS  guide K-1 P7: h(0)=0, h(4)=4 forces (0,1,2,3,4)
+FAIL  guide K-1 P7: its forcing example (height 4) can be placed on the P6 board the child is using (top level 3)
+PASS  guide K-1 P7: h(0)=h(4)=1 allows many answers
+
+== Grades 2-3 Problem 6: two clues that force one landscape (seven-site board)
+NOTE  2-3 P6: 7 sites, levels 0..6; 679 consistent two-clue sets; forcing (no ceiling): [{0: 0, 6: 6}, {0: 6, 6: 0}]; forcing if the top is a ceiling: [{0: 0, 6: 6}, {0: 6, 6: 0}]
+PASS  2-3 P6: a forcing pair exists on the board
+PASS  2-3 P6: the only forcing pairs on the board are the full ramps h(0)=0,h(6)=6 and h(0)=6,h(6)=0
+NOTE  2-3 P6 near-miss h(1)=0, h(5)=4: 6 completions (sites 0 and 6 stay free)
+PASS  guide 2-3 P6: h(0)=0,h(6)=6 force the ramp
+PASS  guide 2-3 P6: all-zero and (0,1,0,0,0,0,0) both complete h(0)=h(6)=0
+
+== Grades 2-3 Problem 7: two clues d steps apart
+PASS  2-3 P7: for all d<=6, a<=6 the possible heights are max(0,a-d)..a+d
+PASS  2-3 P7: 4 steps from height 1 -> heights [0, 1, 2, 3, 4, 5]
+PASS  guide 2-3 P7: lists 0,1,2,3,4,5
+
+== Grades 4-5 Problem 6: one clue, allowed heights per site
+NOTE  4-5 P6: clue {3: 2}; allowed per site {0: [0, 1, 2, 3, 4, 5], 1: [0, 1, 2, 3, 4], 2: [1, 2, 3], 3: [2], 4: [1, 2, 3], 5: [0, 1, 2, 3, 4], 6: [0, 1, 2, 3, 4, 5]}; shaded on the page {'1': [0, 1, 2, 3, 4], '2': [1, 2, 3], '4': [1, 2, 3], '5': [0, 1, 2, 3, 4]}
+PASS  4-5 P6: the shaded marks at sites 1,2,4,5 are exactly the allowed heights
+PASS  4-5 P6: sites 0 and 6 allow 0..5
+PASS  4-5 P6: every allowed height fits the board (top 5)
+PASS  guide 4-5 P6: "0 through 5"
+
+== Grades 4-5 Problem 7 and the guide overview: exhaustive small rows
+PASS  overview + 4-5 P7: on every row of 1..6 sites with every clue set (heights 0..4), 55980 cases: completion exists <=> pairwise |a_c-a_d|<=|c-d|; L and U are completions; every completion lies between; L,U minimise/maximise the total []
+NOTE  overview hypothesis: for the impossible P4 set h(0)=0, h(2)=3 the formulas give L=(1, 2, 3, 2, 1) (h(0)=1, not 0) and U=(0, 1, 2, 3, 4) (h(2)=2, not 3)
+PASS  overview: "Both envelopes are themselves legal" needs the pairwise condition (fails for P4 set 1)
+PASS  overview: with no clues every constant row is legal, so there is no greatest completion
+
+== Guide preparation claims vs printed boards
+NOTE  board pitches (site mm, level mm): [('k-1', 1, [22.0], [20.0]), ('k-1', 2, [22.0], [20.0]), ('k-1', 4, [25.0], [20.0]), ('k-1', 5, [22.0], [20.0]), ('k-1', 6, [22.0], [20.0]), ('grades-2-3', 1, [22.0], [20.0]), ('grades-2-3', 2, [22.0], [20.0]), ('grades-2-3', 4, [25.0], [20.0]), ('grades-2-3', 5, [22.0], [20.0]), ('grades-2-3', 6, [22.0], [20.0]), ('grades-4-5', 1, [22.0], [20.0]), ('grades-4-5', 2, [22.0], [20.0]), ('grades-4-5', 4, [25.0], [20.0]), ('grades-4-5', 5, [22.0], [20.0]), ('grades-4-5', 6, [22.0], [20.0])]
+PASS  guide: every task board has 20 mm level spacing
+PASS  guide: 22 mm site spacing except the P4 five-site board at 25 mm
+
+== Page wording used above
+PASS  k-1 p2 prints "Move the right clue to 4"
+PASS  grades-2-3 p2 prints "forces every marker"
+PASS  grades-2-3 p4 prints "fewest blocks"
+PASS  grades-4-5 p4 prints "as low as possible at every site"
+PASS  grades-2-3 p5 prints "force exactly one whole landscape"
+PASS  grades-2-3 p5 prints "Two clues are 4 steps apart. One is height 1."
+PASS  grades-4-5 p5 prints "Find the allowed heights at sites 0 and 6."
+PASS  k-1 p5 prints "Replace the old clues with two new clues"
+
+Summary: 82 checks, 1 failures

@@ -1,0 +1,56 @@
+Week 47 bonus: independent enumeration
+
+
+== Bonus Problem 1: row versus rings
+NOTE  row: vertices ['A', 'B', 'C', 'D', 'E'], edges ['AB', 'BC', 'CD', 'DE'], clues {'A': 0, 'D': 3} -> 3 completions [(0, 1, 2, 3, 2), (0, 1, 2, 3, 3), (0, 1, 2, 3, 4)]
+NOTE  left ring: vertices ['A', 'B', 'C', 'D', 'E'], edges ['AB', 'AE', 'BC', 'CD', 'DE'], clues {'A': 0, 'D': 3} -> 0 completions []
+NOTE  right ring: vertices ['A', 'B', 'C', 'D', 'E'], edges ['AB', 'AE', 'BC', 'CD', 'DE'], clues {'A': 0, 'D': 2} -> 3 completions [(0, 0, 1, 2, 1), (0, 1, 1, 2, 1), (0, 1, 2, 2, 1)]
+PASS  row: A-B-C-D-E with A=0, D=3
+PASS  row: B=1, C=2 forced; E in {2,3,4}; exactly three completions
+PASS  left ring: 5-cycle A-B-C-D-E-A with A=0, D=3
+PASS  left ring: impossible; A and D are 2 steps apart through E
+PASS  right ring: 5-cycle with A=0, D=2
+PASS  right ring: B and C reach their maxima (1, 2) at the same time
+PASS  guide P1: exactly the three ring completions [(0, 0, 1, 2, 1), (0, 1, 1, 2, 1), (0, 1, 2, 2, 1)]
+PASS  guide P1: (0,1,2,2,1) maximises B and C together
+
+== Bonus Problem 2: shortest legal change
+PASS  rows: Start (1, 2, 3, 2, 1, 0, 1), Finish (1, 0, 1, 2, 3, 2, 1), fixed A and G
+PASS  start and finish are legal with the same clues
+PASS  marker board: columns A-G, levels 0-4, clue dots at A=1 and G=1
+PASS  BFS shortest = 8 moves (sum of changes 8), heights capped at 4
+PASS  BFS shortest = 8 moves (sum of changes 8), heights capped at 12
+PASS  there are 120 legal rows with A=G=1 (guide: 120); tallest height 4
+PASS  guide P2: printed 8-move route is legal step by step
+PASS  guide P2: the printed route fits on the 0-4 board
+PASS  all 120 x 120 pairs with A=G=1: shortest legal route always equals the sum of height changes
+
+== Bonus overview: theorems on small graphs (exhaustive)
+PASS  1512 clue sets on ['path5', 'ring5', 'ring6', 'star(K1,4)', 'branched', 'ring5+chord', 'grid2x3']: extension <=> pairwise distance bound; L,U legal; every total from sum L to sum U occurs; shortest legal route = sum of changes {}
+
+== Bonus Problem 3: cube budgets on the six-ring
+PASS  ring: A-B-C-D-E-F-A with gray A=1 and D=1
+NOTE  ring: 49 completions; totals by budget {2: 1, 3: 4, 4: 6, 5: 8, 6: 11, 7: 8, 8: 6, 9: 4, 10: 1}
+PASS  page lists budgets 2, 5, 8, 10, 11 with five slots
+PASS  budgets 2, 5, 8, 10 work and 11 does not (gray towers counted)
+PASS  least 2, greatest 10, every total between occurs
+NOTE  if a child counts only the white towers: totals [0, 1, 2, 3, 4, 5, 6, 7, 8]; listed budgets that work: [2, 5, 8]
+PASS  guide P3: least and greatest rings
+PASS  guide P3: witnesses (1, 0, 0, 1, 1, 2) (5) and (1, 1, 1, 1, 2, 2) (8) legal
+PASS  guide P3: counts [1, 4, 6, 8, 11, 8, 6, 4, 1] and 49 rings
+
+== Bonus guide: preparation numbers
+PASS  squares are [21.87, 23.99] mm (guide: 21.9 or 24.0)
+PASS  marker board pitch [24.34] x [20.11] mm (guide: 24.3 and 20.1)
+PASS  five kits: 60 cubes, 35 markers, 10 clue markers; KK11/3333/445 = 11 children
+PASS  twelve cubes per pair are enough to attempt the impossible budget 11
+PASS  guide prints "twelve stacking cubes"
+PASS  guide prints "sixty cubes"
+PASS  guide prints "thirty-five movable markers"
+PASS  guide prints "ten clue markers"
+PASS  guide prints "21.9 mm or 24.0 mm"
+PASS  guide prints "24.3 mm and level spacing 20.1 mm"
+PASS  guide prints "120 permitted seven-site rows"
+PASS  guide prints "49 budget rings"
+
+Summary: 37 checks, 0 failures
