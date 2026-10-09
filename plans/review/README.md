@@ -33,6 +33,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | Week | Theme | Verdict | Card |
 |---|---|---|---|
 | 1 | Tiling lab (pattern blocks) | keep | [card](week-01.md), [math check](week-01-math.md) |
+| 1e | Pattern blocks II (the Week 1 encore) | keep | [card](week-01e.md), [math check](week-01e-math.md) |
 | 2 | Switches and lamps | revise: a working board that enforces the pair rule, and an adult guide for the compact catalog | [card](week-02.md), [math check](week-02-math.md) |
 | 15 | Nearest-site regions | keep | [card](week-15.md), [math check](week-15-math.md) |
 | 4 | Stars and secret wheels | revise: the adult guide puts the 4–5 times-table dents where the curve touches the circle, so an adult would correct a right drawing | [card](week-04.md), [math check](week-04-math.md) |

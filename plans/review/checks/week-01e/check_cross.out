@@ -1,0 +1,77 @@
+1. One-colour tiling counts, recomputed with separately generated pieces and a different search order
+  K-1 P1 2x triangle, greens: 1 (other scripts and the guide: 1) ok
+  K-1 P1 2x rhombus, blues: 1 (other scripts and the guide: 1) ok
+  K-1 P1 2x hexagon, yellows: 0 (other scripts and the guide: 0) ok
+  K-1 P1 2x trapezoid, reds: 1 (other scripts and the guide: 1) ok
+  K-1 P5 arrow, reds: 3 (other scripts and the guide: 3) ok
+  K-1 P5 arrow, blues: 1 (other scripts and the guide: 1) ok
+  K-1 P5 trapezoid, reds: 5 (other scripts and the guide: 5) ok
+  K-1 P5 trapezoid, blues: 0 (other scripts and the guide: 0) ok
+  K-1 P5 hexagon 2,1,2, reds: 0 (other scripts and the guide: 0) ok
+  K-1 P5 hexagon 2,1,2, blues: 6 (other scripts and the guide: 6) ok
+  K-1 P7 hexagon, reds: 3 (other scripts and the guide: 3) ok
+  K-1 P7 hexagon, blues: 2 (other scripts and the guide: 2) ok
+  2-3 P4 triangle 3, reds: 2 (other scripts and the guide: 2) ok
+  2-3 P3/P4 hexagon 2,2,2, reds: 9 (other scripts and the guide: 9) ok
+  2-3 P7 triangle 6, reds: 220 (other scripts and the guide: 220) ok
+  4-5 P4 hexagon 2,2,2, blues: 20 (other scripts and the guide: 20) ok
+  4-5 P6 hexagon 1,3,3, blues: 20 (other scripts and the guide: 20) ok
+  4-5 P7 hexagon 2,2,2, reds: 9 (other scripts and the guide: 9) ok
+  3x pieces modelled as lattice shapes with 3 small edges per side:
+  3x triangle: 9 cells (expected 9); tilings by its own colour: 1, 9 pieces each
+  3x rhombus: 18 cells (expected 18); tilings by its own colour: 1, 9 pieces each
+  3x trapezoid: 27 cells (expected 27); tilings by its own colour: 49, 9 pieces each
+  3x hexagon: 54 cells (expected 54); tilings by its own colour: 0 (X)
+
+2. Placement game by plain win/lose search (no Grundy values, no symmetry)
+  K-1 P2 hexagon 1,1,1: winner 2nd, 0 winning first moves of 6 (13 positions, 0.0 s) ok
+  K-1 P2 2-by-2: winner 2nd, 0 winning first moves of 8 (27 positions, 0.0 s) ok
+  K-1 P2 3-by-1 strip: winner 1st, 1 winning first moves of 5 (12 positions, 0.0 s) ok
+  K-1 P4 3-by-2: winner 1st, 1 winning first moves of 13 (251 positions, 0.0 s) ok
+  K-1 P4 triangle 3: winner 1st, 9 winning first moves of 9 (48 positions, 0.0 s) ok
+  K-1 P4 4-by-2: winner 2nd, 0 winning first moves of 18 (1272 positions, 0.0 s) ok
+  2-3 P1 hexagon 1,1,2: winner 1st, 1 winning first moves of 11 (108 positions, 0.0 s) ok
+  2-3 P1 3-by-2: winner 1st, 1 winning first moves of 13 (251 positions, 0.0 s) ok
+  2-3 P2 triangle 4: winner 2nd, 0 winning first moves of 18 (557 positions, 0.0 s) ok
+  2-3 P5 3-by-3: winner 1st, 7 winning first moves of 21 (5312 positions, 0.0 s) ok
+  4-5 P9 5-by-2: winner 1st, 5 winning first moves of 23 (13322 positions, 0.0 s) ok
+  4-5 P9 hexagon 1,2,3: winner 1st, 1 winning first moves of 27 (53441 positions, 0.1 s) ok
+  2-3 P5 hexagon 2,2,2: winner 2nd, 0 winning first moves of 30 (166184 positions, 0.3 s) ok
+
+3. Most yellows that fit, by brute force over hexagon centres
+  K-1 P1/P6 hexagon 2,2,2: 7 possible yellow positions; at most 3 fit, in 2 ways; leftover pieces per way: [[2, 2, 2], [2, 2, 2]]
+  2-3 P3 triangle 4: 3 possible yellow positions; at most 1 fit, in 3 ways; leftover pieces per way: [[1, 9], [1, 9], [1, 9]]
+  2-3 P6 hexagon 3,3,3: 19 possible yellow positions; at most 7 fit, in 2 ways; leftover pieces per way: [[2, 2, 2, 2, 2, 2], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
+  3x Upscale hexagon (modelled): at most 7 small yellows fit, in 2 ways
+
+4. Fewest pieces (green, blue, red, yellow), recomputed
+  K-1 P3 triangle 3: fewest 3 (expected 3) ok; with purple chevrons allowed: 3
+  K-1 P3 star: fewest 6 (expected 6) ok; with purple chevrons allowed: 3
+  K-1 P6 boat: fewest 5 (expected 5) ok; with purple chevrons allowed: 5
+  K-1 P6 hexagon 2,2,2: fewest 6 (expected 6) ok; with purple chevrons allowed: 6
+  2-3 P3 triangle 4: fewest 5 (expected 5) ok; with purple chevrons allowed: 5
+  2-3 P6 / 4-5 P10 hexagon 3,3,3 (54 cells): with h yellows, every other piece covers at most 3 cells, so at least h + ceil((54 - 6h)/3) = 18 - h pieces: [(0, 18), (1, 17), (2, 16), (3, 15), (4, 14), (5, 13), (6, 12), (7, 11)]
+  6 non-overlapping yellows: 55 placements; 12-piece fillings (6 yellows + 6 reds): 2
+  a placement of 7 yellows: the rest needs 6 more pieces, total 13
+  a placement of 7 yellows: the rest needs 12 more pieces, total 19
+
+5. Two-up / two-down trapezoids: a trapezoid is two-down exactly when its middle cell points up
+  2-3 P4 triangle 3: (two-up, two-down) -> number of fillings: {(3, 0): 2}
+  2-3 P3/P4 hexagon 2,2,2: (two-up, two-down) -> number of fillings: {(4, 4): 9}
+  2-3 P7 triangle 6: (two-up, two-down) -> number of fillings: {(9, 3): 220}
+
+6. Guide p. 2: "Take the purple ... pieces off all tables ... they change the fewest-piece answers"
+  (see the "with purple chevrons allowed" figures in section 4)
+
+7. Rhombus directions (light = tops) on the 4-5 boards
+  page 4 pictures A and B: (shade, direction of the edge shared by the rhombus's two triangles) -> count: {('gray0.34', 150): 8, ('gray0.60', 30): 8, ('gray0.84', 90): 8}
+  4-5 P6 hexagon (sides in order [1, 3, 3, 1, 3, 3]): rhombi by shared-edge direction, over all fillings: {((30, 3), (90, 9), (150, 3)): 20}
+  sides meeting at the bottom corner of the page outline: 3 and 3 (floor 9 squares)
+
+8. Guide p. 6, 4-5 P4: "20 fillings, one for each pile in a 2 by 2 by 2 box with no overhangs"
+  stacks of 0-2 cubes standing on the floor (no overhangs): 81; of these, pushed into the corner (no stack taller than the one behind it toward either wall): 20
+
+9. Guide p. 1 materials: blues needed for a game
+  hexagon 2,2,2 (4-5 P2): 24 cells; blue fillings 20, so a game can last 12 moves
+  3-by-3 (4-5 P2): 18 cells; blue fillings 1, so a game can last 9 moves
+  hexagon 1,3,3 (4-5 P6, "when attention runs out"): 30 cells; blue fillings 20, so a game can last 15 moves

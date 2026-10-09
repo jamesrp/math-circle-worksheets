@@ -1,0 +1,45 @@
+Grades 2-3 packet, delivered PDF lowell-math-circle-year-2/week-01-encore/week-01-encore-grades-2-3.pdf
+
+Problem 1 (page 1): four small boards
+  hexagon sides [1, 1, 1, 1, 1, 1]: 6 cells (3 up, 3 down); 6 first moves; winner 2nd; half-turn centre is a lattice point
+  parallelogram 2x2 (sides in order [2, 2, 2, 2]): 8 cells (4 up, 4 down); 8 first moves; winner 2nd; half-turn centre is a lattice point
+  hexagon sides [2, 1, 1, 2, 1, 1]: 10 cells (5 up, 5 down); 11 first moves; winner 1st; 1 winning first moves; half-turn centre is a lattice edge midpoint; 1 self-symmetric blue(s), winning: [True]
+  parallelogram 2x3 (sides in order [2, 3, 2, 3]): 12 cells (6 up, 6 down); 13 first moves; winner 1st; 1 winning first moves; half-turn centre is a lattice edge midpoint; 1 self-symmetric blue(s), winning: [True]
+
+Problem 2 (page 2): two triangles and the 4-by-2 board
+  triangle side 4: 16 cells (10 up, 6 down); 18 first moves; winner 2nd; no half-turn symmetry
+    possible game lengths: [5, 6]
+    6 down cells, 3 up cells with a single neighbour (private partners): [0, 0, 0, 1, 1, 1] per down cell
+  triangle side 3: 9 cells (6 up, 3 down); 9 first moves; winner 1st; 9 winning first moves; no half-turn symmetry
+    possible game lengths: [3]
+    3 down cells, 3 up cells with a single neighbour (private partners): [1, 1, 1] per down cell
+  parallelogram 2x4 (sides in order [2, 4, 2, 4]): 16 cells (8 up, 8 down); 18 first moves; winner 2nd; half-turn centre is a lattice point
+
+Problem 3 (page 3): fewest pieces on the 2x hexagon and triangle 4
+  hexagon sides [2, 2, 2, 2, 2, 2]: 24 cells (12 up, 12 down); fewest 6 in 2 tilings; mixes ['3 yellow, 3 blue']; by yellows [(0, 8), (1, 7), (2, 7), (3, 6)]
+    max yellows 3 in 2 placements; leftover components with a max placement: [[2, 2, 2], [2, 2, 2]]
+    each possible yellow covers this many of the six cells round the middle point: [2, 2, 2, 2, 2, 2, 6]
+    fewest with exactly 2 yellows: 7; with 1: 7; with 0: 8
+  triangle side 4: 16 cells (10 up, 6 down); fewest 5 in 3 tilings; mixes ['1 yellow, 3 red, 1 green']; by yellows [(0, 6), (1, 5)]
+    max yellows 1 in 3 placements; leftover components with a max placement: [[1, 9], [1, 9], [1, 9]]
+
+Problem 4 (page 4): red trapezoid fillings and their two-up / two-down counts
+  triangle 3 (page 4): 9 cells, 6 pointing up and 3 down on the page; 2 red fillings; (two-up, two-down) counts: {(3, 0): 2}
+    the two triangle fillings are mirror images of each other: True
+  2x hexagon (from Problem 3, page 3): 24 cells, 12 pointing up and 12 down on the page; 9 red fillings; (two-up, two-down) counts: {(4, 4): 9}
+  recording copies: 2 triangles, 8 hexagons; all drawn with horizontal grid lines (theta 0): True
+
+Problem 5 (page 5): strategy on the 2x hexagon and the 3-by-3 board
+  hexagon sides [2, 2, 2, 2, 2, 2]: 24 cells (12 up, 12 down); 30 first moves; winner 2nd; half-turn centre is a lattice point
+  parallelogram 3x3 (sides in order [3, 3, 3, 3]): 18 cells (9 up, 9 down); 21 first moves; winner 1st; 7 winning first moves; half-turn centre is a lattice edge midpoint; 1 self-symmetric blue(s), winning: [True]
+
+Problem 6 (page 6): fewest pieces on the 3x hexagon
+  hexagon sides [3, 3, 3, 3, 3, 3]: 54 cells (27 up, 27 down); fewest 12 in 2 tilings; mixes ['6 yellow, 6 red']
+  fewest for each number of yellows: [(0, 18, 12597), (1, 17, 12501), (2, 16, 5811), (3, 15, 1669), (4, 14, 312), (5, 13, 36), (6, 12, 2), (7, 13, 1)]  (yellows, fewest, how many tilings)
+  a placement of 7 yellows leaves components of sizes [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]; fewest total 19
+  a placement of 7 yellows leaves components of sizes [2, 2, 2, 2, 2, 2]; fewest total 13
+  the two fewest tilings are related by lattice symmetries with index [1, 2, 5, 6, 9, 10] (index = 2*rotation_steps + reflection; rotation by 60 degrees is index 2)
+
+Problem 7 (page 7): triangle 6 with reds
+  triangle side 6: 36 cells, 21 up, 15 down; 220 red fillings (enumerated 220); number of two-down trapezoids -> fillings: {3: 220}
+  recording copies: 2

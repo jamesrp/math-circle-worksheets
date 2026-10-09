@@ -33,7 +33,7 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Review card: Week 29, two rod lengths (wave 2, Water jugs) | Claude, Balance and jugs groups thread | `claude/wave2-balance-jugs-ce8w14` | done: [revise](plans/review/week-29.md) |
 | Review card: Week 16, three-colour triangles (wave 2, triangle grid) | Claude, Week 1 triangle tiling thread | `claude/wave2-triangle-tiling-2dlym5` | done: [keep](plans/review/week-16.md) |
 | Review card: Week 14, triangulations and flips (wave 2, triangle grid) | Claude, Week 1 triangle tiling thread | `claude/wave2-triangle-tiling-2dlym5` | done: [keep](plans/review/week-14.md) |
-| Review card: Week 1 encore (1e), pattern blocks II (wave 2, triangle grid) | Claude, Week 1 triangle tiling thread | `claude/wave2-triangle-tiling-2dlym5` | in progress |
+| Review card: Week 1 encore (1e), pattern blocks II (wave 2, triangle grid) | Claude, Week 1 triangle tiling thread | `claude/wave2-triangle-tiling-2dlym5` | done: [keep](plans/review/week-01e.md) |
 | Review card: Week 26, shapes with set perimeters (wave 2, square grid) | Claude, Square grid perimeters thread | `claude/wave2-square-grid-3ahzlz` | done: [revise](plans/review/week-26.md) |
 | Review card: Week 6, code-breaking questions (wave 2, Signal Lanterns) | Claude, Code-breaking questions thread | `claude/wave2-code-questions-l0nj1z` | done: [revise](plans/review/week-06.md) |
 | Review card: Week 46, making two boards agree (wave 2) | Claude, Boards agree and gentle hills thread | `claude/wave2-46-47-ytobpf` | done: [keep](plans/review/week-46.md) |
