@@ -36,6 +36,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 1e | Pattern blocks II (the Week 1 encore) | keep | [card](week-01e.md), [math check](week-01e-math.md) |
 | 2 | Switches and lamps | revise: a working board that enforces the pair rule, and an adult guide for the compact catalog | [card](week-02.md), [math check](week-02-math.md) |
 | 15 | Nearest-site regions | keep | [card](week-15.md), [math check](week-15-math.md) |
+| 3 | Shuffle machines (permutations as arrow mats) | keep | [card](week-03.md), [math check](week-03-math.md) |
 | 4 | Stars and secret wheels | revise: the adult guide puts the 4–5 times-table dents where the curve touches the circle, so an adult would correct a right drawing | [card](week-04.md), [math check](week-04-math.md) |
 | 6 | Code breaking (guess my block, the counter code game) | revise: the guide's key for 2–3 Problem 11 says testing every place takes five tests, though YRRR, RYRR, RRYR, RRRY take four, so an adult may correct a right method | [card](week-06.md), [math check](week-06-math.md) |
 | 7 | Take-away games | keep | [card](week-07.md), [math check](week-07-math.md) |
