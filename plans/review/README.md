@@ -84,6 +84,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 53 | Cheapest connected networks | revise: two price labels on page 8 sit on the wrong link, and the K–1 route is one page long | [card](week-53.md), [math check](week-53-math.md) |
 | 54 | Partitions and rebuilding (Euler's odd and distinct parts) | keep | [card](week-54.md), [math check](week-54-math.md) |
 | 55 | Sumsets (fewest and most totals) | keep | [card](week-55.md), [math check](week-55-math.md) |
+| 56 | Corners of a solid (Euler's formula and angular defect) | revise: the K–1 table gets only the p. 3 fans and a fallback that repeats them, though the outline promised work with the closed solids | [card](week-56.md), [math check](week-56-math.md) |
 | 57 | Lattice area (Pick's theorem) | keep | [card](week-57.md), [math check](week-57-math.md) |
 | 59 | Constant-width shapes | keep | [card](week-59.md), [math check](week-59-math.md) |
 | 60 | Take it or pass (optimal stopping) | keep | [card](week-60.md), [math check](week-60-math.md) |

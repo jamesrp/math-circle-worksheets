@@ -1,0 +1,111 @@
+== Problems 1, 2, 4: the four closed models ==
+[ok  ] P1 cube: (V,E,F)=(8,12,6); guide (8, 12, 6); V-E+F=2
+[ok  ]    cube: all edges equal length (regular faces)
+[ok  ] P2 cube: separate sides 24, edges 12 (= sides/2), separate corners 24, vertices 8
+[ok  ] P4 cube: one vertex type {(90, 90, 90): 8}, gap [90.0], 8 vertices, total 720.000000 = 2 turns
+[ok  ] P1 tetrahedron: (V,E,F)=(4,6,4); guide (4, 6, 4); V-E+F=2
+[ok  ]    tetrahedron: all edges equal length (regular faces)
+[ok  ] P2 tetrahedron: separate sides 12, edges 6 (= sides/2), separate corners 12, vertices 4
+[ok  ] P4 tetrahedron: one vertex type {(60, 60, 60): 4}, gap [180.0], 4 vertices, total 720.000000 = 2 turns
+[ok  ] P1 triangular prism: (V,E,F)=(6,9,5); guide (6, 9, 5); V-E+F=2
+[ok  ]    triangular prism: all edges equal length (regular faces)
+[ok  ] P2 triangular prism: separate sides 18, edges 9 (= sides/2), separate corners 18, vertices 6
+[ok  ] P4 triangular prism: one vertex type {(60, 90, 90): 6}, gap [120.0], 6 vertices, total 720.000000 = 2 turns
+[ok  ] P1 octahedron: (V,E,F)=(6,12,8); guide (6, 12, 8); V-E+F=2
+[ok  ]    octahedron: all edges equal length (regular faces)
+[ok  ] P2 octahedron: separate sides 24, edges 12 (= sides/2), separate corners 24, vertices 6
+[ok  ] P4 octahedron: one vertex type {(60, 60, 60, 60): 6}, gap [120.0], 6 vertices, total 720.000000 = 2 turns
+[ok  ] P2 second question: cube and octahedron both have 24 separate corners but 8 vs 6 vertices -> corner count alone does not give V
+   (corners/3 = V holds for cube 24/3, tetrahedron 12/3, prism 18/3; fails for octahedron 24/3=8 != 6)
+
+== Problem 3: corner fans ==
+[ok  ] P3 3 triangles: used 180, gap 180, symmetric cone half-angle 35.264 deg -> Pointed (guide: 180, Pointed)
+[ok  ] P3 4 triangles: used 240, gap 120, symmetric cone half-angle 45.000 deg -> Pointed (guide: 120, Pointed)
+[ok  ] P3 5 triangles: used 300, gap 60, symmetric cone half-angle 58.283 deg -> Pointed (guide: 60, Pointed)
+[ok  ] P3 6 triangles: used 360, gap 0, symmetric cone half-angle 90.000 deg -> Flat (guide: 0, Flat)
+[ok  ] P3 3 squares: used 270, gap 90, symmetric cone half-angle 54.736 deg -> Pointed (guide: 90, Pointed)
+[ok  ] P3 4 squares: used 360, gap 0, symmetric cone half-angle 90.000 deg -> Flat (guide: 0, Flat)
+   A convex pointed cone needs face angles summing to less than 360 (classical); the two 360-degree
+   fans can only lie flat or fold with an inward (reflex) crease.  Random check below.
+[ok  ] P3 support: 835 random convex cones (of 3000 draws) all have face-angle sum < 360 (max 358.29)
+
+== Problem 5: square pyramid with equilateral sides ==
+[ok  ] apex height 1/sqrt2 makes all 8 edges length 1 (equilateral triangles): [1.0]
+[ok  ] top: corners [60, 60, 60, 60] use 240, gap 120.000
+[ok  ] 4 base corners: corners [60, 60, 90] use 210, gap 150 each
+[ok  ] (V,E,F)=(5,8,5); total gap 720.000000 = 120 + 4*150
+
+== Problem 6: cube surface redrawings (each starting from the original cube) ==
+[ok  ] original: (V,E,F)=(8,12,6), V-E+F=2, total gap 720.000000, old corners 90 each, new-vertex gaps [] (guide (8, 12, 6))
+[ok  ] diagonal: (V,E,F)=(8,13,7), V-E+F=2, total gap 720.000000, old corners 90 each, new-vertex gaps [] (guide (8, 13, 7))
+[ok  ] center: (V,E,F)=(9,16,9), V-E+F=2, total gap 720.000000, old corners 90 each, new-vertex gaps [0.0] (guide (9, 16, 9))
+[ok  ] edge point: (V,E,F)=(9,13,6), V-E+F=2, total gap 720.000000, old corners 90 each, new-vertex gaps [0.0] (guide (9, 13, 6))
+   other reading -- changes accumulated on one cube:
+     diagonal only: V,E,F = (8, 13, 7)
+     diagonal then centre (different faces): V,E,F = (9, 17, 10), V-E+F = 2, total 720.000
+     ... then an edge point: V,E,F = (10, 18, 10), V-E+F = 2, total 720.000
+     diagonal then centre on the SAME face: V,E,F = (9, 16, 9) (same as the guide row)
+     (rows 3-4 of the table would differ from the guide key; the conclusions do not)
+
+== Problem 7: opened drawings and trees ==
+[ok  ] opened cube (p.7): V=8, E=12, bounded regions 5 ("five bounded faces"), V-E+F_bounded = 1
+   guide route (edge erased, edges left, bounded regions, connected): [(('A', 'B'), 11, 4, True), (('B', 'C'), 10, 3, True), (('C', 'D'), 9, 2, True), (('D', 'A'), 8, 1, True), (('a', 'b'), 7, 0, True)]
+[ok  ] guide route AB,BC,CD,DA,ab: each step keeps 8 dots connected and removes one bounded region; ends in a tree (8 dots, 7 edges)
+[ok  ] every deletion on the guide route borders the outside region: [True, True, True, True, True]
+[ok  ] the cube graph has 384 spanning trees (so "yes": many trees keep all 8 vertices connected)
+[ok  ] all 384 connected 7-edge subgraphs are trees with no bounded region
+[ok  ] p.7 tetrahedron view: 4 dots, 6 edges, 3 bounded regions (three faces); erasing the 3 boundary edges leaves a 3-edge tree
+
+== Problem 8: total gap 720 and V-E+F = 2 on many convex solids ==
+[ok  ] 87 convex solids (7 named, 20 prisms/antiprisms/bipyramids/mixed, 60 random): all have V-E+F=2, every vertex gap > 0, total gap 720
+[ok  ] house solid (faces [4, 4, 4, 4, 4, 5, 5]): sum 180(n_f-2) = 2880 = 360(E-F); 360V - that = 720
+[ok  ] p.8 example: pentagon -> 3 triangles -> 540 degrees
+
+== Problem 9: reverse inventories ==
+[ok  ] 5 regular 3-gons per vertex: gap 60, V=720/60=12, F=5V/3=20, E=3F/2=30; hull of the icosahedron: (12,30,20), vertex type {(60.0, 60.0, 60.0, 60.0, 60.0): 12}
+[ok  ] 3 regular 5-gons per vertex: gap 36, V=720/36=20, F=3V/5=12, E=5F/2=30; hull of the dodecahedron: (20,30,12), vertex type {(108.0, 108.0, 108.0): 20}
+   uniqueness: V is forced by 720/gap once every vertex is alike, then F and E by incidence counting.
+[ok  ] fan pictures: 5x60=300 (gap 60), 3x108=324 (gap 36)
+
+== Guide: regular-face restriction and arithmetic ==
+[ok  ] q*180(n-2)/n < 360 <=> (n-2)(q-2) < 4; candidates [(3, 3), (3, 4), (3, 5), (4, 3), (5, 3)]
+[ok  ]    (3,3) realised by the tetrahedron: nF = qV = 2E = 12
+[ok  ]    (3,4) realised by the octahedron: nF = qV = 2E = 24
+[ok  ]    (3,5) realised by the icosahedron: nF = qV = 2E = 60
+[ok  ]    (4,3) realised by the cube: nF = qV = 2E = 24
+[ok  ]    (5,3) realised by the dodecahedron: nF = qV = 2E = 60
+[ok  ] 84 polygon faces across 15 models
+[ok  ] 72 tabbed closing seams = 3 x sum(E - (F-1))
+[ok  ] 18 cardstock sheets; 32 student sheets (2 + 2x6 + 2x9)
+[ok  ] 48 hinge strips (6 sets x (5+3)); 40 triangles, 40 squares, 10 circles
+[ok  ] square far corner 42.4 mm > 40 mm circle radius; triangle far corner 30 mm < 40
+
+== Delivered guide PDF: printed table values ==
+[ok  ] guide PDF prints "Cube 8 12 6 2"
+[ok  ] guide PDF prints "Regular tetrahedron 4 6 4 2"
+[ok  ] guide PDF prints "Right triangular prism 6 9 5 2"
+[ok  ] guide PDF prints "Regular octahedron 6 12 8 2"
+[ok  ] guide PDF prints "6 squares: cube 24 12 24 8"
+[ok  ] guide PDF prints "4 triangles: tetrahedron 12 6 12 4"
+[ok  ] guide PDF prints "2 triangles, 3 squares: prism 18 9 18 6"
+[ok  ] guide PDF prints "8 triangles: octahedron 24 12 24 6"
+[ok  ] guide PDF prints "3 equilateral triangles 180° 180° Pointed"
+[ok  ] guide PDF prints "4 equilateral triangles 240° 120° Pointed"
+[ok  ] guide PDF prints "5 equilateral triangles 300° 60° Pointed"
+[ok  ] guide PDF prints "6 equilateral triangles 360° 0° Flat"
+[ok  ] guide PDF prints "3 squares 270° 90° Pointed"
+[ok  ] guide PDF prints "4 squares 360° 0° Flat"
+[ok  ] guide PDF prints "Cube 8 3 squares: 270° 90° 720°"
+[ok  ] guide PDF prints "Tetrahedron 4 3 triangles: 180° 180° 720°"
+[ok  ] guide PDF prints "Triangular prism 6 1 triangle, 2 squares: 240° 120° 720°"
+[ok  ] guide PDF prints "Octahedron 6 4 triangles: 240° 120° 720°"
+[ok  ] guide PDF prints "Top 1 4 triangles: 240° 120° 120°"
+[ok  ] guide PDF prints "Base corner 4 1 square, 2 triangles: 210° 150° 600°"
+[ok  ] guide PDF prints "Original 8 12 6 2 720°"
+[ok  ] guide PDF prints "One face diagonal 8 13 7 2 720°"
+[ok  ] guide PDF prints "Face center and 4 lines 9 16 9 2 720°"
+[ok  ] guide PDF prints "One point along an edge 9 13 6 2 720°"
+[ok  ] guide P9: V = 720/60 = 12 and V = 720/36 = 20 printed
+[ok  ] guide P9: (12, 30, 20) and (20, 30, 12) printed
+
+0 failure(s)
