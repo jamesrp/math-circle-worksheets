@@ -1,0 +1,134 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=0.65in,top=0.72in,bottom=0.65in]{geometry}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{15pt}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{\small Week 83 / Hackenbush balances / Grades 2--5}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 83 / W83-S-v1}
+\fancyfoot[R]{\footnotesize\thepage}
+\setlength{\parindent}{0pt}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=-1
+\definecolor{BlueEdge}{RGB}{20,83,170}
+\definecolor{RedEdge}{RGB}{188,35,45}
+\newcommand{\textat}[3]{\node[anchor=north west,align=left,text width=#2mm,inner sep=0pt] at (0,#1) {#3};}
+\newcommand{\ground}[3]{\draw[line width=1.3pt] (#1,#2)--++(#3,0);}
+\newcommand{\stalk}[3]{%
+  \foreach \letter [count=\i] in {#3}{%
+    \pgfmathsetmacro{\bottom}{#2+22*(\i-1)}%
+    \pgfmathsetmacro{\top}{#2+22*\i}%
+    \if\letter B\def\edgecolor{BlueEdge}\else\def\edgecolor{RedEdge}\fi%
+    \draw[\edgecolor,line width=3.2pt,line cap=round] (#1,\bottom)--(#1,\top);%
+    \fill (#1,\bottom) circle (0.65mm);%
+    \fill (#1,\top) circle (0.65mm);%
+    \node[anchor=west,inner sep=0pt,font=\small] at (#1+3,\bottom+11) {\letter};%
+  }%
+}
+\newcommand{\panel}[4]{\draw[gray!35,rounded corners=2mm] (#1,#2) rectangle ++(#3,#4);}
+\newcommand{\case}[3]{\node[anchor=north west,font=\small] at (#1,#2) {#3};}
+\newenvironment{sheet}{\begin{tikzpicture}[x=1mm,y=1mm]\path[use as bounding box] (0,0) rectangle (177,234);}{\end{tikzpicture}}
+\newcommand{\cutmat}[4]{%
+  \draw[gray!50,rounded corners=2mm] (#1,#2) rectangle ++(177,30);%
+  \node[font=\small] at (#1+28,#2+23) {greater than};%
+  \node[font=\small] at (#1+145,#2+23) {less than};%
+  \node[font=\Large] at (#1+28,#2+10) {$#3$};%
+  \node[font=\Large] at (#1+145,#2+10) {$#4$};%
+  \draw[gray!70] (#1+68,#2+3) rectangle ++(40,24);%
+}
+\begin{document}
+
+\begin{sheet}
+\textat{232}{177}{Blue removes one blue (B) segment. Red removes one red (R) segment. All segments cut off from the ground disappear. Take turns; change one stalk per turn. If you cannot move, you lose.}
+\node[font=\small] at (27,194) {Start};
+\node[font=\small] at (89,194) {Red cuts R};
+\node[font=\small] at (151,194) {Left on ground};
+\ground{8}{119}{40}\stalk{23}{119}{B,R,B}
+\node[anchor=north,font=\small] at (28,116) {ground};
+\ground{70}{119}{40}\stalk{85}{119}{B}
+\draw[RedEdge,dashed,line width=2pt] (85,141)--(85,163);
+\node[anchor=west,inner sep=0pt,font=\small] at (88,152) {R};
+\draw[line width=1.2pt] (80,148)--(90,158) (80,158)--(90,148);
+\draw[BlueEdge,dashed,line width=2pt] (85,163)--(85,185);
+\node[anchor=west,inner sep=0pt,font=\small] at (88,174) {B};
+\draw[->,line width=1pt] (104,180)--(104,164);
+\node[anchor=east,font=\footnotesize] at (109,161) {drops};
+\ground{132}{119}{40}\stalk{147}{119}{B}
+\draw[->,line width=1pt] (54,151)--(63,151);
+\draw[->,line width=1pt] (116,151)--(125,151);
+\textat{98}{177}{\textbf{Problem 1:} Play each board with Blue starting, then with Red starting. On which boards can one color always win?}
+\case{1}{77}{A}\ground{1}{18}{38}\stalk{15}{18}{B}
+\case{47}{77}{B}\ground{47}{18}{38}\stalk{61}{18}{R}
+\case{93}{77}{C}\ground{93}{18}{38}\stalk{101}{18}{B}\stalk{120}{18}{R}
+\case{139}{77}{D}\ground{139}{18}{38}\stalk{147}{18}{B,B}\stalk{166}{18}{R}
+\end{sheet}
+\newpage
+
+\begin{sheet}
+\textat{232}{177}{\textbf{Problem 2:} A board balances when the second player can always win, whichever color starts. Which of these boards balance?}
+\panel{0}{150}{177}{62}\case{4}{208}{A}\ground{15}{158}{147}\stalk{62}{158}{B,R}\stalk{110}{158}{R}
+\panel{0}{78}{177}{62}\case{4}{136}{B}\ground{15}{86}{147}\stalk{45}{86}{B,R}\stalk{86}{86}{B,R}\stalk{127}{86}{R}
+\panel{0}{6}{177}{62}\case{4}{64}{C}\ground{15}{14}{147}\stalk{35}{14}{B,R}\stalk{70}{14}{B,R}\stalk{105}{14}{B,R}\stalk{140}{14}{R}
+\end{sheet}
+\newpage
+
+\begin{sheet}
+\textat{232}{177}{\textbf{Problem 3:} Which of these boards balance? Find a way for the winning color to win each other board, whoever starts.}
+\panel{0}{120}{83}{85}\case{4}{201}{A}\ground{8}{130}{67}\stalk{24}{130}{B,R,R}\stalk{57}{130}{R,B}
+\panel{94}{120}{83}{85}\case{98}{201}{B}\ground{102}{130}{67}\stalk{111}{130}{B,R,R}\stalk{134}{130}{B,R,R}\stalk{157}{130}{R,B}
+\panel{0}{12}{177}{85}\case{4}{93}{C}\ground{15}{22}{147}\stalk{35}{22}{B,R,R}\stalk{70}{22}{B,R,R}\stalk{105}{22}{B,R,R}\stalk{140}{22}{R,B}
+\end{sheet}
+\newpage
+
+\begin{sheet}
+\textat{232}{177}{\textbf{Problem 4:} Make two different boards that balance. Each board must include a stalk with at least two segments.}
+\panel{0}{118}{177}{92}\ground{10}{126}{157}
+\panel{0}{12}{177}{92}\ground{10}{20}{157}
+\end{sheet}
+\newpage
+
+\fancyhead[L]{\small Week 83 / Hackenbush balances / Grades 4--5}
+\begin{sheet}
+\textat{232}{177}{A number must be greater than every card on its left and less than every card on its right. Choose the card from the earliest day. You may reuse cards.}
+\node[font=\small] at (28,208) {Bounds};
+\node[font=\small] at (91,208) {Some cards that fit};
+\node[font=\small] at (151,208) {Earliest day};
+\node[font=\large] at (28,190) {$-2\quad\boxed{\phantom{0}}\quad2$};
+\node[align=center] at (91,189) {$-1\qquad 0\qquad1$\\[-1pt]{\scriptsize day 1 \quad day 0 \quad day 1}};
+\node[align=center] at (151,189) {$\boxed{0}$\\[-1pt]{\scriptsize day 0}};
+\draw[->] (55,190)--(62,190);\draw[->] (121,190)--(128,190);
+\textat{169}{177}{\textbf{Problem 5:} Choose the oldest number card that fits each pair of bounds. Put it in the middle.}
+\cutmat{0}{122}{0}{3}
+\cutmat{0}{84}{-1}{1}
+\cutmat{0}{46}{0}{1}
+\cutmat{0}{8}{\frac12}{1}
+\end{sheet}
+\newpage
+
+\begin{sheet}
+\textat{232}{177}{\textbf{Problem 6:} Make two different pairs of bounds that choose the same number card. Make a pair that chooses a card newer than both bounds.}
+\foreach \num/\day/\col/\row in {0/0/0/0,-1/1/1/0,1/1/2/0,-2/2/3/0,-\frac12/2/0/1,\frac12/2/1/1,2/2/2/1,-3/3/3/1,-\frac32/3/0/2,-\frac34/3/1/2,-\frac14/3/2/2,\frac14/3/3/2,\frac34/3/0/3,\frac32/3/1/3,3/3/2/3}{%
+  \pgfmathsetmacro{\cx}{2+44*\col}%
+  \pgfmathsetmacro{\cy}{172-37*\row}%
+  \draw[dashed,gray!60] (\cx,\cy) rectangle ++(40,24);
+  \node[font=\Large] at (\cx+20,\cy+15) {$\num$};
+  \node[font=\footnotesize] at (\cx+20,\cy+4) {day \day};
+}
+\end{sheet}
+\newpage
+
+\fancyhead[L]{\small Week 83 / Hackenbush balances / Grades 2--5}
+\begin{sheet}
+\node[anchor=north west,font=\small] at (0,232) {Extra workspace};
+\panel{0}{8}{177}{211}
+\ground{10}{20}{157}
+\end{sheet}
+
+\end{document}

@@ -57,3 +57,7 @@ The [mathematics atlas](../plans/atlas/README.md) adds two separate facilitator 
 Edit the worksheet sources under `source/week-NN/`, then run that folder's build script. Week 2 combines ReportLab and LaTeX sources. It writes to the corresponding `week-NN/` print folder and leaves compilation files in the project's `tmp/` folder. Rebuild combined packets after changing an individual week. See [build commands and dependencies](source/README.md).
 
 Downloaded originals belong in [external-resources](../external-resources/README.md); the organizer's 2025–26 material stays in [year 1](../lowell-math-circle-year-1/README.md).
+
+## Infinity, ordinal, surreal and knowledge drafts 79–84
+
+The [six-family mobile review index](WEEKS-79-84-DRAFT.md) links every student/material PDF and theorem-first facilitator guide individually, plus editable sources and portable ZIPs. These selected-band drafts remain unpiloted; physical fit and procedure rehearsal are untested. They are library options, not an adopted meeting schedule, and are not added to the older combined sets.

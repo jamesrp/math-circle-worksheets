@@ -43,3 +43,4 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Review cards: the weeks James will teach next | | | open; ask James which |
 | Review cards, Wave 3: every week of 1–63 without a card (5, 8–12, 17, 19–22, 27, 28, 32, 35–38, 40, 41, 48–51, 54–59, 61), each ending in its app decision; tracker [decisions.md](https://github.com/jamesrp/small-math-adventure/blob/main/docs/plan/decisions.md) | Claude, Every week to a decision thread | `claude/project-thread-tp7a3k` | in progress |
 | Worksheet revisions from the cards | | | open; after the agentic review pass |
+| Six infinity/ordinal/surreal/public-knowledge drafts, Weeks 79–84 | Codex | `drafts/infinity-six-activities` | six reviewed draft pairs and portable ZIPs complete; feature-branch-only claim follows user’s one-draft-PR/no-merge request; unpiloted, rehearsal untested |

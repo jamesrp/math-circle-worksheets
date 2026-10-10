@@ -1,0 +1,59 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.7in,headheight=15pt]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,fancyhdr,parskip,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\pdfinfoomitdate=1\pdftrailerid{}\pdfsuppressptexinfo=15
+\pagestyle{fancy}\fancyhf{}\lhead{Week 83 / Hackenbush balances}\rhead{Facilitator draft}\cfoot{Bellingham Math Circle / Week 83 / facilitator / \thepage}
+\setlength{\parskip}{7pt}\setlength{\parindent}{0pt}
+\begin{document}
+\section*{Mathematical overview}
+Under normal play Blue cuts one blue segment and Red cuts one red segment; everything disconnected from the ground disappears. Only one component changes per move, and a player with no move loses. Finite red/blue stalks have dyadic number values. Read stalk strings \emph{bottom to top}: B is 1, R is $-1$, BR is $1/2$, BRR is $1/4$, and RB is $-1/2$.
+
+Two BR stalks plus a separate R have value 0, as do two BRR stalks plus a separate RB. In a zero game the second player can win whichever color starts; there is no draw. Positive/negative value means Blue/Red has a winning strategy for either starter. Numeric equality is equivalence in \emph{all} disjunctive-sum contexts, not equality of edge counts or observed duration. Finite play on selected boards motivates the known equality theorem; it does not prove every context.
+
+Optional Grades 4--5 nursery: choose the earliest-born number strictly above all left bounds and below all right bounds. Then $\{0\mid3\}=1$, $\{-1\mid1\}=0$, $\{0\mid1\}=1/2$, $\{1/2\mid1\}=3/4$. Finite birthdays produce dyadics. The rule is not arbitrary midpoint insertion. Grades 2--3 can cut and balance; older ready children can explain responses and explore birth order.
+\newpage
+\section*{Preparation and launch}
+Per pair: a reusable ground-line board, red and blue removable magnetic segments or erasable pens. Use the printed game boards in sleeves with erasable pens, or reproduce their stalks with the removable segments; no separate stalk-card deck is supplied. Mark each segment B/R as well as color. Give at least twelve segments of each color if using manipulatives. A cut removes the chosen segment \emph{and} all above it in that stalk. A horizontal ground line must remain recognizable. Every stalk here is a simple rooted path; no floating component counts as a move.
+
+Prerequisites: alternate turns, distinguish colors, preserve support after a cut. Fractions are unnecessary to start. Optional nursery additionally needs signed numbers, halves/quarters and strict inequalities, plus reading birthday cards. No younger edition is implied by manipulating stalks.
+
+After handling materials, launch with the non-target worked cut: show the before stalk, identify the removed edge, then remove the fallen upper part. The partner checks that only grounded segments remain. Replay once with the other color. Show how separate stalks share one turn rule before distributing balances.
+
+Cut the fifteen birthday-number cards on page 6 only for the optional nursery; use page 7 as the reusable invention board. First route: 10 minutes easy starter-swapped games; 15 minutes balance candidates; 10 minutes constructing a difficult board for a partner; five minutes sharing response strategies. The nursery is a return visit, or a choice for children already fluent. Adult at each table; upper triplet rotates Blue/Red/referee. Use the same workspace rather than page-by-page copying.
+\newpage
+\section*{Exact game reasoning and solution methods}
+The cut rules give $\mathrm{BR}=\{0\mid1\}=1/2$ and $\mathrm{BRR}=\{0\mid1,1/2\}=1/4$; removing the upper red leaves BR, removing the lower red leaves B. The number assigned is the simplest between the effective bounds. Reversing colors negates the value. Disjoint grounded stalks add as games.
+
+Problem 1's boards A--D give Blue, Red, second player, Blue as winner classes. Problem 2's one/two/three BR stalks plus R give Red, second player, Blue. The balance $\mathrm{BR}+\mathrm{BR}+\mathrm{R}$ has value 0. Here is a complete concrete response proof:
+\begin{itemize}
+\item Blue starts by cutting a BR base. Red cuts the other BR's top R, leaving B+R with Blue to move. Blue removes B, and Red removes R last.
+\item Red starts by cutting the lone R. Blue removes one whole BR at its base; Red must cut the remaining top R, then Blue removes its base last.
+\item Red starts by cutting a BR top R. Blue removes the other whole BR, leaving B+R with Red to move. Red removes R, then Blue removes B last.
+\end{itemize}
+Symmetric choices of the two identical BR stalks need no new case. A strategy covers every opening; one successful play is evidence only.
+
+Problem 3's one/two/three BRR stalks plus RB again give Red, second player, Blue. Similarly $\mathrm{BRR}+\mathrm{BRR}+\mathrm{RB}=1/4+1/4-1/2=0$. One BR plus R is negative, so Red wins whichever color starts; three BR plus R is positive, so Blue wins whichever color starts. These contrasting boards give purpose to the two-copy balance. Verify printed boards against the independent stalk solver included in the source package.
+
+If students count edges as scores, ask them to play B versus BR and compare a cut at the bottom. If they only try one starter, invite the other starter before inferring a winner class. Do not call a second-player win a tie. Green edges, if later introduced, give the first-player game star rather than the number zero; they are not part of the core packet.
+\newpage
+\section*{Nursery: simplicity, not a midpoint procedure}
+Day 0 gives 0. Day 1 introduces $-1,1$. Day 2 introduces $-2,-1/2,1/2,2$. Day 3 introduces\[ -3,-3/2,-3/4,-1/4,1/4,3/4,3/2,3. \] Cards record \emph{first} birthdays; an older number does not acquire a new birthday when represented by new constraints.
+
+Problem 4 examples: BR+BR+R, and BRR+BRR+RB are different balanced boards and each has a multi-segment stalk. Problem 5 gives $1,0,1/2,3/4$ in printed order. Problem 6: the bounds $(-1,1)$ and $(-1/2,1/2)$ both select 0; $(0,1)$ selects $1/2$, younger than both bounds. These satisfy the invention prompts, without exhausting all possible answers.
+
+A left-bound card means strictly greater; right means strictly smaller. Select the earliest birthday among permitted cards. $\{0\mid3\}$ admits the day-1 number 1, so the midpoint $3/2$ is not the answer. $\{-1\mid1\}$ describes the already-existing number 0. $\{1/2\mid1\}$ first admits $3/4$ on day 3. When the supplied finite catalog has no permitted card, say ``not in this catalog'' before discussing later construction.
+
+Optional adult doorway: no finite-day card is greater than all $0,1,2,\ldots$; the simplest surreal with those lower bounds is $\omega$. A number strictly above 0 and below $1,1/2,1/4,\ldots$ leads to a positive surreal infinitesimal. These are mathematical descriptions of infinite bound sets, not physically performed days.
+
+Keep operations distinct: ordinary queue concatenation in Week 82 has $1+\omega=\omega$, while surreal field addition is commutative and gives $1+\omega=\omega+1$. Naming both operations ``plus'' without their meaning would teach a false transfer. No transfinite symbol manipulation is required on student pages.
+\newpage
+\section*{Sources, encore and observation record}
+Source: Dierk Schleicher and Michael Stoll, \emph{An Introduction to Conway's Games and Numbers}, arXiv math/0410026v2, Sections 2--3, especially the number construction and finite-birthday dyadic characterization. \url{https://arxiv.org/html/math/0410026v2}. The game semantics and arithmetic are established mathematics; our examples, cut illustrations and printed boards are original teaching designs. No external worksheet is copied.
+
+Encore: build two different stalk collections with the same value and challenge a partner to distinguish them by adding a small test stalk. Explain why successful small tests suggest, but do not establish, full game equality. A later visit can introduce a single green edge and investigate why its behavior cannot be any number.
+
+Pedagogy: Rozhkovskaya, Lesson 7 ``At the lesson,'' item 1, observed missed legal moves in a game. The referee and cut/drop demonstration are our response; Lessons 3/8 support visible possibilities and lighter transcription. This is not classroom validation of Hackenbush.
+
+Unpiloted. US Letter, single-sided, Actual Size. Segment fit, marker erasure, color legibility on a particular printer, preparation and classroom procedure untested. Record which board/starter combinations were actually played, whether children removed fallen pieces, and whether balance explanations covered all replies. Preserve observations separately from hypotheses about abstraction readiness.
+\end{document}
