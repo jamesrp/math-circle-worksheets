@@ -64,7 +64,7 @@ The child drags an aim; the app draws it through the copies, folds it into bounc
 
 Pitfalls: corner hits under dragging (exact rationals, Q(√3) for the rhombus); no predict-the-word or guess-the-room quizzes; no "x of 20" counter. As an aiming group in Mirror Couriers it would move that predict-heavy family toward clicking, and it removes the mirror, the paper's main unrehearsed risk.
 
-**Decision, October 10, 2026.** Not ported in the October 10, 2026 round: aiming through reflected rooms is a new interaction, and this card's own suggestion, an aiming group in Mirror Couriers, belongs with a revisit of that family rather than a new one.
+**Decision, October 10, 2026.** Port, in Wave 8, as an aiming group in Mirror Couriers, moving that predict-heavy family toward clicking: drag an aim through the unfolded rooms, and the app folds it into bounces and spells the word. Solves are a target word, ABA in the rhombus or "impossible" in the square with the collinear seams as certificate, a square word remade in the wide rectangle, and a word only one room can make. Exact arithmetic for corner hits, and no guess-the-room quizzes. Tracked in the app's [decisions.md](https://github.com/jamesrp/small-math-adventure/blob/main/docs/plan/decisions.md).
 
 ## Classroom evidence
 

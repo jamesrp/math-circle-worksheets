@@ -59,7 +59,7 @@ On screen: a strip of lettered tiles. Tapping a gap drops a seam; Shrink replace
 
 Pitfalls: seam placement is a two-way choice with instant feedback, so it is a tool, not the puzzle; no yes/no "Is this a whole row?", which is predict-shaped and settled by comparison (fix 2); no "6 of 8" counter for P1. Draw on P4–P6; leave P2, P5's explanation and P7's proof on paper.
 
-**Decision, October 10, 2026.** Not ported in the October 10, 2026 round: the strongest solve, catching an impostor, needs a Shrink tool and an exact factor-language check, a new mechanic for a later wave; growing rows would be its playground.
+**Decision, October 10, 2026.** Port, in Wave 8, with a Shrink tool on a strip of lettered tiles and the exact factor language as the check: catch the impostor in at most k tiles with the child's shrink chain ending at AA, BB or AAA as the certificate, repair a cut piece by finding every fixing flip with "That's all", and every seam placement for short pieces. Growing rows is the playground. Tracked in the app's [decisions.md](https://github.com/jamesrp/small-math-adventure/blob/main/docs/plan/decisions.md).
 
 ## Classroom evidence
 

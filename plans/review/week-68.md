@@ -68,7 +68,7 @@ Pitfalls:
 
 Draw on P1–P8 and fix 12.
 
-**Decision, October 10, 2026.** Not ported in the October 10, 2026 round: every solve needs a new endless, panning map whose "goes on forever" the app must decide by rule, and only the tree gives more than a few puzzles. Revisit with a panning board.
+**Decision, October 10, 2026.** Port, in Wave 5, as its own family on an endless panning map where a blocked dot takes its roads with it: trap two pockets on the line, split the ladder with the fewest blocks, make seven forever pieces on the tree with three blocks (2m + 1 certifies best), and "can't" claims on the ladder and grid with drawn certificates. The line, ladder, grid and tree give enough contrasting boards; forever is decided by the continuation rule, never by the window's edge, and pieces are judged on submit, not coloured live. Tracked in the app's [decisions.md](https://github.com/jamesrp/small-math-adventure/blob/main/docs/plan/decisions.md).
 
 ## Classroom evidence
 

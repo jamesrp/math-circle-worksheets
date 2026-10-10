@@ -62,7 +62,7 @@ The app makes the transfer, removing fix 1's risk. Solves:
 
 The certificate for "can't" comes from P9: no first return takes more than n blocks on n squares. P1–P2 suit a playground. Pitfalls: "where will it go?" predictions (the Mirror Couriers lesson), auto-coloured corner classes and visible counts.
 
-**Decision, October 10, 2026.** Not ported in the October 10, 2026 round: its best solve, gluing three or four squares for a target return time, needs a portal board the app does not have yet; port it with Week 41's portal mat and Week 70.
+**Decision, October 10, 2026.** Port, in Wave 4, on the shared portal board built with Week 41: glue three or four squares so a trip returns after exactly k blocks (or A after one and B after two), and group corners by following edge matches with a checked "That's all". The "can't" certificate is Problem 9's bound: no first return takes more than n blocks on n squares. No "where will it go?" predictions and no auto-coloured corner classes. Tracked in the app's [decisions.md](https://github.com/jamesrp/small-math-adventure/blob/main/docs/plan/decisions.md).
 
 ## Classroom evidence
 

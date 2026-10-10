@@ -52,7 +52,7 @@ Proposed row: | 75 | Twists on a cylinder | Lay yarn strands on a cylinder; coun
 
 The child drags strands on a wraparound strip; the app fixes the ends and rejects self-crossings. Solves: untangle a pair drawn with extra crossings, the child declaring done and the app checking; the certificate for "can't go lower" is the lift view, where the second strand must pass each copy of the first. Design: three windings with pairwise crossings 1, 1, 3 (0, 2, 4); 1, 1, 1 is impossible since the outer gap is the sum of the inner two. Pitfalls: a coarse grid raises minima (math.md's 4×3 grid gives 3 for windings 0 and 3), so use polylines or a fine lattice; a twist-word quiz is signed arithmetic and predict-style; a shown target count gives the answer away. Draw on P1–P3 and P6–P7.
 
-**Decision, October 10, 2026.** Not ported in the October 10, 2026 round: the packet needs its reviser first, and a strand-dragging wraparound board is new; on a coarse grid the minima change.
+**Decision, October 10, 2026.** Port, in Wave 4, on the shared portal board's cylinder (wrap one way, real rims) with a fine lattice so minima are true: untangle a pair to the fewest crossings with a checked "done", the lift view as the "can't go lower" certificate, and design three windings for crossing targets (1, 1, 1 is impossible). The revise is for the worksheet and doesn't hold up the port. Tracked in the app's [decisions.md](https://github.com/jamesrp/small-math-adventure/blob/main/docs/plan/decisions.md).
 
 ## Classroom evidence
 

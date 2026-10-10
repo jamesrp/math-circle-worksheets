@@ -61,7 +61,7 @@ Groups, drawn from P1–P3, with P4's three-shield question as the "can't" star:
 - Medium: all shots.
 - Hard: shots back to S, which need three shields.
 
-**Decision, October 10, 2026.** Not ported in the October 10, 2026 round: the port rests on Week 41's portal board, which the app does not have yet.
+**Decision, October 10, 2026.** Port, in Wave 4, on the shared portal board built with Week 41: tap shields onto snapped crosses while the app fires an escaping shot in both views until none is left; four disjoint diagonal shots certify "fewest", and shots back to S need three shields as the Hard group. No shield slots, no discs, no predict-the-path tasks. Tracked in the app's [decisions.md](https://github.com/jamesrp/small-math-adventure/blob/main/docs/plan/decisions.md).
 
 ## Classroom evidence
 

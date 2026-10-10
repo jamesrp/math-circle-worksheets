@@ -57,7 +57,7 @@ The app refuses a route longer than shortest, which paper cannot enforce, and a 
 
 Pitfalls: corner-home boards fall to one route; the flood must use uncoloured roads; no predict-the-gap, no "x of N". P4–P5 stay on paper. Share the route engine with Week 67 and the graph editor. Draw on P1, P2, a revised P3 and P5's Can't.
 
-**Decision, October 10, 2026.** Not ported in the October 10, 2026 round: it needs Week 67's three-walker routes plus a gap flood. Add it as a group in Meeting roads once children have played that.
+**Decision, October 10, 2026.** Port, in Wave 5, as a gap-flood group in Meeting roads, which is now in the app: draw three routes the app holds to shortest, tap a dot to flood its gap, reach a gap of k, claim Best, or answer Can't on trees, with the lit tripod and covering rings as certificates. Ladders and a 12-road ring give the contrasting maps. No predict-the-gap screens. Tracked in the app's [decisions.md](https://github.com/jamesrp/small-math-adventure/blob/main/docs/plan/decisions.md).
 
 ## Classroom evidence
 
