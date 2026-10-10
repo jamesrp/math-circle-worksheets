@@ -1,0 +1,100 @@
+Problem 1 (shortest routes)
+  ok   page-1 example: minor arc 95 deg, other arc 265 deg (guide)
+  ok   opposite points: routes via different equator points all have length pi (many shortest routes)
+  ok   close/far pair: no route via any sampled point beats the 95 deg minor arc (min 95.0000)
+
+Problem 2 (three right corners)
+  ok   octant N,(1,0,0),(0,1,0): corners 90,90,90
+  ok   octant area 1/8 of the sphere (solid angle)
+  ok   octant strictly inside the open hemisphere about (1,1,1)
+
+Problems 3-4 (pole-equator triangles)
+  ok   gap 30: corners (30.0,90.0,90.0), area 0.041667 = gap/720, grows with the gap, inside an open hemisphere
+  ok   gap 45: corners (45.0,90.0,90.0), area 0.062500 = gap/720, grows with the gap, inside an open hemisphere
+  ok   gap 60: corners (60.0,90.0,90.0), area 0.083333 = gap/720, grows with the gap, inside an open hemisphere
+  ok   gap 72: corners (72.0,90.0,90.0), area 0.100000 = gap/720, grows with the gap, inside an open hemisphere
+  ok   gap 89: corners (89.0,90.0,90.0), area 0.123611 = gap/720, grows with the gap, inside an open hemisphere
+  ok   gap 90: corners (90.0,90.0,90.0), area 0.125000 = gap/720, grows with the gap, inside an open hemisphere
+  ok   gap 110: corners (110.0,90.0,90.0), area 0.152778 = gap/720, grows with the gap, inside an open hemisphere
+  ok   gap 120: corners (120.0,90.0,90.0), area 0.166667 = gap/720, grows with the gap, inside an open hemisphere
+  ok   gap 150: corners (150.0,90.0,90.0), area 0.208333 = gap/720, grows with the gap, inside an open hemisphere
+  ok   gap 179: corners (179.0,90.0,90.0), area 0.248611 = gap/720, grows with the gap, inside an open hemisphere
+  ok   P4 gap 45: 8 equal lunes, lune 1/8, triangle 1/16 (key 1/16)
+  ok   P4 gap 72: 5 equal lunes, lune 1/5, triangle 1/10 (key 1/10)
+  ok   P4 gap 120: 3 equal lunes, lune 1/3, triangle 1/6 (key 1/6)
+  ok   P4 gap 40: 9 equal lunes, lune 1/9, triangle 1/18 (key 1/18)
+  ok   40 deg lune by sampling: 0.1111 vs 1/9 = 0.1111
+
+Problem 5 (octant N, A, B from the printed front view)
+  ok   region 1 (+++): area 0.1253 (exact 0.1250), pairs NAB -> count 3
+  ok   region 2 (++-): area 0.1246 (exact 0.1250), pairs B -> count 1
+  ok   region 3 (+-+): area 0.1249 (exact 0.1250), pairs A -> count 1
+  ok   region 4 (+--): area 0.1248 (exact 0.1250), pairs N -> count 1
+  ok   region 5 (-++): area 0.1246 (exact 0.1250), pairs N -> count 1
+  ok   region 6 (-+-): area 0.1263 (exact 0.1250), pairs A -> count 1
+  ok   region 7 (--+): area 0.1236 (exact 0.1250), pairs B -> count 1
+  ok   region 8 (---): area 0.1259 (exact 0.1250), pairs NAB -> count 3
+  ok   pair areas [np.float64(0.5006), np.float64(0.5024), np.float64(0.4995)] vs 0.5000
+  ok   counted area sum over regions = 1.5024 = 3 pairs = 1.5000
+  ok   3 pairs x 1/2 = 3/2 = 1 + 4f  ->  f = 1/8
+
+Problem 6 (80-80-80 triangle from the printed front view)
+  ok   region 1 (+++): area 0.0838 (exact 0.0833), pairs ABC -> count 3
+  ok   region 2 (++-): area 0.1389 (exact 0.1389), pairs C -> count 1
+  ok   region 3 (+-+): area 0.1391 (exact 0.1389), pairs B -> count 1
+  ok   region 4 (+--): area 0.1381 (exact 0.1389), pairs A -> count 1
+  ok   region 5 (-++): area 0.1398 (exact 0.1389), pairs A -> count 1
+  ok   region 6 (-+-): area 0.1388 (exact 0.1389), pairs B -> count 1
+  ok   region 7 (--+): area 0.1387 (exact 0.1389), pairs C -> count 1
+  ok   region 8 (---): area 0.0828 (exact 0.0833), pairs ABC -> count 3
+  ok   pair areas [np.float64(0.4445), np.float64(0.4445), np.float64(0.4442)] vs 0.4444
+  ok   counted area sum over regions = 1.3332 = 3 pairs = 1.3333
+  ok   3 x 4/9 = 4/3 = 1 + 4(1/12)
+  ok   guide cell key: 2(1/12)+6(5/36)=1, one pair 4/9
+  ok   cell ++-: corners [80.0, 100.0, 100.0] (guide: one 80 and two 100), solid-angle fraction 0.13889 vs 5/36=0.13889
+  ok   cell +-+: corners [80.0, 100.0, 100.0] (guide: one 80 and two 100), solid-angle fraction 0.13889 vs 5/36=0.13889
+  ok   cell +--: corners [80.0, 100.0, 100.0] (guide: one 80 and two 100), solid-angle fraction 0.13889 vs 5/36=0.13889
+
+Is the page-5 example triangle the Problem 6 triangle?
+  ok   page-5 example A,B,C vs page-6 A,B,C (same view frame): max difference 0.0092 (unit-sphere units)
+
+Problem 7 (records)
+  ok   (60, 60, 90): exists (sides [54.74, 54.74, 70.53]), area by solid angle 0.041667 = 1/24 = (sum-180)/720 = 1/24
+  ok   (80, 80, 80): exists (sides [77.87, 77.87, 77.87]), area by solid angle 0.083333 = 1/12 = (sum-180)/720 = 1/12
+  ok   (100, 100, 100): exists (sides [98.51, 98.51, 98.51]), area by solid angle 0.166667 = 1/6 = (sum-180)/720 = 1/6
+  ok   guide coordinates A=(0,0,1), B=(2r2/3,0,1/3), C=(1/r6,1/r2,1/r3): corners (60.0, 60.0, 90.0)
+  ok   guide equal-angle construction q=80: d=0.21014, eigenvalues [0.7899 0.7899 1.4203], corner 80.000000
+  ok   guide equal-angle construction q=100: d=-0.14796, eigenvalues [0.7041 1.148  1.148 ], corner 100.000000
+
+General claims on random triangles in scope (open hemisphere, minor sides)
+  ok   (sum-180)/720 equals the solid-angle fraction on 300 random triangles (worst error 3.47e-15)
+  ok   angle sums observed in (180.04, 322.55), inside (180, 540)
+  ok   40 random triangles: all eight cells nonempty, covering counts 3,1,1,1,1,1,1,3
+  ok   near-hemisphere triangle (vertices 11.46 deg above a great circle): sum 426.068 < 540, area 0.34176 < 1/2
+  ok   near-hemisphere triangle (vertices 2.86 deg above a great circle): sum 510.315 < 540, area 0.45877 < 1/2
+  ok   near-hemisphere triangle (vertices 0.57 deg above a great circle): sum 534.046 < 540, area 0.49173 < 1/2
+
+Outside the stated scope (guide p.8 'Counterexamples to overextension', p.1 limits)
+  ok   octant complement: reflex corners 270,270,270 -> (810-180)/720 = 7/8, its true area: the rule itself still holds there; only the 180<sum<540 bounds and the six-lune proof need the scope
+  ok   pole triangle with the LONG equator arc (gap 60): corners 300,90,90, rule gives 0.4167, sampled area 0.4167
+  ok   pole triangle with the LONG equator arc (gap 110): corners 250,90,90, rule gives 0.3472, sampled area 0.3467
+  ok   latitude-30 'triangle' (pole + two latitude points 90 deg apart): corners 90,90,90 but area 1/16, not 1/8 -> rule fails, as guide says
+  ok   three 60-degree corners: rule gives 0, so no positive-area triangle (guide)
+
+Guide p.6 hint: 'compare the sizes of cells 1 and 2 in the same map' (projected sizes on the printed front view)
+  INFO region 1: 0.141 of the printed disc; true sphere fraction 0.0833
+  INFO region 2: 0.272 of the printed disc; true sphere fraction 0.1389
+  INFO region 3: 0.272 of the printed disc; true sphere fraction 0.1389
+  INFO region 4: 0.315 of the printed disc; true sphere fraction 0.1389
+  INFO regions 2, 3, 4 are congruent (5/36 each) but print at different sizes; region 1 + region 2 is the
+       80-degree lune at C (2/9 = 8/36), which is not 2/8: a count-free reason the cells are not eighths.
+  ok   region 1 + region 2 = 1/12 + 5/36 = 2/9 = one 80-degree lune
+
+Guide arithmetic (materials, printing)
+  ok   strings: 6+6+3 = 15 at 80 cm = 12 m
+  ok   dots 30, right-angle tabs 11, balls 5
+  ok   20 cm ball circumference 62.8 cm < 80 cm string
+  ok   printing: 21 + 7 + 9 = 37 student sheets, 27 adult sheets
+  ok   roster 4 + 4 + 3 = 11 children
+
+ALL MATH CHECKS PASSED

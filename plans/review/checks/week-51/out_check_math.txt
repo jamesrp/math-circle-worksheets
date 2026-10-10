@@ -1,0 +1,98 @@
+LAUNCH (all bands): A 2-3, B 1-2
+  ok   join range [3, 5] = [3,5] (printed "A + B: 3 to 5 units", joins 2+1=3, 3+2=5)
+
+PROBLEM 1 (all bands): A 4-6, B 3-4
+  ok   tight join range [7,10] = [7,10]
+  ok   every 1/8 value from 7 to 10 occurs (continuous range)
+  ok   K-1 "exactly at 8": whole-unit ways [(4, 4), (5, 3)] (guide: 4+4, 5+3)
+  ok   older: claim "between 8 and 9" defeated by [(4, 3, 7), (6, 4, 10)]
+
+PROBLEM 2: printed pairs A+B, C+D, E+F
+       A+B: sum [7, 10]; always reaches 8: False; always fits within 10: True
+       C+D: sum [8, 10]; always reaches 8: True; always fits within 10: True
+       E+F: sum [8, 12]; always reaches 8: True; always fits within 10: False
+  ok   K-1 ("always reach 8"): ['CD', 'EF'] (guide: C with D and E with F)
+  ok   older (reach 8 and fit within 10): ['CD'] (guide: C with D alone)
+  ok   each rejected older pair fails exactly one promise (A+B: reach, 4+3=7; E+F: fit, 8+4=12)
+       info: all pairings meeting both older promises: ['CD']
+
+PROBLEM 3: A 3-4; B card so every join reaches 7 and fits within 9
+       K-1 card B 3-4: joins [6, 8]; reaches 7: False; fits within 9 (<=9): True; fits strictly below 9: True
+       K-1 card B 4-5: joins [7, 9]; reaches 7: True; fits within 9 (<=9): True; fits strictly below 9: False
+       K-1 card B 5-6: joins [8, 10]; reaches 7: True; fits within 9 (<=9): False; fits strictly below 9: False
+  ok   K-1 answer: card [(4, 5)] only (guide: 4-5; 3-4 fails at 6, 5-6 fails at 10)
+       note: if "fits within 9" excluded ending at 9, no K-1 card would work: []
+  ok   older widest B card on a 1/4 grid: [(Fraction(4, 1), Fraction(5, 1))], width 1 (guide: unique [4,5])
+  ok   every valid card lies inside [4,5] (so [4,5] is the unique widest)
+
+OLDER PROBLEM 4: A 4-6, B 3-4; uncover one strip
+  ok   uncover A leaves width {Fraction(1, 1)} for every a; uncover B leaves width {Fraction(2, 1)} for every b; answer A
+
+K-1 PROBLEM 4 / OLDER PROBLEM 5: A 4-6, B 4-6; white add-ons 4 and 1
+  ok   top (A+4 vs same A+1): gap always {Fraction(3, 1)}
+  ok   bottom (A+4 vs separate B+1): gap [1,5] = [1,5]; witnesses (4,6)->1, (6,4)->5
+  ok   A+4 always ends to the right of B+1 (no negative gaps)
+  ok   drawn settings: top gap 3, bottom gap 4 (A=5, B=4)
+       info: if A were held at the drawn 5 in the bottom picture, the gap would only range [2, 4]
+
+K-1 PROBLEM 5: long 7-9, short 5-6
+  ok   gap range [1, 4]: biggest 9-5=4, smallest 7-6=1
+  ok   shortest minus shortest (7-5=2) is not the smallest gap (guide remark)
+K-1 PROBLEM 6: gap of 3 with the same strips
+  ok   whole-unit ways: [(8, 5), (9, 6)] (guide: 8-5, 9-6)
+       info: half-unit ways: [('8', '5'), ('17/2', '11/2'), ('9', '6')]
+
+OLDER PROBLEM 6: long 13-15, short 10-12
+  ok   gap range [1, 5]; witnesses 13-12=1, 15-10=5; always positive
+OLDER PROBLEM 7: subtract middle values
+  ok   middle values give 3, which is possible but not forced (range [1, 5])
+
+K-1 PROBLEM 7 / GRADES 2-3 PROBLEM 8: A 4-6, B 3-5, A+B = 9, whole units
+  ok   ordered pairs [(4, 5), (5, 4), (6, 3)]; three boards printed
+
+GRADES 4-5 PROBLEM 8: A 7-10, B 3-7, A+B = 12
+  ok   feasible A [7, 9], B [3, 5] (guide: A in [7,9], B in [3,5])
+  ok   gap A-B range [2, 6] (guide: 2 to 6; witnesses (7,5), (9,3))
+  ok   A is always the longer strip
+  ok   A = 10 would need B = 2, not allowed
+       info: without the total the gap would range [0, 7]
+GRADES 4-5 PROBLEM 9: join A 4-6 to B 3-4, remove the same A
+  ok   remainder range [3, 4] = B's range
+  ok   claimed range from separate ranges: (1, 6)
+  ok   total 7 forces (4,3), total 10 forces (6,4), so remainders 1 and 6 never occur
+
+GUIDE OVERVIEW: interval sum and difference formulas, tightness (random tests)
+  ok   a+b in [L+V,U+W], a-b in [L-W,U-V], both endpoints attained: 300 random cases, 0 failures
+GUIDE: "in every printed gap task the designated upper/longer join stays to the right"
+  ok   minimum gaps: {'shared top (A+4)-(A+1)': '3', 'shared bottom (A+4)-(B+1)': '1', 'K-1 P5 long-short': '1', 'older P6 long-short': '1', '4-5 P8 A-B with A+B=12': '2'}
+
+BONUS PROBLEM 1: whole sides >= 1 with A + B = 6
+  ok   labelled pairs and areas [(1, 5, 5), (2, 4, 8), (3, 3, 9), (4, 2, 8), (5, 1, 5)]
+  ok   smallest 5 (1x5, 5x1), largest 9 (3x3); tight honest range [5,9]
+  ok   three shapes up to rotation, five labelled pairs (table has 5 rows)
+  ok   neither 1 nor 25 occurs with A+B=6 (1 needs 1x1, sum 2; 25 needs 5x5, sum 10)
+  ok   with real sides in [1,5] and A+B=6 the area range is also [5, 9]
+  ok   twenty-five 20-mm tiles cover every rectangle and the 5x5 of the false claim
+BONUS PROBLEM 2: cards for one hidden length
+  ok   row 1 all true: lengths 5 to 6 (every 1/8 value in between)
+       row 2, card 1 ((1, 4)) false: others meet in (5, 8); witnesses [5, 8]
+  ok   row 2 card 1: the other cards' common range is disjoint from it (guide claim)
+       row 2, card 2 ((3, 8)) false: others meet in nothing; witnesses none
+       row 2, card 3 ((5, 9)) false: others meet in (3, 4); witnesses [3, 4]
+  ok   row 2 card 3: the other cards' common range is disjoint from it (guide claim)
+  ok   row 2 possible false cards {1: '[5, 8]', 3: '[3, 4]'} (guide: {1: (5, 8), 3: (3, 4)})
+       row 3, card 1 ((1, 4)) false: others meet in (7, 8); witnesses [7, 8]
+  ok   row 3 card 1: the other cards' common range is disjoint from it (guide claim)
+       row 3, card 2 ((6, 8)) false: others meet in nothing; witnesses none
+       row 3, card 3 ((7, 9)) false: others meet in nothing; witnesses none
+  ok   row 3 possible false cards {1: '[7, 8]'} (guide: {1: (7, 8)})
+BONUS PROBLEM 3: separate lengths, end gap |A-B|
+  ok   A (3, 7), B (5, 9): gap [0, 6]; A longer True, B longer True, match True
+  ok   A (2, 4), B (6, 8): gap [2, 6]; A longer False, B longer True, match False
+  ok   A (3, 5), B (5, 7): gap [0, 4]; A longer False, B longer True, match True (only at 5)
+  ok   guide design A 4-6, B 4-6: gap at most 2, either strip can be longer
+       info: 1596 half-unit card pairs inside 0-10 meet the design task; largest total width 4
+BONUS GUIDE OVERVIEW formulas (random tests)
+  ok   min |A-B| = max(0,a-d,c-b), max = max(|a-d|,|b-c|), A longer iff b>c, B longer iff d>a, tie iff overlap, area in [ac,bd] for nonnegative sides: 400 random cases, 0 failures
+
+FAILURES: 0

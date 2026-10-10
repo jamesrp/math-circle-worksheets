@@ -78,6 +78,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 48 | Inside and outside covers | keep | [card](week-48.md), [math check](week-48-math.md) |
 | 49 | Four towers and differences (Ducci rings) | keep | [card](week-49.md), [math check](week-49-math.md) |
 | 50 | Staircases and lengths | keep | [card](week-50.md), [math check](week-50-math.md) |
+| 51 | Honest measurement ranges | revise: the strips the week runs on are one undefined phrase in the guide, and K–1 Problem 4 tells the child to hold A still where the key needs A to move | [card](week-51.md), [math check](week-51-math.md) |
 | 52 | Hinged frames and braces | revise: the K–1 route is three problems the guide finishes by minute 30, and Problem 13's "Yes" rests on a one-brace-per-cell rule no upper page states | [card](week-52.md), [math check](week-52-math.md) |
 | 53 | Cheapest connected networks | revise: two price labels on page 8 sit on the wrong link, and the K–1 route is one page long | [card](week-53.md), [math check](week-53-math.md) |
 | 54 | Partitions and rebuilding (Euler's odd and distinct parts) | keep | [card](week-54.md), [math check](week-54-math.md) |
@@ -85,6 +86,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 57 | Lattice area (Pick's theorem) | keep | [card](week-57.md), [math check](week-57-math.md) |
 | 59 | Constant-width shapes | keep | [card](week-59.md), [math check](week-59-math.md) |
 | 60 | Take it or pass (optimal stopping) | keep | [card](week-60.md), [math check](week-60-math.md) |
+| 61 | Geometry on a sphere (Girard's theorem) | keep | [card](week-61.md), [math check](week-61-math.md) |
 | 62 | Conflict networks and scheduling | keep | [card](week-62.md), [math check](week-62-math.md) |
 | 63 | Cards away from home (derangements) | revise: the K–1 table has no route after the launch, though placing and checking cards suits it | [card](week-63.md), [math check](week-63-math.md) |
 | 64 | Straight paths on strange surfaces (a glued octagon, square-tiled surfaces) | keep | [card](week-64.md), [math check](week-64-math.md) |
