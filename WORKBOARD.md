@@ -39,7 +39,7 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Review card: Week 6, code-breaking questions (wave 2, Signal Lanterns) | Claude, Code-breaking questions thread | `claude/wave2-code-questions-l0nj1z` | done: [revise](plans/review/week-06.md) |
 | Review card: Week 46, making two boards agree (wave 2) | Claude, Boards agree and gentle hills thread | `claude/wave2-46-47-ytobpf` | done: [keep](plans/review/week-46.md) |
 | Review card: Week 47, gentle step landscapes (wave 2) | Claude, Boards agree and gentle hills thread | `claude/wave2-46-47-ytobpf` | done: [keep](plans/review/week-47.md) |
-| Review cards: Weeks 64–78 (octagon surfaces, ten geometric group theory prototypes, three frontier prototypes), the worksheet types added since Wave 2 | Claude, New worksheet types thread | `claude/new-worksheets-review-round-qz5gm4` | done: 15 cards, 14 keep and 1 revise (Week 75); each card records its port decision (Weeks 66, 67, 72 and 74 port in the app's Wave 3) |
+| Review cards: Weeks 64–78 (octagon surfaces, ten geometric group theory prototypes, three frontier prototypes), the worksheet types added since Wave 2 | Claude, New worksheet types thread | `claude/new-worksheets-review-round-qz5gm4` | done: 15 cards, 14 keep and 1 revise (Week 75); each card records its port decision (Weeks 66, 67, 72 and 74 are ported to the app: PRs #27, #31, #28 and #29) |
 | Review cards: the weeks James will teach next | | | open; ask James which |
 | Review cards: the remaining themes | | | open; split into lines when claimed |
 | Worksheet revisions from the cards | | | open; after the agentic review pass |

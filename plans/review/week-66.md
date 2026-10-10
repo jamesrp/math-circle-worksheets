@@ -56,7 +56,7 @@ Fit A, size S. themes.md has no row; it should read: | 66 | Lamplighter streets 
 - **Dead ends.** Light lamps and park the walker so every move makes the street quicker to reach from dark, at 9 moves or more; a wrong state gets back the move that makes it harder.
 - **Pitfalls.** No live distance, no typed predictions of the count, short streets. Draw on P1, P2, P4 and the dead ends at 7, 9 and 11; leave P3's proof and P5 to paper. Mr. Hops, the road's frog lamplighter, is the natural keeper once children have played it.
 
-**Decision, October 10, 2026.** Port in this round as **Lamplighter**, a group in Lantern Wires: puzzles on a street, a ring and a grid with the breadth-first distance as the move budget, including the 7-move dead end. The dead-end construction puzzle waits.
+**Decision, October 10, 2026.** Ported as **Lamplighter**, a group in Lantern Wires ([app PR #27](https://github.com/jamesrp/small-math-adventure/pull/27), `docs/lamplighter/`): twelve puzzles on a street, a ring and a grid with the fewest moves as the budget, including the 7-move dead end and puzzle 8's start with lanterns already lit. The dead-end construction puzzle and the after-solve certificate bar wait. Satchel only; not deployed and not yet played by children.
 
 ## Classroom evidence
 

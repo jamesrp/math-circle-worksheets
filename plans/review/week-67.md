@@ -54,7 +54,7 @@ Week 69 (Thin and fat road triangles) shares the three homes, coloured pairwise 
 
 Solves: find the dot, with the three traced routes as certificate; "That's all" for find-every, with no count shown; design no meeting dot (a 3×3 grid missing its centre's roads, per math.md) or two (the crossroads map). For "none", the certificate is each dot with a pair it fails. Pitfalls: live per-pair lights make tapping all 25 dots a strategy, so require the routes; never score total travel, which gives away grid answers and is the wrong test elsewhere; put the difficulty in the maps, since grids are routine once the middle rule is known. Draw on P1, P3 and P4, moving P2's goals to maps where they succeed; P5's rule stays on paper.
 
-**Decision, October 10, 2026.** Port in this round as **Meeting roads** on the shared graph board: three walkers meet on one dot, and any two walks together must make a shortest route between their homes; one-answer maps, find-every maps with That's all (0, 1 or 2 answers), and closing a road so no dot works.
+**Decision, October 10, 2026.** Ported as **Meeting roads** on the shared graph board ([app PR #31](https://github.com/jamesrp/small-math-adventure/pull/31), `docs/meeting/`): three walkers meet on one dot, and any two walks together must make a shortest route between their homes, or the app draws a shorter one; one-answer maps, find-every maps with That's all (0, 1 or 2 answers), and closing a road so no dot works. Satchel only; not deployed and not yet played by children.
 
 ## Classroom evidence
 

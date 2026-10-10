@@ -53,7 +53,7 @@ B, size S; the table needs a row: "72 | A robot that remembers area | Walk a rob
 
 The app keeps the memory, removing the negative-number gate (it may suit younger children; prediction). Solves: reach the ring with memory 7 or −3 in 8 moves, the minimum (checked by search); return home with memory n in the fewest moves, 2⌈2√n⌉ (checked to n = 10), with "can't" certified by the bound that a loop of L moves remembers at most (L/4)²; the same loop far from home; every memory at the ring from two E and two N, claimed done with no slots. Pitfalls: no predict-the-memory tasks; a live counter invites nudging, so set budgets at the optimum; never call an open route's memory its area. Draw on P2–P4, with P1 as a collection; share a walker engine with Week 66.
 
-**Decision, October 10, 2026.** Port in this round as **Memory robot**: shaded strips show the memory as it changes, the budget is the breadth-first minimum, and loops home meet the least-perimeter bound 2⌈2√n⌉.
+**Decision, October 10, 2026.** Ported as **Memory robot** ([app PR #28](https://github.com/jamesrp/small-math-adventure/pull/28), `docs/robot/`): shaded strips between the wall and the robot show the memory as it changes, the budget is the fewest moves, and loops home meet the least-perimeter bound 2⌈2√n⌉. The worksheet's ring targets (7 and −3 in 8 moves), a "can't" claim and the collection puzzle wait. Satchel only; not deployed and not yet played by children.
 
 ## Classroom evidence
 

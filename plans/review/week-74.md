@@ -66,7 +66,7 @@ Avoid four things:
 - Any par that has not been proved optimal.
 - Calling the board the full BS(1,2) Cayley graph.
 
-**Decision, October 10, 2026.** Port in this round as **Doubling elevators**: trips to a flag within the breadth-first minimum, including the overshoot at 23, 31, 47 and 63, and the farthest reach in a fixed number of moves.
+**Decision, October 10, 2026.** Ported as **Doubling elevators** ([app PR #29](https://github.com/jamesrp/small-math-adventure/pull/29), `docs/elevators/`): flags within the fewest moves, the step-back savings at 23, 47 and 63, and the farthest reach in 9 and 11 moves. The window is fixed rather than scrolling, and the "can't" certificate and locked-left variant wait. Satchel only; not deployed and not yet played by children.
 
 ## Classroom evidence
 
