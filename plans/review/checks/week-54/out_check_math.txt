@@ -1,0 +1,137 @@
+== Partition numbers ==
+p(0..24) = [1, 1, 2, 3, 5, 7, 11, 15, 22, 30, 42, 56, 77, 101, 135, 176, 231, 297, 385, 490, 627, 792, 1002, 1255, 1575]
+ok   guide p.8: '7,338 partitions through total 24' = sum p(0..24) = 7338
+
+== Problem 1 (p.1): every collection of 4 and of 5 ==
+  4: 5 collections: (4) (3,1) (2,2) (2,1,1) (1,1,1,1); boxes printed 6
+ok   P1 total 4: 5 collections fit in 6 boxes
+  5: 7 collections: (5) (4,1) (3,2) (3,1,1) (2,2,1) (2,1,1,1) (1,1,1,1,1); boxes printed 8
+ok   P1 total 5: 7 collections fit in 8 boxes
+ok   guide P1 key for 4 (5 collections)
+ok   guide P1 key for 5 (7 collections)
+ok   guide P1: largest 3 leaves (2) or (1,1)
+  launch/demo total 3: ['(3)', '(2,1)', '(1,1,1)'] (non-task total)
+
+== Problem 2 (p.2): only odd / all different for 6 and 7 ==
+  6: odd 4 (5,1) (3,3) (3,1,1,1) (1,1,1,1,1,1) | distinct 4 (6) (5,1) (4,2) (3,2,1)
+ok   guide P2 table, total 6
+ok   P2 total 6 fits the 6 printed rows per column
+    overlap: ['(5,1)']
+    largest odd sizes: [5, 3, 1]; largest distinct sizes: [6, 5, 4, 3]
+  7: odd 5 (7) (5,1,1) (3,3,1) (3,1,1,1,1) (1,1,1,1,1,1,1) | distinct 5 (7) (6,1) (5,2) (4,3) (4,2,1)
+ok   guide P2 table, total 7
+ok   P2 total 7 fits the 6 printed rows per column
+    overlap: ['(7)']
+    largest odd sizes: [7, 5, 3, 1]; largest distinct sizes: [7, 6, 5, 4]
+ok   guide P2: largest distinct sizes for 6 are 6,5,4,3
+ok   guide P2: largest distinct sizes for 7 are 7,6,5,4
+  note: largest distinct size 3 is impossible for 7 because 3+2+1 = 6 < 7; the guide's stated reason covers only largest <= 2 (2+1 = 3).
+
+== Page 3 demo and Problem 3: join equal pairs until all sizes differ ==
+  demo legal first joins: [(6, 1, 1, 1, 1), (3, 3, 2, 1, 1)]
+ok   demo (3,3,1,1,1,1) -> join 3 and 3 -> (6,1,1,1,1)
+  -> the demo input has two different legal first joins (3+3 and 1+1); the guide's P3 bridge says it 'has one legal join 3+3'
+ok   demo ends at (6,4)
+  (1,1,1,1,1,1,1,1,1) total 9: terminals ['(8,1)'], 10 reachable states, 3 routes, longest strip 8
+ok   P3 (1,1,1,1,1,1,1,1,1) -> (8,1) on every route (guide key)
+  (5,5,3,3,3,1,1) total 21: terminals ['(10,6,3,2)'], 8 reachable states, 6 routes, longest strip 10
+ok   P3 (5,5,3,3,3,1,1) -> (10,6,3,2) on every route (guide key)
+  (5,3,1) total 9: terminals ['(5,3,1)'], 1 reachable states, 1 routes, longest strip 5
+ok   P3 (5,3,1) -> (5,3,1) on every route (guide key)
+
+== Page 4 demo and Problem 4: split evens, then rejoin ==
+ok   demo (4,3,2) -> split 4 -> (3,2,2,2)
+ok   demo ends at (3,1,1,1,1,1,1), total 9
+ok   P4 input (10,7,4,2,1) has all sizes different (so 'again' fits)
+  (10,7,4,2,1) total 24 -> (7,5,5,1,1,1,1,1,1,1) -> (10,7,4,2,1); split routes 10, join routes 10; longest strip 10
+ok   P4 (10,7,4,2,1) all-split result (7,5,5,1,1,1,1,1,1,1) (guide key)
+ok   P4 (10,7,4,2,1) returns after rejoining (guide: every input returns)
+ok   P4 input (12,6,3) has all sizes different (so 'again' fits)
+  (12,6,3) total 21 -> (3,3,3,3,3,3,3) -> (12,6,3); split routes 2, join routes 2; longest strip 12
+ok   P4 (12,6,3) all-split result (3,3,3,3,3,3,3) (guide key)
+ok   P4 (12,6,3) returns after rejoining (guide: every input returns)
+ok   P4 input (7,3,1) has all sizes different (so 'again' fits)
+  (7,3,1) total 11 -> (7,3,1) -> (7,3,1); split routes 1, join routes 1; longest strip 7
+ok   P4 (7,3,1) all-split result (7,3,1) (guide key)
+ok   P4 (7,3,1) returns after rejoining (guide: every input returns)
+ok   guide Limits example: (2,2) -> (1,1,1,1) -> (4)
+
+== Problem 5 (p.5): the 8-unit matching ==
+  (7,1) <-> (7,1)   (split back: (7,1))
+  (5,3) <-> (5,3)   (split back: (5,3))
+  (5,1,1,1) <-> (5,2,1)   (split back: (5,1,1,1))
+  (3,3,1,1) <-> (6,2)   (split back: (3,3,1,1))
+  (3,1,1,1,1,1) <-> (4,3,1)   (split back: (3,1,1,1,1,1))
+  (1,1,1,1,1,1,1,1) <-> (8)   (split back: (1,1,1,1,1,1,1,1))
+ok   6 odd and 6 distinct collections of 8; 8 printed box pairs suffice
+ok   guide P5 table matches
+ok   every pair splits back
+ok   guide P5: odd largest 7,5,3,1
+ok   guide P5: distinct largest 8,7,6,5,4
+  pairs whose two sides are the same collection (zero moves): ['(7,1)', '(5,3)']
+  components of the graph whose edges are single joins/splits:
+    (1,1,1,1,1,1,1,1): 10 collections, odd ['(1,1,1,1,1,1,1,1)'], distinct ['(8)']
+    (3,1,1,1,1,1): 4 collections, odd ['(3,1,1,1,1,1)'], distinct ['(4,3,1)']
+    (3,3,1,1): 4 collections, odd ['(3,3,1,1)'], distinct ['(6,2)']
+    (5,1,1,1): 2 collections, odd ['(5,1,1,1)'], distinct ['(5,2,1)']
+    (5,3): 1 collections, odd ['(5,3)'], distinct ['(5,3)']
+    (7,1): 1 collections, odd ['(7,1)'], distinct ['(7,1)']
+ok   n<=30: every join/split component holds exactly one only-odd and one all-different collection (so any reading of 'connected' gives the same pairs)
+
+== Problem 6 (p.6): all joining routes from four 3s and six 1s ==
+  total 18; reachable states 24; routes 70; terminals ['(12,4,2)']; longest strip 12
+ok   P6: every route ends at (12,4,2) (guide key)
+ok   guide P6 route 1: every arrow is one legal join
+ok   guide P6 route 2: every arrow is one legal join
+ok   every only-odd collection with total <= 24 reaches exactly one terminal, all sizes different (max 94 states)
+ok   also true from every collection (not only odd) with total <= 18
+
+== Problem 9 / guide overview: Euler's odd = distinct ==
+ok   n <= 40: join map is a bijection only-odd -> all-different, split is its inverse, counts equal
+  counts q(n), n=0..16: [1, 1, 1, 2, 2, 3, 4, 5, 6, 8, 10, 12, 15, 18, 22, 27, 32]
+  totals where the two catalogs are identical: [0, 1] (guide: 'usually different catalogs')
+ok   guide p.6 lemma: different selections of u,2u,4u,... (u odd, 10 levels) never share a total
+ok   different odd families u*2^i never share a size
+
+== Page 7 demo, Problem 7 and Problem 8: rows/columns ==
+ok   demo (5,3,3,1) -> columns 4,3,3,1,1
+  (5,2,1) -> (3,2,1,1,1) -> (5,2,1); once fits 6x6 grid: True
+ok   P7 (5,2,1) once (3,2,1,1,1) twice back (guide key)
+  (4,4) -> (2,2,2,2) -> (4,4); once fits 6x6 grid: True
+ok   P7 (4,4) once (2,2,2,2) twice back (guide key)
+  (3,3,1,1) -> (4,2,2) -> (3,3,1,1); once fits 6x6 grid: True
+ok   P7 (3,3,1,1) once (4,2,2) twice back (guide key)
+  8 with at most 3 strips: 10
+    (8) -> (1,1,1,1,1,1,1,1)
+    (7,1) -> (2,1,1,1,1,1,1)
+    (6,2) -> (2,2,1,1,1,1)
+    (6,1,1) -> (3,1,1,1,1,1)
+    (5,3) -> (2,2,2,1,1)
+    (5,2,1) -> (3,2,1,1,1)
+    (4,4) -> (2,2,2,2)
+    (4,3,1) -> (3,2,2,1)
+    (4,2,2) -> (3,3,1,1)
+    (3,3,2) -> (3,3,2)
+ok   guide P8 table (ten pairs) matches
+ok   P8: 10 collections, 12 printed rows
+ok   P8: outputs are exactly the 8-unit collections with all sizes <= 3
+  by number of strips: {1: 1, 2: 4, 3: 5} (guide: 1 + 4 + 5)
+ok   guide P8 'why complete' 1+4+5
+ok   n <= 20: conjugation is an involution, swaps #rows and longest row, and maps <=k parts onto parts <=k
+
+== Physical bounds stated in the guide ==
+  max total of a printed physical case: 24
+ok   every printed physical case uses at most 24 units
+ok   longest strip printed or formed on any legal route = 12 (guide: 12 units, 18 cm at 15 mm)
+
+== Guide p.2: K-1 pattern-block subset against Week 1 K-1 boards ==
+  Sailboat: 11 small triangles (an all-green filling needs 11; kit has 12 greens, 6 blues, 1 yellow = 30 triangles)
+ok   Sailboat can be filled by the 12 greens alone
+  Cat: 7 small triangles (an all-green filling needs 7; kit has 12 greens, 6 blues, 1 yellow = 30 triangles)
+ok   Cat can be filled by the 12 greens alone
+  Hexagon: 6 small triangles (an all-green filling needs 6; kit has 12 greens, 6 blues, 1 yellow = 30 triangles)
+ok   Hexagon can be filled by the 12 greens alone
+  Diamond: 8 small triangles (an all-green filling needs 8; kit has 12 greens, 6 blues, 1 yellow = 30 triangles)
+ok   Diamond can be filled by the 12 greens alone
+
+FAILURES: 0

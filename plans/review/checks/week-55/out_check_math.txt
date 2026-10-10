@@ -1,0 +1,209 @@
+student source pages: 10
+ok   ten student pages in source
+
+== Page 1 launch example
+launch A [1, 4] B [0, 3] sumset [1, 4, 7]
+ok   launch inputs A 1 4 and B 0 3 printed in PDF
+ok   launch try 1+3=4 is a legal pair with that total
+ok   launch try 4+0=4 is a legal pair with that total
+ok   launch try 1+0=1 is a legal pair with that total
+ok   complete launch sumset is {1,4,7} (guide: picture partial, 7 untried)
+ok   launch example is not a task trial
+
+== Problems 1-2
+ok   P1 has 2 trials, P2 has 3 trials
+ok   p1: delivered PDF shows A [0, 2] B [1, 3]
+ok   p1: delivered PDF shows A [0, 2] B [1, 4]
+ok   p2: delivered PDF shows A [0, 1, 2] B [0, 1, 2]
+ok   p2: delivered PDF shows A [0, 1, 3] B [0, 1, 3]
+ok   p2: delivered PDF shows A [0, 1, 2] B [0, 3, 6]
+  [0, 2] + [1, 3] = [1, 3, 5]  (3)
+  [0, 2] + [1, 4] = [1, 3, 4, 6]  (4)
+  [0, 1, 2] + [0, 1, 2] = [0, 1, 2, 3, 4]  (5)
+  [0, 1, 3] + [0, 1, 3] = [0, 1, 2, 3, 4, 6]  (6)
+  [0, 1, 2] + [0, 3, 6] = [0, 1, 2, 3, 4, 5, 6, 7, 8]  (9)
+ok   P1: first trial has fewer
+ok   P2: first has strictly the fewest
+ok   P2: third has strictly the most
+ok   [0, 2]+[1, 3] fits the 0-18 lane
+ok   [0, 2]+[1, 4] fits the 0-18 lane
+ok   [0, 1, 2]+[0, 1, 2] fits the 0-18 lane
+ok   [0, 1, 3]+[0, 1, 3] fits the 0-18 lane
+ok   [0, 1, 2]+[0, 3, 6] fits the 0-18 lane
+
+== Problem 3: three cards each from 0-9
+ok   P3: four blank 3+3 records
+  distribution of |A+B| over all ordered (A,B): {5: 120, 6: 756, 7: 3812, 8: 7328, 9: 2384}
+ok   P3 min 5, max 9 (expected 5 and 9)
+ok   all 120 minimal 3+3 designs are common-gap progressions (guide adult key)
+ok   guide witnesses 2a (5) and 2c (9)
+
+== Problem 4
+ok   P4 sizes [(2, 3), (2, 4), (3, 4)]
+  2+3: minimum 4, 160 minimal designs in 0-9
+ok   P4 2+3 minimum = m+n-1 = 4 (guide 4)
+ok   P4 2+3: every minimum is common-gap
+  2+4: minimum 5, 102 minimal designs in 0-9
+ok   P4 2+4 minimum = m+n-1 = 5 (guide 5)
+ok   P4 2+4: every minimum is common-gap
+  3+4: minimum 6, 84 minimal designs in 0-9
+ok   P4 3+4 minimum = m+n-1 = 6 (guide 6)
+ok   P4 3+4: every minimum is common-gap
+ok   guide P4 witness [0, 1]+[0, 1, 2]=[0, 1, 2, 3]
+ok   guide P4 witness [0, 1]+[0, 1, 2, 3]=[0, 1, 2, 3, 4]
+ok   guide P4 witness [0, 1, 2]+[0, 1, 2, 3]=[0, 1, 2, 3, 4, 5]
+
+== Problem 5
+ok   P5 fixed A = [0, 3, 6]
+ok   P5 A printed in PDF
+ok   45 two-card B from 0-9
+  solutions: [(0, 3), (1, 4), (2, 5), (3, 6), (4, 7), (5, 8), (6, 9)]
+ok   P5 catalog is exactly B={t,t+3}, t=0..6 (seven)
+  printed B slots: 8; solutions: 7
+ok   P5 has room for every solution
+ok   (0, 3) totals fit lane
+ok   (1, 4) totals fit lane
+ok   (2, 5) totals fit lane
+ok   (3, 6) totals fit lane
+ok   (4, 7) totals fit lane
+ok   (5, 8) totals fit lane
+ok   (6, 9) totals fit lane
+ok   guide: A={0,2,4} gives eight B={t,t+2}, 0<=t<=7 -> [(0, 2), (1, 3), (2, 4), (3, 5), (4, 6), (5, 7), (6, 8), (7, 9)]
+ok   guide: A={0,1,3} has no two-card B with four totals
+ok   guide shift argument: shift 1 -> 0 coincidences
+ok   guide shift argument: shift 2 -> 0 coincidences
+ok   guide shift argument: shift 3 -> 2 coincidences
+ok   guide shift argument: shift 4 -> 0 coincidences
+ok   guide shift argument: shift 5 -> 0 coincidences
+ok   guide shift argument: shift 6 -> 1 coincidences
+ok   guide shift argument: shift 7 -> 0 coincidences
+ok   guide shift argument: shift 8 -> 0 coincidences
+ok   guide shift argument: shift 9 -> 0 coincidences
+
+== Problem 6
+ok   p6: PDF shows A [1, 3, 5] B [2, 4]
+ok   p6: PDF shows A [0, 2, 4] B [0, 3]
+ok   p6: PDF shows A [0, 2, 4] B [1, 3]
+ok   p6: PDF shows A [0, 3, 6] B [1, 4]
+ok   [1, 3, 5],[2, 4] each equally spaced (gaps {2},{2})
+  [1, 3, 5] + [2, 4] = [3, 5, 7, 9] (4)
+ok   [0, 2, 4],[0, 3] each equally spaced (gaps {2},{3})
+  [0, 2, 4] + [0, 3] = [0, 2, 3, 4, 5, 7] (6)
+ok   [0, 2, 4],[1, 3] each equally spaced (gaps {2},{2})
+  [0, 2, 4] + [1, 3] = [1, 3, 5, 7] (4)
+ok   [0, 3, 6],[1, 4] each equally spaced (gaps {3},{3})
+  [0, 3, 6] + [1, 4] = [1, 4, 7, 10] (4)
+ok   all P6 sizes are 3+2
+ok   fewest possible for 3+2 is 4
+ok   P6 answer is "no": some equally spaced pair exceeds the minimum
+ok   guide P6 counts 4,6,4,4 -> [4, 6, 4, 4]
+
+== Problem 7
+ok   p7: PDF shows A [4] B [0, 1, 3]
+ok   [4]+[0, 1, 3]=[4, 5, 7]: count equals |B|=3
+ok   p7: PDF shows A [2] B [0, 2, 4]
+ok   [2]+[0, 2, 4]=[2, 4, 6]: count equals |B|=3
+ok   p7: PDF shows A [0] B [1, 4, 6, 9]
+ok   [0]+[1, 4, 6, 9]=[1, 4, 6, 9]: count equals |B|=4
+ok   P7 includes an unequally spaced B
+ok   singleton rule |{a}+B| = |B| for every a and every nonempty B in 0-9
+
+== Problem 8 grids
+ok   three grids on page 8 (demo + two tasks)
+ok   demonstration: rows/columns increasing
+  demonstration: A=[1, 5] B=[0, 2, 6] grid rows (top->bottom): [[5, 7, 11], [1, 3, 7]]
+    sumset [1, 3, 5, 7, 11] (5); routes 3; each route visits 4 dots
+ok   demonstration: every route strictly increasing, no repeat
+ok   demonstration: every route has 4 different totals
+ok   demonstration: guide route catalog matches (3)
+    every route covers whole sumset: False
+ok   demo bold route R,U,R gives 1,3,7,11
+ok   guide: demo grid totals {1,3,5,7,11}, five
+ok   demo: A row 1 + B column 2 = 3
+ok   demonstration: equal values never lie on one route
+ok   left task: rows/columns increasing
+  left task: A=[0, 2, 5] B=[1, 3, 4] grid rows (top->bottom): [[6, 8, 9], [3, 5, 6], [1, 3, 4]]
+    sumset [1, 3, 4, 5, 6, 8, 9] (7); routes 6; each route visits 5 dots
+ok   left task: every route strictly increasing, no repeat
+ok   left task: every route has 5 different totals
+ok   left task: guide route catalog matches (6)
+    every route covers whole sumset: False
+ok   guide: left sumset seven values; a route need not cover it
+ok   guide left examples RRUU, UURR
+ok   left task: equal values never lie on one route
+ok   right task: rows/columns increasing
+  right task: A=[1, 3, 5] B=[0, 2, 4, 6] grid rows (top->bottom): [[5, 7, 9, 11], [3, 5, 7, 9], [1, 3, 5, 7]]
+    sumset [1, 3, 5, 7, 9, 11] (6); routes 10; each route visits 6 dots
+ok   right task: every route strictly increasing, no repeat
+ok   right task: every route has 6 different totals
+ok   right task: guide route catalog matches (10)
+    every route covers whole sumset: True
+ok   guide: right sumset six values; every route covers it
+ok   guide right example RRRUU
+ok   right task: equal values never lie on one route
+
+== Page 9 count example and Problem 9
+ok   p9 example A=[1, 4] B=[0, 2, 5, 8]
+ok   p9 prints m+n-1=2+4-1=5
+ok   p9 prints m×n=2×4=8
+ok   p9 count substitution correct
+ok   guide: example full result set {1,3,4,6,9,12} -> [1, 3, 4, 6, 9, 12]
+
+== General theorems (exhaustive over nonempty subsets of {0..10})
+  ordered pairs checked: 4190209
+ok   no pair has fewer than m+n-1 totals
+ok   no pair has more than mn totals
+ok   m,n>=2 equality cases 4079: all common-gap progressions
+ok   every common-gap pair with m,n>=2 attains m+n-1
+ok   every pair with a singleton attains the bound (44913 of 44913)
+ok   guide sharpness constructions attain m+n-1 and mn for all 1<=m,n<=12
+ok   guide 3+4 maximum example {0,1,2}+{0,3,6,9} = {0..11}
+ok   guide signed example
+ok   guide: bound fails mod 3 (Z3+Z3 has 3 < 5)
+ok   guide index choice i=min(k,m-1), j=k-i stays in range
+ok   local-square swap: at equality a_{i+1}+b_j = a_i+b_{j+1} for every square
+ok   guide: demonstration square alternatives differ (5 vs 3)
+
+== Problem 10 statement
+ok   P10 states each input has at least two cards
+ok   P10 restricts to whole numbers
+
+== Other reading: A and B share no number (page-1 rule read as "the inputs differ")
+ok   page-1 rule text "Each input has different numbers."
+  printed trials whose A and B share a number: [(2, [0, 1, 2], [0, 1, 2]), (2, [0, 1, 3], [0, 1, 3]), (2, [0, 1, 2], [0, 3, 6]), (6, [0, 2, 4], [0, 3]), (7, [2], [0, 2, 4])]
+  P3 under disjoint reading: min 5, max 9 (unchanged 5, 9)
+  P4 2+3 under disjoint reading: minimum 4
+  P4 2+4 under disjoint reading: minimum 5
+  P4 3+4 under disjoint reading: minimum 6
+  P5 under disjoint reading: 4 answers [(1, 4), (2, 5), (4, 7), (5, 8)] instead of 7
+  note: the P5 "find every" count depends on the reading (7 vs 4)
+
+== Guide text cross-check
+ok   guide row "1a 0, 2 1, 3 1, 3, 5 3"
+ok   guide row "1b 0, 2 1, 4 1, 3, 4, 6 4"
+ok   guide row "2a 0, 1, 2 0, 1, 2 0, 1, 2, 3, 4 5"
+ok   guide row "2b 0, 1, 3 0, 1, 3 0, 1, 2, 3, 4, 6 6"
+ok   guide row "2c 0, 1, 2 0, 3, 6 0, 1, 2, 3, 4, 5, 6, 7, 8 9"
+ok   guide P6 row "1, 3, 5 2, 4 3, 5, 7, 9 4"
+ok   guide P6 row "0, 2, 4 0, 3 0, 2, 3, 4, 5, 7 6"
+ok   guide P6 row "0, 2, 4 1, 3 1, 3, 5, 7 4"
+ok   guide P6 row "0, 3, 6 1, 4 1, 4, 7, 10 4"
+ok   guide P5 row "{0, 3} {0, 3, 6, 9}"
+ok   guide P5 row "{1, 4} {1, 4, 7, 10}"
+ok   guide P5 row "{2, 5} {2, 5, 8, 11}"
+ok   guide P5 row "{3, 6} {3, 6, 9, 12}"
+ok   guide P5 row "{4, 7} {4, 7, 10, 13}"
+ok   guide P5 row "{5, 8} {5, 8, 11, 14}"
+ok   guide P5 row "{6, 9} {6, 9, 12, 15}"
+ok   guide P7 "{4} + {0, 1, 3} = {4, 5, 7} (3)"
+ok   guide P7 "{2} + {0, 2, 4} = {2, 4, 6} (3)"
+ok   guide P7 "{0} + {1, 4, 6, 9} = {1, 4, 6, 9} (4)"
+ok   guide P3 min/max sentence
+ok   guide P5 count sentence
+ok   guide P9 example result set
+ok   guide launch complete example
+ok   guide overview cites its pages 7-8 for the proof
+ok   guide pages 7-8 hold the lower bound and the inverse proof
+ok   guide K-1 tiling option is on its page 2
+
+SUMMARY: all checks passed

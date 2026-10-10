@@ -62,6 +62,8 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 47 | Gentle-step landscapes (extending clues, lowest and highest landscapes) | keep | [card](week-47.md), [math check](week-47-math.md) |
 | 52 | Hinged frames and braces | revise: the K–1 route is three problems the guide finishes by minute 30, and Problem 13's "Yes" rests on a one-brace-per-cell rule no upper page states | [card](week-52.md), [math check](week-52-math.md) |
 | 53 | Cheapest connected networks | revise: two price labels on page 8 sit on the wrong link, and the K–1 route is one page long | [card](week-53.md), [math check](week-53-math.md) |
+| 54 | Partitions and rebuilding (Euler's odd and distinct parts) | keep | [card](week-54.md), [math check](week-54-math.md) |
+| 55 | Sumsets (fewest and most totals) | keep | [card](week-55.md), [math check](week-55-math.md) |
 | 60 | Take it or pass (optimal stopping) | keep | [card](week-60.md), [math check](week-60-math.md) |
 | 62 | Conflict networks and scheduling | keep | [card](week-62.md), [math check](week-62-math.md) |
 | 63 | Cards away from home (derangements) | revise: the K–1 table has no route after the launch, though placing and checking cards suits it | [card](week-63.md), [math check](week-63-math.md) |
