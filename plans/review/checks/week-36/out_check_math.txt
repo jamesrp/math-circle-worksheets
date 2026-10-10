@@ -1,0 +1,51 @@
+== Rule, completion and incidence (guide p.1 'Unique completion and incidence')
+  ok   36 unordered pairs
+  ok   every pair of distinct tiles has exactly one completing tile
+  ok   the guide's keep/missing-value rule gives that tile
+  ok   the completion always differs from both inputs
+  ok   completion z = -x-y (mod 3) holds for all 36 encodings of the values as 0,1,2
+  ok   12 allowed threes
+  ok   four allowed threes through each tile
+  ok   distinct threes meet in 0 or 1 tile: {1: 54, 0: 12}
+  ok   3 same-shape + 3 same-fill + 6 all-different-both threes (guide p.4 direct count): {'shape-same': 3, 'fill-same': 3, 'both-different': 6}
+  ok   no three different tiles are all-same in both attributes
+
+== Partitions into three allowed threes (K-1 P2, 2-3 P2, 4-5 P4, guide p.4 key)
+  ok   exactly 4 unordered splits
+  ok   the guide's Splits 1-4 are exactly the four splits
+  ok   the 12 triples of the key are the 12 allowed threes, each once
+  ok   each allowed three is disjoint from exactly two others (its split companions)
+  ok   two distinct threes are disjoint iff they have the same direction (4 directions)
+  ok   three threes in each of the four directions
+
+== Collections with no allowed three (K-1 P3, 2-3 P3, 4-5 P2, guide p.1 and p.5)
+  ok   line-free subsets of sizes 0..5: [1, 9, 36, 72, 54, 0] (guide: 1, 9, 36, 72, 54, 0)
+  ok   maximum line-free size is 4
+  ok   all 9 two-by-two attribute rectangles are line-free (guide witness)
+  ok   K-1/2-3/4-5 witness {open circle, striped circle, open triangle, striped triangle} is line-free
+  ok   every triple of the witness has exactly two of some shape or fill
+  note 4-caps that are 2x2 rectangles: 9 of 54
+  ok   for every 5-set S and tile x outside S: the pairs of S completed by x are disjoint and at most 2
+  ok   each tile completes exactly 4 pairs, and they partition the other 8 tiles
+  ok   every line-free collection of size 0 has exactly 9 legal additions
+  ok   every line-free collection of size 1 has exactly 8 legal additions
+  ok   every line-free collection of size 2 has exactly 6 legal additions
+  ok   every line-free collection of size 3 has exactly 3 legal additions
+  ok   every line-free collection of size 4 has exactly 0 legal additions
+  ok   for a line-free three, the forbidden fourth tiles are exactly the 3 distinct pair completions
+  ok   every maximal line-free collection has size 4 (54 of them)
+  ok   2-3 P3: from any 4-tile collection, changing one tile and then adding another never works
+
+== Shared adding game (2-3 P5, 4-5 P5)
+  ok   every legal ordered play lasts exactly 4 moves (1296 sequences)
+  ok   number of ordered plays = 9*8*6*3 = 1296
+  note move 4 is made by the second player; the first player then cannot move and loses, whatever anyone chooses
+
+== Guide keys (pp. 3-4) and launch
+  ok   printed allowed triple: open circle, solid triangle, striped square
+  ok   printed near miss: open circle, open triangle, solid square
+  ok   guide's four printed-pair completions
+  ok   guide K-1 P4: the four pairs through the open circle
+  ok   4-5 P3 key examples: circles vs triangles disjoint; circles vs open tiles share one tile
+
+FAILURES: 0

@@ -1,0 +1,40 @@
+Extraction (board units relative to the first label; max deviation from source):
+  p1: labels ABCDEFT; max deviation 0.0001 units
+  p2: labels ABCD; max deviation 0.0001 units
+  p3: labels ABCDEPQRS; max deviation 0.0001 units
+  p5: labels ABCDEF; max deviation 0.0001 units
+  p4 hexagon: radii 3.5000-3.5001, sides 3.5000-3.5001 units (regular, equal scaling)
+
+P1/P2 (p1): six dots and target T
+  hull order: FABCDE (all six are corners: True); T inside: True
+  T on a joining segment: none; T equals a dot: False
+  T on an infinite joining line: none
+  containing triples (8): ABE,ACE,ADE,ADF,BDF,BEF,CDF,CEF
+  guide: T = 11/25 C + 4/25 E + 2/5 F -> 4,16/5; weights sum 1
+  closest joining segments to T at print size: BE 1.34 mm, AD 2.30 mm, CF 11.29 mm, DF 22.62 mm
+  (T is drawn as a ring of radius 3 pt = 1.06 mm with a 1.2 pt stroke, outer edge 3.6 pt = 1.27 mm)
+  0.1-unit lattice targets in the hexagon by fewest dots needed: {1: 6, 2: 262, 3: 3828}
+  guide P2 target A: needs exactly 1
+  guide P2 target (3,0): needs exactly 2
+  guide P2 target T: needs exactly 3
+
+P3 (p2): square, fixed groupings
+  AC/BD: hulls meet: ('point', (Fraction(4, 1), Fraction(4, 1)))
+  AB/CD: hulls meet: None
+  y = 4 strictly separates AB from CD: True
+
+P4 (p3): rows on a line, three groups with one common point
+  ABCDE: 25 partitions; successful: ['AD/BE/C', 'AE/BD/C']
+  PQRS: 6 partitions; successful: none
+  r=2: every placement of 3 labels on 4 line positions works: True; 2 distinct positions fail: True
+  r=3: every placement of 5 labels on 6 line positions works: True; 4 distinct positions fail: True
+
+P5 (p4): regular hexagon. An affine map (x, y) -> (x, (y-4)/(3.5*sqrt(3)/2)) keeps every
+  hull incidence and makes the vertices rational:
+  90 partitions into three groups; successful: ['AD/BE/CF']
+
+P6 (p5): the irregular hexagon of P1
+  strictly convex hexagon with all six as corners: True
+  90 partitions into three groups; successful: none
+  AD x BE = (37/9, 28/9); CF at x = 37/9 has y = 179/72
+  the three pairwise crossings span up to 12.8 mm at print size

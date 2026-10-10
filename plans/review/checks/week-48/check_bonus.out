@@ -1,0 +1,51 @@
+Week 48 bonus: independent exact checks
+=======================================
+
+## Problem 1: sliding a grid under a fixed L
+PASS  'Aligned': area 3; 3 whole, 3 cover -> [3, 3]; every cover cell is drawn and fully visible
+PASS  'Half a square sideways': area 3; 1 whole, 5 cover -> [1, 5]; every cover cell is drawn and fully visible
+PASS  'Half a square both ways': area 3; 0 whole, 8 cover -> [0, 8]; every cover cell is drawn and fully visible
+PASS  the three pictures show the same L (union of a 2x1 bar and a 1x1 square on its right end)
+PASS  bounds {'Aligned': (Fraction(3, 1), Fraction(3, 1)), 'Half a square sideways': (Fraction(1, 1), Fraction(5, 1)), 'Half a square both ways': (Fraction(0, 1), Fraction(8, 1))}; tightest is Aligned; moving the grid does not always improve the bounds
+INFO  all 64 translations by eighths: gaps ['0', '4', '8']; only the aligned grid gives an exact certificate: [(0, 0)]
+PASS  survey agrees with the drawn placements; a vertical half shift also gives [1,5]
+
+## Problem 2: range cards
+PASS  example: one partial square (gray fraction 0.5) -> card '0 to 1' = [whole count, cover count] = [0, 1]
+PASS  intersections of the three pairs: [(4, 8), None, (4, 4)] (second pair impossible: at most 5 and at least 6)
+PASS  witness grids: [('First pair', 6, 4), ('Third pair', 6, 4)]
+PASS  guide witnesses: a 2x2 square (area 4) fits both possible pairs, a 2x3 rectangle (area 6) fits the first; both fit a 6x4 grid
+FAIL  witness grids are labelled for pairs [1, 3], which are exactly the possible pairs [1, 3]: the labels answer "Which pair cannot be true?" before the child reasons
+
+## Problem 3: the L mask on a 2x2 board
+PASS  four 2x2 boards of 80 pt cells; top-left "white", the other three "partial"
+PASS  t=1/4: cell areas BL,BR,TR = 1/4, 7/16, 1/4; TL white; total 15/16; perimeter 8.000000; simple
+PASS  t=3/4: cell areas BL,BR,TR = 3/4, 15/16, 3/4; TL white; total 39/16; perimeter 8.000000; simple
+PASS  corridor of width t: area 4t - t^2 and the same cell pattern for every t = k/200 in (0,1); area -> 0 and -> 3 at the ends
+PASS  N=1: simple, area 15/16, same cell pattern, waved edge length 1.118034 = sqrt(1+N^2/4) = 1.118034, perimeter 8.1180; vertical travel on the wave 0.500
+PASS  N=2: simple, area 15/16, same cell pattern, waved edge length 1.414214 = sqrt(1+N^2/4) = 1.414214, perimeter 8.4142; vertical travel on the wave 1.000
+PASS  N=3: simple, area 15/16, same cell pattern, waved edge length 1.802776 = sqrt(1+N^2/4) = 1.802776, perimeter 8.8028; vertical travel on the wave 1.500
+PASS  N=5: simple, area 15/16, same cell pattern, waved edge length 2.692582 = sqrt(1+N^2/4) = 2.692582, perimeter 9.6926; vertical travel on the wave 2.500
+PASS  N=10: simple, area 15/16, same cell pattern, waved edge length 5.099020 = sqrt(1+N^2/4) = 5.099020, perimeter 12.0990; vertical travel on the wave 5.000
+PASS  N=25: simple, area 15/16, same cell pattern, waved edge length 12.539936 = sqrt(1+N^2/4) = 12.539936, perimeter 19.5399; vertical travel on the wave 12.500
+PASS  identity (4N)^2 (1/(16N^2) + 1/64) = 1 + N^2/4 (shown for N=7; holds for all N)
+
+## Bonus guide statements
+PASS  guide says "the aligned bounds are [3,3], a half-unit horizontal shift gives [1,5], and a half-unit shift in both directions gives [0,8]" (verified above)
+PASS  guide says "combine to [max(L1,L2),min(U1,U2)]" (verified above)
+PASS  guide says "has area 4t-t²" (verified above)
+PASS  guide says "Cards 2-8 and 4-9 combine to 4-8" (verified above)
+PASS  guide says "Cards 1-6 and 4-4 combine to exactly 4" (verified above)
+PASS  guide says "are t,2t-t²,t" (verified above)
+PASS  guide says "At t=1/4 total is 15/16<1. At t=3/4 total is 39/16>2" (verified above)
+PASS  guide says "Their perimeters happen to both be 8" (verified above)
+PASS  guide says "area remains 15/16" (verified above)
+PASS  guide says "the height remains between 1/8 and 3/8" (verified above)
+PASS  guide says "The changed edge has length sqrt(1+N²/4), so full perimeter is 7+sqrt(1+N²/4)" (verified above)
+PASS  p1 cell 56.0 pt = 19.76 mm, as the guide says
+PASS  p2 witness cells 27 pt = 9.52 mm
+PASS  p3 cells 80 pt = 28.22 mm
+PASS  kits: KK11/3333/445 = 11 children = 4 pairs + 1 trio = 5 kits; 5 x 12 = 60 tiles; 10 pencils
+PASS  twelve paper tiles per kit cover the largest page-1 cover (8 cells)
+
+38 checks, 1 failures

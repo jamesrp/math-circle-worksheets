@@ -1,0 +1,90 @@
+Week 48 base packets: independent exact checks
+==============================================
+
+## All boards: same shapes across bands
+PASS  k-1: P1 and P3 triangle is [('0', '4'), ('4', '4'), ('4', '0')] (big units), the same on both pages
+PASS  grades-2-3: P1 and P3 triangle is [('0', '4'), ('4', '4'), ('4', '0')] (big units), the same on both pages
+PASS  grades-4-5: P1 and P3 triangle is [('0', '4'), ('4', '4'), ('4', '0')] (big units), the same on both pages
+PASS  grades-2-3: P2 and P4 diamond is [('0', '2'), ('2', '0'), ('4', '2'), ('2', '4')]
+PASS  grades-4-5: P2 and P4 diamond is [('0', '2'), ('2', '0'), ('4', '2'), ('2', '4')]
+PASS  K-1 P4 diamond is the same diamond
+PASS  K-1 P2 and 4-5 P5 trapezoid is [('1/2', '1/2'), ('7/2', '1/2'), ('3', '7/2'), ('1', '7/2')]
+INFO  triangle: exact area 8, simple polygon True
+INFO  diamond: exact area 8, simple polygon True
+INFO  trapezoid: exact area 15/2, simple polygon True
+
+## Triangle (all bands P1, P3; 4-5 P7)
+PASS  P1 coarse: 6 whole, 10 cover cells -> 6 <= area <= 10; partial 4
+PASS  guide P1: rows top to bottom have [0, 1, 2, 3] whole and [1, 2, 3, 4] cover cells
+PASS  the four partial cells are the diagonal cells [(0, 3), (1, 2), (2, 1), (3, 0)]
+PASS  P3 fine: 28 whole, 36 cover small cells -> 7 <= area <= 9
+PASS  guide P3: each partial big triangle cell splits into 1 whole, 2 partial, 1 outside: ('O', 'P', 'P', 'W')
+PASS  guide: triangle gap falls from 4 to 2
+PASS  4-5 P7: exact area 8 = 16/2, inside [6,10] and [7,9]
+PASS  K-1 P1 other reading: 10 points of the triangle are pairwise > 1 apart in L-inf (min 4/3), so even unaligned axis-parallel tiles need 10
+
+## Diamond (2-3 and 4-5 P2, P4; K-1 P4)
+PASS  P2 coarse: whole [(1, 1), (1, 2), (2, 1), (2, 2)] (the four central cells), 8 partial -> 4 <= area <= 12
+PASS  P2: "more than 3" and "less than 13" are both certain (4 > 3, 12 < 13)
+PASS  P4 fine: 24 whole, 40 cover small cells -> 6 <= area <= 10
+PASS  guide P4: diamond gap falls from 8 to 4
+PASS  guide: every partial big diamond cell has children 1 whole, 2 partial, 1 outside {('O', 'P', 'P', 'W')}
+PASS  diamond exact area 8 (inside both pairs of bounds)
+PASS  K-1 P4: 24 outside small cells; 8 lie in partial big cells (one each), 16 lie in the four outside corner big cells (any gray there would change that big cell)
+PASS  K-1 P4: each of those 8 cells touches the diamond at exactly one corner point (a corner touch, so it is outside)
+PASS  K-1 P4: bulging the diamond at 4 corner points makes exactly 4 outside small cells partial, no other small-cell change, every big status unchanged (area 129/16)
+PASS  K-1 P4: bulging the diamond at 8 corner points makes exactly 8 outside small cells partial, no other small-cell change, every big status unchanged (area 65/8)
+INFO  So the K-1 P4 target of four is reachable, and up to eight such cells can change; never more.
+
+## Trapezoid (K-1 P2, 4-5 P5)
+PASS  coarse: 4 whole, all 16 cells in the cover -> 4 <= area <= 16; exact area 15/2
+INFO  smallest gray piece in a cover cell: 1/48 of a big square (18.8 mm^2) in cells [(0, 3), (3, 3)]
+INFO  children I/P/O = (0, 1, 3), gap reduction 3/4: cells (col,row from 0) [(0, 0), (0, 3), (3, 0), (3, 3)]
+INFO  children I/P/O = (0, 2, 2), gap reduction 1/2: cells (col,row from 0) [(0, 1), (0, 2), (3, 1), (3, 2)]
+INFO  children I/P/O = (2, 0, 2), gap reduction 1: cells (col,row from 0) [(1, 0), (1, 3), (2, 0), (2, 3)]
+INFO  children I/P/O = (4, 0, 0), gap reduction 0: cells (col,row from 0) [(1, 1), (1, 2), (2, 1), (2, 2)]
+PASS  guide 4-5 P5 table: top/bottom middle 2/0/2 (1), corners 0/1/3 (3/4), left/right middle 0/2/2 (1/2), centre 4/0/0 (0)
+PASS  K-1 P2: most removable small tiles with two splits = 6; optimal pairs = the 6 pairs of corner cells
+PASS  guide K-1 P2: no covered big cell can lose all four children; 3 is the per-tile maximum
+PASS  guide K-1 P2: remaining cover 16 - 6/4 = 14.5 big units
+PASS  4-5 P5: over all 560 triples the least gap is 9 (from 12), reached only by the 4 triples of top/bottom middle cells; bounds 11/2 and 29/2
+PASS  4-5 P5 other reading (count uncertain cells, not area): least count 9, reached by the same 4 triples
+INFO  contrast: the K-1 removal count is largest for corners (9 tiles for three corners), but three corners leave gap 39/4
+
+## Shape-building tasks (K-1 P5-6, 2-3 P5-6)
+PASS  K-1 P5/P6 witness: width 3, height 7/6 -> 3 whole, 3 partial, area 7/2
+PASS  K-1 P5/P6 witness: width 3, height 11/6 -> 3 whole, 3 partial, area 11/2
+PASS  K-1 P5/P6 witness: width 3, height 23/12 -> 3 whole, 3 partial, area 23/4
+PASS  K-1 P5/P6 witnesses use the same whole and partial cells
+PASS  2-3 P5 witness: width 4, height 9/8 -> 4 whole, 4 partial, area 9/2
+PASS  2-3 P5 witness: width 4, height 15/8 -> 4 whole, 4 partial, area 15/2
+PASS  2-3 P6 / K-1 P6: with w whole and w partial cells the area is strictly between w and 2w in every surveyed case
+
+## Refinement monotonicity (4-5 P6, guide overview)
+PASS  on 286 random simple polygons, no single big-cell split ever lowered the inside bound or raised the cover
+PASS  4-5 P6 diagram: the diagonal big cell is partial and its children are ['O', 'P', 'P', 'W'] (row by row): inside 0 -> 1/4, cover 1 -> 3/4
+PASS  4-5 P6 diagram: before and after squares are both 30 mm; the split is 2x2 of 15 mm
+PASS  4-5 P7 small pictures: a 4x4 and an 8x8 (bold every 2) copy of the triangle
+
+## Guide statements (base facilitator guide)
+PASS  guide table row present and verified above: "All bands P1 triangle 6 big 10 big 6 ≤ area ≤ 10"
+PASS  guide table row present and verified above: "Older P2 diamond 4 big 12 big 4 ≤ area ≤ 12"
+PASS  guide table row present and verified above: "All bands P3 triangle 28 small 36 small 7 ≤ area ≤ 9"
+PASS  guide table row present and verified above: "Older P4 diamond 24 small 40 small 6 ≤ area ≤ 10"
+PASS  guide says "successive rows from top to bottom contain 0,1,2,3 whole cells and 1,2,3,4 cover cells" (verified above)
+PASS  guide says "one whole, two partial and one outside small cell" (verified above)
+PASS  guide says "falls from 8 to 4 big units" (verified above)
+PASS  guide says "triangle’s gap falls from 4 to 2" (verified above)
+PASS  guide says "16 - 6/4 = 14.5" (verified above)
+PASS  guide says "Width 3 and height 7/6 gives area 3.5; width 3 and height 11/6 gives 5.5" (verified above)
+PASS  guide says "height 23/12, for example: area 5.75" (verified above)
+PASS  guide says "heights 9/8 and 15/8 have areas 4.5 and 7.5" (verified above)
+PASS  guide says "The initial bounds 4 and 16 become 5.5 and 14.5, so the gap falls from 12 to 9" (verified above)
+PASS  guide says "exact area is 8 big-square units" (verified above)
+PASS  guide says "Refine any three of (2,1), (3,1), (2,4), (3,4)" (verified above)
+PASS  guide (2,1),(3,1),(2,4),(3,4) as (column,row) from 1 are exactly the top/bottom middle cells
+PASS  guide preparation lists "at least 8 paper 15 mm squares"
+FAIL  paper small tiles needed: K-1 P2 two splits = 8; 4-5 P5 three splits = 12 (the guide's "at least 8" covers K-1 P2 but not a paper version of 4-5 P5)
+FAIL  guide K-1 P4: "Exactly four previously outside small cells can become partial" read as a limit: the most that can change with every big status kept is 8 (the 8-bulge shape above), not four
+
+62 checks, 2 failures

@@ -48,6 +48,8 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 18 | Error-correcting codebooks | keep | [card](week-18.md), [math check](week-18-math.md) |
 | 19 | No card inside another (subset antichains) | keep | [card](week-19.md), [math check](week-19-math.md) |
 | 20 | Averaging circles (the maximum principle) | keep | [card](week-20.md), [math check](week-20-math.md) |
+| 21 | Shortest reflected paths | keep | [card](week-21.md), [math check](week-21-math.md) |
+| 22 | Meeting regions (four-point convex partitions) | keep | [card](week-22.md), [math check](week-22-math.md) |
 | 23 | Sorting networks | revise: a print-and-cut mat, cards and bars, which the guide specifies but nothing supplies | [card](week-23.md), [math check](week-23-math.md) |
 | 24 | Nontransitive dice and decks | keep | [card](week-24.md), [math check](week-24-math.md) |
 | 25 | Row and column shadows | revise: a guide hint calls the natural lower-bound proof wrong (two switches, because four cells must empty and a switch empties two) | [card](week-25.md), [math check](week-25-math.md) |
@@ -57,6 +59,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 31 | Hidden orchard (lattice visibility) | revise: the guide's optional extension gives (4,3) as a sight line that changes when O moves to (1,1), and it doesn't, so an adult may correct a right answer | [card](week-31.md), [math check](week-31-math.md) |
 | 33 | Prime-length necklaces | keep | [card](week-33.md), [math check](week-33-math.md) |
 | 34 | Hidden turns (distinguishing colourings) | keep | [card](week-34.md), [math check](week-34-math.md) |
+| 36 | Making threes (nine-tile SET) | keep | [card](week-36.md), [math check](week-36-math.md) |
 | 37 | Mirror twins (tetrahedron chirality) | revise: the guide says failed turns never prove impossibility, though "A must go on A, and all three turns about A fail" is complete, and nothing supplies the tetrahedron kit it specifies | [card](week-37.md), [math check](week-37-math.md) |
 | 39 | Road detours (path reduction) | revise: K–1 Problem 7 has two readings, and the key tells the adult that the natural one is wrong, so an adult may correct a right answer | [card](week-39.md), [math check](week-39-math.md) |
 | 41 | Torus portals and lifts | keep | [card](week-41.md), [math check](week-41-math.md) |
@@ -66,6 +69,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 45 | The visible side (conditioning on a clue) | keep | [card](week-45.md), [math check](week-45-math.md) |
 | 46 | Two boards forget their starts (coupling) | keep | [card](week-46.md), [math check](week-46-math.md) |
 | 47 | Gentle-step landscapes (extending clues, lowest and highest landscapes) | keep | [card](week-47.md), [math check](week-47-math.md) |
+| 48 | Inside and outside covers | keep | [card](week-48.md), [math check](week-48-math.md) |
 | 49 | Four towers and differences (Ducci rings) | keep | [card](week-49.md), [math check](week-49-math.md) |
 | 52 | Hinged frames and braces | revise: the K–1 route is three problems the guide finishes by minute 30, and Problem 13's "Yes" rests on a one-brace-per-cell rule no upper page states | [card](week-52.md), [math check](week-52-math.md) |
 | 53 | Cheapest connected networks | revise: two price labels on page 8 sit on the wrong link, and the K–1 route is one page long | [card](week-53.md), [math check](week-53-math.md) |

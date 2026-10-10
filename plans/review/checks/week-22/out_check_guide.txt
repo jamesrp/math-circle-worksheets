@@ -1,0 +1,129 @@
+Splits: A|BCD, AB|CD, AC|BD, AD|BC, ABC|D, ABD|C, ACD|B  (7; 4 of type 1+3)
+K-1 P1 (guide p. 5)
+  upper-right D=(9,9): computed ['AD|BC']; guide ['AD|BC'] -> OK
+  inside D=(4.3,4.7): computed ['ABC|D']; guide ['ABC|D'] -> OK
+  left D=(0.8,7.2): computed ['AC|BD']; guide ['AC|BD'] -> OK
+  hull corners: upper-right 4, left 4 (guide: convex quadrilaterals)
+K-1 P2 (guide p. 6)
+  D on AB: computed ['ABC|D', 'AB|CD']; guide ['ABC|D', 'AB|CD'] -> OK
+      AB|CD: point (5, 3) (guide: point (5, 3)) OK
+      ABC|D: point (5, 3) (guide: point (5, 3)) OK
+  D beyond B: computed ['ACD|B', 'AD|BC']; guide ['ACD|B', 'AD|BC'] -> OK
+      AD|BC: point (8, 3) (guide: point (8, 3)) OK
+      ACD|B: point (8, 3) (guide: point (8, 3)) OK
+  D on AC: computed ['ABC|D', 'AC|BD']; guide ['ABC|D', 'AC|BD'] -> OK
+      AC|BD: point (7/2, 13/2) (guide: point (7/2, 13/2)) OK
+      ABC|D: point (7/2, 13/2) (guide: point (7/2, 13/2)) OK
+K-1 P3 (guide p. 7)
+  A D C B: computed ['ABC|D', 'ABD|C', 'AB|CD', 'AC|BD']; guide ['ABC|D', 'ABD|C', 'AB|CD', 'AC|BD'] -> OK
+      AB|CD: segment (9/2, 63/10)-(15/2, 63/10) (guide: segment (9/2, 63/10)-(15/2, 63/10)) OK
+      AC|BD: segment (9/2, 63/10)-(15/2, 63/10) (guide: segment (9/2, 63/10)-(15/2, 63/10)) OK
+      ABC|D: point (9/2, 63/10) (guide: point (9/2, 63/10)) OK
+      ABD|C: point (15/2, 63/10) (guide: point (15/2, 63/10)) OK
+K-1 P5 (guide p. 9)
+  middle cross: computed ['AB|C']; guide ['AB|C'] -> OK
+  right cross: computed ['AC|B']; guide ['AC|B'] -> OK
+  upper cross: computed []; guide [] -> OK
+  C left of A: computed ['A|BC']; guide ['A|BC'] -> OK
+  C = A: computed ['AB|C', 'A|BC']; guide ['AB|C', 'A|BC'] -> OK
+  C = B: computed ['AB|C', 'AC|B']; guide ['AB|C', 'AC|B'] -> OK
+Grades 2-3 P1 (guide p. 10)
+  upper-right: computed ['AD|BC']; guide ['AD|BC'] -> OK
+  interior: computed ['ABC|D']; guide ['ABC|D'] -> OK
+      ABC|D: point (4, 5) (guide: point (4, 5)) OK
+  on AB: computed ['ABC|D', 'AB|CD']; guide ['ABC|D', 'AB|CD'] -> OK
+      AB|CD: point (6, 5/2) (guide: point (6, 5/2)) OK
+      ABC|D: point (6, 5/2) (guide: point (6, 5/2)) OK
+  below AB: computed ['AB|CD']; guide ['AB|CD'] -> OK
+      below-AB crossing is not D: True
+Grades 2-3 P2 (guide p. 11)
+  A D B C: computed ['ABC|D', 'AB|CD', 'ACD|B', 'AC|BD']; guide ['ABC|D', 'AB|CD', 'ACD|B', 'AC|BD'] -> OK
+      AB|CD: segment (23/5, 63/10)-(39/5, 63/10) (guide: segment (23/5, 63/10)-(39/5, 63/10)) OK
+      AC|BD: segment (23/5, 63/10)-(39/5, 63/10) (guide: segment (23/5, 63/10)-(39/5, 63/10)) OK
+      ABC|D: point (23/5, 63/10) (guide: point (23/5, 63/10)) OK
+      ACD|B: point (39/5, 63/10) (guide: point (39/5, 63/10)) OK
+  extension: same order, other gaps: computed ['ABC|D', 'AB|CD', 'ACD|B', 'AC|BD']; guide ['ABC|D', 'AB|CD', 'ACD|B', 'AC|BD'] -> OK
+Grades 2-3 P3 and P4 (guide p. 12)
+  P3 construction x=2,4,8,10: computed ['ABD|C', 'ACD|B', 'AC|BD', 'AD|BC']; guide ['ABD|C', 'ACD|B', 'AC|BD', 'AD|BC'] -> OK
+      AD|BC: segment (4, 6)-(8, 6) (guide: segment (4, 6)-(8, 6)) OK
+  P4 first: computed ['ABC|D']; guide ['ABC|D'] -> OK
+  P4 second: computed ['AC|BD']; guide ['AC|BD'] -> OK
+      AC|BD: point (6, 6) (guide: point (6, 6)) OK
+      success sets disjoint: True
+Grades 2-3 P5 (guide p. 13)
+  printed triangle: computed []; guide [] -> OK
+  locus point (0, 11/4) on AB: True
+  locus point (63/5, 173/40) on AB: True
+Grades 4-5 P1 (guide p. 14)
+  upper-right: computed ['AD|BC']; guide ['AD|BC'] -> OK
+  interior: computed ['ABC|D']; guide ['ABC|D'] -> OK
+  on AB: computed ['ABC|D', 'AB|CD']; guide ['ABC|D', 'AB|CD'] -> OK
+  left: computed ['AC|BD']; guide ['AC|BD'] -> OK
+Grades 4-5 P2 (guide p. 15)
+  A C B D: computed ['ABD|C', 'AB|CD', 'ACD|B', 'AD|BC']; guide ['ABD|C', 'AB|CD', 'ACD|B', 'AD|BC'] -> OK
+      AB|CD: segment (5, 6)-(8, 9) (guide: segment (5, 6)-(8, 9)) OK
+      AD|BC: segment (5, 6)-(8, 9) (guide: segment (5, 6)-(8, 9)) OK
+  length of CB squared = 18 (guide: 3 sqrt 2, i.e. 18)
+Grades 4-5 P4 (guide p. 16)
+  A = D: computed ['ABC|D', 'AB|CD', 'AC|BD', 'A|BCD']; guide ['ABC|D', 'AB|CD', 'AC|BD', 'A|BCD'] -> OK
+  all four coincide: computed ['ABC|D', 'ABD|C', 'AB|CD', 'ACD|B', 'AC|BD', 'AD|BC', 'A|BCD']; guide ['ABC|D', 'ABD|C', 'AB|CD', 'ACD|B', 'AC|BD', 'AD|BC', 'A|BCD'] -> OK
+Grades 4-5 P5 table (guide p. 17)
+  column 1: computed ['ABC|D'] vs table ['ABC|D'] -> OK
+  column 2: computed ['AC|BD'] vs table ['AC|BD'] -> OK
+  column 3: computed ['ABD|C', 'ACD|B', 'AC|BD', 'AD|BC'] vs table ['ABD|C', 'ACD|B', 'AC|BD', 'AD|BC'] -> OK
+  third: AC|BD segment (4, 6)-(8, 6), AD|BC segment (4, 6)-(8, 6) (guide: both share BC)
+  first in general position: True; inside the 12.6 board: True
+  second in general position: True; inside the 12.6 board: True
+Grades 4-5 P7 (guide p. 19)
+  printed triangle: computed []; guide [] -> OK
+  (B-A) x (C-A) = 5613/100 (guide: 5613/100)
+Extensions (guide p. 20)
+  five labels, triangle ABC vs segment DE: segment (1, 1)-(2, 2)
+  six labels, triangles ABC vs DEF: positive area
+  (one-dimensional threshold, maximum of seven, four for distinct collinear: see check_theorem.py)
+Printed page -> PDF page and heading:
+  printed  1 = PDF  2: Meeting regions facilitator guide
+  printed  2 = PDF  3: Preparation and a concrete launch
+  printed  3 = PDF  4: Flexible hour menu and prerequisite gates
+  printed  4 = PDF  5: Adult mathematical tools
+  printed  5 = PDF  6: K-1 Problem 1
+  printed  6 = PDF  7: K-1 Problem 2
+  printed  7 = PDF  8: K-1 Problem 3
+  printed  8 = PDF  9: K-1 Problems 4 and 6
+  printed  9 = PDF 10: K-1 Problem 5
+  printed 10 = PDF 11: Grades 2-3 Problem 1
+  printed 11 = PDF 12: Grades 2-3 Problem 2
+  printed 12 = PDF 13: Grades 2-3 Problems 3 and 4
+  printed 13 = PDF 14: Grades 2-3 Problems 5 and 6
+  printed 14 = PDF 15: Grades 4-5 Problem 1
+  printed 15 = PDF 16: Grades 4-5 Problems 2 and 3
+  printed 16 = PDF 17: Grades 4-5 Problem 4
+  printed 17 = PDF 18: Grades 4-5 Problem 5
+  printed 18 = PDF 19: Grades 4-5 Problem 6
+  printed 19 = PDF 20: Grades 4-5 Problem 7
+  printed 20 = PDF 21: Extensions and fidelity limits
+  printed 21 = PDF 22: Sources and verification
+  printed 23 = PDF 23: Starting routes and return visits
+  finder/cross-reference p. 5 -> K-1 Problem 1: OK
+  finder/cross-reference p. 6 -> K-1 Problem 2: OK
+  finder/cross-reference p. 7 -> K-1 Problem 3: OK
+  finder/cross-reference p. 8 -> K-1 Problems 4 and 6: OK
+  finder/cross-reference p. 9 -> K-1 Problem 5: OK
+  finder/cross-reference p. 10 -> Grades 2-3 Problem 1: OK
+  finder/cross-reference p. 11 -> Grades 2-3 Problem 2: OK
+  finder/cross-reference p. 12 -> Grades 2-3 Problems 3 and 4: OK
+  finder/cross-reference p. 13 -> Grades 2-3 Problems 5 and 6: OK
+  finder/cross-reference p. 14 -> Grades 4-5 Problem 1: OK
+  finder/cross-reference p. 15 -> Grades 4-5 Problems 2 and 3: OK
+  finder/cross-reference p. 16 -> Grades 4-5 Problem 4: OK
+  finder/cross-reference p. 17 -> Grades 4-5 Problem 5: OK
+  finder/cross-reference p. 18 -> Grades 4-5 Problem 6: OK
+  finder/cross-reference p. 19 -> Grades 4-5 Problem 7: OK
+  finder/cross-reference p. 20 -> Extensions and fidelity limits: OK
+  finder/cross-reference p. 21 -> Sources and verification: OK
+  finder/cross-reference p. 4 -> Adult mathematical tools: OK
+  finder/cross-reference p. 3 -> Flexible hour menu: OK
+  'middle ... P5 and P6 can continue another day' is on printed p. [3]; route note says 'already marked on guide p4'
+  printed page numbers present: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23] (missing: [22])
+
+MISMATCHES: none
