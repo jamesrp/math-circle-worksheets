@@ -1,0 +1,84 @@
+========================================================================
+Problem 1: last counter loses (page 1)
+========================================================================
+OK        page 1: drawn counters per pile equal the printed numbers, Starts 1-12: True
+          starts: [(1, 0), (1, 1), (1, 2), (2, 2), (2, 3), (3, 3), (2, 0), (1, 1, 1), (1, 1, 2), (1, 2, 2), (1, 2, 3), (2, 3, 4)]
+OK        P1 winners, Starts 1-12 (misere search): ['second', 'first', 'first', 'second', 'first', 'second', 'first', 'second', 'first', 'first', 'second', 'first']
+OK        P1 the guide's winning first moves are winning moves: True
+OK        P1 two-pile rule: second player wins exactly at {0,1} and equal piles >= 2 (piles 0-14): True
+OK        destination: misere P-positions = odd singletons, or xor 0 with a pile > 1 (1-4 piles): True
+OK        guide: one large pile -> reduce to one if singletons even, remove if odd; opponent loses (4 piles 0-9): True
+NOTE      RV guide, Problem 1 "General rule": "If only one large pile remains, its size determines which final singletons to leave" - the choice depends only on the parity of the singleton count (as the rest of the sentence says), never on the large pile's size.
+========================================================================
+Problem 2: coin row (pages 2-3)
+========================================================================
+          page 2 row unlabelled at x=0.40 y=1.91 squares 12 of 0.230 in (lines 13), numbers True, coins on [4, 10]
+          page 2 row unlabelled at x=4.10 y=1.91 squares 12 of 0.230 in (lines 13), numbers True, coins on [4, 10]
+          page 2 row unlabelled at x=7.80 y=1.91 squares 12 of 0.230 in (lines 13), numbers True, coins on [2, 10]
+          page 2 row 1                          squares 12 of 0.230 in (lines 13), numbers True, coins on [1, 2]
+          page 2 row 2                          squares 12 of 0.230 in (lines 13), numbers True, coins on [1, 4]
+          page 2 row 3                          squares 12 of 0.230 in (lines 13), numbers True, coins on [4, 5]
+          page 2 row 4                          squares 12 of 0.230 in (lines 13), numbers True, coins on [4, 6]
+          page 2 row 5                          squares 12 of 0.230 in (lines 13), numbers True, coins on [7, 8]
+          page 2 row 6                          squares 12 of 0.230 in (lines 13), numbers True, coins on [7, 10]
+          page 2 row unlabelled at x=0.40 y=6.25 squares 12 of 0.850 in (lines 13), numbers True, coins on []
+          page 3 row 7                          squares 12 of 0.230 in (lines 13), numbers True, coins on [1, 2, 3]
+          page 3 row 8                          squares 12 of 0.230 in (lines 13), numbers True, coins on [1, 4, 6]
+          page 3 row 9                          squares 12 of 0.230 in (lines 13), numbers True, coins on [2, 3, 5]
+          page 3 row 10                         squares 12 of 0.230 in (lines 13), numbers True, coins on [2, 4, 7]
+          page 3 row 11                         squares 12 of 0.230 in (lines 13), numbers True, coins on [3, 4, 7]
+          page 3 row 12                         squares 12 of 0.230 in (lines 13), numbers True, coins on [3, 5, 9]
+          page 3 row 13                         squares 12 of 0.230 in (lines 13), numbers True, coins on [4, 7, 11]
+          page 3 row 14                         squares 12 of 0.230 in (lines 13), numbers True, coins on [4, 7, 12]
+          page 3 row unlabelled at x=0.40 y=6.25 squares 12 of 0.850 in (lines 13), numbers True, coins on []
+OK        coin starts read from the page: [(1, 2), (1, 4), (4, 5), (4, 6), (7, 8), (7, 10), (1, 2, 3), (1, 4, 6), (2, 3, 5), (2, 4, 7), (3, 4, 7), (3, 5, 9), (4, 7, 11), (4, 7, 12)]
+OK        P2 winners Starts 1-6 (search): ['second', 'first', 'second', 'first', 'second', 'first']
+OK        P2 winners Starts 7-14 (search): ['second', 'first', 'second', 'first', 'second', 'first', 'second', 'first']
+OK        P2 recorded gap pairs (a, b) for Starts 7-14: [(0, 0), (0, 1), (1, 1), (1, 2), (2, 2), (2, 3), (3, 3), (3, 4)]
+          unlabelled rows (worked example and play strips): [[4, 10], [4, 10], [2, 10], [], []]
+OK        worked example: (4,10) -> (2,10) is a legal slide: True
+OK        destination: pair from the right, xor of recorded gaps = 0 <=> second player (1-4 coins, 12 squares): True
+OK        two coins: second player exactly when adjacent: True
+OK        three coins: second player exactly when a = b: True
+========================================================================
+Problem 3: two rook boards (pages 4-5)
+========================================================================
+          page 4 board at (0.60, 2.70) square 0.180 in, lines (5, 5), label ['A'], token [(2, 2)]
+          page 4 board at (1.48, 2.70) square 0.180 in, lines (5, 5), label ['B'], token [(1, 3)]
+          page 4 board at (4.05, 2.70) square 0.180 in, lines (5, 5), label ['A'], token [(0, 2)]
+          page 4 board at (4.93, 2.70) square 0.180 in, lines (5, 5), label ['B'], token [(1, 3)]
+          page 4 board at (7.50, 2.70) square 0.180 in, lines (5, 5), label ['A'], token [(0, 2)]
+          page 4 board at (8.38, 2.70) square 0.180 in, lines (5, 5), label ['B'], token [(1, 1)]
+          page 4 board at (0.85, 7.48) square 0.850 in, lines (5, 5), label [], token []
+          page 4 board at (6.20, 7.48) square 0.850 in, lines (5, 5), label [], token []
+          page 5 board at (0.55, 3.07) square 0.310 in, lines (5, 5), label ['A'], token [(1, 2)]
+          page 5 board at (1.95, 3.07) square 0.310 in, lines (5, 5), label ['B'], token [(1, 2)]
+          page 5 board at (4.00, 3.07) square 0.310 in, lines (5, 5), label ['A'], token [(1, 1)]
+          page 5 board at (5.40, 3.07) square 0.310 in, lines (5, 5), label ['B'], token [(2, 2)]
+          page 5 board at (7.45, 3.07) square 0.310 in, lines (5, 5), label ['A'], token [(1, 0)]
+          page 5 board at (8.85, 3.07) square 0.310 in, lines (5, 5), label ['B'], token [(2, 3)]
+          page 5 board at (0.55, 5.52) square 0.310 in, lines (5, 5), label ['A'], token [(1, 3)]
+          page 5 board at (1.95, 5.52) square 0.310 in, lines (5, 5), label ['B'], token [(2, 2)]
+          page 5 board at (4.00, 5.52) square 0.310 in, lines (5, 5), label ['A'], token [(0, 2)]
+          page 5 board at (5.40, 5.52) square 0.310 in, lines (5, 5), label ['B'], token [(1, 3)]
+          page 5 board at (7.45, 5.52) square 0.310 in, lines (5, 5), label ['A'], token [(0, 1)]
+          page 5 board at (8.85, 5.52) square 0.310 in, lines (5, 5), label ['B'], token [(1, 3)]
+          page 5 board at (3.90, 7.54) square 0.280 in, lines (5, 5), label ['A'], token []
+          page 5 board at (5.18, 7.54) square 0.280 in, lines (5, 5), label ['B'], token []
+OK        page 5 pairs read from the page: [((1, 2), (1, 2)), ((1, 1), (2, 2)), ((1, 0), (2, 3)), ((1, 3), (2, 2)), ((0, 2), (1, 3)), ((0, 1), (1, 3))]
+OK        page 5 board labels A (left) and B (right): True
+OK        P3 winners Starts 1-6 (search): ['second', 'second', 'second', 'first', 'second', 'first']
+OK        P3 "each board alone first-player" in Starts 3 and 5 (so they already answer the invention task): [(False, False), (False, False)]
+OK        P3 guide example (0,3;1,2): different starts, each alone first, together second: (False, False, True)
+OK        page 4 worked turns: Before (A, B), after A left 2, after B down 2: [(2, 2), (1, 3), (0, 2), (1, 3), (0, 2), (1, 1)]
+OK        worked turns are single legal moves: (True, True)
+OK        page 4 play boards: two 4-by-4 boards of 0.85 in, no token: [(0.85, (5, 5), []), (0.85, (5, 5), [])]
+OK        state: second player exactly when x xor y xor u xor v = 0 (all 4-by-4 pairs and beyond, 0-4): True
+OK        same totals: (0,2)+(2,0) loses, (1,1)+(2,0) wins: (True, False)
+OK        two losing components together still lose (diagonal + diagonal, 0-5): True
+OK        two identical starts always lose (copying): True
+          (for interest) unordered pairs of different off-diagonal 4-by-4 starts that cancel: 18
+OK        materials: 12 x 0.85 = 10.2, 4 x 0.85 = 3.4, 4 x 0.65 = 2.6 < 2.9: (10.2, 3.4, True)
+OK        largest printed pile has four counters: 4
+========================================================================
+Summary: 28 OK, 0 MISMATCH, 1 NOTE
