@@ -67,6 +67,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 35 | Footprint borders (frieze symmetry) | revise: the guide asks for 20–24 notched footprint pieces per pair in four forms, and nothing in the week prints them | [card](week-35.md), [math check](week-35-math.md) |
 | 36 | Making threes (nine-tile SET) | keep | [card](week-36.md), [math check](week-36-math.md) |
 | 37 | Mirror twins (tetrahedron chirality) | revise: the guide says failed turns never prove impossibility, though "A must go on A, and all three turns about A fail" is complete, and nothing supplies the tetrahedron kit it specifies | [card](week-37.md), [math check](week-37-math.md) |
+| 38 | Seams and cuts (Möbius band) | keep | [card](week-38.md), [math check](week-38-math.md) |
 | 39 | Road detours (path reduction) | revise: K–1 Problem 7 has two readings, and the key tells the adult that the natural one is wrong, so an adult may correct a right answer | [card](week-39.md), [math check](week-39-math.md) |
 | 40 | Loop colour certificates (knot tricolouring) | keep | [card](week-40.md), [math check](week-40-math.md) |
 | 41 | Torus portals and lifts | keep | [card](week-41.md), [math check](week-41-math.md) |

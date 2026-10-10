@@ -1,0 +1,91 @@
+######## Problem 1 (page 1): lane recipes
+3 lanes, marks {('L', 'T'): 'dot', ('L', 'B'): 'sq', ('R', 'T'): 'dot', ('R', 'B'): 'sq'}, seam M, caption ['M'], left labels [1, 2, 3], right [1, 2, 3]
+   cut result: {'pieces': 3, 'boundary_circles': 6, 'per_piece_boundaries': [2, 2, 2], 'types': ['annulus', 'annulus', 'annulus'], 'boundary_is_manifold': True}
+PASS P1 3 lanes: corner marks encode M, as captioned
+PASS P1 3 lanes: dashed lane lines equally spaced
+PASS P1 3 lanes / M: end labels sit at lane centres and matching labels agree with the corner-mark seam
+   lanes per piece: [[1], [2], [3]]
+3 lanes, marks {('L', 'T'): 'dot', ('L', 'B'): 'sq', ('R', 'T'): 'sq', ('R', 'B'): 'dot'}, seam R, caption ['R'], left labels [1, 2, 3], right [3, 2, 1]
+   cut result: {'pieces': 2, 'boundary_circles': 3, 'per_piece_boundaries': [1, 2], 'types': ['Mobius band', 'annulus'], 'boundary_is_manifold': True}
+PASS P1 3 lanes: corner marks encode R, as captioned
+PASS P1 3 lanes: dashed lane lines equally spaced
+PASS P1 3 lanes / R: end labels sit at lane centres and matching labels agree with the corner-mark seam
+   lanes per piece: [[1, 3], [2]]
+4 lanes, marks {('L', 'T'): 'dot', ('L', 'B'): 'sq', ('R', 'T'): 'dot', ('R', 'B'): 'sq'}, seam M, caption ['M'], left labels [1, 2, 3, 4], right [1, 2, 3, 4]
+   cut result: {'pieces': 4, 'boundary_circles': 8, 'per_piece_boundaries': [2, 2, 2, 2], 'types': ['annulus', 'annulus', 'annulus', 'annulus'], 'boundary_is_manifold': True}
+PASS P1 4 lanes: corner marks encode M, as captioned
+PASS P1 4 lanes: dashed lane lines equally spaced
+PASS P1 4 lanes / M: end labels sit at lane centres and matching labels agree with the corner-mark seam
+   lanes per piece: [[1], [2], [3], [4]]
+4 lanes, marks {('L', 'T'): 'dot', ('L', 'B'): 'sq', ('R', 'T'): 'sq', ('R', 'B'): 'dot'}, seam R, caption ['R'], left labels [1, 2, 3, 4], right [4, 3, 2, 1]
+   cut result: {'pieces': 2, 'boundary_circles': 4, 'per_piece_boundaries': [2, 2], 'types': ['annulus', 'annulus'], 'boundary_is_manifold': True}
+PASS P1 4 lanes: corner marks encode R, as captioned
+PASS P1 4 lanes: dashed lane lines equally spaced
+PASS P1 4 lanes / R: end labels sit at lane centres and matching labels agree with the corner-mark seam
+   lanes per piece: [[1, 4], [2, 3]]
+PASS guide P1: 3M three annuli, total six edges
+PASS guide P1: 3R lanes 1/3 annulus + lane 2 Mobius band, edges 2 and 1, total 3
+PASS guide P1: 4M four annuli, total 8
+PASS guide P1: 4R lane pairs 1/4 and 2/3, two annuli, total 4
+PASS P1 question: only 3R has both a one-edge and a two-edge piece (guide)
+PASS overview lanes n=1 M: 1 pieces, 2 edges, ['annulus']
+PASS overview lanes n=1 R: 1 pieces, 1 edges, ['Mobius band']
+PASS overview lanes n=2 M: 2 pieces, 4 edges, ['annulus', 'annulus']
+PASS overview lanes n=2 R: 1 pieces, 2 edges, ['annulus']
+PASS overview lanes n=3 M: 3 pieces, 6 edges, ['annulus', 'annulus', 'annulus']
+PASS overview lanes n=3 R: 2 pieces, 3 edges, ['Mobius band', 'annulus']
+PASS overview lanes n=4 M: 4 pieces, 8 edges, ['annulus', 'annulus', 'annulus', 'annulus']
+PASS overview lanes n=4 R: 2 pieces, 4 edges, ['annulus', 'annulus']
+PASS overview lanes n=5 M: 5 pieces, 10 edges, ['annulus', 'annulus', 'annulus', 'annulus', 'annulus']
+PASS overview lanes n=5 R: 3 pieces, 5 edges, ['Mobius band', 'annulus', 'annulus']
+PASS overview lanes n=6 M: 6 pieces, 12 edges, ['annulus', 'annulus', 'annulus', 'annulus', 'annulus', 'annulus']
+PASS overview lanes n=6 R: 3 pieces, 6 edges, ['annulus', 'annulus', 'annulus']
+PASS overview lanes n=7 M: 7 pieces, 14 edges, ['annulus', 'annulus', 'annulus', 'annulus', 'annulus', 'annulus', 'annulus']
+PASS overview lanes n=7 R: 4 pieces, 7 edges, ['Mobius band', 'annulus', 'annulus', 'annulus']
+PASS overview lanes n=8 M: 8 pieces, 16 edges, ['annulus', 'annulus', 'annulus', 'annulus', 'annulus', 'annulus', 'annulus', 'annulus']
+PASS overview lanes n=8 R: 4 pieces, 8 edges, ['annulus', 'annulus', 'annulus', 'annulus']
+
+######## Problem 2 (page 2): the local two-strip visual
+row M: before joining strip1 end {'T': 'dot', 'B': 'sq'}, strip2 end {'T': 'dot', 'B': 'sq'}; alignment lines pair [('dot', 'dot', 'straight'), ('sq', 'sq', 'straight')]; strip1 corner -> strip2 corner {'T': 'T', 'B': 'B'} => seam M
+row R: before joining strip1 end {'T': 'dot', 'B': 'sq'}, strip2 end {'T': 'dot', 'B': 'sq'}; alignment lines pair [('dot', 'dot', 'crossing'), ('sq', 'sq', 'crossing')]; strip1 corner -> strip2 corner {'T': 'T', 'B': 'B'} => seam M
+PASS P2 visual, M row: aligning the same marks (dot-dot) with unchanged marks is a matching seam
+FAIL P2 visual, R row: the drawn pairing should be a reversing seam (top corner of strip 1 to bottom corner of strip 2); a FAIL here means the R row pairs the same corners as the M row (finding in math.md)
+P2 printed seam words (between strips, then closing seam): ['MMM', 'MMR', 'MRR', 'RRR']
+PASS P2: printed words are MMM, MMR, MRR, RRR (guide order)
+   MMM: {'pieces': 1, 'boundary_circles': 2, 'per_piece_boundaries': [2], 'types': ['annulus'], 'boundary_is_manifold': True}
+   MMR: {'pieces': 1, 'boundary_circles': 1, 'per_piece_boundaries': [1], 'types': ['Mobius band'], 'boundary_is_manifold': True}
+   MRR: {'pieces': 1, 'boundary_circles': 2, 'per_piece_boundaries': [2], 'types': ['annulus'], 'boundary_is_manifold': True}
+   RRR: {'pieces': 1, 'boundary_circles': 1, 'per_piece_boundaries': [1], 'types': ['Mobius band'], 'boundary_is_manifold': True}
+PASS guide P2: MMM 2 edges, MMR 1, MRR 2, RRR 1 (one connected band each)
+   if every seam pairs dot with dot (the R row's 'align the same marks' taken literally): edges [2, 2, 2, 2]
+PASS overview parity rule: every M/R word of length 1-6 (unequal strip lengths too) gives 1 edge iff #R odd
+PASS guide P2 four-strip design RMMM: 1 edge(s)
+PASS guide P2 four-strip design RRMM: 2 edge(s)
+PASS guide P2 four-strip design MMMM: 2 edge(s)
+
+######## Problem 3 (page 3): holes and notches
+A/M: marks {('L', 'T'): 'dot', ('L', 'B'): 'sq', ('R', 'T'): 'dot', ('R', 'B'): 'sq'} -> M; holes [('interior', 0.5)]; 127x56 cells, 229 removed; {'pieces': 1, 'boundary_circles': 3, 'per_piece_boundaries': [3], 'types': ['surface chi=-1 b=3 orientable'], 'boundary_is_manifold': True}
+PASS P3 A: corner marks encode the captioned seam M
+B/R: marks {('L', 'T'): 'dot', ('L', 'B'): 'sq', ('R', 'T'): 'sq', ('R', 'B'): 'dot'} -> R; holes [('interior', 0.5)]; 127x56 cells, 229 removed; {'pieces': 1, 'boundary_circles': 2, 'per_piece_boundaries': [2], 'types': ['surface chi=-1 b=2 nonorientable'], 'boundary_is_manifold': True}
+PASS P3 B: corner marks encode the captioned seam R
+C/R: marks {('L', 'T'): 'dot', ('L', 'B'): 'sq', ('R', 'T'): 'sq', ('R', 'B'): 'dot'} -> R; holes [('long edge', 0.0)]; 127x56 cells, 112 removed; {'pieces': 1, 'boundary_circles': 1, 'per_piece_boundaries': [1], 'types': ['Mobius band'], 'boundary_is_manifold': True}
+PASS P3 C: corner marks encode the captioned seam R
+D/M: marks {('L', 'T'): 'dot', ('L', 'B'): 'sq', ('R', 'T'): 'dot', ('R', 'B'): 'sq'} -> M; holes [('short end', 0.5), ('short end', 0.5)]; 127x56 cells, 222 removed; {'pieces': 1, 'boundary_circles': 3, 'per_piece_boundaries': [3], 'types': ['surface chi=-1 b=3 orientable'], 'boundary_is_manifold': True}
+PASS P3 D: corner marks encode the captioned seam M
+PASS guide P3: band A is one piece with 3 closed edge(s)
+PASS guide P3: band B is one piece with 2 closed edge(s)
+PASS guide P3: band C is one piece with 1 closed edge(s)
+PASS guide P3: band D is one piece with 3 closed edge(s)
+matched half-holes: {'pieces': 1, 'boundary_circles': 3, 'per_piece_boundaries': [3], 'types': ['surface chi=-1 b=3 orientable'], 'boundary_is_manifold': True}  offset half-holes: {'pieces': 1, 'boundary_circles': 4, 'per_piece_boundaries': [4], 'types': ['surface chi=-2 b=4 orientable'], 'boundary_is_manifold': True}
+PASS D contrast: matched half-holes form one hole (3 edges); offset ones would form two (4 edges), as the guide's extension says
+PASS guide P3 design check: M + 2 interior disks -> 4 closed edges
+PASS guide P3 design check: R + 3 interior disks -> 4 closed edges
+PASS guide P3 design check: M + 1 disk -> 3 closed edges
+PASS guide P3 design check: R + 2 disks -> 3 closed edges
+
+######## Guide arithmetic
+PASS per pair: 4 + 3 + 4 + 2 = 13 strips
+PASS six kits: 78 strips = 24 + 18 + 24 + 12, 72 edge dots
+PASS lane cut positions 80/3, 160/3 mm and 20/40/60 mm
+
+56 passed, 1 failed

@@ -1,0 +1,69 @@
+== Surfaces ==
+A uncut: {'pieces': 1, 'boundary_circles': 2, 'per_piece_boundaries': [2], 'types': ['annulus'], 'boundary_is_manifold': True}
+PASS A uncut: every boundary vertex has degree 2
+A after centre cut: {'pieces': 2, 'boundary_circles': 4, 'per_piece_boundaries': [2, 2], 'types': ['annulus', 'annulus'], 'boundary_is_manifold': True}
+PASS A cut: every boundary vertex has degree 2
+B uncut: {'pieces': 1, 'boundary_circles': 1, 'per_piece_boundaries': [1], 'types': ['Mobius band'], 'boundary_is_manifold': True}
+PASS B uncut: every boundary vertex has degree 2
+B after centre cut: {'pieces': 1, 'boundary_circles': 2, 'per_piece_boundaries': [2], 'types': ['annulus'], 'boundary_is_manifold': True}
+PASS B cut: every boundary vertex has degree 2
+PASS uncut A is one annulus (2 boundary circles)
+PASS uncut B is one Mobius band (1 boundary circle)
+PASS cut A: two annuli, 4 boundary circles in all
+PASS cut B: one annulus with 2 boundary circles
+cut A circle side-kinds: [['bottom'], ['cut'], ['cut'], ['top']]
+cut B circle side-kinds: [['bottom', 'top'], ['cut']]
+PASS cut B: one circle is the whole old edge (top+bottom), the other is the whole new cut edge (guide p4 'proof with the materials')
+PASS uncut B: the upper and lower long edges form ONE circle (guide p5 P1-2)
+PASS uncut A: the upper edge closes on itself and the lower edge closes on itself
+PASS cut A: each piece has one old edge and one cut edge [[['cut'], ['top']], [['bottom'], ['cut']]]
+cut A: half-strips per piece [['U'], ['L']]
+cut B: half-strips per piece [['L', 'U']]
+PASS cut A: U and L are separate pieces (U->U, L->L)
+PASS cut B: one piece runs through both U and L (U->L, L->U)
+
+== Transverse arrow (Grades 4-5 Problem 6), odd width so the middle line runs through cells ==
+A: after one trip sign +1 (12 cell steps), after two trips +1
+PASS A: arrow returns pointing U->L after one trip
+B: after one trip sign -1 (12 cell steps), after two trips +1
+PASS B: arrow returns reversed (L->U) after one trip, restored after two
+PASS B: only the middle row closes after one longitudinal trip; other rows need two (edge trip doubles)
+
+== Dot tasks by brute force over boundary sides (small mesh) ==
+PASS small mesh ('A', False) agrees with large mesh: ['annulus']
+PASS small mesh ('A', True) agrees with large mesh: ['annulus', 'annulus']
+PASS small mesh ('B', False) agrees with large mesh: ['Mobius band']
+PASS small mesh ('B', True) agrees with large mesh: ['annulus']
+P2 A: a pair on one trip possible=True; a pair on no common trip possible=True
+PASS P2 A: two dots on one edge trip is possible
+PASS P2 A: 'no one trip reaches both' is possible
+P2 B: a pair on one trip possible=True; a pair on no common trip possible=False
+PASS P2 B: two dots on one edge trip is possible
+PASS P2 B: 'no one trip reaches both' is impossible
+A uncut: realizable pictures ['4', '3+1', '2+2']
+A cut: realizable pictures ['4', '3+1', '2+2', '2+1+1', '1+1+1+1']
+B uncut: realizable pictures ['4']
+B cut: realizable pictures ['4', '3+1', '2+2']
+PASS guide p3 K-1 P3 table, A column: Yes Yes Yes No No
+PASS guide p3 K-1 P3 table, B column: Yes No No No No
+PASS guide p4 2-3 P3 and guide p5 4-5 P3 ('A: yes, yes, yes, no, no. B: yes, no, no, no, no')
+PASS guide p4 2-3 P6 table, Cut A: all Yes; guide p3 K-1 P6; guide p5 4-5 P7
+PASS guide p4 2-3 P6 table, Cut B: Yes Yes Yes No No; K-1 P6 'only 4, 3+1, 2+2'
+PASS overview 'partitions of 4 into at most b groups' holds for ('A', False) with b=2
+PASS overview 'partitions of 4 into at most b groups' holds for ('A', True) with b=4
+PASS overview 'partitions of 4 into at most b groups' holds for ('B', False) with b=1
+PASS overview 'partitions of 4 into at most b groups' holds for ('B', True) with b=2
+PASS P5 cut A: two dots on the same piece but different closed edges is possible (guide: yes for both)
+PASS P5 cut B: two dots on the same piece but different closed edges is possible (guide: yes for both)
+P7 cut A: possible=True
+PASS P7 cut A: possible (guide K-1 p3, 2-3 p4)
+P7 cut B: possible=False
+PASS P7 cut B: impossible (guide K-1 p3, 2-3 p4)
+PASS P4: A cuts into 2 pieces, B into 1 (guide p3, p4, p5)
+PASS 4-5 P4: boundary components 4 total for cut A, 2 for cut B
+
+== Other readings ==
+B cut at 1/3 (closes through 2/3): {'pieces': 2, 'boundary_circles': 3, 'per_piece_boundaries': [1, 2], 'types': ['Mobius band', 'annulus'], 'boundary_is_manifold': True}
+PASS B cut off-centre: a Mobius band plus an annulus, so the guide's caveat that an off-centre cut is a different experiment is right
+
+41 passed, 0 failed
