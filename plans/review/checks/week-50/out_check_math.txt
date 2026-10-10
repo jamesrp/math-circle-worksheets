@@ -1,0 +1,66 @@
+== 1. Length invariant for right/up staircases (all bands P1, P2, P7; guide overview)
+  20000 random right/up staircases S->F: 0 with length != 280 mm
+  diagonal: 160^2+120^2 = 40000 = 200^2 = 40000
+  P2 solid 280 mm, dashed 280 mm -> K-1 answer "same length"
+  guide P1 examples: R160,U120 = 280; U60,R80,U60,R80 = 280, ends (160,120)
+  opening example A10,C20,B30,D10: right total 40, up total 30, length 70, end (40,30)
+
+== 2. Problem 3 (all bands): printed four-step staircase and a closer one
+  printed: ends (160,120), length 280, greatest |gap| 30 mm, inside +-15 strip: False (corners outside [(40,0), (80,30), (120,60), (160,90)])
+  guide witness 8x(R20,U15): ends (160,120), length 280, greatest |gap| 15, inside +-15 strip (boundary included): True
+  n equal right-then-up steps: greatest |gap| = 120/n exactly and length 280 for n=1,2,4,8,16,100 (guide P7)
+
+== 3. Problem 4 (all bands): fewest turns inside the +-15 mm strip, boundary included
+  guide witness: in strip True, turns 8, length 280, vertex gaps [-15, 0, 15]
+  exact horizontal span of the strip at heights y = 0,5,...,120: 0:20, 5:26.6667, 10:33.3333, 15:40, 20:40, 25:40, 30:40, 35:40, 40:40, 45:40, 50:40, 55:40, 60:40, 65:40, 70:40, 75:40, 80:40, 85:40, 90:40, 95:40, 100:40, 105:40, 110:33.3333, 115:26.6667, 120:20
+  -> at most 40 mm anywhere, exactly 20 mm at y=0 (piece from S) and y=120 (piece into F)
+  lattice 5/1 x 3.75/1 mm: fewest turns closed strip = 8, open strip (boundary excluded) = 11
+  lattice 5/2 x 3.75/2 mm: fewest turns closed strip = 8, open strip (boundary excluded) = 10
+  lattice 5/3 x 3.75/3 mm: fewest turns closed strip = 8, open strip (boundary excluded) = 9
+  lattice 5/4 x 3.75/4 mm: fewest turns closed strip = 8, open strip (boundary excluded) = 9
+  lattice 5/5 x 3.75/5 mm: fewest turns closed strip = 8, open strip (boundary excluded) = 9
+  lattice 5/7 x 3.75/7 mm: fewest turns closed strip = 8, open strip (boundary excluded) = 9
+  lower-bound proof (guide p.2) re-derived: <=7 turns gives <=8 alternating pieces, so <=4
+  horizontal pieces; with 4, the pattern HVHVHVHV or VHVHVHVH makes one an endpoint piece:
+  20 + 3*40 = 140 < 160; with <=3: 3*40 = 120 < 160.  Optimum 8 confirmed.
+
+== 4. Grades 4-5 Problem 5: the +-8 mm strip
+  guide witness U7.5,(R20,U15)x7,R20,U7.5: ends (160,120), length 280, greatest |gap| 15/2, inside +-8 strip True, turns 16
+  (info) fewest turns in the +-8 mm strip on lattice m=1: 16
+  (info) fewest turns in the +-8 mm strip on lattice m=2: 16
+  (info) fewest turns in the +-8 mm strip on lattice m=4: 16
+  answer to "Can the new staircase be shorter?": no, every right/up staircase is 280 mm
+
+== 5. Leftward pieces (K-1 P5-P6, Grades 2-3 P5, Grades 4-5 P6, guide overview)
+  Route A (= 4-5 P6 drawing): vertices [(0, 0), (80, 0), (80, 40), (40, 40), (40, 80), (160, 80), (160, 120)], ends (160,120), length 360, in rectangle True, leftward 40, 280+2*40 = 360
+  Route B: vertices [(0, 0), (120, 0), (120, 90), (80, 90), (80, 120), (160, 120)], ends (160,120), length 360, in rectangle True, leftward 40, 280+2*40 = 360
+  Route A horizontal travel 240, vertical 120
+  20 mm lattice, every R/L/U route S->F with <=3 leftward moves (53907 routes): 0 violate length = 280 + 2*(leftward); minimum with any leftward move = 320 mm > 280
+  routes of exactly 360 mm on that lattice: 16016 (so "two very different 360 mm paths" is easy to satisfy)
+
+== 6. Bonus Problem 1: priced R/U/D routes on the printed 4-right x 3-up dot grid
+  129 R/U/D routes in all
+  D costs 1: cheapest 4 coins, 4 cheapest routes, diagonal counts [3], most expensive route 7; e.g. ['RDDD', 'DRDD', 'DDRD', 'DDDR']
+  D costs 2: cheapest 7 coins, 129 cheapest routes, diagonal counts [0, 1, 2, 3], most expensive route 7
+  D costs 3: cheapest 7 coins, 35 cheapest routes, diagonal counts [0], most expensive route 10
+  D costs 4: cheapest 7 coins, 35 cheapest routes, diagonal counts [0], most expensive route 13
+  -> d=1: all cheapest use 3 diagonals (4 orders); d=2: every route costs 7, 0-3 diagonals; d=3: no diagonals
+  fewest moves with diagonals allowed: 4 (= max(4,3))
+  extension: R=1, U=2: diagonal counts tie only at d = [3] (sum 3)
+  extension: R=2, U=1: diagonal counts tie only at d = [3] (sum 3)
+  extension: R=2, U=3: diagonal counts tie only at d = [5] (sum 5)
+
+== 7. Bonus Problem 2: right/up routes on the 3x3-square grid with one blocked dot
+  routes: 20 (C(6,3) = 20)
+  remaining routes by blocked dot (x,y): (0, 1)=10, (0, 2)=16, (0, 3)=19, (1, 0)=10, (1, 1)=8, (1, 2)=11, (1, 3)=16, (2, 0)=16, (2, 1)=11, (2, 2)=8, (2, 3)=10, (3, 0)=19, (3, 1)=16, (3, 2)=10
+  leave exactly 8: [(1, 1), (2, 2)]; exactly 11: [(1, 2), (2, 1)]; leave 0: []
+  predecessor-sum rows from y=0 upward: [(1, 1, 1, 1), (1, 2, 3, 4), (1, 3, 6, 10), (1, 4, 10, 20)]
+  RRRUUU and UUURRR share only [(0, 0), (3, 3)]
+
+== 8. Bonus Problem 3: long routes in the strip |y-x| <= 1/4 (units), boundary included
+  quarter staircase: ends (4,4), length 8, gaps y-x in [-1/4, 0]
+  44 out-and-back loops then the staircase: ends (4,4), length 30, inside strip True
+  184 out-and-back loops then the staircase: ends (4,4), length 100, inside strip True
+  any length 8 + t (t >= 0) is reachable by retracing a piece of length t/2 at S (t/2 <= 1/4 per loop),
+  so there is no longest finite route; shortest possible is 8 (horizontal travel >= 4, vertical >= 4).
+  physical string for 100 units at 30 mm/unit: 3000 mm

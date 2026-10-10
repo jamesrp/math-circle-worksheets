@@ -76,6 +76,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 47 | Gentle-step landscapes (extending clues, lowest and highest landscapes) | keep | [card](week-47.md), [math check](week-47-math.md) |
 | 48 | Inside and outside covers | keep | [card](week-48.md), [math check](week-48-math.md) |
 | 49 | Four towers and differences (Ducci rings) | keep | [card](week-49.md), [math check](week-49-math.md) |
+| 50 | Staircases and lengths | keep | [card](week-50.md), [math check](week-50-math.md) |
 | 52 | Hinged frames and braces | revise: the K–1 route is three problems the guide finishes by minute 30, and Problem 13's "Yes" rests on a one-brace-per-cell rule no upper page states | [card](week-52.md), [math check](week-52-math.md) |
 | 53 | Cheapest connected networks | revise: two price labels on page 8 sit on the wrong link, and the K–1 route is one page long | [card](week-53.md), [math check](week-53-math.md) |
 | 54 | Partitions and rebuilding (Euler's odd and distinct parts) | keep | [card](week-54.md), [math check](week-54-math.md) |
