@@ -66,6 +66,8 @@ Pitfalls:
 
 Draw on K–1 P8, 2–3 P7–P8 and 4–5 P5–P8.
 
+**Decision, October 10, 2026.** Port, in Wave 6 (grids), as a new family of nearest-site cells with sites on a half-unit lattice so every edge is exact: make a target cell within a dot budget, touch some regions and avoid another, and take a point while keeping others, with the child's segment through R as the "can't" certificate and a checked "can't with fewer" beside each fewest-dots witness. Cells stay hidden until Check, and nothing asks which dot owns a place. Tracked in the app's [decisions.md](https://github.com/jamesrp/small-math-adventure/blob/main/docs/plan/decisions.md).
+
 ## Classroom evidence
 
 - **At home, observed.** The organizer tried Week 15 at home with three children: the organizer's two and one other child. The printer was out of paper, so the maps were drawn by hand: two dots, A and B, first, then a third dot, C, added on top to compete with them. The organizer judged it good (reported October 4–5, 2026), which agrees with the verdict.
