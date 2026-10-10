@@ -43,6 +43,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 13 | Route packing and bottlenecks | keep | [card](week-13.md), [math check](week-13-math.md) |
 | 14 | Polygon triangulations and flips | keep | [card](week-14.md), [math check](week-14-math.md) |
 | 16 | Three-colour triangles (Sperner's lemma) | keep | [card](week-16.md), [math check](week-16-math.md) |
+| 17 | Machine memory (fewest states) | keep | [card](week-17.md), [math check](week-17-math.md) |
 | 18 | Error-correcting codebooks | keep | [card](week-18.md), [math check](week-18-math.md) |
 | 19 | No card inside another (subset antichains) | keep | [card](week-19.md), [math check](week-19-math.md) |
 | 23 | Sorting networks | revise: a print-and-cut mat, cards and bars, which the guide specifies but nothing supplies | [card](week-23.md), [math check](week-23-math.md) |
@@ -54,6 +55,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 31 | Hidden orchard (lattice visibility) | revise: the guide's optional extension gives (4,3) as a sight line that changes when O moves to (1,1), and it doesn't, so an adult may correct a right answer | [card](week-31.md), [math check](week-31-math.md) |
 | 33 | Prime-length necklaces | keep | [card](week-33.md), [math check](week-33-math.md) |
 | 34 | Hidden turns (distinguishing colourings) | keep | [card](week-34.md), [math check](week-34-math.md) |
+| 37 | Mirror twins (tetrahedron chirality) | revise: the guide says failed turns never prove impossibility, though "A must go on A, and all three turns about A fail" is complete, and nothing supplies the tetrahedron kit it specifies | [card](week-37.md), [math check](week-37-math.md) |
 | 39 | Road detours (path reduction) | revise: K–1 Problem 7 has two readings, and the key tells the adult that the natural one is wrong, so an adult may correct a right answer | [card](week-39.md), [math check](week-39-math.md) |
 | 42 | Fair results from a bag (von Neumann's fair coin) | keep | [card](week-42.md), [math check](week-42-math.md) |
 | 43 | Shuffling picture cards (fair shuffles) | revise: K–1 Problem 2's crossed-out cards and four rows fit "this card can't be first", while the key reads them as drawn first, so an adult may mark a right answer wrong | [card](week-43.md), [math check](week-43-math.md) |

@@ -1,0 +1,59 @@
+ok   example machine: one start, one R and one B arrow per state
+ok   example machine (X NO start, Y YES) says YES exactly when the last card is blue
+ok   example input printed as R B B
+ok   example trace X -R-> X -B-> Y -B-> Y, output YES
+ok   example output printed as YES
+------------------------------------------------------------
+Problem 1 (RR anywhere)
+ok   P1 test rows: RRBB, RBR, BRRB
+ok   guide text found: "State N P F R P F F B N N F Stop NO NO YES"
+ok   guide P1 table machine says YES exactly when RR has appeared (all rows to length 12)
+ok   P1: minimal size 3
+ok   P1: none of the 66 machines with at most 2 states works
+ok   guide text found: "The printed test rows RRBB, RBR and BRRB should say YES, NO, YES respectively"
+ok   P1 test rows -> YES, NO, YES
+ok   guide text found: "Stopping distinguishes RR from each of the other two. Appending R distinguishes empty from..."
+ok   P1 witnesses: stop separates RR; R separates empty/R
+ok   other reading ("two red cards in the row", i.e. at least two reds): also minimum 3 states
+     under that reading the test rows give ['YES', 'YES', 'YES'] (guide expects YES, NO, YES)
+ok   RBR is the printed row on which the two readings disagree
+     sentences on the student pages that use "row"/"rows":
+       - Start fresh for each new row
+       - Build a machine that says YES exactly when two red cards in a row have appeared anywhere
+       - Build a machine that says YES exactly when the row has an even number of red cards and an even number of blue cards
+       - Try to defeat a partner’s machine with a card row
+       - Could any machine with a fixed number of states work for rows of every length
+ok   P1 wording located on the student page
+ok   guide text found: "Their R/B destinations are respectively (R-suffix, empty-suffix), (R-suffix, RB-suffix), (..."
+ok   return question: guide machine detects RBR anywhere and is minimal (4 states)
+ok   guide text found: "stopping separates found; endings BR and R separate the first three."
+ok   return question witnesses: BR or R separates empty/R/RB; stopping separates RBR
+------------------------------------------------------------
+Problem 2 (both counts even)
+ok   P2 table rows: empty, R, RB, RRBB, BBR, BRBR
+ok   guide text found: "Printed rows no cards, R, RB, RRBB, BBR, BRBR should say YES, NO, NO, YES, NO, YES respect..."
+ok   P2 table answers YES, NO, NO, YES, NO, YES
+ok   guide text found: "EE is the YES start, every other circle NO. R switches EE↔OE and EO↔OO; B switches EE↔EO a..."
+ok   guide square machine correct (rows to length 12) and minimal
+ok   P2: none of the 5898 machines with at most 3 states works
+ok   guide text found: "For any two distinct pairs, append the cards that make the first pair even/even: none, R, ..."
+ok   P2 witnesses separate every ordered pair of empty, R, B, RB
+ok   guide text found: "An exact three-state construction uses E (even red, last card not blue), F (even red, last..."
+ok   extension: E/F/O machine correct and minimal (3)
+ok   extension: literal 2x2 grid machine also correct
+ok   extension: the two odd-red grid states have identical futures
+ok   guide text found: "Empty, B and R need distinct states: stopping separates B, and appending B separates empty..."
+ok   extension witnesses hold
+------------------------------------------------------------
+Problem 3 (equal counts)
+ok   P3 printed rows: RRBB, RBRB, BRR
+ok   guide text found: "Printed rows RRBB, RBRB, BRR require YES, YES, NO."
+ok   P3 rows -> YES, YES, NO
+ok   P3: every machine with 1-3 states is wrong on some row of length at most 2m
+ok   P3: the guide's argument (histories R^0..R^m, collision i<j, append i Bs) exposes an error in every one of them
+ok   P3: the same argument defeats 3,000 random machines with 4-12 states
+ok   guide text found: "Twelve cards of each label support ordinary tests and red-history collision trials for pro..."
+ok   collision trials for m <= 8 need at most 8 cards of one colour in any single row (m reds, at most m-1 appended blues)
+ok   guide text found: "Run the m+1 histories with 0,1,. . .,m red cards"
+
+44 checks, 0 failures

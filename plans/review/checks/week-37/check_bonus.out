@@ -1,0 +1,74 @@
+== P1 flat outlines (F-like, equal-arm L, T) and their mirrors
+     F-like: 10 corners, area 2167.0, symmetries 1 (orientation-reversing 0)
+ok   P1 F-like: face-up slides/turns cannot match the mirror (guide: no)
+ok   P1 F-like: turning a tile over matches it (yes for all three)
+ok   P1 F-like: face-up match iff the outline has a reflection symmetry
+ok   P1 F-like: face dot lies inside the tile and its mirror
+     L: 6 corners, area 2016.0, symmetries 2 (orientation-reversing 1)
+ok   P1 L: face-up slides/turns can match the mirror (guide: yes)
+ok   P1 L: turning a tile over matches it (yes for all three)
+ok   P1 L: face-up match iff the outline has a reflection symmetry
+ok   P1 L: face dot lies inside the tile and its mirror
+     T: 8 corners, area 2052.0, symmetries 2 (orientation-reversing 1)
+ok   P1 T: face-up slides/turns can match the mirror (guide: yes)
+ok   P1 T: turning a tile over matches it (yes for all three)
+ok   P1 T: face-up match iff the outline has a reflection symmetry
+ok   P1 T: face dot lies inside the tile and its mirror
+ok   P1 L arms are equal (65 and 65): its diagonal is a mirror line
+ok   P1 L: a face-up quarter turn carries L onto its mirror (guide)
+ok   P1 T: stem and bar share the vertical axis x = 9, so the mirror is the same outline
+
+== P2 three red edges on a regular tetrahedron
+     all 20 patterns (type, chiral): count = {('star', False): 4, ('triangle', False): 4, ('path', True): 12}
+ok   20 patterns: 12 paths (chiral), 4 stars and 4 triangles (achiral)
+ok   a three-edge path has exactly 2 vertex automorphisms (identity, reversal), both even
+ok   three printed patterns read from build.py: [['AB', 'BC', 'CD'], ['AB', 'AC', 'AD'], ['AB', 'AC', 'BC']]
+ok   P2 AB/BC/CD: path, mirror cannot match (guide: no)
+ok   P2 AB/AC/AD: star, mirror matches (guide: yes)
+ok   P2 AB/AC/BC: triangle, mirror matches (guide: yes)
+ok   guide edit AB/BC/CD: move CD to AC gives triangle AB/AC/BC, answer changes
+ok   guide edit AB/AC/AD: move AD to CD gives path AB/AC/CD, answer changes
+ok   guide edit AB/AC/BC: move AC to CD gives path AB/BC/CD, answer changes
+     path: 4 of 9 single-sleeve moves change the answer
+     star: 6 of 9 single-sleeve moves change the answer
+     triangle: 6 of 9 single-sleeve moves change the answer
+     bonus tetra drawing: A(0,65) B(-65,-45) C(65,-45) D(0,1) pt
+     exact regular-tetrahedron D for that A, B, C (A depth +24.0): D at (0.0,14.3), printed D at (0,1)
+     exact regular-tetrahedron D for that A, B, C (A depth -24.0): D at (0.0,-30.9), printed D at (0,1)
+NOTE bonus p2 tetrahedra are schematic, not exact orthographic views: D is 13 pt from the exact position (edge 130 pt); far vertex still inside the front face, so the hidden-edge reading is unchanged
+
+== P3 right-angle corners
+ok   rotations taking the arm directions {+x,+y,+z} to themselves: the 3 cyclic ones
+ok   24 proper signed-axis rotations (cube rotation group)
+ok   P3 equal-length R/B/G: no mirror match
+ok   P3 R/R/G: mirror matches
+ok   P3 R/G/R (other placement of the pair): mirror matches
+ok   P3 R/R/R: mirror matches
+ok   P3 one colour, lengths 30/60/90: no mirror match
+ok   P3 one colour, lengths 60/60/90: mirror matches (two equal lengths are not enough)
+     certificate, original: G toward viewer, R right -> B points up
+     certificate, mirror: G toward viewer, R right -> B points down
+ok   guide certificate: B up in one model and down in the mirror
+ok   P3 corner pictures: equal arms 120 degrees apart (exact view along the body diagonal)
+ok   cube-corner sketch is an exact orthographic projection of three perpendicular arms
+ok   the "whole-model turn" sketch is the three-arm sketch turned 90 degrees in the page (a legal rotation)
+NOTE a three-arm picture viewed along the diagonal cannot show whether the arms point toward or away from the eye, so a printed corner alone does not fix its handedness; the questions ask children to build a corner and its mirror, so no printed answer depends on reading it
+
+== Bonus guide kit arithmetic
+ok   six full pair kits: 36 tiles, 12 frames, 36 red edge sleeves, 12 corners with 36R/12B/12G, 12 unequal, 36 sleeves
+ok   per pair 6 R, 2 B, 2 G arm sleeves cover RBG, RRG and RRR pairs
+ok   practical minimum: 36 tiles, 4 frames, 12 red edge sleeves, 8 corners, 24 R / 8 B / 8 G, 4 unequal models (complete kits only), 12 sleeves
+
+== Delivered bonus PDFs
+ok   bonus problems numbered [1, 2, 3]
+ok   bonus guide says: "face-up answers are no, yes, yes"
+ok   bonus guide says: "Answers are no, yes, yes"
+ok   bonus guide says: "12 are paths (chiral), four stars and four triangles (achiral)"
+ok   bonus guide says: "To change the path's answer move red CD to AC"
+ok   bonus guide says: "Equal-length R/B/G: no mirror match"
+ok   bonus guide says: "B then points up in one model and down in the mirror"
+ok   student bonus text present: "Use each flat tile and its mirror twin"
+ok   student bonus text present: "Build each edge pattern and its mirror"
+ok   student bonus text present: "Build a corner and its mirror with three different arm colors"
+
+0 failure(s)
