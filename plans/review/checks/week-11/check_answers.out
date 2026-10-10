@@ -1,0 +1,283 @@
+=== K-1 (F11-K-v3) ===
+P1 triangle starts read from the page:
+  [ok  ] K-1 p1: printed board is the triangle -- printed [['A-B', 'A-S', 'B-S']]
+  [ok  ] K-1 P1 printed starts -- [(2, 2), (3, 2), (2, 3), (3, 3)]
+  [ok  ] K-1 P1 (2, 2): guide finish (1, 1), shares (1, 1) -- computed finish (1, 1), shares (1, 1), sink 2, 2 complete legal words
+  [ok  ] K-1 P1 (2, 2): guide word AB is a complete legal run -- ends (1, 1)
+  [ok  ] K-1 P1 (2, 2) has a real order choice (>=2 complete words) -- 2 words
+  [ok  ] K-1 P1 (3, 2): guide finish (1, 0), shares (2, 2) -- computed finish (1, 0), shares (2, 2), sink 4, 2 complete legal words
+  [ok  ] K-1 P1 (3, 2): guide word ABAB is a complete legal run -- ends (1, 0)
+  [ok  ] K-1 P1 (3, 2) has a real order choice (>=2 complete words) -- 2 words
+  [ok  ] K-1 P1 (2, 3): guide finish (0, 1), shares (2, 2) -- computed finish (0, 1), shares (2, 2), sink 4, 2 complete legal words
+  [ok  ] K-1 P1 (2, 3): guide word ABBA is a complete legal run -- ends (0, 1)
+  [ok  ] K-1 P1 (2, 3) has a real order choice (>=2 complete words) -- 2 words
+  [ok  ] K-1 P1 (3, 3): guide finish (1, 1), shares (2, 2) -- computed finish (1, 1), shares (2, 2), sink 4, 4 complete legal words
+  [ok  ] K-1 P1 (3, 3): guide word ABAB is a complete legal run -- ends (1, 1)
+  [ok  ] K-1 P1 (3, 3) has a real order choice (>=2 complete words) -- 4 words
+  [ok  ] K-1 P1 guide: the four rows give three different finishes
+P2 every start of 4 and 5 chips:
+  [ok  ] K-1 p2: printed board is the triangle -- printed [['A-B', 'A-S', 'B-S']]
+  [ok  ] K-1 P2 guide table for 4 chips -- {'(0, 4)': '(0, 1)', '(1, 3)': '(1, 0)', '(2, 2)': '(1, 1)', '(3, 1)': '(0, 1)', '(4, 0)': '(1, 0)'}
+  [ok  ] K-1 P2 4 chips: exactly three finishes (1,0),(0,1),(1,1)
+  [ok  ] K-1 P2 guide table for 5 chips -- {'(0, 5)': '(1, 0)', '(1, 4)': '(1, 1)', '(2, 3)': '(0, 1)', '(3, 2)': '(1, 0)', '(4, 1)': '(1, 1)', '(5, 0)': '(0, 1)'}
+  [ok  ] K-1 P2 5 chips: exactly three finishes (1,0),(0,1),(1,1)
+P3 four-cycle starts:
+  [ok  ] K-1 p3: printed board is the fourcycle -- printed [['A-B', 'A-S', 'B-C', 'C-S']]
+  [ok  ] K-1 P3 printed starts -- [(0, 4, 0), (2, 2, 0), (0, 2, 2), (2, 0, 2)]
+  [ok  ] K-1 P3 (0, 4, 0): guide finish (1, 0, 1), shares (1, 3, 1) -- computed finish (1, 0, 1), shares (1, 3, 1), sink 2, 2 complete legal words
+  [ok  ] K-1 P3 (0, 4, 0): guide word BBACB is a complete legal run -- ends (1, 0, 1)
+  [ok  ] K-1 P3 (0, 4, 0) has a real order choice -- 2 words
+  [ok  ] K-1 P3 (2, 2, 0): guide finish (1, 1, 1), shares (1, 1, 0) -- computed finish (1, 1, 1), shares (1, 1, 0), sink 1, 2 complete legal words
+  [ok  ] K-1 P3 (2, 2, 0): guide word AB is a complete legal run -- ends (1, 1, 1)
+  [ok  ] K-1 P3 (2, 2, 0) has a real order choice -- 2 words
+  [ok  ] K-1 P3 (0, 2, 2): guide finish (1, 1, 1), shares (0, 1, 1) -- computed finish (1, 1, 1), shares (0, 1, 1), sink 1, 2 complete legal words
+  [ok  ] K-1 P3 (0, 2, 2): guide word BC is a complete legal run -- ends (1, 1, 1)
+  [ok  ] K-1 P3 (0, 2, 2) has a real order choice -- 2 words
+  [ok  ] K-1 P3 (2, 0, 2): guide finish (1, 0, 1), shares (1, 1, 1) -- computed finish (1, 0, 1), shares (1, 1, 1), sink 2, 2 complete legal words
+  [ok  ] K-1 P3 (2, 0, 2): guide word ACB is a complete legal run -- ends (1, 0, 1)
+  [ok  ] K-1 P3 (2, 0, 2) has a real order choice -- 2 words
+  [ok  ] K-1 P3 hint: from (0,4,0) B must share twice before A or C can -- ['BBACB', 'BBCAB']
+P4 stable four-cycle placements:
+  [ok  ] K-1 p4: printed board is the fourcycle -- printed [['A-B', 'A-S', 'B-C', 'C-S']]
+  [ok  ] K-1 P4: exactly 8 stable placements, each circle 0 or 1 -- [(0, 0, 0), (0, 0, 1), (0, 1, 0), (0, 1, 1), (1, 0, 0), (1, 0, 1), (1, 1, 0), (1, 1, 1)]
+  [ok  ] K-1 P4: largest stable total is 3, so no stable placement uses 4 chips
+  [ok  ] K-1 P4: answer table has 8 rows
+P5 additions in any timing (every interleaving of single chips and legal sharing):
+  [ok  ] K-1 p5: printed board is the triangle -- printed [['A-B', 'A-S', 'B-S']]
+  [ok  ] K-1 P5 printed rows -- [(3, 3), (3, 3), (3, 3), (2, 4), (2, 4), (2, 4)]
+  [ok  ] K-1 P5 add (3, 3): every timing finishes at (1, 1) -- frozenset({((1, 1), (2, 2))})
+  [ok  ] K-1 P5 add (2, 4): every timing finishes at (1, 0) -- frozenset({((1, 0), (2, 3))})
+  [ok  ] K-1 P5 guide intermediate (3, 0) -> (1, 1)
+  [ok  ] K-1 P5 guide intermediate (1, 4) -> (1, 1)
+  [ok  ] K-1 P5 guide intermediate (2, 0) -> (0, 1)
+  [ok  ] K-1 P5 guide intermediate (0, 5) -> (1, 0)
+  [ok  ] K-1 P5 guide intermediate (0, 4) -> (0, 1)
+  [ok  ] K-1 P5 guide intermediate (2, 1) -> (1, 0)
+  [ok  ] K-1 P5 guide batch chains: (3,0)->(1,1)+(0,3)=(1,4); (2,0)->(0,1)+(0,4)=(0,5); (0,4)->(0,1)+(2,0)=(2,1)
+P6 add one chip at A repeatedly:
+  [ok  ] K-1 p6: printed board is the triangle -- printed [['A-B', 'A-S', 'B-S']]
+  [ok  ] K-1 P6 guide sequence of 11 finishes -- [(1, 0), (0, 1), (1, 1), (1, 0), (0, 1), (1, 1), (1, 0), (0, 1), (1, 1), (1, 0), (0, 1)]
+  [ok  ] K-1 P6 guide diagram: (0,0)->(1,0)->(0,1)->(1,1)->(1,0) -- {(0, 0): (1, 0), (0, 1): (1, 1), (1, 0): (0, 1), (1, 1): (1, 0)}
+  [ok  ] K-1 P6: (0,0) is never an image, so empty circles never return
+  [ok  ] K-1 P6 table has 11 rows
+  [ok  ] K-1 P6 extension: B additions run the same three states in reverse cyclic order -- {(0, 0): (0, 1), (0, 1): (1, 0), (1, 0): (1, 1), (1, 1): (0, 1)}
+
+=== Grades 2-3 (F11-23-v3) ===
+  [ok  ] 2-3 p1: printed board is the triangle -- printed [['A-B', 'A-S', 'B-S']]
+  [ok  ] 2-3 P1 printed starts -- [(2, 2), (2, 2), (4, 0), (4, 0), (3, 3), (3, 3)]
+  [ok  ] 2-3 P1 (2, 2): guide finish (1, 1), shares (1, 1) -- computed finish (1, 1), shares (1, 1), sink 2, 2 complete legal words
+  [ok  ] 2-3 P1 (2, 2): guide word AB is a complete legal run -- ends (1, 1)
+  [ok  ] 2-3 P1 (2, 2): guide word BA is a complete legal run -- ends (1, 1)
+  [ok  ] 2-3 P1 (3, 3): guide finish (1, 1), shares (2, 2) -- computed finish (1, 1), shares (2, 2), sink 4, 4 complete legal words
+  [ok  ] 2-3 P1 (3, 3): guide word ABAB is a complete legal run -- ends (1, 1)
+  [ok  ] 2-3 P1 (3, 3): guide word BABA is a complete legal run -- ends (1, 1)
+  [ok  ] 2-3 P1 (4, 0): guide finish (1, 0), shares (2, 1) -- computed finish (1, 0), shares (2, 1), sink 3, 1 complete legal words
+  [ok  ] 2-3 P1 (4, 0): guide word AAB is a complete legal run -- ends (1, 0)
+  [ok  ] 2-3 P1 guide: (4,0) has only one complete legal word, AAB ("if possible" matters) -- ['AAB']
+  [ok  ] 2-3 p2: printed board is the fourcycle -- printed [['A-B', 'A-S', 'B-C', 'C-S']]
+  [ok  ] 2-3 P2 printed starts -- [(0, 4, 0), (0, 4, 0), (2, 1, 2), (2, 1, 2), (2, 4, 2), (2, 4, 2)]
+  [ok  ] 2-3 P2 (0, 4, 0): guide finish (1, 0, 1), shares (1, 3, 1) -- computed finish (1, 0, 1), shares (1, 3, 1), sink 2, 2 complete legal words
+  [ok  ] 2-3 P2 (0, 4, 0): guide word BBACB is a complete legal run -- ends (1, 0, 1)
+  [ok  ] 2-3 P2 (0, 4, 0): guide word BBCAB is a complete legal run -- ends (1, 0, 1)
+  [ok  ] 2-3 P2 (0, 4, 0): two different orders exist (page has no "if possible") -- 2 words
+  [ok  ] 2-3 P2 (2, 1, 2): guide finish (1, 1, 1), shares (1, 1, 1) -- computed finish (1, 1, 1), shares (1, 1, 1), sink 2, 4 complete legal words
+  [ok  ] 2-3 P2 (2, 1, 2): guide word ABC is a complete legal run -- ends (1, 1, 1)
+  [ok  ] 2-3 P2 (2, 1, 2): guide word CBA is a complete legal run -- ends (1, 1, 1)
+  [ok  ] 2-3 P2 (2, 1, 2): two different orders exist (page has no "if possible") -- 4 words
+  [ok  ] 2-3 P2 (2, 4, 2): guide finish (1, 0, 1), shares (3, 5, 3) -- computed finish (1, 0, 1), shares (3, 5, 3), sink 6, 180 complete legal words
+  [ok  ] 2-3 P2 (2, 4, 2): guide word ABBABCCBACB is a complete legal run -- ends (1, 0, 1)
+  [ok  ] 2-3 P2 (2, 4, 2): guide word CBBCBAABCAB is a complete legal run -- ends (1, 0, 1)
+  [ok  ] 2-3 P2 (2, 4, 2): two different orders exist (page has no "if possible") -- 180 words
+  [ok  ] 2-3 p3: printed board is the triangle -- printed [['A-B', 'A-S', 'B-S']]
+  [ok  ] 2-3 P3 guide table of all seven six-chip starts -- {(0, 6): (1, 1), (1, 5): (0, 1), (2, 4): (1, 0), (3, 3): (1, 1), (4, 2): (0, 1), (5, 1): (1, 0), (6, 0): (1, 1)}
+  [ok  ] 2-3 P3: starts finishing at (1,1) are exactly (0,6),(3,3),(6,0)
+  [ok  ] 2-3 P3 answer table has 7 rows (one per start)
+  [ok  ] 2-3 P3 guide invariant: A - B mod 3 never changes
+  [ok  ] 2-3 p4: printed board is the extraline -- printed [['A-B', 'A-C', 'A-S', 'B-C', 'C-S']]
+  [ok  ] 2-3 P4 printed starts -- [(3, 0, 3), (3, 0, 3), (0, 6, 0), (0, 6, 0), (2, 2, 2), (2, 2, 2), (4, 1, 2), (4, 1, 2)]
+  [ok  ] 2-3 P4 (0, 6, 0): guide finish (2, 0, 2), shares (1, 4, 1) -- computed finish (2, 0, 2), shares (1, 4, 1), sink 2, 2 complete legal words
+  [ok  ] 2-3 P4 (0, 6, 0): guide word BBBACB is a complete legal run -- ends (2, 0, 2)
+  [ok  ] 2-3 P4 (0, 6, 0): guide word BBBCAB is a complete legal run -- ends (2, 0, 2)
+  [ok  ] 2-3 P4 (0, 6, 0): a choice of order exists -- 2 words
+  [ok  ] 2-3 P4 (2, 2, 2): guide finish (2, 0, 2), shares (1, 2, 1) -- computed finish (2, 0, 2), shares (1, 2, 1), sink 2, 2 complete legal words
+  [ok  ] 2-3 P4 (2, 2, 2): guide word BACB is a complete legal run -- ends (2, 0, 2)
+  [ok  ] 2-3 P4 (2, 2, 2): guide word BCAB is a complete legal run -- ends (2, 0, 2)
+  [ok  ] 2-3 P4 (2, 2, 2): a choice of order exists -- 2 words
+  [ok  ] 2-3 P4 (3, 0, 3): guide finish (2, 0, 2), shares (1, 1, 1) -- computed finish (2, 0, 2), shares (1, 1, 1), sink 2, 2 complete legal words
+  [ok  ] 2-3 P4 (3, 0, 3): guide word ACB is a complete legal run -- ends (2, 0, 2)
+  [ok  ] 2-3 P4 (3, 0, 3): guide word CAB is a complete legal run -- ends (2, 0, 2)
+  [ok  ] 2-3 P4 (3, 0, 3): a choice of order exists -- 2 words
+  [ok  ] 2-3 P4 (4, 1, 2): guide finish (2, 1, 0), shares (2, 2, 2) -- computed finish (2, 1, 0), shares (2, 2, 2), sink 4, 2 complete legal words
+  [ok  ] 2-3 P4 (4, 1, 2): guide word ABCABC is a complete legal run -- ends (2, 1, 0)
+  [ok  ] 2-3 P4 (4, 1, 2): guide word ACBABC is a complete legal run -- ends (2, 1, 0)
+  [ok  ] 2-3 P4 (4, 1, 2): a choice of order exists -- 2 words
+  [ok  ] 2-3 P4 guide: "the added line changes ... some finishes" (vs the four-cycle)
+  [ok  ] 2-3 p5: printed board is the fourcycle -- printed [['A-B', 'A-S', 'B-C', 'C-S']]
+  [ok  ] 2-3 P5 printed batches -- [(2, 4), (2, 4), (2, 4)]
+  [ok  ] 2-3 P5 together: (2,4,0) -> (1,1,1), counts (2,3,1) -- ((1, 1, 1), (2, 3, 1), [(1, 1, 1)])
+  [ok  ] 2-3 P5 A first: (2,0,0)->(0,1,0), then (0,5,0)->(1,1,1) -- ((1, 1, 1), (2, 3, 1), [(0, 1, 0), (1, 1, 1)])
+  [ok  ] 2-3 P5 B first: (0,4,0)->(1,0,1), then (3,0,1)->(1,1,1) -- ((1, 1, 1), (2, 3, 1), [(1, 0, 1), (1, 1, 1)])
+  [ok  ] 2-3 P5: total counts agree across timings -- (2, 3, 1) (2, 3, 1) (2, 3, 1)
+  [ok  ] 2-3 P5: every interleaving finishes at (1,1,1) -- frozenset({((1, 1, 1), (2, 3, 1))})
+  [ok  ] 2-3 p6: printed board is the triangle -- printed [['A-B', 'A-S', 'B-S']]
+  [ok  ] 2-3 P6 guide A column -- [(1, 0), (0, 1), (1, 1), (1, 0), (0, 1), (1, 1), (1, 0), (0, 1), (1, 1), (1, 0), (0, 1), (1, 1)]
+  [ok  ] 2-3 P6 guide B column -- [(0, 1), (1, 0), (1, 1), (0, 1), (1, 0), (1, 1), (0, 1), (1, 0), (1, 1), (0, 1), (1, 0), (1, 1)]
+  [ok  ] 2-3 P6: each rule reaches exactly (1,0),(0,1),(1,1) after >=1 addition
+  [ok  ] 2-3 P6 table has 12 rows
+
+=== Grades 4-5 (F11-45-v3) ===
+  [ok  ] 4-5 p1: printed board is the triangle -- printed [['A-B', 'A-S', 'B-S']]
+  [ok  ] 4-5 P1 printed starts -- [(2, 2), (2, 2), (4, 0), (4, 0), (3, 3), (3, 3), (5, 4), (5, 4)]
+  [ok  ] 4-5 P1 (2, 2): guide finish (1, 1), shares (1, 1), sink 2 -- computed finish (1, 1), shares (1, 1), sink 2, 2 complete legal words
+  [ok  ] 4-5 P1 (2, 2): guide word AB is a complete legal run -- ends (1, 1)
+  [ok  ] 4-5 P1 (2, 2): guide word BA is a complete legal run -- ends (1, 1)
+  [ok  ] 4-5 P1 (3, 3): guide finish (1, 1), shares (2, 2), sink 4 -- computed finish (1, 1), shares (2, 2), sink 4, 4 complete legal words
+  [ok  ] 4-5 P1 (3, 3): guide word ABAB is a complete legal run -- ends (1, 1)
+  [ok  ] 4-5 P1 (3, 3): guide word BABA is a complete legal run -- ends (1, 1)
+  [ok  ] 4-5 P1 (4, 0): guide finish (1, 0), shares (2, 1), sink 3 -- computed finish (1, 0), shares (2, 1), sink 3, 1 complete legal words
+  [ok  ] 4-5 P1 (4, 0): guide word AAB is a complete legal run -- ends (1, 0)
+  [ok  ] 4-5 P1 (5, 4): guide finish (1, 0), shares (4, 4), sink 8 -- computed finish (1, 0), shares (4, 4), sink 8, 15 complete legal words
+  [ok  ] 4-5 P1 (5, 4): guide word AABABBAB is a complete legal run -- ends (1, 0)
+  [ok  ] 4-5 P1 (5, 4): guide word BBAABAAB is a complete legal run -- ends (1, 0)
+  [ok  ] 4-5 P1: for every start up to 14+14 all legal runs give one finish and one count vector
+  [ok  ] 4-5 P1 guide: different starts (2,2),(3,3) share a finish with different counts
+  [ok  ] 4-5 p2: printed board is the fourcycle -- printed [['A-B', 'A-S', 'B-C', 'C-S']]
+  [ok  ] 4-5 P2 printed batches -- [['4 at B', '2 at A', 'together'], ['4 at B', '2 at A', 'first, then second'], ['4 at B', '2 at A', 'second, then first'], ['3 at A', '3 at C', 'together'], ['3 at A', '3 at C', 'first, then second'], ['3 at A', '3 at C', 'second, then first']]
+  [ok  ] 4-5 P2 batches (0, 4, 0)+(2, 0, 0): all three timings finish (1, 1, 1) -- (1, 1, 1) (1, 1, 1) (1, 1, 1)
+  [ok  ] 4-5 P2 guide intermediates (1, 0, 1) and (0, 1, 0) -- [(1, 0, 1), (1, 1, 1)] [(0, 1, 0), (1, 1, 1)]
+  [ok  ] 4-5 P2 batches (3, 0, 0)+(0, 0, 3): all three timings finish (1, 0, 1) -- (1, 0, 1) (1, 0, 1) (1, 0, 1)
+  [ok  ] 4-5 P2 guide intermediates (1, 1, 0) and (0, 1, 1) -- [(1, 1, 0), (1, 0, 1)] [(0, 1, 1), (1, 0, 1)]
+  [ok  ] 4-5 P2 guide: (1,1,3) -> (1,0,1) and (3,1,1) -> (1,0,1)
+  [ok  ] 4-5 p3: printed board is the triangle -- printed [['A-B', 'A-S', 'B-S']]
+  [ok  ] 4-5 P3 printed starts -- [(0, 0), (1, 0), (0, 1), (1, 1)]
+  [ok  ] 4-5 P3 guide row (0, 0) -- [(1, 0), (0, 1), (1, 1), (1, 0)]
+  [ok  ] 4-5 P3 guide row (1, 0) -- [(0, 1), (1, 1), (1, 0), (0, 1)]
+  [ok  ] 4-5 P3 guide row (0, 1) -- [(1, 1), (1, 0), (0, 1), (1, 1)]
+  [ok  ] 4-5 P3 guide row (1, 1) -- [(1, 0), (0, 1), (1, 1), (1, 0)]
+  [ok  ] 4-5 P3: starts that return within the four columns are (1,0),(0,1),(1,1), each at After 3
+  [ok  ] 4-5 P3: (0,0) and (1,1) give the same pair (1,0) after one addition
+  [ok  ] 4-5 p4: printed board is the extraline -- printed [['A-B', 'A-C', 'A-S', 'B-C', 'C-S']]
+  [ok  ] 4-5 P4 printed starts -- [(3, 0, 3), (3, 0, 3), (0, 6, 0), (0, 6, 0), (4, 1, 2), (4, 1, 2)]
+  [ok  ] 4-5 P4 (3, 0, 3): guide finish (2, 0, 2), shares (1, 1, 1) -- computed finish (2, 0, 2), shares (1, 1, 1), sink 2, 2 complete legal words
+  [ok  ] 4-5 P4 (3, 0, 3): two orders exist -- 2 words
+  [ok  ] 4-5 P4 (0, 6, 0): guide finish (2, 0, 2), shares (1, 4, 1) -- computed finish (2, 0, 2), shares (1, 4, 1), sink 2, 2 complete legal words
+  [ok  ] 4-5 P4 (0, 6, 0): two orders exist -- 2 words
+  [ok  ] 4-5 P4 (4, 1, 2): guide finish (2, 1, 0), shares (2, 2, 2) -- computed finish (2, 1, 0), shares (2, 2, 2), sink 4, 2 complete legal words
+  [ok  ] 4-5 P4 (4, 1, 2): two orders exist -- 2 words
+  [ok  ] 4-5 p5: printed board is the fourcycle -- printed [['A-B', 'A-S', 'B-C', 'C-S']]
+  [ok  ] 4-5 P5 (0, 12, 0): guide finish (1, 0, 1), shares (5, 11, 5), sink 10 -- computed finish (1, 0, 1), shares (5, 11, 5), sink 10, 109584 complete legal words
+  [ok  ] 4-5 P5 (0, 12, 0): score 48, final score 6, 21 moves
+  [ok  ] 4-5 P5 (6, 0, 6): guide finish (1, 0, 1), shares (5, 5, 5), sink 10 -- computed finish (1, 0, 1), shares (5, 5, 5), sink 10, 3864 complete legal words
+  [ok  ] 4-5 P5 (6, 0, 6): score 36, final score 6, 15 moves
+  [ok  ] 4-5 P5 (4, 4, 4): guide finish (1, 0, 1), shares (5, 7, 5), sink 10 -- computed finish (1, 0, 1), shares (5, 7, 5), sink 10, 38808 complete legal words
+  [ok  ] 4-5 P5 (4, 4, 4): score 40, final score 6, 17 moves
+  [ok  ] Guide p2/p11: W = 3A+4B+3C drops by 2 at every firing on the four-cycle
+  [ok  ] Guide p2: W drops by 2 at every firing on the extra-line board
+  [ok  ] Guide p2: A+B drops by 1 at every firing on the triangle
+  [ok  ] Guide p2/p11: plain chip total does not drop when B fires on the four-cycle
+  [ok  ] 4-5 p6: printed board is the fourcycle -- printed [['A-B', 'A-S', 'B-C', 'C-S']]
+  [ok  ] 4-5 P6 (0, 8, 0): guide finish (1, 0, 1), shares (3, 7, 3), sink 6 -- computed finish (1, 0, 1), shares (3, 7, 3), sink 6, 180 complete legal words
+  [ok  ] 4-5 P6 (0, 8, 0): guide word BBABBABCCBACB is a complete legal run -- ends (1, 0, 1)
+  [ok  ] 4-5 P6 (0, 8, 0): guide word BBCBBCBAABCAB is a complete legal run -- ends (1, 0, 1)
+  [ok  ] 4-5 P6 guide: the two words exchange A and C, 13 moves each
+  [ok  ] 4-5 P6 guide arithmetic: Aend=0-6+7=1, Bend=8-14+3+3=0, Cend=1; score 32 -> 6 = 13 moves
+
+=== Base adult guide: overview and general claims ===
+  [ok  ] Overview: stable states 4 / 8 / 18
+  [ok  ] Overview: capacities 2 / 3 / 5
+  [ok  ] Guide p12: extra-line maximum 5 attained by (2,1,2)
+  [ok  ] Guide p2: AB legal from (2,1), ends (1,0); BA cannot begin
+  [ok  ] Guide p3: from (2,2) the formal counts (2,2) give (0,0), stable but not the actual finish (1,1)
+  [ok  ] Guide p3: triangle formula S(a,b) by a-b mod 3 (S(0,0)=(0,0)), all a,b <= 40
+  [ok  ] Guide p3: u_A=(2(a-rA)+(b-rB))/3, u_B=((a-rA)+2(b-rB))/3
+  [ok  ] Guide p3 (triangle): odometer = componentwise least f with c-Lf<d (all c < 9 per circle)
+  [ok  ] Guide p3 (triangle): odometer = unique minimiser of sum f with 0<=c-Lf<d
+  [ok  ] Guide p3 (fourcycle): odometer = componentwise least f with c-Lf<d (all c < 6 per circle)
+  [ok  ] Guide p3 (fourcycle): odometer = unique minimiser of sum f with 0<=c-Lf<d
+  [ok  ] Guide p3 (extraline): odometer = componentwise least f with c-Lf<d (all c < 5 per circle)
+  [ok  ] Guide p3 (extraline): odometer = unique minimiser of sum f with 0<=c-Lf<d
+  [ok  ] Order independence (triangle): one finish and one count vector over all legal orders, every start < 13 per circle
+  [ok  ] Order independence (fourcycle): one finish and one count vector over all legal orders, every start < 9 per circle
+  [ok  ] Order independence (extraline): one finish and one count vector over all legal orders, every start < 8 per circle
+  [ok  ] Guide p3/p12 (triangle): S(S(x)+y) = S(x+y), 3000 random x,y
+  [ok  ] Guide p3 (triangle): (+) on stable states is commutative, associative, identity 0; not a group
+  [ok  ] Guide p3/p12 (fourcycle): S(S(x)+y) = S(x+y), 3000 random x,y
+  [ok  ] Guide p3 (fourcycle): (+) on stable states is commutative, associative, identity 0; not a group
+  [ok  ] Guide p3/p12 (extraline): S(S(x)+y) = S(x+y), 3000 random x,y
+  [ok  ] Guide p3 (extraline): (+) on stable states is commutative, associative, identity 0; not a group
+  [ok  ] Guide p3/p12 (triangle): only the empty start finishes empty (starts < 13 per circle) -- [(0, 0)]
+  [ok  ] Guide p3/p12 (fourcycle): only the empty start finishes empty (starts < 9 per circle) -- [(0, 0, 0)]
+  [ok  ] Guide p3/p12 (extraline): only the empty start finishes empty (starts < 8 per circle) -- [(0, 0, 0)]
+  [ok  ] Guide p12: a lone circle joined only to the sink can finish empty from a nonempty start
+  [ok  ] Guide p12: sink-free triangle (2,1,0) -A-> (0,2,1) -B-> (1,0,2) -C-> (2,1,0)
+  [ok  ] Guide p5 launch: (2,2) -A-> (0,3) -B-> (1,1) and -B-> (3,0) -A-> (1,1); counts (1,1), 2 chips in sink
+  [ok  ] Guide p4: the largest prescribed total is 12 chips -- {'K-1': 11, '2-3': 12, '4-5': 12}
+  [ok  ] Guide p4: 24 counters x 11 children = 264
+
+=== Return visit (F11-RV-v1) and its guide ===
+  [ok  ] RV p1: three small example triangles and the closed triangle board, all A-B, A-C, B-C -- [['A-B', 'A-C', 'B-C'], ['A-B', 'A-C', 'B-C'], ['A-B', 'A-C', 'B-C'], ['A-B', 'A-C', 'B-C']]
+  [ok  ] RV p1 example: Before A has 2; After B 1, C 1, A 0 (one A firing on the closed triangle) -- [[('A', 2), ('B', 0), ('C', 0)], [('A', 0), ('B', 0), ('C', 0)], [('A', 0), ('B', 1), ('C', 1)]]
+  [ok  ] RV p1 example: arrows from A to B and to C -- ['A->B', 'A->C']
+  [ok  ] RV P1 printed starts -- [(3, 0, 0), (2, 1, 0), (4, 0, 0)]
+  [ok  ] RV P1 (3, 0, 0): can stop=True, every run stops=True, can repeat=False -- 2 reachable states, stable [(1, 1, 1)]
+  [ok  ] RV P1 (2, 1, 0): can stop=False, every run stops=False, can repeat=True -- 3 reachable states, stable []
+  [ok  ] RV P1 (4, 0, 0): can stop=False, every run stops=False, can repeat=True -- 5 reachable states, stable []
+  [ok  ] RV guide: (3,0,0) -A-> (1,1,1), stable
+  [ok  ] RV guide: from (2,1,0) the run is forced: A, B, C back to the start
+  [ok  ] RV guide: AABC from (4,0,0) reaches (2,1,1), the state after the first A
+  [ok  ] RV guide: no stable closed-triangle state holds 4 chips
+  [ok  ] RV guide return question: 3-chip types (3,0,0) stops, (2,1,0) cycles, (1,1,1) stable -- {(3, 0, 0): {'stops'}, (2, 1, 0): {'cycles'}, (1, 1, 1): {'stable'}}
+  [ok  ] RV p2: board is the four-cycle S-A-B-C-S -- [['A-B', 'A-S', 'B-C', 'C-S']]
+  [ok  ] RV P2: the longest firing word has 4 letters, only from (1,1,1) adding at B -- 4 [((1, 1, 1), 'B')]
+  [ok  ] RV guide: its words are exactly BACB and BCAB, counts (1,2,1), finish (1,0,1), 2 chips in sink -- (4, ['BACB', 'BCAB'], (1, 0, 1), 2, (1, 2, 1))
+  [ok  ] RV guide: (1,1,1)+A gives only ABC, finish (1,1,0)
+  [ok  ] RV guide: (1,1,1)+C gives only CBA, finish (0,1,1)
+  [ok  ] RV guide: every other stable start gives at most two firings
+  [ok  ] RV guide: adding to an empty circle gives no firing
+  [ok  ] RV guide: B fires twice only in the all-one start (with the chip at B)
+  [ok  ] RV guide: 8 stable starts x 3 sites = 24 trials
+  [ok  ] RV p3: board is the sink triangle -- [['A-B', 'A-S', 'B-S']]
+  [ok  ] RV P3 printed starts -- [(0, 6), (3, 3), (6, 0)]
+  [ok  ] RV P3 (0, 6): every legal four-letter word is ['BBAB', 'BBBA'], each ending (1,1) with 4 in the sink -- [('BBAB', (1, 1), 4), ('BBBA', (1, 1), 4)]
+  [ok  ] RV P3 (0, 6): complete runs have exactly 4 firings
+  [ok  ] RV P3 (3, 3): every legal four-letter word is ['ABAB', 'ABBA', 'BAAB', 'BABA'], each ending (1,1) with 4 in the sink -- [('ABAB', (1, 1), 4), ('ABBA', (1, 1), 4), ('BAAB', (1, 1), 4), ('BABA', (1, 1), 4)]
+  [ok  ] RV P3 (3, 3): complete runs have exactly 4 firings
+  [ok  ] RV P3 (6, 0): every legal four-letter word is ['AAAB', 'AABA'], each ending (1,1) with 4 in the sink -- [('AAAB', (1, 1), 4), ('AABA', (1, 1), 4)]
+  [ok  ] RV P3 (6, 0): complete runs have exactly 4 firings
+  [ok  ] RV guide inverse: exactly three starts finish (1,1) after four firings: (0,6),(3,3),(6,0) -- [(0, 6), (3, 3), (6, 0)]
+  [ok  ] RV guide: starting piles 1+2a-b, 1+2b-a for (a,b) = (1,3),(2,2),(3,1); (0,4),(4,0) negative
+  [ok  ] RV guide: four reverse moves from (1,1) give exactly the eight words, and their forward runs are legal -- [('AABA', (6, 0)), ('BABA', (3, 3)), ('ABBA', (3, 3)), ('BBBA', (0, 6)), ('AAAB', (6, 0)), ('BAAB', (3, 3)), ('ABAB', (3, 3)), ('BBAB', (0, 6))]
+  [ok  ] RV guide: three starts and eight legal histories
+
+=== Other readings and gaps ===
+  [NOTE] K-1 P4: 7 stable placements use at least one chip; the 8-row table is full only if the empty board (0,0,0) counts as a way to put chips
+  [NOTE] K-1 P6: after adding [1, 2, 4, 5, 7, 8, 10, 11] chips (of the 11 rows) one circle is empty (finish (1,0) or (0,1)); both circles are never empty again
+  [NOTE] Guide p8 invariant: stable pairs with A-B = 0 mod 3 are [(0, 0), (1, 1)]; the remainder alone cannot tell (1,1) from (0,0) for (0,6),(3,3),(6,0)
+
+=== Transcribed guide sentences present in the delivered PDFs ===
+  [ok  ] text present: "Thus the triangle has 4 stable states; the four-cycle has 8; the extra"
+  [ok  ] text present: "the three boards have capacities 2, 3, 5"
+  [ok  ] text present: "W = 3A + 4B + 3C drops by 2 at every firing and stays nonnegative"
+  [ok  ] text present: "Each total has exactly three possible finishes"
+  [ok  ] text present: "Exactly three starts of total six finish at (1, 1): (0, 6), (3, 3), (6"
+  [ok  ] text present: "Other complete words are BBCAB, CBA, and CBBCBAABCAB"
+  [ok  ] text present: "Alternative legal orders, in the same row order, are CAB, BBBCAB, BCAB"
+  [ok  ] text present: "All three timing choices finish at (1, 1, 1). Together, (2, 4, 0) has "
+  [ok  ] text present: "Use AB/BA; AAB only; ABAB/BABA; and AABABBAB/BBAABAAB"
+  [ok  ] text present: "The three starts have scores 48, 36, 40; each finishes at score 6, so "
+  [ok  ] text present: "Two full legal words are BBABBABCCBACB and BBCBBCBAABCAB"
+  [ok  ] text present: "There are 3 · 2 · 3 = 18"
+  [ok  ] text present: "The only such start is the empty one"
+  [ok  ] text present: "The largest prescribed total is 12 chips"
+  [ok  ] text present: "Starts (0, 0) and (1, 1) merge after one addition at (1, 0)"
+  [ok  ] text present: "The start (4, 0) has only one complete legal word, AAB"
+  [ok  ] text present: "The maximum number of firings is four, attained only by starting at (1"
+  [ok  ] text present: "Every other stable start gives at most two"
+  [ok  ] text present: "BBAB, BBBA"
+  [ok  ] text present: "ABAB, ABBA, BAAB, BABA"
+  [ok  ] text present: "AAAB, AABA"
+  [ok  ] text present: "leaves three possible starts and eight legal histories"
+  [ok  ] text present: "For the printed start, AABC reaches (2,1,1), which was already reached"
+  [ok  ] text present: "the only types are (3, 0, 0), (2, 1, 0), and (1, 1, 1)"
+
+0 FAIL lines, 3 NOTE lines.
