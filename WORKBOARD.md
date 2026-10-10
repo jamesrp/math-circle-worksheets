@@ -41,5 +41,5 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Review card: Week 47, gentle step landscapes (wave 2) | Claude, Boards agree and gentle hills thread | `claude/wave2-46-47-ytobpf` | done: [keep](plans/review/week-47.md) |
 | Review cards: Weeks 64–78 (octagon surfaces, ten geometric group theory prototypes, three frontier prototypes), the worksheet types added since Wave 2 | Claude, New worksheet types thread | `claude/new-worksheets-review-round-qz5gm4` | done: 15 cards, 14 keep and 1 revise (Week 75); each card records its port decision (Weeks 66, 67, 72 and 74 are ported to the app: PRs #27, #31, #28 and #29) |
 | Review cards: the weeks James will teach next | | | open; ask James which |
-| Review cards: the remaining themes | | | open; split into lines when claimed |
+| Review cards, Wave 3: every week of 1–63 without a card (5, 8–12, 17, 19–22, 27, 28, 32, 35–38, 40, 41, 48–51, 54–59, 61), each ending in its app decision; tracker [decisions.md](https://github.com/jamesrp/small-math-adventure/blob/main/docs/plan/decisions.md) | Claude, Every week to a decision thread | `claude/project-thread-tp7a3k` | in progress |
 | Worksheet revisions from the cards | | | open; after the agentic review pass |
