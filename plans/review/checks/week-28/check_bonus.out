@@ -1,0 +1,42 @@
+
+== Problem 1: one crease for two alignments
+     square side 5.10 cm: {'P': (1.0, 1.0), 'Q': (5.0, 1.0), 'R': (2.0, 4.0), 'S': (4.0, 4.0)}
+     square side 5.10 cm: {'P': (1.0, 1.0), 'Q': (5.0, 1.0), 'R': (1.0, 4.0), 'S': (4.0, 4.0)}
+     square side 5.10 cm: {'P': (1.0, 1.0), 'Q': (5.0, 1.0), 'R': (2.0, 4.0), 'S': (4.0, 4.0), 'T': (3.0, 5.0)}
+     square side 5.10 cm: {'P': (1.0, 1.0), 'Q': (5.0, 1.0), 'R': (2.0, 4.0), 'S': (4.0, 4.0), 'T': (2.0, 5.0)}
+PASS PDF dot positions equal the guide/source coordinates for all four squares
+PASS TikZ source has the same points
+     case 1: P/Q force x=3.0, R/S force x=3.0
+     case 2: P/Q force x=3.0, R/S force x=2.5
+     case 3: P/Q force x=3.0, R/S force x=3.0; T=(3.0, 5.0) on crease: True; on P side: True; image if P side moves: (3.0, 5.0)
+     case 4: P/Q force x=3.0, R/S force x=3.0; T=(2.0, 5.0) on crease: False; on P side: True; image if P side moves: (4.0, 5.0)
+PASS case 1 x=3 works; case 2 no common crease (3 vs 2.5); case 3 works (T on crease); case 4 fails only if the P half is the half that moves
+PASS bonus guide states x=3, x=2.5 and T->(4,5)
+PASS bonus guide itself notes that a stationary-half mark stays fixed (the reading that makes case 4 work)
+PASS student P1 text fixes the moving half only through the phrase "brings P onto Q"
+
+== Problems 2-3: strip layer orders
+PASS P2: all six orders are legal ['ABC', 'ACB', 'BAC', 'BCA', 'CAB', 'CBA']
+PASS P2: direction pairs -> orders {('front', 'back'): ['ABC'], ('front', 'front'): ['ACB', 'CAB'], ('back', 'back'): ['BAC', 'BCA'], ('back', 'front'): ['CBA']}; same directions give two orders
+PASS bonus guide P2 mapping matches
+PASS P3: 16 legal orders, exactly the guide list
+PASS P3: guide excluded list is the other 8
+PASS turning the stack over (reversing a word) preserves legality, as the guide says
+     P2 table has 3 table(s); rows: [1, 1, 7]
+
+== Problems 4-5: punch patterns
+     P4 hole centres (units, square [-3,3]^2): [[(-1.7, -0.9), (-1.7, 0.9), (1.7, -0.9), (1.7, 0.9)], [(-1.2, -1.2), (-1.2, 1.2), (1.2, -1.2), (1.2, 1.2)], [(-1.7, 0.9), (-1.2, -0.9), (1.7, -0.9), (1.7, 0.9)]]
+PASS P4: patterns 1, 2 come from punches [(1.7, 0.9), (1.2, 1.2)]; pattern 3 from none
+PASS bonus guide P4 positions match
+     P5 hole centres: [[(-1.7, -0.9), (-1.7, 0.9), (-0.9, -1.7), (-0.9, 1.7), (0.9, -1.7), (0.9, 1.7), (1.7, -0.9), (1.7, 0.9)], [(-1.8, -0.7), (-1.8, 0.7), (-0.7, -1.8), (-0.7, 1.8), (0.7, -1.8), (0.7, 1.8), (1.8, -0.7), (1.8, 0.7)], [(-1.7, -0.8), (-1.7, 0.8), (-0.7, -1.4), (-0.7, 1.4), (0.7, -1.4), (0.7, 1.4), (1.7, -0.8), (1.7, 0.8)]]
+PASS P5: patterns 1, 2 from punches [(1.7, 0.9), (1.8, 0.7)]; pattern 3 from none
+PASS P5 pattern 3 = midline orbits of (1.7,0.8) and (0.7,1.4); diagonal image (0.8,1.7) missing
+PASS hole counts: 4 per P4 target, 8 per P5 target
+PASS bonus guide P5 positions match
+PASS punch clearance to nearest fold/edge on a 15 cm square: [2.25, 3.0, 1.41, 1.75] cm (> 1 cm)
+PASS smallest separation between unfolded hole centres: [4.5, 6.0, 2.83, 3.5] cm
+PASS P4 folded-quarter records mark the left and bottom edges (the two midline folds)
+PASS P5 has three triangle records (right angle at bottom right, hypotenuse = diagonal fold)
+PASS P5 picture folds along the diagonal through the folded corner (the original centre), giving 0<=q<=p
+
+23 checks, 0 failures

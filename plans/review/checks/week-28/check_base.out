@@ -1,0 +1,107 @@
+
+== Oracle self-test: layer-order brute force agrees with crimp reduction
+PASS 400 random even-degree Kawasaki patterns: 0 disagreements; every pattern has a flat state; all states obey Maekawa
+PASS eight 45-degree sectors: 112 valid words (Hull: 2*C(8,3) = 112)
+
+== Four right angles
+PASS valid words = the eight 3:1 words ['MMMV', 'MMVM', 'MVMM', 'MVVV', 'VMMM', 'VMVV', 'VVMV', 'VVVM']
+PASS 8 of 24 stack orders are legal
+PASS guide p6 survivor table (orders and words) is exactly right
+PASS with S1 bottom only ['1234', '1432'] survive
+PASS guide reading rule (V iff h4>h1, h2>h1, h2>h3, h4>h3) reproduces the table
+PASS rotations and reversals of VVVM give all eight words
+
+== K-1
+PASS P6 printed A-H words read from the PDF match my catalog
+PASS P2 printed words {'A': 'MMMV', 'B': 'MMMM', 'C': 'MVVV', 'D': 'MMVV', 'E': 'MMVM', 'F': 'MVMV'}; foldable: ['A', 'C', 'E'] (guide: A,C,E)
+PASS P1: at least four distinct foldable words exist (there are 8)
+PASS P3: ray 1 = M gives ['MMMV', 'MMVM', 'MVMM', 'MVVV'] (4 answers, 6 disks printed)
+PASS P5: 8 answers, 10 disks printed (2 spare)
+PASS P4 printed partial words ['M?V?', 'MM??', 'V?V?'] in each row
+PASS P4 completion table (guide p8) is right
+PASS P4: rows A and C each have 4 completions, row B none: {'A': ['MVVV / MMMV / VMVV', 'MVVV / MMMV / VVVM', 'MVVV / MMVM / VMVV', 'MVVV / MMVM / VVVM'], 'B': [], 'C': ['MMVM / MMMV / VMVV', 'MMVM / MMMV / VVVM', 'MMVM / MMVM / VMVV', 'MMVM / MMVM / VVVM']}
+PASS guide p8 lists exactly these eight triples
+PASS extension: M-tab counts that work = [2, 4] (guide: exactly 2 and 4)
+PASS move rule: every pair is 2 apart except complements A-H, B-G, C-F, D-E (4 apart)
+PASS P6: 240 routes A..H and 248 routes A..D (guide: 240 and 248)
+PASS guide route ABCDFEGH is legal
+PASS guide route ABCEFGHD is legal
+PASS guide changed-ray column (route to H) [[3, 4], [2, 3], [1, 2], [3, 4], [1, 2], [1, 3], [3, 4]]
+PASS guide changed-ray column (route to D) [[3, 4], [2, 3], [3, 4], [1, 2], [2, 3], [3, 4], [2, 3]]
+PASS extension cycle A-B-C-D-F-E-H-G-A is legal
+
+== Grades 2-3
+PASS P1: 10 groups ['ABCD', 'ABF', 'ACE', 'ADE', 'AG', 'BCE', 'BDE', 'BG', 'CF', 'DF'] == guide list
+     P1 prints 10 answer lines for 10 groups
+PASS P2 and P3 disks are the patterns A-D
+PASS P2 disk A: sectors [90, 90, 90, 90], shaded 180, white 180
+PASS P2 disk B: sectors [45, 90, 90, 135], shaded 135, white 225
+PASS P2 disk C: sectors [60, 120, 120, 60], shaded 180, white 180
+PASS P2 disk D: sectors [30, 60, 150, 120], shaded 180, white 180
+PASS P3 disk A: foldable; valid words ['MMMV', 'MMVM', 'MVMM', 'MVVV', 'VMMM', 'VMVV', 'VVMV', 'VVVM']
+PASS P3 disk B: not foldable; valid words []
+PASS P3 disk C: foldable; valid words ['MMMV', 'MVMM', 'MVVV', 'VMMM', 'VMVV', 'VVVM']
+PASS P3 disk D: foldable; valid words ['MVMM', 'MVVV', 'VMMM', 'VMVV']
+PASS guide witnesses: A VVVM, C VVVM, D MVVV are valid
+PASS guide: VVVM (3:1 count) fails for D
+PASS guide p4 certificate: order S3,S4,S1,S2 is legal and reads MVVV
+PASS P4 printed rays
+PASS P4 A: unique added ray [270.0] (=360-90); sectors [90, 90, 90, 90]; VVVM valid
+PASS P4 B: unique added ray [300.0] (=360-60); sectors [60, 120, 120, 60]; VVVM valid
+PASS P4 C: unique added ray [330.0] (=360-30); sectors [30, 150, 150, 30]; VVVM valid
+PASS P4 D: unique added ray [240.0] (=360-120); sectors [120, 60, 60, 120]; VVVM valid
+PASS generalization: for every integer 0<a<180, rays 0,a,180,360-a fold as VVVM
+PASS P6: 36 rooted letter orders (guide: 36)
+PASS guide sample orders are valid
+PASS guide boundary rays {'AABBCC': [0, 30, 60, 120, 180, 270], 'AABCCB': [0, 30, 60, 120, 210, 300], 'AACBBC': [0, 30, 60, 150, 210, 270], 'AACCBB': [0, 30, 60, 150, 240, 300]}
+PASS every valid order has one A, B, C in each alternating triple
+
+== Grades 4-5
+PASS P1 disk A = 2-3 P3 disk A
+PASS P1 disk B = 2-3 P3 disk B
+PASS P1 disk C = 2-3 P3 disk C
+PASS P1 disk D = 2-3 P3 disk D
+PASS P2 sectors A 120x3, B 60,60,60,90,90, C 30,30,60x5
+PASS P2: all three have an odd number of rays and total 360
+PASS P3 sectors read from PDF
+PASS P3 alternating sums [('A', 135, 225), ('B', 180, 180), ('C', 150, 210), ('D', 180, 180)]
+PASS P3: B and D (not ruled out) do have flat states; A, C none
+PASS P5: none of ['MMMM', 'VVVV', 'MMVV', 'MVMV'] folds
+PASS P5: rotations of the four printed words are exactly the 8 non-foldable words; with P4 they cover all 16
+PASS P6: 12 orders starting with 30 (guide: 12)
+PASS guide p15 table lists exactly the 12 orders
+PASS unrestricted rooted orders: 36 (guide: 36)
+PASS FINDING CHECK: P6 prints exactly 12 answer rows of six blanks for an answer of 12 (the page reveals the count)
+     if rotations were identified, the 12 rooted orders form 7 cyclic arrangements
+
+== Guide statements
+PASS overview states Maekawa |M-V|=2
+PASS guide p4 flattened rays [0, 30, -30, 120] and sector intervals [(0, 30), (-30, 30), (-30, 120), (0, 120)]
+PASS guide p4 prints these intervals
+PASS D with VVVM: the joins force bottom-to-top ['1432'] (S1<S4<S3<S2), which is illegal
+PASS model C: VVVM valid (two book folds)
+     model C all valid words: ['MMMV', 'MVMM', 'MVVV', 'VMMM', 'VMVV', 'VVVM']; model D: ['MVMM', 'MVVV', 'VMMM', 'VMVV']
+PASS odd ray counts 3, 5, 7: ruled out by orientation parity
+PASS O-E lies strictly between -360 and 360 for P3 patterns
+PASS guide largest-piece cases 2+3+4+1: {'G': ['AG', 'BG'], 'F': ['ABF', 'CF', 'DF'], 'E': ['ACE', 'ADE', 'BCE', 'BDE'], '-': ['ABCD']}
+PASS guide p14 counts: 1,4,6,4,1 and two-M words = 4 adjacent + 2 opposite
+
+== Guide page cross-references point at the right content
+PASS p2 "table on page 10" -> p10 contains "Clockwise sectors 1,2,3,4"
+PASS p3 "Page 4 gives a geometric certificate" -> p4 contains "A geometric witness for the unequal model D"
+PASS p6 "construction on page 3" -> p3 contains "Two book folds give a verified right-angle example"
+PASS p7 "page 6 proves" -> p6 contains "A complete proof for the four right angles"
+PASS p9 "catalog words on page 7" -> p7 contains "eight-fold catalog"
+PASS p11 "certificate on page 4" -> p4 contains "Why the certificate works"
+PASS p11 "necessity proof on page 5" -> p5 contains "Every other sector must total a half-turn"
+PASS p12 "diagrams on page 7" -> p7 contains "E MVVV"
+PASS p13 "exact totals are on page 10" -> p10 contains "Shaded 1+3"
+PASS p13 "witness assignments are on page 11" -> p11 contains "Problem 3 witnesses"
+PASS p14 "Page 7 supplies exact labeled diagrams" -> p7 contains "H VVVM"
+PASS p16 "completion table on page 8" -> p8 contains "All possible completed words"
+PASS p16 "complementary-pair rule on page 9" -> p9 contains "Complete move rule"
+PASS p16 "construction on page 11" -> p11 contains "Uniqueness proof"
+PASS p16 "model D on page 4" -> p4 contains "model D"
+PASS printed numbering: guide pages 1-16, then the route-update page is numbered 18 (no page 17)
+
+88 checks, 0 failures
