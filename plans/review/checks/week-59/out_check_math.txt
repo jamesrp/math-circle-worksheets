@@ -1,0 +1,124 @@
+== Problem 1: smallest and largest width of each ideal piece (36,000 directions) ==
+ok    disk (radius 30): 60.000000 .. 60.000000 (guide: 60.000 .. 60.000)
+ok    oval (60 x 40 ellipse): 40.000000 .. 60.000000 (guide: 40.000 .. 60.000)
+ok    square (side 60): 60.000000 .. 84.852814 (guide: 60.000 .. 84.853)
+ok    straight triangle (side 60): 51.961524 .. 60.000000 (guide: 51.962 .. 60.000)
+ok    curved triangle (Reuleaux, width 60): 60.000000 .. 60.000000 (guide: 60.000 .. 60.000)
+ok    nearest-mm records [(60, 60), (40, 60), (60, 85), (52, 60), (60, 60)] = guide p.5 '60/60, 40/60, 60/85, 52/60 and 60/60'
+ok    largest reading about 85 mm (guide p.4 'up to about 85'); fits the 150 mm ruler
+ok    guide p.5: ellipse width 2*sqrt(900cos^2 + 400sin^2) (theta from the long axis)
+ok    guide p.5: square width 60(|cos| + |sin|) (theta from a side normal)
+ok    guide p.5: triangle width 60cos(theta) on [0,30], 60cos(60-theta) on [30,60], period 60 (theta from a side-parallel normal)
+ok    triangle: side-and-opposite-vertex position gives the altitude 30*sqrt3; side-parallel normal gives 60
+
+== Problem 2: fixed 60 mm gap, piece free to translate ==
+      disk (radius 30): turn inside Yes, both contacts throughout Yes
+      oval (60 x 40 ellipse): turn inside Yes, both contacts throughout No
+      square (side 60): turn inside No, both contacts throughout No
+      straight triangle (side 60): turn inside Yes, both contacts throughout No
+      curved triangle (Reuleaux, width 60): turn inside Yes, both contacts throughout Yes
+ok    fixed-gap answers match the guide's p.5 table (Yes/Yes, Yes/No, No/No, Yes/No, Yes/Yes)
+ok    square: every orientation other than side-aligned is wider than 60, so it cannot start a turn
+ok    oval: centring its projection in the strip keeps it inside for a full turn (max width 60.000000)
+ok    straight triangle: centring its projection in the strip keeps it inside for a full turn (max width 60.000000)
+note  disk, oval, straight triangle and curved triangle all reach width exactly 60, so their 'Yes' to 'turn inside' holds only with zero clearance; the guide (p.3) flags the fixed 60 mm gap as an untested physical setup and forbids silently widening it
+
+== Constant-width theorem and the guide's p.2 proof ==
+ok    exact Reuleaux of side 60: width 60.000000000..60.000000000 in 36,000 directions
+ok    exact Reuleaux of side 40: width 40.000000000..40.000000000 in 36,000 directions
+ok    exact Reuleaux of side 7.3: width 7.300000000..7.300000000 in 36,000 directions
+ok    exact Reuleaux of side 123.0: width 123.000000000..123.000000000 in 36,000 directions
+ok    Problem 3: the 40 mm construction has width 40; it is the 60 mm one scaled by 2/3
+ok    points of the circle about A inside both other disks are exactly the minor arc BC (0..60 deg)
+ok    for u in the closed A-sector, P = A + w u has |P-B|^2 = 2w^2(1-cos phi) <= w^2 and lies in K
+ok    x.B >= |x|^2/2 and x.C >= |x|^2/2 for 20,000 interior and 903 boundary points of K
+ok    for every u in [0,60] deg: 0 <= x.u <= w on K, with x.u = 0 attained at A and x.u = w at P (both lines support)
+ok    the three vertex sectors and their reversals cover every whole-degree direction (and so the circle)
+ok    at u = AB (sector endpoint) the supports are x = 0 through A and x = 60 through B: both contacts are vertices
+ok    'rounded by eye' triangle with arc radius 45.0: width 61.91..63.42, not constant (guide: arbitrary rounding need not work)
+ok    'rounded by eye' triangle with arc radius 90.0: width 57.11..60.00, not constant (guide: arbitrary rounding need not work)
+ok    arcs centred on side midpoints (guide p.6 'altered' construction): width 85.98..90.00, a changing-width witness exists
+
+== Problem 5: distances from the mark O to one supporting line ==
+ok    |O - vertex| = 34.641016 = 60/sqrt3
+ok    curved triangle: O-to-support distance ranges 25.358984 .. 34.641016 (60-60/sqrt3 = 25.358984, 60/sqrt3 = 34.641016)
+ok    nearest-mm readings 25 and 35 (guide p.7 'roughly 25 and 35')
+ok    opposite O-to-support distances always sum to 60
+ok    guide p.7: in the A-sector d_O(u) = w - R cos(theta - 30), opposite distance R cos(theta - 30)
+ok    guide p.7: d_O runs from w - R at the sector middle to w/2 = 30 at the endpoints
+ok    marked disk: O is the centre, so every O-to-support distance is the radius 30
+      max at direction 210.00 deg (vertex contact), min at 30.00 deg (arc-middle contact)
+ok    the yes-answer: constant width 60 while the O-distance changes from 25.36 to 34.64
+ok    p.5 example: rectangle 44 x 28, O = (12, 9), right support x = 44: perpendicular 32 mm, foot (44, 9)
+ok    guide p.7: at scale 0.6 the rectangle is 26.4 x 16.8 mm and the segment 19.2 mm
+
+== Problem 6: boundary lengths ==
+ok    curved triangle boundary 3 x (60 deg of a radius-60 circle) = 188.495559 = 60*pi = disk boundary 2*pi*30 = 188.495559
+ok    each arc is 60 deg, one sixth of its radius-60 circle; three arcs = one half
+ok    60*pi = 188.4956 (guide: about 188.496)
+ok    polyline length of the exact boundary 188.49556
+
+== Convention examples ==
+ok    p.1 parallelogram: vertical supports x = 0 and x = 46 touch at (0,0) and (46,32); gap 46
+ok    p.1 example drawn at 0.55: 46 mm becomes 25.3 mm on the page
+ok    p.3 compass example: DE = DF = 25 at scale 0.7 is 17.5 mm; arc EF centred at D is 90 deg
+
+== Guide arithmetic: kits, prints, group ==
+ok    5 copies of materials p.1 + 5 of p.2 = 10 basic sheets; 3 of p.3 = 6 templates per size; 30 cut pieces
+ok    five kits: 10 rails, 10 right-angle guides, 5 measuring rulers, 5 mats
+ok    group of eleven; seven children in grades 3-5 (seven copies of pp.1-2); kits 2 + 2 + 1 = 5
+
+== Guide text: each verified number and answer is the one printed ==
+ok    guide states: 'W K (u) = max x · u − min x · u'
+ok    guide states: 'This exact Reuleaux triangle has width w in every direction'
+ok    guide states: 'a piece fits between ideal parallel lines at gap g exactly when its width in that orientation is at most g; it can touch both exactly when its width equals g'
+ok    guide states: 'disk and Reuleaux triangle can turn with both contacts, oval and straight triangle can turn but lose simultaneous contact, and square cannot complete a turn'
+ok    guide states: 'Their total length is 60π mm, equal to the radius-30 disk’s boundary'
+ok    guide states: '[0 ◦ , 60 ◦ ], [120 ◦ , 180 ◦ ] and [240 ◦ , 300 ◦ ]'
+ok    guide states: '[180 ◦ , 240 ◦ ], [300 ◦ , 360 ◦ ] and [60 ◦ , 120 ◦ ]'
+ok    guide states: 'about 60/60, 40/60, 60/85, 52/60 and 60/60'
+ok    guide states: 'the shown left/right supports are x = 0, 46'
+ok    guide states: 'Predicted exact widths are 60 mm and 40 mm. The smaller is a scale-2/3 copy of the larger'
+ok    guide states: 'Its display radius is 17.5 mm at scale 0.7'
+ok    guide states: 'The three printed curved triangles at 7 ◦ , 37 ◦ , 83 ◦'
+ok    guide states: 'measures 44 − 12 = 32 mm'
+ok    guide states: 'the shown rectangle is 26.4 × 16.8 mm and measured segment 19.2 mm'
+ok    guide states: 'd O (u) = w − R cos(θ − 30 ◦ )'
+ok    guide states: 'At nearest-mm precision expect roughly 25 and 35'
+ok    guide states: 'Therefore the two target boundaries are equal, both 60π ≈ 188.496 mm'
+ok    guide states: 'This is 10 basic material sheets and 3 optional sheets, 30 cut pieces, five mats, and six templates of each size'
+ok    guide states: 'Totals: 10 rails, 5 measuring rulers, 10 right-angle guides, 5 mats'
+ok    guide states: 'The group is eleven: K,K,1,1; 3,3,3,3; and 4,4,5'
+ok    guide states: '60 − 60/ 3 ≈ 25.359'
+ok    guide states: '60/ 3 ≈ 34.641'
+ok    guide p.1 table row 'Disk, radius 30': 60 60
+ok    guide p.1 table row 'Oval, ellipse 60 × 40': 40 60
+ok    guide p.1 table (60 | 60√2 ≈ 84.853) row 'Square, side 60': √ 60 60 2 ≈ 84.853
+ok    guide p.1 table (30√3 ≈ 51.962 | 60) row 'Equilateral triangle, side 60': 30 3 ≈ 51.962 60
+ok    guide p.1 table row 'Reuleaux triangle, arc radius 60': 60 60
+ok    guide p.5 Problem 2 table row 'Disk': Yes Yes
+ok    guide p.5 Problem 2 table row 'Oval': Yes No
+ok    guide p.5 Problem 2 table row 'Square': No No
+ok    guide p.5 Problem 2 table row 'Straight triangle': Yes No
+ok    guide p.5 Problem 2 table row 'Exact curved triangle': Yes Yes
+ok    guide p.6 construction table (centre, endpoints, arc) row 'A': B to C 60◦
+ok    guide p.6 construction table (centre, endpoints, arc) row 'B': C to A 60◦
+ok    guide p.6 construction table (centre, endpoints, arc) row 'C': A to B 60◦
+
+== Student text: problem statements read for the answers above ==
+ok    students states: 'Problem 1: Use the five pieces. Find positions that make each gap as small and as large as you can.'
+ok    students states: 'Problem 2: Keep the parallel edges fixed 60 mm apart while the piece turns and slides. Which pieces can turn all the way around inside them? Which can keep touching both edges throughout the turn?'
+ok    students states: 'Problem 3: Use the 60 mm and 40 mm equilateral templates to make two curved triangles. Each short arc joins two corners and has the third corner as its center. Predict the width of each piece, then test it.'
+ok    students states: 'Problem 4: Explain why the exact curved triangle has the same width in every direction. Its arcs have radius 60 mm, with centers at A, B and C. Include the turns between the drawings in your explanation.'
+ok    students states: 'Problem 5: Use the marked disk and curved triangle. Find the smallest and largest perpendicular distances from O to one touching edge. Can a piece have constant width while those distances change?'
+ok    students states: 'Problem 6: The large circle has six equally spaced boundary dots. Compare the boundary lengths of the 60 mm-width disk and curved triangle. Give an exact argument.'
+ok    materials states: 'disk: diameter 60 mm'
+ok    materials states: 'oval: 60 by 40 mm'
+ok    materials states: 'square: side 60 mm'
+ok    materials states: 'triangle: side 60 mm'
+ok    materials states: 'curved triangle: width 60 mm'
+ok    materials states: '60 mm sides'
+ok    materials states: '40 mm sides'
+ok    materials states: '200 by 200 mm grid mat'
+
+summary: 98 ok, 0 FAIL
