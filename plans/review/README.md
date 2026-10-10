@@ -35,6 +35,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 1 | Tiling lab (pattern blocks) | keep | [card](week-01.md), [math check](week-01-math.md) |
 | 1e | Pattern blocks II (the Week 1 encore) | keep | [card](week-01e.md), [math check](week-01e-math.md) |
 | 2 | Switches and lamps | revise: a working board that enforces the pair rule, and an adult guide for the compact catalog | [card](week-02.md), [math check](week-02-math.md) |
+| 5 | Tower cities (visibility clues) | revise: 204 of the 576 4-by-4 cities can't be singled out by any puzzle, and the guide's entry for 4–5 Problem 5 doesn't say so | [card](week-05.md), [math check](week-05-math.md) |
 | 12 | Catalan bijections (noncrossing pairings, paths and trees) | revise: the guide hint for K–1 Problem 4 says comparing the partners of one dot detects duplicates, so an adult may call a new pairing a repeat | [card](week-12.md), [math check](week-12-math.md) |
 | 15 | Nearest-site regions | keep | [card](week-15.md), [math check](week-15-math.md) |
 | 3 | Shuffle machines (permutations as arrow mats) | keep | [card](week-03.md), [math check](week-03-math.md) |

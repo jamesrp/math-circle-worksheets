@@ -1,0 +1,30 @@
+== Problem 1 (four-square changes)
+  [ok] order 3: no city has an alternating rectangle: 0
+  [ok] order 4: cities with 4 / 12 trades (guide 432 / 144): {12: 144, 4: 432}
+  [ok] city A trades (guide: rows 1,3 or 2,4 with columns 1,3 or 2,4): [((1, 3), (1, 3)), ((1, 3), (2, 4)), ((2, 4), (1, 3)), ((2, 4), (2, 4))]
+  [ok] city B trades (guide 12), city C (guide 0): (12, 0)
+  [ok] order 3: fewest squares in which two different cities differ (guide 6): 6
+  [ok] order 4: fewest squares in which two different cities differ (guide 4): 4
+  [ok] order 4: every change at exactly four squares is an alternating-rectangle trade: True
+  [ok] guide's before/after trade is a city differing at the top-left four squares: (True, [(0, 0), (0, 1), (1, 0), (1, 1)])
+
+== Problem 2 (both diagonals)
+  [ok] order 3 cities with both diagonals: 0
+  [ok] order 4 cities with both diagonals (guide 48): 48
+  [ok] guide example is a city; diagonals 1,4,2,3 and 4,1,3,2: (True, [1, 4, 2, 3], [4, 1, 3, 2])
+  [MISMATCH] order-3 argument: bottom corners (left, right) in terms of top-left a, top-right b (guide says 'b, a'): [('a', 'b')]   (printed/expected: [('b', 'a')])
+
+== Problem 3 (roof routes)
+  [ok] D stopping squares (guide (1,3),(2,1),(3,2)): [(1, 3), (2, 1), (3, 2)]
+  [ok] E stopping squares (guide (1,3),(2,2),(3,1),(3,3)): [(1, 3), (2, 2), (3, 1), (3, 3)]
+  [ok] order 3 peak histogram (guide 3:8, 4:4): {3: 8, 4: 4}
+  [ok] order 4 peak histogram (guide 4:226, 5:136, 6:172, 7:8, 8:34): {4: 226, 5: 136, 6: 172, 7: 8, 8: 34}
+  [ok] 1234/2143/3412/4321 peaks are the four 4s: [4, 4, 4, 4]
+  [ok] 1324/3142/2413/4231: eight peaks, four 4s and four 3s: (True, [3, 3, 3, 3, 4, 4, 4, 4])
+
+== Materials and boards
+  [ok] cubes: 5*40, 4*18+40, 3*40+2*18: (200, 112, 156)
+  grids (page, n, square mm): [(1, 3, 10.0), (1, 3, 11.0), (1, 3, 11.0), (1, 4, 10.0), (1, 4, 10.0), (1, 4, 11.0), (1, 4, 11.0), (1, 4, 11.0), (1, 4, 11.0), (2, 2, 14.0), (2, 3, 25.0), (2, 4, 25.0), (3, 3, 10.0), (3, 3, 10.0), (3, 3, 25.0), (3, 3, 25.0), (3, 4, 11.0), (3, 4, 11.0)]
+  [ok] working boards p.2-3 have 25 mm squares; records 10-11 mm: [10.0, 11.0, 14.0, 25.0]
+
+MISMATCHES: ["order-3 argument: bottom corners (left, right) in terms of top-left a, top-right b (guide says 'b, a')"]

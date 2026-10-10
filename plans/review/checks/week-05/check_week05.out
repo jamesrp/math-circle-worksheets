@@ -1,0 +1,165 @@
+== Rows of towers (all bands)
+  n=3: (L,R) counts {(1, 2): 1, (1, 3): 1, (2, 1): 1, (2, 2): 2, (3, 1): 1}
+  n=4: (L,R) counts {(1, 2): 2, (1, 3): 3, (1, 4): 1, (2, 1): 2, (2, 2): 6, (2, 3): 3, (3, 1): 3, (3, 2): 3, (4, 1): 1}
+  n=5: (L,R) counts {(1, 2): 6, (1, 3): 11, (1, 4): 6, (1, 5): 1, (2, 1): 6, (2, 2): 22, (2, 3): 18, (2, 4): 4, (3, 1): 11, (3, 2): 18, (3, 3): 6, (4, 1): 6, (4, 2): 4, (5, 1): 1}
+  [ok] c(1,k) = number of rows of 1 with k seen: [1]
+  [ok] n=1: guide's (a,b) formula C(a+b-2,a-1) c(n-1,a+b-2) holds for every (a,b): []
+  [ok] n=1: L+R<=n+1 always; equality rows = rise-then-fall rows = 2^(n-1): (2, 1, 1)
+  [ok] c(2,k) = number of rows of 2 with k seen: [1, 1]
+  [ok] n=2: guide's (a,b) formula C(a+b-2,a-1) c(n-1,a+b-2) holds for every (a,b): []
+  [ok] n=2: L+R<=n+1 always; equality rows = rise-then-fall rows = 2^(n-1): (3, 2, 2)
+  [ok] c(3,k) = number of rows of 3 with k seen: [2, 3, 1]
+  [ok] n=3: guide's (a,b) formula C(a+b-2,a-1) c(n-1,a+b-2) holds for every (a,b): []
+  [ok] n=3: L+R<=n+1 always; equality rows = rise-then-fall rows = 2^(n-1): (4, 4, 4)
+  [ok] c(4,k) = number of rows of 4 with k seen: [6, 11, 6, 1]
+  [ok] n=4: guide's (a,b) formula C(a+b-2,a-1) c(n-1,a+b-2) holds for every (a,b): []
+  [ok] n=4: L+R<=n+1 always; equality rows = rise-then-fall rows = 2^(n-1): (5, 8, 8)
+  [ok] c(5,k) = number of rows of 5 with k seen: [24, 50, 35, 10, 1]
+  [ok] n=5: guide's (a,b) formula C(a+b-2,a-1) c(n-1,a+b-2) holds for every (a,b): []
+  [ok] n=5: L+R<=n+1 always; equality rows = rise-then-fall rows = 2^(n-1): (6, 16, 16)
+  [ok] c(6,k) = number of rows of 6 with k seen: [120, 274, 225, 85, 15, 1]
+  [ok] n=6: guide's (a,b) formula C(a+b-2,a-1) c(n-1,a+b-2) holds for every (a,b): []
+  [ok] n=6: L+R<=n+1 always; equality rows = rise-then-fall rows = 2^(n-1): (7, 32, 32)
+  [ok] c(7,k) = number of rows of 7 with k seen: [720, 1764, 1624, 735, 175, 21, 1]
+  [ok] n=7: guide's (a,b) formula C(a+b-2,a-1) c(n-1,a+b-2) holds for every (a,b): []
+  [ok] n=7: L+R<=n+1 always; equality rows = rise-then-fall rows = 2^(n-1): (8, 64, 64)
+  [ok] guide sec.5 rows n=3,4,5: [[2, 3, 1], [6, 11, 6, 1], [24, 50, 35, 10, 1]]
+
+== K-1
+  [ok] p.1 eye picture and P1 rows (from cube rectangles): [[1, 3, 2], [1, 3, 2], [3, 2, 1]]
+  [ok] p.1 eye picture: towers seen from the eye (left): 2
+  [ok] P1 answers left picture 132, right picture 321: [(2, 2), (1, 3)]
+  [ok] P2 number of rows of three (8 frames printed): (6, 8)
+  [ok] P2 guide's six rows with views: {'123': (3, 1), '132': (2, 2), '213': (2, 1), '231': (2, 2), '312': (1, 2), '321': (1, 3)}
+  [ok] P3 cards read from the page: [(1, 3), (2, 1), (3, 3), (2, 2), (1, 1), (1, 2)]
+  [ok] P3 rows for each card = guide: {(1, 3): ['321'], (2, 1): ['213'], (3, 3): [], (2, 2): ['132', '231'], (1, 1): [], (1, 2): ['312']}
+  [ok] P4 hidden row in the picture (dashed cubes): [[2, 3, 1]]
+  [ok] P4 hidden row 231 shows: (2, 2)
+  [ok] P4 numbers a hider can say (3 towers): [(1, 2), (1, 3), (2, 1), (2, 2), (3, 1)]
+  [ok] P4 frames to draw in (6): 6
+  [ok] P5 rows of 1,2,3,4 with 1 seen from left (guide list); 8 frames: (['4123', '4132', '4213', '4231', '4312', '4321'], 8)
+  [ok] P6 rows of four with 2 and 2 (guide list); 8 frames: (['1423', '2143', '2413', '3142', '3241', '3412'], 8)
+  [ok] P7 cards read from the page: [(2, 3), (1, 4), (3, 3), (3, 1), (4, 2), (1, 2)]
+  [ok] P7 rows for each card = guide: {(2, 3): ['1432', '2431', '3421'], (1, 4): ['4321'], (3, 3): [], (3, 1): ['1324', '2134', '2314'], (4, 2): [], (1, 2): ['4123', '4213']}
+  [ok] Materials: pair pools two 1-2-3 sets, snaps 1 onto 3: towers 1,2,3,4 use 10 of 12 cubes: (10, 12)
+
+== Grades 2-3
+  [ok] P1 8 slots printed: 8
+  [ok] P1 pairs never shown (guide: (1,1),(3,3),(2,3),(3,2)): [(1, 1), (2, 3), (3, 2), (3, 3)]
+  [ok] P2 number of 3-by-3 cities; cubes per city: (12, 18)
+  [ok] P2 guide example city 123/231/312 and its twelve numbers: {('T', 1): 3, ('B', 1): 1, ('T', 2): 2, ('B', 2): 2, ('T', 3): 1, ('B', 3): 2, ('L', 1): 3, ('R', 1): 1, ('L', 2): 2, ('R', 2): 2, ('L', 3): 1, ('R', 3): 2}
+  [ok] P2 example numbers total 22: 22
+ P3 puzzles (pages 3-4):
+  puzzle 1: clues {'above column 3': 3, 'above column 2': 1, 'left of row 1': 2, 'right of row 2': 2, 'right of row 3': 1} -> 1 cities ['231/312/123']
+  [ok] puzzle 1 has exactly one city: 1
+  [ok] puzzle 1 guide grid = the city: 231/312/123
+  [ok] puzzle 1 guide grey numbers = page's numbers: {('T', 2): 1, ('T', 3): 3, ('L', 1): 2, ('R', 2): 2, ('R', 3): 1}
+  puzzle 2: clues {'left of row 1': 2, 'left of row 2': 1, 'right of row 3': 2} -> 1 cities ['213/321/132']
+  [ok] puzzle 2 has exactly one city: 1
+  [ok] puzzle 2 guide grid = the city: 213/321/132
+  [ok] puzzle 2 guide grey numbers = page's numbers: {('L', 1): 2, ('L', 2): 1, ('R', 3): 2}
+  puzzle 3: clues {'above column 1': 2, 'above column 2': 2, 'above column 3': 2} -> 0 cities []
+  [ok] puzzle 3 has no city (guide): 0
+  puzzle 4: clues {'right of row 3': 2, 'below column 2': 2} -> 1 cities ['123/231/312']
+  [ok] puzzle 4 has exactly one city: 1
+  [ok] puzzle 4 guide grid = the city: 123/231/312
+  [ok] puzzle 4 guide grey numbers = page's numbers: {('R', 3): 2, ('B', 2): 2}
+  [ok] puzzle 4 start: row 3 (2 from the right) middle in {1,3}; column 2 (2 from the bottom) bottom in {1,2}: ([1, 3], [1, 2], [1])
+  [ok] puzzle 3 no-city reason: every city has a column whose top is 3, seen as 1 from above: True
+ P4:
+  [ok] P4 clues: {('T', 1): 1, ('L', 3): 2}
+  [ok] P4 cities (guide A, B, C): ['312/123/231', '321/132/213', '321/213/132']
+  [ok] P4 small grids printed (6 for 3 cities): 6
+  [ok] P4 one added number that leaves one city (guide lists): {'A': [(('L', 2), 3), (('R', 1), 2), (('T', 2), 3)], 'B': [(('B', 2), 2), (('B', 3), 1), (('R', 2), 2), (('R', 3), 1), (('T', 3), 3)], 'C': [(('B', 1), 3)]}
+ P5:
+  [ok] P5 no one-number puzzle has one city: []
+  [ok] P5 two-number puzzles with exactly one city (guide 156): 156
+  [ok] P5 guide example: 3 left of row 1 and 3 above column 1: ['123/231/312']
+  [ok] P5 guide argument: swapping the other two parallel lines gives a different city with the same number: True
+  [ok] 4-5 fallback 'two can be enough': cities that some two of their own numbers fix: 12
+ P6:
+  [ok] P6 count 12; 15 grids printed: (12, 15)
+  [ok] P6 guide's twelve grids are the twelve cities: ['123/231/312', '123/312/231', '132/213/321', '132/321/213', '213/132/321', '213/321/132', '231/123/312', '231/312/123', '312/123/231', '312/231/123', '321/132/213', '321/213/132']
+  [ok] P6 'second row is the top row shifted one place either way; third forced': True
+ P7:
+  [ok] P7 totals of the twelve numbers (guide: only 22): {22: 12}
+  [ok] P7 guide reason: a row's sum is 3 exactly when its middle is 1: {(1, 2, 3): 4, (1, 3, 2): 4, (2, 1, 3): 3, (2, 3, 1): 4, (3, 1, 2): 3, (3, 2, 1): 4}
+  [ok] guide sec.5: the twelve 3-by-3 cities have twelve different sets of numbers: 12
+
+== Grades 4-5
+  [ok] P1 cards: [(1, 2), (2, 3), (3, 3), (2, 2), (1, 4), (1, 1), (3, 2), (4, 2)]
+  [ok] P1 rows per card = guide: {(1, 2): ['4123', '4213'], (2, 3): ['1432', '2431', '3421'], (3, 3): [], (2, 2): ['1423', '2143', '2413', '3142', '3241', '3412'], (1, 4): ['4321'], (1, 1): [], (3, 2): ['1243', '1342', '2341'], (4, 2): []}
+  [ok] P2: 576 cities, 40 cubes each: (576, 40)
+ P3 ladder:
+  A: 12 numbers {'above column 4': 3, 'above column 1': 4, 'above column 3': 1, 'left of row 1': 3, 'left of row 2': 2, 'left of row 3': 2, 'right of row 3': 1, 'left of row 4': 1, 'right of row 4': 3, 'below column 2': 2, 'below column 3': 2, 'below column 4': 2} -> 1 cities
+  [ok] A has exactly one city: 1
+  [ok] A guide grid = the city: 1342/2413/3124/4231
+  [ok] A guide grey numbers = page's numbers: {('T', 1): 4, ('T', 3): 1, ('T', 4): 3, ('L', 1): 3, ('L', 2): 2, ('L', 3): 2, ('R', 3): 1, ('L', 4): 1, ('R', 4): 3, ('B', 2): 2, ('B', 3): 2, ('B', 4): 2}
+  B: 8 numbers {'above column 1': 2, 'left of row 1': 3, 'right of row 1': 2, 'right of row 2': 3, 'left of row 2': 1, 'right of row 4': 1, 'below column 1': 3, 'below column 3': 4} -> 1 cities
+  [ok] B has exactly one city: 1
+  [ok] B guide grid = the city: 1243/4132/3421/2314
+  [ok] B guide grey numbers = page's numbers: {('T', 1): 2, ('L', 1): 3, ('R', 1): 2, ('L', 2): 1, ('R', 2): 3, ('R', 4): 1, ('B', 1): 3, ('B', 3): 4}
+  C: 6 numbers {'above column 1': 3, 'above column 2': 2, 'left of row 1': 2, 'right of row 2': 2, 'right of row 4': 1, 'below column 2': 3} -> 1 cities
+  [ok] C has exactly one city: 1
+  [ok] C guide grid = the city: 2143/3412/4321/1234
+  [ok] C guide grey numbers = page's numbers: {('T', 1): 3, ('T', 2): 2, ('L', 1): 2, ('R', 2): 2, ('R', 4): 1, ('B', 2): 3}
+  D: 6 numbers {'above column 3': 4, 'left of row 1': 2, 'left of row 2': 1, 'right of row 2': 2, 'right of row 3': 3, 'below column 1': 2} -> 1 cities
+  [ok] D has exactly one city: 1
+  [ok] D guide grid = the city: 3214/4123/1432/2341
+  [ok] D guide grey numbers = page's numbers: {('T', 3): 4, ('L', 1): 2, ('L', 2): 1, ('R', 2): 2, ('R', 3): 3, ('B', 1): 2}
+  E: 5 numbers {'above column 2': 3, 'above column 4': 2, 'left of row 3': 2, 'below column 1': 2, 'below column 3': 2} -> 1 cities
+  [ok] E has exactly one city: 1
+  [ok] E guide grid = the city: 4231/1324/2143/3412
+  [ok] E guide grey numbers = page's numbers: {('T', 2): 3, ('T', 4): 2, ('L', 3): 2, ('B', 1): 2, ('B', 3): 2}
+  F: 4 numbers {'above column 1': 2, 'above column 3': 2, 'left of row 2': 2, 'right of row 4': 2} -> 1 cities
+  [ok] F has exactly one city: 1
+  [ok] F guide grid = the city: 2134/1423/4312/3241
+  [ok] F guide grey numbers = page's numbers: {('T', 1): 2, ('T', 3): 2, ('L', 2): 2, ('R', 4): 2}
+  [ok] P3 numbers per puzzle (guide 12, 8, 6, 6, 5, 4): [12, 8, 6, 6, 5, 4]
+  [ok] C start: column 2 with 2 from top, 3 from bottom has its 4 in row 2: [2]
+  [ok] hint (2): next to a 3 the 4 is 3rd or 4th; next to a 2 it is not 1st: ([3, 4], [2, 3, 4])
+  line-at-a-time passes (seq): A-F [2, 2, 2, 3, 5, 7]   (guide: 2, 2, 2, 3, 5, 7)
+  line-at-a-time passes (par): A-F [3, 3, 4, 4, 8, 13]   (guide: 2, 2, 2, 3, 5, 7)
+ P4:
+  [ok] P4 clues: {('T', 1): 4, ('L', 1): 4}
+  [ok] P4 four cities = guide A-D: ['1234/2143/3412/4321', '1234/2143/3421/4312', '1234/2341/3412/4123', '1234/2413/3142/4321']
+  [ok] P4 small grids printed (6): 6
+  [ok] P4 one added number that leaves one city (guide lists; A and D never): {'C': [(('B', 4), 2), (('L', 2), 3), (('R', 4), 2), (('T', 2), 3)], 'B': [(('B', 3), 3), (('B', 4), 3), (('R', 3), 3), (('R', 4), 3)]}
+  [ok] P4 A and D have the same sixteen numbers: True
+  [ok] P4 each added-number answer is a 3-number puzzle with one city in all 576: True
+ P5 / P6 (all clue subsets of 4-by-4):
+  [ok] P5 no two-number 4-by-4 puzzle with one city: 0
+  [ok] P5 three-number puzzles with one city (guide 1600): 1600
+  [ok] P6 three numbers, none a 4, one city (guide 40): 40
+  [ok] P6 of these, all 3s (guide 16): 16
+  [ok] P6 guide example: 3 above col 1, 3 above col 3, 3 left of row 4: ['1423/3214/4132/2341']
+  [ok] P6 guide second example: 3 below col 3, 3 left of rows 1 and 4: ['1243/3421/4132/2314']
+  [ok] P5 guide: 'two numbers on rows leave two untouched rows to swap' (no 2 row-clues fix a city): []
+ P7:
+  [ok] P7 table: [[0, 2, 3, 1], [2, 6, 3, 0], [3, 3, 0, 0], [1, 0, 0, 0]]
+ P8:
+  [ok] P8 rows of five with exactly 1 / exactly 2 seen from the left: (24, 50)
+  [ok] P8 guide split by first tower 4,3,2,1 -> 24,12,8,6: [24, 12, 8, 6]
+ P9:
+  [ok] P9 guide pair: two different cities: (True, True, True)
+  [ok] P9 guide pair: same sixteen numbers, as printed: (True, True, True)
+  [ok] P9 pair = P4 cities A and D: ('1234/2143/3412/4321', '1234/2413/3142/4321')
+  [ok] P9 they differ only in the middle 2-by-2 block: [(1, 1), (1, 2), (2, 1), (2, 2)]
+  [ok] P9/sec.5: shared sets, cities in them, pairs, pairs differing by a 2-by-2 switch (guide 66, 204, 262, 152): (66, 204, 262, 152)
+  sizes of shared sets: {2: 34, 6: 4, 4: 28}
+  [ok] sec.5: no two 3-by-3 cities share their numbers: 12
+  [ok] sec.5: fewest numbers that fix a city: 2 (order 3), 3 (order 4): (2, 3)
+
+== Latin square counts (sec.5)
+  [ok] orders 2, 3, 4, 5: [2, 12, 576, 161280]
+
+== Materials (guide p.1)
+  [ok] cubes per child: K 1+2+3, 2-3 3*(1+2+3), 4-5 4*(1+2+3+4): (6, 18, 40)
+  [ok] towers to pre-build 12, 36, 48 = 96: (12, 36, 48, 96)
+  [ok] cubes in use 24, 72, 120 = 216; with spares 30, 82, 130 = 242: (24, 72, 120, 216, 242)
+  [ok] folders 2+4+3+1: 10
+  [ok] 2-3 large grids on pp.2-7 have 1-inch squares (p.5 large grid too): ([1.0], 1.0)
+  4-5 grid squares (cm) by page: {2: [2.54], 3: [1.7], 4: [1.7], 5: [1.0, 1.7], 6: [1.2], 7: [1.2, 1.3], 8: [1.2]}
+  [ok] 4-5: only p.2 has a 1-inch grid; pp.3-8 squares <= 1.7 cm (cube is 1.905 cm): ([2.54], True)
+
+MISMATCHES: none
