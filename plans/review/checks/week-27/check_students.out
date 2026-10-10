@@ -1,0 +1,191 @@
+=== strip conventions on every student page
+[ok  ] k-1: 50 strip rows; each lists only opposite-side letters, once each, one slot per opposite letter []
+[ok  ] grades-2-3: 36 strip rows; each lists only opposite-side letters, once each, one slot per opposite letter []
+[ok  ] grades-4-5: 30 strip rows; each lists only opposite-side letters, once each, one slot per opposite letter []
+############ K-1
+=== k-1 page 1 example
+[ok  ] current pairs drawn P-V, Q-U with dashed P-U: ['PV', 'QU'] ['PU']
+[ok  ] current pairs drawn P-V, Q-U with dashed P-U: ['PV', 'QU'] ['PU']
+  left: P strip ['U', 'V'] (shaded ['V']), U strip ['P', 'Q'] (shaded ['Q'])
+[ok  ] shaded choices are the current partners V and Q
+[ok  ] P prefers U to V: True; U prefers P to Q: True (page says (True, True))
+  right: P strip ['U', 'V'] (shaded ['V']), U strip ['Q', 'P'] (shaded ['Q'])
+[ok  ] shaded choices are the current partners V and Q
+[ok  ] P prefers U to V: True; U prefers P to Q: False (page says (True, False))
+=== K-1 Problem 1: circle every pairing that can stay
+  case 1: circles {'A': ['X', 'Y'], 'B': ['Y', 'X']} squares {'X': ['A', 'B'], 'Y': ['B', 'A']}
+    AX / BY            stable
+    AY / BX            blockers AX, BY
+  case 1: boards that can stay: ['AX / BY']
+  case 2: circles {'A': ['X', 'Y'], 'B': ['X', 'Y']} squares {'X': ['A', 'B'], 'Y': ['A', 'B']}
+    AX / BY            stable
+    AY / BX            blockers AX
+  case 2: boards that can stay: ['AX / BY']
+=== K-1 Problem 2: draw every pairing that can stay
+  case 1: circles {'A': ['X', 'Y'], 'B': ['Y', 'X']} squares {'X': ['B', 'A'], 'Y': ['A', 'B']}
+    AX / BY            stable
+    AY / BX            stable
+[ok  ] case 1: 2 stable ['AX / BY', 'AY / BX']; 2 blank boards
+  case 2: circles {'A': ['Y', 'X'], 'B': ['X', 'Y']} squares {'X': ['B', 'A'], 'Y': ['A', 'B']}
+    AX / BY            blockers AY, BX
+    AY / BX            stable
+[ok  ] case 2: 1 stable ['AY / BX']; 2 blank boards
+=== K-1 Problem 3: reverse one strip so the drawn pairing stays
+  case 1: drawn AX / BY; blockers before: ['AY']
+    reverse A: stable
+    reverse B: blockers AY
+    reverse X: blockers AY
+    reverse Y: stable
+  case 1: strips that work alone: ['A', 'Y']
+  case 2: drawn AX / BY; blockers before: ['AY', 'BX']
+    reverse A: blockers BX
+    reverse B: blockers AY
+    reverse X: blockers AY
+    reverse Y: blockers BX
+  case 2: strips that work alone: none (cross out)
+=== K-1 Problem 4: fill the empty strip so both drawn pairings stay
+[ok  ] case 1: blank strip ['Y']
+    Y: ['A', 'B']: AX / BY -> stable; AY / BX -> stable
+    Y: ['B', 'A']: AX / BY -> stable; AY / BX -> ['BY']
+  case 1: fills that work: ['AB']
+[ok  ] case 2: blank strip ['Y']
+    Y: ['A', 'B']: AX / BY -> ['BX']; AY / BX -> stable
+    Y: ['B', 'A']: AX / BY -> ['BX']; AY / BX -> stable
+  case 2: fills that work: none (cross out)
+=== K-1 Problems 5 and 6: all 16 two-pair profiles
+[ok  ] XY XY AB AB: stable ['AX / BY']
+[ok  ] XY XY AB BA: stable ['AX / BY']
+[ok  ] XY XY BA AB: stable ['AY / BX']
+[ok  ] XY XY BA BA: stable ['AY / BX']
+[ok  ] XY YX AB AB: stable ['AX / BY']
+[ok  ] XY YX AB BA: stable ['AX / BY']
+[ok  ] XY YX BA AB: stable ['AX / BY', 'AY / BX']
+[ok  ] XY YX BA BA: stable ['AX / BY']
+[ok  ] YX XY AB AB: stable ['AY / BX']
+[ok  ] YX XY AB BA: stable ['AX / BY', 'AY / BX']
+[ok  ] YX XY BA AB: stable ['AY / BX']
+[ok  ] YX XY BA BA: stable ['AY / BX']
+[ok  ] YX YX AB AB: stable ['AY / BX']
+[ok  ] YX YX AB BA: stable ['AX / BY']
+[ok  ] YX YX BA AB: stable ['AY / BX']
+[ok  ] YX YX BA BA: stable ['AX / BY']
+  only AX/BY stable: 7 profiles: ['XY XY AB AB', 'XY XY AB BA', 'XY YX AB AB', 'XY YX AB BA', 'XY YX BA BA', 'YX YX AB BA', 'YX YX BA BA']
+  both pairings stable: 2 profiles: ['XY YX BA AB', 'YX XY AB BA']
+[ok  ] P5: drawn pairings straight (left) and crossed (right): [['AX', 'BY'], ['AY', 'BX']]
+[ok  ] P5: drawn pairings straight (left) and crossed (right): [['AX', 'BY'], ['AY', 'BX']]
+[ok  ] P6: drawn pairings straight (left) and crossed (right): [['AX', 'BY'], ['AY', 'BX']]
+[ok  ] P6: drawn pairings straight (left) and crossed (right): [['AX', 'BY'], ['AY', 'BX']]
+[ok  ] P5: at least two different sets of strips exist
+[ok  ] P6: 2 ways, 2 printed cases
+############ Grades 2-3
+=== grades-2-3 page 1 example
+[ok  ] current pairs drawn P-V, Q-U with dashed P-U: ['PV', 'QU'] ['PU']
+[ok  ] current pairs drawn P-V, Q-U with dashed P-U: ['PV', 'QU'] ['PU']
+  left: P strip ['U', 'V'] (shaded ['V']), U strip ['P', 'Q'] (shaded ['Q'])
+[ok  ] shaded choices are the current partners V and Q
+[ok  ] P prefers U to V: True; U prefers P to Q: True (page says (True, True))
+  right: P strip ['U', 'V'] (shaded ['V']), U strip ['Q', 'P'] (shaded ['Q'])
+[ok  ] shaded choices are the current partners V and Q
+[ok  ] P prefers U to V: True; U prefers P to Q: False (page says (True, False))
+=== 2-3 Problem 1
+  case 1: AX / BY: stable (circle it)
+  case 1: AY / BX: join AX
+  case 2: AX / BY: stable (circle it)
+  case 2: AY / BX: stable (circle it)
+=== 2-3 Problem 2
+  all candidates: circles {'A': ['X', 'Y', 'Z'], 'B': ['X', 'Z', 'Y'], 'C': ['Y', 'X', 'Z']} squares {'X': ['C', 'B', 'A'], 'Y': ['A', 'C', 'B'], 'Z': ['B', 'A', 'C']}
+    AX / BY / CZ       blockers BX, BZ, CX, CY
+    AX / BZ / CY       blockers BX
+    AY / BX / CZ       blockers CX
+    AY / BZ / CX       stable
+    AZ / BX / CY       blockers AY
+    AZ / BY / CX       blockers AY, BZ, CY
+[ok  ] 1 stable ['AY / BZ / CX']; 6 blank boards
+=== 2-3 Problem 3
+  all candidates: circles {'A': ['Z', 'X', 'Y'], 'B': ['Y', 'X', 'Z'], 'C': ['X', 'Y', 'Z']} squares {'X': ['B', 'A', 'C'], 'Y': ['A', 'C', 'B'], 'Z': ['C', 'B', 'A']}
+    AX / BY / CZ       blockers CY
+    AX / BZ / CY       blockers BX
+    AY / BX / CZ       stable
+    AY / BZ / CX       blockers AX, BX
+    AZ / BX / CY       stable
+    AZ / BY / CX       stable
+[ok  ] 3 stable ['AY / BX / CZ', 'AZ / BX / CY', 'AZ / BY / CX']; 6 blank boards
+=== 2-3 Problem 4
+  all candidates: circles {'A': ['W', 'X', 'Y', 'Z'], 'B': ['X', 'W', 'Z', 'Y'], 'C': ['Y', 'Z', 'W', 'X'], 'D': ['Z', 'Y', 'X', 'W']} squares {'W': ['B', 'A', 'C', 'D'], 'X': ['A', 'B', 'D', 'C'], 'Y': ['D', 'C', 'A', 'B'], 'Z': ['C', 'D', 'B', 'A']}
+    AW / BX / CY / DZ  stable
+    AW / BX / CZ / DY  stable
+    AW / BY / CX / DZ  blockers BW, BX, CY, CZ
+    AW / BY / CZ / DX  blockers BW, BX, CY, DY
+    AW / BZ / CX / DY  blockers BW, BX, CZ, DZ
+    AW / BZ / CY / DX  blockers BW, BX, DY, DZ
+    AX / BW / CY / DZ  stable
+    AX / BW / CZ / DY  stable
+    AX / BY / CW / DZ  blockers AW, BW, CY, CZ
+    AX / BY / CZ / DW  blockers AW, BW, CY, DY
+    AX / BZ / CW / DY  blockers AW, BW, CZ, DZ
+    AX / BZ / CY / DW  blockers AW, BW, DY, DZ
+    AY / BW / CX / DZ  blockers AX, BX, CY, CZ
+    AY / BW / CZ / DX  blockers AX, BX, CY, DY
+    AY / BX / CW / DZ  blockers AW, AX, CY, CZ
+    AY / BX / CZ / DW  blockers AW, AX, CY, DY
+    AY / BZ / CW / DX  blockers AW, AX, BW, BX, CY, CZ, DY, DZ
+    AY / BZ / CX / DW  blockers AW, AX, BW, BX, CW, CY, CZ, DX, DY, DZ
+    AZ / BW / CX / DY  blockers AX, BX, CZ, DZ
+    AZ / BW / CY / DX  blockers AX, BX, DY, DZ
+    AZ / BX / CW / DY  blockers AW, AX, CZ, DZ
+    AZ / BX / CY / DW  blockers AW, AX, DY, DZ
+    AZ / BY / CW / DX  blockers AW, AX, AY, BW, BX, BZ, CY, CZ, DY, DZ
+    AZ / BY / CX / DW  blockers AW, AX, AY, BW, BX, BZ, CW, CY, CZ, DX, DY, DZ
+[ok  ] 4 stable ['AW / BX / CY / DZ', 'AW / BX / CZ / DY', 'AX / BW / CY / DZ', 'AX / BW / CZ / DY']; 4 blank boards
+  matchings giving all eight letters their first choice: none
+=== 2-3 Problem 5: complete 3x3 lists with exactly two stable pairings
+  number of stable pairings over all 46,656 profiles: {1: 34080, 2: 11484, 3: 1092}
+[ok  ] exactly two is possible, e.g. ({'A': ['X', 'Y', 'Z'], 'B': ['X', 'Y', 'Z'], 'C': ['X', 'Z', 'Y']}, {'X': ['A', 'B', 'C'], 'Y': ['A', 'C', 'B'], 'Z': ['A', 'B', 'C']})
+[ok  ] two blank boards for the two pairings
+############ Grades 4-5
+=== 4-5 Problem 1
+[ok  ] case 1: 2 stable ['AX / BY', 'AY / BX']; 2 blank boards
+[ok  ] case 2: 1 stable ['AY / BZ / CX']; 3 blank boards
+=== 4-5 Problem 2: asking rules from both sides, every schedule
+  all 24 candidates: circles {'A': ['X', 'W', 'Z', 'Y'], 'B': ['X', 'Y', 'W', 'Z'], 'C': ['X', 'Y', 'Z', 'W'], 'D': ['X', 'Y', 'W', 'Z']} squares {'W': ['B', 'C', 'D', 'A'], 'X': ['D', 'B', 'A', 'C'], 'Y': ['B', 'C', 'A', 'D'], 'Z': ['B', 'D', 'A', 'C']}
+    AW / BX / CY / DZ  blockers DW, DX
+    AW / BX / CZ / DY  blockers CY, DX
+    AW / BY / CX / DZ  blockers AX, BX, DW, DX
+    AW / BY / CZ / DX  stable
+    AW / BZ / CX / DY  blockers AX, BW, BX, BY, DX
+    AW / BZ / CY / DX  blockers BW, BY
+    AX / BW / CY / DZ  blockers BX, BY, DX
+    AX / BW / CZ / DY  blockers BX, BY, CY, DX
+    AX / BY / CW / DZ  blockers BX, DX
+    AX / BY / CZ / DW  blockers BX, DX
+    AX / BZ / CW / DY  blockers BW, BX, BY, CY, DX
+    AX / BZ / CY / DW  blockers BW, BX, BY, DX
+    AY / BW / CX / DZ  blockers AX, BX, BY, DX
+    AY / BW / CZ / DX  blockers AZ, BY, CY
+    AY / BX / CW / DZ  blockers CY, DX
+    AY / BX / CZ / DW  blockers AZ, CY, DX
+    AY / BZ / CW / DX  blockers BW, BY, CY
+    AY / BZ / CX / DW  blockers AX, BW, BX, BY, DX
+    AZ / BW / CX / DY  blockers AX, BX, BY, DX
+    AZ / BW / CY / DX  blockers BY
+    AZ / BX / CW / DY  blockers CY, DX
+    AZ / BX / CY / DW  blockers DX
+    AZ / BY / CW / DX  stable
+    AZ / BY / CX / DW  blockers AX, BX, DX
+  A, B, C, D ask: outcomes {matching: request counts} = {'AW / BY / CZ / DX': [8]}
+    one run: A->X keeps A; B->X keeps B frees A; A->W keeps A; C->X keeps B frees C; C->Y keeps C; D->X keeps D frees B; B->Y keeps B frees C; C->Z keeps C
+[ok  ] A, B, C, D ask: result AW / BY / CZ / DX is stable
+  W, X, Y, Z ask: outcomes {matching: request counts} = {'AZ / BY / CW / DX': [7]}
+    one run: W->B keeps W; X->D keeps X; Y->B keeps Y frees W; W->C keeps W; Z->B keeps Y frees Z; Z->D keeps X frees Z; Z->A keeps Z
+[ok  ] W, X, Y, Z ask: result AZ / BY / CW / DX is stable
+=== 4-5 Problem 3: changed rule (keep the first asker)
+[ok  ] changed rule always ends with every asker held (all 46,656 profiles, every order)
+  profiles where some asking order ends unstable: 36288 of 46656
+=== 4-5 Problem 4: request bounds
+  largest request count found by search (n=4): 13; example ({'A': ['Z', 'Y', 'X', 'W'], 'B': ['X', 'Z', 'Y', 'W'], 'C': ['Z', 'X', 'Y', 'W'], 'D': ['Y', 'X', 'Z', 'W']}, {'W': ['B', 'C', 'D', 'A'], 'X': ['A', 'C', 'D', 'B'], 'Y': ['B', 'C', 'A', 'D'], 'Z': ['D', 'A', 'B', 'C']})
+[ok  ] never above n^2 - n + 1 = 13; the printed n^2 = 16 is a valid but loose bound
+=== 4-5 Problems 5 and 6, and the 3x3 census
+[ok  ] P5: asking rules give one stable result, whatever the order, on all 46,656 profiles from both sides
+  stable matchings summed over all 46,656 profiles: 60324
+  P6: largest number of last-choice letters in a stable pairing: 3; e.g. (({'A': ['X', 'Y', 'Z'], 'B': ['X', 'Z', 'Y'], 'C': ['Y', 'Z', 'X']}, {'X': ['C', 'A', 'B'], 'Y': ['B', 'A', 'C'], 'Z': ['A', 'B', 'C']}), 'AZ / BY / CX')
+--- 0 failed check(s)

@@ -1,0 +1,70 @@
+=== Opening example
+[ok  ] current pairs U-P, V-Q; V lists P then Q (Q boxed); P lists V then U (U boxed)
+[ok  ] V prefers P to current Q and P prefers V to current U: V and P block
+=== P1: score versus stability
+  lists ({'A': ['Y', 'Z', 'X'], 'B': ['Y', 'X', 'Z'], 'C': ['X', 'Y', 'Z']}, {'X': ['B', 'A', 'C'], 'Y': ['A', 'C', 'B'], 'Z': ['B', 'A', 'C']})
+[ok  ] PDF shows A ['Y', 'Z', 'X']
+[ok  ] PDF shows B ['Y', 'X', 'Z']
+[ok  ] PDF shows C ['X', 'Y', 'Z']
+[ok  ] PDF shows X ['B', 'A', 'C']
+[ok  ] PDF shows Y ['A', 'C', 'B']
+[ok  ] PDF shows Z ['B', 'A', 'C']
+    AX / BY / CZ   total 15  blockers AY, AZ, CY
+    AX / BZ / CY   total 13  blockers AY, BX
+    AY / BX / CZ   total 11  stable
+    AY / BZ / CX   total 10  blockers BX
+    AZ / BX / CY   total 11  blockers AY
+    AZ / BY / CX   total 12  blockers AY
+[ok  ] lowest total 10 at ['AY/BZ/CX'] only, blocked by BX
+[ok  ] only stable pairing ['AY/BX/CZ'], total 11
+[ok  ] six table rows printed, six pairings
+[ok  ] guide P1 row AX/BY/CZ: total 15, blockers ['AY', 'AZ', 'CY'] (actual 15, ['AY', 'AZ', 'CY'])
+[ok  ] guide P1 row AX/BZ/CY: total 13, blockers ['AY', 'BX'] (actual 13, ['AY', 'BX'])
+[ok  ] guide P1 row AY/BX/CZ: total 11, blockers none (actual 11, none)
+[ok  ] guide P1 row AY/BZ/CX: total 10, blockers ['BX'] (actual 10, ['BX'])
+[ok  ] guide P1 row AZ/BX/CY: total 11, blockers ['AY'] (actual 11, ['AY'])
+[ok  ] guide P1 row AZ/BY/CX: total 12, blockers ['AY'] (actual 12, ['AY'])
+[ok  ] guide: AY/BX/CZ pair scores 2, 3, 6
+[ok  ] pair scores are 2, 3, 6
+=== P2: omitted choices
+[ok  ] first lists: A: X; B: X; X: A, B; Y: none
+  second lists ({'A': ['X', 'Y'], 'B': ['Y', 'X'], 'C': ['Y']}, {'X': ['B', 'A'], 'Y': ['A', 'B', 'C'], 'Z': []})
+  first: stable ['AX'], unpaired [['B', 'Y']]
+      (none)     blockers AX, BX
+      BX         blockers AX
+      AX         stable
+[ok  ] first: 1 stable, 2 table rows; same unpaired set every time
+  second: stable ['AX / BY', 'AY / BX'], unpaired [['C', 'Z'], ['C', 'Z']]
+      (none)     blockers AX, AY, BX, BY, CY
+      CY         blockers AX, AY, BX, BY
+      BX         blockers AY, BY, CY
+      BX / CY    blockers AY, BY
+      BY         blockers AX, AY
+      AX         blockers BX, BY, CY
+      AX / CY    blockers BX, BY
+      AX / BY    stable
+      AY         blockers AX, BX
+      AY / BX    stable
+[ok  ] second: 2 stable, 3 table rows; same unpaired set every time
+[ok  ] guide: first profile AX uniquely stable, B and Y unpaired
+[ok  ] guide: second profile exactly AX/BY and AY/BX, C and Z unpaired
+[ok  ] guide depth: without A-X, BX uniquely stable, A and Y unpaired
+=== P3: one group (roommates)
+  left: {'A': ['B', 'C', 'D'], 'B': ['C', 'A', 'D'], 'C': ['A', 'B', 'D'], 'D': ['A', 'B', 'C']}
+    AB/CD: blockers BC
+    AC/BD: blockers AB
+    AD/BC: blockers AC
+  right: {'A': ['B', 'C', 'D'], 'B': ['A', 'C', 'D'], 'C': ['D', 'A', 'B'], 'D': ['C', 'A', 'B']}
+    AB/CD: stable
+    AC/BD: blockers AB, CD
+    AD/BC: blockers AB, AC, CD
+[ok  ] left: no stable pairing
+[ok  ] guide left witnesses BC, AB, AC are blockers
+[ok  ] guide right: AB/CD stable; AC/BD blocked by AB, CD; AD/BC by AB, AC, CD
+[ok  ] six roommate boards (3 pairings x 2 lists)
+=== P4: can two stable pairings leave different objects unpaired?
+[ok  ] 2x2 exhaustive: 625 profiles, 2 with several stable pairings, 0 change the unpaired set
+[ok  ] 2x3 exhaustive: 32000 profiles, 240 with several stable pairings, 0 change the unpaired set
+[ok  ] 3x2 exhaustive: 32000 profiles, 240 with several stable pairings, 0 change the unpaired set
+[ok  ] 3x3 random: 100000 incomplete-list profiles, 0 change the unpaired set (the guide: impossible)
+--- 0 failed check(s)

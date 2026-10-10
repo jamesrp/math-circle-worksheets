@@ -1,0 +1,120 @@
+Guide: 19 PDF pages
+[ok  ] p3 figure "Straight pairing: AX / BY": AB|XY solid ['AX', 'BY'] dashed [] (caption matches lines)
+[ok  ] p3 figure "Crossed pairing: AY / BX": AB|XY solid ['AY', 'BX'] dashed [] (caption matches lines)
+       p6 figure "Unique stable pairing": ABC|XYZ solid ['AY', 'BZ', 'CX'] dashed []
+[ok  ] p7 figure "AY / BX / CZ": ABC|XYZ solid ['AY', 'BX', 'CZ'] dashed [] (caption matches lines)
+[ok  ] p7 figure "AZ / BX / CY": ABC|XYZ solid ['AZ', 'BX', 'CY'] dashed [] (caption matches lines)
+[ok  ] p7 figure "AZ / BY / CX": ABC|XYZ solid ['AZ', 'BY', 'CX'] dashed [] (caption matches lines)
+[ok  ] p8 figure "AW / BX / CY / DZ": ABCD|WXYZ solid ['AW', 'BX', 'CY', 'DZ'] dashed [] (caption matches lines)
+[ok  ] p8 figure "AW / BX / CZ / DY": ABCD|WXYZ solid ['AW', 'BX', 'CZ', 'DY'] dashed [] (caption matches lines)
+[ok  ] p8 figure "AX / BW / CY / DZ": ABCD|WXYZ solid ['AX', 'BW', 'CY', 'DZ'] dashed [] (caption matches lines)
+[ok  ] p8 figure "AX / BW / CZ / DY": ABCD|WXYZ solid ['AX', 'BW', 'CZ', 'DY'] dashed [] (caption matches lines)
+[ok  ] p9 figure "AX / BY / CZ": ABC|XYZ solid ['AX', 'BY', 'CZ'] dashed [] (caption matches lines)
+[ok  ] p9 figure "AY / BX / CZ": ABC|XYZ solid ['AY', 'BX', 'CZ'] dashed [] (caption matches lines)
+       p10 figure "Circles ask: 8 requests": ABCD|WXYZ solid ['AW', 'BY', 'CZ', 'DX'] dashed []
+       p10 figure "Squares ask: 7 requests": ABCD|WXYZ solid ['AZ', 'BY', 'CW', 'DX'] dashed []
+[ok  ] p12 figure "Final AX / BY / CZ; dashed BX blocks": ABC|XYZ solid ['AX', 'BY', 'CZ'] dashed ['BX'] (caption matches lines)
+[ok  ] p15 figure "AX / BY / CZ: circles first, squares last": ABC|XYZ solid ['AX', 'BY', 'CZ'] dashed [] (caption matches lines)
+[ok  ] p6 "Unique stable pairing" figure is the only stable pairing of 2-3 P2
+[ok  ] p10 figures show the two asking results: {'Circles ask: 8 requests': 'AW / BY / CZ / DX', 'Squares ask: 7 requests': 'AZ / BY / CW / DX'}
+=== overview (unnumbered page) and launch (p2)
+[ok  ] launch: in AX/BY, B wants X but X prefers A, so BX does not block
+[ok  ] launch: in AY/BX, A and X block
+  NOTE: the launch profile is printed as a task in: ['k-1 P1 case 2', 'grades-2-3 P1 case 1']
+[ok  ] replacement launch A: YX; B: XY; X: AB; Y: AB is printed nowhere; in AY/BX X wants A but A prefers Y; in AX/BY, A and Y block
+[ok  ] overview/Ext. A: each side, when asking, gets its best stable partner (all 46,656 3x3 profiles, both sides, every order)
+[ok  ] overview: never more than n^2 = 9 requests for n = 3
+[ok  ] p11 hedge: the number of requests never depends on the order of free askers (all 3x3 profiles, both sides)
+=== K-1 (pp. 3-5)
+[ok  ] P1 top: guide strips "Top: A: XY; B: YX; X: AB; Y: BA" match the student page
+[ok  ] P1 bottom: guide strips "Bottom: A: XY; B: XY; X: AB; Y: AB" match the student page
+[ok  ] P2 top: guide strips "Top: A: XY; B: YX; X: BA; Y: AB" match the student page
+[ok  ] P2 bottom: guide strips "Bottom: A: YX; B: XY; X: BA; Y: AB" match the student page
+[ok  ] P1 top: only AX/BY; crossed blocked by AX and BY; all four first choices
+[ok  ] P1 bottom: only AX/BY; crossed blocked by AX
+[ok  ] P2 top: both pairings stable
+[ok  ] P2 bottom: only AY/BX; straight blocked by AY and BX
+[ok  ] P3 reversal table has 4 rows: [('A', 'Stable', 'BX still blocks'), ('B', 'AY still blocks', 'AY still blocks'), ('X', 'AY still blocks', 'AY still blocks'), ('Y', 'Stable', 'BX still blocks')]
+[ok  ] P3 reverse A (top): guide "Stable", actual stable
+[ok  ] P3 reverse A (bottom): guide "BX still blocks", actual ['BX']
+[ok  ] P3 reverse B (top): guide "AY still blocks", actual ['AY']
+[ok  ] P3 reverse B (bottom): guide "AY still blocks", actual ['AY']
+[ok  ] P3 reverse X (top): guide "AY still blocks", actual ['AY']
+[ok  ] P3 reverse X (bottom): guide "AY still blocks", actual ['AY']
+[ok  ] P3 reverse Y (top): guide "Stable", actual stable
+[ok  ] P3 reverse Y (bottom): guide "BX still blocks", actual ['BX']
+[ok  ] P3 answer text: A and Y; bottom crossed out
+[ok  ] P4 top: Y: A > B is the only fill
+[ok  ] P4 bottom: impossible (BX blocks AX/BY whatever Y says)
+[ok  ] P5: guide lists 7 profiles; exactly these 7 make only AX/BY stable
+[ok  ] P6: guide lists [('XY', 'YX', 'BA', 'AB'), ('YX', 'XY', 'AB', 'BA')]; exactly these make both stable
+=== Grades 2-3 (pp. 6-9)
+[ok  ] P1 top strips match
+[ok  ] P1 bottom strips match
+[ok  ] P1 top: join A to X on AY/BX
+[ok  ] P1 bottom: both stay
+[ok  ] P2 profile matches the student page
+[ok  ] P2 text says: "One witness is enough to reject a candidate; the checker records all blockers."
+[ok  ] P2 table: table covers all 6 candidates
+[ok  ] P2 table: AX / BY / CZ: listed ['BX']; actual ['BX', 'BZ', 'CX', 'CY']  (not listed: BZ, CX, CY)
+[ok  ] P2 table: AX / BZ / CY: listed ['BX']; actual ['BX']
+[ok  ] P2 table: AY / BX / CZ: listed ['CX']; actual ['CX']
+[ok  ] P2 table: AY / BZ / CX: listed Stable; actual stable
+[ok  ] P2 table: AZ / BX / CY: listed ['AY']; actual ['AY']
+[ok  ] P2 table: AZ / BY / CX: listed ['AY']; actual ['AY', 'BZ', 'CY']  (not listed: BZ, CY)
+[ok  ] P2: only AY/BZ/CX
+[ok  ] P3 profile matches the student page
+[ok  ] P3 table: table covers all 6 candidates
+[ok  ] P3 table: AX / BY / CZ: listed ['CY']; actual ['CY']
+[ok  ] P3 table: AX / BZ / CY: listed ['BX']; actual ['BX']
+[ok  ] P3 table: AY / BX / CZ: listed Stable; actual stable
+[ok  ] P3 table: AY / BZ / CX: listed ['AX']; actual ['AX', 'BX']  (not listed: BX)
+[ok  ] P3 table: AZ / BX / CY: listed Stable; actual stable
+[ok  ] P3 table: AZ / BY / CX: listed Stable; actual stable
+[ok  ] P3: exactly three stable
+[ok  ] P3: AY/BX/CZ gives every square its first choice
+[ok  ] P3: AZ/BY/CX gives every circle its first choice
+[ok  ] P3 ext.: the middle one gives neither side all first choices
+[ok  ] P3 ext.: circles weakly improve AY/BX/CZ -> AZ/BX/CY -> AZ/BY/CX ("same direction")
+[ok  ] P4 profile matches the student page
+[ok  ] P4: exactly these four: ['AW / BX / CY / DZ', 'AW / BX / CZ / DY', 'AX / BW / CY / DZ', 'AX / BW / CZ / DY']
+[ok  ] P4: everyone ranks both members of their own block first
+[ok  ] P4: A wants W while W wants B, so not all eight first choices
+  P5 guide profile ({'A': ['X', 'Y', 'Z'], 'B': ['Y', 'X', 'Z'], 'C': ['Z', 'X', 'Y']}, {'X': ['B', 'A', 'C'], 'Y': ['A', 'B', 'C'], 'Z': ['C', 'A', 'B']})
+[ok  ] P5 construction has exactly two stable: ['AX / BY / CZ', 'AY / BX / CZ']
+[ok  ] P5 table: table covers all 6 candidates
+[ok  ] P5 table: AX / BY / CZ: listed Stable; actual stable
+[ok  ] P5 table: AX / BZ / CY: listed ['BX']; actual ['BX', 'BY', 'CZ']  (not listed: BY, CZ)
+[ok  ] P5 table: AY / BX / CZ: listed Stable; actual stable
+[ok  ] P5 table: AY / BZ / CX: listed ['AX']; actual ['AX', 'BX', 'CZ']  (not listed: BX, CZ)
+[ok  ] P5 table: AZ / BX / CY: listed ['AY']; actual ['AY', 'BY', 'CZ']  (not listed: BY, CZ)
+[ok  ] P5 table: AZ / BY / CX: listed ['AX']; actual ['AX', 'AY', 'CZ']  (not listed: AY, CZ)
+[ok  ] P5: CZ blocks every rejected row
+=== Grades 4-5 (pp. 10-15)
+[ok  ] 4-5 P1 top = K-1 P2 top profile (two stable)
+[ok  ] 4-5 P1 bottom lists identical to 2-3 P2 ("the printed lists are identical")
+[ok  ] P2 profile matches the student page
+[ok  ] P2 circles ask: {'AW / BY / CZ / DX': {8}}
+[ok  ] P2 squares ask: {'AZ / BY / CW / DX': {7}}
+[ok  ] P2: these are the only stable matchings: ['AW / BY / CZ / DX', 'AZ / BY / CW / DX']
+[ok  ] P2 circles-ask log (8 steps) is legal, every "keeps"/"released" entry correct, ends with all held: {'X': 'D', 'W': 'A', 'Y': 'B', 'Z': 'C'}
+[ok  ] P2 squares-ask log (7 steps) is legal, every "keeps"/"released" entry correct, ends with all held: {'B': 'Y', 'D': 'X', 'C': 'W', 'A': 'Z'}
+  P3 guide profile ({'A': ['X', 'Y', 'Z'], 'B': ['X', 'Y', 'Z'], 'C': ['Z', 'X', 'Y']}, {'X': ['B', 'A', 'C'], 'Y': ['A', 'B', 'C'], 'Z': ['C', 'A', 'B']})
+[ok  ] P3 changed-rule run ends AX/BY/CZ, blocked by BX: ['BX']
+[ok  ] P3: ordinary rule gives AY/BX/CZ, which is stable
+[ok  ] P3: C and Z rank each other first
+  P3 note: under the changed rule the guide profile ends in ['AX / BY / CZ', 'AY / BX / CZ'] depending on who asks X first (B first gives the stable AY / BX / CZ); the guide asks for one legal order, so this is not an error
+[ok  ] P3 note: a profile that ends unstable in every order: ({'A': ['X', 'Y', 'Z'], 'B': ['X', 'Y', 'Z'], 'C': ['Y', 'X', 'Z']}, {'X': ['C', 'A', 'B'], 'Y': ['A', 'B', 'C'], 'Z': ['A', 'B', 'C']}) -> ['AX / BY / CZ', 'AX / BZ / CY', 'AY / BX / CZ', 'AZ / BX / CY']
+  P4: n^2 = 16 and 100 are valid bounds; the least valid bound is n^2 - n + 1 (13 for n=4, 91 for n=10):
+      once an asker makes its n-th request, all n-1 other receivers already hold someone, so that request is the last.
+[ok  ] P4: these 4x4 lists need 13 requests in every order: ({'A': ['Z', 'Y', 'X', 'W'], 'B': ['X', 'Z', 'Y', 'W'], 'C': ['Z', 'X', 'Y', 'W'], 'D': ['Y', 'X', 'Z', 'W']}, {'W': ['B', 'C', 'D', 'A'], 'X': ['A', 'C', 'D', 'B'], 'Y': ['B', 'C', 'A', 'D'], 'Z': ['D', 'A', 'B', 'C']}) -> {'AX / BY / CW / DZ': {13}}
+    one run: A->Z; B->X; C->Z; C->X; B->Z; B->Y; D->Y; D->X; D->Z; A->Y; A->X; C->Y; C->W
+[ok  ] p13 heading reads "Exact expected answer: 16 requests; 100 with ten per side"
+[ok  ] P6 construction ({'A': ['X', 'Y', 'Z'], 'B': ['Y', 'X', 'Z'], 'C': ['Z', 'X', 'Y']}, {'X': ['B', 'C', 'A'], 'Y': ['A', 'C', 'B'], 'Z': ['A', 'B', 'C']}): stable, circles first, 3 last choices
+[ok  ] P6 census numbers quoted (checked in check_students.out: 60324 stable, max 3)
+=== Extension B (p16): most last-choice letters in a stable pairing
+[ok  ] n = 1: 2
+[ok  ] n = 2: 2 (exhaustive)
+[ok  ] n = 3: 3 (exhaustive)
+[ok  ] n = 4: sampled max 4; distinct-first-choice construction gives 4
+--- 0 failed check(s)
