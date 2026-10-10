@@ -1,0 +1,30 @@
+billiard-01 predict 2 x 4 slope 1/1 -> top-left 1 OK
+billiard-02 predict 2 x 3 slope 1/1 -> bottom-right 3 OK
+billiard-03 predict 6 x 10 slope 1/1 -> top-right 6 OK
+billiard-04 choose_width h=6 top-right 2 valid widths [2] OK (of 12 options)
+billiard-05 choose_direction 1x1 bottom-right 3 valid [[2, 3], [4, 1]] OK (of 16 options)
+billiard-06 choose_direction 3x2 top-right 4 valid [[10, 3]] OK (of 100 options)
+billiard-07 predict 4 x 3 slope 2/1 -> bottom-right 9 OK
+billiard-08 choose_width h=6 bottom-right 3 valid widths [4] OK (of 12 options)
+billiard-09 choose_direction 2x3 top-right 6 valid [[5, 2], [9, 10], [10, 4]] OK (of 100 options)
+billiard-10 choose_width h=8 top-left 5 valid widths [4] OK (of 12 options)
+billiard-11 choose_direction 4x3 top-right 8 valid [[1, 12], [7, 4]] OK (of 144 options)
+billiard-12 choose_direction 3x4 bottom-right 9 valid [[8, 5]] OK (of 144 options)
+instances OK: 12 mismatches: 0
+modes: ['choose_direction', 'choose_width', 'predict']
+floor walk from left dot:
+    ('side', (3, 3), 'up', 'guide agrees')
+    ('far end', (1, 5), 'up', 'guide agrees')
+    ('side', (0, 4), 'down', 'GUIDE WRONG')
+    ('side', (3, 1), 'down', 'GUIDE WRONG')
+    ('near end', (2, 0), 'down', 'guide silent')
+    ('side', (0, 2), 'up', 'guide agrees')
+    ('stop', (3, 5))
+floor walk from right dot:
+    ('side', (0, 3), 'up', 'guide agrees')
+    ('far end', (2, 5), 'up', 'guide agrees')
+    ('side', (3, 4), 'down', 'GUIDE WRONG')
+    ('side', (0, 1), 'down', 'GUIDE WRONG')
+    ('near end', (1, 0), 'down', 'guide silent')
+    ('side', (3, 2), 'up', 'guide agrees')
+    ('stop', (0, 5))

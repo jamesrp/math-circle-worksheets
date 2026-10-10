@@ -1,0 +1,47 @@
+Return visit, page 1: launch picture and Problem 1 boards
+  ok       launch picture: box is square, S=(1,1), contact (4,2) on the right wall, F=(1,3): S (1.0, 1.0), F (1.0, 3.0), route [(1.0, 1.0), (4.0, 2.0), (1.0, 3.0)]
+  ok       launch picture: equal angles at the contact (incoming (3,1), outgoing (-3,1))
+  ok       use the non-task visual S=(1,1), R-wall contact (4,2), F=(1,3).
+  ok       Problem 1 Finish A: 8 boards, all 4 by 4 with the same S and F: (((1.0, 1.0),), ((2.0, 3.0),), 12.5, True)
+  ok       Problem 1 Finish B: 8 boards, all 4 by 4 with the same S and F: (((1.0, 1.0),), ((3.0, 3.0),), 12.5, True)
+  ok       Problem 1 boards: S=(1,1), Finish A F=(2,3), Finish B F=(3,3); 12.5 mm squares: S (Fraction(1, 1), Fraction(1, 1)), A (Fraction(2, 1), Fraction(3, 1)), B (Fraction(3, 1), Fraction(3, 1)), 12.5 mm
+    Finish A legal words: ['BL', 'BR', 'BT', 'LR', 'LT', 'RL', 'RT', 'TB']
+    Finish B legal words: ['BR', 'BT', 'LR', 'LT', 'RL', 'TB']
+  ok       Problem 1: a direct search over directions finds the same words (no route missed): ['BL', 'BR', 'BT', 'LR', 'LT', 'RL', 'RT', 'TB'] / ['BR', 'BT', 'LR', 'LT', 'RL', 'TB']
+  ok       On the 4-by-4 table with S=(1, 1) and F=(2, 3) (Finish A), the legal words are LR, LT, RL, RT, BL, B...
+  ok       With F=(3, 3) (Finish B) they are LR, LT, RL, BR, BT, TB.
+  ok       On the displayed 4-by-4 examples there are eight and six legal words.
+  ok       For the second target the LB/BL image is (−3, −3) and the ray hits (0, 0); the RT/TR image is (5, 5)...
+  ok       In the first example LT works and TL does not; BL works and LB does not.
+  ok       Contact pairs are LR: (0, 9/7) then (4, 17/7); RL: (4, 5/3) then (0, 23/9); BT: (7/6, 0) then (11/6,...: {'LR': ((Fraction(0, 1), Fraction(9, 7)), (Fraction(4, 1), Fraction(17, 7))), 'RL': ((Fraction(4, 1), Fraction(5, 3)), (Fraction(0, 1), Fraction(23, 9))), 'BT': ((Fraction(7, 6), Fraction(0, 1)), (Fraction(11, 6), Fraction(4, 1))), 'TB': ((Fraction(13, 10), Fraction(4, 1)), (Fraction(17, 10), Fraction(0, 1)))}
+  ok       Adjacent words are LT: (0, 7/3) then (5/4, 4); BL: (1/4, 0) then (0, 1/3); RT: (4, 17/5) then (13/4,...: {'LT': ((Fraction(0, 1), Fraction(7, 3)), (Fraction(5, 4), Fraction(4, 1))), 'BL': ((Fraction(1, 4), Fraction(0, 1)), (Fraction(0, 1), Fraction(1, 3))), 'RT': ((Fraction(4, 1), Fraction(17, 5)), (Fraction(13, 4), Fraction(4, 1))), 'BR': ((Fraction(9, 4), Fraction(0, 1)), (Fraction(4, 1), Fraction(7, 5)))}
+  ok       their squared lengths are LR 53, RL 85, BT 37, TB 101, LT 25, BL 25, RT 41, BR 41, so LT and BL tie ...: {'LR': Fraction(53, 1), 'RL': Fraction(85, 1), 'BT': Fraction(37, 1), 'TB': Fraction(101, 1), 'LT': Fraction(25, 1), 'BL': Fraction(25, 1), 'RT': Fraction(41, 1), 'BR': Fraction(41, 1)}
+  ok       Same-wall words are impossible.: 9264 pairs S, F tested
+  ok       Opposite-wall orders LR, RL, BT, TB always work.
+  ok       For each adjacent pair of walls, exactly one order works unless the candidate hits their corner, whe...
+
+Return visit, pages 4-5: Problem 2 (interior starts)
+  ok       Problem 2 board: 6 wide, 4 high, square 22 mm units: 22.00 mm
+  ok       Problem 2: 15 lettered dots A-O at the interior points, A-E at height 3, F-J at 2, K-O at 1: {'A': (1, 3), 'B': (2, 3), 'C': (3, 3), 'D': (4, 3), 'E': (5, 3), 'F': (1, 2), 'G': (2, 2), 'H': (3, 2), 'I': (4, 2), 'J': (5, 2), 'K': (1, 1), 'L': (2, 1), 'M': (3, 1), 'N': (4, 1), 'O': (5, 1)}
+    A C 5, B L 24, C C 9, D L 24, E C 1, F L 24, G C 10, H L 24, I C 2, J L 24, K C 11, L L 24, M C 3, N L 24, O C 7
+  ok       the corner-finishing dots are (1, 1), (1, 3), (2, 2), (3, 1), (3, 3), (4, 2), (5, 1), (5, 3).
+  ok       On the printed letter map the corner starts are A,C,E,G,I,K,M,O; the looping starts are B,D,F,H,J,L,...
+  ok       Every looping dot returns northeast after 24 diagonal unit steps.
+  ok       a corner is reached iff x − y is even. Of the 15 dots, eight reach corners and seven never do.
+  ok       At H=(3,2), the traveller is back at its dot after 12 steps facing SE, and first returns NE after 24
+  ok       the corner condition becomes x − y divisible by gcd(a, b) for integer northeast starts, and a non-co...
+  ok       Problem 2 launch strip: three 3 by 3 boards; the token dot at (2,1), (3,2), (2,3): [[(2.0, 1.0)], [(3.0, 2.0)], [(2.0, 3.0)]]
+  ok       Problem 2 workspace: two 6 by 4 boards of 18 mm squares
+
+Return visit, pages 6-7: Problem 3 (crossings)
+  ok       Problem 3 boards: 2 by 3, 3 by 4, 4 by 5, 4 by 6, 12.5 mm squares, S dot at the bottom left: [(3, 4), (2, 3), (4, 6), (4, 5)]
+  ok       Problem 3 labels name the drawn sizes
+    3 by 4: 3 at [(1, 1), (1, 3), (2, 2)]; 2 by 3: 1 at [(1, 1)]; 4 by 6: 1 at [(2, 2)]; 4 by 5: 6 at [(1, 1), (1, 3), (2, 2), (2, 4), (3, 1), (3, 3)]
+  ok       The ordinary 45-degree paths on 2-by-3, 3-by-4 and 4-by-5 tables have respectively 1,3 and 6 interio...
+  ok       For 2-by-3 the point is (1, 1). For 3-by-4 they are (1, 1), (1, 3), (2, 2). For 4-by-5 they are (1, ...
+  ok       Problem 3 workspace: 12 by 12 grid of 12.5 mm squares with S at the bottom left
+  ok       With positive integer dimensions at most 12, all solutions are 3-by-11, 11-by-3, 5-by-6, 6-by-5, 10-...: [(3, 11), (5, 6), (6, 5), (10, 12), (11, 3), (12, 10)]
+  ok       There are (u−1)(v−1)/2 distinct interior transverse crossing points before the first terminal corner...
+  ok       The positive factor pairs give reduced rectangles 2-by-21, 3-by-11, 5-by-6 and their swaps.
+
+36 checks, 0 mismatches

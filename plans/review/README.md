@@ -37,6 +37,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 2 | Switches and lamps | revise: a working board that enforces the pair rule, and an adult guide for the compact catalog | [card](week-02.md), [math check](week-02-math.md) |
 | 5 | Tower cities (visibility clues) | revise: 204 of the 576 4-by-4 cities can't be singled out by any puzzle, and the guide's entry for 4–5 Problem 5 doesn't say so | [card](week-05.md), [math check](week-05-math.md) |
 | 8 | Rook race and Nim | keep | [card](week-08.md), [math check](week-08-math.md) |
+| 9 | Bouncing paths | revise: the guide's walking rule says to keep going up after a side wall, which is wrong once the ball is coming down, so an adult may correct a child who bounced correctly | [card](week-09.md), [math check](week-09-math.md) |
 | 10 | Bridges (Euler walks) | keep | [card](week-10.md), [math check](week-10-math.md) |
 | 11 | Chip firing with a sink | keep | [card](week-11.md), [math check](week-11-math.md) |
 | 12 | Catalan bijections (noncrossing pairings, paths and trees) | revise: the guide hint for K–1 Problem 4 says comparing the partners of one dot detects duplicates, so an adult may call a new pairing a repeat | [card](week-12.md), [math check](week-12-math.md) |
