@@ -1,0 +1,29 @@
+PASS map: one water rectangle and four land shapes: (1, 4)
+PASS land shape 0: contains exactly one letter: ['B']
+PASS land shape 1: contains exactly one letter: ['C']
+PASS land shape 2: contains exactly one letter: ['A']
+PASS land shape 3: contains exactly one letter: ['D']
+PASS bridge 183,290 -> 183,166: land, water, land: ['A', 'water', 'B']
+PASS bridge 263,290 -> 263,166: land, water, land: ['A', 'water', 'B']
+PASS bridge 183,290 -> 183,415: land, water, land: ['A', 'water', 'C']
+PASS bridge 263,290 -> 263,415: land, water, land: ['A', 'water', 'C']
+PASS bridge 280,290 -> 410,290: land, water, land: ['A', 'water', 'D']
+PASS bridge 473,290 -> 473,166: land, water, land: ['D', 'water', 'B']
+PASS bridge 473,290 -> 473,415: land, water, land: ['D', 'water', 'C']
+  bridges read: ['AB', 'AB', 'AC', 'AC', 'AD', 'BD', 'CD']
+PASS 7 bridges: A-B twice, A-C twice, A-D, B-D, C-D (the historical layout the guide states)
+PASS degrees A5 B3 C3 D3: {'A': 5, 'B': 3, 'C': 3, 'D': 3}
+PASS no walk crosses every bridge exactly once
+PASS one new bridge between any two of the four areas makes a walk possible (6 choices): [('A', 'B'), ('A', 'C'), ('A', 'D'), ('B', 'C'), ('B', 'D'), ('C', 'D')]
+PASS   after adding A-B, walks run between CD
+PASS   after adding A-C, walks run between BD
+PASS   after adding A-D, walks run between BC
+PASS   after adding B-C, walks run between AD
+PASS   after adding B-D, walks run between AC
+PASS   after adding C-D, walks run between AB
+PASS one new bridge cannot give a closed walk
+PASS two new bridges give a closed walk exactly when they pair up the four areas (3 ways): [(('A', 'B'), ('C', 'D')), (('A', 'C'), ('B', 'D')), (('A', 'D'), ('B', 'C'))]
+PASS Euler: a 7-bridge walk names 8 areas, but the areas need 3+2+2+2 = 9 places
+PASS there is open water between B and C west of A (room for a new B-C bridge): 73.7
+
+FAILURES: none
