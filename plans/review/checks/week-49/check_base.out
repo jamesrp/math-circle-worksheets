@@ -1,0 +1,203 @@
+# Week 49 base packet: independent checks
+
+## Shared rule and worked example (page 1, every band)
+[OK  ] K-1: example arrows run A->B->C->D->A
+[OK  ] K-1: example old (1,4,2,0) -> printed new (3,2,2,1); D(old) = (3,2,2,1)
+[OK  ] K-1: printed gap 3 on arrow A->B = |1-4|; new A (tail) = 3
+[OK  ] K-1: printed gap 1 on arrow D->A = |0-1|; new D (tail) = 1
+[OK  ] K-1: printed gap 2 on arrow B->C = |4-2|; new B (tail) = 2
+[OK  ] K-1: printed gap 2 on arrow C->D = |2-0|; new C (tail) = 2
+[OK  ] K-1: caption matches the diagram
+[OK  ] 2-3: example arrows run A->B->C->D->A
+[OK  ] 2-3: example old (1,4,2,0) -> printed new (3,2,2,1); D(old) = (3,2,2,1)
+[OK  ] 2-3: printed gap 3 on arrow A->B = |1-4|; new A (tail) = 3
+[OK  ] 2-3: printed gap 1 on arrow D->A = |0-1|; new D (tail) = 1
+[OK  ] 2-3: printed gap 2 on arrow B->C = |4-2|; new B (tail) = 2
+[OK  ] 2-3: printed gap 2 on arrow C->D = |2-0|; new C (tail) = 2
+[OK  ] 2-3: caption matches the diagram
+[OK  ] 4-5: example arrows run A->B->C->D->A
+[OK  ] 4-5: example old (1,4,2,0) -> printed new (3,2,2,1); D(old) = (3,2,2,1)
+[OK  ] 4-5: printed gap 3 on arrow A->B = |1-4|; new A (tail) = 3
+[OK  ] 4-5: printed gap 1 on arrow D->A = |0-1|; new D (tail) = 1
+[OK  ] 4-5: printed gap 2 on arrow B->C = |4-2|; new B (tail) = 2
+[OK  ] 4-5: printed gap 2 on arrow C->D = |2-0|; new C (tail) = 2
+[OK  ] 4-5: caption matches the diagram
+
+## Every arrow chain printed in the base guide
+[OK  ] guide chain (1,1,0,0) → (0,1,0,1) → (1,1,1,1) → zero: 3 moves, every step is the gap rule
+[OK  ] guide chain (1,0,1,0) → (1,1,1,1) → zero: 2 moves, every step is the gap rule
+[OK  ] guide chain (2,1,0,1) → (1,1,1,1) → zero: 2 moves, every step is the gap rule
+[OK  ] guide chain (0,0,0,2) → (0,0,2,2) → (0,2,0,2) → (2,2,2,2) → zero: 4 moves, every step is the gap rule
+[OK  ] guide chain (0,1,2,4) → (1,1,2,4) → (0,1,2,3) → (1,1,1,3) → (0,0,2,2) → (0,2,0,2) → (2,2,2,2) → zero: 7 moves, every step is the gap rule
+[OK  ] guide chain (1,0,0,0) → (1,0,0,1) → (1,0,1,0) → (1,1,1,1) → zero: 4 moves, every step is the gap rule
+[OK  ] guide chain (1,0,0) → (1,0,1) → (1,1,0) → (0,1,1) → (1,0,1): 4 moves, every step is the gap rule
+[OK  ] guide chain (1,4,2,0) → (3,2,2,1) → (1,0,1,2) → (1,1,1,1) → zero: 4 moves, every step is the gap rule
+[OK  ] guide chain (2,8,4,0) → (6,4,4,2) → (2,0,2,4) → (2,2,2,2) → zero: 4 moves, every step is the gap rule
+
+## Problem 1 (all bands): the four printed starts
+  K-1: (1,1,0,0) -> (0,1,0,1) -> (1,1,1,1) -> (0,0,0,0)  [zero, 3 moves]
+  K-1: (1,0,1,0) -> (1,1,1,1) -> (0,0,0,0)  [zero, 2 moves]
+  K-1: (2,1,0,1) -> (1,1,1,1) -> (0,0,0,0)  [zero, 2 moves]
+  K-1: (0,0,0,2) -> (0,0,2,2) -> (0,2,0,2) -> (2,2,2,2) -> (0,0,0,0)  [zero, 4 moves]
+[OK  ] K-1: unique longest printed start (0,0,0,2) with 4 moves
+  2-3: (1,1,0,0) -> (0,1,0,1) -> (1,1,1,1) -> (0,0,0,0)  [zero, 3 moves]
+  2-3: (1,0,1,0) -> (1,1,1,1) -> (0,0,0,0)  [zero, 2 moves]
+  2-3: (2,1,0,1) -> (1,1,1,1) -> (0,0,0,0)  [zero, 2 moves]
+  2-3: (0,0,0,2) -> (0,0,2,2) -> (0,2,0,2) -> (2,2,2,2) -> (0,0,0,0)  [zero, 4 moves]
+[OK  ] 2-3: unique longest printed start (0,0,0,2) with 4 moves
+  4-5: (1,1,0,0) -> (0,1,0,1) -> (1,1,1,1) -> (0,0,0,0)  [zero, 3 moves]
+  4-5: (1,0,1,0) -> (1,1,1,1) -> (0,0,0,0)  [zero, 2 moves]
+  4-5: (2,1,0,1) -> (1,1,1,1) -> (0,0,0,0)  [zero, 2 moves]
+  4-5: (0,0,0,2) -> (0,0,2,2) -> (0,2,0,2) -> (2,2,2,2) -> (0,0,0,0)  [zero, 4 moves]
+[OK  ] 4-5: unique longest printed start (0,0,0,2) with 4 moves
+[OK  ] guide names (0,0,0,2), 4 moves, as longest (agrees)
+[OK  ] guide move count (1,1,0,0): 3
+[OK  ] guide move count (1,0,1,0): 2
+[OK  ] guide move count (2,1,0,1): 2
+[OK  ] guide move count (0,0,0,2): 4
+
+## Problem 2: longest run with bounded starting heights
+[OK  ] K-1: page states the range 0..4
+[OK  ] 2-3: page states the range 0..5
+[OK  ] 4-5: page states the range 0..5
+  range 0..4: 625 starts, moves histogram {0: 1, 1: 4, 2: 36, 3: 120, 4: 376, 5: 24, 6: 48, 7: 16}
+  longest = 7 moves, 16 starts: ['(0,1,2,4)', '(0,2,3,4)', '(0,4,2,1)', '(0,4,3,2)', '(1,0,4,2)', '(1,2,4,0)', '(2,0,4,3)', '(2,1,0,4)', '(2,3,4,0)', '(2,4,0,1)', '(3,2,0,4)', '(3,4,0,2)', '(4,0,1,2)', '(4,0,2,3)', '(4,2,1,0)', '(4,3,2,0)']
+[OK  ] range 0..4: maximum 7 and (0,1,2,4) attains it (guide claims both)
+  range 0..5: 1296 starts, moves histogram {0: 1, 1: 5, 2: 54, 3: 220, 4: 768, 5: 88, 6: 128, 7: 32}
+  longest = 7 moves, 32 starts: ['(0,1,2,4)', '(0,2,3,4)', '(0,4,2,1)', '(0,4,3,2)', '(1,0,4,2)', '(1,2,3,5)', '(1,2,4,0)', '(1,3,4,5)', '(1,5,3,2)', '(1,5,4,3)', '(2,0,4,3)', '(2,1,0,4)', '(2,1,5,3)', '(2,3,4,0)', '(2,3,5,1)', '(2,4,0,1)', '(3,1,5,4)', '(3,2,0,4)', '(3,2,1,5)', '(3,4,0,2)', '(3,4,5,1)', '(3,5,1,2)', '(4,0,1,2)', '(4,0,2,3)', '(4,2,1,0)', '(4,3,1,5)', '(4,3,2,0)', '(4,5,1,3)', '(5,1,2,3)', '(5,1,3,4)', '(5,3,2,1)', '(5,4,3,1)']
+[OK  ] range 0..5: maximum 7 and (0,1,2,4) attains it (guide claims both)
+[OK  ] guide counts 625 / 1,296 starts
+[OK  ] all-zero start takes 0 moves (page note)
+
+## K-1 Problems 3 and 4: starts that first reach zero on move 1 / move 2
+[OK  ] heights 0..9: the 9 one-move starts are exactly the positive constants
+[OK  ] heights 0..9: the 170 two-move starts are exactly those whose four gaps equal one positive c
+[OK  ] guide examples (0,1,0,1), (0,1,2,1): 2 moves
+[OK  ] K-1 P3 and P4 each print two blank rings (A->B->C->D)
+  K-1 P3 text: "Find different starts that become all zeros in one move. A B A B D C D C"   P4 text: "Find different starts that first become all zeros on the second move. A B A B D C D C"
+[OK  ] EDGE: (0,0,0,0) is all zeros after one move; P3 (unlike P4) does not say "first", while the guide says "Do not count (0,0,0,0)"
+
+## Grades 2-3 / 4-5 Problem 3: is each printed ring the result of one move?
+  Completeness of the search: predecessors are closed under adding a constant, so translate one to
+  minimum 0; walking both ways round the ring from a lowest to a highest station gives
+  2*(max - min) <= sum of the four gaps, so heights 0..floor(sum/2) cover every normalised predecessor.
+  2-3 (2,0,2,0): total 4 (even); normalised predecessors ['(0,2,2,0)', '(2,0,0,2)']
+  2-3 (1,1,1,0): total 3 (odd); normalised predecessors none
+  2-3 (1,1,1,1): total 4 (even); normalised predecessors ['(0,1,0,1)', '(0,1,2,1)', '(1,0,1,0)', '(1,0,1,2)', '(1,2,1,0)', '(2,1,0,1)']
+  2-3 (0,0,0,2): total 2 (even); normalised predecessors none
+  4-5 (2,0,2,0): total 4 (even); normalised predecessors ['(0,2,2,0)', '(2,0,0,2)']
+  4-5 (1,1,1,0): total 3 (odd); normalised predecessors none
+  4-5 (1,1,1,1): total 4 (even); normalised predecessors ['(0,1,0,1)', '(0,1,2,1)', '(1,0,1,0)', '(1,0,1,2)', '(1,2,1,0)', '(2,1,0,1)']
+  4-5 (0,0,0,2): total 2 (even); normalised predecessors none
+[OK  ] guide witness (0,2,2,0) -> (2,0,2,0)
+[OK  ] guide witness (0,1,0,1) -> (1,1,1,1)
+[OK  ] (1,1,1,0) has no predecessor (guide: impossible)
+[OK  ] (0,0,0,2) has no predecessor (guide: impossible)
+[OK  ] every output has an even total (0..7 exhaustive)
+[OK  ] (0,0,0,2) has an even total yet no predecessor: "necessary, not sufficient" is right
+
+## K-1 Problem 5 / older Problem 4: four stations against three
+  K-1 P5 4 stations (ABCD by arrows): (1,0,0,0) -> (1,0,0,1) -> (1,0,1,0) -> (1,1,1,1) -> (0,0,0,0)  [zero]
+  K-1 P5 3 stations (ABC by arrows): (1,0,0) -> (1,0,1) -> (1,1,0) -> (0,1,1) -> (1,0,1)  [('repeat', 1)]
+[OK  ] K-1 P5: two blank three-station mats with arrows A->B->C->A, as in the small diagram
+  2-3 P4 4 stations (ABCD by arrows): (1,0,0,0) -> (1,0,0,1) -> (1,0,1,0) -> (1,1,1,1) -> (0,0,0,0)  [zero]
+  2-3 P4 3 stations (ABC by arrows): (1,0,0) -> (1,0,1) -> (1,1,0) -> (0,1,1) -> (1,0,1)  [('repeat', 1)]
+[OK  ] 2-3 P4: two blank three-station mats with arrows A->B->C->A, as in the small diagram
+  4-5 P4 4 stations (ABCD by arrows): (1,0,0,0) -> (1,0,0,1) -> (1,0,1,0) -> (1,1,1,1) -> (0,0,0,0)  [zero]
+  4-5 P4 3 stations (ABC by arrows): (1,0,0) -> (1,0,1) -> (1,1,0) -> (0,1,1) -> (1,0,1)  [('repeat', 1)]
+[OK  ] 4-5 P4: two blank three-station mats with arrows A->B->C->A, as in the small diagram
+[OK  ] three-station (1,0,0) enters a period-3 cycle (1,0,1)->(1,1,0)->(0,1,1)->(1,0,1) (guide agrees)
+[OK  ] four-station (1,0,0,0) reaches zero in 4 moves (guide agrees)
+
+## K-1 Problem 6 / Grades 2-3 Problem 5: orders of 0, 1, 2, 4
+  4 moves: 16 orders, e.g. ['(0,1,4,2)', '(0,2,1,4)', '(0,2,4,1)', '(0,4,1,2)', '(1,0,2,4)', '(1,2,0,4)', '(1,4,0,2)', '(1,4,2,0)']
+  7 moves: 8 orders, e.g. ['(0,1,2,4)', '(0,4,2,1)', '(1,0,4,2)', '(1,2,4,0)', '(2,1,0,4)', '(2,4,0,1)', '(4,0,1,2)', '(4,2,1,0)']
+[OK  ] 8 longest orders (7 moves) = rotations and reversals of (0,1,2,4); other 16 last 4 (guide agrees)
+[OK  ] guide representative (0,1,2,4): 7 moves
+[OK  ] guide representative (0,1,4,2): 4 moves
+[OK  ] guide representative (0,2,1,4): 4 moves
+  K-1 P6 printed orders ['(0,1,2,4)', '(0,1,4,2)'] last [7, 4] moves
+[FAIL] K-1 P6: no printed order is already a longest order (else the page shows the answer)
+  2-3 P5 printed orders ['(0,1,2,4)', '(0,1,4,2)'] last [7, 4] moves
+[FAIL] 2-3 P5: no printed order is already a longest order (else the page shows the answer)
+
+## Grades 2-3 Problem 6 / Grades 4-5 Problem 7: can a height exceed the old maximum?
+[OK  ] max(D(s)) <= max(s) for all s in 0..8 (and |a-b| <= max(a,b) in general)
+[OK  ] tallest can stay: (0,1,2,4) -> (1,1,2,4), max 4 (guide example)
+[OK  ] 2-3 P6 prints (0,1,2,4) beside a blank ring
+[OK  ] total height not conserved: 7 -> 8
+
+## Grades 4-5 Problem 5: even/odd letter rings
+[OK  ] worked example EOEE -> OOEE follows the printed letter rule
+[OK  ] letter rule E,E->E; O,O->E; E,O->O; O,E->O is the parity of the gap
+  letter rings possible after 1 move(s): ['EEEE', 'EEOO', 'EOEO', 'EOOE', 'OEEO', 'OEOE', 'OOEE', 'OOOO']
+  letter rings possible after 2 move(s): ['EEEE', 'EOEO', 'OEOE', 'OOOO']
+  letter rings possible after 3 move(s): ['EEEE', 'OOOO']
+  letter rings possible after 4 move(s): ['EEEE']
+[OK  ] only EEEE after four moves (guide agrees)
+  letter rings possible after 5 move(s): ['EEEE']
+[OK  ] guide rows: after 2 moves (a+c,b+d,a+c,b+d), after 3 moves (s,s,s,s), s = a+b+c+d (mod 2)
+[OK  ] every integer start in 0..7 has only even heights after four moves
+
+## Grades 4-5 Problem 6: doubling and tripling
+[OK  ] printed second start (2,8,4,0) = 2 x (1,4,2,0)
+  (1,4,2,0) -> (3,2,2,1) -> (1,0,1,2) -> (1,1,1,1) -> (0,0,0,0)  [4 moves]
+  (2,8,4,0) -> (6,4,4,2) -> (2,0,2,4) -> (2,2,2,2) -> (0,0,0,0)  [4 moves]
+  (3,12,6,0) -> (9,6,6,3) -> (3,0,3,6) -> (3,3,3,3) -> (0,0,0,0)  [4 moves]
+[OK  ] scaling by 2, 3, 5 keeps the number of moves, all starts 0..5 (guide: any positive integer)
+[OK  ] NOTE: the page-1 worked example is the same ring (1,4,2,0) as P6, so P6's first move is printed on page 1
+
+## Grades 4-5 Problem 8 and the overview: termination proof
+[OK  ] all 194481 starts with heights 0..20 reach zero
+[OK  ] after 4k moves every height is divisible by 2^k (k = 1..5, heights 0..20)
+[OK  ] moves to zero <= 4k with 2^k > max, as the proof gives
+  worst moves by maximum height: {0: 0, 1: 4, 2: 4, 3: 6, 4: 7, 5: 7, 6: 7, 7: 7, 8: 7, 9: 8, 10: 8, 11: 9, 12: 9, 13: 10, 14: 10, 15: 10, 16: 10, 17: 10, 18: 10, 19: 10, 20: 10}
+[OK  ] nonzero constant: 1 move; zero: 0 moves
+[OK  ] maximum need not decrease each move (312 starts in 0..4 keep it)
+
+## Guide: mat sizes and cube count
+[OK  ] K-1 P2 mats: stations {(40.0, 40.0)} mm (guide: 40 mm squares)
+[OK  ] K-1 P2 four-station centres [52.0, 52.0, 52.0, 52.0] mm apart (guide 52)
+[OK  ] K-1 P2 four-station centres [52.0, 52.0, 52.0, 52.0] mm apart (guide 52)
+  K-1 P2: clear gap between the old mat and the new mat = 1.00 mm
+[OK  ] K-1 P5 mats: stations {(40.0, 40.0)} mm (guide: 40 mm squares)
+[OK  ] K-1 P5 three-station centres span 52.0 x 52.0 mm (guide 52 x 52)
+[OK  ] K-1 P5 three-station centres span 52.0 x 52.0 mm (guide 52 x 52)
+  K-1 P5: clear gap between the old mat and the new mat = 1.00 mm
+[OK  ] 2-3 P2 mats: stations {(40.0, 40.0)} mm (guide: 40 mm squares)
+[OK  ] 2-3 P2 four-station centres [52.0, 52.0, 52.0, 52.0] mm apart (guide 52)
+[OK  ] 2-3 P2 four-station centres [52.0, 52.0, 52.0, 52.0] mm apart (guide 52)
+  2-3 P2: clear gap between the old mat and the new mat = 1.00 mm
+[OK  ] 2-3 P4 mats: stations {(40.0, 40.0)} mm (guide: 40 mm squares)
+[OK  ] 2-3 P4 three-station centres span 52.0 x 52.0 mm (guide 52 x 52)
+[OK  ] 2-3 P4 three-station centres span 52.0 x 52.0 mm (guide 52 x 52)
+  2-3 P4: clear gap between the old mat and the new mat = 1.00 mm
+[OK  ] 4-5 P2 mats: stations {(40.0, 40.0)} mm (guide: 40 mm squares)
+[OK  ] 4-5 P2 four-station centres [52.0, 52.0, 52.0, 52.0] mm apart (guide 52)
+[OK  ] 4-5 P2 four-station centres [52.0, 52.0, 52.0, 52.0] mm apart (guide 52)
+  4-5 P2: clear gap between the old mat and the new mat = 1.00 mm
+[OK  ] 4-5 P4 mats: stations {(40.0, 40.0)} mm (guide: 40 mm squares)
+[OK  ] 4-5 P4 three-station centres span 52.0 x 52.0 mm (guide 52 x 52)
+[OK  ] 4-5 P4 three-station centres span 52.0 x 52.0 mm (guide 52 x 52)
+  4-5 P4: clear gap between the old mat and the new mat = 1.00 mm
+[OK  ] forty cubes = two four-station states x height 5
+
+## Guide key covers every numbered problem
+[OK  ] guide has a key headed "Problem 1, all bands"
+[OK  ] guide has a key headed "Problem 2, all bands"
+[OK  ] guide has a key headed "K-1 Problem 3"
+[OK  ] guide has a key headed "K-1 Problem 4"
+[OK  ] guide has a key headed "Older Problem 3"
+[OK  ] guide has a key headed "K-1 Problem 5; older Problem 4"
+[OK  ] guide has a key headed "K-1 Problem 6; Grades 2-3 Problem 5"
+[OK  ] guide has a key headed "Grades 2-3 Problem 6; Grades 4-5 Problem 7"
+[OK  ] guide has a key headed "Grades 4-5 Problem 5"
+[OK  ] guide has a key headed "Grades 4-5 Problem 6"
+[OK  ] guide has a key headed "Grades 4-5 Problem 8"
+[OK  ] K-1: problems numbered [1, 2, 3, 4, 5, 6]
+[OK  ] 2-3: problems numbered [1, 2, 3, 4, 5, 6]
+[OK  ] 4-5: problems numbered [1, 2, 3, 4, 5, 6, 7, 8]
+
+Summary: 2 FAIL line(s).
+  FAIL: K-1 P6: no printed order is already a longest order (else the page shows the answer)
+  FAIL: 2-3 P5: no printed order is already a longest order (else the page shows the answer)

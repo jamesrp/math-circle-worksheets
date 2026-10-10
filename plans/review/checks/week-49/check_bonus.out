@@ -1,0 +1,61 @@
+# Week 49 bonus companion: independent checks
+
+## Page 1 worked example and Problem 1 (find every old ring)
+[OK  ] worked example (1,3,2,0) -> (2,1,2,1); D = (2,1,2,1); "A gap: 3 - 1 = 2" = |3-1|
+[OK  ] P1 cycle joins A-B-C-D-A (edges [['A', 'B'], ['A', 'D'], ['B', 'C'], ['C', 'D']])
+[OK  ] P1 cycle joins A-B-C-D-A (edges [['A', 'B'], ['A', 'D'], ['B', 'C'], ['C', 'D']])
+  P1 targets ['(1,1,1,1)', '(1,2,1,2)']; each recording table has 6 rows
+  (1,1,1,1): 6 old rings with heights 0..3 and a 0: ['(0,1,0,1)', '(0,1,2,1)', '(1,0,1,0)', '(1,0,1,2)', '(1,2,1,0)', '(2,1,0,1)']
+[OK  ] (1,1,1,1): guide list is exactly the complete set
+[OK  ] (1,1,1,1): 6 answers fit the 6-row table
+[OK  ] (1,1,1,1): the 0..3 / at-least-one-0 rule drops no normalised predecessor (0..7 search)
+  (1,2,1,2): 4 old rings with heights 0..3 and a 0: ['(0,1,3,2)', '(1,0,2,3)', '(2,3,1,0)', '(3,2,0,1)']
+[OK  ] (1,2,1,2): guide list is exactly the complete set
+[OK  ] (1,2,1,2): 4 answers fit the 6-row table
+[OK  ] (1,2,1,2): the 0..3 / at-least-one-0 rule drops no normalised predecessor (0..7 search)
+[OK  ] sign choices: 6 for (1,1,1,1), 4 for (1,2,1,2) (guide agrees)
+[OK  ] adding a constant or replacing h by M-h leaves the next ring unchanged
+[OK  ] (0,1,0,1) and (0,1,2,1) are not related by translation or complement (guide claim)
+
+## Page 2, Problem 2: binary rings on six and eight stations
+[OK  ] cycles join stations in number order, wrapping to 1
+  six-station start 100100: 100100 -> 101101 -> 110110 -> 011011 -> 101101  [('repeat', 1)]
+[OK  ] six-station start enters a nonzero period-3 cycle from round 1
+  eight-station start: 10000000 -> 10000001 -> 10000010 -> 10000111 -> 10001000 -> 10011001 -> 10101010 -> 11111111 -> 00000000
+[OK  ] printed eight-start: round 7 = 11111111, round 8 = 00000000
+[OK  ] all 256 eight-station starts are all 0 at round 8
+  eight-starts with a 1 at round 7: 128 (those with an odd number of 1s)
+[OK  ] doubling distance: after 2^j rounds each entry is x_i xor x_(i+2^j)
+  six-station starts that never reach all 0: 60 of 64; those that do: ['000000', '010101', '101010', '111111']
+  5 stations: every start reaches all 0? False
+  7 stations: every start reaches all 0? False
+  16 stations: every start reaches all 0? True
+[OK  ] page-2 tables have rounds 0..8 for 6 and 8 stations
+
+## Page 3, Problem 3: directed differences
+[OK  ] worked example (1,3,3,1) -> (2,0,-2,0); E = (2,0,-2,0)
+  (0,1,0,1): (0,1,0,1) -> (1,-1,1,-1) -> (-2,2,-2,2) -> (4,-4,4,-4) -> (-8,8,-8,8) -> (16,-16,16,-16) -> (-32,32,-32,32) -> (64,-64,64,-64) -> (-128,128,-128,128) -> (256,-256,256,-256)
+    first round with an entry more than 10 from 0: 5
+  (0,0,1,1): (0,0,1,1) -> (0,1,0,-1) -> (1,-1,-1,1) -> (-2,0,2,0) -> (2,2,-2,-2) -> (0,-4,0,4) -> (-4,4,4,-4) -> (8,0,-8,0) -> (-8,-8,8,8) -> (0,16,0,-16)
+    first round with an entry more than 10 from 0: 9
+[OK  ] only the first start passes 10 within five rounds (guide agrees)
+[OK  ] EDGE: first start is 8 from 0 at round 4 and 16 at round 5, so "within five rounds" must include round 5 (rows 0..5); counting five rows (rounds 0..4) gives "neither"
+[OK  ] every directed output sums to zero
+[OK  ] alternating (a,-a,a,-a) -> (-2a,2a,-2a,2a): magnitude doubles, so unbounded
+[OK  ] page-3 tables have rounds 0..7
+
+## Every chain printed in the bonus guide
+[OK  ] binary chain 100100 -> 101101 -> 110110 -> 011011 -> 101101
+[OK  ] chain (E) (0,1,0,1) -> (1,-1,1,-1) -> (-2,2,-2,2) -> (4,-4,4,-4) -> (-8,8,-8,8) -> (16,-16,16,-16)
+[OK  ] guide second run (0,0,1,1), (0,1,0,-1), (1,-1,-1,1), (-2,0,2,0), (2,2,-2,-2), (0,-4,0,4)
+[OK  ] guide launch output (2,1,2,1)
+[OK  ] guide launch visual (1,3,3,1) -> (+2,0,-2,0)
+
+## Bonus guide: sizes and counts
+[OK  ] page-1 stations {20.46} mm (guide 20.5)
+[OK  ] page-2 stations {21.87} mm (guide 21.9)
+[OK  ] sixteen 0/1 counters = old + new eight-ring; eight cards = old + new four-ring
+  largest cube need for one listed old ring plus its new ring: 12 (guide: twelve optional cubes)
+[OK  ] 256 = four heights 0..3
+
+Summary: 0 FAIL line(s).
