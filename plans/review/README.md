@@ -44,6 +44,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 14 | Polygon triangulations and flips | keep | [card](week-14.md), [math check](week-14-math.md) |
 | 16 | Three-colour triangles (Sperner's lemma) | keep | [card](week-16.md), [math check](week-16-math.md) |
 | 18 | Error-correcting codebooks | keep | [card](week-18.md), [math check](week-18-math.md) |
+| 19 | No card inside another (subset antichains) | keep | [card](week-19.md), [math check](week-19-math.md) |
 | 23 | Sorting networks | revise: a print-and-cut mat, cards and bars, which the guide specifies but nothing supplies | [card](week-23.md), [math check](week-23-math.md) |
 | 24 | Nontransitive dice and decks | keep | [card](week-24.md), [math check](week-24-math.md) |
 | 25 | Row and column shadows | revise: a guide hint calls the natural lower-bound proof wrong (two switches, because four cells must empty and a switch empties two) | [card](week-25.md), [math check](week-25-math.md) |

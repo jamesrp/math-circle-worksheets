@@ -1,0 +1,265 @@
+======================================================================
+Printed decks
+  K-1 p1 P1: 3 cards = group empty/A/B
+  K-1 p1 P1: 3 cards = group A/B/AB
+  K-1 p1 P1: 3 cards = group AB/AC/BC
+  K-1 p1 P1: 3 cards = group A/BC/ABC
+  K-1 p2 P2: 4 cards = full 2-symbol deck
+  K-1 p2 P3: 8 cards = full 3-symbol deck
+  K-1 p3 P4: 8 cards = full 3-symbol deck
+  K-1 p3 P5: 1 cards = group ABC
+  K-1 p3 P5: 1 cards = group A
+  K-1 p3 P5: 1 cards = group AB
+  K-1 p3 P5: 2 cards = group A/BC
+  K-1 p4 P6: 1 cards = group A
+  K-1 p4 P6: 1 cards = group AB
+  K-1 p4 P6: 4 cards = full 2-symbol deck
+  K-1 p4 P6: 8 cards = full 3-symbol deck
+  K-1 p5 P7: 8 cards = full 3-symbol deck
+  2-3 p1 P1: 4 cards = full 2-symbol deck
+  2-3 p2 P2: 8 cards = full 3-symbol deck
+  2-3 p2 P3: 1 cards = group ABC
+  2-3 p2 P3: 2 cards = group A/BC
+  2-3 p2 P3: 1 cards = group AB
+  2-3 p3 P4: 1 cards = group A
+  2-3 p3 P4: 1 cards = group AB
+  2-3 p3 P4: 4 cards = full 2-symbol deck
+  2-3 p3 P4: 8 cards = full 3-symbol deck
+  2-3 p4 P5: 8 cards = full 3-symbol deck
+  2-3 p5 P6: 16 cards = full 4-symbol deck
+  4-5 p1 P1: 4 cards = full 2-symbol deck
+  4-5 p1 P1: 8 cards = full 3-symbol deck
+  4-5 p2 P2: 16 cards = full 4-symbol deck
+  4-5 p3 P3: 1 cards = group ABCD
+  4-5 p3 P3: 2 cards = group A/BCD
+  4-5 p3 P3: 2 cards = group AB/AC
+  4-5 p4 P4: 1 cards = group A
+  4-5 p4 P4: 1 cards = group AB
+  4-5 p4 P4: 4 cards = full 2-symbol deck
+  4-5 p4 P4: 8 cards = full 3-symbol deck
+  4-5 p6 P7: 1 cards = group A
+======================================================================
+General facts
+PASS 2 symbols: largest antichain 2 (guide: 2)
+PASS 2 symbols: fewest nested rows 2
+PASS 2 symbols: exhaustive row search agrees (2 possible, 1 impossible)
+    largest collections: ['A/B']
+PASS 3 symbols: largest antichain 3 (guide: 3)
+PASS 3 symbols: fewest nested rows 3
+PASS 3 symbols: exhaustive row search agrees (3 possible, 2 impossible)
+    largest collections: ['AB/AC/BC', 'A/B/C']
+PASS 4 symbols: largest antichain 6 (guide: 6)
+PASS 4 symbols: fewest nested rows 6
+PASS 4 symbols: exhaustive row search agrees (6 possible, 5 impossible)
+    largest collections: ['AB/AC/AD/BC/BD/CD']
+PASS legal collections incl. zero-card family: {2: 6, 3: 20, 4: 168} (guide: 6, 20, 168)
+PASS guide quote present: "It finds 6, 20, and 168 legal collections including the zero-card family for two, three, a"
+PASS guide quote present: "For the full two-, three- and four-symbol decks the maxima are 2, 3 and 6"
+PASS four symbols: unique six-card collection = all two-symbol cards
+PASS guide quote present: "On four symbols the unique six-card antichain is the family of all two-symbol cards."
+PASS Sperner n=1: max 1 = C(1,0)
+PASS Sperner n=2: max 2 = C(2,1)
+PASS Sperner n=3: max 3 = C(3,1)
+PASS Sperner n=4: max 6 = C(4,2)
+PASS Sperner n=5: max 10 = C(5,2)
+PASS complementing every card of a legal collection keeps it legal (3 symbols)
+PASS complementing every card of a legal collection keeps it legal (4 symbols)
+======================================================================
+K-1
+PASS P1 has four groups
+PASS P1 group 1 [empty/A/B]: largest 2, unique = ['A/B']
+PASS P1 group 2 [A/B/AB]: largest 2, unique = ['A/B']
+PASS P1 group 3 [AB/AC/BC]: largest 3, unique = ['AB/AC/BC']
+PASS P1 group 4 [A/BC/ABC]: largest 2, unique = ['A/BC']
+PASS guide quote present: "In printed order, choose A/B (size 2); A/B (size 2); AB/AC/BC (size 3); A/BC (size 2). The"
+PASS P2 deck is the full two-symbol deck
+PASS P2: 5 collections of one or more cards: ['B', 'A', 'A/B', 'AB', 'empty']
+PASS guide quote present: "There are five: empty alone; A alone; B alone; AB alone; and A/B."
+PASS P3 deck is the full three-symbol deck
+PASS P3: 9 two-card collections: ['A/B', 'A/BC', 'A/C', 'AB/AC', 'AB/BC', 'AC/BC', 'B/AC', 'B/C', 'C/AB']
+PASS guide quote present: "The full list of nine is A/B, A/C, B/C; AB/AC, AB/BC, AC/BC; A/BC, B/AC, C/AB"
+PASS P3: guide list equals enumeration
+PASS P4 deck is the full three-symbol deck
+PASS P4: largest 3; all largest ['A/B/C', 'AB/AC/BC']
+    K-1 P5 start ABC: largest final size 1; best additions ['']; already unextendable True
+    K-1 P5 start A: largest final size 3; best additions ['B/C']; already unextendable False
+    K-1 P5 start AB: largest final size 3; best additions ['AC/BC']; already unextendable False
+    K-1 P5 start A/BC: largest final size 2; best additions ['']; already unextendable True
+PASS P5 final sizes [1, 3, 3, 2] (guide 1, 3, 3, 2)
+PASS P5 starts in printed order are ABC; A; AB; A/BC
+PASS guide quote present: "The four starts are ABC; A; AB; A/BC. Their largest final sizes are respectively 1, 3, 3, "
+PASS P6 example row shows A then AB (A fits inside AB)
+PASS P6 example: A is strictly inside AB
+PASS P6 decks are the full two- and three-symbol decks
+PASS P6 fewest rows: 2 and 3
+PASS guide p. 3 / P6 partitions cover each card once and are nested
+PASS guide quote present: "For the four-card deck the minimum is two rows: empty -> A -> AB, and B. For the eight-car"
+PASS P7 deck is the full three-symbol deck
+PASS P7: no legal four-card collection
+PASS P8 prints no deck of its own ("this deck" = the P7 deck above it on the page)
+    K-1 P8 set aside empty: largest remaining 3: ['AB/AC/BC', 'A/B/C']
+    K-1 P8 set aside A: largest remaining 3: ['AB/AC/BC']
+    K-1 P8 set aside B: largest remaining 3: ['AB/AC/BC']
+    K-1 P8 set aside C: largest remaining 3: ['AB/AC/BC']
+    K-1 P8 set aside AB: largest remaining 3: ['A/B/C']
+    K-1 P8 set aside AC: largest remaining 3: ['A/B/C']
+    K-1 P8 set aside BC: largest remaining 3: ['A/B/C']
+    K-1 P8 set aside ABC: largest remaining 3: ['AB/AC/BC', 'A/B/C']
+PASS P8: a three-card collection survives every single removal
+======================================================================
+Grades 2-3
+PASS P1: two-symbol deck, 5 collections
+PASS P2: largest 3, exactly two: ['A/B/C', 'AB/AC/BC']
+PASS guide quote present: "The maximum is three, attained by exactly A/B/C and AB/AC/BC."
+    2-3 P3 start ABC: largest final 1; best additions ['']; unextendable True
+    2-3 P3 start A/BC: largest final 2; best additions ['']; unextendable True
+    2-3 P3 start AB: largest final 3; best additions ['AC/BC']; unextendable False
+PASS P3 starts ABC, A/BC, AB give 1, 2, 3
+PASS P3: ABC and A/BC are unextendable but smaller than 3
+PASS guide quote present: "For ABC, keep it alone: final size 1. For A/BC, add nothing: size 2. For AB, add AC and BC"
+PASS P4: fewest rows 2 and 3
+PASS P5: no four-card collection
+PASS P6 deck is the full four-symbol deck (16 distinct cards)
+PASS P6/P8: largest 6
+PASS P7: fewest rows 6
+PASS guide quote present: "Read its rows as empty/A/AB/ABC/ABCD; D/AD/ABD; C/AC/ACD; CD; B/BC/BCD; BD."
+PASS guide p. 4 / P7 six-row partition covers all 16 once and is nested
+    guide p. 4 drawn rows: [['empty', 'A', 'AB', 'ABC', 'ABCD'], ['D', 'AD', 'ABD'], ['C', 'AC', 'ACD'], ['CD'], ['B', 'BC', 'BCD'], ['BD']]; filled arrowheads per row: {0: 4, 1: 2, 2: 2, 4: 2}
+PASS guide p. 4 drawn diagram rows equal the rows stated in 2-3 P7
+PASS guide p. 4: each row has one arrow between consecutive boxes
+PASS guide quote present: "Many valid six-row partitions exist."
+======================================================================
+Grades 4-5
+PASS P1: largest 2 and 3
+PASS P2: largest 6
+    4-5 P3 start ABCD: largest final 1; best additions ['']; unextendable True
+    4-5 P3 start A/BCD: largest final 2; best additions ['']; unextendable True
+    4-5 P3 start AB/AC: largest final 6; best additions ['AD/BC/BD/CD']; unextendable False
+PASS P3 starts ABCD, A/BCD, AB/AC give 1, 2, 6
+PASS P3: ABCD and A/BCD are unextendable
+PASS P3: AB/AC extends to six in exactly one way (add AD, BC, BD, CD)
+PASS guide quote present: "Start ABCD: size 1, add nothing. Start A/BCD: size 2, add nothing. Start AB/AC: size 6, ad"
+PASS P4: fewest rows 2 and 3
+PASS P5: fewest rows 6
+PASS P7 shows the circle card A
+PASS P7: largest collection containing A has 4 cards; all of them: ['A/B/C/D', 'A/BC/BD/CD']
+PASS P7: guide examples A/B/C/D and A/BC/BD/CD are largest
+PASS guide quote present: "The maximum is four. Examples are A/B/C/D and A/BC/BD/CD."
+PASS P8: exactly one six-card collection
+PASS guide quote present: "There is exactly one size-six collection: AB/AC/AD/BC/BD/CD."
+PASS P8 step: largest collection containing empty has 1 cards
+PASS P8 step: largest collection containing A has 4 cards
+PASS P8 step: largest collection containing B has 4 cards
+PASS P8 step: largest collection containing C has 4 cards
+PASS P8 step: largest collection containing D has 4 cards
+PASS P8 step: largest collection containing AB has 6 cards
+PASS P8 step: largest collection containing AC has 6 cards
+PASS P8 step: largest collection containing AD has 6 cards
+PASS P8 step: largest collection containing BC has 6 cards
+PASS P8 step: largest collection containing BD has 6 cards
+PASS P8 step: largest collection containing CD has 6 cards
+PASS P8 step: largest collection containing ABC has 4 cards
+PASS P8 step: largest collection containing ABD has 4 cards
+PASS P8 step: largest collection containing ACD has 4 cards
+PASS P8 step: largest collection containing BCD has 4 cards
+PASS P8 step: largest collection containing ABCD has 1 cards
+======================================================================
+Guide other claims
+PASS guide quote present: "The one-card collection ABCD cannot accept any other card, but it has size one. A/BCD is a"
+PASS ABCD is unextendable
+PASS A/BCD is unextendable
+PASS guide quote present: "No: remove A and BC."
+PASS three-symbol deck without A and BC: largest 2
+    removals of two cards that leave no triple: ['A/AB', 'A/AC', 'A/BC', 'B/AB', 'B/AC', 'B/BC', 'C/AB', 'C/AC', 'C/BC']
+PASS guide quote present: "removing any two-symbol card reduces the maximum to five"
+PASS guide quote present: "Removing any non-pair card leaves all six pair cards intact."
+PASS four-symbol deck without empty: largest 6
+PASS four-symbol deck without A: largest 6
+PASS four-symbol deck without B: largest 6
+PASS four-symbol deck without C: largest 6
+PASS four-symbol deck without D: largest 6
+PASS four-symbol deck without AB: largest 5
+PASS four-symbol deck without AC: largest 5
+PASS four-symbol deck without AD: largest 5
+PASS four-symbol deck without BC: largest 5
+PASS four-symbol deck without BD: largest 5
+PASS four-symbol deck without CD: largest 5
+PASS four-symbol deck without ABC: largest 6
+PASS four-symbol deck without ABD: largest 6
+PASS four-symbol deck without ACD: largest 6
+PASS four-symbol deck without BCD: largest 6
+PASS four-symbol deck without ABCD: largest 6
+PASS guide quote present: "Total: six decks, 96 cards, and 60 counters."
+PASS supply arithmetic: 3 tables x 2 decks x 16 cards, 3 x 20 counters
+PASS guide p. 2 inventory lists the 16 cards once each
+======================================================================
+Bonus packet (Subset cards encore)
+  bonus P1: 8 cards, full 3-symbol deck
+  bonus P2: 8 cards, full 3-symbol deck
+  bonus P3: 16 cards, full 4-symbol deck
+  bonus P4: 16 cards, full 4-symbol deck
+  bonus P4: 16 cards, full 4-symbol deck
+  bonus P7: 8 cards, full 3-symbol deck
+  bonus P8: 16 cards, full 4-symbol deck
+PASS bonus P1, P2, P7 decks are the full 3-symbol deck
+PASS bonus P3, P4 (both), P8 decks are the full 4-symbol deck
+PASS bonus: largest pairwise-sharing collection on 3 symbols = 4; 4 such, 1 with no common symbol
+PASS bonus P2: the only size-4 family with no common symbol is AB/AC/BC/ABC
+PASS bonus: largest pairwise-sharing collection on 4 symbols = 8; 12 such, 8 with no common symbol
+PASS bonus guide quote present: "P1 maximum is 4. One witness is A,AB,AC,ABC."
+PASS bonus guide quote present: "This is the only size-four family with no common symbol on this deck"
+PASS bonus P3: AB,AC,BC,ABC,ABD,ACD,BCD,ABCD is pairwise sharing, size 8, no common symbol
+PASS bonus guide quote present: "Another maximum is AB,AC,BC,ABC,ABD,ACD,BCD,ABCD, with no symbol common to all eight."
+PASS bonus P4 triggers AB and D: D/AB/AD/BD/CD/ABC/ABD/ACD/BCD/ABCD
+PASS bonus P4 triggers A and BC: A/AB/AC/AD/BC/ABC/ABD/ACD/BCD/ABCD
+PASS bonus guide quote present: "P4, AB or D: working cards are D,AB,AD,BD,CD,ABC,ABD,ACD,BCD,ABCD. A or BC: A,AB,AC,AD,BC,"
+PASS bonus page quote present: "These cards work: B, AB, BC, BD, ABC, ABD, BCD, ABCD, AC, ACD."
+PASS bonus P5: the working set is closed under adding symbols
+PASS bonus P5: minimal working cards B/AC
+PASS bonus P5: fewest triggers = 2
+PASS bonus guide: 168 four-symbol monotone rules
+PASS bonus P6: for all 168 rules, cards failing on every single removal recreate the rule
+    other reading ("some removal makes it fail") fails only for rules of size [16] (16 = every card works)
+PASS bonus guide quote present: "an all-working deck has the empty card as its only minimal trigger. The empty card satisfi"
+PASS bonus: no nested triple on 3 symbols: largest 6; 1 largest families: ['A/B/C/AB/AC/BC']
+PASS bonus P7: unique maximum A,B,C,AB,AC,BC
+PASS bonus: no nested triple on 4 symbols: largest 10; 2 largest families: ['A/B/C/D/AB/AC/AD/BC/BD/CD', 'AB/AC/AD/BC/BD/CD/ABC/ABD/ACD/BCD']
+PASS bonus guide quote present: "P7 maximum is 6: A,B,C,AB,AC,BC."
+PASS bonus guide quote present: "It is the only maximum family"
+PASS bonus P7 chain partition (lengths 4,2,2) valid
+PASS bonus P8 chain partition (lengths 5,3,3,1,3,1) valid, capacity 10
+PASS bonus P8 witnesses (sizes 1+2, sizes 2+3) are legal
+PASS bonus guide depth: no four-chain on 3 symbols: largest 7, omitting ['ABC', 'empty']
+PASS bonus guide quote present: "The maximum is 7: omit empty or omit ABC."
+PASS bonus guide: ABC, ABD share; complements D, C do not
+PASS bonus guide: triggers B,AB,AC give the same rule as B,AC
+PASS bonus guide: 256 and 65,536 families
+======================================================================
+Guide "Student page" references vs the delivered PDFs
+PASS K-1 P1: guide says student page 1, PDF has it on page 1
+PASS K-1 P2: guide says student page 2, PDF has it on page 2
+PASS K-1 P3: guide says student page 2, PDF has it on page 2
+PASS K-1 P4: guide says student page 3, PDF has it on page 3
+PASS K-1 P5: guide says student page 3, PDF has it on page 3
+PASS K-1 P6: guide says student page 4, PDF has it on page 4
+PASS K-1 P7: guide says student page 5, PDF has it on page 5
+PASS K-1 P8: guide says student page 5, PDF has it on page 5
+PASS Grades 2-3 P1: guide says student page 1, PDF has it on page 1
+PASS Grades 2-3 P2: guide says student page 2, PDF has it on page 2
+PASS Grades 2-3 P3: guide says student page 2, PDF has it on page 2
+PASS Grades 2-3 P4: guide says student page 3, PDF has it on page 3
+PASS Grades 2-3 P5: guide says student page 4, PDF has it on page 4
+PASS Grades 2-3 P6: guide says student page 5, PDF has it on page 5
+PASS Grades 2-3 P7: guide says student page 6, PDF has it on page 6
+PASS Grades 2-3 P8: guide says student page 6, PDF has it on page 6
+PASS Grades 4-5 P1: guide says student page 1, PDF has it on page 1
+PASS Grades 4-5 P2: guide says student page 2, PDF has it on page 2
+PASS Grades 4-5 P3: guide says student page 3, PDF has it on page 3
+PASS Grades 4-5 P4: guide says student page 4, PDF has it on page 4
+PASS Grades 4-5 P5: guide says student page 5, PDF has it on page 5
+PASS Grades 4-5 P6: guide says student page 5, PDF has it on page 5
+PASS Grades 4-5 P7: guide says student page 6, PDF has it on page 6
+PASS Grades 4-5 P8: guide says student page 6, PDF has it on page 6
+PASS 24 guide page references checked
+======================================================================
+0 failures
