@@ -1,0 +1,78 @@
+== Shared example (student p. 1): U R D from coordinate 1, level 0
+ok   example path [(1, 0), (1, 1), (3, 1), (3, 0)] = printed (1,0)->(1,1)->(3,1)->(3,0), 3 moves
+ok   guide rehearsal: R from (1,1) -> (3,1); from (1,2) -> (5,2)
+
+== Problem 1 (p. 1): shortest ground trips to 3 and 7
+ok   dist(0,0)->(3,0) = 3 (guide 3); 1 shortest word(s): ['RRR']
+ok   dist(0,0)->(7,0) = 6 (guide 6); 2 shortest word(s): ['RURRRD', 'URRRDR']
+ok   guide: two moves reach at most 2 -> brute force 2
+ok   guide: five moves reach at most 6 -> brute force 6
+ok   guide P1 height bounds H=0,1,2 for N=5 are 5,6,4
+
+== Problems 2 and 4 (pp. 2-3): coordinate 16
+ok   dist to (16,0) = 8; 2 distinct 8-move words reach (16,0), so "two different trips tied" is available
+     8-move words to 16: UURRRRDD UUURRDDD
+ok   P4: max |final x| over all ground trips <= 7 moves = 12 < 16
+ok   P4 other reading ("touch 16 at any level, then return to level 0 anywhere"): max |x| ever visited in <= 7-move ground trips = 12 < 16
+     (for contrast: |x| = 64 can be touched within 7 moves if the trip need not come down; e.g. (16,3) is at distance 5)
+ok   guide P4 table (7-2H)2^H for H=0..3 = 7,10,12,8
+
+== Guide overview: ground trips with <= N moves and max height H have |x| <= (N-2H)2^H, attained
+ok   bound (N-2H)2^H is exact for every N<=10 and every H<=N/2 (exhaustive enumeration of all words incl. L and repeated climbs)
+
+== Problem 3 (p. 3): farthest right on level 0 within budget N
+ok   budget 4: farthest 4 (guide 4); 2 attaining words, shortest RRRR
+ok   budget 5: farthest 6 (guide 6); 1 attaining words, shortest URRRD
+ok   budget 6: farthest 8 (guide 8); 2 attaining words, shortest URRRRD
+ok   budget 7: farthest 12 (guide 12); 1 attaining words, shortest UURRRDD
+ok   budget 8: farthest 16 (guide 16); 2 attaining words, shortest UURRRRDD
+
+== Problem 5 (p. 4): 9, 15, 17, 23 with and without L
+ok   9: min 7 (guide 7), min with no L 7 (guide 7)
+ok   15: min 9 (guide 9), min with no L 9 (guide 9)
+ok   17: min 9 (guide 9), min with no L 9 (guide 9)
+ok   23: min 10 (guide 10), min with no L 11 (guide 11)
+
+-- guide case bounds (exhaustive):
+ok   15, budget 8, H=2, odd endpoint: 1+4+4+4=13 -> brute max odd |x| = 13
+ok   15, budget 8, H=3, odd endpoint: 1+8=9 -> brute max odd |x| = 9
+ok   23, budget 9, H=3, odd endpoint: 1+8+8=17 -> brute max odd |x| = 17
+ok   guide: budget 8 heights 0,1 allow 8 and 12
+ok   guide: budget 9 height bounds 9,14,20,24,16
+ok   no 9-move ground trip ends at an odd |x| > 17
+ok   guide formula c_H(n) = floor(n/2^H) + ones(n mod 2^H) equals DP coin minimum for n<130, H<7
+ok   no-left BFS with level cap H matches min over H'<=H of 2H'+c_H'(n) (n<40, H<=5, all values <= 14)
+ok   guide no-left bounds for 23 at H=0..4: 23,14,11,11,12
+     destinations 1..64 where an L-trip strictly beats every no-L trip: [23, 31, 39, 46, 47, 55, 62, 63]
+ok   23 is the smallest destination where L strictly helps
+ok   among 9, 15, 17, 23 only 23 shows a strict saving from L
+
+== Every move word printed in the delivered guide
+     words found in guide text: RRR RRRR URRRD URRRDR UURRDD UURRDDR UURRRDD UURRRDRDR UURRRRDD UUURRDDD UUURRDDDL UUURRDDDR UUURRDRDRDR UUURRRDDDL
+ok   guide words = the expected set
+ok   RRR: ends at (3, 0), 3 moves, shortest possible (3); path [(0, 0), (1, 0), (2, 0), (3, 0)]
+ok   RRRR: ends at (4, 0), 4 moves, budget-4 witness, farthest = 4; path [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0)]
+ok   URRRD: ends at (6, 0), 5 moves, budget-5 witness, farthest = 6; path [(0, 0), (0, 1), (2, 1), (4, 1), (6, 1), (6, 0)]
+ok   URRRDR: ends at (7, 0), 6 moves, shortest possible (6); path [(0, 0), (0, 1), (2, 1), (4, 1), (6, 1), (6, 0), (7, 0)]
+ok   UURRDD: ends at (8, 0), 6 moves, budget-6 witness, farthest = 8; path [(0, 0), (0, 1), (0, 2), (4, 2), (8, 2), (8, 1), (8, 0)]
+ok   UURRDDR: ends at (9, 0), 7 moves, shortest possible (7); path [(0, 0), (0, 1), (0, 2), (4, 2), (8, 2), (8, 1), (8, 0), (9, 0)]
+ok   UURRRDD: ends at (12, 0), 7 moves, budget-7 witness, farthest = 12; path [(0, 0), (0, 1), (0, 2), (4, 2), (8, 2), (12, 2), (12, 1), (12, 0)]
+ok   UURRRDRDR: ends at (15, 0), 9 moves, shortest possible (9); path [(0, 0), (0, 1), (0, 2), (4, 2), (8, 2), (12, 2), (12, 1), (14, 1), (14, 0), (15, 0)]
+ok   UURRRRDD: ends at (16, 0), 8 moves, shortest possible (8); path [(0, 0), (0, 1), (0, 2), (4, 2), (8, 2), (12, 2), (16, 2), (16, 1), (16, 0)]
+ok   UUURRDDD: ends at (16, 0), 8 moves, shortest possible (8); path [(0, 0), (0, 1), (0, 2), (0, 3), (8, 3), (16, 3), (16, 2), (16, 1), (16, 0)]
+ok   UUURRDDDL: ends at (15, 0), 9 moves, shortest possible (9); path [(0, 0), (0, 1), (0, 2), (0, 3), (8, 3), (16, 3), (16, 2), (16, 1), (16, 0), (15, 0)]
+ok   UUURRDDDR: ends at (17, 0), 9 moves, shortest possible (9); path [(0, 0), (0, 1), (0, 2), (0, 3), (8, 3), (16, 3), (16, 2), (16, 1), (16, 0), (17, 0)]
+ok   UUURRDRDRDR: ends at (23, 0), 11 moves, shortest without L (11); path [(0, 0), (0, 1), (0, 2), (0, 3), (8, 3), (16, 3), (16, 2), (20, 2), (20, 1), (22, 1), (22, 0), (23, 0)]
+ok   UUURRRDDDL: ends at (23, 0), 10 moves, shortest possible (10); path [(0, 0), (0, 1), (0, 2), (0, 3), (8, 3), (16, 3), (24, 3), (24, 2), (24, 1), (24, 0), (23, 0)]
+ok   guide text read
+
+== Student text numbers
+ok   student text contains "Reach coordinate 3 and return to level 0"
+ok   student text contains "Then try coordinate 7"
+ok   student text contains "Reach coordinate 16 and return to level 0"
+ok   student text contains "seven or fewer moves"
+ok   student text contains "to 9, 15, 17 and 23, ending on level 0"
+ok   student text contains "Example: U R D costs 3 moves."
+ok   P3 budget rows ['4', '5', '6', '7', '8']
+
+RESULT: all checks pass

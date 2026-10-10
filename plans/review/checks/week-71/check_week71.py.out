@@ -1,0 +1,75 @@
+== Page 1 worked AD example (side-4 square, start (1,2) toward (3,0)) ==
+word AD unfolded hits [('3', '0'), ('4', '-1')]
+
+== Problem 1: three-letter words from the dot (1,1) in the 5x5-cell window [-4,6]^2 ==
+distinct words reachable in window: 20 ; alternation-valid 3-words: 28
+missing from window: ['ABD', 'ADB', 'BAC', 'BCA', 'CBD', 'CDB', 'DAC', 'DCA']
+
+Guide Problem 1 table:
+  (3, 2) DCB (4, 3) OK [('2', '5/3'), ('5/2', '2'), ('4', '3')]
+  (2, 3) CDA (3, 4) OK [('5/3', '2'), ('2', '5/2'), ('3', '4')]
+  (-3, 2) BCD (-2, 3) OK [('0', '5/3'), ('-1/2', '2'), ('-2', '3')]
+  (-2, 3) CBA (-1, 4) OK [('1/3', '2'), ('0', '5/2'), ('-1', '4')]
+  (-3, -2) BAD (-2, -1) OK [('0', '1/3'), ('-1/2', '0'), ('-2', '-1')]
+  (-2, -3) ABC (-1, -2) OK [('1/3', '0'), ('0', '-1/2'), ('-1', '-2')]
+
+== PDF label check: page-1 and page-4 tracing windows vs true unfolding labels ==
+  page 1 window: 60 wall labels checked, 0 wrong
+  page 4 square window: 24 wall labels checked, 0 wrong
+  page 4 wide window (x stretched 2x): 24 wall labels checked, 0 wrong
+
+== Problem 4: guide examples and availability in page-4 windows ==
+  DCB square hits [('2', '5/3'), ('5/2', '2'), ('4', '3')] rect hits [('4', '5/3'), ('5', '2'), ('8', '3')] in windows mixed
+  CDA square hits [('5/3', '2'), ('2', '5/2'), ('3', '4')] rect hits [('10/3', '2'), ('4', '5/2'), ('6', '4')] in windows mixed
+  BCD square hits [('0', '5/3'), ('-1/2', '2'), ('-2', '3')] rect hits [('0', '5/3'), ('-1', '2'), ('-4', '3')] in windows mixed
+  distinct mixed words (length 3-4) drawable in the page-4 square window: 16
+
+== Problem 4 / overview: stretch transfer, exact, 12 bounces ==
+  3000/3000 random rays give identical words (or both corner) after an (alpha,beta) stretch
+
+== Problem 2 square: ABA as a subword in rectangles ==
+  2995 random rectangle rays of 15 bounces: none breaks A/C and B/D alternation (so no ABA)
+
+== Problem 2 rhombus: exact Q(sqrt3) checks ==
+  folded hits from (11/4, sqrt3/4): [('A', ('2', '0')), ('B', ('1/2', '0+1/2r3')), ('A', ('2', '0'))]
+  unfolded faces: [[('0', '0'), ('4', '0'), ('6', '0+2r3'), ('2', '0+2r3')], [('0', '0'), ('4', '0'), ('6', '0+-2r3'), ('2', '0+-2r3')], [('0', '0'), ('-2', '0+-2r3'), ('0', '0+-4r3'), ('2', '0+-2r3')], [('0', '0'), ('-2', '0+-2r3'), ('-6', '0+-2r3'), ('-4', '0')]]
+  windows.tex rhombus faces match exact reflections
+  unfolded straight line meets (2,0), (1/2,-sqrt3/2), (-1,-sqrt3), each strictly inside its segment
+
+== Problem 3 context: sampled word sets (evidence only, not proofs) ==
+  length 3: square 28 words, rhombus 24 words
+    rhombus-only: ['ABA', 'BAB', 'CDC', 'DCD']
+    square-only (not found in rhombus sample): ['ACB', 'ADB', 'BCA', 'BDA', 'CAD', 'CBD', 'DAC', 'DBC']
+  length 4: square 52 words, rhombus 48 words
+    rhombus-only: ['ABAC', 'ABAD', 'ACDB', 'ACDC', 'ADCD', 'BABC', 'BABD', 'BCDC', 'BDCA', 'BDCD', 'CABA', 'CABD', 'CBAB', 'CDCA', 'CDCB', 'DABA', 'DBAB', 'DBAC', 'DCDA', 'DCDB']
+    square-only (not found in rhombus sample): ['ABCA', 'ACAD', 'ACBA', 'ADBC', 'ADBD', 'ADCB', 'BADB', 'BCAC', 'BCAD', 'BCDA', 'BDAB', 'BDBC', 'CACB', 'CADC', 'CBAD', 'CBDA', 'CBDB', 'CDAC', 'DABC', 'DACA', 'DACB', 'DBCD', 'DBDA', 'DCBD']
+
+== Problem 3: rectangle words that the 60-degree rhombus cannot make ==
+  square ACB: from the dot, direction (-1, -4), unfolded hits [('3/4', '0'), ('1/4', '-2'), ('0', '-3')]
+  square CAD: from the dot, direction (1, 4), unfolded hits [('5/4', '2'), ('7/4', '4'), ('2', '5')]
+  square BDA: from the dot, direction (-4, -1), unfolded hits [('0', '3/4'), ('-2', '1/4'), ('-3', '0')]
+  square DBC: from the dot, direction (4, 1), unfolded hits [('2', '5/4'), ('4', '7/4'), ('5', '2')]
+  ACB in rhombus: grid of 399x399 A-to-C segments, continuations meeting the B image: 0
+
+== Problem 2 unfolded chains: fraction of random straight lines doing A,B,A ==
+  square chain: 0.0
+  rhombus chain: 0.04635
+
+== Printed polygon geometry (student PDF) ==
+  p1: sides(cm)=[2.0, 2.0, 2.0, 2.0] angles=[90.0, 90.0, 90.0, 90.0] bbox 2.0 x 2.0 cm
+  p1: sides(cm)=[1.2, 1.2, 1.2, 1.2] angles=[90.0, 90.0, 90.0, 90.0] bbox 1.2 x 1.2 cm
+  p1: sides(cm)=[1.2, 1.2, 1.2, 1.2] angles=[90.0, 90.0, 90.0, 90.0] bbox 1.2 x 1.2 cm
+  p1: sides(cm)=[2.0, 2.0, 2.0, 2.0] angles=[90.0, 90.0, 90.0, 90.0] bbox 2.0 x 2.0 cm
+  p2: sides(cm)=[2.12, 2.12, 2.12, 2.12] angles=[60.0, 120.0, 60.0, 120.0] bbox 3.18 x 1.84 cm
+  p2: sides(cm)=[2.12, 2.12, 2.12, 2.12] angles=[60.0, 120.0, 60.0, 120.0] bbox 3.18 x 1.84 cm
+  p2: sides(cm)=[2.12, 2.12, 2.12, 2.12] angles=[60.0, 120.0, 60.0, 120.0] bbox 2.12 x 3.67 cm
+  p2: sides(cm)=[2.12, 2.12, 2.12, 2.12] angles=[60.0, 120.0, 60.0, 120.0] bbox 3.18 x 1.84 cm
+  p2: sides(cm)=[3.4, 3.4, 3.4, 3.4] angles=[90.0, 90.0, 90.0, 90.0] bbox 3.4 x 3.4 cm
+  p2: sides(cm)=[3.2, 3.2, 3.2, 3.2] angles=[60.0, 120.0, 60.0, 120.0] bbox 4.8 x 2.77 cm
+  p3: sides(cm)=[3.2, 3.2, 3.2, 3.2] angles=[90.0, 90.0, 90.0, 90.0] bbox 3.2 x 3.2 cm
+  p3: sides(cm)=[3.2, 6.4, 3.2, 6.4] angles=[90.0, 90.0, 90.0, 90.0] bbox 6.4 x 3.2 cm
+  p3: sides(cm)=[4.2, 4.2, 4.2, 4.2] angles=[60.0, 120.0, 60.0, 120.0] bbox 6.3 x 3.64 cm
+  p4: sides(cm)=[2.0, 2.0, 2.0, 2.0] angles=[90.0, 90.0, 90.0, 90.0] bbox 2.0 x 2.0 cm
+  p4: sides(cm)=[2.0, 4.0, 2.0, 4.0] angles=[90.0, 90.0, 90.0, 90.0] bbox 4.0 x 2.0 cm
+  p5: sides(cm)=[7.6, 7.6, 7.6, 7.6] angles=[60.0, 120.0, 60.0, 120.0] bbox 11.4 x 6.58 cm
+  p5: sides(cm)=[7.6, 7.6, 7.6, 7.6] angles=[60.0, 120.0, 60.0, 120.0] bbox 11.4 x 6.58 cm

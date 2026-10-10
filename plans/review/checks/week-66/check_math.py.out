@@ -1,0 +1,63 @@
+PASS guide formula equals BFS distance on all 11609 states within distance 14 (unbounded street)
+INFO states within distance 12: 4167 (source MATHEMATICS.md says 4,167)
+PASS MATHEMATICS.md count 4,167 states at distance <= 12
+PASS every move changes distance by exactly +-1 (graph is bipartite): "harder"/"easier" is a dichotomy
+PASS finite street has 4608 reachable states (9 * 2^9 = 4608)
+PASS formula also equals BFS distance on every state of the finite -4..4 street
+PASS P1A target 1,[1]: distance 2 (guide 2); finite street 2
+PASS P1B target 1,[-1, 1]: distance 5 (guide 5); finite street 5
+PASS P1C target 0,[0, 2]: distance 6 (guide 6); finite street 6
+PASS P2A target -2,[-2, 0, 2]: distance 9 (guide 9); finite street 9
+PASS P2B target 0,[-2, 0, 2]: distance 11 (guide 11); finite street 11
+PASS P2C target 2,[-2, 0, 2]: distance 9 (guide 9); finite street 9
+PASS P3 target 0,[-1, 0, 1]: distance 7 (guide 7); finite street 7
+PASS P4L target -1,[-1, 0, 1]: distance 6 (guide 6); finite street 6
+PASS P4R target 1,[-1, 0, 1]: distance 6 (guide 6); finite street 6
+PASS P4F target 0,[-1, 1]: distance 6 (guide 6); finite street 6
+PASS P4 table states are exactly L, R, F applied to the P3 target
+PASS P3 target is a dead end: all three neighbours are at distance 6
+PASS P1A: optimal route stays inside [0,1] within the printed street
+PASS P1B: optimal route stays inside [-1,1] within the printed street
+PASS P1C: optimal route stays inside [0,2] within the printed street
+PASS P2A: optimal route stays inside [-2,2] within the printed street
+PASS P2B: optimal route stays inside [-2,2] within the printed street
+PASS P2C: optimal route stays inside [-2,2] within the printed street
+PASS P3: optimal route stays inside [-1,1] within the printed street
+PASS P4L: optimal route stays inside [-1,1] within the printed street
+PASS P4R: optimal route stays inside [-1,1] within the printed street
+PASS P4F: optimal route stays inside [-1,1] within the printed street
+INFO words found in guide: ['RF', 'RF', 'LFRRF', 'FRRFLL', 'FRRFLLLLF', 'FLLFRRRRFLL', 'FLLFRRRRF', 'FLFRRFL', 'FRFLLF', 'FLFRRF', 'LFRRFL']
+PASS guide word RF reaches P1A in 2 = fewest moves
+PASS guide word RF reaches P1A in 2 = fewest moves
+PASS guide word LFRRF reaches P1B in 5 = fewest moves
+PASS guide word FRRFLL reaches P1C in 6 = fewest moves
+PASS guide word FRRFLLLLF reaches P2A in 9 = fewest moves
+PASS guide word FLLFRRRRFLL reaches P2B in 11 = fewest moves
+PASS guide word FLLFRRRRF reaches P2C in 9 = fewest moves
+PASS guide word FLFRRFL reaches P3 in 7 = fewest moves
+PASS guide word FRFLLF reaches P4L in 6 = fewest moves
+PASS guide word FLFRRF reaches P4R in 6 = fewest moves
+PASS guide word LFRRFL reaches P4F in 6 = fewest moves
+PASS every expected guide word is present in the delivered guide text
+PASS P1A walks+flips (1, 1) matches word RF
+PASS P1B walks+flips (3, 2) matches word LFRRF
+PASS P1C walks+flips (4, 2) matches word FRRFLL
+PASS P4L walks+flips (3, 3) matches word FRFLLF
+PASS P4R walks+flips (3, 3) matches word FLFRRF
+PASS P4F walks+flips (4, 2) matches word LFRRFL
+PASS guide table shows "1 + 1"
+PASS guide table shows "3 + 2"
+PASS guide table shows "4 + 2"
+PASS guide table shows "3 + 3"
+PASS P1B: "visiting -1 then ending at 1 needs at least three walks"
+PASS P1C: "reaching 2 and returning needs at least four"
+PASS P2: "to end at an extreme requires at least six walks"
+PASS P2: "returning to 0 requires eight"
+PASS P3: "visiting both -1 and 1 and returning to 0 forces four walks"
+PASS P4 guide: appending a letter to the 7-move word gives an 8-letter word for a distance-6 target
+INFO dead ends (no move increases distance) with distance <= 9: [(7, 0, [-1, 0, 1]), (9, 0, [-2, 0, 1]), (9, 0, [-1, 0, 2])]
+PASS smallest-distance dead end is exactly the P3 target (distance 7); unique at that distance: True
+PASS Reading B is settled by P1 target A alone: F gives distance 1 (easier), L gives 3 (harder)
+PASS every state at distance <= 6 has at least one move that makes it harder (so no smaller counterexample to Reading A)
+
+58 checks, 0 failures

@@ -1,0 +1,105 @@
+Week 77 independent math check; repository: /home/claude/math-circle-worksheets
+PASS square coordinates present in students.tex
+PASS joined-board coordinates present in students.tex
+PASS fan coordinates present in students.tex
+PASS square: no nonempty face set has zero boundary (fillings unique)
+PASS joined: no nonempty face set has zero boundary (fillings unique)
+PASS fan: no nonempty face set has zero boundary (fillings unique)
+PASS square: E-V+C-F equals raster count of enclosed unfilled regions in all 41 subcomplexes
+PASS joined: E-V+C-F equals raster count of enclosed unfilled regions in all 81 subcomplexes
+PASS fan: E-V+C-F equals raster count of enclosed unfilled regions in all 433 subcomplexes
+PASS launch example: XY,YZ + boundary(XYZ) leaves XZ
+
+== Problem 1 (square, from dots) ==
+PASS square: closed trails == connected even edge sets
+square loops: ['AC,AD,CD', 'AB,AC,BC', 'AB,AD,BC,CD']
+PASS square has exactly three loops (P, Q, R) as the guide says
+PASS R = P + Q
+PASS loops that one filling can kill: exactly P and Q
+PASS loop surviving either single filling: exactly R
+PASS R gone after both fillings
+
+== Problem 2 (square, four schedules) ==
+  DA,AC,ABC,ACD: first loop AB,AD,BC,CD born 2 gone 8 holes [0, 1, 2, 1, 0] raster [0, 1, 2, 1, 0] bars [(2, 8), (4, 5)]
+PASS schedule DA,AC,ABC,ACD legal with holes 0,1,2,1,0
+  DA,AC,ACD,ABC: first loop AB,AD,BC,CD born 2 gone 8 holes [0, 1, 2, 1, 0] raster [0, 1, 2, 1, 0] bars [(2, 8), (4, 5)]
+PASS schedule DA,AC,ACD,ABC legal with holes 0,1,2,1,0
+  AC,DA,ABC,ACD: first loop AB,AC,BC born 2 gone 5 holes [0, 1, 2, 1, 0] raster [0, 1, 2, 1, 0] bars [(2, 5), (4, 8)]
+PASS schedule AC,DA,ABC,ACD legal with holes 0,1,2,1,0
+  AC,DA,ACD,ABC: first loop AB,AC,BC born 2 gone 8 holes [0, 1, 2, 1, 0] raster [0, 1, 2, 1, 0] bars [(2, 8), (4, 5)]
+PASS schedule AC,DA,ACD,ABC legal with holes 0,1,2,1,0
+PASS exactly 3 of 4 schedules keep the first loop until stage 8
+PASS square guide intervals b=2,s=4,u=5,v=8: [(2, 8), (4, 5)]
+PASS square guide intervals b=2,s=4,u=8,v=5: [(2, 8), (4, 5)]
+PASS square guide intervals b=2,s=3,u=4,v=8: [(2, 8), (3, 4)]
+PASS square guide intervals b=2,s=4,u=5,v=8: [(2, 8), (4, 5)]
+PASS square guide intervals b=1,s=2,u=6,v=7: [(1, 7), (2, 6)]
+
+== Problem 3 (joined board) ==
+  AB,DE,ABC,CDE: first loop AB,AC,BC gone 5 holes [0, 1, 2, 1, 0] raster [0, 1, 2, 1, 0] bars [(2, 5), (4, 8)]
+PASS joined AB,DE,ABC,CDE legal with holes 0,1,2,1,0
+  AB,DE,CDE,ABC: first loop AB,AC,BC gone 8 holes [0, 1, 2, 1, 0] raster [0, 1, 2, 1, 0] bars [(2, 8), (4, 5)]
+PASS joined AB,DE,CDE,ABC legal with holes 0,1,2,1,0
+  DE,AB,ABC,CDE: first loop CD,CE,DE gone 8 holes [0, 1, 2, 1, 0] raster [0, 1, 2, 1, 0] bars [(2, 8), (4, 5)]
+PASS joined DE,AB,ABC,CDE legal with holes 0,1,2,1,0
+  DE,AB,CDE,ABC: first loop CD,CE,DE gone 5 holes [0, 1, 2, 1, 0] raster [0, 1, 2, 1, 0] bars [(2, 5), (4, 8)]
+PASS joined DE,AB,CDE,ABC legal with holes 0,1,2,1,0
+PASS guide Problem 3 table (5,8,8,5) matches
+PASS guide joined-board intervals [2,5),[4,8) / [2,8),[4,5)
+  note: square AC-first, ABC at 5: older loop AB,AC,BC born 2 gone 5 while a class born at 4 survives to 8 -> [(2, 5), (4, 8)]
+
+== Problem 4 (simultaneous stage) ==
+  printed: [(0, 0, 0), (2, 1, 1), (4, 1, 1), (8, 0, 0)]
+PASS printed schedule legal and never two holes at a finished stage
+  move AC to 3: legal=True holes=[(0, 0), (2, 1), (3, 2), (4, 1), (8, 0)] two=True R gone at 8 bars=[(2, 8), (3, 4)]
+  move AC to 5: legal=False holes=[(0, 0), (2, 1), (4, 0), (5, 1), (8, 0)] two=False R gone at 8 bars=-
+  move ABC to 3: legal=False holes=[(0, 0), (2, 1), (3, 0), (4, 1), (8, 0)] two=False R gone at 8 bars=-
+  move ABC to 5: legal=True holes=[(0, 0), (2, 1), (4, 2), (5, 1), (8, 0)] two=True R gone at 8 bars=[(2, 8), (4, 5)]
+PASS exactly two legal changes: AC->3, ABC->5
+PASS printed Problem 4 schedule: zero-length interval omitted, only [2,8)
+
+== Problem 5 (no resurrection) ==
+PASS no saved loop reappears after being gone (8400 random growing histories)
+
+== Problem 6 (fan) ==
+PASS fan: closed trails == connected even edge sets
+  fan has 15 loops (edge sets)
+  loops meeting the first request: ['AB,AD,BC,CD', 'AD,AO,CD,CO', 'AB,AD,BO,CD,CO', 'AD,AO,BC,BO,CD']
+PASS exactly four such loops, each with a unique filling
+PASS guide row L0: edges and required tiles correct
+PASS guide row L1: edges and required tiles correct
+PASS guide row L2: edges and required tiles correct
+PASS guide row L3: edges and required tiles correct
+PASS all four rows differ by boundaries of filled ABO,BCO
+  pair L0,L1: {'a': 8, 'b': 0, 'tie': 16}
+  pair L0,L2: {'a': 8, 'b': 0, 'tie': 16}
+  pair L0,L3: {'a': 12, 'b': 0, 'tie': 12}
+  pair L1,L2: {'a': 6, 'b': 6, 'tie': 12}
+  pair L1,L3: {'a': 6, 'b': 0, 'tie': 18}
+  pair L2,L3: {'a': 6, 'b': 0, 'tie': 18}
+PASS only L1,L2 reverse; 6/6 strict, 12 ties among 24 orders
+PASS guide order CDO,DAO,ABO,BCO: L1 at 3rd, L2 at 4th
+PASS guide order CDO,DAO,BCO,ABO: L2 at 3rd, L1 at 4th
+PASS MATHEMATICS.md orders t1,t3,t4,t2 and t2,t3,t4,t1
+  (for comparison: 55 of 105 unrestricted fan loop pairs are reversible)
+PASS fan face ABO has exactly one private (outside) edge
+PASS fan face BCO has exactly one private (outside) edge
+PASS fan face CDO has exactly one private (outside) edge
+PASS fan face DAO has exactly one private (outside) edge
+
+== Delivered guide tables (pdftotext) ==
+PASS guide Problem 2 table: all 4 printed rows (loop, gone-at, yes/no) match
+PASS guide Problem 3 table: all 4 printed rows match
+PASS guide Problem 4 table: legal/illegal verdicts match
+PASS guide Problem 6 table: all 4 printed edge lists and required tiles match
+
+== Guide preparation arithmetic ==
+PASS 11 token labels cover every board edge
+PASS 33 edge tokens; 44 token cards in all
+PASS three copies of each edge token suffice for one test (max needed 3)
+PASS 16 sheets, 8 tiles per set, 17 tiles
+PASS square diagonal 8.768 cm ~ 8.8 cm
+PASS joined-board AB, DE strips 5.8 cm
+  joined board: A, C, E collinear? cross=0.0; B, C, D likewise (board is drawn as an X)
+
+61 passed, 0 failed

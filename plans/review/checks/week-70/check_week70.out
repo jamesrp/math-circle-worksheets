@@ -1,0 +1,30 @@
+Room T drawn at ('2', '2') (expect (2,2) in a 0..4 square)
+Problem 1 arrows (4 boards, 4 distinct corners), each along its corner-to-T diagonal: {'1': (('0', '0'), ('13/20', '13/20')), '2': (('4', '0'), ('-13/20', '13/20')), '3': (('0', '4'), ('13/20', '-13/20')), '4': (('4', '4'), ('-13/20', '-13/20'))}
+Map T copies: 16 all fold to T; window grid (-4,-4)grid(12,12)
+Problem 1: the four open diagonal shots are pairwise disjoint on the torus -> minimum 4 (hitting set of 4 disjoint sets); 4 achieved by any interior point of each.
+Problem 2 aim (2, 6): first T (2, 6), S passed before: [], midpoint folds to (1, 3), crossings ['top']
+Problem 2 aim (6, 2): first T (6, 2), S passed before: [], midpoint folds to (3, 1), crossings ['right']
+Problem 2 aim (6, 6): first T (2, 2), S passed before: [], midpoint folds to (1, 1), crossings []
+Problem 2 aim (10, 6): first T (10, 6), S passed before: [], midpoint folds to (1, 3), crossings ['right', 'top', 'right']
+Guide P2 transfer (0,0)->(4/3,4), reappear (4/3,0) -> (2,2): OK
+Launch: (3,1) dir (2,1) crosses x=4 at (4, Fraction(3, 2)) ends (Fraction(5, 1), Fraction(2, 1)) = copy of P=(1,2)
+Problem 3: first-hit lifts of the 16 map targets: [(-2, -2), (-2, 2), (-2, 6), (-2, 10), (2, -2), (2, 2), (2, 6), (2, 10), (6, -2), (6, 2), (6, 10), (10, -2), (10, 2), (10, 6)]
+  every one meets a midpoint shield at t=1/2 < 1 (checked)
+  4-shield arrangements (one per diagonal, param = distance index) blocking all 16 map shots: [(Fraction(1, 1), Fraction(1, 1), Fraction(1, 1), Fraction(1, 1))]
+   -> [('1', '1'), ('3', '1'), ('1', '3'), ('3', '3')]
+  => the map alone forces the universal answer {(1,1),(1,3),(3,1),(3,3)}.
+   shot to first hit (-2, 6) meets the diagonals only at ('3', '3')
+   shot to first hit (2, 6) meets the diagonals only at ('1', '3')
+   shot to first hit (6, -2) meets the diagonals only at ('3', '3')
+   shot to first hit (6, 2) meets the diagonals only at ('3', '1')
+Problem 4: 14641 lifts (|m|,|n|<=60): first T always reached before any S copy; halfway point folds into the 4 shields.
+Problem 4: three shields cannot block the four disjoint diagonal shots.
+  direction (1, 0) never reaches T in 200 steps: True
+  direction (1, 2) never reaches T in 200 steps: True
+  direction (4, 2) never reaches T in 200 steps: True
+Guide P3 hint, equal fraction 1/4 from S: blocks all map shots = False
+Guide P3 hint, equal fraction 1/3 from S: blocks all map shots = False
+Guide P3 hint, equal fraction 1/2 from S: blocks all map shots = True
+Guide P3 hint, equal fraction 2/3 from S: blocks all map shots = False
+Guide P3 hint, equal fraction 3/4 from S: blocks all map shots = False
+Kernel-checker note: 685 of 3721 aimed lifts reach T before their aimed midpoint (e.g. (6,6): T at t=1/3, midpoint (3,3) at t=1/2).

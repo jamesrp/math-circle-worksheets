@@ -1,0 +1,58 @@
+== Opening example: compare x, y, 2 (= min(x-2, y-2, 0), junction (2,2))
+ok   (4, 2): values [4, 2, 2] -> on line True (expected True)
+ok   (4, 4): values [4, 4, 2] -> on line False (expected False)
+ok   (2, 2): values [2, 2, 2] -> on line True (expected True)
+ok   compare x,y,2 rule equals L(2,2) at all half-grid points in [-5,10]^2
+ok   tie set of min(x,y,0) is exactly the east, north and southwest closed rays (quarter-grid sample)
+
+== Problem 1
+ok   L(4, 4) & L(6, 5): pt(5,4)  (guide: pt(5,4); brute agrees: True)
+ok   L(4, 4) & L(6, 4): east ray from (6,4)  (guide: east ray from (6,4); brute agrees: True)
+ok   L(4, 4) & L(4, 6): north ray from (4,6)  (guide: north ray from (4,6); brute agrees: True)
+ok   L(4, 4) & L(6, 6): southwest ray from (4,4)  (guide: southwest ray from (4,4); brute agrees: True)
+ok   L(2, 2) & L(6, 5): pt(3,2)  (guide: pt(3,2); brute agrees: True)
+ok   L(2, 2) & L(5, 6): pt(2,3)  (guide: pt(2,3); brute agrees: True)
+ok   A=(4,4), any integer B in 0..8: every meeting point / ray start lies on the printed grid ([])
+ok   all four meeting kinds available on the top grids: ['east', 'north', 'point', 'southwest']
+
+== Problem 2 (guide answers)
+ok   L(2, 5) & L(6, 2): pt(6,5)  (guide: pt(6,5); brute agrees: True)
+ok   L(3, 2) & L(3, 6): north ray from (3,6)  (guide: north ray from (3,6); brute agrees: True)
+ok   L(2, 4) & L(6, 4): east ray from (6,4)  (guide: east ray from (6,4); brute agrees: True)
+ok   L(2, 2) & L(6, 6): southwest ray from (2,2)  (guide: southwest ray from (2,2); brute agrees: True)
+
+== Problem 3: two distinct lines never share exactly two points (finite regression)
+ok   6480 ordered pairs of distinct half-integer junctions in [0,4]^2: intersection = one point or the rule's ray (0 mismatches)
+ok   4000 random rational pairs (incl. aligned): rule holds (0 mismatches)
+
+== Problem 4 (guide: unique junctions (2,2) and (5,5))
+ok   targets (2, 5),(6, 2): junctions pt(2,2)  (guide: pt(2,2); brute agrees: True)
+     arms used at junction pt(2,2): P on north, Q on east
+ok   targets (2, 2),(6, 5): junctions pt(5,5)  (guide: pt(5,5); brute agrees: True)
+     arms used at junction pt(5,5): P on southwest, Q on east
+ok   guide arm claims: left P north / Q east; right P southwest / Q east (see lines above)
+
+== Problem 5 (guide: west ray from (2,4), south ray from (3,2), NE ray from (5,5))
+ok   targets (2, 4),(6, 4): junctions west ray from (2,4)  (guide: west ray from (2,4); brute agrees: True)
+ok   targets (3, 2),(3, 6): junctions south ray from (3,2)  (guide: south ray from (3,2); brute agrees: True)
+ok   targets (2, 2),(5, 5): junctions northeast ray from (5,5)  (guide: northeast ray from (5,5); brute agrees: True)
+
+== Problem 6 (guide: only (10,7), off the 0..8 window)
+ok   L(2,7) & L(10,5): pt(10,7); brute agrees: True
+ok   (10,7) lies outside the printed 0..8 window; inside the guide 0..12 extra grid
+
+== Problem 7 / joining theorem regression
+ok   2352 ordered pairs of distinct half-integer targets in [0,3]^2: one junction, or west/south/northeast ray as the guide states (0 mismatches)
+ok   coincident targets: allowed junctions = the whole reversed three-arm figure
+ok   allowed-junction figure of P is the half-turn of L(-P) (half-grid sample)
+
+== Guide child explanation (p. 3): "same row, column or diagonal" read with a falling diagonal
+     L(2, 5) & L(5, 2) (same falling diagonal): pt(5,5)
+     L(2, 6) & L(6, 2) (same falling diagonal): pt(6,6)
+
+== Guide preparation arithmetic
+ok   3 packets x 4 single-sided pages = 12 sheets
+ok   pencils: 2 pairs x 2 + 2 spare = 6; counters 2x2+2 = 6; grid sheets 2x2+2 = 6; tracing 2x2+2 = 6
+ok   hour plan blocks are contiguous 0-60
+
+0 failures

@@ -1,0 +1,54 @@
+== Part A: printed maps rebuilt from the delivered student PDF ==
+PASS p1 example is a full 3x2 dot grid with equal spacing -- dx=[25.5, 25.5] dy=[25.599999999999994]
+PASS p1 example labels: P=(0,0), Q=(2,1), M=(1,1) -- ((0, 0), (2, 1), (1, 1))
+PASS p1 example text: P to M 2, M to Q 1, through M 3, shortest P-Q 3
+PASS p1 example thick route is P-(1,0)-M-Q, a 3-step shortest route through M -- [(0, 0), (1, 0), (1, 1), (2, 1)]
+PASS guide launch: upper-left dot (0,1) also lies on a shortest P-Q route -- all dots on some shortest P-Q route: [(0, 0), (0, 1), (1, 0), (1, 1), (2, 0), (2, 1)]
+PASS P1 left board is a full 5x5 grid, equal x/y spacing -- spacing 45.30-45.40 pt
+     P1 left: homes A,B,C at [(0, 0), (4, 1), (1, 4)]; meeting set [(1, 1)]; median (1, 1); pair (d(X,M), d(M,Y), d(X,Y)) {'AB': (2, 3, 5), 'AC': (2, 3, 5), 'BC': (3, 3, 6)}
+PASS P1 left: exactly one meeting dot and it is the coordinate median
+PASS P1 right board is a full 5x5 grid, equal x/y spacing -- spacing 45.30-45.40 pt
+     P1 right: homes A,B,C at [(0, 3), (4, 0), (4, 4)]; meeting set [(4, 3)]; median (4, 3); pair (d(X,M), d(M,Y), d(X,Y)) {'AB': (4, 3, 7), 'AC': (4, 1, 5), 'BC': (3, 1, 4)}
+PASS P1 right: exactly one meeting dot and it is the coordinate median
+PASS P2 has four blank full 5x5 square grids
+PASS P3 tree: 10 dots, 9 roads, connected (a tree)
+     P3 tree degrees [1, 1, 1, 1, 1, 2, 2, 3, 3, 3]; homes' degrees [1, 1, 1]
+PASS P3 tree: exactly one meeting dot
+PASS P3 tree: guide says junction directly below C, each home 2 roads, pair distances 4 -- dists to M [2, 2, 2], pairs (4, 4, 4)
+PASS P3 tree: unused branches are leaves off the A-B-C tripod (do not shorten)
+PASS P3 triangle: 3 roads, every pair 1 apart, no meeting dot
+     triangle drawn side lengths (pt): [103.3, 103.3, 106.3] (not claimed regular)
+PASS P3 four-cycle: 4 dots, 4 roads, drawn square -- 102.0 x 102.0 pt
+PASS P3 four-cycle: only B works -- ['B']
+PASS p4 rule example: 001 -change first digit-> 101 -change last digit-> 100
+PASS P4 left: 8 distinct labels, 12 roads, each road changes exactly one digit (graph = cube Q3)
+     P4 left: 2 road crossings away from labelled dots
+PASS P4 left: front face drawn square -- 131.8 x 131.8
+     P4 left: homes ('000', '110', '101'); meeting ['100']; majority 100; pair distances [2, 2, 2]
+PASS P4 left: unique meeting label equals majority
+PASS P4 right: 8 distinct labels, 12 roads, each road changes exactly one digit (graph = cube Q3)
+     P4 right: 2 road crossings away from labelled dots
+PASS P4 right: front face drawn square -- 131.8 x 131.8
+     P4 right: homes ('001', '010', '111'); meeting ['011']; majority 011; pair distances [2, 2, 2]
+PASS P4 right: unique meeting label equals majority
+== Part B: enumeration behind the general claims ==
+PASS 5x5 grid, all distinct triples: exactly one meeting dot = coordinate median (P2: neither 0 nor >1) -- 2300 triples, 0 bad
+PASS 5x5 grid, triples with repetition: same -- 2925 triples
+PASS every full w x h grid, 1<=w,h<=6: unique meeting dot = median (and it minimises total travel) -- 36701 triples
+     3x3 grid without the centre's four roads (an 8-cycle), homes (0,0),(2,0),(1,2): meeting set []
+PASS guide limit 'full grid' is needed: a grid with missing roads can have no meeting dot
+PASS cube: every triple (120 with repetition, incl. 56 distinct) has unique meeting label = majority
+PASS guide P5 lemma: shortest route between labels agreeing in a position never changes that digit
+PASS trees: every triple in every labelled tree on 3..7 vertices has exactly one meeting vertex = the common point of the three paths -- 18247 trees, 1489089 triples
+PASS triangle: no meeting vertex, although every vertex minimises total travel (guide warning valid)
+== Part C: delivered guide text against the computations ==
+PASS guide P1 left meeting dot (1,1)
+PASS guide P1 right meeting dot (4,3), rightmost dot on A's row
+PASS guide P1 table row Left: '2+3=5 2+3=5 3+3=6' printed and each sum equals the pair distance
+PASS guide P1 table row Right: '4+3=7 4+1=5 3+1=4' printed and each sum equals the pair distance
+PASS guide P4 left 100 and right 011
+PASS guide P4: every displayed pair differs in two digits
+PASS guide P4 printed routes: six two-road routes, each through the meeting label -- [('000', '100', '110'), ('000', '100', '101'), ('110', '100', '101'), ('001', '011', '010'), ('001', '011', '111'), ('010', '011', '111')]
+PASS guide counts: 2,300 = C(25,3) distinct grid triples, 56 = C(8,3) cube triples
+
+0 failure(s)

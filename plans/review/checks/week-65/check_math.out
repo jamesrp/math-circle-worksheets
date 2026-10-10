@@ -1,0 +1,79 @@
+== Model ==
+PASS vertex disk radius equals sqrt(sqrt2-1) (author r)  [0.643594252906]
+PASS all 8 home sides equal  [side=1.528570919]
+PASS home interior angles all 90 degrees  [90.000000000]
+layers by BFS depth 0..3: [1, 8, 48, 280]
+PASS guide: whole-tiling layers 1, 8, 48
+PASS guide: 56 non-backtracking two-door routes  [56]
+PASS guide: 40 second-ring rooms reached once, 8 reached twice  [{2: 8, 1: 40}]
+PASS first-ring rooms are pairwise non-adjacent
+PASS every home vertex has 4 streets (degree 4)
+PASS four rooms meet at every home vertex
+PASS orientation convention (det>0 = counterclockwise in disk)
+
+== Problem 2 (one octagon, local turns) ==
+left-turn walk from A toward B: A,B,C,D,E,F,G,H,A
+PASS P2 left: position after 4 moves is E
+PASS P2 left: first full-state return after 8 moves  [8]
+PASS P2 left: no earlier return to A
+right-turn walk from A toward H: A,H,G,F,E,D,C,B,A
+PASS P2 right: first full-state return after 8 moves, 4th stop E  [8]
+PASS p.2 visual: at B, arriving from A, left branch goes to C
+PASS p.2 visual: at B, arriving from A, straight branch leaves the octagon
+
+== Problem 3 (outside of two side-sharing octagons) ==
+PASS two rooms share exactly one side
+outside walk: 14 edges; turn kinds at the 14 junctions: LLLLLLSLLLLLLS
+PASS P3 octagons: 14 edge moves
+PASS P3 octagons: 12 left quarter-turns, 2 straight, no right turns
+PASS P3 octagons: straight junctions are the two ends of the shared wall
+PASS P3: rooms are on the walker's left at the start
+PASS P3 squares: 6 moves, 4 left turns, 2 straight  [SLLSLL]
+PASS P3 guide arithmetic 16-4=12, 8-4=4, 8+8-2=14, 4+4-2=6
+
+== Problem 4 (complete streets) ==
+crossing pairs among the 8 drawn streets: [(0, 1), (0, 7), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7)]
+PASS drawn streets cross only at the 8 home vertices (neighbours k,k+1)
+PASS exactly two drawn streets pass through P=v0 (sides 7 and 0)  [[0, 7]]
+PASS P4: both streets through P miss R (side 3 geodesic)  [['ultraparallel', 'ultraparallel']]
+PASS R does not pass through P
+PASS the two streets through P are distinct
+Euclidean comparison: two distinct lines through a point both missing a third line would be two parallels through one point -> impossible (answer: no).
+PASS guide: centres C e^{i pi/4}, C, -C
+PASS guide: all three radii equal r
+PASS guide: -C+r<0, C/sqrt2-r>0, C-r>0  [-0.5456,0.1973,0.5456]
+PASS guide: (C/sqrt2)^2 - r^2 = 1 - sqrt2/2
+PASS disk: supporting circles orthogonal to boundary
+
+== Problem 5 (four rooms around one corner) ==
+PASS four rooms around corner P
+PASS room graph around a corner is a 4-cycle (each room has 2 neighbours there)
+2-door routes: HX*; HY*
+4-door routes: HXHX*; HXHY*; HX*X*; HX*Y*; HYHX*; HYHY*; HY*X*; HY*Y*
+PASS P5: exactly 2 two-door routes
+PASS P5: exactly 8 four-door routes
+PASS P5: Home and star share no side (corner only)
+PASS guide: printed eight-route list equals the enumeration
+(alternative reading: 4-door routes that do not pass through * earlier = 4)
+PASS guide: square grid exact-distance layers 1,4,8
+
+== Problem 1 (square grid, never turn around) ==
+length 2: 0 legal returning routes
+length 4: 2 legal returning routes e.g. ['ENWS', 'ESWN']
+length 6: 6 legal returning routes e.g. ['EENWWS', 'EESWWN', 'ENNWSS', 'ENWWSE']
+length 8: 54 legal returning routes e.g. ['EEENWWWS', 'EEESWWWN', 'EENNWWSS', 'EENNWSWS']
+PASS P1: no 2-move route (would need a U-turn)
+PASS P1: routes of 4, 6 and 8 moves all exist on the board
+PASS P1: odd lengths impossible (parity)
+PASS guide example ENWS is a legal return on the board
+PASS guide example EENWWS is a legal return on the board
+PASS guide example EENNWWSS is a legal return on the board
+PASS guide example ENWSENWS is a legal return on the board
+PASS guide: final S arrival then left turn faces E  [facing S, left = E]
+PASS P1: a return arriving westbound cannot then face east (U-turn): ENESWW excluded
+PASS P1: a return arriving eastbound needs no final turn: ESWWNE included
+
+== Guide preparation arithmetic ==
+PASS five packets x six single-sided pages = 30 sheets
+
+51 checks, 0 failures

@@ -1,0 +1,26 @@
+== Line: 9 printed dots
+P1 k=1: forever-piece counts over all 9 placements = [2]; trapped counts = [0]
+P1 k=2: forever-piece counts over all 36 placements = [2]; trapped counts = [0, 1]
+P1 k=4: forever-piece counts over all 126 placements = [2]; trapped counts = [0, 1, 2, 3]
+P2: placements of 4 blockers on 9 dots with exactly 2 trapped pieces = 60 of 126
+P2 guide example block 2,4,5,7: forever 2 trapped dots [[3], [6]]
+== Ladder: 9 printed columns, 18 dots
+P3 one blocker: (forever, trapped) outcomes = [(1, 0)]
+P3 two blockers: 25 separating placements (9 same rung, 16 diagonal in adjacent columns, 0 other); 128 stay connected; placements with a trapped pocket: 0
+   example diagonal separation: ((-4, 0), (-3, 1))
+   guide contrast (two adjacent dots same rail): forever 1 trapped 0
+P4 four blockers (all 3060 placements): max forever pieces = 2; max total components = 4
+P4 guide example (rungs 0 and 2 blocked): forever 2 trapped [[(1, 0), (1, 1)]]
+== Grid: 7x7 printed window, coordinates -3..3
+P5 left: 4-blocker placements in the window that trap something = 25; all are the 4 neighbours of one dot: True; trapped dots are the 25 interior dots (|x|,|y|<=2): True
+P5 right: shortest P-Q route inside printed window = 10 ; on a large board = 10
+   guide route 3 up/4 right/3 down: ends at Q True ; avoids X True ; stays in window True ; steps 10
+   right map: every open dot reaches the far exterior (no pocket): True
+P6 lemma check: every annulus [-M,M]^2 minus [-N,N]^2 (N<=5, M<=N+4) is connected: True
+== 3-regular tree
+tree truncated at depth 10 ; internal degrees all 3: True
+P7/P8 radius 0: blockers 1, forever pieces 3, trapped 0, 3*2^r = 3
+P7/P8 radius 1: blockers 4, forever pieces 6, trapped 0, 3*2^r = 6
+P7/P8 radius 2: blockers 10, forever pieces 12, trapped 0, 3*2^r = 12
+P7/P8 radius 3: blockers 22, forever pieces 24, trapped 0, 3*2^r = 24
+P7/P8 radius 4: blockers 46, forever pieces 48, trapped 0, 3*2^r = 48

@@ -1,0 +1,94 @@
+ok   T[2n]=T[n], T[2n+1]=complement T[n] on the 2^18 prefix
+factor counts p(n), n=1..12: [2, 4, 6, 10, 12, 16, 20, 22, 24, 28, 32, 36]
+ok   no AAA, BBB, ABABA, BABAB in 2^18 prefix
+ok   every even-start (true) pair is unequal
+ok   equal neighbours start only at odd indices
+strips per page (source): [['BA', 'BA', 'AB', 'BAAB'], ['BAABBA', 'BA', 'AB', 'BA', 'BAB', 'ABBABAAB', 'ABBAABBA', 'ABBABBAB', 'ABBABAABABBABAAB'], ['AABBA', 'AB', 'BA', 'AB', 'ABA', 'BAABA', 'AABB', 'ABBAABBA'], ['ABABABABABABABAB', 'ABBAABBAABBAABBA']]
+ok   student PDF has 4 pages
+ok   PDF page 1 strips match source: ['BA', 'BA', 'AB', 'BAAB']
+ok   PDF page 2 strips match source: ['BAABBA', 'BA', 'AB', 'BA', 'BAB', 'ABBABAAB', 'ABBAABBA', 'ABBABBAB', 'ABBABAABABBABAAB']
+ok   PDF page 3 strips match source: ['AABBA', 'A', 'AB', 'BA', 'AB', 'ABA', 'BAABA', 'AABB', 'ABBAABBA']
+ok   PDF page 4 strips match source: ['ABABABABABABABAB', 'ABBAABBAABBAABBA']
+ok   worked example: BA -> BA AB -> BAAB
+16-tile row: ABBABAABBAABABBA
+P1 distinct triples in 16-row: ['AAB', 'ABA', 'ABB', 'BAA', 'BAB', 'BBA'] 6 ; in 8-row: ['AAB', 'ABA', 'ABB', 'BAA', 'BAB', 'BBA']
+ok   P1 answer = guide list (6)
+ok   P1 all six already in 8-row (guide)
+ok   P1 the six are all triples of T
+ok   P1 14 window starts (guide)
+ok   P2 each 3-window holds an even-start pair
+ok   P3 worked example BAABBA -> BA AB BA -> BAB
+P3 claims: ['ABBABAAB', 'ABBAABBA', 'ABBABBAB', 'ABBABAABABBABAAB']
+   ABBABAAB -> ABBA -> AB -> A | reaches A | whole row: True | factor of T: True
+   ABBAABBA -> ABAB -> AA | bad pair AA | whole row: False | factor of T: True
+   ABBABBAB ->  | bad pair BB | whole row: False | factor of T: False
+   ABBABAABABBABAAB -> ABBAABBA -> ABAB -> AA | bad pair AA | whole row: False | factor of T: True
+ok   P3 only claim 1 is a whole row (guide)
+ok   P3 claim lengths all powers of 2 (no length shortcut)
+ok   P3 SHORTCUT: comparing with the 8/16 rows built in P1 settles every claim
+ok   P4 worked example AABBA -> (A, dashed) AB BA -> AB
+ok   P4 worked example has exactly that one pairing and is genuine
+P4 crops: ['ABA', 'BAABA', 'AABB', 'ABBAABBA']
+ok   P4 crop order matches guide table
+   ABA factor: True parities in T: [0, 1] pairings: ['AB | (A)', '(A) | BA'] kept: ['A', 'B'] kept factors: [True, True]
+ok   P4 ABA genuinely occurs
+ok   P4 ABA pairings/kept match guide
+ok   P4 ABA every pairing is realised in T
+   BAABA factor: True parities in T: [0] pairings: ['BA | AB | (A)'] kept: ['BA'] kept factors: [True]
+ok   P4 BAABA genuinely occurs
+ok   P4 BAABA pairings/kept match guide
+ok   P4 BAABA every pairing is realised in T
+   AABB factor: True parities in T: [1] pairings: ['(A) | AB | (B)'] kept: ['A'] kept factors: [True]
+ok   P4 AABB genuinely occurs
+ok   P4 AABB pairings/kept match guide
+ok   P4 AABB every pairing is realised in T
+   ABBAABBA factor: True parities in T: [0] pairings: ['AB | BA | AB | BA'] kept: ['ABAB'] kept factors: [True]
+ok   P4 ABBAABBA genuinely occurs
+ok   P4 ABBAABBA pairings/kept match guide
+ok   P4 ABBAABBA every pairing is realised in T
+P5 five-tile factors: ['AABAB', 'AABBA', 'ABAAB', 'ABABB', 'ABBAA', 'ABBAB', 'BAABA', 'BAABB', 'BABAA', 'BABBA', 'BBAAB', 'BBABA']
+ok   P5 no genuine 5-crop has two pairings (none exists)
+ok   P5 every 5-crop has equal neighbours
+ok   guide: every genuine crop of length 5..24 has exactly one pairing
+crops of length 1..4 with two pairings: {1: ['A', 'B'], 2: ['AB', 'BA'], 3: ['ABA', 'BAB'], 4: ['ABAB', 'BABA']}
+   ABABA pairings: ['AB | AB | (A)', '(A) | BA | BA'] full parents: ['AAA', 'BBB']
+ok   P5 ABABA forces AAA/BBB parents
+   BABAB pairings: ['BA | BA | (B)', '(B) | AB | AB'] full parents: ['BBB', 'AAA']
+ok   P5 BABAB forces AAA/BBB parents
+P5 if the one lone tile may sit mid-piece, genuine 5-crops with 2+ pairings: {'ABAAB': ['(A) | BA | AB', 'AB | (A) | AB'], 'ABBAB': ['AB | (B) | AB', 'AB | BA | (B)'], 'BAABA': ['BA | (A) | BA', 'BA | AB | (A)'], 'BABBA': ['(B) | AB | BA', 'BA | (B) | BA']}
+ok   P6 printed strips are (AB)^8 and (ABBA)^4
+ok   P6 (AB)^inf has no AAA/BBB
+P6 (AB)^inf contains ABABA/BABAB: ['ABABA', 'BABAB']
+   shortest non-factors of (AB)^inf, length 5: ['ABABA', 'BABAB']
+ok   P6 (ABBA)^inf has no AAA/BBB
+P6 (ABBA)^inf contains ABABA/BABAB: []
+   shortest non-factors of (ABBA)^inf, length 8: ['AABBAABB', 'BBAABBAA']
+ok   P6 ABABA impossible
+ok   P6 ABBAABBAAB impossible; ABBAABBA genuine (guide)
+ok   P6 ABBAABBAAB forced split decodes to ABABA
+P6 ABBA strip, by start offset: first length at which the window is a non-factor;
+   first length at which complete pairs alone decode to a non-factor;
+   offset 0: non-factor at n=9 (ABBAABBAA, pairing ['AB | BA | AB | BA | (A)'], full parents ['ABABA']); complete pairs alone: n=10 (['ABABA'])
+   offset 1: non-factor at n=8 (BBAABBAA, pairing ['(B) | BA | AB | BA | (A)'], full parents ['ABABA']); complete pairs alone: n=11 (['BABAB'])
+   offset 2: non-factor at n=9 (BAABBAABB, pairing ['BA | AB | BA | AB | (B)'], full parents ['BABAB']); complete pairs alone: n=10 (['BABAB'])
+   offset 3: non-factor at n=8 (AABBAABB, pairing ['(A) | AB | BA | AB | (B)'], full parents ['BABAB']); complete pairs alone: n=11 (['ABABA'])
+ok   P6 8-tile BBAABBAA is impossible, but its complete pairs keep only BAB; lone-tile parents give ABABA
+ok   P6 8-tile AABBAABB is impossible, but its complete pairs keep only ABA; lone-tile parents give BABAB
+ok   P7 sanity: no p<=4096 is a period of the second half of the 2^18 prefix
+ok   P7 aligned four-blocks are ABBA/BAAB
+ok   guide PDF contains: AAB, ABA, ABB, BAA, BAB, BBA
+ok   guide PDF contains: 14 possible starting places
+ok   guide PDF contains: ABBABAAB → ABBA → AB → A
+ok   guide PDF contains: ABBAABBA → ABAB → AA
+ok   guide PDF contains: AB | BA | BB | AB
+ok   guide PDF contains: ABBABAABABBABAAB → ABBAABBA → ABAB → AA
+ok   guide PDF contains: BAABA BA | AB | (A) BA
+ok   guide PDF contains: AABB (A) | AB | (B) A
+ok   guide PDF contains: ABBAABBA AB | BA | AB | BA ABAB
+ok   guide PDF contains: ABBAABBAAB
+ok   guide PDF contains: AABBA has (A) | AB | BA, keeping AB
+ok   kit: largest build 8 old + 16 new <= 32 tiles
+ok   kit totals 108 tiles, 14 / 6 dividers
+ok   print counts 16 and 20 sheets
+
+FAILURES: 0

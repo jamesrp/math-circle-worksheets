@@ -65,6 +65,21 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 60 | Take it or pass (optimal stopping) | keep | [card](week-60.md), [math check](week-60-math.md) |
 | 62 | Conflict networks and scheduling | keep | [card](week-62.md), [math check](week-62-math.md) |
 | 63 | Cards away from home (derangements) | revise: the K–1 table has no route after the launch, though placing and checking cards suits it | [card](week-63.md), [math check](week-63-math.md) |
+| 64 | Straight paths on strange surfaces (a glued octagon, square-tiled surfaces) | keep | [card](week-64.md), [math check](week-64-math.md) |
+| 65 | Hyperbolic octagon streets | keep | [card](week-65.md), [math check](week-65-math.md) |
+| 66 | Lamplighter streets (the lamplighter group) | keep | [card](week-66.md), [math check](week-66-math.md) |
+| 67 | Meeting on shortest roads (medians) | keep | [card](week-67.md), [math check](week-67-math.md) |
+| 68 | How many ways out (ends of graphs) | keep | [card](week-68.md), [math check](week-68-math.md) |
+| 69 | Thin and fat road triangles (hyperbolicity) | keep | [card](week-69.md), [math check](week-69-math.md) |
+| 70 | Four shields in a portal room (the torus) | keep | [card](week-70.md), [math check](week-70-math.md) |
+| 71 | Can you hear the room? (billiard words) | keep | [card](week-71.md), [math check](week-71-math.md) |
+| 72 | A robot that remembers area (the Heisenberg group) | keep | [card](week-72.md), [math check](week-72-math.md) |
+| 73 | The gentlest stretch (least stretch maps) | keep | [card](week-73.md), [math check](week-73-math.md) |
+| 74 | Doubling elevators (BS(1, 2)) | keep | [card](week-74.md), [math check](week-74-math.md) |
+| 75 | Twists on a cylinder (winding and Dehn twists) | revise: "crossings" on page 4 means seam crossings everywhere before, so children can minimise the wrong thing, and page 3 asks for twisted routes with no board that holds them | [card](week-75.md), [math check](week-75-math.md) |
+| 76 | Substitution strips (Thue–Morse) | keep | [card](week-76.md), [math check](week-76-math.md) |
+| 77 | Persistent holes | keep | [card](week-77.md), [math check](week-77-math.md) |
+| 78 | Three-armed lines (tropical lines) | keep | [card](week-78.md), [math check](week-78-math.md) |
 
 ## Calibration
 
