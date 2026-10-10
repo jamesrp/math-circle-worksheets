@@ -60,6 +60,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 32 | Squares inside rectangles (Euclid by squares) | keep | [card](week-32.md), [math check](week-32-math.md) |
 | 33 | Prime-length necklaces | keep | [card](week-33.md), [math check](week-33-math.md) |
 | 34 | Hidden turns (distinguishing colourings) | keep | [card](week-34.md), [math check](week-34-math.md) |
+| 35 | Footprint borders (frieze symmetry) | revise: the guide asks for 20–24 notched footprint pieces per pair in four forms, and nothing in the week prints them | [card](week-35.md), [math check](week-35-math.md) |
 | 36 | Making threes (nine-tile SET) | keep | [card](week-36.md), [math check](week-36-math.md) |
 | 37 | Mirror twins (tetrahedron chirality) | revise: the guide says failed turns never prove impossibility, though "A must go on A, and all three turns about A fail" is complete, and nothing supplies the tetrahedron kit it specifies | [card](week-37.md), [math check](week-37-math.md) |
 | 39 | Road detours (path reduction) | revise: K–1 Problem 7 has two readings, and the key tells the adult that the natural one is wrong, so an adult may correct a right answer | [card](week-39.md), [math check](week-39-math.md) |
