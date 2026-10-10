@@ -52,7 +52,7 @@ Fit B, size M. Proposed row: | 77 | Persistent holes | Add edges and tiles on a 
 
 A triangle fills only when its edges are present. Tapping a filled tile toggles its three edges on the lit saved loop; the solve is a dark loop, and "can't" often has a certificate: a lit edge that only unfilled tiles touch. Schedule goals (P2, P6) check by replay; nested tile sets certify that a pair cannot die in both orders. Pitfalls: four schedules invite guessing, so use strips of four to six triangles or a ring with a permanent hole; leave out P3's question and P5 (predict-and-explain) and any "3 of 4" counter. Draw on P1, P2, P6.
 
-**Decision, October 10, 2026.** Not ported in the October 10, 2026 round: on screen the loop test alone always cancels with the tiles inside the loop, which is thin, and the persistence schedules need a timeline. Revisit after the paper version is tried; a loop group in Lantern Wires is the natural home.
+**Decision, October 10, 2026.** Port, in Wave 9, as a loop group in Lantern Wires, which already toggles mod 2: tapping a filled triangle toggles its three edges on the lit loop, the solve is a dark loop, and "can't" is certified by a lit edge that only unfilled tiles touch. Boards are strips or rings with a permanent hole, so whether a loop can be cancelled is a real question. Schedule goals (a target death stage or order, checked by replay) are the Hard puzzles. No counters and no predict-and-explain screens. Tracked in the app's [decisions.md](https://github.com/jamesrp/small-math-adventure/blob/main/docs/plan/decisions.md).
 
 ## Classroom evidence
 

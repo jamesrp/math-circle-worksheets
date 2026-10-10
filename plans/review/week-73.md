@@ -55,7 +55,7 @@ B, size M. Proposed row: | 73 | The gentlest stretch | Place O's image to make a
 
 The app computes stretch exactly, so the 0.735 mm a ruler misses becomes a highlighted pair. The child drags the image of O, later several mesh points; boundary points slide only along their own side. The solve is "worst stretch at most the budget", checked exactly (on a convex sheet, the largest stretch of any triangle piece). The certificate for "best" is the map plus a tapped pair whose ends sit on opposite sides, as in route packing. Pitfalls: a live number invites dragging until it drops, so show the worst pair after each try; P1's five-pin game is flat, so don't port it as an optimization; the piece shortcut fails on non-convex shapes; "predict max(W/4, H)" is the prediction children enjoy less. Draw on P2's fan hunt, P3–P4, and P5 with fix 2's width-bound target.
 
-**Decision, October 10, 2026.** Not ported in the October 10, 2026 round: dragging mesh points under an exact worst-stretch check is a large new mechanic, and each sheet has one answer, so the supply of puzzles is thin.
+**Decision, October 10, 2026.** Not porting. On a screen every sheet reduces to one formula, max(W/4, H), certified each time by the same kind of pair with ends on opposite sides, so after a puzzle or two the solve repeats; and dragging mesh points under a stretch check invites sliding until a number drops, the mode the app avoids. The week's experience is the pin test and the ruler on paper, which the worksheet keeps. Tracked in the app's [decisions.md](https://github.com/jamesrp/small-math-adventure/blob/main/docs/plan/decisions.md).
 
 ## Classroom evidence
 

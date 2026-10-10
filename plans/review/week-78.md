@@ -57,7 +57,7 @@ The child drags junctions; the app draws arms past the window, rings a shared po
 
 Pitfalls: no "how will these meet?" prediction rounds, which children enjoy least, and no rotate handle. On Hard, snap to half-steps so that points between grid dots count. Draw on P1, P2, P4, P5 and P6's pair, and leave P3, P6's rule and P7 on paper.
 
-**Decision, October 10, 2026.** Not ported in the October 10, 2026 round: with live feedback, placing one junction becomes sliding until the stars light, and the theorems live in noticing and explaining. The three-star "can't" claim is the solve to build if it is revisited.
+**Decision, October 10, 2026.** Port, in Wave 9, with the placement checked only when the child submits, so it is never sliding until the stars light: place one junction so the line passes every target, mark the ray of junctions for aligned targets and declare done, claim "can't" for three targets with each target's fan of allowed junctions as the certificate, and place a second line to meet the first in a named point or ray. Arms run past the window and there is no rotate handle. Tracked in the app's [decisions.md](https://github.com/jamesrp/small-math-adventure/blob/main/docs/plan/decisions.md).
 
 ## Classroom evidence
 

@@ -52,7 +52,7 @@ Proposed row: | 65 | Hyperbolic octagon streets | Walk an arrow around right-ang
 
 The child taps left, straight or right; the floor recentres so every room looks the same size, which paper cannot do. Solves: come home facing the same way in exactly 8 or 14 moves; fence a block with 12 left turns and no right turns. "Can't" goals: home in 4 or 6 moves (every return circles a whole room of 8 sides; my enumeration agrees), any odd length (two-colour the corners), two rooms with fewer than 12 left turns. Pitfalls: no "run this program, say where it ends" (P2 as printed), the kind children liked least; no "x of 8" counters; skip P5. L for a new disk renderer. Draw on P1–P4.
 
-**Decision, October 10, 2026.** Not ported in the October 10, 2026 round: every solve needs a recentring octagon floor, a large new board; the impossible returns (home in 4 or 6 moves, or in an odd number) are the goals to build if it comes.
+**Decision, October 10, 2026.** Port, in Wave 9, as its own family on a recentring octagon floor. The robot's position is kept as its exact sequence of moves (left, straight, right), so returns are checked exactly and the drawing only shows them. The solves are coming home facing the same way in exactly 8 or 14 moves and fencing a block on a turn budget, and the "can't" goals carry the mathematics: home in 4 or 6 moves, or in any odd number, and two rooms with fewer than 12 left turns. The large board is worth it because these impossibilities are where the hyperbolic floor differs from the square one, and a square floor sits beside it for contrast. No "run this program" screens. Tracked in the app's [decisions.md](https://github.com/jamesrp/small-math-adventure/blob/main/docs/plan/decisions.md).
 
 ## Classroom evidence
 
