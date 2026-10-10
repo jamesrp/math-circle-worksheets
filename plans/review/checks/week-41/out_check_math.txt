@@ -1,0 +1,216 @@
+Week 41 independent math check
+repository: math-circle-worksheets
+
+== Page-1 worked example (all bands): two steps right from H
+PASS RR from H visits H, E, D on the portal map
+PASS E is in the original copy, D in the next copy right
+   k-1: printed words (page, word) = [(1, 'RRD'), (1, 'UU'), (1, 'LD'), (1, 'UURR')]
+   grades-2-3: printed words (page, word) = [(1, 'RRD'), (1, 'UU'), (1, 'LD'), (1, 'UURR'), (3, 'RRR'), (3, 'UUU'), (3, 'RRRUUU'), (3, 'RRLL'), (4, 'RRRUUU'), (4, 'RURURU')]
+   grades-4-5: printed words (page, word) = [(1, 'RRD'), (1, 'UU'), (1, 'LD'), (1, 'UURR'), (3, 'RRRUUU'), (3, 'UUURRR'), (3, 'RRLL'), (3, 'RRRUUULLLDDD'), (4, 'RRRUUULLLDDD'), (4, 'RRR'), (4, 'RRRUUU'), (4, 'UUURRR')]
+
+== Problem 1 (all bands): RRD, UU, LD, UURR from H
+PASS k-1 p.1 prints exactly the words ['RRD', 'UU', 'LD', 'UURR']
+PASS grades-2-3 p.1 prints exactly the words ['RRD', 'UU', 'LD', 'UURR']
+PASS grades-4-5 p.1 prints exactly the words ['RRD', 'UU', 'LD', 'UURR']
+   endpoints: {'RRD': 'F', 'UU': 'G', 'LD': 'F', 'UURR': 'F'}
+PASS endpoints are F, G, F, F (guide pp. 3-5)
+PASS guide p.3 replay of RRD: H→E→D→F (computed H→E→D→F)
+PASS guide p.3 replay of UU: H→B→G (computed H→B→G)
+PASS guide p.3 replay of LD: H→D→F (computed H→D→F)
+PASS guide p.3 replay of UURR: H→B→G→I→F (computed H→B→G→I→F)
+PASS guide p.3 prints: "The four printed routes end, from top to bottom, at F, G, F, F"
+
+== K-1 Problem 2: every square reachable in exactly two steps from H
+   with any steps: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'] (9)
+   without an immediate reversal: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'I'] (8)
+PASS all nine cells are reachable in exactly two steps (guide p.3)
+PASS without reversals exactly the eight cells other than H
+PASS guide witness A: LU
+PASS guide witness B: DD
+PASS guide witness C: RU
+PASS guide witness D: RR
+PASS guide witness H: RL
+PASS guide witness E: LL
+PASS guide witness F: LD
+PASS guide witness G: UU
+PASS guide witness I: RD
+   cells reachable in two steps without crossing an edge: ['A', 'C', 'F', 'H', 'I']
+PASS guide: DD goes H→G→B, UU goes H→B→G
+
+== K-1 Problem 3: trips from H back to H with 2, 3, 4, 5 steps
+   2 steps: 4 closed words, e.g. ['RL', 'LR', 'UD', 'DU']
+PASS more than one trip exists with 2 steps
+   3 steps: 4 closed words, e.g. ['RRR', 'LLL', 'UUU', 'DDD']
+PASS more than one trip exists with 3 steps
+   4 steps: 36 closed words, e.g. ['RRLL', 'RLRL', 'RLLR', 'RLUD', 'RLDU', 'RULD']
+PASS more than one trip exists with 4 steps
+   5 steps: 100 closed words, e.g. ['RRRRL', 'RRRLR', 'RRRUD', 'RRRDU', 'RRLRR', 'RRURD']
+PASS more than one trip exists with 5 steps
+PASS 3-step trips are exactly RRR, LLL, UUU, DDD
+PASS guide p.3 example RL returns to H
+PASS guide p.3 example UD returns to H
+PASS guide p.3 example RRR returns to H
+PASS guide p.3 example UUU returns to H
+PASS guide p.3 example RRLL returns to H
+PASS guide p.3 example RULD returns to H
+PASS guide p.3 example RRRUD returns to H
+PASS guide p.3 example UUURL returns to H
+
+== K-1 Problem 4: pawns on H and E, same arrow steps, can they trade places?
+   reachable pawn-pair states: 9 (of 81)
+PASS no common word swaps the pawns: answer No (guide p.3)
+PASS the offset from the H-pawn to the E-pawn stays one cell right (mod 3)
+PASS guide: +1 and -1 differ mod 3
+
+== Grades 2-3 Problem 2: closed trips of exactly 3 and 6 steps
+PASS 3 steps: complete list RRR, LLL, UUU, DDD (guide p.4)
+   6-step closed words: 484; by displacement {(-6, 0): 1, (-3, -3): 20, (-3, 3): 20, (0, -6): 1, (0, 0): 400, (0, 6): 1, (3, -3): 20, (3, 3): 20, (6, 0): 1}
+PASS 484 six-step words return to H (guide p.4)
+PASS 400 balanced words
+PASS one straight word for each of (±6,0),(0,±6)
+PASS 20 words for each of the four (±3,±3)
+PASS no other six-step return displacement
+PASS spectral count of closed 6-walks is 484
+PASS guide p.4 six-step example RRRRRR returns to H
+PASS guide p.4 six-step example LLLLLL returns to H
+PASS guide p.4 six-step example UUUUUU returns to H
+PASS guide p.4 six-step example DDDDDD returns to H
+PASS guide p.4 six-step example RRRUUU returns to H
+PASS guide p.4 six-step example RURURU returns to H
+PASS guide p.4 six-step example RRRDDD returns to H
+PASS guide p.4 six-step example LLLUUU returns to H
+PASS guide p.4 six-step example LLLDDD returns to H
+PASS guide p.4 six-step example RLRLRL returns to H
+PASS guide p.4 prints: "There are 400 balanced strings, four straight six-step strings, and 20 for each of the four diagonal sign choices: 484 total"
+
+== Grades 2-3 Problem 3: finishing copies (and whether the route fits the printed 3x3 array of copies)
+PASS 2-3 p.3 prints ['RRR', 'UUU', 'RRRUUU', 'RRLL']
+PASS RRR: finishes at H in copy (1, 0) (guide (1, 0)); stays on printed array: True
+PASS UUU: finishes at H in copy (0, 1) (guide (0, 1)); stays on printed array: True
+PASS RRRUUU: finishes at H in copy (1, 1) (guide (1, 1)); stays on printed array: True
+PASS RRLL: finishes at H in copy (0, 0) (guide (0, 0)); stays on printed array: True
+PASS RRLL enters the right copy before returning (guide p.4)
+
+== Grades 2-3 Problem 4: RRRUUU vs RURURU
+PASS 2-3 p.4 prints RRRUUU and RURURU
+PASS both finish at H and in copy (1,1): yes and yes (guide p.4)
+PASS both stay on the printed array
+
+== Grades 2-3 Problem 5: visit another copy and finish at the original H
+PASS guide p.4 RRRLLL: ends at original H, visits [(1, 0)]
+PASS guide p.4 UUUDDDRRRLLL: ends at original H, visits [(0, 1), (1, 0)]
+PASS guide p.4 RRRUUULLLDDD: ends at original H, visits [(0, 1), (1, 0), (1, 1)]
+   RRRUUULLLDDD copy sequence: [(0, 0), (1, 0), (1, 1), (0, 1), (0, 0)]
+PASS it passes right, upper-right, upper, then original (guide p.4)
+   shortest closed trip visiting a copy above and a copy right: length 8, e.g. RRLLUUDD
+
+== Grades 4-5 Problem 2: four trips finishing in different copies
+PASS guide p.5 RRR -> (1, 0)
+PASS guide p.5 LLL -> (-1, 0)
+PASS guide p.5 UUU -> (0, 1)
+PASS guide p.5 DDD -> (0, -1)
+
+== Grades 4-5 Problem 3: finishing copies
+PASS 4-5 p.3 prints ['RRRUUU', 'UUURRR', 'RRLL', 'RRRUUULLLDDD']
+PASS RRRUUU -> (1, 1) (guide (1, 1)); on printed array: True
+PASS UUURRR -> (1, 1) (guide (1, 1)); on printed array: True
+PASS RRLL -> (0, 0) (guide (0, 0)); on printed array: True
+PASS RRRUUULLLDDD -> (0, 0) (guide (0, 0)); on printed array: True
+PASS copy (-1, 1): its H is at lifted (3m,3n) = (-3, 3)
+PASS copy (0, 1): its H is at lifted (3m,3n) = (0, 3)
+PASS copy (1, 1): its H is at lifted (3m,3n) = (3, 3)
+PASS copy (-1, 0): its H is at lifted (3m,3n) = (-3, 0)
+PASS copy (0, 0): its H is at lifted (3m,3n) = (0, 0)
+PASS copy (1, 0): its H is at lifted (3m,3n) = (3, 0)
+PASS copy (-1, -1): its H is at lifted (3m,3n) = (-3, -3)
+PASS copy (0, -1): its H is at lifted (3m,3n) = (0, -3)
+PASS copy (1, -1): its H is at lifted (3m,3n) = (3, -3)
+
+== Grades 4-5 Problem 4: which trip shrinks to staying at H
+PASS 4-5 p.4 prints RRRUUULLLDDD, RRR (P4) and RRRUUU, UUURRR (P5)
+PASS nine slides give RRRLLLUUUDDD (guide p.5)
+PASS each of the nine is a legal square slide
+PASS then six cancellations reach the empty trip (15 moves in all)
+PASS every step of the reduction is one allowed move
+PASS the whole reduction stays on the printed page-3 array
+PASS RRR finishes in copy (1,0), so it cannot shrink
+
+== Endpoint invariance of the allowed moves (all words up to length 7)
+PASS every allowed move preserves the lifted endpoint
+
+== Grades 4-5 Problem 5: RRRUUU -> UUURRR
+PASS guide sequence has nine slides from RRRUUU to UUURRR
+PASS each guide step is one legal square slide
+   fewest allowed moves RRRUUU -> UUURRR (words up to length 8): 9
+   (R,U) inversions to undo: 9
+
+== Grades 4-5 Problem 6 / guide theorem: moves connect two loops iff same finishing copy
+PASS no move class mixes finishing copies
+PASS loops of length <= 8 with the same finishing copy are all connected (9789 words, 13 classes)
+PASS guide p.5: without faces the commutator RULD does not cancel, though its finishing copy is (0,0)
+
+== Guide overview: return to H iff both displacements are multiples of 3; copy = (x/3, y/3)
+PASS checked on all words up to length 8
+
+== Bonus Problem 1: round-end orbits of a repeated word
+PASS RL: round ends ['H'] (guide ['H'])
+PASS R: round ends ['H', 'E', 'D'] (guide ['H', 'E', 'D'])
+PASS RU: round ends ['H', 'C', 'F'] (guide ['H', 'C', 'F'])
+PASS RRR: round ends ['H'] (guide ['H'])
+PASS RULD: round ends ['H'] (guide ['H'])
+PASS RRU: round ends ['H', 'A', 'I'] (guide ['H', 'A', 'I'])
+PASS no word up to length 7 reaches more than 3 round-end cells (max 3); none reaches all nine
+PASS bonus guide period formula lcm(a/gcd(a,x), b/gcd(b,y)) holds for a,b <= 7, |x|,|y| <= 8
+
+== Bonus Problem 2: nine-step tours of the 3x3 portal board
+   tours: 96; finishing copies: {(-2, -1): 3, (-2, 1): 3, (-1, -2): 3, (-1, 0): 18, (-1, 2): 3, (0, -1): 18, (0, 1): 18, (1, -2): 3, (1, 0): 18, (1, 2): 3, (2, -1): 3, (2, 1): 3}
+PASS 96 rooted oriented tours (bonus guide p.1)
+PASS 12 finishing copies
+PASS no tour finishes in the original copy
+   tours that stay on the printed 3x3 array of copies, by finishing copy: {(-1, 0): 18, (0, -1): 18, (0, 1): 18, (1, 0): 18}
+PASS the guide's 12 copies are exactly the possible ones
+PASS guide row (-2, -1): LLDLLDLLD is a tour ending there; count 3 (guide 3)
+PASS guide row (-2, 1): LLULLULLU is a tour ending there; count 3 (guide 3)
+PASS guide row (-1, -2): LDDLDDLDD is a tour ending there; count 3 (guide 3)
+PASS guide row (-1, 0): RULLDDLLU is a tour ending there; count 18 (guide 18)
+PASS guide row (-1, 2): LUULUULUU is a tour ending there; count 3 (guide 3)
+PASS guide row (0, -1): RRDDLULDD is a tour ending there; count 18 (guide 18)
+PASS guide row (0, 1): RRUULDLUU is a tour ending there; count 18 (guide 18)
+PASS guide row (1, -2): RDDRDDRDD is a tour ending there; count 3 (guide 3)
+PASS guide row (1, 0): RRULURRDD is a tour ending there; count 18 (guide 18)
+PASS guide row (1, 2): RUURUURUU is a tour ending there; count 3 (guide 3)
+PASS guide row (2, -1): RRDRRDRRD is a tour ending there; count 3 (guide 3)
+PASS guide row (2, 1): RRURRURRU is a tour ending there; count 3 (guide 3)
+PASS the 8 symmetries of the board about H map tours to tours
+   symmetry orbits of finishing copies: [[(-1, 0), (0, -1), (0, 1), (1, 0)], [(-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)]]
+PASS two examples, (1,0) and (2,1), generate all 12 copies under the symmetries (bonus guide extension)
+PASS every finishing copy has m+n odd (nine is odd)
+PASS 96 = 2 orientations x 48 undirected Hamiltonian cycles
+
+== Bonus Problem 3: shortest routes with B and E closed in every copy
+PASS right copy (3, 0): BFS distance 5 (guide 5)
+PASS guide witness DRRRU is legal and reaches (3, 0)
+   right copy: 2 shortest routes, 2 inside the printed patch
+PASS up copy (0, 3): BFS distance 5 (guide 5)
+PASS guide witness LUURU is legal and reaches (0, 3)
+   up copy: 2 shortest routes, 2 inside the printed patch
+PASS right + up (3, 3): BFS distance 8 (guide 8)
+PASS guide witness LUURRRRU is legal and reaches (3, 3)
+   right + up: 4 shortest routes, 4 inside the printed patch
+PASS H's right and up neighbours are closed; left and down are open
+
+== Bonus pages 1-2: which printed words and tours cross the top/bottom edge (the board marks only left/right seams)
+   P1 word R: top/bottom crossings in three rounds = 0
+   P1 word RU: top/bottom crossings in three rounds = 1
+   P1 word RRR: top/bottom crossings in three rounds = 0
+   P1 word RULD: top/bottom crossings in three rounds = 0
+   P1 word RRU: top/bottom crossings in three rounds = 1
+PASS P1: RU and RRU cannot be replayed for three rounds without crossing the top/bottom edge
+   P2: 84 of 96 tours cross the top/bottom edge; 12 use only left/right seams
+PASS P2: every tour finishing in a copy with n != 0 crosses the top/bottom edge
+   cylinder reading (no top/bottom wrap): tours by finishing copy {(-1, 0): 6, (1, 0): 6}
+PASS read as a cylinder, the board allows only 12 tours, finishing in just two copies
+   RU replayed: round ends ['H', 'C', 'F', 'H']; second round C -R-> A -U-> F crosses the top edge
+   RRU replayed: round ends ['H', 'A', 'I', 'H']; second round A -R-> B -R-> C -U-> I crosses the top edge
+
+TOTAL: 0 failures

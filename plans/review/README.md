@@ -35,6 +35,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 1 | Tiling lab (pattern blocks) | keep | [card](week-01.md), [math check](week-01-math.md) |
 | 1e | Pattern blocks II (the Week 1 encore) | keep | [card](week-01e.md), [math check](week-01e-math.md) |
 | 2 | Switches and lamps | revise: a working board that enforces the pair rule, and an adult guide for the compact catalog | [card](week-02.md), [math check](week-02-math.md) |
+| 12 | Catalan bijections (noncrossing pairings, paths and trees) | revise: the guide hint for K–1 Problem 4 says comparing the partners of one dot detects duplicates, so an adult may call a new pairing a repeat | [card](week-12.md), [math check](week-12-math.md) |
 | 15 | Nearest-site regions | keep | [card](week-15.md), [math check](week-15-math.md) |
 | 3 | Shuffle machines (permutations as arrow mats) | keep | [card](week-03.md), [math check](week-03-math.md) |
 | 4 | Stars and secret wheels | revise: the adult guide puts the 4–5 times-table dents where the curve touches the circle, so an adult would correct a right drawing | [card](week-04.md), [math check](week-04-math.md) |
@@ -58,6 +59,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 34 | Hidden turns (distinguishing colourings) | keep | [card](week-34.md), [math check](week-34-math.md) |
 | 37 | Mirror twins (tetrahedron chirality) | revise: the guide says failed turns never prove impossibility, though "A must go on A, and all three turns about A fail" is complete, and nothing supplies the tetrahedron kit it specifies | [card](week-37.md), [math check](week-37-math.md) |
 | 39 | Road detours (path reduction) | revise: K–1 Problem 7 has two readings, and the key tells the adult that the natural one is wrong, so an adult may correct a right answer | [card](week-39.md), [math check](week-39-math.md) |
+| 41 | Torus portals and lifts | keep | [card](week-41.md), [math check](week-41-math.md) |
 | 42 | Fair results from a bag (von Neumann's fair coin) | keep | [card](week-42.md), [math check](week-42-math.md) |
 | 43 | Shuffling picture cards (fair shuffles) | revise: K–1 Problem 2's crossed-out cards and four rows fit "this card can't be first", while the key reads them as drawn first, so an adult may mark a right answer wrong | [card](week-43.md), [math check](week-43-math.md) |
 | 44 | The bag that copies (Pólya's urn) | keep | [card](week-44.md), [math check](week-44-math.md) |
