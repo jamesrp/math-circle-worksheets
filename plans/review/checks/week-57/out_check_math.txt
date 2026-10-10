@@ -1,0 +1,125 @@
+== Shared panels (student pp. 1-2)
+ok   p.1 panel: each copy (0,4,1), rectangle (0,6,2); page prints "Rectangle area: 2", "One copy's area: 1"
+ok   p.1 panel: the two copies meet exactly along the dashed diagonal
+ok   p.2 panel: 2x2 square has I=1, B=8, area 4 as printed
+ok   p.1 and p.2 panel outputs read from the student PDF text
+== Problem 1
+ok   P1: both areas are 6
+ok   P1 guide: wedge (0,0),(1,0),(1,3) + rest tile the parallelogram; moved 2 right they tile [1,3]x[0,3]
+== Problem 2
+ok   P2: L-shape (0,12,5)
+ok   P2: L-shape has no inside dot (guide)
+ok   P2: triangle (3,5,9/2)
+ok   P2 guide: inside (1,1),(1,2),(2,1); boundary four base dots and (1,3)
+ok   P2 guide: two copies joined on side (0, 0)-(1, 3) give parallelogram [(3, 0), (0, 0), (-2, 3), (1, 3)], base 3, height 3, area 9
+ok   P2 guide: two copies joined on side (3, 0)-(1, 3) give parallelogram [(0, 0), (3, 0), (4, 3), (1, 3)], base 3, height 3, area 9
+== Problem 3 (5x5-dot boards, 0..4)
+ok   P3: triangles with (I,B)=(2,6) on the board: 28; four-sided shapes: 780
+ok   P3: every one of them has area 4
+     P3: of the 780 four-sided shapes, 360 convex and 420 with an inward corner
+ok   P3 guide triangle (0,0),(4,0),(1,2): (2,6,4), inside (1,1),(2,1)
+ok   P3 guide quadrilateral (0,0),(2,0),(3,2),(1,2): (2,6,4), inside (1,1),(2,1), boundary = corners + (1,0),(2,2)
+ok   P3 guide witnesses fit 0..4
+ok   P3 hint 3: horizontal base of four intervals at y=0 admits apexes [(1, 2), (3, 2)]
+ok   P3 hint 3: base of two intervals at (0,0)-(2,0) admits a parallelogram
+== Problem 4
+ok   P4: records [(1, 8), (0, 12), (3, 5)] determine area = I + B/2 - 1 uniquely among linear rules
+ok   P4: records [(1, 8), (0, 12), (2, 6)] determine area = I + B/2 - 1 uniquely among linear rules
+ok   P4: records [(1, 8), (3, 5), (2, 6)] determine area = I + B/2 - 1 uniquely among linear rules
+ok   P4: records [(0, 12), (3, 5), (2, 6)] determine area = I + B/2 - 1 uniquely among linear rules
+ok   P4 guide: "area is half of B" predicts 2 for the unit square (area 1) and 6 for the L (area 5)
+ok   P4 guide: unit square (0,4,1)
+== Problem 5 (7x7-dot board, 0..6)
+ok   P5: (I,B) records realised by area-6 triangles/quadrilaterals on the board: [(0, 14), (1, 12), (2, 10), (3, 8), (4, 6), (5, 4)]
+ok   P5: Pick gives 6 for (0, 14)
+ok   P5: Pick gives 6 for (1, 12)
+ok   P5: Pick gives 6 for (2, 10)
+ok   P5: Pick gives 6 for (3, 8)
+ok   P5: Pick gives 6 for (4, 6)
+ok   P5: Pick gives 6 for (5, 4)
+ok   P5 guide witness [(0, 0), (6, 0), (6, 1), (0, 1)]: simple, fits 0..6, record (0, 14, Fraction(6, 1))
+ok   P5 guide witness [(0, 0), (5, 0), (5, 1), (4, 1), (3, 2), (2, 1), (0, 1)]: simple, fits 0..6, record (1, 12, Fraction(6, 1))
+ok   P5 guide witness [(0, 0), (3, 0), (3, 2), (0, 2)]: simple, fits 0..6, record (2, 10, Fraction(6, 1))
+ok   P5 guide witness [(0, 0), (3, 0), (4, 2), (1, 2)]: simple, fits 0..6, record (3, 8, Fraction(6, 1))
+ok   P5 guide witness [(0, 0), (2, 0), (3, 3), (1, 3)]: simple, fits 0..6, record (4, 6, Fraction(6, 1))
+ok   P5 guide witness [(0, 0), (2, 1), (6, 6), (4, 5)]: simple, fits 0..6, record (5, 4, Fraction(6, 1))
+ok   P5 guide: cross-section width 6y/5 on 0<=y<=1, 6/5 on 1<=y<=5, 6(6-y)/5 on 5<=y<=6
+ok   P5 guide: 24/5 + 3/5 + 3/5 = 6
+ok   P5 guide: its four sides have no intermediate dots
+     P5 note: (5,4) is also realised by 20 area-6 triangles on the board, e.g. [(0, 0), (0, 2), (6, 1)]
+== Problem 6
+ok   P6 rectangle: left (1,8,4), right (1,8,4), whole (3,12,8)
+ok   P6 slanted: lower (1,6,3), upper (1,6,3), whole (4,6,6)
+ok   P6 guide: upper piece is the lower piece by a half-turn
+ok   P6: each pair meets exactly along its seam
+ok   P6 guide: k=3 and k=4
+ok   P6 guide: only (2,1) becomes inside in the rectangle
+== Problem 7: joining along one segment
+ok   P7: 1224 random legal joins; I=I1+I2+k-2, B=B1+B2-2k+2, Q and area add in all
+ok   P7 guide: both seam endpoints are boundary dots of the union in every test
+ok   P7 other reading: a triangle joined on part of a rectangle side (4455 cases) still obeys the formulas
+ok   P7 guide k=2 edge case: two (0,4,1) triangles, diagonal with only its endpoints, rectangle (0,6,2)
+ok   bent seam: P8 pentagon (5,12) + notch (0,6) across the two-side seam (0,3)-(2,2)-(4,3) give the 4x3 rectangle (6,14); I=I1+I2+k-2, B=B1+B2-2k+2 with k=3, and Q: 10 + 2 = 12
+ok   bent seam: 3107 random joins along a connected two-side seam all obey I=I1+I2+k-2, B=B1+B2-2k+2 and Q=Q1+Q2 (k = dots on the whole seam), contrary to guide p.1
+ok   guide limit: two triangles touching at one point: counting the pinched union gives Q = 5/2, area 2
+== Problem 8
+ok   P8 triangle: (5,3,11/2), inside (1,1),(1,2),(2,1),(2,2),(3,1), boundary = the 3 corners
+ok   P8 guide: complements in the 4x3 box have areas 2, 3, 3/2; 12-2-3-3/2 = 11/2
+ok   P8 pentagon: (5,12,10), inside (1,1),(1,2),(2,1),(3,1),(3,2); (2,2) boundary; 5 sides
+ok   P8 guide: notch area 2, 12 - 2 = 10
+ok   Step 1: a x b rectangles (a,b<=8): I=(a-1)(b-1), B=2a+2b, Q=ab
+ok   Step 2: both diagonal halves have equal counts, swap under (x,y)->(a-x,b-y), meet exactly on the diagonal; 2Q=ab
+ok   Step 3: 1400 horizontal-base triangles: at most two axis-right complement pieces, each attachment meets exactly in one full side, unions simple, final union = bounding rectangle
+     Step 3 note: the opposite attachment order is also legal in every case
+ok   Step 4 on 5x5 dots: 2148 noncollinear triangles, 1200 sent to Step 3 by the guide's two tests, 948 through the bridge, 0 failures
+ok   guide p.8: 2,148 noncollinear triangles on a 5x5-dot board
+ok   source README split: 1600 have some axis side, 548 have none (the guide routes 948 through the bridge, since Step 4 sends a triangle with a horizontal side AB or BC to the bridge; it still works)
+ok   Step 4 on 6x6 dots: 6768 noncollinear triangles, 3300 sent to Step 3 by the guide's two tests, 3468 through the bridge, 0 failures
+ok   Step 4 example ABC: (0, 8, Fraction(3, 1)) (guide table (0, 8, 3))
+ok   Step 4 example ACD: (7, 12, Fraction(12, 1)) (guide table (7, 12, 12))
+ok   Step 4 example ABD: (2, 8, Fraction(5, 1)) (guide table (2, 8, 5))
+ok   Step 4 example BCD: (6, 10, Fraction(10, 1)) (guide table (6, 10, 10))
+ok   Step 4 example ABCD: (12, 8, Fraction(15, 1)) (guide table (12, 8, 15))
+ok   Step 4 example: D=(2,6) is the choice opposite B, and the bridge works
+ok   Step 4 example: B=(2,1) is interior to the bounding square, so the complement of ABC is a right triangle and the quadrilateral (0,0),(6,0),(6,6),(2,1)
+ok   Step 5: 1395 random simple polygons: an ear whose diagonal is a legal join always exists; Pick holds
+ok   Pick holds for every simple quadrilateral on the 5x5-dot board
+ok   guide p.1: lattice areas are multiples of 1/2 and every positive multiple occurs
+== Problems 9-10: holes
+ok   P9 ring: (I,B,A) = (0, 24, Fraction(12, 1)), guide (0,24,12)
+ok   P9 guide: old expression 11, one-hole rule gives 12 (A = I + B/2)
+ok   P9 guide: centre (2,2) removed, 8 hole-side dots
+ok   P9 guide second test: region (6,22,17); filled outer (10,18); hole (0,4); fits the 6x3 board
+ok   P10 guide witness: (7,28,22); filled (15,20); old expression 20, +2 = 22
+ok   h-hole rule: 400 random regions with 1-3 separate holes: I = Io - sum(Ij+Bj), B = Bo + sum Bj, A = I + B/2 - 1 + h
+     limit check: holes touching at (2,2): I=2, B=23, area 14, rule gives 29/2 (so separation is needed)
+ok   guide limit: holes whose closures touch are correctly excluded
+== Guide p. 2 arithmetic
+ok   51 student sheets: 12+10+10+10+6+3
+ok   25-sheet option: 6+3+3+6+7, and 7 = 5 kits + 2 younger pairs
+ok   pieces: 60 squares, 120 halves, 120 raw squares
+ok   drawing kit totals 6, 12, 6, 12
+ok   tables KK11, 3333, 445: 11 children
+ok   two letter sheets side by side: 43.2 x 27.9 cm (about 45 x 30)
+== Guide text read back from the delivered PDF
+ok   guide PDF prints "(0, 12, 5)"
+ok   guide PDF prints "(3, 5, 9/2)"
+ok   guide PDF prints "(1, 8, 4)"
+ok   guide PDF prints "(2, 6, 4)"
+ok   guide PDF prints "(0, 14), (1, 12), (2, 10), (3, 8), (4, 6), (5, 4)"
+ok   guide PDF prints "24/5 + 3/5 + 3/5 = 6"
+ok   guide PDF prints "I = 1 + 1 + 1 = 3, B = 8 + 8 − 6 + 2 = 12"
+ok   guide PDF prints "I = 1 + 1 + 2 = 4,"
+ok   guide PDF prints "B = 6 + 6 − 8 + 2 = 6"
+ok   guide PDF prints "(I, B, A) = (5, 3, 11/2)"
+ok   guide PDF prints "(I, B, A) = (5, 12, 10)"
+ok   guide PDF prints "Area 16 − 4 = 12, I = 0, B = 16 + 8 = 24"
+ok   guide PDF prints "Independent area 18 − 1 = 17"
+ok   guide PDF prints "I_o = 10"
+ok   guide PDF prints "Independent area is 24 − 1 − 1 = 22"
+ok   guide PDF prints "3 + 12 = 5 + 10 = 15"
+ok   guide PDF prints "51 Week 57 student sheets"
+ok   guide PDF prints "25 sheets"
+ok   guide PDF prints "2,148"
+
+107 checks, 0 failures

@@ -76,6 +76,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 53 | Cheapest connected networks | revise: two price labels on page 8 sit on the wrong link, and the K–1 route is one page long | [card](week-53.md), [math check](week-53-math.md) |
 | 54 | Partitions and rebuilding (Euler's odd and distinct parts) | keep | [card](week-54.md), [math check](week-54-math.md) |
 | 55 | Sumsets (fewest and most totals) | keep | [card](week-55.md), [math check](week-55-math.md) |
+| 57 | Lattice area (Pick's theorem) | keep | [card](week-57.md), [math check](week-57-math.md) |
 | 60 | Take it or pass (optimal stopping) | keep | [card](week-60.md), [math check](week-60-math.md) |
 | 62 | Conflict networks and scheduling | keep | [card](week-62.md), [math check](week-62-math.md) |
 | 63 | Cards away from home (derangements) | revise: the K–1 table has no route after the launch, though placing and checking cards suits it | [card](week-63.md), [math check](week-63-math.md) |
