@@ -1,0 +1,134 @@
+== Printed inputs (source vs delivered PDFs)
+A/B colour preferences (common.tex \prefmini): {'A': {'R': 3, 'B': 1}, 'B': {'R': 1, 'B': 3}}
+ok   materials card A prints red 3, blue 1, same as the student page
+ok   materials card B prints red 1, blue 3, same as the student page
+ok   student p.1 prefmini prints A red 3 / blue 1 and B red 1 / blue 3
+ok   student p.2 prefmini prints A red 3 / blue 1 and B red 1 / blue 3
+ok   student p.3 prefmini prints A red 3 / blue 1 and B red 1 / blue 3
+P1 goods: [('R1', 'R'), ('R2', 'R'), ('R3', 'R'), ('B1', 'B')]  P2 goods: [('R1', 'R'), ('R2', 'R'), ('B1', 'B'), ('B2', 'B')]  P5 goods: [('R1', 'R'), ('R2', 'R'), ('R3', 'R')]
+ok   P1 goods are R1,R2,R3 (red) and B1 (blue)
+ok   P2 goods are R1,R2 (red) and B1,B2 (blue)
+ok   P5 goods are R1,R2,R3, all red
+ok   student p.1 prints R1 R2 R3 B1
+ok   student p.2 prints R1 R2 B1 B2
+ok   student p.5 prints R1 R2 R3
+ok   P5 U/V cards: number 1 with 1 dot
+ok   student p.5 prints U 1 and V 1
+ok   materials U/V cards print red value 1
+P6 observer table (students.tex): {'A': (4, 8, 0), 'B': (0, 4, 8), 'C': (8, 0, 4)}
+ok   materials observer card A = (4, 8, 0) matches the student table
+ok   student p.6 PDF prints row A (4, 8, 0)
+ok   materials observer card B = (0, 4, 8) matches the student table
+ok   student p.6 PDF prints row B (0, 4, 8)
+ok   materials observer card C = (8, 0, 4) matches the student table
+ok   student p.6 PDF prints row C (8, 0, 4)
+ok   strip sketch labels: red 150 mm then blue 150 mm (red on the left)
+
+== Problem 1: R1,R2,R3,B1; A=(3,1), B=(1,3)
+totals A,B = [Fraction(10, 1), Fraction(6, 1)]
+ok   totals are 10 (A) and 6 (B)
+envy-free allocations (A gets | B gets : A own/other ; B own/other):
+   R1,R2,R3   | B1       : 9/1 ; 3/3
+   R1,R2      | R3,B1    : 6/4 ; 4/2
+   R1,R3      | R2,B1    : 6/4 ; 4/2
+   R2,R3      | R1,B1    : 6/4 ; 4/2
+ok   exactly 4 of 16 labelled allocations are envy-free for both
+ok   P1: envy-free <=> proportional on every allocation
+ok   the 4 successes are 4 different partitions (count is 4 under either reading)
+divide-and-choose, chooser takes a max-own tray (each tie-break listed):
+   divider A, trays {R1,R2,R3} | {B1} -> outcomes [False, True]
+   divider A, trays {R1,R2} | {R3,B1} -> outcomes [True]
+   divider A, trays {R1,R3} | {R2,B1} -> outcomes [True]
+   divider A, trays {R1,B1} | {R2,R3} -> outcomes [True]
+   divider B, trays {R1,R2,R3} | {B1} -> outcomes [True]
+   divider B, trays {R1,R2} | {R3,B1} -> outcomes [True]
+   divider B, trays {R1,R3} | {R2,B1} -> outcomes [True]
+   divider B, trays {R1,B1} | {R2,R3} -> outcomes [True]
+ok   the only chooser tie is in the all-red / blue partition when A divides (B sees 3-3)
+ok   every two-red / red-plus-blue partition has a strict choice for either divider (no tie)
+ok   two-red / red-plus-blue partitions succeed whichever person divides
+ok   guide's failed trial (A: R1,B1): A sees 4 vs 6
+
+== Problem 2: R1,R2,B1,B2
+ok   totals are 8 and 8, half 4
+   R1,R2    | B1,B2    : A 6/2 ; B 6/2
+   R1,B1    | R2,B2    : A 4/4 ; B 4/4
+   R1,B2    | R2,B1    : A 4/4 ; B 4/4
+   R2,B1    | R1,B2    : A 4/4 ; B 4/4
+   R2,B2    | R1,B1    : A 4/4 ; B 4/4
+ok   exactly 5 of 16 labelled allocations are envy-free for both
+ok   the proportional-for-both allocations are exactly the same 5
+   unordered partitions among them: 3 [['B1,B2', 'R1,R2'], ['R1,B1', 'R2,B2'], ['R1,B2', 'R2,B1']]
+ok   counted as unordered partitions ("two trays", page-1 sense) the same answers are only 3
+ok   reversed colour split (A: B1,B2) fails both checks for both people
+ok   saved-record rows for the colour split: (6,2,8,4) for both
+ok   saved-record rows for a mixed split: (4,4,8,4) for both
+
+== Problem 3: 300 mm strip, red [0,150], blue [150,300]
+   A cuts at 100 mm; A sees (2, 2); B sees (2/3, 10/3); B takes right
+ok   A-cut matches the guide: 100 mm, chooser takes right
+ok   A: the equal-value cut is unique on a whole-mm scan ([100])
+ok   both receive at least half (chooser 10/3, cutter 2)
+   B cuts at 200 mm; A sees (10/3, 2/3); B sees (2, 2); A takes left
+ok   B-cut matches the guide: 200 mm, chooser takes left
+ok   B: the equal-value cut is unique on a whole-mm scan ([200])
+ok   both receive at least half (chooser 10/3, cutter 2)
+ok   page-3 launch example: 75 mm of a 150 mm panel worth 2 is worth 1
+ok   the launch panel value 2 is not a task value (non-task instance)
+
+== Problem 4
+ok   cut-and-choose guarantee holds on all 4554 profiles/tie-breaks (3 segments, densities 0..3)
+   join cut, both use A: red piece 3, blue piece 1; chooser takes red
+ok   join-cut trial: cutter gets 1 < 2 (half) and envies 3 -> fails both checks; chooser 3 passes
+
+== Problem 5: U, V value each red at 1
+ok   no whole-card allocation (of 8) is envy-free or proportional
+ok   U's count histogram 1,3,3,1 as the guide states
+ok   fixed labelled halves: 4 of 16 pass, each = one whole card + one half per person
+ok   with paper share p for U: envy-free iff one whole card each and p = 1/2
+ok   return question n=1 identical cards: whole split possible=False, one-card split suffices
+ok   return question n=2 identical cards: whole split possible=True, one-card split suffices
+ok   return question n=3 identical cards: whole split possible=False, one-card split suffices
+ok   return question n=4 identical cards: whole split possible=True, one-card split suffices
+ok   return question n=5 identical cards: whole split possible=False, one-card split suffices
+ok   return question n=6 identical cards: whole split possible=True, one-card split suffices
+ok   return question n=7 identical cards: whole split possible=False, one-card split suffices
+ok   return question n=8 identical cards: whole split possible=True, one-card split suffices
+ok   return question n=9 identical cards: whole split possible=False, one-card split suffices
+
+== Problem 6: X,Y,Z panels
+ok   each observer total is 12; one third is 4
+ok   initial A:X,B:Y,C:Z proportional (4 >= 4 for all)
+ok   initial: A envies B, B envies C, C envies A (nobody envy-free)
+   envy-free allocations (owner of X,Y,Z): [(2, 0, 1)]  proportional: [(0, 1, 2), (2, 0, 1)]
+ok   exactly 1 of 27 is envy-free: X->C, Y->A, Z->B (A:Y, B:Z, C:X)
+ok   exactly 2 of 27 are proportional (initial and repaired)
+ok   repaired allocation: each own value 8
+
+== Problem 7 / overview theorems (exhaustive small profiles)
+ok   two people: envy-free <=> proportional on all 32768 cases (3 goods, values 0..3)
+ok   three people: envy-free => proportional on all 531441 cases (3 goods, values 0..2)
+ok   three people: proportional-but-not-envy-free occurs (11172 cases)
+ok   two-person equivalence also holds with negative values (nonnegativity not needed)
+
+== Facilitator guide (delivered PDF text)
+ok   guide P1 row R1,R2 | R3,B1 6/4; 4/2 printed and correct
+ok   guide P1 row R1,R3 | R2,B1 6/4; 4/2 printed and correct
+ok   guide P1 row R2,R3 | R1,B1 6/4; 4/2 printed and correct
+ok   guide P1 row R1,R2,R3 | B1 9/1; 3/3 printed and correct
+ok   guide P2 row R1,R2 | B1,B2 6/2; 6/2 printed and correct
+ok   guide P2 row R1,B1 | R2,B2 4/4; 4/4 printed and correct
+ok   guide P2 row R1,B2 | R2,B1 4/4; 4/4 printed and correct
+ok   guide P2 row R2,B1 | R1,B2 4/4; 4/4 printed and correct
+ok   guide P2 row R2,B2 | R1,B1 4/4; 4/4 printed and correct
+ok   guide P1/P2 totals and counts printed
+ok   guide P3 table prints 100 mm and 200 mm
+ok   guide P6 table matches the observer values
+ok   guide P6 counts (1 envy-free, 2 proportional) printed
+ok   guide P5 prints 8 labelled whole allocations
+ok   guide 'cutting error' values (2+e/50, 2-e/50) hold for both cutters
+FAIL guide Visit A ties 'why a tie matters' to the two-red / red-plus-blue partition, but that partition has strict choices for both dividers; the tie is in the all-red / blue partition
+NOTE guide overview says 'being above one third' but the cited example (own 4 of 12) is exactly one third
+
+failures: 1
+  - guide Visit A ties 'why a tie matters' to the two-red / red-plus-blue partition, but that partition has strict choices for both dividers; the tie is in the all-red / blue partition

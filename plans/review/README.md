@@ -86,6 +86,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 55 | Sumsets (fewest and most totals) | keep | [card](week-55.md), [math check](week-55-math.md) |
 | 56 | Corners of a solid (Euler's formula and angular defect) | revise: the K–1 table gets only the p. 3 fans and a fallback that repeats them, though the outline promised work with the closed solids | [card](week-56.md), [math check](week-56-math.md) |
 | 57 | Lattice area (Pick's theorem) | keep | [card](week-57.md), [math check](week-57-math.md) |
+| 58 | Fair division | keep | [card](week-58.md), [math check](week-58-math.md) |
 | 59 | Constant-width shapes | keep | [card](week-59.md), [math check](week-59-math.md) |
 | 60 | Take it or pass (optimal stopping) | keep | [card](week-60.md), [math check](week-60-math.md) |
 | 61 | Geometry on a sphere (Girard's theorem) | keep | [card](week-61.md), [math check](week-61-math.md) |
