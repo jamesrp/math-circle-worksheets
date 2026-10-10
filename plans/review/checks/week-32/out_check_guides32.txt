@@ -1,0 +1,95 @@
+======================================================================
+Base adult guide (week-32-facilitator.pdf)
+======================================================================
+Overview
+  [PASS] (base) "replacing (a,b) by (a-b,b) preserves the entire set of positive common divisors" -- all b<a<120
+  [PASS] (base) "The sum of the positive remaining sides strictly decreases, so the process terminates" -- (a-b)+b = a < a+b whenever b > 0
+  [PASS] (base) "The last square has side gcd(a,b)" -- cell simulation, all a,b <= 60
+  [PASS] (base) "Identical axis-aligned whole-grid squares of side s tile the original rectangle exactly when s divides both side lengths" -- exhaustive placement search, a,b,s <= 18
+  [PASS] (base) "It does not claim that this dissection minimizes the number of squares among all possible unequal-square tilings" -- and it does not: 6x5 greedy uses 6, fewest is 5
+K-1 key
+  [PASS] (base) "6x4 4,2,2 2" -- computed 4,2,2; areas sum to 24: True
+  [PASS] (base) "8x4 4,4 4" -- computed 4,4; areas sum to 32: True
+  [PASS] (base) "7x4 4,3,1,1,1 1" -- computed 4,3,1,1,1; areas sum to 28: True
+  [PASS] (base) "8x5 5,3,2,1,1 1" -- computed 5,3,2,1,1; areas sum to 40: True
+  [PASS] (base) "9x6 6,3,3 3" -- computed 6,3,3; areas sum to 54: True
+  [PASS] (base) "10x6 6,4,2,2 2" -- computed 6,4,2,2; areas sum to 60: True
+  [PASS] (base) "P1 ends differently; P2 ends the same; P3 ends differently"
+  [PASS] (base) "For both 6x4 and 8x6 the largest equal square has side 2. Side 2 tiles by 3x2 and 4x3 arrays respectively"
+  [PASS] (base) "There are exactly two rectangle shapes using four 3x3 squares, up to turning: 3x12 and 6x6"
+  [PASS] (base) "Their biggest-square sequences are 3,3,3,3 and 6. The last sides do not match"
+  [PASS] (base) "the numbers of 3-unit tiles along adjacent edges multiply to 4: only 1x4 and 2x2, up to order"
+  [PASS] (base) "compare 12x8 with 12x9, which changes only one side" -- lasts 4 and 3
+Grades 2-3 key
+  [PASS] (base) "P1. 10x6: 6,4,2,2 (last 2). 8x5: 5,3,2,1,1 (last 1)"
+  [PASS] (base) "P2. 12x8: 8,4,4 (last 4). 12x9: 9,3,3,3 (last 3)"
+  [PASS] (base) "For 12x8, all allowed equal-square sides are 1,2,4; the largest is 4. For 10x6, the sides are 1,2"
+  [PASS] (base) "P4. 7x6: 6,1,1,1,1,1,1, last 1. 8x6: 6,2,2,2, last 2. 9x6: 6,3,3, last 3"
+  [PASS] (base) "Predict 10x6 ends at 2, not 4: after 6 the remainder is 6x4, which gives 4,2,2"
+  [PASS] (base) "For example 10x6 ends at 2 and tiles with 15 equal 2x2 squares"
+  [PASS] (base) "One valid trio: 12x3 gives 3,3,3,3; 9x6 gives 6,3,3; 12x9 gives 9,3,3,3"
+  [PASS] (base) "Other choices with gcd 3 and three distinct shorter sides also work" -- true, but only the 3-first rectangle can vary: all last-3 rectangles are [(3, 3), (6, 3), (9, 3), (9, 6), (12, 3), (12, 9)]; 9x6 and 12x9 are forced
+Grades 4-5 key P1-5
+  [PASS] (base) "P2. 15x9: 9,6,3,3, last 3. 14x8: 8,6,2,2,2, last 2"
+  [PASS] (base) "P3. For 12x8: sides 1,2,4. For 15x9: sides 1,3"
+  [PASS] (base) "Both before the cut (14,8) and after it (6,8), the complete common-divisor list is {1,2}"
+  [PASS] (base) "At the end, a square of side g remains and the common divisors are precisely the divisors of g"
+Grades 4-5 P6 table (parsed from the delivered PDF)
+  [PASS] (base) "The following table checks all allowed rectangles" -- 7 rows parsed: True; mismatches []
+  [PASS] (base) "The unique winner is 13x8, with square sides 8,5,3,2,1,1: five different sizes"
+  [PASS] (base) "This recurrence independently verifies every cell and every possible tie" -- recurrence = distinct sizes for all a,b < 80
+  [PASS] (base) "For 13x8 this produces 8 → 5 → 3 → 2 → 1"
+  [PASS] (base) "For 12x7 it produces 7 → 5 → 2 → 1, four sizes"
+  [PASS] (base) "divide the 49 candidates among pairs"
+Optional extension
+  [PASS] (base) "For 10x6, the list 6,4,2,2 becomes 12,8,4,4 for 20x12"
+  [PASS] (base) "Every comparison and subtraction scales by 2, so the pattern and number of pieces stay the same" -- scaling by 2..4 multiplies every side, all a,b <= 30
+Materials (counts)
+    worksheet-workflow/context.md: K-1 table has 4 children
+  [FAIL] (base) "provide four 3-by-3 cutouts per child for K P5 (12 cutouts for the current KK1 group)" -- 4 per child x 4 children = 16; the route update on p5 says sixteen  <claim false>
+  [PASS] (base) "sixteen matching 3-by-3 cutouts give each of four children a set; eight suffice for two pairs sharing"
+======================================================================
+Bonus adult guide (week-32-bonus-facilitator.pdf)
+======================================================================
+  [PASS] (bonus) "a 6-by-5 rectangle needs at least five squares, and five fit; the familiar biggest-square rule uses six"
+  [PASS] (bonus) "The contrast 4-by-3 needs four and greedy achieves four"
+  [PASS] (bonus) "a 5-by-5 or 7-by-5 rectangle cannot be tiled with only side-2 and side-3 squares, although its area is a sum of 4s and 9s"
+  [PASS] (bonus) "A 6-by-5 can"
+  [PASS] (bonus) "determines the long/short ratio by the finite continued fraction" -- all b <= a <= 60
+  [PASS] (bonus) "All whole-grid rectangles with that recipe are integer enlargements of its coprime one" -- each recipe has one reduced pair, a,b <= 60
+  [PASS] (bonus) "A square has recipe [1]"
+  [PASS] (bonus) "For a nonsquare rectangle the final count is at least 2"
+Materials
+  [PASS] (bonus) "Suggested stock: ten side-1, six side-2, four side-3 and two each side-4/5 pieces; reuse between trials" -- each single task fits the stock; shortages {}
+    (all four P1 tilings kept at once would need 11 side-1 pieces, 4 side-3; the guide says to reuse between trials and to save drawings)
+  [PASS] (bonus) "Five sets serve eleven children at three fixed tables, one adult per table; the upper trio rotates roles"
+P1-2
+  [PASS] (bonus) "tiles are (0,0,3),(3,0,3),(0,3,2),(2,3,2),(4,3,2). Their interiors are disjoint and areas total 30"
+  [PASS] (bonus) "greedy uses one side-5 square and five side-1 squares, six pieces"
+  [PASS] (bonus) "greedy uses one side-3 square plus three side-1 squares, four pieces, and this is optimal"
+  [PASS] (bonus) "One or two positive square areas cannot sum to 12"
+  [PASS] (bonus) "The only three-piece area decomposition is 4+4+4" -- [(4, 4, 4)] (sides <= 3)
+  [PASS] (bonus) "Thus three cannot fit"
+  [PASS] (bonus) "Tile sides can only be 1-5. One square does not have area 30; no two square areas sum to 30"
+  [PASS] (bonus) "The only three-square area decomposition is 25+4+1" -- [(1, 4, 25)]
+  [PASS] (bonus) "The only four-square decomposition is 16+9+4+1" -- [(1, 4, 9, 16)]
+  [PASS] (bonus) "their side sum 7 exceeds both board dimensions 6 and 5"
+  [PASS] (bonus) "so the optimum is exactly five"
+P3
+  [PASS] (bonus) "Area 25=4u+9v forces four side-2 squares and one side-3 square"
+  [PASS] (bonus) "Area 35=4u+9v forces two side-2 and three side-3 squares"
+  [PASS] (bonus) "6-by-5: possible by two side-3 and three side-2 squares"
+  [PASS] (bonus) "Three horizontal intervals of length 3 need width at least 9, exceeding 7"
+  [PASS] (bonus) "A strip of height 5 admits at most floor(width/3) side-3 squares" -- {3: 1, 4: 1, 5: 1, 6: 2, 7: 2, 8: 2, 9: 3, 10: 3, 11: 3, 12: 4}
+P4
+  [PASS] (bonus) "Recipe 1,2: smallest whole-grid rectangle 3-by-2, square sizes 2,1,1"
+  [PASS] (bonus) "Recipe 2,1,2: 8-by-3, sizes 3,3,2,1,1"
+  [PASS] (bonus) "Recipe 1,1,3: 7-by-4, sizes 4,3,1,1,1"
+  [PASS] (bonus) "All fit as subrectangles in the supplied 8-by-4 work grids" -- smallest: [(3, 2), (8, 3), (7, 4)]
+  [PASS] (bonus) "6-by-4 has recipe 1,2; 16-by-6 has 2,1,2; 14-by-8 has 1,1,3"
+  [PASS] (bonus) "For 2,1,2 this gives 2-by-1, then 3-by-2, then 8-by-3"
+  [PASS] (bonus) "attach q squares of side s beside that remainder. Repeat backward" -- rebuild then greedy returns the recipe, every recipe seen
+  [PASS] (bonus) "the last square size suffices" -- side lengths = last size x reduced pair
+
+72 passed, 1 failed
+  FAIL: provide four 3-by-3 cutouts per child for K P5 (12 cutouts for the current KK1 group)

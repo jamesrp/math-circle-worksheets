@@ -57,6 +57,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 29 | Two-length builders (the last gap, ab − a − b) | revise: the guide's K–1 Problem 6 key lists only 7 as a gap for 2- and 4-rods, though 9 and 11 fail too, so an adult may correct a right answer | [card](week-29.md), [math check](week-29-math.md) |
 | 30 | Two-pan weight kits (balanced ternary) | keep | [card](week-30.md), [math check](week-30-math.md) |
 | 31 | Hidden orchard (lattice visibility) | revise: the guide's optional extension gives (4,3) as a sight line that changes when O moves to (1,1), and it doesn't, so an adult may correct a right answer | [card](week-31.md), [math check](week-31-math.md) |
+| 32 | Squares inside rectangles (Euclid by squares) | keep | [card](week-32.md), [math check](week-32-math.md) |
 | 33 | Prime-length necklaces | keep | [card](week-33.md), [math check](week-33-math.md) |
 | 34 | Hidden turns (distinguishing colourings) | keep | [card](week-34.md), [math check](week-34-math.md) |
 | 36 | Making threes (nine-tile SET) | keep | [card](week-36.md), [math check](week-36-math.md) |
