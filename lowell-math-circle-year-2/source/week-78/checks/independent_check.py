@@ -252,6 +252,7 @@ def checked_pairs(cases, answers, label):
 
 
 def fixed_cases():
+    assert solve_by_minima((1,4), (4,2)) == frozenset({('point', (4,4))})
     for point, expected in checked_pairs(EXPECTED_DATA['EXAMPLE_POINTS'], (True, False), 'opening'):
         assert on_line(point, EXPECTED_DATA['EXAMPLE_JUNCTION']) == expected
     for pair, meeting in checked_pairs(EXPECTED_DATA['TRIAL_FIXED_PAIRS'], ((3, 2), (2, 3)), 'fixed trials'):

@@ -104,6 +104,7 @@ def reflect(result):
 
 
 def main():
+    assert intersection((1,4),(4,2)) == point(4,4)  # Completed introductory crossing.
     # Opening comparison and translated launch example.
     assert on_line((4, 2), (2, 2))
     assert not on_line((4, 4), (2, 2))

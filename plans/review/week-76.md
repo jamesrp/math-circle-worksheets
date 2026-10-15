@@ -1,5 +1,7 @@
 # Week 76: Substitution strips
 
+**Organizer status:** Promoted October 15, 2026 after James read the whole packet and approved its clarity and mathematics. This is organizer review, not classroom piloting. The earlier independent review below is retained as historical evidence.
+
 **Verdict: keep.** No must: real Thue–Morse mathematics in seven well-ordered problems, every answer right, a theorem-first guide. The missing K–1 route is a should, as on the Week 60 and 62 cards, because the prototype is routed to Grades 3–5 by design.
 
 Reviewed October 10, 2026 by Claude, with the math check in [week-76-math.md](week-76-math.md). Packets: week-76-students.pdf (F76-35-v1, 4 pp., one shared Grades 3–5 packet, Problems 1–7). Adult guide: week-76-facilitator.pdf (F76-FAC-v1, 4 pp.). Companions noticed but not reviewed: none exist. Status: unpiloted prototype awaiting organizer review; guide p. 1: "Physical rehearsal and classroom piloting remain unperformed." The card agrees with all three math-check findings (fixes 2–4) and rates each a should.

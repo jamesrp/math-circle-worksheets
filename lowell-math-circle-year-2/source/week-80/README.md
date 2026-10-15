@@ -24,3 +24,9 @@ After extracting the portable ZIP, run `python3 week-80/build.py --out rebuilt -
 Print US Letter, single-sided, Actual Size. Cut only the material pages needed for the selected route; preparation details are in the guide. Printable PDFs live in `../../week-80/`. The mobile review index links each PDF individually.
 
 ZIPs contain only owned teaching/build/check sources. Generated stage prompts and borrowed workflow style excerpts remain local and are excluded. No new open research problem is claimed solved, and no Lean certification is claimed.
+
+## October 15 review revision
+
+The opening is grounded in a light OFF at 11:00 p.m., ON at 11:30 and OFF at 11:45. Time-strip labels use clock times; START/END remain only on the separate position strip. Infinite alternation and the unspecified midnight endpoint are unchanged.
+
+See [QA.md](QA.md) for digital checks and independent review. The changes remain unpiloted.

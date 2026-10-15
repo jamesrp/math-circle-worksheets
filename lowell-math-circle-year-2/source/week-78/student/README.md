@@ -1,6 +1,6 @@
 # Week 78: Three-armed lines
 
-Original four-page shared student prototype for Grades 4–5, by prerequisites.
+Revised five-page shared student prototype for Grades 4–5, by prerequisites.
 No separate younger-band packet or facilitator guide is included in this student
 packet. Problems move from choosing and drawing junctions to intersections,
 constructing lines through points, and all-case explanations.

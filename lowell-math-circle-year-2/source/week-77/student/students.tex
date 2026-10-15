@@ -9,7 +9,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\fontsize{11}{13}\selectfont Week 77 / Persistent holes / Grades 4--5}
-\fancyfoot[L]{\fontsize{9}{11}\selectfont Bellingham Math Circle / Week 77 / F77-45-v1}
+\fancyfoot[L]{\fontsize{9}{11}\selectfont Bellingham Math Circle / Week 77 / F77-45-v2}
 \fancyfoot[R]{\fontsize{9}{11}\selectfont\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -32,28 +32,45 @@
 \newcommand{\pageend}{\end{tikzpicture}}
 \begin{document}
 \pagebegin
-\smallat{0}{0}{18.2}{Use only the printed edge places. During a build, add pieces and keep them. Fill a triangle by covering it with its matching tile. A partner checks that all three edges are in place when a triangle is filled. Dashed lines are places for edges; solid lines are already present. AB and BA name the same edge.}
-\smallat{0}{2.3}{18.2}{A loop follows edges back to its starting dot without repeating an edge. Save its edge list. To test it, copy those tokens, add the edge tokens of any filled triangles you choose, and remove matching pairs. The loop is gone if a choice leaves no tokens. Only the test tokens change.}
-\smallat{0}{4.65}{18.2}{For example, using filled triangle XYZ on the tokens XY and YZ:}
-\begin{scope}[shift={(.55,5.55)}]
+\textat{0}{0}{18.2}{Keep track of a loop while you add edges and cover triangles with tiles. When do the filled tiles fill your saved loop?}
+\smallat{0}{1.65}{18.2}{A loop follows edges back to its starting dot without repeating an edge. Save its edge list; keep that list unchanged as the board grows. Here the saved loop is the square's outside rim: AB, BC, CD, DA.}
+\foreach \x/\stage/\caption in {0/0/{Build the rim},4.7/1/{Add the diagonal},9.4/2/{Fill one half},14.1/3/{Fill both halves}} {
+ \begin{scope}[shift={(\x,4.25)}]
+ \ifnum\stage>1 \fill[black!20] (0,0)--(3,0)--(3,3)--cycle;\fi
+ \ifnum\stage>2 \fill[black!20] (0,0)--(3,3)--(0,3)--cycle;\fi
+ \draw[line width=1.5pt] (0,0)--(3,0)--(3,3)--(0,3)--cycle;
+ \ifnum\stage>0 \draw[line width=1pt] (0,0)--(3,3);\fi
+ \foreach \a/\b/\v/\pos in {0/0/A/above left,3/0/B/above right,3/3/C/below right,0/3/D/below left}{\fill (\a,\b) circle(1.7pt);\node[\pos,inner sep=2pt,font=\small] at (\a,\b){\v};}
+ \node[align=center,font=\fontsize{10}{12}\selectfont,text width=3.5cm] at (1.5,4.0){\caption};
+ \end{scope}
+}
+\smallat{0}{9.0}{18.2}{One filled half does not fill the saved square rim. Both filled halves together do: their shared diagonal is inside, leaving the square rim as their outside boundary. We say the saved loop is \textbf{gone} when filled tiles have that loop as their combined boundary. The edges are still there!}
+\smallat{0}{11.4}{18.2}{Use only printed edge places. Add pieces and keep them during a build. A partner checks that all three edges are in place before a triangle is filled. Dashed lines show edge places; solid lines are already present. AB and BA name the same edge.}
+\smallat{0}{13.65}{18.2}{Here is a token test for a saved triangular loop. Copy its edge tokens, add the three edge tokens of the filled tile, then remove matching pairs. Nothing remains, so this loop is gone. Only test tokens are removed, never board edges or the saved list.}
+\begin{scope}[shift={(.4,16.35)}]
  \fill[black!18] (0,1.4)--(1.8,1.4)--(.9,0)--cycle;
  \draw[line width=1pt] (0,1.4)--(1.8,1.4)--(.9,0)--cycle;
  \node[below left,inner sep=3pt] at (0,1.4) {X};\node[above,inner sep=3pt] at (.9,0) {Y};\node[below right,inner sep=3pt] at (1.8,1.4) {Z};
 \end{scope}
-\token{3.4}{6.25}{XY}{inxy}\token{4.35}{6.25}{YZ}{inyz}
-\draw[-{Stealth[length=2mm]},line width=.8pt] (5.05,6.25)--(6.2,6.25);
-\node[font=\small] at (5.6,6.85) {add XYZ};
-\token{6.95}{6.25}{XY}{a}\token{7.95}{6.25}{YZ}{b}\token{8.95}{6.25}{XY}{c}\token{9.95}{6.25}{YZ}{d}\token{10.95}{6.25}{XZ}{e}
-\foreach \n in {a,b,c,d}{\draw[line width=.8pt] (\n.south west)--(\n.north east);}
-\draw[-{Stealth[length=2mm]},line width=.8pt] (11.7,6.25)--(13.45,6.25);
-\node[font=\small] at (12.6,6.85) {cancel pairs};
-\token{14.2}{6.25}{XZ}{out}
-\textat{0}{8.1}{18.2}{\textbf{Problem 1:} Start with the dots only. Build a loop that can disappear after just one triangle is filled. Save its edge list. Start again and build a loop that survives either choice of a single filled triangle. Save that loop too. Test the two choices in separate builds.}
-\squareboard{.65}{12.1}{0}
-\smallat{8.2}{11.9}{9.7}{Loop that can disappear with one filling:}
-\lineat{8.2}{13.2}{18.2}\lineat{8.2}{14.45}{18.2}
-\smallat{8.2}{16.0}{9.7}{Loop that survives either single filling:}
-\lineat{8.2}{17.3}{18.2}\lineat{8.2}{18.55}{18.2}
+\token{3.1}{16.9}{XY}{i1}\token{4.1}{16.9}{YZ}{i2}\token{5.1}{16.9}{XZ}{i3}
+\smallat{2.7}{18.1}{3.4}{saved loop}
+\draw[-{Stealth[length=2mm]},line width=.8pt] (5.8,17.35)--(7.2,17.35);
+\token{8.1}{16.9}{XY}{a}\token{9.1}{16.9}{YZ}{b}\token{10.1}{16.9}{XZ}{c}
+\token{8.1}{17.7}{XY}{d}\token{9.1}{17.7}{YZ}{e}\token{10.1}{17.7}{XZ}{f}
+\foreach \n in {a,b,c,d,e,f}{\draw[line width=.8pt] (\n.south west)--(\n.north east);}
+\smallat{7.4}{18.5}{4.5}{add filled XYZ;\newline cancel each pair}
+\draw[-{Stealth[length=2mm]},line width=.8pt] (11,17.35)--(12.5,17.35);
+\node[draw=black!40,minimum width=3.6cm,minimum height=1.1cm,font=\small] at (14.75,17.35){no tokens left};
+\smallat{0}{20.3}{18.2}{For any saved loop, you may use any selection of the currently filled triangles in this test, each at most once. The loop is gone if some selection leaves no tokens; otherwise it survives.}
+\pageend
+\newpage
+\pagebegin
+\textat{0}{0}{18.2}{\textbf{Problem 1:} Start with the dots only. Build a loop that can disappear after just one triangle is filled. Save its edge list. Start again and build a loop that survives either choice of a single filled triangle. Save that loop too. Test the two choices in separate builds.}
+\squareboard{.65}{4.0}{0}
+\smallat{8.2}{3.8}{9.7}{Loop that can disappear with one filling:}
+\lineat{8.2}{5.1}{18.2}\lineat{8.2}{6.35}{18.2}
+\smallat{8.2}{10.0}{9.7}{Loop that survives either single filling:}
+\lineat{8.2}{11.3}{18.2}\lineat{8.2}{12.55}{18.2}
 \lineat{0}{20.55}{18.2}\lineat{0}{21.95}{18.2}
 \pageend
 \newpage

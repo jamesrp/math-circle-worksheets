@@ -152,16 +152,18 @@ def main():
     assert all(solve(nxt, 1, 3)["first_wins"]
                for nxt in children((1, 1), 1, 3))
 
-    # Numeric fit assertion for the revised cards; physical rehearsal remains untested.
-    assert "rectangle +(50,55);" in tex
+    # The blank quantity-card page was removed; the board stays unchanged.
+    assert "rectangle +(50,55);" not in tex
     assert "rectangle +(56,139);" in tex
-    assert 50 < 56 and 55 < 139
+    assert tex.count(r"\newpage") == 4
+    assert r"\node[font=\large] at (\x+.55,.575) {\count};" not in tex
+    assert r"\node[font=\large] at (\x+.65,1.35) {\count};" not in tex
     output = {
         "status": "PASS",
         "independence": "Adapted from the independent mathematics-review checker; no author code imported; legal moves enumerated directly.",
         "snapshot": [snapshot(args.tex),
                      snapshot(args.pdf)],
-        "digital_material_dimensions_mm": {"bucket": [56, 139], "quantity_card": [50, 55], "fit": True},
+        "digital_material_dimensions_mm": {"bucket": [56, 139], "blank_quantity_card_page": "removed"},
         "capped_seed_states": seed_count,
         "cached_states_including_reachable_descendants": solve.cache_info().currsize,
         "printed_starts": rows,

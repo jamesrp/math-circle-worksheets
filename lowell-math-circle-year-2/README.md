@@ -24,7 +24,7 @@ The [octagon investigations, Weeks 64–65](WEEKS-64-65-DRAFT.md), contain resto
 
 The [ten geometric group theory prototypes, Weeks 66–75](WEEKS-66-75-PROTOTYPES.md), offer focused student investigations and separate theorem-first adult guides, with portable sources and independent digital checks. They are prepared for organizer review and remain unpiloted.
 
-The [three frontier prototypes, Weeks 76–78](WEEKS-76-78-PROTOTYPES.md), investigate substitution order, persistent holes and tropical line geometry. Each has a separate theorem-first adult guide, portable sources and independent mathematical, page and extracted-ZIP checks. They are prepared for organizer review; physical rehearsal and classroom use remain untested.
+The [three frontier prototypes, Weeks 76–78](WEEKS-76-78-PROTOTYPES.md), investigate substitution order, persistent holes and tropical line geometry. Each has a separate theorem-first adult guide, portable sources and independent mathematical, page and extracted-ZIP checks. Week 76 was promoted after organizer review on October 15, 2026; Weeks 77–78 remain under review. Physical rehearsal and classroom use remain untested.
 
 | Week and preparation notes | K–1 | Grades 2–3 | Grades 4–5 | Optional extras | Facilitator |
 |---|---|---|---|---|---|
@@ -60,4 +60,4 @@ Downloaded originals belong in [external-resources](../external-resources/README
 
 ## Infinity, ordinal, surreal and knowledge drafts 79–84
 
-The [six-family mobile review index](WEEKS-79-84-DRAFT.md) links every student/material PDF and theorem-first facilitator guide individually, plus editable sources and portable ZIPs. These selected-band drafts remain unpiloted; physical fit and procedure rehearsal are untested. They are library options, not an adopted meeting schedule, and are not added to the older combined sets.
+The [six-family mobile review index](WEEKS-79-84-DRAFT.md) links every student/material PDF and theorem-first facilitator guide individually, plus editable sources and portable ZIPs. Week 79 was promoted after organizer review on October 15, 2026; Weeks 80–84 remain under review. All six selected-band activities remain unpiloted; physical fit and procedure rehearsal are untested. They are library options, not an adopted meeting schedule, and are not added to the older combined sets.

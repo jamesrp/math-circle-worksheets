@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build the Week 77 student packet with a local TeX installation."""
 import argparse
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -21,10 +22,25 @@ def main():
     with tempfile.TemporaryDirectory(prefix='week77-build-', dir=out) as temp:
         build = Path(temp)
         shutil.copy2(root / 'students.tex', build / 'students.tex')
+        env = os.environ.copy()
+        if shutil.which('kpsewhich'):
+            fmt = subprocess.run(['kpsewhich', 'pdflatex.fmt'], env=env,
+                                 stdout=subprocess.PIPE, text=True).stdout.strip()
+            if not fmt:
+                if 'TEXMF' not in env:
+                    trees = subprocess.check_output(['kpsewhich', '-var-value=TEXMF'], text=True).strip()
+                    env['TEXMF'] = trees.replace('!!', '')
+                result = subprocess.run(['pdftex', '-ini', '-etex', '-jobname=pdflatex',
+                    '-interaction=nonstopmode', '-halt-on-error', 'pdflatex.ini'],
+                    cwd=build, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+                (out / 'format-build.log').write_text(result.stdout)
+                if result.returncode:
+                    raise SystemExit(result.stdout[-10000:])
+                env['TEXFORMATS'] = str(build) + os.pathsep + env.get('TEXFORMATS', '')
         result = subprocess.run(
             ['pdflatex', '-interaction=nonstopmode', '-halt-on-error',
              '-file-line-error', 'students.tex'],
-            cwd=build, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+            cwd=build, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
             text=True)
         (out / 'build.log').write_text(result.stdout, encoding='utf-8')
         if result.returncode:

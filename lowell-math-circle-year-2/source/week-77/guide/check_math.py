@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent exhaustive checks of the FINAL five-page Week 77 packet.
+"""Independent exhaustive checks of the FINAL six-page Week 77 packet.
 
 Only Python standard library. No student sources, comments, previous checkers,
 review files, or third-party persistence packages are imported. The boards and
@@ -131,7 +131,7 @@ def check():
     square_faces = frozenset({"ABC", "ACD"})
     P, Q, O = face("ABC"), face("ACD"), chain("AB BC CD DA")
     assert P ^ Q == O
-    assert chain("XY YZ") ^ face("XYZ") == chain("XZ")
+    assert chain("XY YZ XZ") ^ face("XYZ") == frozenset()
     all_square_loops = {c for c in cycles(square_edges) if loop(c)}
     assert all_square_loops == {P, Q, O}
     one_fill = {c for c in all_square_loops if any(c in boundaries({f}) for f in square_faces)}

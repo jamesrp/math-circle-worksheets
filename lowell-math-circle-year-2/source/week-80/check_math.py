@@ -24,11 +24,13 @@ for n in range(1,129):
     assert state == n % 2
     if n <= 4:
         records.append({'n':n,'time':str(time),'post_switch':'ON' if state else 'OFF',
+                        'clock_seconds_after_11pm':str(3600*time),
                         'remaining_mm':str(Fraction(180,2**n))})
 prefix = {1-Fraction(1,2**n): n % 2 for n in range(1,129)}
 on, off = {**prefix,Fraction(1):1}, {**prefix,Fraction(1):0}
 assert all(on[t] == off[t] for t in prefix)
 assert on[1] != off[1]
+assert [3600*(1-Fraction(1,2**n)) for n in (1,2,3)] == [1800,2700,3150]
 assert Fraction(180,2**4) == Fraction(45,4)
 result = {'status':'PASS','first_four_actions':records,'exact_prefix_checked':128,
           'limits':'General subsequence and convergence proofs are in the guide; physical and classroom rehearsal untested.'}

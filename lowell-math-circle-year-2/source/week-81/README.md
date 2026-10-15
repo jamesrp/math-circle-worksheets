@@ -16,7 +16,7 @@ After extracting the portable ZIP, run `python3 week-81/build.py --out rebuilt -
 
 ## Contents and lineage
 
-- `student/students.tex`: final 6-page student/material draft, created by a fresh writer then revised by a separate agent after independent adversarial and mathematical reviews.
+- `student/students.tex`: final 5-page student/material draft, created by a fresh writer then revised by a separate agent after independent adversarial and mathematical reviews.
 - `guide/facilitator.tex`: separate facilitator step, revised and independently reviewed. This guide-authoring step is untested as a classroom workflow.
 - `check_math.py`: portable copy/adaptation of the independent mathematical checker's code; finite computation supports the proofs in the guide.
 - `build.py`: both-PDF deterministic builder; [SOURCES.md](SOURCES.md) records attribution.
@@ -24,3 +24,9 @@ After extracting the portable ZIP, run `python3 week-81/build.py --out rebuilt -
 Print US Letter, single-sided, Actual Size. Cut only the material pages needed for the selected route; preparation details are in the guide. Printable PDFs live in `../../week-81/`. The mobile review index links each PDF individually.
 
 ZIPs contain only owned teaching/build/check sources. Generated stage prompts and borrowed workflow style excerpts remain local and are excluded. No new open research problem is claimed solved, and no Lean certification is claimed.
+
+## October 15 review revision
+
+All small starting boxes and sorting cards show counters, including empty boxes for zero. The five-page packet omits the former blank quantity-card page. Written finite quantities remain permitted during upper-level play; rules and all printed starting positions are unchanged.
+
+See [QA.md](QA.md) for digital checks and independent review. The changes remain unpiloted.

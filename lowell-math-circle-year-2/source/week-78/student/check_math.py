@@ -89,6 +89,7 @@ def checked_pairs(cases,expectations,name):
     return zip(cases,expectations)
 
 def main():
+    require_result((1,4),(4,2),points=((4,4),))  # Completed introductory crossing.
     j=data.EXAMPLE_JUNCTION
     for p,wanted in checked_pairs(data.EXAMPLE_POINTS,(True,False),'EXAMPLE_POINTS'):
         values=[p[0],p[1],2]

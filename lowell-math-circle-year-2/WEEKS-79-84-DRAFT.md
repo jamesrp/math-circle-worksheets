@@ -2,6 +2,8 @@
 
 Individual PDFs below open without unpacking a ZIP. These provisional library numbers are not a six-session schedule. Select one concrete investigation for a meeting, and use the guide’s readiness gates and return visits. No K–1 edition is forced.
 
+**Review status (October 15, 2026):** Week 79 was promoted after organizer review. Weeks 80–82 have revised drafts incorporating organizer feedback; Weeks 83–84 are awaiting organizer review.
+
 **All unpiloted.** Physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. Print US Letter, single-sided, Actual Size; cut only the materials needed for your chosen route.
 
 **79. Numbered-ball detectives** — Follow numbered cards through two bowls. Compare counting with tracking one label; a changed rule has the same finite counts. Grades 2–3 concrete core; Grades 4–5 continuation.
@@ -14,7 +16,7 @@ Individual PDFs below open without unpacking a ZIP. These provisional library nu
 
 **81. Buckets of Fish** — Play Hamkins’s remove-and-refill game. Later investigate plays that are always finite but can be arbitrarily long. Grades 2–3 capped play; Grades 4–5 uncapped continuation.
 
-[Student/material PDF (6 pages)](week-81/week-81-students.pdf) · [Facilitator PDF (4 pages)](week-81/week-81-facilitator.pdf) · [Editable sources](source/week-81/README.md) · [Portable source ZIP](source/week-81-source.zip)
+[Student/material PDF (5 pages)](week-81/week-81-students.pdf) · [Facilitator PDF (4 pages)](week-81/week-81-facilitator.pdf) · [Editable sources](source/week-81/README.md) · [Portable source ZIP](source/week-81-source.zip)
 
 **82. Endless queues** — Match customers while preserving order. Put an extra customer before or after an endless queue. Grades 3–5, with adult introduction to continuation rules.
 

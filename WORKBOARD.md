@@ -4,7 +4,7 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 
 | Item | Owner | Branch | State |
 |---|---|---|---|
-| Three frontier prototypes, Weeks 76–78: substitution order, persistent holes, tropical geometry | dot | `dot/frontier-prototypes-2026-10-07` | done: three reviewed prototypes, PDFs, theorem-first guides, portable sources and digital checks; organizer review pending; unpiloted |
+| Three frontier prototypes, Weeks 76–78: substitution order, persistent holes, tropical geometry | dot | `dot/frontier-prototypes-2026-10-07` | done: three reviewed prototypes, PDFs, theorem-first guides, portable sources and digital checks; Week 76 organizer-approved October 15; Weeks 77–78 revised for organizer review; unpiloted |
 | Ten geometric-group-theory prototypes, Weeks 66–75 | dot | `dot/ggt-prototypes-2026-10-06` | done: ten reviewable prototypes, PDFs, theorem-first guides, portable sources and digital checks; organizer review pending; unpiloted |
 | Restored octagon worksheet drafts, Weeks 64–65 | dot | `dot/octagon-recovery-2026-10-06` | done: restored sources and digital checks; main integration authorized October 6; unpiloted |
 | Work board and claim rule (plan item 1) | Claude, Review card calibration thread | `main` | done |
@@ -43,5 +43,5 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Review cards: the weeks James will teach next | | | open; ask James which |
 | Review cards, Wave 3: every week of 1–63 without a card (5, 8–12, 17, 19–22, 27, 28, 32, 35–38, 40, 41, 48–51, 54–59, 61), each ending in its app decision; tracker [decisions.md](https://github.com/jamesrp/small-math-adventure/blob/main/docs/plan/decisions.md) | Claude, Every week to a decision thread | `claude/project-thread-tp7a3k` | done: every listed week has a card and a decision; ports continue on the app board |
 | Worksheet revisions from the cards | | | open; after the agentic review pass |
-| Six infinity/ordinal/surreal/public-knowledge drafts, Weeks 79–84 | Codex | `drafts/infinity-six-activities` | six reviewed draft pairs and portable ZIPs complete; feature-branch-only claim follows user’s one-draft-PR/no-merge request; unpiloted, rehearsal untested |
-| Organizer-requested clarity revisions: Weeks 77, 78, 80, 81, 82; promote 76 and 79 | dot | `dot/review-revisions-2026-10-15` | claimed: concrete introductory examples and visual continuity; independent checks and review delivery pending |
+| Six infinity/ordinal/surreal/public-knowledge drafts, Weeks 79–84 | Codex | `drafts/infinity-six-activities` | six draft pairs merged; Week 79 organizer-approved October 15; Weeks 80–82 revised for review; Weeks 83–84 awaiting organizer review; unpiloted, rehearsal untested |
+| Organizer-requested clarity revisions: Weeks 77, 78, 80, 81, 82; promote 76 and 79 | dot | `dot/review-revisions-2026-10-15` | done: revised PDFs, guides, portable sources and independent checks; 76/79 organizer-promoted, five revised packets awaiting organizer review; unpiloted |

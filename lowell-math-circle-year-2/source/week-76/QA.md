@@ -8,3 +8,5 @@ Fresh writer, adversarial critic, independent mathematical checker and reviser s
 The mathematical checks distinguish finite computation from general proofs. Digital reconstruction does not validate physical tile/card handling, printing/tracing, timing, staffing or classroom age fit. Physical rehearsal and classroom piloting are unperformed.
 
 Production used the installed TeX packages with an externally initialized runtime format because the cloud image lacks its normal TeX database/format setup. No generated runtime input is included or needed on a normal TeX installation.
+
+Organizer promotion: October 15, 2026, after review of the whole packet. No PDF or mathematics changed in this status update; physical rehearsal and classroom piloting remain unperformed.

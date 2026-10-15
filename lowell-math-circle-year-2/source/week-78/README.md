@@ -1,6 +1,6 @@
 # Week 78: Three-armed lines
 
-One shared Grades 4–5 prototype: 4 student pages and a separate 4-page theorem-first adult guide. Independently reviewed and digitally checked, awaiting organizer review. The week number is a library identifier, not an adopted schedule. Physical preparation/handling and classroom piloting remain unperformed.
+One shared Grades 4–5 prototype: 5 student pages and a separate 4-page theorem-first adult guide. Independently reviewed and digitally checked, awaiting organizer review. The week number is a library identifier, not an adopted schedule. Physical preparation/handling and classroom piloting remain unperformed.
 
 ## Rebuild from this package
 
@@ -18,3 +18,7 @@ Print single-sided US Letter at 100% / Actual Size. Read student/README.md for r
 MATHEMATICS.md records precise hypotheses and general arguments. SOURCES.md separates mathematical lineage from independently authored examples. The repository's plans/frontier-prototypes-76-78/week-78/ record preserves reviews, revision decisions, final checks and the actual extracted-ZIP reconstruction result. Different TeX/font versions can affect appearance.
 
 The portable ZIP excludes stage prompts, borrowed style examples, downloaded books/papers, external fonts, runtime format files, caches, render images, logs, superseded drafts and private classroom information.
+
+## October 15 introduction revision
+
+Preserved the minimum-tie definition and added a completed two-colour crossing. Problem 1 now explicitly asks for a single-point meeting and a whole-stretch overlap. All seven investigations remain; student task pages are now 2–5. This organizer-directed revision is unpiloted.

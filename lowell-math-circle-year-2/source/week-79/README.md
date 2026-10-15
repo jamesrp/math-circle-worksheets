@@ -1,4 +1,6 @@
-# Week 79: Numbered-ball detectives — review draft
+# Week 79: Numbered-ball detectives — organizer-approved
+
+**Promoted after organizer review on October 15, 2026.**
 
 Grades 2–3 concrete core; Grades 4–5 eventual-membership continuation. A selected-band menu, not a requirement to finish every page in one session. All activities are unpiloted; physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. The theorem-first guide gives assumptions, preparation, launch, first route, solutions, hints and return visits.
 

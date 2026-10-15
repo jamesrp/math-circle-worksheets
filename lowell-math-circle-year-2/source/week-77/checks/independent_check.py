@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent verification of the five-page final Week 77 prototype.
+"""Independent verification of the six-page final Week 77 prototype.
 
 The sibling baseline_check.py verifies Problems 1--5. It is an unchanged copy
 of the original independent review, distinct from this entrypoint. Usage:
@@ -58,14 +58,20 @@ assert previous['result'] == 'PASS'
 assert hashlib.sha256(original_path.read_bytes()).hexdigest() == original_hash
 
 # Source consistency is independent of PDF extraction. These mathematical
-# inputs were read from the reviewed final source and its five rendered pages.
+# inputs were read from the reviewed final source and its six rendered pages.
 # We check per-page task statements, stage lists, coordinate maps, edge paths,
 # and the material conventions. No immutable source hash is assumed: packaging
 # additions to README and non-mathematical whitespace changes are permitted.
 source = (source_dir/'students.tex').read_text(encoding='utf-8')
 readme = (source_dir/'README.md').read_text(encoding='utf-8')
 pages = source.split(r'\newpage')
-assert len(pages) == 5, 'Expected five source pages.'
+assert len(pages) == 6, 'Expected six source pages.'
+intro = pages.pop(0)  # The five substantive task pages are unchanged in order.
+assert r'\textbf{Problem' not in intro
+for fragment in ('Build the rim', 'Add the diagonal', 'Fill one half', 'Fill both halves',
+                 'The edges are still there!', 'combined boundary', 'no tokens left',
+                 'each at most once', 'otherwise it survives'):
+    assert fragment in intro, fragment
 normalize = lambda text: ' '.join(text.split())
 compact = lambda text: ''.join(text.split())
 assert [re.findall(r'\\textbf\{Problem (\d+):\}', p) for p in pages] == [
@@ -77,14 +83,6 @@ def require(page, *fragments):
         assert normalize(fragment) in text, (page, fragment)
 
 require(1,
-    'Use only the printed edge places. During a build, add pieces and keep them.',
-    'all three edges are in place when a triangle is filled',
-    'Dashed lines are places for edges; solid lines are already present.',
-    'AB and BA name the same edge.',
-    'A loop follows edges back to its starting dot without repeating an edge.',
-    'To test it, copy those tokens, add the edge tokens of any filled triangles you choose, and remove matching pairs.',
-    'The loop is gone if a choice leaves no tokens. Only the test tokens change.',
-    'For example, using filled triangle XYZ on the tokens XY and YZ:',
     'Start with the dots only. Build a loop that can disappear after just one triangle is filled.',
     'Start again and build a loop that survives either choice of a single filled triangle.',
     'Test the two choices in separate builds.')
@@ -134,7 +132,7 @@ macro = source.split(r'\newcommand{\squareboard}',1)[1].split(r'\newcommand{\pag
 assert coordinates(macro) == {'A':(0,0),'B':(6.2,0),'C':(6.2,6.2),'D':(0,6.2)}
 assert '(A)--(B)--(C)--(D)--cycle(A)--(C);' in compact(macro)
 assert r'\ifnum#3=1\draw[linewidth=1.5pt](A)--(B)--(C)--(D);\fi' in compact(macro)
-assert r'\squareboard{.65}{12.1}{0}' in compact(pages[0])
+assert r'\squareboard{.65}{4.0}{0}' in compact(pages[0])
 assert r'\squareboard{10.6}{6.3}{1}' in compact(pages[1])
 assert r'\squareboard{10.6}{5.3}{1}' in compact(pages[3])
 assert coordinates(pages[2]) == {'A':(0,0),'B':(0,5.8),'C':(5.8,2.9),'D':(11.6,0),'E':(11.6,5.8)}
@@ -144,17 +142,18 @@ assert coordinates(pages[4]) == {'A':(0,0),'B':(8,0),'C':(8,8),'D':(0,8),'O':(4,
 assert '(A)--(B)--(C)--(D)--cycle(A)--(O)--(C)(B)--(O)--(D);' in compact(pages[4])
 assert r'\fill(O)circle(2.2pt);' in compact(pages[4])
 assert 'x=1cm,y=-1cm' in compact(source)
-# Input, intermediate pair cancellation, and output of the launch diagram.
-for token in (r'\token{3.4}{6.25}{XY}{inxy}',r'\token{4.35}{6.25}{YZ}{inyz}',
-              r'\token{6.95}{6.25}{XY}{a}',r'\token{7.95}{6.25}{YZ}{b}',
-              r'\token{8.95}{6.25}{XY}{c}',r'\token{9.95}{6.25}{YZ}{d}',
-              r'\token{10.95}{6.25}{XZ}{e}',r'\token{14.2}{6.25}{XZ}{out}'):
-    assert token in compact(pages[0]), token
-assert r'\foreach\nin{a,b,c,d}' in compact(pages[0])
+# Input, intermediate pair cancellation, and empty output of the full-loop example.
+for token in (r'\token{3.1}{16.9}{XY}{i1}', r'\token{4.1}{16.9}{YZ}{i2}',
+              r'\token{5.1}{16.9}{XZ}{i3}', r'\token{8.1}{16.9}{XY}{a}',
+              r'\token{9.1}{16.9}{YZ}{b}', r'\token{10.1}{16.9}{XZ}{c}',
+              r'\token{8.1}{17.7}{XY}{d}', r'\token{9.1}{17.7}{YZ}{e}',
+              r'\token{10.1}{17.7}{XZ}{f}'):
+    assert token in compact(intro), token
+assert r'\foreach\nin{a,b,c,d,e,f}' in compact(intro)
 for fragment in ('6.2 cm', '11.6 cm wide and 5.8 cm high', '8 cm sides',
                  'ABC/ACD', 'ABC/CDE', 'ABO/BCO/CDO/ADO',
                  'three tokens each for AB, BC, CD, AD, AC, CE, DE, AO, BO, CO, DO',
-                 'two XY tokens, two YZ tokens, and one XZ token',
+                 'two XY tokens, two YZ tokens, and two XZ tokens',
                  'one saved loop at a time', 'remove them only when resetting'):
     assert fragment in normalize(readme), fragment
 
@@ -163,11 +162,11 @@ if args.pdf is not None:
     if not args.pdf.is_file():
         parser.error('--pdf must name an existing PDF')
     pdf_text = subprocess.check_output(['pdftotext', '-layout', str(args.pdf), '-'], text=True)
-    assert pdf_text.count('\f') == 5
+    assert pdf_text.count('\f') == 6
     flat = normalize(pdf_text)
     for n in range(1,7):
         assert flat.count(f'Problem {n}:') == 1
-    for text in ('all three edges are in place when a triangle is filled',
+    for text in ('all three edges are in place before a triangle is filled',
                  'Stage 4 is one step: place its edge, then its tile, and check only after both are in place',
                  'Stage 2: one of DA and AC', 'Stage 5: fill ABC or ACD',
                  'Start with all eight edges and filled triangles ABO and BCO',
@@ -375,7 +374,7 @@ results = {
         'physical_readiness': 'Not tested.'}}
 if args.results is not None:
     args.results.write_text(json.dumps(results, indent=2) + '\n', encoding='utf-8')
-print('PASS: source consistency, five pages and Problems 1-6.')
+print('PASS: source consistency, six pages and Problems 1-6.')
 print('PASS: Problems 1-5 baseline, exact boundary witnesses and inclusion ranks.')
 print('PASS: Problem 6, 15 loops, 4 qualifying loops, 6 pairs, 24 filling orders, 1 reversible pair.')
 print('PASS: diagram coordinates, tied stages, token supplies, and no-resurrection argument.')

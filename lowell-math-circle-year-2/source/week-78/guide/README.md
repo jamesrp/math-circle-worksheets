@@ -1,7 +1,7 @@
 # Week 78 adult guide: Three-armed lines
 
 Original four-page facilitator guide for the single prerequisite-led Grades 4–5
-student prototype (F78-S-v1). Intended staffing: one mathematician with three
+student prototype (F78-S-v2). Intended staffing: one mathematician with three
 children; this guide supplies no K–1 or separate Grades 2–3 activity.
 
 ## Build

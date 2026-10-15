@@ -54,6 +54,12 @@ def normal_form(tokens):
 
 
 def main():
+    # Opening examples: both five-to-five assignments are bijections.
+    for assignment in [(1, 2, 3, 4, 5), (2, 1, 3, 4, 5)]:
+        assert sorted(assignment) == list(range(1, 6))
+    assert keeps_order((1, 2, 3, 4, 5))
+    assert not keeps_order((2, 1, 3, 4, 5))
+    assert all(len(set(p)) == 5 < 6 for p in permutations(range(1, 7), 5))
     matches = list(permutations((1, 2, 3)))
     ordered = [p for p in matches if keeps_order(p)]
     assert len(matches) == 6

@@ -24,3 +24,9 @@ After extracting the portable ZIP, run `python3 week-82/build.py --out rebuilt -
 Print US Letter, single-sided, Actual Size. Cut only the material pages needed for the selected route; preparation details are in the guide. Printable PDFs live in `../../week-82/`. The mobile review index links each PDF individually.
 
 ZIPs contain only owned teaching/build/check sources. Generated stage prompts and borrowed workflow style excerpts remain local and are excluded. No new open research problem is claimed solved, and no Lean certification is claimed.
+
+## October 15 review revision
+
+The opening contrasts an order-preserving five-to-five complete match, a crossed five-to-five complete match, and an impossible five-to-six complete match. Labels are identifiers, not matching constraints. Problem 3 D is one horizontal concatenation of endless red and endless blue rows; Problem 2 retains its distinct prepended/appended star pictures.
+
+See [QA.md](QA.md) for digital checks and independent review. The changes remain unpiloted.

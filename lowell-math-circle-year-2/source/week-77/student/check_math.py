@@ -215,7 +215,7 @@ def verify_four_triangle_construction():
 def main():
     P, Q = boundary('ABC'), boundary('ACD')
     O = frozenset(('AB', 'BC', 'CD', 'AD'))
-    assert parity_sum([{'XY', 'YZ'}, boundary('XYZ')]) == {'XZ'}
+    assert parity_sum([{'XY', 'YZ', 'XZ'}, boundary('XYZ')]) == set()
     assert P ^ Q == O
     # Problem 1: these are the only nonempty cycles on the complete square graph.
     _, _, all_cycles = audit_state('ABCD', P | Q, set())

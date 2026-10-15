@@ -25,20 +25,25 @@
 \newcommand{\ruleline}{\vspace{0.6cm}\hrule height0.3pt\vspace{0.6cm}\hrule height0.3pt}
 \begin{document}
 
-Queues run from left to right. A match gives each customer exactly one partner in the other queue. Nobody is left out. It keeps order when any two customers and their partners appear in the same order.
+Queues run from left to right. A complete match gives each customer exactly one partner in the other queue, with nobody left out. It keeps order when any two customers and their partners appear in the same order.
+
+Labels only identify customers. Partners may have different labels; identical labels in two queues do not have to be paired.
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm]
-\foreach \x/\caption in {0/Input,5.4/One pair,10.8/Complete match}{
-  \node[font=\small] at (\x+1.7,0.55) {\caption};
-  \card{\x+0.7}{-0.3}{$\triangle$}{black}
-  \card{\x+2.7}{-0.3}{$\square$}{black}
-  \card{\x+0.7}{-2.0}{P}{black}
-  \card{\x+2.7}{-2.0}{Q}{black}
+
+\foreach \offset/\caption in {0/{Complete match\\keeps order},5.6/{Complete match\\does not keep order},11.2/{5 customers and 6\\no complete match possible}}{
+ \node[align=center,font=\small] at (\offset+2.0,0.8) {\caption};
+ \foreach \n/\letter in {1/A,2/B,3/C,4/D,5/E}{
+  \node[draw,rounded corners=1pt,minimum width=.56cm,minimum height=.55cm,font=\small] at (\offset+.8*\n-.8,-.2) {\n};
+  \node[draw,rounded corners=1pt,minimum width=.56cm,minimum height=.55cm,font=\small] at (\offset+.8*\n-.8,-1.9) {\letter};
+ }
 }
-\draw[line width=0.9pt] (6.1,-0.8)--(6.1,-1.5);
-\draw[line width=0.9pt] (11.5,-0.8)--(11.5,-1.5);
-\draw[line width=0.9pt] (13.5,-0.8)--(13.5,-1.5);
+\foreach \n in {1,...,5}{\draw (.8*\n-.8,-.5)--(.8*\n-.8,-1.6);}
+\foreach \n/\partner in {1/2,2/1,3/3,4/4,5/5}{\draw (5.6+.8*\n-.8,-.5)--(5.6+.8*\partner-.8,-1.6);}
+\foreach \n in {1,...,5}{\draw (11.2+.8*\n-.8,-.5)--(11.2+.8*\n-.8,-1.6);}
+\node[draw,rounded corners=1pt,minimum width=.56cm,minimum height=.55cm,font=\small] at (15.2,-1.9) {F};
+\node[font=\scriptsize,anchor=north] at (15.2,-2.3) {left out};
 \end{tikzpicture}
 \end{center}
 
@@ -88,12 +93,17 @@ An arrow marked ``numbers continue forever'' represents all later numbered custo
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm]
-\node[anchor=east] at (0.4,0) {D};
-\foreach \x/\n in {2/1,4/2,6/3}{\longcard{\x}{0}{R\n}{queueR}}
-\continuation{7.5}{0}{red numbers continue\\forever}{queueR}
-\node[draw,rounded corners=3pt,align=center,minimum width=11.0cm,minimum height=0.75cm,font=\small] at (6.2,-1.85) {The blue queue starts after EVERY red customer.};
-\foreach \x/\n in {2/1,4/2,6/3}{\longcard{\x}{-3.0}{B\n}{queueB}}
-\continuation{7.5}{-3.0}{blue numbers continue\\forever}{queueB}
+\node[anchor=east] at (0.0,0) {D};
+% One horizontal concatenation: the blue block is after the WHOLE red row.
+\draw[rounded corners=3pt,dashed,queueR] (.3,-.8) rectangle (7.1,.8);
+\foreach \x/\n in {1/1,2.35/2,3.7/3}{\card{\x}{0}{R\n}{queueR}}
+\draw[queueR,line width=1.1pt,-{Stealth[length=2.8mm]}] (4.5,0)--(6.75,0);
+\node[align=center,font=\small,text=queueR] at (3.7,-1.3) {red numbers continue forever};
+\draw[rounded corners=3pt,dashed,queueB] (8.3,-.8) rectangle (15.9,.8);
+\foreach \x/\n in {9.1/1,10.45/2,11.8/3}{\card{\x}{0}{B\n}{queueB}}
+\draw[queueB,line width=1.1pt,-{Stealth[length=2.8mm]}] (12.6,0)--(15.5,0);
+\node[align=center,font=\small,text=queueB] at (12.1,-1.3) {blue numbers continue forever};
+\node[align=center,font=\small] at (8.1,-2.35) {The whole blue row starts after EVERY red customer.\\There is no last red customer.};
 \node[anchor=east] at (0.4,-6.1) {E};
 \foreach \x/\v/\c in {1.8/R1/queueR,3.8/B1/queueB,5.8/R2/queueR,7.8/B2/queueB,9.8/R3/queueR,11.8/B3/queueB}{\longcard{\x}{-6.1}{\v}{\c}}
 \draw[line width=1.1pt,-{Stealth[length=2.8mm]}] (13.0,-6.1)--(15.2,-6.1);
