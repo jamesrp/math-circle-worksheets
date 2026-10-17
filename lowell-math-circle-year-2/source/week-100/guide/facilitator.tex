@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,margin=.7in,headheight=15pt,headsep=18pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,hyperref,tikz}
+\renewcommand{\familydefault}{\sfdefault}\setlength{\parindent}{0pt}\setlength{\parskip}{7pt}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Week 100 / Distance in nested worlds / Facilitator guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 100 / W100-FAC-v1}\fancyfoot[R]{\thepage}
+\newcommand{\head}[1]{\par\textbf{\large #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+\begin{document}
+\head{Mathematical overview: distance comes from a hierarchy}
+\textbf{The model.} Distinct object cards sit in groups that are nested or disjoint. One outer group contains all cards; each card also has its own singleton group. Positive labels on nonsingleton groups strictly increase outward. The distance of two different cards is the label of their smallest common group; self-distance is zero. Labels are neither group sizes nor physical diameters. Groups may have three or more children.
+
+\textbf{Strong triangle inequality.} The groups that first unite $A,B$ and $B,C$ both contain $B$, so one contains the other. The larger also contains $A,C$. Therefore
+\[
+d(A,C)\le\max\{d(A,B),d(B,C)\}.
+\]
+Equivalently, the largest of three pair distances occurs at least twice. Distances $2,4,4$ and $4,4,4$ are possible; $2,2,4$ are not. Equilateral triples must not be excluded by using only binary grouping examples.
+
+\textbf{Balls have many centers and cannot partly overlap.} For $r\ge0$, the radius-$r$ ball about $A$ consists of every card whose distance from $A$ is \emph{at most} $r$, including $A$. If $B$ is in that ball, the strong inequality shows that every member is within $r$ of $B$, and reversing $A,B$ proves the balls are equal. If balls of radii $r\le s$ share a card, use it as center for both: the smaller ball lies in the larger. A supplied radius need not occur as a merger label; a ball can be a singleton.
+
+\textbf{Distances reconstruct the hierarchy.} At each threshold $r$, ``distance at most $r$'' is an equivalence relation: symmetry and reflexivity are immediate, and the strong inequality gives transitivity. Its classes merge as $r$ increases. Complete valid data determine these groups and merger heights, although the drawing's left/right order is arbitrary. An inconsistent triple proves a complete distance table impossible; one altered clue need not identify the original error uniquely.
+
+\textbf{Later number world.} For different integers let $v$ be the number of factors 2 in $a-b$; the 2-adic distance is $2^{-v}$. On cards 0--7 the packet uses eight times that value: 8 for different parity, 4 for equal parity but different remainders modulo 4, and 2 for difference 4. Self-distance is 0. If $2^k$ divides both $a-b$ and $b-c$, it divides their sum $a-c$, proving the strong inequality. Residue groups modulo 2, 4 and 8 make this geometry visible.
+
+\textbf{Discovery, readiness and limits.} Recommended Grades 3--5; the object route requires comparing labels, retaining a new distance rule and coordinating three pair-relations. Adult reading and recording can support a ready younger child, but no K--1 or general Grades 2--3 packet is claimed. The number route additionally needs parity and remainders and can wait for another visit. Experiments motivate the claims; nesting and divisibility prove them. Merger heights are not shortest-road lengths, and this finite example does not construct the completed field of 2-adic numbers.
+\newpage
+\head{Preparation, shared launch and pacing}
+\textbf{Status.} Prepared for organizer review, unpiloted and physically unrehearsed. Actual printing, cutouts, material handling, adult procedures and timing need rehearsal. No younger-table session is implied by the shared demonstration.
+
+\textbf{Per pair.} Six distinct letter-and-shape cards A--F, transparent paper frames or cord loops, labels 2, 4 and 8, removable pair-distance clue cards, and a large workmat. Later use number cards 0--7. Cards around 25 mm and a landscape area about $250\times180$ mm allow visible memberships. Print extra copies of student pages 1, 4, 5 and 7 for cutting cards, preserving the working copies. Keep labels beside frames, and avoid opaque cups that hide cards. Printed small worlds are references; movable materials preserve the child's grouping decisions. Print US Letter single-sided at Actual Size.
+
+\textbf{Staffing.} Two pairs at the middle table if ready and a pair plus rotating checker at the upper table. Rotate builder, clue reader and checker. Three kits and a demonstration board may take about 20 minutes to prepare by hand; this is an estimate. Use the later clue cutouts only after the distance convention is retained. A complete table of distances need not be copied by every child.
+
+\textbf{Launch after handling the frames.} Use unrelated cards X,Y,Z. Put X and Y inside a group labeled 3, then put that group and Z inside a group labeled 6. For X--Z, inspect group 3 (it misses Z), then group 6 (it contains both). Output: distance 6. For X--Y the smallest common group is 3. Slide X within its group: its distances stay unchanged.
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\draw[rounded corners,thick] (0,0) rectangle(8,1.8);
+\node[fill=white] at(7.5,1.8){6};
+\draw[rounded corners,thick] (.5,.35) rectangle(4.7,1.4);
+\node[fill=white] at(4.3,1.4){3};
+\node at(1.5,.85){X};\node at(3.5,.85){Y};\node at(6.5,.85){Z};
+\end{tikzpicture}
+\end{center}
+Before the first ball problem, demonstrate the whole test: center X, radius 3. X is included because its self-distance is 0; Y is included because its distance is 3; Z is excluded because its distance is 6. The output collection is $\{X,Y\}$. A ball is this tested collection, not an arbitrarily drawn oval.
+
+\textbf{A first visit.} Five minutes movement, five minutes handling and launch, 15--20 minutes making and rejecting triples, then 15--20 minutes choosing balls or hidden-world reconstruction. Save clue repair and number geometry for return visits. If an adult continually decides which group is the smallest common one, stay with visible pairs before adding inverse reconstruction. Reading a clue for a child is support; choosing every grouping for them removes the investigation.
+
+\input{solutions.tex}
+\end{document}

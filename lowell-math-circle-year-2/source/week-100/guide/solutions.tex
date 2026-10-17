@@ -1,0 +1,86 @@
+\newpage
+\head{Visible worlds, contrasting triples and balls}
+\sub{Problem 1, page 1: a drawing can move while distances stay fixed}
+In the revised visible six-card world, AB first join at 2; D joins AB at 4; C and E join at 2; F joins the other cards only at 8. These are the complete pair distances:
+\begin{center}\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c|rrrrrr}
+&A&B&C&D&E&F\\\hline
+A&0&2&8&4&8&8\\
+B&2&0&8&4&8&8\\
+C&8&8&0&8&2&8\\
+D&4&4&8&0&8&8\\
+E&8&8&2&8&0&8\\
+F&8&8&8&8&8&0
+\end{tabular}\end{center}
+Any six pairs can be chosen. Moving cards within their groups, changing frame shapes, rotating the drawing or exchanging left/right placement changes no distances. Moving a card across a group boundary generally does. Check the smallest \emph{common} group: using a group that contains only one chosen card is the characteristic convention error.
+
+\sub{Problem 2, page 2: build or reject six triples}
+The possible cases in reading order are $(2,2,2)$, $(2,4,4)$, $(4,4,4)$ and $(2,8,8)$. The impossible cases are $(2,2,4)$ and $(2,4,8)$. Each triple lists AB, AC, BC respectively. For an equilateral case, place the three cards directly inside one group at the common label. For $2,4,4$ put AB together at 2 and add C at 4; for $2,8,8$ add C at 8 instead.
+
+In $2,2,4$, the groups witnessing AB and AC at 2 intersect at A. Nestedness and strict outward increase force them to be the same level-2 group, so BC cannot be 4. In $2,4,8$, the group that unites AC at 4 must also contain B, because AB already join at 2; then BC cannot be 8. These are concrete versions of the strong triangle inequality. Do not turn the common phrase ``isosceles'' into ``exactly two equal sides'': equilateral triangles are allowed.
+
+\sub{Problem 3, page 3: radius tests, including unused radii}
+In the revised visible world, radius-3 balls are $\{A,B\}$ about either A or B, $\{C,E\}$ about C, $\{D\}$ about D, and $\{F\}$ about F. The different balls containing B for the listed radii are:
+\begin{center}\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c l}
+Radii & Collection\\\midrule
+0, 1 & $\{B\}$\\
+2, 3 & $\{A,B\}$\\
+4, 7 & $\{A,B,D\}$\\
+8 & $\{A,B,C,D,E,F\}$
+\end{tabular}\end{center}
+The wording ``balls containing B'' allows centers other than B. It produces the same chain because every member is a center of a ball. A radius need not be a printed group label. Distinct radii can select the same collection; record that collection only once as requested. Radius 0 still contains its center. No card is ever excluded merely because its distance from itself is zero.
+\newpage
+\head{Hidden geometry and repairing a contradictory clue}
+\sub{Problem 4, page 4: reconstruct the five-card world}
+The ten clues determine these distance-defined groups: AB at 2, ABC at 4, DE at 2, and all five cards at 8. This differs from the visible six-card world, so the preceding picture does not supply the reconstruction answer. Two drawings may have opposite left/right order or different frame shapes while preserving exactly these groups.
+
+One reconstruction method is to place the closest pairs, then examine how the remaining distances join them. Keep that method in the guide until needed; sorting and choosing a route are part of the student's work. A partner checks all ten cards against the finished drawing. The complete matrix is:
+\begin{center}\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c|rrrrr}
+&A&B&C&D&E\\\hline
+A&0&2&4&8&8\\
+B&2&0&4&8&8\\
+C&4&4&0&8&8\\
+D&8&8&8&0&2\\
+E&8&8&8&2&0
+\end{tabular}\end{center}
+At every threshold, ``distance at most that threshold'' recovers a partition. These partitions determine merger classes, not physical positions. An extra frame enclosing exactly the same cards as an inner frame supplies no new distance information; it is not another merger. Ignore such redundant decoration when comparing the geometries.
+
+\sub{Problem 5, page 5: all one-clue repairs}
+After changing AC from 4 to 2, the triple ABC reads AB=2, AC=2, BC=4, which cannot occur. There are exactly three repairs that change one clue to a different allowed value:
+\begin{center}\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{c p{10.8cm}}
+Repair & A world satisfying all ten clues\\\midrule
+AC becomes 4 & Restore AB at 2, then C joins at 4.\\
+AB becomes 4 & Put AC together at 2, then B joins at 4.\\
+BC becomes 2 & Put A, B and C directly in a three-child group at 2.\\\bottomrule
+\end{tabular}\end{center}
+In every repair, DE remain together at 2, and the ABC group and DE group join at 8. Thus every cross-clue still holds.
+
+\textbf{Completeness.} A change outside AB, AC, BC leaves the contradictory triple unchanged. For AB, the alternatives to 2 are 4 and 8: 4 works, while 8 becomes the unique largest value. The same reasoning applies to AC. For BC, alternatives to 4 are 2 and 8: 2 works and 8 fails. These exhaust all relevant single-clue changes. The original wrong clue cannot be identified from consistency alone; three different repaired worlds fit the allowed changes. Do not imply that restoring AC is the only correction.
+
+\textbf{Hints and readiness.} Offer the ABC clues alone if ten cards overload the group, then return to all the cross-clues. Asking for all repairs is genuine completeness work; pairs may split cases and pool their drawings. If an adult must decide every membership, return to visible pair comparisons before this inverse problem.
+\newpage
+\head{General explanations, number geometry and the secret-world game}
+\sub{Problems 6--7, page 6: beyond a few examples}
+Exactly one largest distance is impossible by the nested-group argument on page 1. To prove the ball facts, let $B$ lie in the radius-$r$ ball around A. For every member X,
+\[
+d(B,X)\le\max\{d(B,A),d(A,X)\}\le r.
+\]
+This proves containment in the ball around B; reversing A and B proves equality. If two balls of radii $r\le s$ intersect at Z, use Z as center for both. Every point at distance at most $r$ from Z is also within $s$, proving nesting. The center is the reference card for a distance test, not the middle of a drawn frame. A drawing may suggest these claims, but the argument covers every permitted hierarchy.
+
+\sub{Problems 8--9, page 7: the eight-number world}
+Put the even cards $\{0,2,4,6\}$ and odd cards $\{1,3,5,7\}$ into separate groups at 4. Inside them, the residue pairs at 2 are $\{0,4\}$, $\{2,6\}$, $\{1,5\}$ and $\{3,7\}$. The two parity groups join at 8. These four pairs are exactly the radius-3 balls; the even and odd groups are exactly the radius-5 balls. Include the center itself in every ball.
+
+For the elementary three-card explanation, if the cards do not all have the same parity, the two cross-parity distances are both 8. If all have the same parity, three distinct cards cannot all share one remainder modulo 4, because each such class has only two cards in 0--7. Two cards share a remainder and the third differs, giving distances 2,4,4. Thus a largest distance always repeats. This finite number world has no equilateral triple, but general grouped worlds do; do not turn that special feature into a universal restriction.
+
+The divisibility proof on page 1 explains the wider 2-adic connection. On these cards, 0 and 4 are closer than 0 and 1 even though they are farther apart on the ordinary line. The geometry compares agreement in successive remainders, not numerical size. Infinite digit strings and field completion are outside the activity.
+
+\sub{Problem 10, page 8: fewer questions when the answers help}
+Asking all $\binom62=15$ unordered pairs always determines the distance table. Some answers permit deductions: if AB=2 and AC=4, then BC must be 4, so that query is unnecessary. If every distance from A to the other five cards is 2, the strong inequality and the smallest allowed positive distance show all pairs are 2. Only five queries were needed in that case.
+
+Fifteen can nevertheless be necessary in the worst case. Suppose every answered query says 8. For any unasked pair, both the all-8 world and a world with just that pair joined at 2 and all other joins at 8 still fit every answer. Therefore one cannot be sure of that pair's value without asking it. The game invites economical questioning; this worst-case proof is optional adult depth, not a demand that children optimize every strategy.
+
+\sub{Sources and evidence}
+Dovgoshey, \emph{Finite Ultrametric Balls}, \S1, Propositions 1.2 and 1.5, supports the center and nesting properties; Theorem 3.15 discusses finite ball families. The card tasks and elementary proofs here are independently authored. See \texttt{SOURCES.md} for links and distinctions from shortest-road tree geometry and earlier number activities. Exact checks verify every finite case and repair. The QA record covers page inspection and clean source reconstruction. Physical preparation and classroom piloting remain untested; record whether children retain the new distance convention and can make their own grouping choices.
