@@ -1,0 +1,75 @@
+\def\band{Grades 4--5}\def\packet{W94-U-v1}\input{common.tex}
+\begin{document}\fontsize{12.5}{16.5}\selectfont
+For Problems 1--2, a machine makes 1, 2, or 3 copies of the input length, then adds 0, 1, 2, 3, 4, 5, or 6 units. It keeps both choices fixed for the whole round. Each square in the paper row is one unit.
+\begin{center}\affineexample\end{center}
+\problem{1}{Play the machine. Secretly choose the number of copies and the extra amount. Your partner requests a strip's report. They may request more reports until they can name both choices. Reveal and switch jobs. How few requests can you manage?}
+\begin{center}\begin{tabular}{|p{2.6cm}|p{4.7cm}|p{5.8cm}|}\hline
+Round & Strips requested & Reports \\\hline
+1\rule{0pt}{9mm}&&\\\hline 2\rule{0pt}{9mm}&&\\\hline 3\rule{0pt}{9mm}&&\\\hline 4\rule{0pt}{9mm}&&\\\hline
+\end{tabular}\end{center}
+\begin{center}\unitrow\end{center}
+\begin{center}\strips\end{center}
+\newpage
+\problem{2}{A 2-unit strip reports 6. Find every possible machine. Choose a second strip that would separate all your possibilities, and show the reports you might get. Could a single first request ever identify a machine?}
+\begin{center}\begin{tabular}{|p{3.8cm}|p{3.8cm}|p{5.5cm}|}\hline
+Copies & Extra amount & Second strip and its report \\\hline
+\rule{0pt}{17mm}&&\\\hline\rule{0pt}{17mm}&&\\\hline\rule{0pt}{17mm}&&\\\hline\rule{0pt}{17mm}&&\\\hline
+\end{tabular}\end{center}
+\vspace{5mm}\workbox{6.2}
+\newpage
+For the remaining problems, a stretch-and-shift machine multiplies every input length by the same positive number, then adds the same fixed amount. Fractions are allowed; the added amount may be negative.
+
+\begin{center}\begin{tikzpicture}[x=12mm,y=10mm,font=\small]
+\node at(1.5,1.1){input: 3 units};
+\foreach\i in{0,1,2}{\draw[fill=gray!15](\i,0)rectangle+(1,.6);}
+\draw[->,thick](3.25,.3)--(4,.3);
+\node at(6.55,1.1){stretch: $\times 1\frac12$};
+\foreach\i in{0,1,2}{\draw[fill=gray!15](4.3+1.5*\i,0)rectangle+(1.5,.6);}
+\node[below]at(6.55,0){$4\frac12$ units};
+\draw[->,thick](9.05,.3)--(9.8,.3);
+\node at(11.85,1.1){shift: subtract 1};
+\draw[fill=gray!15](10.1,0)rectangle+(3.5,.6);
+\node[below]at(11.85,0){report: $3\frac12$};
+\end{tikzpicture}\end{center}
+\problem{3}{Each machine gives these two reports. Find its rule and its reports for lengths 0, 4, and 10. Could a different stretch-and-shift rule give the same two known reports?}
+\begin{center}\begin{tabular}{|p{6.2cm}|p{6.2cm}|}\hline
+Machine A & Machine B \\\hline
+2 units $\to$ 8 & 2 units $\to$ 8 \\
+6 units $\to$ 16 & 6 units $\to$ 12 \\\hline
+\rule{0pt}{15mm}Rule: & Rule:\\\hline
+\rule{0pt}{12mm}0 units $\to$ & 0 units $\to$\\\hline
+\rule{0pt}{12mm}4 units $\to$ & 4 units $\to$\\\hline
+\rule{0pt}{12mm}10 units $\to$ & 10 units $\to$\\\hline
+\end{tabular}\end{center}
+\vspace{5mm}\workbox{3.5}
+\newpage
+\problem{4}{A machine claims to use one fixed stretch and shift. Could these three reports be correct? Find every way to repair the list by changing exactly one report.}
+\begin{center}\begin{tabular}{|c|c|c|}\hline
+2 units $\to$ 7 & 4 units $\to$ 11 & 6 units $\to$ 16 \\\hline
+\end{tabular}\end{center}
+\workbox{6.2}
+\problem{5}{A machine gives 7, 11, and 15 for lengths 2, 4, and 6. Its rule stays fixed, but nobody promises stretch-and-shift. Make two complete report tables that fit these reports and disagree at length 8. Could any number of matching tests below length 8 force its report at 8?}
+\begin{center}\begin{tabular}{|c|c|c|c|c|c|c|c|c|}\hline
+Length & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\\hline
+Table A\rule{0pt}{15mm}&\hspace{7mm}&7&\hspace{7mm}&11&\hspace{7mm}&15&\hspace{7mm}&\hspace{7mm}\\\hline
+Table B\rule{0pt}{15mm}&&7&&11&&15&&\\\hline
+\end{tabular}\end{center}
+\room{2cm}
+\newpage
+For Problems 6--7, the machine uses one fixed stretch and shift. The reference lengths are exact. Each displayed report may be up to 1 above or below its true report.
+\begin{center}\begin{tikzpicture}[font=\small]
+\node[align=center] at(0,0){input\\3 units};
+\draw[->,thick] (.7,0)--(3.3,0);\node[align=center] at(2,.85){fixed rule\\$\times2+1$};
+\node[align=center] at(4.2,0){true report\\7};
+\draw[->,thick] (5.1,0)--(7.7,0);\node[align=center] at(6.4,.85){error\\$+\frac12$};
+\node[align=center] at(8.7,0){displayed report\\$7\frac12$};
+\end{tikzpicture}\end{center}
+\problem{6}{For each pair of reference strips, find the smallest and largest possible stretch. Give a machine that reaches each extreme.}
+\begin{center}\begin{tikzpicture}[font=\small]
+\node[draw,minimum width=5.8cm,minimum height=2.2cm,align=center] at(0,0){Reference pair A\\[3mm]2 units: display 8\\4 units: display 12};
+\node[draw,minimum width=5.8cm,minimum height=2.2cm,align=center] at(7,0){Reference pair B\\[3mm]2 units: display 8\\10 units: display 24};
+\end{tikzpicture}\end{center}
+\vspace{3mm}\workbox{4.5}
+\problem{7}{Choose two exact reference lengths from 1 to 10 units before seeing any reports. Which pair gives the smallest guaranteed bound on how wide the range of possible stretches can be, even with the least helpful allowed errors? Could repeating one reference ten times guarantee the same result?}
+\vspace{3mm}\workbox{4.5}
+\end{document}
