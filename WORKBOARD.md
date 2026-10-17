@@ -57,3 +57,5 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Promote Week 82 after organizer approval | Codex | `dot/promote-week82` | done: organizer-approved/promoted; metadata and portable ZIP synchronized; approved PDFs preserved; clean ZIP rebuild byte-identical; unpiloted |
 
 | Reserved Weeks 85–91 production: pantographs, pursuit, voting, packing, discrete calculus, sliding tableaux, rotor routers | Codex | `codex/weeks-85-91` (lead); `codex/weeks-85-87`; `codex/weeks-88-90` | in progress: isolated production, fresh writer/critic/math/reviser stages; excludes Week 83 and older audit fixes |
+
+| Final breadth proposals, reserved Weeks 98–100 | Codex | `codex/final-topics-98-100` | in progress: research and concrete activity plans only; isolated `plans/final-topics-98-100/`; no worksheets or shared index edits |
