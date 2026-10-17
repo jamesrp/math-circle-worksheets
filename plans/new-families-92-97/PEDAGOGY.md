@@ -15,3 +15,9 @@ The current repository context, last reported October 3, has eleven children at 
 These are design inferences: show an unfamiliar operation with input, meaningful intermediate state and output; make the physical action recoverable; let the children choose examples or organize cases; provide prepared cards when transcription or fractions would dominate. Offer a manageable first route and preserve deeper mathematics for return visits. Prerequisites take priority over grade labels. Adult reading/recording support is appropriate, but a route that needs an adult to operate every mathematical decision should not be described as independent child work.
 
 Physical handling and preparation must be rehearsed before classroom use. The released verification records will distinguish digital checks from this unperformed rehearsal.
+
+## Introduction-audit transfer
+
+The completed [Weeks 1–75 introduction audit](../intro-audit-2026-10-17/README.md), fetched at `bff4075`, supplies an additional design check. Its concrete findings distinguish showing one part of an operation from completing the comparison the child will actually need. For this batch, retain the same input throughout each worked example: the full uncertain band through a move, both sides of the rectangle update, one standard through the measurement model, the mark/release/recapture sequence, one factor bag through selection, and one square through grouping and its remainder. This does not call for extra examples where the action is already evident or for revealing a target enumeration.
+
+For capture–recapture, the organizer additionally requested visible repeated-sample variation and preservation of all relevant model assumptions. A single estimate must not be presented as the true population.
