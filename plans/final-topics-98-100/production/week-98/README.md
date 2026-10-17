@@ -1,9 +1,9 @@
-# Week 98 production evidence
+# Week 98: release verification
 
-- [Adversarial review](review.md) and [independent mathematical review](review-math.md) describe the original draft snapshot.
-- [Original answer inventory](math-answers.md) is retained with that snapshot; use the [revision report](revision-report.md), final guide and [final checked results](final-math-results.json) for revised visible inputs and wording.
-- [Final student–guide review](final-pair-review.md) records every rendered page, final hashes and resolved findings.
-- [Release check](release-check.json) records current outputs, reference/rebuilt hash equality and exact ZIP contents.
-- [Portable source](../../../../lowell-math-circle-year-2/source/week-98/README.md) includes the executable independent checker as `check_math.py`; historical review commands named `independent-check.py` refer to that same checker lineage.
+Growing from a few seeds: bootstrap percolation.
 
-All stages and final reviews are digital evidence. Physical rehearsal and classroom use remain untested.
+- [Portable editable source and build instructions](../../../../lowell-math-circle-year-2/source/week-98/README.md).
+- [Readiness and verification summary](../../../../lowell-math-circle-year-2/source/week-98/QA.md).
+- [Release check](release-check.json): output/reference/clean-rebuilt PDF hashes, page counts and ZIP inventory.
+
+The source package includes the executable mathematical checker. Detailed stage and final review reports are retained separately, not published here. Every final page was rendered and inspected before release; the accepted PDF bytes are unchanged after source recovery. Unpiloted; physical printing, preparation, handling, adult procedures and pacing remain unrehearsed.

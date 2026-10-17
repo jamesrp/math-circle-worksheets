@@ -36,3 +36,7 @@ For finished worksheets, use the [year-2 print index](../lowell-math-circle-year
 The [Week 2 shared collection](week-02-shared-collection.md) supersedes its separate grade packets and K–1 auxiliary. It combines concrete lamp puzzles, larger networks, four-lamp classification, shortest solutions, drawing, and component/tree investigations. One adult guide supplies page choices and solutions. The [shared manifest](week-02-shared-manifest.json), [data](week-02-shared-data.json), [verifier](verify-week-02-shared.py), and [checked results](week-02-shared-checks.json) support the current collection.
 
 The [September 28 K–1 auxiliary plan](week-02-k1-aux.md) and [middle/upper visual revision](week-02-visual-review.md) preserve the earlier design stages and their source evidence. Their original numbering refers to archived packets. Earlier [auxiliary data](week-02-k1-aux-data.json), [verifier](verify-week-02-k1-aux.py), and [checked results](week-02-k1-aux-checks.json) remain for that history. All Week 2 revisions are prepared, not reported taught.
+
+## Final breadth investigations 98–100
+
+The [print and portable-source index](../lowell-math-circle-year-2/WEEKS-98-100.md) links bootstrap percolation, optimal transport and ultrametric geometry: eight PDFs (47 pages), separate theorem-first guides and three clean-rebuilt source ZIPs. Choose by prerequisites: Grades 2–3 and 4–5 for Weeks 98–99; Grades 3–5 for Week 100. No K–1 packet is claimed. All remain unpiloted and physically unrehearsed. Breadth closes at 100; older combined sets are unchanged.

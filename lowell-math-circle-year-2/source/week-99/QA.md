@@ -12,7 +12,7 @@ A fresh writer, adversarial critic, mathematical reviewer and reviser completed 
 
 Specified committed whole deliveries and equal counter totals; clarified that both first-task records must be optimal and different move orders count; added a non-task position-total example and more record space. The guide supplies a full-size reusable mat from the beginning and preparation of the catalog cards.
 
-The original draft reviews are retained as historical snapshots alongside the revision report. They are not claims of unresolved final defects. Canonical editable inputs are the static TeX files, avoiding a stale parallel generator. Integration changes to the student TeX are only reproducibility metadata.
+Detailed review reports are retained separately and are not included in this public release. Canonical editable inputs are the static TeX files, avoiding a stale parallel generator. Integration changes to the student TeX are only reproducibility metadata.
 
 ## Mathematics
 
@@ -28,4 +28,4 @@ Run `python3 check_math.py`. The standard-library checker writes JSON to standar
 - The adjacent source ZIP clean-extracted away from the checkout, then rebuilt using only its own sources and documented TeX/Python dependencies.
 - SHA-256 equality required among each delivered PDF, reference PDF and clean-rebuilt PDF. The ZIP excludes prompts, borrowed exemplars, downloaded works, raw traces and build caches.
 
-The repository [production record](../../../plans/final-topics-98-100/production/README.md) links the final review and exact file/page/hash manifest. That relative link is for a repository checkout; an extracted ZIP remains independently buildable without it. Digital evidence does not establish classroom success or physical readiness.
+The repository [production record](../../../../plans/final-topics-98-100/production/README.md) provides a verification summary and the exact file/page/hash manifest. That relative link is for a repository checkout; an extracted ZIP remains independently buildable without it. Digital evidence does not establish classroom success or physical readiness.

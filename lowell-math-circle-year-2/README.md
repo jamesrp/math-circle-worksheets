@@ -65,3 +65,7 @@ Downloaded originals belong in [external-resources](../external-resources/README
 ## Infinity, ordinal, surreal and knowledge drafts 79–84
 
 The [six-family mobile review index](WEEKS-79-84-DRAFT.md) links every student/material PDF and theorem-first facilitator guide individually, plus editable sources and portable ZIPs. Week 79 was promoted after organizer review on October 15, 2026, and Weeks 80–81 on October 17; Week 82 is also organizer-approved and promoted; Weeks 83–84 remain under review. All six selected-band activities remain unpiloted; physical fit and procedure rehearsal are untested. They are library options, not an adopted meeting schedule, and are not added to the older combined sets.
+
+## Final breadth investigations 98–100
+
+The [print and portable-source index](WEEKS-98-100.md) links bootstrap percolation, optimal transport and ultrametric geometry: eight PDFs (47 pages), separate theorem-first guides and three clean-rebuilt source ZIPs. Choose by prerequisites: Grades 2–3 and 4–5 for Weeks 98–99; Grades 3–5 for Week 100. No K–1 packet is claimed. All remain unpiloted and physically unrehearsed. Breadth closes at 100; older combined sets are unchanged.
