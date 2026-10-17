@@ -2,6 +2,8 @@
 
 ## Start here
 
+- [Six connected investigations, Weeks 92–97](new-families-92-97/STATUS.md): analysis/dynamics, inference and multiplicative number theory; all final student/guide reviews, source provenance and portable reconstruction evidence.
+
 - [Six infinity, ordinal, surreal and knowledge drafts, Weeks 79–84](infinity-prototypes-79-84/README.md): hands-on selected-band packets, primary-source adaptation notes, independent reviews and clean reconstruction evidence.
 
 - [Three frontier prototypes, Weeks 76–78](frontier-prototypes-76-78/README.md): substitution order, persistent holes and tropical geometry; source research, independent stages, final pairs and reconstruction evidence.

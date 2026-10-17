@@ -54,3 +54,7 @@ The [three-topic review index](../WEEKS-76-78-PROTOTYPES.md) links the substitut
 ## Infinity, ordinal, surreal and knowledge drafts 79–84
 
 Each package in `week-79/` through `week-84/` builds one selected-band student/material PDF and a separate facilitator PDF using Python 3 and pdfLaTeX, with standard-library mathematical checks. Its adjacent portable ZIP contains the same six owned source files. The [mobile index](../WEEKS-79-84-DRAFT.md) and [release evidence](../../plans/infinity-prototypes-79-84/README.md) give exact coverage and byte-identical extracted-ZIP reconstruction results. No reference books or workflow style excerpts are packaged.
+
+## Connected investigations 92–97
+
+The [print and source index](../WEEKS-92-97.md) links all six standalone source packages. Each adjacent `week-NN-source.zip` contains the same owned editables as `week-NN/`; Python 3 and pdfLaTeX rebuild the complete student/guide family without private references or downloads. All six extracted archives reproduced their final PDFs byte-for-byte. Use the per-week README for exact commands and dependencies; build/render intermediates belong in repository `tmp/`. These materials remain unpiloted and physically unrehearsed.
