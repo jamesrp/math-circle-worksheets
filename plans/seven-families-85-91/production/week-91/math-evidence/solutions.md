@@ -1,0 +1,58 @@
+# Independent Week 91 mathematical audit evidence
+
+Reviewed the actual draft PDFs: students (6 pages), return-visit (4 pages), materials (7 pages). This is mathematical review evidence, not a new facilitator guide or an edited worksheet. Every page was freshly rendered and inspected. The standalone standard-library `independent_check.py` does not import or execute the writer's or earlier critic's checker. States below read breadth-first, left-to-right on trees and positions 1 through m−1 on roads. L/R always describes the **next** departure: move first, then flip the departure card.
+
+## Facts and proofs
+
+**One switch.** Successive visits alternate exits. Every consecutive even number of visits splits equally; for any number, counts differ by at most one. This concerns visits to that switch, not a count of global launches if some launches miss it. The proof pairs consecutive departures.
+
+**Complete downward binary tree of depth d.** For every initial card pattern, every consecutive block of 2^d root launches visits each leaf exactly once and restores all cards. The root receives 2^d visits, sends 2^(d−1) to each child, and flips an even number of times. Induct down each subtree: every internal node at level k receives 2^(d−k) visits, an even number; each leaf receives one. The argument begins with whatever card state exists at the start of the block, so it applies at every offset, not just the first aligned block. Tree direction is downward only; no upward moves occur. Starting patterns affect order, not full-block counts. A target order is realizable exactly when its subsequence through each internal node alternates between that node's two child subtrees. Necessity follows from the switch rule; sufficiency follows by orienting each card toward the child used on its first visit. For a full leaf permutation, every internal node is visited, so the order uniquely specifies the initial pattern. There are therefore 2^(2^d−1) realizable orders.
+
+**Finite road termination.** Let the finite path be 0,1,...,m, with absorbing endpoints and alternating next-exit cards at all interior vertices. Every single walk stops, whatever its initial cards and interior start. If a walk were infinite, some interior vertex would be visited infinitely often. Alternation would send infinitely many departures to each neighbor. Propagating toward an endpoint forces a visit to an absorbing endpoint, contradicting an infinite walk. This uses finiteness, both available neighbor directions, flipping at every visit, and absorbing endpoints. It does not assert termination on every graph or on an infinite road.
+
+**Road invariant and exact blocks.** Assume integer m≥2, fixed interior integer source 1≤s<m, one counter traveling at a time, and no resets between launches. Let S be the number of next-right cards among the m−1 interior vertices. A right departure increases position x by 1 and decreases S by 1; a left departure decreases x by 1 and increases S by 1. Thus x+S is invariant during each walk. For launch i, if r_i=1 for exit m and 0 for exit 0, termination gives m r_i + S_i = s + S_(i−1). Summing n launches gives
+
+`mR + S_final = ns + S_initial`.
+
+For n=m this is `m(R−s)=S_initial−S_final`. The right-hand side is an integer in [−(m−1),m−1], while the left is divisible by m. Hence both are zero: exactly s counters exit right and m−s left, and the **number** of next-right cards returns. Since the argument allows arbitrary initial cards, it applies to every consecutive m launches immediately, with no burn-in. It also gives right count k s for k m launches. It does **not** imply that the whole card pattern returns. For general n, `|R−ns/m| ≤ (m−1)/m < 1`.
+
+The bounded enumerations corroborate these proofs; they are not substituted for proofs at arbitrary d or m. Independent enumeration covered all states for tree depths 1–4 and every interior source and state for roads m=2 through 10, with 3m launches per road case and all sliding m-windows. It checked 227,329 road walks and 3,598,327 per-step invariants.
+
+## Students packet: each printed task and example
+
+| Page / problem | Requested action | Independently verified answer |
+|---|---|---|
+| 1 / convention example | Follow the X arrow, then flip it. | Counter moves to X; the next arrow becomes Y. The three diagrams correctly keep the counter at X while the final card points to Y. |
+| 1 / P1 | Run twelve arrivals from either first arrow; classify four supplied words. | X-start gives XYXYXYXYXYXY; Y-start gives YXYXYXYXYXYX. XYXY and YXYX are possible; XXYY and XYYX violate alternation. Both twelve-runs leave the card as it started. |
+| 2 / P2 | Make D first and find different eight-arrival orders. | Root and right child must both start R; the left child is free. RLR gives DACBDACB; RRR gives DBCADBCA. Exactly these two starting patterns and orders exist. |
+| 3 / P3 | Program or reject ACBD, BDAC, ABCD, DABC. | ACBD comes from LLL; BDAC from LRR. ABCD begins with two left-half exits. DABC has consecutive left-half exits at positions 2 and 3. Both are impossible. |
+| 4 / P4 | Program or reject AECGBFDH, HDFBGCEA, ACEGBDFH. | AECGBFDH comes from LLLLLLL; HDFBGCEA from RRRRRRR. ACEGBDFH fails root alternation immediately (A,C). Exactly 128 eight-leaf orders are realizable. |
+| 5 / P5 | Invent an impossible permutation of eight exits and explain. | ABCDEFGH is one valid answer: A,B require two consecutive left departures from the root. Of 8!=40,320 permutations, 40,192 are impossible. AEBFCGDH is a stronger example; see below. |
+| 5 / P6 | Decide leaf-once and card restoration for four/eight launches from arbitrary arrows; explain. | Both answers are yes for the respective complete trees. Use the bundle-splitting proof above. Before the whole block ends, each leaf has at most one arrival. |
+| 6 / P7 | Compare twelve coin choices with a switch; find coin-only six-word; ask whether coin can make switch words. | Switch gives six of each exit in strict alternation. Coin record is experimental and has no predetermined word or exact balance. XXXXXX is coin-only. Every finite switch word can occur under independent tosses allowing both outcomes; in particular XYXYXY and YXYXYX. There are 64 binary six-words, of which only two are switch words. Fairness is unnecessary for possibility, but the usual ideal fair independent coin gives probability 1/64 per six-word. No probabilistic guarantee should be inferred from a single sample. |
+
+**Proposed replacement AEBFCGDH.** Verified independently, not merely accepted from the critic. Root subsequence alternates left/right perfectly: A,E,B,F,C,G,D,H. But the left subtree receives A,B,C,D, whose first two use its left child; the right subtree receives E,F,G,H with the analogous failure. The word is impossible, while every leaf still appears once. Replacing ACEGBDFH is mathematically safe and adds a genuine next-level obstruction without changing the valid targets.
+
+## Return-visit packet: each printed task and example
+
+| Page / problem | Requested action | Independently verified answer |
+|---|---|---|
+| 1 / example | Enter 2 on road 0–3 with cards R,L. | Complete state trace (position,cards): (2,RL) → (1,RR) → (2,LR) → (3,LL). The printed intermediate/final cards and trajectory are correct. |
+| 1 / P1 | Eight launches on 0–4 from 1 with LLR; predict next four. | First eight exits: 0,0,4,0,0,0,4,0. Next four: 0,0,4,0. After 4,8,12 launches the cards are RLL, not the original LLR. Full per-launch states and trajectories are in check-results.txt. |
+| 2 / P2 | Eight launches on 0–4 from marked entries 1,2,3, any starting cards. | Right counts 2,4,6; left counts 6,4,2. Orders depend on chosen arrows. The entry arrows in all three diagrams point to the stated interior positions. |
+| 3 / P3 | On 0–5 seek five right exits from 1,2,4; find count rule. | Impossible for all three entries. In five launches the right counts are respectively 1,2,4 and left counts 4,3,1, independently of starting cards. |
+| 4 / P4 | Find equal-sized blocks with repeated endpoint counts but changing complete patterns. | Road 0–4, source 1, initial LLR, block length 4: each block gives 3 left and 1 right, while initial LLR becomes RLL. The pattern is RLL at the next block boundary as well. This is a transient initial-state witness, not perpetual change. For two explicitly changing boundaries, take LLL, source 1, block length 1: exits 0 then 0; patterns LLL→RLL→RRL. These first two equal-count blocks do not establish indefinite equal one-launch counts. |
+| 4 / P5 | Generalize counts in m launches from fixed s on 0–m for all starting arrows. | For the intended interior integer source, exactly s right and m−s left, by the invariant proof above. If endpoint starts are deliberately admitted and immediately absorbed, s=0 or s=m give the same formula trivially. Nonvertex s is undefined. |
+| 4 / P6 | Determine whether a counter can travel forever on any finite road. | No under the shared rules and absorbing endpoints; use the infinite-visits propagation argument above. |
+
+For P4, 'while ... change' is existential, so the transient example is valid. Do not turn it in a solution into a claim that the full pattern changes after every m-launch block forever, or that a finite observed pair proves repeated counts forever for an arbitrary block size.
+
+## Diagram and physical geometry audit
+
+All 17 rendered pages were visually inspected; independent render files and PDF-extracted text accompany this record. On student pages, tree connectivity and left-to-right leaf labels agree with the task's four/eight-exit trees. Blank interior circles are state records rather than differently defined machines. The return packet's marked entries are 1,2,3 on the four-edge road and 1,2,4 on the five-edge road. Every arrival strip has the number of slots its task needs: 12, 8, 5, or 6 as appropriate. The unlabeled four-slot card record on return p4 is the sole positional ambiguity (see review).
+
+The actual material PDFs, not just source constants, were measured: all circle centers and diameters agree with the brief within 0.02mm. Materials p1 is portrait US Letter and pp2–5 are landscape US Letter. Boards have one/three/seven switches and two/four/eight exits; roads have three/four interior switches and two absorbing endpoints. Circle outlines are pairwise disjoint and clear the header/footer. The 50mm scale mark measures 50mm. The material-card source has exactly fourteen 18×22mm tree faces and eight 20×20mm road faces, yielding seven and four paired reversible cards. Both faces have NEXT upright and opposite departure directions. Vertical folding joins the backs; turning the folded card about a vertical axis preserves the upright NEXT convention. There are four 12-cell strips with 15mm cells and three entry markers.
+
+The 18×22mm tree cards have diagonal 28.425mm, so their corners project 2.213mm beyond a centered 24mm junction radius. A 20×20mm road card has diagonal 28.284mm, slightly exceeding the 28mm five-edge-road circle; it fits the 30mm four-edge-road circle. These outlines are placement guides, not closed sockets, and the overhangs do not reach adjacent nodes or obscure required labels. A 12mm counter fits inside the 15mm recording cells and is much smaller than every exit circle. The single traveling counter should wait beside the card, because putting it on the arrow hides the operative state. None of these geometric checks establishes actual cut/fold/turn handling or printer calibration: physical rehearsal remains untested.
+
+No PDFs, writer sources, or prompt-stage files were edited by this independent math stage.

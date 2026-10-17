@@ -1,0 +1,140 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=17mm,headheight=15pt,footskip=10mm]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern}\usepackage{helvet}\renewcommand\familydefault{\sfdefault}
+\usepackage{tikz,amsmath,amssymb,array,booktabs,fancyhdr,parskip,enumitem,hyperref}
+\usetikzlibrary{arrows.meta}
+\hypersetup{hidelinks}\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 91 / Rotor-router machines / Adult guide}
+\fancyfoot[L]{\small Bellingham Math Circle / Week 91 / F91-FAC-v1}\fancyfoot[R]{\thepage}
+\setlength\parindent{0pt}\setlist[itemize]{leftmargin=*,nosep,topsep=3pt}
+\newcommand{\head}[1]{\vspace{3pt}\textbf{\large #1}\par}
+\newcommand{\prob}[1]{\vspace{3pt}\textbf{#1}\par}
+\pdfinfoomitdate=1\pdftrailerid{}\pdfsuppressptexinfo=15
+\begin{document}
+\head{Mathematical overview: facts, assumptions and limits}
+An arrow shows the \textbf{next} departure. Follow it, then flip that card. A counter finishes before the next enters, and cards persist between counters. These conventions are part of every result below.
+
+\prob{Local balance and complete trees}
+At one alternating two-exit switch, any consecutive $n$ visits split with counts differing by at most one. Pair successive visits: each pair takes opposite exits. A complete downward binary tree of depth $d$ sends every consecutive block of $2^d$ counters once to each leaf, whatever the starting cards. The root splits the block equally; each child splits its own consecutive visits equally, and so on. Every switch receives an even number of visits, so all cards return after the block. Four- and eight-exit trees have depths two and three. This conclusion need not hold for unequal-depth trees, or with cards reset between counters. Order is constrained even when totals agree.
+
+\prob{An absorbing road has exact block counts, without a transient wait}
+The road has vertices $0,1,\ldots,m$, so \textbf{$m$ counts edges}. Both endpoints absorb. Every launch starts at the same interior vertex $s$. Interior cards alternate left/right after each departure. Every counter stops: otherwise some interior vertex would be visited infinitely often; alternating departures would force infinitely many visits along a path to an absorbing endpoint, a contradiction.
+
+Let $S$ count cards pointing right. A step preserves counter position plus $S$. For $n$ completed counters, of which $R$ exit at $m$,
+\[
+ mR+S_{\rm final}=ns+S_{\rm initial}.
+\]
+Since $0\leq S\leq m-1$, every consecutive block of $m$ launches sends exactly $s$ counters right: $m(R-s)=S_{\rm initial}-S_{\rm final}$ is a multiple of $m$ with absolute value less than $m$. This works from \textbf{every} starting card configuration, with no burn-in. It does not say the complete card configuration returns. On the four-edge road, entry 1 with initial LLR yields exits 0,0,4,0 and ends RLL.
+
+\prob{Balance is not independent randomness}
+A switch cannot emit XX consecutively. Independent fair coin choices can; each prescribed length-six coin word has probability $1/64$. A fair random walk on the absorbing road has right-exit probability $s/m$, matching the rotor frequency but not its whole-word distribution. Probability is optional background, not needed for the tasks.
+
+\prob{What children are meant to discover}
+Grades 2--3: operate visible switches, choose starting cards, and distinguish possible orders. Grades 4--5: explain splitting bundles, investigate feedback, and eventually use a conserved score. K--1 has only an optional adult-supported one-switch station, not an independent packet. Count to 12 and follow arrows for entry; later work needs sustained sequential control and supported addition/subtraction. Trials are \emph{experiments}; a proposed universal rule is a \emph{conjecture}; the pairing, bundle and conserved-score arguments explain why it holds. All pages are unpiloted; physical preparation and procedures remain unrehearsed.
+\newpage
+\head{Preparation, launch and visit choices}
+\prob{Three older-table kits}
+For each pair/trio: 16 counters no more than 12 mm wide, 7 reversible tree cards (18 by 22 mm), 4 road cards (20 by 20 mm), a movable ENTRY marker, a pencil or dry-erase pen, and a coin for the comparison. Three complete kits total 48 counters, 21 tree cards, 12 road cards, 3 ENTRY markers and 3 coins. Optional demonstration and K--1 stations need additional kits; do not double-count the same kit at simultaneous tables.
+
+Materials PDF: p1 one switch; p2 four-exit tree; p3 eight-exit tree; p4 four-edge road; p5 five-edge road; p6 fold-and-glue cards; p7 arrival strips and entry markers. Print US Letter at Actual Size, with landscape pages kept landscape. Cut paired card rectangles, fold on the dotted line and glue backs. Keep NEXT upright on both faces; turn cards side-to-side. Sleeve boards if available. Exits retain counters; use separate labeled cups if exit piles crowd the board.
+
+For a first visit, print students pp1--3 per older pair, materials pp1--2,6--7 per kit, and one guide per adult. Add students pp4--5 and materials p3 for ready groups. The coin comparison on students p6 can be its own short return. For roads, print the four-page return packet and materials pp4--7 per kit; reuse counters/cards. Distribute only the current task pages. A complete apparatus set is seven pages, but a selected route needs fewer.
+
+\prob{Before children arrive: an uncompleted physical check}
+Measure the 50 mm reference bar and 15 mm strip squares; confirm 12 mm counters leave arrows visible. Rehearse flipping every card, eight-exit clearance, a road revisit and exit-pile handling with the actual printed kit. Record preparation time and any failures. Digital geometry and rendered inspection do not replace this rehearsal. No measured preparation time or classroom-readiness claim is available yet.
+
+\prob{Launch together, about 3--5 minutes after the usual movement break}
+Let children move a counter and handle a spare card first. Say: ``We want to direct counters to exits. This arrow tells the next counter where to go. Follow it, then turn over that card. Leave it for the next counter.'' Demonstrate one move, then let a child complete the next. The partner checks the departure before the card flips. Compare a \emph{new trial}, when children choose initial cards and clear exit piles, with continued launches that keep the current cards. Keep a counter beside a card so the arrow stays visible.
+
+For the road return, demonstrate the printed short-road example completely: enter at 2 with cards R,L; go 2 to 1 (cards R,R), then 1 to 2 (L,R), then 2 to 3 (L,L). The second visit to 2 uses its new arrow. Stop at 3.
+
+\prob{Manageable routes, not a completion schedule}
+Two pairs work at the four-child 2--3 table. The upper trio rotates mover, checker and recorder. First visit: students P1--3 for 25--35 minutes, then share an impossible order; upper children can continue to P4--6 on another visit. Roads: P1--2 are a full concrete first route, P3--4 a return, P5--6 an adult-supported explanation visit. Use 5 minutes of movement and a few minutes of sharing around these ranges. Adult reading or recording is fine; children must choose and move. If adults supply every move, return to one switch. K--1 can use a familiar pattern-block activity with its anchored adult; no multi-level coverage is implied.
+\newpage
+\head{First packet: operating and programming}
+Letters name leaves from left to right. In the answers below, L/R means the visible next arrow. For a four-exit tree, card words list root, left child, right child. Keep these adult shorthand words off the work surface if miniatures are easier.
+
+\prob{Problem 1: one switch and arrival words}
+Twelve inputs give XYXYXYXYXYXY or YXYXYXYXYXYX, according to the first card. Both have six at each exit. Of the four printed words, XYXY and YXYX work; XXYY and XYYX do not. The latter has consecutive Ys even though its first two letters alternate. A useful explanation is that every departure flips the next departure.
+
+First hint: ``Leave the card where the last counter left it. Where must the next go?'' Next, cover all but two neighboring letters of a proposed word. Children can choose and test their own impossible words. An extension asks whether one exit can finish two ahead after any number of counters; pairing departures proves it cannot. Do not require parallel step, flip and visit tallies.
+
+\prob{Problem 2: keep D first while changing the order}
+The root and right-child cards must start R. The left-child card is free, so exactly two starting configurations work:
+\begin{center}
+\begin{tabular}{ccc}\toprule
+Initial cards & First four & Eight arrivals\\\midrule
+RLR & D A C B & D A C B D A C B\\
+RRR & D B C A & D B C A D B C A\\\bottomrule
+\end{tabular}
+\end{center}
+D's path fixes the cards it encounters, but says nothing about the unused left child. This is a small inverse problem, not a demand to copy all eight possible starts. Hint first by tracing D backwards with a finger; then ask which card that route never touches. Save a successful start on the printed miniature before operating it.
+
+\prob{Problem 3: four requested programs}
+ACBD works from LLL. BDAC works from LRR. ABCD is impossible because the first two outputs must lie in opposite root halves, while A and B are both left. DABC is impossible for a deeper reason: outputs 1 and 3 must come from the same half; D is right and B is left. Equivalently, after D,A, the third counter must go right, where B is unavailable.
+
+Ask children to identify the first departure that a proposed word forces incorrectly. If they only keep trying, point to the root, without giving the successful cards. A guarantee about impossible words needs a reason that covers every initial state; unsuccessful trials alone do not supply it.
+
+For adult checking, all eight four-arrival words are ACBD, ADBC, BCAD, BDAC, CADB, DACB, CBDA, DBCA, in card order LLL, LLR, LRL, LRR, RLL, RLR, RRL, RRR. Each repeats after four counters. This complete list is a key, not extra child transcription work. Allow 10--15 minutes per programming investigation, and retain unfinished targets for a return.
+\newpage
+\head{First packet: constrained order, balance and coins}
+\prob{Problem 4: eight-exit programs}
+AECGBFDH is produced by all seven cards L. HDFBGCEA is produced by all seven cards R. Each complete eight-letter output determines the starting state uniquely: at each switch, its first encountered output identifies its first side. AEBFCGDH is impossible even though root halves alternate: the left subtree receives A,B,C,D, whose first two outputs use its same lower branch. The right subtree similarly receives E,F,G,H. The seven cards are ordered by levels: root; left and right child; then the four lowest switches from left to right.
+
+If a child is stuck, ask where the first named exit lives, then which switches its route determines. Let the child program, test and repair. Avoid turning the whole task into a prescribed backwards algorithm. Seven-card attention is not assumed from age alone; return to the four-exit tree if the partner must manage every state.
+
+\prob{Problem 5: invent a balanced but impossible order}
+ABCDEFGH is one witness: it visits each exit once, but A then B violates root alternation. Another witness is AEDFBGCH: the left subtree receives the legal order A,D,B,C, but the right subtree receives E,F,G,H, which violates its alternating halves. Ask the child to show the precise conflicting departure. Merely using all eight letters does not make a legal order.
+
+\prob{Problem 6: every exit and returning arrows}
+Both answers are yes for the printed complete trees. Four root arrivals give two to each child, which sends one to each of its leaves. Eight root arrivals give four to each child, two to each lowest switch, and one to each leaf. Thus no exit receives its second counter before all receive their first within the chosen block. Every switch flips an even number of times, restoring the entire state.
+
+Use bundles of four or eight counters beside the diagram, splitting piles at successive levels. This explains all starting arrows without 128 trials. The same reasoning applies to a block begun after earlier launches: that block's first card state is just another permissible starting state. To test a later block, clear only exit piles, leaving arrows untouched. An unequal-depth tree is a worthwhile later counterexample, but it is not covered by this theorem.
+
+\prob{Problem 7: coin choices versus switches}
+For coin choices, heads means X and tails Y, independently for each counter. Briefly show a heads result, route to X, and the deposited counter before play. A six-counter word such as XXXXXX can come from the coin and cannot come from the switch. Every switch word can come from the coin: choose the matching faces. All 64 binary length-six words are possible with fresh fair independent tosses; each has probability $1/64$. A 12-toss experiment is not expected to show every possibility, and an observed balanced coin run does not show equivalence of the mechanisms.
+
+First ask whether the switch can make just XX. Then ask what coin faces would make a child's chosen word. The child can give a possible sequence without knowing probability. This comparison is suitable for a separate short return; it is not a prerequisite for the absorbing road. The card machine is deterministic after its initial state is fixed.
+\newpage
+\head{Return packet: feedback experiments}
+Road card words list interior vertices in increasing order. Endpoints are 0 and $m$; there are no endpoint cards. Each trial keeps one fixed entry and retains cards between launches.
+
+\prob{Problem 1: eight launches, then predict four}
+On 0--4 from entry 1, initial LLR gives 0,0,4,0,0,0,4,0. The next four are 0,0,4,0. After the first four counters the cards are RLL, not LLR. After eight they are again RLL. A checkable trace of the first block is:
+\begin{center}\begin{tabular}{ccc}\toprule
+Counter & Exit & Cards after exit\\\midrule
+1&0&RLR\\2&0&RRR\\3&4&LLL\\4&0&RLL\\\bottomrule\end{tabular}\end{center}
+This starting example makes state change visible while endpoint blocks balance. Save a card-state sketch before running; arrival strips alone cannot recover every initial card configuration.
+
+\prob{Problem 2: move the entry on 0--4}
+Eight counters from entries 1,2,3 give respectively right counts 2,4,6 and left counts 6,4,2, for every starting state. With all-left starting cards, the first four exit words are 0004, 0404 and 0444; each repeats. Other initial cards may change order. Ask partners to change one starting card while keeping the entry, then change entry in a fresh trial. A pooled record across pairs reduces repetitive bookkeeping. The eight outputs do not alone prove the result for every possible start.
+
+\prob{Problem 3: can all five exit at 5?}
+No for any of the printed entries. Exactly 1,2,4 counters exit right from entry 1,2,4 respectively, whatever the four starting cards. All-left examples are 00005, 00505 and 05555. The unprinted entry 3 would give three right and two left. Explain the universal claim only when children are ready for the score on the next page; initially retain it as a conjecture supported by their trials.
+
+\prob{Problem 4: balanced blocks without returning every card}
+Use the first problem's road, entry 1, initial LLR and block size four. The first two output blocks are both 0004. Card states are LLR initially, RLL after the first block, and RLL after the second. Thus matching block counts, and even the same endpoint word, do not force an immediate return to the original full state. The number of right-pointing cards returns (one in each state); their locations may change.
+
+Hint: return to the saved starting state and compare it with the state after four launches, rather than attempting to remember every intermediate visit. Full-state repetition does guarantee future repeated behavior for a fixed entry, but equal endpoint counts alone do not establish it. Digital checks support these examples; the invariant gives the all-start count theorem.
+\newpage
+\head{Return packet: explanation, limits and further visits}
+\prob{Problem 5: the general road and a conserved score}
+The answer is $s$ at the right endpoint and $m-s$ at the left after $m$ launches. This assumes consecutive launches at \emph{one fixed} interior $s$, no manual card changes and absorbing endpoints. Introduce the score only after children have operated roads: one point per edge from 0 to the current counter, plus one per next-right card. Use the same complete short-road example as the launch:
+\begin{center}\begin{tabular}{ccccc}\toprule
+Stage & Counter & Cards at 1,2 & Right cards & Total score\\\midrule
+Start &2&R,L&1&3\\
+After 2 to 1 &1&R,R&2&3\\
+After 1 to 2 &2&L,R&1&3\\
+After 2 to 3 &3&L,L&0&3\\\bottomrule\end{tabular}\end{center}
+A left step loses one position point and gains one card point. A right step gains one position point and loses one card point. Everything else stays unchanged. Let children check both moves with one unchanged pair of before/after states; the adult may record the single score.
+
+For many counters, retain the position points carried to endpoints: 0 for each left exit and $m$ for each right exit. Each fresh counter adds $s$ points. Therefore $mR+S_{\rm final}=ns+S_{\rm initial}$. At $n=m$, the difference $m(R-s)$ has absolute value at most $m-1$; the only such multiple of $m$ is zero. The argument starts at any block boundary and any initial cards. This proves immediate block balance without claiming immediate state recurrence. Varying the entry within a block changes the right side to the sum of the entries; the fixed-$s$ conclusion no longer follows in that form.
+
+\prob{Problem 6: could one counter travel forever?}
+No on any finite path with both endpoints absorbing and alternating interior cards. Suppose it did. Some interior vertex must then be visited infinitely often. Half its departures go toward either neighbor, so both are also visited infinitely often. Repeat towards an endpoint: the counter would have to reach that endpoint, where it stops, a contradiction. A long trial or an arbitrary step cap does not prove this. For a concrete hint, ask what happens if a counter returns to one junction again and again; can that junction keep refusing the exitward neighbor forever?
+
+\prob{Sources, optional continuation and records}
+Holroyd and Propp, \emph{Rotor Walks and Markov Chains}, arXiv:0904.4507v3, introduction and Theorem 1, give general frequency-discrepancy context. Their increment-before-move convention is phase-shifted from these next-exit cards. Levine, \emph{The Rotor-Router Model}, arXiv:math/0409407, section 1 and Lemma 1.1, uses follow-then-change and the finite-exit argument. Tree/path special cases and these classroom examples are derived here. Source links and precise adaptation notes are in SOURCES.md.
+
+Optional probability: the fair-walk right-hitting function has endpoints 0,1 and each interior value is its neighbors' average. Equal successive gaps give $h(s)=s/m$; absorption holds almost surely (in each block of $m$ steps a monotone endpoint path has probability at least $2^{-m}$). Equal frequency is not independent randomness. Record exact task/initial cards/entry, child's own choices, observed missed flips, saved words, and whether a claim was tried, conjectured or explained. These are new review drafts, not reported classroom observations.
+\end{document}

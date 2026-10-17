@@ -1,0 +1,40 @@
+Tree depth 1: 2 initial states, distinct orders; every full block balanced and all cards restored.
+Tree depth 2: 8 initial states, distinct orders; every full block balanced and all cards restored.
+Tree depth 3: 128 initial states, distinct orders; every full block balanced and all cards restored.
+Tree depth 4: 32768 initial states, distinct orders; every full block balanced and all cards restored.
+Students P1: X-start = XYXYXYXYXYXY; Y-start = YXYXYXYXYXYX. Legal targets: XYXY, YXYX. Illegal: XXYY, XYYX.
+Students P2 D-first: {'DACBDACB': 'RLR', 'DBCADBCA': 'RRR'}
+Tree target ACBD: LLL
+Tree target BDAC: LRR
+Tree target ABCD: IMPOSSIBLE
+Tree target DABC: IMPOSSIBLE
+Tree target AECGBFDH: LLLLLLL
+Tree target HDFBGCEA: RRRRRRR
+Tree target ACEGBDFH: IMPOSSIBLE
+Tree target AEBFCGDH: IMPOSSIBLE
+Students P5: ABCDEFGH is an impossible permutation (first two exits in same root half). There are 40320-128=40192 impossible permutations.
+Students P6: YES to leaf-once before repeat and state restoration for either tree, every initial state.
+Students P7: 64 possible six-toss words, exactly 2 switch words; XXXXXX is coin-only; both switch words possible by coin.
+Return worked example: [(2, 'RL'), (1, 'RR'), (2, 'LR'), (3, 'LL')]
+Return P1 exits: [0, 0, 4, 0, 0, 0, 4, 0, 0, 0, 4, 0]
+Return P1 states after each launch: ['LLR', 'RLR', 'RRR', 'LLL', 'RLL', 'RRL', 'RRR', 'LLL', 'RLL', 'RRL', 'RRR', 'LLL', 'RLL']
+Return P1 individual walks: [[1, 0], [1, 2, 1, 0], [1, 2, 3, 4], [1, 0], [1, 2, 1, 0], [1, 2, 3, 2, 1, 0], [1, 2, 3, 4], [1, 0], [1, 2, 1, 0], [1, 2, 3, 2, 1, 0], [1, 2, 3, 4], [1, 0]]
+Road exhaustive verification, all states and interior entries, every sliding m-window through 3m launches: [{"m": 2, "state_entry_pairs": 2, "max_single_walk_steps": 1, "initial_states_not_restored_after_m": 0}, {"m": 3, "state_entry_pairs": 8, "max_single_walk_steps": 3, "initial_states_not_restored_after_m": 2}, {"m": 4, "state_entry_pairs": 24, "max_single_walk_steps": 6, "initial_states_not_restored_after_m": 12}, {"m": 5, "state_entry_pairs": 64, "max_single_walk_steps": 10, "initial_states_not_restored_after_m": 44}, {"m": 6, "state_entry_pairs": 160, "max_single_walk_steps": 15, "initial_states_not_restored_after_m": 130}, {"m": 7, "state_entry_pairs": 384, "max_single_walk_steps": 21, "initial_states_not_restored_after_m": 342}, {"m": 8, "state_entry_pairs": 896, "max_single_walk_steps": 28, "initial_states_not_restored_after_m": 840}, {"m": 9, "state_entry_pairs": 2048, "max_single_walk_steps": 36, "initial_states_not_restored_after_m": 1976}, {"m": 10, "state_entry_pairs": 4608, "max_single_walk_steps": 45, "initial_states_not_restored_after_m": 4518}]
+Return P2: eight launches at s=1,2,3 have respectively right counts 2,4,6 and left counts 6,4,2, regardless of arrows.
+Return P3: five launches at s=1,2,4 have respectively right counts 1,2,4 and left counts 4,3,1; all-five-right is impossible.
+Return P4: LLR -> RLL -> RLL at m=4,s=1,block=4 is a transient-state witness; each block gives 3 left and 1 right.
+Return P4 stronger two-changing-boundaries witnesses: [{'m': 4, 's': 1, 'block': 1, 'states': ['LLL', 'RLL', 'RRL'], 'exits': [0, 0]}, {'m': 4, 's': 1, 'block': 5, 'states': ['LLL', 'RLL', 'RRL'], 'exits': [0, 0, 0, 4, 0, 0, 0, 4, 0, 0]}, {'m': 4, 's': 3, 'block': 3, 'states': ['LLL', 'RLL', 'RRL'], 'exits': [0, 4, 4, 4, 0, 4]}, {'m': 4, 's': 1, 'block': 1, 'states': ['LLR', 'RLR', 'RRR'], 'exits': [0, 0]}]
+Return P5: for integer m>=2 and fixed interior integer 1<=s<m, right count=s, left count=m-s for EVERY consecutive m launches, any initial cards. General proof in solutions.md.
+Return P6: every walk terminates on a finite absorbing path; general proof in solutions.md.
+Total simulated road walks=227329; verified single-step invariants=3598327.
+Materials p1: 3 correct circle positions and diameters; pairwise nonoverlap; header/footer clearance.
+Materials p2: 7 correct circle positions and diameters; pairwise nonoverlap; header/footer clearance.
+Materials p3: 15 correct circle positions and diameters; pairwise nonoverlap; header/footer clearance.
+Materials p4: 5 correct circle positions and diameters; pairwise nonoverlap; header/footer clearance.
+Materials p5: 6 correct circle positions and diameters; pairwise nonoverlap; header/footer clearance.
+Materials p6: 14 tree faces 18x22mm = 7 cards, 8 road faces 20x20mm = 4 cards. p7: four 12-cell strips of 15mm; three 35x20mm entry markers.
+Tree card diagonal 28.425mm exceeds 24mm junction diameter; centered corners overhang radius by 2.213mm. 20mm road cards diagonal 28.284mm exceeds 28mm junction by 0.284mm total, fits 30mm junction. Nonoverlapping circles and ample edge lengths tolerate these corner overhangs, but no physical test performed.
+students.pdf sha256=602d129d6145b3783fceb4b622f86ad0a43e3d226abd10f241fa7cdf69a7eb7a
+return-visit.pdf sha256=fa4e27d4524afe247520c0adc3fffe3fa5f00239c8fdb60b095e9db4ce08dee3
+materials.pdf sha256=5a8889037e4fc885294ffff9ce6a4f455bb0c9a7b9c8419daaa4325861f7610e
+PASS: every asserted independent mathematical and geometric check completed.

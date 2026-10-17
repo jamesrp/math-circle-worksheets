@@ -1,5 +1,7 @@
 # Seven new worksheet families: consolidated plan
 
+> This is the preserved October11 planning record. Full production was authorized October17. See the [current production status](production/STATUS.md) for completed review drafts, actual bands and verification evidence; old “unbuilt” statements below describe the planning phase.
+
 **Planning status: unbuilt, unpiloted, physical rehearsal untested.** These are detailed proposals for organizer review, not released worksheets. Provisional Weeks 85–91 follow the fetched canonical source; they are library identifiers rather than seven consecutive teaching dates. Existing packets and app files are untouched. Work lives on local branch `plan/seven-families-85-91`; no GitHub push, PR, merge or remote upload is part of this task.
 
 The family outlines below contain actual page-by-page prompts, worked visual examples, exact manipulative specifications, keyed solutions and proofs, and facilitator routes. They begin with the mathematical facts and their limits. This overview helps choose a first visit; it does not replace the detailed preparation and solution notes.
