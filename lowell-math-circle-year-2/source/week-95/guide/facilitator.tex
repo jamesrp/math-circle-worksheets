@@ -1,0 +1,102 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[margin=.67in,headheight=15pt,headsep=15pt,footskip=22pt]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,array,fancyhdr,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\renewcommand{\familydefault}{\sfdefault}\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{Week 95 / Count the unseen / Facilitator guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 95 / W95-F-v1 / Unpiloted}\fancyfoot[R]{\small\thepage}
+\pdfinfoomitdate=1\pdftrailerid{}\pdfsuppressptexinfo=15
+\newcommand{\topic}[1]{\par\medskip\textbf{#1}\par}
+\begin{document}
+\topic{Mathematical overview: what can overlapping catches reveal?}
+\textbf{Certain bounds.} A fixed population has $N$ distinct objects. The first catch contains $M$ distinct objects, all marked and returned; the second contains $n$ distinct objects. If $R$ objects occur in both, exactly $M+n-R$ different objects have been seen. Thus
+\[
+N\ge M+n-R,\qquad \max(0,M+n-N)\le R\le\min(M,n).
+\]
+Every integer overlap in this range is possible: choose $R$ marked and $n-R$ unmarked objects. Every integer $N\ge M+n-R$ fits a valid record: build the two catches' union, then add unseen objects. There is \emph{no finite upper bound} without outside information. These facts concern sets; no randomness is required. They rely on correctly recognizing shared identities.
+
+\textbf{Model-based inference.} Suppose the second catch is a uniform $n$-element subset of the same population. Each of the $M$ marked objects then has chance $n/N$ to appear. Summing their zero-or-one contributions gives
+\[
+\mathbb E(R)=\frac{Mn}{N}.
+\]
+The contributions are not independent, and independence is not needed for this mean. The first set may be held fixed for this argument. The pages use blind, mark-independent sampling for both catches as a concrete model. Physical shaking only approximates uniform sampling.
+
+\textbf{A proposed guess, not a recovered total.} Matching the observed fraction $R/n$ to the population fraction $M/N$ gives $\widehat N=Mn/R$ when $R>0$. Random overlap varies, so the guess can be above or below $N$, may be nonintegral, and is not generally unbiased. At $R=0$ this ratio is undefined; finite populations $N\ge M+n$ remain possible. Neither one record nor these repeated records determines an exact total.
+
+\textbf{A design theorem.} For fixed $N$ and positive integer catches with budget $M+n=s\le N$, expected overlap is greatest when the catches are as equal as possible. If $n\ge M+2$, moving one object of budget from $n$ to $M$ increases $Mn$ by $n-M-1>0$. Continue until balanced. This optimizes \emph{expected overlap}; it is not a theorem that every estimation-error criterion is optimized. A few random rounds need not rank designs in their expected order.
+
+\textbf{Assumptions and limits.} The same objects remain throughout a series, with no additions, losses or exchanges. Each catch has no within-catch replacement. Return the whole first catch and mix before the second. Marks remain visible, introduce no tactile selection cue, and do not change catchability. Return everything and clear all dots only between complete rounds. Lost or false marks break the interpretation of observed dots as overlap; even the union bound can then fail. Upper Problem 8 deliberately tests retention.
+
+\textbf{Discovery map.} Grades 2--3 construct possible populations and see why a guess differs from a certain bound. Grades 4--5 connect proportions to a fallible estimate, observe sample variability, design catches and test a model assumption. Live trials are experiments; a plausible total is an inference; the union construction and balancing argument are proofs. There is no K--1 packet for this family.
+\newpage
+\topic{Preparation, launch and readiness}
+\textbf{For the current seven older children:} prepare three kits: two pairs at the middle table and one rotating trio at the upper table. Each kit has 24 identical flat counters or stiff cards, two opaque bags, two catch trays, a screen, a suitable erasable marker and a wiping cloth. Total: 72 objects, six bags and six trays. Permanent small identities A--X in a corner help the identity puzzles and later retention test; the temporary dot is separate. Use marks that cannot be detected by touch. A dot must survive handling yet erase for a reset. Test the chosen material/ink combination before use; that physical test has not been performed for this draft. Student diagrams are illustrations, not cutouts.
+
+The 24-object kit supports both an 8-object and a 16-object bag at the same time in middle Problem 5. It also supports every upper experiment. To build a larger hypothetical population, extend the drawing or use more identical paper cards; the kit size is not a mathematical upper bound. Print one appropriate packet per child, single-sided US Letter. No exact print-to-material fit is required. Labeling three sets and checking the marks may take roughly 15--20 minutes; this is a planning estimate, not a timed rehearsal.
+
+\textbf{Handle, then launch together, about 5 minutes.} Let children handle several objects and try one temporary dot. Use the first-page diagram with the \emph{same six} objects A--F. Deliberately take A,C, show that the bag now holds B,D,E,F, mark A,C, return both and mix. Deliberately take C,D,F: the bag now holds A,B,E and C is the one marked object in the catch. Display that whole unchanged input through both catches; a marked object appearing again is the same object, not an extra one. This is an arranged demonstration, not a purported random result. Then show the blind draw used for a sampling trial.
+
+Keep the catch out until counted. Between full rounds return all six and erase all dots while leaving permanent identity letters. Have children enact this once before independent trials. The keeper keeps the hidden count; the drawer samples; a third child checks return/reset and reads the record, rotating roles. An adult anchors each active table. Children can choose and defend guesses; an adult need only read or help reset, rather than make the inference for them.
+
+\textbf{Readiness.} The middle core requires counting, matching identities, addition/subtraction within 20 and oral comparison of possibilities. Adult reading is reasonable. The upper estimate requires multiplication/division and equivalent fractions; the grouping visual supplies a concrete entry, but it does not remove those prerequisites. The allocation proof is a later challenge. Younger children can join the concrete launch; the K--1 table needs its own separately selected session activity.
+
+\textbf{Flexible first route.} After the usual movement time and shared launch, allow roughly 10 minutes for three live rounds, then 15--20 minutes for middle Problems 2--3 or upper Problems 2--3. Share two different bags fitting one record. If ready, use the printed repeated records before closing. This is a proposed 35--40 minute table route, not a demand to finish pages. Return visits can take middle Problems 5--7 or upper Problems 4--8, with a fresh enactment of the full operation.
+
+\textbf{Keep sampling and existence separate.} Blind draws explore what happens by chance. Deliberately arranged catches establish what \emph{can} happen. A legal arranged catch still uses distinct objects from the same population. Never wait for a rare random event to prove possibility or treat failure to observe it as impossibility. Record only the supplied overlap and guess in the live trials. The printed repeated records are invented examples, not classroom observations.
+\newpage
+\topic{Grades 2--3: answers, hints and continuations}
+\textbf{Problem 1: three rounds.} The hidden $N$ stays in 8--20 and $M=n=4$. Each overlap 0--4 is possible. There is no prescribed guess; reveal the keeper's actual total after the guesses and compare how one unchanged population produced different evidence. The mean overlap $16/N$ is adult context, not a required method for this band. The 8--20 restriction belongs only to this live game, not later construction puzzles.
+
+\textbf{Problem 2: repeated identities.} First A,B,C,D,E and second B,D,E,F,G have exactly three shared objects B,D,E. Seven different objects A--G have been seen. Smallest total: 7. Offered totals 7,8,12,20 are possible; 6 is impossible. Build A--G once each, then add unseen objects without changing the displayed catches. If children count ten, place each repeated letter on its one physical object and let both catch records point to it.
+
+\textbf{Problem 3: no shared identities.} The two five-object catches are disjoint, so the smallest bag has ten objects A--J. There is no largest total with as many cards as wanted. A new unseen object preserves both catches; this explains the general claim, beyond a few examples.
+
+\textbf{Problem 4: variable evidence.} With four in each catch, all six overlaps 2,1,3,1,2,0 are possible for either total 8 or 16. Larger overlaps tend to support the smaller bag; smaller overlaps tend to support the larger one. A reasonable sequence of tentative choices is 8,16,8,16,8,16, but these are \emph{not certain recovered answers}. Ask what could persuade a child to change a guess, without requiring a particular rule.
+
+The six observations together still do not force a choice. Their mean overlap 1.5 lies between model means 2 and 1. Under independent uniform fresh rounds the full sequence weakly favors 16, with likelihood about 1.76 times that at 8. This optional adult check is not a posterior probability or lower-band arithmetic task. Accept a reasoned tentative choice that acknowledges the other bag remains possible; do not mark a uniquely correct total. The records are printed precisely so variability remains visible even if today's few trials happen to look alike.
+
+\textbf{Problem 5: arrange both extremes.} Both bags can produce zero and three, in different rounds. In an eight-object bag A--H, let the first catch be A,B,C,D. Second E,F,G,H gives zero; second A,B,C,E gives three. The same catches work in the sixteen-object bag with eight further unseen objects. The instruction permits deliberate arrangements. For perspective, random zero overlap at $N=8$ has chance $1/70$; waiting is a poor way to settle the possibility question.
+
+\textbf{Problem 6: every overlap.} With first catch 5 and second catch 4:
+\begin{center}\begin{tabular}{c|l}
+Population & All possible overlaps\\\hline
+6 & 3,4\\
+8 & 1,2,3,4\\
+12 & 0,1,2,3,4
+\end{tabular}\end{center}
+Fix five marked objects. To build overlap $r$, choose $r$ of them and $4-r$ unmarked objects. The bag contains only $N-5$ unmarked objects, so $4-r\le N-5$, or $r\ge9-N$; also $0\le r\le4$. This proves both the exclusions and the constructions. Held hint: lay out the unmarked objects first and ask whether four can avoid every dot.
+
+\textbf{Problem 7: invent a puzzle.} For populations 6,7,8 the valid overlap sets are respectively $\{3,4\}$, $\{2,3,4\}$, $\{1,2,3,4\}$. Any possible/impossible pair works; overlap 4 versus 0 works for all three. If a child uses an overlap above 4, accept its impossibility and offer a return challenge whose two proposed overlaps both lie in 0--4. Partners should reconstruct the union to check the puzzle. A useful next visit asks how the smallest possible overlap changes as one unseen object is added, using the same marked five and second catch of four.
+\newpage
+\topic{Grades 4--5: bounds, estimates and variability}
+\textbf{Problem 1: three rounds.} The live game has one fixed population 12--24, with six in each catch. Every overlap 0--6 is possible throughout that range; guesses have no fixed answer. Restore everything and erase dots between rounds. The expected overlap is $36/N$, from 3 to 1.5. This prior population range applies only to Problem 1; the later construction puzzles explicitly allow arbitrarily many cards.
+
+\textbf{Problem 2: sharp lower bounds.} Record A, overlap 2, requires at least 10 objects. Use first 1--6 and second $1,2,7,8,9,10$. Record B, overlap 0, requires at least 12; use first 1--6 and second 7--12. Neither has a finite largest total: add any number of unseen objects. A guess from a sample and a bound proved by identities answer different questions.
+
+\textbf{Problem 3: a proportion guess.} The non-task visual starts with two marked objects in the bag and second catch A*,B,C, where * is a dot. A matching model keeps those same three as one group and adds D*,E,F as another: one marked per three in each group, two marked out of six in total. The rule's guess is six. This explains the conversion; it does not assert the actual population must form equal groups or contain exactly six.
+
+For record A the sample fraction is $2/6=1/3$. Six marked objects would be one-third of a population of 18, so the rule guesses 18. The ten-object construction from Problem 2 is a counterexample to certainty; every integer total at least ten also fits. In that ten-object population the sample fraction $1/3$ differs from the population fraction $6/10$. That is allowed under uniform sampling. Held hint: arrange groups with two marked and four unmarked objects, then consider how many groups use all six marks. Let the child also build a population that fails the matching rule but still produces the observed catch.
+
+\textbf{Problem 4: one truth, several guesses.} Overlaps $1,2,3,2,0$ give $36,18,12,18$ and no finite fraction-matching total. A single population of 18 can produce every record. For a concrete construction, keep first catch 1--6. For overlap $r$, second catch $1,\ldots,r$ together with $7,\ldots,12-r$ has six objects and the required overlap; for $r=0$ use 7--12. All fit inside 18.
+
+Indeed every integer $N\ge12$ can produce the entire sequence. The zero round forces the strongest individual lower bound, 12. Do not add union sizes across rounds: the table does not tell us which identities were shared between rounds. A justified report can say ``at least 12; 18 remains possible; the rule's guesses vary.'' There is no unique correct point estimate here. An overlap of zero does not mean the real population suddenly became infinite.
+
+If children propose pooling, mean overlap is $8/5$ and matching that mean gives $36/(8/5)=22.5$, still just an estimate. Averaging only the four finite per-round guesses gives 21 but silently drops the zero round and uses another procedure. Neither is established as exact or unbiased. Encourage the question of how to report uncertainty; do not demand a falsely precise final answer.
+
+\textbf{Problem 5: improve evidence after zero.} Finite populations 12 and 18 both admit disjoint catches 1--6 and 7--12. Larger feasible catches or more fully reset rounds can supply additional evidence. Holding $N$ fixed, increasing one catch while the other stays positive increases expected overlap. More trials do not guarantee exact recovery in a finite run. The record establishes only $N\ge12$, so sample sizes up to 12 are assured feasible; a proposed catch above 12 needs further population information. No handling budget is imposed here. The later budget problem is a new, explicit design constraint, not a hidden rule for this task.
+\newpage
+\topic{Grades 4--5: design, explanation and model checks}
+\textbf{Problems 6--7: balance the handling budget.} For $N=24$ and budget 12, the optimal split is $6+6$, expected overlap $36/24=3/2$. The products for splits $1+11,2+10,3+9,4+8,5+7,6+6$ are $11,20,27,32,35,36$; reversed splits tie. With budget 13 use $6+7$ or $7+6$, giving $42/24=7/4$. With budget 20 use $10+10$, giving $100/24=25/6$. For any integer budget $s=2,\ldots,24$, choose $\lfloor s/2\rfloor$ and $\lceil s/2\rceil$.
+
+The general balancing proof on page 1 explains why no omitted split wins. A rectangle of side lengths $M,n$ gives a concrete picture: transfer one unit from the longer side to the shorter; the gained strip exceeds the lost strip when their lengths differ by at least two. Alternatively, $Mn=(s^2-(M-n)^2)/4$, so minimize the difference. This reconnects the fixed-sum rectangle problem in Week 51's bonus to an inference objective. It maximizes the mean over all equally likely catches, not the observed mean of every short experiment or a universal measure of estimator accuracy.
+
+\textbf{Why the supplied average formula holds.} One marked object appears in $\binom{N-1}{n-1}$ of the $\binom Nn$ equally likely second catches, a fraction $n/N$. Each of the $M$ marks contributes that much to the average count, giving $Mn/N$. Children can instead circulate a single marked object through symmetric positions, then add the contributions of the marks. A full table of all catches is optional, not a prerequisite for the design problem.
+
+\textbf{Problem 8: test a failed assumption.} Small overlap can arise by chance even with intact marks. For the very same second catch, lost marks can only reduce or preserve the detected overlap. Using the original $M$, a positive ratio guess then increases or stays the same; zero makes the ratio unavailable. Thus ``must be large'' is unjustified.
+
+A direct test uses permanent identity letters as an independent record. Record the first catch's identities and dots, return and mix, then count second-catch overlap twice: once by letters, once by dots. A repeated identity missing its dot demonstrates undercounting from mark loss in that round. The keeper can also inspect the whole population afterward for surviving dots. Keep population, sample sizes and actual catches fixed for this comparison; changing the population and ink together would not separate explanations. If no recaptured dot was lost, loss did not cause that round's small detected overlap, but chance or another model failure may remain. Comparing two marking methods over repeated, reset rounds is a longer continuation.
+
+\textbf{Limits worth retaining.} If $N=M=n=6$ and all dots disappear, observed overlap zero would falsely suggest the union bound $N\ge12$. The bound counts shared identities, so it needs reliable recognition. Also, the ratio is not generally unbiased even without zero outcomes: at $N=6,M=4,n=3$, overlaps $1,2,3$ have probabilities $1/5,3/5,1/5$. Guesses $12,6,4$ average to $34/5$, not 6. This adult example explains why averaging guesses is not automatically justified.
+
+\textbf{Sources and return visits.} McClintock, \emph{Mark-resight models}, MARK chapter 18, PDF pp. 2--3, supplies the capture--recapture model and assumptions: \href{https://sites.warnercnr.colostate.edu/gwhite/wp-content/uploads/sites/73/2017/05/MARK_resight_help.pdf}{author-hosted chapter}. These tasks, diagrams and proofs are newly authored. \emph{Math Circle by the Bay}, preface viii--x, supports deep connected themes, manipulatives and flexible pace; these particular routes are our design judgments. Weeks 6/25 connect question choice to identification; Weeks 42--45 and atlas bias/coverage work connect model assumptions to evidence. Retain catch allocation and retention tests for return visits. Record what children actually do independently, where reset or fraction conversion needs help, and which questions they want to resume. All material remains unpiloted; physical preparation, mixing, marking and timing are unrehearsed.
+\end{document}
