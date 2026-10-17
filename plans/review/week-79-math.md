@@ -11,6 +11,8 @@ Sources read: `source/week-79/student/students.tex`, `guide/facilitator.tex`, `b
 
 **Result: every printed fact, formula, answer and diagram is correct. I found 2 problems, both in the guide. (1) A hint headed "Problems 3–4" states two facts that hold only for the smallest-card rule, and both are false under Problem 3's rule. (2) The guide never answers Problem 4's finite-day question for the changed rule, and the student wording admits a defensible "yes" there.**
 
+**Update October 17, 2026:** item 1 is resolved in the current guide; its hint is scoped to Problem 4's smallest-card rule and a correct Problem 3 card-1 contrast is added. Item 2 is unchanged and deferred. The historical findings below are retained. [Correction checks](../infinity-prototypes-79-84/reviews/week-79/hint-correction-2026-10-17.md).
+
 ## How it was checked
 
 - **`check_math.py`** (output `check_math.py.out`, 0 failures):

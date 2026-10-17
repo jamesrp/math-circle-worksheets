@@ -4,6 +4,8 @@
 
 Grades 2–3 concrete core; Grades 4–5 eventual-membership continuation. A selected-band menu, not a requirement to finish every page in one session. All activities are unpiloted; physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. The theorem-first guide gives assumptions, preparation, launch, first route, solutions, hints and return visits.
 
+October 17, 2026: corrected only the guide page 3 hint to name Problem 4's smallest-card rule, with a card-1 contrast for Problem 3. The student packet is unchanged. Organizer promotion and unpiloted status are unchanged.
+
 ## Build the two PDFs
 
 Python 3 (standard library) and pdfLaTeX/TeX Live are required, with TikZ, geometry, fancyhdr, helvet, lmodern, amsmath/amssymb, parskip and hyperref. No font, book, binary, image asset or Python package is bundled.
