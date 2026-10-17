@@ -1,0 +1,92 @@
+\newpage
+\head{Line deliveries: exact answers and matching lower bounds}
+Here a position row lists one bin number per counter, with repetitions. Thus $0055$ means two counters in bin 0 and two in bin 5; it is not a four-digit integer. Match the first starting position to the first target, second to second, and so on. Each listed plan attains its gap bound. The gap row gives signed net crossings across gaps 0--1 through 4--5; negative means left. Use ordinary ``must cross left/right'' language with children.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{p{4.0cm}c c c c}
+Printed problem & Start & Target & Net gap crossings & Work\\\midrule
+2--3 P1, first & $00$ & $24$ & $2,2,1,1,0$ & 6\\
+2--3 P1, second & $03$ & $12$ & $1,0,-1,0,0$ & 2\\
+2--3 P2 first; 4--5 P1 first & $0005$ & $1234$ & $3,2,1,0,-1$ & 7\\
+2--3 P2 second; 4--5 P1 second & $1144$ & $0225$ & $-1,1,-1,-1,1$ & 5\\
+2--3 P2, third & $2222$ & $0134$ & $-1,-2,2,1,0$ & 6\\
+4--5 P2, first & $0055$ & $2233$ & $2,2,0,-2,-2$ & 8\\
+4--5 P2, second & $1114$ & $0235$ & $-1,2,1,0,1$ & 5\\
+4--5 P2, third & $0235$ & $1144$ & $1,-1,0,1,-1$ & 4\\\bottomrule
+\end{tabular}\end{center}
+
+\textbf{Reading one proof.} For the first $0005\to1234$ delivery, three counters must cross gap 0--1 to the right, two across 1--2, one across 2--3, none net across 3--4, and one across 4--5 to the left. At least $3+2+1+0+1=7$ counter-steps are required. Send the three counters at 0 to 1, 2 and 3, and the counter at 5 to 4: costs $1+2+3+1=7$. The lower and upper bounds agree.
+
+\textbf{Different plans.} Changing the order of independent legal deliveries gives different move sequences with the same total. Some different matchings also tie. The requested ``more than one'' plan does not mean the optimum is unique after ignoring interchangeable-counter identities. Conversely, inserting a needless out-and-back detour is a different plan but not another best plan. Both packets request two best move records. Different legal orders suffice; both records should attain the stated minimum. Different assignments are not required.
+
+\textbf{A child-sized certificate.} Pick one gap, cover the bins to the right, and compare the starting and target number of counters on the left. The difference cannot vanish unless that many net crossings occur. Repeat for enough gaps to account for the full claimed cost. A single-gap bound can be useful but need not prove the complete optimum. Keep the target visible and unchanged while counting.
+
+\textbf{Why the sorted plan attains all bounds.} Suppose one paired counter crosses a gap rightward and another leftward. Their starting positions satisfy $x\le i<x'$, but their target positions satisfy $y>i\ge y'$. This reverses the target order, impossible in the sorted pairing. With no opposite traffic, total crossings at each gap equal its compulsory net number in absolute value. Summing counts each counter-step exactly once.
+\newpage
+\head{Greedy choices, invented starts and three arrangements}
+\sub{Both bands Problem 3, page 3: nearest delivery can fail}
+In the first pair, starts are 0 and 3; target slots are 2 and 5. The uniquely shortest delivery is $3\to2$, cost 1. It leaves $0\to5$, cost 5, for total 6. The other pairing costs $0\to2$ plus $3\to5$, or $2+2=4$. The latter meets the gap bound. A greedy choice that looks best locally need not leave a good remaining problem.
+
+The Grades 2--3 second pair is starts 0,4 to slots 2,5. Nearest-first sends $4\to5$ and then $0\to2$, total 3, which is optimal. This contrast matters: the rule sometimes succeeds. The other pairing costs $4\to2$ plus $0\to5=7$.
+
+The Grades 4--5 second pair is starts 0,4 to slots 3,5. Two shortest deliveries tie at cost 1. Choosing $4\to3$ leaves $0\to5$, total 6; choosing $4\to5$ leaves $0\to3$, total 4. Ties can therefore change the outcome. A delivery is committed to an unfilled target slot; moving one counter repeatedly or treating a temporary transit bin as a new supply changes the proposed rule.
+
+\sub{Grades 2--3 Problem 4, page 4: work 4 and work 7}
+The fixed target is four counters at bin 2. Every initial counter must end at 2, so the exact work is the sum of its distance to 2. Examples of start position rows with work 4 are $0022$, $1111$ and $0224$; examples with work 7 are $0003$, $0014$ and $0115$. Their distances to bin 2 sum to the requested value. Children may find many others: the checker finds 16 work-4 starts and 19 work-7 starts, counting pile arrangements rather than labeled-counter identities. Exhausting those sets is not the printed task.
+
+\sub{Grades 2--3 Problem 6, page 6: can a target defeat work 5?}
+No. Every target of four counters on bins 0--5 has an arrangement at distance exactly 5. If its position sum is $s$, moving all counters to 0 costs $s$ and moving them all to 5 costs $20-s$. One of these is at least 10. Starting at the target, move counters toward that endpoint for exactly five adjacent steps. All moves go in one direction, so the gap lower bound is exactly 5. Reverse those five moves to deliver from the constructed start to the target. The independent check also tests all 126 four-counter arrangements. The argument, rather than the finite sample alone, explains why the challenge always works.
+
+\sub{Grades 4--5 Problem 6, page 6: a detour cannot beat the optimum}
+No: an optimal A-to-B plan followed by an optimal B-to-C plan is a valid A-to-C plan. Therefore $D(A,C)\le D(A,B)+D(B,C)$. Equality example: four counters at 0, then four at 1, then four at 2 gives $4+4=8$. Strict example: four at 0, then four at 5, then four at 1 gives $20+16>4$. All three arrangements are different in both examples. The direct route means the least work between whole arrangements, not necessarily one hand movement. This is the triangle inequality for the new distance.
+\newpage
+\head{Grades 4--5 Problem 4: same center, different distributions}
+The eight movable cards are all four-counter arrangements on bins 0--4 whose position total is 8. A position total repeats a bin number once per counter: four counters at 2 contribute $2+2+2+2=8$. Before this unfamiliar convention, a non-task example with one counter at 1 and one at 3 gives total 4. Equal totals and equal numbers of counters mean equal average position, but they do not make the pile pictures identical.
+
+Label the printed cards in reading order:
+\[
+\begin{array}{c|cccccccc}
+\text{card}&A&B&C&D&E&F&G&H\\\hline
+\text{positions}&0044&0134&0224&0233&1124&1133&1223&2222
+\end{array}
+\]
+Their exact minimum-work distances are below. Each entry is the sum of the four coordinate differences in absolute value, justified by the sorted-pairing theorem.
+\begin{center}\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c|rrrrrrrr}
+ &A&B&C&D&E&F&G&H\\\hline
+A&0&2&4&4&4&4&6&8\\
+B&2&0&2&2&2&2&4&6\\
+C&4&2&0&2&2&4&2&4\\
+D&4&2&2&0&4&2&2&4\\
+E&4&2&2&4&0&2&2&4\\
+F&4&2&4&2&2&0&2&4\\
+G&6&4&2&2&2&2&0&2\\
+H&8&6&4&4&4&4&2&0
+\end{tabular}\end{center}
+The maximum is 8, attained only by A and H as an unordered card pair: two counters at 0 and two at 4 versus four at 2. A complete comparison of the 28 distinct pairs proves this finite maximum. The bound ``each can gather at 2 in at most 8'' would only give 16 by concatenation and is not enough to prove the claimed maximum.
+
+\textbf{Why no card is missing.} Sort the four positions $a\le b\le c\le d$. If $a=0$, then $b=0,1,2$ give respectively $0044$, $0134$, and $0224$ or $0233$; $b\ge3$ makes the sum too large. If $a=1$, then $b=1$ gives $1124$ or $1133$, and $b=2$ gives $1223$; $b\ge3$ is too large. If $a=2$, all entries must be 2. Larger $a$ is impossible. This proves the eight-card inventory without treating physical card order as a different arrangement.
+
+\textbf{Pacing and support.} The essential discovery is that two distributions with the same center can still require work. The full maximum and completeness proof are later depth. Pairs can share comparisons and pool a checkable record; each child need not do 28 calculations or transcribe every card. The supplied cards carry the cases so sorting and comparison remain the mathematics.
+\newpage
+\head{Branching roads, extensions and source limits}
+\sub{Both bands Problem 5, page 5}
+The star has center O and three leaves A,B,C. Each complete road costs one per counter; road length on paper is irrelevant. There is no shortcut directly between leaves.
+
+The common first start has two at A and one at C; the target has two at B and one at O. Send A--O--B twice and C--O once: work 5. The A, B and C edges force respectively 2,2,1 crossings, proving optimality.
+
+The Grades 2--3 second start has two at A and one at B; the target has one at A and two at C. Leave one at A, send A--O--C and B--O--C: work 4. Leaf-edge requirements are 1,1,2. An invented three-counter example of work 6 puts all three at A initially and all three at B in the target. All three traverse two edges, and each of those two leaf edges forces three crossings.
+
+The Grades 4--5 second start has three at A and one at B; the target has one at A, two at C and one at O. Leave one at A, send two from A to C, and send B to O: $4+1=5$. The leaf-edge requirements are 2,1,2. Any other optimal plan is equally valid.
+
+\sub{Why the star formula always works}
+Each leaf's imbalance must cross its only road. Send excess counters at leaves to O; then send counters from O to deficient leaves. Together with any initial counters already at O, there are enough because total initial and target mass agree. Remaining counters at O match its target automatically. No edge is used in opposite directions. Thus the sum of the absolute leaf imbalances is both a lower bound and attainable, for every equal-total start and target on this star.
+
+For a general tree, the same argument can be applied by removing leaves successively, or by decomposing the uniquely required edge flows into surplus-to-deficit paths. A cycle has multiple routes: removing a single edge may leave the graph connected, so this exact cut argument does not apply unchanged. For example, a counter from 0 to 3 on a four-bin ring can use one road; on the open 0--1--2--3 line it needs three.
+
+\sub{Later routes and connection boundaries}
+The entire pile arrangement is the point in this new geometry; minimum counter-work is its distance to another arrangement. Week 2's capacity-one swap puzzles are a genuine restricted relative, while these bins allow piles and passage through occupied bins. Labeled-object sorting, edge-disjoint routes and buying a cheapest network optimize different objects or costs. Week 89's running totals can support the gap certificate, without being the present question.
+
+Peyr\'e and Cuturi, \emph{Computational Optimal Transport}, \S2.6, Remarks 2.28 and 2.30, equations (2.33) and (2.37), give the ordered-position and cumulative-distribution formulas; \S6.3 discusses graphs. The proofs here specialize those ideas to whole counters. No general higher-dimensional or unequal-mass solution is claimed. See \texttt{SOURCES.md} for exact links and provenance.
+
+Independent checks cover the printed inputs, greedy alternatives, catalog, invented-distance challenge and star examples. General arguments distinguish proof from experimentation. The package QA records the final page inspection and clean ZIP rebuild; those are digital checks. Printing, material handling, pacing and classroom success remain untested. Record where children keep the planning decisions and where adult support becomes too directive.
