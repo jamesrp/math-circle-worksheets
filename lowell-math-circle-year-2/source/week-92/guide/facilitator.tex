@@ -1,0 +1,100 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=.7in,headheight=15pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,fancyhdr,parskip,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\pdfinfoomitdate=1\pdftrailerid{}\pdfsuppressptexinfo=15
+\pagestyle{fancy}\fancyhf{}
+\lhead{\small Week 92 / Fold-and-stretch predictions}\rhead{\small Facilitator guide}
+\cfoot{\small Bellingham Math Circle / Week 92 / facilitator / \thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\begin{document}
+\section*{Mathematical overview}
+The track is the \emph{continuous} interval $[0,16]$. A move sends $x$ to
+\[T(x)=2\min(x,16-x)=\begin{cases}2x,&0\le x\le8,\\32-2x,&8\le x\le16.\end{cases}\]
+One marker follows this deterministic rule. A band records all possible locations of that same marker when its initial location is not known exactly; it does not mean choosing a new start each move.
+
+\textbf{Pairs and intervals behave differently.} On one half, a pair's distance doubles. Across the middle, a pair can merge: $T(x)=T(16-x)$. However, a whole interval's width \emph{never decreases}. For $a\le8\le b$, its image is
+\[ [\min(2a,32-2b),16],\qquad
+\text{width}=2\max(8-a,b-8)\ge b-a. \]
+On either single half, its width doubles. Across the middle, width stays equal exactly for a symmetric band. Moving only the two ends can miss the maximum at $8$.
+
+\textbf{Every positive-width band eventually fills the track.} For each $n\ge1$, every cell
+\[\left[\frac{16k}{2^n},\frac{16(k+1)}{2^n}\right],\quad 0\le k<2^n,\]
+maps onto $[0,16]$ after $n$ moves. Every positive-width interval contains one sufficiently small cell, so eventually every output position is possible. A singleton is excluded: $0$ stays at $0$. Whole-number starts all reach $0$ within five moves, but the continuous track also contains the fixed point $32/3$. A finite grid is not the whole system.
+
+\textbf{Any finite prediction horizon can be met.} To keep the entire band $[0,q]$ within $[0,2]$ through $n$ moves, the largest possible $q$ is $2/2^n$. There is a positive band for every named finite $n$, but no one positive band works forever.
+
+Children should discover the difference between a known point and a possible range, then explain a finite guarantee. Grades 2--3 operate points and bands; grades 4--5 investigate width, finite precision and dyadic coverage. Experiments suggest patterns; the interval-image argument and subdivision proof justify all positions. These facts are not inferred from an irregular-looking orbit, nor do they assign probabilities to a band.
+\newpage
+\section*{Preparation, launch and readiness}
+Per pair: two $0$--$16$ tracks, two small markers, translucent strips or dry-erase shading, a ruler, pencils, and a whiteboard. The main student tracks span $160$ mm, with $10$ mm per unit. Problem 8 has compact $70$ mm result tracks for recording only. Print US Letter at Actual Size if using ruler distances. A number of units, not a measured printer error, determines the exact answer. The enlarged $0$--$1$ lines on page 5 deliberately use a different scale. The same $1/2$ position is marked on the whole track and the enlarged first unit; moves still use the original $0$--$16$ rule. Keep the reusable maps on student pages 1--2 available throughout. Their horizontal axis is the old position; the right scale gives nearer-end distance and the left scale gives the doubled output. These are value scales, not extra physical tracks. Have an extra blank track available rather than requiring transcription into a diary.
+
+The three-table staffing model remains useful, but this is an honest grades 2--5 family. The K--1 table may have an oral token-and-fold demonstration or a different familiar activity; do not require them to operate continuous uncertainty bands. One adult can read the brief rules to each participating table and observe pairs. At the three-child upper table, rotate mover, checker and questioner. The child should choose starts and bands; an adult who makes every choice is operating the investigation for them.
+
+\textbf{Launch together.} After movement, allow a few minutes to handle tracks and markers. Use the printed $13\to6$ example: point at $13$, measure the three-unit gap to the nearer end $16$, lay two copies of that gap from $0$, and place the output at $6$. The next move begins at $6$. Let a partner check each action. On the map, trace upward from input $13$ to the sloping line, then across to distance $3$ on the right and output $6$ on the left. A straightedge can help. No physical stretching of paper is required. The title describes the mathematical folding-and-doubling map.
+
+Before Problem 2, move a strip covering every position from $5$ to $10$. Show that the midpoint $8$ is included even though it is not an end. The nearer-end distances range continuously from $5$ to $8$; doubling gives every output from $10$ to $16$. Point to the printed input, intermediate values and complete output band. The possible output $16$ comes from $8$. A few sampled dots alone would not certify the whole output band.
+
+\textbf{First route, about an hour.} Five minutes movement; five minutes shared point launch; ten minutes Problem 1; five-minute band demonstration; fifteen minutes Problem 2 and one start in Problem 3; five minutes comparing what pairs and bands can do. Allow the remaining time for children's own starts. Problems 4--5 can be the main work for a ready upper table. Problems 6--9 are a separate return visit, not required page completion. Do not introduce the proof before children have concrete band experience.
+
+Reading can be supplied orally. The entry needs counting, distance, doubling and following one repeated rule. Band work adds the abstraction that every position between marks counts. The upper route needs halves and repeated subdivisions; formal powers and algebra are optional. Preparation and timing are estimates. Ruler handling, strip visibility, print scale and the classroom procedure have not been physically rehearsed; classroom use remains unpiloted.
+\newpage
+\section*{Solutions and optional hints: Problems 1--5}
+\textbf{1.} The distinct whole-number pairs are
+\[(0,16),(1,15),(2,14),(3,13),(4,12),(5,11),(6,10),(7,9).\]
+On each half, no two different starts have the same output, because doubling distinct distances preserves their difference. Across halves, the nearer-end distances agree exactly when the two starts are mirror images about $8$. The middle $8$ is alone; it is not a pair of different starts. A complete collection with that explanation proves no pair is missing.
+
+The second task is met by starts $0$ and $1$: the pair goes $(0,1)\to(0,2)\to(0,4)\to(0,8)$, with gaps $1,2,4,8$. Its separation grows for three successive moves. It need not keep growing forever; eventually both starts reach $0$.
+
+Hint if needed: after several matches, align a strip from each start to its nearer end. Do not announce symmetry before children have found contrasting pairs. An optional further question is whether equal outputs ever separate later: the deterministic rule makes them agree forever.
+
+\textbf{2.} The four output bands, in printed order, are
+\[[2,8],\quad[2,12],\quad[10,16],\quad[4,16].\]
+For a start wholly left of $8$, all positions double in their original order. Wholly right of $8$, outputs run in reverse order. For a crossing band, its two pieces meet at output $16$; the lower output comes from whichever starting end lies farther from $8$. These monotone pieces fill every position in the stated band, not just its ends.
+
+Hint: ask which point in the strip is nearest to the middle, and which point is nearest to either end of the track. If a child moves only tick marks, slide a marker between two marks and show that its output is also possible.
+
+\textbf{3.} Both starts first fill the track on move 4:
+\begin{align*}
+[1,2]&\to[2,4]\to[4,8]\to[8,16]\to[0,16],\\
+[7,9]&\to[14,16]\to[0,4]\to[0,8]\to[0,16].
+\end{align*}
+Every earlier band is visibly smaller than the whole track. The second start is wider initially, yet both take four moves. Location as well as width affects the finite history.
+
+\textbf{4.} The full output is $[12,16]$, not the singleton $12$. Starts $6$ and $10$ both map to $12$, but start $8$ maps to $16$. Any strict crossing band provides a counterexample to simply joining the two endpoint outputs; for example $[7,9]\to[14,16]$ and $[3,11]\to[6,16]$. If $8$ is itself an endpoint, the endpoint outputs do suffice. A child's examples need not be symmetric.
+
+\textbf{5.} A band wholly on one half, such as $[1,3]$, doubles its width. A symmetric band such as $[6,10]$ keeps width $4$. No band gets narrower. Split a crossing band at $8$, with left length $l$ and right length $r$. Its output width is twice the longer piece, at least $l+r$. This drawing argument proves the claim for every crossing band; it is stronger than testing many bands. In contrast, the pair consisting only of its two symmetric ends does merge. Keep that distinction explicit.
+\newpage
+\section*{Solutions and optional hints: Problems 6--9}
+\textbf{6.} The widest starts are $[0,1/4]$ for three moves, $[0,1/8]$ for four, and $[0,1/32]$ for six. They are shown on the enlarged $0$--$1$ lines, not on a fresh $0$--$16$ scale. Each endpoint doubles until the upper end reaches $2$ on the final requested move.
+
+To prove maximality, a band beginning at $0$ always contains $0$. While it remains inside $[0,2]$, its upper endpoint doubles. Thus after $n$ allowed moves its upper end is $2^nq$, so $q\le2/2^n$ is necessary and sufficient. A wider interval cannot jump past the middle and somehow become safely small: its image still contains $0$, and if it reaches $8$ then its output already contains $16$. This rules out an apparent folding shortcut.
+
+Hint: run one allowed target band backward. To land entirely between $0$ and $2$ from a band that begins at $0$, how far from $0$ could its far end be? Repeated halving becomes useful because of the prediction goal, not as a recipe introduced in advance.
+
+\textbf{7.} Yes. Once someone names any finite number $n$, choose $[0,2/2^n]$. This is a positive-width band for every finite $n$. No \emph{single} positive band works for all $n$. The order of the choices matters: the number of moves is named first. With physical paper, sufficiently small bands cannot be resolved; that is a limitation of the material, not a zero mathematical width.
+
+\textbf{8.} Each shaded half maps onto $[0,16]$ in one move, each quarter in two, and each eighth in three. The pieces in a row are studied separately; shading their union first would hide the question. The labeled pieces A--N have matching output tracks, so partners can split cases and pool a checkable record. Shared subdivision endpoints belong to both neighboring closed pieces. The pattern continues.
+
+For a complete proof, each interval in a subdivision into $2^{n+1}$ pieces is contained in one half of the track. On that half a move is an affine map of slope $2$ or $-2$. It sends the piece exactly onto one interval of the subdivision into $2^n$ pieces. If each of those fills the track after $n$ more moves, the smaller piece fills it after $n+1$. The two halves establish the first step. Children can give the same explanation with folded strips and a repeated halving picture; algebra is unnecessary.
+
+\textbf{9.} Yes, for every band with \emph{positive} width. Cut the track into equal pieces until one complete piece fits inside the starting band. This is always possible: use a piece width less than half the band width, then a pair of consecutive subdivision marks lies inside the band. That whole little piece eventually maps onto the whole track by Problem 8. Therefore the larger starting band also makes the whole track possible by that time. No output can leave $[0,16]$, so the image is exactly the whole track. Once filled, it stays filled.
+
+This proof covers endpoints between ticks. An infinite list of experiments is not required. It also explains why the answer to Problem 7 is consistent with Problem 9: a smaller band can postpone the loss of a useful guarantee, but every particular positive band eventually loses it.
+\newpage
+\section*{Connections, further work, sources and limits}
+\textbf{A purposeful return visit.} Compare a band with two tokens placed at its ends. The tokens can merge while the full band continues to contain other possibilities. Then investigate why all whole-number starts on the printed track eventually land at $0$. Each move keeps the value integral and adds a factor of two until only endpoints remain; within five moves all are zero. This is a property of the dyadic grid. A prepared exact marker at $32/3$ is a fixed point of the continuous map. Introduce thirds before using that counterexample; do not silently assume every marker must lie at a tick.
+
+Children who want a later continuation can ask how many old points could lead to one specified new point, or how to design a repeating orbit. That is the direction already developed in atlas GA-10, rather than an additional new family claimed here.
+
+\textbf{What is new in this library.} Atlas GA-10, Geometry and Analysis student pp.33--36, asks for periodic itineraries, inverse-branch algebra and cycle counts. Week 92 is a new investigation within the same tent-map theme: exact uncertainty propagation, the limits of endpoint reasoning, and prediction horizons. Week 51's static guaranteed ranges provide the bridge; Week 46's coordinate overwrites give a contrasting form of forgetting. Week 20 and its bonus already cover harmonic averaging, random walks, convergence examples and energy minimization; none is repeated here. Reserved Weeks 85--91 are separate work.
+
+\textbf{Mathematical source.} Gerald Teschl, \emph{Ordinary Differential Equations and Dynamical Systems}, author's preliminary online edition, section 11.3, printed pp.297--298 (PDF pp.308--309), equations (11.13)--(11.14):
+\url{https://www.mat.univie.ac.at/~gerald/ftp/book-ode/ode.pdf}.
+The source gives the tent map and dyadic affine pieces of its iterates. The scale-$16$ boards, possible-range questions, concrete examples and elementary width proof are independently authored adaptations. We do not claim that a few plotted orbits establish chaos, and no book pages are republished.
+
+\textbf{Pedagogy consulted.} \emph{Math Circle by the Bay}, Preface printed viii--x, describes deep connected themes, manipulatives, independent work and flexible class-dependent duration. Our separate readiness route and explicit encore label are design judgments for this group, not claims that the source used this activity. The authors' report that they rarely repeat a topic does not prohibit a different investigation in a familiar mathematical setting.
+
+\textbf{Evidence to collect.} Record whether children could operate the rule without adult rescue, whether they treated a band as all positions, which midpoint examples changed their reasoning, and whether enlarged scales caused confusion. Distinguish observations from explanations proposed afterwards. The writer/critic/reviser workflow concerns student pages; this guide is a separate untested authoring step. Digital mathematical checks and rendered-page inspection do not establish print fit, successful handling or classroom readiness. All material remains unpiloted; physical rehearsal is untested.
+\end{document}

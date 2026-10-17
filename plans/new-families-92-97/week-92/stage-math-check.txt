@@ -1,0 +1,29 @@
+Worked visuals: 13 -> nearer-end distance 3 -> 6; [5,10] -> [10,16]. Correct.
+
+P1 asks for all distinct whole-number pairs merging after one move, then a pair separating on each of three moves. All merging pairs: [(0, 16), (1, 15), (2, 14), (3, 13), (4, 12), (5, 11), (6, 10), (7, 9)]. All three-move growth witnesses: [((0, 1), [1, 2, 4, 8]), ((0, 2), [2, 4, 8, 16]), ((1, 2), [1, 2, 4, 8]), ((2, 3), [1, 2, 4, 8]), ((2, 4), [2, 4, 8, 16]), ((3, 4), [1, 2, 4, 8]), ((4, 5), [1, 2, 4, 8]), ((4, 6), [2, 4, 8, 16]), ((5, 6), [1, 2, 4, 8]), ((6, 7), [1, 2, 4, 8]), ((6, 8), [2, 4, 8, 16]), ((7, 8), [1, 2, 4, 8]), ((8, 9), [1, 2, 4, 8]), ((8, 10), [2, 4, 8, 16]), ((9, 10), [1, 2, 4, 8]), ((10, 11), [1, 2, 4, 8]), ((10, 12), [2, 4, 8, 16]), ((11, 12), [1, 2, 4, 8]), ((12, 13), [1, 2, 4, 8]), ((12, 14), [2, 4, 8, 16]), ((13, 14), [1, 2, 4, 8]), ((14, 15), [1, 2, 4, 8]), ((14, 16), [2, 4, 8, 16]), ((15, 16), [1, 2, 4, 8])].
+
+P2 asks for exact one-move output bands: [1, 4] -> [2, 8]; [10, 15] -> [2, 12]; [6, 11] -> [10, 16]; [2, 14] -> [4, 16].
+
+P3 asks for first full-track coverage. [1, 2] -> [2, 4] -> [4, 8] -> [8, 16] -> [0, 16]; exactly 4 moves.
+
+P3 asks for first full-track coverage. [7, 9] -> [14, 16] -> [0, 4] -> [0, 8] -> [0, 16]; exactly 4 moves.
+
+P4 intended answer: [6,10] -> [12,16]; further crossing examples [5,11] -> [10,16] and [7,9] -> [14,16]. Literal endpoint-only alternative: [1,2] gives endpoint outputs {2,4}, which misses the valid interior output 3 from 3/2, although shading between endpoint outputs is correct. This wording ambiguity is the report finding.
+
+P5 asks for width growth, equality, and possibility of narrowing. [1,2] doubles width; [7,9] preserves width. No nonzero band narrows: on either half width doubles; across 8, write [8-u,8+v], then output width = 2 max(u,v) >= u+v. Equality exactly u=v; zero-width bands also preserve width. Exhaustively checked all 8,256 pairs on 1/8 grid.
+
+P6 widest band for 3 moves: [0,1/4]; [0, 1/4] -> [0, 1/2] -> [0, 1] -> [0, 2].
+
+P6 widest band for 4 moves: [0,1/8]; [0, 1/8] -> [0, 1/4] -> [0, 1/2] -> [0, 1] -> [0, 2].
+
+P6 widest band for 6 moves: [0,1/32]; [0, 1/32] -> [0, 1/16] -> [0, 1/8] -> [0, 1/4] -> [0, 1/2] -> [0, 1] -> [0, 2].
+
+P6 maximality: first-move containment requires b<=1, since b>=8 includes output 16 and otherwise output is [0,2b]. At every later permitted step output remains in [0,2], so the next image doubles without folding. Thus 2^n b<=2 is necessary and sufficient. Enlarged diagrams map 0..1 correctly; answers occupy 1/4, 1/8, 1/32 of their 160-mm lines.
+
+P7 asks whether a positive-width starting band exists for any named finite move count n. Yes: [0,2/2^n]. n=0 also permits [0,2]. Infinite time would be a different question; there is no positive-width indefinitely confined interval.
+
+P8 each of 2 halves after 1 move, 4 quarters after 2 moves, and 8 eighths after 3 moves has image [0,16]. All dyadic cells through depth 10 checked (2,046 cells). Explanation: T^n is affine onto [0,16] on each depth-n cell, alternating direction. Its midpoint maps to 8. Splitting the cell therefore makes each half map under T^n onto [0,8] or [8,16], each mapped by T onto the full track.
+
+P9 asks whether every positive-width real-endpoint band eventually covers the track. Yes. For [a,b], choose dyadic mesh h=16/2^n < (b-a)/2. With k=ceil(a/h), [kh,(k+1)h] is contained in [a,b], because kh<a+h and (k+1)h<a+2h<b (with weak inequality at grid alignment). P8 gives full-track coverage by n. Degenerate singletons are excluded by "some width". An initially full track needs zero moves and stays full. Endpoint inclusion follows the shared rule.
+
+Diagram review: inspected all six independently rendered PDF pages against source coordinates and extracted text. All track tick labels run 0..16 in order at 10-mm spacings; bands match the starts recorded above. P8 divisions are 0,8,16; 0,4,8,12,16; and every even tick. K-1 packet intentionally omitted by override. Physical apparatus rehearsal was not performed; this is a mathematical/PDF review.
