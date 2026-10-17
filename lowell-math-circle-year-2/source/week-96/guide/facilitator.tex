@@ -1,0 +1,165 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,margin=.7in,headheight=15pt,headsep=18pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,hyperref}
+\renewcommand{\familydefault}{\sfdefault}\setlength{\parindent}{0pt}\setlength{\parskip}{7pt}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Week 96 / Prime bags / Facilitator guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 96 / W96-FAC-v1}\fancyfoot[R]{\thepage}
+\newcommand{\head}[1]{\par\textbf{\large #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+\begin{document}
+\head{Mathematical overview: what this investigation establishes}
+\textbf{Unique factorization.} Every integer $n>1$ is a product of primes in exactly one way, apart from factor order. A prime is a whole number greater than 1 whose only positive divisors are 1 and itself. Splitting a composite card into two smaller factors preserves its product and eventually stops at primes. Different splitting routes may have different intermediate cards but the same final multiset. Agreement in several experiments is evidence for the conjecture; the universal claim needs the prime-divides-a-product lemma, proved on page 6.
+
+\textbf{Divisors are sub-bags.} If $n=p_1^{e_1}\cdots p_r^{e_r}$ with distinct primes and positive exponents, its positive divisors are exactly
+\[
+ p_1^{a_1}\cdots p_r^{a_r},\qquad 0\le a_i\le e_i.
+\]
+Each divisor corresponds to one sub-bag, because prime factorization is unique. The tokens not selected form the quotient $n/d$. Identical prime tokens are interchangeable: selecting one of two 2s gives one value, not two. Selecting nothing gives 1; selecting everything gives $n$.
+
+\textbf{Counting and least-number design.} There are
+\[
+ \tau(n)=(e_1+1)\cdots(e_r+1)
+\]
+positive divisors. Each prime supplies an independent choice of count, including zero. The empty bag represents $n=1$, with one divisor. For a fixed pattern of positive exponents, its least value assigns the largest exponents to the smallest primes. Enumerating factor patterns of a desired divisor count makes a finite, complete search for the least number.
+
+\textbf{Assumptions and limits.} All divisors are positive integers. The bags encode multiplication, never addition; there are no 0 or 1 prime tokens. Bags may contain repeated primes. These statements concern ordinary integers, not arbitrary symbolic systems. The finite checker verifies the printed instances; it does not replace the proofs. There is no claim that children prove unique factorization merely by sorting cards.
+
+\textbf{What children discover.} A number's prime ingredients survive different splitting choices; choosing ingredients organizes all its divisors; more tokens need not mean more divisors; a small number can have more divisor choices than a larger one.
+
+\textbf{Readiness map.} Grades 2--3 work concretely with factor cards and complete collections, then design small bags. Grades 4--5 move from collections to counts, count patterns and global minimality. Both routes need equal groups and supported multiplication. A child may stop after a complete small collection with an explanation. There is no K--1 packet; the general proof and the final design pages may need return visits.
+\newpage
+\head{Preparation, launch and a first route}
+\textbf{Status.} Unpiloted. Printing, material preparation, procedures and timings have not been physically rehearsed. The plan below is a realistic proposal, not classroom evidence.
+
+\textbf{Staffing.} One adult anchored to each participating table: the four third graders can work in two pairs; the two fourth graders and fifth grader can work as a pair and a checker, changing roles. The younger table needs a separate familiar activity with its adult. Reading a prompt or writing a child's explanation is routine support; adults should not choose the factor routes or organize every collection for children.
+
+\textbf{Per pair:} 36 counters or linking cubes; a whiteboard and pen; about 20 blank reusable number cards; prime tokens marked 2, 3, 5, 7 (eight 2s, six 3s, four 5s and two 7s are a useful starting kit); scrap paper. Tokens can be handwritten circles or cards, so no purchased manipulatives or exact physical fit is needed. Draw extra tokens whenever needed: the physical kit is not a mathematical limit. Upper work uses tokens and multiplication facts, not 10,368 counters. Keep a multiplication reference available if calculating products is slow.
+
+\textbf{Preparation:} approximately 10--15 minutes to mark cards and sort kits. Print only the intended route first: grades 2--3 pages 1--3 or grades 4--5 pages 1--3, with later pages held back. Print US Letter, single-sided, Actual Size. Blank workspace may also be used beside the sheet. No cutout deck is required.
+
+\sub{Launch together: about 4 minutes after 5 minutes of movement}
+Let children handle and rearrange the cards and counters first. Show the same 20 card as in the worksheet example. Make four equal rows of five counters. Replace 20 by cards 4 and 5: those numbers multiply to 20. Split the 4 into 2 and 2; the row now reads $2\times2\times5$. Ask a child to check that its product is still 20. Explain that a prime cannot split into two whole numbers both greater than 1. Show that switching token order leaves the bag unchanged. Children now try their own splitting choices in Problem 1; do not announce the uniqueness theorem.
+
+Before page 2, physically keep the \emph{same} $\{2,2,5\}$ bag in view. Choose one 2 and the 5, leaving the other 2 aside. Multiply the selected tokens to get 10; selected value 10 times unselected value 2 gives the original 20. Trace the printed shaded-token example. Choosing no tokens represents 1, not 0. Invite a child to show a different selection, then begin the investigation.
+
+\sub{Suggested pacing and stopping points}
+Allow roughly 10 minutes for splitting, 15--20 for small divisor collections, and 10--15 for the contrasting bags or count question. Use the last 5 minutes to share a collection and how its owner knows it is complete. Leave room for the launch and movement; these are choices within an hour, not quotas.
+
+For grades 2--3, Problems 1--3 are a satisfying first route; Problem 4 is a return visit. For grades 4--5, Problems 1--4 form a first route; Problems 5--6 can occupy another session. If children are absorbed in building all sub-bags, stay there. Do not replace their mathematical choices with a prefilled exponent table.
+\newpage
+\head{Grades 2--3: answers and facilitation}
+\sub{Problem 1, page 1: different splitting routes}
+Each arrow below splits one composite card; rearranging cards is allowed but is not needed to manufacture a second route.
+\begin{center}\small
+\begin{tabular}{c p{6.2cm} p{6.2cm}}
+\toprule Card & One route & Another route \\\midrule
+12 & $12\to2\cdot6\to2\cdot2\cdot3$ & $12\to3\cdot4\to3\cdot2\cdot2$\\
+18 & $18\to2\cdot9\to2\cdot3\cdot3$ & $18\to3\cdot6\to3\cdot2\cdot3$\\
+24 & $24\to2\cdot12\to2\cdot3\cdot4\to2\cdot3\cdot2\cdot2$ & $24\to4\cdot6\to2\cdot2\cdot6\to2\cdot2\cdot2\cdot3$\\
+36 & $36\to4\cdot9\to2\cdot2\cdot9\to2\cdot2\cdot3\cdot3$ & $36\to6\cdot6\to2\cdot3\cdot6\to2\cdot3\cdot2\cdot3$\\\bottomrule
+\end{tabular}\end{center}
+The final bags agree for each number. The general answer is that two different prime bags cannot have the same value, by unique factorization. Accept a conjecture based on these routes as a conjecture; do not label it a proof of every integer case.
+
+\emph{Hints, only if needed:} build an equal-row array for the card; find a different first rectangle; look for a card that can still split. If a child splits 12 into 5 and 7, return to the product check. If 1s appear, revisit the requirement that both factors exceed 1.
+
+\sub{Problem 2, page 2: all selected-token values}
+For 12, the values are $1,2,3,4,6,12$. For 18, they are $1,2,3,6,9,18$. Both have six. An empty selection supplies 1, and the full selection supplies the original number. Every selected value divides the original because the unused tokens give the quotient. Conversely every divisor occurs; the proof is on page 6.
+
+A concrete completeness explanation for 12 is to separate the choices that include the 3 from those that do not. In either group choose zero, one or two 2s. For 18, choose zero or one 2 and zero, one or two 3s. Children may discover a different equally checkable organization. Keep a card for each completed selection so the collection remains visible.
+
+\emph{Hints:} show the empty selection; ask whether two identical 2 tokens really yield different values; compare a chosen bag with the tokens left behind. Do not insist that children copy a collection already visible on cards.
+
+\sub{Problem 3, page 3: a deliberate contrast}
+The 24 bag has four tokens and values 1, 2, 3, 4, 6, 8, 12, 24. The 30 bag has three tokens and values 1, 2, 3, 5, 6, 10, 15, 30. Both have eight values. Repeated ingredients and distinct ingredients give different choices, so token count alone does not determine the answer. A bag can have fewer tokens without having fewer divisors.
+
+\sub{Problem 4, page 4: build small bags}
+Minimum values for four, six and eight choices are respectively $6=2\cdot3$, $12=2\cdot2\cdot3$, and $24=2\cdot2\cdot2\cdot3$. Any correct bag with the requested count is progress; minimality is deeper. The complete alternative patterns and proof appear on page 5. A child can instead check all smaller numbers with factor cards for the smallest targets. Drawing extra 2s is allowed; the physical kit does not restrict the search.
+\newpage
+\head{Grades 4--5: from collections to a count}
+\sub{Problem 1, page 1: routes and unique ingredients}
+Use the two routes for 36 on page 3. For 48:
+\[
+48\to6\cdot8\to2\cdot3\cdot8\to2\cdot3\cdot2\cdot4
+\to2\cdot3\cdot2\cdot2\cdot2,
+\]
+\[
+48\to4\cdot12\to4\cdot4\cdot3\to2\cdot2\cdot4\cdot3
+\to2\cdot2\cdot2\cdot2\cdot3.
+\]
+For 60, $60\to6\cdot10\to2\cdot3\cdot10\to2\cdot3\cdot2\cdot5$ and $60\to4\cdot15\to2\cdot2\cdot15\to2\cdot2\cdot3\cdot5$. The final bags are $36=2^2 3^2$, $48=2^4 3$, and $60=2^2 3\cdot5$. Superscripts count repeated prime tokens; children need not use exponent notation. The general uniqueness explanation is on page 6.
+
+\sub{Problem 2, page 2: no missing and no extra divisors}
+The 24 and 30 inventories are listed on page 3. The same eight-versus-eight contrast is useful here, but the requested explanation is stronger: selected and remaining tokens multiply to the whole bag; every factorization $n=dq$ splits the unique prime bag into those two parts. Thus no positive divisor is missing. Distinct multiplicities cannot have the same product.
+
+\emph{Hint:} ask what the unselected bag means. If a child lists all divisors by trial division, welcome the result, then connect each one to its selected tokens. The point is the bridge between representations, not banning a valid method.
+
+\sub{Problem 3, page 3: count without listing}
+For 36, choose zero, one or two 2s and independently zero, one or two 3s: $3\cdot3=9$. For 60, choose zero, one or two 2s, and choose whether to include each of 3 and 5: $3\cdot2\cdot2=12$. For 72, there are four choices for the count of 2s and three for 3s: $4\cdot3=12$.
+
+For checking a child's catalog, the full inventories are:
+\begin{itemize}
+\item 36: $1,2,3,4,6,9,12,18,36$.
+\item 60: $1,2,3,4,5,6,10,12,15,20,30,60$.
+\item 72: $1,2,3,4,6,8,9,12,18,24,36,72$.
+\end{itemize}
+\emph{Hints:} hold the choice of 3s fixed while changing the 2s; make one row of choices and see how many such rows occur. This is optional organization after independent exploration, not a required printed procedure.
+
+\sub{Problem 4, page 3: a large value with few choices to track}
+Seven 2s and four 3s give eight choices for the number of 2s and five for the number of 3s, hence $8\cdot5=40$ divisors. The full number is $2^7 3^4=10{,}368$, but computing it is unnecessary. Explain the general rule in words before symbols: one more than each prime's token count, then multiply those numbers. Zero copies is one of the choices. A useful check is a bag containing only five 2s: it has six divisors, not five or $2^5$ distinct selections.
+\newpage
+\head{Grades 4--5: all patterns and the least number}
+\sub{Problem 5, page 4: complete token-count patterns}
+A pattern records only the positive counts for different prime labels, ignoring their order. Thus $(2,1)$ means two copies of one prime and one of another. It does not distinguish which label has the two copies. This is the convention in the student example.
+
+Each row below is complete. The numbers after the arrows assign decreasing counts to $2,3,5$ and give the least value for that pattern, even when any primes are allowed.
+\begin{center}\small
+\begin{tabular}{c p{11.8cm}}
+\toprule Divisor count & All patterns and their least values\\\midrule
+4 & $(1,1)\to 6$; $(3)\to 8$\\
+6 & $(2,1)\to12$; $(5)\to32$\\
+8 & $(1,1,1)\to30$; $(3,1)\to24$; $(7)\to128$\\
+9 & $(2,2)\to36$; $(8)\to256$\\
+10 & $(4,1)\to48$; $(9)\to512$\\
+12 & $(2,1,1)\to60$; $(3,2)\to72$; $(5,1)\to96$; $(11)\to2048$\\\bottomrule
+\end{tabular}\end{center}
+The row for four divisors supports grades 2--3 Problem 4 and upper Problem 6; it is not an extra demand in upper Problem 5.
+
+\textbf{Why these are all the patterns.} If the divisor count is $D$, factor $D$ as a product of integers at least 2; subtract 1 from each factor to obtain the prime-token counts. For example, 12 can be $12$, $6\cdot2$, $4\cdot3$, or $3\cdot2\cdot2$, and no other unordered product of integers at least 2. These give $(11),(5,1),(3,2),(2,1,1)$. Four distinct prime labels would already give at least $2^4=16$ choices, so none of these targets needs more than three labels. Eleven identical tokens may be drawn even if the physical kit contains only eight 2s.
+
+\emph{Hints:} first separate bags with one distinct prime label from those with two; ask what a given count of tokens contributes to the divisor count. Do not hand over this complete table before children have tried their own classification.
+
+\sub{Problem 6, page 5: global minimality}
+The least positive numbers with $4,6,8,9,10,12$ divisors are
+\[
+\boxed{6,\quad12,\quad24,\quad36,\quad48,\quad60.}
+\]
+Three arguments rule out every smaller number. First, the pattern list is complete. Second, a number with a particular pattern becomes smaller if any used prime is replaced by a smaller unused prime, so use consecutive smallest primes. Third, put larger counts on smaller primes: for $p<q$ and $a>b$,
+\[
+\frac{p^a q^b}{p^b q^a}=(p/q)^{a-b}<1.
+\]
+With actual tokens, compare three 2s and one 3 (24) with one 2 and three 3s (54): moving the extra repeated factors onto the smaller prime reduces the product. Compare the least representative of every pattern in the table to finish the proof. The allowed prime labels in Problem 5 suffice to exhibit all its patterns, while Problem 6 explicitly permits any primes; the argument explains why larger primes cannot improve the answer.
+
+\emph{Readiness:} this is a return-visit investigation. A systematic check of all smaller numbers proves an individual finite minimum too. The structural proof explains several minima at once; it should arise when checking one number at a time has become a question children want to improve.
+\newpage
+\head{Proof support, connections and return visits}
+\sub{Why prime splitting is unique}
+Splitting preserves the value. Along any branch of a splitting tree the positive integer strictly decreases, so splitting finishes. Equivalently, each split adds a factor at least 2, and a fixed product $n$ cannot have arbitrarily many such factors.
+
+The key lemma is: if a prime $p$ divides $ab$, then $p$ divides $a$ or $b$. Here is a full adult justification using the Euclidean algorithm. If $p$ does not divide $a$, their greatest common divisor is 1. Repeated division in the Euclidean algorithm expresses this gcd as $up+va=1$ for integers $u,v$. Multiplying by $b$ gives $b=upb+vab$; both terms on the right are divisible by $p$, so $p$ divides $b$. This proof requires integer linear combinations and is an adult-supported continuation, not a prerequisite for manipulating the cards.
+
+Now compare two prime products for the same integer. A prime in the first divides the second product, so the lemma makes it divide one of that product's prime factors. The two primes must be equal. Cancel the matching factors and repeat. Neither side can have unmatched primes at the end, since their product would exceed 1. Thus the prime bags agree. This separates the proof from the children's finite experiments.
+
+\sub{Why the sub-bag construction is exact}
+A selected prime bag multiplies with its complement to $n$, so its value is a divisor. Conversely, if $n=dq$, factor both $d$ and $q$ into primes. Uniqueness says their combined bag is precisely $n$'s bag. Hence the bag for $d$ can be selected from it. Uniqueness also prevents two different sub-bags from producing the same value. This last step matters: simply counting all physical selections of labelled copies would overcount.
+
+\sub{Optional return visit: meet the geometric gcd again}
+Build the prime bags for 24 and 36. Find the largest-value bag that can be selected from both of them: $2^2 3=12$. Find the smallest-value bag from which both can be selected: $2^3 3^2=72$. These are the greatest common divisor and least common multiple. For each prime, take the smaller count for the first question and the larger for the second. Their products satisfy $12\cdot72=24\cdot36$ because minimum plus maximum of two counts is their sum.
+
+This connects to the least-common-multiple corner meeting in Week 9 billiards and gcd visibility in Week 31. The new representation explains their arithmetic through multiplicative ingredients. Introduce the names only after the concrete questions. Week 29 rods instead compose lengths by addition. The older door-toggle activity uses divisor parity; it is deliberately not repeated here.
+
+\sub{Sources and evidence}
+Conrad, \emph{Unique Factorization in Z and F[T]}, Theorems 1.1, 2.1, 2.3 and Lemma 2.2, PDF pp. 1--3, supplies the classical mathematical foundation. The counting and least-number derivations above are independently written. See \texttt{SOURCES.md} for its URL, precise overlap references and teaching evidence from \emph{Math Circle by the Bay}, preface pp. viii--x.
+
+Fresh independent checks enumerate every printed factor-route starting value, every sub-bag collection, all requested count patterns, and every integer below each claimed minimum. The coordinator has visually inspected every final student and guide page; an independent final-pair review is also recorded with the package. Digital verification does not establish physical readiness or classroom success; record actual use and children's questions before redesigning later visits.
+\end{document}

@@ -1,0 +1,15 @@
+Week 96: Prime bags and divisor builders
+
+Mathematical kernels
+
+1. Every integer n>1 has a unique multiset of prime factors. Splitting a composite factor into smaller factors can take different routes but ends with the same prime bag. Existence is descent; uniqueness needs Euclid's prime-divides-a-product lemma, not merely a few matching trees. A bag denotes multiplication, never addition; repeated tokens are identical factors; the empty bag denotes 1.
+
+2. Positive divisors of n correspond bijectively to sub-bags of its prime bag. If n has e_i copies of each distinct prime p_i, the divisor count is the product of (e_i+1). Equal copies are indistinguishable, so choosing the first versus second 2 does not make a new divisor. This turns complete divisor construction and inverse design into structural questions. 12 and 18 have 6 divisors;24 and 30 have 8;36 has 9;60 and 72 have 12. The least positive numbers with 4, 6, 8, 9, 10, 12 divisors are 6, 12, 24, 36, 48, 60. A compelling continuation is minimality proof by exponent patterns and assigning larger exponents to smaller primes. Componentwise minimum and maximum yield gcd/lcm as an optional return visit; do not center routine factorization drills or square parity.
+
+Sources: Keith Conrad, Unique Factorization in Z and F[T], Theorems 1.1, 2.1, 2.3 and Lemma 2.2, PDF pp. 1–3, https://kconrad.math.uconn.edu/blurbs/ugradnumthy/uniquefactnZF%5BT%5D.pdf . Divisor correspondence/count and least-number instances are independent elementary derivations. Current atlas AD-06 uses lattice operations but its older planning seed names divisors of 12; acknowledge conceptual connection without reproducing its abstract identities. Weeks 9/31 use gcd/lcm for geometric questions; Week 29 uses additive rods, not multiplicative bags.
+
+Suggested emphasis by level: no K–1 packet; multiplication is a real prerequisite. Grades 2–3: concrete factor splitting and exhaustive divisor construction with small bags, equal groups/arrays supporting arithmetic. Grades 4–5: divisor counts, inverse design and completeness/minimality explanations; deeper material can span return visits. Select either band by prerequisites, not age.
+
+Materials
+
+For each pair: 36 counters or linking cubes for small arrays, whiteboard and pen, twenty blank reusable cards, and supplied movable prime tokens labelled 2, 3, 5, 7 (at least eight 2s, six 3s, four 5s, two 7s). For upper work use prime tokens and multiplication reference rather than hundreds of counters. Paper bags or drawn bag outlines are optional; labelled tokens suffice and color alone must not carry meaning. Provide printable cutouts only when useful; the number value of a bag must be explicit in the first worked visual. Demonstrate splitting a number card into factors and replacing it with its prime bag through an intermediate stage, using a non-task example. Provide a separate simple bridge from a selected sub-bag to its divisor before sub-bag use. Leave substantive problem choice to the writer. Minimize transcription; tables are optional, loose cards can hold a pooled catalog. No artificial competitive scoring.
