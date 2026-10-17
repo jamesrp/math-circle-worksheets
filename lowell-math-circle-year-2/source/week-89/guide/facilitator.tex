@@ -1,0 +1,165 @@
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=18mm,top=22mm,bottom=20mm,headheight=15pt]{geometry}
+\usepackage{tikz,fancyhdr,amsmath,amssymb,array,booktabs,hyperref,lmodern}
+\usepackage[T1]{fontenc}
+\hypersetup{hidelinks}\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 89 / Growing shapes and totals / Adult guide}
+\fancyfoot[L]{\small Bellingham Math Circle / Week 89 / W89-FAC-v1}\fancyfoot[R]{\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\newcommand{\heading}[1]{\par\textbf{#1}\par}
+\begin{document}
+\heading{Mathematical overview: layers, differences and accumulated totals}
+\textbf{A building law determines the change.} If a shape with $a_n$ tiles grows by retaining its tiles, the next layer contains $a_{n+1}-a_n$ tiles. For side-$n$ squares the totals are $n^2$ and the next layer has $2n+1$: an $(n+1)$-tile row and an $n$-tile column, with the shared corner counted once. An $n$-step staircase has $n(n+1)/2$ tiles and next layer $n+1$; two copies form an $n\times(n+1)$ rectangle, whose next layer is $2n+2$. Their second differences are respectively 2, 1 and 2. These facts follow from specified laws, not from guessing a continuation of a few pictures.
+
+\textbf{Accumulating and taking differences undo each other.} With start $A_0=b$ and inputs $u_1,u_2,\ldots$, let $A_n=b+\sum_{i=1}^n u_i$. Then $A_n-A_{n-1}=u_n$: the previous contents cancel. Without the initial value, the input row leaves a constant ambiguity. Starting four higher makes every total four higher. A zero input occupies a turn but leaves this one total unchanged.
+
+\textbf{Cascades copy the new total.} A second machine receives $A_n$ after the first machine handles the current input, so $B_n-B_{n-1}=A_n$. Each stage keeps its contents. For $N$ inputs and zero starts,
+\[B_N=Nu_1+(N-1)u_2+\cdots+u_N.\]
+Putting larger inputs earlier maximizes the last total; exchanging adjacent $a<b$ increases the result by $b-a$ when their order becomes $b,a$. For the multiset $\{2,2,1,0,0\}$, the maximum is 21 and minimum 9. Order does not affect a single accumulator's final total. With input one on every turn and zero starts, the first three stages have totals $n$, $n(n+1)/2$ and $n(n+1)(n+2)/6$.
+
+\textbf{Higher differences and honest predictions.} Write $\Delta f(n)=f(n+1)-f(n)$. A degree-$d$ polynomial ($d\geq0$) has constant $d$ th forward differences and zero $(d+1)$ st differences; the leading coefficient contributes $d!$ times itself. Pascal's identity gives $\Delta\binom nk=\binom n{k-1}$ for $k\geq1$ in the usual integer domain. These general algebraic facts are adult background. Four square pictures alone do not force the fifth: a rule can build side-$n$ squares always, or add a tail of $n-4$ tiles after step four. Both laws match the first four pictures. A future constant-difference law must be assumed or derived, not inferred as certain from a sample.
+
+\textbf{Readiness map.} Optional K--1 work grows and handles layers, with adult reading/counting. Grades 2--3 reconstruct additions and totals while keeping one recoverable state. Grades 4--5 can invert the machine, optimize order and explain cancellation, then revisit cube shells and repeated accumulation. Number cards replace large counts only after their meaning is understood. Distinguish an observed pattern, a conjecture, a finite check and an explanation covering the stated building rule. Physical operation and classroom use remain untested.
+\newpage
+\heading{Materials, preparation and first routes}
+For each shape pair, provide up to 72 matching 20 mm square tiles or square-ended cubes used flat, a $120\times 120$ mm board and a $120\times 140$ mm board. Work on one growing shape at a time; save a sketch rather than keeping every snapshot. A side-five square uses 25 tiles, a five-step staircase 15, and a $5\times 6$ rectangle 30. Seventy-two tiles do not support every large snapshot simultaneously. Compact printed examples are references; use the actual-size material boards or the table for building. Rule B at step 6 is eight tiles wide, so its tail uses the tabletop.
+
+For each machine pair, provide two shallow receiving trays, a small input tray,40 counters and reusable blank cards for current totals and inputs. Put an initial-value card beside each tray and leave it visible. A number card can replace a large counter collection once the child understands its meaning. It is the current total, not an additional simultaneous log. Use fresh counters or a copied card to give the first total to the second stage; never empty the first tray. Late three-stage work needs a third receiving tray. One shared 64-cube kit supports cube shells and the small three-dimensional accumulation models.
+
+For all eleven children starting with shapes, five pair/trio kits mean 360 tiles and five sets of boards. If only the middle and upper tables use machines, three kits suffice: 120 counters and six receiving trays, plus inputs/cards; a single upper third-stage station adds one tray. The younger table may remain with shapes or a familiar previously prepared activity. At each four-child table children form two pairs; the upper trio rotates builder/feeder, accumulator and checker. One adult stays at each table. Adult reading or recording is appropriate; if the adult must make all choices and maintain both totals, return to one-stage or shape work.
+
+Print only the chosen route pages and matching material sheets, one set per pair, single-sided US Letter at Actual Size. Cut the supplied input deck once; select only the cards needed for that visit. Reuse blank cards for totals. The estimated initial preparation is 15--25 minutes with existing tiles/trays; this estimate is untested. Actual tile fit, retained-total copying, zero-input turns and the cube shell have not been physically rehearsed. Test a full move and reset before bringing the machinery to children; a digital recurrence check cannot certify this procedure.
+
+\textbf{Whole-group launch.} After five minutes of movement, let children handle the tiles for two minutes. Build a $2\times 2$ square and invite one child to enlarge it to $3\times 3$ while keeping the old square together. Use a different color for the added layer. Say: ``We are looking at what gets added, and what is there altogether.'' Let a partner identify the old part and the new part; do not announce a general odd-number rule. Offer one or two shape investigations for 25--35 minutes, then share a layer or an explanation.
+
+\textbf{Suggested first routes.} Begin with Problems 1--4 (student pages 1--2), choosing two; Problems 5--6 (page 3) deepen the same layers. A later one-stage visit uses Problems 7--10 (pages 4--5). Ready upper children can then use Problems 11--13 (pages 6--7); Problems 14--15 (page 8), 16--17 (page 9) and 18--20 (pages 10--11) are distinct return visits. The corner-pile construction in Problem 19 may come before returning to Problem 18's general third-tray rule: let its physical layers give that question meaning. Material page 1 fits square work; page 2 fits the largest two-stair rectangle.
+
+\textbf{Machine return visit.} Introduce the single accumulator only when it answers a question about inputs and totals. Demonstrate old total 3, incoming 2, new total 5 while retaining the old three counters. Before two stages, demonstrate one whole turn on one unchanged input: old first 1, old second 1, input 2; first becomes 3; copy that new 3 while leaving first unchanged; second becomes 4. Ask a child to operate and a partner to check the copy. A zero card is a turn too. Keep one recoverable record (input order or final shape) plus the current state. Leave cube shells, three stages and general proofs for later visits when the children want them. No route requires finishing the packet.
+\newpage
+\heading{Problems 1--6: growing and recovering layers}
+\textbf{1. Squares.} The added layers from sides 1 to 2,2 to 3,3 to 4 and 4 to 5 have 3,5,7 and 9 tiles. Keep the old square in a corner of the new one. The layer from side $n$ to $n+1$ splits into one row of $n+1$ and one column of $n$; count the shared corner only in the row. A child can detach the layer and straighten it. Hints: preserve the old corner; compare two consecutive layers; avoid counting the corner twice. Do not begin by writing a difference table for children.
+
+\textbf{2. Smaller corner squares.} Nonempty smaller squares have sides 1,2,3,4. They retain 1,4,9,16 of the 25 tiles and remove 24,21,16,9 respectively. Empty is not a nonempty square; a child who proposes it can discuss the zero convention separately. Whole uncut tiles stay on the grid. Try a particular retained corner, then ask which side lengths have not been used. This reverses the physical growth direction without requiring notation.
+
+\textbf{3. Stairs.} For 1 through 6 rows the totals are 1,3,6,10,15,21. New bottom rows add 2,3,4,5,6 after the first stage. The rule states row lengths, so there is no secret pattern to guess. Keep the old staircase intact and add the next row below it. A diagram or a detached row explains the next count for any number of rows.
+
+\textbf{4. Two stairs make a rectangle.} Turn a second copy around and fit its steps into the first. Two $n$-row staircases form an $n\times(n+1)$ rectangle. For $n=2,3,4,5,6$ the rectangle dimensions are $2\times 3$, $3\times 4$, $4\times 5$, $5\times 6$, $6\times 7$, with 6,12,20,30,42 tiles. Each pair of complementary row lengths totals $n+1$. Thus twice the staircase total is $n(n+1)$, proving $1+\cdots+n=n(n+1)/2$. Hints: turn the second copy; match a long row with a short one. Build one pair at a time; the largest uses 42 tiles.
+
+\textbf{5. Rectangles.} From $n\times(n+1)$ to $(n+1)\times(n+2)$, keep the old rectangle in a corner. Add a row of $n+2$ and a column of $n$ beside the old rows; their sum is $2n+2$. The first six totals are 2,6,12,20,30,42. A second explanation doubles the corresponding staircase layer. Keep the shared corner with just one part of the layer.
+
+\textbf{6. How the additions change.} The printed intervals give:
+\begin{center}\begin{tabular}{lrrrrr}\toprule
+old step to new&1--2&2--3&3--4&4--5&5--6\\\midrule
+squares&3&5&7&9&11\\
+stairs&2&3&4&5&6\\
+rectangles&4&6&8&10&12\\\bottomrule
+\end{tabular}\end{center}
+Successive additions grow by 2,1,2. Explain this with the added row/column lengths, not merely with five observed entries. Optional prompts: which two ends lengthen in a square's L-layer? How does the pairing from Problem 4 explain the rectangle's change? These growth tasks can fill an entire first visit. The table is a comparison record once the layers have meaning; an adult may fill it from children's models.
+\newpage
+\heading{Problems 7--10: totals, hidden inputs and hidden starts}
+\textbf{7. One tray, rearranged inputs.} The slips 0,1,2,3,4 add ten counters altogether. Every order finishes at 10 from start 0, and 13 from start 3. All 120 orders share this final total; no exhaustive list is needed. Every counter remains, so the final tray consists of the old starting counters plus all input counters. Intermediate totals may change with order. Hints: physically regroup the input counters; keep the starting counters distinguishable; ask which counters could disappear. Zero is a real input and consumes its turn while adding nothing.
+
+\textbf{8. Recover missing inputs.} From start 2 and totals 5,5,9,12 the input row is 3,0,4,3. Remove a copy of the old total from the new total to expose what arrived. The unchanged 5 has a zero input, not a skipped turn. Cancellation proves uniqueness once the starting total and every later total are given. If subtraction is effortful, line up old and new counter collections and match them.
+
+\textbf{9. Unknown start.} A tray's starting contents are a nonnegative whole number. The last three inputs must be 3,0,5. Since the first recorded total is 4, the first input is $4-b$ for start $b$. Both are nonnegative and the input is at most 5, so exactly these possibilities remain:
+\begin{center}\begin{tabular}{c|rrrr}
+start&input 1&input 2&input 3&input 4\\\hline
+0&4&3&0&5\\
+1&3&3&0&5\\
+2&2&3&0&5\\
+3&1&3&0&5\\
+4&0&3&0&5
+\end{tabular}\end{center}
+A start above 4 would need removal on turn 1, forbidden by adding 0--5. A negative start cannot be a collection of counters. This explains completeness, not just five examples. Hints: which input can you read without knowing the start? How many old counters could already be present before the first total 4? Let the table share cases instead of making each child copy them all.
+
+\textbf{10. Same inputs, different starts.} Inputs 2,0,3,1 yield:
+\begin{center}\begin{tabular}{c|rrrrr}
+&start&after 1&after 2&after 3&after 4\\\hline
+first tray&1&3&3&6&7\\
+second tray&4&6&6&9&10
+\end{tabular}\end{center}
+The gap stays 3. Match each arriving counter in one tray with its copied partner in the other; the three original extras never gain or lose partners. In general, starts $b,c$ with shared inputs have totals differing by $c-b$ at every turn. Identical increments cannot reveal which initial value was used. If the entire total row including its start is known, it does determine the inputs uniquely; distinguish these two information questions.
+
+One-stage work may be a second visit. Retain a visible start card, let children choose input orders, and use current-total cards only once they understand the underlying counters. Adult recording can replace copying, but the child should decide what a hidden input or start could be.
+\newpage
+\heading{Problems 11--13: why order starts to matter}
+A two-stage turn updates the first total, then adds a copy of that \emph{new} total to the second. Both totals remain. The first turn's input is copied into the second on every turn, the last input only once. For five inputs the final second total is
+\[5u_1+4u_2+3u_3+2u_4+u_5.\]
+This contribution count explains the rule; it is not a compulsory extra running log. A child can mark one input card and follow how many later copies include its counters.
+
+\textbf{11. Maximum and minimum.} For $\{2,2,1,0,0\}$ the greatest result is 21 from $2,2,1,0,0$, and the least is 9 from $0,0,1,2,2$. Their first/second totals after each turn are:
+\begin{center}\begin{tabular}{c|rrrrr}
+maximum inputs&2&2&1&0&0\\
+first&2&4&5&5&5\\
+second&2&6&11&16&21\\\hline
+minimum inputs&0&0&1&2&2\\
+first&0&0&1&3&5\\
+second&0&0&1&4&9
+\end{tabular}\end{center}
+There are 30 distinct input orders; the independent checker examines them all. That finite check confirms this instance. The exchange argument below proves the general ordering rule. Hints: swap just two neighboring cards; compare the end results after a complete reset; follow one larger input through the remaining copies. Do not transfer or reset the first total after copying it.
+
+\textbf{12. Zero turns.} The 1 must stay before the 3 so the experiment isolates where zero turns go. All six possible value rows give:
+\begin{center}\begin{tabular}{c|r@{\qquad}c|r}
+inputs&last second&inputs&last second\\\hline
+1,3,0,0&13&0,1,3,0&9\\
+1,0,3,0&10&0,1,0,3&6\\
+1,0,0,3&7&0,0,1,3&5
+\end{tabular}\end{center}
+Place both zeros last for 13, first for 5. The zeros still cause the current first total to be copied. Hints: try a zero after the first tray is nonempty; compare with the same zero before anything arrives. This explains a subtle retained-state rule with meaningful choices, rather than treating zero as an absent participant.
+
+\textbf{13. Why the bounds hold.} Consider adjacent inputs $a<b$ in a proposed maximizing row. Their weights differ by 1, so exchanging $a,b$ to $b,a$ increases the final result by $b-a>0$. Repeatedly fixing these out-of-order adjacent pairs sorts the row in decreasing order and cannot lower the result. Ascending order similarly minimizes. Equal cards may swap harmlessly. This applies to any five nonnegative inputs (indeed to any fixed length and real inputs under an algebraic accumulator). Children can explain the extra early copy with counters instead of symbols. The general proof is a return-visit choice, not a first-hour demand.
+\newpage
+\heading{Problems 14--17: limits of a pattern, and solid shells}
+\textbf{14. Two full rules.} Rule A gives 25 and 36 tiles at steps 5 and 6. Rule B gives 26 and 38: the extra tail has 1 then 2 tiles. Both give exactly the pictured squares at steps 1--4. The finite pictures therefore do not logically force a unique fifth picture. A preference for the simpler rule is a choice of an extra principle, not a conclusion compelled by the sample. Let children build both fifth pictures before discussing their difference.
+
+\textbf{15. A third rule.} For example: at every step build the side-$n$ square; after step 4 attach a bottom-row tail with $2(n-4)$ extra tiles. Steps 5 and 6 then have 27 and 40, and the rule specifies every later step. Many answers are possible. A rule saying only ``make 27 next'' is incomplete; ask how it will build step 7 or step 100. A formula is not required: ``add two extra tail tiles for each step after four'' suffices. The task is inventing an explicit alternative, not guessing the author's favorite sequence.
+
+\textbf{16. Solid cubes.} Growing side 1 to 2 adds 7 cubes;2 to 3 adds 19;3 to 4 adds 37. Old cubes stay at one corner; total sizes are 1,8,27,64. With the shared 64-cube kit, grow one cube at a time. Hints: mark the old corner with a color or a removable cover; separate new cubes from old ones; count a layer without assuming all six visible/hidden faces can be added independently.
+
+\textbf{17. Three disjoint slabs.} Let the old side be $n$ and new side $n+1$. Take the entire new top slab of $(n+1)^2$ cubes. Of the shell left underneath, take a side slab of $n(n+1)$ cubes. The remaining side slab has $n^2$ cubes. Their total is
+\[(n+1)^2+n(n+1)+n^2=3n^2+3n+1=(n+1)^3-n^3.\]
+Every shell cube is assigned once. In coordinates 0 through $n$, first take $z=n$, then $x=n$ with $z<n$, then $y=n$ with $x,z<n$. The old cube has all three coordinates below $n$. This priority description is adult support; children can physically peel off the three slabs and see why their shared edges cannot be counted twice. For $n=1,2,3$ the slab counts are $(4,2,1)$, $(9,6,4)$ and $(16,12,9)$.
+
+The shell counts 7,19,37 have changing first differences 12,18; the full cubic total row has constant third difference 6. More generally expanding $(n+1)^d-n^d$ leaves leading term $d n^{d-1}$ and lowers the degree by one. Iterating gives constant $d!$ times the original leading coefficient. This explains the polynomial theorem in the overview; it need not be introduced as a formal algebra lesson to enjoy a cube-shell decomposition.
+
+\textbf{Pacing.} The ambiguity discussion can follow any finished shape investigation; the cube tasks are a distinct hands-on encore. Children need solid cubes, not only pictures. If spatial bookkeeping takes over, stop at one old/new cube comparison and return later. The actual shell-separation procedure remains untested.
+\newpage
+\heading{Problems 18--20: repeated accumulation and corner piles}
+\textbf{18. Three retained totals.} With all stages initially 0 and input 1 on each turn, the sixth totals are 6,21,56. The complete small check is
+\begin{center}\begin{tabular}{c|rrr}
+turn&first&second&third\\\hline
+0&0&0&0\\
+1&1&1&1\\
+2&2&3&4\\
+3&3&6&10\\
+4&4&10&20\\
+5&5&15&35\\
+6&6&21&56
+\end{tabular}\end{center}
+First gives $n$, second $1+2+\cdots+n=n(n+1)/2$, third the sum of those staircase totals. Thus third is $n(n+1)(n+2)/6$. Each consecutive difference recovers the preceding stage at the \emph{new} turn: $B_n-B_{n-1}=A_n$, $C_n-C_{n-1}=B_n$. There is no extra leading 0 in a row of turn-by-turn increments. The non-task example begins at the valid state $(2,3,4)$ and ends at $(3,6,10)$ after one input 1; using old totals would produce a different machine.
+
+\textbf{19. Corner piles.} The worked step 2 pile has 4 cubes. The requested steps 3,4,5 have 10,20,35. Each new bottom layer is the next staircase; the previous entire pile sits above, with the right-angle corners aligned. Its number of added cubes is exactly the second tray's new total. Both the pile and third tray begin empty and obey the same recurrence, so they have equal totals at \emph{every} step. This is a general explanation by matching the actions, not just agreement of the first few counts. Children can point to which layer represents each addition; no triple running tally is necessary.
+
+\textbf{20. Step 10.} It needs 220 cubes. Applying the rule gives $10\cdot 11\cdot 12/6=220$. Adding the ten staircase layer sizes also meets the printed condition, which forbids listing all ten \emph{running} totals, not summing known layer sizes. A ready child may group or reorganize those layers; do not reject a valid method because it differs from a formula.
+
+\textbf{Why the closed rule counts the pile.} A step-$n$ corner pile consists of unit cubes at nonnegative coordinates $i,j,k$ with $i+j+k<n$. Send each cube to three distinct integers
+\[p=i+1,\quad q=i+j+2,\quad r=i+j+k+3.\]
+Then $1\le p<q<r\le n+2$. Conversely $i=p-1$, $j=q-p-1$, $k=r-q-1$ recover exactly one cube. There are $(n+2)(n+1)n$ ordered triples of distinct integers from 1 through $n+2$; each increasing triple has six orders. Divide by 6. This bijection and notation are optional adult background, not a required entry procedure. The physical matching-of-layers argument already proves that the pile and machine agree.
+
+\textbf{Hints.} For the third stage, retain all three current cards and update left to right. For the pile, build just one staircase layer and place the previous pile on it. For a large step, identify what one complete layer contains before searching for a formula. Copying rather than transferring, and physical corner alignment, still require rehearsal.
+\newpage
+\heading{Sources, return visits and what to record}
+Ted Alper, \emph{Computer Programming in the 18th Century (OK, really, finite differences)}, Berkeley Math Circle, December 4, 2012, supplies the primary mathematical context. Sections 2--3 discuss alternative sequence laws and difference rows; Section 5 Problems 12--14 connects recurrences, starting values and sums; Section 6 describes addition-based table engines. The physical tile examples, retained-total apparatus and ordering challenges here are independently designed adaptations, not reproductions of his intermediate-circle worksheet.
+
+Earlier Week 49 uses absolute neighboring differences around a closed four-tower ring and simultaneous updates from an unchanged old ring. This family uses open growth rows and a deliberately \emph{sequential} cascade: the newly updated first total feeds the second. That is a different rule, not an exception silently introduced into the earlier activity. The initial value and inverse relationship are central here. Current Weeks 92--97 explore other dynamics, inference and multiplicative questions; they do not replace this family.
+
+\emph{Math Circle by the Bay}, Preface printed viii--x, discusses substantial themes, manipulatives and variation in pace. The actual reviewed source copy matches the public resource manifest. Our route choices and predicted difficulty are design judgments; neither the book nor digital review proves that these pages will work with this group.
+
+The prepared material supports several distinct visits: concrete square/staircase/rectangle layers; one accumulator and hidden inputs; two-stage order optimization and zero turns; full-rule ambiguity; cube shells; third-stage corner piles. A returning child can resume a saved question or take a new direction. Sharing a small concrete model can be a complete session outcome. Advanced formulas remain available without becoming a prerequisite for the younger route.
+
+After use, record the actual problem numbers and inputs, which constructions were made, how children kept state, and any conjecture or explanation worth revisiting. Distinguish ordinary adult reading/recording from adults making every mathematical decision. Note specifically whether zero remained a turn, whether the first total stayed while it was copied, and whether shell slabs overlapped. Separate observations from hypotheses about why a procedure was difficult.
+
+All outputs are prepared and digitally reviewed, not physically rehearsed or classroom-piloted. The source package records fresh student writer/critic/math/reviser stages, separate guide review and final-page inspection. A clean source rebuild establishes digital consistency; it does not certify tile dimensions after printing, dexterity, material availability, timings or classroom understanding. No activity is marked taught and no Drive upload is implied.
+\end{document}
