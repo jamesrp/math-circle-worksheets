@@ -1,0 +1,13 @@
+# Sources and design boundaries: Week 88
+
+Primary mathematical context: Peter Boyvalenkov, Stefan Dodunekov and Oleg Musin, [Kissing numbers—a survey](https://arxiv.org/pdf/1507.03631), §1, PDF pp. 1–2 (reopened 17 October 2026). This defines the contact-number problem, relates it to center separation, and states the planar value six. The elementary center-angle proof, equal-case rigidity, 40/80 mm witnesses, mixed-ring bounds and finite tray examples in this packet are independently derived. The 3D kissing/Kepler results are not taught or claimed proved here.
+
+Pedagogical reference actually read: Givental, Nemirovskaya and Zakharevich, *Math Circle by the Bay*, Preface printed viii–x/PDF 9–11, authorized local copy. SHA-256 `84e0277cd94b1e501d153834b7123a72958f8c01b806e7bdfcca012a3191e427` matches the public manifest. The source discusses deep themes, manipulatives, accessible unambiguous statements and varied pacing. Our specific first routes and return visits are design inferences; the book is not evidence these new activities work with children.
+
+Prior corpus checked: Week 26's actual student source investigates polyomino perimeter/shared-edge cancellation; Week 1 uses pattern-block fitting. Circular tangency, sharp local ring bounds and their equality case are different mathematical questions. Current Weeks 92–97 concern dynamics, inverse measurements, inference, prime bags and square remainders; none replaces these ring/tray investigations. Actual revised openings 77/78/80/81/82 and the 17 October introduction audit informed complete unchanged-input convention examples.
+
+## Changes from the reserved plan
+
+The fresh writer selected an eight-page shared menu with eleven consecutive tasks instead of reproducing the plan's seven-page problem list. All principal directions remain: equal-ring construction and rigidity, changed and mixed sizes, center-distance certificates, exact row-constrained tray sensitivity and general size bounds. The plan's five-neighbor flexibility comparison is retained as an adult continuation. The practical first tray is 112 mm high because the 110 mm model has only 0.718 mm spare room and physical fit has not been rehearsed; the exact 110/108 mm investigations remain separately labeled. This is an honest tolerance allowance, not a claim to have completed rehearsal.
+
+Construction proves existence. Failed searching alone does not prove an optimum. The guide does not claim a global maximum for the unrestricted practical tray or an infinite packing-density theorem. It gates trigonometric upper bounds without deleting them. Every activity remains unpiloted.
