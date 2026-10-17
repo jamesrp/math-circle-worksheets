@@ -1,0 +1,11 @@
+# Sources and boundaries: Week 90
+
+Colleen Robichaux, Harshit Yadav and Alexander Yong, [Equivariant cohomology, Schubert calculus, and Edge labeled tableaux](https://arxiv.org/html/1908.11224v1), §3, reopened 17 October 2026. Rules J1/J2 define ordinary smaller-neighbor slides; Theorem 3.1 states independence of the successive legal inner-corner choices; Example 3.2 illustrates different orders. Theorem 3.3 and Example 3.4 discuss preimage counts. Only ordinary distinct-label tableaux are used here: later edge-labeled, shifted and repeated-label settings are outside this packet.
+
+The global rectification theorem is attributed mathematical background, not claimed proved by our finite checks. Our small boards, mask conventions, cards, prompts and enumerations are independently designed. Complete checks prove the finite instances; general termination, preservation of increasing order and inversion with recorded endpoints have separate explanations. Reconstructing a single recorded slide does not make final rectification uniquely invertible without history.
+
+Prior corpus actually checked: Week 1 extensions X3 counts 42 shortest histories through a 3×3 order-ideal diagram and 14 through a 4×2 shape, with standard-tableau context. This family changes the question to sliding a skew shape, local versus whole-slide choices, preimages and reversing. It does not repeat the hook-length/counting problem. Current Weeks 92–97's dynamics/inference/number-theory investigations do not supersede these sliding questions.
+
+Teaching source actually read: *Math Circle by the Bay*, Preface printed viii–x/PDF 9–11, authorized manifest-verified copy (SHA-256 `84e0277cd94b1e501d153834b7123a72958f8c01b806e7bdfcca012a3191e427`). Concrete manipulation, substantial themes and varied pacing are source lessons; the specific one-hole readiness gate, masking and later corner-choice routes are unpiloted design inferences. Revised actual openings 77/78/80/81/82 and the introduction audit informed same-input complete operation bridges and distinct state markers.
+
+Physical mask handling, terminal removal, changing legal corners, complete resets and actual timing remain untested. No whole source paper/book or borrowed workflow examples are packaged. No K–1 packet is implied.
