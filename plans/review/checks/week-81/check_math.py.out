@@ -1,0 +1,128 @@
+== Printed data read from students.tex ==
+Problem 1 starts: (0,0,1), (1,1,0), (2,1,1), (2,2,2)
+Problem 2 cards (reading order): (0,0), (1,0), (2,0), (3,0), (0,1), (1,1), (2,1), (3,1), (0,2), (1,2), (2,2), (3,2), (0,3), (1,3), (2,3), (3,3)
+Problem 3 starts: (2,2,2), (1,2,2), (2,1,2), (2,2,1), (0,2,0), (3,3,1)
+Problem 5 start: (1,1,1)
+ok   Problem 1 has the four starts the guide names
+ok   Problem 3 has the six starts the guide names
+ok   Problem 5 start is one counter in each of three buckets
+ok   Problem 2: sixteen distinct cards, every (left,right) with 0..3 each
+ok   opening visual counts: Before (1,1,2), after removal (1,1,1), after refill (2,2,1)
+ok   Problem 4 picture is (0,1)
+
+== Opening rule and worked visual (p. 1) ==
+ok   (1,1,2) -> (2,2,1) is legal under the printed capped rule
+ok   it is NOT legal if "at most one" were read as one counter in total, so the picture rules that reading out
+ok   it is NOT legal if "to its left" meant only the adjacent bucket, so the picture rules that reading out too
+ok   total counters rose from 4 to 5: count is not a decreasing quantity (guide p. 4)
+
+== Problem 1 (capped, three buckets) ==
+  (0,0,1): FIRST player wins; winning moves ['(0,0,0)']; game length 1..4 moves
+  (1,1,0): FIRST player wins; winning moves ['(2,0,0)']; game length 2..3 moves
+  (2,1,1): FIRST player wins; winning moves ['(2,2,0)']; game length 4..8 moves
+  (2,2,2): SECOND player wins; winning moves []; game length 6..14 moves
+ok   guide: (0,0,1), (1,1,0), (2,1,1) first-player wins; (2,2,2) second-player win
+
+== Problem 2 (capped, two buckets) ==
+  right=0: (0,0)=2nd  (1,0)=1st  (2,0)=2nd  (3,0)=1st
+  right=1: (0,1)=1st  (1,1)=1st  (2,1)=1st  (3,1)=1st
+  right=2: (0,2)=2nd  (1,2)=1st  (2,2)=2nd  (3,2)=1st
+  right=3: (0,3)=1st  (1,3)=1st  (2,3)=1st  (3,3)=1st
+  second-player cards: (0,0), (0,2), (2,0), (2,2)
+ok   guide: exactly (0,0),(0,2),(2,0),(2,2) are second-player wins
+ok   (0,0): the first player has no move and loses at once (a legitimate card under the printed rule)
+  longest capped two-bucket game on a card: (3,3) lasts 9 moves at most, 6 at least
+
+== Problem 3 (capped, three buckets) ==
+  (2,2,2): SECOND; winning moves []
+  (1,2,2): FIRST; winning moves ['(0,2,2)']
+  (2,1,2): FIRST; winning moves ['(2,0,2)']
+  (2,2,1): FIRST; winning moves ['(2,2,0)']
+  (0,2,0): SECOND; winning moves []
+  (3,3,1): FIRST; winning moves ['(4,4,0)']
+ok   guide: (2,2,2) and (0,2,0) second-player wins, the other four first-player
+ok   under the cap each first-player start has exactly ONE winning move (so a rule can name it exactly)
+ok   each of those winning moves goes to all-even
+ok   (3,3,1): the only winning move removes from 3 and adds one to 1 AND 2
+
+== Parity theorem: P-positions are exactly the all-even ones ==
+ok   cap 1: 1554 starts (1-4 buckets, 0-5 each), outcome = "not all-even"
+ok   cap 2: 1554 starts (1-4 buckets, 0-5 each), outcome = "not all-even"
+ok   cap 3: 155 starts (1-3 buckets, 0-4 each), outcome = "not all-even"
+ok   cap 4: 155 starts (1-3 buckets, 0-4 each), outcome = "not all-even"
+ok   cap 5: 155 starts (1-3 buckets, 0-4 each), outcome = "not all-even"
+ok   cap 6: 155 starts (1-3 buckets, 0-4 each), outcome = "not all-even"
+ok   cap 1: every first-player position (1-4 buckets, 0-5 each) has exactly one winning move
+ok   guide p. 3 repair move (rightmost odd -1; +1 to each earlier odd) is legal under the cap and gives all-even
+ok   from every all-even start (1-4 buckets, 0-4 each) no move with refills up to 3 reaches all-even
+
+== Guide p. 1 overview sentence, read literally ==
+  "remove from the rightmost odd bucket and add 0 or 1 to each earlier odd bucket to restore all-even"
+ok   counterexample: from (1,0,1), taking from bucket 3 and adding 0 to odd bucket 1 gives (1,0,0), still odd
+ok   the correct repair adds exactly 1 to the earlier odd bucket: (2,0,0)
+  Each earlier ODD bucket needs +1 (an odd amount, uncapped); each earlier EVEN bucket needs +0 (an even amount).
+
+== Lengths: capped warm-up versus larger refill caps ==
+  cap 1: from (0,1) lengths 1..2; from (1,1,1) longest 7
+ok   cap 1: longest game from (0,1) is cap+1 = 2
+ok   cap 1: longest game from (1,1,1) = 1+(K+1)+(K+1)^2 = 7
+  cap 2: from (0,1) lengths 1..3; from (1,1,1) longest 13
+ok   cap 2: longest game from (0,1) is cap+1 = 3
+ok   cap 2: longest game from (1,1,1) = 1+(K+1)+(K+1)^2 = 13
+  cap 3: from (0,1) lengths 1..4; from (1,1,1) longest 21
+ok   cap 3: longest game from (0,1) is cap+1 = 4
+ok   cap 3: longest game from (1,1,1) = 1+(K+1)+(K+1)^2 = 21
+  cap 4: from (0,1) lengths 1..5; from (1,1,1) longest 31
+ok   cap 4: longest game from (0,1) is cap+1 = 5
+ok   cap 4: longest game from (1,1,1) = 1+(K+1)+(K+1)^2 = 31
+  cap 5: from (0,1) lengths 1..6; from (1,1,1) longest 43
+ok   cap 5: longest game from (0,1) is cap+1 = 6
+ok   cap 5: longest game from (1,1,1) = 1+(K+1)+(K+1)^2 = 43
+  cap 6: from (0,1) lengths 1..7; from (1,1,1) longest 57
+ok   cap 6: longest game from (0,1) is cap+1 = 7
+ok   cap 6: longest game from (1,1,1) = 1+(K+1)+(K+1)^2 = 57
+ok   warm-up cap: no game from (0,1) lasts more than 2 moves, so Problem 4 needs the lifted cap
+
+== Problem 4 (uncapped, start (0,1)) ==
+ok   from (0,1) the only bucket you can take from is bucket 2
+ok   refill 9 on the first move gives a game of exactly 10 moves (forced after move 1)
+ok   refill 29 on the first move gives a game of exactly 30 moves (forced after move 1)
+ok   refill 99 on the first move gives a game of exactly 100 moves (forced after move 1)
+ok   refill 999 on the first move gives a game of exactly 1000 moves (forced after move 1)
+  So the possible lengths from (0,1) are exactly 1, 2, 3, ... (refill M gives M+1): every finite number is beaten,
+  every play is finite, and no single bound covers all plays.
+
+== Problem 5 (uncapped, start (1,1,1)): random long plays with large refills ==
+ok   300 random plays from (1,1,1) with refills up to 5/20/60 per bucket all ended (longest 2058 moves); the ordinal omega^2 a3 + omega a2 + a1 fell at every move
+  a deliberately long play (always take leftmost, refill 500 each time) still ends after 251503 moves
+
+== Ordinal description (guide p. 3) ==
+ok   5000 random uncapped moves: omega^(m-1) a_(m-1)+...+a_0 always decreases, first difference at the bucket taken from
+
+== Encore: take 1, 2 or 3; losing target multiples of four ==
+  refill cap 1: P-positions = all multiples of 4 on 1-3 buckets, 0-7 each? False (first counterexamples [(0, 4), (0, 5), (1, 1), (1, 6)])
+ok   encore with refill cap 1: the multiples-of-four rule fails, as the guide warns (cap must be lifted)
+  refill cap 2: P-positions = all multiples of 4 on 1-3 buckets, 0-7 each? False (first counterexamples [(0, 4), (1, 1), (2, 4), (3, 5)])
+ok   encore with refill cap 2: the multiples-of-four rule fails, as the guide warns (cap must be lifted)
+  refill cap 3: P-positions = all multiples of 4 on 1-3 buckets, 0-7 each? True
+ok   encore with refill cap 3: multiples of four are exactly the losing positions
+  refill cap 4: P-positions = all multiples of 4 on 1-3 buckets, 0-7 each? True
+ok   encore with refill cap 4: multiples of four are exactly the losing positions
+  refill cap 6: P-positions = all multiples of 4 on 1-3 buckets, 0-7 each? True
+ok   encore with refill cap 6: multiples of four are exactly the losing positions
+ok   cap 2 counterexample: (1,1) is a second-player win though not all multiples of 4
+
+== Guide p. 4 return visit ==
+ok   one bucket of n: every game lasts exactly n moves
+ok   two buckets with the right one nonempty: lengths vary
+ok   a start that looks larger can finish sooner: (3,0) always 3 moves, (0,1) can last 6 with refills up to 5
+
+== Counters needed in capped play from every printed start (guide p. 2: "thirty loose counters") ==
+  most counters on the board at once: 8; most in one bucket: 8; most counters a single play ever needs (no reuse of removed counters): 14
+ok   thirty counters cover every capped play from every printed start, even without reusing removed ones
+
+== Other readings of the rule (context only; the p. 1 picture excludes the first two) ==
+  total1: printed starts whose outcome would change: ['(3,3,1)']
+  adjacent: printed starts whose outcome would change: none
+
+FAILURES: 0

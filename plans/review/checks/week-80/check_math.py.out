@@ -1,0 +1,61 @@
+repository: /home/claude/math-circle-worksheets
+ok   printed opening read from students.tex: OFF at 11:00, ON at 11:30, OFF at 11:45
+ok   printed rule read: halfway from the previous switching time to midnight
+== Switch times (replay of the printed rule; 11:00 p.m. = 0, midnight = 1)
+ok   11:45 is halfway from 11:30 to midnight, so the given pair fits the rule
+ok   11:30 is also halfway from 11:00 to midnight (11:00 is the start, not a switch)
+ok   closed form t_n = 1 - 2^-n matches the replay for n = 1..200
+   switch 1: t = 1/2, clock 11:30:00, mark at 90 mm from 11:00, gap to MIDNIGHT 90 mm
+   switch 2: t = 3/4, clock 11:45:00, mark at 135 mm from 11:00, gap to MIDNIGHT 45 mm
+   switch 3: t = 7/8, clock 11:52:30, mark at 315/2 mm from 11:00, gap to MIDNIGHT 45/2 mm
+   switch 4: t = 15/16, clock 11:56:15, mark at 675/4 mm from 11:00, gap to MIDNIGHT 45/4 mm
+   switch 5: t = 31/32, clock 11:58:07+1/2s, mark at 1395/8 mm from 11:00, gap to MIDNIGHT 45/8 mm
+   switch 6: t = 63/64, clock 11:59:03+3/4s, mark at 2835/16 mm from 11:00, gap to MIDNIGHT 45/16 mm
+ok   guide overview "ON at 11:52:30": third switch time is 11:52:30
+ok   first four marks on the 180 mm line: 90, 135, 157.5, 168.75 mm
+ok   gap after the fourth mark is 11.25 mm (guide: "physically usable gap")
+ok   every switch is followed by a later switch before midnight (n < 200)
+ok   for sampled t < 1, the next halfway time (t+1)/2 lies strictly between t and 1
+== Card (ON/OFF), post-switch states
+ok   first four post-switch states ON, OFF, ON, OFF (guide overview)
+ok   after the four marks of Problem 1 the card shows OFF
+ok   state after switch n is ON iff n is odd
+ok   odd subsequence constantly ON, even subsequence constantly OFF (guide p. 3): no common limit
+ok   state function: OFF on [11:00, 11:30), ON on [11:30, 11:45), OFF from 11:45
+ok   for eps = 2^-k (k < 150) the interval (1 - eps, 1) contains an ON time and an OFF time
+ok   neither ON nor OFF at midnight is a left limit: continuity at 1 is impossible (guide overview)
+== Endpoint (Problems 3-4)
+ok   every constraint in the printed rule concerns a time strictly before midnight
+ok   both endpoint extensions satisfy every prescribed constraint
+ok   the two extensions differ at midnight: the rule alone does not determine the midnight state
+ok   no last switch exists in the replay, so "the state after the last switch" is undefined
+== Counter (Problem 2 and Problem 5)
+ok   counter positions equal 1 - 2^-n (replay)
+ok   each move halves the remaining distance (guide p. 3)
+ok   the counter never reaches END after a finite number of moves
+ok   on equal 180 mm lines the counter positions coincide with the time marks (strips side by side)
+ok   for each tested tolerance eps there is a first N with gap < eps (guide: "sufficiently many halvings")
+ok   counter position at any time in [t_n, 1) is within 2^-n of END: left limit END
+   Problem 5 rule "use the state that the earlier states approach": counter -> END; card -> none (no limit)
+ok   running average of post-switch states is 1/2 or (m+1)/2m: tends to 1/2, a different question from the state
+== Physical fit on the 180 mm lines (evidence for materials notes)
+   counter diameter 6 mm: END tick still uncovered after moves [1, 2, 3, 4, 5]
+   counter diameter 13 mm: END tick still uncovered after moves [1, 2, 3, 4]
+   counter diameter 15 mm: END tick still uncovered after moves [1, 2, 3, 4]
+   counter diameter 19 mm: END tick still uncovered after moves [1, 2, 3, 4]
+   counter diameter 22.5 mm: END tick still uncovered after moves [1, 2, 3]
+   counter diameter 25 mm: END tick still uncovered after moves [1, 2, 3]
+ok   a 19 mm counter centred at move 4 still leaves the END tick uncovered (1.75 mm)
+ok   a 25 mm counter centred at move 4 covers the END tick
+   fold the paper edge instead of the MIDNIGHT tick: mark errors (mm) ['0', '1', '3/2', '7/4'] = seconds ['0', '20', '30', '35']
+ok   edge-aligned folding: first mark exact, then errors 1, 1.5, 1.75 mm (at most 35 s) over four marks
+== Guide p. 2 timing
+ok   first route totals 45 minutes after the movement break (fits an hour)
+== Guide p. 4 encore: "each label there does settle, even though the total count does not pass to the membership limit"
+ok   Week 79 rule read from its students.tex: add two to A, move smallest to B
+ok   |A| after day n is n: counts grow without bound
+ok   label k is in B on every day >= k: each label settles (in B)
+ok   no label stays in A: the limit membership of A is empty (count 0), while counts -> infinity
+ok   changed rule: odd labels settle in A, so A has n cards and an infinite limit set; the encore sentence fits the smallest-card rule
+
+0 failure(s)

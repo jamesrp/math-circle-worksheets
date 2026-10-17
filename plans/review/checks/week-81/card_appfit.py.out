@@ -1,0 +1,15 @@
+1. cap 0: second player wins iff total even; cap 1: iff all even (1-3 buckets, 0-4 each).
+   (1,1): cap 0 -> second player; cap 1 -> first player
+2. two-bucket 0-3 second-player starts: [(0, 0), (0, 2), (2, 0), (2, 2)] (4 of 16)
+   three-bucket 0-3 second-player starts: 8 of 64, nonempty: 7 of 63
+3. first moves from (2, 0) under cap 1: 1
+3. first moves from (0, 2) under cap 1: 2
+3. first moves from (2, 2) under cap 1: 3
+3. first moves from (0, 2, 0) under cap 1: 2
+3. first moves from (2, 2, 2) under cap 1: 7
+3. first moves from (2, 0, 2) under cap 1: 5
+3. first moves from (0, 0, 2) under cap 1: 4
+4. longest game under cap K = buckets read in base K+1 (K = 1-3, 0-2 each, 1-3 buckets);
+   always refilling fully reaches it in 200 random plays from (1,1,1) per K. (1,1,1), K=1: 7 moves.
+5. encore take 1-3, refill 0-3: second player iff all multiples of 4; holds (1-2 buckets 0-6, 3 buckets 0-4)
+FAILURES: 0

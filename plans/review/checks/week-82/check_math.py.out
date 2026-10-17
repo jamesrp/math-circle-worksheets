@@ -1,0 +1,71 @@
+Week 82 independent math check; repository: math-circle-worksheets
+== Opening examples (p. 1) ==
+ok   5-to-5: 120 complete matches
+ok   panel 1 (1-A ... 5-E) is a complete match that keeps order
+ok   panel 2 (1-B, 2-A, 3-C, 4-D, 5-E) is complete and does not keep order
+ok   5-to-5: the only order-keeping complete match is 1-A ... 5-E
+ok   5 kids and 6: no complete match exists (pigeonhole)
+ok   5 kids and 6: every match leaves at least one kid of the 6 out (largest match has 5 pairs)
+== Problem 1 (p. 1): R1 R2 R3 with B1 B2 B3 ==
+ok   complete matches = the guide's six B-partner lists of R1, R2, R3
+ok   only (1,2,3) keeps order, as the guide says
+ok   checking neighbours only gives the same answer for 3 kids
+   Other reading: "match" without "complete" (the opening shows a match that leaves F out).
+   matches that may leave kids out: 34 including the empty one (33 non-empty)
+   of these keep order: 20 including the empty one (19 non-empty)
+   by number of pairs k: k -> (matches, order-keeping): {0: (1, 1), 1: (9, 9), 2: (18, 9), 3: (6, 1)}
+ok   partial-match reading changes Problem 1 from 6/1 to 34/20 (33/19 non-empty)
+== Invariants and ordinal arithmetic agree (all 16 Problem 4 arrangements) ==
+ok   16 arrangements of one or two endless rows and 0-2 stars
+ok   W     type ω      invariants {'limits': 0, 'last': False, 'tail': 0, 'inf_pred': 'none'}; explicit order iso to canonical form and size match replayed
+ok   SW    type ω      invariants {'limits': 0, 'last': False, 'tail': 0, 'inf_pred': 'none'}; explicit order iso to canonical form and size match replayed
+ok   WS    type ω+1    invariants {'limits': 1, 'last': True, 'tail': 1, 'inf_pred': '1'}; explicit order iso to canonical form and size match replayed
+ok   SSW   type ω      invariants {'limits': 0, 'last': False, 'tail': 0, 'inf_pred': 'none'}; explicit order iso to canonical form and size match replayed
+ok   SWS   type ω+1    invariants {'limits': 1, 'last': True, 'tail': 1, 'inf_pred': '1'}; explicit order iso to canonical form and size match replayed
+ok   WSS   type ω+2    invariants {'limits': 1, 'last': True, 'tail': 2, 'inf_pred': '2'}; explicit order iso to canonical form and size match replayed
+ok   WW    type ω·2    invariants {'limits': 1, 'last': False, 'tail': 0, 'inf_pred': 'infinitely many'}; explicit order iso to canonical form and size match replayed
+ok   SWW   type ω·2    invariants {'limits': 1, 'last': False, 'tail': 0, 'inf_pred': 'infinitely many'}; explicit order iso to canonical form and size match replayed
+ok   WSW   type ω·2    invariants {'limits': 1, 'last': False, 'tail': 0, 'inf_pred': 'infinitely many'}; explicit order iso to canonical form and size match replayed
+ok   WWS   type ω·2+1  invariants {'limits': 2, 'last': True, 'tail': 1, 'inf_pred': 'infinitely many'}; explicit order iso to canonical form and size match replayed
+ok   SSWW  type ω·2    invariants {'limits': 1, 'last': False, 'tail': 0, 'inf_pred': 'infinitely many'}; explicit order iso to canonical form and size match replayed
+ok   SWSW  type ω·2    invariants {'limits': 1, 'last': False, 'tail': 0, 'inf_pred': 'infinitely many'}; explicit order iso to canonical form and size match replayed
+ok   SWWS  type ω·2+1  invariants {'limits': 2, 'last': True, 'tail': 1, 'inf_pred': 'infinitely many'}; explicit order iso to canonical form and size match replayed
+ok   WSSW  type ω·2    invariants {'limits': 1, 'last': False, 'tail': 0, 'inf_pred': 'infinitely many'}; explicit order iso to canonical form and size match replayed
+ok   WSWS  type ω·2+1  invariants {'limits': 2, 'last': True, 'tail': 1, 'inf_pred': 'infinitely many'}; explicit order iso to canonical form and size match replayed
+ok   WWSS  type ω·2+2  invariants {'limits': 2, 'last': True, 'tail': 2, 'inf_pred': 'infinitely many'}; explicit order iso to canonical form and size match replayed
+ok   the 6 order types are separated by the order invariants (number of limit kids, finite tail)
+   ω     : W, SW, SSW
+   ω+1   : WS, SWS
+   ω+2   : WSS
+   ω·2   : WW, SWW, WSW, SSWW, SWSW, WSSW
+   ω·2+1 : WWS, SWWS, WSWS
+   ω·2+2 : WWSS
+== Problem 2 (p. 2) ==
+ok   A vs B: star -> 1, n -> n+1 is one-to-one and onto (replayed to n = 3000)
+ok   A vs B: that rule keeps order
+ok   A and B both have type ω (1 + ω = ω)
+ok   A vs C: star -> 1, n -> n+1 is a complete match ignoring order
+ok   A vs C: that rule breaks order (star is after numbered kid 1 in C, but its partner 1 is first in A)
+ok   A vs C: C has a last kid, A has none -> no order-keeping complete match
+== Problem 3 (p. 3) ==
+ok   D vs E: namesake match is a complete match; positions in E are 2n-1 and 2n
+ok   D vs E: namesake match breaks order (R2 before B1 in D; B1 at 2, R2 at 3 in E)
+ok   D has type ω·2 = ω+ω; B1 is a limit kid (infinitely many predecessors, none immediately before it)
+ok   E is one row by position (kid at position m has exactly m-1 predecessors), so no E kid has infinitely many
+ok   for every target position p = 1..12 of B1 there is no increasing choice of places for R1..Rp below p (and in general p places are needed among p-1)
+ok   E (pairs continuing forever) has type 2·ω = ω
+== Guide overview: ordinal vs surreal (natural) sum ==
+ok   ordinal: 1 + ω = ω, ω + 1 ≠ ω
+ok   natural (surreal) sum is commutative and 1 ⊕ ω = ω + 1 ≠ ω, so 1 + ω = ω does not transfer
+== Problem 4 (p. 4) ==
+   pairs of different arrangements: 120; same type (order-keeping match): 22; different type (match only if order may change): 98
+ok   both requested kinds of pairs exist (every arrangement is countable)
+   reading "each arrangement matched to one plain endless row": order-keeping ones are ['W', 'SW', 'SSW']
+ok   that reading also has at least two answers
+ok   guide example: row alone vs star then row keeps order
+ok   guide example: row alone vs row then star needs order change
+   Panels needed (p. 6 prints 4 stars, 2 "this kid" panels, 2 "this whole row" panels):
+   one arrangement needs at most 2 kid panels and 1 row panels
+   same-type pairs that need more than the printed panels to lay out together: [('WWS', 'WSWS'), ('SWWS', 'WSWS')]
+
+0 failures
