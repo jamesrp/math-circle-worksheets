@@ -1,0 +1,121 @@
+\def\week{86}
+\def\topic{Pursuit and escape}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=.68in,headheight=16pt,headsep=18pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,tikz,fancyhdr,array}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week \week / \topic / Facilitator}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week \week / W\week-F-v1}
+\fancyfoot[R]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{.4pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{7pt}
+\newcommand{\heading}[1]{\par\vspace{4pt}{\large\bfseries #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+\begin{document}
+\heading{Mathematical overview}
+The game uses a finite connected undirected graph. C chooses a starting dot, R chooses after seeing C, and C moves first. Turns alternate; each player may stay or cross one road. Positions are visible. Sharing a dot is immediate capture, including at placement. An evasion theorem means a response strategy forever, not survival of a classroom timer.
+
+\textbf{Every finite tree is cop-win.} C moves toward R along their unique path. Delete C's current dot and look at R's component. Each uncaptured cop advance makes that component strictly smaller, and R cannot cross C to escape it. Finiteness gives capture. On an $n$-dot path the best worst-case start is a middle dot, with $\lfloor n/2\rfloor$ cop moves: a farthest endpoint robber who stays gives the lower bound, and advancing from the middle gives the upper bound.
+
+\textbf{A bare cycle with at least four dots is robber-win.} Before each cop turn R can remain outside C's closed neighborhood (C and its neighbors). After C moves, R stays if safe, or moves away to the other ring neighbor, which is safe. A triangle is different: one cop is already adjacent to every dot. The existence of a cycle inside a larger graph alone does not decide who wins.
+
+\textbf{A dominated dot may be folded away.} If $N[v]\subseteq N[u]$ for distinct dots, deleting $v$ preserves cop-win status; staying counts in these closed neighborhoods. A sequence of folds to one dot certifies a cop strategy. The full finite classification says a connected graph is cop-win exactly when it can be reduced this way. This deeper result is an adult destination, not a prerequisite for initial games. The explanation and limits appear with the fold solution.
+
+One diagonal makes a square cop-win; a bare pentagon needs two added chords. One pentagon chord still leaves a square as a retract. Two cops catch on every finite cycle: one blocks a dot while the other sweeps the remaining path. These statements do not claim two cops suffice on every graph.
+
+\sub{Discovery and readiness}
+Approximate grades 2--3 can play repeated paths, trees and rings. Upper readiness adds adversarial guarantees, minimal edits, board design, folds and two-cop coordination. There is no independent K--1 edition. Adults may read and record; children must retain turn-taking and make their own moves. Ordinary game results suggest conjectures; a response that works against every legal reply is an explanation.
+
+\sub{Status}
+Prepared digital materials are unpiloted; printing, counter fit, turn-marker handling and timing remain untested. Board geometry does not affect the graph theorem, but cramped dots can prevent usable play. All supplied claims concern the stated visible-position, alternating-move, allowed-stay rules.
+\newpage
+\heading{Preparation and launch}
+For the current older tables prepare three pair kits. Each needs C and R counters 14--18 mm wide, a two-sided turn tile, selected working boards, dry-erase sleeve, marker and wipe. A third C2 counter and ``Both cops move'' turn tile are for the later two-cop visit. At the upper table rotate the third child as referee. The middle table has two pairs and one adult available for rule disputes. Select a familiar activity for K--1; an assisted trial is not a complete younger route.
+
+Working circles should leave the counter identity readable; inspect every printed board at actual size. Path spacing may be 28 mm to fit seven dots, while other board spacings are larger. Use matching compact locators only for selecting the full boards. For folds keep an unchanged original beside a printed working copy. Add opaque removable 24 by 32 mm paper/card pieces and about 5 mm wide covering strips for removed dots, labels and incident roads; adults trim them so surviving roads and dots remain visible. Erasing a sleeve cannot erase the printed board underneath. The neighborhood test always uses the currently uncovered graph.
+
+Budget about 10--15 minutes to print, sleeve and label existing counters, then another 10 minutes to test a legal move, stay, capture and reset with the turn tile. Extra fold copies/covering pieces and two-cop boards are needed only for those visits; allow another 5--10 minutes to prepare and fit-check covers. If two cop counters share a dot, stack or slightly offset them while retaining both identities. These preparation estimates and physical fit remain untested.
+
+\sub{Launch together}
+After movement time let children move two counters freely for a minute. On a small non-task graph, put C down first, let a child place R, and show one-road C motion. Flip the turn tile. R stays; flip the tile again. Both pieces remain visible throughout. Show that sharing a dot ends the game immediately. Ask the pair to try catching or escaping, then distribute the first selected board. Do not explain the tree/cycle strategies before play.
+
+\sub{Pacing and intervention}
+A first visit can spend 8--12 minutes on paths, 12--20 on trees, and the remaining time on rings, with a brief sharing. Those are suggestions, not expected finish times. A path or tree alone can absorb a table. Later visits may focus on changing roads, making a game, folding, or coordinating two cops; each changes the mathematical question.
+
+Let the partner/referee enforce one road or stay. If a child counts ink length as distance, point to the two endpoint dots of a single road. If a player claims escape after ten turns, ask which reply works when the opponent changes its move. Do not require a simultaneous turn count or move transcript. An adult can keep one strategy drawing or a child's explanation for the next visit.
+\newpage
+\heading{Shared packet: strategy from play}
+The shared Grades 2--5 packet has Problems 1--4. The upper packet restarts numbering and repeats the path entry as its Problem 1 so it can be used separately. Children already familiar with the game can move directly to an appropriate return investigation. Upper road edits are most meaningful after the shared tree/ring contrasts; completing those pages today is not a condition of later access.
+
+\sub{Shared Problem 1 / upper Problem 1: paths}
+On the five-dot path start C at c; against the best escape choices capture takes at most two cop moves. On the seven-dot path start at d; at most three suffice. R at a farthest endpoint can stay, forcing the same lower bound. Any other start has a farther endpoint, so it cannot improve the worst case. C follows the unique path to R; R may move or stay but cannot cross C or pass the endpoint. Counting a round as two player turns instead of one cop move changes the reported number, so identify the quantity when discussing speed.
+
+A held hint is to cover C's dot and ask whether R can reach the other side without capture. After children find a start, let a partner choose a difficult reply. Do not require a concurrent turn tally; an adult can count a single test when needed.
+
+\sub{Shared Problem 2: trees T1 and T2}
+Both maps are trees. C can start anywhere and repeatedly take the first edge of the unique path toward R. Starting at c in either supplied map catches within two cop moves, but the printed task asks for a guaranteed strategy, not the fastest count.
+
+For the general reason, delete C's dot and shade the connected component containing R. C's next move goes into that component. Unless it captures R, deleting the new C dot leaves R in a strict subset of the former component. R's reply cannot leave this subset without crossing C. Repeated strict shrinking in a finite graph forces capture. Merely saying the distance decreases is insufficient: R can move away and restore the distance for a while. The territory cut off by C, not the current distance alone, is what accumulates.
+
+\sub{Shared Problem 3: triangle and square}
+On the triangle C can start anywhere and capture the distinct starting R on its first move. On the square R starts opposite C. Whenever C stays, R stays; whenever C moves one edge, R moves one edge to the new opposite dot. Before every cop turn there are two roads between them, so the next cop move cannot capture. Every possible cop reply is accounted for; this explains perpetual escape, unlike a long lucky game.
+
+\sub{Shared Problem 4: longer rings}
+On both the five- and six-dot ring, R begins at a nonneighbor of C. Before each cop turn, keep R outside C's closed one-road neighborhood. After C moves, stay if still safe; otherwise C is now a neighbor, so R steps away along the other ring edge. For a bare ring of at least four vertices that neighbor is neither C nor adjacent to C, restoring safety. ``Opposite'' is not an adequate general rule on an odd ring. Ask a partner to challenge the suggested response by staying or choosing either direction.
+\newpage
+\heading{Upper packet: changing the game board}
+\sub{Upper Problem 2: add the fewest roads}
+The square needs exactly one diagonal. With none, the previous escape strategy works; either diagonal makes its endpoint adjacent to every dot, so C starts there and catches on move one.
+
+The pentagon needs two chords. Chords a--c and a--d make a adjacent to every other dot, so two suffice. Zero fails by the ring strategy. To show one fails, any one-chord pentagon can be relabeled with chord a--c. Keep R on the square a--c--d--e--a. Project a cop at b to a, leaving other cop positions unchanged. Every actual cop move projects to a legal square move or stay, since b's neighbors a,c both map next to a. R uses its square escape strategy against that projected cop. Actual capture would imply projected capture, which never occurs. This is a graph-map proof, not just the report of several games. Children may test all five single-chord choices together before an adult offers this explanation.
+
+A different pair of chords is acceptable if its claimed strategy is valid; the question asks a minimum, not every minimum pair. Adding roads can help a cop by removing hiding places, or help an escapee by creating a way around a former barrier. The number of roads alone does not decide the outcome.
+
+\sub{Upper Problem 3: design contrasting connected maps}
+One cop-win example uses the triangle a--b--c--a with tail c--d--e--f: six dots and six roads. Start C at c. Catch an initial robber at a or b immediately; otherwise sweep the tail. R cannot pass through C to use the triangle. The bare six-cycle is a robber-win example with the same dot/road counts. These examples show that a cycle's presence does not by itself imply escape.
+
+The minimum six-road condition makes a tree unavailable as the cop example, so it serves this comparison rather than an arbitrary drawing restriction. Accept other connected maps with valid response strategies; do not judge from visual resemblance. A held hint is to attach a branch to a board whose behavior the children already understand. Crossings drawn without a dot do not create roads between the crossing routes.
+
+\sub{Upper Problem 4: the two fold boards}
+Materials p.1 supplies F1 and its working copy; p.2 supplies F2 and its working copy. Keep the original visible, but test each fold in the current reduced graph. Staying counts among reachable places. Deleting a dot deletes its incident roads; do not create a replacement road through it.
+
+F1 can fold e into d, then d into c, then f into a. The remaining triangle a,b,c folds a into b, then b into c. Each inclusion can be checked from the actual remaining board. Other legal orders work. Its one-dot reduction certifies that one cop has a strategy.
+
+In F2 only b is initially removable: it can fold into a or c. Either removal leaves the bare square on a,c,d,e. No adjacent pair in a square has one closed neighborhood contained in the other, so no further fold is possible. F2 is robber-win by the projected-square strategy above. A single dead end in an arbitrary search would need justification; here both initial choices produce the same residual square. Children can stop at a checkable fold certificate; understanding the simultaneous real/shadow strategy is an additional readiness gate.
+\newpage
+\heading{Why folds work; two-cop return visit}
+\sub{Adult explanation of a fold}
+Suppose $N[v]\subseteq N[u]$ and map $v$ to $u$, fixing all other vertices. Every legal move maps to a move or stay in $G-v$. If C has a winning strategy on $G-v$, play it there against the image of the real R. When the shadow is caught, either R is caught already or C is at u and R at v. Any ensuing R reply lies in $N[v]\subseteq N[u]$, so C catches on its next turn. Thus a reduced winning strategy lifts to the larger graph.
+
+Conversely, a robber strategy on the smaller graph lifts to the larger by keeping R in the smaller graph and projecting C. Any actual capture would also be a projected capture. Together these arguments justify preserving cop-win status under a fold. Repeating them proves that a one-dot reduction is a certificate.
+
+For the full classification, a connected graph with more than one vertex and no dominated vertex has an evasion strategy. There is a starting R outside $N[C]$, since otherwise C is universal and dominates another vertex. After a safe cop move, R stays if outside $N[C]$. If R is adjacent to C, non-domination gives a vertex in $N[R]\setminus N[C]$ to which R can move. This restores safety before every cop turn. Repeated folds end either at one dot (cop-win), or a larger graph with no dominated vertex (robber-win); compose the projections to lift that evasion strategy. This is a finite connected-graph theorem with allowed stays. It is not necessary to give the entire proof to children during a first fold session.
+
+\sub{Upper Problems 5--6: six- and eight-dot rings, then any ring}
+For the six-dot task both cops enter at a; the same start works for the eight-dot and general-ring question. Keep C1 at a as a blocker. On its first turn C2 moves to the adjacent b, then advances along the remaining path toward R. Deleting a turns the other ring vertices into that path. R cannot pass C1 to get around the far end, nor pass C2, so the path strategy captures. The same plan works on every finite cycle. If R chooses the occupied starting dot, capture is immediate; if it starts at b, C2 catches on its first move. Two cops are necessary on a bare cycle of length at least four because the one-cop escape invariant applies; the triangle only needs one.
+
+Both cops may each take at most one road or stay, then R gets one turn. Two moves are not a pooled budget that one cop may spend. The six-dot example gives a concrete coordination attempt before the eight-dot/general question. A held hint is to ask whether one cop could make one part of the ring permanently unusable. A strategy in which both cops move can also be valid; require an explanation of the region R can still occupy.
+
+\sub{Select a return visit}
+Changing roads tests what information a graph contains; map design challenges a false cycle guess; folding creates a certificate; two cops introduce cooperation and a blocking invariant. Offer one of these as the next destination, preserving rich tasks for later rather than racing through all six upper pages.
+\newpage
+\heading{Print map, sources and use record}
+The four shared pages contain the working paths, trees and one-cop rings. The six upper pages contain their own path launch, road-edit boards, map-design workspace, fold introduction, and the two larger cop-coordination rings. Materials pages 1--2 are full original/working fold pairs; page 3 has two-sided turn tiles and counters. Keep upper numbering distinct when an adult records the chosen route. Do not print all pages for every pair automatically.
+
+\sub{Provenance}
+Mostafa Azizi / Fan Chung Graham, \emph{A Game of COPS \& ROBBERS}, spring 2002, \href{https://fanchung.ucsd.edu/152/arch/coprob/}{UCSD teaching page}: game conventions, claims about paths, cycles and trees, and the dismantling theorem.
+
+Richard Nowakowski and Peter Winkler, \emph{Vertex-to-vertex pursuit in a graph}, Discrete Mathematics 43 (1983), pp. 235--239, \href{https://doi.org/10.1016/0012-365X(83)90160-7}{DOI: original paper}, is the original research lineage. The production review does not claim fresh access to the full paper. Board choices, material dimensions and prompts are local adaptations, supported by independent finite-state checks and the self-contained arguments here.
+
+Givental, Nemirovskaya and Zakharevich, \emph{Math Circle by the Bay}, Preface viii--x, informs the use of deep revisitable themes and manipulatives. Particular pacing/staffing choices are editorial hypotheses. Earlier shortest-road/median work is related graph experience, not prior use of this pursuit game. No borrowed diagrams or downloaded reference files are packaged.
+
+\sub{Useful observations}
+Record the boards and problem numbers used, whether children retained staying and turn order, a strategy in their own words, and whether an adult chose any moves. If a child says that a long game proves escape, preserve the observation separately from a hypothesis about why they equated evidence and proof. Photograph or retain one final map and one strategy record. Continuing an investigation next time is a successful route; page completion is not the goal.
+
+All activities remain unpiloted; board fit, token handling and timing are physically untested. Mathematical checks and rendered-PDF review do not establish classroom readiness. Canonical Git publication does not imply a Drive upload or a synchronized classroom copy.
+\end{document}
