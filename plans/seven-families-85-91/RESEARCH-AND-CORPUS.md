@@ -1,0 +1,27 @@
+# Teaching evidence and corpus checks
+
+Research and planning only, 11 October 2026. No lesson here has been built or piloted. The family outlines supply their own mathematical primary-source trails; this note records the shared teaching evidence and limits.
+
+## What was read
+
+Current canonical AGENTS.md, README.md, LOCAL-RESOURCES.md, WORKBOARD.md; worksheet-workflow/README.md, outlines/TEMPLATE.md, context.md, blocks/spec.md, guide/GUIDE-TEMPLATE.md, and the critic/math-critic/reviser stage templates; plans/README.md, plans/lesson-format-source-notes.md; and the Week 1 encore source README. No `.agents/` directory exists in the canonical clone, retained reference archive, or selected task root, so there were no additional project skill files to read.
+
+The root inspected rendered first pages of the approved Week 2 shared catalog and upper catalog. Compact comparison diagrams, one clear question, and substantial working space are the relevant conventions; the graph-heavy look is not prescribed for every new family. It also read actual PDF text from Week 2 return visit p. 3 (adjacent lamp-counter swaps on a line/ring), Week 11 grades 2–3 pp. 1–2 (sink chip firing and sharing words), Week 49 grades 4–5 p. 1 (simultaneous absolute cyclic differences), and Week 1 extensions p. 3 (shortest swap routes and order-ideal growth). Writers inspected further family-specific sources and record them in each outline. This is targeted novelty checking, not a claim of inspecting every page of the complete library.
+
+The organizer's actual year-1 Pattern Block Exercises, PDF p. 1, begins with a physical tiling construction then an optimal packing/leftover investigation on a large printed board. Its explicit physical-scale caveat supports checking manipulatives against printed geometry. This is evidence of a usable activity format, not evidence that the new materials fit or that every proposed problem suits every child.
+
+## Authorized teaching books checked directly
+
+Read originals in the retained archive under the authorized LOCAL-RESOURCES convention; their byte counts and SHA-256 digests match RESOURCE-MANIFEST.tsv. See [reference-hash-checks.json](reference-hash-checks.json). Whole books and extraction intermediates are not deliverables or new tracked files.
+
+*Math Circle by the Bay*, Preface, printed pp. viii–x / PDF pp. 9–11: themes are chosen for mathematical depth that can develop over years; manipulatives and independent attempts are part of teaching; extra challenges serve children ready for more; pace and depth vary by group, and the book declines a universal topic duration. Our resulting design decision is to give each family several visit choices with a concrete start and deeper continuation. The precise seven families, staffing, page prompts and suggested times are our proposals.
+
+Natasha Rozhkovskaya, *Math Circles for Elementary School Students*, EPUB `OEBPS/part0010.xhtml`, “Introduction: Berkeley 2009”: two groups followed identical plans in separate sessions and adults gave individual help. This does not establish a simultaneous K–1 / 2–3 / 4–5 model. Lesson 3, “At the lesson,” item 1 (`part0013.xhtml`) describes attempts before board discussion and an adult-drawn table after children's explanations; Lesson 7, items 1–2 (`part0017.xhtml`), attributes unexpected game outcomes tentatively to missed legal moves and reports engaged K'nex polygon construction; Lesson 8, item 2 (`part0018.xhtml`), reports uneven copying pace and adults writing results on the board. Our inference is to externalize rules with partners and materials, let adults record when helpful, and check legal play before interpreting strategy. The explanation of why our children might struggle remains a hypothesis until observed.
+
+## Common operational decisions
+
+Use worksheet-workflow/context.md's later eleven-child KK11 / 3333 / 445 group and three anchored adults, not README's earlier roster. Pages are menu routes, not a requirement that all tables do every theme together. Give a common demonstration when several tables are using the family; select a previously prepared familiar activity for a table whose children are not ready. An adult may read and record while children choose and act. If the adult must choose every move or maintain the entire procedure, move to an earlier concrete page rather than treating that as independent child investigation.
+
+A first visit normally includes the familiar five-minute movement break, 3–5 minute demonstration, material exploration, and about 30–40 minutes at one or two substantial problems, with a brief sharing opportunity. Those are planning ranges, not tested timing. Several families warrant two or more visits. Record which problem instances, manipulative states and conjectures were actually encountered; merely preparing or printing a page never means it was taught.
+
+The older guide template puts mathematical background late; the current AGENTS.md theorem-first requirement takes precedence for the planned facilitator outlines. Before production, use the unchanged worksheet writer → fresh adversarial critic → independent math check where appropriate → reviser stages. The current detailed outlines answer the user's planning request; no PDF stages have been run. Facilitator outlines and solutions are independently reviewed planning content, not classroom-tested facilitator guides. Future production needs final rendering, physical fit/procedure rehearsal, and source-package rebuild checks at that time.
