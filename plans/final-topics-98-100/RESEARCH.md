@@ -1,0 +1,85 @@
+# Selection evidence and overlap boundaries
+
+Research and planning, October 17, 2026. Recommend **98 bootstrap percolation, 99 optimal transport, 100 ultrametric geometry**, with exactly these three new numbered slots. The organizer considers breadth complete at 100; this is not an invitation to expand the queue. Later opportunities below belong to depth and connections within that library.
+
+## Candidate comparison
+
+The selection favors choices children can manipulate, counterexamples they can check, and an explanation with a mathematical destination. Research interest is a property of the field and its questions; the elementary examples are known mathematics or independently checked special cases, not research discoveries.
+
+| Candidate | Concrete mathematical work considered | Decision and reason |
+|---|---|---|
+| Bootstrap percolation | Build seed sets, grow to closure, prove a minimum with perimeter, then find an inclusion-minimal start larger than that minimum. Also considered random occupied-board crossings as an alternative percolation entrance. | **98.** The deterministic extremal route offers controllable construction and a short exact proof before probability enters. A few random crossings alone risk becoming a data-tally exercise; random-start thresholds can be a later connection. |
+| Optimal transport | Move whole piles to targets, defeat nearest-first delivery, certify a minimum through gaps, then compare arrangements with equal center or transport on a tree. | **99.** A distinct distribution-level optimization object and a concrete lower bound. Must acknowledge binary adjacent swaps as an existing restriction and keep pile multiplicity, greedy failure and certificates central. |
+| Ultrametric and p-adic geometry | Nest object groups, construct or reject distance triples, reconstruct from pair clues, repair ambiguous data, then compare numbers through divisibility by powers of 2. | **100.** The inverse grouping problem and unfamiliar ball geometry carry the session. A p-adic-first route was less strong: valuation computation could precede the reason to care about distance. Use finite object geometry first and arithmetic as an encore; no claim to teach the complete field. |
+| Matroid exchange | Exchange removable edges between spanning trees; compare greedy selection on independence systems. | Do not allocate a slot. Actual Week 53 already asks for improving one-link exchanges, forced/forbidden links, and whether a nonoptimal tree can have no improving exchange. This contains the graphic-matroid core, even without that name. A new independence representation could be a meaningful connection later, but graph exchanges alone would relabel old mathematics. |
+| Causal intervention | Build two binary machines with the same observed pairs but different clamp responses: U is a fair bit; model I has X=U,Y=X; model II has X=U,Y=U. Both show 00/11 equally, but clamping X=0 forces Y=0 only in I. | A credible alternative, not a rejected field. The new kernel is distinguishing conditioning from replacing a mechanism. It requires a carefully rehearsed clamp convention and a clear hidden-common-cause model. Given only three slots, select the more immediately self-checking geometry. Weeks 94–95 and atlas AP-03 already give substantial inference/model-assumption work, though they do not teach intervention. No independent causal worksheet is queued. |
+
+For the causal comparison, [Pearl, Glymour and Jewell, *Causal Inference in Statistics: A Primer*, Chapter 1](https://bayes.cs.ucla.edu/PRIMER/primer-ch1.pdf), §1.5 on structural causal models, and [Chapter 3, §3.1, printed pp. 53–55](https://bayes.cs.ucla.edu/PRIMER/primer-ch3.pdf), support the distinction between observation and intervention. The two-machine example above is directly computed: four combinations of model and U value determine the claims. Replacing an equation is an explicit model assumption, not permission to infer real-world causation from correlated classroom observations.
+
+## What the corpus check establishes
+
+The isolated checkout began at fetched canonical main `8bfe422` and then published its required research claim as `7051dcc`. Canonical origin is `git@github.com:jamesrp/math-circle-worksheets.git`; integration branch is `main`. No older working folder was authored in. Existing top-level worksheet indexes, atlas field/family notes, relevant source implementations and actual delivered PDF text were inspected. A temporary extraction inventory covered **252 student/extra PDFs** directly under current week directories; keyword screening is not a claim that every page received human visual review. Targeted reading below establishes the overlap boundaries. The fingerprint file records the actual PDFs used for the decisive comparisons.
+
+### Completed recent weeks
+
+| Week | Actual student mathematical work inspected | Boundary from the proposed trio |
+|---|---|---|
+| 92 | Point collisions and separation; images of full uncertainty intervals under a tent map; eventual full-track images and guaranteed prediction horizons. | Bootstrap closure is monotone addition of sites, not propagation of a continuum of uncertain positions. Transport chooses an optimum, rather than applying a prescribed map. |
+| 93 | Equal-area rectangle rearrangements; arithmetic/harmonic side updates; shrinking square-side brackets and nonattainment. | Neither mass redistribution with fixed spatial travel costs nor ultrametric closeness. |
+| 94 | All three bands: shifted rulers; persistent additive/affine machines; standard choice, ambiguous readings, repair and bounded error. | Week 100 reconstructs a hierarchy constrained by a metric law, not instrument parameters. Causal inference would be another inference investigation but requires a different intervention kernel. |
+| 95 | Both bands: mark/return/recapture; compatible populations; sample variability and model-dependent estimation; sample allocation and lost-mark tests. | Bootstrap randomness is optional and its core is exact deterministic growth. None of the trio estimates a hidden population. |
+| 96 | Both bands: prime splitting, divisors as sub-bags, product-of-exponent counts, reverse least-number design. | Number-world Week 100 classifies differences by powers of 2 to define closeness; it does not count divisors. |
+| 97 | Square-output collisions modulo primes/composites; all-input arguments and zero outputs. | Equal remainders are background for a nested hierarchy, not a repeated squaring map or output-fiber catalog. |
+
+These claims use the delivered student PDFs, not only the SCOPE file or their titles. The shared six-family SCOPE notes supplied hypotheses and proof context. No modifications to these weeks are proposed.
+
+### Reserved Weeks 85 to 91
+
+All seven detailed plans in `plans/seven-families-85-91/` were inspected for their theorem-first kernels, conventions and problem directions. Production task `01a14827-a81b-741e-a569-924d9a28302f` was active when checked; this note does not claim its unfinished final PDFs were inspected.
+
+| Week | Reserved kernel | Boundary |
+|---|---|---|
+| 85 | Ideal pantograph dilation P=O+2(T−O), inverse tracing, scale/area/anchor effects. | Ultrametric distance is not physical scale, and transport is not a linkage. |
+| 86 | Cop/robber strategies on trees and cycles, domination folds and capture. | Fixed adversarial tokens and strategies differ from local irreversible site activation or least-work shipment. |
+| 87 | Cyclic majority rankings, agenda effects, median winner under line-distance preferences. | Line order reappears in transport, but the objective is total movement between distributions, not majority choice or a median site. |
+| 88 | Six equal disks kissing one disk; exact finite packing and upper certificates. | No transport capacity or disk packing is reused. Bootstrap counts initial occupied cells under a threshold law, not geometric disk contacts. |
+| 89 | Shape layers/differences, accumulation inversion with starting value, cascades and nonunique finite continuations. | Prefix totals help transport accounting but do not themselves establish an optimum. Bootstrap does not follow a prescribed shape-growth sequence. |
+| 90 | Jeu de taquin's local smaller-neighbor slides, legal corner choices, rectification and inverse-history limits. | Moving a counter to any neighboring bin with cost differs from moving a hole under row/column order constraints. Confluence is shared language, not the proposed central kernel. |
+| 91 | Persistent alternating rotors; balanced tree blocks; absorbing-path score and exact endpoint counts. | The binary tree is a routing device. Week 100 changes the distance structure; Week 98 changes site membership. Neither deterministic fairness nor rotor memory is repeated. |
+
+### Earlier comparisons that changed the design
+
+- **Atlas AD-07, delivered algebra/discrete student book pp. 23–25**, actually includes smallest generating collections, not just closure. Its positive-rule closure, order independence and minimal starts are acknowledged prior mathematics. Bootstrap's substantive additions are a uniform spatial threshold rule, the n-by-n extremal theorem via a geometric quantity, and a concrete **inclusion-minimal versus minimum** contrast. Do not advertise closure or “fewest starting tokens” alone as new.
+- **Week 26 grades 4–5 pp. 1–6** already has sharp area/perimeter optimization. Week 98 uses boundary length as a monotone quantity along legal growth, then asks a different extremal question. The shared equation is a connection rather than evidence of no overlap.
+- **Week 11 grades 4–5 pp. 1–6** has sink chip-firing, terminal counts and termination; **Week 20** has averaging/maximum principles. Bootstrap has neither redistribution conservation nor averaging. It creates filled sites without emptying old ones.
+- **Week 2 return visit p. 3** is an exact binary/one-counter-per-site special case near the transport proposal. **Week 3 return visit p. 1** sorts labeled rows by adjacent swaps. Pile multiplicities, distribution distance and the failed nearest-first pairing rule are essential to the new plan; changing the story of binary swaps would be insufficient.
+- **Week 13 grades 4–5 pp. 1–7** builds largest edge-disjoint route collections and cut/augmenting-path certificates. Week 99 fixes quantities and minimizes travel on already given roads without capacity restrictions. **Week 53 pp. 5–9** contains the graph exchange kernel that ruled out a matroid-labeled repeat.
+- **Week 47 grades 4–5 pp. 1–5** concerns Lipschitz-compatible height data; it is potential background for transport duality, not another requested slot. Such a connection can be pursued after breadth closes.
+- **Weeks 67–69**, actual student tasks, use shortest paths, median points, infinite ends and geodesic triangles. An arbitrary tree metric is not ultrametric: a three-node path gives 1,1,2. Week 100 uses merger height between object leaves, so the point set and distance both change.
+- **Week 77 current student packet** studies loop persistence under added edges/faces. Atlas GA-27 concerns connectivity through a saddle. Nested-group distances should not be sold as persistent homology, and no loop filtration task is repeated.
+- **Atlas AP-03** concerns exact randomization under a sharp null. Its causal-assumption warning does not already implement the proposed clamp experiment; the candidate was omitted for this selection's priorities, not declared mathematically redundant.
+
+## Verified mathematical sources
+
+1. Robert Morris, [*Minimal percolating sets in bootstrap percolation*](https://arxiv.org/pdf/math/0702370), version 2, introduction pp. 1–2 and Theorem 1, p. 3. Read directly. The activity uses the defined process and the distinction between two kinds of minimality. Its 3-by-3 example and perimeter proof are supplied explicitly in the plan; the paper's asymptotic large-minimal-set bounds are background, not a worksheet claim or a current open-problem report.
+2. Gabriel Peyré and Marco Cuturi, [*Computational Optimal Transport*](https://arxiv.org/html/1803.00567v4), §2.6, Remarks 2.28 and 2.30, equations (2.33) and (2.37), and §6.3. Read the author's scholarly text directly. Ordered matching and cumulative imbalance justify the discrete entrance. The plan gives independent finite proofs and checks instead of relying on the source for classroom examples. No claim uses a generic atomic Monge-map formula; an atom can need to split when masses differ.
+3. Oleksiy Dovgoshey, [*Finite Ultrametric Balls*](https://arxiv.org/html/1810.03128v2), §1 Propositions 1.2 and 1.5, and Theorem 3.15. Read directly. Center invariance, nesting and the hierarchy characterization support the geometry. The object groups and repair exercise are concrete special cases, not claims to reproduce the paper's research contribution.
+4. Pearl, Glymour and Jewell, [*Causal Inference in Statistics: A Primer*, Chapter 1](https://bayes.cs.ucla.edu/PRIMER/primer-ch1.pdf), causal-model discussion in §1.5, plus [Chapter 3](https://bayes.cs.ucla.edu/PRIMER/primer-ch3.pdf) §3.1, printed pp. 53–55, for intervention as mechanism replacement. Read for the unselected candidate; no borrowed medical scenario is proposed for children.
+
+Sources are primary papers or author-written mathematical treatments. No search snippet is used to settle a theorem. No whole external reference was added to the repository. New public references were read in place; authorized local teaching originals remained in their reference archive.
+
+## Teaching evidence and operational choices
+
+Read *Math Circle by the Bay*, preface printed pp. viii–x / PDF pp. 9–11, from the authorized archive. SHA-256 matches the manifest: `84e0277cd94b1e501d153834b7123a72958f8c01b806e7bdfcca012a3191e427`. It describes deep themes, manipulatives and independent attempts, extra challenges, and variable pace. It also says the authors seldom repeat topics; our decision to close breadth and develop encores is the organizer's curriculum choice, not a recommendation attributed to that passage.
+
+Read Rozhkovskaya, *Math Circles for Elementary School Students*, Lesson 7, “At the lesson,” items 1–2, EPUB `OEBPS/part0017.xhtml`; hash `ab93adb1a4792559fadd65f9e3e0a94367cfe421548b39768b56d342fb3d9543` matches the manifest. The report describes occasional unexpected game winners and suggests missed moves as an explanation, and separately describes engaged K'nex construction. The missed-move explanation is the author's hypothesis. Our resulting design choices are visible state, partner checks of legal actions, and open construction before a theorem conversation; these new plans have no observed classroom outcomes.
+
+The organizer's year-1 *Pattern Block Exercises*, actual PDF p. 1, uses physical filling, leftover optimization and a stated piece-size caveat. This supports concrete work and honest handling checks, not a claim that our new kits have been tested. The current worksheet-workflow context specifies eleven children at KK11 / 3333 / 445 tables with three anchored adults; README's earlier ten-child roster was not silently substituted. The older tables need three pair/trio kits, with one adult at each table. Where K–1 is not ready, use an already prepared familiar activity; do not promise that all three proposals independently fill a K–5 whole-room hour.
+
+The estimates in the plans leave room for free handling, the brief shared legal-action demonstration and one or two substantial investigations. They are planning ranges, not measured timing. All five prompts need not appear in one first-visit packet. Children retain the choices; adults may read or record. Each new convention has a non-target worked example before first use. Proof hints stay with adults. Any later student production must preserve concise shared rules, numbered tasks and genuine workspace under the current AGENTS guidance.
+
+## Verification and remaining work
+
+`python3 plans/final-topics-98-100/check_examples.py` uses only the standard library and regenerates `checked-examples.json`. It checks all 3-by-3 seed starts, the removal example, perimeter behavior, contrasting scan orders, and diagonal fills through n=10; all 4,900 four-counter histogram pairs against complete assignment enumeration; the eight equal-position-total arrangements and their maximum separation; the star-tree optimum by a separate state-space search; and all eight-point ultrametric triples/balls plus the three one-clue repairs. The code's finite coverage does not replace the written general proofs.
+
+No new PDF, worksheet source package, guide or combined set was produced, so there is no rendered-output or clean-ZIP-rebuild claim. The remaining work is organizer selection, then the worksheet production workflow if requested, physical procedure rehearsal, and classroom piloting. There is no research or access blocker. Shared indexes, AGENTS and existing activity files are unchanged; only this planning directory and the required work-board claim/status are in scope.

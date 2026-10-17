@@ -58,4 +58,4 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 
 | Reserved Weeks 85–91 production: pantographs, pursuit, voting, packing, discrete calculus, sliding tableaux, rotor routers | Codex | `codex/weeks-85-91` (lead); `codex/weeks-85-87`; `codex/weeks-88-90` | in progress: isolated production, fresh writer/critic/math/reviser stages; excludes Week 83 and older audit fixes |
 
-| Final breadth proposals, reserved Weeks 98–100 | Codex | `codex/final-topics-98-100` | in progress: research and concrete activity plans only; isolated `plans/final-topics-98-100/`; no worksheets or shared index edits |
+| Final breadth proposals, reserved Weeks 98–100 | Codex | `codex/final-topics-98-100` | done: [three research proposals and checked activity plans](plans/final-topics-98-100/README.md); bootstrap percolation, optimal transport, ultrametric geometry; organizer selection pending; no worksheets produced; breadth closes at 100 |
