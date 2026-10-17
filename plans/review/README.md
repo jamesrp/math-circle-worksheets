@@ -111,6 +111,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 76 | Substitution strips (Thue–Morse) | keep | [card](week-76.md), [math check](week-76-math.md) |
 | 77 | Persistent holes | keep | [card](week-77.md), [math check](week-77-math.md) |
 | 78 | Three-armed lines (tropical lines) | keep | [card](week-78.md), [math check](week-78-math.md) |
+| 79 | Numbered-ball detectives (the Ross–Littlewood paradox) | revise: the guide's hint headed "Problems 3–4" says every fixed card eventually reaches B, which is false under Problem 3's rule, where cards 1, 3 and 5 never move | [card](week-79.md), [math check](week-79-math.md) |
 
 ## Calibration
 
