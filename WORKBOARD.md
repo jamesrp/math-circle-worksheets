@@ -51,3 +51,5 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Introduction audit, every current Weeks 1–75 student packet and companion | Codex | `audit/introductions-2026-10-17` | done: [report and complete coverage](plans/intro-audit-2026-10-17/README.md); 237 PDFs, 571 rendered pages inspected; eight localized issue families; worksheet files unchanged |
 
 | New analysis/dynamics, inference and multiplicative number theory families, Weeks 92–97 (85–91 reserved) | Codex | `codex/analysis-inference-number-theory` | in progress: Weeks 92–94 and 96–97 reviewed PDFs/guides/portable sources complete; Week 95 in review; unified index follows complete batch; unpiloted, physical rehearsal untested |
+
+| Implement eight introduction-audit fixes: 1 encore, 6, 22, 35, 42 bonus, 45 bonus, 61, 69 | Codex | `fix/intro-audit-followup` | in progress: scoped student/guide/source/package updates; optional audit watchpoints unchanged; digital and clean-rebuild verification before integration |
