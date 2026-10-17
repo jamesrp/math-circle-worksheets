@@ -18,6 +18,8 @@ Give only a few selected pages at a time. Familiar examples may be skipped after
 
 ## Weekly print packets
 
+The [seven reserved investigations, Weeks 85–91](WEEKS-85-91.md), now have complete reviewed student pages, theorem-first guides, materials and portable sources: pantographs, pursuit, voting, packing, discrete calculus, sliding number arrays and rotor routers. The index gives exact print links, readiness routes, changes from the plans and verification evidence. All remain unpiloted and physically unrehearsed.
+
 The [six connected investigations, Weeks 92–97](WEEKS-92-97.md), add analysis/dynamics, inference and multiplicative number theory. The index links every selected-band student packet, theorem-first guide and portable source package, with prerequisite routes and connections to existing work. All remain unpiloted; physical rehearsal is untested.
 
 The additional [generated activity library, Weeks 11–51](WEEKS-11-51.md), has three student bands and an adult guide per activity, with complete portable source packages. These numbers are library identifiers, not an adopted meeting schedule. Its October 4 worked-example revisions are recorded in that index; all sets remain unpiloted.

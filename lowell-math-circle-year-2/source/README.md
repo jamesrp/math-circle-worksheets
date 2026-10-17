@@ -55,6 +55,10 @@ The [three-topic review index](../WEEKS-76-78-PROTOTYPES.md) links the substitut
 
 Each package in `week-79/` through `week-84/` builds one selected-band student/material PDF and a separate facilitator PDF using Python 3 and pdfLaTeX, with standard-library mathematical checks. Its adjacent portable ZIP contains the same six owned source files. The [mobile index](../WEEKS-79-84-DRAFT.md) and [release evidence](../../plans/infinity-prototypes-79-84/README.md) give exact coverage and byte-identical extracted-ZIP reconstruction results. No reference books or workflow style excerpts are packaged.
 
+## Reserved investigations 85–91
+
+The [complete print/source index](../WEEKS-85-91.md) links seven owned source packages and adjacent portable ZIPs. Python 3 and pdfLaTeX rebuild every student, materials and facilitator PDF without private references or network access. All seven archives were clean-extracted and rebuilt byte-for-byte against the delivered files. Use each README for its editable entry points and dependencies. The [release record](../../plans/seven-families-85-91/production/STATUS.md) includes all-page review, mathematical checks and archive inventories. Physical rehearsal and classroom piloting remain untested.
+
 ## Connected investigations 92–97
 
 The [print and source index](../WEEKS-92-97.md) links all six standalone source packages. Each adjacent `week-NN-source.zip` contains the same owned editables as `week-NN/`; Python 3 and pdfLaTeX rebuild the complete student/guide family without private references or downloads. All six extracted archives reproduced their final PDFs byte-for-byte. Use the per-week README for exact commands and dependencies; build/render intermediates belong in repository `tmp/`. These materials remain unpiloted and physically unrehearsed.

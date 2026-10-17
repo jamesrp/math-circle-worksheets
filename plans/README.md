@@ -2,6 +2,8 @@
 
 ## Start here
 
+- [Seven reserved investigations, Weeks 85–91](seven-families-85-91/production/STATUS.md): completed worksheets, theorem-first guides, primary provenance, independent review and portable reconstruction evidence; original plans preserved separately.
+
 - [Six connected investigations, Weeks 92–97](new-families-92-97/STATUS.md): analysis/dynamics, inference and multiplicative number theory; all final student/guide reviews, source provenance and portable reconstruction evidence.
 
 - [Six infinity, ordinal, surreal and knowledge drafts, Weeks 79–84](infinity-prototypes-79-84/README.md): hands-on selected-band packets, primary-source adaptation notes, independent reviews and clean reconstruction evidence.

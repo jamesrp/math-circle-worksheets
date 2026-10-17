@@ -56,6 +56,6 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 
 | Promote Week 82 after organizer approval | Codex | `dot/promote-week82` | done: organizer-approved/promoted; metadata and portable ZIP synchronized; approved PDFs preserved; clean ZIP rebuild byte-identical; unpiloted |
 
-| Reserved Weeks 85–91 production: pantographs, pursuit, voting, packing, discrete calculus, sliding tableaux, rotor routers | Codex | `codex/weeks-85-91` (lead); `codex/weeks-85-87`; `codex/weeks-88-90` | in progress: isolated production, fresh writer/critic/math/reviser stages; excludes Week 83 and older audit fixes |
+| Reserved Weeks 85–91 production: pantographs, pursuit, voting, packing, discrete calculus, sliding tableaux, rotor routers | Codex | `codex/weeks-85-91` (lead); `codex/weeks-85-87`; `codex/weeks-88-90` | done: [seven reviewed families and print/source index](lowell-math-circle-year-2/WEEKS-85-91.md); 25 PDFs, 148 pages, seven byte-identical clean-rebuilt source ZIPs; unpiloted, physical rehearsal untested; Week 83 and older audit packets untouched |
 
 | Final breadth proposals, reserved Weeks 98–100 | Codex | `codex/final-topics-98-100` | done: [three research proposals and checked activity plans](plans/final-topics-98-100/README.md); bootstrap percolation, optimal transport, ultrametric geometry; organizer selection pending; no worksheets produced; breadth closes at 100 |
