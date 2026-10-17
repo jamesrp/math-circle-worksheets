@@ -1,4 +1,4 @@
-# Week 82: Endless class lines — review draft
+# Week 82: Endless class lines — organizer-approved
 
 Grades 3–5; infinite-rule and order reasoning. A selected-band menu, not a requirement to finish every page in one session. All activities are unpiloted; physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. The theorem-first guide gives assumptions, preparation, launch, first route, solutions, hints and return visits.
 
@@ -33,4 +33,4 @@ See [QA.md](QA.md) for digital checks and independent review. The changes remain
 
 ## October 17 organizer feedback
 
-The accepted matching diagrams now use two classes of kids lining up, with the organizer's opening wording. The identifier-only convention first appears in Problem 2. Removed only the former student page 5 (four continuation-strip cutouts); Problems 1–4 and their workspaces remain, and the remaining cards/panels are now pages 5–6. The guide describes drawing continuation arrows on blank paper. This revision awaits organizer review; it is not promoted. Unpiloted; physical preparation and procedures remain untested.
+The accepted matching diagrams now use two classes of kids lining up, with the organizer's opening wording. The identifier-only convention first appears in Problem 2. Removed only the former student page 5 (four continuation-strip cutouts); Problems 1–4 and their workspaces remain, and the remaining cards/panels are now pages 5–6. The guide describes drawing continuation arrows on blank paper. This revision is organizer-approved and promoted following the organizer’s “LGTM” approval. The accepted student and facilitator PDFs are unchanged. Unpiloted; physical preparation and procedures remain untested.

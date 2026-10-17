@@ -2,7 +2,7 @@
 
 Individual PDFs below open without unpacking a ZIP. These provisional library numbers are not a six-session schedule. Select one concrete investigation for a meeting, and use the guide’s readiness gates and return visits. No K–1 edition is forced.
 
-**Review status (October 17, 2026):** Week 79 was promoted after organizer review on October 15; Weeks 80–81 are now organizer-approved and promoted. Week 82 has a revised draft incorporating organizer feedback and is not yet promoted; Weeks 83–84 are awaiting organizer review. All remain unpiloted.
+**Current review status:** Week 79 was promoted after organizer review on October 15; Weeks 80–81 are now organizer-approved and promoted. Week 82 is also organizer-approved and promoted after review of its revised class-lines packet; Weeks 83–84 are awaiting organizer review. All remain unpiloted.
 
 **All unpiloted.** Physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. Print US Letter, single-sided, Actual Size; cut only the materials needed for your chosen route.
 

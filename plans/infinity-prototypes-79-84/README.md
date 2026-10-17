@@ -1,6 +1,6 @@
 # Six hands-on infinity-related activity families
 
-Originally prepared for organizer review, 9 October 2026. Week 79 was promoted October 15; Weeks 80–81 were organizer-approved and promoted October 17. Week 82 (Endless class lines) remains for organizer review after the October 17 framing/material revision; Weeks 83–84 remain under review. [Open the mobile PDF index](../../lowell-math-circle-year-2/WEEKS-79-84-DRAFT.md). Each family supplies one student/material PDF, one theorem-first facilitator PDF, editable sources and one portable source ZIP.
+Originally prepared for organizer review, 9 October 2026. Week 79 was promoted October 15; Weeks 80–81 were organizer-approved and promoted October 17. Week 82 (Endless class lines) is now organizer-approved and promoted after review of the framing/material revision; Weeks 83–84 remain under review. [Open the mobile PDF index](../../lowell-math-circle-year-2/WEEKS-79-84-DRAFT.md). Each family supplies one student/material PDF, one theorem-first facilitator PDF, editable sources and one portable source ZIP.
 
 ## Mathematical destinations and readiness
 

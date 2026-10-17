@@ -4,7 +4,7 @@
 
 Six student/material pages and four guide pages. All ten final pages rendered at 108 dpi and visually inspected; no clipping, collisions or unreadable labels found. The organizer's three-sentence class-lines introduction is exact; the identifier rule first appears in Problem 2. The old page 5 was inspected before removal and contained only four continuation-strip cutouts. Problems 1–4, their diagrams/workspaces and the remaining materials are preserved. The guide now references cards on page 5, panels on page 6, and drawing continuation arrows on blank paper.
 
-The existing independent checker and a separate fresh mathematical reviewer checked the unchanged finite/infinite arguments. Clean extracted-ZIP build results and hashes are recorded in the October 17 review record. Awaiting organizer review, not promoted. Unpiloted; physical preparation, handling and classroom procedures remain untested.
+The existing independent checker and a separate fresh mathematical reviewer checked the unchanged finite/infinite arguments. Clean extracted-ZIP build results and hashes are recorded in the October 17 review record. Organizer-approved and promoted after the subsequent “LGTM” review. This promotion changes metadata only; accepted PDFs and mathematical sources are unchanged. Unpiloted; physical preparation, handling and classroom procedures remain untested.
 
 ## October 15, 2026 prior revision
 
