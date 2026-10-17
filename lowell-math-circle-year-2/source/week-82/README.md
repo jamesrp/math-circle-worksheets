@@ -1,4 +1,4 @@
-# Week 82: Endless queues — review draft
+# Week 82: Endless class lines — review draft
 
 Grades 3–5; infinite-rule and order reasoning. A selected-band menu, not a requirement to finish every page in one session. All activities are unpiloted; physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. The theorem-first guide gives assumptions, preparation, launch, first route, solutions, hints and return visits.
 
@@ -16,7 +16,7 @@ After extracting the portable ZIP, run `python3 week-82/build.py --out rebuilt -
 
 ## Contents and lineage
 
-- `student/students.tex`: final 7-page student/material draft, created by a fresh writer then revised by a separate agent after independent adversarial and mathematical reviews.
+- `student/students.tex`: final 6-page student/material draft, created by a fresh writer then revised by a separate agent after independent adversarial and mathematical reviews.
 - `guide/facilitator.tex`: separate facilitator step, revised and independently reviewed. This guide-authoring step is untested as a classroom workflow.
 - `check_math.py`: portable copy/adaptation of the independent mathematical checker's code; finite computation supports the proofs in the guide.
 - `build.py`: both-PDF deterministic builder; [SOURCES.md](SOURCES.md) records attribution.
@@ -30,3 +30,7 @@ ZIPs contain only owned teaching/build/check sources. Generated stage prompts an
 The opening contrasts an order-preserving five-to-five complete match, a crossed five-to-five complete match, and an impossible five-to-six complete match. Labels are identifiers, not matching constraints. Problem 3 D is one horizontal concatenation of endless red and endless blue rows; Problem 2 retains its distinct prepended/appended star pictures.
 
 See [QA.md](QA.md) for digital checks and independent review. The changes remain unpiloted.
+
+## October 17 organizer feedback
+
+The accepted matching diagrams now use two classes of kids lining up, with the organizer's opening wording. The identifier-only convention first appears in Problem 2. Removed only the former student page 5 (four continuation-strip cutouts); Problems 1–4 and their workspaces remain, and the remaining cards/panels are now pages 5–6. The guide describes drawing continuation arrows on blank paper. This revision awaits organizer review; it is not promoted. Unpiloted; physical preparation and procedures remain untested.

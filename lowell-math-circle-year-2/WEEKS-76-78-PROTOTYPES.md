@@ -1,6 +1,6 @@
 # Three frontier prototypes for review
 
-These library numbers are not an adopted teaching schedule. All three finished pairs below are independently reviewed. Week 76 was promoted after organizer review on October 15, 2026; Weeks 77–78 remain prototypes for organizer review. Physical preparation/handling and classroom piloting remain unperformed; digital correctness is not evidence of classroom readiness.
+These library numbers are not an adopted teaching schedule. All three finished pairs below are independently reviewed. Weeks 76 and 78 were promoted after organizer review on October 15 and 17, 2026, respectively; Week 77 remains a prototype for organizer review. Physical preparation/handling and classroom piloting remain unperformed; digital correctness is not evidence of classroom readiness.
 
 The three strands are substitution order, persistent homology and tropical geometry. They use prerequisite-led Grades 3–5 or 4–5 entry points, with no forced K–1 editions. Every adult guide opens with precise facts, assumptions and intended discoveries.
 
@@ -10,7 +10,7 @@ The three strands are substitution order, persistent homology and tropical geome
 | 77 | Persistent holes: saved loops, changing fillings and equivalent loops | Grades 4–5 | [Students: 6 pages](week-77/week-77-students.pdf) · [Adult guide: 4 pages](week-77/week-77-facilitator.pdf) · [Editable source](source/week-77/README.md) · [ZIP](source/week-77-source.zip) |
 | 78 | Three-armed lines: tropical intersections and hidden junctions | Grades 4–5 | [Students: 5 pages](week-78/week-78-students.pdf) · [Adult guide: 4 pages](week-78/week-78-facilitator.pdf) · [Editable source](source/week-78/README.md) · [ZIP](source/week-78-source.zip) |
 
-Weeks 77–78 have revised worked introductions dated October 15, 2026 and remain for organizer review.
+Weeks 77–78 have revised worked introductions dated October 15, 2026. Week 78 is organizer-approved and promoted October 17; Week 77 remains for organizer review.
 
 ## Read and rebuild
 

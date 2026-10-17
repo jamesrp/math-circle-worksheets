@@ -10,7 +10,7 @@
 \definecolor{queueB}{RGB}{34,83,151}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small Week 82 / Endless queues / Grades 3--5}
+\fancyhead[L]{\small Week 82 / Endless class lines / Grades 3--5}
 \fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 82 / W82-Q-draft-v1}
 \fancyfoot[R]{\scriptsize\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -25,14 +25,12 @@
 \newcommand{\ruleline}{\vspace{0.6cm}\hrule height0.3pt\vspace{0.6cm}\hrule height0.3pt}
 \begin{document}
 
-Queues run from left to right. A complete match gives each customer exactly one partner in the other queue, with nobody left out. It keeps order when any two customers and their partners appear in the same order.
-
-Labels only identify customers. Partners may have different labels; identical labels in two queues do not have to be paired.
+There are two classes of kids, and each class lines up. A complete match gives each kid a partner in the other class, with nobody left out. It keeps order when any two kids in the first class appear in the same order as their partners in the second class.
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm]
 
-\foreach \offset/\caption in {0/{Complete match\\keeps order},5.6/{Complete match\\does not keep order},11.2/{5 customers and 6\\no complete match possible}}{
+\foreach \offset/\caption in {0/{Complete match\\keeps order},5.6/{Complete match\\does not keep order},11.2/{5 kids and 6\\no complete match possible}}{
  \node[align=center,font=\small] at (\offset+2.0,0.8) {\caption};
  \foreach \n/\letter in {1/A,2/B,3/C,4/D,5/E}{
   \node[draw,rounded corners=1pt,minimum width=.56cm,minimum height=.55cm,font=\small] at (\offset+.8*\n-.8,-.2) {\n};
@@ -47,7 +45,7 @@ Labels only identify customers. Partners may have different labels; identical la
 \end{tikzpicture}
 \end{center}
 
-\problem{1}{Find every match between these two queues. Which matches keep order? Use cards and yarn to test your matches.}
+\problem{1}{Find every match between these two class lines. Which matches keep order? Use cards and yarn to test your matches.}
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm]
@@ -63,9 +61,9 @@ Labels only identify customers. Partners may have different labels; identical la
 \ruleline
 
 \newpage
-An arrow marked ``numbers continue forever'' represents all later numbered customers.
+An arrow marked ``numbers continue forever'' represents all later numbered kids.
 
-\problem{2}{Compare A with B, then A with C. Can you match every customer? Can a match keep order? Give a rule for every customer, or explain why it is impossible.}
+\problem{2}{Labels only identify kids. Partners may have different labels; identical labels in two lines do not have to be paired. Compare A with B, then A with C. Can you match every kid? Can a match keep order? Give a rule for every kid, or explain why it is impossible.}
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm]
@@ -80,7 +78,7 @@ An arrow marked ``numbers continue forever'' represents all later numbered custo
 \draw[rounded corners=3pt,dashed,line width=0.8pt] (0.9,-7.35) rectangle (11.2,-5.2);
 \foreach \x/\n in {2/1,4/2,6/3}{\longcard{\x}{-6.0}{\n}{black}}
 \continuation{7.5}{-6.0}{numbers continue\\forever}{black}
-\node[draw,rounded corners=3pt,align=center,minimum width=4.0cm,minimum height=2.15cm] at (13.7,-6.28) {$\bigstar$\\\small after EVERY\\\small numbered customer};
+\node[draw,rounded corners=3pt,align=center,minimum width=4.0cm,minimum height=2.15cm] at (13.7,-6.28) {$\bigstar$\\\small after EVERY\\\small numbered kid};
 \end{tikzpicture}
 \end{center}
 \vspace{0.3cm}
@@ -89,7 +87,7 @@ An arrow marked ``numbers continue forever'' represents all later numbered custo
 \ruleline
 
 \newpage
-\problem{3}{Compare D with E. Can you match every customer? Can a match keep order? Give a rule for every customer, or explain why it is impossible.}
+\problem{3}{Compare D with E. Can you match every kid? Can a match keep order? Give a rule for every kid, or explain why it is impossible.}
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm]
@@ -103,7 +101,7 @@ An arrow marked ``numbers continue forever'' represents all later numbered custo
 \foreach \x/\n in {9.1/1,10.45/2,11.8/3}{\card{\x}{0}{B\n}{queueB}}
 \draw[queueB,line width=1.1pt,-{Stealth[length=2.8mm]}] (12.6,0)--(15.5,0);
 \node[align=center,font=\small,text=queueB] at (12.1,-1.3) {blue numbers continue forever};
-\node[align=center,font=\small] at (8.1,-2.35) {The whole blue row starts after EVERY red customer.\\There is no last red customer.};
+\node[align=center,font=\small] at (8.1,-2.35) {The whole blue row starts after EVERY red kid.\\There is no last red kid.};
 \node[anchor=east] at (0.4,-6.1) {E};
 \foreach \x/\v/\c in {1.8/R1/queueR,3.8/B1/queueB,5.8/R2/queueR,7.8/B2/queueB,9.8/R3/queueR,11.8/B3/queueB}{\longcard{\x}{-6.1}{\v}{\c}}
 \draw[line width=1.1pt,-{Stealth[length=2.8mm]}] (13.0,-6.1)--(15.2,-6.1);
@@ -116,7 +114,7 @@ An arrow marked ``numbers continue forever'' represents all later numbered custo
 \ruleline
 
 \newpage
-\problem{4}{Arrange one or two endless numbered rows and up to two $\bigstar$ customers on the table. A star or new row following a whole endless row comes after EVERY customer in that row.}
+\problem{4}{Arrange one or two endless numbered rows and up to two $\bigstar$ kids on the table. A star or new row following a whole endless row comes after EVERY kid in that row.}
 
 Find two different arrangements that can be matched while keeping order. Find two that can be matched only if order may change. Sketch your arrangements in the boxes. Give matching rules or explain the obstruction.
 
@@ -130,18 +128,6 @@ Find two different arrangements that can be matched while keeping order. Find tw
 \end{center}
 \vspace{0.25cm}
 \ruleline
-
-\newpage
-\begin{center}
-\begin{tikzpicture}[x=1cm,y=1cm]
-\foreach \y/\c/\letter in {0/queueR/R,-4.0/queueR/R,-8.0/queueB/B,-12.0/queueB/B}{
- \draw[dashed,gray] (-0.3,\y+1.0) rectangle (16.0,\y-1.65);
- \foreach \x/\n in {1.5/1,4.4/2,7.3/3}{\node[draw=\c,line width=1pt,minimum width=2.45cm,minimum height=1.85cm,rounded corners=3pt,font=\Large] at (\x,\y) {\letter\n};}
- \draw[\c,line width=1.2pt,-{Stealth[length=3mm]}] (9.1,\y)--(15.2,\y);
- \node[font=\normalsize,text=\c,align=center] at (12.0,\y-0.8) {\letter4, \letter5, \letter6, $\ldots$\\numbers continue forever};
-}
-\end{tikzpicture}
-\end{center}
 
 \newpage
 \begin{center}
@@ -165,11 +151,11 @@ Find two different arrangements that can be matched while keeping order. Find tw
 }
 \foreach \y in {-4.2,-7.1}{
  \draw[dashed,gray] (-0.1,\y) rectangle ++(16.0,-2.25);
- \node[draw,rounded corners=3pt,align=center,minimum width=15.5cm,minimum height=1.8cm] at (7.9,\y-1.125) {This customer comes after EVERY customer\\on the earlier strip.};
+ \node[draw,rounded corners=3pt,align=center,minimum width=15.5cm,minimum height=1.8cm] at (7.9,\y-1.125) {This kid comes after EVERY kid\\in the earlier row.};
 }
 \foreach \y in {-10.0,-12.9}{
  \draw[dashed,gray] (-0.1,\y) rectangle ++(16.0,-2.25);
- \node[draw,rounded corners=3pt,align=center,minimum width=15.5cm,minimum height=1.8cm] at (7.9,\y-1.125) {This whole row starts after EVERY customer\\on the earlier strip.};
+ \node[draw,rounded corners=3pt,align=center,minimum width=15.5cm,minimum height=1.8cm] at (7.9,\y-1.125) {This whole row starts after EVERY kid\\in the earlier row.};
 }
 \end{tikzpicture}
 \end{center}

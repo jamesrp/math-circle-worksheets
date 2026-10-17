@@ -14,3 +14,5 @@ A fresh independent reviewer inspected all final student and guide pages, checke
 The original packet completed fresh writer, adversarial critic, independent mathematical checker and reviser stages. The adult guide was separately authored and the pair independently reviewed. The mathematical checks distinguish finite computation from general proofs. Digital reconstruction does not validate physical tile/card handling, printing/tracing, timing, staffing or classroom age fit.
 
 Production used installed TeX packages, with private temporary runtime format initialization on this minimal image. No generated format, cache, reference book, external font or network input is packaged or required on a normal TeX installation.
+
+Organizer promotion: October 17, 2026. Status/metadata only; accepted student and facilitator PDFs unchanged. Unpiloted; physical rehearsal remains untested.

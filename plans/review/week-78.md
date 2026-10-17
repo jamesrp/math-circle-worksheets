@@ -62,3 +62,5 @@ Pitfalls: no "how will these meet?" prediction rounds, which children enjoy leas
 ## Classroom evidence
 
 None reported. Guide p. 1: "Physical rehearsal and classroom piloting have not been performed."
+
+Organizer status update, October 17, 2026: the current Week 78 packet is organizer-approved and promoted. This changes release status only; the accepted PDFs and this card's mathematical/app assessment are unchanged. Unpiloted; physical rehearsal remains untested.

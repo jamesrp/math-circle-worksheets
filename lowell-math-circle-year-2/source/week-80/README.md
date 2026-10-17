@@ -1,4 +1,4 @@
-# Week 80: Midnight laboratory — review draft
+# Week 80: Midnight laboratory — organizer-approved
 
 Grades 2–3 folding/motion; Grades 3–5 endpoint discussion. A selected-band menu, not a requirement to finish every page in one session. All activities are unpiloted; physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. The theorem-first guide gives assumptions, preparation, launch, first route, solutions, hints and return visits.
 
@@ -30,3 +30,5 @@ ZIPs contain only owned teaching/build/check sources. Generated stage prompts an
 The opening is grounded in a light OFF at 11:00 p.m., ON at 11:30 and OFF at 11:45. Time-strip labels use clock times; START/END remain only on the separate position strip. Infinite alternation and the unspecified midnight endpoint are unchanged.
 
 See [QA.md](QA.md) for digital checks and independent review. The changes remain unpiloted.
+
+Organizer promotion: October 17, 2026, after review of the current packet. The student and facilitator PDFs are unchanged. Unpiloted; physical preparation, timing and classroom procedures remain untested.

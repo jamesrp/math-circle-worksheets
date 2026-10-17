@@ -1,6 +1,6 @@
 # Week 78: Three-armed lines
 
-One shared Grades 4–5 prototype: 5 student pages and a separate 4-page theorem-first adult guide. Independently reviewed and digitally checked, awaiting organizer review. The week number is a library identifier, not an adopted schedule. Physical preparation/handling and classroom piloting remain unperformed.
+One shared Grades 4–5 prototype: 5 student pages and a separate 4-page theorem-first adult guide. Independently reviewed and digitally checked; organizer-approved and promoted October 17, 2026. The week number is a library identifier, not an adopted schedule. Physical preparation/handling and classroom piloting remain unperformed.
 
 ## Rebuild from this package
 
@@ -22,3 +22,5 @@ The portable ZIP excludes stage prompts, borrowed style examples, downloaded boo
 ## October 15 introduction revision
 
 Preserved the minimum-tie definition and added a completed two-colour crossing. Problem 1 now explicitly asks for a single-point meeting and a whole-stretch overlap. All seven investigations remain; student task pages are now 2–5. This organizer-directed revision is unpiloted.
+
+Organizer promotion: October 17, 2026, after review of the current packet. The student and facilitator PDFs are unchanged. Unpiloted; physical preparation, timing and classroom procedures remain untested.

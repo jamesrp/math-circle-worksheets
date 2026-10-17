@@ -18,12 +18,12 @@ Research/outlines and editable-source milestones are checkpointed before long re
 
 ## Current state
 
-All three reviewed pairs and portable source packages are complete: 13 student pages and 12 adult-guide pages. Each actual ZIP was extracted and rebuilt in isolation, matching every page raster, extracted text and page dimension to its released pair. The print index is [Weeks 76–78](../../lowell-math-circle-year-2/WEEKS-76-78-PROTOTYPES.md).
+All three reviewed pairs and portable source packages are complete: 14 student pages and 12 adult-guide pages. The original release checks extracted and rebuilt each actual ZIP in isolation, comparing raster, text and dimensions. The [October 17 promotion checks](../organizer-revisions-2026-10-17/README.md) preserve the accepted Week 78 PDFs and record its current metadata-only ZIP rebuild, including small local rendering differences. The print index is [Weeks 76–78](../../lowell-math-circle-year-2/WEEKS-76-78-PROTOTYPES.md).
 
 - Week 76: four student pages and four adult pages; cropped-end clarification and explicit two-end example checked after revision.
 - Week 77: five student pages and four adult pages; the four-triangle equivalence/order continuation independently checked, including all 24 fill orders. The outer verification scripts were adapted and tested without PDF/TeX tools or original workspace paths.
-- Week 78: four student pages and four adult pages; additional crossing contrasts and off-window case checked after revision, and the guide parameter-domain sentence corrected and independently rechecked.
+- Week 78: five student pages and four adult pages; additional crossing contrasts and off-window case checked after revision, and the guide parameter-domain sentence corrected and independently rechecked.
 
 Each week's records distinguish preliminary research/draft reviews from final mathematical verification, guide/pair review and release-checks.json. Earlier source checkpoints remain clearly labeled recovery snapshots. The current editable sources and ZIPs are under the year-2 source folders, and the current print PDFs are under their matching week folders.
 
-Prepared for organizer review; no teaching schedule or classroom approval is implied. Physical preparation/handling, timings, staffing assumptions and classroom age fit remain untested.
+Weeks 76 and 78 were organizer-approved and promoted October 15 and 17, 2026, respectively; Week 77 remains for organizer review. No teaching schedule or classroom piloting is implied. Physical preparation/handling, timings, staffing assumptions and classroom age fit remain untested.

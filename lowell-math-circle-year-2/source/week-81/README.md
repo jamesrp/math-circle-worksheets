@@ -1,4 +1,4 @@
-# Week 81: Buckets of Fish — review draft
+# Week 81: Buckets of Fish — organizer-approved
 
 Grades 2–3 capped games; Grades 4–5 uncapped continuation. A selected-band menu, not a requirement to finish every page in one session. All activities are unpiloted; physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. The theorem-first guide gives assumptions, preparation, launch, first route, solutions, hints and return visits.
 
@@ -30,3 +30,5 @@ ZIPs contain only owned teaching/build/check sources. Generated stage prompts an
 All small starting boxes and sorting cards show counters, including empty boxes for zero. The five-page packet omits the former blank quantity-card page. Written finite quantities remain permitted during upper-level play; rules and all printed starting positions are unchanged.
 
 See [QA.md](QA.md) for digital checks and independent review. The changes remain unpiloted.
+
+Organizer promotion: October 17, 2026, after review of the current packet. The student and facilitator PDFs are unchanged. Unpiloted; physical preparation, timing and classroom procedures remain untested.

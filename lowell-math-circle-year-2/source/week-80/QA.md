@@ -17,3 +17,5 @@ A fresh reviewer inspected the revised student pages and guides independently of
 ## Limits
 
 These checks do not establish classroom readiness. Physical printing, fit, folding/counter/card handling, timing, and classroom use remain untested and unpiloted.
+
+Organizer promotion: October 17, 2026. Status/metadata only; accepted student and facilitator PDFs unchanged. Unpiloted; physical rehearsal remains untested.

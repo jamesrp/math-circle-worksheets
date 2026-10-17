@@ -2,7 +2,7 @@
 
 Individual PDFs below open without unpacking a ZIP. These provisional library numbers are not a six-session schedule. Select one concrete investigation for a meeting, and use the guide’s readiness gates and return visits. No K–1 edition is forced.
 
-**Review status (October 15, 2026):** Week 79 was promoted after organizer review. Weeks 80–82 have revised drafts incorporating organizer feedback; Weeks 83–84 are awaiting organizer review.
+**Review status (October 17, 2026):** Week 79 was promoted after organizer review on October 15; Weeks 80–81 are now organizer-approved and promoted. Week 82 has a revised draft incorporating organizer feedback and is not yet promoted; Weeks 83–84 are awaiting organizer review. All remain unpiloted.
 
 **All unpiloted.** Physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. Print US Letter, single-sided, Actual Size; cut only the materials needed for your chosen route.
 
@@ -18,9 +18,9 @@ Individual PDFs below open without unpacking a ZIP. These provisional library nu
 
 [Student/material PDF (5 pages)](week-81/week-81-students.pdf) · [Facilitator PDF (4 pages)](week-81/week-81-facilitator.pdf) · [Editable sources](source/week-81/README.md) · [Portable source ZIP](source/week-81-source.zip)
 
-**82. Endless queues** — Match customers while preserving order. Put an extra customer before or after an endless queue. Grades 3–5, with adult introduction to continuation rules.
+**82. Endless class lines** — Match kids in two classes while preserving order. Put an extra kid before or after an endless line. Grades 3–5, with adult introduction to continuation rules.
 
-[Student/material PDF (7 pages)](week-82/week-82-students.pdf) · [Facilitator PDF (4 pages)](week-82/week-82-facilitator.pdf) · [Editable sources](source/week-82/README.md) · [Portable source ZIP](source/week-82-source.zip)
+[Student/material PDF (6 pages)](week-82/week-82-students.pdf) · [Facilitator PDF (4 pages)](week-82/week-82-facilitator.pdf) · [Editable sources](source/week-82/README.md) · [Portable source ZIP](source/week-82-source.zip)
 
 **83. Hackenbush balances** — Cut grounded red/blue segments and find second-player balances. Optional earliest-birthday number nursery. Grades 2–3 cutting; Grades 4–5 optional signed-fraction nursery.
 

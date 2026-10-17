@@ -1,6 +1,6 @@
 # Six hands-on infinity-related activity families
 
-Drafts for organizer review, 9 October 2026. [Open the mobile PDF index](../../lowell-math-circle-year-2/WEEKS-79-84-DRAFT.md). Each family supplies one student/material PDF, one theorem-first facilitator PDF, editable sources and one portable source ZIP.
+Originally prepared for organizer review, 9 October 2026. Week 79 was promoted October 15; Weeks 80–81 were organizer-approved and promoted October 17. Week 82 (Endless class lines) remains for organizer review after the October 17 framing/material revision; Weeks 83–84 remain under review. [Open the mobile PDF index](../../lowell-math-circle-year-2/WEEKS-79-84-DRAFT.md). Each family supplies one student/material PDF, one theorem-first facilitator PDF, editable sources and one portable source ZIP.
 
 ## Mathematical destinations and readiness
 
@@ -9,7 +9,7 @@ Drafts for organizer review, 9 October 2026. [Open the mobile PDF index](../../l
 | 79 | Finite counts versus eventual membership | Cards and two bowls; track one label, then changed-rule and quantifier comparison. |
 | 80 | Converging action times need not yield converging states | Four manageable halfway marks, reversible card and counter; endpoint conventions only when ready. |
 | 81 | Termination without a uniform finite bound; normal-play parity | Capped remove/refill game first; uncapped two buckets and ending argument later. |
-| 82 | Cardinal matching versus order isomorphism | Finite matches, then prepended/appended queue; two blocks versus pairs on return visit. |
+| 82 | Cardinal matching versus order isomorphism | Finite matches, then prepended/appended class line; two blocks versus pairs on return visit. |
 | 83 | Dyadic red/blue game values and simplicity | Grounded cuts and starter-swapped balances; birthday nursery after signed halves/quarters. |
 | 84 | Private partitions and public simultaneous updates | Café possibilities, then doll coaching; bounded-number grid only in adult encore. |
 
@@ -25,11 +25,11 @@ Snapshot adversarial/math/revision reports are in [reviews/](reviews/). Final gu
 
 ## Final verification
 
-[reconstruction-checks.json](reconstruction-checks.json) is the exact six-ZIP manifest, current PDF hashes and page counts. All 12 delivered PDFs match their independently rendered/reviewed final snapshots byte-for-byte. All six actual ZIPs were extracted into clean directories; their independent builders and math checkers passed, and rebuilt PDFs are byte-identical to the delivered copies. Students: 38 pages. Guides: 26 pages. Every page has its appropriate header/footer; task numbering is consecutive in each student packet.
+[reconstruction-checks.json](reconstruction-checks.json) records the original six-ZIP release and targeted current updates. The [October 17 verification](../organizer-revisions-2026-10-17/README.md) covers promotions of Weeks 80–81 and the Week 82 revision: its ten final PDF pages were rendered/inspected and rebuild byte-identically from the actual ZIP. Weeks 80–81 retain the accepted PDFs; their metadata-only ZIPs build with matching text/dimensions but small local rendering differences, recorded explicitly. Week 79's October 17 guide correction and the original Week 83–84 records retain their separate scopes. Current student packets total 36 pages, and guides 26 pages. Prior dated reports describe their reviewed snapshots.
 
 [Mathematical checker outputs](mathematical-checks/) document the current portable checks. The guides supply general proofs where finite computation cannot: label quantifiers, halfway convergence/nonconvergence, finite-refill termination, order obstructions and knowledge induction. Finite game-tree checks exhaust all legal descendants of the printed Hackenbush boards and capped bucket examples. No Lean certification or solution of a new open research problem is claimed.
 
-[release-audit.md](release-audit.md) records the publication/content/link audit. Source ZIPs include only README, SOURCES, builder, independent checker and the two owned TeX sources; downloaded originals, vendor files, credentials, private identifiers and classroom records are excluded. The original checkout’s unrelated Week 11 print-board work remains untouched. Main is not modified: the user expressly requested one draft PR, no merge.
+[release-audit.md](release-audit.md) records the publication/content/link audit. Source ZIPs include README, SOURCES, builder, independent checker, the two owned TeX sources and, for revised packages, QA notes; downloaded originals, vendor files, credentials, private identifiers and classroom records are excluded. The original checkout’s unrelated Week 11 print-board work remains untouched. The initial draft-only request was later superseded by authorized main integration; current promotion status is listed above.
 
 ## Teaching evidence still needed
 
