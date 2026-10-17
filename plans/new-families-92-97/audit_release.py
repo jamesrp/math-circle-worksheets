@@ -8,6 +8,7 @@ from pathlib import Path
 import hashlib
 import json
 import re
+import subprocess
 import zipfile
 import pymupdf
 
@@ -62,8 +63,23 @@ def main():
                         failures.append(f'{file.name}: unsafe archive path {item.filename}')
                     if any(part in ('.git','__pycache__','external-resources','.DS_Store') for part in parts):
                         failures.append(f'{file.name}: unwanted archive path {item.filename}')
+                source = YEAR/'source'/f'week-{week}'
+                tracked = subprocess.check_output(['git','ls-files',str(source.relative_to(ROOT))],cwd=ROOT,text=True).splitlines()
+                expected = {str(Path(name).relative_to(YEAR.relative_to(ROOT)/'source')) for name in tracked}
+                actual = {item.filename for item in items}
+                if actual != expected:
+                    failures.append(f'{file.name}: archive membership differs from tracked source files')
+                for item in items:
+                    local = YEAR/'source'/item.filename
+                    if not local.is_file() or z.read(item.filename) != local.read_bytes():
+                        failures.append(f'{file.name}: source bytes differ for {item.filename}')
+                for reference in (source/'reference-pdfs').glob('*.pdf'):
+                    current = YEAR/f'week-{week}'/reference.name
+                    if not current.is_file() or current.read_bytes() != reference.read_bytes():
+                        failures.append(f'{file.name}: stale reference PDF {reference.name}')
                 results['archives'].append({'path':str(file.relative_to(ROOT)),
-                    'sha256':digest(file.read_bytes()), 'members':[x.filename for x in items]})
+                    'sha256':digest(file.read_bytes()), 'members':[x.filename for x in items],
+                    'exact_tracked_source_membership':actual == expected})
     index = YEAR/'WEEKS-92-97.md'
     if not index.is_file():
         failures.append('Missing release index WEEKS-92-97.md')
