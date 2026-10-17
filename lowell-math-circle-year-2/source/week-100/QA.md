@@ -28,4 +28,4 @@ Run `python3 check_math.py`. The standard-library checker writes JSON to standar
 - The adjacent source ZIP clean-extracted away from the checkout, then rebuilt using only its own sources and documented TeX/Python dependencies.
 - SHA-256 equality required among each delivered PDF, reference PDF and clean-rebuilt PDF. The ZIP excludes prompts, borrowed exemplars, downloaded works, raw traces and build caches.
 
-The repository [production record](../../../../plans/final-topics-98-100/production/README.md) provides a verification summary and the exact file/page/hash manifest. That relative link is for a repository checkout; an extracted ZIP remains independently buildable without it. Digital evidence does not establish classroom success or physical readiness.
+The repository [production record](../../../plans/final-topics-98-100/production/README.md) provides a verification summary and the exact file/page/hash manifest. That relative link is for a repository checkout; an extracted ZIP remains independently buildable without it. Digital evidence does not establish classroom success or physical readiness.
