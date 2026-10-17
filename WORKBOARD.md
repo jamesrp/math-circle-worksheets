@@ -53,3 +53,5 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | New analysis/dynamics, inference and multiplicative number theory families, Weeks 92–97 (85–91 reserved) | Codex | `codex/analysis-inference-number-theory` | done: [six reviewed investigations and print/source index](lowell-math-circle-year-2/WEEKS-92-97.md); 16 PDFs, 78 pages, six portable ZIPs; all-page review and byte-identical extracted rebuilds; unpiloted, physical rehearsal untested |
 
 | Implement eight introduction-audit fixes: 1 encore, 6, 22, 35, 42 bonus, 45 bonus, 61, 69 | Codex | `fix/intro-audit-followup` | in progress: scoped student/guide/source/package updates; optional audit watchpoints unchanged; digital and clean-rebuild verification before integration |
+
+| Promote Week 82 after organizer approval | Codex | `dot/promote-week82` | in progress: metadata and portable ZIP only; approved PDFs preserved; unpiloted |
