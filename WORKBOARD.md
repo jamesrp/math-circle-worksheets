@@ -55,3 +55,5 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Implement eight introduction-audit fixes: 1 encore, 6, 22, 35, 42 bonus, 45 bonus, 61, 69 | Codex | `fix/intro-audit-followup` | in progress: scoped student/guide/source/package updates; optional audit watchpoints unchanged; digital and clean-rebuild verification before integration |
 
 | Promote Week 82 after organizer approval | Codex | `dot/promote-week82` | done: organizer-approved/promoted; metadata and portable ZIP synchronized; approved PDFs preserved; clean ZIP rebuild byte-identical; unpiloted |
+
+| Reserved Weeks 85–91 production: pantographs, pursuit, voting, packing, discrete calculus, sliding tableaux, rotor routers | Codex | `codex/weeks-85-91` (lead); `codex/weeks-85-87`; `codex/weeks-88-90` | in progress: isolated production, fresh writer/critic/math/reviser stages; excludes Week 83 and older audit fixes |
