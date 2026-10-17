@@ -41,9 +41,14 @@ def main():
             assert span == (0, 16)
             branches += 1
     assert tent(F(799, 100)) == tent(F(801, 100))
+    for aa, bb in combinations(range(65), 2):
+        a, b = F(aa, 4), F(bb, 4)
+        low, high = interval_image(a, b)
+        assert high-low >= b-a
     results['92'] = {'dyadic_branch_intervals': branches,
                      'worked_route': [[str(x) for x in pair] for pair in route],
-                     'nearby_merging_pair': ['7.99', '8.01']}
+                     'nearby_merging_pair': ['7.99', '8.01'],
+                     'interval_width_note': 'Whole interval widths never shrink, although particular pairs may merge.'}
 
     rectangle_count = 0
     for denominator in range(1, 8):
