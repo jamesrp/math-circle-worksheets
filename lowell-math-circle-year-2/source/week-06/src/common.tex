@@ -3,7 +3,10 @@
 \usepackage[letterpaper,top=0.8in,bottom=0.8in,left=0.6in,right=0.6in,
   headheight=16pt,headsep=0.22in,footskip=0.38in]{geometry}
 \usepackage{fontspec}
-\setmainfont{TeX Gyre Heros}
+\setmainfont{texgyreheros-regular.otf}[
+  BoldFont=texgyreheros-bold.otf,
+  ItalicFont=texgyreheros-italic.otf,
+  BoldItalicFont=texgyreheros-bolditalic.otf]
 \usepackage{tikz}
 \usetikzlibrary{calc}
 \usepackage{fancyhdr}
@@ -73,21 +76,28 @@
 
 % ---------- code board ----------
 % #1 = number of counters, #2 = number of test rows, #3 = 1 to give each test row a score box
+% Default board geometry; upper P2 locally closes gaps without scaling pieces.
+\newcommand{\codepitch}{1.16}
+\newcommand{\codecopy}{-1.16}
+\newcommand{\codetriangle}{-2.62}
+\newcommand{\codefold}{-2.95}
+\newcommand{\codetest}{-3.82}
+\newcommand{\codescorelabel}{\node[anchor=south, font=\small] at ({\bw+0.8},{\codetest+0.51}) {score};}
 \newcommand{\codeboard}[3]{%
   \begin{tikzpicture}[x=1in,y=1in]
     \pgfmathsetmacro{\bw}{1.2*#1}
     \pgfmathsetmacro{\fx}{\bw + (#3)*1.35 + (1-#3)*0.55}
     \foreach \i in {1,...,#1} {
       \draw[line width=1.8pt] ({1.2*(\i-0.5)},0) circle (0.52);
-      \draw[line width=0.8pt] ({1.2*(\i-0.5)},-1.16) circle (0.52);
-      \draw[line width=0.7pt, line join=round] ({1.2*(\i-0.5)-0.5},-2.62) -- ++(1,0) -- ++(-0.5,0.866) -- cycle;
+      \draw[line width=0.8pt] ({1.2*(\i-0.5)},\codecopy) circle (0.52);
+      \draw[line width=0.7pt, line join=round] ({1.2*(\i-0.5)-0.5},\codetriangle) -- ++(1,0) -- ++(-0.5,0.866) -- cycle;
     }
     \node[anchor=east, font=\small] at (-0.08,0) {secret};
-    \node[anchor=east, font=\small] at (-0.08,-1.16) {copy of test};
-    \draw[dashed, line width=1.1pt] (-1.1,-2.95) -- (\fx,-2.95);
-    \node[anchor=south east, font=\small] at (\fx,-2.95) {folder};
+    \node[anchor=east, font=\small] at (-0.08,\codecopy) {copy of test};
+    \draw[dashed, line width=1.1pt] (-1.1,\codefold) -- (\fx,\codefold);
+    \node[anchor=south east, font=\small] at (\fx,\codefold) {folder};
     \foreach \k in {1,...,#2} {
-      \pgfmathsetmacro{\yy}{-3.82-1.16*(\k-1)}
+      \pgfmathsetmacro{\yy}{\codetest-\codepitch*(\k-1)}
       \foreach \i in {1,...,#1} {
         \draw[line width=0.8pt] ({1.2*(\i-0.5)},\yy) circle (0.52);
       }
@@ -95,9 +105,9 @@
         \draw[line width=0.8pt] ({\bw+0.3},\yy-0.5) rectangle ++(1,1);
       \fi
     }
-    \node[anchor=east, font=\small] at (-0.08,-3.82) {test};
+    \node[anchor=east, font=\small] at (-0.08,\codetest) {test};
     \ifnum#3=1
-      \node[anchor=south, font=\small] at ({\bw+0.8},-3.31) {score};
+      \codescorelabel
     \fi
   \end{tikzpicture}}
 

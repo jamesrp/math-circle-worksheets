@@ -1,5 +1,9 @@
 # Week 42 bonus: Fair results from a bag
 
+## Introduction-audit follow-up
+
+Student v2 replaces “whole pair fair” with an explicit question about equal chances for all four pairs. The guide is unchanged. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
+
 Local v1, October 4, 2026. **Unpiloted. Physical fit and procedures untested.**
 
 Three or more distinct investigations use selected bands by prerequisites. They complement, rather than replace, the base Week 42 packet. The student companion and adult mathematical guide are separate. Suitable routes, materials, launch, hints, precise solutions and extensions are in `guide.md`; investigation metadata is in `investigations.json`.

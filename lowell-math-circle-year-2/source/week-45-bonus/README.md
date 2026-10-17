@@ -1,5 +1,9 @@
 # Week 45 bonus: The visible side
 
+## Introduction-audit follow-up
+
+Student v2 and guide v2 use the same numeric-door input, prize and ticket to demonstrate both hosts, including a winning switch and a discarded prize reveal. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
+
 Local v1, October 4, 2026. **Unpiloted. Physical fit and procedures untested.**
 
 Three or more distinct investigations use selected bands by prerequisites. They complement, rather than replace, the base Week 45 packet. The student companion and adult mathematical guide are separate. Suitable routes, materials, launch, hints, precise solutions and extensions are in `guide.md`; investigation metadata is in `investigations.json`.

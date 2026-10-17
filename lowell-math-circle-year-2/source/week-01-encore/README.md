@@ -1,5 +1,9 @@
 # Week 1 encore: Pattern blocks II
 
+## Introduction-audit follow-up
+
+Upper v2 and guide v2 add the one-cube bridge on upper page 4. K–1 and Grades 2–3 remain v1. The full-size board remains 1-inch scale; ten small recording copies remain. A clean standalone build is now available with `python3 build.py --out output`. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
+
 Concrete revision of October 3, 2026: F01E-K-v1 / F01E-M-v1 / F01E-U-v1, adult guide F01E-FAC-v1. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 ([forecast and pivot](../../../plans/fall-forecast-2026-10-03.md)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
 
 - [K–1](../../week-01-encore/week-01-encore-k-1.pdf) — 7 pages.

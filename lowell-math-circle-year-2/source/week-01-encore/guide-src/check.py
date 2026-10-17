@@ -625,18 +625,30 @@ def shaded_pictures(name):
     left: label -> (frame, region, tiling, fill of each piece)."""
     loops, segs, pieces, fills, texts = read_fig(name)
     labels = [(x, y, t.split()[-1]) for x, y, t in texts if t.split()[-1] in ('A', 'B', 'C', 'D')]
-    # cluster pieces into pictures by horizontal overlap
-    pcs = sorted(pieces, key=lambda pc: pc.bbox[0])
+    # Connected components in both axes: page 4 now has a second row of pictures.
+    def touching(a, b):
+        return (max(a.bbox[0], b.bbox[0]) <= min(a.bbox[2], b.bbox[2]) + 1e-5
+                and max(a.bbox[1], b.bbox[1]) <= min(a.bbox[3], b.bbox[3]) + 1e-5)
+    remaining = list(pieces)
     clusters = []
-    for pc in pcs:
-        if clusters and pc.bbox[0] <= max(q.bbox[2] for q in clusters[-1]) + 1e-6:
-            clusters[-1].append(pc)
-        else:
-            clusters.append([pc])
+    while remaining:
+        cl = [remaining.pop()]
+        while True:
+            joined = [pc for pc in remaining if any(touching(pc, q) for q in cl)]
+            if not joined: break
+            cl.extend(joined)
+            remaining = [pc for pc in remaining if pc not in joined]
+        clusters.append(cl)
     out = {}
     for cl in clusters:
         x0 = min(q.bbox[0] for q in cl)
-        lab = min((L for L in labels if L[0] < x0), key=lambda L: x0 - L[0])[2]
+        midy = (min(q.bbox[1] for q in cl) + max(q.bbox[3] for q in cl)) / 2
+        adjacent = [L for L in labels if L[0] < x0 and abs(L[1]-midy) < .05]
+        if adjacent:
+            lab = min(adjacent, key=lambda L: x0-L[0])[2]
+        else:
+            assert name == 'u4', (name, x0, midy)
+            lab = 'cube' if len(cl) == 3 else 'one-in-corner'
         unit = min(math.dist(pc.pts[i], pc.pts[(i + 1) % len(pc.pts)]) for pc in cl for i in range(len(pc.pts)))
         fr = Frame(cl[0].pts, unit)
         T, shade = [], {}
@@ -651,7 +663,11 @@ def shaded_pictures(name):
 key = None
 for fig in ('u4', 'u5'):
     pics = shaded_pictures(fig)
-    ok(sorted(pics) == ['A', 'B'], f'{fig}: pictures A and B found')
+    ok(sorted(pics) == (['A', 'B', 'cube', 'one-in-corner'] if fig == 'u4' else ['A', 'B']), f'{fig}: all shaded pictures found')
+    if fig == 'u4':
+        for label, side in [('cube', 1), ('one-in-corner', 2)]:
+            fr, r, tiling, shades = pics[label]
+            ok(sorted(sides(loop_of(r))) == [side]*6 and cubes(fr, r, tiling) == 1, f'{fig} {label}: exactly one cube in the stated box')
     for lab in 'AB':
         fr, R, T, shade = pics[lab]
         ok(sorted(sides(loop_of(R))) == [2] * 6 and all(len(p) == 2 for p in T) and sum(len(p) for p in T) == len(R) == 24,

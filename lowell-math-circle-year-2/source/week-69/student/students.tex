@@ -7,7 +7,7 @@
 \setlength{\parindent}{0pt}\setlength{\parskip}{9pt}
 \pagestyle{fancy}\fancyhf{}
 \fancyhead[L]{\small Week 69 / Thin and fat road triangles / Grades 4--5}
-\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 69 / GGT69-S-v1}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 69 / GGT69-S-v2}
 \fancyfoot[R]{\footnotesize\thepage}\renewcommand{\headrulewidth}{.4pt}
 
 \newcommand{\problem}[2]{\par\textbf{Problem #1:} #2\par}
@@ -46,8 +46,11 @@ For a dot on one colored side, its \textbf{gap} is the fewest road steps needed 
 \begin{center}
 \begin{tikzpicture}[x=.75cm,y=.75cm,font=\small]
 \draw[gray!60,step=1] (0,0) grid (3,2);\foreach \x in {0,1,2,3}\foreach \y in {0,1,2}\fill (\x,\y) circle (1.5pt);
-\draw[line width=3pt] (3,0)--(3,2);\draw[dashed,line width=1.5pt] (0,1)--(3,1);\home{0}{1}{P}
-\node[anchor=west,align=left] at (4,1){From P to the dark side:\\3 road steps along the dashed route.\\No shorter route reaches that side.};
+\draw[red!75!black,line width=2.2pt] (0,0)--(3,0);
+\draw[blue!75!black,line width=2.2pt,dashed] (3,0)--(3,2);
+\draw[green!40!black,line width=2.2pt,densely dotted] (3,2)--(0,2)--(0,0);
+\home{0}{0}{A}\home{3}{0}{B}\home{3}{2}{C}\home{1}{0}{P}
+\node[anchor=west,align=left] at (4,1){P is on the red side AB.\\To green CA: 1 step left.\\To blue BC: 2 steps right.\\The smaller distance is 1: gap 1.};
 \end{tikzpicture}
 \end{center}
 \problem{2}{Choose shortest routes for the three sides on each map. Make every gap 0 on one map. On the other, make at least one gap 2 or more. Circle that dot and mark a shortest route to another side. Your partner checks the gap.}

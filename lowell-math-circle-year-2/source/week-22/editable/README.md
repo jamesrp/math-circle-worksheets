@@ -1,5 +1,9 @@
 # Four-point convex partitions: Week 22 editable release
 
+## Introduction-audit follow-up
+
+All three student bands are v4. The region key now includes one complete two-group split and its shared point. The guide launch uses the same labels. Existing 12.6 cm work boards and page counts remain. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
+
 ## Current release: October 4, 2026 fresh-review revision
 
 The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.

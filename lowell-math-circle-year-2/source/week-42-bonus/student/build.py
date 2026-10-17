@@ -25,7 +25,7 @@ def label(s,x,y,size=11,center=False,bold=False):
 def page(band,n):
     label(f'Week {WEEK} / {TOPIC} / {band}',44,751,13,bold=True)
     C.setStrokeColor(HexColor('#555555'));C.setLineWidth(.55);C.line(44,738,568,738)
-    label(f'Bellingham Math Circle / Week {WEEK} / W{WEEK}-BONUS-v1',44,34,9)
+    label(f'Bellingham Math Circle / Week {WEEK} / W{WEEK}-BONUS-v2',44,34,9)
     label(n,560,34,9)
 
 def end(): C.showPage()
@@ -123,7 +123,7 @@ def make():
     label('Basic',317,89,10);label('Recycled',317,66,10)
     end()
     page('Grades 2-5',3)
-    para('<b>Problem 3:</b> Make two cups of four equal-chance tickets, each showing a left shape and a right shape. At each position, square and circle must have equal chances. One cup must give only two possible pairs; the other must give all four. Does fairness at each position make the whole pair fair?',y=718)
+    para('<b>Problem 3:</b> Make two cups of four equal-chance tickets, each showing a left shape and a right shape. At each position, square and circle must have equal chances. One cup must give only two possible pairs; the other must give all four. Does fairness at each position make all four shape pairs equally likely?',y=718)
     for group in range(2):
         label(f'Cup {group+1}',44,605-group*258,12)
         for i in range(4):

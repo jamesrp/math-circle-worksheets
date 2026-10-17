@@ -1,5 +1,9 @@
 # Four-point convex partitions: Week 22 editable release — current editable source
 
+## Introduction-audit follow-up
+
+All three student bands are v4. The region key now includes one complete two-group split and its shared point. The guide launch uses the same labels. Existing 12.6 cm work boards and page counts remain. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
+
 The [portable base source ZIP](four-point-convex-partitions-week22-editable-source.zip) and [complete extracted package](editable/README.md) contain the current **October 4, 2026 fresh-review revision**. Current print copies are in [../../week-22/](../../week-22/). References are exact duplicates of those print PDFs.
 
 Read `editable/README.md` for dependencies and commands. Copy the complete package to a fresh folder under the project's `tmp/` before rebuilding; keep intermediates out of current print/source folders. `verify_revision.py` checks current pages and permits only specifically audited full-page alternate hashes for pre-existing font/hyphenation differences in unchanged student packets; the original strict verifier remains available. Every changed packet and guide reproduces exact 100-dpi pixels from the extracted ZIP.

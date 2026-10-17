@@ -3,6 +3,7 @@
 # Builds in a copy under tmp/ so the source folder stays clean, then copies the
 # PDFs into lowell-math-circle-year-2/week-01-encore/.
 set -eu
+export PYTHONHASHSEED=0
 cd "$(dirname "$0")"
 repo_dir=$(cd ../../.. && pwd)
 build_dir="$repo_dir/tmp/pdfs/week-01-encore-build"

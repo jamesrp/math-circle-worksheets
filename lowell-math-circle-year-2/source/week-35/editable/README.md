@@ -1,5 +1,9 @@
 # Week 35 Footprint borders editable source
 
+## Introduction-audit follow-up
+
+Grades 2–3 and 4–5 are v3: the glide visual appears on page 2 immediately before the first glide task. Both 6 cm working strips remain. K–1 stays v2. The guide packet identifiers are synchronized. Poppler is optional for preview images; the PDF build does not require it. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
+
 ## Current release: October 4, 2026 fresh-review revision
 
 The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained. K–1 adds one-border slide matching before the six retained tasks. The original glide convention precedes first glide use. Existing working-strip dimensions and older packets remain.

@@ -86,7 +86,7 @@ def packet(filename,level,packet_id,pages,k=False):
 k_tri=[('A',2,2,'below left=5pt'),('B',10,3,'below right=5pt'),('C',4,10,'above=5pt')]
 k_edge=[('A',2,3,'below=5pt'),('B',8,3,'below=5pt'),('C',5,10,'above=5pt')]
 k_line=[('A',1.8,6.3,'above=6pt'),('B',10.8,6.3,'above=6pt'),('C',7.5,6.3,'above=6pt'),('D',4.5,6.3,'above=6pt')]
-packet('k-1','K--1','F22-K-v3',[
+packet('k-1','K--1','F22-K-v4',[
     ('Put D on each cross. Each time, make two regions that meet and mark a point they share.',board(k_tri,[(9,9),(4.3,4.7),(0.8,7.2)])),
     ('Try D on each cross. Find every split whose regions meet.',board(k_edge,[(5,3),(11,3),(3.5,6.5)]),0,[(recording_boards([k_edge+[('D',x,y,'above right=5pt')] for x,y in [(5,3),(11,3),(3.5,6.5)] for _ in range(3)],columns=3,size=5.35),0)]),
     ('Find every split whose regions meet.',board(k_line),0,[(repeated(k_line),0)]),
@@ -97,7 +97,7 @@ packet('k-1','K--1','F22-K-v3',[
 
 m_tri=[('A',2,3,'below left=5pt'),('B',10,2,'below right=5pt'),('C',3,10,'above=5pt')]
 m_line=[('A',2,6.3,'above=6pt'),('B',7.8,6.3,'above=6pt'),('C',10.8,6.3,'above=6pt'),('D',4.6,6.3,'above=6pt')]
-packet('grades-2-3','Grades 2--3','F22-23-v3',[
+packet('grades-2-3','Grades 2--3','F22-23-v4',[
     ('Put D on each cross. For each position, split A, B, C, and D so their two regions meet, and mark a shared point.',board(m_tri,[(9,9),(4,5),(6,2.5),(6,1)])),
     ('Find every split of A, B, C, and D whose regions meet. Explain how you know your list is complete.',board(m_line),2,[(repeated(m_line),0)]),
     ('Place A, B, C, and D so that their two regions share a whole straight segment. Can two groups made from these four labels share a filled triangle? Explain.',board(),2),
@@ -108,7 +108,7 @@ packet('grades-2-3','Grades 2--3','F22-23-v3',[
 
 u_tri=[('A',2,2,'below left=5pt'),('B',10.5,3,'below right=5pt'),('C',4.5,10,'above=5pt')]
 u_line=[('A',2,3,'below right=5pt'),('B',8,9,'below right=5pt'),('C',5,6,'below right=5pt'),('D',10,11,'below right=5pt')]
-packet('grades-4-5','Grades 4--5','F22-45-v3',[
+packet('grades-4-5','Grades 4--5','F22-45-v4',[
     ('Put D on each cross. For each position, split A, B, C, and D so their two regions meet, and mark a shared point.',board(u_tri,[(9.8,9),(5,5),(6.25,2.5),(1,6)])),
     ('Find every split whose regions meet. Explain how you know your list is complete.',board(u_line),2,[(repeated(u_line),0)]),
     ('Take turns placing A, B, C, and D in the box. Try to make an arrangement with no successful split. Decide whether your opponent must always be able to find one.',board(),2),

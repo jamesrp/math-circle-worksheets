@@ -62,7 +62,7 @@ def start(title,kicker):
  C.setFillColor(BLACK);C.setFont(FB,19);C.drawString(LEFT,720,title)
  C.setFillColor(GRAY);C.setFont(F,8.7);C.drawString(LEFT,701,kicker)
  y=680
- C.setFillColor(GRAY);C.setFont(F,8);C.drawString(LEFT,29,'Draft and unpiloted  |  Unscheduled library week  |  Final v3 student packets')
+ C.setFillColor(GRAY);C.setFont(F,8);C.drawString(LEFT,29,'Draft and unpiloted  |  Unscheduled library week  |  Current v4 student packets')
  C.drawRightString(560,29,str(page))
 
 def note(label,text):p(f'<b>{label}</b> {text}')
@@ -169,14 +169,14 @@ def truth_table(keys,names):
 
 start('Meeting regions facilitator guide','Week 22  |  Planar convex partitions  |  Prepared 3 October 2026')
 p('Help children make two filled stretched-band regions from four labeled points, then ask whether every placement can be split successfully. The answer is yes. Three points do not give the same guarantee.','lead')
-note('Status and scope.','This is a separate adult-guide draft for the finalized student v3 packets. It is unpiloted and belongs to an unscheduled activity-library slot. Opening student pages now include the E-J region key. Timings below are planning choices, not classroom evidence.')
+note('Status and scope.','This is a separate adult-guide draft for the current student v4 packets. It is unpiloted and belongs to an unscheduled activity-library slot. Opening student pages include the E-J region key and a complete K-L-M-N split. Timings below are planning choices, not classroom evidence.')
 h('Use this guide at the table')
 p('Begin with materials and a short shared demonstration (guide pp. 2-3). Offer a few pages at a time. Keep the answer galleries, seven-split checklist, and proof cases with the adult until children need them. A child may enter another band by readiness.')
 p('<b>Notation:</b> AB | CD means one group contains A and B, and the other contains C and D. Each label occurs once. Reversing the two groups gives the same split. In the diagrams, the first group is solid blue and the second dashed rust; pale fill shows a triangle. A colored ring shows a singleton; an additional black ring marks a shared point. Gold marks a shared segment. Color is optional: solid/dashed and labels carry the meaning.')
 h('Student packet and guide finder')
-p('<b>K-1: 8 student pages, F22-K-v3.</b><br/>P1 on student p. 1 -> guide p. 5; P2 on pp. 2-3 -> p. 6; P3 on pp. 4-5 -> p. 7; P4 on p. 6 and P6 on p. 8 -> p. 8; P5 on p. 7 -> p. 9.')
-p('<b>Grades 2-3: 8 student pages, F22-23-v3.</b><br/>P1 on student p. 1 -> guide p. 10; P2 on pp. 2-3 -> p. 11; P3 on p. 4 and P4 on pp. 5-6 -> p. 12; P5 on p. 7 and P6 on p. 8 -> p. 13.')
-p('<b>Grades 4-5: 11 student pages, F22-45-v3.</b><br/>P1 on student p. 1 -> guide p. 14; P2 on pp. 2-3 and P3 on p. 4 -> p. 15; P4 on pp. 5-6 -> p. 16; P5 on pp. 7-9 -> p. 17; P6 on p. 10 -> p. 18; P7 on p. 11 -> p. 19.')
+p('<b>K-1: 8 student pages, F22-K-v4.</b><br/>P1 on student p. 1 -> guide p. 5; P2 on pp. 2-3 -> p. 6; P3 on pp. 4-5 -> p. 7; P4 on p. 6 and P6 on p. 8 -> p. 8; P5 on p. 7 -> p. 9.')
+p('<b>Grades 2-3: 8 student pages, F22-23-v4.</b><br/>P1 on student p. 1 -> guide p. 10; P2 on pp. 2-3 -> p. 11; P3 on p. 4 and P4 on pp. 5-6 -> p. 12; P5 on p. 7 and P6 on p. 8 -> p. 13.')
+p('<b>Grades 4-5: 11 student pages, F22-45-v4.</b><br/>P1 on student p. 1 -> guide p. 14; P2 on pp. 2-3 and P3 on p. 4 -> p. 15; P4 on pp. 5-6 -> p. 16; P5 on pp. 7-9 -> p. 17; P6 on p. 10 -> p. 18; P7 on p. 11 -> p. 19.')
 p('Common mathematical tools are on p. 4. Extensions, fidelity limits, and pilot notes are on p. 20. Source verification and reproducibility notes are on p. 21.','small')
 
 start('Preparation and a concrete launch','Allow about 15 minutes of adult preparation before the session')
@@ -186,8 +186,8 @@ p('Print single-sided on US Letter at 100 percent. Each full work board is 12.6 
 p('For the current ten-child arrangement, one packet per child means 3 K-1, 4 middle, and 3 upper packets (89 student sheets total). A lower-paper option is one packet per pair plus blank/tracing paper: 2 of each band, 54 sheets. Adults should decide before printing; no child needs to finish every page.')
 p('Read the answer key for your starting tasks, try a filled triangle containing a singleton, and check that both labels remain visible when stacked. Adults can draw a tiny cross for a center. Coordinate arithmetic in this guide is only an exact adult audit; children need none.')
 h('A three-minute whole-group launch')
-p('<b>First let children handle the markers.</b> Then place A, B, C, D at the four corners of a rough rectangle. Say: "Use every label once. Make two groups. Draw the smallest stretched-band region for each group. Find a point that belongs to both."')
-p('Make one legal attempt, such as AB | CD along two opposite sides, and ask a child whether a point is shared. Allow another child to move one label to the other group or try a different grouping. Keep this an action demonstration, not a list of proof cases.')
+p('<b>First let children handle the markers.</b> Then use the K, L, M, N points printed on the opening key. Say: "Use every label once. Make two groups. Draw the smallest stretched-band region for each group. Find a point that belongs to both."')
+p('Use the printed K-L-M-N rectangle: put K and M in one group, L and N in the other. Draw the two segments without moving the points or changing either group. Ring their crossing: this point belongs to both regions, although it is not one of the four labels. Let a child point to each group and the shared point before starting an independent split.')
 p('Use the printed E-J key: E gives its point; F and G give the closed segment, including its endpoints; H, I and J give the lightly filled triangle, including its edge and interior. The interior cross marks a location, not another group label. Keep this key visible while children build their own regions.')
 note('Say explicitly.','"Touching counts. Use the centers of the marks. Swapping the two group colors does not make a new split." Two labels may intentionally share a location, but both labels must still be used.')
 note('Physical safety and accuracy.','No pins or stretched rubber bands are needed. If used, adults manage them. A rubber loop around one peg is not a small disk, and a loop around two pegs is not a thin rectangle. These are ideal points and segments.')

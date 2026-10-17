@@ -22,4 +22,19 @@ def region_key():
 \draw[line width=.8pt] (14.3,1.40) -- (14.46,1.56) (14.3,1.56) -- (14.46,1.40);
 \node at (14.55,-.35) {edge and inside};
 \end{tikzpicture}
+
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{11}{13}\selectfont]
+\path[use as bounding box] (0,-.6) rectangle (17.2,2.05);
+\foreach \x/\y/\n in {1/0/K,3/0/L,3/1.5/M,1/1.5/N}{\fill (\x,\y) circle (.05);\node[above left] at (\x,\y) {\n};}
+\node at (2,-.45) {four labels};
+\draw[->] (3.7,.75)--(4.7,.75);
+\node[align=center] at (7,.75) {one group: K, M\\other group: L, N};
+\draw[->] (9.3,.75)--(10.3,.75);
+\draw[blue!65!black,line width=1.2pt] (11,0)--(13,1.5);
+\draw[red!65!black,dashed,line width=1.2pt] (13,0)--(11,1.5);
+\foreach \x/\y/\n in {11/0/K,13/0/L,13/1.5/M,11/1.5/N}{\fill (\x,\y) circle (.05);\node[above left] at (\x,\y) {\n};}
+\draw[line width=.8pt] (12,.75) circle (.16);
+\node[align=left,anchor=west] at (13.6,.75) {both regions\\contain this point};
+\draw[->] (13.5,.6)--(12.2,.75);
+\end{tikzpicture}
 \end{center}"""

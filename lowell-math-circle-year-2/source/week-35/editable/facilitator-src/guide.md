@@ -20,7 +20,7 @@
 
 - **Grades 4-5:** Explain forced symmetries by composition and justify a full symmetry description for one chosen construction. Sampling several moves is not a proof of completeness.
 
-**Status.** The current K-1 packet has seven problems on five pages; the two older v2 packets retain six problems each. Mathematical examples are verified; physical cutout handling and classroom pacing are untested. The Grades 2-3 edit explicitly permits moved footprints and a larger repeating part.
+**Status.** The current K-1 packet has seven problems on five pages; the two older v3 packets retain six problems each. Mathematical examples are verified; physical cutout handling and classroom pacing are untested. The Grades 2-3 edit explicitly permits moved footprints and a larger repeating part.
 
 ---page---
 
@@ -144,4 +144,4 @@ Joseph A. Gallian, **Contemporary Abstract Algebra**, author-hosted Chapter 28, 
 
 Laura Givental, Maria Nemirovskaya and Ilya Zakharevich, **Math Circle by the Bay**, AMS/MSRI Mathematical Circles Library 21 (2018), Preface pp. viii-ix. It describes substantial themes, manipulatives, dialogue and varied pace. The proposed one-hour sequence, exact motif preparation and readiness gates here are local plans, not a report of testing these tasks in that source.
 
-**Packet basis:** current Week 35 Footprint borders: K-1 v3, Problems 1-7; Grades 2-3 and 4-5 v2, Problems 1-6. This guide uses the revised shortest-period wording, freely chosen half-turn centers, excluded guide lines and enlarged-repeat edit convention.
+**Packet basis:** current Week 35 Footprint borders: K-1 v2, Problems 1-7; Grades 2-3 and 4-5 v3, Problems 1-6. This guide uses the revised shortest-period wording, freely chosen half-turn centers, excluded guide lines and enlarged-repeat edit convention.

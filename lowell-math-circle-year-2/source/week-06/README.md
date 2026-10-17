@@ -1,5 +1,9 @@
 # Week 6: Code breaking
 
+## Introduction-audit follow-up
+
+Upper v5 places concise code-game rules with Problem 2. All four test rows and their original piece sizes remain; gaps on that board are closer. Other bands and the guide are unchanged. The shared font declaration now names the same TeX Gyre Heros font files directly, for portable XeLaTeX resolution. A standalone build is available with `python3 build.py --out output`. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
+
 Concrete revision of October 3, 2026: F06-K-v4 / F06-M-v4 / F06-U-v4, adult guide F06-FAC-v4. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 ([forecast and pivot](../../../plans/fall-forecast-2026-10-03.md)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
 
 - [K–1](../../week-06/week-06-k-1.pdf) — 7 pages.

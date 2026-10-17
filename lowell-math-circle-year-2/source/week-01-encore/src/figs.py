@@ -301,7 +301,7 @@ FILLS = {'L': 'shadeL', 'M': 'shadeM', 'D': 'shadeD'}
 
 
 def draw_rhombus_tiling(F, R, T, X, rot=90):
-    for p in T:
+    for p in sorted(T, key=lambda p: sorted(p)):
         F.piece(p, X, FILLS[shade_class(p, rot)])
     loops = boundary_loops(R)
     F.add(f"\\draw[{BORDER_THIN}] " + ' '.join(F.path([X(q) for q in L]) for L in loops) + ';')
@@ -336,9 +336,24 @@ def figU4():
         draw_rhombus_tiling(F, R, T, X)
         F.text(b[0] - 0.17, b[1] + b[3] / 2, r'\large ' + name, anchor='center')
         F.text(b[0] + b[2] / 2, ye - 0.12, r'cubes: %d' % n, anchor='north')
-    # right, below the examples: two small copies
-    for c in range(2):
-        copy(4.45 + c * 1.6, y0 + lab - 0.1)
+    # Essential bridge: the same three visible cube faces in the corner picture.
+    one = G[empty][0]
+    added = set(one) - set(empty)
+    assert len(added) == 3 and {shade_class(p) for p in added} == {'L', 'M', 'D'}
+    cubeR = hexR(1, 1, 1)
+    _, cube, _, _ = empty_and_full(cubeR)
+    y = y0 + .45
+    F.text(5.9, y + 1.65, r'Add one cube to A.')
+    for region, tiling, faces, x, scale in [(cubeR, cube, cube, 4.5, .42), (R, one, added, 6.0, .33)]:
+        X, b = place(region, x, y, scale, 90, 'sw')
+        draw_rhombus_tiling(F, region, tiling, X)
+        for face in sorted(faces, key=lambda face: {'L':0,'M':1,'D':2}[shade_class(face)]):
+            center = tuple(sum(centroid(t)[i] for t in face) / 2 for i in [0, 1])
+            px, py = X(center)
+            F.text(px, py, {'L':'1','M':'2','D':'3'}[shade_class(face)], style='font=\\small,fill=white,inner sep=1pt')
+    F.add(f"\\draw[->,line width=.9pt] (5.35,{y+.6:.3f}) -- (5.8,{y+.6:.3f});")
+    F.text(4.9, y-.15, 'one cube', anchor='north')
+    F.text(6.57, y-.15, 'cubes: 1', anchor='north')
     save('u4', F)
 
 

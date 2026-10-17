@@ -1,5 +1,9 @@
 # Week 61: portable editable source
 
+## Introduction-audit follow-up
+
+Student W61-S-v3 uses operational triangle rules. Guide W61-F-v2 retains the exact mathematical restrictions and explains the adult hemisphere check. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
+
 Current original student and facilitator sources, plus any necessary authored assets.
 The student and guide READMEs give exact prerequisites, preparation, source references,
 and any verification dependencies. Research/provenance notes are in `provenance/`.

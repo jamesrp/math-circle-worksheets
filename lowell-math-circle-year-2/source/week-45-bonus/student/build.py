@@ -25,7 +25,7 @@ def label(s,x,y,size=11,center=False,bold=False):
 def page(band,n):
     label(f'Week {WEEK} / {TOPIC} / {band}',44,751,13,bold=True)
     C.setStrokeColor(HexColor('#555555'));C.setLineWidth(.55);C.line(44,738,568,738)
-    label(f'Bellingham Math Circle / Week {WEEK} / W{WEEK}-BONUS-v1',44,34,9)
+    label(f'Bellingham Math Circle / Week {WEEK} / W{WEEK}-BONUS-v2',44,34,9)
     label(n,560,34,9)
 
 def end(): C.showPage()
@@ -97,25 +97,26 @@ def make():
     end()
     page('Grades 4-5',2)
     para('Fix the first choice at door 1. Choose the prize uniformly from doors 1, 2, 3. Independently draw ticket 2 or 3 with equal chances. Host A knows the prize and opens an unchosen empty door; use the ticket only if both are empty. Host B opens the ticket\'s door blindly; discard prize reveals. Hide prize placement and all tickets. The guesser sees only which empty door opens.',y=718)
-    label('input: choose P, prize R',44,591,10)
-    for i,s in enumerate(['P','Q','R']):
-        xx=44+i*59;box(xx,532,49,45);label(s,xx+24.5,548,13,True)
-        if s=='R':label('*',xx+39,566,12,True)
-        if s=='P':C.setFillColor(black);C.circle(xx+24.5,538,2.5,stroke=0,fill=1)
-    arrow(234,555,283,555);label('Host A opens Q',312,591,10)
-    for i,s in enumerate(['P','Q','R']):
-        xx=312+i*66;box(xx,532,56,45,fill='#eeeeee' if s=='Q' else None);label('empty' if s=='Q' else s,xx+28,548,10 if s=='Q' else 13,True)
-        if s=='P':C.setFillColor(black);C.circle(xx+28,538,2.5,stroke=0,fill=1)
-    para('<b>Problem 2:</b> After an empty door opens, should you stay at door 1 or switch to the other closed door? Decide for each host using every prize-ticket story. Does the host\'s knowledge change the answer?',y=509)
+    label('Same input: choose door 1; prize at door 2; ticket 2.',44,595,11)
     for g,name in enumerate(['Host A','Host B']):
-        xx=44+g*268;label(name,xx,417,12)
+        xx=44+g*268
+        label(name+(': ignores ticket; opens 3' if g==0 else ': uses ticket; opens 2'),xx,569,10)
+        for i in range(3):
+            dx=xx+i*75; opened=(i==2 if g==0 else i==1)
+            box(dx,511,65,42,fill='#eeeeee' if opened else None)
+            label(str(i+1)+(' open' if opened else ''),dx+32.5,537,10,True)
+            label('prize' if i==1 else ('empty' if opened else 'chosen' if i==0 else ''),dx+32.5,520,10,True)
+        label('Switch 1 to 2: win.' if g==0 else 'Prize revealed: discard trial.',xx,492,11)
+    para('<b>Problem 2:</b> After an empty door opens, should you stay at door 1 or switch to the other closed door? Decide for each host using every prize-ticket story. Does the host\'s knowledge change the answer?',y=466)
+    for g,name in enumerate(['Host A','Host B']):
+        xx=44+g*268;label(name,xx,391,12)
         widths=[45,45,63,91];xs=[xx,xx+45,xx+90,xx+153]
-        for j,s in enumerate(['prize','ticket','opens','switch wins?']):box(xs[j],373,widths[j],30);label(s,xs[j]+widths[j]/2,384,9,True)
+        for j,s in enumerate(['prize','ticket','opens','switch wins?']):box(xs[j],347,widths[j],30);label(s,xs[j]+widths[j]/2,358,9,True)
         for i,(prize,ticket) in enumerate([(1,2),(1,3),(2,2),(2,3),(3,2),(3,3)]):
-            yy=338-i*35
+            yy=312-i*35
             for j in range(4):box(xs[j],yy,widths[j],35)
             label(prize,xs[0]+22.5,yy+13,11,True);label(ticket,xs[1]+22.5,yy+13,11,True)
-    lines(44,117,524,2,29)
+    lines(44,91,524,2,29)
     end()
     page('Grades 4-5',3)
     para('Draw a hidden counter uniformly from R1, R2, R3, B. The reporter sees its color, then independently draws H1, H2, or F with equal chances. H1 and H2 report the true color; F reports the other color. Hide the counter identity and ticket; show only the R/B report. Return and mix both draws each round.',y=718)

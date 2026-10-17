@@ -14,6 +14,10 @@ def regions():
  def cross(a,b,c):return (b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0])
  assert cross(H,I,J)>0
  assert all(cross(a,b,mark)>0 for a,b in ((H,I),(I,J),(J,H)))
+ K,L,M,N=(1,0),(3,0),(3,1.5),(1,1.5)
+ midpoint=lambda a,b:tuple((x+y)/2 for x,y in zip(a,b))
+ assert midpoint(K,M)==midpoint(L,N)==(2,.75)
+ assert {"K","M"}.isdisjoint({"L","N"})
  assert 7.35<9.2 # closed segment has distinct endpoints
  for band in ('k-1','grades-2-3','grades-4-5'):
   tex=(S/(band+'.tex')).read_text().split('\\newpage')[0]
