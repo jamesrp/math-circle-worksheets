@@ -1,0 +1,56 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,margin=.7in,headheight=15pt,headsep=18pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,hyperref,tikz}
+\renewcommand{\familydefault}{\sfdefault}\setlength{\parindent}{0pt}\setlength{\parskip}{7pt}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Week 99 / Moving piles with the least work / Facilitator guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 99 / W99-FAC-v1}\fancyfoot[R]{\thepage}
+\newcommand{\head}[1]{\par\textbf{\large #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+\begin{document}
+\head{Mathematical overview: a distance between whole arrangements}
+\textbf{The model.} Equally spaced bins form an open line. The initial and target piles have the same number of interchangeable counters. Moving one counter across one neighboring gap costs one. Bins have unlimited capacity; counters may pass through occupied bins. A long delivery costs its number of gaps, and carrying a handful costs separately for each counter. The target remains fixed.
+
+\textbf{Every gap has unavoidable net traffic.} Write initial and target counts as $a_0,\ldots,a_m$ and $b_0,\ldots,b_m$. Across the gap after bin $i$, right crossings minus left crossings must equal
+\[
+S_i=\sum_{j=0}^{i}(a_j-b_j).
+\]
+Consequently every plan costs at least $\sum_{i=0}^{m-1}|S_i|$. Children can say ``two must cross left'' without signed notation. Total traffic may exceed net traffic; counting only net crossings gives a lower bound, not an arbitrary plan's cost.
+
+\textbf{All gap bounds can be attained together.} List initial counter positions $x_1\le\cdots\le x_N$ and target slots $y_1\le\cdots\le y_N$, retaining repeated positions. Match $x_k$ to $y_k$. Opposite traffic across a gap would require an earlier initial counter to have a later target than a later initial counter, contradicting the ordering. Thus this plan costs exactly
+\[
+\sum_k|x_k-y_k|=\sum_i|S_i|.
+\]
+This proves optimality, not uniqueness. The nearest available \emph{whole delivery} need not be part of an optimal plan: positions $0,3$ to slots $2,5$ give nearest-first cost $1+5=6$, while $0\to2$ and $3\to5$ cost $2+2=4$.
+
+\textbf{Minimum work is a metric.} Zero work means identical piles; reversing moves gives symmetry; concatenating plans proves the triangle inequality. Equal average position does not mean equal piles: two counters at each of 0 and 4 and four counters at 2 both have position total 8, but their distance is 8. For probability measures of $N>0$ counters each of mass $1/N$, Wasserstein-1 distance is our work divided by $N$.
+
+\textbf{A tree extension.} Removing an edge splits a tree in two. The absolute initial-minus-target imbalance on one side forces that many crossings of the edge. Summing over edges gives the exact optimum: orient each nonzero required flow toward its deficit side; because the graph is acyclic, these flows can be decomposed into surplus-to-deficit paths. Cycles need a different argument because one removed edge need not separate the graph.
+
+\textbf{Readiness and discovery.} Grades 2--3 can count small piles and moves and challenge a greedy rule. Grades 4--5 adds lower-bound certificates and later equal-center or branching-road questions. The student retains delivery choices even when an adult reads or records. Experiments propose a best route; matching an attaining route to an unavoidable-crossing bound proves it. No K--1 coverage, unequal-mass transport, road-capacity constraint or squared-distance objective is implied.
+\newpage
+\head{Preparation, shared launch and pacing}
+\textbf{Status.} Unpiloted review draft; physical printing, handling, preparation and timing are untested. Use an established separate K--1 activity. The older-table packet has substantial continuations; finishing every page is not the goal.
+
+\textbf{Per pair.} A six-bin line mat with bins about 35 mm apart, 8--12 counters, a fixed target/reset card and one move-record strip. Keep the target outside the moving lane. Use only one recoverable record, such as writing each crossed gap and counting the entries afterward. Do not require simultaneous route, total and prefix tallies. Optional removable counter labels identify a planned pairing but never restrict which target a counter may fill. Provide a three-leaf star board for later branching work. For upper Problem 4, print an extra copy of page 4 and cut its eight catalog cards before the session.
+
+\textbf{Staffing and preparation.} Three older-table kits plus a demonstration mat; allow about 15 minutes with existing counters and handwritten cards, subject to rehearsal. Partners alternate mover and checker; the upper trio rotates a third recorder. An adult can read pictured piles or record a child's plan. The child should still choose where to deliver. If the adult must plan each move, reduce the number of counters and keep two genuinely different choices.
+
+\textbf{Complete launch.} After brief free handling, show four bins A--D and a separate target. The picture below is a non-task example. Move A to B, then C to D, preserving the target throughout.
+\begin{center}\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{lcccc}
+ & A&B&C&D\\\midrule
+Start&1&0&1&0\\
+After A to B&0&1&1&0\\
+After C to D&0&1&0&1\\\midrule
+Fixed target&0&1&0&1
+\end{tabular}
+\end{center}
+The record is AB, CD: two counter-steps. Show that carrying one counter directly from A to C costs two even in one hand motion. A counter already in a useful place may stay there. Do not teach ordered matching or the gap formula before the children try their own deliveries.
+
+\textbf{A first visit.} Five minutes movement, five minutes launch, then 20--25 minutes optimizing small pile changes and trying the nearest-first question. Use 10--15 minutes to defend one proposed optimum: ``What must cross this gap, however clever the plan?'' Save the full metric, equal-center catalog or branching road for another visit. One clear lower bound and a matching construction are already substantial mathematics.
+
+\textbf{Hints kept with adults.} Cover the right side of a selected gap and compare the starting and target totals still visible. Keep zero piles in the picture. If counters cross the same gap in both directions, ask whether a different assignment could avoid that waste. A working plan supplies only an upper bound until an impossibility argument matches it. Equal-cost different plans are acceptable. Do not silently replace counter-steps with number of deliveries or number of hand motions.
+
+\input{solutions.tex}
+\end{document}

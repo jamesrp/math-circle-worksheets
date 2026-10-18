@@ -1,0 +1,74 @@
+\newpage
+\head{Grades 2--3: constructions, finishes and reset tests}
+Coordinates below are $(\text{row},\text{column})$, counted from 1 at the top left. They are adult lookup notation, not an extra student recording requirement.
+
+\sub{Problem 1, page 1: three seeds that fill or stop}
+A main diagonal $(1,1),(2,2),(3,3)$ fills all nine cells. A full top row $(1,1),(1,2),(1,3)$ stops immediately: every empty cell has at most one filled side-neighbor. Many other choices work. Require the original three seeds to stay marked, and distinguish ``I stopped'' from ``no legal addition remains.'' A counterexample to filling is a finished legal run, not simply a picture with empty squares.
+
+\sub{Problem 2, page 2: fewest on $4\times4$}
+Four seeds suffice and three never suffice. The lower-bound proof is on page 1 and developed below; the middle-table first success can be a convincing construction without immediately completing the proof. Three different four-seed starts are the main diagonal, the antidiagonal, and
+\[
+\{(1,1),(1,3),(2,4),(4,1)\}.
+\]
+The last start grows to the full board under the stated rule; it is independently checked in the package. Rotated or reflected placements are different starts unless an adult deliberately introduces a new symmetry-equivalence question. Do not silently reject them. The search is not asking for all optimal starts.
+
+\sub{Problem 3, page 3: specified finish sizes}
+The following three-seed starts realize the four requested sizes:
+\begin{center}\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c l l}
+Filled cells & Seeds & Terminal shape\\\midrule
+3 & $(1,1),(1,2),(1,3)$ & the top row\\
+4 & $(1,1),(1,2),(2,1)$ & upper-left $2\times2$ square\\
+6 & $(1,1),(1,2),(2,3)$ & top two rows\\
+9 & $(1,1),(2,2),(3,3)$ & the full square
+\end{tabular}\end{center}
+Children can keep one seed sketch beside one physical board instead of building all four at once. The requested outputs contrast a stable line, a filled small square, a rectangle and the full board. They are not four copies of one calculation.
+
+\sub{Problem 4, page 4: different legal orders}
+No completed runs from the same seeds finish differently. The least-closed-superset proof on page 1 explains why. For the three diagonal seeds, there are four legal first additions; partners can deliberately choose different ones. Both runs ultimately fill all nine cells. Starts that stop early also have the same final set in every complete order. If a pair claims a counterexample, compare the seed sketches and look for an unfinished legal addition before correcting their conclusion.
+
+\sub{Problem 5, page 5: every seed needed, yet too many}
+The seeds are $(1,1)$, $(1,2)$, $(2,3)$ and $(3,3)$. One legal growth sequence adds $(1,3)$ and $(2,2)$, then $(2,1)$ and $(3,2)$, then $(3,1)$. Each listed layer may be filled in either order because its supports are already present. These are adult verification layers, not a required simultaneous-round record.
+
+Removing the four seeds in that order leaves terminal counts $6,3,3,6$. Thus every seed is indispensable in this particular start. Four is nevertheless not the fewest: the three-seed diagonal fills. Let children share the four removal trials and pool their reset pictures. The labels \emph{inclusion-minimal} and \emph{minimum} can follow their discovery; no vocabulary quiz is needed.
+\newpage
+\head{Grades 4--5: constructions and an impossibility certificate}
+\sub{Problem 1, page 1: all finish sizes from three seeds}
+Exactly four totals occur: $3,4,6,9$. The preceding page supplies witnesses. The checker examines all $\binom93=84$ three-seed placements, including rotations and reflections, and finds no other totals. This finite check supports the adult answer; children need not list 84 cases individually.
+
+A short geometric explanation can replace exhaustive listing. If there is no legal addition, the total is 3. Otherwise two seeds support a first addition. If those two seeds are diagonally opposite corners of a unit square, their closure is that $2\times2$ square. The third seed is inside it (finish 4), in an extra row or column next to it (finish 6), or diagonally beyond it (finish 9). If the supporting seeds are opposite across the new cell, their closure is a full row or column of the $3\times3$ board. A third seed on that line gives 3; one in the next parallel line expands to a $2\times3$ rectangle, giving 6; one two lines away first creates a full perpendicular line and then fills the square, giving 9. These descriptions include reflected and rotated cases. If children are still searching, keep this classification with the adult.
+
+\sub{Problems 2--3, pages 2--3: $4\times4$, $5\times5$ and $10\times10$}
+The minima are 4, 5 and 10 respectively. Main or opposite diagonals attain them. Problem 3 now asks for the fewest seeds on both larger boards, using drawn marks rather than counters. A successful construction establishes an upper bound; the perimeter argument supplies the matching lower bound. A larger successful start is useful experimental evidence but does not yet answer the minimum question.
+
+For a diagonal proof, cells with $|r-c|=1$ each touch two seeds. Once all cells at distance at most $j$ from the diagonal are filled, a cell at distance $j+1$ touches two cells at distance $j$. At an edge these two supports still lie on the board. Induction fills every diagonal layer. This establishes a construction for arbitrary $n$, not merely the printed sizes.
+
+\sub{Problem 4, page 4: what an addition does to the boundary}
+Count \emph{unit sides}, not cells, corners or the outside rectangle alone. An added cell shares $k$ sides with filled cells: those $k$ old exposed sides disappear and $4-k$ new exposed sides appear. Thus the net change is $4-2k$. For $k=2,3,4$ the changes are $0,-2,-4$. All legal additions have one of those values, so none increases perimeter. In the three printed pictures the before/after counts are $8\to8$, $12\to10$ and $16\to12$, respectively. Count them directly against the pictures when introducing the argument.
+
+A hole boundary counts too: filling an isolated one-cell hole removes four exposed edges. Touching only at corners does not cancel exposed sides. If children count the perimeter of a surrounding rectangle, ask them to trace every filled-to-empty side instead.
+
+\sub{Problem 5, page 5: rule out every smaller start}
+Three seeds begin with at most 12 exposed sides, while a full $4\times4$ board has 16. Four seeds begin with at most 16, while a full $5\times5$ board has 20. Growth cannot increase the count, so both are impossible. Adjacent seeds have even less starting perimeter; $4s$ is an upper bound, not an equality for every arrangement. The same comparison proves $s\ge n$ generally. A failed search alone would not establish that lower bound.
+\newpage
+\head{Indispensability, sources and later questions}
+\sub{Grades 4--5 Problem 6, page 6}
+The displayed four-seed set and deletion outcomes are the same as Grades 2--3 Problem 5. All four are needed for that start, but three can fill from another start. One different indispensable four-seed set is its quarter-turn:
+\[
+\{(1,3),(2,3),(3,1),(3,2)\}.
+\]
+Rotating a legal growth sequence preserves side-neighbors and the open square boundary, so this really does preserve indispensability. Children may invent another example; the checker finds 9 inclusion-minimal four-seed starts on $3\times3$, counting rotated/reflected placements separately. There are 14 three-seed filling starts. These counts are adult verification information, not extra printed enumeration demands.
+
+\sub{Two notions worth keeping separate}
+In an inclusion-minimal start, deleting one seed destroys its success. That does not compare it with starts in different positions. A minimum start compares \emph{all} positions and has the fewest possible seeds. Every minimum filling start is inclusion-minimal, since a removable seed would make a smaller filling start. The converse fails by the printed four-seed example. This distinction also appears in networks, generating sets and optimization beyond these boards.
+
+\sub{A later question that changes the investigation}
+After the core work, ask how the minimum changes on an open $a\times b$ rectangle. Perimeter gives $s\ge\lceil(a+b)/2\rceil$, but a lower bound alone does not supply a construction. Treat any rectangle result as a new conjecture or verified instance until it is proved; this packet claims the exact general theorem only for squares. Changing to a torus, counting diagonal neighbors or making occupied squares empty creates a different process and invalidates the stated perimeter argument or hypotheses. Do not change those rules during a test of a conjecture.
+
+\sub{Connections and source boundaries}
+Atlas AD-07 already uses monotone closure and order-independent completion. Week 26 already counts exposed sides. Here they support economical generation and the gap between a locally indispensable and globally smallest start. The model is not chip conservation, rotor routing or prescribed layer growth.
+
+Robert Morris, \emph{Minimal percolating sets in bootstrap percolation}, introduction pp. 1--2 and Theorem 1 p. 3, supplies the research context and distinction between minimum and inclusion-minimal sets. Our elementary proofs, chosen examples and activity sequence are independently presented. The paper's historical open questions are not represented as current. Full references and overlap boundaries are in \texttt{SOURCES.md}.
+
+\sub{Use and evidence}
+Independent finite checks verify the printed starts and deletion tests. The arguments in this guide establish the universal statements. The source package includes reproducible checks and a build script; its QA record distinguishes page review and extracted-archive reconstruction from physical rehearsal. These materials are unpiloted. Record actual preparation time, whether partners enforce side-neighbors reliably, where children need adult decisions, and which questions they choose to continue.

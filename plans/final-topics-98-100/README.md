@@ -1,6 +1,6 @@
-# Three final breadth proposals for Weeks 98 to 100
+# Three final breadth investigations: Weeks 98 to 100
 
-Recommend these three investigations to bring the numbered library to **100**, then consider breadth complete. Future work can strengthen these and existing topics through depth, encores, connections and classroom evidence. The numbers identify proposed library slots, not three scheduled meetings or 100 equally ready classroom sessions.
+The organizer selected these three investigations on October 17, 2026 to bring the numbered library to **100**. [Completed worksheets and portable sources](../../lowell-math-circle-year-2/WEEKS-98-100.md) are now available; breadth is complete. Future work can strengthen these and existing topics through depth, encores, connections and classroom evidence. The numbers identify proposed library slots, not three scheduled meetings or 100 equally ready classroom sessions.
 
 | Week | Topic and concrete question | Mathematical destination | Readiness |
 |---|---|---|---|
@@ -10,7 +10,7 @@ Recommend these three investigations to bring the numbered library to **100**, t
 
 The [bootstrap plan](week-98-bootstrap-percolation.md), [transport plan](week-99-optimal-transport.md), and [ultrametric plan](week-100-ultrametric-geometry.md) each come with a theorem-first overview, a worked launch, five substantial investigations, materials, solutions and a first-visit route. No K–1 packet is forced; an established younger-table activity remains appropriate when a family is used with the older tables.
 
-These are **new activity plans, not produced worksheets or classroom-validated lessons**. Examples have exact finite checks and written arguments. Handling, preparation times, age fit and pacing are unpiloted hypotheses. Worksheet production, if requested, should use the existing fresh writer → critic → mathematical review → reviser workflow; it has not been run here.
+These original activity plans are preserved as the research/design record. The completed worksheets used fresh writer → critic → mathematical review → reviser stages, separate theorem-first guides, all-page inspection and clean source-package rebuilds. See the [public verification summary](production/README.md). Detailed review reports are retained separately. Handling, preparation times, age fit and pacing remain unpiloted hypotheses; these are not classroom-validated lessons.
 
 The [research and overlap note](RESEARCH.md) compares five candidate directions and identifies exact connections to existing material, including all completed Weeks 92–97 and the reserved Weeks 85–91 plans. The selected topics are elementary entrances to research fields, not new research results. In particular, Week 98 does not teach a random critical-threshold theorem, Week 99 does not claim general optimal transport is solved by sorting, and Week 100 does not construct the complete field of p-adic numbers.
 

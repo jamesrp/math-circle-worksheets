@@ -62,3 +62,7 @@ The [complete print/source index](../WEEKS-85-91.md) links seven owned source pa
 ## Connected investigations 92–97
 
 The [print and source index](../WEEKS-92-97.md) links all six standalone source packages. Each adjacent `week-NN-source.zip` contains the same owned editables as `week-NN/`; Python 3 and pdfLaTeX rebuild the complete student/guide family without private references or downloads. All six extracted archives reproduced their final PDFs byte-for-byte. Use the per-week README for exact commands and dependencies; build/render intermediates belong in repository `tmp/`. These materials remain unpiloted and physically unrehearsed.
+
+## Final breadth investigations 98–100
+
+The [print and portable-source index](../WEEKS-98-100.md) links bootstrap percolation, optimal transport and ultrametric geometry: eight PDFs (47 pages), separate theorem-first guides and three clean-rebuilt source ZIPs. Choose by prerequisites: Grades 2–3 and 4–5 for Weeks 98–99; Grades 3–5 for Week 100. No K–1 packet is claimed. All remain unpiloted and physically unrehearsed. Breadth closes at 100; older combined sets are unchanged.

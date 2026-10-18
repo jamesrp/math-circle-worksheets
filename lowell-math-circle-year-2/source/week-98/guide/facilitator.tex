@@ -1,0 +1,47 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,margin=.7in,headheight=15pt,headsep=18pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,hyperref,tikz}
+\renewcommand{\familydefault}{\sfdefault}\setlength{\parindent}{0pt}\setlength{\parskip}{7pt}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Week 98 / Growing from a few seeds / Facilitator guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 98 / W98-FAC-v1}\fancyfoot[R]{\thepage}
+\newcommand{\head}[1]{\par\textbf{\large #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+\begin{document}
+\head{Mathematical overview: fewest and indispensable are different}
+\textbf{The model.} An $n\times n$ square grid has an open boundary. Only side-neighbors count; there are no outside cells or wraparound edges. Choose seeds, then repeatedly fill any empty cell touching at least two filled side-neighbors. Filled cells stay filled. Stop only when no legal addition remains. A partner checks each addition.
+
+\textbf{Every completed order has the same finish.} The board is finite and the filled set grows. Let $C$ be any closed set containing the seeds, where closed means no outside cell has two neighbors in $C$. Inductively every legal addition belongs to $C$. A terminal run is itself closed and therefore is contained in every closed superset of the seeds. Every terminal run is thus the same least closed superset. Different intermediate pictures or timings do not contradict this final-state result.
+
+\textbf{Exactly $n$ seeds are needed to fill an $n\times n$ board.} Count exposed unit sides, including the board boundary and any hole boundaries. Adding a cell with $k$ already filled side-neighbors changes this count by $4-2k$. Legal additions have $k\ge2$, so perimeter never increases. A start of $s$ seeds has at most $4s$ exposed sides. The full board has $4n$, forcing $s\ge n$. Conversely the $n$ diagonal cells fill: induct on the distance $|r-c|$ from the main diagonal. Each cell in the next diagonal layer has two neighbors in the previous layer. This supplies both an impossibility certificate and an attaining construction.
+
+\textbf{Every seed can be necessary in a non-smallest start.} Inclusion-minimal means removing any seed prevents filling; minimum means no filling start has fewer seeds. The four seeds $(1,1),(1,2),(2,3),(3,3)$ on a $3\times3$ board are all indispensable, yet three diagonal seeds fill. Neither notion implies that all legal growth orders have the same intermediate picture.
+
+\textbf{What children discover.} The Grades 2--3 route emphasizes choosing, growing, resetting and comparing small seed sets. Grades 4--5 adds perimeter as a lower bound and the distinction between local removal tests and a global optimum. Reading can be supported; the child should retain the choice of seeds and legal additions. Counting exposed edges and interpreting a general $n$ are later readiness demands. No K--1 packet is claimed.
+
+\textbf{Evidence and limits.} A completed construction proves one start works. Exhaustive checks prove the stated small-board counts. The closure, perimeter and diagonal arguments prove the general assertions. This is deterministic bootstrap percolation, not a lesson proving a random critical threshold. Familiar closure and perimeter ideas are deliberately reused for a new optimization question.
+\newpage
+\head{Preparation, shared launch and pacing}
+\textbf{Status.} Prepared for organizer review; unpiloted. Physical printing, preparation, handling and timings remain unrehearsed. Plan a separate established activity for the K--1 table; the shared launch is not a complete younger-table lesson.
+
+\textbf{Per pair.} Sixteen small counters or square tiles, a contrasting seed marker for each original seed, a reusable $4\times4$ board with approximately 30 mm cells, and a removable $3\times3$ mask. Keep a reset sketch visible. For $5\times5$ work supply 25 counters or use pencil diagrams. Short sticks or drawn strokes can mark exposed edges later. Pieces must not conceal neighboring cells; exact tile-to-cell fit is unnecessary. Print US Letter, single-sided at Actual Size. Small printed grids are records; use the large workboard for physical play.
+
+\textbf{Staffing.} Two pairs at the middle table and a pair plus rotating checker at the upper table. An adult reads as needed, but the partner should identify the two filled side-neighbors before a new counter is added. Rotate seed designer, grower and checker. Three older-table kits plus a demonstration kit should take about 15--20 minutes to prepare from existing materials; this estimate needs a real rehearsal.
+
+\textbf{Launch after the movement opening.} Let children handle the counters for two minutes. On a separate $2\times3$ board use the input below. Fill the top middle, pointing to its left and lower neighbors. Neither right-hand cell can then fill. Diagonal touching alone is insufficient. The start stays marked while later counters are added.
+\begin{center}
+\begin{tabular}{ccc}
+Input & One legal addition & Finish\\[3pt]
+$\begin{matrix}S&\cdot&\cdot\\S&S&\cdot\end{matrix}$ &
+$\begin{matrix}S&+&\cdot\\S&S&\cdot\end{matrix}$ &
+$\begin{matrix}S&+&\cdot\\S&S&\cdot\end{matrix}$
+\end{tabular}
+\end{center}
+$S$ is an original seed and $+$ a later addition. This example teaches a whole run and stopping without supplying an optimal square start.
+
+\textbf{A first visit.} After the five-minute movement opening and five-minute launch, allow 20--25 minutes for contrasting starts and the first fewest-seed search. Use the remaining 10--15 minutes to compare different successful starts or test the same start with different legal choices. Close with one construction and one question. The perimeter proof and indispensable-seed investigation can fill another visit; do not rush every page into one hour.
+
+\textbf{Hints only when useful.} If a child changes the rules, ask the checker to touch the two supporting squares. If the original seeds are lost, reset from the sketch before comparing counts. When a search suggests an optimum but cannot establish it, ask what a filled board must have that a start cannot gain. Introduce perimeter sticks then, rather than prescribing a proof before any exploration. Adult recording is ordinary support; adult seed selection or legal-move selection is a signal to reduce the board.
+
+\input{solutions.tex}
+\end{document}
