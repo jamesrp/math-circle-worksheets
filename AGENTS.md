@@ -72,9 +72,15 @@ To draft a week's student worksheets, use [worksheet-workflow/](worksheet-workfl
 3. Run `python3 worksheet-workflow/make_prompts.py --outline <outline> --run tmp/worksheet-runs/<week>-v1`.
 4. Run the stage files in order, each in a fresh agent (a subagent in Claude Code, a separate `codex exec` run or session in Codex): `PROMPT.md` (writer), then `CRITIC.md` (adversarial review; add `CRITIC-MATH.md` for weeks whose answers come from enumeration), then `REVISE.md`. The reviewer must not be the writer.
 5. If you were started with one of these stage files, do only that stage.
-6. Present `final/*.pdf` for review. After approval, move the packet into `lowell-math-circle-year-2/` as described above and record it as unpiloted.
+6. Present `final/*.pdf` for review. After approval, move the packet into `lowell-math-circle-year-2/` as problem files (below) and record it as unpiloted.
 
 Keep the workflow's prompt files as a set. Change them only deliberately, and log each change in `worksheet-workflow/README.md`. `worksheet-workflow/blocks/spec.md` is the writer-facing version of the student-page guidance above; if either changes, update the other. The workflow produces student pages only; a facilitator guide is a separate, untested step.
+
+## Problem files and band views
+
+The organizer decided on October 22, 2026 to store each problem once, with its band differences inside it, and to build band packets as views. Store a week as [problem files](lowell-math-circle-year-2/source/problem-files/README.md) when it is next revised, and store approved new weeks the same way; leave finished weeks that nobody is changing as they are. Convert before revising: carry the wording over unchanged, prove the rebuilt packets match the current PDFs with `compare.py`, commit that alone, then revise. Refer to problems by id or title in notes and the use log, since numbers belong to each printed view.
+
+Shared-packet weeks (52–84, 88–93, 97) have band slices and one-page menus in [band-views/](lowell-math-circle-year-2/band-views/README.md), built from checked page indexes. When one of those packets changes, update its index and rebuild the views in the same change.
 
 ## Who does what
 

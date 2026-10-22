@@ -1,0 +1,52 @@
+# Band views of the shared packets
+
+Weeks 52–84, 88–93 and 97 print one shared student packet whose page headers name a grade range. This folder gives each band its own pages and each week a one-page menu of its pages, without changing the packets. Built by [source/band-views/](../source/band-views/README.md) from checked page indexes.
+
+A slice holds the pages whose range includes the band (a Grades 3–5 page is in both the 2–3 and 4–5 slices), plus an earlier page whose opening rules that band needs. Pages are copied unchanged, so problem numbers, page numbers and the guide's references all match the full packet. Print at 100%. A slice exists only when it is shorter than the packet; otherwise print the packet. Weeks 85–87 already print a shared and an upper packet, so they are not repeated here.
+
+The packets and these views are unpiloted, as their weeks are.
+
+| Week | Topic | Packet | K–1 | Grades 2–3 | Grades 4–5 | Menu |
+|---|---|---|---|---|---|---|
+| 52 | Hinged frames and braces | [12 pages](../week-52/week-52-students.pdf) | [2 of 12](week-52/week-52-k-1.pdf): pp. 1–2 | [8 of 12](week-52/week-52-grades-2-3.pdf): pp. 1, 3–9 | [10 of 12](week-52/week-52-grades-4-5.pdf): pp. 1, 3, 5–12 | [menu](week-52/week-52-menu.pdf) |
+| 53 | Connecting networks | [9 pages](../week-53/week-53-students.pdf) | — | [4 of 9](week-53/week-53-grades-2-3.pdf): pp. 1–4 | whole packet | [menu](week-53/week-53-menu.pdf) |
+| 54 | Partitions and rebuilding | [9 pages](../week-54/week-54-students.pdf) | — | [5 of 9](week-54/week-54-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-54/week-54-menu.pdf) |
+| 55 | Few sums and equal spacing | [10 pages](../week-55/week-55-students.pdf) | — | whole packet | whole packet | [menu](week-55/week-55-menu.pdf) |
+| 56 | Corners of a solid | [9 pages](../week-56/week-56-students.pdf) | — | [6 of 9](week-56/week-56-grades-2-3.pdf): pp. 1–6 | whole packet | [menu](week-56/week-56-menu.pdf) |
+| 57 | Area from dots | [10 pages](../week-57/week-57-students.pdf) | — | [6 of 10](week-57/week-57-grades-2-3.pdf): pp. 1–6 | whole packet | [menu](week-57/week-57-menu.pdf) |
+| 58 | Fair division | [7 pages](../week-58/week-58-students.pdf) | — | whole packet | whole packet | [menu](week-58/week-58-menu.pdf) |
+| 59 | Constant width | [6 pages](../week-59/week-59-students.pdf) | — | [5 of 6](week-59/week-59-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-59/week-59-menu.pdf) |
+| 60 | Take it or pass | [7 pages](../week-60/week-60-students.pdf) | — | [4 of 7](week-60/week-60-grades-2-3.pdf): pp. 1–3, 6 | whole packet | [menu](week-60/week-60-menu.pdf) |
+| 61 | Triangles on a ball | [7 pages](../week-61/week-61-students.pdf) | — | [4 of 7](week-61/week-61-grades-2-3.pdf): pp. 1–4 | whole packet | [menu](week-61/week-61-menu.pdf) |
+| 62 | Conflict networks | [9 pages](../week-62/week-62-students.pdf) | — | [3 of 9](week-62/week-62-grades-2-3.pdf): pp. 1–3 | whole packet | [menu](week-62/week-62-menu.pdf) |
+| 63 | Cards away from home | [9 pages](../week-63/week-63-students.pdf) | — | [5 of 9](week-63/week-63-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-63/week-63-menu.pdf) |
+| 64 | Straight paths on strange surfaces | [9 pages](../week-64/week-64-students.pdf) | — | [6 of 9](week-64/week-64-grades-2-3.pdf): pp. 1–6 | whole packet | [menu](week-64/week-64-menu.pdf) |
+| 65 | Hyperbolic octagon streets | [6 pages](../week-65/week-65-students.pdf) | — | whole packet | whole packet | [menu](week-65/week-65-menu.pdf) |
+| 66 | Lamplighter streets | [4 pages](../week-66/week-66-students.pdf) | — | whole packet | whole packet | [menu](week-66/week-66-menu.pdf) |
+| 67 | Meeting on shortest roads | [4 pages](../week-67/week-67-students.pdf) | — | whole packet | whole packet | [menu](week-67/week-67-menu.pdf) |
+| 68 | How many ways out | [4 pages](../week-68/week-68-students.pdf) | — | whole packet | whole packet | [menu](week-68/week-68-menu.pdf) |
+| 69 | Thin and fat road triangles | [4 pages](../week-69/week-69-students.pdf) | — | — | whole packet | [menu](week-69/week-69-menu.pdf) |
+| 70 | Shields in a portal room | [4 pages](../week-70/week-70-students.pdf) | — | — | whole packet | [menu](week-70/week-70-menu.pdf) |
+| 71 | Can you hear the room? | [5 pages](../week-71/week-71-students.pdf) | — | — | whole packet | [menu](week-71/week-71-menu.pdf) |
+| 72 | A robot that remembers | [5 pages](../week-72/week-72-students.pdf) | — | — | whole packet | [menu](week-72/week-72-menu.pdf) |
+| 73 | The gentlest stretch | [4 pages](../week-73/week-73-students.pdf) | — | — | whole packet | [menu](week-73/week-73-menu.pdf) |
+| 74 | Doubling elevators | [4 pages](../week-74/week-74-students.pdf) | — | — | whole packet | [menu](week-74/week-74-menu.pdf) |
+| 75 | Twists on a cylinder | [4 pages](../week-75/week-75-students.pdf) | — | — | whole packet | [menu](week-75/week-75-menu.pdf) |
+| 76 | Substitution strips | [4 pages](../week-76/week-76-students.pdf) | — | whole packet | whole packet | [menu](week-76/week-76-menu.pdf) |
+| 77 | Persistent holes | [6 pages](../week-77/week-77-students.pdf) | — | — | whole packet | [menu](week-77/week-77-menu.pdf) |
+| 78 | Three-armed lines | [5 pages](../week-78/week-78-students.pdf) | — | — | whole packet | [menu](week-78/week-78-menu.pdf) |
+| 79 | Numbered-ball detectives | [5 pages](../week-79/week-79-students.pdf) | — | [4 of 5](week-79/week-79-grades-2-3.pdf): pp. 1–2, 4–5 | whole packet | [menu](week-79/week-79-menu.pdf) |
+| 80 | Midnight laboratory | [5 pages](../week-80/week-80-students.pdf) | — | [3 of 5](week-80/week-80-grades-2-3.pdf): pp. 1–2, 5 | whole packet | [menu](week-80/week-80-menu.pdf) |
+| 81 | Buckets of Fish | [5 pages](../week-81/week-81-students.pdf) | — | [4 of 5](week-81/week-81-grades-2-3.pdf): pp. 1–4 | whole packet | [menu](week-81/week-81-menu.pdf) |
+| 82 | Endless class lines | [6 pages](../week-82/week-82-students.pdf) | — | whole packet | whole packet | [menu](week-82/week-82-menu.pdf) |
+| 83 | Hackenbush balances | [7 pages](../week-83/week-83-students.pdf) | — | [5 of 7](week-83/week-83-grades-2-3.pdf): pp. 1–4, 7 | whole packet | [menu](week-83/week-83-menu.pdf) |
+| 84 | Public knowledge | [8 pages](../week-84/week-84-students.pdf) | — | whole packet | whole packet | [menu](week-84/week-84-menu.pdf) |
+| 88 | Packing and kissing circles | [8 pages](../week-88/week-88-students.pdf) | whole packet | whole packet | whole packet | [menu](week-88/week-88-menu.pdf) |
+| 89 | Growing shapes and totals | [11 pages](../week-89/week-89-students.pdf) | whole packet | whole packet | whole packet | [menu](week-89/week-89-menu.pdf) |
+| 90 | Sliding number arrays | [8 pages](../week-90/week-90-students.pdf) | — | whole packet | whole packet | [menu](week-90/week-90-menu.pdf) |
+| 91 | Rotor-router machines | [6 pages](../week-91/week-91-students.pdf) | — | [4 of 6](week-91/week-91-grades-2-3.pdf): pp. 1–3, 6 | [4 of 6](week-91/week-91-grades-4-5.pdf): pp. 1, 4–6 | [menu](week-91/week-91-menu.pdf) |
+| 92 | Fold-and-stretch predictions | [7 pages](../week-92/week-92-students.pdf) | — | [3 of 7](week-92/week-92-grades-2-3.pdf): pp. 1–3 | [6 of 7](week-92/week-92-grades-4-5.pdf): pp. 1–2, 4–7 | [menu](week-92/week-92-menu.pdf) |
+| 93 | Squaring a rectangle | [5 pages](../week-93/week-93-students.pdf) | — | [4 of 5](week-93/week-93-grades-2-3.pdf): pp. 1–4 | whole packet | [menu](week-93/week-93-menu.pdf) |
+| 97 | Square remainders | [6 pages](../week-97/week-97-students.pdf) | — | whole packet | whole packet | [menu](week-97/week-97-menu.pdf) |
+
+Rebuild after any change to a listed packet: `python3 lowell-math-circle-year-2/source/band-views/band_views.py build`. The build stops for a week whose index no longer matches its PDF.
