@@ -2,7 +2,7 @@
 
 October 22, 2026. A design pilot, not a change to the current print set. Nothing under `lowell-math-circle-year-2/` is touched; the current Week 50 and Week 52 PDFs remain the print copies.
 
-The question: can each problem be stored once, with its band differences inside it, so that a K–1, 2–3 or 4–5 packet (and shorter formats) are views built from the same files? The full proposal, survey numbers and recommendation are in the project doc linked from the thread; this folder holds the working pieces.
+The question: can each problem be stored once, with its band differences inside it, so that a K–1, 2–3 or 4–5 packet (and shorter formats) are views built from the same files? The proposal, survey numbers and recommendation are in the doc [Problem files with grade-band views](https://claude.ai/artifact/Lb9Te71sBtpkekWWrw4KNi); this folder holds the working pieces.
 
 ## What is here
 
