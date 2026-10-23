@@ -11,7 +11,7 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \fancyhead[L]{\small Week 83 / Hackenbush balances / Grades 2--5}
-\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 83 / W83-S-v1}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 83 / W83-S-v2}
 \fancyfoot[R]{\footnotesize\thepage}
 \setlength{\parindent}{0pt}
 \pdfinfoomitdate=1
@@ -42,6 +42,18 @@
   \node[font=\Large] at (#1+28,#2+10) {$#3$};%
   \node[font=\Large] at (#1+145,#2+10) {$#4$};%
   \draw[gray!70] (#1+68,#2+3) rectangle ++(40,24);%
+}
+% A stalk beside a mat: \stalkmat{ground y}{name}{stalk}{panel height}. The stalk stands
+% at x = 14; the mat is centred on it, and its card box is 40 x 24 mm, as on \cutmat.
+\newcommand{\stalkmat}[4]{%
+  \panel{0}{#1-6}{177}{#4}%
+  \node[anchor=north west,font=\small] at (2,#1-8+#4) {#2};%
+  \ground{3}{#1}{24}\stalk{14}{#1}{#3}%
+  \pgfmathsetmacro{\matlow}{#1+(#4-12)/2-16}%
+  \draw[gray!50,rounded corners=2mm] (34,\matlow) rectangle ++(140,32);%
+  \node[font=\small] at (58,\matlow+26) {greater than};%
+  \node[font=\small] at (150,\matlow+26) {less than};%
+  \draw[gray!70] (84,\matlow+4) rectangle ++(40,24);%
 }
 % Problem prompts: \problem{n}{text} places "Problem n:" at height \prompty (mm) on the sheet.
 % A sheet whose prompt is not at the top sets \renewcommand{\prompty}{...} before it.
@@ -93,18 +105,18 @@
 
 \begin{sheet}
 
-\problem{3}{Which of these boards balance? Find a way for the winning color to win each other board, whoever starts.}
+\problem{3}{Which of these boards balance? Find a way for the winning color to win every other board, whoever starts.}
 
 \panel{0}{120}{83}{85}\case{4}{201}{A}\ground{8}{130}{67}\stalk{24}{130}{B,R,R}\stalk{57}{130}{R,B}
-\panel{94}{120}{83}{85}\case{98}{201}{B}\ground{102}{130}{67}\stalk{111}{130}{B,R,R}\stalk{134}{130}{B,R,R}\stalk{157}{130}{R,B}
-\panel{0}{12}{177}{85}\case{4}{93}{C}\ground{15}{22}{147}\stalk{35}{22}{B,R,R}\stalk{70}{22}{B,R,R}\stalk{105}{22}{B,R,R}\stalk{140}{22}{R,B}
+\panel{94}{120}{83}{85}\case{98}{201}{B}\ground{102}{130}{67}\stalk{111}{130}{B,R}\stalk{134}{130}{B,R}\stalk{157}{130}{R,B}
+\panel{0}{12}{177}{85}\case{4}{93}{C}\ground{15}{22}{147}\stalk{45}{22}{B,R,R}\stalk{86}{22}{B,R,R}\stalk{127}{22}{R,B}
 \end{sheet}
 
 \newpage
 
 \begin{sheet}
 
-\problem{4}{Make two different boards that balance. Each board must include a stalk with at least two segments.}
+\problem{4}{Make two different boards that balance and are not in Problems 1--3. Each board must include a stalk with at least two segments.}
 
 \panel{0}{118}{177}{92}\ground{10}{126}{157}
 \panel{0}{12}{177}{92}\ground{10}{20}{157}
@@ -125,7 +137,7 @@
 
 \renewcommand{\prompty}{169}
 
-\problem{5}{Choose the oldest number card that fits each pair of bounds. Put it in the middle.}
+\problem{5}{Find the card each pair of bounds chooses, and put it in the middle.}
 
 \cutmat{0}{122}{0}{3}
 \cutmat{0}{84}{-1}{1}
@@ -137,8 +149,17 @@
 
 \begin{sheet}
 
-\problem{6}{Make two different pairs of bounds that choose the same number card. Make a pair that chooses a card newer than both bounds.}
+\problem{6}{An empty board is 0, B is 1 and R is $-1$. On each mat, put the numbers of the boards Blue's cuts can leave on the left and Red's on the right. Which card is BR? BRR? RB?}
 
+\stalkmat{158}{BR}{B,R}{56}
+\stalkmat{72}{BRR}{B,R,R}{78}
+\stalkmat{8}{RB}{R,B}{56}
+\end{sheet}
+
+\newpage
+
+\begin{sheet}
+\node[anchor=north west,font=\small] at (0,232) {Number cards};
 \foreach \num/\day/\col/\row in {0/0/0/0,-1/1/1/0,1/1/2/0,-2/2/3/0,-\frac12/2/0/1,\frac12/2/1/1,2/2/2/1,-3/3/3/1,-\frac32/3/0/2,-\frac34/3/1/2,-\frac14/3/2/2,\frac14/3/3/2,\frac34/3/0/3,\frac32/3/1/3,3/3/2/3}{%
   \pgfmathsetmacro{\cx}{2+44*\col}%
   \pgfmathsetmacro{\cy}{172-37*\row}%

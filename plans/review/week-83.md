@@ -44,6 +44,8 @@ In red–blue Hackenbush on grounded stalks every board is a number, stalks add 
 10. **could**, P3: "each other board" read aloud sounds like "each other".
 11. **could**, return visit: "Find bounds that choose each card." Only −3 and 3 have none (card_checks.py).
 
+Fixed October 23, 2026 (packet W83-S-v2, problem files): shoulds 1–7 and coulds 8–11; the new Problem 6 is the card's wording with "On each mat" and "can leave", and the number cards moved to page 7.
+
 ## Overlaps
 
 Week 8 shares sums of games and second-player wins, but its zero is a nim-sum. Week 1e's copying is the BR + RB balance; Weeks 7 and 81 label impartial positions. No merge: this is the only partizan game, best after Week 8.

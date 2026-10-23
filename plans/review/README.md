@@ -115,7 +115,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 80 | Midnight laboratory (the Thomson lamp) | keep | [card](week-80.md), [math check](week-80-math.md) |
 | 81 | Buckets of Fish (Hamkins's remove-and-refill game) | keep | [card](week-81.md), [math check](week-81-math.md) |
 | 82 | Endless class lines (ordinal addition) | keep | [card](week-82.md), [math check](week-82-math.md) |
-| 83 | Hackenbush balances | keep | [card](week-83.md), [math check](week-83-math.md) |
+| 83 | Hackenbush balances | original verdict keep; shoulds 1–7 (Problem 3's new boards with the balance in C, Problem 4 "not in Problems 1–3", snap-cube towers, a new Problem 6 joining the nursery to stalks, one key line per board, the overview's discovery and left-below-right hypothesis, a K–1 route) and coulds 8–11 fixed October 23 in the new problem files; packet W83-S-v2, 8 pages | [card](week-83.md), [math check](week-83-math.md) |
 | 84 | Public knowledge | revise: Problem 3's "the same three replies" can also be read as which replies appear, under which the right answer is no, and the guide's key gives only yes | [card](week-84.md), [math check](week-84-math.md) |
 | 85 | Drawing machines (pantographs) | revise: the whole hour runs on a hand-built pantograph, and nothing names what to build it from (strips, pivots, anchor pin, pencil mounts); both card runs agree | [card](week-85.md), [math check](week-85-math.md) |
 | 86 | Pursuit and escape | keep | [card](week-86.md), [math check](week-86-math.md) |

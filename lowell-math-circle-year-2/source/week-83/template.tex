@@ -43,6 +43,18 @@
   \node[font=\Large] at (#1+145,#2+10) {$#4$};%
   \draw[gray!70] (#1+68,#2+3) rectangle ++(40,24);%
 }
+% A stalk beside a mat: \stalkmat{ground y}{name}{stalk}{panel height}. The stalk stands
+% at x = 14; the mat is centred on it, and its card box is 40 x 24 mm, as on \cutmat.
+\newcommand{\stalkmat}[4]{%
+  \panel{0}{#1-6}{177}{#4}%
+  \node[anchor=north west,font=\small] at (2,#1-8+#4) {#2};%
+  \ground{3}{#1}{24}\stalk{14}{#1}{#3}%
+  \pgfmathsetmacro{\matlow}{#1+(#4-12)/2-16}%
+  \draw[gray!50,rounded corners=2mm] (34,\matlow) rectangle ++(140,32);%
+  \node[font=\small] at (58,\matlow+26) {greater than};%
+  \node[font=\small] at (150,\matlow+26) {less than};%
+  \draw[gray!70] (84,\matlow+4) rectangle ++(40,24);%
+}
 % Problem prompts: \problem{n}{text} places "Problem n:" at height \prompty (mm) on the sheet.
 % A sheet whose prompt is not at the top sets \renewcommand{\prompty}{...} before it.
 \newcommand{\prompty}{232}

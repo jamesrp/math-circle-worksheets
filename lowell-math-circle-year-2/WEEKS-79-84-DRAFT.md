@@ -22,9 +22,9 @@ Individual PDFs below open without unpacking a ZIP. These provisional library nu
 
 [Student/material PDF (6 pages)](week-82/week-82-students.pdf) · [Facilitator PDF (4 pages)](week-82/week-82-facilitator.pdf) · [Editable sources](source/week-82/README.md) · [Portable source ZIP](source/week-82-source.zip)
 
-**83. Hackenbush balances** — Cut grounded red/blue segments and find second-player balances. Optional earliest-birthday number nursery. Grades 2–3 cutting; Grades 4–5 optional signed-fraction nursery.
+**83. Hackenbush balances** — Cut grounded red/blue segments and find second-player balances. Optional earliest-birthday number nursery. Grades 2–3 cutting; Grades 4–5 optional signed-fraction nursery. Revised October 23 from its review card: new Problem 3 and 6 boards, snap-cube towers, and fuller guide keys.
 
-[Student/material PDF (7 pages)](week-83/week-83-students.pdf) · [Facilitator PDF (5 pages)](week-83/week-83-facilitator.pdf) · [Editable sources](source/week-83/README.md) · [Portable source ZIP](source/week-83-source.zip)
+[Student/material PDF (8 pages)](week-83/week-83-students.pdf) · [Facilitator PDF (5 pages)](week-83/week-83-facilitator.pdf) · [Editable sources](source/week-83/README.md) · [Portable source ZIP](source/week-83-source.zip)
 
 **84. Public knowledge** — Use café cards and three dolls to distinguish private views from simultaneous public information. Grades 2–3 café; Grades 3–5 doll coaching.
 

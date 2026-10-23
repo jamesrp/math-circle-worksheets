@@ -11,7 +11,7 @@ kernel = "Balanced boards can be built in many ways, for example a stalk with it
 \begin{sheet}
 
 ## prompt
-Make two different boards that balance. Each board must include a stalk with at least two segments.
+Make two different boards that balance and are not in Problems 1--3. Each board must include a stalk with at least two segments.
 
 ## text
 \panel{0}{118}{177}{92}\ground{10}{126}{157}

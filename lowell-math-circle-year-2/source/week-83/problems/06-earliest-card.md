@@ -11,7 +11,7 @@ kernel = "The number between two bounds is the earliest-born one, not the midpoi
 \renewcommand{\prompty}{169}
 
 ## prompt
-Choose the oldest number card that fits each pair of bounds. Put it in the middle.
+Find the card each pair of bounds chooses, and put it in the middle.
 
 ## text
 \cutmat{0}{122}{0}{3}

@@ -16,7 +16,7 @@ After extracting the portable ZIP, run `python3 week-83/build.py --out rebuilt -
 
 ## Contents and lineage
 
-- Student pages: stored as problem files since October 23, 2026 (in the repository `../week.toml`, `../template.tex` and `../problems/`; in the ZIP `problem-files/`, with the tools in `problem-files/tools/`). `student/regenerate.py` writes `student/students.tex` from them; edit the problem files, not `students.tex`. The 7-page student/material draft was created by a fresh writer, then revised by a separate agent after independent adversarial and mathematical reviews.
+- Student pages: stored as problem files since October 23, 2026 (in the repository `../week.toml`, `../template.tex` and `../problems/`; in the ZIP `problem-files/`, with the tools in `problem-files/tools/`). `student/regenerate.py` writes `student/students.tex` from them; edit the problem files, not `students.tex`. The student/material draft (8 pages since the October 23 card fixes) was created by a fresh writer, then revised by a separate agent after independent adversarial and mathematical reviews.
 - `reference-pdfs/`: copies of the current print PDFs.
 - `guide/facilitator.tex`: separate facilitator step, revised and independently reviewed. This guide-authoring step is untested as a classroom workflow.
 - `check_math.py`: portable copy/adaptation of the independent mathematical checker's code; finite computation supports the proofs in the guide.

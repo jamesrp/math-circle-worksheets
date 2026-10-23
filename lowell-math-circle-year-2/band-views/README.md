@@ -39,7 +39,7 @@ The packets and these views are unpiloted, as their weeks are.
 | 80 | Midnight laboratory | [5 pages](../week-80/week-80-students.pdf) | — | [3 of 5](week-80/week-80-grades-2-3.pdf): pp. 1–2, 5 | whole packet | [menu](week-80/week-80-menu.pdf) |
 | 81 | Buckets of Fish | [5 pages](../week-81/week-81-students.pdf) | — | [4 of 5](week-81/week-81-grades-2-3.pdf): pp. 1–4 | whole packet | [menu](week-81/week-81-menu.pdf) |
 | 82 | Endless class lines | [6 pages](../week-82/week-82-students.pdf) | — | whole packet | whole packet | [menu](week-82/week-82-menu.pdf) |
-| 83 | Hackenbush balances | [7 pages](../week-83/week-83-students.pdf) | — | [5 of 7](week-83/week-83-grades-2-3.pdf): pp. 1–4, 7 | whole packet | [menu](week-83/week-83-menu.pdf) |
+| 83 | Hackenbush balances | [8 pages](../week-83/week-83-students.pdf) | — | [5 of 8](week-83/week-83-grades-2-3.pdf): pp. 1–4, 8 | whole packet | [menu](week-83/week-83-menu.pdf) |
 | 84 | Public knowledge | [8 pages](../week-84/week-84-students.pdf) | — | whole packet | whole packet | [menu](week-84/week-84-menu.pdf) |
 | 88 | Packing and kissing circles | [8 pages](../week-88/week-88-students.pdf) | whole packet | whole packet | whole packet | [menu](week-88/week-88-menu.pdf) |
 | 89 | Growing shapes and totals | [11 pages](../week-89/week-89-students.pdf) | whole packet | whole packet | whole packet | [menu](week-89/week-89-menu.pdf) |
