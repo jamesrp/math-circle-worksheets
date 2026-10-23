@@ -7,7 +7,7 @@ PYTHON="${PYTHON:-python3}"
 for tool in "$PYTHON" pdflatex; do command -v "$tool" >/dev/null || { echo "Missing tool: $tool" >&2; exit 1; }; done
 mkdir -p build
 case "${1:-}" in
- "") "$PYTHON" src/build_packets.py > build/student-checks.txt ;;
+ "") "$PYTHON" src/regenerate.py; "$PYTHON" src/student_checks.py > build/student-checks.txt ;;
  --from-tex) ;;
  *) echo "Usage: bash build.sh [--from-tex]" >&2; exit 2 ;;
 esac
