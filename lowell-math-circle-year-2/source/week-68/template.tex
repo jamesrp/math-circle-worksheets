@@ -1,0 +1,27 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=.7in,headheight=18pt,headsep=17pt,footskip=28pt]{geometry}
+\usepackage{tikz,fancyhdr,amssymb}
+\usetikzlibrary{arrows.meta}
+\pdfmapfile{+cm.map}\pdfmapfile{+cmextra.map}\pdfmapfile{+symbols.map}\pdfmapfile{+latxfont.map}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}\setlength{\parskip}{9pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week <<week>> / <<topic>> / <<header>>}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week <<week>> / <<footer>>}
+\fancyfoot[R]{\footnotesize\thepage}\renewcommand{\headrulewidth}{.4pt}
+
+\newcommand{\problem}[2]{\par\textbf{Problem #1:} #2\par}
+\newcommand{\roadline}{\begin{tikzpicture}[x=1.75cm,y=1cm]
+\draw[{Latex}-{Latex},line width=1pt] (-4.55,0)--(4.55,0);\foreach \i in {-4,...,4}\fill (\i,0) circle (2.6pt);\end{tikzpicture}}
+\newcommand{\ladder}{\begin{tikzpicture}[x=1.65cm,y=1.5cm]
+\foreach \y in {0,1}{\draw[{Latex}-{Latex},line width=1pt] (-4.5,\y)--(4.5,\y);}
+\foreach \x in {-4,...,4}{\draw[line width=1pt] (\x,0)--(\x,1);\foreach \y in {0,1}\fill (\x,\y) circle (2.6pt);}\end{tikzpicture}}
+\newcommand{\grid}{\draw[gray!70,line width=.6pt,step=1] (-3,-3) grid (3,3);
+\foreach \x in {-3,...,3}{\draw[-{Latex},gray!70] (\x,3)--(\x,3.5);\draw[-{Latex},gray!70] (\x,-3)--(\x,-3.5);}
+\foreach \y in {-3,...,3}{\draw[-{Latex},gray!70] (-3,\y)--(-3.5,\y);\draw[-{Latex},gray!70] (3,\y)--(3.5,\y);}
+\foreach \x in {-3,...,3}\foreach \y in {-3,...,3}\fill (\x,\y) circle (1.8pt);}
+\begin{document}
+
+<<body>>
+
+\end{document}

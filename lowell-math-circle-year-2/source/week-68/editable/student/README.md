@@ -2,7 +2,7 @@
 
 One shared four-page Grades 3–5 packet. Prerequisites: follow routes, distinguish vertices from roads, preserve blocked vertices while tracing, distinguish a finite trapped pocket from an endless continuation. Later questions require extending a repeating rule beyond a finite picture and explaining a general claim. Status: reviewed prototype, unpiloted. Revised student pages only; the adult guide is a separate stage.
 
-Build with `python3 build.py [--out PATH]`; check with `python3 check_math.py`. Requires Python 3, pdflatex, TikZ, fancyhdr, amssymb. Portable source has no repository imports or external assets.
+Build with `python3 build.py [--out PATH]`; check with `python3 check_math.py`. Requires Python 3.11+, pdflatex, TikZ, fancyhdr, amssymb. The source is the problem files (`../problem-files/` in the portable ZIP, `lowell-math-circle-year-2/source/week-68/` in the repository); `build.py` first runs `regenerate.py`, which writes `students.tex` from them, then compiles it. Edit the problem files, not `students.tex`. Portable source has no repository imports or external assets.
 
 Preparation: provide at least 10 small opaque blockers per pair, about 6–8 mm across. The grid vertices are 10 mm apart; larger counters can conceal an adjacent open dot. Paper squares are suitable. Ten blockers cover the center and all vertices through radius 2 on the tree. The radius-3 continuation can be reasoned about without covering it physically. Print at 100% on US Letter. Physical material fit still needs rehearsal.
 
