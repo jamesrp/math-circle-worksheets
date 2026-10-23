@@ -47,6 +47,7 @@ Only Week 94 claims a K–1 packet. A shared launch in another week is not a sub
 - **94, October 23, 2026:** the student packets are stored as problem files ([source/week-94/](source/week-94/README.md)); the conversion changed no wording, figure or PDF. Route packets, menu and key are in [band-views/week-94/](band-views/README.md#weeks-stored-as-problem-files).
 - **95, October 23, 2026:** the student packets are stored as problem files ([source/week-95/](source/week-95/README.md)); the conversion changed no wording or figure. Route packets, menu and key are in [band-views/week-95/](band-views/README.md#weeks-stored-as-problem-files).
 - **95, October 23, 2026:** card fixes: the adult keeps the live game and fills its bag from the mixed kit, Grades 4–5 Problem 5 asks which catch sizes force an overlap, the guide adds an adult-led K–1 route, and small wording repairs; previous PDFs archived in [week-95/archive-before-card-fixes-2026-10-23/](week-95/archive-before-card-fixes-2026-10-23/README.md).
+- **96, October 23, 2026:** the student packets are stored as problem files ([source/week-96/](source/week-96/README.md)); the conversion changed no wording or figure. Route packets, menu and key are in [band-views/week-96/](band-views/README.md#weeks-stored-as-problem-files).
 
 ## Verification and use history
 
