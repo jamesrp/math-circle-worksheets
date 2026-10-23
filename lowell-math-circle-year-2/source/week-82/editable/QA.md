@@ -22,6 +22,13 @@ User-directed revision only; the mathematical investigations are retained.
 
 A fresh reviewer inspected the revised student pages and guides independently of the editor. The review covers mathematical correctness, the requested visual changes, printed instructions, and page references. See the week-specific October 15 review record in the repository plans folder.
 
+## October 23, 2026 card fixes (v2)
+
+- `check_card_fixes.py` (run by `build.py`) passes 37 checks: Problem 4's ten two-row arrangements, three shapes, 18 same-shape and 27 other pairs; the WSW-to-WW match (★ → B1, Bn → B(n + 1)) increasing and onto on the first 2000 kids of each row; WWS's last kid; three panels for WSWS beside WWS and no pair needing more; the guide's six-shape table against every one- and two-row arrangement; the launch rule (top kid 20 with bottom 19, a complete match); the K–1 key (six ways, one uncrossed); the changed wording, answer-line spacing, panel count and footer in `students.tex`; and every changed guide phrase.
+- Student packet: 6 pages; guide: 4 pages. Every changed page was rendered at 80 dpi and inspected: student pp. 1–4 and 6 and all four guide pages. Page 5 differs from draft-v1 only in the footer id.
+- The portable ZIP was extracted into an empty folder and rebuilt: both PDFs match the installed copies in pages, text and 100-dpi pixels.
+- Unpiloted; the third panel, the launch demonstration and the K–1 route are unrehearsed.
+
 ## Limits
 
 These checks do not establish classroom readiness. Physical printing, fit, folding/counter/card handling, timing, and classroom use remain untested and unpiloted.

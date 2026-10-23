@@ -11,7 +11,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\small Week 82 / Endless class lines / Grades 3--5}
-\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 82 / W82-Q-draft-v1}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 82 / W82-S-v2}
 \fancyfoot[R]{\scriptsize\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -22,7 +22,7 @@
 \newcommand{\card}[4]{\node[draw=#4,line width=0.85pt,rounded corners=2pt,minimum width=1.12cm,minimum height=0.95cm,fill=white,font=\normalsize] at (#1,#2) {#3};}
 \newcommand{\longcard}[4]{\node[draw=#4,line width=0.85pt,rounded corners=2pt,minimum width=1.72cm,minimum height=1.05cm,fill=white,font=\large] at (#1,#2) {#3};}
 \newcommand{\continuation}[4]{\draw[#4,line width=1.15pt,-{Stealth[length=2.8mm]}] (#1,#2)--++(3.4,0);\node[align=center,font=\small,text=#4] at (#1+1.7,#2-0.85) {#3};}
-\newcommand{\ruleline}{\vspace{0.6cm}\hrule height0.3pt\vspace{0.6cm}\hrule height0.3pt}
+\newcommand{\ruleline}{\vspace{1cm}\hrule height0.3pt\vspace{1cm}\hrule height0.3pt}
 \begin{document}
 There are two classes of kids, and each class lines up. A complete match gives each kid a partner in the other class, with nobody left out. It keeps order when any two kids in the first class appear in the same order as their partners in the second class.
 
@@ -44,7 +44,7 @@ There are two classes of kids, and each class lines up. A complete match gives e
 \end{tikzpicture}
 \end{center}
 
-\problem{1}{Find every match between these two class lines. Which matches keep order? Use cards and yarn to test your matches.}
+\problem{1}{Find every complete match between these two class lines. Which matches keep order?}
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm]
@@ -63,7 +63,7 @@ There are two classes of kids, and each class lines up. A complete match gives e
 
 An arrow marked ``numbers continue forever'' represents all later numbered kids.
 
-\problem{2}{Labels only identify kids. Partners may have different labels; identical labels in two lines do not have to be paired. Compare A with B, then A with C. Can you match every kid? Can a match keep order? Give a rule for every kid, or explain why it is impossible.}
+\problem{2}{Labels only identify kids. Partners may have different labels; identical labels in two lines do not have to be paired. Compare A with B, then A with C. Can you match every kid? Can a complete match keep order? Give a rule for every kid, or explain why it is impossible.}
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm]
@@ -88,7 +88,7 @@ An arrow marked ``numbers continue forever'' represents all later numbered kids.
 
 \newpage
 
-\problem{3}{Compare D with E. Can you match every kid? Can a match keep order? Give a rule for every kid, or explain why it is impossible.}
+\problem{3}{Compare D with E. Can you match every kid? Can a complete match keep order? Give a rule for every kid, or explain why it is impossible.}
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm]
@@ -102,7 +102,7 @@ An arrow marked ``numbers continue forever'' represents all later numbered kids.
 \foreach \x/\n in {9.1/1,10.45/2,11.8/3}{\card{\x}{0}{B\n}{queueB}}
 \draw[queueB,line width=1.1pt,-{Stealth[length=2.8mm]}] (12.6,0)--(15.5,0);
 \node[align=center,font=\small,text=queueB] at (12.1,-1.3) {blue numbers continue forever};
-\node[align=center,font=\small] at (8.1,-2.35) {The whole blue row starts after EVERY red kid.\\There is no last red kid.};
+\node[align=center,font=\small] at (8.1,-2.35) {The whole blue row starts after EVERY red kid.};
 \node[anchor=east] at (0.4,-6.1) {E};
 \foreach \x/\v/\c in {1.8/R1/queueR,3.8/B1/queueB,5.8/R2/queueR,7.8/B2/queueB,9.8/R3/queueR,11.8/B3/queueB}{\longcard{\x}{-6.1}{\v}{\c}}
 \draw[line width=1.1pt,-{Stealth[length=2.8mm]}] (13.0,-6.1)--(15.2,-6.1);
@@ -116,7 +116,7 @@ An arrow marked ``numbers continue forever'' represents all later numbered kids.
 
 \newpage
 
-\problem{4}{Arrange one or two endless numbered rows and up to two $\bigstar$ kids on the table. A star or new row following a whole endless row comes after EVERY kid in that row.}
+\problem{4}{Arrange two endless numbered rows and up to two $\bigstar$ kids on the table. A star or new row following a whole endless row comes after EVERY kid in that row.}
 
 Find two different arrangements that can be matched while keeping order. Find two that can be matched only if order may change. Sketch your arrangements in the boxes. Give matching rules or explain the obstruction.
 
@@ -153,11 +153,11 @@ Find two different arrangements that can be matched while keeping order. Find tw
  \draw[dashed,gray] (\x,0) rectangle ++(3.65,-2.8);
  \node[draw,line width=0.8pt,rounded corners=3pt,minimum width=3.25cm,minimum height=2.4cm,font=\Huge] at (\x+1.825,-1.4) {$\bigstar$};
 }
-\foreach \y in {-4.2,-7.1}{
+\foreach \y in {-4.2,-7.1,-10.0}{
  \draw[dashed,gray] (-0.1,\y) rectangle ++(16.0,-2.25);
  \node[draw,rounded corners=3pt,align=center,minimum width=15.5cm,minimum height=1.8cm] at (7.9,\y-1.125) {This kid comes after EVERY kid\\in the earlier row.};
 }
-\foreach \y in {-10.0,-12.9}{
+\foreach \y in {-12.9,-15.8}{
  \draw[dashed,gray] (-0.1,\y) rectangle ++(16.0,-2.25);
  \node[draw,rounded corners=3pt,align=center,minimum width=15.5cm,minimum height=1.8cm] at (7.9,\y-1.125) {This whole row starts after EVERY kid\\in the earlier row.};
 }

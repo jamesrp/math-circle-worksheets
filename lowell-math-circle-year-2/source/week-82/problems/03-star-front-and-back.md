@@ -7,7 +7,7 @@ kernel = "A star in front of an endless row is absorbed (star to 1, each n to n 
 +++
 
 ## prompt
-Labels only identify kids. Partners may have different labels; identical labels in two lines do not have to be paired. Compare A with B, then A with C. Can you match every kid? Can a match keep order? Give a rule for every kid, or explain why it is impossible.
+Labels only identify kids. Partners may have different labels; identical labels in two lines do not have to be paired. Compare A with B, then A with C. Can you match every kid? Can a complete match keep order? Give a rule for every kid, or explain why it is impossible.
 
 ## text
 \begin{center}

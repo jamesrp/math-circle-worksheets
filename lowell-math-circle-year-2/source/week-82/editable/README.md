@@ -1,6 +1,6 @@
-# Week 82: Endless class lines — organizer-approved
+# Week 82: Endless class lines — organizer-approved draft-v1, revised v2
 
-Grades 3–5; infinite-rule and order reasoning. A selected-band menu, not a requirement to finish every page in one session. All activities are unpiloted; physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. The theorem-first guide gives assumptions, preparation, launch, first route, solutions, hints and return visits.
+Grades 3–5; infinite-rule and order reasoning; an adult-led K–1 route on Problem 1 in the guide. A selected-band menu, not a requirement to finish every page in one session. All activities are unpiloted; physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. The theorem-first guide gives assumptions, preparation, launch, first route, solutions, hints and return visits.
 
 ## Build the two PDFs
 
@@ -19,6 +19,7 @@ After extracting the portable ZIP, run `python3 week-82/build.py --out rebuilt -
 - Student pages: stored as problem files since October 23, 2026 (in the repository `../week.toml`, `../template.tex` and `../problems/`; in the ZIP `problem-files/`, with the tools in `problem-files/tools/`). `student/regenerate.py` writes `student/students.tex` from them; edit the problem files, not `students.tex`. The packet: final 6-page student/material draft, created by a fresh writer then revised by a separate agent after independent adversarial and mathematical reviews.
 - `reference-pdfs/`: copies of the current print PDFs.
 - `guide/facilitator.tex`: separate facilitator step, revised and independently reviewed. This guide-authoring step is untested as a classroom workflow.
+- `check_card_fixes.py`: checks the keys, counts and wording changed by the October 23 card fixes; the build runs it after `check_math.py`.
 - `check_math.py`: portable copy/adaptation of the independent mathematical checker's code; finite computation supports the proofs in the guide.
 - `build.py`: both-PDF deterministic builder; [SOURCES.md](SOURCES.md) records attribution.
 
@@ -35,3 +36,7 @@ See [QA.md](QA.md) for digital checks and independent review. The changes remain
 ## October 17 organizer feedback
 
 The accepted matching diagrams now use two classes of kids lining up, with the organizer's opening wording. The identifier-only convention first appears in Problem 2. Removed only the former student page 5 (four continuation-strip cutouts); Problems 1–4 and their workspaces remain, and the remaining cards/panels are now pages 5–6. The guide describes drawing continuation arrows on blank paper. This revision is organizer-approved and promoted following the organizer’s “LGTM” approval. The accepted student and facilitator PDFs are unchanged. Unpiloted; physical preparation and procedures remain untested.
+
+## October 23 card fixes (v2), after the organizer's approval
+
+From the review card (`plans/review/week-82.md`), made after the organizer's October 17 approval and not yet re-approved. Student pages: "complete match" in Problems 1–3; two endless rows in Problem 4; "There is no last red kid." and "Use cards and yarn to test your matches." cut; answer lines 1 cm apart; a third "This kid comes after EVERY kid" panel on page 6; footer W82-S-v2. Guide: Problem 4's key and six-shape table; a launch demonstration (top 1 with bottom 2, top 2 with bottom 1, …; "Who is top kid 20's partner?"); a K–1 route on Problem 1; "B1, the first blue kid in D" in the hints; when the right-edge card appears; the header "Adult guide". Unpiloted.

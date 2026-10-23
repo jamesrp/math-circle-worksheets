@@ -4,11 +4,11 @@ title = "Arrange rows and stars"
 grades = ["3-5"]
 route = "return"
 page = "new"
-kernel = "Arrangements of rows and stars match keeping order exactly when they have the same shape once each star waiting before a row joins that row; any two match if order may change."
+kernel = "Two rows and up to two stars make ten arrangements of three shapes: they match keeping order exactly when they have the same shape once each star waiting before a row joins that row, so a star between the rows vanishes into the second row; any two match if order may change."
 +++
 
 ## prompt
-Arrange one or two endless numbered rows and up to two $\bigstar$ kids on the table. A star or new row following a whole endless row comes after EVERY kid in that row.
+Arrange two endless numbered rows and up to two $\bigstar$ kids on the table. A star or new row following a whole endless row comes after EVERY kid in that row.
 
 ## text
 Find two different arrangements that can be matched while keeping order. Find two that can be matched only if order may change. Sketch your arrangements in the boxes. Give matching rules or explain the obstruction.

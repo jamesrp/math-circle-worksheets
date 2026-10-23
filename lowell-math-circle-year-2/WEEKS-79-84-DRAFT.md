@@ -18,7 +18,7 @@ Individual PDFs below open without unpacking a ZIP. These provisional library nu
 
 [Student/material PDF (5 pages)](week-81/week-81-students.pdf) · [Facilitator PDF (4 pages)](week-81/week-81-facilitator.pdf) · [Editable sources](source/week-81/README.md) · [Portable source ZIP](source/week-81-source.zip)
 
-**82. Endless class lines** — Match kids in two classes while preserving order. Put an extra kid before or after an endless line. Grades 3–5, with adult introduction to continuation rules.
+**82. Endless class lines** — Match kids in two classes while preserving order. Put an extra kid before or after an endless line. Grades 3–5, with adult introduction to continuation rules. Revised October 23 from its review card, after the organizer's October 17 approval: "complete match" in Problems 1–3, two rows in Problem 4, a third panel, and a guide with Problem 4's key, a launch demonstration and a K–1 route; the approved PDFs are [archived](week-82/archive-before-card-fixes-2026-10-23/README.md).
 
 [Student/material PDF (6 pages)](week-82/week-82-students.pdf) · [Facilitator PDF (4 pages)](week-82/week-82-facilitator.pdf) · [Editable sources](source/week-82/README.md) · [Portable source ZIP](source/week-82-source.zip)
 

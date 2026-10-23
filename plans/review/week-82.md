@@ -44,6 +44,8 @@ Two lines can match kid for kid (same size) without matching in order (same shap
 9. **could**, pp. 1–4: answer lines are hairline pairs 0.6 cm apart; lines 1 cm apart, or blank space, suit handwriting.
 10. **could**, p. 1, P1: cut "Use cards and yarn to test your matches."; the launch gives the materials.
 
+October 23, 2026: shoulds 1–5 and coulds 6–10 fixed in v2 (W82-S-v2), after the organizer's October 17 approval; the K–1 route is a guide paragraph on Problem 1's cards, and could 9 uses lines 1 cm apart. Checks in the package's `check_card_fixes.py`.
+
 ## Overlaps
 
 Week 81's guide orders two-bucket positions as ω·a + b, the shapes P4 builds; 81 uses that order, 82 asks when two orders match. Weeks 79 and 80 take limits of endless processes, and Week 83's guide repeats this guide's warning about 1 + ω. Week 68's endless maps count ends, not order. P1 is the six orders of three from Weeks 3 and 43; Week 27's two-class matching is a different theorem. No merge; 79–83 make a return sequence.

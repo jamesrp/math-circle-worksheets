@@ -7,7 +7,7 @@ kernel = "Three kids and three kids have 3 x 2 x 1 = 6 complete matches, and onl
 +++
 
 ## prompt
-Find every match between these two class lines. Which matches keep order? Use cards and yarn to test your matches.
+Find every complete match between these two class lines. Which matches keep order?
 
 ## text
 \begin{center}
