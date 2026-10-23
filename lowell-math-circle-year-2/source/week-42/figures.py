@@ -1,5 +1,6 @@
-"""Week 42 figures and canvas page template, carried over unchanged from the old builder
-(archive-before-problem-files-2026-10-23/write.py and common.py).
+"""Week 42 figures and canvas page template, carried over from the old builder
+(archive-before-problem-files-2026-10-23/write.py and common.py); the October 23, 2026
+card fixes added the blank and marked-pair grids and changed the figures noted below.
 
 Coordinates are centimetres on an 18.2 x 23.6 cm page picture; a figure's y grows
 downward and is negated when drawn, as the old builder did. Problem files call the
@@ -101,7 +102,6 @@ def pairs_grid(b,y=6):
   for j in range(4):b.box(x+j*d,y+i*d,d,d)
  b.put(fr'\draw[line width=1.4pt] ({x+3*d},{-y-d}) rectangle ({x+4*d},{-y-2*d});')
  b.token(x+3*d+.7,y+d+1.5,'R','R2',.42);b.token(x+3*d+2.2,y+d+1.5,'B','B',.42)
- b.text(y+12.35,'Each box names one equally likely pair of labeled counters.',size=12)
 
 def storyslot(b,x,y):
  b.box(x,y,3.6,1.65);b.put(fr'\draw[gray!50] ({x+1.8},{-y}) -- ({x+1.8},{-y-1.65});')
@@ -109,6 +109,25 @@ def storyslot(b,x,y):
 def markedpair(b,x,y,a,c):
  b.box(x,y,5.5,2.7)
  b.token(x+1.35,y+1.35,a[0],a,.52);b.token(x+4.15,y+1.35,c[0],c,.52)
+def blank_grid(b,x,y,d,heads=None,r=.4):
+ """A 4-by-4 grid of d-cm cells with x, y its top left; head circles above the columns
+ and left of the rows, labeled with heads or left empty for the children to label."""
+ for i in range(4):
+  c,lab=(heads[i][0],heads[i]) if heads else ('','')
+  b.token(round(x+i*d+d/2,3),round(y-.65,3),c,lab,r)
+  b.token(round(x-.65,3),round(y+i*d+d/2,3),c,lab,r)
+  for j in range(4):b.box(round(x+j*d,3),round(y+i*d,3),d,d)
+def labeled_bag(b,x,y,labels):
+ """A one-row bag whose counters carry their marks (R, B1, ...)."""
+ b.box(x,y,round(len(labels)*1.1+.45,2),1.65)
+ for i,l in enumerate(labels):b.token(round(x+.75+i*1.05,2),y+.7,l[0],l)
+def marked_grid(b,y,labels):
+ """All 16 marked pairs from a four-counter bag in compact boxes, one row per first counter."""
+ for i,a in enumerate(labels):
+  for j,c in enumerate(labels):
+   x,yy=round(j*4.5,2),round(y+i*1.85,2)
+   b.box(x,yy,4.3,1.65)
+   b.token(x+1.15,round(yy+.825,3),a[0],a,.45);b.token(x+3.15,round(yy+.825,3),c[0],c,.45)
 
 
 @draw
@@ -129,7 +148,7 @@ def k1_bag_and_pair(b):  # 00
 def k1_pair_boxes(b):  # 01
  for x,y in [(0,8),(9,8),(0,13),(9,13)]:
   b.box(x,y,7.4,3.5);b.put(fr'\draw[gray!50] ({x+3.7},{-y}) -- ({x+3.7},{-y-3.5});')
- b.bag(1,19,'RRR');b.bag(10,19,'RRRB')
+ b.bag(1,19,'RRRB','the bag');b.bag(10,19,'RRR','blue taken out')
 
 
 @draw
@@ -150,14 +169,16 @@ def k1_marked_pairs(b):  # 05
 
 
 @draw
-def k1_other_bags(b):  # 06
- for x,y,cs in [(0,3,'RBBB'),(10,3,'RRBB'),(0,8,'RRRR'),(10,8,'BBBB')]:b.bag(x,y,cs)
- b.box(0,13,18,3.5)
+def k1_other_bags(b):  # 06: the four bags, then every marked pair of the two mixed bags
+ one,two=['R','B1','B2','B3'],['R1','R2','B1','B2']
+ labeled_bag(b,0,2,one);labeled_bag(b,10,2,two);b.bag(0,4.1,'RRRR');b.bag(10,4.1,'BBBB')
+ b.text(6.4,'Marked pairs from R, B1, B2, B3',size=13);marked_grid(b,7.1,one)
+ b.text(14.75,'Marked pairs from R1, R2, B1, B2',size=13);marked_grid(b,15.45,two)
 
 
 @draw
-def k1_two_boxes(b):  # 07
- b.box(0,21,7.8,2.3);b.box(9.8,21,7.8,2.3)
+def k1_two_boxes(b):  # 07, now on its own page
+ b.box(0,2.6,8.6,6);b.box(9.4,2.6,8.6,6)
 
 
 @draw
@@ -185,13 +206,24 @@ def bags(b,specs,lines=None):  # bags as (x, y, colors, caption), then ruled lin
 
 
 @draw
-def two_bags_arrow(b):  # 15
- b.bag(0,3,'RRRB','first draw');b.bag(11,3,'RBBB','second draw');b.arrow(5.5,3.8,10,3.8);b.space(7,4)
+def bags_blank_grids(b):  # 13: each bag over a blank grid with empty heads
+ for x,gx,cs in [(1,1.1,'RRBB'),(10,10.4,'RBBB')]:
+  b.bag(x,2,cs);blank_grid(b,gx,5.1,1.75)
+ b.space(13.1,2)
 
 
 @draw
-def labeled_pair_lines(b):  # 21
- b.pair(0,18,'R','B',('R2','B'));b.text(18.25,'R2 then B is one labeled pair.',5,12,12);b.space(21,3)
+def two_bags_grid(b):  # 15: the two bags over one blank grid, lines beside it
+ b.bag(0,2.2,'RRRB','first draw');b.bag(11,2.2,'RBBB','second draw');b.arrow(5.5,3,10,3)
+ blank_grid(b,1.1,5.7,1.75)
+ for y in (6.7,7.9,9.1,10.3,11.5,12.7):b.line(y,8.4,9.6)
+
+
+@draw
+def labeled_grid_lines(b):  # 21: a grid headed R1, R2, R3, B; the pair example and lines beside it
+ blank_grid(b,1.1,15.6,1.85,['R1','R2','R3','B'])
+ b.pair(9.8,15.6,'R','B',('R2','B'));b.text(17.3,'R2 then B is one labeled pair.',9.8,8.2,12)
+ for y in (19.2,20.2,21.2,22.2,23.2):b.line(y,8.2,9.8)
 
 
 @draw
@@ -210,7 +242,3 @@ def bag_and_pair(b):  # 25
 def lines(b,y,n,gap=1):
  b.space(y,n,gap)
 
-
-@draw
-def box_only(b,x,y,w,h):
- b.box(x,y,w,h)

@@ -46,6 +46,8 @@ Children turn ordered pairs of draws from three red counters and one blue into a
 13. **could**, trims: "independently" (2–3 and 4–5 p. 1), the bag captions (2–3 p. 3, 4–5 p. 2) and 4–5 P1's "it must sometimes give each shape".
 14. **could**, guide: the 4–5 keys could add other fair rules (RR → square, BB → circle for RRRB then RBBB; both-red → square, else circle without replacement, which never skips); the 0–60 timeline exceeds context.md's 35–40 minutes at the tables.
 
+Fixed October 23, 2026, after converting the week to problem files: shoulds 1–9 and coulds 11–13 and 14's other fair rules (v3 packets; K–1 is six pages; checked in `source/week-42/editable/review/verify_card_shoulds_2026_10_23.py`). Should 10 was already done in W42-BONUS-v2. Deferred: 14's timeline.
+
 ## Overlaps
 
 Week 43 (shuffling picture cards) has the same obstruction: 27 equally likely stories cannot split evenly among six orders. Week 44 (the bag that copies) reaches exchangeability, where 4–5 P6 leads; the guides could cross-refer. Week 24's two-deck pairs resemble the cross-bag cases; Week 45's fair ticket cups are near the bonus P3. None has unbiasing, the skip minimum or p = q. No merge.

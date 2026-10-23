@@ -7,7 +7,7 @@ route = ["first", "return"]
 +++
 
 ## text @0 size=13
-Use the same bag of three red counters and one blue. Draw twice in order, independently, giving every counter the same chance each time. Return and mix after each draw.
+Use the same bag of three red counters and one blue. Draw twice in order, giving every counter the same chance each time. Return and mix after each draw.
 
 ## figure
 sample_rule(2,2.65,2.05)

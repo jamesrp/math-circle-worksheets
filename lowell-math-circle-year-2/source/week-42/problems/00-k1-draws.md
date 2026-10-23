@@ -7,7 +7,7 @@ route = ["first", "return"]
 +++
 
 ## text @0 size=13
-For random draws, use the same bag. Every counter has the same chance each time; put it back and mix after each draw.
+Use the same bag. Put each counter back after every draw; for random draws, mix and draw without looking.
 
 ## figure
 k1_bag_and_pair()

@@ -13,7 +13,7 @@ The counters are marked R1, R2, R3, and B. Use all the equally likely labeled pa
 labeled_pair_grid()
 
 ## key
-With labeled counters R1, R2, R3, B, all 16 ordered pairs are equally likely. The grid below records the color pair in each cell; row identity is the first draw and column identity is the second.
+With labeled counters R1, R2, R3, B, all 16 ordered pairs are equally likely. In the grid below, rows are first draws and columns second draws.
 
 R1: RR, RR, RR, RB. R2: RR, RR, RR, RB. R3: RR, RR, RR, RB. B: BR, BR, BR, BB.
 

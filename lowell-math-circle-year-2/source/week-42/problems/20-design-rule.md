@@ -8,10 +8,10 @@ kernel = "RB against BR is the only fair color-only rule for three red and one b
 +++
 
 ## prompt @6
-Design a fair rule for this bag. It must use only the colors and their order, and it must sometimes give each shape.
+Design a fair rule for this bag. It must use only the colors and their order.
 
 ## figure
-rule_board(8.3)
+rule_board(7.9)
 
 ## key
 Use BR $\to$ square, RB $\to$ circle, RR/BB $\to$ no shape, or interchange the shapes.
