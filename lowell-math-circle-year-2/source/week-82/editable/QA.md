@@ -32,3 +32,5 @@ A fresh reviewer inspected the revised student pages and guides independently of
 ## Limits
 
 These checks do not establish classroom readiness. Physical printing, fit, folding/counter/card handling, timing, and classroom use remain untested and unpiloted.
+
+Critic follow-up, October 23, 2026 (W82-FAC-v2): the guide's footer carries a version id and page 1 points to the next page for the K–1 route. `check_card_fixes.py` checks both; a clean build from the extracted ZIP matches the print copies. The student packet is unchanged. Unpiloted.

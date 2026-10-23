@@ -46,6 +46,8 @@ Two lines can match kid for kid (same size) without matching in order (same shap
 
 October 23, 2026: shoulds 1–5 and coulds 6–10 fixed in v2 (W82-S-v2), after the organizer's October 17 approval; the K–1 route is a guide paragraph on Problem 1's cards, and could 9 uses lines 1 cm apart. Checks in the package's `check_card_fixes.py`.
 
+**Critic follow-up, October 23, 2026 (W82-FAC-v2):** an independent critic's should is made: the guide's footer, which had no version id, reads W82-FAC-v2, so it can be told apart from the approved guide. Its could on guide p. 1 is made too ("(see the next page)" for the K–1 route), and the band-view menu and a K–1 slice list pages 1 and 5. Its other could, a held hint for Problem 4 ("Can a star that is not at either end still keep order with WW?"), is left for the organizer's view of v2. The student packet did not change; v2 is not re-approved. Unpiloted.
+
 ## Overlaps
 
 Week 81's guide orders two-bucket positions as ω·a + b, the shapes P4 builds; 81 uses that order, 82 asks when two orders match. Weeks 79 and 80 take limits of endless processes, and Week 83's guide repeats this guide's warning about 1 + ω. Week 68's endless maps count ends, not order. P1 is the six orders of three from Weeks 3 and 43; Week 27's two-class matching is a different theorem. No merge; 79–83 make a return sequence.

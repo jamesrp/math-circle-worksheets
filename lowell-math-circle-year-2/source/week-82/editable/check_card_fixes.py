@@ -100,7 +100,7 @@ check('four problems, six pages', re.findall(r'\\problem\{(\d+)\}', tex) == ['1'
 
 # Adult guide.
 flat = ' '.join(guide.split())
-for phrase in [r'\rhead{Adult guide}', 'row, star, row has type $\\omega+1+\\omega=\\omega+\\omega$',
+for phrase in [r'\rhead{Adult guide}', 'Week 82 / W82-FAC-v2', 'route on Problem 1 (see the next page)', 'row, star, row has type $\\omega+1+\\omega=\\omega+\\omega$',
                "``Who is top kid 20's partner?'' (Bottom 19", 'join partners with yarn',
                'K--1, adult-led on Problem 1', 'only straight across (R1--B1, R2--B2, R3--B3) has no crossings',
                'If both lines show numbered kids 1--6, B also shows its star', '18 two-row pairs', 'the other 27 two-row pairs',
