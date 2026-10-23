@@ -13,6 +13,6 @@ player's squares.
 ## text
 \gamelabel{Play the grown-up, who goes first.}
 \twotracks
-\gamelabel{Play your partner, and you go first.}
+\gamelabel{Play your partner, taking turns going first.}
 \threetracks
 \end{problem}
