@@ -1,6 +1,6 @@
 # Week 55 facilitator source
 
-This is the separately authored facilitator guide W55-F-v1 for the final ten-page Grades 3–5 student packet W55-S-v2. It supplies the exact mathematical overview, concrete setup/launch, fixed-table staffing and print counts, readiness gates, complete keys, arbitrary-size proofs, return visits and evidence-scoped provenance. It contains no student edits or borrowed worksheet prose/figures. Physical kit-fit pretests, handling rehearsal, launch rehearsal and classroom piloting have not been performed.
+Since the October 23, 2026 card fixes the guide is W55-F-v2 and the student packet W55-S-v3. This is the separately authored facilitator guide W55-F-v1 for the final ten-page Grades 3–5 student packet W55-S-v2. It supplies the exact mathematical overview, concrete setup/launch, fixed-table staffing and print counts, readiness gates, complete keys, arbitrary-size proofs, return visits and evidence-scoped provenance. It contains no student edits or borrowed worksheet prose/figures. Physical kit-fit pretests, handling rehearsal, launch rehearsal and classroom piloting have not been performed.
 
 ## Build anywhere
 

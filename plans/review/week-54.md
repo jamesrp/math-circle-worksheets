@@ -44,7 +44,7 @@ A collection is a partition: unordered strips adding to a total. Joining equal p
 9. **could**, P4: add (6,6,1), which comes back as (12,1), as a contrast for 4–5, and drop "again".
 10. **could**, guide p. 8: "guide-src/check_answers.py" is guide/check_answers.py.
 
-October 23, 2026: shoulds 1–3 and coulds 4–8 and 10 fixed, after storing the week as problem files; the K–1 route is guide-only (headers unchanged), and could 9's printed (6, 6, 1) case is deferred, with the contrast given aloud in the guide. Checked by `source/week-54/editable/review/`.
+October 23, 2026: shoulds 1–3 and coulds 4–8 and 10 fixed, after storing the week as problem files; the K–1 route is guide-only (headers unchanged), and could 9's printed (6, 6, 1) case is deferred, with the contrast given aloud in the guide. Checked by `source/week-54/editable/review/`. Footers: student W54-S-v2, guide W54-FAC-v2.
 
 ## Overlaps
 

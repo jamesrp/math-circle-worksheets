@@ -2,7 +2,7 @@
 
 Since October 23, 2026 `students.tex` is written from the problem files by `regenerate.py` (`python3 regenerate.py --check` confirms it is current); edit the problem files, not `students.tex`. `build.py` here still compiles the written file.
 
-Status: fresh revision W55-S-v2, October 4, 2026, addressing the separate adversarial and independent mathematical reviews. One combined ten-page student packet, chiefly Grades 3–5, with no manufactured K–1 variant. Prepared for review; not approved, physically rehearsed, or classroom piloted. No publication, remote write, or facilitator-guide authorship is part of this stage. Only the assigned run is edited.
+Current footer: W55-S-v3, after the October 23, 2026 card fixes. Status: fresh revision W55-S-v2, October 4, 2026, addressing the separate adversarial and independent mathematical reviews. One combined ten-page student packet, chiefly Grades 3–5, with no manufactured K–1 variant. Prepared for review; not approved, physically rehearsed, or classroom piloted. No publication, remote write, or facilitator-guide authorship is part of this stage. Only the assigned run is edited.
 
 ## Build and check
 

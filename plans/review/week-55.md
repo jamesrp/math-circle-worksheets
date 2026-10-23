@@ -43,7 +43,7 @@ Two finite sets of whole numbers have at least m + n − 1 and at most mn differ
 7. **could**, guide p. 2: "one reserve copy of pages 4–10" serves both tables; print pp. 4–5 for each third-grade pair.
 8. **could**, guide p. 2: "24 blue rhombi, 48 green triangles, 12 purple pieces, and a few small red/yellow pieces per child" reads as per child; it is for four.
 
-October 23, 2026: shoulds 1–2 and coulds 3 and 6–8 fixed, after storing the week as problem files (could 8 by replacing the tiling kit with the K–1 route's dot cards); the K–1 route is guide-only (headers unchanged), and coulds 4–5 are deferred, with both variants given aloud in the guide. Checked by `source/week-55/editable/review/`.
+October 23, 2026: shoulds 1–2 and coulds 3 and 6–8 fixed, after storing the week as problem files (could 8 by replacing the tiling kit with the K–1 route's dot cards); the K–1 route is guide-only (headers unchanged), and coulds 4–5 are deferred, with both variants given aloud in the guide. Checked by `source/week-55/editable/review/`. Footers: student W55-S-v3, guide W55-F-v2.
 
 ## Overlaps
 

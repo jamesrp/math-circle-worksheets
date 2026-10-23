@@ -36,7 +36,7 @@ for number,page in enumerate(doc,1):
     text = page.get_text()
     assert text.splitlines()[0] == 'Week 55 / Few sums and equal spacing / Grades 3–5'
     assert f'Problem {number}:' in text
-    assert 'Bellingham Math Circle / Week 55 / W55-S-v2' in text
+    assert 'Bellingham Math Circle / Week 55 / W55-S-v3' in text
     assert text.splitlines()[-1] == str(number)
     assert 'Name' not in text and 'Date' not in text
     if number == 6:

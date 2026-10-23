@@ -48,11 +48,11 @@ st = [text(p) for p in doc]
 nums = []
 for i, t in enumerate(st):
     band = '2–5' if i < 5 else '4–5'
-    check(t.startswith(f'Week 54 / Partitions and rebuilding / Grades {band}') and f'Bellingham Math Circle / Week 54 / W54-S-v1 {i+1}' in t,
-          f'students p{i+1}: header Grades {band}, footer W54-S-v1, page {i+1}')
+    check(t.startswith(f'Week 54 / Partitions and rebuilding / Grades {band}') and f'Bellingham Math Circle / Week 54 / W54-S-v2 {i+1}' in t,
+          f'students p{i+1}: header Grades {band}, footer W54-S-v2, page {i+1}')
     nums += [int(n) for n in re.findall(r'Problem (\d+):', t)]
 check(len(doc) == 9 and nums == list(range(1, 10)), f'students: 9 pages, Problems {nums}')
-check('W54-S-v1 1 A collection uses all the units, in straight strips. Every strip has at least one unit.' in st[0]
+check('W54-S-v2 1 A collection uses all the units, in straight strips. Every strip has at least one unit.' in st[0]
       and 'Use all the units in a collection' not in st[0], 'p1: "A collection uses all the units, in straight strips." (fix 5)')
 check('Problem 6: Try different legal joining routes for this collection until all sizes are different. Can the routes end with different collections? '
       'Decide whether this can happen from any collection with only odd sizes.' in st[5]
@@ -81,7 +81,7 @@ check(ok and sizes == {(0.22, 0.22)}, f'P7: six answer grids of 5 x 5 cells, 0.2
 
 g = ' '.join(subprocess.run(['pdftotext', str(WEEK / 'week-54-facilitator.pdf'), '-'], capture_output=True, text=True, check=True).stdout.split())
 g = re.sub(r'(?<=[a-z])- (?=[a-z])', '', g)
-check(fitz.open(WEEK / 'week-54-facilitator.pdf').page_count == 8, 'guide: 8 pages')
+check(fitz.open(WEEK / 'week-54-facilitator.pdf').page_count == 8 and g.count('W54-FAC-v2') == 8, 'guide: 8 pages, footer W54-FAC-v2')
 for s in ['K–1 has no packet of its own: an adult-led route uses the cubes on student pp. 1–3', 'K–1 route, adult-led, on student pp. 1–3',
           'Five collections: one strip of 4; 3 and 1; 2 and 2; 2, 1 and 1; four 1s', 'end as an 8 and a 1',
           'Four collections use only odd strips: 5 and 1; 3 and 3; 3, 1, 1 and 1; six 1s', 'Two kits of 12 linking cubes', '108 cubes',

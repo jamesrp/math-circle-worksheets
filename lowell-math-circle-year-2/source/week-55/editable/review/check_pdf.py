@@ -47,8 +47,8 @@ doc = fitz.open(WEEK / 'week-55-students.pdf')
 st = [text(p) for p in doc]
 nums = []
 for i, t in enumerate(st):
-    check(t.startswith('Week 55 / Few sums and equal spacing / Grades 3–5') and f'Bellingham Math Circle / Week 55 / W55-S-v2 {i+1}' in t,
-          f'students p{i+1}: header Grades 3–5, footer W55-S-v2, page {i+1}')
+    check(t.startswith('Week 55 / Few sums and equal spacing / Grades 3–5') and f'Bellingham Math Circle / Week 55 / W55-S-v3 {i+1}' in t,
+          f'students p{i+1}: header Grades 3–5, footer W55-S-v3, page {i+1}')
     nums += [int(n) for n in re.findall(r'Problem (\d+):', t)]
 check(len(doc) == 10 and nums == list(range(1, 11)), f'students: 10 pages, Problems {nums}')
 check('No number repeats within an input; A and B may share numbers.' in st[0] and 'Each input has different numbers' not in st[0],
@@ -67,7 +67,7 @@ check(len(dots) == 27 and grey and not late, f'p8: {len(dots)} dots and {len(gre
 
 g = ' '.join(subprocess.run(['pdftotext', str(WEEK / 'week-55-facilitator.pdf'), '-'], capture_output=True, text=True, check=True).stdout.split())
 g = re.sub(r'(?<=[a-z])- (?=[a-z])', '', g)
-check(fitz.open(WEEK / 'week-55-facilitator.pdf').page_count == 9, 'guide: 9 pages')
+check(fitz.open(WEEK / 'week-55-facilitator.pdf').page_count == 9 and g.count('W55-F-v2') == 9, 'guide: 9 pages, footer W55-F-v2')
 for s in ['An adult-led route on student pages 1–3 uses dot cards', 'K–1 route, adult-led, on student pages 1–3', '28 dot cards and 40 more counters',
           'cards 0–6 showing the numeral and that many dots', '1, 3, 5 (three places; 2 + 1 and 0 + 3 both land on 3), then 1, 3, 4, 6 (four)',
           'choose three A cards and three B cards that land on as few places as you can', 'Five is the fewest',
