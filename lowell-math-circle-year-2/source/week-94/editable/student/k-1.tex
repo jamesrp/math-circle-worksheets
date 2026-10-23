@@ -1,4 +1,4 @@
-\def\band{Grades K--1}\def\packet{W94-K-v1}\documentclass[letterpaper,12pt]{article}
+\def\band{Grades K--1}\def\packet{W94-K-v2}\documentclass[letterpaper,12pt]{article}
 \usepackage[margin=0.65in,headheight=18pt,headsep=18pt,footskip=24pt]{geometry}
 \usepackage{tikz,array,fancyhdr,amsmath}
 \usepackage[T1]{fontenc}
@@ -33,6 +33,16 @@
 \foreach\i in{0,...,2}{\draw[fill=gray!15](3.6+\i,0)rectangle+(1,.7);}\draw[fill=gray!35](6.6,0)rectangle+(1,.7);
 \node at (5.6,1.3){3 copies, then add 1};\node[below] at(5.1,0){copies};\node[below]at(7.1,0){extra};
 \draw[->,thick](8.1,.35)--(9.1,.35);\node at(10.6,.35){report: 4};
+\end{tikzpicture}}
+\newcommand{\tcubes}[3]{\foreach\j in{1,...,#3}{\draw[fill=gray!15](#1,#2+\j-1)rectangle+(1,1);}}
+\newcommand{\tcells}[3]{\foreach\j in{1,...,#3}{\draw[gray!70](#1,#2+\j-1)rectangle+(1,1);}}
+\newcommand{\towerexample}{\begin{tikzpicture}[x=9mm,y=9mm,font=\small]
+\tcubes{0}{0}{2}\node[below]at(.5,0){in: 2 cubes};
+\draw[->,thick](1.7,1)--(3.4,1);
+\tcubes{4.5}{0}{2}\draw[fill=gray!45](4.5,2)rectangle+(1,1);\node[right]at(5.5,2.5){extra};
+\node[below]at(5,0){add 1 extra};
+\draw[->,thick](6.9,1)--(8.6,1);
+\tcubes{9.7}{0}{3}\node[below]at(10.2,0){out: 3 cubes};
 \end{tikzpicture}}
 \begin{document}\fontsize{15}{19}\selectfont
 Use the four loose strips and the uncut row of squares. Each square is one unit. Lay strips along the ruler with both ends at printed marks.
@@ -77,4 +87,45 @@ D\quad\ruler{2}
 
 \vspace{4mm}
 \begin{center}\ruler{2}\end{center}
+
+\newpage
+
+The machine takes a tower of cubes and gives back a tower with the same number of cubes plus a secret extra of 1, 2 or 3 cubes. The extra stays the same for the whole game.
+\begin{center}\towerexample\end{center}
+
+\problem{4}{Play the machine: choose a secret extra, and behind a cover build what comes out for each tower your partner gives you. Your partner finds your extra; then switch jobs.}
+
+\begin{center}\begin{tabular}{|p{2.6cm}|p{4.2cm}|p{4.2cm}|p{3.4cm}|}\hline
+Round & Towers in & Towers out & Extra \\\hline
+1\rule{0pt}{17mm}&&&\\\hline 2\rule{0pt}{17mm}&&&\\\hline 3\rule{0pt}{17mm}&&&\\\hline 4\rule{0pt}{17mm}&&&\\\hline
+\end{tabular}\end{center}
+
+\newpage
+
+\problem{5}{Build every pair of towers that could have gone in, and colour each pair you find. Could P be taller than Q?}
+
+\begin{center}\begin{tikzpicture}[x=7mm,y=7mm]
+\node at(1.75,7.1){came out};
+\tcubes{0}{0}{4}\node[below]at(.5,0){P};
+\tcubes{2.5}{0}{6}\node[below]at(3,0){Q};
+\draw[gray](4.75,-1)--(4.75,7.6);
+\node at(13.25,7.1){could have gone in};
+\foreach\s in{0,...,3}{\tcells{6+4*\s}{0}{6}\node[below]at(6.5+4*\s,0){P};\tcells{7.5+4*\s}{0}{6}\node[below]at(8+4*\s,0){Q};}
+\end{tikzpicture}\end{center}
+
+\problem{6}{P and Q still come out as 4 and 6 cubes, but each machine has its own extra. Build P and Q for each machine, and colour them.}
+
+\begin{center}\begin{tikzpicture}[x=6.5mm,y=6.5mm]
+\foreach\i/\a/\b in{0/1/2,1/2/5,2/3/5}{\begin{scope}[shift={(9*\i,0)}]
+\draw[gray,rounded corners](-1,-10.9)rectangle(6.8,7.1);
+\node at(2.9,6.3){known tower};
+\tcubes{.4}{0}{\a}\node[below]at(.9,0){in};
+\draw[->,thick](1.8,1)--(3.6,1);
+\tcubes{4.4}{0}{\b}\node[below]at(4.9,0){out};
+\draw[gray!60](-1,-2)--(6.8,-2);
+\node at(2.9,-2.9){P and Q went in};
+\tcells{1.4}{-9.8}{6}\node[below]at(1.9,-9.8){P};
+\tcells{3.4}{-9.8}{6}\node[below]at(3.9,-9.8){Q};
+\end{scope}}
+\end{tikzpicture}\end{center}
 \end{document}

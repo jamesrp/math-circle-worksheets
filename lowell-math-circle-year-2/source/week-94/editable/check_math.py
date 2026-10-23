@@ -37,6 +37,30 @@ triples = [(i,j,k) for i,j in combinations(lengths,2) for k in lengths
 assert triples == [('A','C','D')]
 say('K1 P3', triples)
 
+# K-1 Problems 4-6 (added October 23, 2026): the tower machine, extras 1-3.
+k1_extras = (1, 2, 3)
+assert 2 + 1 == 3  # worked picture on page 3: 2 cubes in, 1 extra, 3 out
+# P4: any one known tower shows the extra as the cubes left over beside a twin.
+for c, n in product(k1_extras, range(1, 10)):
+    out = n + c
+    assert out - n == c and out > n
+say('K1 P4', 'one known tower always shows the extra')
+# P5: towers (at least one cube) coming out as 4 and 6.
+k1_pairs = [(4-c, 6-c, c) for c in k1_extras if 4-c >= 1]
+assert k1_pairs == [(3,5,1),(2,4,2),(1,3,3)]
+assert all(q-p == 2 for p,q,c in k1_pairs)
+assert [c for c in range(1, 6) if 4-c >= 1] == [1, 2, 3]  # extras 4, 5 leave no P
+assert len(k1_pairs) < 4 and max(q for p,q,c in k1_pairs) <= 6  # 4 slots, 6-cell columns
+assert sum(p+q for p,q,c in k1_pairs) == 18 and 18 + 4 + 6 == 28 <= 30
+say('K1 P5', k1_pairs)
+# P6: each known tower (in, out) fixes the extra and picks one P5 pair.
+k1_rows = [(1,2),(2,5),(3,5)]
+picked = [(4-(o-i), 6-(o-i), o-i) for i,o in k1_rows]
+assert all(c in k1_extras for p,q,c in picked)
+assert picked == [(3,5,1),(1,3,3),(2,4,2)]
+assert sorted(picked) == sorted(k1_pairs)
+say('K1 P6 (P, Q, extra)', picked)
+
 # Middle P1: any known input identifies offset from report minus input.
 for b,x in product(range(1,7), lengths.values()):
     assert (x+b)-x == b
@@ -129,5 +153,23 @@ assert min(widths,key=widths.get) == (1,10) and widths[(1,10)] == F(4,9)
 # works with shift 8-3t. These ten repetitions yield no slope bound.
 for t in (F(1,1000),F(1),F(1000)):
     assert all((8-3*t)+3*t == 8 for _ in range(10))
+# Guide P7 example (corrected October 23, 2026): with exact displays the stretch
+# interval is [s-2/D, s+2/D]. Stretch 3 stays positive for every separation D >= 1;
+# stretch 2 reaches 0 at D = 1; any stretch above 2/D stays positive.
+def exact_display_interval(stretch, D):
+    delta = stretch*D          # displayed difference when both displays are exact
+    return (delta-2)/D, (delta+2)/D
+for k in range(100, 901):
+    D = F(k, 100)
+    lo, hi = exact_display_interval(3, D)
+    assert lo >= 1 and hi - lo == F(4)/D
+    assert exact_display_interval(2/D + F(1,1000), D)[0] > 0
+assert exact_display_interval(2, 1) == (0, 4)
+# Guide P1 note: strips laid end to end. B + C = 7 (and any total of 7 or more)
+# separates all 21 rules in one request.
+assert lengths['B'] + lengths['C'] == 7
+for n in range(7, 30):
+    assert len({b*n+a for b,a in machines}) == 21
+assert len({6*b+a for b,a in machines}) < 21
 say('U P7', 'choose 1 and 10 for minimum worst-case width 4/9; repetitions at one reference cannot bound slope')
 print('PASS: every student problem independently checked.')

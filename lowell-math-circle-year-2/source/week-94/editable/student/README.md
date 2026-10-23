@@ -6,7 +6,7 @@ Build with `python3 build.py OUTPUT_DIRECTORY`. Requires Python 3 and `pdflatex`
 
 Print single-sided on US Letter at 100%. Every drawn length unit is 12 mm. Prepare exactly one each of strips A, B, C, and D per pair from the first page's lower area, preferably from a spare copy. Keep the twelve-square row uncut. These pieces and the K–1 rulers match each other. Commercial cubes represent whole-unit lengths by count; no claim is made that commercial cubes fit the printed scale.
 
-The K–1 packet is an intentionally short concrete entry, not a promised full hour. The upper packet's last page is a readiness-dependent return investigation. All work is unpiloted. Physical printing, cutting and game rehearsal remain untested.
+Since October 23, 2026 the K–1 packet also plays the secret-extra machine with interlocking cube towers (Problems 4–6, about 30 cubes per pair). The upper packet's last page is a readiness-dependent return investigation. All work is unpiloted. Physical printing, cutting and game rehearsal remain untested.
 
 Revision-stage checks and final visual QA are recorded in `../revision-response.md`.
 

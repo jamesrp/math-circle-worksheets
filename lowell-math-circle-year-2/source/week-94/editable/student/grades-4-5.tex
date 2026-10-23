@@ -1,4 +1,4 @@
-\def\band{Grades 4--5}\def\packet{W94-U-v1}\documentclass[letterpaper,12pt]{article}
+\def\band{Grades 4--5}\def\packet{W94-U-v2}\documentclass[letterpaper,12pt]{article}
 \usepackage[margin=0.65in,headheight=18pt,headsep=18pt,footskip=24pt]{geometry}
 \usepackage{tikz,array,fancyhdr,amsmath}
 \usepackage[T1]{fontenc}
@@ -34,6 +34,16 @@
 \node at (5.6,1.3){3 copies, then add 1};\node[below] at(5.1,0){copies};\node[below]at(7.1,0){extra};
 \draw[->,thick](8.1,.35)--(9.1,.35);\node at(10.6,.35){report: 4};
 \end{tikzpicture}}
+\newcommand{\tcubes}[3]{\foreach\j in{1,...,#3}{\draw[fill=gray!15](#1,#2+\j-1)rectangle+(1,1);}}
+\newcommand{\tcells}[3]{\foreach\j in{1,...,#3}{\draw[gray!70](#1,#2+\j-1)rectangle+(1,1);}}
+\newcommand{\towerexample}{\begin{tikzpicture}[x=9mm,y=9mm,font=\small]
+\tcubes{0}{0}{2}\node[below]at(.5,0){in: 2 cubes};
+\draw[->,thick](1.7,1)--(3.4,1);
+\tcubes{4.5}{0}{2}\draw[fill=gray!45](4.5,2)rectangle+(1,1);\node[right]at(5.5,2.5){extra};
+\node[below]at(5,0){add 1 extra};
+\draw[->,thick](6.9,1)--(8.6,1);
+\tcubes{9.7}{0}{3}\node[below]at(10.2,0){out: 3 cubes};
+\end{tikzpicture}}
 \begin{document}\fontsize{12.5}{16.5}\selectfont
 For Problems 1--2, a machine makes 1, 2, or 3 copies of the input length, then adds 0, 1, 2, 3, 4, 5, or 6 units. It keeps both choices fixed for the whole round. Each square in the paper row is one unit.
 \begin{center}\affineexample\end{center}
@@ -59,7 +69,7 @@ Copies & Extra amount & Second strip and its report \\\hline
 
 \newpage
 
-For the remaining problems, a stretch-and-shift machine multiplies every input length by the same positive number, then adds the same fixed amount. Fractions are allowed; the added amount may be negative.
+For Problems 3--4, a stretch-and-shift machine multiplies every input length by the same positive number, then adds the same fixed amount. Fractions are allowed; the added amount may be negative.
 
 \begin{center}\begin{tikzpicture}[x=12mm,y=10mm,font=\small]
 \node at(1.5,1.1){input: 3 units};
@@ -124,7 +134,7 @@ For Problems 6--7, the machine uses one fixed stretch and shift. The reference l
 \end{tikzpicture}\end{center}
 \vspace{3mm}\workbox{4.5}
 
-\problem{7}{Choose two exact reference lengths from 1 to 10 units before seeing any reports. Which pair gives the smallest guaranteed bound on how wide the range of possible stretches can be, even with the least helpful allowed errors? Could repeating one reference ten times guarantee the same result?}
+\problem{7}{Choose two exact reference lengths from 1 to 10 units before seeing any reports. Which pair keeps the range of possible stretches narrowest, however unhelpful the errors are? Could repeating one reference ten times guarantee as narrow a range?}
 
 \vspace{3mm}\workbox{4.5}
 \end{document}

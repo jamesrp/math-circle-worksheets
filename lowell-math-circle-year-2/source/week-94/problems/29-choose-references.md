@@ -7,7 +7,7 @@ kernel = 'With errors up to 1, references $D$ apart leave stretches in a range a
 +++
 
 ## prompt
-Choose two exact reference lengths from 1 to 10 units before seeing any reports. Which pair gives the smallest guaranteed bound on how wide the range of possible stretches can be, even with the least helpful allowed errors? Could repeating one reference ten times guarantee the same result?
+Choose two exact reference lengths from 1 to 10 units before seeing any reports. Which pair keeps the range of possible stretches narrowest, however unhelpful the errors are? Could repeating one reference ten times guarantee as narrow a range?
 
 ## text
 \vspace{3mm}\workbox{4.5}

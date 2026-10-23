@@ -44,6 +44,8 @@ Every report is a length plus one shared extra. Raising the lengths by t and low
 11. **could**, 2–3 P1: ask "How few strips do you need?", so that one standard being enough becomes a finding.
 12. **could**, 2–3 P1: the keeper writes the extra under the cover, as in P5.
 
+Fixed October 23, 2026 (v2): fix 1 with K–1 Problems 4–6 on two new pages (the tower machine, every pair for outputs 4 and 6, a known tower picking the pair) and their guide route, answers, timing and materials; fixes 2–9 as proposed; 10–12 deferred.
+
 ## Overlaps
 
 Week 51 has the same cancellation (A + 4 against A + 1 is 3) and the interval arithmetic of 4–5 P6–P7, but it asks for guaranteed ranges, not which experiment identifies an instrument. Week 6's separating questions return in 4–5 P1–P2, and Week 84's rule that a fact is known when every possible world agrees on it is 2–3 P3. No merge, because none of them has a hidden instrument or a choice of standards.

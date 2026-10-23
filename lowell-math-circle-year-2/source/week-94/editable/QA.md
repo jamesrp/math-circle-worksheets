@@ -13,3 +13,10 @@ Status: final student revision and independent final student/guide pair review p
 - A clean extraction of `week-94-source.zip` rebuilt all four delivered PDFs byte for byte; hashes and page counts are in the repository's `plans/new-families-92-97/week-94/rebuild.json`.
 
 No unverified remote upload or main integration is claimed here.
+
+## October 23, 2026: review-card fixes (v2)
+
+- K–1 Problems 4–6 (two new pages), Grades 2–3 Problem 2, Grades 4–5 page 3 and Problem 7, and the guide changed; footers are now W94-K-v2, W94-M-v2, W94-U-v2 and W94-F-v2. The packets now have 4/4/5 pages and the guide 6.
+- `check_math.py` now checks the K–1 tower answers and the guide's stretch-3 and B + C = 7 claims.
+- Every changed page was rendered at 80 dpi and inspected. Against the v1 builds, the other student pages are unchanged above the footer at 100 dpi. The published band views match the packets pixel for pixel.
+- The new K–1 pages had no independent adversarial review. Cube handling, the cover game and timings are unrehearsed.

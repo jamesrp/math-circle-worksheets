@@ -8,7 +8,7 @@ page = "new"
 +++
 
 ## text
-For the remaining problems, a stretch-and-shift machine multiplies every input length by the same positive number, then adds the same fixed amount. Fractions are allowed; the added amount may be negative.
+For Problems 3--4, a stretch-and-shift machine multiplies every input length by the same positive number, then adds the same fixed amount. Fractions are allowed; the added amount may be negative.
 
 \begin{center}\begin{tikzpicture}[x=12mm,y=10mm,font=\small]
 \node at(1.5,1.1){input: 3 units};

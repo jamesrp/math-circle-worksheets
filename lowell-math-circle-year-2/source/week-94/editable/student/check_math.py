@@ -6,6 +6,9 @@ lengths = dict(A=2,B=3,C=4,D=6)
 placements={k:[(a,a+n) for a in range(2,15-n) if 7 in (a,a+n)] for k,n in lengths.items()}
 assert placements == {'A':[(5,7),(7,9)],'B':[(4,7),(7,10)],'C':[(3,7),(7,11)],'D':[(7,13)]}
 assert [(a,b,c) for a,b in combinations(lengths,2) for c in lengths if lengths[a]+lengths[b]==lengths[c]]==[('A','C','D')]
+k1=[(4-c,6-c) for c in (1,2,3)]
+assert k1==[(3,5),(2,4),(1,3)] and all(q-p==2 for p,q in k1)
+assert [(4-(o-i),6-(o-i)) for i,o in [(1,2),(2,5),(3,5)]]==[(3,5),(1,3),(2,4)]
 pairs=[(7-e,10-e,e) for e in range(1,7)]
 assert all(b-a==3 for a,b,e in pairs)
 assert [(9-(8-x),12-(8-x)) for x in (4,6,2)] == [(5,8),(7,10),(3,6)]
