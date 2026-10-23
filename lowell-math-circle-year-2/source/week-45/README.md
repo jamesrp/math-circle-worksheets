@@ -6,6 +6,8 @@
 
 **Critic follow-up, October 23, 2026 (v4).** An independent critic noted that the student pages still broke words across lines ("keep-ing", "cer-tain", "some-times", "when-ever"), since `figures.py` protected only "better" and "differ", and that K–1 Problem 4 said "this chooser" under a rule line that says "Only tickets 1 and 3 are in the cup". Hyphenation is now off on the student pages (`\hyphenpenalty=10000` in `figures.py`'s page preamble, as Week 40 does) and K–1 Problem 4 says "Add just one extra ticket to this cup". Wording is otherwise unchanged; the reflowed pages are K–1 p. 3, Grades 2–3 pp. 3–4 and Grades 4–5 p. 4, and every packet moves to v4 (W45-k-1-v4, W45-grades-2-3-v4, W45-grades-4-5-v4). The guide did not change. `plans/review/checks/week-45/check_critic_fixes.py` checks it. The v3 PDFs are in `../../week-45/archive-before-critic-fixes-2026-10-23/` and the previous ZIP in [archive-before-critic-fixes-2026-10-23/](archive-before-critic-fixes-2026-10-23/README.md). Unpiloted.
 
+**Source locator, October 23, 2026.** The card's could 14, made later the same day: the guide's source note (page 2) now cites the Mintz slides' Bertrand box section as example 3, "Betrand's Box Paradox" (so spelled in the slides), found by fetching the slides' text; the slides print no page numbers, so no slide number is given. Only guide page 2 changed; the student packets are unchanged. The replaced guide and ZIP are in the `archive-before-small-coulds-2026-10-23/` folders. Unpiloted.
+
 - **Student pages:** edit `problems/*.md` (figures in `figures.py`), then build every view:
 
   ```sh

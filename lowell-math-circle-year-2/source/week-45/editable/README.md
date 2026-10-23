@@ -10,6 +10,8 @@ The guide now gives first routes, readiness-dependent continuation and return vi
 
 **Critic follow-up, October 23, 2026 (v4).** An independent critic noted that the student pages still broke words across lines ("keep-ing", "cer-tain", "some-times", "when-ever"), since `figures.py` protected only "better" and "differ", and that K–1 Problem 4 said "this chooser" under a rule line that says "Only tickets 1 and 3 are in the cup". Hyphenation is now off on the student pages (`\hyphenpenalty=10000` in `figures.py`'s page preamble, as Week 40 does) and K–1 Problem 4 says "Add just one extra ticket to this cup". Wording is otherwise unchanged; the reflowed pages are K–1 p. 3, Grades 2–3 pp. 3–4 and Grades 4–5 p. 4, and every packet moves to v4 (W45-k-1-v4, W45-grades-2-3-v4, W45-grades-4-5-v4). The guide did not change. `review/verify_card_shoulds_2026_10_23.py` now checks the v4 footers.
 
+**Source locator, October 23, 2026.** Later the same day the guide's source note (page 2) began citing the Mintz slides' Bertrand box section as example 3, "Betrand's Box Paradox"; the slides print no page numbers. No other page changed.
+
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
 Current pages: **K–1 4; Grades 2–3 4; Grades 4–5 4; adult guide 9**. Print selected student pages single-sided on US Letter at Actual Size / 100%.

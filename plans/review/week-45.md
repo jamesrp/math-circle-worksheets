@@ -54,6 +54,8 @@ Both reviews agree with math.md, which read K–1 P5 under the p. 1 rule only (f
 
 **Critic follow-up, October 23, 2026 (v4):** an independent critic found could 13 only partly done: `figures.py` protected "better" and "differ", but the pages still broke "keep-ing" (2–3 P4), "cer-tain" and "some-times" (2–3 P5–P6) and "when-ever" (4–5 P7); and K–1 Problem 4 said "this chooser" under the rule "Only tickets 1 and 3 are in the cup". Hyphenation is now off on the student pages (`\hyphenpenalty=10000`, as Week 40) and K–1 Problem 4 says "this cup"; all three packets move to v4. Check: `checks/week-45/check_critic_fixes.py`.
 
+**October 23, 2026, later the same day:** could 14 made, guide page 2 only. A web fetch of the slides' text (the PDF itself was refused by the network proxy) found the Bertrand box section, headed "Betrand's Box Paradox", as the third of the eleven examples, after the Birthday Paradox and Two Child Problem: three urns WW, WB and BB, one given at random and a ball drawn; given a black ball, how likely is BB? The text carries no page numbers, so the source note cites "example 3" rather than a slide number. The student packets are unchanged. Unpiloted.
+
 ## Overlaps
 
 In Week 44 one visible colour word merges equally likely histories; Week 42 conditions by discarding outcomes and designs fair rules. Neither has a clue whose production changes the answer. Atlas AP-02, "The clue that changes the bag", reaches the same 2/3 against 1/2 contrast with bags. No merge; the guides could cross-refer.
