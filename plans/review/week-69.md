@@ -46,6 +46,8 @@ No disagreement with math.md; its guide finding joins a student-page repeat in f
 
 October 23, 2026: after the conversion to problem files, fixes 1–8 are done (GGT69-S-v3, GGT69-FAC-v3).
 
+**Critic follow-up, October 23, 2026 (GGT69-FAC-v4):** an independent critic predicted that the K–1 route's discovery, "every road used is coloured twice", would be lost when five- to seven-year-olds drew two colours side by side on roads about 17 mm long, and noted one tree and no time. The route now has children lay one paper strip of the route's colour on every road of each route (or the adult colours while they trace), lets them go on to new homes or the second tree on the extra copies of page 1, and takes about 15–20 minutes; the materials add ten 12 by 4 mm strips per colour. Student pages unchanged (GGT69-S-v3). Check: `checks/week-69/check_critic_fixes.py`.
+
 ## Overlaps
 
 - Week 67, Meeting on shortest roads (Grades 3–5): the same homes, colours side by side, partner check, trees and grids; its tree meeting dot is P5's tripod centre. Week 67 asks where routes meet, Week 69 how far a side strays. Complementary, 67 first; no merge. Each guide should name the other.

@@ -105,7 +105,28 @@ import pathlib
 here=pathlib.Path(__file__).resolve().parent
 guide=(here/'facilitator.tex').read_text()
 student=(here.parent/'student'/'students.tex').read_text()
-for phrase in ['GGT69-FAC-v3','take AC up 2, right 4, up 2','its gap is \\textbf{2}','Save the left/top choice of AC for Problem 3','so do the next two dots along AC and the middle dot of AB',
+# Critic follow-up, October 23, 2026 (GGT69-FAC-v4): the K-1 route lays one paper strip per route
+# (or the adult colours), allows the second tree, and takes 15-20 minutes. Ten strips of each colour
+# suffice: no shortest route on either tree has more than 10 roads.
+def tree_diameter(edges):
+    adj={}
+    for a,b in edges: adj.setdefault(a,[]).append(b); adj.setdefault(b,[]).append(a)
+    def far(s):
+        d={s:0}; q=[s]
+        for u in q:
+            for v in adj[u]:
+                if v not in d: d[v]=d[u]+1; q.append(v)
+        return d
+    return max(max(far(s).values()) for s in adj)
+tree1=['ab','bc','cd','de','df','cg','gh','hk','bi','ij','al']
+tree2=['ab','bc','cd','de','bf','fg','fh','di','ij','ik']
+assert (tree_diameter(tree1),tree_diameter(tree2))==(6,6)
+for phrase in ['about 15--20 minutes','one paper strip of that pair\'s colour on every road of its route',
+               'or the adult colours each route','the second tree on the extra copies of page 1',
+               'every road used gets two strips, never one','ten paper strips about 12 by 4 mm']:
+    assert phrase in guide, phrase
+assert 'coloured twice' not in guide and 'works only the first tree' not in guide
+for phrase in ['GGT69-FAC-v4','take AC up 2, right 4, up 2','its gap is \\textbf{2}','Save the left/top choice of AC for Problem 3','so do the next two dots along AC and the middle dot of AB',
                'A $(0,0)$, B $(4,2)$, C $(2,4)$ & 6, 4, 6 & 15, 6, 15 & \\textbf{3}','reached only at $(0,3)$ or $(3,0)$',
                'within 3 steps of a home','two extra copies of pages 1 and 3 per pair','marked A, B and C',
                'colour it after the partner\'s check','Younger tables','1,350 road triangles']:

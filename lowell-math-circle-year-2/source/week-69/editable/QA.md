@@ -1,6 +1,6 @@
 # Week 69: release verification scope
 
-Prepared October 6, 2026 for review. Original review IDs: GGT69-S-v1 and GGT69-FAC-v1. The introduction follow-up IDs were GGT69-S-v2 and GGT69-FAC-v2; the review-card revision of October 23, 2026 (the repository's plans/review/week-69.md) is GGT69-S-v3 and GGT69-FAC-v3. 4 student pages; 3 adult-guide pages.
+Prepared October 6, 2026 for review. Original review IDs: GGT69-S-v1 and GGT69-FAC-v1. The introduction follow-up IDs were GGT69-S-v2 and GGT69-FAC-v2; the review-card revision of October 23, 2026 (the repository's plans/review/week-69.md) is GGT69-S-v3 and GGT69-FAC-v3, and a critic's follow-up the same day made GGT69-FAC-v4 (the K–1 route with paper strips). 4 student pages; 3 adult-guide pages.
 
 The student packet passed an independent adversarial review followed by a fresh revision. Each final student page was rendered and visually inspected after changes; its standalone builder and mathematical checks were rerun. The adult guide is a separate stage: its author checked the exact final student questions, independently verified its answers, and rendered and inspected every guide page. Reviewer findings and revision decisions are kept with the repository's per-week review record.
 

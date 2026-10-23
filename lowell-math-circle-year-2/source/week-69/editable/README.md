@@ -19,7 +19,7 @@ The student pages are stored as problem files (since October 23, 2026): one file
 
 ## Readiness and use
 
-Print single-sided US Letter at 100% / Actual Size. The grade band is approximate and not a readiness guarantee. Read `student/README.md` for the particular reading, arithmetic, spatial and representational prerequisites, and the adult guide for materials, preparation, a manageable first route, hints and stopping points. No K–1 route is implied. Page completion is not the goal.
+Print single-sided US Letter at 100% / Actual Size. The grade band is approximate and not a readiness guarantee. Read `student/README.md` for the particular reading, arithmetic, spatial and representational prerequisites, and the adult guide for materials, preparation, a manageable first route, hints and stopping points. There is no K–1 packet; the guide's younger-tables paragraph gives an adult-led K–1 route on Problem 1. Page completion is not the goal.
 
 The mathematical destination is distinct from the familiar props: A geodesic triangle chooses one shortest path between each pair of three vertices.
 

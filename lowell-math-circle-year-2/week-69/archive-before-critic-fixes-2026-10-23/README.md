@@ -1,0 +1,3 @@
+# Week 69 adult guide before the October 23, 2026 critic follow-up
+
+GGT69-FAC-v3, replaced the same day by GGT69-FAC-v4. An independent critic predicted that the K–1 route's discovery, "every road used is coloured twice", would be lost when five- to seven-year-olds drew two colours side by side on roads about 17 mm long, and noted that the route had one tree and no time. In v4 children lay one paper strip of each route's colour on every road of the route (or the adult colours while they trace), may go on to new homes or the second tree on the extra copies of page 1, and the route takes about 15–20 minutes. The student packet (GGT69-S-v3) did not change. The current copies are in [../](../). Kept for reference; do not print it.
