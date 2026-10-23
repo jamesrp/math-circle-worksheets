@@ -44,6 +44,8 @@ A road triangle is three homes and one chosen shortest route per pair; a dot's g
 
 No disagreement with math.md; its guide finding joins a student-page repeat in fix 1.
 
+October 23, 2026: after the conversion to problem files, fixes 1–8 are done (GGT69-S-v3, GGT69-FAC-v3).
+
 ## Overlaps
 
 - Week 67, Meeting on shortest roads (Grades 3–5): the same homes, colours side by side, partner check, trees and grids; its tree meeting dot is P5's tripod centre. Week 67 asks where routes meet, Week 69 how far a side strays. Complementary, 67 first; no merge. Each guide should name the other.

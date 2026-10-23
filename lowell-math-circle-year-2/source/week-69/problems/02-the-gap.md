@@ -8,7 +8,7 @@ page = "new"
 +++
 
 ## text
-For a dot on one colored side, its \textbf{gap} is the fewest road steps needed to reach either of the other two colored sides. Use any road on the map, including uncolored roads. A dot already on another side has gap 0.
+For a dot on one colored side, its \textbf{gap} is the fewest road steps needed to reach the nearer of the other two colored sides. Use any road on the map, including uncolored roads. A dot already on another side has gap 0.
 \begin{center}
 \begin{tikzpicture}[x=.75cm,y=.75cm,font=\small]
 \draw[gray!60,step=1] (0,0) grid (3,2);\foreach \x in {0,1,2,3}\foreach \y in {0,1,2}\fill (\x,\y) circle (1.5pt);

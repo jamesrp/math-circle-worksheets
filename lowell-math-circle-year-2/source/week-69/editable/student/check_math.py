@@ -36,4 +36,10 @@ for edges in [
         sides=[route(a,b) for a,b in combinations(triple,2)]
         assert all(sum(edge in side for side in sides)==2 for edge in set().union(*sides))
     print('PASS: all triples on',len(vs),'vertex printed tree have every used edge in exactly two sides.')
+# Problem 3's middle board (v3): A=(0,0), B=(4,2), C=(2,4); every dot is within 3 steps of a home
+homes=[(0,0),(4,2),(2,4)]
+assert max(min(distance((x,y),h) for h in homes) for x in range(5) for y in range(5))==3
+tex=open(__import__('os').path.join(__import__('os').path.dirname(__file__),'students.tex')).read()
+assert '\\grid{4}\\home{0}{0}{A}\\home{4}{2}{B}\\home{2}{4}{C}' in tex
+print('PASS: Problem 3 middle board homes A(0,0), B(4,2), C(2,4); every dot within 3 steps of a home.')
 print('General argument: n-by-n corner family has a gap n measured in the full grid. Tree uniqueness of simple paths forces every triangle to be a tripod, including degenerate tripods. Finite experiments alone do not establish either universal statement.')

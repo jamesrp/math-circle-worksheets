@@ -2,9 +2,9 @@
 
 ## Introduction-audit follow-up
 
-Student GGT69-S-v2 and guide GGT69-FAC-v2 show one complete road triangle: P is one step from green and two from blue, so its gap is 1. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
+Student GGT69-S-v2 and guide GGT69-FAC-v2 (now v3, after the review card of October 23, 2026) show one complete road triangle: P is one step from green and two from blue, so its gap is 1. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
 
-One shared Grades 4–5 prototype: 4 student pages and a separate 2-page theorem-first adult guide. Independently reviewed and digitally checked, awaiting organizer review. Unpiloted; physical preparation and handling have not been rehearsed. The week number is a library identifier, not an adopted schedule.
+One shared Grades 4–5 prototype: 4 student pages and a separate 3-page theorem-first adult guide. Independently reviewed and digitally checked, awaiting organizer review. Unpiloted; physical preparation and handling have not been rehearsed. The week number is a library identifier, not an adopted schedule.
 
 ## Build from this portable package
 

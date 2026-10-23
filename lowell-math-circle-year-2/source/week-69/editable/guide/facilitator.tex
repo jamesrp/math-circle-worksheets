@@ -6,7 +6,7 @@
 \setlength{\parindent}{0pt}\setlength{\parskip}{4.5pt}
 \pagestyle{fancy}\fancyhf{}
 \fancyhead[L]{\small Week 69 / Thin and fat road triangles / Adult guide}
-\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 69 / GGT69-FAC-v2}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 69 / GGT69-FAC-v3}
 \fancyfoot[R]{\footnotesize\thepage}
 \newcommand{\heading}[1]{\par\vspace{5pt}{\large\bfseries #1}\par}
 \begin{document}
@@ -23,30 +23,31 @@ For the grid construction, take $A=(0,0)$, $B=(n,0)$, $C=(n,n)$. Use the bottom 
 
 \textbf{Readiness map.} This is a Grades 4--5 prototype for the older table: one working pair and a rotating referee, with an adult nearby. Entry requires counting edges and checking paths; later work requires comparing a dot with an entire side and explaining an arbitrary-size construction. Coordinate notation is for adults and ready children, not a prerequisite. These operational demands and age fit remain unpiloted.
 
+\textbf{Younger tables.} A 2--3 table takes Problems 1--2 with the adult reading the rules and the gap example aloud, and stops where the first visit stops. A K--1 table works only the first tree of Problem 1, adult-led: children put the three home counters on dots, trace each pair's road with a finger, colour it, and answer Problem 1 aloud. Key in plain words: every road used is coloured twice, never once, because on a tree there is only one way between two homes and the three roads meet like a Y (a straight line when one home sits between the other two). Both routes are predictions; neither has been tried.
+
 \heading{Materials and common launch}
-Prepare one four-page packet per pair, three colored pencils, pencil and eraser, three small home counters, and spare grid paper. A ruler may guide a straight mark but must not replace counting roads. Print single-sided at 100\%; colored paths should be drawn side by side where they overlap. No cutting or string construction is required. Try the mark-and-erase procedure and label visibility before a session; no physical rehearsal has been performed.
+Prepare one four-page packet per pair and two extra copies of pages 1 and 3 per pair, for new homes and new tries; three colored pencils, pencil and eraser, three small home counters marked A, B and C, and spare grid paper. Draw each route in pencil first and colour it after the partner's check. A ruler may guide a straight mark but must not replace counting roads. Print single-sided at 100\%; colored paths should be drawn side by side where they overlap. No cutting or string construction is required. Try the pencil-then-colour procedure and label visibility before a session; no physical rehearsal has been performed.
 
 Let children place homes and trace routes. Use the printed P--Q example: two right steps and one up step make three roads. Draw a different three-road route between the same endpoints and compare. Then introduce three colors, one per home pair; the referee checks every chosen side is shortest. Save the gap definition until page 2. In the printed road triangle, P lies on red AB: the nearest green CA is one step left at A, and the nearest blue BC is two steps right at B. Compare both distances; the gap is the smaller, 1. Have a child point to other arrival dots and check that none is closer. The side labels and line styles also distinguish the routes in a black-and-white print.
 
 \heading{A feasible first visit}
 Allow roughly 10--15 minutes for the two trees and 15--20 for the two contrasting grid triangles in Problem 2. Stop once children can show a zero-gap example and correctly check one positive gap. Problem 3 can follow or begin a return visit; Problems 4--5 invite the general explanations. The pacing is a suggestion, not an observed result. Preserve children's route choices; offer hints only when they cannot retain the task after the shared demonstration.
-\newpage
 \heading{Numbered answers and proof prompts}
 \textbf{Problem 1.} \textbf{No road can belong to exactly one route.} Every used road belongs to exactly two. Remove a tree edge: it separates the tree into two components. If the homes are all on one side, their paths avoid that edge. Otherwise they split one versus two, and exactly the two cross-component pairs use it. A shortest route never backtracks. This covers every home choice. \emph{Hint:} cover a road with a finger; which pairs of homes are now separated?
 
 \textbf{Problem 2.} For \textbf{gap 0 everywhere}, take AB along the bottom and BC along the right, then let AC follow bottom and right through B. The AC route is still shortest: it has eight steps on this $4$-by-$4$ board. Every point of each side lies on another side.
 
-For a \textbf{positive gap}, leave AB and BC unchanged and take AC up the left and across the top. Circle the top-left dot. Its gap is \textbf{4}, which meets the requested ``2 or more.'' Mark four downward steps to A or four rightward steps to C. No route can reach the bottom or right in fewer than four steps. \emph{Hint:} a marked four-step route proves only that the gap is at most four; ask why three cannot work. The shared home locations have not changed, only the choice of AC.
+For a \textbf{positive gap}, leave AB and BC unchanged and take AC up 2, right 4, up 2. Circle the dot two up from A; its gap is \textbf{2}, which meets the requested ``2 or more'' (so do the next two dots along AC and the middle dot of AB). Mark two downward steps to A. No route reaches the bottom in fewer than two steps, and the right side is farther. Save the left/top choice of AC for Problem 3. \emph{Hint:} a marked two-step route proves only that the gap is at most two; ask why one step cannot work. The shared home locations have not changed, only the choice of AC.
 
 \textbf{Problem 3.} The largest achievable gaps are:
 \begin{center}\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{@{}cccc@{}}\toprule
-Square side in roads & AB and BC lengths & AC length & Maximum possible gap\\\midrule
-2 & 2 each & 4 & \textbf{2}\\
-4 & 4 each & 8 & \textbf{4}\\
-6 & 6 each & 12 & \textbf{6}\\\bottomrule
+\begin{tabular}{@{}ccccc@{}}\toprule
+Board & Homes & Side lengths & Shortest routes per side & Maximum possible gap\\\midrule
+2 by 2 & corners & 2, 2, 4 & 1, 1, 6 & \textbf{2}\\
+4 by 4 & A $(0,0)$, B $(4,2)$, C $(2,4)$ & 6, 4, 6 & 15, 6, 15 & \textbf{3}\\
+6 by 6 & corners & 6, 6, 12 & 1, 1, 924 & \textbf{6}\\\bottomrule
 \end{tabular}\end{center}
-The left/top construction attains each maximum at the top-left corner. To prove no choice can do better on the $n$-by-$n$ board, AB is forced along the bottom and BC along the right. A dot $(x,y)$ on any AC path can reach the bottom in $y$ steps or the right in $n-x$ steps, so its gap is at most $\min(y,n-x)\le n$. Any dot on AB or BC can reach B, which is on the other of those two sides, in at most $n$ steps. Thus \emph{every} side's gap is bounded by $n$, and the witness is optimal. \emph{Hint:} let the referee try interior-road shortcuts; measuring only along the colored outline overestimates gaps.
+On the corner boards the left/top construction attains each maximum at the top-left corner. On the middle board every side has choices, and the biggest gap is 3, reached only at $(0,3)$ or $(3,0)$. Example: AB along the bottom then up, BC through $(3,2)$ and $(3,4)$, CA across the top and down; $(0,3)$ is 3 steps from A, from C and from $(3,3)$. Why 3 is the most: a dot's other two sides together hold all three homes, and every dot of this board is within 3 steps of a home. To prove no choice can do better on the $n$-by-$n$ corner board, AB is forced along the bottom and BC along the right. A dot $(x,y)$ on any AC path can reach the bottom in $y$ steps or the right in $n-x$ steps, so its gap is at most $\min(y,n-x)\le n$. Any dot on AB or BC can reach B, which is on the other of those two sides, in at most $n$ steps. Thus \emph{every} side's gap is bounded by $n$, and the witness is optimal. \emph{Hint:} let the referee try interior-road shortcuts; measuring only along the colored outline overestimates gaps.
 
 \textbf{Problem 4.} If the partner names a whole number $k$, choose \textbf{$n=k+1$}. Draw an $n$-by-$n$ grid with the same corner homes and bottom/right/left-top routes. The three side lengths are $n,n,2n$, all shortest; the marked top-left dot has gap $n>k$ by the coordinate-change argument on page 1. A labeled plan suffices for a huge $k$. \emph{Hint:} ask which part of the earlier construction depended on using exactly four rows.
 
@@ -57,5 +58,5 @@ This is an all-sizes proof: any proposed finite bound is beaten by a suitable la
 \heading{Sources and checking limits}
 Dru\c{t}u and Kapovich, \href{https://www.math.ucdavis.edu/~kapovich/EPR/ggt.pdf}{\emph{Geometric Group Theory}}, Definitions 11.1--11.2, printed p.\ 363 (PDF 383), supplies the chosen-geodesic-triangle and uniform-thinness framework. The finite maps, corner construction, and classroom prompts are authored specializations, not copied exercises.
 
-Independent checks cover all 385 home triples on the printed trees and all 6, 70, and 924 shortest AC routes on the $2$, $4$, and $6$ boards. These certify finite instances; the proofs handle all trees and grid sizes. All student and guide pages were digitally inspected. \textbf{Unpiloted; physical materials and partner checking unrehearsed.}
+Independent checks cover all 385 home triples on the printed trees, all 6, 70, and 924 shortest AC routes on the $2$, $4$, and $6$ corner boards, and all 1,350 road triangles on the middle board of Problem 3. These certify finite instances; the proofs handle all trees and grid sizes. \textbf{Unpiloted; physical materials and partner checking unrehearsed.}
 \end{document}

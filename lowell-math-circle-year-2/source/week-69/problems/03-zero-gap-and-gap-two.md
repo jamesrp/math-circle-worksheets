@@ -15,4 +15,3 @@ Choose shortest routes for the three sides on each map. Make every gap 0 on one 
 \begin{tikzpicture}[x=1.6cm,y=1.6cm]\grid{4}\corners{4}\end{tikzpicture}\hfill
 \begin{tikzpicture}[x=1.6cm,y=1.6cm]\grid{4}\corners{4}\end{tikzpicture}
 \end{center}
-\vspace{.4in}\rule{\linewidth}{.4pt}\par\vspace{.4in}\rule{\linewidth}{.4pt}
