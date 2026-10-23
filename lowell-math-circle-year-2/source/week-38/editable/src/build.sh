@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-python3 make_packets.py
+python3 regenerate.py
 python3 check_math.py
 python3 check_examples.py
 mkdir -p ../qa
