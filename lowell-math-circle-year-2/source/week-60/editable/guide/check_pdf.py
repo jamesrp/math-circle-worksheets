@@ -49,7 +49,7 @@ def main():
         txt = p.get_text()
         all_text += txt
         assert 'Week 60 / Take it or pass / Adult guide' in txt
-        assert 'Bellingham Math Circle / Week 60 / W60-FAC-v3' in txt
+        assert 'Bellingham Math Circle / Week 60 / W60-FAC-v4' in txt
         assert txt.strip().endswith(str(i + 1))
         # Bounds for all real text including headers and footers.
         bounds = []

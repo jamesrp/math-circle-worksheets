@@ -50,6 +50,8 @@ October 23, 2026: shoulds 1–7 and coulds 8 and 10–14 done after converting t
 
 **Critic follow-up, October 23, 2026 (W60-FAC-v3):** an independent critic noted that the guide gave KK11 one playing kit (one die, four counters, 30 cubes) for two pairs who roll and build towers, while the first-6 row alone takes 28 cubes. The guide now prepares five kits, two for KK11 (one per pair, so a second stickered die), 30 linking cubes per KK11 pair, and a page 1 and pages 2 and 6 for each pair. Student pages unchanged (W60-S-v3). Check: `checks/week-60/check_critic_fixes.py`.
 
+**Roster labels, October 23, 2026.** The guide (pp. 2–3) printed the roster code "KK11", "3333" and "445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1", "2–3" and "4–5", or "the K–1 table" (W60-FAC-v4; W60-FAC-v3 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
+
 ## Overlaps
 
 Week 7 works up from 0 over positions without chance, the deterministic form of P6's induction. Week 24 asks whether the deck winning more of nine equally likely pairs must win more of six rounds (K–1 P4), P2's point; guide p. 8 also names Weeks 42–46. None has an irreversible take-or-pass choice under a deadline. No merge.

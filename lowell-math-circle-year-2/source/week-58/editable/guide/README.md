@@ -1,6 +1,6 @@
 # Week 58 facilitator guide source
 
-This separate, original nine-page guide (`W58-guide-v3`) accompanies the seven-page student packet and eight-page material packet, footer versions `W58-shared-v4` and `W58-materials-v3`. It does not edit or rebuild those PDFs. It contains the theorem-first overview, fixed KK11/3333/445 routes (KK11 an adult-led route on pages 1 and 5, with Problem 2's two splits done with the cards, and a plain-words key), actual stock and smaller print choices, all seven solutions, complete labeled counts, exact 80/160 mm cuts on whole 240 mm strips, replacement-only paper R3 instructions, return investigations and precise source notes. Physical pretests and classroom piloting are unperformed.
+This separate, original nine-page guide (`W58-guide-v4`; v4 names the tables K–1, 2–3 and 4–5 where v3 printed the roster code KK11, 3333 and 445) accompanies the seven-page student packet and eight-page material packet, footer versions `W58-shared-v4` and `W58-materials-v3`. It does not edit or rebuild those PDFs. It contains the theorem-first overview, fixed KK11/3333/445 routes (KK11 an adult-led route on pages 1 and 5, with Problem 2's two splits done with the cards, and a plain-words key), actual stock and smaller print choices, all seven solutions, complete labeled counts, exact 80/160 mm cuts on whole 240 mm strips, replacement-only paper R3 instructions, return investigations and precise source notes. Physical pretests and classroom piloting are unperformed.
 
 From any working directory:
 

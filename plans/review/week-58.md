@@ -51,6 +51,8 @@ Each person adds their own card values. A division is proportional when a person
 
 **Critic follow-up, October 23, 2026 (W58-shared-v4, W58-guide-v3):** an independent critic found that Problem 5, on a page headed Grades K–5, said "envies", a word defined only on page 2, which the K–1 route does not use; it now reads "so that neither person would rather have the other's cards". The guide's K–1 route named pages 1, 2 and 5 although the print list and the K–1 band view give pages 1 and 5; it now names pages 1 and 5, with Problem 2's two color splits done with the cards. Only page 5 changed above the footer; the materials stay v3. Check: `checks/week-58/check_critic_fixes.py`. Old PDFs in `week-58/archive-before-critic-fixes-2026-10-23/`.
 
+**Roster labels, October 23, 2026.** The guide (pp. 1–3) printed the roster code "KK11", "3333" and "445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1", "2–3" and "4–5" (W58-guide-v4; W58-guide-v3 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
+
 ## Overlaps
 
 Week 27 (stable matching) has preferences, but it pairs people, and a blocking pair needs both. Week 42's "fair" means equal probabilities. Week 26's bonus splits a region by fence length. None has additive values, envy or cut-and-choose. No merge.

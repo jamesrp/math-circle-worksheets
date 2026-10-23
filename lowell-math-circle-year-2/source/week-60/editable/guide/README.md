@@ -4,6 +4,8 @@
 
 **Critic follow-up, October 23, 2026 (W60-FAC-v3):** KK11's two pairs each get a playing kit (five kits in all, so a second stickered die), their own page 1 and pages 2 and 6, and 30 linking cubes per pair (the first-6 row alone needs 28). `check_answers.py` recomputes the new counts.
 
+**Roster labels, October 23, 2026 (W60-FAC-v4):** the guide names the tables "K–1", "2–3" and "4–5" (or "the K–1 table") where it printed the roster code "KK11", "3333" and "445"; nothing else changed.
+
 Separately authored adult guide for the final seven-page student packet W60-S-v2.
 Guide footer: W60-FAC-v1. Eight US Letter pages. The concrete student route is
 pages 1-3 and 6, Grades 3-5; pages 4-5 and 7 are readiness-dependent upper
