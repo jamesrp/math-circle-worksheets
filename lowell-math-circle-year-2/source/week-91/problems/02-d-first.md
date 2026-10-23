@@ -7,7 +7,7 @@ kernel = "D first forces the root and right-child cards; the left child is free,
 +++
 
 ## figure
-head('Grades 2--3')
+head('Grades 2--5')
 
 ## prompt @15,31
 Use the four-exit tree. Choose starting arrows that send the first counter to D. Keep those cards and send seven more counters. Record the starting arrows and arrival order.

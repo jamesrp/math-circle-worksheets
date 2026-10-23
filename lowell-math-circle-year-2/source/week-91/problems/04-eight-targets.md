@@ -13,4 +13,4 @@ head('Grades 4--5')
 Use the eight-exit tree. Choose starting arrows to make each order. Which orders can the machine make?
 
 ## figure
-eight_targets(['A E C G B F D H','H D F B G C E A','A E B F C G D H'])
+eight_targets(['A E C G B F D H','H D F B G C E A','A E B F C G D H'], label_dy=10)

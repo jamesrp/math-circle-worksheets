@@ -52,6 +52,8 @@ A card shows the next exit and flips after each departure. So at one switch, any
 10. **could**, guide pp. 1–2 and 6: cut production notes such as "no multi-level coverage is implied".
 11. **could**, guide p. 4: name AECGBFDH as the bit-reversal order.
 
+October 23, 2026: fixes 1–6 and 9–11 made in the problem files and the guide; coulds 7 and 8 deferred; see `source/week-91/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 Week 11's chip firing sends a chip along every edge, with order independence; here one chip follows one remembered edge, with block balance. On a path, Week 20's averaging values are the s/m that return P5 delivers exactly. Week 42 contrasts with P7. No merge; cross-reference all three.

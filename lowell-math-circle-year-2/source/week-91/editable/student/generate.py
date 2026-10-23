@@ -68,7 +68,7 @@ def road(x,y,m=4,gap=25,states=None,entry=None):
  return s
 
 class Doc:
- def __init__(self,name):self.name=name;self.pages=[]
+ def __init__(self,name,tag):self.name=name;self.tag=tag;self.pages=[]
  def add(self,body,band='Grades 2--3',land=False,id=None):
   w,h=(279.4,215.9) if land else (215.9,279.4)
   page=rf'\paperwidth={w}mm\paperheight={h}mm\pdfpagewidth={w}mm\pdfpageheight={h}mm\begin{{tikzpicture}}[remember picture,overlay,x=1mm,y=-1mm,shift={{(current page.north west)}}]'+'\n'
@@ -76,7 +76,7 @@ class Doc:
   page+=line(15,21,w-15,21,'gray')
   page+=body
   page+=line(15,h-18,w-15,h-18,'gray')
-  page+=text(15,h-13,w-40,rf'Bellingham Math Circle / Week 91 / {id or self.name}-v1',9)
+  page+=text(15,h-13,w-40,rf'Bellingham Math Circle / Week 91 / {id or self.tag}-v1',9)
   page+=text(w-24,h-13,10,str(len(self.pages)+1),9)
   page+='\\end{tikzpicture}\\null\\newpage\n'
   self.pages.append(page)
@@ -88,7 +88,7 @@ class Doc:
   (D/'src'/f'{self.name}-build.log').write_text(r.stdout)
   if r.returncode: raise RuntimeError(r.stdout[-3000:])
 
-R=Doc('return-visit')
+R=Doc('return-visit','F91-RV')
 b=text(15,29,186,'On a road, a counter may revisit a circle. Follow its NEXT arrow, then flip that card, every time. Stop at either end. Finish one counter before launching the next; keep the cards between counters. Keep the counter beside the card so its arrow stays visible. A partner checks each move.',12)
 b+=text(15,68,186,'Example: enter at 2 on this short road.',11)
 b+=road(29,99,3,23,['R','L'],2)+rf'\fill (83,96) circle (2mm);'+text(119,84,80,r'Input: counter at 2.\\Cards at 1 and 2: R, L.',11)
@@ -122,7 +122,7 @@ b+=text(15,232,186,r'\textbf{Problem 6:} Could a counter travel forever without 
 R.add(b,'Grades 4--5')
 R.save()
 
-M=Doc('materials')
+M=Doc('materials','F91-M')
 b=text(15,30,186,'One-switch board',16)+text(15,43,186,'One counter waits beside the card. Exits: X and Y.',11)
 b+=line(108,95,55,175)+line(108,95,161,175)+circle(108,95,16)+circle(55,175,16,'X',18)+circle(161,175,16,'Y',18)
 b+=text(93,70,35,'ENTRY',11)

@@ -53,8 +53,8 @@ target='AEBFCGDH'
 assert [int(c>='E') for c in target]==[0,1]*4
 assert ''.join(c for c in target if c<'E')=='ABCD'
 assert ''.join(c for c in target if c>='E')=='EFGH'
-log('Students P5: ABCDEFGH is an impossible permutation (first two exits in same root half). There are 40320-128=40192 impossible permutations.')
-assert math.factorial(8)-len(catalogs[3])==40192
+log('Students P5: the eight-exit tree makes exactly 128 arrival orders, one for each of its 2^7 starts (distinct, asserted above); the other 40320-128=40192 orders are impossible, ABCDEFGH among them.')
+assert len(catalogs[3])==2**7==128 and math.factorial(8)-len(catalogs[3])==40192 and 'ABCDEFGH' not in catalogs[3]
 log('Students P6: YES to leaf-once before repeat and state restoration for either tree, every initial state.')
 coin_strings={''.join(p) for p in product('XY', repeat=6)}
 switch_strings={'XYXYXY','YXYXYX'}

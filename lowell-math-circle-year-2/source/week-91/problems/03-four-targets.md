@@ -7,7 +7,7 @@ kernel = "Two consecutive counters always leave the root on opposite sides, so A
 +++
 
 ## figure
-head('Grades 2--3')
+head('Grades 2--5')
 
 ## prompt @15,31
 Program the four-exit tree to make each arrival order below. Start a new trial for each order. If an order is impossible, explain what stops it.

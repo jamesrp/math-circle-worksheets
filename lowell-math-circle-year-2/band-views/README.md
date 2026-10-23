@@ -44,7 +44,7 @@ The packets and these views are unpiloted, as their weeks are.
 | 88 | Packing and kissing circles | [8 pages](../week-88/week-88-students.pdf) | whole packet | whole packet | whole packet | [menu](week-88/week-88-menu.pdf) |
 | 89 | Growing shapes and totals | [11 pages](../week-89/week-89-students.pdf) | whole packet | whole packet | whole packet | [menu](week-89/week-89-menu.pdf) |
 | 90 | Sliding number arrays | [8 pages](../week-90/week-90-students.pdf) | — | whole packet | whole packet | [menu](week-90/week-90-menu.pdf) |
-| 91 | Rotor-router machines | [6 pages](../week-91/week-91-students.pdf) | — | [4 of 6](week-91/week-91-grades-2-3.pdf): pp. 1–3, 6 | [4 of 6](week-91/week-91-grades-4-5.pdf): pp. 1, 4–6 | [menu](week-91/week-91-menu.pdf) |
+| 91 | Rotor-router machines | [6 pages](../week-91/week-91-students.pdf) | — | [4 of 6](week-91/week-91-grades-2-3.pdf): pp. 1–3, 6 | whole packet | [menu](week-91/week-91-menu.pdf) |
 | 92 | Fold-and-stretch predictions | [7 pages](../week-92/week-92-students.pdf) | — | [4 of 7](week-92/week-92-grades-2-3.pdf): pp. 1–4 | [6 of 7](week-92/week-92-grades-4-5.pdf): pp. 1–2, 4–7 | [menu](week-92/week-92-menu.pdf) |
 | 93 | Squaring a rectangle | [5 pages](../week-93/week-93-students.pdf) | — | [4 of 5](week-93/week-93-grades-2-3.pdf): pp. 1–4 | whole packet | [menu](week-93/week-93-menu.pdf) |
 | 97 | Square remainders | [6 pages](../week-97/week-97-students.pdf) | — | whole packet | whole packet | [menu](week-97/week-97-menu.pdf) |

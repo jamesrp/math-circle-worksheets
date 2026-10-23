@@ -28,7 +28,7 @@ Grade labels are approximate. Shared K–5 menus do not mean every page suits ev
 | 88 | Place disks, keep them flat and distinguish touching from overlap. Younger children can build rings and improve a tray packing; later work uses centers, distances and geometric explanations. Unequal and mixed rings, rigid equality cases and restricted three-row trays are return investigations. Trigonometry is adult background. |
 | 89 | Retain an old tile shape while adding or removing a layer. Begin with two of the square/staircase/rectangle tasks. Single totals need counting and addition; hidden inputs use subtraction or matching counters. Two-stage ordering, zero turns, competing full rules, cube shells and three-stage corner piles are distinct later routes. |
 | 90 | Compare small labels and move the smaller immediate neighbor into a hole. Grades 2–3 readiness can operate one-hole boards; upper work constructs starts, pools catalogs, compares whole-slide orders, finds preimages and reverses recorded slides. Masks and full resets are prerequisites for the multiple-hole route. |
-| 91 | Follow the displayed next arrow, flip it and retain its new state. Student pp.1–3 introduce Grades 2–3 tree programming; pp.4–5 deepen it for Grades 4–5; p.6 offers a Grades 2–5 coin comparison. The Grades 4–5 road packet introduces absorbing feedback before general counting arguments. |
+| 91 | Follow the displayed next arrow, flip it and retain its new state. Student pp.1–3 introduce tree programming for Grades 2–5; pp.4–5 deepen it for Grades 4–5; p.6 offers a Grades 2–5 coin comparison. The Grades 4–5 road packet introduces absorbing feedback before general counting arguments. |
 
 ## What changed from the reserved plans
 
@@ -47,6 +47,7 @@ The seven numbers, themes and substantive mathematical directions are preserved.
 - **89, October 23, 2026:** the student packet is stored as problem files ([source/week-89/](source/week-89/README.md)); the conversion changed no wording, figure or PDF.
 - **89, October 23, 2026:** the review card's fixes: Problem 19's cube pictures drawn in depth order, Problem 18's worked turn off the task's path, a new opening example, Problem 2 peeling layers, the tray rules before Problems 7 and 11, and a K–1 return route in the guide ([what changed](source/week-89/editable/review/card-fixes-2026-10-23.md)); student pages 1, 4, 6, 10, 11 and guide pages 1–3, 7, 8 changed, and the old PDFs are archived.
 - **91, October 23, 2026:** the student packet is stored as problem files ([source/week-91/](source/week-91/README.md)); the conversion changed no wording, figure or PDF.
+- **91, October 23, 2026:** the review card's fixes: pages 1–3 headed Grades 2–5, Problem 4's target words level with their trees, a new Problem 5 (how many orders can the eight-exit tree make?), new footers, and in the guide a K–1 route, the return key's 0040 with the first-block rule and a reconciled first-visit route ([what changed](source/week-91/editable/review/card-fixes-2026-10-23.md)); student pages 1–5 and every guide page changed, the return-visit and materials pages only in their footers, and the old PDFs are archived.
 
 ## Verification, provenance and use history
 

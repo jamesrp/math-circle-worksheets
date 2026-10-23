@@ -102,7 +102,7 @@ def page_open(page):
 
 def page_close(page):
     # The tools put \newpage between pages; the last page ends with its own, as the old generator's did.
-    footer = page.footer.replace('F91-S-v1', 'students-v1')   # the conversion keeps the old footer id
+    footer = page.footer
     return (line(15,H-18,W-15,H-18,'gray')+text(15,H-13,W-40,rf'Bellingham Math Circle / Week 91 / {footer}',9)
             +text(W-24,H-13,10,str(page.number),9)+'\\end{tikzpicture}\\null'+('\\newpage\n' if page.number == page.count else ''))
 
