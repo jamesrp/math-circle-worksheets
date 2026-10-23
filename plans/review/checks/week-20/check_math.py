@@ -15,7 +15,7 @@ import subprocess
 from fractions import Fraction as F
 from pathlib import Path
 
-from repo import WEEK
+from repo import WEEK, REVIEWED
 
 F.__repr__ = lambda self: str(self)  # print fractions as 1/2, 3
 HERE = Path(__file__).resolve().parent
@@ -39,7 +39,7 @@ def guide_text(pdf):
     return re.sub(r'\s+', ' ', t)
 
 
-GUIDE = guide_text(WEEK / 'week-20-facilitator.pdf')
+GUIDE = guide_text(REVIEWED / 'week-20-facilitator.pdf')  # as reviewed (see repo.py)
 
 
 def quoted(q):
@@ -666,16 +666,25 @@ check(7 * 4 + 6 * 4 + 7 * 3 == 73 and quoted('use 73 sheets'), 'guide p.3: 4/4/3
 
 # ===================================================================== cross references
 say('#### Guide page cross-references')
-pages = subprocess.run(['pdftotext', '-layout', str(WEEK / 'week-20-facilitator.pdf'), '-'], capture_output=True, text=True).stdout.split('\f')
+pages = subprocess.run(['pdftotext', '-layout', str(REVIEWED / 'week-20-facilitator.pdf'), '-'], capture_output=True, text=True).stdout.split('\f')
 p3 = re.sub(r'\s+', ' ', pages[2]); p4 = re.sub(r'\s+', ' ', pages[3])
 say('     guide p.3 heading:', p3[:120])
 say('     guide p.4 heading:', p4[:120])
 check('equal gaps' in p4.lower() and 'equal gaps' not in p3.lower(), 'the equal-gap argument is on guide p.4, not p.3')
 check('Uniqueness.' in p4 and 'Uniqueness.' not in p3, 'the general uniqueness (signed difference) proof is on guide p.4 (and p.22), not p.3')
+# Review finding: the guide as reviewed sent these three sentences to page 3, though the argument is on
+# page 4. The card fixes (d19c46b) point them to page 4, so the finding is confirmed on the reviewed guide
+# (archived) and the correction checked in the current guide.
+from repo import WEEK as _DELIVERED  # noqa: E402
+_cur = guide_text(_DELIVERED / 'week-20-facilitator.pdf')
+_cur_pages = [re.sub(r'\s+', ' ', x) for x in subprocess.run(['pdftotext', '-layout', str(_DELIVERED / 'week-20-facilitator.pdf'), '-'],
+                                                                capture_output=True, text=True).stdout.split('\f')]
 for q in ['The equal-gap argument on page 3 fixes these pairs',
           'fillings differ at each place, then use page 3',
           'The general proof is held until Problem 5, but is available on page 3']:
-    check(not quoted(q), 'stale cross-reference: "' + q + '"')
+    check(quoted(q), 'finding confirmed (as reviewed, archived): stale cross-reference "' + q + '"')
+    check(q not in _cur and q.replace('page 3', 'page 4') in _cur, 'current guide: "' + q.replace('page 3', 'page 4') + '"')
+check('equal gaps' in _cur_pages[3].lower() and 'Uniqueness.' in _cur_pages[3], 'current guide p.4 holds the equal-gap argument and the uniqueness proof')
 
 say('')
 say(f'{len(FAIL)} failure(s)')

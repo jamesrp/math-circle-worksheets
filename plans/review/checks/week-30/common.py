@@ -39,6 +39,13 @@ PDF = {
     'GUIDE': os.path.join(WEEK, 'week-30-facilitator.pdf'),
     'BGUIDE': os.path.join(WEEK, 'week-30-bonus-facilitator.pdf'),
 }
+# The student packets as reviewed (MD5-identical to the review import, bb8a7eb). The card's shoulds and
+# coulds (9d14e21, v3) and the critic follow-up (7c7712b, F30-45-v4) moved and redrew the boards, so
+# extract.py reads these for check_students.py; check_guide.py and check_bonus.py read the current copies,
+# and check_critic_fixes.py and source/week-30/editable/review/verify_card_fixes_2026_10_23.py check the
+# current pages.
+REVIEWED_PDF = {b: os.path.join(WEEK, 'archive-before-card-fixes-2026-10-23', os.path.basename(PDF[b]))
+                for b in ('K', '23', '45')}
 
 
 def placements(weights):

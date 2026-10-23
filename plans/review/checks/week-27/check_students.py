@@ -177,7 +177,8 @@ for i, c in enumerate(page('grades-2-3', 1)['cases']):
         m = board_m(bd)
         b = blockers(P, m)
         L.out(f'  case {i+1}: {mname(m)}: {"stable (circle it)" if not b else "join " + " or ".join(b)}')
-for n, boards in ((2, 6), (3, 6), (4, 4)):
+# Grades 2-3 Problem 4 printed 4 boards as reviewed; the card's shoulds (34082e7, W27-23-v4) print six.
+for n, boards in ((2, 6), (3, 6), (4, 6)):
     c = page('grades-2-3', n)['cases'][0]
     P = prof(c)
     L.out(f'=== 2-3 Problem {n}')

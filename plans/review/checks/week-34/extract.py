@@ -18,7 +18,7 @@ from pathlib import Path
 
 import pymupdf
 
-from common import HERE, WEEK, PT_PER_MM
+from common import HERE, WEEK, REVIEWED, PT_PER_MM
 
 FILES = ["week-34-k-1.pdf", "week-34-grades-2-3.pdf", "week-34-grades-4-5.pdf",
          "week-34-bonus.pdf", "week-34-facilitator.pdf", "week-34-bonus-facilitator.pdf"]
@@ -173,7 +173,7 @@ def build_rings(circles, squares, arcs, lines, heads, words):
 def main():
     out = {}
     for fn in FILES:
-        doc = pymupdf.open(WEEK / fn)
+        doc = pymupdf.open((REVIEWED if "bonus" not in fn else WEEK) / fn)  # base files as reviewed (common.py)
         out[fn] = []
         print(f"== {fn} ({doc.page_count} pages)")
         for pno, page in enumerate(doc, start=1):

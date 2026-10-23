@@ -22,8 +22,16 @@ from pdfminer.high_level import extract_pages
 from pdfminer.layout import LTCurve, LTLine, LTRect, LTTextContainer, LTTextLine, LTFigure
 
 ROOT = find_root()
-WEEK = os.path.join(ROOT, 'lowell-math-circle-year-2', 'week-22')
-SRC = os.path.join(ROOT, 'lowell-math-circle-year-2', 'source', 'week-22', 'editable', 'src')
+# The intro follow-up (aa01c74), card fixes (ecb85ce, F22-v5) and critic follow-up (f4166f4, v6) redrew
+# the boards this review read, so the student PDFs are read as reviewed from archive-before-intro-followup
+# (MD5-identical to the review import, bb8a7eb) and compared with the TeX of the same version, read from
+# that archive's source ZIP. check_critic_fixes.py here and source/week-22/editable/review/
+# verify_card_fixes_2026_10_23.py check the current pages.
+DELIVERED_WEEK = os.path.join(ROOT, 'lowell-math-circle-year-2', 'week-22')
+WEEK = os.path.join(DELIVERED_WEEK, 'archive-before-intro-followup')
+SRC_ZIP = os.path.join(ROOT, 'lowell-math-circle-year-2', 'source', 'week-22', 'archive-before-intro-followup',
+                       'four-point-convex-partitions-week22-editable-source.zip')
+SRC = 'zip:four-point-convex-partitions-week22-editable-source/src'
 HERE = os.path.dirname(os.path.abspath(__file__))
 CM = 72 / 2.54
 BANDS = {'k-1': 'week-22-k-1.pdf', 'grades-2-3': 'week-22-grades-2-3.pdf', 'grades-4-5': 'week-22-grades-4-5.pdf'}
@@ -109,7 +117,12 @@ def boards_on_page(page):
 
 def source_boards(tex):
     """Parse the TeX source: for every tikzpicture board, dots and crosses in board units."""
-    text = open(tex).read()
+    if tex.startswith('zip:'):
+        import zipfile
+        with zipfile.ZipFile(SRC_ZIP) as z:
+            text = z.read(tex[4:]).decode('utf-8')
+    else:
+        text = open(tex).read()
     boards = []
     # big boards: \path[use as bounding box] ... ; small: \begin{scope}[shift=...]
     for chunk in re.split(r'(?=\\begin\{scope\}|\\path\[use as bounding box\] \(-0\.04)', text)[1:]:
@@ -149,7 +162,7 @@ def main():
                 d = ', '.join(f"{p['label']}({p['x']:g},{p['y']:g})" for p in b['dots'])
                 c = ', '.join(f'({x:g},{y:g})' for x, y in b['crosses'])
                 lines.append(f"     board {b['size_cm']:.2f} x {b['height_cm']:.2f} cm: dots {d or '-'}; crosses {c or '-'}")
-        src = source_boards(os.path.join(SRC, band + '.tex'))
+        src = source_boards(SRC + '/' + band + '.tex')
         lines.append(f'  boards in PDF: {len(pdf_boards)}, boards in source: {len(src)}')
         assert len(src) == len(pdf_boards), 'board count differs'
         for b, s in zip(pdf_boards, src):

@@ -9,7 +9,7 @@ Also compares the delivered PDFs with the source reference copies byte for byte.
 import hashlib
 import json
 import re
-from common import HERE, SRC, BONUS_SRC, WEEK, PT_PER_CM, Tee
+from common import HERE, SRC, BONUS_SRC, WEEK, PT_PER_CM, Tee, reviewed_tex
 
 out = Tee(HERE / "out_compare_source.txt")
 D = json.loads((HERE / "extracted.json").read_text())
@@ -32,7 +32,7 @@ for a, b in pairs:
     bad += not same
 
 for band, tex in (("k-1", "k-1.tex"), ("2-3", "grades-2-3.tex"), ("4-5", "grades-4-5.tex")):
-    text = (SRC / "src" / tex).read_text()
+    text = reviewed_tex(tex)  # the TeX as reviewed (common.py)
     pages = text.split("\\newpage")
     for i, src in enumerate(pages):
         pg = D[band][i]

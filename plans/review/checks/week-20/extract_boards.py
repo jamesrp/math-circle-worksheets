@@ -23,15 +23,16 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from repo import WEEK
+from repo import WEEK, REVIEWED
 
 HERE = Path(__file__).resolve().parent
+# base packets and guide as reviewed (see repo.py); the bonus is current
 PDFS = {
-    'k-1': WEEK / 'week-20-k-1.pdf',
-    'grades-2-3': WEEK / 'week-20-grades-2-3.pdf',
-    'grades-4-5': WEEK / 'week-20-grades-4-5.pdf',
+    'k-1': REVIEWED / 'week-20-k-1.pdf',
+    'grades-2-3': REVIEWED / 'week-20-grades-2-3.pdf',
+    'grades-4-5': REVIEWED / 'week-20-grades-4-5.pdf',
     'bonus': WEEK / 'week-20-bonus.pdf',
-    'guide': WEEK / 'week-20-facilitator.pdf',
+    'guide': REVIEWED / 'week-20-facilitator.pdf',
 }
 NUM = re.compile(r'^-?\d+(/\d+)?$')
 OUT = []

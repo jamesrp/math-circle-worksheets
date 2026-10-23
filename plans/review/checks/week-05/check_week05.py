@@ -66,6 +66,15 @@ def grid_rows(g):
     return tuple(tuple(r) for r in g["cells"])
 
 
+# The guide's grids in reading order, pages 5-8. Card could 7 (d04ef8f, F05-FAC-v6) lengthened the
+# materials section, so the 4-5 ladder moved from p.6 to p.7 and the Problem 6 example to p.8; the
+# 32 grids keep their order, so they are taken by position in this list instead of by page:
+# [0:7] p.5 K-1/2-3 cities, [7:19] the twelve 3-by-3 cities, [19:25] the 4-5 ladder A-F,
+# [25:29] the 4-5 P4 cities A-D, [29] the P6 example, [30:32] the P9 pair.
+GG = [g for pg in sorted(DATA["guide"], key=int) for g in DATA["guide"][pg]]
+assert len(GG) == 32, f"expected 32 guide grids, found {len(GG)}"
+
+
 # --------------------------------------------------------------------------- rows
 print("== Rows of towers (all bands)")
 for n in (3, 4, 5):
@@ -223,7 +232,7 @@ ok("4-5 fallback 'two can be enough': cities that some two of their own numbers 
 
 print(" P6:")
 ok("P6 count 12; 15 grids printed", (len(SQ[3]), len(student("M", 8)["grids"])), (12, 15))
-ok("P6 guide's twelve grids are the twelve cities", sorted(rowstr(grid_rows(g)) for g in guide(6)[:12]),
+ok("P6 guide's twelve grids are the twelve cities", sorted(rowstr(grid_rows(g)) for g in GG[7:19]),
    sorted(rowstr(s) for s in SQ[3]))
 ok("P6 'second row is the top row shifted one place either way; third forced'",
    all(len([s for s in SQ[3] if s[0] == top]) == 2 for top in permutations((1, 2, 3))), True)
@@ -247,7 +256,7 @@ ok("P2: 576 cities, 40 cubes each", (len(SQ[4]), sum(map(sum, SQ[4][0]))), (576,
 
 print(" P3 ladder:")
 u_puz = student("U", 3)["grids"] + student("U", 4)["grids"]
-gl = guide(6)[12:18]
+gl = GG[19:25]
 sizes = []
 for i, (g, gg) in enumerate(zip(u_puz, gl)):
     cl = clues_from(g["clues"])
@@ -309,7 +318,7 @@ print(" P4:")
 cl = clues_from(student("U", 5)["grids"][0]["clues"])
 ok("P4 clues", cl, {("T", 1): 4, ("L", 1): 4})
 s4 = solutions(4, cl)
-g7 = guide(7)
+g7 = GG[25:30]
 ok("P4 four cities = guide A-D", sorted(rowstr(s) for s in s4), sorted(rowstr(grid_rows(g)) for g in g7[:4]))
 ok("P4 small grids printed (6)", len(student("U", 5)["grids"]) - 1, 6)
 let4 = {rowstr(grid_rows(g)): L for g, L in zip(g7[:4], "ABCD")}
@@ -365,7 +374,7 @@ ok("P8 rows of five with exactly 1 / exactly 2 seen from the left", (c5[1], c5[2
 by_first = {h: sum(1 for p in permutations(range(1, 6)) if p[0] == h and seen(p) == 2) for h in range(1, 6)}
 ok("P8 guide split by first tower 4,3,2,1 -> 24,12,8,6", [by_first[h] for h in (4, 3, 2, 1)], [24, 12, 8, 6])
 print(" P9:")
-g8 = guide(8)
+g8 = GG[30:32]
 A9, D9 = grid_rows(g8[0]), grid_rows(g8[1])
 ok("P9 guide pair: two different cities", (A9 in SQ[4], D9 in SQ[4], A9 != D9), (True, True, True))
 ok("P9 guide pair: same sixteen numbers, as printed", (edge_numbers(A9) == edge_numbers(D9),

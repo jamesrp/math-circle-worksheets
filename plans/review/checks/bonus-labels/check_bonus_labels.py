@@ -30,12 +30,17 @@ def labels(s):
     return re.sub(r'\b445\b', '4–5', re.sub(r'\b3333\b', '2–3', s))
 
 
+# Bonus guides changed again after the label fix: the copy the fix produced is archived there.
+# Week 44: could 15 (3e5ac6e) renumbered the bonus marks (W44-BONUS-FAC-v4); the label-fix v3 is in
+# archive-before-small-coulds-2026-10-23. The current copy is still checked for leftover codes.
+AFTER_FIX = {44: 'archive-before-small-coulds-2026-10-23'}
 rows = []
 for w in WEEKS:
-    new = Y / f'week-{w}/week-{w}-bonus-facilitator.pdf'
+    current = Y / f'week-{w}/week-{w}-bonus-facilitator.pdf'
+    new = Y / f'week-{w}/{AFTER_FIX[w]}/week-{w}-bonus-facilitator.pdf' if w in AFTER_FIX else current
     old = Y / f'week-{w}/archive-before-bonus-label-fix-2026-10-23/week-{w}-bonus-facilitator.pdf'
     nt, ot = text(new), text(old)
-    assert CODE.search(ot) and not CODE.search(nt), w
+    assert CODE.search(ot) and not CODE.search(nt) and not CODE.search(text(current)), w
     assert not CODE.search(text(Y / f'week-{w}/week-{w}-bonus.pdf')), (w, 'student')
     fo = re.search(r'W\d\d-BON(?:US)?-FAC-v(\d+)', ot); fn = re.search(r'W\d\d-BON(?:US)?-FAC-v(\d+)', nt)
     assert int(fn.group(1)) == int(fo.group(1)) + 1, (w, fo.group(0), fn.group(0))

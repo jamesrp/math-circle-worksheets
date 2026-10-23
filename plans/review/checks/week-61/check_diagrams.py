@@ -163,12 +163,15 @@ def side_triangle(fig, names):
     return {k: fig.lift(one(d, k)) for k in names if k in d}, d
 
 
-print("\nPage 5: lune-pair example (80-80-80 triangle ABC)")
+# As reviewed the page-5 example was Problem 6's 80-80-80 triangle; card should 5 (3e0a91b, W61-S-v4)
+# replaced it with a 70-70-70 triangle that no problem uses.
+EXAMPLE_ANGLE = 70
+print("\nPage 5: lune-pair example (70-70-70 triangle ABC since 3e0a91b; 80-80-80 as reviewed)")
 s0, s1, s2, s3, o0, o1 = figures(PAGES[4])
 V0, _ = side_triangle(s0, "ABC")
 A, B, C = V0["A"], V0["B"], V0["C"]
 angs = (corner(A, B, C), corner(B, A, C), corner(C, A, B))
-ok(max(abs(t - 80) for t in angs) < 0.6, f"'Corner A': corners {tuple(round(t, 2) for t in angs)}; B, C on the limb (z={B[2]:.3f},{C[2]:.3f})")
+ok(max(abs(t - EXAMPLE_ANGLE) for t in angs) < 0.6, f"'Corner A': corners {tuple(round(t, 2) for t in angs)}; B, C on the limb (z={B[2]:.3f},{C[2]:.3f})")
 (cf,) = s0.fills
 sg, _ = signs(s0.lift(interior_point(cf)), (A, B, C))
 ok(sign_str(sg) == "+++", f"'Corner A' shading is triangle ABC (cell {sign_str(sg)})")

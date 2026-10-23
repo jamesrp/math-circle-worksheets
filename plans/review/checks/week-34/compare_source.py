@@ -12,7 +12,7 @@ import json
 import math
 import re
 
-from common import HERE, SRC, BONUS_SRC
+from common import HERE, SRC, BONUS_SRC, reviewed_tex
 
 PDF = json.loads((HERE / "extracted.json").read_text())
 FAIL = []
@@ -26,7 +26,7 @@ def ok(cond, msg):
 
 spot_re = re.compile(r"\\draw\[line width=1pt,fill=white\] \(([\d.]+),([\d.]+)\) circle \(([\d.]+)\)")
 for band in ["k-1", "grades-2-3", "grades-4-5"]:
-    tex = (SRC / "editable" / "src" / f"{band}.tex").read_text()
+    tex = reviewed_tex(band)  # the TeX as reviewed (common.py)
     pages = tex.split("\\newpage")
     pdf_pages = PDF[f"week-34-{band}.pdf"]
     ok(len(pages) == len(pdf_pages), f"{band}: {len(pages)} source pages, {len(pdf_pages)} PDF pages")

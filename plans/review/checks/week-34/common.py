@@ -24,4 +24,17 @@ REPO = find_repo()
 WEEK = REPO / "lowell-math-circle-year-2" / "week-34"
 SRC = REPO / "lowell-math-circle-year-2" / "source" / "week-34"
 BONUS_SRC = REPO / "lowell-math-circle-year-2" / "source" / "week-34-bonus"
+# The card's shoulds and coulds (f708ade) changed the base packets and guide this review read, so
+# extract.py reads them as reviewed from REVIEWED (MD5-identical to the review import, bb8a7eb) and
+# compare_source.py reads the reviewed TeX from the source ZIP archived before the problem-file
+# conversion (b45bb66; identical to the reviewed src/*.tex). The bonus is unchanged and read from WEEK.
+# check_card_fixes.py and card_checks.py here check the current pages.
+REVIEWED = WEEK / "archive-before-card-fixes-2026-10-23"
+REVIEWED_TEX_ZIP = SRC / "archive-before-problem-files-2026-10-23" / "symmetry-breaking-week34-editable-source.zip"
+
+
+def reviewed_tex(band):
+    import zipfile
+    with zipfile.ZipFile(REVIEWED_TEX_ZIP) as z:
+        return z.read(f"symmetry-breaking-week34-source/src/{band}.tex").decode("utf-8")
 PT_PER_MM = 72 / 25.4

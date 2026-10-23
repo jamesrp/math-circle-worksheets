@@ -119,8 +119,9 @@ def page_items(page):
 
 def main():
     out = {}
+    from common import REVIEWED_PDF
     for band in ('K', '23', '45'):
-        doc = pymupdf.open(PDF[band])
+        doc = pymupdf.open(REVIEWED_PDF[band])  # as reviewed; see common.py
         out[band] = []
         for pno, page in enumerate(doc, 1):
             heads, items = page_items(page)
