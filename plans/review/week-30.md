@@ -41,6 +41,8 @@ The four-sentence rules and the launch example. K–1 P2's boards for the imposs
 11. **could**, guide p. 2: the 0–60 timeline and "trade … with another pair" assume an hour of work and two pairs per table; fit it to 35–40 minutes and the 4–5 trio.
 12. **could**, bonus guide p. 2: reword the equal-cards question per math.md item 2.
 
+October 23, 2026: all twelve done after a problem-file conversion with no wording change (v3 packets F30-K-v3, F30-23-v3, F30-45-v3; guide pp. 1, 2, 4; bonus guide W30-BON-FAC-v2). Fix 5's sticks are 1, 2, 3, 4, 7, 8, 9 and 10 (7 for the launch's 2 and 7) and are unrehearsed. See `lowell-math-circle-year-2/source/week-30/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 Week 29 (two-length builders) also builds targets from a kit, but with unlimited copies and addition only; its theorem is the Frobenius gap, and its rods could supply this week's weights. Week 6 (code breaking) uses the same counting move (k answers separate at most 2^k), which the bonus's search problems repeat. None reaches balanced ternary; no merge.

@@ -66,13 +66,14 @@ class Page:
         self.node(x + 8.5 * scale, y + 1.55 * scale, '=', 18 * scale)
 
     def weights(self, vals, y, x0=0):
-        """Weight cards, each with its number and that many dots (the old builder's weights())."""
+        """Weight cards, each with its number and that many dots in rows of three (the old builder's
+        weights(); since October 23, 2026 the rows are .33 apart, not .38, so a tenth dot clears the border)."""
         for i, n in enumerate(vals):
             x = x0 + i * 3.3
             self.rect(x, y, 2.65, 2.25, 'rounded corners=5pt,line width=.7pt')
             self.node(x + 1.32, y + .42, n, 15)
             for j in range(n):
-                xx = x + .65 + (j % 3) * .65; yy = y + 1.05 + (j // 3) * .38
+                xx = x + .65 + (j % 3) * .65; yy = y + 1.05 + (j // 3) * .33
                 self.add(r'\fill (' + f'{xx},{-yy}' + ') circle (1.5pt);')
 
     def blanks(self, targets, y, gap=4.6):
@@ -144,10 +145,11 @@ def page_text(x, y, body, w, size):
 # ---- the shared rules' figure; each problem's figure is a draw(...) call in its file --------
 
 def rules_example():
-    """The shared rules' worked example: target 3 balanced by putting 1 beside it, against 4."""
-    return draw(('text', 0, 1.5, 'Target 3; weights 1 and 4', 18.5, 12), ('weights', [1, 4], 2.2),
-                ('line', 8.0, 3.2, 9.3, 3.2, '->,line width=.8pt'), ('node', 12.4, 3.1, 'put 1 beside the target', 12),
-                ('pan', 0, 5.1, 3, [1], [4]), ('node', 8.5, 8.8, '3 + 1 = 4', 13))
+    """The shared rules' worked example: target 5 balanced by putting 2 beside it, against 7.
+    (Until October 23, 2026 it was target 3 with 1 and 4, which is a cell of K-1 P3 and 2-3 P1.)"""
+    return draw(('text', 0, 1.5, 'Target 5; weights 2 and 7', 18.5, 12), ('weights', [2, 7], 2.2),
+                ('node', 10.4, 3.3, 'put 2 beside the target', 12),
+                ('pan', 0, 5.1, 5, [2], [7]), ('node', 8.5, 8.8, '5 + 2 = 7', 13))
 
 
 def kit_rows():
@@ -162,10 +164,34 @@ def kit_rows():
     return p.out()
 
 
-def kit_labels_and_lines(kits, y0=2, step=7, rows=4):
-    """Grades 2-3 Problem 3: each kit's name and ruled lines under it."""
+def k1_kit_strips():
+    """K-1 Problem 3: a row of target boxes 1 to 6 for each kit, as in Grades 2-3 Problem 1."""
+    p = Page()
+    for i, kit in enumerate(['1 and 4', '1 and 3']):
+        p.text(0, 5.1 + i * 2.2, kit, w=3, size=12)
+        for j, n in enumerate(range(1, 7)):
+            p.rect(3.5 + j * 2.2, 5 + i * 2.2, 1.8, 1.2)
+            p.node(4.4 + j * 2.2, 5.6 + i * 2.2, n, 16)
+    return p.out()
+
+
+def kit_labels_and_targets(kits, last=14, y0=2, step=7):
+    """Grades 2-3 Problem 3: each kit's name and its target boxes 1 to `last`, seven to a row."""
     p = Page()
     for i, kit in enumerate(kits):
         p.text(0, y0 + i * step, kit, size=16)
-        p.ruled(4 + i * step, rows)
+        p.targets(range(1, last + 1), y0 + 1.4 + i * step, 7)
     return p.out()
+
+
+def three_boards_each(kits, target=4, y0=2.2, scale=.7):
+    """Grades 2-3 Problem 4: each kit's name and three small blank boards for the target."""
+    p = Page()
+    y = y0
+    for kit in kits:
+        p.text(0, y, kit, size=12)
+        for b in range(3):
+            p.pan(0, y + 1 + b * 2.7, target, scale=scale)
+        y += 9.4
+    return p.out()
+

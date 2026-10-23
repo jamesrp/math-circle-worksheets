@@ -1,6 +1,8 @@
 # Week 30 Two-pan weight kits editable source
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 23, 2026 card-fix revision (v3)
+
+**Card fixes, October 23, 2026.** Every should and could of the review card was done after the conversion below: student packets F30-K-v3, F30-23-v3 and F30-45-v3 and guide pages 1, 2 and 4 (materials now cube sticks that balance by length; a 35–40 minute plan; the reason no three-weight kit balances more than 13). See `review/card-fixes-2026-10-23.md`; `python3 review/verify_card_fixes_2026_10_23.py` checks each fix against the built PDFs. The release before it was the October 4, 2026 fresh-review revision.
 
 **Problem files, October 23, 2026.** The student pages are now stored as problem files in `problem-files/` (in the repository: `lowell-math-circle-year-2/source/week-30/`), one file per problem with its band differences inside it. The conversion changed no wording or figure; the PDFs are unchanged. `student-src/regenerate.py` writes the student LaTeX from them and compiles it, and `problem-files/tools/build.py` also builds first-route and return packets, a one-page problem menu and a key arranged by problem.
 
@@ -18,11 +20,11 @@ Extract the complete ZIP. Install Python 3 with `requirements.txt`, a normal TeX
     python3 build.py
     python3 verify_revision.py
 
-The current verifier compares paper geometry and every 100-dpi rendered page against `reference-pdfs/`; timestamps may differ. It permits only specifically audited full-page font/hyphenation alternatives for unchanged student PDFs. See `review/fresh-review-rebuild.md` for actual results. The original strict verifier (`verify_rebuild.py` or `verify.py`) is retained and rejects those alternatives. The corpus report explicitly records any pre-existing small TeX font-metric differences for unchanged student bands; their current print/reference PDFs stay byte-identical. For Weeks 24 and 35, the detailed student-stage record is `review/student-reviser-fresh-review.md`. The corpus release report records those differences explicitly rather than calling them pixel-identical.
+The current verifier compares paper geometry and every 100-dpi rendered page against `reference-pdfs/`; timestamps may differ. It permits only specifically audited full-page font/hyphenation alternatives for unchanged student PDFs. Since the October 23 fixes every student PDF changed, so none is listed and every page must match exactly. See `review/fresh-review-rebuild.md` for actual results. The original strict verifier (`verify_rebuild.py` or `verify.py`) is retained and rejects those alternatives. The corpus report explicitly records any pre-existing small TeX font-metric differences for unchanged student bands; their current print/reference PDFs stay byte-identical. For Weeks 24 and 35, the detailed student-stage record is `review/student-reviser-fresh-review.md`. The corpus release report records those differences explicitly rather than calling them pixel-identical.
 
 Edit student problems in `problem-files/problems/*.md` (figures and the page template in `problem-files/figures.py`); `build.py` regenerates `student-src/*.tex` from them before compiling, so do not edit the TeX by hand. To build every view: `python3 problem-files/tools/build.py problem-files --out views`. Edit the existing guide source under `facilitator-src/`. Where present, `facilitator-src/route-note.json` holds the concise starting/return update; the root build regenerates the guide before appending it exactly once. Do not run the appender alone against an already appended guide. Build intermediates belong in a separate working copy; inspect changed pages before updating references.
 
-The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/fresh-review-2026-10-04.md`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
+The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/card-fixes-2026-10-23.md` (and, for the October 4 release, `review/fresh-review-2026-10-04.md`). Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
 
 ## Use and rights
 

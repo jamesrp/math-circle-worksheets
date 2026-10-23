@@ -8,7 +8,7 @@ kernel = 'Any three weights balance at most 13 different positive targets, gaps 
 +++
 
 ## prompt @15
-Choose three different whole-number weights. How many different positive targets can your kit balance? Can another kit balance more, even if there are gaps?
+Choose three different whole-number weights. How many different positive targets can your kit balance? What is the most any three-weight kit can balance, even with gaps? Explain why none can do better.
 
 ## figure
 draw(('ruled', 18, 5))
