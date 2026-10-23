@@ -7,7 +7,7 @@ route = ["first", "return"]
 +++
 
 ## text
-Keep the cylinder still. Each yarn route goes upward from A to B, with no self-crossings. Except at A and B, keep the yarn strictly between the rims. Leave spare yarn past both marks. Tape it at A and B; feed spare yarn through if needed, keeping the marked endpoints fixed. To build a different route, lift and re-lay the yarn, putting its ends back on the same marks.
+Each yarn route goes upward from A to B, with no self-crossings. Except at A and B, keep the yarn strictly between the rims. To build a different route, lift and re-lay the yarn, putting its ends back on the same marks.
 
 Travel from A to B. At the seam, a rightward crossing counts $+1$; a leftward crossing counts $-1$. Add these to get the route's \emph{winding}.
 \begin{center}\begin{tikzpicture}[x=.95in,y=.85in,font=\small,>=Stealth]

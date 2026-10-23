@@ -1,6 +1,6 @@
 # Week 75: release verification scope
 
-Prepared October 6, 2026 for review. Current IDs: GGT75-S-v2 and GGT75-FAC-v2 (October 23, 2026: the review card's two musts and should 3 on student pages 3–4, with the guide to match; see `review/card-fixes-2026-10-23.md`). 4 student pages; 3 adult-guide pages.
+Prepared October 6, 2026 for review. Current IDs: GGT75-S-v3 and GGT75-FAC-v3 (October 23, 2026: the review card's two musts and should 3 on student pages 3–4, then shoulds 4–7 on pages 1–2, with the guide to match; see `review/card-fixes-2026-10-23.md`). 4 student pages; 3 adult-guide pages.
 
 The student packet passed an independent adversarial review followed by a fresh revision. Each final student page was rendered and visually inspected after changes; its standalone builder and mathematical checks were rerun. The adult guide is a separate stage: its author checked the exact final student questions, independently verified its answers, and rendered and inspected every guide page. Reviewer findings and revision decisions are kept with the repository's per-week review record.
 

@@ -7,7 +7,7 @@ kernel = "A route's lift from A ends at the copy of B numbered by its winding."
 +++
 
 ## prompt
-Draw two different upward routes of winding $+2$, and two of winding $-1$. Start each at A. Your partner checks by tracing each route back onto the cylinder.
+Draw two different upward routes of winding $+2$, and two of winding $-1$. Start each at A. Your partner lays each route on the cylinder with yarn.
 
 ## text
 \liftboard

@@ -107,7 +107,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 72 | A robot that remembers area (the Heisenberg group) | keep | [card](week-72.md), [math check](week-72-math.md) |
 | 73 | The gentlest stretch (least stretch maps) | keep | [card](week-73.md), [math check](week-73-math.md) |
 | 74 | Doubling elevators (BS(1, 2)) | keep | [card](week-74.md), [math check](week-74-math.md) |
-| 75 | Twists on a cylinder (winding and Dehn twists) | original verdict revise; the must-fixes (page 4 says strand crossings; page 3 has a strip with B copies −4 to 4 for the twisted routes) fixed October 23 in the new problem files, with should 3 (taller sketch rows) and should 9 (guide rehearsal and twist demonstration); should-fixes 4–8 deferred, problem numbers unchanged | [card](week-75.md), [math check](week-75-math.md) |
+| 75 | Twists on a cylinder (winding and Dehn twists) | original verdict revise; the must-fixes (page 4 says strand crossings; page 3 has a strip with B copies −4 to 4 for the twisted routes) fixed October 23 in the new problem files, with should 3 (taller sketch rows) and should 9 (guide rehearsal and twist demonstration), then shoulds 4–7 (page 1–2 wording, Problem 1 sketch boxes) the same day; should 8 left for the organizer, problem numbers unchanged | [card](week-75.md), [math check](week-75-math.md) |
 | 76 | Substitution strips (Thue–Morse) | keep | [card](week-76.md), [math check](week-76-math.md) |
 | 77 | Persistent holes | keep | [card](week-77.md), [math check](week-77-math.md) |
 | 78 | Three-armed lines (tropical lines) | keep | [card](week-78.md), [math check](week-78-math.md) |

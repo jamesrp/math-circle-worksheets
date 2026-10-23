@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Check the October 23, 2026 card fixes in the Week 75 student packet (GGT75-S-v2).
+"""Check the October 23, 2026 card fixes in the Week 75 student packet (GGT75-S-v3).
 
     python3 verify_card_fixes_2026_10_23.py [students.pdf] [previous-students.pdf]
 
 The defaults are ../reference-pdfs/week-75-students.pdf and, when present, the
-previous print copy in the repository's week-75/archive-before-card-fixes-2026-10-23/.
+previous print copy (v2) in the repository's week-75/archive-before-shoulds-2026-10-23/.
+Version 2 made fixes 1-3 on pages 3-4; version 3 made shoulds 4-7 on pages 1-2.
 Reads the printed PDF's vector data and text (PyMuPDF, `pip install pymupdf`).
 
   1. Twist words: the 28 words of two to four twists from winding 0 end at windings
@@ -17,7 +18,10 @@ Reads the printed PDF's vector data and text (PyMuPDF, `pip install pymupdf`).
      height fraction, and the twisted straight route ends one copy right.
   4. Page 4: Problems 6-7 say strand crossings (fix 1); the record column is headed
      Sketch and its rows are at least 0.8 in tall (fix 3).
-  5. Pages 1-2 differ from the previous packet only in the footer version.
+  5. Pages 1-2 (shoulds 4-7): the opening rules leave taping and feeding to the
+     launch; Problem 1 has two sketch boxes, each with A below B; Problem 2's partner
+     lays each route with yarn; Problem 3 ends "Explain the difference."
+  6. Pages 3-4 differ from the previous packet (v2) only in the footer version.
 """
 import sys
 from itertools import product
@@ -28,7 +32,7 @@ import pymupdf
 HERE = Path(__file__).resolve().parent
 PDF = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE.parent / 'reference-pdfs' / 'week-75-students.pdf'
 OLD = Path(sys.argv[2]) if len(sys.argv) > 2 else (
-    HERE.parents[3] / 'week-75' / 'archive-before-card-fixes-2026-10-23' / 'week-75-students.pdf')
+    HERE.parents[3] / 'week-75' / 'archive-before-shoulds-2026-10-23' / 'week-75-students.pdf')
 fails = []
 
 
@@ -82,7 +86,7 @@ check(partials <= set(range(-4, 5)), f'every partial word stays in {min(partials
 
 doc = pymupdf.open(PDF)
 check(len(doc) == 4, f'{PDF.name} has 4 pages ({len(doc)})')
-check(all('GGT75-S-v2' in p.get_text() for p in doc), 'every page footer reads GGT75-S-v2')
+check(all('GGT75-S-v3' in p.get_text() for p in doc), 'every page footer reads GGT75-S-v3')
 
 # 2. the strip
 p3 = doc[2]
@@ -156,10 +160,26 @@ rows = [(b - a) / 72 for a, b in zip(table, table[1:])]
 check(len(rows) == 6 and min(rows) >= 0.8, f'six sketch rows, each at least 0.8 in ({min(rows):.2f} in)')
 
 # 5. pages 1-2
+t1 = ' '.join(doc[0].get_text().split())
+t2 = ' '.join(doc[1].get_text().split())
+check('Each yarn route goes upward from A to B' in t1 and 'Tape' not in t1 and 'spare yarn' not in t1
+      and 'Keep the cylinder still' not in t1, 'page 1 rules: no taping, feeding or still-cylinder handling')
+cut = max((l for l in lines(doc[0]) if abs(l['y0'] - l['y1']) < .01), key=lambda l: abs(l['x1'] - l['x0']))
+below = sorted((d for d in dots(doc[0]) if d[1] > cut['y0'] + 200), key=lambda d: (round(d[0]), d[1]))
+pairs = [(below[i], below[i + 1]) for i in range(0, len(below) - 1, 2)]
+check(len(below) == 4 and all(abs(b[0] - a[0]) < .1 and abs(abs(b[1] - a[1]) - 72) < .5 for a, b in pairs),
+      'Problem 1: two sketch boxes, each with A one inch below B')
+check('Same winding, different routes (winding' in t1, 'Problem 1: the boxes are labelled with one shared winding blank')
+check('Your partner lays each route on the cylinder with yarn.' in t2 and 'tracing' not in t2,
+      'Problem 2: the partner lays each route with yarn')
+check('Find a pair that can and a pair that cannot. Explain the difference.' in t2 and 'repeated rectangles to explain' not in t2,
+      'Problem 3 ends "Explain the difference."')
+
+# 6. pages 3-4
 if OLD.exists():
     old = pymupdf.open(OLD)
-    for i in (0, 1):
-        a = doc[i].get_text().replace('GGT75-S-v2', 'GGT75-S-v1')
+    for i in (2, 3):
+        a = doc[i].get_text().replace('GGT75-S-v3', 'GGT75-S-v2')
         check(a == old[i].get_text(), f'page {i + 1} text matches the previous packet apart from the footer version')
         pa, pb = doc[i].get_pixmap(dpi=100), old[i].get_pixmap(dpi=100)
         diff_rows = {y for y in range(pa.height) for x in range(0, pa.width, 1)
@@ -167,7 +187,7 @@ if OLD.exists():
         footer = pa.height * (10.35 / 11)
         check(diff_rows and min(diff_rows) > footer, f'page {i + 1} pixels differ only in the footer band')
 else:
-    print(f'SKIP pages 1-2: no previous packet at {OLD}')
+    print(f'SKIP pages 3-4: no previous packet at {OLD}')
 
 print(f'{len(fails)} failures')
 sys.exit(1 if fails else 0)

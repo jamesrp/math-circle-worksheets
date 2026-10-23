@@ -7,7 +7,7 @@ kernel = "With both ends fixed, a route slides into another exactly when their w
 +++
 
 ## prompt
-Choose two of your yarn routes. Keeping the endpoints at A and B and the yarn on the cylinder, can you slide one route into the other without crossing itself? Find a pair that can and a pair that cannot. Use the repeated rectangles to explain the difference.
+Choose two of your yarn routes. Keeping the endpoints at A and B and the yarn on the cylinder, can you slide one route into the other without crossing itself? Find a pair that can and a pair that cannot. Explain the difference.
 
 ## text
 \answerline\answerline

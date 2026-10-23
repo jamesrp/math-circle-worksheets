@@ -43,6 +43,7 @@ P1's cylinder with yarn taped at fixed A and B, and the partner's seam check. Th
 13. **could**, "The top dots are copies of the same B on the cylinder" narrates the board.
 
 October 23, 2026: fixes 1 and 2 done in the new problem files (GGT75-S-v2, GGT75-FAC-v2), Problem 5 kept on page 3 because it still fits; fixes 3, 9, 10 and 11 (page 3) done too; 4–8, 12, 13 and 11 on page 1 deferred. Record: `lowell-math-circle-year-2/source/week-75/editable/review/card-fixes-2026-10-23.md`.
+Later on October 23, 2026: fixes 4–7 and 11 on page 1 done too (GGT75-S-v3); 8, 12 and 13 remain.
 
 ## Overlaps
 
