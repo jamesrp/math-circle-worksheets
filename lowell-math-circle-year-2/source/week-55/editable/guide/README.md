@@ -23,7 +23,7 @@ Read `AGENTS.md`, root `README.md` and `REPUBLISHING.md`, stage routing, final a
 
 The sharp integer theorem/local path-swap proof is independently reconstructed elementary mathematics, not attributed to an uninspected chapter of Tao–Vu and not claimed as new mathematics. The guide does not claim to prove the general Freiman theorem. All figures and teaching prose in this source were newly authored. The portable source contains only this README, `facilitator.tex`, `build.py`, and `verify.py`; no exemplar prompt, borrowed book or third-party image is packaged.
 
-K–1 uses a separate current Week 1 tiling option, with its own existing guide. This does not create or validate a sumset K–1 route. Printing/kit dimensions are digital specifications; physical handling and classroom piloting remain unperformed. No publication, remote upload, or current-release indexing is claimed by this guide-author stage.
+K–1: since October 23, 2026 the guide gives an adult-led route on student pages 1–3 with dot cards 0–6, the parent reading and supplying facts; a Week 1 tiling board stays a fallback. The route is untested. Printing/kit dimensions are digital specifications; physical handling and classroom piloting remain unperformed. No publication, remote upload, or current-release indexing is claimed by this guide-author stage.
 
 Package note: this README records the authored stage. External QA paths and
 process-status descriptions are historical; current verification is recorded in

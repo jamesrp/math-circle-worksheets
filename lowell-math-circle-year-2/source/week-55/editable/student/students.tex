@@ -43,19 +43,23 @@
   \foreach \i in {1,...,#3} {\draw[line width=.6pt] (121+15*\i-15,#1) rectangle ++(13,14);\draw[line width=.35pt] (122.2+15*\i-15,#1+1.2) rectangle ++(10.6,11.6);}}
 \newcommand{\arraygrid}[5]{%
   % x, bottom y, A list (bottom to top), B list (left to right), step mm
+  % every grid segment first, then every dot, so no segment crosses a number
   \foreach \a [count=\i from 0] in {#3} {%
     \node[anchor=east,font=\small] at (#1-9,#2-#5*\i) {\a};%
     \foreach \b [count=\j from 0] in {#4} {%
-      \pgfmathtruncatemacro{\s}{\a+\b}%
       \ifnum\i>0 \draw[gray!45] (#1+#5*\j,#2-#5*\i) -- ++(0,#5);\fi%
       \ifnum\j>0 \draw[gray!45] (#1+#5*\j,#2-#5*\i) -- ++(-#5,0);\fi%
+    }}%
+  \foreach \a [count=\i from 0] in {#3} {%
+    \foreach \b [count=\j from 0] in {#4} {%
+      \pgfmathtruncatemacro{\s}{\a+\b}%
       \node[draw,fill=white,circle,inner sep=0,minimum size=9mm,line width=.45pt] at (#1+#5*\j,#2-#5*\i) {\s};%
     }}%
   \foreach \b [count=\j from 0] in {#4} {\node[font=\small] at (#1+#5*\j,#2+10) {\b};}%
   \node[anchor=east,font=\small] at (#1-9,#2+10) {A / B};}
 \begin{document}
 \canvas
-\txt{0}{0}{245}{Choose one card from A and one from B. Keep each input fixed while finding all its totals. Put one counter at each different total. Mark occupied cells before reusing counters. Each input has different numbers. Use cards 0--9 unless a problem says otherwise.} \txt{9}{21}{50}{\small Inputs} \cards{9}{28}{A}{1,4} \cards{9}{45}{B}{0,3} \draw[->] (58,42)--(69,42); \txt{75}{21}{75}{\small Three tries} \txt{75}{29}{75}{$1+3=4$\quad\small counter at 4} \txt{75}{39}{75}{$4+0=4$\quad\small 4 stays occupied} \txt{75}{49}{75}{$1+0=1$\quad\small counter at 1} \draw[->] (154,42)--(164,42); \txt{169}{21}{72}{\small Positions so far} \foreach \v [count=\i from 0] in {1,4} { \draw (170+19*\i,29) rectangle ++(17,27); \node at (178.5+19*\i,35) {\v}; \draw[fill=black!15,line width=.6pt] (178.5+19*\i,47) circle (4.5); }
+\txt{0}{0}{245}{Choose one card from A and one from B. Keep each input fixed while finding all its totals. Put one counter at each different total. Mark occupied cells before reusing counters. No number repeats within an input; A and B may share numbers. Use cards 0--9 unless a problem says otherwise.} \txt{9}{21}{50}{\small Inputs} \cards{9}{28}{A}{1,4} \cards{9}{45}{B}{0,3} \draw[->] (58,42)--(69,42); \txt{75}{21}{75}{\small Three tries} \txt{75}{29}{75}{$1+3=4$\quad\small counter at 4} \txt{75}{39}{75}{$4+0=4$\quad\small 4 stays occupied} \txt{75}{49}{75}{$1+0=1$\quad\small counter at 1} \draw[->] (154,42)--(164,42); \txt{169}{21}{72}{\small Positions so far} \foreach \v [count=\i from 0] in {1,4} { \draw (170+19*\i,29) rectangle ++(17,27); \node at (178.5+19*\i,35) {\v}; \draw[fill=black!15,line width=.6pt] (178.5+19*\i,47) circle (4.5); }
 \prob{1}{68}{Find every different total in each trial. Which trial has fewer?}
 \pair{85}{0,2}{1,3}\lane{9}{103} \pair{135}{0,2}{1,4}\lane{9}{153}
 \finishcanvas\newpage
@@ -95,6 +99,6 @@
 \foreach \y in {92,117,142,167} {\draw[gray!30] (9,\y)--(237,\y);}
 \finishcanvas\newpage
 \canvas
-\prob{10}{0}{A has $m$ different whole-number cards and B has $n$. Each input has at least two cards. Suppose they give exactly $m+n-1$ different totals. Must both inputs be equally spaced, with the same gap in A and B? Explain why, or find a pair that breaks the claim. Also explain why any two equally spaced inputs with the same gap give exactly $m+n-1$ totals.}
+\prob{10}{0}{A has $m$ different whole-number cards and B has $n$. Each input has at least two cards. Explain why two equally spaced inputs with the same gap give exactly $m+n-1$ different totals. Now suppose an A and a B give exactly $m+n-1$ different totals. Must both be equally spaced, with the same gap? Explain why, or find a pair that breaks the claim.}
 \foreach \y in {59,84,109,134,159} {\draw[gray!30] (9,\y)--(237,\y);}
 \finishcanvas\end{document}

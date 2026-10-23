@@ -51,12 +51,16 @@ PREAMBLE = r'''\documentclass[12pt]{article}
   \foreach \i in {1,...,#3} {\draw[line width=.6pt] (121+15*\i-15,#1) rectangle ++(13,14);\draw[line width=.35pt] (122.2+15*\i-15,#1+1.2) rectangle ++(10.6,11.6);}}
 \newcommand{\arraygrid}[5]{%
   % x, bottom y, A list (bottom to top), B list (left to right), step mm
+  % every grid segment first, then every dot, so no segment crosses a number
   \foreach \a [count=\i from 0] in {#3} {%
     \node[anchor=east,font=\small] at (#1-9,#2-#5*\i) {\a};%
     \foreach \b [count=\j from 0] in {#4} {%
-      \pgfmathtruncatemacro{\s}{\a+\b}%
       \ifnum\i>0 \draw[gray!45] (#1+#5*\j,#2-#5*\i) -- ++(0,#5);\fi%
       \ifnum\j>0 \draw[gray!45] (#1+#5*\j,#2-#5*\i) -- ++(-#5,0);\fi%
+    }}%
+  \foreach \a [count=\i from 0] in {#3} {%
+    \foreach \b [count=\j from 0] in {#4} {%
+      \pgfmathtruncatemacro{\s}{\a+\b}%
       \node[draw,fill=white,circle,inner sep=0,minimum size=9mm,line width=.45pt] at (#1+#5*\j,#2-#5*\i) {\s};%
     }}%
   \foreach \b [count=\j from 0] in {#4} {\node[font=\small] at (#1+#5*\j,#2+10) {\b};}%

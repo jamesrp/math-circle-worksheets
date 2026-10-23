@@ -7,7 +7,7 @@ route = "first"
 +++
 
 ## text
-\txt{0}{0}{245}{Choose one card from A and one from B. Keep each input fixed while finding all its totals. Put one counter at each different total. Mark occupied cells before reusing counters. Each input has different numbers. Use cards 0--9 unless a problem says otherwise.}
+\txt{0}{0}{245}{Choose one card from A and one from B. Keep each input fixed while finding all its totals. Put one counter at each different total. Mark occupied cells before reusing counters. No number repeats within an input; A and B may share numbers. Use cards 0--9 unless a problem says otherwise.}
 \txt{9}{21}{50}{\small Inputs}
 \cards{9}{28}{A}{1,4}
 \cards{9}{45}{B}{0,3}
