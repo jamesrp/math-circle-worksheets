@@ -130,6 +130,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 96 | Prime bags and divisor builders | keep | [card](week-96.md), [math check](week-96-math.md) |
 | 97 | Square remainders | keep | [card](week-97.md), [math check](week-97-math.md) |
 | 98 | Growing from a few seeds | keep | [card](week-98.md), [math check](week-98-math.md) |
+| 99 | Moving piles | keep | [card](week-99.md), [math check](week-99-math.md) |
 
 ## Calibration
 
