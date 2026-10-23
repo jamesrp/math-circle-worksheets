@@ -2,7 +2,7 @@
 id = "w40.trefoil"
 title = "Every coloring of the three-crossing loop"
 grades = ["K-1", "2-3", "4-5"]
-route = { "K-1" = "return", "2-3" = "first", "4-5" = "first" }
+route = "first"
 kernel = "The trefoil has nine colorings: three one-color and the six orders of R, B, G."
 +++
 

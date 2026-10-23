@@ -44,6 +44,9 @@ def find_repo():
 
 REPO = find_repo()
 WEEK = REPO / "lowell-math-circle-year-2" / "week-40"
+# The v2 packets and guide this review read were replaced on October 23, 2026 (v3)
+# and archived; the bonus PDFs did not change and stay in WEEK.
+ARCHIVE = WEEK / "archive-before-card-fixes-2026-10-23"
 PT = 25.4 / 72.0  # mm per point
 
 FAIL = []
@@ -155,7 +158,7 @@ def colour_name(rgb):
 
 def load(pdfname, page):
     """Strokes, fills and characters of one page, in mm, top-left origin."""
-    with pdfplumber.open(WEEK / pdfname) as pdf:
+    with pdfplumber.open(ARCHIVE / pdfname if (ARCHIVE / pdfname).exists() else WEEK / pdfname) as pdf:
         pg = pdf.pages[page - 1]
         strokes, fills = [], []
         for o in pg.curves + pg.lines + pg.rects:

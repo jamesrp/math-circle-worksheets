@@ -1,14 +1,13 @@
 +++
 id = "w40.certificate"
-title = "The count as a certificate"
+title = "Curls, slides and the count as a certificate"
 grades = ["4-5"]
 route = "return"
-page = "same"
-kernel = "Moves preserve the number of colorings, so 9 and 3 prove the three-crossing loop is not a plain loop."
+kernel = "A curl and a slide also match colorings one to one, so every move keeps the count, and 9 against 3 proves the three-crossing loop is not a plain loop."
 +++
 
-## prompt @155
-Mathematicians have shown that moving a closed loop without cutting or passing strands through each other preserves its number of valid colorings. Use your counts to decide whether the three-crossing loop can become the plain loop.
+## prompt @27
+Check the curl and the slide the way you checked the move in Problem 5. Every way of moving a loop is made of curls, the move in Problem 5, and slides. Can the three-crossing loop become the plain loop?
 
 ## figure
-blank(16,190,180,19)
+moves_page(50)+blank(16,182,180,75)

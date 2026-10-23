@@ -52,6 +52,8 @@ Colour each arc of a knot diagram R, B or G so every crossing is all one colour 
 16. **could**, K–1 P4: tag the cords A–D and print four yes/no boxes.
 17. **could**, guide p. 1: put a plain sentence before "tame closed embedded loop".
 
+**Fixed October 23, 2026 (v3).** After a no-wording-change conversion to problem files, shoulds 1–12 and coulds 13–17 were made as proposed (the figure-eight drawn from a new curve with crossings of 59° or more; fix 12 as Problems 1–5 first in every band, with the K–1 trefoil moved into the first route; the guide's own worked-arc diagram dropped); nothing deferred. Checked by `editable/review/verify_card_shoulds_2026_10_23.py`, which reads every knot diagram back from the PDFs; record in `source/week-40/editable/review/card-shoulds-2026-10-23.md`; v2 PDFs in `week-40/archive-before-card-fixes-2026-10-23/`. Unpiloted; the taped cords and the referee routine are physically unrehearsed.
+
 ## Overlaps
 
 Week 36 (making threes) has the same all-same-or-all-different rule and unique completion; K–1 P5 is its "find the third tile" in one attribute, so cross-reference them. Week 16 (Sperner) and Week 62 share only colours. No merge.

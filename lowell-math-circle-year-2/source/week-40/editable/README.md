@@ -1,12 +1,12 @@
 # Week 40 Loop color certificates editable source
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 23, 2026 review-card fixes (v3)
 
-The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
+The keep card's shoulds and coulds are made: see `review/card-shoulds-2026-10-23.md`. The guide gives one first-visit route per band and return visits; the October 4 fresh-review investigations are retained, with a curl, a slide and a drawn figure-eight added for grades 4–5.
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
-Current pages: **K–1 5; Grades 2–3 4; Grades 4–5 4; adult guide 7**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 5; Grades 2–3 4; Grades 4–5 6; adult guide 7**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project
 
@@ -20,7 +20,7 @@ The current verifier compares paper geometry and every 100-dpi rendered page aga
 
 The student pages are stored as problem files (since October 23, 2026): in the portable ZIP they are in `problem-files/` (`week.toml`, `figures.py`, `problems/*.md`) with the tools in `problem-files/tools/`; in the repository they are in the week folder that holds `editable/`. Edit the problem files; `src/regenerate.py` writes `src/*.tex` from them and the build runs it first, then `src/check_math.py`. `problem-files/tools/build.py problem-files --out <folder>` also builds the menu and route packets. Edit the existing guide source under `facilitator-src/`. Where present, `facilitator-src/route-note.json` holds the concise starting/return update; the root build regenerates the guide before appending it exactly once. Do not run the appender alone against an already appended guide. Build intermediates belong in a separate working copy; inspect changed pages before updating references.
 
-The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/fresh-review-2026-10-04.md`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
+The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/card-shoulds-2026-10-23.md`, checked by `review/verify_card_shoulds_2026_10_23.py`, and before it `review/fresh-review-2026-10-04.md`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
 
 ## Use and rights
 

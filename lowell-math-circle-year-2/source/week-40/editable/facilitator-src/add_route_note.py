@@ -23,7 +23,7 @@ styles={
  'body':ParagraphStyle('route-body',fontName='Helvetica',fontSize=11,leading=15,spaceAfter=7),
  'small':ParagraphStyle('route-small',fontName='Helvetica',fontSize=9,leading=12,spaceAfter=8),
 }
-story=[Paragraph('Starting routes and return visits',styles['title']),Paragraph('Planning update of 4 October 2026. The timing menus are examples; a theme can continue over several meetings. Keep the full Grades 4-5 investigations and choose by readiness.',styles['small'])]
+story=[Paragraph('Starting routes and return visits',styles['title']),Paragraph('Planning update of 4 October 2026, revised 23 October 2026. The timing menus are examples; a theme can continue over several meetings. Keep the full Grades 4-5 investigations and choose by readiness.',styles['small'])]
 for heading,body in cfg['notes']:
  story.extend([Paragraph(escape(heading),styles['head']),Paragraph(escape(body),styles['body'])])
 def decorate(c,doc):

@@ -10,10 +10,10 @@ route = ["first", "return"]
 Keep cords on the table. Move them without cutting or passing strands through each other. Use red (R), blue (B), and green (G).
 
 ## figure
-arc_demo()
+arc_demo(52,88,67)
 
-## text @16,153 w=180 size=11
+## text @16,106 w=180 size=11
 An arc runs between underpasses and continues through overpasses. A closed strand with no underpasses is one whole arc. Give each whole arc one color. At each crossing the colors must be all the same or all different.
 
 ## figure
-valid_crossings()
+valid_crossings(146)
