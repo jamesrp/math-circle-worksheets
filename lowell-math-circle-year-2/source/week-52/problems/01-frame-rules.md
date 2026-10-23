@@ -10,5 +10,3 @@ route = "first"
 \band{Grades K--1}
 \fontsize{16}{21}\selectfont
 Keep the frames flat. Bars stay straight and keep their length; joints may turn. Sliding or turning the whole frame does not change its shape.
-
-Drawings are recording maps.

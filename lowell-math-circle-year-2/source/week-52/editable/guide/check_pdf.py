@@ -16,7 +16,7 @@ def main():
         for i,p in enumerate(d):
             assert list(p.rect)==[0,0,612,792]
             text=p.get_text();assert 'Week 52 / Hinged frames and braces / Adult guide' in text
-            assert 'F52-FAC-v2' in text
+            assert 'F52-FAC-v3' in text
             bounds=[]
             for b in p.get_text('dict')['blocks']:
                 for line in b.get('lines',[]):

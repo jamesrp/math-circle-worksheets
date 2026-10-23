@@ -36,7 +36,19 @@ def graph(name, scale=None, selected=(), dots=False, prices=True, compact=False,
         ox,oy=-dy/length,dx/length
         if abs(dx)<1e-6: ox,oy=-1,0
         if abs(dy)<1e-6: ox,oy=0,-1 if ay<0.1 else 1
-        off=0.18 if compact else 0.32
+        # Optional per-link overrides in networks.json: label_sides (-1 puts the
+        # price on the other side of its link) and label_offsets (cm from the link).
+        side=g.get('label_sides',{}).get(key(a,b),1)
+        ox,oy=ox*side,oy*side
+        off=0.18 if compact else g.get('label_offsets',{}).get(key(a,b),0.32)
+        if dots and not compact and w:
+            # A label with dots is wide (the dots scale with the map), so move its
+            # centre out until the whole white box clears its own link by 0.1 cm.
+            # Box size in points, measured from the built PDF: numeral, thin space
+            # and padding 12.8, dot diameter 1.93*scale, dot spacing 3.83*scale.
+            half_w=(12.8+1.93*scale+3.83*scale*(w-1))/2/28.35
+            half_h=11.3/2/28.35
+            off=max(off,0.1+half_w*abs(ox)+half_h*abs(oy))
         px,py=mx+ox*off/scale,my+oy*off/scale
         if w is None:
             label=r'\makebox[0.6cm]{\rule{0.5cm}{0.35pt}}'
@@ -65,9 +77,9 @@ def generate():
     s.append(command('TriangleTwo',graph('triangle_two',dots=True)))
     s.append(command('FourTies',graph('four_ties',dots=True)))
     s.append(command('FourTiesRecord',graph('four_ties',scale=0.75,compact=True,prices=False)))
-    s.append(command('FourTrap',graph('four_trap')))
+    s.append(command('FourTrap',graph('four_trap',dots=True)))
     s.append(command('FourTrapRecord',graph('four_trap',scale=0.9,compact=True,prices=False)))
-    s.append(command('FiveTies',graph('five_ties')))
+    s.append(command('FiveTies',graph('five_ties',dots=True)))
     s.append(command('FiveTiesRecord',graph('five_ties',scale=0.78,compact=True,prices=False)))
     s.append(command('SwapBefore',graph('swap_demo',selected=['UV','VW'],compact=True)))
     s.append(command('SwapMiddle',graph('swap_demo',selected=['UV','VW','UW'],compact=True)))

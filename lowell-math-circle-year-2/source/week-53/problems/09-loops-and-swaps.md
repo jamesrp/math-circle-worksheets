@@ -1,7 +1,7 @@
 +++
 id = "w53.loops-and-swaps"
 title = "Loops and the one-swap test"
-grades = ["2-5"]
+grades = ["K-5"]
 route = "return"
 page = "new"
 kernel = 'With positive prices a cheapest purchase has no loop, and a loop-free purchase with no cheaper one-link swap is cheapest.'

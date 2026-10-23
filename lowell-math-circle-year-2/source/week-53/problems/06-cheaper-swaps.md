@@ -1,7 +1,7 @@
 +++
 id = "w53.cheaper-swaps"
 title = "Every cheaper one-link swap"
-grades = ["2-5"]
+grades = ["K-5"]
 route = "first"
 page = "new"
 kernel = 'Buying an unused link closes one loop; only a dearer link on that loop can be returned while every place stays connected.'

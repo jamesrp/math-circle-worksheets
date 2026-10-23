@@ -45,6 +45,8 @@ Hinged bars make a rigid triangle and a shearing square; one diagonal fixes the 
 11. **could**, p. 12, P14: add a second 4-by-4 board, as P13 has two.
 12. **could**, guide p. 2: "parent with KK11 … organizer with 445" should read K–1 and 4–5.
 
+October 23, 2026: musts 1–2, shoulds 3–8 and coulds 9, 11 and 12 fixed in F52-S-v3 and F52-FAC-v3 (checked by `checks/week-52/check_card_fixes.py`); could 10 deferred.
+
 ## Overlaps
 
 Week 53 also reaches minimum connected sets as trees, with prices. Week 25's 0/1 grids are the same row–column graph, read for counts rather than connectivity. Week 14's triangulations use the n − 3 diagonals that make a hinged polygon rigid, but never ask about rigidity. No merge; 52 and 53 can share the app's graph editor.

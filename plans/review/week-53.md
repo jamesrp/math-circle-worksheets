@@ -43,6 +43,8 @@ Children pay counters for links until every place is connected, seeking the chea
 7. **could**, guide pp. 2 and 8: move the spacing figures and the authorship and verification paragraphs to the source notes.
 8. **could**, materials: name the bought-link marker object, or use only the sleeve trace.
 
+October 23, 2026: musts 1–2 and shoulds 3–4 fixed in W53-networks-v2 and W53-guide-v2 (checked by `checks/week-53/check_card_fixes.py`); coulds 5–8 deferred.
+
 ## Overlaps
 
 Week 52 (bracing) also reaches "a minimum connected set is a tree with n − 1 links", without prices. Week 13 uses cuts for max-flow; Weeks 21 and 50 minimize one trip. None has prices, ties, exchanges or cut/cycle certificates. Keep 52 and 53 separate; they can share the app's graph editor.

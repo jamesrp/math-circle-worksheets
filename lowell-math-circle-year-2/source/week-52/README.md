@@ -1,6 +1,6 @@
 # Week 52: Hinged frames and braces — current editable source
 
-One shared student packet (12 pages, F52-S-v2: pages headed K–1, Grades 2–3, Grades 3–5 and Grades 4–5) and a 10-page theorem-first adult guide (F52-FAC-v2). Unpiloted; the bar-and-pin kits have not been built or handled in a session. The print PDFs are in [../../week-52/](../../week-52/).
+One shared student packet (12 pages, F52-S-v3: pages headed K–1, Grades K–3, Grades 3–5 and Grades 4–5) and a 10-page theorem-first adult guide (F52-FAC-v3). Unpiloted; the bar-and-pin kits have not been built or handled in a session. The print PDFs are in [../../week-52/](../../week-52/).
 
 **Problem files, October 23, 2026.** The student packet is stored as [problem files](../problem-files/README.md): `week.toml`, `template.tex` (the old `students.tex` preamble) and one file per problem in `problems/`, in the flow layout. Each page's first file opens with the `\band{...}` line that names that page's grade range. The conversion changed no wording or figure: the generated LaTeX differs from the old `students.tex` only by blank lines between sections. The rebuilt packet matches the old source's build in pages, extracted text and 100-dpi pixels; the print copy, compiled with TeX Live 2025 (pdfTeX 1.40.27), differs from both builds by the same few glyph pixels (at most 166 on a page at 100 dpi). The hand-written `students.tex` and the October 4 ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 
@@ -20,5 +20,7 @@ One shared student packet (12 pages, F52-S-v2: pages headed K–1, Grades 2–3,
   ```
 
   and check a clean rebuild from the extracted ZIP with `python3 week-52/build.py --out rebuilt`.
+
+**Card fixes, October 23, 2026 (v3).** From the review card: pages 3–4 are headed Grades K–3, and the guide gives each K–1 pair its own 2-by-2 kit and routes K–1 through Problems 4–5 after Problem 3 (kits now 108 side bars, 35 braces, 90 pins); Problem 13 says "braces in six different cells, with a brace in every row and column". The frame rules now open pages 3, 5 and 10 (the new setup files `08-upper-rules.md` and `16-return-rules.md`; problem files renumbered, printed problem numbers unchanged), page 1 no longer narrates the drawings and its square uses the triangle's bar length, and Problem 14 has two boards. The guide's launch, stock test, print plan, handoff and Problem 13 key were revised. `plans/review/checks/week-52/check_card_fixes.py` checks the counts, the claims and the printed pages. The previous PDFs and the conversion ZIP are in `archive-before-card-fixes-2026-10-23/` folders beside the current files.
 
 The research and review record is in [plans/new-themes-52-63/week-52/](../../../plans/new-themes-52-63/week-52/) and the review card in [plans/review/week-52.md](../../../plans/review/week-52.md).

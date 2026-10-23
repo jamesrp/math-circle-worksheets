@@ -14,9 +14,9 @@ import pymupdf
 # reconstructs vertices and edges from PDF drawing paths, not generated TikZ.
 INVENTORY=[
  [('convention',.72,True,True,()),('convention',.72,True,True,('XY','YZ')),('convention',.72,False,False,('XY','YZ')),('triangle_one',1.65,True,True,()),('triangle_two',1.65,True,True,())],
- [('four_ties',2.25,True,True,()),('four_ties',.75,False,False,()),('four_ties',.75,False,False,()),('four_ties',.75,False,False,())],
- [('four_trap',2.25,False,True,()),('four_trap',.9,False,False,()),('four_trap',.9,False,False,())],
- [('five_ties',2.25,False,True,()),('five_ties',.78,False,False,()),('five_ties',.78,False,False,()),('five_ties',.78,False,False,())],
+ [('four_ties',2.25,True,True,())]+[('four_ties',.75,False,False,())]*5,
+ [('four_trap',2.25,True,True,()),('four_trap',.9,False,False,()),('four_trap',.9,False,False,())],
+ [('five_ties',2.25,True,True,())]+[('five_ties',.78,False,False,())]*5,
  [('swap_demo',.72,False,True,('UV','VW')),('swap_demo',.72,False,True,('UV','UW','VW')),('swap_demo',.72,False,True,('UV','UW')),('swaps',1.9,False,True,('AB','AD','AC')),('swaps',1.9,False,True,('AB','BC','CD'))],
  [('six_cert',1.7,False,True,())],
  [('price_design',1.75,False,True,()),('price_design',1.75,False,True,())],
@@ -39,10 +39,10 @@ def inspect(pdf):
     for i,page in enumerate(doc):
         assert tuple(page.rect)==(0,0,612,792)
         text=page.get_text()
-        band='Grades 2–5' if i<4 else 'Grades 4–5'
+        band='Grades K–5' if i<4 else 'Grades 4–5'
         assert f'Week 53 / Connecting networks / {band}' in text
         assert f'Problem {i+1}:' in text
-        assert 'Bellingham Math Circle / Week 53 / W53-networks-v1' in text
+        assert 'Bellingham Math Circle / Week 53 / W53-networks-v2' in text
         assert str(i+1) in [w[4] for w in page.get_text('words') if w[1]>750]
         for block in page.get_text('dict')['blocks']:
             for line in block.get('lines',[]):
@@ -112,7 +112,11 @@ def inspect(pdf):
                 ox,oy=-dy/length,dx/length
                 if abs(dx)<1e-6:ox,oy=-1,0
                 if abs(dy)<1e-6:ox,oy=0,-1 if y1<.1 else 1
-                off=.18 if compact else .32
+                side=g.get('label_sides',{}).get(key(a,b),1);ox,oy=ox*side,oy*side
+                off=.18 if compact else g.get('label_offsets',{}).get(key(a,b),.32)
+                if dotted and not compact and w:
+                    # v2: a wide dot label's box clears its own link by 0.1 cm
+                    off=max(off,.1+(12.8+1.93*scale+3.83*scale*(w-1))/2/28.35*abs(ox)+11.3/2/28.35*abs(oy))
                 expected=point(x+ox*off/scale,y+oy*off/scale)
                 box=min(price_boxes,key=lambda r:dist(center(r),expected))
                 assert dist(center(box),expected)<.15,(i+1,name,key(a,b),expected,box)

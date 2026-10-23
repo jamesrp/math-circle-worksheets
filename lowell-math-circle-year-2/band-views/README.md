@@ -8,8 +8,8 @@ The packets and these views are unpiloted, as their weeks are.
 
 | Week | Topic | Packet | K–1 | Grades 2–3 | Grades 4–5 | Menu |
 |---|---|---|---|---|---|---|
-| 52 | Hinged frames and braces | [12 pages](../week-52/week-52-students.pdf) | [2 of 12](week-52/week-52-k-1.pdf): pp. 1–2 | [8 of 12](week-52/week-52-grades-2-3.pdf): pp. 1, 3–9 | [10 of 12](week-52/week-52-grades-4-5.pdf): pp. 1, 3, 5–12 | [menu](week-52/week-52-menu.pdf) |
-| 53 | Connecting networks | [9 pages](../week-53/week-53-students.pdf) | — | [4 of 9](week-53/week-53-grades-2-3.pdf): pp. 1–4 | whole packet | [menu](week-53/week-53-menu.pdf) |
+| 52 | Hinged frames and braces | [12 pages](../week-52/week-52-students.pdf) | [4 of 12](week-52/week-52-k-1.pdf): pp. 1–4 | [7 of 12](week-52/week-52-grades-2-3.pdf): pp. 3–9 | [8 of 12](week-52/week-52-grades-4-5.pdf): pp. 5–12 | [menu](week-52/week-52-menu.pdf) |
+| 53 | Connecting networks | [9 pages](../week-53/week-53-students.pdf) | [4 of 9](week-53/week-53-k-1.pdf): pp. 1–4 | [4 of 9](week-53/week-53-grades-2-3.pdf): pp. 1–4 | whole packet | [menu](week-53/week-53-menu.pdf) |
 | 54 | Partitions and rebuilding | [9 pages](../week-54/week-54-students.pdf) | — | [5 of 9](week-54/week-54-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-54/week-54-menu.pdf) |
 | 55 | Few sums and equal spacing | [10 pages](../week-55/week-55-students.pdf) | — | whole packet | whole packet | [menu](week-55/week-55-menu.pdf) |
 | 56 | Corners of a solid | [9 pages](../week-56/week-56-students.pdf) | — | [6 of 9](week-56/week-56-grades-2-3.pdf): pp. 1–6 | whole packet | [menu](week-56/week-56-menu.pdf) |

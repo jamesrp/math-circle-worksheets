@@ -1,7 +1,7 @@
 +++
 id = "w53.cheapest-links-trap"
 title = "The cheapest-links trap"
-grades = ["2-5"]
+grades = ["K-5"]
 route = "first"
 page = "new"
 kernel = 'The three cheapest links make a loop and leave D out; the cheapest connection is AB, BC, CD for 7.'

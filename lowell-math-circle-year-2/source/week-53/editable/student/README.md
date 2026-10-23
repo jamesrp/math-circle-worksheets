@@ -1,6 +1,6 @@
 # Week 53 student packet: revised review copy
 
-One original combined student packet, nine US Letter pages. Pages 1–4 carry the approximate band Grades 2–5; pages 5–9 carry Grades 4–5. Problems are numbered 1–9 across the packet. This revision follows fresh independent critic and mathematics reviews. Facilitator-guide authoring and guide review are separate later stages. No facilitator guide is included.
+One original combined student packet, nine US Letter pages. Pages 1–4 carry the approximate band Grades K–5; pages 5–9 carry Grades 4–5. Since the October 23, 2026 card fixes (W53-networks-v2) every price on pages 1–4 has dots beside its numeral, the CD, DE and BD prices on pages 6 and 8 sit on their own links, Problems 2 and 4 print five record maps, and Problem 6's answer areas are headed "In every cheapest purchase:" and "In no cheapest purchase:". Problems are numbered 1–9 across the packet. This revision follows fresh independent critic and mathematics reviews. Facilitator-guide authoring and guide review are separate later stages. No facilitator guide is included.
 
 ## Build
 

@@ -8,7 +8,7 @@ kernel = 'Three braces are the fewest for a 2-by-2 grid, and any three cells wor
 +++
 
 ## text
-\band{Grades 2--3}
+\band{Grades K--3}
 
 ## prompt
 Find the fewest braces that make your 2-by-2 frame hold its shape. Find several designs using that many braces.

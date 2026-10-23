@@ -1,7 +1,7 @@
 # Week 53 standalone facilitator source
 
 This separately authored eight-page guide accompanies the actual final nine-page
-Week 53 student packet (Grades 2–5 on pp. 1–4; Grades 4–5 on pp. 5–9). All nine
+Week 53 student packet (Grades K–5 on pp. 1–4; Grades 4–5 on pp. 5–9; W53-networks-v2 and W53-guide-v2 since the October 23, 2026 card fixes, which added the K–1 route through pp. 1–4). All nine
 keys, complete optimum catalogs, all specified cheaper swaps, inverse witnesses,
 full inverse distribution and general proofs are included. Source contents:
 

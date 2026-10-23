@@ -13,14 +13,14 @@ args = parser.parse_args()
 args.output.mkdir(parents=True, exist_ok=True)
 doc = pymupdf.open(args.pdf)
 assert len(doc) == 12, len(doc)
-bands = ["K–1"] * 2 + ["2–3"] * 2 + ["3–5"] * 5 + ["4–5"] * 3
+bands = ["K–1"] * 2 + ["K–3"] * 2 + ["3–5"] * 5 + ["4–5"] * 3
 problems = []
 report = []
 for i, page in enumerate(doc, 1):
     text = page.get_text()
     assert (page.rect.width, page.rect.height) == (612, 792)
     assert f"Week 52 / Hinged frames and braces / Grades {bands[i-1]}" in text
-    assert "Bellingham Math Circle / Week 52 / F52-S-v2" in text
+    assert "Bellingham Math Circle / Week 52 / F52-S-v3" in text
     numbers = list(map(int, re.findall(r"Problem (\d+):", text)))
     assert numbers, f"page {i} has no problem"
     problems.extend(numbers)

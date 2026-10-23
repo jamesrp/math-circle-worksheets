@@ -11,7 +11,7 @@ kernel = 'Six braces in different cells that cover every row and column of a 3-b
 \band{Grades 4--5}
 
 ## prompt
-A 3-by-3 grid has six braces, with a brace in every row and column. Must it hold its shape? Explain.
+A 3-by-3 grid has braces in six different cells, with a brace in every row and column. Must it hold its shape? Explain.
 
 ## text
 \vspace{7pt}

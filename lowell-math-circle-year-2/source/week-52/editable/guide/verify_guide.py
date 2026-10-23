@@ -204,7 +204,7 @@ def run():
                             'path_passes_through_collinear_collapse':True,
                             'path_max_side_length_error_mm':max(errors),
                             'final_same_diagonal_error_mm':abs(math.dist(path[-1][0],path[-1][2])-diag)}
-    out['kit']={'base_side_bars':2*7+2*12+2*17+4,'base_diagonals':2+8+12+1,'base_pins':14+18+24+4,'with_spares':{'side_bars':84,'diagonals':27,'pins':72},'side_hole_centers_mm':60,'diagonal_hole_centers_mm':diag,'side_total_mm':76,'diagonal_total_mm':diag+16,'width_mm':14}
+    out['kit']={'base_side_bars':2*7+2*12+2*12+2*17+4,'base_diagonals':2+8+8+12+1,'base_pins':14+18+18+24+4,'with_spares':{'side_bars':108,'diagonals':35,'pins':90},'side_hole_centers_mm':60,'diagonal_hole_centers_mm':diag,'side_total_mm':76,'diagonal_total_mm':diag+16,'width_mm':14}
     return out
 if __name__=='__main__':
     ap=argparse.ArgumentParser();ap.add_argument('--output',required=True);ap.add_argument('--students');a=ap.parse_args();result=run()

@@ -23,5 +23,5 @@ sys.dont_write_bytecode = True
 import atoms  # noqa: E402
 
 w = atoms.load_week(week)
-(HERE / 'students.tex').write_text(atoms.student_tex(w, '2-5'))
+(HERE / 'students.tex').write_text(atoms.student_tex(w, 'K-5'))
 print(f'Wrote students.tex from {week}')

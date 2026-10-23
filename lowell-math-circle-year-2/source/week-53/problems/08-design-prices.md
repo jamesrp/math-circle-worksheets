@@ -1,7 +1,7 @@
 +++
 id = "w53.design-prices"
 title = "Design prices for one or several optima"
-grades = ["2-5"]
+grades = ["K-5"]
 route = "return"
 page = "new"
 kernel = 'Prices 1-4 on the four-place map can give exactly one cheapest purchase or several; repeated prices are allowed.'

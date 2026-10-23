@@ -1,7 +1,7 @@
 +++
 id = "w53.distinct-prices"
 title = "Distinct prices, one optimum"
-grades = ["2-5"]
+grades = ["K-5"]
 route = "return"
 page = "new"
 kernel = 'When every link has a different positive price, there is exactly one cheapest purchase.'

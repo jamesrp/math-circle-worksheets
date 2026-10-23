@@ -1,7 +1,7 @@
 +++
 id = "w53.five-place-ties"
 title = "Every cheapest purchase of five places"
-grades = ["2-5"]
+grades = ["K-5"]
 route = "return"
 page = "new"
 kernel = 'At most two of the three price-1 triangle links fit in a tree, so the minimum is 6, with exactly three optima.'
@@ -17,3 +17,5 @@ Find every cheapest purchase that connects all five places.
 \cost
 \vspace{0.65in}
 \begin{center}\FiveTiesRecord\hfill\FiveTiesRecord\hfill\FiveTiesRecord\end{center}
+\vspace{0.3in}
+\begin{center}\FiveTiesRecord\hspace{1.2in}\FiveTiesRecord\end{center}

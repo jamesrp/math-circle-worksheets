@@ -1,7 +1,7 @@
 +++
 id = "w53.cheapest-triangles"
 title = "Cheapest connection of three places"
-grades = ["2-5"]
+grades = ["K-5"]
 route = "first"
 kernel = 'Two links connect three places; the cheapest pair can be unique (left) or tied (right).'
 +++

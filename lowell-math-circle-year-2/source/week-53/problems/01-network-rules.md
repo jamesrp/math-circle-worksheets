@@ -2,7 +2,7 @@
 id = "w53.network-rules"
 kind = "setup"
 title = "Buying links: rules and worked example"
-grades = ["2-5"]
+grades = ["K-5"]
 route = ["first", "return"]
 +++
 

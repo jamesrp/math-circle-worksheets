@@ -8,8 +8,8 @@ Each row counts one theme. The routes can support several investigations and ret
 
 | Week | Theme | Actual page bands | Current PDFs | Editable sources |
 | --- | --- | --- | --- | --- |
-| 52 | Bracing hinged frames | K–1, 2–3, 3–5, 4–5 | [Students](week-52/week-52-students.pdf) · [Guide](week-52/week-52-facilitator.pdf) | [Source](source/week-52/README.md) · [ZIP](source/week-52-source.zip) |
-| 53 | Cheapest connected networks | 2–5, 4–5 | [Students](week-53/week-53-students.pdf) · [Guide](week-53/week-53-facilitator.pdf) | [Source](source/week-53/README.md) · [ZIP](source/week-53-source.zip) |
+| 52 | Bracing hinged frames | K–1, K–3, 3–5, 4–5 | [Students](week-52/week-52-students.pdf) · [Guide](week-52/week-52-facilitator.pdf) | [Source](source/week-52/README.md) · [ZIP](source/week-52-source.zip) |
+| 53 | Cheapest connected networks | K–5, 4–5 | [Students](week-53/week-53-students.pdf) · [Guide](week-53/week-53-facilitator.pdf) | [Source](source/week-53/README.md) · [ZIP](source/week-53-source.zip) |
 | 54 | Partitions and reversible rebuilding | 2–5, 4–5 | [Students](week-54/week-54-students.pdf) · [Guide](week-54/week-54-facilitator.pdf) | [Source](source/week-54/README.md) · [ZIP](source/week-54-source.zip) |
 | 55 | Sumsets and common spacing | 3–5 | [Students](week-55/week-55-students.pdf) · [Guide](week-55/week-55-facilitator.pdf) | [Source](source/week-55/README.md) · [ZIP](source/week-55-source.zip) |
 | 56 | Polyhedra, Euler and curvature | 2–5, 4–5 | [Students](week-56/week-56-students.pdf) · [Guide](week-56/week-56-facilitator.pdf) · [Materials](week-56/week-56-materials.pdf) | [Source](source/week-56/README.md) · [ZIP](source/week-56-source.zip) |
@@ -23,8 +23,8 @@ Each row counts one theme. The routes can support several investigations and ret
 
 ## Routes and relationships
 
-- **Week 52:** Changing shapes → local braces → row/column links → minimum bracing and count limits.
-- **Week 53:** Buy a connected network → remove loops → improve by exchange → certify minimum cost and examine ties.
+- **Week 52:** Changing shapes → local braces → row/column links → minimum bracing and count limits. Revised October 23, 2026 (F52-S-v3): K–1 pairs continue to Problems 4–5 on their own 2-by-2 kit, and Problem 13 names six different cells.
+- **Week 53:** Buy a connected network → remove loops → improve by exchange → certify minimum cost and examine ties. Revised October 23, 2026 (W53-networks-v2): the page 6 and 8 price labels sit on their own links, and K–1 pairs work pages 1–4, whose prices all have dots.
 - **Week 54:** Small strip catalogs → odd/distinct matching and inverse → join-order independence; a separate row/column investigation.
 - **Week 55:** Distinct sums → the smallest possible sumset → explain the bound and recover equal spacing from equality.
 - **Week 56:** Assembled incidences and corner fans → total angular gap → surface redrawings and Euler's formula.

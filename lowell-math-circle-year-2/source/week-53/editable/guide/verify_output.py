@@ -24,7 +24,7 @@ def inspect(file):
         text = page.get_text()
         assert EXPECTED[i] in text, (i+1,EXPECTED[i])
         assert 'Week 53 / Connecting networks / Facilitator' in text
-        assert 'W53-guide-v1' in text
+        assert 'W53-guide-v2' in text
         assert tuple(page.rect) == (0.,0.,612.,792.), page.rect
         spans = [s for b in page.get_text('dict')['blocks'] if b['type']==0
                  for l in b['lines'] for s in l['spans']]

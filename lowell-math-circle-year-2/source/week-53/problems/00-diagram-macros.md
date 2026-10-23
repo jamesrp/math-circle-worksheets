@@ -2,7 +2,7 @@
 id = "w53.diagram-macros"
 kind = "setup"
 title = "Map macros (prints nothing)"
-grades = ["2-5"]
+grades = ["K-5"]
 route = ["first", "return"]
 +++
 

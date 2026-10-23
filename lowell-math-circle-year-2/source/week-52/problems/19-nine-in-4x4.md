@@ -15,6 +15,6 @@ A 4-by-4 grid has nine braces, with a brace in every row and column. Must it hol
 
 ## text
 \vspace{16pt}
-\begin{center}\gridpic{4}{4}{23}{}{1}\end{center}
+\begin{center}\gridpic{4}{4}{18}{}{1}\hspace{14mm}\gridpic{4}{4}{18}{}{1}\end{center}
 \vspace{20pt}
 \lines{4}
