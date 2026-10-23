@@ -1,0 +1,148 @@
+== Theory replay on small boards ==
+ok   value sign equals minimax outcome on all 1528 boards (<=3 stalks of length <=4, <=8 segments)
+ok   value of whole board (from options) equals sum of stalk values on all 1528 boards
+ok   swapping colours negates the value on every board
+ok   sign-expansion rule matches computed value for all 510 stalks of length 1-8
+ok   guide overview: B = 1
+ok   guide overview: R = -1
+ok   guide overview: BR = 1/2
+ok   guide overview: BRR = 1/4
+ok   guide overview: RB = -1/2
+ok   guide overview: BR+BR+R = 0 and BRR+BRR+RB = 0
+ok   guide: BR = {0 | 1}
+ok   guide: BRR = {0 | 1, 1/2}; upper R cut leaves BR, lower R cut leaves B
+ok   encore: BR + BR and B (both 1) give the same outcome with each of 31 test stalks
+ok   encore: BRR + BRR and BR (both 1/2) give the same outcome with each of 31 test stalks
+ok   encore: BR + BR + R and (empty) (both 0) give the same outcome with each of 31 test stalks
+ok   encore: BRR + BRR + RB and BR + RB (both 0) give the same outcome with each of 31 test stalks
+ok   encore: BR and BRR are told apart by a test stalk, e.g. adding RB
+
+== Printed boards (parsed from student/students.tex) ==
+ok   7 sheets in source (found 7)
+ok   p.1 worked example starts as B,R,B; after Red cuts R only B is left: ('B',)
+ok   p.1 worked example: Red's only cut on BRB leaves B (top B drops)
+ok   p.1 worked example BRB has value 3/4 and is not a task board
+ok   p.1 boards read from source: A=B; B=R; C=B + R; D=BB + R
+ok   p.2 boards read from source: A=BR + R; B=BR + BR + R; C=BR + BR + BR + R
+ok   p.3 boards read from source: A=BRR + RB; B=BRR + BRR + RB; C=BRR + BRR + BRR + RB
+  Problem 1A: B  value 1  outcome Blue
+     Blue to move: cut B[0] (segment 1 from ground) -> (empty)
+     Red to move: no move at all
+ok   guide winner class for Problem 1A: Blue
+  Problem 1B: R  value -1  outcome Red
+     Blue to move: no move at all
+     Red to move: cut R[0] (segment 1 from ground) -> (empty)
+ok   guide winner class for Problem 1B: Red
+  Problem 1C: B + R  value 0  outcome second player
+     Blue to move: no winning move
+     Red to move: no winning move
+ok   guide winner class for Problem 1C: second player
+  Problem 1D: BB + R  value 1  outcome Blue
+     Blue to move: cut BB[1] (segment 2 from ground) -> B + R
+     Red to move: no winning move
+ok   guide winner class for Problem 1D: Blue
+  Problem 2A: BR + R  value -1/2  outcome Red
+     Blue to move: no winning move
+     Red to move: cut BR[1] (segment 2 from ground) -> B + R
+ok   guide winner class for Problem 2A: Red
+  Problem 2B: BR + BR + R  value 0  outcome second player
+     Blue to move: no winning move
+     Red to move: no winning move
+ok   guide winner class for Problem 2B: second player
+  Problem 2C: BR + BR + BR + R  value 1/2  outcome Blue
+     Blue to move: cut BR[0] (segment 1 from ground) -> BR + BR + R; cut BR[0] (segment 1 from ground) -> BR + BR + R; cut BR[0] (segment 1 from ground) -> BR + BR + R
+     Red to move: no winning move
+ok   guide winner class for Problem 2C: Blue
+  Problem 3A: BRR + RB  value -1/4  outcome Red
+     Blue to move: no winning move
+     Red to move: cut BRR[2] (segment 3 from ground) -> BR + RB
+ok   guide winner class for Problem 3A: Red
+  Problem 3B: BRR + BRR + RB  value 0  outcome second player
+     Blue to move: no winning move
+     Red to move: no winning move
+ok   guide winner class for Problem 3B: second player
+  Problem 3C: BRR + BRR + BRR + RB  value 1/4  outcome Blue
+     Blue to move: cut BRR[0] (segment 1 from ground) -> BRR + BRR + RB; cut BRR[0] (segment 1 from ground) -> BRR + BRR + RB; cut BRR[0] (segment 1 from ground) -> BRR + BRR + RB
+     Red to move: no winning move
+ok   guide winner class for Problem 3C: Blue
+  Problem 1 "one color always win": A, B, D yes; C no (second player wins).
+ok   Problem 2: only board B balances
+ok   Problem 3: only board B balances
+
+== Reply tables: the winner's answers to every opening (for "whoever starts") ==
+  Problem 2A BR + R, Blue starts:
+     Blue cuts BR at segment 1 -> R (-1); Red wins by: R at segment 1 -> (empty) (0)
+  Problem 2B BR + BR + R, Blue starts:
+     Blue cuts BR at segment 1 -> BR + R (-1/2); Red wins by: BR at segment 2 -> B + R (0)
+  Problem 2B BR + BR + R, Red starts:
+     Red cuts BR at segment 2 -> B + BR + R (1/2); Blue wins by: BR at segment 1 -> B + R (0)
+     Red cuts R at segment 1 -> BR + BR (1); Blue wins by: BR at segment 1 -> BR (1/2)
+  Problem 2C BR + BR + BR + R, Red starts:
+     Red cuts BR at segment 2 -> B + BR + BR + R (1); Blue wins by: BR at segment 1 -> B + BR + R (1/2); B at segment 1 -> BR + BR + R (0)
+     Red cuts R at segment 1 -> BR + BR + BR (3/2); Blue wins by: BR at segment 1 -> BR + BR (1)
+  Problem 3A BRR + RB, Blue starts:
+     Blue cuts BRR at segment 1 -> RB (-1/2); Red wins by: RB at segment 1 -> (empty) (0)
+     Blue cuts RB at segment 2 -> BRR + R (-3/4); Red wins by: BRR at segment 2 -> B + R (0); BRR at segment 3 -> BR + R (-1/2)
+  Problem 3B BRR + BRR + RB, Blue starts:
+     Blue cuts BRR at segment 1 -> BRR + RB (-1/4); Red wins by: BRR at segment 3 -> BR + RB (0)
+     Blue cuts RB at segment 2 -> BRR + BRR + R (-1/2); Red wins by: BRR at segment 3 -> BR + BRR + R (-1/4)
+  Problem 3B BRR + BRR + RB, Red starts:
+     Red cuts BRR at segment 2 -> B + BRR + RB (3/4); Blue wins by: RB at segment 2 -> B + BRR + R (1/4); BRR at segment 1 -> B + RB (1/2)
+     Red cuts BRR at segment 3 -> BR + BRR + RB (1/4); Blue wins by: BRR at segment 1 -> BR + RB (0)
+     Red cuts RB at segment 1 -> BRR + BRR (1/2); Blue wins by: BRR at segment 1 -> BRR (1/4)
+  Problem 3C BRR + BRR + BRR + RB, Red starts:
+     Red cuts BRR at segment 2 -> B + BRR + BRR + RB (1); Blue wins by: RB at segment 2 -> B + BRR + BRR + R (1/2); BRR at segment 1 -> B + BRR + RB (3/4); B at segment 1 -> BRR + BRR + RB (0)
+     Red cuts BRR at segment 3 -> BR + BRR + BRR + RB (1/2); Blue wins by: RB at segment 2 -> BR + BRR + BRR + R (0); BRR at segment 1 -> BR + BRR + RB (1/4); BR at segment 1 -> BRR + BRR + RB (0)
+     Red cuts RB at segment 1 -> BRR + BRR + BRR (3/4); Blue wins by: BRR at segment 1 -> BRR + BRR (1/2)
+  Problem 1D BB + R, Red starts:
+     Red cuts R at segment 1 -> BB (2); Blue wins by: BB at segment 1 -> (empty) (0); BB at segment 2 -> B (1)
+
+== Guide response proof for BR+BR+R (replayed against every reply) ==
+ok   Blue opens: guide's Red replies win against every Blue line
+ok   Red opens: guide's Blue replies win against every Red line
+
+== Problem 4: balanced boards with a stalk of at least two segments ==
+ok   guide example BR + BR + R balances
+ok   guide example BRR + BRR + RB balances
+  Note: both guide examples are exactly the balanced boards printed as Problems 2B and 3B.
+ok   other balanced board: BR + RB
+ok   other balanced board: B + RB + RB
+ok   other balanced board: BBR + R + RB
+ok   other balanced board: BR + BRR + BRR + R
+ok   other balanced board: BRB + RBR
+ok   other balanced board: BB + RR
+ok   other balanced board: BRR + BRR + BRR + BRR + R
+ok   every stalk plus its colour-swapped copy balances (30 stalks of length <= 4)
+  balanced boards among the small-board family with a stalk of length >= 2: 42
+
+== Materials: segments per printed board ==
+ok   largest printed board needs 4 blue and 7 red segments (guide: at least twelve of each)
+
+== Guide hints ==
+  edge-count hint: B alone value 1 (Blue); BR alone value 1/2 (Blue); blue-minus-red edge counts 1 and 0.  B + RB (B "versus" BR) value 1/2 (Blue).
+ok   a single green edge is a first-player win (star)
+ok   a green edge equals no number of birthday <= 3: G plus the stalk for -x is never a second-player win
+
+== Grades 4-5 nursery ==
+ok   birthday tree days 0-3 equals the guide's list (15 numbers)
+ok   the 15 printed cards on p.6 carry the right first birthdays, each number once
+ok   15 distinct card grid slots
+ok   opening example: bounds -2, 2 -> 0 (day 0); -1, 0, 1 all fit
+ok   Problem 5: greater than 0, less than 3 -> 1 (unique; also the true simplest number)
+ok   Problem 5: greater than -1, less than 1 -> 0 (unique; also the true simplest number)
+ok   Problem 5: greater than 0, less than 1 -> 1/2 (unique; also the true simplest number)
+ok   Problem 5: greater than 1/2, less than 1 -> 3/4 (unique; also the true simplest number)
+ok   guide: {0|3} is 1, not the midpoint 3/2
+ok   every pair of card bounds with left < right that some card fits has exactly one earliest card (105 ordered pairs)
+ok   whenever a card fits, the catalog pick is the true simplest number
+  pairs with left < right but no card fits (simplest number born on day 4+): 14, e.g. (1/4, 1/2) -> 3/8 day 4, (2, 3) -> 5/2 day 4, (3/4, 1) -> 7/8 day 4
+  pairs with left >= right (no number of any day fits): 120 of 225; e.g. (1, 1), (1, 1/2), (2, -2)
+ok   every pair with left >= right has no fitting card
+  pairs choosing a card newer than both bounds: 8, e.g. (-2, -1) -> -3/2, (-1, -1/2) -> -3/4, (-1, 0) -> -1/2, (-1/2, 0) -> -1/4, (0, 1/2) -> 1/4, (0, 1) -> 1/2, (1/2, 1) -> 3/4, (1, 2) -> 3/2
+  pairs choosing a card older than both bounds: 71
+ok   guide Problem 6: (0, 1) -> 1/2 is newer than both bounds
+ok   guide Problem 6: (-1, 1) and (-1/2, 1/2) both choose 0
+ok   Problem 6 first task is possible
+ok   Problem 6 second task is possible with printed cards only
+
+FAILURES: 0
