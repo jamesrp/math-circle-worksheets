@@ -69,3 +69,4 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Printable kits the cards ask for: Weeks 23, 27, 35, 51 (kit and guide pointer) | Claude, Autonomous worksheet improvement thread | `claude/kits-a-ntxcu3` | in progress |
 | Printable kits and fixes: Weeks 28 and 37 (kit and guide must-fixes); Week 2 compact catalog's blank boards and adult guide | Claude, Autonomous worksheet improvement thread | `claude/kits-b-ntxcu3` | in progress |
 | Problem files: the flow layout, Week 43 converted and its must-fix | Claude, Autonomous worksheet improvement thread | `claude/flow-layout-ntxcu3` | in progress |
+| Fall Weeks 3, 7, 8, 10: the cards' guide-located should and could fixes, and Week 8's separate game boards as a printable | Claude, Autonomous worksheet improvement thread | `claude/fall-guides-ntxcu3` | in progress; student-page items wait for the flow layout |
