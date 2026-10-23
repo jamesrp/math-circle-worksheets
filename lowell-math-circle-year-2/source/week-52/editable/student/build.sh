@@ -4,6 +4,11 @@ src_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 out_dir=${1:-"$src_dir/.."}
 mkdir -p "$out_dir"
 out_dir=$(CDPATH= cd -- "$out_dir" && pwd)
+# Regenerate students.tex from the problem files when they are present (not in a
+# copy of this folder alone).
+if [ -f "$src_dir/../problem-files/week.toml" ] || [ -f "$src_dir/../../week.toml" ]; then
+  python3 "$src_dir/regenerate.py" > /dev/null
+fi
 build_dir=$(mktemp -d "${TMPDIR:-/tmp}/week52-build.XXXXXX")
 trap 'rm -rf "$build_dir"' EXIT HUP INT TERM
 if ! pdflatex -interaction=nonstopmode -halt-on-error -output-directory "$build_dir" "$src_dir/students.tex" > "$build_dir/console.log"; then
