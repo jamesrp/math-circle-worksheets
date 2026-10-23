@@ -49,6 +49,8 @@ A trip is an ordered list of road steps on a fixed map; the only move deletes tw
 14. **could**, 2–3 and 4–5 P5: "around the left ring through A" doesn't fix a direction for every reader. Write "H to A to B and back to H".
 15. **could**, 2–3 P2: two 12-step trips, not three.
 
+October 23, 2026: fix 1 and the K–1 footer part of fix 10 made in the problem files; see `source/week-39/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 Week 41 (torus portals) asks the same question on a surface where circuits commute; the guides point at each other ("the later torus activity", "the road-detour activity"). Keep both and teach 39 first. Week 10 (bridges) walks on maps for a different theorem. No merge.

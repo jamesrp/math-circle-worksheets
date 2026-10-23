@@ -6,6 +6,8 @@ The guide now gives first routes, readiness-dependent continuation and return vi
 
 **Problem files, October 23, 2026.** The student pages are now stored as problem files, one per problem with its band variants, in `problem-files/` (in the repository: `lowell-math-circle-year-2/source/week-39/`). The conversion changed no wording or figure: the generated LaTeX is byte-identical. `src/regenerate.py` writes the student LaTeX from them, and `problem-files/tools/build.py` also builds first-route and return packets, a one-page problem menu and a key arranged by problem.
 
+**Card fixes, October 23, 2026.** After the conversion, K–1 Problem 7 (page 6) now asks "Can two of your remaining trips use the same four roads?", the guide key (page 3) accepts "no" with the reason that the tiles differ, and the K–1 packet prints F39-K-v3. The other pages are unchanged in content. `review/card-fixes-2026-10-23.md` lists what changed, what was deferred and how it was checked; `review/verify_card_fixes_2026_10_23.py` checks it.
+
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
 Current pages: **K–1 6; Grades 2–3 4; Grades 4–5 4; adult guide 7**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
@@ -17,10 +19,11 @@ Extract the complete ZIP. Install Python 3.11 or later with `requirements.txt`, 
     python3 -m pip install -r requirements.txt
     python3 build.py
     python3 verify_revision.py
+    python3 review/verify_card_fixes_2026_10_23.py
 
 The current verifier compares paper geometry and every 100-dpi rendered page against `reference-pdfs/`; timestamps may differ. It permits only specifically audited full-page font/hyphenation alternatives for unchanged student PDFs. See `review/fresh-review-rebuild.md` for actual results. The original strict verifier (`verify_rebuild.py` or `verify.py`) is retained and rejects those alternatives. The corpus report explicitly records any pre-existing small TeX font-metric differences for unchanged student bands; their current print/reference PDFs stay byte-identical. For Weeks 24 and 35, the detailed student-stage record is `review/student-reviser-fresh-review.md`. The corpus release report records those differences explicitly rather than calling them pixel-identical.
 
-The K–1 reference was compiled with pdfTeX 1.40.27. Under an older TeX Live (pdfTeX 1.40.25, checked October 23, 2026) the K–1 rebuild has identical text and drawings but slightly different glyph rasters, so `verify.py` and `verify_revision.py` stop at K–1 page 1; the Grades 2–3 and 4–5 packets and the guide reproduce exactly. This predates the problem files.
+The October 4 K–1 reference was compiled with pdfTeX 1.40.27; under pdfTeX 1.40.25 its rebuild had identical text and drawings but slightly different glyph rasters. Since the October 23 card fixes, the K–1 reference is compiled with pdfTeX 1.40.25 (TeX Live 2023), like the other packets and the guide, and all four rebuild exactly there.
 
 Edit student problems in `problem-files/problems/*.md` (figures in `problem-files/figures.py`); `src/build.sh` regenerates `src/*.tex` from them before compiling, so do not edit the TeX by hand. To build every view: `python3 problem-files/tools/build.py problem-files --out views --tables K-1=3,2-3=4,4-5=3`. The problem files also repeat the guide's answer keys, overview, hints and source for that key view; `python3 problem-files/check_guide_copy.py` confirms they still match `facilitator-src/content.json` and `route-note.json`. Edit the existing guide source under `facilitator-src/`. Where present, `facilitator-src/route-note.json` holds the concise starting/return update; the root build regenerates the guide before appending it exactly once. Do not run the appender alone against an already appended guide. Build intermediates belong in a separate working copy; inspect changed pages before updating references.
 

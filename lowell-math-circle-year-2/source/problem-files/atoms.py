@@ -265,7 +265,8 @@ class Week:
         return [self.folder] + [(self.folder / d).resolve() for d in self.meta.get('inputs', [])]
 
     def footer(self, band, suffix=''):
-        return f"{self.meta['packet']}-{self.bands[band]['tag']}-{self.meta['version']}{suffix}"
+        version = self.bands[band].get('version', self.meta['version'])   # a band revised alone may carry its own
+        return f"{self.meta['packet']}-{self.bands[band]['tag']}-{version}{suffix}"
 
 
 WEEK_KEYS = ('week', 'topic', 'packet', 'version', 'bands')
