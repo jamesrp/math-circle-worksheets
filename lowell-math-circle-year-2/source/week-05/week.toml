@@ -1,0 +1,34 @@
+# Week 5 (Tower cities) as problem files, the source of the print packets since
+# October 23, 2026. Problems are the files in problems/, in packet order. Figures are
+# Python expressions evaluated in figures.py, which carries over the old builder's
+# drawing code (src/build.py, with src/draw.py and src/towers.py) and names the
+# puzzles; src/check.py solves every printed puzzle. The adult guide is not built from
+# these files: its source is guide-src/.
+week = 5
+topic = "Tower cities"
+packet = "F05"              # footer ids F05-K-v4, F05-M-v4, F05-U-v4
+version = "v4"
+layout = "flow"
+template = "template.tex"   # the old builder's preamble
+# Each problem is a minipage holding its statement and figures, so they stay on one
+# page (build.py's block()): the prompt opens it, runs straight into the first figure
+# (\samepar, defined in template.tex, swallows the blank line), and close() in
+# figures.py ends it.
+prompt = '''\begin{minipage}{\linewidth}\RaggedRight
+\prob{<<n>>}<<body>> \samepar'''
+status = "Unpiloted."
+
+[bands."K-1"]
+header = "K--1"
+tag = "K"
+
+[bands."2-3"]
+header = "Grades 2--3"
+tag = "M"
+
+[bands."4-5"]
+header = "Grades 4--5"
+tag = "U"
+
+[guide]
+note = "The answers, hints and routes are in the adult guide, week-05-facilitator.pdf, whose source is guide-src/facilitator.tex. First route = the guide's core problems."

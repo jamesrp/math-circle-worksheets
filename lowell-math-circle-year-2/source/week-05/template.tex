@@ -1,0 +1,34 @@
+% Week 5 student packets: the old builder's preamble (src/build.py preamble()) with each
+% band's values as placeholders.
+\documentclass[14pt]{extarticle}
+\usepackage[T1]{fontenc}
+\usepackage[default]{sourcesanspro}
+\usepackage[letterpaper,top=0.75in,bottom=0.75in,left=0.65in,right=0.65in,
+  headheight=18pt,headsep=0.28in,footskip=0.45in]{geometry}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[none]{hyphenat}
+\usepackage{ragged2e}
+\definecolor{cube}{RGB}{176,204,236}
+\definecolor{folder}{RGB}{240,218,166}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Week <<week>> / <<topic>> / <<header>>}
+\fancyfoot[L]{Bellingham Math Circle / Week <<week>> / <<footer>>}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedbottom
+\RaggedRight
+\newcommand{\prob}[1]{\textbf{Problem #1:}\ }
+% The old builder ran each statement straight into its first picture, with no paragraph
+% break, and the problem files put a blank line between sections: \samepar swallows that
+% one blank line (after a prompt, through week.toml's prompt pattern, or after a setup's
+% text), so the pages keep the old spacing.
+\def\samepar\par{}
+\begin{document}
+<<body>>
+
+\end{document}
