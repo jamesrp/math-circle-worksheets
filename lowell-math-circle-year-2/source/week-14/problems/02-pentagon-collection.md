@@ -11,7 +11,7 @@ kernel = "A pentagon has exactly five fillings, the five fans: its two diagonals
 Find every way to fill this five-corner shape with triangles.
 
 ## prompt [2-3]
-Find every filling of this five-corner polygon. Organize your drawings so that you can explain why none are missing.
+Find every filling of this five-corner polygon. How do you know none are missing?
 
 ## prompt @1.78 [4-5]
 Find every filling of the five-corner polygon. Explain how your collection shows that none are missing.

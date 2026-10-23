@@ -7,7 +7,7 @@ kernel = "Following the pentagon's five-cycle visits every filling once and retu
 +++
 
 ## prompt [K-1]
-Start with this filling and change one inside line at a time. Can you visit every other filling once and then return?
+Start with this filling and change one inside line at a time. Can you visit each of the other fillings once and then return?
 
 ## prompt [2-3]
 Start with this filling and return to it after an odd number of flips. Show every filling along your route.

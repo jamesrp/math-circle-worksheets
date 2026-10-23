@@ -46,6 +46,8 @@ A convex polygon with n labelled corners is filled by n − 3 noncrossing diagon
 12. **could**, 2–3 P2 and P7: "Organize your drawings so…" suggests the method; "How do you know none are missing?" states the goal.
 13. **could**, guide p. 2 menu ("Minutes 0–4: handle tracing paper", "for ten children"): match context.md's hour and eleven children.
 
+**Fixed October 23, 2026**, after the student pages became problem files: shoulds 1–4 and coulds 5–7, 9, 10, 12, 13 and the footer part of 11 (v3 packets: gray starts in K–1 P5's copies, "Problem 7 (continued)" alone on 2–3 p. 8, the K–1 P3 and P6 and 2–3 P2 and P7 wording, arrows in 4–5 P4, 2–3 p. 6 copies off the footer; guide pp. 2, 4, 5, 8, 9, 12 and 14: referee check, 28 quarter-cut tracing sheets, the hour, the route note). Could 8 left for the organizer (it changes P5's question); larger copies (could 11) need a layout trade-off; the return visit's items are in its separate, unreviewed package. Record: `lowell-math-circle-year-2/source/week-14/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 Week 12 (Catalan bijections) shares 1, 2, 5, 14 through pairings, paths and trees, without flips; its 14 eight-dot pairings against these 14 hexagon fillings would make a return-visit bijection. Week 1 asks the same flip-map questions of rhombus tilings, whose two-coloured map forbids odd returns; guide p. 9's "Fidelity warning" draws the contrast, worth keeping in both. No merge.

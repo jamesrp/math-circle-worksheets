@@ -7,7 +7,7 @@ route = "return"          # the same route as w14.hexagon-collection-23
 +++
 
 ## text @0.65,0.91 w=7.2 size=13.4
-\textbf{Problem 7 (continued):} Extra hexagons for your collection. Use these to continue Problem 7 on the previous page.
+\textbf{Problem 7 (continued)}
 
 ## figure
 copies(6,3,3,2.75,'letters',rowgap=2.85,w=1.80,h=2.00)

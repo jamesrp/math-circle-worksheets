@@ -47,7 +47,7 @@ pre=r'''\documentclass[11pt,letterpaper]{article}
 '''
 pages=[(P/'mathematical-overview.tex').read_text()]
 pages.append(r'''\pagehead{Polygon triangulations facilitator guide}
-This guide keys the final F14-K-v2, F14-23-v2, and F14-45-v2 student packets. They have 6, 8, and 7 pages, respectively. The middle packet has seven problems; page 8 is explicitly labeled Problem 7 (continued) and provides extra hexagons for the same collection. There are 20 distinct numbered problems across the three bands. ``Week 14'' is an unscheduled library label. This guide and these activities are draft and unpiloted.
+This guide keys the final F14-K-v3, F14-23-v3, and F14-45-v3 student packets. They have 6, 8, and 7 pages, respectively. The middle packet has seven problems; page 8 is explicitly labeled Problem 7 (continued) and provides extra hexagons for the same collection. There are 20 distinct numbered problems across the three bands. ``Week 14'' is an unscheduled library label. This guide and these activities are draft and unpiloted.
 
 \textbf{Mathematical purpose.} Children construct complete triangle fillings, distinguish fixed-label configurations, find complete small collections, and investigate how one local change connects them. The pentagon admits a five-flip return loop. Fan targets have a useful exact distance rule. These conclusions should emerge after drawing and comparing.
 
@@ -57,18 +57,17 @@ This guide keys the final F14-K-v2, F14-23-v2, and F14-45-v2 student packets. Th
 \item Grades 2--3: preserve labels while comparing pictures, organize a collection, and count changes. The hexagon collection is a substantial optional endpoint.
 \item Grades 4--5: track several configurations and compare a construction with a lower bound. General reasoning may be spoken and picture based. No Catalan formula, algebra, or polytope vocabulary is assumed.
 \end{itemize}
-\textbf{Supplies and preparation for ten children.} Prepare ten pencils, erasers, short straightedges, 20 tracing sheets, and at least 30 blank Letter sheets beyond the packets. These are proposed quantities, not an inventory claim. Print single-sided at 100\%. The large working polygons are roughly 3--5 inches across. The student polygon boards are regular, with equally scaled axes; compact copies are for recording answers. Use the larger outlines or tracing paper for the main exploration. Tracing sheets preserve printed starts and separate alternative answers. Pattern-block triangles are unsuitable: legal triangles vary in size and shape. Label every traced corner before drawing inside it.
+\textbf{Supplies and preparation for eleven children.} Prepare eleven pencils, erasers and short straightedges, about 28 tracing sheets cut into quarters ($4\tfrac14\times5\tfrac12$ in, which covers the largest board, $3.8\times4.4$ in), and at least 30 blank Letter sheets beyond the packets. Children use a tracing for each find or step, so plan on about ten quarters per child. These are proposed quantities, not an inventory claim. Print single-sided at 100\%. The large working polygons are roughly 3--5 inches across. The student polygon boards are regular, with equally scaled axes; compact copies are for recording answers. Use the larger outlines or tracing paper for the main exploration. Tracing sheets preserve printed starts and separate alternative answers. Pattern-block triangles are unsuitable: legal triangles vary in size and shape. Label every traced corner before drawing inside it.
 
 \textbf{A flexible one hour menu}
 \begin{itemize}
-\item Minutes 0--4: handle tracing paper and straightedges; make lines on scrap paper.
-\item Minutes 4--8: demonstrate the legal drawing action together.
-\item Minutes 8--28: K--1 P1--2; middle P1--2; upper P1--2. Let children draw and compare before organizing the full collection.
-\item Minutes 28--31: optional standing pause: hold up two tracings and point to the single line that changed.
-\item Minutes 31--53: choose fixed-line completions, one-change neighbors, a pentagon map, or a shortest-route question. Keep middle P7 in reserve if collecting fourteen cases would displace the flips children want to explore.
-\item Minutes 53--60: share a complete collection, an odd return route, or a shortest-route certificate. Stopping with one convincing example is fine.
+\item Minutes 0--5: run around; the children arrive straight from school.
+\item Minutes 5--9: the whole group launch below; then let children handle tracing paper and straightedges.
+\item Minutes 9--28: K--1 P1--2; middle P1--2; upper P1--2. Let children draw and compare before organizing the full collection.
+\item Minutes 28--50: choose fixed-line completions, one-change neighbors, a pentagon map, or a shortest-route question. Keep middle P7 in reserve if collecting fourteen cases would displace the flips children want to explore.
+\item Minutes 50--60: share a complete collection, an odd return route, or a shortest-route certificate. Stopping with one convincing example is fine.
 \end{itemize}
-\textbf{Whole group launch.} On a convex quadrilateral, draw one diagonal between two printed corners. Ask, ``Is the whole shape triangles now?'' Trace a copy, erase only that diagonal on the tracing, and draw the other one. Let children make the same change. Name the operation later, after they have used it. Do not show the five-cycle or the fan rule in advance.
+\textbf{Whole group launch.} On a convex quadrilateral, draw one diagonal between two printed corners. Ask, ``Is the whole shape triangles now?'' Trace a copy, erase only that diagonal on the tracing, and draw the other one. Let children make the same change. Then show the referee check every table uses for every change: a partner lays the new drawing on the old one and points to the one line that moved. A drawing with two changed lines, or redrawn from scratch two changes away, does not count as one change. Name the operation later, after they have used it. Do not show the five-cycle or the fan rule in advance.
 ''')
 s=r'''\pagehead{Rules and a complete pentagon collection}
 \textbf{Legal fillings.} Use only straight segments between the original corners of a strictly convex polygon. No new interior points, extra edge points, moving corners, or crossing interiors. Fill the entire polygon with triangles. The labels stay attached to their corners even if the sheet turns. Two fillings differ exactly when their sets of diagonals differ. Rotations of the paper do not identify labeled fillings.
@@ -99,7 +98,7 @@ s=r'''\pagehead{K--1 solutions for Problems 1 to 4}
 \hint{Let the child keep each discovery on a separate tracing. When ready to check completeness, ask whether the two lines meet at a corner and which corner it is.}
 \prob{Problem 3}{Three triangles are impossible; four are possible. For example, $\{13,14,15\}$ gives four. Any diagonal of a hexagon separates a triangle and a pentagon, or two quadrilaterals. Completing those sides gives $1+3=4$ or $2+2=4$ triangles. Thus changing the shape of the triangles cannot yield three.}
 \hint{Ask the child to point to any uncovered region in a three-triangle attempt. For a child seeking a reason that covers every attempt, cover one side of a chosen diagonal and count the two smaller pieces separately.}
-\prob{Problem 4}{Keeping 13 in the pentagon leaves a quadrilateral with two choices. Keeping 14 in the hexagon leaves two quadrilaterals, each with two independent choices: four completions. Here is the full answer collection.}
+\prob{Problem 4}{Keeping 13 in the pentagon leaves a quadrilateral with two choices. Keeping 14 in the hexagon leaves two quadrilaterals, each with two independent choices: four completions. Only two pentagon completions exist, so two of the four pre-lined pentagon copies stay empty; the spares keep the copies from giving the count away. Here is the full answer collection.}
 '''
 s+=gallery(5,D['fixed_pentagon'],labels='numbers',cols=2,radius=.9,captions=['13, 35','13, 14'])
 s+=gallery(6,D['fixed_hexagon'],labels='numbers',cols=4,radius=.78,captions=['14, 24, 46','13, 14, 46','14, 15, 24','13, 14, 15'])
@@ -107,7 +106,7 @@ s+=r'''\hint{Keep the required printed diagonal visible on every tracing. If one
 '''
 pages.append(s)
 s=r'''\pagehead{K--1 solutions for Problems 5 and 6}
-\prob{Problem 5}{Each printed hexagon has exactly three one-change results, one for each of its three interior diagonals. The original filling itself is not a new result.}
+\prob{Problem 5}{Each printed hexagon has exactly three one-change results, one for each of its three interior diagonals. The original filling itself is not a new result. Each small copy prints its start's lines in light gray: the child crosses out the gray line that goes and draws the new one, so every copy differs from its start by one line. Show this once at the table. Four copies for three results keep the count open.}
 \textbf{First start} $\{13,14,15\}$ has these three neighbors:
 '''
 s+=gallery(6,D['hex_fan_neighbors'],labels='numbers',cols=3,radius=1,captions=['13, 14, 46','13, 15, 35','14, 15, 24'])
@@ -164,7 +163,7 @@ s+=r'''
 '''
 pages.append(s)
 s=r'''\pagehead{Grades 2--3 Problem 7 and all fourteen fillings}
-\prob{Problem 7}{Student page 8 is labeled ``Problem 7 (continued): Extra hexagons for your collection.'' It supplies recording space for the same problem, not a second task. The complete hexagon collection has 14 fillings. The catalog below is organized by the triangle touching boundary edge AF. Its third corner is B, C, D, or E.}
+\prob{Problem 7}{Student page 8 is labeled ``Problem 7 (continued)''. It supplies recording space for the same problem, not a second task. The complete hexagon collection has 14 fillings. The catalog below is organized by the triangle touching boundary edge AF. Its third corner is B, C, D, or E.}
 \textbf{Third corner B: five fillings.} Diagonal BF cuts off triangle ABF, leaving a pentagon with five choices.
 '''
 s+=gallery(6,D['hex_groups']['B'],cols=5,radius=.68)
@@ -187,7 +186,7 @@ s=r'''\pagehead{Grades 4--5 solutions for Problems 1 to 4}
 \hint{A different-looking triangulation need not be one move away. Check that exactly one old diagonal disappeared and exactly one new one appeared.}
 \prob{Problem 3}{The complete map is the five-cycle on page 6. The five-flip loop $F_A,F_C,F_E,F_B,F_D,F_A$ is an odd return. Its reverse is also valid. The graph is not bipartite: alternating two colors around the cycle makes the final edge join two same-colored vertices.}
 \textbf{Fidelity warning.} A parity invariant from lozenge tiling flips does not transfer here. The objects and moves are different; a polygon five-cycle is a direct counterexample to an even-return claim.
-\prob{Problem 4}{The three starts, left to right, are $\{BD,BE,BF\}$, $\{AC,AE,CE\}$, and $\{AD,BD,DF\}$. The fourth filling is the A fan $\{AC,AD,AE\}$. Their minimum distances are 3, 1, and 2.}
+\prob{Problem 4}{The three starts, left to right, are $\{BD,BE,BF\}$, $\{AC,AE,CE\}$, and $\{AD,BD,DF\}$. The fourth filling, where the arrows point, is the A fan $\{AC,AD,AE\}$. Their minimum distances are 3, 1, and 2.}
 \textbf{Left start.} Use the three-flip route on page 7: replace BF by AE, BE by AD, then BD by AC. It is shortest because all three target diagonals were missing.
 \textbf{Middle start.} Replace CE by AD. Exactly one target diagonal was missing.
 '''
@@ -255,7 +254,7 @@ s+=r'''
 This route is also shortest, although the problem does not ask for that: the endpoints share no diagonal, so all five target diagonals must be introduced and one move adds at most one.
 
 \textbf{Why any two fillings can be joined.} Choose one fixed corner, say A. Page 11's growing-fan procedure turns the first filling into the A fan and the second filling into the same A fan. Reverse the second route and place it after the first. Every reversed flip is legal, since exchanging the two diagonals of a convex quadrilateral is reversible. This gives a route between the original fillings. It need not be shortest.
-\hint{If children can reach a fan but cannot connect arbitrary endpoints, ask whether a route can be followed backward. Be explicit that the same target corner must be used for both routes.}
+\hint{If children can reach a fan but cannot connect arbitrary endpoints, ask whether a route can be followed backward. Be explicit that the same target corner must be used for both routes. A route can be recorded on the one working board as a list of changes, such as ``erase AC, draw BD'' from Problem 3's example, with only the final filling drawn.}
 \textbf{An upper bound, not an exact distance.} Passing through one fan uses $(n-3-d_A(S))+(n-3-d_A(T))$ flips. For these endpoints A gives $3+4=7$, while the route above uses 5. This example shows why a connectivity construction should not automatically be called a shortest route.
 '''
 pages.append(s)

@@ -1,5 +1,7 @@
-"""Week 14 boards and page template, carried over unchanged from the old builder
-(archive-before-problem-files-2026-10-23/build_packets.py).
+"""Week 14 boards and page template, carried over from the old builder
+(archive-before-problem-files-2026-10-23/build_packets.py). The October 23, 2026 card
+fixes added the light-gray starts in K-1 P5's copies (START_GRAY), the arrows from the
+three starts to the target in grades 4-5 P4 and a higher copy grid in grades 2-3 P6.
 
 Coordinates are inches with y pointing down, measured from the page's top-left corner,
 as the old builder drew them. Each page is one overlay picture: page_open(page) draws
@@ -55,7 +57,7 @@ def text(x,y,w,s,size=14,bold=False):
             rf'font=\sffamily\fontsize{{{size}}}{{{size*1.25:.2f}}}\selectfont] at ({x},{y}) '
             '{'+style+s+'};\n')
 
-def polygon(n,cx,cy,w,h,edges=(),labels='numbers',small=False,regular=True):
+def polygon(n,cx,cy,w,h,edges=(),labels='numbers',small=False,regular=True,edge_color=None):
     # Use one physical scale for every regular board, fitted inside its layout box.
     # The small flip examples explicitly opt out to preserve general quadrilaterals.
     raw=[(math.cos(math.pi/2-2*math.pi*i/n),-math.sin(math.pi/2-2*math.pi*i/n)) for i in range(n)]
@@ -67,7 +69,8 @@ def polygon(n,cx,cy,w,h,edges=(),labels='numbers',small=False,regular=True):
     p='\\begin{scope}\n' + f'% polygon: {"regular" if regular else "general-convex"} n={n}\n'
     for i,(x,y) in enumerate(pts): p+=rf'\coordinate (v{i}) at ({x:.4f},{y:.4f});'+'\n'
     p+=r'\draw[line width=0.95pt,line join=round] '+' -- '.join(f'(v{i})' for i in range(n))+r' -- cycle;'+'\n'
-    for a,b in sorted(edges): p+=rf'\draw[line width=0.85pt] (v{a}) -- (v{b});'+'\n'
+    colour=f',{edge_color}' if edge_color else ''   # K-1 P5's copies print the start in light gray
+    for a,b in sorted(edges): p+=rf'\draw[line width=0.85pt{colour}] (v{a}) -- (v{b});'+'\n'
     for i,(x,y) in enumerate(pts):
         p+=rf'\fill (v{i}) circle[radius={0.014 if small else 0.022}in];'+'\n'
         # Outward label offsets in physical units, independent of polygon aspect ratio.
@@ -117,7 +120,9 @@ def first_page_pair(n1,n2,labels='numbers'):
                 drawings+=polygon(n,6.70,y+dy,1.50,1.05,labels=labels,small=True)
     return drawings
 
-def two_cases_with_records(n1,n2,e1=(),e2=(),labels='numbers',keep_edges=False):
+START_GRAY='black!35'   # light enough to read as a start to change, dark enough to photocopy
+
+def two_cases_with_records(n1,n2,e1=(),e2=(),labels='numbers',keep_edges=False,gray_edges=False):
     drawings=''
     for n,y,edges in [(n1,3.05,e1),(n2,7.10,e2)]:
         if n==6:
@@ -125,18 +130,24 @@ def two_cases_with_records(n1,n2,e1=(),e2=(),labels='numbers',keep_edges=False):
             drawings+=polygon(n,2.35,cy,4.80,3.45,edges,labels)
             for x in [5.25,7.15]:
                 for dy in [-.90,.90]:
-                    drawings+=polygon(n,x,cy+dy,1.30,1.30,edges if keep_edges else (),labels,small=True)
+                    if gray_edges:
+                        drawings+=polygon(n,x,cy+dy,1.30,1.30,edges,labels,small=True,edge_color=START_GRAY)
+                    else:
+                        drawings+=polygon(n,x,cy+dy,1.30,1.30,edges if keep_edges else (),labels,small=True)
         else:
             drawings+=polygon(n,4.25,y,4.80,2.30,edges,labels)
             for x in [1.35,3.28,5.22,7.15]:
                 drawings+=polygon(n,x,y+2.00,1.30,.80,edges if keep_edges else (),labels,small=True)
     return drawings
 
+THREE_STARTS_Y=2.40; TARGET_Y=4.58   # card fix: room for arrows from each start to the target
 def three_routes():
     drawings=''
     for x,edges in zip([1.65,4.25,6.85],[hex_fan_b,hex_center,hex_fan_d]):
-        drawings+=polygon(6,x,2.50,1.75,1.50,edges,'letters',True)
-    drawings+=polygon(6,4.25,4.50,1.75,1.50,fan(6,0),'letters',True)
+        drawings+=polygon(6,x,THREE_STARTS_Y,1.75,1.50,edges,'letters',True)
+    drawings+=polygon(6,4.25,TARGET_Y,1.75,1.50,fan(6,0),'letters',True)
+    for start,end in [((2.25,3.12),(3.42,3.90)),((4.25,3.37),(4.25,3.61)),((6.25,3.12),(5.08,3.90))]:
+        drawings+=rf'\draw[-stealth,line width=.8pt] {start} -- {end};'+'\n'
     drawings+=polygon(6,2.35,7.70,4.80,4.00,labels='letters')
     for x in [5.25,7.15]:
         for y in [5.70,7.05,8.40,9.75]:
@@ -147,7 +158,7 @@ def hexagon_route_23():
     """Grades 2-3: the B fan, an arrow, the A fan, a working hexagon and eight copies."""
     return (polygon(6,2.05,2.85,2.15,1.85,hex_fan_b,'letters')+polygon(6,6.35,2.85,2.15,1.85,fan(6,0),'letters')
             +r'\draw[-stealth,line width=.8pt] (3.45,2.85) -- (4.95,2.85);'+'\n'+polygon(6,4.25,5.90,4.8,3.80,labels='letters')
-            +copies(6,2,4,8.38,'letters',rowgap=1.40,w=1.30,h=.96))
+            +copies(6,2,4,8.25,'letters',rowgap=1.40,w=1.30,h=.96))   # card fix: bottom row clear of the footer (was 8.38)
 
 def octagon_route_45():
     """Grades 4-5: the two printed octagon fillings, an arrow and a working octagon."""

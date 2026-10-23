@@ -7,7 +7,7 @@ kernel = "Any hexagon diagonal splits it into a triangle and a pentagon or two q
 +++
 
 ## prompt
-Can you fill this shape with 3 triangles, or with 4 triangles? Explain why any impossible case cannot work.
+Can you fill this shape with 3 triangles, or with 4 triangles? If one cannot be done, explain why.
 
 ## figure
 large_plus_copies(6)

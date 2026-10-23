@@ -13,13 +13,13 @@ Erase one inside line and draw a different one. Keep the shape full of triangles
 Erase one inside line and replace it with a different line so the polygon stays filled with triangles. Find every result of one such change from each drawing.
 
 ## figure [K-1]
-two_cases_with_records(6,6,fan(6,0),hex_center)
+two_cases_with_records(6,6,fan(6,0),hex_center,gray_edges=True)
 
 ## figure
 two_cases_with_records(6,6,fan(6,0),hex_center,'letters')
 
 ## key [K-1]
-Each printed hexagon has exactly three one-change results, one for each of its three interior diagonals. The original filling itself is not a new result. Why the list is complete. Removing one interior diagonal merges exactly its two adjacent triangles into a convex quadrilateral. That quadrilateral has exactly one other diagonal. Everything outside it is unchanged. Thus each of the three original diagonals supplies exactly one neighbor, and there are no further legal one-line replacements.
+Each printed hexagon has exactly three one-change results, one for each of its three interior diagonals. The original filling itself is not a new result. Each small copy prints its start's lines in light gray: the child crosses out the gray line that goes and draws the new one, so every copy differs from its start by one line. Show this once at the table. Four copies for three results keep the count open. Why the list is complete. Removing one interior diagonal merges exactly its two adjacent triangles into a convex quadrilateral. That quadrilateral has exactly one other diagonal. Everything outside it is unchanged. Thus each of the three original diagonals supplies exactly one neighbor, and there are no further legal one-line replacements.
 
 ## key [2-3]
 First start $\{AC,AD,AE\}$ has neighbors $\{AC,AD,DF\}$, $\{AC,AE,CE\}$, and $\{AD,AE,BD\}$. Second start $\{AC,AE,CE\}$ has neighbors $\{AC,CE,CF\}$, $\{AE,BE,CE\}$, and $\{AC,AD,AE\}$. The six diagrams on page 5 show all results after replacing number labels by letters.
