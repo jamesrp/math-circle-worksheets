@@ -44,6 +44,8 @@ Each dot owns the closed set of places nearest to it. Two dots split the plane a
 8. **could**, guide p. 2. Prepare for eleven children, not ten, and allow for the five-minute run before the launch.
 9. **could**, K–1 P2: cut "so every place belongs to its nearest dot", which repeats the rule.
 
+**Roster labels, October 23, 2026.** The return-visit adult guide (p. 2) printed the roster code "KK11 / 3333 / 445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1 / 2–3 / 4–5" (RV-15-FAC-v2; RV-15-FAC-v1 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
+
 ## Overlaps
 
 Week 21 (reflected paths) uses the same reflection that builds inverse cells here; Week 22 (Radon) shares convexity; Week 28 shares folding. None has the nearest-site object or its theorems, so no merge. The return visit stays a companion.

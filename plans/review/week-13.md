@@ -52,6 +52,8 @@ Routes follow arrows from Start to Finish and may share dots but not arrows; a m
 
 **Critic follow-up, October 23, 2026 (F13-K-v4, F13-45-v4; grades 2–3 unchanged):** an independent critic found that grades 4–5 Problem 5 names both boards of Problem 1, which the 4–5 return view did not contain and the full packet had only on page 1, already drawn over. A new page 7, "Extra workspace for Problem 5.", reprints both boards with their reserved routes and is routed with Problem 5 (8 pages). Two clear coulds: K–1 Problem 1 says "Find another way to fit that many routes, if you can." instead of the undefined "another largest collection", and the guide's supplies are for eleven children with about 132 markers. Check: `plans/review/checks/week-13/check_critic_fixes.py`.
 
+**Roster labels, October 23, 2026.** The return-visit adult guide (p. 2) printed the roster code "KK11 / 3333 / 445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1 / 2–3 / 4–5" (RV-13-FAC-v2; RV-13-FAC-v1 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
+
 ## Overlaps
 
 Week 19 (antichains) shares the two-sided certificate and "maximal is not maximum" on another object; Week 53 shares the improve-then-certify arc and, in the app, the graph board with 39, 52 and 62. No other theme has max-flow/min-cut; no merge.

@@ -48,6 +48,8 @@ A yes-or-no answer at best halves what is left, so k answers separate at most 2^
 
 October 23, 2026: fixes 1, 2, 3, 5, 6, 7, 8 and 10 are done in the guide; later that day, after the conversion to problem files, fixes 4 and 13 on the pages (F06-K-v5, F06-U-v6) and 9, 11 and 12 in the guide (F06-FAC-v5).
 
+**Roster labels, October 23, 2026.** The return-visit adult guide (p. 2) printed the roster code "KK11 / 3333 / 445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1 / 2–3 / 4–5" (RV6-FAC-v2; RV6-FAC-v1 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
+
 ## Overlaps
 
 Week 18 (codebooks) and Week 46 use the same rows and Hamming distance for other theorems: recovery from changes, and making boards agree. Week 23 uses the 2^k count, Week 30 counts placements on a balance, and the return visit weighs with three outcomes, sharing the balance with Week 30 and the app's odd-pebble balance. None covers adaptive identification and its lower bounds. No merge.

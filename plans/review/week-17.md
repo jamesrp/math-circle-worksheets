@@ -47,6 +47,8 @@ A machine is circles, each with one R arrow, one B arrow and a fixed ✓ or ×. 
 
 Fixed October 23, 2026: shoulds 1–4 and coulds 5–12, in the problem files, a new table kit, the guide and the return visit (W17-K-v3, W17-23-v3, W17-45-v3, W17-M-v1, W17-RV-v2).
 
+**Roster labels, October 23, 2026.** The return-visit adult guide (p. 2) printed the roster code "KK11 / 3333 / 445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1 / 2–3 / 4–5" (RV-17-FAC-v2; RV-17-FAC-v1 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
+
 ## Overlaps
 
 Week 4's wheel is the m-cycle, but it asks about stars and gcd. Week 76's Thue–Morse parity is a two-state machine, and its card names Week 17 as a return link. Week 23 counts comparator records and Week 6 counts yes/no tests; neither counts states. Week 3's "machines" share only the name. No other theme has state minimisation. No merge.

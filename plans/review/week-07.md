@@ -43,6 +43,8 @@ October 23, 2026: fixes 1–3 are done in the guide, which also gives adults the
 
 October 23, 2026, later: after the problem-file conversion, the K–1 wording of fixes 4 and 5 and fix 6 are on the pages (F07-K-v5, F07-M-v5), and the guide no longer supplies that wording.
 
+**Roster labels, October 23, 2026.** The return-visit adult guide (p. 2) printed the roster code "KK11 / 3333 / 445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1 / 2–3 / 4–5" (RV7-FAC-v2; RV7-FAC-v1 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
+
 ## Overlaps
 
 Week 8 (Rook race and Nim) shares two-pile copying, which K–1 P8, 2–3 P7 and 4–5 P12 preview. Week 7 owns one pile with a menu; Week 8 owns free takes, XOR and the queen game. Keep both, Week 7 first. Week 60 shares only backward induction. No merge.

@@ -1,5 +1,7 @@
 # Week 12 return visits
 
+**Roster labels, October 23, 2026 (RV-12-FAC-v2).** The adult guide printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5) on page 2, where readers expect band labels; it now prints "K–1 / 2–3 / 4–5". Nothing else changed in the words; the guide was rebuilt with pdfTeX 1.40.25 (the October 4 copy used 1.40.27), so glyph edges drift by a few pixels on every page. The previous guide and ZIP are in the `archive-before-roster-label-fix-2026-10-23/` folders beside the current copies. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`. Unpiloted.
+
 Three investigations within the Week 12 theme. Separate draft/unpiloted companions; existing base packets and guides are untouched. Readiness is labeled on each student page; the adult guide states prerequisites, precise facts, assumptions, materials, a common launch, first routes, flexible return-visit pacing, solutions, hints and extensions. Physical counter fit, preparation stock, procedures and classroom response are untested.
 
 - Student: `../../week-12/week-12-return-visit.pdf`

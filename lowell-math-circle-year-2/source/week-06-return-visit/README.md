@@ -1,5 +1,7 @@
 # Week 6 return visits: Code breaking
 
+**Roster labels, October 23, 2026 (RV6-FAC-v2).** The adult guide printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5) on page 2, where readers expect band labels; it now prints "K–1 / 2–3 / 4–5". Nothing else changed in the words; the guide was rebuilt with pdfTeX 1.40.25 (the October 4 copy used 1.40.27), so glyph edges drift by a few pixels on every page. The previous guide and ZIP are in the `archive-before-roster-label-fix-2026-10-23/` folders beside the current copies. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`. Unpiloted.
+
 Prepared October 4, 2026. **Unpiloted; physical material-fit and procedure rehearsal not performed.** Three distinct investigations in one shared student companion, with actual suitable bands on each page. The adult companion opens with precise facts, assumptions and limits, then gives practical entries and checked solutions. These files remain separate from every base packet and guide.
 
 - Current student PDF: [week-06-return-visit.pdf](../../week-06/week-06-return-visit.pdf).

@@ -40,7 +40,7 @@ def pdftext(fn):
     t = t.replace('ﬁ', 'fi').replace('ﬂ', 'fl')
     # drop running heads and feet so that sentences broken by a page turn still match
     t = re.sub(r'Week 6 / Code breaking / Adult (return-visit )?guide\s*', ' ', t)
-    t = re.sub(r'Bellingham Math Circle / Week 6 / (F06-FAC-v4|RV6-FAC-v1)\s+\d+\s*', ' ', t)
+    t = re.sub(r'Bellingham Math Circle / Week 6 / (F06-FAC-v4|RV6-FAC-v[12])\s+\d+\s*', ' ', t)
     t = t.replace('\f', ' ')
     return re.sub(r'\s+', ' ', t)
 

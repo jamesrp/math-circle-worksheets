@@ -47,6 +47,8 @@ With corners R, B and Y, side dots limited to their side's two corner letters an
 
 Fixed October 23, 2026: shoulds 1–5 and coulds 6–12, in the problem files, the guide and the return visit (F16-K-v3, F16-23-v3, F16-45-v3, W16-RV-v2).
 
+**Roster labels, October 23, 2026.** The return-visit adult guide (p. 2) printed the roster code "KK11 / 3333 / 445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1 / 2–3 / 4–5" (RV-16-FAC-v2; RV-16-FAC-v1 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
+
 ## Overlaps
 
 Week 2's lamp wires flip only a path's endpoints, the same endpoint parity as an R…B row. Week 26 counts shared edges twice (P = 4n − 2e), the same pairing as T + 2U = b + 2I. Week 19 shares Sperner's name, not this lemma; the guide says so (p. 11). Week 1 and its encore share the triangle grid. None reaches this theorem. No merge.
