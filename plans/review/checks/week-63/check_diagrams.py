@@ -3,9 +3,10 @@ from their content streams and check it against the mathematics.
 
 Student PDF: example rows and their yes/no checks (p. 1), the outcome-card
 example (p. 2), all blank boards (pp. 1, 3, 7, 9), working boxes (pp. 2, 4-6),
-the placement-to-arrow bridge (p. 7) and the four arrow diagrams of the removal
-examples (p. 8): letters, arrow directions, regularity of the polygons and the
-rows they encode.  Materials PDF: card, home-cell, label and outcome-card
+the placement-to-arrow bridge (p. 7), P8's twelve blank A-E boards (p. 8) and the
+four arrow diagrams of the removal examples, which the October 23 card fix moved
+from student p. 8 to the guide's held hint for P8: letters, arrow directions,
+regularity of the polygons and the rows they encode.  Materials PDF: card, home-cell, label and outcome-card
 sizes, shape regularity, and the full A-C and A-D outcome decks.
 Run: python3 check_diagrams.py   (writes out_check_diagrams.txt beside itself)
 """
@@ -189,45 +190,54 @@ check(len(work) == 4 and all(b['homes'] == 'ABCD' for b in work) and len(ws) == 
 wl = sorted(t['s'] for c in ws for t in letters(p7) if math.hypot(t['cx'] - c['cx'], t['cy'] - c['cy']) < c['r'])
 check(wl == sorted('ABCD' * 4), 'P7 workspace circles lettered A-D in each')
 
-say('\n== Student p. 8')
+say('\n== Student p. 8 (the card fix moved its removal diagrams to the guide)')
 p8 = S[7]
-circ = G.circles(p8)
-hdr = sorted([t for t in p8['texts'] if t['s'] == 'Input'], key=lambda t: -t['y'])
-ysplit = hdr[1]['y']
-panels = {}
-for c in circ:
-    key = ('top' if c['cy'] > ysplit else 'bottom', 'input' if c['cx'] < 306 else 'output')
-    panels.setdefault(key, []).append(c)
+b8 = boards(p8)
+check(len(b8) == 12 and all(b['homes'] == 'ABCDE' and not b['cards'] for b in b8), f'P8: {len(b8)} blank A-E boards (11 answers)')
+check(not p8['arrows'] and not G.circles(p8), 'p. 8 prints no arrow diagram')
+
+say('\n== Guide held hint for P8: the four removal diagrams')
+GP = G.read(G.GUIDE_PDF)
+hint_pages = [i for i, p in enumerate(GP) if 'Held hint' in ' '.join(t['s'] for t in p['texts'])]
+check(len(hint_pages) == 1, f'guide p. {[i + 1 for i in hint_pages]} holds the P8 hint')
+hint = GP[hint_pages[0]]
+circ = sorted(G.circles(hint), key=lambda c: c['cx'])
+groups = [[circ[0]]]
+for c in circ[1:]:
+    if c['cx'] - groups[-1][-1]['cx'] > 15 * MM:  # diagrams sit 18-25 mm apart; circles within one, 11-12 mm
+        groups.append([c])
+    else:
+        groups[-1].append(c)
+check([len(g) for g in groups] == [6, 4, 6, 5], f'four diagrams left to right with {[len(g) for g in groups]} circles')
+panels = dict(zip([('left', 'input'), ('left', 'output'), ('right', 'input'), ('right', 'output')], groups))
 want = {
-    ('top', 'input'): {'P': 'U', 'U': 'P', 'Q': 'R', 'R': 'S', 'S': 'T', 'T': 'Q'},
-    ('top', 'output'): {'Q': 'R', 'R': 'S', 'S': 'T', 'T': 'Q'},
-    ('bottom', 'input'): {'P': 'Q', 'Q': 'R', 'R': 'S', 'S': 'T', 'T': 'U', 'U': 'P'},
-    ('bottom', 'output'): {'P': 'Q', 'Q': 'R', 'R': 'S', 'S': 'T', 'T': 'P'},
+    ('left', 'input'): {'P': 'U', 'U': 'P', 'Q': 'R', 'R': 'S', 'S': 'T', 'T': 'Q'},
+    ('left', 'output'): {'Q': 'R', 'R': 'S', 'S': 'T', 'T': 'Q'},
+    ('right', 'input'): {'P': 'Q', 'Q': 'R', 'R': 'S', 'S': 'T', 'T': 'U', 'U': 'P'},
+    ('right', 'output'): {'P': 'Q', 'Q': 'R', 'R': 'S', 'S': 'T', 'T': 'P'},
 }
 drawn = {}
 used = 0
-for key in sorted(panels):
+for key in panels:
     sub = panels[key]
-    page_sub = dict(p8)
-    named, edges = arrow_graph(p8, sub)
-    # keep only arrows whose target is in this panel
+    named, edges = arrow_graph(hint, sub)
     ed = [(s, t, a, g) for s, t, a, g in edges]
     say(key, 'circles', sorted(n for n, _ in named), 'edges', ed)
     drawn[key] = {s: t for s, t, _, _ in ed}
     used += len(ed)
-    check(drawn[key] == want[key], f'p. 8 {key} arrows {drawn[key]}')
-    cyc = [c for n, c in named if not (key == ('top', 'input') and n in 'PU')]
+    check(drawn[key] == want[key], f'guide hint {key} arrows {drawn[key]}')
+    cyc = [c for n, c in named if not (key == ('left', 'input') and n in 'PU')]
     dr, ds, side = regular([(c['cx'], c['cy']) for c in cyc])
-    check(dr < 0.05 and ds < 0.05, f'p. 8 {key} polygon regular (radius spread {dr:.3f} pt, side spread {ds:.3f} pt, side {side / MM:.1f} mm)')
-check(used == len(p8['arrows']) - 4, f'all {used} loop arrowheads assigned (plus 4 panel arrows)')
-ti = row_from_arrows(drawn[('top', 'input')], 'PQRSTU')
-bi = row_from_arrows(drawn[('bottom', 'input')], 'PQRSTU')
-check(reduce_row(ti, 'PQRSTU', 'U')[2] == row_from_arrows(drawn[('top', 'output')], 'QRST'),
-      f'top: removing the U-P pair from {ti} gives the drawn output')
-check(reduce_row(bi, 'PQRSTU', 'U')[2] == row_from_arrows(drawn[('bottom', 'output')], 'PQRST'),
-      f'bottom: bypassing U in {bi} gives the drawn output')
-mid = [t['s'] for t in p8['texts'] if 'becomes' in t['s'] or 'point' in t['s'] or 'Remove' in t['s']]
-say('p. 8 middle texts:', mid)
+    check(dr < 0.05 and ds < 0.05, f'guide hint {key} polygon regular (radius spread {dr:.3f} pt, side spread {ds:.3f} pt, side {side / MM:.1f} mm)')
+check(used == len(hint['arrows']) - 2, f'all {used} loop arrowheads assigned (plus 2 input-to-output arrows)')
+ti = row_from_arrows(drawn[('left', 'input')], 'PQRSTU')
+bi = row_from_arrows(drawn[('right', 'input')], 'PQRSTU')
+check(reduce_row(ti, 'PQRSTU', 'U')[2] == row_from_arrows(drawn[('left', 'output')], 'QRST'),
+      f'left: removing the U-P pair from {ti} gives the drawn output')
+check(reduce_row(bi, 'PQRSTU', 'U')[2] == row_from_arrows(drawn[('right', 'output')], 'PQRST'),
+      f'right: bypassing U in {bi} gives the drawn output')
+mid = [t['s'] for t in hint['texts'] if 'becomes' in t['s'] or 'point' in t['s'] or 'remove' in t['s']]
+say('guide hint captions:', mid)
 
 # ------------------------------------------------------------- materials
 say('\n== Materials p. 1')
@@ -263,7 +273,9 @@ def outcome_cards(page):
     small = letters(page)
     for r in G.rects(page):
         if abs(r['w'] - 56 * MM) < 0.3 and abs(r['h'] - 27 * MM) < 0.3:
-            inner = [c for c in G.rects(page) if abs(c['w'] - 9 * MM) < 0.3 and abs(c['h'] - 10 * MM) < 0.3
+            # Cells are 9 x 10 mm; the October 23 card fix widened the six A-C outcomes' cells to
+            # 14 x 10 mm to put each card's picture beside its letter (checked in check_k1_route.py).
+            inner = [c for c in G.rects(page) if min(abs(c['w'] - w * MM) for w in (9, 14)) < 0.3 and abs(c['h'] - 10 * MM) < 0.3
                      and r['x0'] <= c['x0'] and c['x1'] <= r['x1'] and r['y0'] <= c['y0'] and c['y1'] <= r['y1']]
             inner.sort(key=lambda c: c['x0'])
             hs = ''.join(next((t['s'] for t in small if c['x0'] < t['cx'] < c['x1'] and c['y1'] < t['cy'] < r['y1']), '?') for c in inner)

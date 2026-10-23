@@ -42,8 +42,29 @@ def page_text(pdf, n):
                           capture_output=True, text=True, check=True).stdout
 
 
-GUIDE = [page_text(G.GUIDE_PDF, n) for n in range(1, 11)]
-STUD = [page_text(G.STUDENT_PDF, n) for n in range(1, 10)]
+def page_count(pdf):
+    info = subprocess.run(['pdfinfo', pdf], capture_output=True, text=True, check=True).stdout
+    return int(re.search(r'^Pages:\s+(\d+)', info, re.M).group(1))
+
+
+GUIDE = [page_text(G.GUIDE_PDF, n) for n in range(1, page_count(G.GUIDE_PDF) + 1)]
+STUD = [page_text(G.STUDENT_PDF, n) for n in range(1, page_count(G.STUDENT_PDF) + 1)]
+
+
+def gpage(heading):
+    """The guide page carrying this heading. Pages are found by heading, not number: the
+    October 23 card fix inserted the K-1 route as guide p. 3 and moved every later page on."""
+    hits = [g for g in GUIDE if heading in g]
+    assert len(hits) == 1, (heading, len(hits))
+    return hits[0]
+
+
+G_OVERVIEW = gpage('Mathematical overview: what is true, and why')
+G_P1_3 = gpage('Problems 1–3: concrete catalogs and the first overlap')
+G_P4_5 = gpage('Problems 4–5: inclusive intersections on four labels')
+G_P6 = gpage('Problem 6: five groups and per-outcome cancellation')
+G_P8 = gpage('Problem 8: the shared E-at-A branch')
+G_P9 = gpage('Problem 9: pooled complete 44-row adult catalog')
 
 
 def words(s):
@@ -59,7 +80,7 @@ say('home-free A-C rows:', d3)
 two = [r for r in rows(ABC) if len(matches(r, ABC)) == 2]
 say('rows with exactly two matches:', two)
 check(d3 == ['BCA', 'CAB'] and two == [], 'P1: two home-free rows BCA, CAB; no row has exactly two matches')
-g = GUIDE[3]
+g = G_P1_3
 tab = {m[0]: (m[1], m[2]) for m in re.findall(r'^\s*([A-C]{3})\s+(none|[A-C](?:, [A-C])*)\s+(\d)\s*$', g, re.M)}
 for r in rows(ABC):
     ms = sorted(matches(r, ABC))
@@ -83,7 +104,7 @@ outside = [r for r in U3 if r[0] != 'A' and r[1] != 'B']
 say('A-home', GA, 'B-home', GB, 'both', sorted(set(GA) & set(GB)), 'outside', outside)
 check(len(outside) == 3 and 6 - 2 - 2 == 2 and 6 - len(GA) - len(GB) + len(set(GA) & set(GB)) == 3,
       'P2: outside both = 3 = 6-2-2+1; printed student count 6-2-2 = 2 is the subtract-only count')
-g = GUIDE[3]
+g = G_P1_3
 check('{ABC, ACB}' in g and '{ABC, CBA}' in g and 'BAC, BCA, CAB' in g and '6 − 2 − 2 + 1 = 3' in g,
       'guide P2 groups/outside/total match')
 check('6 − 2 − 2 = 2' in STUD[1], 'student p. 2 prints the count 6 - 2 - 2 = 2')
@@ -94,7 +115,7 @@ d4 = derangements(ABCD)
 say(len(d4), d4)
 check(len(d4) == 9, 'P3: 9 home-free A-D rows')
 gt = {}
-for m in re.finditer(r'^\s*([BCD])\s+([A-D]{4}(?:, [A-D]{4})+)\s*$', GUIDE[3], re.M):
+for m in re.finditer(r'^\s*([BCD])\s+([A-D]{4}(?:, [A-D]{4})+)\s*$', G_P1_3, re.M):
     gt[m.group(1)] = m.group(2).split(', ')
 for f in 'BCD':
     want = [r for r in d4 if r[0] == f]
@@ -114,7 +135,7 @@ HB = {r for r in U4 if r[1] == 'B'}
 check(len(p4) == 14 == 24 - len(HA) - len(HB) + len(HA & HB) and sorted(HA & HB) == ['ABCD', 'ABDC'],
       'P4: 14 = 24-6-6+2 (intersection ABCD, ABDC); student check count 24-6-6 = 12')
 gt = {}
-for m in re.finditer(r'^\s*([BCD])\s+([A-D]{4}(?:, [A-D]{4})+)\s*$', GUIDE[4], re.M):
+for m in re.finditer(r'^\s*([BCD])\s+([A-D]{4}(?:, [A-D]{4})+)\s*$', G_P4_5, re.M):
     gt.setdefault(m.group(1), m.group(2).split(', '))
 for f in 'BCD':
     want = [r for r in p4 if r[0] == f]
@@ -129,7 +150,7 @@ for k in range(0, 5):
 total = sum((-1) ** len(S) * len(v) for S, v in inter.items())
 check(total == 9 == len(d4), f'P5: alternating sum = {total} = 9 home-free rows')
 check(24 - 4 * 6 + 6 * 2 - 4 * 1 + 1 == 9, 'guide P5 arithmetic 24-24+12-4+1 = 9')
-lines = re.findall(r'^\s*([A-D]{1,4})\s{2,}((?:[A-D]{4}, )*[A-D]{4})\s+(\d)\s*$', GUIDE[4], re.M)
+lines = re.findall(r'^\s*([A-D]{1,4})\s{2,}((?:[A-D]{4}, )*[A-D]{4})\s+(\d)\s*$', G_P4_5, re.M)
 printed = {a: (b.split(', '), int(c)) for a, b, c in lines}
 for S in ['A', 'B', 'C', 'D', 'AB', 'AC', 'AD', 'BC', 'BD', 'CD', 'ABCD']:
     check(printed.get(S) == (inter[S], len(inter[S])), f'guide P5 intersection {S}: {printed.get(S)}')
@@ -173,10 +194,10 @@ for r in U5:
     w = sum((-1) ** len(S) for k in range(len(M) + 1) for S in itertools.combinations(sorted(M), k))
     assert w == (1 if not M else 0)
 check(True, 'every A-E row has alternating weight 1 if home-free else 0')
-g6 = GUIDE[5]
+g6 = G_P6
 check('120 − 120 + 60 − 20 + 5 − 1 = 44' in g6, 'guide prints 120-120+60-20+5-1 = 44')
 if 'intersections of size k containing that row' in g6.replace('\n', ' '):
-    say('note guide p. 6 calls k-group intersections "intersections of size k" right after a '
+    say('note guide P6 page calls k-group intersections "intersections of size k" right after a '
         'table whose "Each size" column means number of rows (wording only)')
 
 # ---------------------------------------------------------------- p. 7 bridge
@@ -201,7 +222,7 @@ for h in 'ABC':
     check(sum(1 for r in d4 if r[ABCD.index(h)] == 'D') == 3, f'D at home {h}: three rows')
 
 # ---------------------------------------------------------------- p. 8 examples
-say('\n== Student p. 8 non-task removal examples')
+say('\n== P8 non-task removal examples (the guide\'s held hint since the card fix; student p. 8 before)')
 top = {'P': 'U', 'U': 'P', 'Q': 'R', 'R': 'S', 'S': 'T', 'T': 'Q'}
 r_top = row_from_arrows(top, 'PQRSTU')
 check(r_top == 'UTQRSP', f'top input row {r_top}')
@@ -233,7 +254,7 @@ for r in p8:
         assert sr == r[4] + r[1:4]  # guide: "last entry to the first entry"
 check(True, 'P8 every reduction restores uniquely; longer reduction = last entry moved to first')
 gl = re.findall(r'^\s*(E[A-D]{4})\s+(reciprocal|longer)\s+(A,E removed: B/C/D|E removed: A/B/C/D) / ([A-D]{3,4})\s*$',
-                GUIDE[7], re.M)
+                G_P8, re.M)
 check(len(gl) == 11, f'guide P8 table has {len(gl)} rows')
 for full, f, _, small in gl:
     check(red.get(full, ('?', '', ''))[0] == f and red[full][2] == small, f'guide P8 {full} {f} -> {small}')
@@ -254,7 +275,7 @@ for h in 'ABCD':
         f, hs, sr = fams[r]
         assert restore(f, hs, sr, ABCDE, 'E', h) == r
 check(sum(len(b) for b in branches.values()) == 44, 'branches disjoint and pool to 44')
-g9 = GUIDE[8]
+g9 = G_P9
 for h in 'ABCD':
     m = re.search(r'^' + h + r'\s+((?:[A-E]{5}, )[A-E]{5})\s+((?:[A-E]{5}, )+[A-E]{5})\s*$', g9, re.M)
     if not m:
@@ -290,10 +311,10 @@ for n in range(2, 7):
                 if restore(f, hs, sr, L, z, h) != r or matches(sr, hs):
                     bad += 1
 check(bad == 0, 'two-family deletion is a bijection for every n<=6, card z and destination h')
-check('Dn = (n − 1)(Dn−1 + Dn−2 ),     n ≥ 2,   D0 = 1,    D1 = 0.' in GUIDE[0], 'guide overview recurrence and base cases')
+check('Dn = (n − 1)(Dn−1 + Dn−2 ),     n ≥ 2,   D0 = 1,    D1 = 0.' in G_OVERVIEW, 'guide overview recurrence and base cases')
 
 # ---------------------------------------------------------------- preparation arithmetic
-say('\n== Guide preparation arithmetic (p. 3)')
+say('\n== Guide preparation arithmetic (p. 4; p. 3 before the card fix)')
 pieces = 5 * (10 + 2) + 5 * (6 + 5 + 12) + 2 * 24
 check(pieces == 223 and 5 + 5 + 2 == 12, f'cut pieces {pieces}, sheets 12')
 check(24 * 56 * 27 == 36288 and 173 * 95 < 36288 and 173 * 97 < 36288, 'outcome area 36,288 mm^2 exceeds both boxes')
