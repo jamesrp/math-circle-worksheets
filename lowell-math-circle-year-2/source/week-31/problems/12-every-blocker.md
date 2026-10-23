@@ -7,7 +7,7 @@ kernel = 'With u = a/d and v = b/d coprime, every lattice point on the ray is an
 +++
 
 ## prompt
-Let d be the greatest whole number that divides both coordinates of a target. How does d determine the first dot after O and the number of blockers? Explain why there can be no extra dots between the ones your rule finds.
+Explain why your Problem 3 rule finds every blocker: why can no other dot lie on the thread between O and the target?
 
 ## figure
 draw(('ruled', 3.2, 8))

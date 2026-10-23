@@ -14,7 +14,7 @@ Which dots can you see from O? Circle every visible dot.
 Circle every dot visible from O. For three hidden dots, mark their first blocker.
 
 ## prompt @8.4 [4-5]
-Find three visible targets and three hidden targets with different numbers of blockers. Mark each blocker.
+Circle every dot visible from O. Then find hidden targets with as many different numbers of blockers as you can, and mark each blocker.
 
 ## figure [K-1]
 draw(('dots', 4, 11.5, 4, 2))
@@ -40,4 +40,4 @@ Height y & K grid: x=0...4 & Larger grid: x=0...6 \\
 \emph{Print guide, p. 3.} Use the complete catalog on page 2. Three possible first-blocker marks: (6,4) $\to$ (3,2), (6,3) $\to$ (2,1), (4,4) $\to$ (1,1). Accept any three correct hidden targets.
 
 ## key [4-5]
-\emph{Print guide, p. 4.} Sample visible targets: (1,1), (2,1), (3,2). Hidden examples with distinct counts: (2,2) has (1,1); (3,3) has (1,1), (2,2); (4,4) has (1,1), (2,2), (3,3). Other correct choices are welcome.
+\emph{Print guide, p. 4.} The 25 visible dots are in the catalog on page 2. A hidden target has one blocker fewer than the gcd of its coordinates, and on this grid the gcd is at most 6, so the possible counts are 1, 2, 3, 4 and 5. The diagonal shows them all: (2,2) has 1 blocker, (3,3) has 2, (4,4) has 3, (5,5) has 4 and (6,6) has 5. The axes work the same way, and (6,4) or (6,3) give 1 or 2 off the diagonal. Other correct choices are welcome.

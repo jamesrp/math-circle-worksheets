@@ -49,6 +49,8 @@ A dot T = (a, b) is visible from O when no other dot lies on the open segment OT
 
 **Fixed October 23, 2026 (guide only):** fix 1 (the extension now uses (4,2) and (3,5)) and fix 6 (launch marks, timing); the student-page fixes are deferred. Record: `lowell-math-circle-year-2/source/week-31/editable/review/card-fixes-2026-10-23.md`.
 
+**Fixed later October 23, 2026 (student pages, after the problem-file conversion):** shoulds 2, 3, 4 and 5 and coulds 7–13 (v3 packets; Grades 4–5 now orders the rule, the ray groups, then the common-factor question, in six pages; guide keys, materials and route note to match). Same record.
+
 ## Overlaps
 
 Week 9 (bouncing paths) has the same fact from the billiard side: the unfolded path is a lattice ray that stops at its first lattice corner, and guide p. 1 points there. Weeks 4, 29 and 32 reach gcd through hops, rod sums and squares. Only Week 31 makes gcd count lattice points on a segment, which Week 57 (Pick) needs for tilted sides; the bonus's empty triangles overlap Week 57. Week 5's visible towers share only a word. No merge.

@@ -59,6 +59,17 @@ class Page:
                 self.node(x - .5, y + (n - b) * unit, b, 10)
         self.node(x - .45, y + n * unit + .05, 'O', 12)
 
+    def grid(self, x, y, w, h, unit=.7, size=8):
+        """A (w+1)-by-(h+1) dot grid with O at the lower left and every coordinate labelled."""
+        r = lambda v: round(v, 2)
+        for a in range(w + 1):
+            for b in range(h + 1):
+                self.add(r'\fill (' + f'{r(x+a*unit)},{r(-(y+(h-b)*unit))}' + ') circle (1.1pt);')
+        for a in range(w + 1):
+            self.node(r(x + a * unit), r(y + h * unit + .38), a, size)
+        for b in range(1, h + 1):
+            self.node(r(x - .4), r(y + (h - b) * unit), b, size)
+        self.node(r(x - .4), r(y + h * unit + .05), 'O', 10)
 
 def draw(*steps):
     """Run (method, args...) steps on a fresh Page and return its LaTeX."""
@@ -125,9 +136,9 @@ def page_text(x, y, body, w, size):
 def rules_example():
     """The shared rules' worked example: T = (4, 2) hidden behind B = (2, 1), and T = (3, 2) visible."""
     return draw(('dots', 1, 2.6, 4, .9, [(4, 2)], [(4, 2), (2, 1)]),
-                ('node', 4.9, 4.15, 'T', 12), ('node', 2.4, 5.3, 'B', 12), ('node', 2.8, 7, 'hidden', 12),
+                ('node', 4.9, 4.15, 'T', 12), ('node', 2.4, 5.3, 'B', 12), ('node', 2.8, 7.5, 'hidden', 12),
                 ('dots', 10, 2.6, 4, .9, [(3, 2)], [(3, 2)]),
-                ('node', 13.05, 4.15, 'T', 12), ('node', 11.8, 7, 'visible', 12))
+                ('node', 13.05, 4.15, 'T', 12), ('node', 11.8, 7.5, 'visible', 12))
 
 
 def coordinates(y=0):
@@ -136,4 +147,4 @@ def coordinates(y=0):
                 ('line', 1, y + 4.1, 3.8, y + 4.1, '->,line width=.9pt'),
                 ('line', 3.8, y + 4.1, 3.8, y + 2.7, '->,line width=.9pt'),
                 ('node', 2.4, y + 4.95, '4 across', 11), ('node', 5.0, y + 3.4, '2 up', 11),
-                ('node', 5.9, y + 2.15, '(4, 2)', 12))
+                ('node', 4.7, y + 2.7, '(4, 2)', 12))
