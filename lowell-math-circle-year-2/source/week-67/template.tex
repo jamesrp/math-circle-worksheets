@@ -1,0 +1,25 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=.7in,headheight=18pt,headsep=17pt,footskip=28pt]{geometry}
+\usepackage{tikz,fancyhdr,amssymb}
+\usetikzlibrary{arrows.meta}
+\pdfmapfile{+cm.map}\pdfmapfile{+cmextra.map}\pdfmapfile{+symbols.map}\pdfmapfile{+latxfont.map}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}\setlength{\parskip}{9pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week <<week>> / <<topic>> / <<header>>}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week <<week>> / <<footer>>}
+\fancyfoot[R]{\footnotesize\thepage}\renewcommand{\headrulewidth}{.4pt}
+
+\newcommand{\problem}[2]{\par\textbf{Problem #1:} #2\par}
+\newcommand{\grid}[1]{\draw[gray!65,line width=.6pt,step=1] (0,0) grid (#1,#1);\foreach \x in {0,...,#1}\foreach \y in {0,...,#1}\fill (\x,\y) circle (1.7pt);}
+\newcommand{\home}[3]{\node[draw,circle,fill=white,inner sep=3pt,font=\bfseries] at (#1,#2){#3};}
+\newcommand{\cube}{
+\coordinate (000) at (0,0);\coordinate (100) at (3,0);\coordinate (110) at (3,3);\coordinate (010) at (0,3);
+\coordinate (001) at (1.2,1.1);\coordinate (101) at (4.2,1.1);\coordinate (111) at (4.2,4.1);\coordinate (011) at (1.2,4.1);
+\draw[line width=1pt] (000)--(100)--(110)--(010)--cycle (001)--(101)--(111)--(011)--cycle (000)--(001) (100)--(101) (110)--(111) (010)--(011);
+\foreach \s in {000,100,110,010,001,101,111,011}{\node[fill=white,circle,draw,inner sep=2pt,font=\small] at (\s){\s};}}
+\begin{document}
+
+<<body>>
+
+\end{document}

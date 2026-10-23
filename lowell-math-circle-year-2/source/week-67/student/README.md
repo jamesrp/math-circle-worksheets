@@ -2,7 +2,7 @@
 
 One shared four-page Grades 3–5 packet. Prerequisites: count road edges, distinguish a shortest route from an arbitrary route, keep three pairwise tests on one unchanged board, draw paths in different colors. Page 4 additionally requires comparing three-place 0/1 labels; no binary arithmetic. Status: reviewed prototype, unpiloted. Revised student pages only; the adult guide is a separate stage.
 
-Build: `python3 build.py [--out PATH]`. Requires Python 3 and a TeX Live installation with TikZ, fancyhdr, amssymb. Outputs students.pdf and build.log. The source is self-contained, with no repository imports or borrowed reference text.
+Build: `python3 build.py [--out PATH]`. Requires Python 3 and a TeX Live installation with TikZ, fancyhdr, amssymb. Outputs students.pdf and build.log. Since October 23, 2026 `students.tex` is written from the problem files one folder up (`week.toml`, `template.tex`, `problems/`) by `regenerate.py`, which `build.py` runs first unless given `--no-regenerate`; edit the problem files, not `students.tex`. The old hand-written file is in `../archive-before-problem-files-2026-10-23/`. The source is self-contained, with no repository imports or borrowed reference text.
 
 Check: `python3 check_math.py`. Verifies all 2,300 triples on a 5-by-5 vertex grid, all 56 triples on a cube, and the specific tree/3-cycle/4-cycle. The common dot means membership in some shortest path for each pair, not in every chosen path. The three checks use unchanged homes and a single unchanged candidate.
 
