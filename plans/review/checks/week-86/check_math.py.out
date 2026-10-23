@@ -1,0 +1,156 @@
+== Rules-page worked example ==
+PASS example: C at w taking one road to x is legal
+PASS example: R stays at y (staying is allowed)
+  (side fact) example star: values by C start {'w': '2', 'x': '1', 'y': '2', 'z': '2'}
+
+== Fold-page worked example (path w-x-y-z) ==
+PASS w reaches {w,x}; x reaches {w,x,y}
+PASS w -> x is a legal fold
+PASS after w -> x the map is x-y-z
+
+== Problem 1 (shared and upper): paths ==
+  P5: worst-case cop turns by start {'a': '4', 'b': '3', 'c': '2', 'd': '3', 'e': '4'}
+PASS P5: optimum is floor(n/2) = 2 cop turns  [2]
+PASS P5: unique best start is the middle dot c  [['c']]
+PASS P5: moving toward R from the middle achieves the optimum  [2]
+PASS P5: R at farthest endpoint a forces 2
+  P7: worst-case cop turns by start {'a': '6', 'b': '5', 'c': '4', 'd': '3', 'e': '4', 'f': '5', 'g': '6'}
+PASS P7: optimum is floor(n/2) = 3 cop turns  [3]
+PASS P7: unique best start is the middle dot d  [['d']]
+PASS P7: moving toward R from the middle achieves the optimum  [3]
+PASS P7: R at farthest endpoint a forces 3
+PASS guide overview: on every n-dot path (n = 1..14) the best starts are the middle dot(s), value floor(n/2)  [[]]
+
+== Shared Problem 2: trees T1, T2 ==
+  T1: optimal worst-case cop turns by start {'a': '4', 'b': '3', 'c': '2', 'd': '3', 'e': '4', 'f': '3', 'g': '4'}
+PASS T1: best value 2, attained at c  [(2, ['c'])]
+PASS T1: "move toward R" wins from every start
+PASS T1: from c, "move toward R" captures within two cop moves  [2]
+PASS T1: toward-R capture time from each start = optimum = eccentricity
+  T2: optimal worst-case cop turns by start {'a': '4', 'b': '3', 'c': '2', 'd': '3', 'e': '4', 'f': '3', 'g': '4', 'h': '4'}
+PASS T2: best value 2, attained at c  [(2, ['c'])]
+PASS T2: "move toward R" wins from every start
+PASS T2: from c, "move toward R" captures within two cop moves  [2]
+PASS T2: toward-R capture time from each start = optimum = eccentricity
+PASS guide: every labelled tree with up to 8 dots is cop-win by "move toward R" from any start
+PASS guide: on those trees each uncaptured advance strictly shrinks R's component and R cannot leave it
+
+== Shared Problems 3-4: rings ==
+  C3: values by start {'a': '1', 'b': '1', 'c': '1'}
+PASS R3: C wins from any start, capture on the first move
+  C4: values by start {'a': '∞', 'b': '∞', 'c': '∞', 'd': '∞'}
+PASS C4: R escapes forever from every C start
+  C5: values by start {'a': '∞', 'b': '∞', 'c': '∞', 'd': '∞', 'e': '∞'}
+PASS C5: R escapes forever from every C start
+  C6: values by start {'a': '∞', 'b': '∞', 'c': '∞', 'd': '∞', 'e': '∞', 'f': '∞'}
+PASS C6: R escapes forever from every C start
+PASS C7: R escapes forever from every C start
+PASS C8: R escapes forever from every C start
+PASS C9: R escapes forever from every C start
+PASS C10: R escapes forever from every C start
+PASS C11: R escapes forever from every C start
+PASS C12: R escapes forever from every C start
+PASS C13: R escapes forever from every C start
+PASS C14: R escapes forever from every C start
+PASS R4: guide strategy (start opposite; stay when C stays, else move to new opposite) is never caught  [[]]
+PASS C4: guide ring rule (stay if outside N[C], else step to the other neighbour) is never caught  [[]]
+PASS C5: guide ring rule (stay if outside N[C], else step to the other neighbour) is never caught  [[]]
+PASS C6: guide ring rule (stay if outside N[C], else step to the other neighbour) is never caught  [[]]
+PASS C7: guide ring rule (stay if outside N[C], else step to the other neighbour) is never caught  [[]]
+PASS C8: guide ring rule (stay if outside N[C], else step to the other neighbour) is never caught  [[]]
+PASS C9: guide ring rule (stay if outside N[C], else step to the other neighbour) is never caught  [[]]
+PASS C10: guide ring rule (stay if outside N[C], else step to the other neighbour) is never caught  [[]]
+PASS C11: guide ring rule (stay if outside N[C], else step to the other neighbour) is never caught  [[]]
+PASS C12: guide ring rule (stay if outside N[C], else step to the other neighbour) is never caught  [[]]
+PASS C13: guide ring rule (stay if outside N[C], else step to the other neighbour) is never caught  [[]]
+PASS C14: guide ring rule (stay if outside N[C], else step to the other neighbour) is never caught  [[]]
+PASS C4: "stay across from C" (start on a farthest dot, then move to or stay on a reachable farthest dot, any tie-break) is never caught  [distances kept [2]]
+PASS C5: "stay across from C" (start on a farthest dot, then move to or stay on a reachable farthest dot, any tie-break) is never caught  [distances kept [2]]
+PASS C6: "stay across from C" (start on a farthest dot, then move to or stay on a reachable farthest dot, any tie-break) is never caught  [distances kept [3]]
+PASS C7: "stay across from C" (start on a farthest dot, then move to or stay on a reachable farthest dot, any tie-break) is never caught  [distances kept [3]]
+PASS C8: "stay across from C" (start on a farthest dot, then move to or stay on a reachable farthest dot, any tie-break) is never caught  [distances kept [4]]
+PASS C9: "stay across from C" (start on a farthest dot, then move to or stay on a reachable farthest dot, any tie-break) is never caught  [distances kept [4]]
+PASS C10: "stay across from C" (start on a farthest dot, then move to or stay on a reachable farthest dot, any tie-break) is never caught  [distances kept [5]]
+PASS C11: "stay across from C" (start on a farthest dot, then move to or stay on a reachable farthest dot, any tie-break) is never caught  [distances kept [5]]
+PASS C12: "stay across from C" (start on a farthest dot, then move to or stay on a reachable farthest dot, any tie-break) is never caught  [distances kept [6]]
+PASS C13: "stay across from C" (start on a farthest dot, then move to or stay on a reachable farthest dot, any tie-break) is never caught  [distances kept [6]]
+PASS C14: "stay across from C" (start on a farthest dot, then move to or stay on a reachable farthest dot, any tie-break) is never caught  [distances kept [7]]
+
+== Upper Problem 2: fewest added roads ==
+  E4: adding 0 road(s): 0 cop-win, 1 robber-win
+  E4: adding 1 road(s): 2 cop-win, 0 robber-win
+     cop-win: ac, bd
+     robber-win: 
+  E4: adding 2 road(s): 1 cop-win, 0 robber-win
+     cop-win: ac+bd
+     robber-win: 
+PASS E4: fewest added roads = 1
+  E5: adding 0 road(s): 0 cop-win, 1 robber-win
+  E5: adding 1 road(s): 0 cop-win, 5 robber-win
+     cop-win: 
+     robber-win: ac, ad, bd, be, ce
+  E5: adding 2 road(s): 5 cop-win, 5 robber-win
+     cop-win: ac+ad, ac+ce, ad+bd, bd+be, be+ce
+     robber-win: ac+bd, ac+be, ad+be, ad+ce, bd+ce
+PASS E5: fewest added roads = 2
+PASS E4 + a-c: C starts at a and catches on move one
+PASS E5 + a-c, a-d: a is adjacent to every dot; capture on move one
+PASS guide: b -> a, others fixed, maps every move or stay of the one-chord pentagon to a move or stay of square a-c-d-e
+PASS one-chord pentagon (= F2) is robber-win
+PASS (note) E5 + crossing chords a-c, b-d is robber-win: b and c become twins, folding b leaves square a-c-d-e  [[('b', 'c'), ('c', 'b')]]
+
+== Upper Problem 3: design two six-dot maps ==
+PASS guide D1: triangle a-b-c with tail c-d-e-f, six roads, cop-win
+PASS guide D1: starting C at c wins  [3]
+PASS guide D2: bare six-ring, six roads, robber-win
+  connected labelled graphs on a..f with >= 6 roads: 14073 cop-win (dismantlable), 11335 robber-win; most roads in a robber-win one: 12
+PASS both kinds exist, so both D1 and D2 are possible
+PASS every six-dot tree has 5 roads, so ">= 6 roads" excludes trees
+
+== Upper Problem 4: fold boards F1, F2 ==
+PASS F1: every sequence of legal folds ends at one dot  [[['a'], ['b'], ['c'], ['d'], ['e'], ['f']]]
+PASS guide F1 sequence e->d, d->c, f->a, a->b, b->c is legal at every step
+PASS F1 is cop-win (solver)
+PASS F2: initially only b can fold, into a or c  [[('b', 'a'), ('b', 'c')]]
+PASS F2: every fold sequence ends at the square a,c,d,e  [[['a', 'c', 'd', 'e']]]
+PASS F2 after removing b: no legal fold
+PASS F2 is robber-win (solver)
+
+== Fold theory on every connected labelled graph with <= 6 dots ==
+  connected graphs checked: 27476
+PASS cop-win <=> dismantlable (reducible to one dot by folds)  [0]
+PASS every single fold preserves cop-win / robber-win status  [0]
+PASS guide evasion rule never caught on every graph with >1 dot and no dominated dot  [0]
+
+== Upper Problems 5-6: two cops on rings ==
+  Q6: optimal worst case from both at a = 3 cop turns; best free placement = 1
+PASS Q6: from both cops at a the optimal guarantee is 3 cop turns  [3]
+PASS Q6: two cops starting together at a always win
+  Q8: optimal worst case from both at a = 4 cop turns; best free placement = 2
+PASS Q8: two cops starting together at a always win
+  C3: guide blocker plan worst case = 2 cop turns (optimal 1)
+PASS C3: guide blocker plan (C1 holds a, C2 to b then toward R) always captures
+  C4: guide blocker plan worst case = 3 cop turns (optimal 2)
+PASS C4: guide blocker plan (C1 holds a, C2 to b then toward R) always captures
+  C5: guide blocker plan worst case = 4 cop turns (optimal 2)
+PASS C5: guide blocker plan (C1 holds a, C2 to b then toward R) always captures
+  C6: guide blocker plan worst case = 5 cop turns (optimal 3)
+PASS C6: guide blocker plan (C1 holds a, C2 to b then toward R) always captures
+  C7: guide blocker plan worst case = 6 cop turns (optimal 3)
+PASS C7: guide blocker plan (C1 holds a, C2 to b then toward R) always captures
+  C8: guide blocker plan worst case = 7 cop turns (optimal 4)
+PASS C8: guide blocker plan (C1 holds a, C2 to b then toward R) always captures
+  C9: guide blocker plan worst case = 8 cop turns (optimal 4)
+PASS C9: guide blocker plan (C1 holds a, C2 to b then toward R) always captures
+  C10: guide blocker plan worst case = 9 cop turns (optimal 5)
+PASS C10: guide blocker plan (C1 holds a, C2 to b then toward R) always captures
+  C11: guide blocker plan worst case = 10 cop turns
+PASS C11: guide blocker plan (C1 holds a, C2 to b then toward R) always captures
+  C12: guide blocker plan worst case = 11 cop turns
+PASS C12: guide blocker plan (C1 holds a, C2 to b then toward R) always captures
+  C13: guide blocker plan worst case = 12 cop turns
+PASS C13: guide blocker plan (C1 holds a, C2 to b then toward R) always captures
+  C14: guide blocker plan worst case = 13 cop turns
+PASS C14: guide blocker plan (C1 holds a, C2 to b then toward R) always captures
+
+Summary: 0 failures
