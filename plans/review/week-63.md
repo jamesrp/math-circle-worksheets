@@ -52,6 +52,8 @@ Children place lettered cards in lettered homes and hunt for rows with no card a
 
 **October 23, 2026:** fixed the must (pages 1–3 headed Grades K–5, card pictures on materials pp. 1–2, a K–1 route page in the guide), should 2 by its first option, shoulds 3 and 4 and coulds 5–9 and 11 (W63-S-v3, W63-M-v3, W63-G-v2); could 10 deferred.
 
+**October 23, 2026, later the same day:** could 10 made in W63-G-v3. Guide p. 2's launch is about 5 minutes after the running-around time, and the first route gives the tables about 35–40 minutes (about 15 on P1 or P3, a 2-minute stretch, about 15 on P2 or P4, 5 comparing one shared record) before a few minutes of whole-group sharing. Nothing else changed; the student packet and materials did not. Unpiloted.
+
 **Critic follow-up, October 23, 2026 (W63-S-v4):** an independent critic found should 2's kept sentence, "Smaller arrow loops keep their remaining letters.", cryptic standing alone above Problem 8 once the pictures it captioned had gone. Problem 8 now says "A smaller row keeps its letters." right after its question about smaller rows; the guide's held hint already says "No survivor is renamed." Checked in `plans/review/checks/week-63/check_k1_route.py`. Unpiloted.
 
 The same day `checks/week-63/check_math.py` and `check_diagrams.py`, broken by the card fix, were repaired for the current packet with their checks kept: the math check finds guide pages by heading (the K–1 route became p. 3), the removal diagrams are read from the guide's held hint, student p. 8 is checked for its twelve blank A–E boards, and the A–C outcome cards' cells may be 14 mm wide (pictures beside the letters). Both pass.

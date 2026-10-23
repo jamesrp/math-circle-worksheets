@@ -175,7 +175,7 @@ def pdf_audit(path):
         assert tuple(p.rect)==(0,0,612,792)
         text = p.get_text()
         assert 'Week 63 / Cards away from home / Facilitator' in text
-        assert 'W63-G-v2' in text
+        assert 'W63-G-v3' in text
         words=p.get_text('words')
         assert all(w[0]>=0 and w[1]>=0 and w[2]<=612 and w[3]<=792 for w in words)
         result['pages'].append({'page':i+1,'size':[612,792],
