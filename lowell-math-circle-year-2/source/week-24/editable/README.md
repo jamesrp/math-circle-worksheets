@@ -1,6 +1,8 @@
 # Nontransitive dice and decks: Week 24 editable release
 
-## Current release: October 23, 2026 card-fix revision
+## Current release: October 23, 2026 card-fix revision, with a critic follow-up
+
+**Critic follow-up, October 23, 2026 (guide only).** The guide's card list (p. 1) adds a 0 card for Grades 2–3 Problem 4 (58 cards) and has the spares written in soft pencil, so they can be erased and rewritten for Grades 4–5 Problem 3, whose decks may repeat a value three times. The student packets are unchanged.
 
 **Card fixes, October 23, 2026.** Every should and could of the review card was done after the problem-file conversion below: student packets F24-K-v3 (K–1 Problems 1–4 and 6 reworded) and F24-45-v3 (Problem 1's decks lowered), Grades 2–3 unchanged at F24-23-v2, and guide pages 1–4, 7, 10, 13, the overview and the route page. See `review/card-fixes-2026-10-23.md`; `python3 review/verify_card_fixes_2026_10_23.py` checks each fix against the built PDFs. The release before it was the October 4, 2026 fresh-review revision.
 

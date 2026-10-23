@@ -100,9 +100,10 @@ check([chance(A4, B4), chance(B4, C4), chance(C4, A4)] == [Fraction(10, 16), Fra
       'four-card chances 10/16, 7/16, 10/16')
 
 # Should 4: materials and time.
-check('Cut index cards in half and use small paper lunch bags' in G and 'The room needs 57 cards: 27 originals, 27 spares and the cards 10, 11 and 12.' in G
-      and 3 * 3 * 3 + 3 * 9 + 3 == 57, 'guide p. 1: index cards and bags; 57 cards = 27 + 27 + 3')
-check('Once, about 30 minutes: write the 57 cards' in G and 'Before each session, 10-15 minutes' in G, 'guide p. 1: time to make the cards restated')
+# The same day's critic follow-up adds card 0 (middle Problem 4) and pencilled, erasable spares.
+check('Cut index cards in half and use small paper lunch bags' in G and 'The room needs 58 cards: 27 originals, 27 spares and the cards 0, 10, 11 and 12, in marker.' in G
+      and 3 * 3 * 3 + 3 * 9 + 4 == 58, 'guide p. 1: index cards and bags; 58 cards = 27 + 27 + 4')
+check('Once, about 30 minutes: write the 58 cards' in G and 'Before each session, 10-15 minutes' in G, 'guide p. 1: time to make the cards restated')
 check('cutting templates' in G and '4 x 6 cm' not in G, 'guide p. 1: no 4 x 6 cm card size left')
 
 # Could 6: review residue cut.

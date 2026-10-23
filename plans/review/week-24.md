@@ -47,6 +47,8 @@ A=(2,4,9), B=(1,6,8) and C=(3,5,7) each beat the next on 5 of 9 equally likely p
 
 October 23, 2026: all twelve done after a problem-file conversion with no wording change (F24-K-v3, F24-45-v3; Grades 2–3 unchanged; guide pp. 1–4, 7, 10, 13, the overview and the route page, now numbered 14). Fix 4 took index cards and paper bags, with about 30 minutes to make the 57 cards, rather than a print-and-cut sheet. See `lowell-math-circle-year-2/source/week-24/editable/review/card-fixes-2026-10-23.md`.
 
+**Critic follow-up, October 23, 2026 (guide only):** after an independent critic's review, the guide's card list (p. 1) adds a 0 card for Grades 2–3 Problem 4, whose choices include 0 for A's empty card (58 cards), and has the spares written in soft pencil, since the older construction (Grades 4–5 Problem 3) repeats a value up to three times, as in B=(3,3,3), and "write in marker" conflicted with "keep spares erasable"; Grades 4–5 Problem 3 is written on the nine erased spares. The student packets are unchanged. Check: `plans/review/checks/week-24/check_critic_fixes.py`.
+
 ## Overlaps
 
 Week 42 lists the same ordered draw pairs but proves von Neumann's unbiasing; themes.md also puts Weeks 43–45, 60 and 63 on the shared case engine. None has nontransitivity, so no merge. The bonus's label bags (P4–5) are mixed strategies, near atlas AP-22.
