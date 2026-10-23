@@ -11,7 +11,7 @@ kernel = "For two people envy-free and proportional coincide; exactly five label
 For each person, a division is \emph{envy-free} when their own tray is worth at least as much as the other tray. It is \emph{proportional} when their own tray is worth at least half of all the cards. Use that person's preferences for each check.
 
 ## prompt
-Use A and B's preference cards with R1, R2, B1 and B2. Find every complete division that is envy-free for both people. Which of your divisions are proportional for both people? Different card labels count as different cards.
+Use A and B's preference cards with R1, R2, B1 and B2. Find every way to give all four cards to A and B so that neither person envies the other. Which of these ways are proportional for both people? Different card labels count as different cards.
 
 ## text
 \begin{center}\prefmini\end{center}
@@ -30,14 +30,4 @@ Use A and B's preference cards with R1, R2, B1 and B2. Find every complete divis
     \node[anchor=north west,font=\small] at (\x+44,\y+18){B};
   }
 \end{tikzpicture}
-\end{center}
-\begin{center}
-\renewcommand{\arraystretch}{1.6}
-\begin{tabular}{|p{25mm}|p{33mm}|p{33mm}|p{33mm}|p{28mm}|}
-\hline
-\multicolumn{5}{|l|}{Saved division: Record \rule{12mm}{.25pt}}\\\hline
-Observer & Their own tray & The other tray & All four cards & Half of all four\\\hline
-A & & & &\\\hline
-B & & & &\\\hline
-\end{tabular}
 \end{center}

@@ -25,9 +25,10 @@ def inspect_allocations(values):
 
 
 def strip_value(red, blue, cut):
-    # cut is millimeters from the left of two adjacent 150 mm panels.
-    red_left = min(cut, Fraction(150)) / 150
-    blue_left = max(Fraction(0), cut - 150) / 150
+    # cut is millimeters from the left of two adjacent 120 mm panels
+    # (a whole 240 x 40 mm strip, red on the left; October 23, 2026).
+    red_left = min(cut, Fraction(120)) / 120
+    blue_left = max(Fraction(0), cut - 120) / 120
     left = red * red_left + blue * blue_left
     return [left, red + blue - left]
 
@@ -46,16 +47,24 @@ def audit():
         s = c['observer_rows']
         assert s[0][0] >= s[0][1] and s[1][1] >= s[1][0]
 
-    a_cut, b_cut = Fraction(100), Fraction(200)
+    a_cut, b_cut = Fraction(80), Fraction(160)
+    # Each cutter's equal-own-value cut is unique: check every whole millimetre.
+    assert [c for c in range(241) if strip_value(3, 1, Fraction(c))[0] == 2] == [80]
+    assert [c for c in range(241) if strip_value(1, 3, Fraction(c))[0] == 2] == [160]
     a_view = strip_value(3, 1, a_cut)
     b_view = strip_value(1, 3, a_cut)
     assert a_view == [2, 2] and b_view == [Fraction(2, 3), Fraction(10, 3)]
     assert strip_value(1, 3, b_cut) == [2, 2]
     assert strip_value(3, 1, b_cut) == [Fraction(10, 3), Fraction(2, 3)]
     # Same preferences and an equal-length cut fail the cutter's comparison.
-    midpoint = strip_value(3, 1, Fraction(150))
+    midpoint = strip_value(3, 1, Fraction(120))
     assert midpoint == [3, 1]
     assert 1 < 3 and 1 < Fraction(4, 2)
+
+    # The launch: a 120 mm panel worth 2 cut into two 60 mm lengths, value 1 each.
+    assert 2 * Fraction(60, 120) == 1
+    # P1 prints five record boxes for its four successes.
+    assert 5 > len(p1_good)
 
     p5 = inspect_allocations([[1, 1, 1], [1, 1, 1]])
     assert len(p5) == 8

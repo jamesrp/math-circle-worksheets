@@ -18,7 +18,8 @@ Use preference cards A and B. Divide these cards into two trays; your partner ch
 \end{center}
 \begin{center}
 \begin{tikzpicture}[x=1mm,y=1mm]
-  \trayrecord{0}{38}\trayrecord{96}{38}
-  \trayrecord{0}{0}\trayrecord{96}{0}
+  \trayrecord{0}{66}\trayrecord{96}{66}
+  \trayrecord{0}{33}\trayrecord{96}{33}
+  \trayrecord{0}{0}
 \end{tikzpicture}
 \end{center}

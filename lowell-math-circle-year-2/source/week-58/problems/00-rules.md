@@ -8,6 +8,7 @@ kernel = "A tray's value is the sum of one fixed observer's card values; the div
 +++
 
 ## text
+\renewcommand{\Band}{Grades K--5}
 Keep each person's preference card unchanged during a trial. A tray's value is the sum of its cards' values, using the same person's preferences for every tray. Use every card once. Cards stay whole unless the problem allows cutting. Ties are allowed.
 
 \begin{center}

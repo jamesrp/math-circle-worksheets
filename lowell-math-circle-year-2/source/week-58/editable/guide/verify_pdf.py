@@ -32,7 +32,7 @@ def main():
             p.get_pixmap(matrix=fitz.Matrix(1.7, 1.7), alpha=False).save(render / f"page-{i+1:02d}.png")
             words = p.get_text("words")
             assert words and all(w[0] >= 47 and w[1] >= 0 and w[2] <= 565 and w[3] <= 792 for w in words)
-            assert "W58-guide-v1" in p.get_text()
+            assert "W58-guide-v2" in p.get_text()
     with tempfile.TemporaryDirectory(prefix="week58-guide-check-") as folder:
         root = Path(folder)
         copied = root / "copied"

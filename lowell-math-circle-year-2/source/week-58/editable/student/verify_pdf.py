@@ -56,7 +56,7 @@ def check(out):
     src = Path(__file__).resolve().parent
     assert sorted(p.name for p in src.iterdir()) == sorted(SOURCE_FILES), 'Source bundle must stay lean.'
     report = {'scope': 'Digital checks only; physical pretests and classroom piloting unperformed.'}
-    for name, count in [('students', 7), ('materials', 10)]:
+    for name, count in [('students', 7), ('materials', 8)]:
         with pymupdf.open(out / f'{name}.pdf') as doc:
             assert len(doc) == count, (name, len(doc))
             renders = out / 'renders' / name
@@ -67,13 +67,13 @@ def check(out):
             for i, page in enumerate(doc):
                 assert abs(page.mediabox.width - 612) < .1
                 assert abs(page.mediabox.height - 792) < .1
-                assert page.rotation == (90 if name == 'materials' and i in range(1,5) else 0)
+                assert page.rotation == (90 if name == 'materials' and i in range(1,8) else 0)
                 text = page.get_text()
                 assert 'Week 58 / Fair division /' in text
                 assert 'Bellingham Math Circle / Week 58 /' in text
-                assert '-v2' in text
+                assert '-v3' in text
                 if name == 'students':
-                    band = 'Grades 3–5' if i in [3, 5, 6] else 'Grades 2–5'
+                    band = 'Grades 3–5' if i in [3, 5, 6] else 'Grades K–5' if i in [0, 4] else 'Grades 2–5'
                     assert f'Week 58 / Fair division / {band}' in text
                     assert text.count('Problem ') == 1 and f'Problem {i+1}:' in text
                 for block in page.get_text('dict')['blocks']:
@@ -91,13 +91,30 @@ def check(out):
             report[name] = {'pages': len(doc), 'text_page_box_and_rotation_checks': 'passed', 'page_records': pages}
 
     with pymupdf.open(out / 'students.pdf') as s:
-        assert all(f'Record {n}' in s[1].get_text() for n in range(1,7))
-        assert 'Saved division: Record' in s[1].get_text()
-        assert 'circle the chooser' in s[2].get_text()
-        assert 'Left piece’s value' not in s[2].get_text()
+        # October 23 card fixes: five P1 records, P2's ownership wording and no
+        # saved-division table, 120 mm panels, no P6 table and no P7 boxes.
+        p1_records = sum(has_size(d,82,26) for d in s[0].get_drawings())
+        assert p1_records == 5, p1_records
+        p2 = ' '.join(s[1].get_text().split())
+        assert all(f'Record {n}' in p2 for n in range(1,7))
+        assert 'Find every way to give all four cards to A and B so that neither person envies the other.' in p2
+        assert 'Saved division' not in p2 and 'complete division' not in p2
+        p3 = ' '.join(s[2].get_text().split())
+        assert 'circle the chooser' in p3
+        assert 'Left piece’s value' not in p3
+        assert 'whole 120 mm color panel' in p3 and p3.count('60 mm') == 2 and '150' not in p3
+        assert p3.count('red: 120 mm') == 2 and p3.count('blue: 120 mm') == 2
+        assert 'red: 120 mm' in s[3].get_text() and '150' not in s[3].get_text()
+        # Launch outputs are as wide as the two equal lengths (24.5 mm each).
+        launch = [mm_dimensions(d) for d in s[2].get_drawings() if has_size(d,24.5,13)]
+        assert len(launch) == 2, launch
         assert 'replace R3 with its paper copy' in s[4].get_text()
-        assert 'Initial allocation only: A has X, B has Y, C has Z' in s[5].get_text()
-        assert all(f'{who}’s tray' in s[5].get_text() for who in 'ABC')
+        p6 = s[5].get_text()
+        assert 'Initial allocation only' not in p6 and 'Envy-free division' in p6
+        assert sum(has_size(d,54,40) for d in s[5].get_drawings()) == 3
+        assert 'One observer' not in s[6].get_text() and 'own tray' not in s[6].get_text()
+        report['card_fixes_2026_10_23'] = dict(problem_1_record_boxes=p1_records,
+            problem_6_empty_boxes=3, launch_output_widths_mm=launch)
 
     with pymupdf.open(out / 'materials.pdf') as m:
         card_count = sum(has_size(p,25,25) for p in m[0].get_drawings())
@@ -109,8 +126,10 @@ def check(out):
         assert pref_counts == [2,2,2,1], pref_counts
         panel_count = sum(has_size(p,50,40,True) for p in m[4].get_drawings())
         assert panel_count == 3, panel_count
-        halves = [sum(has_size(p,150,40) for p in m[i].get_drawings()) for i in range(5,10)]
-        assert halves == [4]*5, halves
+        strips = [sum(has_size(p,240,40,True) for p in m[i].get_drawings()) for i in range(5,8)]
+        assert strips == [3]*3, strips
+        panels = [sum(has_size(p,120,40,True) for p in m[i].get_drawings()) for i in range(5,8)]
+        assert panels == [6]*3, panels
         bars, square_icons, dot_counts = [], [], []
         for i, page in enumerate(m):
             drawings = page.get_drawings()
@@ -133,29 +152,31 @@ def check(out):
                     dots += 1
             dot_counts.append(dots)
         assert len(square_icons)==4, square_icons
-        assert dot_counts == [0,8,2,24,12,0,0,0,0,0], dot_counts
+        assert dot_counts == [0,8,2,24,12,0,0,0], dot_counts
         strip_labels=[]
-        for i in range(5,10):
-            got = re.findall(r'Strip (\d+) / (red|blue) half / 150 × 40 mm',m[i].get_text())
-            a=2*(i-5)+1
-            assert got == [(str(a),'red'),(str(a),'blue'),(str(a+1),'red'),(str(a+1),'blue')], got
+        for i in range(5,8):
+            got = re.findall(r'Strip (\d+) / red 120 mm, blue 120 mm / 240 × 40 mm',m[i].get_text())
+            a=3*(i-5)+1
+            assert got == [str(a),str(a+1),str(a+2)], got
             strip_labels.append(got)
+        assert '150' not in material_text and '300' not in material_text and 'half' not in material_text
         report['material_geometry'] = dict(cards_25_by_25_mm=card_count,
             preference_cards_100_by_150_mm=pref_counts, panels_50_by_40_mm=panel_count,
-            strip_halves_150_by_40_mm=halves, finished_300_by_40_mm_strips=sum(halves)//2,
+            whole_strips_240_by_40_mm=strips, colour_panels_120_by_40_mm=panels,
             scale_bar_mm_dimensions=bars, regular_blue_squares=square_icons,
             preference_dots_by_page=dot_counts, strip_labels=strip_labels)
 
     # Print recipe is derived from the actual geometry count per page.
-    stock_copies=[5,5,5,1,1,5,5,5,5,5]
-    subset_copies=[5,5,5,1,1,5,5,0,0,0]
-    assert sum(stock_copies)==42 and sum(subset_copies)==27
+    stock_copies=[5,5,5,1,1,5,5,5]
+    subset_copies=[5,5,5,1,1,5,5,0]
+    assert sum(stock_copies)==32 and sum(subset_copies)==27
+    assert 3*sum(stock_copies[5:])==45 and 3*sum(subset_copies[5:])==30
     report['whole_group_print_recipe'] = dict(pair_kits=5, upper_kits=1,
-        stock_copies_by_material_page=stock_copies, stock_sheets=42,
+        stock_copies_by_material_page=stock_copies, stock_sheets=32,
         reusable_goods=25, paper_R3_replacements=5, preference_cards=23, upper_panels=3,
-        stock_strip_halves=100, stock_finished_strips=50,
+        stock_whole_strips=45, stock_strips_per_pair=9,
         first_route_copies_by_material_page=subset_copies, first_route_sheets=27,
-        first_route_strip_halves=40, first_route_finished_strips=20,
+        first_route_whole_strips=30, first_route_strips_per_pair=6,
         separately_supplied_trays=13, rulers=5)
 
     # Both paths rebuild ALL PDFs from a lean complete source package.

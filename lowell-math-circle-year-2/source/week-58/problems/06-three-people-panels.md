@@ -35,14 +35,12 @@ C & 8 & 0 & 4\\\hline
 \end{tikzpicture}
 \end{center}
 \begin{center}
-\renewcommand{\arraystretch}{1.65}
-\begin{tabular}{|p{23mm}|p{31mm}|p{36mm}|p{36mm}|p{30mm}|}
-\hline
-\multicolumn{5}{|l|}{Initial allocation only: A has X, B has Y, C has Z}\\\hline
-Observer & A's tray & B's tray & C's tray & One third of all\\\hline
-A & & & &\\\hline
-B & & & &\\\hline
-C & & & &\\\hline
-\end{tabular}
+\begin{tikzpicture}[x=1mm,y=1mm]
+  \node[anchor=west,font=\small] at (0,46){Envy-free division};
+  \foreach \x/\person in {0/A,64/B,128/C}{
+    \draw[rounded corners=3mm,black!50] (\x,0) rectangle ++(54,40);
+    \node[anchor=north west,font=\small] at (\x+4,36){\person};
+  }
+\end{tikzpicture}
 \end{center}
 \linearea{3}

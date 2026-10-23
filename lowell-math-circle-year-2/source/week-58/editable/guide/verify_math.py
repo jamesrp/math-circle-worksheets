@@ -46,10 +46,11 @@ def report():
     assert [c["owners"] for c in p6 if c["envy_free"]] == [[2, 0, 1]]
 
     def left_value(x, red, blue):
-        return F(red) * min(x, F(150)) / 150 + F(blue) * max(F(0), x - 150) / 150
+        # Whole 240 x 40 mm strip: red on [0,120], blue on [120,240] (October 23, 2026).
+        return F(red) * min(x, F(120)) / 120 + F(blue) * max(F(0), x - 120) / 120
 
     strip = []
-    for cutter, x in [(0, F(100)), (1, F(200))]:
+    for cutter, x in [(0, F(80)), (1, F(160))]:
         rows = [(left_value(x, r, b), F(4) - left_value(x, r, b)) for r, b in [(3, 1), (1, 3)]]
         assert rows[cutter] == (F(2), F(2))
         chooser = 1 - cutter
@@ -58,11 +59,22 @@ def report():
         assert rows[chooser][side] == F(10, 3)
         for e in [-5, -1, 0, 1, 5]:
             v = left_value(x + e, *[(3, 1), (1, 3)][cutter])
-            assert min(v, 4 - v) == 2 - F(abs(e), 50)
+            assert min(v, 4 - v) == 2 - F(abs(e), 40)
         strip.append({"cutter": "AB"[cutter], "cut_mm": int(x),
                       "observer_values_left_right": [[str(v) for v in row] for row in rows],
                       "chooser_piece": ["left", "right"][side]})
-    assert left_value(F(150), 3, 1) == 3  # both use A: chooser 3, cutter 1
+    assert left_value(F(120), 3, 1) == 3  # both use A: chooser 3, cutter 1
+    assert 2 * F(60, 120) == 1  # launch: a 120 mm panel worth 2 -> two 60 mm lengths worth 1
+
+    # K-1 plain-words key: P2's two colour splits, and P1's 'giving A the blue never works'.
+    reds_to_a = next(c for c in p2 if c["bundles"][0] == ["R1", "R2"])
+    blues_to_a = next(c for c in p2 if c["bundles"][0] == ["B1", "B2"])
+    assert reds_to_a["observer_grid"] == [[6, 2], [2, 6]] and reds_to_a["envy_free"]
+    assert blues_to_a["observer_grid"] == [[2, 6], [6, 2]] and not blues_to_a["envy_free"]
+    assert all(not c["envy_free"] for c in p1 if "B1" in c["bundles"][0])
+    assert all("B1" in c["bundles"][1] for c in p1 if c["envy_free"])
+    # Overview: own value exactly one third (4 of 12) need not be the largest tray.
+    assert all(3 * row[i] == sum(row) and max(row) > row[i] for i, row in enumerate([[4, 8, 0], [0, 4, 8], [8, 0, 4]]))
 
     # Exhaustive finite supplements to the general algebraic proofs in the guide.
     two_checks = 0
@@ -91,8 +103,9 @@ def report():
             "problem_6": summary(p6),
             "problem_7_finite_supplements": {"two_person_allocations_checked": two_checks,
                                             "three_person_allocations_checked": three_checks},
-            "guide_print_counts": {"full_material_sheets": 5*3 + 2 + 5*5,
-                                   "subset_material_sheets": 5*5+2, "route_student_sheets": 2*2+2*4+7},
+            "guide_print_counts": {"full_material_sheets": 5*3 + 2 + 5*3,
+                                   "subset_material_sheets": 5*5+2, "route_student_sheets": 2*2+2*4+7,
+                                   "full_whole_strips": 3*5*3, "subset_whole_strips": 3*5*2},
             "status": "all exact assertions passed; finite checks supplement, not replace, proofs"}
 
 

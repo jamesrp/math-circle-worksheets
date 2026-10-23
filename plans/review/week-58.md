@@ -47,6 +47,8 @@ Each person adds their own card values. A division is proportional when a person
 12. **could**, guide p. 1: "above one third" should be "at least one third" (math.md item 3).
 13. **could**, P1: four record boxes for exactly four successes; print five.
 
+**Fixed October 23, 2026 (W58-shared-v3, W58-materials-v3, W58-guide-v2).** After a problem-file conversion with no wording change: shoulds 1–6 and coulds 11–13 as written above, with P6's freed space given to three empty boxes for the envy-free division and 6 + 7 ruled lines on P7; the smaller first-route stock stays 27 sheets, now six whole strips per pair. Coulds 7–10 are left. Unpiloted; strips, cutting and the K–1 route are physically unrehearsed. Old PDFs in `week-58/archive-before-card-fixes-2026-10-23/`.
+
 ## Overlaps
 
 Week 27 (stable matching) has preferences, but it pairs people, and a blocking pair needs both. Week 42's "fair" means equal probabilities. Week 26's bonus splits a region by fence length. None has additive values, envy or cut-and-choose. No merge.

@@ -21,7 +21,7 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \fancyhead[L]{\small Week 58 / Fair division / \Band}
-\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 58 / W58-\Packet-v2}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 58 / W58-\Packet-v3}
 \fancyfoot[R]{\scriptsize\thepage}
 \newcommand{\Band}{Grades 2--5}
 \newcommand{\Packet}{shared}
@@ -71,8 +71,8 @@
   \draw[fill=bluegood!22] (#1+90,#2) rectangle ++(90,24);
   \draw (#1,#2) rectangle ++(180,24);
   \draw (#1+90,#2) -- ++(0,24);
-  \node[font=\small] at (#1+45,#2+12){red: 150 mm};
-  \node[font=\small] at (#1+135,#2+12){blue: 150 mm};
+  \node[font=\small] at (#1+45,#2+12){red: 120 mm};
+  \node[font=\small] at (#1+135,#2+12){blue: 120 mm};
 }
 \newcommand{\checkbar}[2]{
   \draw[line width=.8pt] (#1,#2) -- ++(100,0);
@@ -82,6 +82,7 @@
 }
 \begin{document}
 
+\renewcommand{\Band}{Grades K--5}
 Keep each person's preference card unchanged during a trial. A tray's value is the sum of its cards' values, using the same person's preferences for every tray. Use every card once. Cards stay whole unless the problem allows cutting. Ties are allowed.
 
 \begin{center}
@@ -115,15 +116,16 @@ Keep each person's preference card unchanged during a trial. A tray's value is t
 \end{center}
 \begin{center}
 \begin{tikzpicture}[x=1mm,y=1mm]
-  \trayrecord{0}{38}\trayrecord{96}{38}
-  \trayrecord{0}{0}\trayrecord{96}{0}
+  \trayrecord{0}{66}\trayrecord{96}{66}
+  \trayrecord{0}{33}\trayrecord{96}{33}
+  \trayrecord{0}{0}
 \end{tikzpicture}
 \end{center}
 
 \newband{Grades 2--5}
 For each person, a division is \emph{envy-free} when their own tray is worth at least as much as the other tray. It is \emph{proportional} when their own tray is worth at least half of all the cards. Use that person's preferences for each check.
 
-\prob{2}{Use A and B's preference cards with R1, R2, B1 and B2. Find every complete division that is envy-free for both people. Which of your divisions are proportional for both people? Different card labels count as different cards.}
+\prob{2}{Use A and B's preference cards with R1, R2, B1 and B2. Find every way to give all four cards to A and B so that neither person envies the other. Which of these ways are proportional for both people? Different card labels count as different cards.}
 
 \begin{center}\prefmini\end{center}
 \begin{center}
@@ -142,37 +144,27 @@ For each person, a division is \emph{envy-free} when their own tray is worth at 
   }
 \end{tikzpicture}
 \end{center}
-\begin{center}
-\renewcommand{\arraystretch}{1.6}
-\begin{tabular}{|p{25mm}|p{33mm}|p{33mm}|p{33mm}|p{28mm}|}
-\hline
-\multicolumn{5}{|l|}{Saved division: Record \rule{12mm}{.25pt}}\\\hline
-Observer & Their own tray & The other tray & All four cards & Half of all four\\\hline
-A & & & &\\\hline
-B & & & &\\\hline
-\end{tabular}
-\end{center}
 
 \newband{Grades 2--5}
-On a paper strip, the numbers on A and B's preference cards give the value of a whole 150 mm color panel. Within one color, value follows length: half a panel has half its value.
+On a paper strip, the numbers on A and B's preference cards give the value of a whole 120 mm color panel. Within one color, value follows length: half a panel has half its value.
 
 \begin{center}
 \begin{tikzpicture}[x=1mm,y=1mm]
   \node[anchor=west,font=\small] at (0,31){Input: one panel worth 2};
   \draw[fill=black!10] (0,10) rectangle (49,23);
-  \node[font=\small] at (24.5,16.5){150 mm};
+  \node[font=\small] at (24.5,16.5){120 mm};
   \draw[-{Stealth[length=2mm]}] (54,16.5) -- (64,16.5);
   \node[anchor=west,font=\small] at (69,31){Two equal lengths};
   \draw[fill=black!10] (69,10) rectangle (118,23);
   \draw[dashed] (93.5,8) -- (93.5,25);
-  \node[font=\scriptsize] at (81.25,16.5){75 mm};
-  \node[font=\scriptsize] at (105.75,16.5){75 mm};
-  \draw[-{Stealth[length=2mm]}] (122,16.5) -- (132,16.5);
-  \node[anchor=west,font=\small] at (136,31){Output: value 1 each};
-  \draw[fill=black!10] (136,10) rectangle (157,23);
-  \draw[fill=black!10] (164,10) rectangle (185,23);
-  \node[font=\small] at (146.5,16.5){1};
-  \node[font=\small] at (174.5,16.5){1};
+  \node[font=\scriptsize] at (81.25,16.5){60 mm};
+  \node[font=\scriptsize] at (105.75,16.5){60 mm};
+  \draw[-{Stealth[length=2mm]}] (121,16.5) -- (129,16.5);
+  \node[anchor=west,font=\small] at (132,31){Output: value 1 each};
+  \draw[fill=black!10] (132,10) rectangle (156.5,23);
+  \draw[fill=black!10] (160.5,10) rectangle (185,23);
+  \node[font=\small] at (144.25,16.5){1};
+  \node[font=\small] at (172.75,16.5){1};
 \end{tikzpicture}
 \end{center}
 
@@ -205,7 +197,7 @@ Both people now use A's strip preferences: a whole red panel is worth 3, and a w
 \end{center}
 \linearea{4}
 
-\newband{Grades 2--5}
+\newband{Grades K--5}
 
 \prob{5}{U and V each value every red card at 1. Divide all three cards between them, keeping each card whole, so neither person envies the other. If no division works, explain why. For a second trial, replace R3 with its paper copy; you may cut that copy. R1 and R2 must stay whole. Can you now make an envy-free division?}
 
@@ -262,15 +254,13 @@ C & 8 & 0 & 4\\\hline
 \end{tikzpicture}
 \end{center}
 \begin{center}
-\renewcommand{\arraystretch}{1.65}
-\begin{tabular}{|p{23mm}|p{31mm}|p{36mm}|p{36mm}|p{30mm}|}
-\hline
-\multicolumn{5}{|l|}{Initial allocation only: A has X, B has Y, C has Z}\\\hline
-Observer & A's tray & B's tray & C's tray & One third of all\\\hline
-A & & & &\\\hline
-B & & & &\\\hline
-C & & & &\\\hline
-\end{tabular}
+\begin{tikzpicture}[x=1mm,y=1mm]
+  \node[anchor=west,font=\small] at (0,46){Envy-free division};
+  \foreach \x/\person in {0/A,64/B,128/C}{
+    \draw[rounded corners=3mm,black!50] (\x,0) rectangle ++(54,40);
+    \node[anchor=north west,font=\small] at (\x+4,36){\person};
+  }
+\end{tikzpicture}
 \end{center}
 \linearea{3}
 
@@ -278,28 +268,10 @@ C & & & &\\\hline
 
 \prob{7}{Every item goes to exactly one person, and tray values add. For two people, can a division be proportional but fail to be envy-free? Can it be envy-free but fail to be proportional? Explain your answers for any two-person division.}
 
-\begin{center}
-\begin{tikzpicture}[x=1mm,y=1mm]
-  \node[anchor=west,font=\small] at (0,39){One observer's values};
-  \draw[rounded corners=2mm] (0,0) rectangle (86,28);
-  \draw[rounded corners=2mm] (96,0) rectangle (182,28);
-  \node[font=\small] at (43,18){own tray};
-  \node[font=\small] at (139,18){other tray};
-\end{tikzpicture}
-\end{center}
-\linearea{4}
+\linearea{6}
 
 For three people, can a division be proportional but fail to be envy-free? Can it be envy-free but fail to be proportional? Give an example whenever the answer is yes, and explain why whenever the answer is no.
 
-\begin{center}
-\begin{tikzpicture}[x=1mm,y=1mm]
-  \node[anchor=west,font=\small] at (0,37){One observer's values};
-  \foreach \x/\lab in {0/own tray,64/other tray,128/other tray}{
-    \draw[rounded corners=2mm] (\x,0) rectangle ++(54,27);
-    \node[font=\small] at (\x+27,17){\lab};
-  }
-\end{tikzpicture}
-\end{center}
-\linearea{3}
+\linearea{7}
 
 \end{document}
