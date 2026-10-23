@@ -4,7 +4,7 @@ from itertools import combinations
 import json
 
 points = dict(A=(F(1),F(0)),B=(F(5),F(0)),C=(F(8),F(2)),D=(F(7),F(6)),E=(F(3),F(7)),F=(F(0),F(3)))
-target=(F(4),F(16,5))
+target=(F(16,5),F(17,5))  # v2, October 23, 2026 (was (4,16/5), 1.3 mm from BE)
 def sub(a,b): return a[0]-b[0],a[1]-b[1]
 def cross(a,b): return a[0]*b[1]-a[1]*b[0]
 def orient(a,b,c): return cross(sub(b,a),sub(c,a))

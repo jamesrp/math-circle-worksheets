@@ -2,9 +2,11 @@
 
 ## Introduction-audit follow-up
 
-All three student bands are v4. The region key now includes one complete two-group split and its shared point. The guide launch uses the same labels. Existing 12.6 cm work boards and page counts remain. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
+All three student bands were v4 (now v5). The region key now includes one complete two-group split and its shared point. The guide launch uses the same labels. Existing 12.6 cm work boards and page counts remain. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 23, 2026 card-fix revision
+
+**Card fixes, October 23, 2026.** The review card's shoulds and coulds 5 and 7–10 were done after the problem-file conversion below: student packets F22-K-v5, F22-23-v5 and F22-45-v5 (a Problem 1 record page with D printed on one board per cross, a dot instead of a cross in the key, Grades 4–5 Problem 6 shortened), and guide pages 1–2, 5–19, 21 and the route page. See `review/card-fixes-2026-10-23.md`; `python3 review/verify_card_fixes_2026_10_23.py` checks each fix against the built PDFs. The release before it was the October 4, 2026 fresh-review revision.
 
 **Problem files, October 23, 2026.** The student pages are now stored as problem files, one per problem, in `problem-files/` (in the repository: `lowell-math-circle-year-2/source/week-22/`), in the flow layout with `template.tex` and `figures.py`. The conversion changed no wording or figure. `src/regenerate.py` writes the student LaTeX from them, `src/check_examples.py` and `src/check_geometry.py` still check the key and the answers, and `problem-files/tools/build.py` also builds first-route and return packets, a one-page problem menu and a key arranged by problem.
 
@@ -12,7 +14,7 @@ The guide now gives first routes, readiness-dependent continuation and return vi
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
-Current pages: **K–1 8; Grades 2–3 8; Grades 4–5 11; adult guide 23**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 9; Grades 2–3 9; Grades 4–5 12; adult guide 23**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project
 
@@ -26,7 +28,7 @@ The current verifier compares paper geometry and every 100-dpi rendered page aga
 
 Edit student problems in `problem-files/problems/*.md` (figures in `problem-files/figures.py`, the document head in `problem-files/template.tex`); `build.sh` regenerates `src/*.tex` from them before compiling, so do not edit the TeX by hand. To build every view: `python3 problem-files/tools/build.py problem-files --out views`. Edit the existing guide source under `facilitator-src/`. Where present, `facilitator-src/route-note.json` holds the concise starting/return update; the root build regenerates the guide before appending it exactly once. Do not run the appender alone against an already appended guide. Build intermediates belong in a separate working copy; inspect changed pages before updating references.
 
-The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/fresh-review-2026-10-04.md`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
+The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/card-fixes-2026-10-23.md`, and before it `review/fresh-review-2026-10-04.md`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
 
 ## Use and rights
 

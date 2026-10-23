@@ -8,7 +8,7 @@ kernel = "Radon's theorem for four points in the plane: by cases (a point in the
 +++
 
 ## prompt
-Can every arrangement of A, B, C, and D be split into two groups whose regions meet? Give an explanation that covers all arrangements, including dots in a straight line and labels at the same point.
+Can every arrangement of A, B, C, and D be split into two groups whose regions meet? Give an explanation that covers all arrangements.
 
 ## figure
 board()

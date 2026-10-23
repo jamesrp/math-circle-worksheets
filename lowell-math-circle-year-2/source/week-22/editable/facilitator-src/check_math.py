@@ -103,7 +103,7 @@ for key in ['INNER','OUTER']:
  assert all(orient(*(point(DATA[key][x]) for x in tri))!=0 for tri in combinations('ABCD',3))
 # Packet matching integrity, when rebuilding next to original PDFs.
 from pypdf import PdfReader
-pages={'k-1':8,'grades-2-3':8,'grades-4-5':11}
+pages={'k-1':9,'grades-2-3':9,'grades-4-5':12}
 manifest={}
 for slug,count in pages.items():
  p=R.parent/'reference-pdfs'/(slug+'.pdf')
@@ -118,7 +118,7 @@ if manifest_path.exists():
   assert name in pinned and pinned[name]==info, f'Student input differs from reviewed version: {name}'
 else:
  manifest_path.write_text(json.dumps(manifest,indent=2)+'\n')
-(R/'checks.txt').write_text(f'PASS: {len(DATA)} configurations, every unordered split, exact rational predicates.\nPASS: new INNER/OUTER witnesses have distinct unique splits.\nPASS: locus probes and 6,561 labeled grid configurations (coincidences included).\nPASS: student PDF page counts 8/8/11 when present.\nThe finite checks do not prove the universal theorem; see the illustrated proof.\n')
+(R/'checks.txt').write_text(f'PASS: {len(DATA)} configurations, every unordered split, exact rational predicates.\nPASS: new INNER/OUTER witnesses have distinct unique splits.\nPASS: locus probes and 6,561 labeled grid configurations (coincidences included).\nPASS: student PDF page counts 9/9/12 when present.\nThe finite checks do not prove the universal theorem; see the illustrated proof.\n')
 print((R/'checks.txt').read_text())
 if __name__=='__main__':
  for key,val in RESULT.items(): print(key, ', '.join(val['solutions']) or 'none')

@@ -6,6 +6,9 @@ with labelled dots and optional crosses; recording_boards() draws small copies t
 answers (their number does not give a count); region_key() draws the opening key of
 regions and the K-L-M-N worked split. Problem files call these by name in their
 `figure` sections, with the point lists below.
+
+October 23, 2026 card fixes: the key's triangle HIJ marks an inside location with a small
+dot instead of a cross, so it no longer looks like the boards' crosses for D.
 """
 
 
@@ -68,7 +71,7 @@ def region_key():
 \filldraw[fill=black!9,line width=.7pt] (13.35,.8) -- (15.75,.8) -- (14.35,2.55) -- cycle;
 \foreach \x/\y in {13.35/.8,15.75/.8,14.35/2.55}{\fill (\x,\y) circle (.055);}
 \node[below left=2pt] at (13.35,.8) {H};\node[below right=2pt] at (15.75,.8) {I};\node[above=2pt] at (14.35,2.55) {J};
-\draw[line width=.8pt] (14.3,1.40) -- (14.46,1.56) (14.3,1.56) -- (14.46,1.40);
+\fill (14.38,1.48) circle (.04);
 \node at (14.55,-.35) {edge and inside};
 \end{tikzpicture}
 

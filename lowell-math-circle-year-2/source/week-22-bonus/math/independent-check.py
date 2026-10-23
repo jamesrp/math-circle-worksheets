@@ -57,7 +57,7 @@ def partitions(n,k=3):
     yield from rec(0,[])
 
 dots=[p(1,0),p(5,0),p(8,2),p(7,6),p(3,7),p(0,3)]
-T=p(4,F(16,5));assert len(hull(dots))==6 and contains(hull(dots),T)
+T=p(F(16,5),F(17,5));assert len(hull(dots))==6 and contains(hull(dots),T)
 support={}
 for n in (1,2,3):support[n]=[ids for ids in combinations(range(6),n) if contains(hull([dots[i] for i in ids]),T)]
 assert not support[1] and not support[2] and support[3]
@@ -100,8 +100,16 @@ def pt(t):return [str(x) for x in t]
 out={'week':22,'verified_tasks':[1,2,3,4,5,6],'issues':[],'P1_minimum_support':3,'P1_successful_triples':[names(g) for g in support[3]],'P1_successful_pairs':0,'P2_one_dot_target':pt(one),'P2_two_dot_target':pt(two),'P2_three_dot_target':pt(T),'P2_four_required':False,'P3_AC_BD_intersection':pt(p(4,4)),'P3_AB_CD_separator':'y=4','P4_five_line_partitions_checked':n5,'P4_five_line_successes':[{'groups':[names(g) for g in groups],'common':[pt(t) for t in C]} for groups,C in w5],'P4_four_line_partitions_checked':n4,'P4_four_line_successes':0,'P5_regular_partitions_checked':nr,'P5_regular_successes':1,'P5_regular_split':['AD','BE','CF'],'P5_printed_common_point':[4,4],'P6_irregular_partitions_checked':ng,'P6_irregular_successes':0,'P6_pairings_checked':15,'P6_only_pairwise_crossing_pairing':['AD','BE','CF'],'P6_AD_BE_intersection':pt(AD_BE),'P6_CF_noncollinearity_determinant':-5,'regular_hexagon_equal_axes_and_side_lengths':'verified from source coordinates and numeric check; exact affine model used for intersection enumeration'}
 finalsrc=Path(__file__).resolve().parents[1]/'student-src'/'bonus.tex'
 if finalsrc.exists():
-    assert finalsrc.read_bytes()==(Path(__file__).parent/'fixtures'/'reviewed-draft.tex').read_bytes()
+    # The reviewed draft is historical; v2 (2026-10-23 card fix) only moves T and bumps the footer.
+    v2_changes=((r'\draw[very thick] (4,3.2) circle (3pt);\node[font=\small,right] at (4.12,3.2){T};',
+                 r'\draw[very thick] (3.2,3.4) circle (3pt);\node[font=\small,right] at (3.32,3.4){T};'),
+                ('W22-BON-v1','W22-BON-v2'))
+    draft=(Path(__file__).parent/'fixtures'/'reviewed-draft.tex').read_text()
+    for old,new in v2_changes:
+        assert draft.count(old)==1;draft=draft.replace(old,new)
+    assert finalsrc.read_text()==draft
+    assert (T[0],T[1])==(F(16,5),F(17,5))
     pdf=Path(__file__).resolve().parents[1]/'reference-pdfs'/'week-22-bonus.pdf'
-    out['final_audit']={'all_tasks_and_diagram_coordinates_identical_to_verified_draft':True,'issues':[],'source_sha256':hashlib.sha256(finalsrc.read_bytes()).hexdigest(),'pdf_sha256':hashlib.sha256(pdf.read_bytes()).hexdigest()}
+    out['final_audit']={'all_tasks_and_diagram_coordinates_identical_to_verified_draft_except_v2_T':True,'issues':[],'source_sha256':hashlib.sha256(finalsrc.read_bytes()).hexdigest(),'pdf_sha256':hashlib.sha256(pdf.read_bytes()).hexdigest()}
 Path(__file__).with_name('checks.json').write_text(json.dumps(out,indent=2)+'\n')
 print(json.dumps(out,indent=2))

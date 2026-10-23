@@ -32,6 +32,6 @@ Fresh writer, critic, independent math critic and reviser stages produced the st
 
 Source/body attribution and mathematical assumptions are in the guide and outline. Original task constructions, prose, drawings and code are editable local project material; third-party references retain their rights. No source books, fonts, caches, generated build files or external downloads are included.
 
-Current print copies: ../../week-22/week-22-bonus.pdf and week-22-bonus-facilitator.pdf. This release is local only; no Drive upload or publication is claimed. The source ZIP in the parent source/ folder is a portable copy of this directory.
+Current print copies: ../../week-22/week-22-bonus.pdf (W22-BON-v2) and week-22-bonus-facilitator.pdf (W22-BON-FAC-v2). On October 23, 2026 the base week's review card moved T in Problem 1 away from segment BE; see review/card-fixes-2026-10-23.md and run `python3 review/verify_card_fix_2026_10_23.py build`. This release is local only; no Drive upload or publication is claimed. The source ZIP in the parent source/ folder is a portable copy of this directory.
 
 A separate independent adult-extension checker is also included. Run `python3 guide-src/guide-independent-check.py`; it recomputes the extra finite claims and writes guide-src/guide-checks.json. Its file references were adapted to package-relative locations, with mathematical logic unchanged. The saved historical audit remains in review/.

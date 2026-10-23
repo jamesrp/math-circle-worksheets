@@ -22,9 +22,9 @@ def regions():
  for band in ('k-1','grades-2-3','grades-4-5'):
   tex=(S/(band+'.tex')).read_text().split('\\newpage')[0]
   assert tex.index('{E};')<tex.index('\\problem{1}')
-  assert 'fill=black!9' in tex and '(14.3,1.40)' in tex
+  assert 'fill=black!9' in tex and '\\fill (14.38,1.48) circle (.04);' in tex
   assert '\\fill (7.35,1.5)' in tex and '\\fill (9.2,1.5)' in tex
- return 'E is a point; FG includes both endpoints; HIJ is noncollinear and its visible cross lies strictly inside.'
+ return 'E is a point; FG includes both endpoints; HIJ is noncollinear and its small dot lies strictly inside.'
 
 result=regions()
 print(f"PASS Week {WEEK}: {result}")

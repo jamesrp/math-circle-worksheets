@@ -46,6 +46,8 @@ Four labelled points are split into two groups; each group's region is its conve
 9. **could**, 4–5 P6: "including dots in a straight line and labels at the same point" names two proof cases P2 and P4 already raised.
 10. **could**, guide p. 2 launch: say "split", the word every problem uses, and stretch a real band once around three markers.
 
+October 23, 2026: shoulds 1–4 and coulds 5 and 7–10 done after a problem-file conversion with no wording change (v5 packets F22-K-v5, F22-23-v5, F22-45-v5, now 9, 9 and 12 pages; guide printed pp. 1–2, 5–19, 21 and the route page, now numbered 22; bonus W22-BON-v2 and W22-BON-FAC-v2). Fix 1 took the record page: a new page 2 with one small board per cross and D printed, while page 1 keeps the large board for moving the marker. Could 6 is left, as it says. See `lowell-math-circle-year-2/source/week-22/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 Atlas GA-22 is the same theorem, rebuilt here. Atlas GA-31 (Helly) uses Radon in its proof, a 4–5 return visit. Week 14 uses a convex quadrilateral's crossing diagonals for flips; Week 15 has convex cells. Neither reaches Radon. The bonus stays a companion. No merge.

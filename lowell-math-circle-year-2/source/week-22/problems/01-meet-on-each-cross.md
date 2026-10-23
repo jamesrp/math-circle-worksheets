@@ -21,3 +21,21 @@ board(m_tri,[(9,9),(4,5),(6,2.5),(6,1)])
 
 ## figure [4-5]
 board(u_tri,[(9.8,9),(5,5),(6.25,2.5),(1,6)])
+
+## text
+\newpage
+
+## prompt [K-1]
+For each place of D, make two regions that meet and mark a point they share.
+
+## prompt
+For each position of D, split A, B, C, and D so their two regions meet, and mark a shared point.
+
+## figure [K-1]
+recording_boards([k_tri+[('D',x,y,'above right=5pt')] for x,y in [(9,9),(4.3,4.7),(0.8,7.2)]],columns=3,size=5.35)
+
+## figure [2-3]
+recording_boards([m_tri+[('D',x,y,'above right=5pt')] for x,y in [(9,9),(4,5),(6,2.5),(6,1)]])
+
+## figure [4-5]
+recording_boards([u_tri+[('D',x,y,'above right=5pt')] for x,y in [(9.8,9),(5,5),(6.25,2.5),(1,6)]])

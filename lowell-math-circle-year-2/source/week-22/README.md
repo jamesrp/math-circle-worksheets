@@ -2,6 +2,8 @@
 
 **Problem files, October 23, 2026.** The student packets are stored as [problem files](../problem-files/README.md) in the flow layout: `week.toml`, `template.tex` (the old builder's document head), `figures.py` (its board, recording-board and region-key code) and one file per problem in `problems/`, with each band's wording inside it. The conversion changed no wording or figure: the rebuilt LaTeX is the old builder's apart from blank lines between sections, and the packets match the old builder's rebuild in pages, extracted text and 100-dpi pixels. The print copies were made with another TeX version and differ from any rebuild here, the old builder's included, by at most 55 glyph pixels a page. The previous builder (`build_packets.py`, `examples.py`) and the ZIP it replaced are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 
+**Card fixes, October 23, 2026.** After the conversion, the review card's four shoulds and coulds 5 and 7–10 (`plans/review/week-22.md`) were done; could 6 leaves K–1 page 3 as it is. Problem 1 gains a record page with one small board per cross and D printed, the key marks the inside of triangle HIJ with a small dot instead of a cross, and Grades 4–5 Problem 6 drops its list of cases (v5 packets: 9, 9 and 12 pages). The guide adds drawing groups above and below a line in two colors, the record page, the current group's sheet counts, "split" and a real band in the launch, the K–1 Problem 6 roles, and a route page numbered 22 that points to guide p. 3. The bonus companion's T moved away from segment BE (W22-BON-v2). Details and checks: [editable/review/card-fixes-2026-10-23.md](editable/review/card-fixes-2026-10-23.md). The replaced print PDFs are in [../../week-22/archive-before-card-fixes-2026-10-23/](../../week-22/archive-before-card-fixes-2026-10-23/README.md); the conversion's ZIP and the bonus v1 ZIP are in [archive-before-card-fixes-2026-10-23/](archive-before-card-fixes-2026-10-23/README.md).
+
 - **Student pages:** edit `problems/*.md` (figures in `figures.py`, the document head in `template.tex`), then build every view:
 
   ```sh
@@ -15,9 +17,9 @@
 
 ## Introduction-audit follow-up
 
-All three student bands are v4. The region key now includes one complete two-group split and its shared point. The guide launch uses the same labels. Existing 12.6 cm work boards and page counts remain. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
+All three student bands were v4 (now v5, after the card fixes above). The region key now includes one complete two-group split and its shared point. The guide launch uses the same labels. Existing 12.6 cm work boards and page counts remain. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
 
-The [portable base source ZIP](four-point-convex-partitions-week22-editable-source.zip) and [complete extracted package](editable/README.md) contain the current **October 4, 2026 fresh-review revision**. Current print copies are in [../../week-22/](../../week-22/). References are exact duplicates of those print PDFs.
+The [portable base source ZIP](four-point-convex-partitions-week22-editable-source.zip) and [complete extracted package](editable/README.md) contain the current **October 23, 2026 card-fix revision** (F22-K-v5, F22-23-v5, F22-45-v5), built on the October 4, 2026 fresh-review revision. Current print copies are in [../../week-22/](../../week-22/). References are exact duplicates of those print PDFs.
 
 Read `editable/README.md` for dependencies and commands. Copy the complete package to a fresh folder under the project's `tmp/` before rebuilding; keep intermediates out of current print/source folders. `verify_revision.py` checks current pages and permits only specifically audited full-page alternate hashes for pre-existing font/hyphenation differences in unchanged student packets; the original strict verifier remains available. Every changed packet and guide reproduces exact 100-dpi pixels from the extracted ZIP.
 
