@@ -30,7 +30,7 @@ pdfmetrics.registerFontFamily('Kit', normal='Kit', bold='KitBold', italic='Kit',
 MM = 72 / 25.4
 W, H = 612, 792
 LEFT = 40
-ID = 'W28-M-v2'   # v1 until the footer-version sweep for the October 23 student-page fixes
+ID = 'W28-M-v3'   # v2 for the October 23 student-page fixes; v3 for a fourth K-1 tab stock (Critic K, October 23)
 DISK_R = 90 * MM            # 18 cm folding disks
 DISK_CY = 372               # disk centre height on its page (points)
 
@@ -276,7 +276,7 @@ def build():
         'Their radii match the student pages (2.25 cm, 2.5 cm, 2.4 cm), so a wedge can be laid on its printed '
         'picture. The half-turn boards and start disks stay whole. Keep each set in its own labelled envelope '
         'and never mix sets: the seven-piece and six-piece sets both use the letters A, B and C.',
-        '<b>K–1.</b> Cut the tabs apart (27 M and 27 V, three children\'s stocks for Problem 4) and the 16 route '
+        '<b>K–1.</b> Cut the tabs apart (36 M and 36 V, four children\'s stocks for Problem 4) and the 16 route '
         'cards (two sets of A–H).',
         '<b>Time.</b> About two and a quarter hours for one adult with scissors: 40 minutes of disk cutting (20 '
         'with squares and a paper trimmer), 45 of precreasing, 30 of wedges, 20 of tabs and cards.',
@@ -397,9 +397,9 @@ def build():
         kit.fill_board(LEFT + (k + .5) * (W - 2 * LEFT) / 3, band_top - 26 - r, r)
     kit.scale(LEFT, 70)
 
-    # ---- K-1 tabs: 10 mm squares, 27 M then 27 V ------------------------------
+    # ---- K-1 tabs: 10 mm squares, 36 M then 36 V ------------------------------
     top = kit.start('K–1 M and V tabs, Problem 4', (1, 0, 0, 0), 'card stock',
-                    'Three children\'s stocks of nine M and nine V tabs (each Problem 4 row takes the six its '
+                    'Four children\'s stocks of nine M and nine V tabs (each Problem 4 row takes the six its '
                     'page shows), or spares for recording folds on Problems 1, 3 and 5. A printed stock box '
                     'on the page is 9 mm; these tabs are 10 mm and cover it.',
                     'Cut along every line. Keep the tabs in an envelope.')
@@ -407,14 +407,14 @@ def build():
     x0 = (W - 9 * s) / 2
     y0 = top - 30
     c = kit.c
-    for row in range(6):
+    for row in range(8):
         for col in range(9):
             x, y = x0 + col * s, y0 - (row + 1) * s
             c.setStrokeGray(0)
             c.setLineWidth(.6)
             c.rect(x, y, s, s, stroke=1, fill=0)
             c.setFont('KitBold', 15)
-            c.drawCentredString(x + s / 2, y + s / 2 - 5.3, 'M' if row < 3 else 'V')
+            c.drawCentredString(x + s / 2, y + s / 2 - 5.3, 'M' if row < 4 else 'V')
     kit.scale(LEFT, 70)
 
     # ---- K-1 route cards: two sets of the eight folds -------------------------

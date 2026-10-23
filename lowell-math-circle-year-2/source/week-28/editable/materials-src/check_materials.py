@@ -210,7 +210,7 @@ for i, page in enumerate(doc, 1):
     check(page.rect == pymupdf.Rect(0, 0, 612, 792), f'p{i}: US Letter')
     t = page.get_text()
     check('Week 28 / Flat folds / Materials' in t, f'p{i}: header')
-    check(f'Bellingham Math Circle / Week 28 / W28-M-v2 / physically unrehearsed' in t, f'p{i}: footer with id and status')
+    check(f'Bellingham Math Circle / Week 28 / W28-M-v3 / physically unrehearsed' in t, f'p{i}: footer with id and status')
     check(len(scale_line(page)) == 1 and '10 cm check' in t, f'p{i}: one 10 cm scale line (100.00 mm)')
     if i > 1:
         check('at 100%:' in t and ('copy paper' in t or 'card stock' in t), f'p{i}: heading states paper and print counts')
@@ -379,19 +379,19 @@ for x, ps in by_disk.items():
 starts = [c for c in circles(doc[12], 20 * MM) if c[3].get('fill') is None]
 check(len(starts) == 3 and all(abs(c[2] / MM - 24) < .05 for c in starts), 'p13: three start disks of radius 24 mm')
 
-# K-1 tabs, page 14: 54 squares of 10 mm, 27 M and 27 V.
+# K-1 tabs, page 14: 72 squares of 10 mm, 36 M and 36 V.
 page = doc[13]
 sq = [d for d in page.get_drawings() if any(x[0] == 're' for x in d['items'])]
 rects = [x[1] for d in sq for x in d['items'] if x[0] == 're']
-check(len(rects) == 54 and all(abs(r.width / MM - 10) < .02 and abs(r.height / MM - 10) < .02 for r in rects),
-      'p14: 54 tabs of 10 mm')
+check(len(rects) == 72 and all(abs(r.width / MM - 10) < .02 and abs(r.height / MM - 10) < .02 for r in rects),
+      'p14: 72 tabs of 10 mm')
 gx0, gx1 = min(r.x0 for r in rects), max(r.x1 for r in rects)
 gy0, gy1 = H - max(r.y1 for r in rects), H - min(r.y0 for r in rects)
 letters = [t for t, x, y in words_up(page) if t in ('M', 'V') and gx0 < x < gx1 and gy0 < y < gy1]
-check(letters.count('M') == 27 and letters.count('V') == 27, 'p14: 27 M and 27 V')
+check(letters.count('M') == 36 and letters.count('V') == 36, 'p14: 36 M and 36 V')
 stock = {'A': (2, 4), 'B': (3, 3), 'C': (4, 2)}       # K-1 P4 row stocks (M, V)
 need = (sum(m for m, v in stock.values()), sum(v for m, v in stock.values()))
-check(need == (9, 9) and 3 * need[0] <= 27 and 3 * need[1] <= 27, 'p14: three full K-1 P4 stocks (9 M and 9 V each)')
+check(need == (9, 9) and 4 * need[0] <= 36 and 4 * need[1] <= 36, 'p14: four full K-1 P4 stocks (9 M and 9 V each), one per K-1 child')
 
 # K-1 route cards, page 15: 16 cards of 46 mm, words as on the Problem 6 page.
 page = doc[14]

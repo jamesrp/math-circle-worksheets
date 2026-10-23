@@ -39,3 +39,13 @@ Verification: `src/student_checks.py` still passes (10 half-turn groups, 8 right
 ## Kit footer id, later on October 23
 
 The student-page fixes changed kit pages (the grades 2–3 numbering) while the kit's footer still read W28-M-v1, the id of its morning printing. A footer-version sweep the same day bumped it to W28-M-v2 (`ID` in `materials-src/build_materials.py`; `check_materials.py` expects it). The rebuilt kit differs from the previous one only in that id: the extracted text is identical after the id swap, and the differing pixels lie in the footer row.
+
+## Critic follow-up, later on October 23
+
+An independent critic reviewed the day's student-page changes (no arithmetic or key error found) and asked for three more:
+
+- **K–1 Problem 3 (should):** four disks marked M matched the four answers, so the page told a child the list was complete. All six disks now carry M on ray 1, with no "Extra workspace" label; the guide (p. 2) says two are spare. The key is unchanged.
+- **Grades 2–3 Problem 3 (could):** "For any disk that could not close in Problem 2, explain why."
+- **Kit p. 14 (could):** a fourth K–1 tab stock, 36 M and 36 V tabs, one stock per child at a table of four; the kit's p. 1 and guide p. 2 say so.
+
+Ids: F28-K-v4, F28-23-v4, kit W28-M-v3; grades 4–5 and the key view are unchanged. The rebuilt packets differ from v3 only on their p. 3 (and the footers); the kit only on pp. 1 and 14 (and the footers); the guide only on pp. 1, 2 and 16. `check_materials.py` now expects 72 tabs, four full stocks.

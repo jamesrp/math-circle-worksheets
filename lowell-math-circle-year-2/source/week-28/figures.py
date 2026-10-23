@@ -136,12 +136,10 @@ def k1_which_folds():  # K-1, six labelled disks A-F
     for i,labs in enumerate(assignments): b+=disk((4.5,14)[i%2],(6.2,13.4,20.6)[i//2],2.05,nums=True,labels=labs,tag='ABCDEF'[i])
     return b
 
-def k1_ray1_mountain():  # K-1, four disks with ray 1 marked M, then two blank ones as extra workspace
+def k1_ray1_mountain():  # K-1, six disks with ray 1 marked M (four answers, so two stay spare; Critic K, October 23)
     b=''
-    for y in (6.1,13.3):
+    for y in (6.1,13.3,20.5):
         for x in (4.5,14): b+=disk(x,y,2.05,nums=True,labels=['M','','',''])
-    b+=text(0,16.9,'Extra workspace',12)
-    for x in (4.5,14): b+=disk(x,20.5,2.05,nums=True)
     return b
 
 def k1_shared_tabs():  # K-1, three rows of three part-labelled disks and six tabs

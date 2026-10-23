@@ -7,7 +7,7 @@ kernel = "On a four-ray disk, the alternating pairs of sectors either both make 
 +++
 
 ## prompt
-Use the 16 separate loose wedges cut to match \mbox{A1--A4}, \mbox{B1--B4}, \mbox{C1--C4}, and \mbox{D1--D4}. For each disk, can the shaded pair fill a half-turn exactly, and can the white pair? For any disk that could not close, explain why.
+Use the 16 separate loose wedges cut to match \mbox{A1--A4}, \mbox{B1--B4}, \mbox{C1--C4}, and \mbox{D1--D4}. For each disk, can the shaded pair fill a half-turn exactly, and can the white pair? For any disk that could not close in Problem 2, explain why.
 
 ## figure
 matching_wedge_disks()
