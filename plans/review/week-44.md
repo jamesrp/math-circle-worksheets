@@ -54,6 +54,8 @@ Fixed October 23, 2026, after converting the week to problem files: shoulds 1–
 
 **Critic follow-up, October 23, 2026 (W44-grades-2-3-v4):** an independent critic's two coulds. Grades 2–3 Problem 6 asks "which bag is more likely, if either", since the answer is neither (1/5 each). Guide page 2's timeline gives the random games about 15 minutes, and the page 6 route note adds that a pooled chart of 20 games of each kind shows fewer two-red, two-blue bags for copying than for returning only about four times in five. Checked in `plans/review/checks/week-44/check_critic_fixes.py`. Unpiloted.
 
+**October 23, 2026, later the same day:** coulds 14 and 15 made. Guide page 2's flexible hour starts with about 5 minutes of running around, launches by minute 10, and keeps the tables at work from minute 10 to 47 (a 2-minute movement break at 33), then shares an exact count or an invariant with the group and resets by minute 56. The bonus companion now marks counters as the base packet does (originals R1, B1, G1; the first added copy 2, the next 3), every digit one higher than before, with the rule sentence and the guide's label set (1–5) to match: W44-BONUS-v2, W44-BONUS-FAC-v4. The base student packets are unchanged; could 10 stays deferred. Unpiloted.
+
 ## Overlaps
 
 Weeks 42, 43 and 45 also label look-alikes to get equally likely cases, and 42's unchanged bag is this week's return-only contrast. None has a reinforcing bag or the uniform law. No merge.

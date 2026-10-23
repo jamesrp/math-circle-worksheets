@@ -96,7 +96,11 @@ for name, ref in (('grades-2-3', 'grades-2-3'), ('facilitator', 'facilitator-gui
     ok(open(os.path.join(W, f'week-44-{name}.pdf'), 'rb').read() == open(os.path.join(REF, f'{ref}.pdf'), 'rb').read(),
        f'{name}: print copy equals the reference copy')
 
-G, GO = pymupdf.open(os.path.join(W, 'week-44-facilitator.pdf')), pymupdf.open(os.path.join(ARC, 'week-44-facilitator.pdf'))
+# The critic follow-up's guide was replaced later on October 23 when could 14's timeline was made
+# (guide p. 2 only); it is archived in archive-before-small-coulds-2026-10-23/, checked here, and
+# the current guide is compared with it at the end.
+SC = os.path.join(W, 'archive-before-small-coulds-2026-10-23')
+G, GO = pymupdf.open(os.path.join(SC, 'week-44-facilitator.pdf')), pymupdf.open(os.path.join(ARC, 'week-44-facilitator.pdf'))
 ok(len(G) == len(GO) == 6, 'guide: still 6 pages')
 g2, g6 = flat(G[1]), flat(G[5])
 ok('7-22: choose short stories and compare final bags; the random games on page 6 add about 15 minutes.' in g2,
@@ -112,6 +116,21 @@ for i in (0, 2, 3, 4):
     ok(a == b, f'guide p. {i + 1}: pixels unchanged')
 key = ' '.join(flat(p) for p in G)
 ok('P6' in key and ('Neither' in key or 'neither' in key), "guide: the Problem 6 key still answers neither")
+
+# ---------------------------------------------------------------- later the same day: could 14's timeline
+GC = pymupdf.open(os.path.join(W, 'week-44-facilitator.pdf'))
+ok(len(GC) == 6, 'current guide: 6 pages')
+old_t = ('0-7 minutes: handle counters and demonstrate returning plus copying. 7-22: choose short stories and compare final bags; '
+         'the random games on page 6 add about 15 minutes. 22-34: K-1 extends or reverses stories; older groups construct the six '
+         'marked two-draw histories. 34-37: movement break: one child is the original counter, another joins as its copy. 37-50: '
+         'compare return-only sampling or investigate three/four draws. 50-58: share an exact count or an invariant. 58-60: restore the starting kits.')
+new_t = ('0-5 minutes: running around. 5-10: handle counters and demonstrate returning plus copying. 10-22: choose short stories and compare final bags; '
+         'the random games on page 6 add about 15 minutes. 22-33: K-1 extends or reverses stories; older groups construct the six '
+         'marked two-draw histories. 33-35: movement break: one child is the original counter, another joins as its copy. 35-47: '
+         'compare return-only sampling or investigate three/four draws. 47-53: share an exact count or an invariant with the group. 53-56: restore the starting kits.')
+ok(old_t in g2 and flat(GC[1]) == g2.replace(old_t, new_t), 'current guide p. 2: only the flexible hour changed, retimed to running around, about 37 minutes at the tables and sharing')
+for i in (0, 2, 3, 4, 5):
+    ok(G[i].get_pixmap(dpi=100).samples == GC[i].get_pixmap(dpi=100).samples, f'current guide p. {i + 1}: pixels unchanged')
 
 print('\n'.join(OUT))
 print(f'{len(OUT)} checks passed')

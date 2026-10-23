@@ -25,7 +25,7 @@ def label(s,x,y,size=11,center=False,bold=False):
 def page(band,n):
     label(f'Week {WEEK} / {TOPIC} / {band}',44,751,13,bold=True)
     C.setStrokeColor(HexColor('#555555'));C.setLineWidth(.55);C.line(44,738,568,738)
-    label(f'Bellingham Math Circle / Week {WEEK} / W{WEEK}-BONUS-v1',44,34,9)
+    label(f'Bellingham Math Circle / Week {WEEK} / W{WEEK}-BONUS-v2',44,34,9)
     label(n,560,34,9)
 
 def end(): C.showPage()
@@ -79,18 +79,18 @@ def copies(x,y,cell=24):
 
 def make():
     page('Grades 2-5',1)
-    para('Start with R0 and B0. A random draw gives every counter the same chance. Always return the draw and mix. Any new counter gets the number of the draw that added it.',y=718)
-    label('input',48,640,10);token('R0',72,605);token('B0',112,605)
-    label('draw R0; add the other color',165,640,10);token('R0',213,605);arrow(245,605,309,605)
-    label('output',348,640,10);token('R0',355,605);token('B0',396,605);token('B1',437,605)
-    para('<b>Problem 1:</b> Compare three rules: add the drawn color, add the other color, or add nothing. Start R0, B0 for each story. Which rule most often gives one red and one blue draw in two draws? Settle it using all the marked stories.',y=549)
+    para('Start with R1 and B1. A random draw gives every counter the same chance. Always return the draw and mix. The first added counter gets mark 2; the next gets mark 3.',y=718)
+    label('input',48,640,10);token('R1',72,605);token('B1',112,605)
+    label('draw R1; add the other color',165,640,10);token('R1',213,605);arrow(245,605,309,605)
+    label('output',348,640,10);token('R1',355,605);token('B1',396,605);token('B2',437,605)
+    para('<b>Problem 1:</b> Compare three rules: add the drawn color, add the other color, or add nothing. Start R1, B1 for each story. Which rule most often gives one red and one blue draw in two draws? Settle it using all the marked stories.',y=549)
     for i,rule in enumerate(['add drawn color','add other color','add nothing']):
         xx=44+i*178;box(xx,168,166,285);label(rule,xx+83,431,11,True)
         for j in range(6):lines(xx+12,397-j*35,142,1)
     lines(44,129,524,2,31)
     end()
     page('Grades 2-5',2)
-    para('Use the copying rule: start R0, B0; return each draw, add its own color, and mix. Choose a possible story yourself when designing a bag. For the next random draw, every counter now in the bag has the same chance.',y=718)
+    para('Use the copying rule: start R1, B1; return each draw, add its own color, and mix. Choose a possible story yourself when designing a bag. For the next random draw, every counter now in the bag has the same chance.',y=718)
     para('<b>Problem 2:</b> After four copying draws, make the next red draw as likely as possible, as unlikely as possible, and exactly as likely as blue. Give a story and a forecast for each. Can different stories give the same forecast?',y=629)
     for i,name in enumerate(['red most likely','red least likely','red and blue tied']):
         yy=386-i*130;box(44,yy,354,112);box(411,yy,157,112)
@@ -98,16 +98,16 @@ def make():
         label('story:',56,yy+19,10);lines(96,yy+19,288,1);lines(425,yy+44,127,1)
     end()
     page('Grades 4-5',3)
-    para('Start R0, B0, G0. Return each draw, add one of its own color, and mix. A new copy gets the number of the draw that added it. Original counters stay in the bag.',y=718)
+    para('Start R1, B1, G1. Return each draw, add one of its own color, and mix. The first added copy gets mark 2; the next gets mark 3. Original counters stay in the bag.',y=718)
     label('input',44,646,10)
-    for i,s in enumerate(['R0','B0','G0']):token(s,63+i*41,610)
-    label('draw G0, add G1',196,646,10);token('G0',234,610);arrow(266,610,308,610)
+    for i,s in enumerate(['R1','B1','G1']):token(s,63+i*41,610)
+    label('draw G1, add G2',196,646,10);token('G1',234,610);arrow(266,610,308,610)
     label('output',341,646,10)
-    for i,s in enumerate(['R0','B0','G0','G1']):token(s,348+i*42,610)
+    for i,s in enumerate(['R1','B1','G1','G2']):token(s,348+i*42,610)
     para('<b>Problem 3:</b> Use these equally likely marked two-draw stories to find every final color-count bag. Do all bags have the same chance, even though color words may not? Predict the color-count bags after three draws and test your prediction exactly.',y=550)
     stories=[]
-    for a in ['R0','B0','G0']:
-        stories += [(a,b) for b in ['R0','B0','G0',a[0]+'1']]
+    for a in ['R1','B1','G1']:
+        stories += [(a,b) for b in ['R1','B1','G1',a[0]+'2']]
     for i,(a,b) in enumerate(stories):
         xx=44+(i%3)*178;yy=376-(i//3)*79
         box(xx,yy,166,65)

@@ -13,9 +13,9 @@ def histories(colors,n,rule='same'):
    new=list(bag)
    if rule!='none':
     c=color if rule=='same' else ('B' if color=='R' else 'R')
-    new.append((c+str(step+1),c))
+    new.append((c+str(step+2),c))  # birth-step marks as in the base packet: originals 1, first copy 2
    walk(new,story+[name],draws+[color],step+1)
- walk([(c+'0',c) for c in colors],[],[],0)
+ walk([(c+'1',c) for c in colors],[],[],0)
  return out
 counts={}
 for rule in ['same','other','none']:
@@ -37,6 +37,6 @@ for n in [2,3,4,5]:
  assert set(composition.values())=={factorial(n)}
  checks[n]={'histories':len(h),'added_count_vectors':len(composition),'histories_per_vector':factorial(n)}
 three=histories('RBG',2)
-assert [(s[0],s[1]) for s,d,b in three]==[(a,b) for a in ['R0','B0','G0'] for b in ['R0','B0','G0',a[0]+'1']]
+assert [(s[0],s[1]) for s,d,b in three]==[(a,b) for a in ['R1','B1','G1'] for b in ['R1','B1','G1',a[0]+'2']]
 assert all(all(sum(c==t for name,c in bag)>=1 for t in 'RBG') for s,d,bag in three)
 print(json.dumps({'two_color_rule_comparison':counts,'forecast_examples':{p:w[:2] for p,w in forecast.items()},'three_color_checks':checks,'two_draw_added_vectors':{str(k):v for k,v in Counter(tuple(d.count(c) for c in 'RBG') for s,d,b in three).items()}},indent=2))
