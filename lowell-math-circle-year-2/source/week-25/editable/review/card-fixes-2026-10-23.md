@@ -36,6 +36,8 @@ Later the same day the student pages were stored as problem files (no wording ch
 - **Could 10.** Guide p. 1 has the current group (eleven: four K–1, four third graders, three upper), p. 18 the October 3 context, and p. 2's hour starts with five minutes of running around.
 - **Guide.** Page and problem references follow the new pages and numbers: pp. 1 (packet ids, cell sizes, 8 pages for grades 4–5, grades 2–3 P5–P6 need eight counters per pair), 2 (middle route), 10–11 (grades 2–3 P3–P4 and P5–P6), 12–15 (spare grids, pages 6–7 and 8), 16, 17 and 18, and the route note (grades 2–3 P5, P6). `verify_math.py` labels follow the new numbers.
 
+Amended the same day: guide p. 1's supplies line now says that an 18 mm counter fits every task cell, including the 18.5 mm cells of grades 4–5 pp. 1–2. Only that page changed; the previous build is in the repository history.
+
 Not done: coulds 11 (crowded counts on K–1 p. 2 and grades 2–3 pp. 1 and 5; grades 4–5 pp. 1 and 3 are less crowded or unchanged), 13 (one name) and 14 (a three-row reserve).
 
 ## Verification
