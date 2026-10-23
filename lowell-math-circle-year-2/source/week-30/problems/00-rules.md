@@ -1,7 +1,7 @@
 +++
 id = "w30.rules"
 kind = "setup"
-title = "Two pans, a target, and the example 3 + 1 = 4"
+title = "Two pans, a target, and the example 5 + 2 = 7"
 grades = ["K-1", "2-3", "4-5"]
 route = "first"
 +++
