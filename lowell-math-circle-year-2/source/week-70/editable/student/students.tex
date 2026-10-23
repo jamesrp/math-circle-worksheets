@@ -5,13 +5,13 @@
 \usepackage[T1]{fontenc}\usepackage{lmodern}
 \renewcommand{\familydefault}{\sfdefault}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Week 70 / Shields in a portal room / Grades 4--5}
-\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 70 / GGT70-S-v1}\fancyfoot[R]{\scriptsize\thepage}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 70 / GGT70-S-v2}\fancyfoot[R]{\scriptsize\thepage}
 \renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0pt}
 \setlength{\parindent}{0pt}\setlength{\parskip}{8pt}
 \newcommand{\problem}[2]{\textbf{Problem #1:} #2\par}
 
-\newcommand{\room}[2]{% scale arrow choice 0 none 1 NE 2 NW 3 SE 4 SW
-\begin{tikzpicture}[scale=#1]
+\newcommand{\room}[3][]{% [extra TikZ code] scale, arrow choice 0 none 1 NE 2 NW 3 SE 4 SW
+\begin{tikzpicture}[scale=#2]
 \draw[step=1,gray!28,thin] (0,0) grid (4,4);
 \draw[thick] (0,0) rectangle (4,4);
 \foreach\p in {(0,0),(4,0),(0,4),(4,4)}{\fill\p circle(1.7pt);}
@@ -20,13 +20,14 @@
 \fill[white](2,2)circle(4pt);\draw[thick](2,2)circle(3pt);\node[above right,font=\small]at(2,2){T};
 \node[below,font=\scriptsize]at(2,0){Y};\node[above,font=\scriptsize]at(2,4){Y};
 \node[left,font=\scriptsize]at(0,2){X};\node[right,font=\scriptsize]at(4,2){X};
-\ifnum#2=1\draw[-{Stealth[length=5pt]},very thick](0,0)--(.65,.65);\fi
-\ifnum#2=2\draw[-{Stealth[length=5pt]},very thick](4,0)--(3.35,.65);\fi
-\ifnum#2=3\draw[-{Stealth[length=5pt]},very thick](0,4)--(.65,3.35);\fi
-\ifnum#2=4\draw[-{Stealth[length=5pt]},very thick](4,4)--(3.35,3.35);\fi
+\ifnum#3=1\draw[-{Stealth[length=5pt]},very thick](0,0)--(.65,.65);\fi
+\ifnum#3=2\draw[-{Stealth[length=5pt]},very thick](4,0)--(3.35,.65);\fi
+\ifnum#3=3\draw[-{Stealth[length=5pt]},very thick](0,4)--(.65,3.35);\fi
+\ifnum#3=4\draw[-{Stealth[length=5pt]},very thick](4,4)--(3.35,3.35);\fi
+#1
 \end{tikzpicture}}
-\newcommand{\mapwindow}{
-\begin{tikzpicture}[scale=.70]
+\newcommand{\mapwindow}[2][.70]{% [scale] extra TikZ code
+\begin{tikzpicture}[scale=#1]
 \draw[step=1,gray!23,thin](-4,-4)grid(12,12);
 \foreach\x in{-4,0,4,8,12}{\draw[gray!75,line width=.7pt](\x,-4)--(\x,12);}
 \foreach\y in{-4,0,4,8,12}{\draw[gray!75,line width=.7pt](-4,\y)--(12,\y);}
@@ -35,20 +36,21 @@
 \draw[line width=1.2pt](0,0)rectangle(4,4);
 \foreach\x in{-4,0,4,8,12}{\node[below,font=\scriptsize]at(\x,-4){\x};}
 \foreach\y in{-4,0,4,8,12}{\node[left,font=\scriptsize]at(-4,\y){\y};}
+#2
 \end{tikzpicture}}
 \newcommand{\lines}[1]{\foreach\n in{1,...,#1}{\noindent\rule{\linewidth}{.2pt}\par\vspace{.22in}}}
 \begin{document}
 
 A shot travels straight. At an X edge it reappears at the same height on the other X edge. Y edges work the same way, at the same left-to-right position. It keeps its direction. All four corners are the same S. Stop at the first T reached.
 
-A shield is one exact point, away from S and T. A shot stops only if its line passes through that point. A counter marks the point at its center. On an unfolded map, a shield repeats at the same place in every large room-copy.
+A shield is one exact point, away from S and T, marked with a small pencil cross. A shield stops a shot only if the shot passes exactly through that point. On an unfolded map, each large square is another copy of the same room, and every T is the same target. A shield repeats at the same place in every copy.
 
 \begin{center}
 \begin{tikzpicture}[scale=.47]
 \draw[step=1,gray!25](0,0)grid(8,4);\draw[thick](0,0)rectangle(4,4);\draw[thick](4,0)rectangle(8,4);
 \fill(3,1)circle(2.5pt);\draw[-{Stealth},very thick](3,1)--(5,2);\draw(4,1.5)circle(3.5pt);
 \foreach\x in{1,5}{\draw[very thick](\x-.16,1.84)--(\x+.16,2.16);\draw[very thick](\x-.16,2.16)--(\x+.16,1.84);\node[above,font=\scriptsize]at(\x,2.2){P};}
-\node[above,font=\scriptsize]at(3,1){start};\node[above,font=\scriptsize]at(4,4){X};
+\node[below,font=\scriptsize]at(3,1){start};\node[above,font=\scriptsize]at(4,4){X};
 \node[below,font=\small]at(4,-.55){one shield P in two copies};
 \end{tikzpicture}\hspace{.35in}
 \begin{tikzpicture}[scale=.47]
@@ -56,36 +58,34 @@ A shield is one exact point, away from S and T. A shot stops only if its line pa
 \fill(3,1)circle(2.5pt);\draw[-{Stealth},very thick](3,1)--(4,1.5);\draw[-{Stealth},very thick](0,1.5)--(1,2);
 \draw[very thick](.84,1.84)--(1.16,2.16);\draw[very thick](.84,2.16)--(1.16,1.84);\node[above,font=\scriptsize]at(1,2.2){P};
 \draw(0,1.5)circle(3.5pt);\draw(4,1.5)circle(3.5pt);
-\node[above,font=\scriptsize]at(3,1){start};\node[left,font=\scriptsize]at(0,2){X};\node[right,font=\scriptsize]at(4,2){X};
+\node[below,font=\scriptsize]at(3,1){start};\node[left,font=\scriptsize]at(0,2){X};\node[right,font=\scriptsize]at(4,2){X};
 \node[below,font=\small]at(2,-.55){the same shot in one room};
 \end{tikzpicture}
 \end{center}
 
-\problem{1}{Finish the four diagonal shots. Choose one shield arrangement for the room that stops all four shots. Use as few shields as you can. Your partner checks the shot lines and shields. Swap jobs for a new arrangement.}
+\problem{1}{Finish the four diagonal shots. Choose one shield arrangement for the room that stops all six shots. Use as few shields as you can. Your partner checks the shot lines and shields.}
 
 \begin{center}
-\begin{tabular}{c@{\hspace{.80in}}c}
-\room{1.02}{1}&\room{1.02}{2}\\[10pt]
-\room{1.02}{3}&\room{1.02}{4}
-\end{tabular}
+\room[{\foreach\a/\b/\c/\d in{0/0/.65/.65,4/0/3.35/.65,0/4/.65/3.35,4/4/3.35/3.35}{\draw[-{Stealth[length=6pt]},very thick](\a,\b)--(\c,\d);}
+\draw[thick,-{Stealth[length=5pt]}](0,0)--(4/3,4);\draw[thick,-{Stealth[length=5pt]},shorten >=4pt](4/3,0)--(2,2);
+\draw[thick,-{Stealth[length=5pt]}](0,0)--(4,4/3);\draw[thick,-{Stealth[length=5pt]},shorten >=4pt](0,4/3)--(2,2);
+\foreach\p in{(4/3,4),(4/3,0),(4,4/3),(0,4/3)}{\draw\p circle(3.5pt);}}]{1.9}{0}
 \end{center}
 \vfill
 Our fewest shields: \rule{.9in}{.3pt}
 
 \newpage
 
-\problem{2}{Aim straight shots from S at the T copies at $(2,6)$, $(6,2)$, $(6,6)$ and $(10,6)$. Your partner marks the first T each shot reaches. In the small room, draw one shot that crosses a portal before reaching T.}
+\problem{2}{Aim straight shots from S at the T copies A $(2,6)$, B $(6,2)$, C $(6,6)$ and D $(10,6)$. Your partner marks the first T each shot reaches. In the small room, draw one shot that crosses an X or Y edge before reaching T.}
 
-Each large square below is another copy of the same room. Every T is the same target. The bold square is the room shown below the map.
-\begin{center}\mapwindow\end{center}
-\begin{center}\room{1.05}{0}\end{center}
+\begin{center}\mapwindow[1.0]{\foreach\x/\y/\l in{2/6/A,6/2/B,6/6/C,10/6/D}{\node[below right,font=\small\bfseries]at(\x,\y){\l};}}\end{center}
+\begin{center}\room{1.0}{0}\end{center}
 
 \newpage
 
-\problem{3}{Find four shield points in the room that stop every shot on the map. Your partner chooses targets and uses straight shots on the map to test your shields. Move your shields until no shot gets through.}
+\problem{3}{Find four shield points in the bold room that stop every shot on the map. Your partner chooses targets and uses straight shots on the map to test your shields. Move your shields until no shot gets through.}
 
-\begin{center}\mapwindow\end{center}
-\begin{center}\room{1.05}{0}\end{center}
+\begin{center}\mapwindow[1.05]{}\end{center}
 
 \newpage
 

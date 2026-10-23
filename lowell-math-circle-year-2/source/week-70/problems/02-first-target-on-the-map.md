@@ -8,9 +8,8 @@ kernel = "Unfolding turns a shot that crosses edges into a straight line; it sto
 +++
 
 ## prompt
-Aim straight shots from S at the T copies at $(2,6)$, $(6,2)$, $(6,6)$ and $(10,6)$. Your partner marks the first T each shot reaches. In the small room, draw one shot that crosses a portal before reaching T.
+Aim straight shots from S at the T copies A $(2,6)$, B $(6,2)$, C $(6,6)$ and D $(10,6)$. Your partner marks the first T each shot reaches. In the small room, draw one shot that crosses an X or Y edge before reaching T.
 
 ## text
-Each large square below is another copy of the same room. Every T is the same target. The bold square is the room shown below the map.
-\begin{center}\mapwindow\end{center}
-\begin{center}\room{1.05}{0}\end{center}
+\begin{center}\mapwindow[1.0]{\foreach\x/\y/\l in{2/6/A,6/2/B,6/6/C,10/6/D}{\node[below right,font=\small\bfseries]at(\x,\y){\l};}}\end{center}
+\begin{center}\room{1.0}{0}\end{center}

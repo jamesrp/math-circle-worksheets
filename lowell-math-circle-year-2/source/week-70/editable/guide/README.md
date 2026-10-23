@@ -1,6 +1,6 @@
 # Week 70 adult guide
 
-This is the separate guide for the final GGT70-S-v1 student prototype.
+This is the separate guide (GGT70-FAC-v2) for the GGT70-S-v2 student packet. The review-card revision of October 23, 2026 added the six-shot Problem 1 key, pencil crosses and a tracing square, the map's unique answer, a returning-shot extension and a possible 2–3 route; `check_math.py` checks each of those claims and the printed wording.
 
 ## Build
 

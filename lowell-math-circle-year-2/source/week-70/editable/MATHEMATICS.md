@@ -8,7 +8,7 @@ Lift a trajectory from `S=(0,0)` to `T=(2,2)` to a segment ending at `(2+4m,2+4n
 
 For necessity, consider the four lifted displacements `(2,2),(2,-2),(-2,2),(-2,-2)`. Each first reaches the target at its endpoint. For an interior time, each coordinate is strictly in one of the two open half-circles `(0,2)` or `(2,4)` modulo 4, according to its sign. Their four sign combinations put these four trajectory interiors in disjoint open quadrants. A point shield can therefore block at most one of them; at least four are needed. The midpoint construction attains the minimum.
 
-Independent checks cover 3,721 lift midpoints and exact open-segment intersection tests for every pair of the four indispensable trajectories, including translated lifts.
+Independent checks cover 3,721 aimed lifts, each first reduced to its first T copy (685 of them reach an earlier T), with the midpoint of that first-hit segment tested, and exact open-segment intersection tests for every pair of the four indispensable trajectories, including translated lifts.
 
 
 

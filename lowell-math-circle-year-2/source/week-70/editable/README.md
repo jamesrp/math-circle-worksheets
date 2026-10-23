@@ -1,5 +1,9 @@
 # Week 70: Four shields in a portal room
 
+## Review-card revision, October 23, 2026
+
+Student GGT70-S-v2 and guide GGT70-FAC-v2. Problem 1 is one room with the four diagonal shots and two drawn portal shots (toward the copies (2,6) and (6,2)), so the fewest shields is still 4 but (1,3) and (3,1) are forced. Shields are pencil crosses; the map rules are on page 1; page 2's map and room are larger and its four target copies are lettered A–D; page 3's map is at the room's scale with shields placed in the bold room. The guide adds a tracing square, the map's unique answer, an extension (shots back to S need three shields) and a possible 2–3 route. Unpiloted; the tracing square has not been rehearsed. Older release descriptions below are historical.
+
 One shared Grades 4–5 prototype: 4 student pages and a separate 3-page theorem-first adult guide. Independently reviewed and digitally checked, awaiting organizer review. Unpiloted; physical preparation and handling have not been rehearsed. The week number is a library identifier, not an adopted schedule.
 
 ## Build from this portable package

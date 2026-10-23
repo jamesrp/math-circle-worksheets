@@ -44,6 +44,8 @@ The 4×4 room with opposite edges glued by translation is a flat torus. S is the
 10. **could**, source: math.md is right that `check70()` in verify_kernels.py tests aimed midpoints, not first hits. Reduce each target by the gcd first.
 11. **could**: fix 1's one-room puzzle would make a 2–3 route if the week is used for the whole circle.
 
+October 23, 2026: after the conversion to problem files, fixes 1–11 are done (GGT70-S-v2, GGT70-FAC-v2).
+
 ## Overlaps
 
 Week 41 (Torus portals and lifts) has the same room, portal rule and lift map, but a different theorem: winding pairs classify loops. Week 70 is a natural 4–5 return visit to that theme, and neither should absorb the other. Week 31 (Hidden orchard) gives the first-lattice-point fact behind the (6,6) case. Weeks 9 and 71 unfold billiard rooms; they share the representation but ask a different question.

@@ -1,6 +1,6 @@
 # Week 70: release verification scope
 
-Prepared October 6, 2026 for review. Current IDs: GGT70-S-v1 and GGT70-FAC-v1. 4 student pages; 3 adult-guide pages.
+Prepared October 6, 2026 for review. Original review IDs: GGT70-S-v1 and GGT70-FAC-v1; the review-card revision of October 23, 2026 (the repository's plans/review/week-70.md) is GGT70-S-v2 and GGT70-FAC-v2. 4 student pages; 3 adult-guide pages.
 
 The student packet passed an independent adversarial review followed by a fresh revision. Each final student page was rendered and visually inspected after changes; its standalone builder and mathematical checks were rerun. The adult guide is a separate stage: its author checked the exact final student questions, independently verified its answers, and rendered and inspected every guide page. Reviewer findings and revision decisions are kept with the repository's per-week review record.
 
