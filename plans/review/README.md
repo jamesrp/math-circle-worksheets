@@ -126,6 +126,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 92 | Fold-and-stretch predictions | keep | [card](week-92.md), [math check](week-92-math.md) |
 | 93 | Squaring a rectangle | keep | [card](week-93.md), [math check](week-93-math.md) |
 | 96 | Prime bags and divisor builders | keep | [card](week-96.md), [math check](week-96-math.md) |
+| 97 | Square remainders | keep | [card](week-97.md), [math check](week-97-math.md) |
 
 ## Calibration
 

@@ -1,0 +1,105 @@
+ok   repeated addition / bundle removal agrees with n*n % m for m<30, n<60
+
+== Student fact cards ==
+ok   student source has 6 pages (split on \newpage): 6
+ok   page 2: 7 cards, all a x a = a^2 
+ok   page 2: cards cover inputs [0, 1, 2, 3, 4, 5, 6] (needed [0, 1, 2, 3, 4, 5, 6])
+ok   page 3: 9 cards, all a x a = a^2 
+ok   page 3: cards cover inputs [0, 1, 2, 3, 4, 5, 6, 7, 8] (needed [0, 1, 2, 3, 4, 5, 6, 7, 8])
+ok   page 4: 15 cards, all a x a = a^2 
+ok   page 4: cards cover inputs [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14] (needed [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])
+ok   page 5: 9 cards, all a x a = a^2 
+ok   page 5: cards cover inputs [7, 8, 9, 10, 11, 12, 13, 14, 15] (needed [7, 8, 9, 10, 11, 12, 13, 14, 15])
+ok   page 6: 11 cards, all a x a = a^2 
+ok   page 6: cards cover inputs [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] (needed [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+ok   total printed card occurrences: 51 (QA says 51)
+
+== Opening example (p. 1) ==
+ok   input 3: 3x3 = 9 = 4 + 4 + 1, output 1
+ok   printed inputs 0-3: [0, 1, 2, 3]
+ok   printed outputs [0, 1, 0, 1] = computed [0, 1, 0, 1]
+ok   output 1 hides exactly inputs 1 and 3 ([1, 3])
+ok   two different outputs 0 and 1
+   bundles of 4, inputs 0-3: 0:{0,2}; 1:{1,3}
+
+== Problem 1: bundles of 5, inputs 0-4 ==
+   0:{0}; 1:{1,4}; 4:{2,3}
+ok   equal-output pairs of different inputs: [(1, 4), (2, 3)]
+ok   outputs 0-4 that cannot occur: [2, 3]
+ok   no input below 2000 gives a missing output (2, 3 never occur at all)
+
+== Problem 2: bundles of 7, inputs 0-6 ==
+   0:{0}; 1:{1,6}; 2:{3,4}; 4:{2,5}
+ok   most possibilities: outputs [1, 2, 4] with 2 each
+ok   fewest possibilities among occurring outputs: [0] with 1
+ok   absent outputs 3, 5, 6
+
+== Problem 3: bundles of 7 (0-6), 8 (0-7), 9 (0-8) ==
+   size 7: 0:{0}; 1:{1,6}; 2:{3,4}; 4:{2,5} ; max 2 at outputs [1, 2, 4]
+   size 8: 0:{0,4}; 1:{1,3,5,7}; 4:{2,6} ; max 4 at outputs [1]
+   size 9: 0:{0,3,6}; 1:{1,8}; 4:{2,7}; 7:{4,5} ; max 3 at outputs [0]
+ok   size 7: outputs 1, 2, 4 tie with 2
+ok   size 8: output 1 alone, 4 inputs
+ok   size 9: output 0 alone, 3 inputs
+ok   largest single collection: size 8
+ok   reading "expected collection size of a uniformly chosen secret": {7: 1.857, 8: 3.0, 9: 2.333} -> size 8
+ok   reading "fewest distinct outputs (negated)": {7: -4, 8: -3, 9: -4} -> size 8
+ok   reading "largest collection": {7: 2, 8: 4, 9: 3} -> size 8
+ok   output 0 collections: {7: [0], 8: [0, 4], 9: [0, 3, 6]}
+
+== Problem 4: bundles of 15, inputs 0-14 ==
+   0:{0}; 1:{1,4,11,14}; 4:{2,7,8,13}; 6:{6,9}; 9:{3,12}; 10:{5,10}
+ok   output 1 hides [1, 4, 11, 14]
+ok   no output hides more than 4; output 4 ties ([2, 7, 8, 13])
+ok   collection sizes 1,4,4,2,2,2 sum to 15
+ok   squares 1,16,121,196 are each 1 above a multiple of 15
+
+== Problem 5: bundles of 7, larger inputs ==
+ok   inputs 7..15 give [0, 1, 4, 2, 2, 4, 1, 0, 1] (guide: 0,1,4,2,2,4,1,0,1)
+ok   inputs 0..99999 give only outputs 0,1,2,4 (mod 7)
+ok   identity n^2 - s^2 = mq(mq+2s) for m<40, q<40, 0<=s<m
+ok   strip decomposition n^2 = mq*n + mq*s + s^2 (columns, rows, small square)
+ok   guide worked example: 100 = 70 + 21 + 9, 100 = 14*7 + 2, 9 = 1*7 + 2
+ok   hint "what adding seven to a side adds": (n+7)^2 - n^2 = 7(2n+7)
+
+== Problem 6: odd primes 3, 5, 7, 11 and sizes 8, 9, 15 ==
+   number of different outputs (0 included): {3: 2, 5: 3, 7: 4, 11: 6, 8: 3, 9: 4, 15: 6}
+ok   odd primes 3,5,7,11: 2,3,4,6 = (p+1)/2
+ok   sizes 8, 9, 15: 3, 4, 6
+ok   rule (m+1)/2 fails for 8, 9 and 15
+   size 3: 0:{0}; 1:{1,2}
+   size 11: 0:{0}; 1:{1,10}; 3:{5,6}; 4:{2,9}; 5:{4,7}; 9:{3,8}
+ok   for every odd prime p < 400 and x,y in 0..p-1: equal outputs iff x=y or x+y=p
+ok   for every odd prime p < 400: (p+1)/2 outputs including 0
+ok   odd primes: only input 0 gives output 0
+ok   no odd composite below 400 has (m+1)/2 outputs (holds for: [])
+ok   side note: even prime 2 has 2 outputs, not (2+1)/2
+ok   size 8: inputs 1 and 3 collide and are not opposite
+ok   size 9: inputs 0 and 3 collide and are not opposite
+ok   size 15: inputs 1 and 4 collide and are not opposite
+ok   15 divides 3*5 but neither factor
+ok   overview composite claims: 8 -> output 1 four inputs; 9 -> output 0 three; 15 -> outputs 1 and 4 four each
+ok   overview limit: some composites (e.g. 15, 6, 10, 21) give output 0 only from 0: [6, 10, 14, 15, 21, 22, 26, 30]
+ok   prime divides a product -> divides a factor (finite sanity check, p < 50)
+
+== Guide tables compared with computed collections ==
+ok   guide p.3 table, size 5: {0: [0], 1: [1, 4], 4: [2, 3]}
+ok   guide p.3 table, size 7: {0: [0], 1: [1, 6], 2: [3, 4], 4: [2, 5]}
+ok   guide p.3 table, size 8: {0: [0, 4], 1: [1, 3, 5, 7], 4: [2, 6]}
+ok   guide p.3 table, size 9: {0: [0, 3, 6], 1: [1, 8], 4: [2, 7], 7: [4, 5]}
+ok   guide p.5 inventory, size 3: {0: [0], 1: [1, 2]}
+ok   guide p.5 inventory, size 11: {0: [0], 1: [1, 10], 3: [5, 6], 4: [2, 9], 5: [4, 7], 9: [3, 8]}
+ok   guide p.4 inventory, size 15: {0: [0], 1: [1, 4, 11, 14], 4: [2, 7, 8, 13], 6: [6, 9], 9: [3, 12], 10: [5, 10]}
+
+== Optional return visit: product classes ==
+ok   size 7: Q = [1, 2, 4], N = [3, 5, 6]
+ok   every odd prime p < 400: QQ=Q, QN=NQ=N, NN=Q, products never 0, |Q| = (p-1)/2
+ok   printed examples: 2*4 -> 1, 2*3 -> 6, 3*5 = 15 -> two bundles of 7, 1 left
+ok   six labels: at most 36 counters
+ok   side note: the class table is not asserted for composites, and it fails there, e.g. [(8, 2, 3, 6), (8, 3, 2, 6), (8, 5, 2, 2)]
+
+== Material claims ==
+ok   largest square children build (P3, input 8): 64 counters = kit size
+ok   inputs 0-15 used on P4-P5: 16 input cards
+
+FAILURES: 0
