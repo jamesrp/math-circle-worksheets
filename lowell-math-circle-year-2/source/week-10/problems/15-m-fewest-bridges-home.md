@@ -11,4 +11,4 @@ counter and end on the island where it started.
 
 ## figure
 figs([[town(5, house('m5a'), line=None), town(5, rotate(k4('m5b'), 90), line=None)]],
-     [[town(5, rotate(h_shape('m5c'), 90), line=None)]], align='bottom')
+     [[town(5, rotate(h_shape('m5c'), 90), line=None)]], align='bottom', cont={1: 'Problem 5, continued'})

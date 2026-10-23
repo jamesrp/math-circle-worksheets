@@ -73,10 +73,20 @@ def koenigsberg_map(key):
     return RawItem(koenigsberg.tikz(), koenigsberg.MAP_W, koenigsberg.MAP_H)
 
 
-def figs(*groups, gap=5, between=7, **kw):
-    """The figure groups of one problem, laid out as common.Packet.problem did."""
+def figs(*groups, gap=5, between=7, cont=None, **kw):
+    """The figure groups of one problem, laid out as common.Packet.problem did.
+    cont = {i: label}: if group i does not fit on the current page, it starts the
+    next page under that label, such as "Problem 5, continued", so a page handed
+    out alone still names its task; where it fits (as in a route packet) nothing
+    changes (Critic K, October 23, 2026)."""
     codes = [figure(g, **kw)[0] for g in groups]
     out = f"\\vspace{{{gap}mm}}\\noindent {codes[0]}\n\\end{{minipage}}\n"
-    for c in codes[1:]:
-        out += f"\n\n\\par\\vspace{{{between}mm}}\\noindent {c}\n"
+    for i, c in enumerate(codes[1:], 1):
+        if cont and i in cont:
+            out += (f"\n\n\\par\\setbox0=\\vbox{{\\noindent {c}}}"
+                    f"\\ifdim\\dimexpr\\pagegoal-\\pagetotal\\relax<\\dimexpr\\ht0+\\dp0+{between}mm\\relax"
+                    f"\\newpage\\noindent\\textbf{{{cont[i]}}}\\par\\vspace{{{between}mm}}"
+                    f"\\else\\vspace{{{between}mm}}\\fi\\noindent\\box0\n")
+        else:
+            out += f"\n\n\\par\\vspace{{{between}mm}}\\noindent {c}\n"
     return out + "\n\n\\par\\vspace{9mm}"
