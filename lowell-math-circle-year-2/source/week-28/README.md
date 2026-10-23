@@ -6,6 +6,8 @@
 
 **Critic follow-up, October 23, 2026.** From an independent critic's review of the day's changes: K–1 Problem 3 printed exactly four disks marked M, the number of answers, so it now prints M on ray 1 of all six disks with no "Extra workspace" label (the guide says two are spare); grades 2–3 Problem 3 asks about "any disk that could not close in Problem 2"; the kit's p. 14 prints a fourth K–1 tab stock (36 M and 36 V), one per child at a table of four, with guide p. 2 to match. Ids: F28-K-v4, F28-23-v4, kit W28-M-v3; grades 4–5 (F28-45-v3) and the key view (F28-G-v3) are unchanged. The replaced PDFs and ZIP are in the `archive-before-critic-k-fixes-2026-10-23/` folders. Unpiloted.
 
+**Check-sweep fix, October 23, 2026.** The guide's p. 2 kit paragraph sent adults to "the sector lists on page 10"; since the grades 2–3 swap the sector table is on printed p. 11, and the guide now says so. Nothing else changed: the student packets, kit and key view are as before, and the guide has no version id to bump. The replaced guide and ZIP are in the `archive-before-check-sweep-fix-2026-10-23/` folders. Checked by `plans/review/checks/week-28/check_base.py`. Unpiloted.
+
 - **Student pages:** edit `problems/*.md` (figures in `figures.py`), then build every view:
 
   ```sh

@@ -332,14 +332,15 @@ def printed(k):
     return GP[k]
 
 
-refs = [(2, 'sector lists on page 10', 10, 'Clockwise sectors 1,2,3,4'),  # as reviewed: 'table on page 10'
+refs = [(2, 'sector lists on page 11', 11, 'Clockwise sectors 1,2,3,4'),  # as reviewed: 'table on page 10'
         (3, 'Page 4 gives a geometric certificate', 4, 'A geometric witness for the unequal model D'),
         (6, 'construction on page 3', 3, 'Two book folds give a verified right-angle example'),
         (7, 'page 6 proves', 6, 'A complete proof for the four right angles'),
         (9, 'catalog words on page 7', 7, 'eight-fold catalog'),
         # Since the student-page fixes (799a994) grades 2-3 Problems 2 and 3 are swapped: the witnesses are on
         # guide p10 and the sector table on p11, and the p10 and p13 references were updated to match.  The p2
-        # reference above ("the sector lists on page 10") was not; it is left as printed, so it fails.
+        # reference above still said "the sector lists on page 10" until the check-sweep fix of October 23, 2026
+        # made it page 11 (the replaced guide is in week-28/archive-before-check-sweep-fix-2026-10-23/).
         (10, 'certificate on page 4', 4, 'Why the certificate works'),
         (10, 'necessity proof on page 5', 5, 'Every other sector must total a half-turn'),
         (12, 'diagrams on page 7', 7, 'E MVVV'),
