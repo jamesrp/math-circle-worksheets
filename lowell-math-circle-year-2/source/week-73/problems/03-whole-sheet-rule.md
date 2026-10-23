@@ -13,8 +13,8 @@ Make a rule that moves every point of the rectangle into the square, with no gap
 ## text
 \begin{center}\begin{tikzpicture}[x=.94in,y=.94in,font=\small]
 \draw[dotted,thick,step=.5] (0,.5) grid(4,1.5);\draw[thick](0,.5)rectangle(4,1.5);
-\node at(2,.17){bottom: 4 units};\node at(2,1.8){top};\node[rotate=90]at(-.35,1){left: 1 unit};\node[rotate=90]at(4.32,1){right};
-\begin{scope}[shift={(4.9,0)}]\draw[thick](0,0)rectangle(2,2);\node at(1,-.32){bottom: 2 units};\node at(1,2.3){top};\node[rotate=90]at(-.35,1){left};\node[rotate=90]at(2.35,1){right: 2 units};\end{scope}
+\node at(2,.17){bottom: 4 units};\node at(2,1.8){top};\node[rotate=90]at(-.35,1){left: 1 unit};\node[rotate=90]at(4.2,1){right};
+\begin{scope}[shift={(4.9,0)}]\draw[thick](0,0)rectangle(2,2);\node at(1,-.32){bottom: 2 units};\node at(1,2.3){top};\node[rotate=90]at(-.2,1){left};\node[rotate=90]at(2.35,1){right: 2 units};\end{scope}
 \end{tikzpicture}\end{center}
 My rule for every point:
 \answerline\answerline

@@ -23,7 +23,7 @@ for i in range(1,32):
 for p in range(-11,12):
     for q in range(-9,10):
         assert 4*(p*p+q*q)-(F(p,2)**2+(2*q)**2)==F(15,4)*p*p
-for w,h,answer in [(6,2,2),(2,3,3),(6,1,F(3,2)),(3,F(3,2),F(3,2))]:
+for w,h,answer in [(6,2,2),(8,1,2),(6,1,F(3,2)),(3,F(3,2),F(3,2))]:
     assert max(F(w,4),h)==answer
     for p in range(-4,5):
         for q in range(-4,5):

@@ -45,6 +45,8 @@ Move a 4-by-1 sheet onto a 2-by-2 square, each named side onto its match, with n
 
 I agree with the math check's one finding and rate it a could, since no answer changes.
 
+**Fixed October 23, 2026, after the problem-file conversion:** shoulds 1–3 and coulds 4–8 (GGT73-S-v2; guide GGT73-FAC-v2, still 3 pages); could 9, a Grades 2–3 entry, left as the organizer's call. Check: `checks/week-73/check_card_fixes.py`.
+
 ## Overlaps
 
 Week 47 (1-Lipschitz extension on a row) shares the idea, not the object. Week 75 keeps named boundaries under whole-surface maps but counts winding. Nothing else asks for a least worst stretch. No merge; Week 47 makes a good return-visit contrast.

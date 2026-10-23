@@ -32,7 +32,7 @@ for u in range(-40,41):
         source2=u*u+v*v
         image2=F(u*u,4)+4*v*v
         assert 4*source2-image2==F(15*u*u,4)>=0
-for w,h,k in [(2,2,2),(6,2,2),(2,3,3),(6,1,F(3,2)),(4,F(3,2),F(3,2)),(3,F(3,2),F(3,2))]:
+for w,h,k in [(2,2,2),(6,2,2),(8,1,2),(6,1,F(3,2)),(4,F(3,2),F(3,2)),(3,F(3,2),F(3,2))]:
     assert max(F(w)/4,F(h))==k
 print(f'PASS: {placements} exact sampled five-pin placements score 2; all sampled off-center fans fail a midpoint test.')
 print('PASS: exact squared-distance identity and all printed target constants checked.')

@@ -19,7 +19,7 @@ All ten original five-pin pairs have stretch at most2, whatever the interior loc
 
 Let M,N be the midpoints of the bottom and top sides. Their old distances to O are both1/2, and their images are `(1,0),(1,2)`. Passing the two additional O–M and O–N tests requires `|(u,v)−(1,0)|<=1` and `|(u,v)−(1,2)|<=1`. The two closed unit disks are tangent only at `(1,1)`, so every off-center fan fails one of these tests. Equivalently, adding the two squared inequalities yields `(u−1)^2+(v−1)^2<=0`. The centered fan is the globally optimal linear map already proved above.
 
-For a general target rectangle of width W and height H, the same opposite-side argument gives lower bound `max(W/4,H)`; the diagonal linear map attains it. Thus the draft's 6-by-2 and2-by-3 targets have optimum2 and3. Exactly1.5 is attained when positive W,H satisfy `W<=6`, `H<=1.5`, and at least one equality holds. For instance6-by-1 and3-by-1.5 work.
+For a general target rectangle of width W and height H, the same opposite-side argument gives lower bound `max(W/4,H)`; the diagonal linear map attains it. Thus the 6-by-2 and 8-by-1 targets both have optimum 2, decided by the height for the first and the width for the second (the 2-by-3 target of version 1, optimum 3, was replaced on October 23, 2026). Exactly 1.5 is attained when positive W,H satisfy `W<=6`, `H<=1.5`, and at least one equality holds. For instance 6-by-1 and 3-by-1.5 work.
 
 
 
