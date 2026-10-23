@@ -8,10 +8,11 @@ kernel = 'Subdividing a face or an edge changes $V$, $E$ and $F$ but not $V-E+F$
 +++
 
 ## text
+\renewcommand{\band}{Grades 2--5}
 In a redrawn surface, marked points count as vertices, segments between vertices count as edges, and each face piece counts as a face.
 
 ## prompt
-Compare $V-E+F$ for all four models in Problem 1. Keep the cube's shape and try these three changes to its surface drawing. What happens to $V-E+F$ and to the total gap? Can a new vertex have a gap while the cube keeps its shape?
+Compare $V-E+F$ for all four models in Problem 1. Keep the cube's shape and try each of these three changes on its own, starting from the original cube. What happens to $V-E+F$ and to the total gap? Can a new vertex have a gap while the cube keeps its shape?
 
 ## text
 \begin{center}

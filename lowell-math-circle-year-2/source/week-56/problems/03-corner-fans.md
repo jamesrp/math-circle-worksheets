@@ -8,6 +8,7 @@ kernel = 'Face corners totalling less than $360^\circ$ close to a pointed corner
 +++
 
 ## text
+\renewcommand{\band}{Grades K--5}
 Join face corners around one point. Keep their sides meeting edge to edge and their marked vertices together. The gap is the missing part of a full turn when the corners lie flat.
 \begin{center}\turnexample\end{center}
 

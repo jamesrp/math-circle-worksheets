@@ -1,5 +1,7 @@
 # Week 56 facilitator guide source
 
+**October 23, 2026:** the guide is now eleven pages, footer N56-FAC-v2, for `students.pdf` N56-S-v3 and five-page `materials.pdf` N56-M-v2. It adds a K–1 route section (Problems 1, 3, 4 and 5 by marks, fans and paper gap copies, no degrees), a print row for materials p. 5 (14 gap circles per younger pair), 38 student sheets, a no-cut magnetic-tile option and pointers to Weeks 61 and 64. The paragraph below describes the October 4 guide.
+
 Original independently authored adult guide for the finished nine-page `students.pdf` (N56-S-v2) and four-page `materials.pdf` (N56-M-v1). The guide is ten US Letter pages, footer N56-FAC-v1. It does not alter the student or material files. All guide prose and inline TikZ figures are newly authored; established mathematics and teaching precedents are cited on guide p.10. There are no copied book pages, workflow prompts, exemplar blocks, reference duplicates, PDFs or intermediate renders in this directory.
 
 ## Build from any location

@@ -41,7 +41,7 @@ pent=[(0,0),(.9,0),(1.178115,.855951),(.45,1.384957),(-.278115,.855951)]
 assert all(math.isclose(math.dist(a,b),.9,abs_tol=2e-6) for a,b in zip(pent,pent[1:]+pent[:1]))
 assert math.isclose(math.degrees(math.acos((pent[-1][0]*pent[1][0]+pent[-1][1]*pent[1][1])/(math.dist(pent[0],pent[-1])*math.dist(pent[0],pent[1])))),108,abs_tol=.0001)
 # Check the sizes in the actual delivered vector PDF, independently of source coordinates.
-material_doc=pymupdf.open(out/'materials.pdf');printed_face_count=0;cutout_counts=[0,0];circles=0
+material_doc=pymupdf.open(out/'materials.pdf');printed_face_count=0;cutout_counts=[0,0];circles=0;gap_circles=0
 edge_points=30*72/25.4
 for i,page in enumerate(material_doc):
     for path in page.get_drawings():
@@ -60,9 +60,12 @@ for i,page in enumerate(material_doc):
             assert abs(path['rect'].width-80*72/25.4)<.005
             assert abs(path['rect'].height-80*72/25.4)<.005
             circles+=1
-assert printed_face_count==28 and cutout_counts==[8,8] and circles==2
+        if not path['fill'] and i==4 and len(items)==4 and all(it[0]=='c' for it in items) and path['rect'].width>100:
+            assert abs(path['rect'].width-68*72/25.4)<.005 and abs(path['rect'].height-68*72/25.4)<.005
+            gap_circles+=1
+assert printed_face_count==28 and cutout_counts==[8,8] and circles==2 and gap_circles==6
 results={}
-for name,expected in [('students',9),('materials',4)]:
+for name,expected in [('students',9),('materials',5)]:
     doc=pymupdf.open(out/(name+'.pdf'));assert len(doc)==expected
     thumbs=[]; alltext=''
     for i,page in enumerate(doc):
@@ -71,7 +74,7 @@ for name,expected in [('students',9),('materials',4)]:
         assert 'Week 56' in txt and 'Bellingham Math Circle' in txt
         if name=='students':
             assert f'Problem {i+1}:' in txt
-            assert ('Grades 2' if i<6 else 'Grades 4') in txt
+            assert 'Grades '+'K2KKK2444'[i] in txt  # K-5 on pp.1, 3-5; 2-5 on pp.2, 6; 4-5 on pp.7-9
             assert 'Name' not in txt and 'Date' not in txt
         # All text is inside page bounds; exact visual overlap remains a manual QA task.
         for block in page.get_text('dict')['blocks']:
@@ -89,5 +92,5 @@ for name,expected in [('students',9),('materials',4)]:
     sheet.save(qa/(name+'-contact.png'))
     (qa/(name+'-text.txt')).write_text(alltext)
     results[name]=dict(pages=len(doc),page_size_points=[612,792],rendered=True)
-(qa/'verification.json').write_text(json.dumps(dict(pdf=results,actual_pdf_30mm_faces=28,actual_pdf_30mm_cutouts=cutout_counts,actual_pdf_80mm_circles=2,fan_gaps=fan_gaps,subdivisions=subdivisions,upper_counts=upper,math='checked',physical_rehearsal='unperformed'),indent=2)+'\n')
-print('Checked student Problems 1–9, five solid inventories/gaps, fan gaps, subdivision counts, upper counts, page contracts; rendered 13 pages.')
+(qa/'verification.json').write_text(json.dumps(dict(pdf=results,actual_pdf_30mm_faces=28,actual_pdf_30mm_cutouts=cutout_counts,actual_pdf_80mm_circles=2,actual_pdf_68mm_gap_circles=6,fan_gaps=fan_gaps,subdivisions=subdivisions,upper_counts=upper,math='checked',physical_rehearsal='unperformed'),indent=2)+'\n')
+print('Checked student Problems 1–9, five solid inventories/gaps, fan gaps, subdivision counts, upper counts, page contracts, six 68 mm gap circles; rendered 14 pages.')

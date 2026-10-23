@@ -2,12 +2,13 @@
 id = "w56.gaps-of-four-solids"
 title = "The gap at every vertex, and all the gaps together"
 grades = ["shared"]
-route = "return"
+route = "first"
 page = "new"
 kernel = 'A vertex gap is $360^\circ$ minus its face angles; on the cube, tetrahedron, prism and octahedron the gaps total $720^\circ$, two full turns.'
 +++
 
 ## text
+\renewcommand{\band}{Grades K--5}
 A full turn is $360^\circ$. An equilateral triangle corner is $60^\circ$; a square corner is $90^\circ$. A vertex's gap is $360^\circ$ minus its face-corner angles.
 
 \begin{center}

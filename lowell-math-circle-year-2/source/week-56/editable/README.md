@@ -1,6 +1,6 @@
 # Week 56: portable editable source
 
-**October 23, 2026.** The student pages are stored as problem files (in the repository `../week.toml`, `../template.tex` and `../problems/`; in the ZIP `problem-files/`, with the tools in `problem-files/tools/`). `student/regenerate.py` writes `student/students.tex` from them, and `build.py` runs it before compiling; edit the problem files, not `students.tex`. `reference-pdfs/` holds copies of the current print PDFs. The rest of this README records the October 4 package.
+**October 23, 2026.** The student pages are stored as problem files (in the repository `../week.toml`, `../template.tex` and `../problems/`; in the ZIP `problem-files/`, with the tools in `problem-files/tools/`). `student/regenerate.py` writes `student/students.tex` from them, and `build.py` runs it before compiling; edit the problem files, not `students.tex`. `reference-pdfs/` holds copies of the current print PDFs. The same day the review card's K–1 fixes made the packet N56-S-v3, the materials N56-M-v2 (new p. 5, six 68 mm gap circles) and the guide N56-FAC-v2 (11 pages, a K–1 route section); `student/verify.py`, `student/audit_math.py` and `guide/check_answers.py` check the new pages. The rest of this README records the October 4 package.
 
 Current original student and facilitator sources, plus any necessary authored assets.
 The student and guide READMEs give exact prerequisites, preparation, source references,

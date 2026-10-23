@@ -43,6 +43,8 @@ Children count the vertices, edges and faces of closed convex solids and fold fa
 9. **could**, p. 6 is headed Grades 2–5, but guide p. 6 calls P6 the "upper concrete core"; align them.
 10. **could**, guide p. 9: name Weeks 61 and 64 beside the torus remark.
 
+**October 23, 2026:** fixed the must (pages 1 and 3–5 headed Grades K–5, a K–1 route section in the guide, gap circles on materials p. 5, Problem 5 asks which corner leaves the bigger gap), shoulds 2 and 4 and coulds 5, 7, 9 and 10 (N56-S-v3, N56-M-v2, N56-FAC-v2); should 3 and coulds 6 and 8 deferred.
+
 ## Overlaps
 
 Week 61 reaches 720° as a whole sphere's excess. Week 64's genus-two octagon has 720° extra at its one point, the signed case of guide p. 1's 360(V − E + F). Week 53's spanning trees are P7's trees, Week 14's triangulations give P8's 180(n − 2), and Week 28 folds paper around a gapless point. Week 26's bonus corner rule is the flat analogue; Weeks 37 and 38 share objects, not theorems. None covers closed polyhedra: no merge, but pair 56 with 61 and 64.

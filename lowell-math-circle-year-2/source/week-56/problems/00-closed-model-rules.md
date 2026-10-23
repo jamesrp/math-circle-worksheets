@@ -7,6 +7,7 @@ route = ["first", "return"]
 +++
 
 ## text
+\renewcommand{\band}{Grades K--5}
 Use closed models with all their faces attached. A vertex is a corner of the assembled solid; an edge is shared by two faces. Count each assembled edge and vertex once. Tabs and glue overlaps do not count.
 
 \begin{center}

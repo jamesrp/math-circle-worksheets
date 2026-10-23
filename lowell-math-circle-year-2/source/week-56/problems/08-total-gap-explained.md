@@ -8,6 +8,7 @@ kernel = 'Counting face angles face by face gives $180^\circ\sum(n_f-2)=360^\cir
 +++
 
 ## text
+\renewcommand{\band}{Grades 4--5}
 The angles of a triangle add to $180^\circ$. A polygon with $n$ sides can be divided into $n-2$ triangles, so its corner angles add to $180(n-2)^\circ$.
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm,font=\small]

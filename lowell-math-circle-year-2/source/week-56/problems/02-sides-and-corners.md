@@ -7,6 +7,9 @@ page = "new"
 kernel = 'Each assembled edge joins two face sides, so edges are half the separate sides; corners gather in different numbers, so the cube and octahedron both have 24 face corners but 8 and 6 vertices.'
 +++
 
+## text
+\renewcommand{\band}{Grades 2--5}
+
 ## prompt
 Imagine cutting every face free. Find a rule that turns the number of separate face sides into the assembled edge count. Can the separate face-corner count alone tell you the vertex count?
 

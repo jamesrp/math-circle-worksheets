@@ -187,17 +187,19 @@ def run():
     result['specific_existence']={'icosahedron':ico,'dodecahedron':dode}
     result['allocation']={'children':4+4+3,'working_groups':2+2+1,'active_models':3*5,
        'active_triangles':5*8,'active_squares':5*8,'active_circles':5*2,
-       'spare_fan':[8,8,2],'material_sheets':3*2+6*2,'student_sheets':2+2*6+9+9,
+       'spare_fan':[8,8,2],'material_sheets':3*2+6*2,'student_sheets':2*4+2*6+9+9,
+       'k1_gap_circles_per_pair':(8+4)+2,'gap_circles':6*6,'plain_sheets':6,
        'model_faces':3*(6+4+8+5+5),'tab_seams':3*(7+3+5+5+4),'hinge_strips':6*(5+3)}
     assert result['allocation']['tab_seams']==72
+    a=result['allocation'];assert a['student_sheets']==38 and a['k1_gap_circles_per_pair']==14 and a['gap_circles']==2*18
     if len(sys.argv)==5:
         import pymupdf as fitz
         sd,md,gd=[fitz.open(p) for p in sys.argv[2:5]]
-        assert len(sd)==9 and len(md)==4 and len(gd)==10
+        assert len(sd)==9 and len(md)==5 and len(gd)==11
         task_words=['Find the vertices','Imagine cutting','Which groups can close','Find the gap','The square pyramid','Compare','Explain why','Explain why','Find the number of vertices']
         for i,(page,words) in enumerate(zip(sd,task_words)):
             t=page.get_text();assert f'Problem {i+1}:' in t and words in t
-            assert ('Grades 2' if i<6 else 'Grades 4') in t
+            assert 'Grades '+'K2KKK2444'[i] in t  # K-5 on pp.1, 3-5; 2-5 on pp.2, 6; 4-5 on pp.7-9
         assert 'no inward dents' in sd[2].get_text()
         assert all('with polygon faces' in sd[i].get_text() for i in (6,7,8))
         # Inspect actual material vector paths: colored polygon faces/cutouts and circles.
@@ -239,13 +241,13 @@ def run():
         for i,p in enumerate(gd):
             assert tuple(p.rect)==(0,0,612,792)
             assert 'Week 56 / Corners of a solid / Adult guide' in p.get_text()
-            assert 'N56-FAC-v1' in p.get_text()
+            assert 'N56-FAC-v2' in p.get_text()
             for block in p.get_text('dict')['blocks']:
                 for line in block.get('lines',[]):
                     for span in line['spans']:
                         x0,y0,x1,y1=span['bbox'];assert x0>=30 and x1<=582 and y0>=20 and y1<=780
             p.get_pixmap(matrix=fitz.Matrix(1.5,1.5)).save(out/f'guide-{i+1:02}.png')
-        for words in ['720','zero defect','unpiloted','two-face','outside region','icosahedron','dodecahedron','48 short','32 student']:
+        for words in ['720','zero defect','unpiloted','two-face','outside region','icosahedron','dodecahedron','48 short','38 student','The K–1 route at the younger table','14 gap circles']:
             assert words in alltext,words
         (out/'guide-text.txt').write_text(alltext)
         result['pdf']={'student_pages':len(sd),'material_pages':len(md),'guide_pages':len(gd),

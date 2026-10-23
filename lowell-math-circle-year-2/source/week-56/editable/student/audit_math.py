@@ -253,7 +253,7 @@ for pi,page in enumerate(pdf,1):
   if overlap>.001: overlaps.append({'kinds':[ka,kb],'area_mm2':overlap})
  counts=Counter(k for k,p in shapes)
  assert not overlaps,(pi,overlaps)
- assert counts['face']==[10,13,5,0][pi-1] and counts['tab']==[10,10,4,0][pi-1]
+ assert counts['face']==[10,13,5,0,0][pi-1] and counts['tab']==[10,10,4,0,0][pi-1]
  pdf_overlap.append({'page':pi,'faces':counts['face'],'tabs':counts['tab'],'maximum_overlap_mm2':maxima,'positive_area_overlaps':overlaps})
 results['actual_pdf_tab_separation']=pdf_overlap
 

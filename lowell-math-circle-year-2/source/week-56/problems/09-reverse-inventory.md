@@ -8,6 +8,7 @@ kernel = 'A gap of $60^\circ$ or $36^\circ$ at every vertex forces $V=720/\mathr
 +++
 
 ## text
+\renewcommand{\band}{Grades 4--5}
 A regular polygon has equal sides and equal angles. Every face of each solid below is one regular polygon.
 
 ## prompt
