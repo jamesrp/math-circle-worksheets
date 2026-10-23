@@ -5,14 +5,14 @@
 \renewcommand{\familydefault}{\sfdefault}
 \pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{.4pt}
 \fancyhead[L]{\small Week 23 / Sorting machines encore / Grades 2--5}
-\fancyfoot[L]{\small Bellingham Math Circle / Week 23 / W23-BON-v1}\fancyfoot[R]{\small\thepage}
+\fancyfoot[L]{\small Bellingham Math Circle / Week 23 / W23-BON-v2}\fancyfoot[R]{\small\thepage}
 \setlength{\parindent}{0pt}\setlength{\parskip}{9pt}
 \newcommand{\problem}[2]{\textbf{Problem #1:} #2\par}
 \newcommand{\lines}[1]{\foreach \i in {1,...,#1}{\par\vspace{10pt}\hrulefill}\par}
 \newcommand{\blankfour}{\begin{tikzpicture}[x=1cm,y=18mm]\foreach \i in {1,2,3,4}{\node at (-.5,1-\i){\i};\draw[-{Stealth}] (0,1-\i)--(14,1-\i);}\end{tikzpicture}}
 \newcommand{\machine}[3][1]{\begin{tikzpicture}[x=1cm,y=18mm,scale=#1]\foreach \i in {1,...,#2}{\node at (-.5,1-\i){\i};\draw[-{Stealth}] (0,1-\i)--(12,1-\i);}\foreach \x/\a/\b in {#3}{\draw[very thick] (\x,1-\a)--(\x,1-\b);\fill (\x,1-\a) circle (2.5pt);\fill (\x,1-\b) circle (2.5pt);}\end{tikzpicture}}
 \begin{document}
-Cards move from left to right. Each bar compares only its two dotted lanes and sends the smaller value to the lower-numbered lane. Ties stay put. Fix every bar before choosing an input; use the same bars for every input.
+Cards move from left to right. Each bar compares only its two dotted lanes and sends the smaller value to the upper lane. Ties stay put. Fix every bar before choosing an input; use the same bars for every input.
 
 \problem{1}{Use cards 1, 2, 3, 4. Build a machine that always puts the smallest card in lane 1. The other lanes may be in any order. Find the fewest bars possible, and explain why fewer cannot work.}
 \begin{center}\blankfour\end{center}

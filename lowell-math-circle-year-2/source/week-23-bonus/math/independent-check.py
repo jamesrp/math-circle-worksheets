@@ -78,7 +78,13 @@ out={'week':23,'verified_tasks':[1,2,3,4,5,6],'issues':[],'P1_minimum_bars':3,'P
 finalsrc=Path(__file__).resolve().parents[1]/'student-src'/'bonus.tex'
 if finalsrc.exists():
     finaltex=finalsrc.read_text()
-    assert tex.replace('A bar between neighboring lanes swaps no card over a third card. Can a machine made only from such bars ever reverse two equal cards?','Can a machine whose bars join only neighboring lanes ever reverse two equal cards?')==finaltex
+    # v2 (October 23, 2026, base card should 3): "upper lane" in the rule, and the footer.
+    v2=[('sends the smaller value to the lower-numbered lane.','sends the smaller value to the upper lane.'),('W23-BON-v1}','W23-BON-v2}')]
+    reviewed=tex.replace('A bar between neighboring lanes swaps no card over a third card. Can a machine made only from such bars ever reverse two equal cards?','Can a machine whose bars join only neighboring lanes ever reverse two equal cards?')
+    for old,new in v2:
+        assert reviewed.count(old)==1
+        reviewed=reviewed.replace(old,new)
+    assert reviewed==finaltex
     finalbars=[]
     for lanes,body in re.findall(r'\\machine(?:\[[^]]*\])?\{(\d+)\}\{([^}]+)\}',finaltex):
         finalbars.append(tuple((int(a)-1,int(b)-1) for x,a,b in (entry.split('/') for entry in body.split(','))))

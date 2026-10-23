@@ -1,0 +1,3 @@
+# Archived Week 23 packets, guide and bonus: before the card's shoulds and coulds
+
+The student packets (F23-K-v2, F23-23-v2, F23-45-v2), the adult guide and the bonus companion (W23-BON-v1 and its guide) immediately before the October 23, 2026 fixes of the review card's deferred shoulds and clear coulds: new rule wording on p. 1 of every band and in the bonus, K–1 Problem 3's six starts printed under each machine, a shorter grades 4–5 Problem 7, and the guide's partner rule, 312 launch, time table, corrected 1110 trace and new held notes. The current PDFs are one directory above. The table kit did not change and is not duplicated here; the guide from before the kit is in `../archive-before-card-fixes-2026-10-23/`.
