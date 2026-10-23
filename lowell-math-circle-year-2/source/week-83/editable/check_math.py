@@ -101,7 +101,7 @@ def rendered_board_declarations(source):
     assert len(pages) == 7
     # Partition by printed panel/board labels. The source coordinates and
     # diagrams were also checked visually on independently rendered pages.
-    p1 = parse_stalks(pages[0].split(r"\textat{98}", 1)[1])
+    p1 = parse_stalks(pages[0].split(r"\renewcommand{\prompty}{98}", 1)[1])
     p2 = parse_stalks(pages[1])
     p3 = parse_stalks(pages[2])
     assert p1 == ["B", "R", "B", "R", "BB", "R"]

@@ -2,6 +2,10 @@
 """Compare rebuilt band packets with the current print PDFs: text and pixels.
 
     python3 compare.py output/week-50 ../../lowell-math-circle-year-2/week-50 week-50
+
+Each band packet <name>.pdf is compared with <prefix>-<name>.pdf: k-1, grades-2-3 and
+grades-4-5, skipping a band that has neither file, plus any other band packet in the
+rebuilt folder (a band whose week.toml sets file = "...", such as Week 75's students).
 """
 import subprocess
 import sys
@@ -12,7 +16,14 @@ from PIL import Image, ImageChops
 
 new_dir, cur_dir, prefix = Path(sys.argv[1]), Path(sys.argv[2]), sys.argv[3]
 ok = True
-for name in ('k-1', 'grades-2-3', 'grades-4-5'):
+VIEWS = {'menu', 'guide-keys', 'session-pack'}
+names = [n for n in ('k-1', 'grades-2-3', 'grades-4-5')
+         if (new_dir / f'{n}.pdf').exists() or (cur_dir / f'{prefix}-{n}.pdf').exists()]
+names += sorted(p.stem for p in new_dir.glob('*.pdf')
+                if p.stem not in names and p.stem not in VIEWS and not p.stem.endswith(('-first', '-return')))
+if not names:
+    sys.exit(f'no band packets to compare in {new_dir}')
+for name in names:
     new, cur = new_dir / f'{name}.pdf', cur_dir / f'{prefix}-{name}.pdf'
     text = [subprocess.run(['pdftotext', '-layout', str(p), '-'], capture_output=True, text=True).stdout
             for p in (new, cur)]

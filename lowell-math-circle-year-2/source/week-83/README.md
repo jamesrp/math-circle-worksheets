@@ -1,26 +1,24 @@
-# Week 83: Hackenbush balances — review draft
+# Week 83: Hackenbush balances — current editable source
 
-Grades 2–3 cutting core; Grades 4–5 optional birthday nursery. A selected-band menu, not a requirement to finish every page in one session. All activities are unpiloted; physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. The theorem-first guide gives assumptions, preparation, launch, first route, solutions, hints and return visits.
+One shared student packet (7 pages, W83-S-v1: Grades 2–5 pages and Grades 4–5 nursery pages) and a 5-page theorem-first adult guide. Unpiloted; the segments, cards and boards have not been handled in a session. The print PDFs are in [../../week-83/](../../week-83/).
 
-## Build the two PDFs
+**Problem files, October 23, 2026.** The student packet is stored as [problem files](../problem-files/README.md): `week.toml`, `template.tex` (the old `students.tex` preamble) and one file per problem in `problems/`, in the flow layout. The conversion changed no wording or figure: the generated LaTeX differs from the old `students.tex` only by blank lines between sections and a `\problem` macro that places each prompt where the old `\textat` did. The rebuilt packet matches the old builder's in pages, extracted text and 100-dpi pixels; against the print copy, compiled with a newer pdfTeX (1.40.27), the old and new builders both differ by the same 22 glyph pixels on page 1. The hand-written `students.tex` and the previous source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 
-Python 3 (standard library) and pdfLaTeX/TeX Live are required, with TikZ, geometry, fancyhdr, helvet, lmodern, amsmath/amssymb, parskip and hyperref. No font, book, binary, image asset or Python package is bundled.
+- **Student pages:** edit `problems/*.md`, then build and compare:
 
-From this folder, run:
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-83 --out tmp/week-83-views --tex
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-83-views lowell-math-circle-year-2/week-83 week-83
+  ```
 
-```sh
-python3 build.py --out ../../week-83
-```
+  Week 83 is a shared-packet week, so its Grades 2–3 slice and one-page menu in [band-views/week-83/](../../band-views/README.md) are built from the page index `../band-views/indexes/week-83.toml` by `band_views.py build`; update the index when a problem moves to another page.
+- **Adult guide:** `editable/guide/facilitator.tex`, built by the package. The problem files carry each problem's one-sentence idea (`kernel`), not its answers.
+- **Portable package:** `editable/` is the package (`editable/README.md`); `editable/student/regenerate.py` writes `students.tex` from the problem files and the package build runs it first, then the mathematical checker. The [portable source ZIP](../week-83-source.zip) holds the package plus the problem files and tools in `problem-files/`. Rebuild it with
 
-After extracting the portable ZIP, run `python3 week-83/build.py --out rebuilt --work tmp/build`. Paths are resolved against your current directory. Both commands also run the independent mathematical checker. The builder rejects TeX errors and overfull boxes. Intermediates and check evidence go into repository `tmp/` or the supplied `--work` folder; generated files are not source inputs.
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-83 --zip ../week-83-source.zip --top week-83
+  ```
 
-## Contents and lineage
+  and check a clean rebuild from the extracted ZIP with `python3 week-83/build.py --out rebuilt --work tmp/build`.
 
-- `student/students.tex`: final 7-page student/material draft, created by a fresh writer then revised by a separate agent after independent adversarial and mathematical reviews.
-- `guide/facilitator.tex`: separate facilitator step, revised and independently reviewed. This guide-authoring step is untested as a classroom workflow.
-- `check_math.py`: portable copy/adaptation of the independent mathematical checker's code; finite computation supports the proofs in the guide.
-- `build.py`: both-PDF deterministic builder; [SOURCES.md](SOURCES.md) records attribution.
-
-Print US Letter, single-sided, Actual Size. Cut only the material pages needed for the selected route; preparation details are in the guide. Printable PDFs live in `../../week-83/`. The mobile review index links each PDF individually.
-
-ZIPs contain only owned teaching/build/check sources. Generated stage prompts and borrowed workflow style excerpts remain local and are excluded. No new open research problem is claimed solved, and no Lean certification is claimed.
+The research and review record is in [plans/infinity-prototypes-79-84/](../../../plans/infinity-prototypes-79-84/README.md) and the review card in [plans/review/week-83.md](../../../plans/review/week-83.md).
