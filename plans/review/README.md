@@ -75,7 +75,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 40 | Loop colour certificates (knot tricolouring) | keep | [card](week-40.md), [math check](week-40-math.md) |
 | 41 | Torus portals and lifts | keep | [card](week-41.md), [math check](week-41-math.md) |
 | 42 | Fair results from a bag (von Neumann's fair coin) | keep | [card](week-42.md), [math check](week-42-math.md) |
-| 43 | Shuffling picture cards (fair shuffles) | revise: K–1 Problem 2's crossed-out cards and four rows fit "this card can't be first", while the key reads them as drawn first, so an adult may mark a right answer wrong | [card](week-43.md), [math check](week-43-math.md) |
+| 43 | Shuffling picture cards (fair shuffles) | original verdict revise; the must (K–1 Problem 2's crossed-out cards, now printed as the card drawn first, and the guide key) and K–1 shoulds 4–5 (no chance wording, larger Problem 3 records) fixed October 23 in the new problem files, with could 14's typo; shoulds 2, 3, 6–8 and the other coulds deferred, Grades 2–3 and 4–5 packets unchanged | [card](week-43.md), [math check](week-43-math.md) |
 | 44 | The bag that copies (Pólya's urn) | keep | [card](week-44.md), [math check](week-44-math.md) |
 | 45 | The visible side (conditioning on a clue) | keep | [card](week-45.md), [math check](week-45-math.md) |
 | 46 | Two boards forget their starts (coupling) | keep | [card](week-46.md), [math check](week-46-math.md) |

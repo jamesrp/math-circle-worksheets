@@ -2,6 +2,8 @@
 
 **Problem files, October 23, 2026.** The student packets are stored as [problem files](../problem-files/README.md): `week.toml`, `figures.py` (the old builder's drawing code and page template, unchanged) and one file per problem in `problems/`, with each band's wording inside it. The conversion changed no wording or figure. The rebuilt LaTeX is byte-identical to the previous builder's, and the three print PDFs match in pages, extracted text and 100-dpi pixels. The previous builder (`write.py`) and the October 4 source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 
+**Card fixes, October 23, 2026.** Made in the problem files after the conversion: K–1 Problem 2 prints each first card in the first box of its rows instead of crossing it out (the review card's must), with the guide key to match; the K–1 rules no longer speak of chance; K–1 Problem 3 has larger records and no second mat; a guide typo is fixed. Only K–1 pages 2–3 and guide pages 3 and 6 changed. [editable/review/card-fixes-2026-10-23.md](editable/review/card-fixes-2026-10-23.md) lists what changed, what was deferred and how it was checked. The ZIP from the conversion is in [archive-before-card-fixes-2026-10-23/](archive-before-card-fixes-2026-10-23/README.md), and the replaced print PDFs are beside the current ones.
+
 - **Student pages:** edit `problems/*.md` (figures in `figures.py`), then build every view:
 
   ```sh
@@ -9,7 +11,7 @@
   python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-43-views lowell-math-circle-year-2/week-43 week-43
   ```
 
-  The band packets go to [../../week-43/](../../week-43/) and `editable/reference-pdfs/`. The first-route and return packets, the one-page problem menu and the key arranged by problem are published in [band-views/week-43/](../../band-views/README.md#weeks-stored-as-problem-files).
+  The print copies in [../../week-43/](../../week-43/) and `editable/reference-pdfs/` come from the package build below, whose student pages are these same packets (identical 100-dpi pixels). The first-route and return packets, the one-page problem menu and the key arranged by problem are published in [band-views/week-43/](../../band-views/README.md#weeks-stored-as-problem-files).
 - **Adult guide:** its source is still `editable/facilitator-src/guide.json` (ReportLab), built by the package. The problem files' `key` sections and `guide/*.tex` repeat its answer keys, overview, hints and sources for the key view; `python3 lowell-math-circle-year-2/source/week-43/check_guide_copy.py` checks that every sentence and table row still agrees. Change both together.
 - **Portable package:** `editable/` is the package; `editable/src/regenerate.py` writes the student LaTeX from the problem files, and the package build runs it before compiling. The [portable source ZIP](shuffling-picture-cards-week43-editable-source.zip) holds the package plus the problem files and tools in `problem-files/`, written by `package.py` (see the problem-files README). Rebuild it after any change and check a clean rebuild from the extracted ZIP with its `build.py` and `verify.py`.
 

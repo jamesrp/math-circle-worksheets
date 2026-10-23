@@ -14,6 +14,8 @@ The approved [fresh-review revision report](../plans/fresh-review-revision-2026-
 
 On October 23, 2026 the adult guides of Weeks 12, 25, 26, 29 and 31 were corrected from their [review cards](../plans/review/README.md); their student pages are unchanged. Each week's `source/week-NN/editable/review/card-fixes-2026-10-23.md` says what changed, and the replaced guide and ZIP are in that week's `archive-before-card-fixes-2026-10-23/` folders.
 
+On October 23, 2026 Week 43 was stored as [problem files](source/problem-files/README.md) and its review card's must was fixed there: K–1 Problem 2 now prints each first card in the first box of its rows instead of crossing it out, with the guide key to match, and two K–1 should-fixes and a guide typo were taken. Only K–1 pages 2–3 and guide pages 3 and 6 changed. `source/week-43/editable/review/card-fixes-2026-10-23.md` says what changed; the replaced PDFs and ZIP are in the week's `archive-before-card-fixes-2026-10-23/` folders.
+
 | Week and activity | K–1 | Grades 2–3 | Grades 4–5 | Adult guide | Editable source |
 |---|---|---|---|---|---|
 | 11. Chip firing with a sink | [PDF](week-11/week-11-k-1.pdf) | [PDF](week-11/week-11-grades-2-3.pdf) | [PDF](week-11/week-11-grades-4-5.pdf) | [PDF](week-11/week-11-facilitator.pdf) | [Sources](source/week-11/README.md) |

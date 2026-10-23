@@ -6,6 +6,8 @@ The guide now gives first routes, readiness-dependent continuation and return vi
 
 **Problem files, October 23, 2026.** The student pages are now stored as problem files, one per problem with its band variants, in `problem-files/` (in the repository: `lowell-math-circle-year-2/source/week-43/`). The conversion changed no wording or figure; the PDFs are unchanged. `src/regenerate.py` writes the student LaTeX from them, and `problem-files/tools/build.py` also builds first-route and return packets, a one-page problem menu and a key arranged by problem.
 
+**Card fixes, October 23, 2026.** After the conversion, K–1 pages 2–3 and guide pages 3 and 6 changed from the review card: K–1 Problem 2 now prints each first card in the first box of its rows instead of crossing it out, with the key to match; the K–1 rules no longer speak of chance; K–1 Problem 3's records are larger and its second mat is gone; and a guide typo is fixed. The other pages are unchanged. `review/card-fixes-2026-10-23.md` lists what changed, what was deferred and how it was checked; `review/verify_card_fixes_2026_10_23.py` checks it.
+
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
 Current pages: **K–1 4; Grades 2–3 4; Grades 4–5 4; adult guide 6**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
@@ -17,6 +19,7 @@ Extract the complete ZIP. Install Python 3.11 or later with `requirements.txt`, 
     python3 -m pip install -r requirements.txt
     python3 build.py
     python3 verify_revision.py
+    python3 review/verify_card_fixes_2026_10_23.py
 
 The current verifier compares paper geometry and every 100-dpi rendered page against `reference-pdfs/`; timestamps may differ. It permits only specifically audited full-page font/hyphenation alternatives for unchanged student PDFs. See `review/fresh-review-rebuild.md` for actual results. The original strict verifier (`verify_rebuild.py` or `verify.py`) is retained and rejects those alternatives. The corpus report explicitly records any pre-existing small TeX font-metric differences for unchanged student bands; their current print/reference PDFs stay byte-identical. For Weeks 24 and 35, the detailed student-stage record is `review/student-reviser-fresh-review.md`. The corpus release report records those differences explicitly rather than calling them pixel-identical.
 

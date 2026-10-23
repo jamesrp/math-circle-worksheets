@@ -120,11 +120,13 @@ def k1_every_row(b):  # 00
 
 
 @draw
-def k1_first_card_rows(b):  # 02, K-1
+def k1_first_card_rows(b):  # 02, K-1: each card fills the first box of its two rows
+ w,h=7.8,2.5
  for i,c in enumerate('ABC'):
-  y=9+i*4.5;icon(b,.7,y+.7,c,.4)
-  b.put(fr'\draw[line width=1pt] (0,{-y}) -- (1.4,{-y-1.4});')
-  for j in range(4):row(b,2+(j%2)*8,y+(j//2)*1.9,w=7,h=1.55)
+  y=9+i*4.5
+  for j in range(2):
+   x=j*9;row(b,x,y,w=w,h=h)
+   icon(b,x+.5*w/3,y+h*.43,c,min(.38,w/9));b.text(y+h*.72,c,x+.15,w/3-.2,9)
 
 
 @draw
@@ -134,11 +136,10 @@ def chooser_answer_rows(b,h):  # 02, grades 2-3 (h=2.6) and 4-5 (h=2.5)
 
 
 @draw
-def k1_ticket_records(b):  # 04, K-1
- mat(b,2,10)
+def k1_ticket_records(b):  # 04, K-1: P1's mat serves; card boxes about P4's size
  for i in range(6):
-  x=(i%3)*6.1;y=17+(i//3)*3.2
-  tickets(b,x,y,['','']);row(b,x+2.6,y,w=3.1,h=1.4)
+  x=(i%2)*9.55;y=9.8+(i//2)*4
+  tickets(b,x,y+.6,['','']);row(b,x+2.45,y,w=6.2,h=2.2)
 
 
 @draw

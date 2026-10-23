@@ -24,7 +24,7 @@ The [seven reserved investigations, Weeks 85–91](WEEKS-85-91.md), now have com
 
 The [six connected investigations, Weeks 92–97](WEEKS-92-97.md), add analysis/dynamics, inference and multiplicative number theory. The index links every selected-band student packet, theorem-first guide and portable source package, with prerequisite routes and connections to existing work. All remain unpiloted; physical rehearsal is untested.
 
-The additional [generated activity library, Weeks 11–51](WEEKS-11-51.md), has three student bands and an adult guide per activity, with complete portable source packages. These numbers are library identifiers, not an adopted meeting schedule. Its October 4 worked-example revisions and the October 23 guide corrections for Weeks 12, 25, 26, 29 and 31 are recorded in that index; all sets remain unpiloted.
+The additional [generated activity library, Weeks 11–51](WEEKS-11-51.md), has three student bands and an adult guide per activity, with complete portable source packages. These numbers are library identifiers, not an adopted meeting schedule. Its October 4 worked-example revisions and the October 23 guide corrections for Weeks 12, 25, 26, 29 and 31, and Week 43's move to problem files with its K–1 card fixes, are recorded in that index; all sets remain unpiloted.
 
 The [octagon investigations, Weeks 64–65](WEEKS-64-65-DRAFT.md), contain restored sources and regenerated PDFs, with main-branch integration authorized by the organizer on October 6. Both remain unpiloted; physical rehearsal and classroom testing have not been performed.
 

@@ -193,6 +193,8 @@ Weeks 11–51 ship a portable `editable/` package and source ZIP whose root `bui
       --zip shuffling-picture-cards-week43-editable-source.zip --top shuffling-picture-cards-week43-source
   ```
 
+- To release a revision (Week 43's October 23 card fixes are the example), build the package from an extracted ZIP in `tmp/`, archive the PDFs it replaces, copy the new ones to the print folder and `editable/reference-pdfs/`, update `review/reference-manifest.json` and drop any pixel allowances of changed pages, then republish the views and repackage. The print copies are the package build's; their student pages match `build.py`'s in pages, text and 100-dpi pixels.
+
 ## Errors
 
 The tools stop at the first problem with the file, the line and what to change, for example:
