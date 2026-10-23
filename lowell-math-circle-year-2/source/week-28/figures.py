@@ -136,10 +136,12 @@ def k1_which_folds():  # K-1, six labelled disks A-F
     for i,labs in enumerate(assignments): b+=disk((4.5,14)[i%2],(6.2,13.4,20.6)[i//2],2.05,nums=True,labels=labs,tag='ABCDEF'[i])
     return b
 
-def k1_ray1_mountain():  # K-1, six disks with ray 1 marked M
+def k1_ray1_mountain():  # K-1, four disks with ray 1 marked M, then two blank ones as extra workspace
     b=''
-    for y in (6.1,13.3,20.5):
+    for y in (6.1,13.3):
         for x in (4.5,14): b+=disk(x,y,2.05,nums=True,labels=['M','','',''])
+    b+=text(0,16.9,'Extra workspace',12)
+    for x in (4.5,14): b+=disk(x,20.5,2.05,nums=True)
     return b
 
 def k1_shared_tabs():  # K-1, three rows of three part-labelled disks and six tabs
@@ -180,12 +182,13 @@ def wedge_groups():  # grades 2-3, seven wedges, a half-turn template and record
     b+=half(9.35,16.3,2.25)+record_lines((18.0,19.4,20.8,22.2,23.6),2)
     return b
 
-def matching_wedge_disks():  # grades 2-3, shaded disks A-D with sector labels and answer blanks
+def matching_wedge_disks():  # grades 2-3, shaded disks A-D with sector labels, answer blanks and two lines
     b=''
     for i,ss in enumerate(ANGLES):
         x=(4.5,14)[i%2];y=(7.1,17.1)[i//2]
         b+=disk(x,y,2.5,sectors=ss,shade=True,tag='ABCD'[i],sector_labels=['ABCD'[i]+str(j) for j in range(1,5)])
         b+=text(x-2.5,y+3.15,'Shaded: '+r'\rule{1.5cm}{.35pt}',11,width=5)+text(x-2.5,y+4.0,'White: '+r'\rule{1.5cm}{.35pt}',11,width=5)
+    b+=record_lines((22.7,24.0))
     return b
 
 def close_disks_23():  # grades 2-3, numbered disks A-D and record lines
@@ -239,13 +242,13 @@ def six_wedges_23():  # grades 2-3, six wedges AABBCC and four start disks
         for x in (4.5,14):b+=disk(x,y,2.4,rays=[0])
     return b
 
-def angle_orders_45(rows=12):  # grades 4-5, a start disk and recording strips
+def angle_orders_45():  # grades 4-5, a start disk, 16 recording strips (more than the 12 answers) and lines
     b=disk(15.75,7.0,1.75,rays=[0])+node(15.75,4.85,'start',10)
     # Recording strips show ordered slots, without supplying an approach.
-    for j in range(rows):
-        y=6.0+j*1.15
+    for j in range(16):
+        y=5.8+j*1.0
         for k in range(6):
             x=.35+k*1.7
             b+=line(x,y,x+1.35,y)
-    b+=record_lines((21.6,23.0,24.4))
+    b+=record_lines((22.0,23.2,24.4))
     return b

@@ -56,7 +56,7 @@ Creases from one centre fold flat only if there is an even number of them, since
 
 I agree with the math check. Its finding 1 concerns the bonus, which this card does not review.
 
-**Fixed October 23, 2026:** fix 1 (`week-28-materials.pdf`, 15 pages, checked by the package's `materials-src/check_materials.py` and `checks/week-28/kit_crosscheck.py`; physically unrehearsed), fix 2 (guide p. 1) and the guide halves of fixes 3 and 10 (two spare K–1 P3 disks; eleven children); the student-page fixes deferred. Record: `lowell-math-circle-year-2/source/week-28/editable/review/card-fixes-2026-10-23.md`.
+**Fixed October 23, 2026:** fix 1 (`week-28-materials.pdf`, 15 pages, checked by the package's `materials-src/check_materials.py` and `checks/week-28/kit_crosscheck.py`; physically unrehearsed), fix 2 (guide p. 1) and the guide halves of fixes 3 and 10 (two spare K–1 P3 disks; eleven children); the student-page fixes deferred. Record: `lowell-math-circle-year-2/source/week-28/editable/review/card-fixes-2026-10-23.md`. Later the same day, after the student pages became problem files: the student half of fix 3, and fixes 4–6, 8 and 9 (v3 packets; grades 2–3 Problems 2 and 3 swapped, with the guide and kit renumbered); could 7 and the rest of could 10 deferred.
 
 ## Overlaps
 

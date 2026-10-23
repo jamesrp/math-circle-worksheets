@@ -32,7 +32,7 @@
 
 Print **week-37-materials.pdf** at 100% and check its 10 cm line. Counts are for eleven children (K-1 4, grades 2-3 4, grades 4-5 3) at three adult-led tables; the grades 4-5 trio compares two of its three models at a time.
 
-**Models, sheet 1, card stock, 13 sheets:** a net with 90 mm edges, one model per child and two for the adults (pretest, launch, spare). Cut, score with a ballpoint against a ruler, fold with the printed side in, and tape the three open edges. A closed card tetrahedron is rigid; it is the “frame” the student pages mention. Leave the faces blank.
+**Models, sheet 1, card stock, 13 sheets:** a net with 90 mm edges, one model per child and two for the adults (pretest, launch, spare). Cut, score with a ballpoint against a ruler, fold with the printed side in, and tape the three open edges. A closed card tetrahedron is rigid; it is what the student pages call a model. Leave the faces blank.
 
 **Letter caps, sheet 2, card stock, 4 sheets (one per table):** each sheet gives four models A, A, B, B, C, C, D. A cap is three small triangles that wrap one corner, so its letter shows on all three faces; a pea-sized ball of sticky tack holds it, and changing a letter means swapping the cap. The spares let a pair make any two letters equal while keeping one name, which every merge in grades 2-3 and 4-5 Problem 4 needs (the B-D merge needs the second B), and build A, A, B, C.
 
@@ -92,7 +92,7 @@ A successful physical match is already a complete existence demonstration. A fai
 
 **Problem 2:** the mirror pair cannot match. “No turn has worked yet” does not by itself establish “no turn can work.” Accept a complete check: A must go on A, and all three turns about A fail. The A-nearest-eye cyclic order is a second reason, covering every allowed turn.
 
-**Problem 3:** answers depend on the pair built. Four distinct labels produce two classes: same-class pairs match, opposite-class pairs do not. The examples in K-1 Problem 5 supply both outcomes. Do not automatically call every newly made pair a mirror pair.
+**Problem 3:** the new model matches exactly one of the two, so no model matches neither: four distinct labels make two classes, and the Problem 2 pair has one model in each. To check, put the new model's A on each A and try the three turns.
 
 **Problem 4:** D becoming C allows a match, as above. Every other pairwise merge also allows a match: AB, AC, AD, BC, BD and CD. Start each test from the original A B C D / A C B D mirror pair; successive cumulative merges test a different question. The name kept for the merged pair does not change the result. Split the six merges between the pairs and pool results on the board.
 
@@ -112,7 +112,7 @@ A successful physical match is already a complete existence demonstration. A fai
 
 **Problem 5:** 12 rotations as vertex maps, including leaving the model still. Only the final mapping counts, regardless of the motion history.
 
-**Problem 6:** two genuinely different four-label models up to rotation. All 24 distinct assignments split into two classes of size 12. They are the two mirror forms; reflection is not allowed when deciding whether two assignments count as the same.
+**Problem 6:** two different four-label models up to rotation. All 24 distinct assignments split into two classes of size 12. They are the two mirror forms; reflection is not allowed when deciding whether two assignments count as the same.
 
 ---page---
 
@@ -140,4 +140,4 @@ Richard Schwartz, **Symmetry Groups of Platonic Solids** (Brown, 2007), §3, pri
 
 OpenStax, **Organic Chemistry**, §5.1, [Enantiomers and the Tetrahedral Carbon](https://openstax.org/books/organic-chemistry/pages/5-1-enantiomers-and-the-tetrahedral-carbon): tetrahedral mirror distinction. Givental, Nemirovskaya and Zakharevich, **Math Circle by the Bay** (2018), Preface pp. viii-ix: manipulatives and explanations; this guide's pacing is a local untested proposal.
 
-A fresh determinant check of all 24 vertex permutations verifies 12 proper maps, two distinct-label orbits, all six merges and all four restore-D outcomes. It keys final student v2 without changes. **The actual-model pretest on page 2 remains unperformed.**
+A fresh determinant check of all 24 vertex permutations verifies 12 proper maps, two distinct-label orbits, all six merges and all four restore-D outcomes. It keys the v3 student pages of October 23, 2026. **The actual-model pretest on page 2 remains unperformed.**

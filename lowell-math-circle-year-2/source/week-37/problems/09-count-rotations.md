@@ -7,7 +7,7 @@ kernel = "A regular tetrahedron has exactly 12 rotations: four places for one co
 +++
 
 ## prompt
-How many rotations put a bare regular tetrahedral frame back onto the same four positions? Count leaving it still as one. Turns count as the same when every starting corner ends at the same destination. Explain why your count is complete.
+How many rotations put a bare model back onto the same four positions? Count leaving it still as one. Turns count as the same when every starting corner ends at the same destination. Explain why your count is complete.
 
 ## figure
 bare_frame()

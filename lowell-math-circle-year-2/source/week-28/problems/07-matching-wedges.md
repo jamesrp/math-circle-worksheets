@@ -7,7 +7,7 @@ kernel = "On a four-ray disk, the alternating pairs of sectors either both make 
 +++
 
 ## prompt
-Use the 16 separate loose wedges cut to match \mbox{A1--A4}, \mbox{B1--B4}, \mbox{C1--C4}, and \mbox{D1--D4}. For each disk, can the shaded pair fill a half-turn exactly, and can the white pair?
+Use the 16 separate loose wedges cut to match \mbox{A1--A4}, \mbox{B1--B4}, \mbox{C1--C4}, and \mbox{D1--D4}. For each disk, can the shaded pair fill a half-turn exactly, and can the white pair? For any disk that could not close, explain why.
 
 ## figure
 matching_wedge_disks()
@@ -21,4 +21,4 @@ C & 60$^\circ$,120$^\circ$,120$^\circ$,60$^\circ$ & 180$^\circ$ & 180$^\circ$ & 
 D & 30$^\circ$,60$^\circ$,150$^\circ$,120$^\circ$ & 180$^\circ$ & 180$^\circ$ & Yes\\
 \end{tabular}
 
-For B, the shaded pair falls short by 45$^\circ$ and the white pair exceeds a half-turn by 45$^\circ$. These are exact mismatches in the ideal pattern; imprecise cutting may blur the observation but cannot change the angle sums.
+For B, the shaded pair falls short by 45$^\circ$ and the white pair exceeds a half-turn by 45$^\circ$. These are exact mismatches in the ideal pattern; imprecise cutting may blur the observation but cannot change the angle sums. The last sentence asks for this: B is the disk that could not close in Problem 2, and its pairs cannot both make a half-turn.

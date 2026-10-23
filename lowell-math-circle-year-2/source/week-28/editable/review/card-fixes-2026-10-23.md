@@ -10,7 +10,7 @@ The review card is `plans/review/week-28.md` in the project, with its math check
 
 Only PDF pages 2 and 3 of `facilitator-guide.pdf` (guide pages 1 and 2) changed; the other 16 pages are pixel-identical at 100 dpi, and the three student packets rebuild with exact reference pixels.
 
-Deferred: should 3's student half (print four marked K–1 Problem 3 disks and two blank ones) and shoulds 4–6 change student pages and wait for a problem-file conversion; coulds 7–9 likewise; could 10's page-17 and p. 8 drafting-note items are not done.
+Deferred: should 3's student half (print four marked K–1 Problem 3 disks and two blank ones) and shoulds 4–6 change student pages and wait for a problem-file conversion; coulds 7–9 likewise; could 10's page-17 and p. 8 drafting-note items are not done. The student-page items were made later the same day, after the conversion; see the next section.
 
 ## Verification
 
@@ -18,3 +18,20 @@ Deferred: should 3's student half (print four marked K–1 Problem 3 disks and t
 - `plans/review/checks/week-28/kit_crosscheck.py` in the project compares the kit's disks with the student PDFs' disks and runs the review's own folding oracle on them; all agree.
 - A clean rebuild from the extracted portable ZIP passes `verify_revision.py` and the strict `verify_rebuild.py` on all five PDFs (51 pages). Every kit page and both changed guide pages were rendered and inspected.
 - Digital checks do not make the kit ready: no disk from it has been folded and no piece cut. The adult pretest on guide pages 2–3 comes first. The theme remains unpiloted.
+
+## Student-page fixes, after the problem-file conversion
+
+The student pages became problem files first, with no wording change (`../../README.md`). Then, in the problem files, with the footer ids raised to F28-K-v3, F28-23-v3 and F28-45-v3:
+
+- **K–1 Problem 3 (should 3):** four disks with ray 1 marked M for the four answers, then two blank disks under the label "Extra workspace".
+- **Grades 4–5 Problem 6 (should 4):** 16 recording strips instead of 12, so the number of rows no longer gives away the answer, 12.
+- **Grades 2–3 Problems 2–4 (should 5):** Problems 2 and 3 swapped, so children try to close disks A–D before measuring their alternating pairs. Problem 2 no longer asks to "explain any exact mismatch"; the measuring problem, now Problem 3, ends "For any disk that could not close, explain why." and has two lines for it. Problem 4 reads "Add one ray to each pattern so it can close flat along every ray. Make a flat fold of each completed pattern."
+- **Grades 4–5 rules (should 6):** "A failed attempt alone does not establish impossibility." cut.
+- **Grades 4–5 Problem 4 (could 8):** "Explain why each labeling on your list works." cut; a fold is its own witness.
+- **Grades 2–3 rules (could 9):** "Loose wedges are for measuring." cut.
+
+The guide follows: its grades 2–3 answers are reordered (guide p. 10: Problems 1 and 2, with the listening note; p. 11: Problems 3 and 4), the sixteen-wedge answer says that B is the disk that could not close in Problem 2, the hold for the closing problem points ahead to Problem 3's measuring, the grades 4–5 Problem 1 page references on p. 13 swap (totals p. 11, witnesses p. 10), p. 2 lists the K–1 Problem 3 extra-workspace disks and the sixteen wedges under grades 2–3 Problem 3, p. 14 drops the Problem 4 explanation request, and p. 1 and p. 16 name the v3 packets. The kit's print plan and disk and wedge captions (kit pp. 1–5, 12) swap grades 2–3 P2 and P3 in the same way. The problem files' keys follow the guide (`check_guide_copy.py`).
+
+Not done: could 7 (ask 4–5 Problem 3 for "an angle rule that decides" instead of stating it). It is more than a one-line change: it turns an explanation of a stated rule into finding one, and "decides" asks for the converse, which the guide cites but does not prove. Could 10's page-17 and p. 8 drafting-note items remain undone.
+
+Verification: `src/student_checks.py` still passes (10 half-turn groups, 8 right-angle labelings, 12 six-angle orders, tab and route checks); `materials-src/check_materials.py` 333 checks, 0 failures; `plans/review/checks/week-28/kit_crosscheck.py` 0 failures on the new kit. The package build from the extracted ZIP and the problem-file tools give the same student pages (identical LaTeX; `compare.py` finds identical text and pixels). Every page of the three packets, guide PDF pages 2, 3, 11, 12, 14, 15 and 17, and kit pages 1–5 and 12 were rendered and inspected; the other guide and kit pages are pixel-identical. The previous print PDFs are in `week-28/archive-before-student-page-fixes-2026-10-23/` beside the print copies, and the conversion's ZIP in `source/week-28/archive-before-student-page-fixes-2026-10-23/`. The pages are digitally checked only; the theme remains unpiloted and the kit physically unrehearsed.

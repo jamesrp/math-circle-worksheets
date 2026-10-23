@@ -23,4 +23,7 @@ repeated={}
 for i,j in itertools.combinations('ABCD',2):
  a='ABCD'.replace(j,i);b='ACBD'.replace(j,i);repeated[i+j]=equivalent(a,b)
 assert all(repeated.values())
-(SRC/'mathematical-checks.json').write_text(json.dumps({'regular_integer_vertices':V,'proper_rotations':rots,'proper_rotation_count':12,'true_copy_example':['ABCD','ADBC'],'mirror_pair_not_rotation_equivalent':['ABCD','ACBD'],'repeated_label_pair_equivalent':['ABCC','ACBC'],'all_label_merges_remove_this_pair_chirality':repeated,'physical_pretest_performed':False},indent=2))
+# Grades 2-3 Problem 3: every four-distinct-label model matches exactly one model of the mirror pair.
+exactly_one=all(equivalent(w,'ABCD')!=equivalent(w,'ACBD') for w in map(''.join,itertools.permutations('ABCD')))
+assert exactly_one
+(SRC/'mathematical-checks.json').write_text(json.dumps({'regular_integer_vertices':V,'proper_rotations':rots,'proper_rotation_count':12,'true_copy_example':['ABCD','ADBC'],'mirror_pair_not_rotation_equivalent':['ABCD','ACBD'],'repeated_label_pair_equivalent':['ABCC','ACBC'],'all_label_merges_remove_this_pair_chirality':repeated,'every_distinct_labeling_matches_exactly_one_of_mirror_pair':exactly_one,'physical_pretest_performed':False},indent=2))

@@ -7,10 +7,10 @@ kernel = "Every way of placing A, A, B and C on the tetrahedron matches every ot
 +++
 
 ## prompt [K-1]
-Put A, A, B and C on each frame. Can your partner make a pair that you cannot turn to match?
+Put A, A, B and C on each model. Can your partner make a pair that you cannot turn to match?
 
 ## prompt [2-3]
-Use A, A, B and C on each frame. Find out whether your partner can make a pair that will not match by turning.
+Use A, A, B and C on each model. Find out whether your partner can make a pair that will not match by turning.
 
 ## figure
 repeated_a_pair()

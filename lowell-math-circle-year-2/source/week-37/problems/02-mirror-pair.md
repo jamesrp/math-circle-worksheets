@@ -13,7 +13,7 @@ Build this pair with your adult. Can you turn the models to match every letter?
 Build this model and its mirror twin. Can you match every letter by moving and turning one of them? If no turn has worked, does that mean no turn can work?
 
 ## prompt [4-5]
-Build the model and its mirror twin. Can one be moved and turned to match the other? Seek a reason that settles this even if no more turns are tried.
+Build the model and its mirror twin. Can one be moved and turned to match the other? If not, explain why no turn can.
 
 ## figure [4-5]
 mirror_pair(ruled=[17,19,21,23])

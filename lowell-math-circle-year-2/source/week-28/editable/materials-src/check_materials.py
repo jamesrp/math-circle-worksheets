@@ -226,7 +226,7 @@ summary = {}
 # Disks: pages 2-10.
 EXPECT = {  # page: (rays the problem needs, letter, numbered, tick spacing)
     2: ([0, 90, 180, 270], None, True, None),
-    3: ([0, 45, 135, 225], 'B', True, None),       # 2-3 P3 B / 4-5 P1 B: 45, 90, 90, 135
+    3: ([0, 45, 135, 225], 'B', True, None),       # 2-3 P2 B / 4-5 P1 B: 45, 90, 90, 135
     4: ([0, 60, 180, 300], 'C', True, None),       # 60, 120, 120, 60
     5: ([0, 30, 90, 240], 'D', True, None),        # 30, 60, 150, 120
     6: ([0, 90, 180], 'A', False, 30),             # 2-3 P4 starts
@@ -348,7 +348,7 @@ for k, secs in want16.items():
     for i, s in enumerate(secs, 1):
         w = found[f'{k}{i}']
         check(abs(w['span'] - s) < .01 and abs((w['start'] - a + 180) % 360 - 180) < .01 and abs(w['r_mm'] - 25) < .05,
-              f'p12: {k}{i} spans {s} degrees from {a}, radius 25 mm, as on the Problem 2 page')
+              f'p12: {k}{i} spans {s} degrees from {a}, radius 25 mm, as on the Problem 3 page')
         check((w['gray'] < .9) == (i % 2 == 1), f'p12: {k}{i} shading matches the page (sectors 1 and 3 shaded)')
         a += s
     odd, even = secs[0] + secs[2], secs[1] + secs[3]

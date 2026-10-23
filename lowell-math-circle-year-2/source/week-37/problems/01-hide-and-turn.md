@@ -14,7 +14,7 @@ Make two models like the first picture. Hide and turn one, then let your partner
 Build two copies of the first model. Take turns hiding and rotating one model, then matching all four letters again.
 
 ## prompt @12 [4-5]
-Build two copies of the first model. Turn one without changing any labels, and challenge a partner to match it. What has to match besides the letter at the top?
+Build two copies of the first model. Turn one without changing any labels, and challenge a partner to match it.
 
 ## figure
 two_models()

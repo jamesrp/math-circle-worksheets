@@ -13,7 +13,7 @@ Find every flat fold of the four-ray disk. Keep ray 1 at the top and mark every 
 Find every mountain/valley labeling of the four-right-angle disk that can close flat. Keep ray 1 at the top and make each fold on your disk.
 
 ## prompt [4-5]
-Find as many mountain/valley labelings of the four-right-angle disk that can close flat as you can. Explain why each labeling on your list works.
+Find as many mountain/valley labelings of the four-right-angle disk that can close flat as you can.
 
 ## figure [4-5]
 labelings_45()
@@ -31,4 +31,4 @@ Organize them by the exceptional ray and by whether its label is M or V: four po
 Keep ray 1 at the top; rotations count as new only when the numbered-ray labels change. A full justification has two parts: all listed words work by construction, and all others are ruled out by page 6.
 
 ## key [4-5]
-The page asks for as many as children can find and an explanation that each works. It does not yet require them to know the list is complete. For each state, use the two-book-fold construction, rotate the exceptional ray, and if needed reverse all folds.
+The page asks for as many as children can find; each fold is its own witness. It does not yet require them to know the list is complete. For each state, use the two-book-fold construction, rotate the exceptional ray, and if needed reverse all folds.

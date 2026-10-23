@@ -10,7 +10,7 @@ kernel = "Making any two of the four labels equal lets the mirror pair match, be
 Change D to C on both models from Problem 2. Can you turn them to match now?
 
 ## prompt [2-3]
-Change D to C on both models from Problem 2 and test for a match. Try other choices of two letters to make equal; start each trial with the original A, B, C, D mirror pair.
+Change D to C on both models from Problem 2 and test for a match. Try other choices of two letters to make equal; start each trial with the original A, B, C, D mirror pair. Which choices allow a match by turning?
 
 ## prompt [4-5]
 Choose two letters in the mirror pair and make them equal on both models. Start each trial with the original A, B, C, D mirror pair. Which choices allow a match by turning? Explain why your conclusion covers every choice.

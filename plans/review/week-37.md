@@ -46,7 +46,7 @@ Four different letters on a rigid regular tetrahedron make a chiral object: seen
 11. **could**, guide 4–5 P4 key: add that a mirror through A, B and the middle of the C–C edge swaps the two Cs, so the model is its own mirror image.
 12. **could**, guide p. 1: cut "Status. Final v2 has 5 / 6 / 6 problems. Algebraic keys are verified."
 
-**Fixed October 23, 2026:** fix 1 (guide pp. 1, 3, 4), fix 2 (`week-37-materials.pdf`: 90 mm card net, letter caps A, A, B, B, C, C, D per model, pose mat; physically unrehearsed; "model" in the guide), the guide halves of fixes 5 and 6, and fix 12; the student-page fixes deferred. Record: `lowell-math-circle-year-2/source/week-37/editable/review/card-fixes-2026-10-23.md`.
+**Fixed October 23, 2026:** fix 1 (guide pp. 1, 3, 4), fix 2 (`week-37-materials.pdf`: 90 mm card net, letter caps A, A, B, B, C, C, D per model, pose mat; physically unrehearsed; "model" in the guide), the guide halves of fixes 5 and 6, and fix 12; the student-page fixes deferred. Record: `lowell-math-circle-year-2/source/week-37/editable/review/card-fixes-2026-10-23.md`. Later the same day, after the student pages became problem files: fixes 3, 4, 8, 9 and 10 and "frame" to "model" (v3 packets), with the guide keys to match; coulds 7 and 11 deferred.
 
 ## Overlaps
 

@@ -7,7 +7,7 @@ kernel = "Given rays at 0, a and 180 degrees, the only fourth ray that balances 
 +++
 
 ## prompt
-Add one ray to each pattern so the two alternating groups of wedges both make a half-turn. Make a flat fold of each completed pattern.
+Add one ray to each pattern so it can close flat along every ray. Make a flat fold of each completed pattern.
 
 ## figure
 add_ray_starts()

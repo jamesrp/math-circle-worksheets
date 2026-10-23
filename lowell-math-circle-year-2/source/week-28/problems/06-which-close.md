@@ -8,7 +8,7 @@ kernel = "A disk whose alternating sectors do not total a half-turn cannot fold 
 +++
 
 ## prompt [2-3]
-Which of these disks can close flat along every ray? Make one flat fold of each disk that can close and mark its rays M or V; explain any exact mismatch.
+Which of these disks can close flat along every ray? Make one flat fold of each disk that can close and mark its rays M or V.
 
 ## prompt @3.85 [4-5]
 Decide which patterns can close flat. Record a successful fold with M/V labels for each one you can make; leave any undecided pattern marked with a question mark.

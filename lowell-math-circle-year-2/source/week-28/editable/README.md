@@ -1,8 +1,8 @@
 # Single-vertex flat folding: Week 28 editable release
 
-## Current release: October 4, 2026 fresh-review revision, with the October 23 kit
+## Current release: October 4, 2026 fresh-review revision, with the October 23 kit and student-page fixes
 
-The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained. On October 23, 2026 the review card's must-fix added a printable kit, `materials.pdf` (15 pages: 18 cm folding disks, wedge sets, K–1 tabs and route cards), built by `materials-src/build_materials.py` and checked by `materials-src/check_materials.py`; guide pages 1–2 now point to it. See `review/card-fixes-2026-10-23.md`. The kit is digitally checked and physically unrehearsed.
+The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained. On October 23, 2026 the review card's must-fix added a printable kit, `materials.pdf` (15 pages: 18 cm folding disks, wedge sets, K–1 tabs and route cards), built by `materials-src/build_materials.py` and checked by `materials-src/check_materials.py`; guide pages 1–2 now point to it. See `review/card-fixes-2026-10-23.md`. The kit is digitally checked and physically unrehearsed. Later on October 23 the student pages became problem files, and the card's student-page items were made in them (v3 packets): four marked and two blank disks for K–1 Problem 3, grades 2–3 Problems 2 and 3 swapped and Problem 4 reworded, 16 strips for grades 4–5 Problem 6, and three sentences cut; the guide and kit follow the new grades 2–3 numbering.
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 

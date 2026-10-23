@@ -241,14 +241,14 @@ def build():
                     None)
     rows = [['Page', 'Sheet', 'Paper', 'K–1', '2–3', '4–5', 'Adults', 'Total', 'Used in'],
             ['2', 'Disk, four right angles', 'copy', '6', '4', '4', '2', '16',
-             'K–1 P1, P2, P3, P5; 2–3 P3 (A), P5; 4–5 P1 (A), P4, P5; launch'],
-            ['3', 'Disk B', 'copy', '', '2', '2', '', '4', '2–3 P3; 4–5 P1'],
-            ['4', 'Disk C', 'copy', '', '2', '2', '1', '5', '2–3 P3; 4–5 P1; adult pretest'],
-            ['5', 'Disk D', 'copy', '', '2', '2', '1', '5', '2–3 P3; 4–5 P1; adult pretest'],
+             'K–1 P1, P2, P3, P5; 2–3 P2 (A), P5; 4–5 P1 (A), P4, P5; launch'],
+            ['3', 'Disk B', 'copy', '', '2', '2', '', '4', '2–3 P2; 4–5 P1'],
+            ['4', 'Disk C', 'copy', '', '2', '2', '1', '5', '2–3 P2; 4–5 P1; adult pretest'],
+            ['5', 'Disk D', 'copy', '', '2', '2', '1', '5', '2–3 P2; 4–5 P1; adult pretest'],
             ['6–9', 'Add-a-ray disks A, B, C, D', 'copy', '', '2 each', '', '', '8', '2–3 P4'],
             ['10', 'Blank disk, 15° rim ticks', 'copy', '1', '1', '1', '1', '4', 'extra workspace'],
             ['11', 'Seven lettered wedges', 'card', '', '1', '', '', '1', '2–3 P1'],
-            ['12', 'Sixteen matching wedges', 'card', '', '2', '', '', '2', '2–3 P2; 4–5 P3 (A)'],
+            ['12', 'Sixteen matching wedges', 'card', '', '2', '', '', '2', '2–3 P3; 4–5 P3 (A)'],
             ['13', 'Six wedges', 'card', '', '1', '1', '', '2', '2–3 P6; 4–5 P6, P3 (B)'],
             ['14', 'K–1 M and V tabs', 'card', '1', '', '', '', '1', 'K–1 P4; recording'],
             ['15', 'K–1 route cards A–H', 'card', '1', '', '', '', '1', 'K–1 P6']]
@@ -288,17 +288,17 @@ def build():
 
     # ---- folding disks -----------------------------------------------------
     disk_page(kit, 'Folding disk: four right angles', (6, 4, 4, 2),
-              'K–1 Problems 1, 2, 3 and 5; grades 2–3 Problem 3 (disk A) and 5; grades 4–5 Problem 1 '
+              'K–1 Problems 1, 2, 3 and 5; grades 2–3 Problem 2 (disk A) and 5; grades 4–5 Problem 1 '
               '(disk A), 4 and 5; the launch. A spare uncut sheet makes a large recording disk.',
               [0, 90, 180, 270], CUT + CREASE)
     disk_page(kit, 'Folding disk B: 45°, 90°, 90°, 135°', (0, 2, 2, 0),
-              'Grades 2–3 Problem 3 and grades 4–5 Problem 1, disk B.',
+              'Grades 2–3 Problem 2 and grades 4–5 Problem 1, disk B.',
               [0, 45, 135, 225], CUT + CREASE, letter='B')
     disk_page(kit, 'Folding disk C: 60°, 120°, 120°, 60°', (0, 2, 2, 1),
-              'Grades 2–3 Problem 3 and grades 4–5 Problem 1, disk C. Adults: one for the pretest.',
+              'Grades 2–3 Problem 2 and grades 4–5 Problem 1, disk C. Adults: one for the pretest.',
               [0, 60, 180, 300], CUT + CREASE, letter='C')
     disk_page(kit, 'Folding disk D: 30°, 60°, 150°, 120°', (0, 2, 2, 1),
-              'Grades 2–3 Problem 3 and grades 4–5 Problem 1, disk D. Adults: pretest its tuck '
+              'Grades 2–3 Problem 2 and grades 4–5 Problem 1, disk D. Adults: pretest its tuck '
               '(guide p. 3) and keep one successful fold as a spare.',
               [0, 30, 90, 240], CUT + CREASE, letter='D')
     for letter, a in zip('ABCD', (90, 60, 30, 120)):
@@ -338,11 +338,11 @@ def build():
         kit.c.drawString(cx2 + r + 40, y - 3, f'set {k + 1}')
     kit.scale(LEFT, 70)
 
-    # Sixteen matching wedges, radius 2.5 cm: the four Problem 2 disks (one set)
+    # Sixteen matching wedges, radius 2.5 cm: the four grades 2-3 Problem 3 disks (one set)
     # and two half-turn boards per sheet.
-    top = kit.start('Sixteen matching wedges, grades 2–3 Problem 2', (0, 2, 0, 0), 'card stock',
+    top = kit.start('Sixteen matching wedges, grades 2–3 Problem 3', (0, 2, 0, 0), 'card stock',
                     'One set and two half-turn boards per sheet, so one sheet for each pair. Each disk is cut '
-                    'into the four sectors of the matching Problem 2 disk, radius 2.5 cm; sectors 1 and 3 are '
+                    'into the four sectors of the matching Problem 3 disk, radius 2.5 cm; sectors 1 and 3 are '
                     'shaded as on the page. Disk B\'s pieces also give grades 4–5 Problem 3, pattern A.',
                     'Cut each disk on its circle, then along its four rays to the centre. Keep the sixteen '
                     'pieces in one envelope. Cut out the board strip whole, then into its two boards: one for '

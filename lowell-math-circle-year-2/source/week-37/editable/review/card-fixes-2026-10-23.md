@@ -10,10 +10,25 @@ The review card is `plans/review/week-37.md` in the project, with its math check
 
 Pages 1, 2, 3, 4 and 6 of `facilitator-guide.pdf` changed; page 5 (proofs) is pixel-identical at 100 dpi, and the three student packets rebuild with exact reference pixels.
 
-Deferred: should 3 and 4, coulds 8–10 and "frame" to "model" on the student pages (K–1 P4, grades 2–3 P5, grades 4–5 P5–P6) change student pages and wait for a problem-file conversion; could 7 (the 0–60 minute hour) and could 11 are not done.
+Deferred: should 3 and 4, coulds 8–10 and "frame" to "model" on the student pages (K–1 P4, grades 2–3 P5, grades 4–5 P5–P6) change student pages and wait for a problem-file conversion; could 7 (the 0–60 minute hour) and could 11 are not done. The student-page items were made later the same day, after the conversion; see the last section.
 
 ## Verification
 
 - `materials-src/check_materials.py` reads only the finished kit PDF: 180 checks, 0 failures. It checks headers, footers and the 100 mm scale line on every page; that the net's nine 90 mm edges bound four equilateral faces joined as a tetrahedron net, with exactly one 9 mm tab on each of the three seams; that each of the 28 caps is three 26 mm equilateral triangles round one point with the same letter in each (8 A, 8 B, 8 C, 4 D) and that neighbouring caps share straight cuts; that one model's caps build every labelling the problems ask for, including each of the six merges with one name kept; that the pose-mat footprints are 90 mm equilateral triangles with named corners; that print counts cover each table; and that guide p. 2 quotes the same sheet totals.
 - `verify_math.py` runs the existing rotation-group checks and the kit checker. A clean rebuild from the extracted portable ZIP passes `verify_revision.py` and the strict `verify.py` on all five PDFs (22 pages). Every kit page and changed guide page was rendered and inspected.
 - No model has been folded and no cap fitted. The adult pretest on guide p. 2 comes first. The theme remains unpiloted.
+
+## Student-page fixes, after the problem-file conversion
+
+The student pages became problem files first, with no wording change (`../../README.md`). Then, in the problem files, with the footer ids raised to W37-k-1-v3, W37-grades-2-3-v3 and W37-grades-4-5-v3:
+
+- **Grades 2–3 Problem 3 (should 3):** "Keep the pair from Problem 2. Put A, B, C and D on another model in any way you like. Which of the two does it match? Can you make one that matches neither?"
+- **Grades 4–5 Problem 1 (should 4):** "What has to match besides the letter at the top?" cut.
+- **Grades 4–5 Problem 6 (could 8):** "Put A, B, C and D on the model. How many different models can be made if models that match by turning count as the same? Explain."
+- **Grades 4–5 Problem 2 (could 9):** ends "If not, explain why no turn can."
+- **Grades 2–3 Problem 4 (could 10):** ends "Which choices allow a match by turning?"
+- **"Frame" to "model":** K–1 Problem 4 and grades 2–3 Problem 5 ("on each model"), grades 4–5 Problem 5 ("a bare model").
+
+No problem was renumbered. The guide follows: the grades 2–3 Problem 3 key now says the new model matches exactly one of the pair, so none matches neither (the two four-label classes, one model of the pair in each), and how to check with the three turns about A; the grades 4–5 Problem 6 key drops "genuinely"; p. 2 says the card tetrahedron is what the pages call a model; p. 5 and every footer name the v3 packets. The problem files' keys follow the guide (`check_guide_copy.py`). The kit did not change.
+
+Verification: `src/student_checks.py` adds a check that each of the 24 four-label models matches exactly one model of the mirror pair, and passes with the existing rotation checks; `check_revised_cases.py`, `verify_math.py` and the kit checker (180 checks) pass. The package build from the extracted ZIP and the problem-file tools give the same student pages (identical LaTeX; `compare.py` finds identical text and pixels). Every page of the three packets and guide pages 1–5 were rendered and inspected; guide page 6 and the kit are pixel-identical. The previous print PDFs are in `week-37/archive-before-student-page-fixes-2026-10-23/` beside the print copies, and the conversion's ZIP in `source/week-37/archive-before-student-page-fixes-2026-10-23/`. The pages are digitally checked only; the physical pretest remains unperformed and the theme unpiloted.
