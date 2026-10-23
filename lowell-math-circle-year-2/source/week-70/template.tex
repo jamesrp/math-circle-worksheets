@@ -1,0 +1,44 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.62in,top=0.69in,bottom=0.66in,headheight=15pt,headsep=13pt,footskip=24pt]{geometry}
+\usepackage{tikz,amsmath,amssymb,fancyhdr,array}
+\usetikzlibrary{arrows.meta}
+\usepackage[T1]{fontenc}\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Week <<week>> / <<topic>> / <<header>>}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week <<week>> / <<footer>>}\fancyfoot[R]{\scriptsize\thepage}
+\renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{8pt}
+\newcommand{\problem}[2]{\textbf{Problem #1:} #2\par}
+
+\newcommand{\room}[2]{% scale arrow choice 0 none 1 NE 2 NW 3 SE 4 SW
+\begin{tikzpicture}[scale=#1]
+\draw[step=1,gray!28,thin] (0,0) grid (4,4);
+\draw[thick] (0,0) rectangle (4,4);
+\foreach\p in {(0,0),(4,0),(0,4),(4,4)}{\fill\p circle(1.7pt);}
+\node[below left,font=\small]at(0,0){S};\node[below right,font=\small]at(4,0){S};
+\node[above left,font=\small]at(0,4){S};\node[above right,font=\small]at(4,4){S};
+\fill[white](2,2)circle(4pt);\draw[thick](2,2)circle(3pt);\node[above right,font=\small]at(2,2){T};
+\node[below,font=\scriptsize]at(2,0){Y};\node[above,font=\scriptsize]at(2,4){Y};
+\node[left,font=\scriptsize]at(0,2){X};\node[right,font=\scriptsize]at(4,2){X};
+\ifnum#2=1\draw[-{Stealth[length=5pt]},very thick](0,0)--(.65,.65);\fi
+\ifnum#2=2\draw[-{Stealth[length=5pt]},very thick](4,0)--(3.35,.65);\fi
+\ifnum#2=3\draw[-{Stealth[length=5pt]},very thick](0,4)--(.65,3.35);\fi
+\ifnum#2=4\draw[-{Stealth[length=5pt]},very thick](4,4)--(3.35,3.35);\fi
+\end{tikzpicture}}
+\newcommand{\mapwindow}{
+\begin{tikzpicture}[scale=.70]
+\draw[step=1,gray!23,thin](-4,-4)grid(12,12);
+\foreach\x in{-4,0,4,8,12}{\draw[gray!75,line width=.7pt](\x,-4)--(\x,12);}
+\foreach\y in{-4,0,4,8,12}{\draw[gray!75,line width=.7pt](-4,\y)--(12,\y);}
+\foreach\x in{-2,2,6,10}{\foreach\y in{-2,2,6,10}{\draw[fill=white,thick](\x,\y)circle(2.6pt);\node[above right,font=\scriptsize]at(\x,\y){T};}}
+\fill(0,0)circle(3pt);\node[below right,fill=white,inner sep=1pt,font=\small]at(0,0){S};
+\draw[line width=1.2pt](0,0)rectangle(4,4);
+\foreach\x in{-4,0,4,8,12}{\node[below,font=\scriptsize]at(\x,-4){\x};}
+\foreach\y in{-4,0,4,8,12}{\node[left,font=\scriptsize]at(-4,\y){\y};}
+\end{tikzpicture}}
+\newcommand{\lines}[1]{\foreach\n in{1,...,#1}{\noindent\rule{\linewidth}{.2pt}\par\vspace{.22in}}}
+\begin{document}
+
+<<body>>
+
+\end{document}
