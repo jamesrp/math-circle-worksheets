@@ -32,7 +32,7 @@ def build(out):
     row(c,68,617,[1,3,3,1],n=4,step=45,rad=15,letters=list('ABCD'))
     arrow(c,238,617,351,617);label(c,'A: 3 - 1 = +2',294,643,10,True)
     row(c,391,617,['+2',0,'-2',0],n=4,step=45,rad=15,letters=list('ABCD'))
-    problem(c,3,'Run both starts with the directed rule. Which start gets an entry more than 10 away from 0 within five rounds? Can that run get farther from 0 than any chosen ceiling? Explain why your pattern keeps going.',567)
+    problem(c,3,'Run both starts with the directed rule. Which start gets an entry more than 10 away from 0 by round 5? Can that run get farther from 0 than any chosen ceiling? Explain why your pattern keeps going.',567)
     row(c,86,433,[0,1,0,1],n=4,step=47,rad=18,letters=list('ABCD'))
     row(c,365,433,[0,0,1,1],n=4,step=47,rad=18,letters=list('ABCD'))
     for x in (64,339):

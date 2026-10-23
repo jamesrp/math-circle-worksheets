@@ -56,6 +56,8 @@ This is Ducci's four-number game: each tower becomes the gap to the next station
 
 **Done, October 23, 2026.** Converted to problem files, then shoulds 1–6 and coulds 7–10 made in the problem files and the guide (the mats as proposed; record rows in two numbered blocks of three, four-box old rows, and four start-and-four-moves letter columns on 4–5 P5); could 11 deferred because the bonus is not stored as problem files. Changes and checks: `lowell-math-circle-year-2/source/week-49/editable/review/card-fixes-2026-10-23.md`.
 
+**Bonus, October 23, 2026.** Could 11 done in the bonus's own ReportLab builder (bonus v2): Problem 3 says "by round 5" and the guide matches. The per-page grade labels (2-5, then 4-5) stay: each bonus page is labelled by its own investigation's level, as in the guide and every bonus companion. Checked by `plans/review/checks/week-49/check_bonus_fixes.py`; unpiloted.
+
 ## Overlaps
 
 No other theme uses this object. Weeks 3 (iterate until a state repeats), 11 (a process that always stops) and 20 (a maximum that cannot grow) are kin with different objects and arguments. No merge.

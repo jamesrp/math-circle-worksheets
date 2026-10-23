@@ -1,6 +1,6 @@
 # Week 49 bonus: Four-tower differences
 
-Local v1, October 4, 2026. **Unpiloted. Physical fit and procedures untested.**
+Local v1, October 4, 2026; v2, October 23, 2026, from the Week 49 review card's could 11: page 3's Problem 3 asks about "by round 5" instead of "within five rounds", which a child filling rows 0-4 could read as excluding round 5, and the adult guide matches (footers F49B-S-v2, W49-BONUS-FAC-v2). The page headers keep their per-page levels (Grades 2-5, then 4-5), as `investigations.json` and the guide assign them. **Unpiloted. Physical fit and procedures untested.**
 
 Three or more distinct investigations use selected bands by prerequisites. They complement, rather than replace, the base Week 49 packet. The student companion and adult mathematical guide are separate. Suitable routes, materials, launch, hints, precise solutions and extensions are in `guide.md`; investigation metadata is in `investigations.json`.
 
