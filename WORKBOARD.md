@@ -75,3 +75,6 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Week 26: convert to problem files, then the card's student-page must (4–5 Problem 2 corner convention) and should 3 | Claude, Autonomous worksheet improvement thread | `claude/convert-w26-ntxcu3` | in progress |
 | Week 51: convert to problem files, then the card's K–1 Problem 4 must and student-page shoulds | Claude, Autonomous worksheet improvement thread | `claude/convert-w51-ntxcu3` | in progress |
 | Weeks 28 and 37: convert to problem files, then the cards' deferred student-page fixes (Week 28 fixes 3–9, Week 37 fixes 3–4 and 8–10) | Claude, Autonomous worksheet improvement thread | `claude/kits-b-ntxcu3` | in progress |
+| Weeks 52 and 53: convert to problem files, then the cards' musts (52: K–1 2-by-2 kit and route, Problem 13 wording; 53: page 8 price labels, K–1 route through pp. 1–4) | Claude, Autonomous worksheet improvement thread | `claude/k1-52-53-ntxcu3` | in progress |
+| Weeks 56 and 63: convert to problem files, then the cards' K–1 route musts | Claude, Autonomous worksheet improvement thread | `claude/k1-56-63-ntxcu3` | in progress |
+| Week 75: convert to problem files, then the card's two musts (strand crossings wording, a board for twisted routes) | Claude, Autonomous worksheet improvement thread | `claude/convert-w75-ntxcu3` | in progress |
