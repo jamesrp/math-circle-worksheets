@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-python3 make_packets.py
+python3 regenerate.py
 python3 check_math.py
 mkdir -p ../qa
 for f in k-1 grades-2-3 grades-4-5; do
