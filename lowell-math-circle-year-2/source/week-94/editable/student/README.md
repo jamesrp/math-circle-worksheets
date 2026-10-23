@@ -1,6 +1,6 @@
 # Week 94 revised student sources
 
-Build with `python3 build.py OUTPUT_DIRECTORY`. Requires Python 3 and `pdflatex` on PATH, with TikZ, Latin Modern, fancyhdr and standard LaTeX packages. On macOS, add `/Library/TeX/texbin` to PATH if needed. No runtime download or private reference is used. The `.tex` files are the editable sources. `common.tex` holds the shared layout and drawings.
+Build with `python3 build.py OUTPUT_DIRECTORY`. Requires Python 3 and `pdflatex` on PATH, with TikZ, Latin Modern, fancyhdr and standard LaTeX packages. On macOS, add `/Library/TeX/texbin` to PATH if needed. No runtime download or private reference is used. The `.tex` files are generated from the problem files by `regenerate.py` (October 23, 2026); edit the problem files, whose `template.tex` holds the shared layout and drawings that were `common.tex`.
 
 `python3 check_math.py` checks exact finite cases, attainable bounded-error extremes and the reference-separation calculation. The builder sets fixed dates and suppresses volatile PDF metadata. `.build/` under the chosen output is disposable.
 

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Build Week 94 packets and facilitator guide deterministically."""
+"""Build Week 94 packets and facilitator guide deterministically.
+
+student/*.tex are written from the problem files first (student/regenerate.py)."""
 import argparse,os,shutil,subprocess,sys,tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
@@ -9,6 +11,8 @@ engine=shutil.which('pdflatex')
 if not engine and Path('/Library/TeX/texbin/pdflatex').exists():engine='/Library/TeX/texbin/pdflatex'
 if not engine:raise SystemExit('Install pdfLaTeX with TikZ, Latin Modern, geometry, fancyhdr, array, amsmath/amssymb and hyperref.')
 env=dict(os.environ,SOURCE_DATE_EPOCH='1792195200',FORCE_SOURCE_DATE='1')
+# The student LaTeX is generated from the problem files (week.toml, template.tex, problems/).
+subprocess.run([sys.executable,str(ROOT/'student'/'regenerate.py')],check=True,stdout=subprocess.DEVNULL)
 with tempfile.TemporaryDirectory(prefix='week94-',dir=work) as t:
  temp=Path(t)
  for kind,names in [('student',['k-1','grades-2-3','grades-4-5']),('guide',['facilitator'])]:
