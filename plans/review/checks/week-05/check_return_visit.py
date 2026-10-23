@@ -1,4 +1,9 @@
-"""Brief independent check of the Week 5 return visit (F05-RV-v1) and its guide (F05-RV-FAC-v1).
+"""Brief independent check of the Week 5 return visit (F05-RV-v1) and its guide (F05-RV-FAC-v2).
+
+The review read guide F05-RV-FAC-v1, whose order-3 argument said the bottom corners are "b, a".
+The check-sweep fix (October 23, 2026) made that "a, b" in F05-RV-FAC-v2; the v1 guide is in
+week-05/archive-before-check-sweep-fix-2026-10-23/.  Both are read below: the finding is confirmed on
+the archived copy and the corrected sentence is checked on the current one.
 
 Run:  python3 -I check_return_visit.py > check_return_visit.out
 """
@@ -95,8 +100,24 @@ rel = set()
 for tl, tr, bl, br, c in product((1, 2, 3), repeat=5):
     if tl != tr and {tl, c, br} == {1, 2, 3} and {tr, c, bl} == {1, 2, 3}:
         rel.add(("a" if bl == tl else "b" if bl == tr else "c", "a" if br == tl else "b" if br == tr else "c"))
-ok("order-3 argument: bottom corners (left, right) in terms of top-left a, top-right b (guide says 'b, a')",
-   sorted(rel), [("b", "a")])
+import re  # noqa: E402
+import pymupdf  # noqa: E402
+
+
+def bottom_corners(path):
+    text = " ".join(" ".join(pg.get_text().split()) for pg in pymupdf.open(path))
+    m = re.search(r"bottom corners are (?:then )?forced to be ([abc]) ?, ?([abc])", text)
+    return (m.group(1), m.group(2)) if m else None
+
+
+ok("order-3 argument: bottom corners (left, right) in terms of top-left a, top-right b", sorted(rel), [("a", "b")])
+ARCHIVED_RVG = PDF["RVG"].parent / "archive-before-check-sweep-fix-2026-10-23" / PDF["RVG"].name
+ok("finding confirmed (as reviewed, archived F05-RV-FAC-v1): the guide printed 'b, a'",
+   bottom_corners(ARCHIVED_RVG), ("b", "a"))
+ok("current guide (F05-RV-FAC-v2) prints the forced bottom corners", bottom_corners(PDF["RVG"]), sorted(rel)[0])
+cur = " ".join(" ".join(pg.get_text().split()) for pg in pymupdf.open(PDF["RVG"]))
+ok("current guide ends at the contradiction those corners give (bottom-left = top-left, bottom-right = top-right)",
+   ("left column holds a twice and the right column b twice" in cur, sorted(rel) == [("a", "b")]), (True, True))
 
 print("\n== Problem 3 (roof routes)")
 D, E = sq("123/312/231"), sq("123/231/312")

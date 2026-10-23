@@ -2,6 +2,8 @@
 
 These are **three new investigations**, separate from the base Week 5 packets and existing extras. No physical rehearsal or classroom piloting is claimed. The student packet is shared Grades 2–5, with genuine younger entries/readiness limits described in the adult guide.
 
+**Check-sweep fix, October 23, 2026 (F05-RV-FAC-v2).** One sentence of the adult guide's order-3 impossibility argument (page 3) said the bottom corners are forced to be "b, a"; with the top corners a, b, the diagonals force the bottom corners to be a, b. It now says so and ends at the contradiction this gives at once (the left column holds a twice), as the math check suggested; the longer middle-column step is gone. The student PDF is unchanged. The previous guide and ZIP are in the `archive-before-check-sweep-fix-2026-10-23/` folders beside the current copies. Checked by `plans/review/checks/week-05/check_return_visit.py`. Unpiloted.
+
 - Current student PDF: `../../week-05/week-05-return-visit.pdf`.
 - Adult guide: `../../week-05/week-05-return-visit-facilitator.pdf`.
 - Reference PDFs: `reference-pdfs/` (the same local deliverables for comparing a rebuild).

@@ -46,6 +46,8 @@ Against the math check: its items 1 and 3 are fixes 1 and 2, and items 2, 4 and 
 
 October 23, 2026: fixes 1–6 and the README link of 9 are done in the guide and source README; later that day, after the conversion to problem files, fix 8 on the page (F05-M-v5); fix 7 and the redesign note of 9 are deferred. Later on October 23, fix 7 is done in the guide (F05-FAC-v6); the redesign note of 9 stays deferred.
 
+**Return-visit guide, October 23, 2026.** Math-check item 6 is fixed: the order-3 diagonal argument (return-visit guide p. 3) said the bottom corners are forced to be "b, a"; they are a, b, so the left column repeats a at once, and the argument now ends there (F05-RV-FAC-v2; v1 archived). Found again by the check-script sweep. Checked by `plans/review/checks/week-05/check_return_visit.py`.
+
 ## Overlaps
 
 The app's Symbol Orchard has the plain Latin square. Week 25 asks whether outside counts fix a 0/1 grid; its switch is a cousin of P9's view-keeping 2-by-2 swap, a good return-visit bridge. Week 3 has permutations; the 4–5 fallback is Week 6's question game. No merge.
