@@ -45,6 +45,8 @@ October 23, 2026: fixes 1, 2, 3, 6 and 7 are done in the guide and the README li
 
 October 23, 2026, later: after the problem-file conversion, fixes 4 and 5 are done on the pages (F03-K/M/U-v6); the guide's "the cubes are the blocks" note is gone, and its checker reads the three printed shuffle rows.
 
+October 23, 2026, after an independent critic's review of the day's changes: grades 4–5 Problem 5 drops "Here is one perfect shuffle of eight cards.", which only narrated the picture (F03-U-v7, guide F03-FAC-v7).
+
 ## Overlaps
 
 Week 43 shuffles the same cups toward fairness; its card says no merge. K–1 P5 is Week 63's "exactly n − 1 at home is impossible", but Week 63's theorem is inclusion–exclusion. Week 4's hop-k wheel is one rotation machine with gcd(n, k) loops, and its Caesar shifts compose and invert as in 4–5 P6–P7. Week 39 has ab ≠ ba in words. The app's Cup swaps uses the same loops for the fewest swaps (n − c), not return time. Week 17's "machines" are automata, a shared name only. No other theme has return time as an lcm: no merge.

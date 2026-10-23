@@ -7,7 +7,7 @@ page = "new"
 +++
 
 ## prompt
-A perfect shuffle splits a deck into a top half and a bottom half of the same size, then puts the halves together one card from each half at a time, keeping the top card on top. Do the shuffles with the cards laid out in a row, top card on the left. Here is one perfect shuffle of eight cards.
+A perfect shuffle splits a deck into a top half and a bottom half of the same size, then puts the halves together one card from each half at a time, keeping the top card on top. Do the shuffles with the cards laid out in a row, top card on the left.
 
 \vspace{10pt}
 {\centering
