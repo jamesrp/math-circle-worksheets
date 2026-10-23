@@ -11,6 +11,18 @@ The ZIP is written beside week.toml and holds:
                          week's own scripts: the student pages' source
   <top>/problem-files/tools/   these tools (atoms.py, canvas.py, flow.py, build.py, compare.py)
 
+A week whose folder is itself the package (build.py, guide and reference PDFs beside
+week.toml, as Weeks 98-100) is packed with --flat:
+
+    python3 package.py lowell-math-circle-year-2/source/week-98 --flat \
+        --zip week-98-source.zip --top week-98
+
+  <top>/          the week folder: week.toml, template.tex, problems/, its builder,
+                  guide, checks and reference PDFs (not archive folders or ZIPs)
+  <top>/tools/    these tools
+
+and the ZIP is written beside the week folder, not inside it.
+
 Build intermediates (build/, build-state/, render/, qa/, __pycache__/, verification
 results and built PDFs outside reference-pdfs/) are left out. Entries are sorted and
 dated 2026-01-01 so the same files give the same ZIP.
@@ -37,12 +49,15 @@ def editable_files(editable: Path):
         yield rel, f
 
 
-def week_files(week: Path):
+def week_files(week: Path, flat=False):
     for f in sorted(week.rglob('*')):
         rel = f.relative_to(week)
         if f.is_dir() or WEEK_SKIP & set(rel.parts) or rel.parts[0].startswith('archive') or f.suffix == '.zip':
             continue
-        if rel.parts[0] == 'README.md':
+        if rel.parts[0] == 'README.md' and not flat:
+            continue
+        if flat and (SKIP_DIRS & set(rel.parts) or f.name in SKIP_FILES or
+                     (f.suffix in ('.pdf', '.log', '.aux') and rel.parts[0] != 'reference-pdfs')):
             continue
         yield rel, f
 
@@ -52,8 +67,17 @@ def main():
     ap.add_argument('week', help='the week folder holding week.toml, problems/ and editable/')
     ap.add_argument('--zip', required=True, help='ZIP file name, written beside week.toml')
     ap.add_argument('--top', required=True, help='top folder name inside the ZIP')
+    ap.add_argument('--flat', action='store_true',
+                    help='the week folder is itself the package (no editable/); write the ZIP beside it')
     args = ap.parse_args()
     week = Path(args.week).resolve()
+    if args.flat:
+        if not (week / 'week.toml').exists():
+            sys.exit(f'error: {week / "week.toml"} is missing')
+        entries = [(Path(args.top) / rel, f) for rel, f in week_files(week, flat=True)]
+        entries += [(Path(args.top) / 'tools' / n, TOOLS / n) for n in TOOL_FILES]
+        write_zip(entries, week.parent / args.zip)
+        return
     editable = week / 'editable'
     for need in (week / 'week.toml', editable):
         if not need.exists():
@@ -61,7 +85,10 @@ def main():
     entries = [(Path(args.top) / rel, f) for rel, f in editable_files(editable)]
     entries += [(Path(args.top) / 'problem-files' / rel, f) for rel, f in week_files(week)]
     entries += [(Path(args.top) / 'problem-files' / 'tools' / n, TOOLS / n) for n in TOOL_FILES]
-    out = week / args.zip
+    write_zip(entries, week / args.zip)
+
+
+def write_zip(entries, out: Path):
     with zipfile.ZipFile(out, 'w', zipfile.ZIP_DEFLATED) as z:
         for arc, f in sorted(entries, key=lambda e: str(e[0])):
             info = zipfile.ZipInfo(str(arc), date_time=(2026, 1, 1, 0, 0, 0))

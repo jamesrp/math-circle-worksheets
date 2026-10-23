@@ -10,11 +10,19 @@
 \setlength{\parindent}{0pt}
 \hyphenpenalty=10000
 \exhyphenpenalty=10000
+% Each page is one overlay picture in millimetres, y down from the top left corner.
+% \pageopen draws the header, footer and page number; a problem's prompt is placed
+% at (15, 29) unless the problem file sets \promptat{y} first.
+\newcommand{\promptat}[1]{\def\prompty{#1}}
+\newcommand{\pageopen}{\begin{tikzpicture}[remember picture,overlay]\begin{scope}[shift={(current page.north west)},x=1mm,y=-1mm]%
+\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\bfseries\fontsize{10.7}{13.2}\selectfont] at (15,14) {Week 98 / Growing from a few seeds / Grades 4--5};%
+\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{9.5}{11.5}\selectfont] at (15,267) {Bellingham Math Circle / Week 98 / W98-45-v1};%
+\node[anchor=east,inner sep=0pt,font=\sffamily\fontsize{9.5}{11.5}\selectfont] at (201,269) {\thepage};%
+\promptat{29}}
+\newcommand{\pageclose}{\end{scope}\end{tikzpicture}\null}
+\newcommand{\problem}[2]{\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{13}{17.4}\selectfont] at (15,\prompty) {\textbf{Problem #1:} #2};}
 \begin{document}
-\begin{tikzpicture}[remember picture,overlay]\begin{scope}[shift={(current page.north west)},x=1mm,y=-1mm]
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\bfseries\fontsize{10.7}{13.2}\selectfont] at (15,14) {Week 98 / Growing from a few seeds / Grades 4--5};
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{9.5}{11.5}\selectfont] at (15,267) {Bellingham Math Circle / Week 98 / W98-45-v1};
-\node[anchor=east,inner sep=0pt,font=\sffamily\fontsize{9.5}{11.5}\selectfont] at (201,269) {1};
+\pageopen
 \node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{11.5}{14.6}\selectfont] at (15,27) {Seeds are the squares filled at the start. Put counters on them. Add a counter to an empty square when at least two squares sharing its sides are filled. Your partner points to two filled neighbors before each addition. Counters stay put. Stop when no more can be added. Diagonal touches do not count. Opposite edges do not meet; there are no squares outside the board.};
 \node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{11.5}{14}\selectfont] at (15,62) {Mark seeds with $\bullet$ and added squares with $+$.};
 \fill[black!11] (24,86) rectangle ++(10,10);
@@ -56,7 +64,11 @@
 \node[anchor=center,inner sep=0pt,font=\sffamily\fontsize{10.5}{12.5}\selectfont] at (39,101) {Start};
 \node[anchor=center,inner sep=0pt,font=\sffamily\fontsize{10.5}{12.5}\selectfont] at (105,101) {One square added};
 \node[anchor=center,inner sep=0pt,font=\sffamily\fontsize{10.5}{12.5}\selectfont] at (171,101) {Stopped};
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{13}{17.4}\selectfont] at (15,112) {\textbf{Problem 1:} Choose exactly three seeds on a 3-by-3 board. How many different final numbers of filled squares can you make?};
+
+\promptat{112}
+
+\problem{1}{Choose exactly three seeds on a 3-by-3 board. How many different final numbers of filled squares can you make?}
+
 \draw[line width=0.65pt] (15,148) rectangle ++(90,90);
 \draw[line width=0.45pt] (45,148) -- ++(0,90);
 \draw[line width=0.45pt] (75,148) -- ++(0,90);
@@ -68,12 +80,11 @@
 \draw[line width=0.45pt] (111,178) -- ++(90,0);
 \draw[line width=0.45pt] (111,208) -- ++(90,0);
 \draw[black!35,line width=0.3pt] (15,252) -- ++(186,0);
-\end{scope}\end{tikzpicture}\null\newpage
-\begin{tikzpicture}[remember picture,overlay]\begin{scope}[shift={(current page.north west)},x=1mm,y=-1mm]
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\bfseries\fontsize{10.7}{13.2}\selectfont] at (15,14) {Week 98 / Growing from a few seeds / Grades 4--5};
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{9.5}{11.5}\selectfont] at (15,267) {Bellingham Math Circle / Week 98 / W98-45-v1};
-\node[anchor=east,inner sep=0pt,font=\sffamily\fontsize{9.5}{11.5}\selectfont] at (201,269) {2};
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{13}{17.4}\selectfont] at (15,29) {\textbf{Problem 2:} What is the smallest number of seeds you can use to fill a 4-by-4 board? Find three different starts using your best number.};
+
+\pageclose\newpage\pageopen
+
+\problem{2}{What is the smallest number of seeds you can use to fill a 4-by-4 board? Find three different starts using your best number.}
+
 \draw[line width=0.65pt] (48,62) rectangle ++(120,120);
 \draw[line width=0.45pt] (78,62) -- ++(0,120);
 \draw[line width=0.45pt] (108,62) -- ++(0,120);
@@ -102,12 +113,11 @@
 \draw[line width=0.45pt] (152,217) -- ++(40,0);
 \draw[line width=0.45pt] (152,227) -- ++(40,0);
 \draw[line width=0.45pt] (152,237) -- ++(40,0);
-\end{scope}\end{tikzpicture}\null\newpage
-\begin{tikzpicture}[remember picture,overlay]\begin{scope}[shift={(current page.north west)},x=1mm,y=-1mm]
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\bfseries\fontsize{10.7}{13.2}\selectfont] at (15,14) {Week 98 / Growing from a few seeds / Grades 4--5};
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{9.5}{11.5}\selectfont] at (15,267) {Bellingham Math Circle / Week 98 / W98-45-v1};
-\node[anchor=east,inner sep=0pt,font=\sffamily\fontsize{9.5}{11.5}\selectfont] at (201,269) {3};
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{13}{17.4}\selectfont] at (15,29) {\textbf{Problem 3:} Find the fewest seeds you can use to fill a 5-by-5 board and a 10-by-10 board. Grow these boards by drawing $\bullet$ for seeds and $+$ for additions instead of using counters.};
+
+\pageclose\newpage\pageopen
+
+\problem{3}{Find the fewest seeds you can use to fill a 5-by-5 board and a 10-by-10 board. Grow these boards by drawing $\bullet$ for seeds and $+$ for additions instead of using counters.}
+
 \draw[line width=0.65pt] (15,73) rectangle ++(100,100);
 \draw[line width=0.45pt] (35,73) -- ++(0,100);
 \draw[line width=0.45pt] (55,73) -- ++(0,100);
@@ -140,12 +150,11 @@
 \draw[black!35,line width=0.3pt] (15,216) -- ++(186,0);
 \draw[black!35,line width=0.3pt] (15,235) -- ++(186,0);
 \draw[black!35,line width=0.3pt] (15,254) -- ++(186,0);
-\end{scope}\end{tikzpicture}\null\newpage
-\begin{tikzpicture}[remember picture,overlay]\begin{scope}[shift={(current page.north west)},x=1mm,y=-1mm]
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\bfseries\fontsize{10.7}{13.2}\selectfont] at (15,14) {Week 98 / Growing from a few seeds / Grades 4--5};
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{9.5}{11.5}\selectfont] at (15,267) {Bellingham Math Circle / Week 98 / W98-45-v1};
-\node[anchor=east,inner sep=0pt,font=\sffamily\fontsize{9.5}{11.5}\selectfont] at (201,269) {4};
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{13}{17.4}\selectfont] at (15,29) {\textbf{Problem 4:} An exposed side is a side of a filled square next to an empty square or the outside of the board. Count the exposed sides before and after filling the circled square in each picture. Can any legal addition increase the number of exposed sides? Explain.};
+
+\pageclose\newpage\pageopen
+
+\problem{4}{An exposed side is a side of a filled square next to an empty square or the outside of the board. Count the exposed sides before and after filling the circled square in each picture. Can any legal addition increase the number of exposed sides? Explain.}
+
 \fill[black!11] (35,90) rectangle ++(20,20);
 \fill[black!11] (15,110) rectangle ++(20,20);
 \draw[line width=0.65pt] (15,90) rectangle ++(60,60);
@@ -192,12 +201,11 @@
 \draw[black!35,line width=0.3pt] (15,218) -- ++(186,0);
 \draw[black!35,line width=0.3pt] (15,236) -- ++(186,0);
 \draw[black!35,line width=0.3pt] (15,254) -- ++(186,0);
-\end{scope}\end{tikzpicture}\null\newpage
-\begin{tikzpicture}[remember picture,overlay]\begin{scope}[shift={(current page.north west)},x=1mm,y=-1mm]
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\bfseries\fontsize{10.7}{13.2}\selectfont] at (15,14) {Week 98 / Growing from a few seeds / Grades 4--5};
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{9.5}{11.5}\selectfont] at (15,267) {Bellingham Math Circle / Week 98 / W98-45-v1};
-\node[anchor=east,inner sep=0pt,font=\sffamily\fontsize{9.5}{11.5}\selectfont] at (201,269) {5};
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{13}{17.4}\selectfont] at (15,29) {\textbf{Problem 5:} Can three seeds fill a 4-by-4 board? Can four seeds fill a 5-by-5 board? Explain why each answer holds for every possible start.};
+
+\pageclose\newpage\pageopen
+
+\problem{5}{Can three seeds fill a 4-by-4 board? Can four seeds fill a 5-by-5 board? Explain why each answer holds for every possible start.}
+
 \draw[line width=0.65pt] (15,70) rectangle ++(80,80);
 \draw[line width=0.45pt] (35,70) -- ++(0,80);
 \draw[line width=0.45pt] (55,70) -- ++(0,80);
@@ -219,12 +227,11 @@
 \draw[black!35,line width=0.3pt] (15,220) -- ++(186,0);
 \draw[black!35,line width=0.3pt] (15,238) -- ++(186,0);
 \draw[black!35,line width=0.3pt] (15,256) -- ++(186,0);
-\end{scope}\end{tikzpicture}\null\newpage
-\begin{tikzpicture}[remember picture,overlay]\begin{scope}[shift={(current page.north west)},x=1mm,y=-1mm]
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\bfseries\fontsize{10.7}{13.2}\selectfont] at (15,14) {Week 98 / Growing from a few seeds / Grades 4--5};
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{9.5}{11.5}\selectfont] at (15,267) {Bellingham Math Circle / Week 98 / W98-45-v1};
-\node[anchor=east,inner sep=0pt,font=\sffamily\fontsize{9.5}{11.5}\selectfont] at (201,269) {6};
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{13}{17.4}\selectfont] at (15,29) {\textbf{Problem 6:} Grow this start, then test all four ways to leave out one seed and start again. Is every seed needed? Is four the smallest number of seeds that can fill the board? Find a different four-seed start that fills the whole board and still needs every seed.};
+
+\pageclose\newpage\pageopen
+
+\problem{6}{Grow this start, then test all four ways to leave out one seed and start again. Is every seed needed? Is four the smallest number of seeds that can fill the board? Find a different four-seed start that fills the whole board and still needs every seed.}
+
 \fill[black!11] (45,77) rectangle ++(30,30);
 \fill[black!11] (75,107) rectangle ++(30,30);
 \fill[black!11] (75,137) rectangle ++(30,30);
@@ -288,4 +295,5 @@
 \fill (180.0,202.0) circle[radius=2.03mm];
 \fill (194.0,216.0) circle[radius=2.03mm];
 \draw[black!35,line width=0.3pt] (15,253) -- ++(186,0);
-\end{scope}\end{tikzpicture}\null\end{document}
+\pageclose
+\end{document}

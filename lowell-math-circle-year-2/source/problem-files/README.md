@@ -198,6 +198,10 @@ Weeks 11–51 ship a portable `editable/` package and source ZIP whose root `bui
 
 - To release a revision (Week 43's October 23 card fixes are the example), build the package from an extracted ZIP in `tmp/`, archive the PDFs it replaces, copy the new ones to the print folder and `editable/reference-pdfs/`, update `review/reference-manifest.json` and drop any pixel allowances of changed pages, then republish the views and repackage. The print copies are the package build's; their student pages match `build.py`'s in pages, text and 100-dpi pixels.
 
+### A week whose folder is the package
+
+Weeks 98–100 were released as a single folder holding the student TeX, the guide TeX, a `build.py`, a math checker and reference PDFs, with a ZIP beside the folder. After conversion (Week 98 is the pattern) the problem files sit in that same folder: `student/regenerate.py` writes `student/*.tex` from them, and the week's `build.py` runs it before compiling, so the package build and the tools' `build.py` give the same pages. Each page of these weeks is one TikZ overlay, so the flow template defines `\pageopen` and `\pageclose` (header, footer, page number) and `page_break` closes one page's picture and opens the next; a problem's `text` sections are its page's drawing code. `package.py --flat` writes the ZIP beside the folder, with the tools in `tools/`.
+
 ## Errors
 
 The tools stop at the first problem with the file, the line and what to change, for example:
@@ -221,7 +225,7 @@ Unknown front-matter keys, section kinds, routes and page values; band tags outs
 | `canvas.py` | The house canvas page template and drawing primitives |
 | `flow.py` | The flow layout: fills the week's template with the problems in reading order |
 | `build.py` | Writes every view; `--tables` adds a session pack, `--tex` the LaTeX, `--publish` copies the extra views |
-| `compare.py` | Checks rebuilt band packets against the current print PDFs: pages, extracted text, 100-dpi pixels |
-| `package.py` | Writes the portable source ZIP of a week that has an `editable/` package |
+| `compare.py` | Checks rebuilt band packets against the current print PDFs: pages, extracted text, 100-dpi pixels. It compares k-1, grades-2-3 and grades-4-5 and any other band packet a week builds (such as grades-3-5), and skips a band neither side has |
+| `package.py` | Writes the portable source ZIP of a week that has an `editable/` package, or, with `--flat`, of a week whose folder is itself the package |
 
 Requirements: Python 3.11+ (for `tomllib`), `pypdf`, Pillow, Poppler `pdftotext`/`pdftoppm`, and pdfLaTeX with TikZ, `fancyhdr`, `amsmath`, `booktabs`, `graphicx` and `helvet`, plus whatever a week's own template loads.

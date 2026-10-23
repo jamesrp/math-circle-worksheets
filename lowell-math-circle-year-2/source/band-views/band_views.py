@@ -188,13 +188,18 @@ def problem_file_rows(indexed):
         toml = YEAR2 / 'source' / f'week-{n:02d}' / 'week.toml'
         if n in indexed or not menu_pdf.exists() or not toml.exists():
             continue
-        topic = tomllib.loads(toml.read_text())['topic']
+        meta = tomllib.loads(toml.read_text())
+        topic = meta['topic']
+        # The week's own bands, in week.toml order; a band outside K-1, 2-3, 4-5 names its file.
+        bands = [BANDS[b] if b in BANDS else (style.get('file', f'grades-{b}'), style['header'].replace('--', '–'))
+                 for b, style in meta.get('bands', {}).items()] or list(BANDS.values())
         cells = []
         for route in ('first', 'return'):
             links = [f'[{name}]({folder.name}/{folder.name}-{fname}-{route}.pdf)'
-                     for fname, name in BANDS.values() if (folder / f'{folder.name}-{fname}-{route}.pdf').exists()]
+                     for fname, name in bands if (folder / f'{folder.name}-{fname}-{route}.pdf').exists()]
             cells.append(' · '.join(links) or '—')
-        packets = ' · '.join(f'[{name}](../week-{n:02d}/week-{n:02d}-{fname}.pdf)' for fname, name in BANDS.values())
+        packets = ' · '.join(f'[{name}](../week-{n:02d}/week-{n:02d}-{fname}.pdf)' for fname, name in bands
+                             if (YEAR2 / f'week-{n:02d}' / f'week-{n:02d}-{fname}.pdf').exists())
         rows.append(f'| {n} | {topic} | {packets} | {cells[0]} | {cells[1]} | [menu]({folder.name}/{menu_pdf.name}) | '
                     f'[key]({folder.name}/{folder.name}-key.pdf) |')
     return rows

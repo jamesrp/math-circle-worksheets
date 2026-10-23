@@ -12,7 +12,7 @@ A fresh writer, adversarial critic, mathematical reviewer and reviser completed 
 
 Qualified the order comparison by “when possible”; made larger-board pencil use explicit; clarified filling and indispensable-seed goals. The final guide was corrected to distinguish a successful construction from proof of the minimum on both larger boards.
 
-Detailed review reports are retained separately and are not included in this public release. Canonical editable inputs are the static TeX files, avoiding a stale parallel generator. Integration changes to the student TeX are only reproducibility metadata.
+Detailed review reports are retained separately and are not included in this public release. Since October 23, 2026 the student pages' source is the problem files (`week.toml`, `template.tex`, `problems/`); `student/regenerate.py` writes the band TeX from them, and the conversion changed no page (same text and 100-dpi pixels). The guide's source is still `guide/*.tex`.
 
 ## Mathematics
 
