@@ -48,6 +48,8 @@ Cops and robbers on a map, with visible moves, stays allowed and the cop first. 
 12. **could**, guide p. 5: add the outline's one-minute two-cop demonstration before upper P5.
 13. **could**, guide p. 3: name upper P2 as the next problem for a pair that finishes shared P4.
 
+Fixed October 23, 2026: shoulds 1–5 and coulds 6–13 in the problem files, materials and guide (the second run's "Who can always win the chasing game on F1, and on F2?" ends upper P4, and its cover sentences are cut to one); see source/week-86/README.md.
+
 ## Overlaps
 
 Week 67 uses a tree's unique paths for a meeting dot, here for a sure capture. Week 69 also sets trees against rings, and the square's reply is the Week 1 encore's copying strategy. No other theme has a pursuit game. No merge.

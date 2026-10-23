@@ -1,6 +1,8 @@
 # Week 86: Pursuit and escape
 
-Prepared shared Grades 2–5 and upper Grades 4–5 investigations: 4+6 student pages, 3 materials pages, 6-page theorem-first facilitator guide. No independent K–1 packet. Unpiloted; printed counter fit, stacking, turn-tile assembly and fold-cover procedures remain physically untested. This is a library entry with several possible visits, not an adopted date.
+Prepared shared Grades 2–5 and upper Grades 4–5 investigations: 4+6 student pages, 3 materials pages, 6-page theorem-first facilitator guide. No K–1 packet; the guide gives an adult-led K–1 route on the shared boards. Unpiloted; printed counter fit, stacking, turn-tile assembly and fold-cover procedures remain physically untested. This is a library entry with several possible visits, not an adopted date.
+
+Revised October 23, 2026 from the review card (plans/review/week-86.md in the repository): T1 now has the branch c–f–g–h with C starting at h; the fold rule no longer states the fold lemma and upper Problem 4 asks who wins on F1 and F2; small wording and label fixes; guide K–1 route, odd-ring, two-chord and two-cop additions. `review/check_card_fixes_2026_10_23.py` (game values) and `review/check_pdf.py [FOLDER]` (boards read from the PDFs) check them.
 
 ## Printing and routes
 

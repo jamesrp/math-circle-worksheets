@@ -3,7 +3,7 @@
 
 The print guide (week-86-facilitator.pdf) is built from editable/guide/facilitator.tex.
 The problem files' `key` sections repeat its answer keys by problem, and guide/*.tex
-repeat its overview, for the adult key view. Every sentence of those copies must appear
+repeat its overview, launch and K-1 route, for the adult key view. Every sentence of those copies must appear
 in the guide source, with whitespace normalised. Run from anywhere:
 
     python3 lowell-math-circle-year-2/source/week-86/check_guide_copy.py
@@ -22,6 +22,8 @@ def norm(s):
 
 
 def sentences(text):
+    """Sentences of a copy, without the bold run-in headings that stand for the guide's subheadings."""
+    text = re.sub(r'\\textbf\{[^}]*\.\}', ' ', text)
     return [u for u in (norm(x) for x in re.split(r'(?<=[.;?])\s+', text)) if u]
 
 

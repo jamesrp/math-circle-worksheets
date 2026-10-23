@@ -32,7 +32,12 @@ def _node(x, y, w, s, size=12):
     return r'\node[anchor=north west,inner sep=0,text width='+str(w)+r'mm,font=\fontsize{'+str(size)+'}{'+str(size+3)+r'}\selectfont] at ('+f'{x},{y}'+') {'+s+'};'
 
 
-def _graph(pts, edges, x, y, diam=22, label='', occup=None):
+LABEL_SIDE = {'right': (1, 0), 'left': (-1, 0), 'above': (0, -1), 'below-left': (-0.7071, 0.7071)}
+
+
+def _graph(pts, edges, x, y, diam=22, label='', occup=None, sides=None):
+    """A board: roads, white dots and their letters. A dot's letter sits below it, or on the
+    side that `sides` names ('right', 'left', 'above' or 'below-left') when a road leaves the dot downward."""
     out = []
     if label:
         out.append(_node(x+min(v[0] for v in pts.values())-diam/2, y+min(v[1] for v in pts.values())-diam/2-9, 180, label, 10))
@@ -41,7 +46,12 @@ def _graph(pts, edges, x, y, diam=22, label='', occup=None):
         out.append(r'\draw[line width=1.1pt] '+f'({x+pa[0]},{y+pa[1]}) -- ({x+pb[0]},{y+pb[1]});')
     for k, (px, py) in pts.items():
         out.append(r'\draw[fill=white,line width=.8pt] '+f'({x+px},{y+py}) circle ({diam/2}mm);')
-        out.append(r'\node[fill=white,inner sep=.5mm,font=\fontsize{9}{10}\selectfont] at ('+f'{x+px},{y+py+diam/2+3}'+') {'+k+'};')
+        if sides and k in sides:
+            sx, sy = LABEL_SIDE[sides[k]]
+            at = f'{x+px+sx*(diam/2+3)},{y+py+sy*(diam/2+3)}'
+        else:
+            at = f'{x+px},{y+py+diam/2+3}'
+        out.append(r'\node[fill=white,inner sep=.5mm,font=\fontsize{9}{10}\selectfont] at ('+at+') {'+k+'};')
         if occup and k in occup:
             out.append(r'\node[inner sep=0,font=\fontsize{10}{11}\selectfont] at ('+f'{x+px},{y+py}'+') {'+occup[k]+'};')
     return out
@@ -59,8 +69,8 @@ def text(x, y, w, s, size=12):
     return _emit([_node(x, y, w, s, size)])
 
 
-def graph(pts, edges, x, y, diam=22, label='', occup=None):
-    return _emit(_graph(pts, edges, x, y, diam, label, occup))
+def graph(pts, edges, x, y, diam=22, label='', occup=None, sides=None):
+    return _emit(_graph(pts, edges, x, y, diam, label, occup, sides))
 
 
 def lines(y, n=2):
@@ -116,14 +126,15 @@ def star_example(panels):
     s = ''
     for i, (occ, cap, tile) in enumerate(panels):
         x = 6+64*i
-        s += text(x, 41, 60, cap, 10) + graph(STAR, STAR_ROADS, x, 74, 8, occup=occ) + text(x+6, 86, 45, tile, 10)
+        s += text(x, 41, 60, cap, 10) + graph(STAR, STAR_ROADS, x, 74, 8, occup=occ, sides={'z': 'right'}) + text(x+6, 86, 45, tile, 10)
     return s
 
 
 # ---------------------------------------------------------------- shared Problem 2 trees
 
-T1 = {'a': (-64, 0), 'b': (-32, 0), 'c': (0, 0), 'd': (32, 0), 'e': (64, 0), 'f': (0, -32), 'g': (0, -64)}
-T1_ROADS = [('a', 'b'), ('b', 'c'), ('c', 'd'), ('d', 'e'), ('c', 'f'), ('f', 'g')]
+# T1's branch c-f-g-h bends right at g so that it fits under the prompt; C starts at h.
+T1 = {'a': (-64, 0), 'b': (-32, 0), 'c': (0, 0), 'd': (32, 0), 'e': (64, 0), 'f': (0, -32), 'g': (0, -64), 'h': (32, -64)}
+T1_ROADS = [('a', 'b'), ('b', 'c'), ('c', 'd'), ('d', 'e'), ('c', 'f'), ('f', 'g'), ('g', 'h')]
 T2 = {'a': (-64, 0), 'b': (-32, 0), 'c': (0, 0), 'd': (32, 0), 'e': (64, 0), 'f': (0, 32), 'g': (-32, 64), 'h': (32, 64)}
 T2_ROADS = [('a', 'b'), ('b', 'c'), ('c', 'd'), ('d', 'e'), ('c', 'f'), ('f', 'g'), ('f', 'h')]
 
@@ -151,18 +162,19 @@ F1 = {'a': (0, 0), 'b': (32, -32), 'c': (64, 0), 'd': (96, 0), 'e': (128, 0), 'f
 F1_ROADS = [('a', 'b'), ('b', 'c'), ('c', 'a'), ('c', 'd'), ('d', 'e'), ('a', 'f')]
 
 
-def materials_tex(week=86, topic='Pursuit and escape', level='Grades 2--5', tag='W86-M-v1'):
-    """The three materials pages: F1 and F2 originals and working copies, turn tiles and counters."""
+def materials_tex(week=86, topic='Pursuit and escape', levels=('Grades 4--5', 'Grades 4--5', 'Grades 2--5'), tag='W86-M-v1'):
+    """The three materials pages: F1 and F2 originals and working copies (upper Problem 4 only,
+    so headed Grades 4-5), then turn tiles and counters for both packets."""
     pages = []
 
     def page():
         pages.append([OPEN])
-        pages[-1].append(_node(0, -10, 192, f'Week {week} / {topic} / {level}', 10))
+        pages[-1].append(_node(0, -10, 192, f'Week {week} / {topic} / {levels[len(pages)-1]}', 10))
         pages[-1].append(_node(0, 245, 192, f'Bellingham Math Circle / Week {week} / {tag} / {len(pages)}', 9))
 
     add = lambda s: pages[-1].append(s)
     page(); add(_node(0, 0, 192, 'F1: original and working copy for upper Problem 4.', 12))
-    pages[-1] += _graph(F1, F1_ROADS, 32, 68, label='Original') + _graph(F1, F1_ROADS, 32, 177, label='Working copy')
+    pages[-1] += _graph(F1, F1_ROADS, 32, 68, label='Original', sides={'a': 'left'}) + _graph(F1, F1_ROADS, 32, 177, label='Working copy', sides={'a': 'left'})
     f2, fe2 = cycle(5, 37); fe2 = fe2+[('a', 'c')]
     page(); add(_node(0, 0, 192, 'F2: original and working copy for upper Problem 4.', 12))
     pages[-1] += _graph(f2, fe2, 96, 76, label='Original') + _graph(f2, fe2, 96, 185, label='Working copy')

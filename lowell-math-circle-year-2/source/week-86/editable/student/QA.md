@@ -32,3 +32,7 @@ Remaining checks: printing at actual scale, counter fit/stacking, tile assembly,
 ## Release evidence location
 
 The `../qa/` paths above describe the isolated revision-stage run. Reproducible final vector checks and compact results are preserved in the repository production record, not bundled render intermediates. A later provisional clipping concern was independently cleared with high-resolution PyMuPDF crops and Ghostscript full-page renders of these same bytes; no geometry mutation was needed. The independent final pair report records the cleared concern.
+
+## Card fixes, October 23, 2026
+
+Student pages changed from the review card: shared pp. 1, 2, 4; upper pp. 1, 3, 4, 5; materials pp. 1–2 (wording, the T1 board, letter positions, the D2 board position and the materials header). Each changed page was rendered at 80 dpi and inspected; the unchanged pages (shared p. 3, upper pp. 2 and 6, materials p. 3) are pixel-identical to the previous build. `../review/check_pdf.py` reads all boards from the new PDFs (175 checks, 0 failures), including that no letter sits on a road and that D1's d clears the D2 heading. `../review/check_card_fixes_2026_10_23.py` checks the new T1 (five cop moves from h; walking toward R always catches), the odd-ring sentence and the two-chord test. The new layout, counters and covers remain physically unrehearsed.
