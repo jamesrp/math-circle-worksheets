@@ -1,22 +1,25 @@
-# Week 85: Drawing machines
+# Week 85: Drawing machines — current editable source
 
-Prepared shared Grades 2–5 and upper Grades 4–5 investigations: 4+4 student pages, 10 materials pages, 5-page theorem-first facilitator guide. No independent K–1 packet. Unpiloted; physical assembly, coaxial mounts, branch retention and full-zone hand/board clearance remain untested. A real assembled prototype must pass the guide's rehearsal before use. This week is a library identifier, not an adopted date.
+Two student packets, shared Grades 2–5 (4 pages, W85-S-v1) and upper Grades 4–5 (4 pages, W85-U-v1, the return visit), a 10-page materials packet (W85-M-v1) and a 5-page theorem-first adult guide. Unpiloted; no pantograph has been built, and the guide's rehearsal has not been done. The print PDFs are in [../../week-85/](../../week-85/).
 
-## Print and routes
+**Problem files, October 23, 2026.** The student packets are stored as [problem files](../problem-files/README.md): `week.toml`, `figures.py` (the old generator's drawing code, page template and materials pages, unchanged) and one file per problem in `problems/`. The two packets are the week's two bands. The conversion changed no wording or drawing: the LaTeX of the shared, upper and materials packets is byte-identical to the old generator's, and the package build gives byte-identical PDFs. The print copies were compiled with a newer pdfTeX (1.40.27), so a rebuild here, by the old builder or the new, differs from them only in glyph rasters (at most 35 pixels on a page at 100 dpi). The old generator and the previous source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 
-Use `week-85-shared.pdf` for concrete copying/inverse control; `week-85-upper.pdf` for frame explanation, area, reversal and changed-center return visits. Each packet numbers problems separately. Read the guide for prerequisites, three-pair-kit preparation, first route and later visits. Finishing every page is not the goal.
+- **Student pages:** edit `problems/*.md` (drawings in `figures.py`), then build every view:
 
-Print US Letter, single-sided at Actual Size. Material pages: 1 adult bar templates; 2 adult assembly/setup; 3–4 joined mat; 5 seam bridge and A/B inserts; 6 D/E; 7 F/G/H; 8 I/L/M/C; 9 J/K; 10 area pieces and kit list. The joined two-Letter mat is 431.8×279.4mm (nominal 432×279); the 44×145mm seam bridge restores printer-margin gaps. Check the 100mm scale bar after joining. Use a 450×400mm support with the mat centered; the bars extend beyond the paper. The supplied inserts must retain their inside-cut letters. Use fresh clear overlays; do not rescale thumbnails into working parts.
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-85 --out tmp/week-85-views --tex --publish lowell-math-circle-year-2/band-views/week-85
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-85-views lowell-math-circle-year-2/week-85 week-85
+  python3 lowell-math-circle-year-2/source/band-views/band_views.py readme
+  ```
 
-## Rebuild offline
+  The first-route packet (shared), the return packet (upper), the one-page problem menu and the key view are published in [band-views/week-85/](../../band-views/README.md#weeks-stored-as-problem-files).
+- **Materials and adult guide:** the materials pages are drawn by `materials_tex()` in `figures.py`; the guide's source is `editable/guide/facilitator.tex`. The problem files carry each problem's one-sentence idea (`kernel`), not its answers.
+- **Portable package:** `editable/` is the package (README, mathematical checks, guide source, reference PDFs). `editable/student/build.py` writes the student and materials LaTeX from the problem files, and `editable/build.py` builds all four PDFs. The [portable source ZIP](../week-85-source.zip) holds the package plus the problem files and tools in `problem-files/`, written by `package.py`:
 
-Requires Python 3 and TeX Live/MacTeX: pdfLaTeX, TikZ/PGF, geometry, fancyhdr, AMS, hyperref, T1 and Latin Modern. No third-party Python package, network, external artwork, private reference or repository file is required.
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-85 --zip ../week-85-source.zip --top week-85
+  ```
 
-    python3 build.py --out output
-    python3 build.py --verify-only
+  Check a clean rebuild from the extracted ZIP with `python3 week-85/build.py --out rebuilt --work tmp/build`.
 
-The first builds all four named PDFs; the second runs the independent finite checks without TeX. Source paths: `student/generate.py` generates the included student/material `.tex` files; edit it for lasting changes. `guide/facilitator.tex` is directly editable. The wrapper builds in temporary directories and uses fixed metadata. Different TeX/font versions can change bytes. `reference-pdfs/` contains the delivered owned PDFs for comparison.
-
-## Evidence and limits
-
-The production record in `plans/seven-families-85-91/production/week-85/` preserves separate fresh writer, adversarial critic, independent mathematics and reviser stages, final pair review, revisions and release audit. The guide is separately authored. `student/QA.md` records all 18 student/material final-page inspections and cut-border crops. Portable finite checks support examples; the guide supplies general arguments. Source ZIP excludes borrowed prompt exemplars, downloaded references, caches, renders, logs and private records. Canonical Git publication does not imply a Drive upload.
+Read `editable/README.md` for printing, dependencies and evidence. The production record is in [plans/seven-families-85-91/production/](../../../plans/seven-families-85-91/production/STATUS.md) and the review card in [plans/review/week-85.md](../../../plans/review/week-85.md).

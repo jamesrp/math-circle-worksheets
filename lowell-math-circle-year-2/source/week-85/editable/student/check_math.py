@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
 """Finite input/ideal-geometry checks, not a hardware rehearsal."""
+import importlib.util
+import sys
 from math import dist
-from generate import INPUTS, OUTPUTS, DOTS, pose
+from pathlib import Path
+# The drawing coordinates live in the week's figures.py (the old generate.py), passed as argv[1].
+sys.dont_write_bytecode = True
+_spec = importlib.util.spec_from_file_location('week85_figures', Path(sys.argv[1]))
+_fig = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(_fig)
+INPUTS, OUTPUTS, DOTS, pose = _fig.INPUTS, _fig.OUTPUTS, _fig.DOTS, _fig.pose
 def area(poly):return abs(sum(x*b-a*y for (x,y),(a,b) in zip(poly,poly[1:]+poly[:1])))/2
 for x in [110,120,135,150,160]:
     for y in [115,125,140,155,165]:
