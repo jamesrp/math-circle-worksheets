@@ -1,0 +1,26 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=.7in,headheight=18pt,headsep=17pt,footskip=28pt]{geometry}
+\usepackage{tikz,fancyhdr,amssymb}
+\usetikzlibrary{arrows.meta}
+\pdfmapfile{+cm.map}\pdfmapfile{+cmextra.map}\pdfmapfile{+symbols.map}\pdfmapfile{+latxfont.map}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}\setlength{\parskip}{9pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week <<week>> / <<topic>> / <<header>>}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week <<week>> / <<footer>>}
+\fancyfoot[R]{\footnotesize\thepage}\renewcommand{\headrulewidth}{.4pt}
+\newcommand{\problem}[2]{\par\textbf{Problem #1:} #2\par}
+\newcommand{\lineword}{\par Move word: \hrulefill\par Fewest moves: \rule{1.2in}{.4pt}\par}
+% The final argument is a comma-separated list of lit lamps.
+\newcommand{\street}[4]{\begin{tikzpicture}[x=#1cm,y=1cm,baseline]
+\draw[line width=.8pt] (-4,0)--(4,0);
+\foreach \i in {-4,...,4}{\draw[fill=white,line width=.8pt] (\i,0) circle (#2cm);\node[below=0pt,font=\small] at (\i,{-#2-.16}){\i};}
+\foreach \i in {#4}{\fill (\i,0) circle (#2cm);}
+\ifnum#3>-5 \fill (#3,{#2+.23})--++(-.12,.22)--++(.24,0)--cycle;\fi
+\end{tikzpicture}}
+\newcommand{\target}[3]{\textbf{#1}\quad\street{.63}{.12}{#2}{#3}}
+\begin{document}
+
+<<body>>
+
+\end{document}

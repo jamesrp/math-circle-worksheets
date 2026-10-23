@@ -2,6 +2,19 @@
 
 One shared Grades 3–5 prototype: 4 student pages and a separate 2-page theorem-first adult guide. Independently reviewed and digitally checked, awaiting organizer review. Unpiloted; physical preparation and handling have not been rehearsed. The week number is a library identifier, not an adopted schedule.
 
+**Problem files, October 23, 2026.** The student packet is stored as [problem files](../problem-files/README.md) in this folder: `week.toml`, `template.tex` (the old `students.tex` preamble) and one file per problem in `problems/`, in the flow layout. The conversion changed no wording or figure: the generated `student/students.tex` differs from the old hand-written file only by blank lines between sections, and the packet rebuilds with the same pages, text and pixels. The old `students.tex` and the October 6 source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
+
+- **Student pages:** edit `problems/*.md` (the page preamble and macros are in `template.tex`), then build and compare:
+
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-66 --out tmp/week-66-views --tex
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-66-views lowell-math-circle-year-2/week-66 week-66
+  ```
+
+  Week 66 is a shared-packet week, so its one-page menu in [band-views/week-66/](../../band-views/README.md) is built from `../band-views/indexes/week-66.toml` by `band_views.py build`; update the index when a problem moves to another page.
+- **Print copies:** `build.py` (below) first runs `student/regenerate.py`, which writes `student/students.tex` from the problem files, then compiles the packet and the guide. The print copies in [../../week-66/](../../week-66/) come from this build.
+- **Portable ZIP:** [../week-66-source.zip](../week-66-source.zip) holds this folder with the problem-file tools in `tools/`, written by `python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-66 --flat --zip week-66-source.zip --top week-66`.
+
 ## Build from this portable package
 
 Use Python 3 and a normal TeX Live/MacTeX installation with pdfLaTeX, TikZ/PGF, AMS fonts, geometry, fancyhdr and Latin Modern (the guides may additionally use enumitem and hyperref). No network, repository files, private references, external artwork or custom Python packages are needed.
@@ -9,7 +22,7 @@ Use Python 3 and a normal TeX Live/MacTeX installation with pdfLaTeX, TikZ/PGF, 
     python3 build.py --out output
     python3 build.py --verify-only
 
-The first command reconstructs both named PDFs; the second runs the independent, student and adult mathematical checks without TeX. Builders run in an isolated temporary directory. Edit `student/students.tex` and `guide/facilitator.tex`; if a README says a diagram file is generated, edit its included generator and rebuild. All required authored input is here.
+The first command reconstructs both named PDFs; the second runs the independent, student and adult mathematical checks without TeX. Builders run in an isolated temporary directory. Edit the student pages in `problems/*.md` and `template.tex` (never only the generated `student/students.tex`), and the adult guide in `guide/facilitator.tex`. All required authored input is here.
 
 ## Readiness and use
 
