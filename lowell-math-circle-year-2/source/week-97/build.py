@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Build the owned Week 97 PDFs and run the independent finite checks."""
+"""Build the owned Week 97 PDFs and run the independent finite checks.
+
+student/regenerate.py first writes student/students.tex from the problem files."""
 import argparse, os, shutil, subprocess, sys, tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
@@ -19,6 +21,8 @@ def main():
  result=subprocess.run([sys.executable,str(ROOT/'check_math.py')],text=True,capture_output=True,env=env)
  (work/f'week-{WEEK}-math.txt').write_text(result.stdout+result.stderr)
  if result.returncode:raise SystemExit(result.stdout+result.stderr)
+ regen=subprocess.run([sys.executable,'-B',str(ROOT/'student/regenerate.py')],text=True,capture_output=True)
+ if regen.returncode:raise SystemExit(regen.stdout+regen.stderr)
  with tempfile.TemporaryDirectory(prefix=f'week-{WEEK}-',dir=work) as temp:
   for kind,name in TARGETS:
    folder=Path(temp)/kind; folder.mkdir(exist_ok=True)
