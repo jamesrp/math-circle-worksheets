@@ -1,8 +1,10 @@
 # Week 77: Persistent holes — current editable source
 
-One shared Grades 4–5 packet (6 student pages, F77-45-v2) and a 4-page theorem-first adult guide (F77-FAC-v2). A prototype awaiting organizer review; unpiloted, and tile, token and edge-strip handling has not been rehearsed. The print PDFs are in [../../week-77/](../../week-77/). The October 15 revision added the introductory page (`editable/README.md`).
+One shared Grades 4–5 packet (6 student pages, F77-45-v3), a 4-page theorem-first adult guide (F77-FAC-v3) and a 2-page print-and-cut sheet of tiles, strips, tokens and stage cards (F77-M-v1). A prototype awaiting organizer review; unpiloted, and tile, token and edge-strip handling has not been rehearsed. The print PDFs are in [../../week-77/](../../week-77/). The October 15 revision added the introductory page (`editable/README.md`).
 
 **Problem files, October 23, 2026.** The student packet is stored as [problem files](../problem-files/README.md): `week.toml`, `template.tex` (the old `students.tex` preamble) and one file per problem in `problems/`. Each page is still one TikZ canvas: a problem's `text` sections are its drawing code and `\promptat{y}` places its numbered prompt. The conversion changed no wording or figure, and the rebuilt packet matches the print PDF in pages, extracted text and 100-dpi pixels. The hand-written `students.tex` and the previous source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
+
+**Review-card fixes, October 23, 2026.** The [review card](../../../plans/review/week-77.md)'s shoulds 1–5 and coulds 6–8 are made, with the card's note citing Week 2's bonus Problem 1C. Problem 3 now asks whether the first loop can be gone at stage 5 whichever dashed edge comes first, on the joined board and on Problem 2's square, and ends with the hole-count question, which Problem 2 no longer states. The joined board bends at C, Problem 5 says "come back", and the new `editable/materials/` prints every tile at board scale with its edge names, the seven edge strips, the tokens and the stage cards. The guide corrects the counts-versus-history sentence, makes the square the shared launch and the XYZ token test the 4–5 table's own, and adds an adult-led K–1 and 2–3 route on the same pages. `editable/review/verify_card_fixes_2026_10_23.py` (needs PyMuPDF) checks these in the built PDFs. The replaced PDFs are in [../../week-77/archive-before-card-fixes-2026-10-23/](../../week-77/archive-before-card-fixes-2026-10-23/README.md).
 
 - **Student pages:** edit `problems/*.md`, then build and compare:
 
@@ -12,7 +14,7 @@ One shared Grades 4–5 packet (6 student pages, F77-45-v2) and a 4-page theorem
   ```
 
   Week 77 is a shared-packet week, so its one-page menu in [band-views/week-77/](../../band-views/README.md) is built from the page index `../band-views/indexes/week-77.toml` by `band_views.py build`; update the index when a problem moves to another page. The package's `checks/independent_check.py` also reads the regenerated `students.tex` and asserts its task wording and diagram coordinates, so change it with any student-page change.
-- **Adult guide:** `editable/guide/facilitator.tex`, built by the package. The problem files carry each problem's one-sentence idea (`kernel`), not its answers.
+- **Adult guide and materials:** `editable/guide/facilitator.tex` and `editable/materials/materials.py` (which writes `materials.tex` from the board coordinates), built by the package. The problem files carry each problem's one-sentence idea (`kernel`), not its answers.
 - **Portable package:** `editable/` is the package (`editable/README.md`); `editable/student/regenerate.py` writes `students.tex` from the problem files and the package build runs it first. The [portable source ZIP](../week-77-source.zip) holds the package plus the problem files and tools in `problem-files/`. Rebuild it with
 
   ```sh

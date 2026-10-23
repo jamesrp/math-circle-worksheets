@@ -26,7 +26,7 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     subprocess.run([sys.executable, str(source / "check_math.py")], check=True)
     if shutil.which("pdflatex") is None:
-        raise SystemExit("Install TeX Live or MacTeX with pdflatex, geometry, fancyhdr, amsmath and url.")
+        raise SystemExit("Install TeX Live or MacTeX with pdflatex, geometry, fancyhdr, amsmath, url and needspace.")
     with tempfile.TemporaryDirectory(prefix="week77-guide-", dir=out) as temp:
         work = Path(temp)
         shutil.copy2(source / "facilitator.tex", work / "facilitator.tex")

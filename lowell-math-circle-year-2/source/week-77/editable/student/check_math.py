@@ -257,7 +257,22 @@ def main():
             deaths.append(d)
             verify_intervals('ABCDE', et, ft, [(2, d), (4, 13-d)])
     assert sorted(deaths) == [5, 5, 8, 8]
+    # Whichever dashed edge comes first, the first loop can be gone at 5 on the joined board;
+    # on the square only when AC comes first (DA first saves the outer rim, gone only at 8).
+    for e2, e4 in permutations(('AB', 'DE')):
+        assert any(death(first_loop('ABCDE', {'AC': 0, 'BC': 0, 'CD': 0, 'CE': 0, e2: 2, e4: 4}, {f5: 5, f8: 8}),
+                         'ABCDE', {'AC': 0, 'BC': 0, 'CD': 0, 'CE': 0, e2: 2, e4: 4}, {f5: 5, f8: 8}) == 5
+                   for f5, f8 in permutations(('ABC', 'CDE')))
+    square_gone_at_5 = set()
+    for e2, e4 in permutations(('AD', 'AC')):
+        for f5, f8 in permutations(('ABC', 'ACD')):
+            et = {'AB': 0, 'BC': 0, 'CD': 0, e2: 2, e4: 4}
+            ft = {f5: 5, f8: 8}
+            if death(first_loop('ABCD', et, ft), 'ABCD', et, ft) == 5:
+                square_gone_at_5.add(e2)
+    assert square_gone_at_5 == {'AC'}
     print('Problem 3: 2 schedules kill the first loop at 5; 2 keep it until 8, with identical counts.')
+    print('  Gone at 5 is possible with either first edge on the joined board, on the square only with AC first.')
 
     # Problem 4: simultaneous additions evaluated only at their common stage.
     et = {'AB': 0, 'BC': 0, 'CD': 0, 'AD': 2, 'AC': 4}

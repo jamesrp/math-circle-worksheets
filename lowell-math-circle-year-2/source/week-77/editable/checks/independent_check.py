@@ -89,21 +89,25 @@ require(1,
 require(2,
     'Save the first loop when it closes.',
     'Find every schedule in which that saved loop first disappears at stage 8.',
-    'Count each enclosed, unfilled region as one hole.',
-    'Every allowed schedule has 0, 1, 2, 1, 0 holes after stages 0, 2, 4, 5, 8.')
+    'Explain why you have all of them.')
+# October 23, 2026 (review card should 3): Problem 2 no longer states hole counts.
+assert 'hole' not in normalize(pages[1]), 'Problem 2 should not mention holes'
 require(3,
     'Start with the four solid edges. Add one dashed edge at stage 2 and the other at stage 4.',
     'Fill one triangle at stage 5 and the other at stage 8.',
-    'Make one build where the first loop is gone at 5, and another where it first disappears at 8.',
-    "Save the first loop's edges each time",
-    'Both builds have 0, 1, 2, 1, 0 holes after stages 0, 2, 4, 5, 8.',
+    'Whichever dashed edge comes first, can the first loop be gone at stage 5?',
+    'Answer the same question for the square in Problem 2.',
+    "Save the first loop's edges each time, and record a schedule your partner can replay or explain why there is none.",
+    'AB first:', 'DE first:', 'Square:',
+    'Count each enclosed, unfilled region as one hole.',
+    'Every build on these two boards has 0, 1, 2, 1, 0 holes after stages 0, 2, 4, 5, 8.',
     'Can those counts alone tell you when the first loop disappears?')
 require(4,
     'Stage 4 is one step: place its edge, then its tile, and check only after both are in place.',
     'Does it ever have two holes at a finished stage?',
     'Move exactly one of those two additions to stage 3 or 5 so that it does.',
     'Find every legal change. Keep all other additions at their original stages.',
-    'Could a saved loop be gone at one stage and survive again at a later stage, if no edge or filled triangle is removed?',
+    'Could a saved loop be gone at one stage and come back at a later stage, if no edge or filled triangle is removed?',
     'Explain why your answer works for every legal growing board.')
 require(5,
     'Start with all eight edges and filled triangles ABO and BCO.',
@@ -133,11 +137,25 @@ assert coordinates(macro) == {'A':(0,0),'B':(6.2,0),'C':(6.2,6.2),'D':(0,6.2)}
 assert '(A)--(B)--(C)--(D)--cycle(A)--(C);' in compact(macro)
 assert r'\ifnum#3=1\draw[linewidth=1.5pt](A)--(B)--(C)--(D);\fi' in compact(macro)
 assert r'\squareboard{.65}{4.0}{0}' in compact(pages[0])
-assert r'\squareboard{10.6}{6.3}{1}' in compact(pages[1])
+assert r'\squareboard{10.6}{3.4}{1}' in compact(pages[1])
 assert r'\squareboard{10.6}{5.3}{1}' in compact(pages[3])
-assert coordinates(pages[2]) == {'A':(0,0),'B':(0,5.8),'C':(5.8,2.9),'D':(11.6,0),'E':(11.6,5.8)}
+assert coordinates(pages[2]) == {'A':(0,0),'B':(0,5.8),'C':(5.8,1.4),'D':(11.6,0),'E':(11.6,5.8)}
 assert '(A)--(C)--(B)(D)--(C)--(E);' in compact(pages[2])
 assert '(A)--(B)(D)--(E);' in compact(pages[2])
+# October 23, 2026 (review card could 6): C is raised so that A, C, E and B, C, D are not
+# collinear; the four solid edges print as four segments that bend at C. In tenths of a
+# centimetre: the triangles still meet only at C, no two nonincident edges meet, and AB and
+# DE stay 5.8 cm (the strip length).
+joined_now = {v: (round(10*x), round(10*y)) for v, (x, y) in coordinates(pages[2]).items()}
+assert prior['orient'](joined_now['A'], joined_now['C'], joined_now['E']) != 0
+assert prior['orient'](joined_now['B'], joined_now['C'], joined_now['D']) != 0
+joined_edges = ('AB', 'BC', 'AC', 'CD', 'DE', 'CE')
+for e, f in itertools.combinations(joined_edges, 2):
+    if not set(e) & set(f):
+        assert not prior['intersects'](joined_now[e[0]], joined_now[e[1]], joined_now[f[0]], joined_now[f[1]])
+assert max(joined_now[v][0] for v in 'ABC') == min(joined_now[v][0] for v in 'CDE') == joined_now['C'][0]
+assert all(joined_now[v][0] != joined_now['C'][0] for v in 'ABDE')
+assert abs(joined_now['A'][1] - joined_now['B'][1]) == abs(joined_now['D'][1] - joined_now['E'][1]) == 58
 assert coordinates(pages[4]) == {'A':(0,0),'B':(8,0),'C':(8,8),'D':(0,8),'O':(4,4)}
 assert '(A)--(B)--(C)--(D)--cycle(A)--(O)--(C)(B)--(O)--(D);' in compact(pages[4])
 assert r'\fill(O)circle(2.2pt);' in compact(pages[4])
@@ -151,8 +169,8 @@ for token in (r'\token{3.1}{16.9}{XY}{i1}', r'\token{4.1}{16.9}{YZ}{i2}',
     assert token in compact(intro), token
 assert r'\foreach\nin{a,b,c,d,e,f}' in compact(intro)
 for fragment in ('6.2 cm', '11.6 cm wide and 5.8 cm high', '8 cm sides',
-                 'ABC/ACD', 'ABC/CDE', 'ABO/BCO/CDO/ADO',
-                 'three tokens each for AB, BC, CD, AD, AC, CE, DE, AO, BO, CO, DO',
+                 'ABC/ACD', 'ABC/CDE', 'ABO/BCO/CDO/DAO',
+                 'three tokens each for AB, BC, CD, DA, AC, CE, DE, AO, BO, CO, DO',
                  'two XY tokens, two YZ tokens, and two XZ tokens',
                  'one saved loop at a time', 'remove them only when resetting'):
     assert fragment in normalize(readme), fragment
@@ -348,7 +366,7 @@ assert set(face_masks.values()) <= cycles
 # edge suffice for a one-loop test, including all four filled triangles.
 assert max(1 + sum(e in face_edges[f] for f in faces) for e in edges) == 3
 # README was read from the user-selected portable source directory above.
-for label in ('AO', 'BO', 'CO', 'DO', 'ABO/BCO/CDO/ADO', 'one saved loop at a time'):
+for label in ('AO', 'BO', 'CO', 'DO', 'ABO/BCO/CDO/DAO', 'one saved loop at a time'):
     assert label in readme
 assert 'center vertex' in readme and 'remove them only when resetting' in readme
 

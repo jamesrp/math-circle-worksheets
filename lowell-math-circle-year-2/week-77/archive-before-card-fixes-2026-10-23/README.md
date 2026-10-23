@@ -1,0 +1,3 @@
+# Week 77 print copies before the October 23, 2026 card fixes
+
+These are the October 15, 2026 print PDFs (F77-45-v2, 6 pages; F77-FAC-v2, 4 pages), replaced on October 23, 2026 by the review card's should and could fixes ([plans/review/week-77.md](../../../plans/review/week-77.md)). Student pages 1, 2 and 6 are unchanged apart from the footer; page 3 drops Problem 2's hole-count sentence, page 4 has the new Problem 3 and a joined board bent at C, and page 5 says "come back" in Problem 5. The current copies, and the new two-page sheet of tiles, strips, tokens and stage cards, are in [../](../). They are kept for reference; do not print them.

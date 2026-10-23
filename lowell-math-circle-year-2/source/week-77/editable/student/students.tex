@@ -9,7 +9,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\fontsize{11}{13}\selectfont Week 77 / Persistent holes / Grades 4--5}
-\fancyfoot[L]{\fontsize{9}{11}\selectfont Bellingham Math Circle / Week 77 / F77-45-v2}
+\fancyfoot[L]{\fontsize{9}{11}\selectfont Bellingham Math Circle / Week 77 / F77-45-v3}
 \fancyfoot[R]{\fontsize{9}{11}\selectfont\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -90,14 +90,13 @@
 
 \textat{0}{\prompty}{18.2}{\textbf{Problem 2:} Save the first loop when it closes. Find every schedule in which that saved loop first disappears at stage 8. Explain why you have all of them.}
 
-\textat{0}{3.65}{18.2}{Count each enclosed, unfilled region as one hole. Every allowed schedule has 0, 1, 2, 1, 0 holes after stages 0, 2, 4, 5, 8.}
-\squareboard{10.6}{6.3}{1}
-\smallat{0.5}{6.0}{7.8}{Stage 0: AB, BC, CD}
-\smallat{0.5}{7.35}{7.8}{Stage 2: one of DA and AC}
-\smallat{0.5}{8.70}{7.8}{Stage 4: the other edge}
-\smallat{0.5}{10.05}{7.8}{Stage 5: fill ABC or ACD}
-\smallat{0.5}{11.40}{7.8}{Stage 8: fill the other triangle}
-\lineat{0}{14.0}{18.2}\lineat{0}{15.5}{18.2}\lineat{0}{17.0}{18.2}\lineat{0}{18.5}{18.2}\lineat{0}{20.0}{18.2}\lineat{0}{21.5}{18.2}
+\squareboard{10.6}{3.4}{1}
+\smallat{0.5}{3.1}{7.8}{Stage 0: AB, BC, CD}
+\smallat{0.5}{4.45}{7.8}{Stage 2: one of DA and AC}
+\smallat{0.5}{5.80}{7.8}{Stage 4: the other edge}
+\smallat{0.5}{7.15}{7.8}{Stage 5: fill ABC or ACD}
+\smallat{0.5}{8.50}{7.8}{Stage 8: fill the other triangle}
+\lineat{0}{11.0}{18.2}\lineat{0}{12.5}{18.2}\lineat{0}{14.0}{18.2}\lineat{0}{15.5}{18.2}\lineat{0}{17.0}{18.2}\lineat{0}{18.5}{18.2}\lineat{0}{20.0}{18.2}\lineat{0}{21.5}{18.2}
 
 \pageend
 \newpage
@@ -105,20 +104,22 @@
 
 \promptat{0}
 
-\textat{0}{\prompty}{18.2}{\textbf{Problem 3:} Start with the four solid edges. Add one dashed edge at stage 2 and the other at stage 4. Fill one triangle at stage 5 and the other at stage 8. Make one build where the first loop is gone at 5, and another where it first disappears at 8. Save the first loop's edges each time and record a schedule your partner can replay.}
+\textat{0}{\prompty}{18.2}{\textbf{Problem 3:} Start with the four solid edges. Add one dashed edge at stage 2 and the other at stage 4. Fill one triangle at stage 5 and the other at stage 8. Whichever dashed edge comes first, can the first loop be gone at stage 5? Answer the same question for the square in Problem 2. Save the first loop's edges each time, and record a schedule your partner can replay or explain why there is none.}
 
-\begin{scope}[shift={(3.25,5.45)}]
- \coordinate (A) at (0,0);\coordinate (B) at (0,5.8);\coordinate (C) at (5.8,2.9);\coordinate (D) at (11.6,0);\coordinate (E) at (11.6,5.8);
+\begin{scope}[shift={(3.25,4.55)}]
+ \coordinate (A) at (0,0);\coordinate (B) at (0,5.8);\coordinate (C) at (5.8,1.4);\coordinate (D) at (11.6,0);\coordinate (E) at (11.6,5.8);
  \draw[line width=1.5pt] (A)--(C)--(B) (D)--(C)--(E);
  \draw[black!50,dash pattern=on 4pt off 4pt,line width=.9pt] (A)--(B) (D)--(E);
  \foreach \v/\pos in {A/above left,B/below left,C/below,D/above right,E/below right}{\fill (\v) circle(2.2pt);\node[\pos,inner sep=4pt,font=\large] at (\v) {\v};}
 \end{scope}
-\smallat{0}{12.45}{18.2}{First loop gone at stage 5:}
-\lineat{0}{13.55}{18.2}\lineat{0}{14.85}{18.2}
-\smallat{0}{16.0}{18.2}{First loop disappears at stage 8:}
-\lineat{0}{17.1}{18.2}\lineat{0}{18.4}{18.2}
-\textat{0}{19.55}{18.2}{Both builds have 0, 1, 2, 1, 0 holes after stages 0, 2, 4, 5, 8. Can those counts alone tell you when the first loop disappears?}
-\lineat{0}{21.85}{18.2}
+\smallat{0}{11.45}{8.7}{AB first:}
+\lineat{0}{12.55}{8.7}\lineat{0}{13.85}{8.7}
+\smallat{9.5}{11.45}{8.7}{DE first:}
+\lineat{9.5}{12.55}{18.2}\lineat{9.5}{13.85}{18.2}
+\smallat{0}{14.75}{18.2}{Square:}
+\lineat{0}{15.85}{18.2}\lineat{0}{17.15}{18.2}
+\textat{0}{18.0}{18.2}{Count each enclosed, unfilled region as one hole. Every build on these two boards has 0, 1, 2, 1, 0 holes after stages 0, 2, 4, 5, 8. Can those counts alone tell you when the first loop disappears?}
+\lineat{0}{20.55}{18.2}\lineat{0}{21.85}{18.2}
 
 \pageend
 \newpage
@@ -137,7 +138,7 @@
 
 \promptat{16.0}
 
-\textat{0}{\prompty}{18.2}{\textbf{Problem 5:} Could a saved loop be gone at one stage and survive again at a later stage, if no edge or filled triangle is removed? Explain why your answer works for every legal growing board.}
+\textat{0}{\prompty}{18.2}{\textbf{Problem 5:} Could a saved loop be gone at one stage and come back at a later stage, if no edge or filled triangle is removed? Explain why your answer works for every legal growing board.}
 
 \lineat{0}{19.1}{18.2}\lineat{0}{20.45}{18.2}\lineat{0}{21.8}{18.2}
 

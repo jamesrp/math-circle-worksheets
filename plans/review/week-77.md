@@ -42,6 +42,8 @@ Small planar triangle boards grow by edges and filled triangles. A saved loop is
 7. **could**, guide: say that on these planar boards a loop is gone exactly when every triangle inside it is tiled, so survival needs no search over tile choices.
 8. **could**, p. 4, P5: "survive again" → "come back".
 
+October 23, 2026: shoulds 1–5 and coulds 6–8 fixed in the new problem files, guide and materials sheet (F77-45-v3, F77-FAC-v3, F77-M-v1), with C moved to (5.8, 1.4) rather than D and E moved, and Week 2's Problem 1C cited in the guide; checked by `source/week-77/editable/review/verify_card_fixes_2026_10_23.py`.
+
 ## Overlaps
 
 Week 2's bonus Problem 1C finds the same square's three do-nothing sets, P, Q and R. Week 77 adds filled faces and time, so it is the sequel; cite it in the guide. Weeks 39 (reduced walks), 56 (V − E + F), 41 and 75 (winding) treat loops otherwise. None has filled faces or a growing board. No merge.

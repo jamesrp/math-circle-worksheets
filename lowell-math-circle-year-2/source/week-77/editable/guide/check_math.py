@@ -178,6 +178,25 @@ def check():
     print("P3 all schedules:")
     for row in p3:
         print(" ", row)
+    # October 23, 2026 question: whichever dashed edge comes first, can the first loop be
+    # gone at stage 5? Joined board: yes for both. Square (Problem 2): only with AC first.
+    joined_5 = {row[0] for row in p3 if row[4] == 5}
+    square_5 = {row[0] for row in p2 if row[4] == 5}
+    assert joined_5 == {"AB", "DE"}
+    assert square_5 == {"AC"}
+    for first_edge in ("AD", "AC"):
+        rows = [row for row in p2 if row[0] == first_edge]
+        assert len(rows) == 2
+        if first_edge == "AD":
+            assert all(row[4] == 8 for row in rows)  # the outer rim needs both tiles
+    # Each 'yes' fills the first rim's own triangle at stage 5.
+    assert all(row[2] == ("ABC" if row[0] == "AB" else "CDE") for row in p3 if row[4] == 5)
+    assert all(row[2] == "ABC" for row in p2 if row[4] == 5)
+    # All eight builds on the two boards share the counts 0,1,2,1,0 (asserted above for
+    # each), yet the first loop is gone at 5 in some and at 8 in others.
+    assert {row[4] for row in p2 + p3} == {5, 8} and len(p2 + p3) == 8
+    print("P3 question: first loop gone at 5 possible with either first edge on the joined board;"
+          " on the square only with AC first; identical counts in all 8 builds.")
 
     base_edges = {"AB": 0, "BC": 0, "CD": 0, "AD": 2, "AC": 4}
     base_faces = {"ABC": 4, "ACD": 8}

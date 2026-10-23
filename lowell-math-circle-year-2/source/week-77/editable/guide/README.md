@@ -1,7 +1,7 @@
 # Week 77 adult guide: Persistent holes
 
 Four-page adult guide for the six-page, six-problem Grades 4-5 prerequisite-led
-student prototype (F77-45-v2). The adult guide is F77-FAC-v2. It opens with the
+student prototype (F77-45-v3). The adult guide is F77-FAC-v3. It opens with the
 mathematical facts and limits, supplies one practical route for three children
 and a mathematical adult, and gives complete solutions, ordered hints, exact
 preparation counts, and a return-visit route for the fan-board problem.
@@ -9,7 +9,7 @@ preparation counts, and a return-visit route for the fan-board problem.
 ## Build
 
 Requires Python 3 and an installed TeX Live or MacTeX distribution with pdfLaTeX,
-geometry, fancyhdr, array, amsmath, amssymb, and url. No Python packages are needed.
+geometry, fancyhdr, array, amsmath, amssymb, url and needspace. No Python packages are needed.
 
 From this folder:
 
@@ -44,7 +44,8 @@ answers, persistence libraries, or mathematical data outside this folder.
 ## Classroom limits and sources
 
 The packet needs short-label reading, an unchanged saved edge list, and pair
-cancellation. The guide does not supply a K-1 or separate Grades 2-3 edition.
+cancellation. There is no K-1 or Grades 2-3 edition; the guide gives an adult-led
+route for those tables on student pages 2 and 3, with a plain-words key.
 Use one shared board at a time; Problems 1-3 form the first route. Problem 6 is
 a readiness-dependent continuation. Physical handling, exact tile fit, pacing,
 and classroom use remain unpiloted and must be rehearsed with real materials.
