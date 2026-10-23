@@ -46,6 +46,8 @@ Switches come at 11:30, 11:45, 11:52:30 and so on, at times 1 − 2⁻ⁿ of the
 
 October 23, 2026: shoulds 1–4 and coulds 5–12 fixed in v2 (M80-D-v2), after the organizer's October 17 approval; the K–1 route is a guide paragraph on pages 1 and 6, and the continuation is labelled Grades 4–5. Checks in the package's `check_card_fixes.py`.
 
+**Critic follow-up, October 23, 2026 (M80-FAC-v2):** an independent critic's two shoulds are made. Problem 3's key now rules on a counter that stops moving: it has settled, like the card that never flips, so ask for a rule that keeps it moving at every mark but never settles. The guide's footer, which had no version id, reads M80-FAC-v2, so it can be told apart from the approved guide. The band-view menu and a K–1 slice now list the K–1 route's pages 1 and 6. The student packet did not change; v2 is still not re-approved. Unpiloted.
+
 ## Overlaps
 
 Week 79 compares counts with a set-valued limit in the same supertask setting; Week 81 has plays that all end with no common bound; in Week 50 the limit of the lengths is not the length of the limit. None asks what an endpoint is. No merge: Weeks 79, 80 and 81 form a return sequence, and 80 is the simplest entry.

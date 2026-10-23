@@ -91,7 +91,8 @@ for phrase in ['use Problems 1--3', 'Problems 4--6 are a Grades 4--5 continuatio
                'ON and OFF both fit', 'this is the same obstacle Problem 6 meets', 'Problems 2 and 6',
                'rule in Problem 6 fails', 'not a proof from four drawings', 'at most 15 mm across',
                'scissors, glue', 'copy the folded marks onto the printed line', 'slide a counter from START to the fold',
-               'K--1, adult-led on pages 1 and 6', r'\rhead{Adult guide}']:
+               'K--1, adult-led on pages 1 and 6', r'\rhead{Adult guide}',
+               'A counter that stops moving stays at one place', 'Week 80 / M80-FAC-v2']:
     check(f'guide says "{phrase}"', phrase in flat)
 for phrase in ['Facilitator draft', 'part0017', 'network-toggle', 'Do not provide those prompts', 'six drawings',
                'Problems 1--2 only', 'Grades 3--5', 'five minutes considering']:

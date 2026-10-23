@@ -26,3 +26,5 @@ Organizer promotion: October 17, 2026. Status/metadata only; accepted student an
 - Student packet: 6 pages; guide: 4 pages. Every changed page was rendered at 80 dpi and inspected: student pp. 2–5 and all four guide pages. Pages 1 and 6 differ from v1 only in the footer id.
 - The portable ZIP was extracted into an empty folder and rebuilt: both PDFs match the installed copies in pages, text and 100-dpi pixels.
 - Unpiloted; the new Problem 3, the larger box and the K–1 route are unrehearsed.
+
+Critic follow-up, October 23, 2026 (M80-FAC-v2): Problem 3's key rules on a counter that stops moving, and the guide's footer carries a version id. `check_card_fixes.py` checks both phrases; a clean build from the extracted ZIP matches the print copies. The student packet is unchanged. Unpiloted.
