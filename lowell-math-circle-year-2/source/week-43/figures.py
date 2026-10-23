@@ -120,12 +120,12 @@ def k1_every_row(b):  # 00
 
 
 @draw
-def k1_first_card_rows(b):  # 02, K-1: each card fills the first box of its two rows
- w,h=7.8,2.5
+def k1_first_card_rows(b):  # 02, K-1: each card fills the first box of three rows (two answers each; Critic K, October 23)
+ w,h=5.6,2.5
  for i,c in enumerate('ABC'):
   y=8+i*4.5
-  for j in range(2):
-   x=j*9;row(b,x,y,w=w,h=h)
+  for j in range(3):
+   x=j*6.3;row(b,x,y,w=w,h=h)
    icon(b,x+.5*w/3,y+h*.43,c,min(.38,w/9));b.text(y+h*.72,c,x+.15,w/3-.2,9)
 
 
@@ -137,9 +137,11 @@ def chooser_answer_rows(b,h):  # 02, grades 2-3 (h=2.6) and 4-5 (h=2.5); two spa
 
 @draw
 def k1_ticket_records(b):  # 04, K-1: P1's mat serves; card boxes about P4's size; two spare records
+ # ticket boxes 1.4 cm (0.55 in) for a child's digit (Critic K, October 23)
  for i in range(8):
-  x=(i%2)*9.55;y=9.8+(i//2)*3.4
-  tickets(b,x,y+.6,['','']);row(b,x+2.45,y,w=6.2,h=2.2)
+  x=(i%2)*9.25;y=9.8+(i//2)*3.4
+  for k in range(2):b.box(x+k*1.55,y+.4,1.4,1.4)
+  row(b,x+3.15,y,w=5.8,h=2.2)
 
 
 @draw

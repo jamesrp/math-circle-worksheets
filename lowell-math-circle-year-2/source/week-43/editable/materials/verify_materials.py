@@ -65,8 +65,8 @@ def main(pdf):
 
     tickets = boxes(page, 20.0, 20.0, kinds=['l'] * 4)
     nums = sorted(''.join(inside(words, r)) for r in tickets)
-    assert nums == ['1', '2', '3', '4', '5'], nums
-    print('PASS tickets: five 20.00 mm tickets numbered 1 to 5.')
+    assert nums == ['1', '2', '2', '3', '3', '4', '5'], nums
+    print('PASS tickets: seven 20.00 mm tickets, 1 to 5 and a second 2 and 3.')
 
     strip = boxes(page, 141.0, 61.0)
     assert len(strip) == 1
@@ -92,6 +92,7 @@ def main(pdf):
     needs = {'K-1 P1-P5, Grades 2-3 P1-P6, Grades 4-5 P1-P5: cards A, B, C': set('ABC') <= set(letters),
              'two-swap rule: tickets 1, 2, 3, then 2, 3 again from the same set': {'1', '2', '3'} <= set(nums),
              'all-slots rule: tickets 1, 2, 3, replaced after each draw': {'1', '2', '3'} <= set(nums),
+             'K-1 P4: a first set 1, 2, 3 less one ticket, beside a whole second set 2, 3': nums.count('2') >= 2 and nums.count('3') >= 2,
              'Grades 4-5 P6: cards A-D and tickets 1-4': set('ABCD') <= set(letters) and '4' in nums,
              'Grades 4-5 P7: cards A-E and tickets 1-5': set('ABCDE') <= set(letters) and '5' in nums}
     assert all(needs.values()), needs

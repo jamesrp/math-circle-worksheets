@@ -6,10 +6,11 @@ Usage: python3 materials/build_materials.py
 Writes materials/materials.tex, runs pdflatex twice in build/ and copies the PDF
 to materials.pdf beside the other outputs. A sheet holds five picture cards
 A-E at 1.7 x 2.2 in (43.18 x 55.88 mm) with the student pages' pictures
-(square, circle, triangle, diamond, pentagon), tickets 1-5 as 20 mm squares,
-and a three-slot strip whose slots are the K-1 Problem 1 mat's 47 x 61 mm.
-Cards A, B, C and tickets 1, 2, 3 serve every band; D, E and tickets 4, 5 are
-for Grades 4-5 Problems 6-7. Check the result with materials/verify_materials.py.
+(square, circle, triangle, diamond, pentagon), tickets 1-5 and a second 2 and 3
+as 20 mm squares, and a three-slot strip whose slots are the K-1 Problem 1 mat's
+47 x 61 mm. Cards A, B, C and tickets 1, 2, 3 serve every band; the second 2 and 3
+let K-1 Problem 4 take a ticket from the first set and leave the second set whole
+(Critic K, October 23); D, E and tickets 4, 5 are for Grades 4-5 Problems 6-7. Check the result with materials/verify_materials.py.
 """
 from pathlib import Path
 import os
@@ -23,7 +24,7 @@ CARD = (43.18, 55.88)          # 1.7 x 2.2 in
 SLOT = (47.0, 61.0)            # the K-1 Problem 1 mat's slots, 4.7 x 6.1 cm
 TICKET = 20.0
 HEADER = 'Week 43 / Shuffling picture cards / Materials'
-PACKET = 'W43-M-v1'
+PACKET = 'W43-M-v2'   # v2: a second 2 and 3 for K-1 Problem 4 (Critic K, October 23)
 FILL = {'A': 'orange!22', 'B': 'green!22', 'C': 'violet!22', 'D': 'cyan!22', 'E': 'yellow!25'}
 
 PRE = r'''\documentclass{article}
@@ -102,8 +103,12 @@ def page():
         cmd += card(c, 10 + i * (CARD[0] + gap), 42)
     cmd += card('E', 10, 42 + CARD[1] + 10)
     tx = 10 + CARD[0] + gap
+    ty = 42 + CARD[1] + 10 + 4
     for i in range(5):
-        cmd += ticket(i + 1, tx + i * (TICKET + 6), 42 + CARD[1] + 10 + (CARD[1] - TICKET) / 2)
+        cmd += ticket(i + 1, tx + i * (TICKET + 6), ty)
+    for i in range(2):
+        cmd += ticket(i + 2, tx + i * (TICKET + 6), ty + TICKET + 8)
+    cmd.append(text(tx + 2 * (TICKET + 6) + 2, ty + 1.5 * TICKET + 8, 'second set for K--1 Problem 4', 9, anchor='west'))
     cmd.append(text(10, 172, 'Three-slot strip (slots as on the K--1 page 1 mat)', 9))
     cmd += strip(10, 178)
     cmd.append(text(10, H - 15, 'Physically unrehearsed: sizes are checked digitally; nobody has built and used '
@@ -128,7 +133,7 @@ def main():
             sys.stdout.write(r.stdout[-3000:])
             raise SystemExit('pdflatex failed')
     shutil.copyfile(build / 'materials.pdf', ROOT / 'materials.pdf')
-    print(f'Built {ROOT / "materials.pdf"}: 1 page, cards A-E, tickets 1-5 and a three-slot strip.')
+    print(f'Built {ROOT / "materials.pdf"}: 1 page, cards A-E, tickets 1-5, a second 2 and 3, and a three-slot strip.')
 
 
 if __name__ == '__main__':

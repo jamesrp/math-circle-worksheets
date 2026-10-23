@@ -35,7 +35,9 @@ assert len(set(draws.values())) == len(draws) == 6
 checks.append('chooser: with A, B or C drawn first exactly two rows can still happen (ABC ACB / BAC BCA / CAB CBA); '
               'the six first-two draws give six different rows')
 
-# 2. K-1 page 2 as printed: the new wording, no cross-outs, each card in the first box of exactly two rows.
+# 2. K-1 page 2 as printed: the new wording, no cross-outs, each card in the first box of its rows.
+# Since the Critic K follow-up (later on October 23) each card heads three rows for its two answers,
+# so the number of rows no longer tells a child the list is complete.
 k1 = pymupdf.open(REF / 'k-1.pdf')
 page = k1[1]
 text = ' '.join(page.get_text().split())
@@ -57,21 +59,21 @@ for d in page.get_drawings():
         if fill is None and it[0] == 'l' and abs(it[1].x - it[2].x) > 1 and abs(it[1].y - it[2].y) > 1:
             diagonals += 1
 assert diagonals == 0, 'a slanted line (cross-out) is still drawn'
-assert len(frames) == 18 and len(icons) == 6, (len(frames), len(icons))
+assert len(frames) == 27 and len(icons) == 9, (len(frames), len(icons))
 rows = defaultdict(list)
 for f in frames:
     rows[round(f.y0)].append(f)
-assert len(rows) == 3 and all(len(v) == 6 for v in rows.values())   # three bands of two rows of three cells
+assert len(rows) == 3 and all(len(v) == 9 for v in rows.values())   # three bands of three rows of three cells
 printed = defaultdict(int)
 for y, cells in sorted(rows.items()):
     cells.sort(key=lambda f: f.x0)
-    for row in (cells[:3], cells[3:]):
+    for row in (cells[:3], cells[3:6], cells[6:]):
         inside = [[i for i in icons if c.x0 <= i[1] <= c.x1 and c.y0 <= i[2] <= c.y1] for c in row]
         assert len(inside[0]) == 1 and not inside[1] and not inside[2], inside
         printed[inside[0][0][0]] += 1
-assert printed == {c: len(rows_by_first[c]) for c in 'ABC'}, printed
-checks.append('K-1 p. 2: new Problem 2 wording; no cross-outs; A, B and C each fill the first box of exactly two '
-              'empty rows, the number of rows that can still happen')
+assert printed == {c: 3 for c in 'ABC'} and all(printed[c] > len(rows_by_first[c]) for c in 'ABC'), printed
+checks.append('K-1 p. 2: new Problem 2 wording; no cross-outs; A, B and C each fill the first box of three '
+              'empty rows, one more than the rows that can still happen')
 
 # 3. K-1 page 3: the swap rule without the chance sentence; P3's records without the second mat, at P4's size.
 t3 = ' '.join(k1[2].get_text().split())
@@ -94,9 +96,11 @@ p5top = next(b[1] for b in k1[3].get_text('blocks') if b[4].startswith('Problem 
 p4 = [r for r in boxes(k1[3], 'Problem 4') if r.width > 1.5 * CM and r.y1 < p5top]
 size3 = min(r.width for r in cards) / 72
 high3, high4 = min(r.height for r in cards) / 72, max(r.height for r in p4) / 72
-assert size3 >= 0.8 and high3 >= 0.85 and abs(high3 - high4) < 0.01, (size3, high3, high4)
+size_t = min(r.width for r in tix) / 72   # 1.4 cm since the Critic K follow-up, for a child's digit
+assert size3 >= 0.75 and high3 >= 0.85 and abs(high3 - high4) < 0.01 and size_t >= 0.55, (size3, high3, high4, size_t)
 checks.append(f'K-1 p. 3: no second mat under Problem 3; eight records of two tickets and three card boxes, '
-              f'card boxes {size3:.2f} x {high3:.2f} in (before, 0.41 x 0.55 in), as tall as P4\'s')
+              f'card boxes {size3:.2f} x {high3:.2f} in (before, 0.41 x 0.55 in), as tall as P4\'s; ticket boxes '
+              f'{size_t:.2f} in (0.39 in before the Critic K follow-up)')
 
 # 4. The key: the guide's source and the printed guide agree with the page and the enumeration.
 guide = json.loads((ROOT / 'facilitator-src' / 'guide.json').read_text())

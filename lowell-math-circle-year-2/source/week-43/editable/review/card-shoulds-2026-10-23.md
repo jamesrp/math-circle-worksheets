@@ -29,3 +29,13 @@ The theme remains unpiloted. The kit has been checked digitally but not cut out 
 ## Footer ids, later on October 23
 
 These changes reached the printed packets while their footers still carried the v2 ids of the earlier printings, so two printings shared each id. A footer-version sweep the same day raised `version` in `week.toml` to v3, so every packet, route packet and the key view now print v3 ids. The rebuilt packets differ from the previous ones only in the footer: the extracted text is identical after the id swap, and the differing pixels lie in the footer row.
+
+## Critic follow-up, later on October 23
+
+An independent critic reviewed the day's changes (every count and key rechecked by its own scripts; no error found) and asked for three more:
+
+- **K–1 Problem 2 (should):** two rows per first card made six rows for the six answers, the "boxes answer every" pattern removed elsewhere today. Each first card now heads three rows, its picture in the first box.
+- **K–1 Problem 3 (could):** ticket boxes 1.4 cm (0.55 in, from 0.39 in), so a kindergartner can write a digit; card boxes 0.76 in wide (from 0.81) to make room, still 0.87 in tall like Problem 4's.
+- **Kit (could):** a second 2 and 3, labelled "second set for K–1 Problem 4", so a child removes a ticket from the first set while the second set stays whole; guide p. 2 lists it. `materials/verify_materials.py` expects seven tickets.
+
+Ids: W43-k-1-v4 (`version` in the K–1 band of `week.toml`), kit W43-M-v2. The K–1 packet changed only on pp. 2–3 (and footers), the guide only on p. 2. `review/verify_card_fixes_2026_10_23.py` checks the new K–1 layout (three rows per card, larger ticket boxes). A clean rebuild from the extracted ZIP passes `verify_revision.py`, `verify_math.py`, both card verifiers and the kit verifier.
