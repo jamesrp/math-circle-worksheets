@@ -10,7 +10,7 @@ kernel = "Regrouping the right pieces and the up pieces shows the two lengths ar
 Follow both staircases with string. Compare the two pieces of string.
 
 ## prompt
-Compare the lengths of these two staircases. Find their exact lengths using the width and height.
+Compare the lengths of these two staircases. Find the exact length of each staircase.
 
 ## figure
 diagram(42, [(stairs(1), 'line width=1.8pt'), ([(0,0),(0,60),(80,60),(80,120),(160,120)], 'dashed,line width=1.4pt')])

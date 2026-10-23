@@ -2,7 +2,7 @@
 id = "w50.fewest-turns"
 title = "Fewest turns inside the strip"
 grades = ["K-1", "2-3", "4-5"]
-route = "return"
+route = ["first", "return"]   # first visits reach it when a pair finishes Problems 1-3
 kernel = "Inside the 15 mm strip the fewest turns is 8: a horizontal piece spans at most 40 mm, and 20 mm at either end."
 +++
 
@@ -16,7 +16,7 @@ Find the fewest turns possible for an S-to-F staircase inside the gray strip. It
 diagram(45, corridor=15)
 
 ## text @10,184 w=174 [2-3, 4-5]
-The gray strip reaches 15 mm vertically above and below the dotted diagonal, clipped by the rectangle.
+The gray strip reaches 15 mm vertically above and below the dotted diagonal.
 
 ## figure
 calibration()

@@ -7,10 +7,10 @@ kernel = "Staircases can come as close to the diagonal as you like, yet every on
 +++
 
 ## prompt [K-1]
-Make a staircase that stays inside the gray strip, closer to the shortcut than this one reaches. Compare the staircase lengths with string.
+Make a staircase inside the gray strip. Compare its length with this one using string.
 
 ## prompt
-Make a staircase inside the gray strip, with a smaller greatest vertical gap from the diagonal than this path. Compare the two staircase lengths with the diagonal's length.
+Make a staircase inside the gray strip. Compare the two staircase lengths with the diagonal's length.
 
 ## figure
 diagram(45, [(stairs(4), 'line width=1.1pt')], corridor=15)

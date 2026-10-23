@@ -7,7 +7,7 @@ kernel = "The right and left pieces still end 160 mm to the right, but together 
 +++
 
 ## prompt
-Find this path's exact length. It goes left once. Explain which part of your argument about right-and-up staircases no longer applies.
+Find this path's exact length. Explain which part of your argument about right-and-up staircases no longer applies.
 
 ## figure
 left_once(42)

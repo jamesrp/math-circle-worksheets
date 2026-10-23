@@ -43,6 +43,8 @@ Every right-and-up staircase across the 160 × 120 mm rectangle measures 280 mm,
 10. **could**, materials (untested): give K–1 a 30 cm pipe cleaner. It holds corners, and every staircase leaves about the same tail past F.
 11. **could**, guide: state the eight-turn optimum in the overview.
 
+**Done, October 23, 2026.** Converted to problem files, then shoulds 1–7 and coulds 8–11 made in the problem files and the guide. Fix 1's bar is one 70 mm bar captioned "the pieces in a row"; fix 5's label is B's (the up piece of 20) after the relettering; fix 6's launch follows the single bar; fix 2's 7.5 mm strip has 16 turns as its exact minimum, by the card's bound and witness. Fix 10's pipe cleaner is in the guide's materials, untried. Changes and checks: `lowell-math-circle-year-2/source/week-50/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 Week 26 uses the same projection for P ≥ 2(r + c). Weeks 67 and 69 rely on staircases being shortest grid routes, and Week 55 uses one as its certificate. Week 72's robot walks the same staircases, whose areas differ while their lengths agree, so the two weeks make a good return-visit pair. Only Week 50 has the paradox and the corridor bound. No merge.

@@ -80,7 +80,8 @@ print('permutation move counts',Counter(len(run(s))-1 for s in permutations((0,1
 wide=[(0,0),(20,0),(20,30),(60,30),(60,60),(100,60),(100,90),(140,90),(140,120),(160,120)]
 narrow=[(0,0),(0,F(15,2))]
 for i in range(1,9):narrow.extend([(20*i,15*i-F(15,2)),(20*i,min(120,15*i+F(15,2)))])
-for ps,d in [(wide,F(15)),(narrow,F(8))]:
+# The narrow strip is 7.5 mm since the October 23, 2026 card fixes (8 mm before).
+for ps,d in [(wide,F(15)),(narrow,F(15,2))]:
  assert ps[0]==(0,0) and ps[-1]==(160,120)
  assert all((a==c and b<e) or (b==e and a<c) for (a,b),(c,e) in zip(ps,ps[1:]))
  assert max(abs(y-F(3,4)*x) for x,y in ps)<=d
@@ -89,6 +90,8 @@ print('wide witness turns',len(wide)-2,'narrow maximum gap',max(abs(y-F(3,4)*x) 
 # At <=7 turns, <=8 alternating nonzero segments. Max horizontal travel:
 # at most 4 horizontal segments; at least one is an endpoint segment, span <=20.
 assert 20+3*40<160
+# In the 7.5 mm strip, <=15 turns give <=8 horizontal segments of <=20 mm, one an endpoint segment of <=10.
+assert 10+7*20<160 and len(narrow)-2==16
 for route in [[(0,0),(80,0),(80,40),(40,40),(40,80),(160,80),(160,120)],[(0,0),(120,0),(120,90),(80,90),(80,120),(160,120)]]:
  assert sum(abs(a-c)+abs(b-e) for (a,b),(c,e) in zip(route,route[1:]))==360
 

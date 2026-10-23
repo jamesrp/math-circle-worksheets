@@ -44,14 +44,17 @@ def example():
     pts = [(15, 56), (25, 56), (25, 36), (55, 36), (55, 26)]
     for a, b in zip(pts, pts[1:]):
         s += line(*a, *b, 'line width=1pt')
-    for x, y, t in [(20, 61, 'A: 10'), (17, 45, 'C: 20'), (40, 31, 'B: 30'), (63, 30, 'D: 10')]:
+    # The pieces are lettered in path order (October 23, 2026; before, A and B were the
+    # right pieces and C and D the up pieces, in two bars). B's label sits beside B.
+    for x, y, t in [(20, 61, 'A: 10'), (31, 46, 'B: 20'), (40, 31, 'C: 30'), (63, 30, 'D: 10')]:
         s += label(x, y, t, 9)
     s += line(73, 43, 86, 43, '-{Stealth[length=2mm]}')
-    s += rect(96, 28, 10, 7, 'fill=gray!15')+rect(106, 28, 30, 7, 'fill=gray!15')
-    s += label(101, 31.5, 'A', 9)+label(121, 31.5, 'B', 9)+label(145, 31.5, '40 mm', 10)
-    s += rect(96, 48, 20, 7, 'fill=gray!15')+rect(116, 48, 10, 7, 'fill=gray!15')
-    s += label(106, 51.5, 'C', 9)+label(121, 51.5, 'D', 9)+label(145, 51.5, '30 mm', 10)
-    s += label(117, 23, 'right pieces', 10)+label(116, 43, 'up pieces', 10)
+    # One 70 mm bar: the pieces end to end, in path order.
+    x = 93
+    for t, w in (('A', 10), ('B', 20), ('C', 30), ('D', 10)):
+        s += rect(x, 39.5, w, 7, 'fill=gray!15')+label(x+w/2, 43, t, 9)
+        x += w
+    s += label(128, 34.5, 'the pieces in a row', 10)+label(x+10, 43, '70 mm', 10)
     return s
 
 

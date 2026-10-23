@@ -3,17 +3,17 @@ id = "w50.narrower-strip"
 title = "A narrower strip"
 grades = ["4-5"]
 route = "return"
-kernel = "Staying closer to the diagonal does not shorten a staircase: one inside an 8 mm strip is still 280 mm."
+kernel = "Halving the strip to 7.5 mm doubles the fewest turns to 16, and the staircase is still 280 mm."
 +++
 
 ## prompt
-Fit a staircase inside this narrower gray strip. Can the new staircase be shorter than the one you drew in the wider strip? Explain your answer.
+Make a staircase inside this narrower strip with as few turns as you can. Is it shorter than your staircase in the wider strip? Explain your answer.
 
 ## figure
-diagram(45, corridor=8)
+diagram(45, corridor=7.5)
 
 ## text @10,184 w=174
-The strip reaches 8 mm vertically above and below the diagonal, clipped by the rectangle.
+The strip reaches 7.5 mm vertically above and below the diagonal.
 
 ## figure
 calibration()
