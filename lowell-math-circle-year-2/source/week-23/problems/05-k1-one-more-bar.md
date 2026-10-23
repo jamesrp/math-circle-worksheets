@@ -3,7 +3,7 @@ id = "w23.k1-one-more-bar"
 title = "One more bar"
 grades = ["K-1"]
 route = "return"          # the guide calls Problems 5-6 reserves
-kernel = "Each two-bar machine becomes a sorter with exactly the right last bar: (1,2), (2,3) and (1,3) respectively."
+kernel = "Each two-bar machine becomes a sorter with exactly the right last bar: (1,2), (2,3) and (2,3) respectively."
 +++
 
 ## prompt

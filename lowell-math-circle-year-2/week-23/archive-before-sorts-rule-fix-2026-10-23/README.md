@@ -1,0 +1,3 @@
+# Archived Week 23 K–1 packet and guide (before the K–1 sorting-rule fix)
+
+`week-23-k-1.pdf` is F23-K-v3, whose p. 1 rule ended "The machine sorts when the fewest dots finish at the top." Read as printed, that asks only for the smallest card on top, which changes the answers to K–1 Problems 2, 4 and 6. On October 23, 2026 it was replaced by F23-K-v4, which says "The machine sorts when the cards finish in order: fewest dots at the top, most dots at the bottom." `week-23-facilitator.pdf` is the guide that named F23-K-v3; the current guide names F23-K-v4 and says "upper lane" in its overview. The grades 2–3 and 4–5 packets did not change. The current copies are in `../`.

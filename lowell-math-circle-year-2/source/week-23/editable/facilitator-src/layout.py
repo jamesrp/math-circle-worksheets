@@ -45,6 +45,6 @@ def build(pages,path,week,topic):
   story.extend(page)
  def deco(c,doc):
   c.setFont('Helvetica',8);c.setFillColor(colors.HexColor('#54616a'));c.drawString(42,766,f'Bellingham Math Circle / Week {week} / {topic} / Facilitator guide')
-  c.drawString(42,24,'Draft and unpiloted / Unscheduled library slot / 2026-10-03, revised 2026-10-23');c.drawRightString(570,24,str(doc.page))
+  c.drawString(42,24,'Draft and unpiloted / Unscheduled library slot / 2026-10-03, revised 2026-10-23 for F23-K-v4');c.drawRightString(570,24,str(doc.page))
  doc=SimpleDocTemplate(str(path),pagesize=(612,792),rightMargin=42,leftMargin=42,topMargin=47,bottomMargin=43,title=f'Week {week} {topic} facilitator guide',author='Bellingham Math Circle')
  doc.build(story,onFirstPage=deco,onLaterPages=deco)

@@ -58,8 +58,12 @@ by_id = {a.meta['id']: a for a in week.atoms}
 
 # Shoulds 2 and 3: the rules, as printed on p. 1 of each band.
 k1 = text(build / 'k-1.pdf', 1)
-ok('Cards move left to right. At each bar, look at the two cards at its ends: the one with fewer dots goes up. Equal cards stay. '
-   'The bars stay the same for every start. The machine sorts when the fewest dots finish at the top.' in k1, 'K-1 rule')
+# The last sentence was the card's "The machine sorts when the fewest dots finish at the top." until the
+# Critic L must later the same day restored the whole order (verify_sorts_rule_2026_10_23.py); either passes here.
+ok(any('Cards move left to right. At each bar, look at the two cards at its ends: the one with fewer dots goes up. Equal cards stay. '
+       'The bars stay the same for every start. ' + last in k1
+       for last in ('The machine sorts when the fewest dots finish at the top.',
+                    'The machine sorts when the cards finish in order: fewest dots at the top, most dots at the bottom.')), 'K-1 rule')
 ok('fewer dots go above' not in k1 and 'black dots' not in k1, 'K-1 rule no longer calls bar ends dots')
 for band in ('grades-2-3', 'grades-4-5'):
     t = text(build / f'{band}.pdf', 1)
@@ -95,13 +99,14 @@ ok('Problem 7:' in p7 and 'explain why fewer bars cannot work.' in p7 and 'Count
 # Footers.
 for band, tag, pages in (('k-1', 'K', 6), ('grades-2-3', '23', 6), ('grades-4-5', '45', 7)):
     t = text(build / f'{band}.pdf')
-    ok(len(t) == pages and all(f'Bellingham Math Circle / Week 23 / F23-{tag}-v3' in x for x in t), band + ' footers v3')
+    vs = ('v3', 'v4') if tag == 'K' else ('v3',)  # K-1 went to v4 with the Critic L must
+    ok(len(t) == pages and all(any(f'Bellingham Math Circle / Week 23 / F23-{tag}-{v}' in x for v in vs) for x in t), band + ' footers v3')
 
 # ---------------------------------------------------------------- the guide
 g = text(build / 'facilitator-guide.pdf')
 G = ' '.join(g)
 ok(len(g) == 13, 'guide is the overview plus 12 pages')
-ok('F23-K-v3, F23-23-v3 and F23-45-v3' in G, 'guide names the v3 packets')
+ok(any(f'F23-K-{v}, F23-23-v3 and F23-45-v3' in G for v in ('v3', 'v4')), 'guide names the v3 packets (K-1 v4 after the Critic L must)')
 T = [(1, 2), (2, 3)]
 # Should 6: rehearse and run 312, which sorts (231, the old rehearsal, is a failure P1 asks for).
 ok('rehearse input 312 on bars (1,2), (2,3)' in g[1] and 'start 312 on bars (1,2), (2,3), which sorts' in g[1], 'launch runs 312')
