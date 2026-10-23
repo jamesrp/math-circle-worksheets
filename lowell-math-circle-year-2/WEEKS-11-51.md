@@ -34,7 +34,7 @@ Later on October 23, 2026 Week 29 was stored as problem files, with no wording c
 
 | Week and activity | K–1 | Grades 2–3 | Grades 4–5 | Adult guide | Editable source |
 |---|---|---|---|---|---|
-| 11. Chip firing with a sink | [PDF](week-11/week-11-k-1.pdf) | [PDF](week-11/week-11-grades-2-3.pdf) | [PDF](week-11/week-11-grades-4-5.pdf) | [PDF](week-11/week-11-facilitator.pdf) | [Sources](source/week-11/README.md) |
+| 11. Chip firing with a sink | [PDF](week-11/week-11-k-1.pdf) | [PDF](week-11/week-11-grades-2-3.pdf) | [PDF](week-11/week-11-grades-4-5.pdf) | [PDF](week-11/week-11-facilitator.pdf) | [Sources](source/week-11/README.md) (problem files) · [views](band-views/README.md#weeks-stored-as-problem-files) |
 | 12. Catalan bijections | [PDF](week-12/week-12-k-1.pdf) | [PDF](week-12/week-12-grades-2-3.pdf) | [PDF](week-12/week-12-grades-4-5.pdf) | [PDF](week-12/week-12-facilitator.pdf) | [Sources](source/week-12/README.md) (problem files) |
 | 13. Route packing and bottlenecks | [PDF](week-13/week-13-k-1.pdf) | [PDF](week-13/week-13-grades-2-3.pdf) | [PDF](week-13/week-13-grades-4-5.pdf) | [PDF](week-13/week-13-facilitator.pdf) | [Sources](source/week-13/README.md) |
 | 14. Polygon triangulations and flips | [PDF](week-14/week-14-k-1.pdf) | [PDF](week-14/week-14-grades-2-3.pdf) | [PDF](week-14/week-14-grades-4-5.pdf) | [PDF](week-14/week-14-facilitator.pdf) | [Sources](source/week-14/README.md) |
