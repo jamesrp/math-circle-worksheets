@@ -58,6 +58,8 @@ Both solid and dashed routes are \textbf{280 mm}. ...
 
 ## Converting a week on revision
 
+The adult guide and any materials pages are not stored in problem files, so a correction confined to the guide, or a new printable kit, does not wait for a conversion. Convert when a student problem's wording, figure or order changes.
+
 1. Claim the week on [WORKBOARD.md](../../../WORKBOARD.md).
 2. Write `week.toml`, `figures.py`, `guide/` and the problem files in `source/week-NN/`, carrying wording and figure code over unchanged. Keep the existing builder until the conversion passes.
 3. Build into `tmp/` and compare with the current print PDFs until pages, extracted text and 100-dpi pixels all match:
