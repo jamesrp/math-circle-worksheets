@@ -6,5 +6,8 @@ grades = ["4-5"]
 route = "first"
 +++
 
+## text
+Extra workspace for Problem 1.
+
 ## figure
 clean_copies()

@@ -28,7 +28,7 @@ All eight pairs of closing arrows on the bowtie are below. Here brackets mean â€
 Completeness: if a path from s to C and a path from C to t both survive, concatenate them to get a whole route. So at least one half must be entirely blocked. Each half has two independent branches; blocking it with exactly two arrows requires one closure on each branch. A mixed pair with one arrow on each half cannot block either half.
 
 ## key [K-1]
-Exactly eight pairs; use the list and completeness proof on page 6. The final page has a large working board and eight small recording copies. Mark a different successful pair on each; a marker rearrangement alone does not preserve the record.
+Exactly eight pairs; use the list and completeness proof on page 6. K-1 page 5 has a large working board and ten small recording copies, so the copies do not give the count away. Mark a different successful pair on each; a marker rearrangement alone does not preserve the record.
 
 ## hints
 Hint ladder: cover the right half temporarily; ask what it takes to stop reaching C; then repeat on the other half.

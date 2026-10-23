@@ -10,7 +10,7 @@ kernel = "Three arrows leave Start and three enter Finish, but every route must 
 Find the largest collection of routes on this board. Close as few arrows as possible to stop every route. Explain how you know your collection cannot be larger.
 
 ## prompt [4-5]
-Find a largest route collection and a smallest set of closing arrows. Explain why your closing arrows stop every route and why the two answers show that your collection is largest.
+Find a largest route collection and a smallest set of closing arrows. Explain why your closing arrows stop every route, and how you know your collection cannot be larger.
 
 ## figure [2-3]
 bottleneck_23()

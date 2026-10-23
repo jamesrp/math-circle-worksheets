@@ -62,5 +62,17 @@ assert D['doubletrap']['augmentations']==[('s','B','A','C','E','D','t')]
 assert len(D['bowtie']['minimum_closures'])==8
 assert D['bottleneck']['residual_reachable']==['A','B','C','D','s']
 assert D['greedy']['winning_openings']==[('A','B')]
+# Card fixes, October 23, 2026: the guide claims added to the middle P4 and upper P4/P5 keys.
+inside='ABCDEFGHIJ'
+helps=[(u,v) for u in inside for v in inside if u!=v and (u,v) not in E['bottleneck'] and analyze(E['bottleneck']+((u,v),))['maximum']==3]
+assert len(helps)==16 and set(helps)=={(u,v) for u in 'ABCD' for v in 'GHIJ'}
+five={frozenset(c) for c in D['backward']['minimum_closures']}
+assert five=={frozenset(c) for c in ([('s','A'),('s','B')],[('s','B'),('A','C')],[('A','C'),('B','D')],[('A','C'),('D','t')],[('C','t'),('D','t')])}
+twice={c for c in five if any(len(edges(p)&c)==2 for p in paths(E['backward']))}
+assert twice=={frozenset([('s','B'),('A','C')]),frozenset([('A','C'),('B','D')]),frozenset([('A','C'),('D','t')])}
+for c in five:   # the answer is always no: a route using two cut arrows leaves at most one route beside it
+ for p in paths(E['backward']):
+  if len(edges(p)&c)==2: assert not any(edges(p).isdisjoint(edges(q)) for q in paths(E['backward']) if q!=p)
+assert D['greedy']['augmentations']==[('s','B','A','t')]
 (R/'math-checks.json').write_text(json.dumps(D,indent=2)+'\n')
 print(json.dumps({k:{f:v for f,v in d.items() if f not in ['collections','minimum_closures']} for k,d in D.items()},indent=2))

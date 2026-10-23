@@ -14,11 +14,11 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \fancyhead[L]{\fontsize{11}{13}\selectfont Week 13 / Route packing and bottlenecks / K--1}
-\fancyfoot[L]{\fontsize{9}{11}\selectfont Bellingham Math Circle / Week 13 / F13-K-v2}
+\fancyfoot[L]{\fontsize{9}{11}\selectfont Bellingham Math Circle / Week 13 / F13-K-v3}
 \fancyfoot[R]{\fontsize{9}{11}\selectfont\thepage}
 \begin{document}
 \fontsize{14}{18}\selectfont
-A route follows arrows from Start to Finish without visiting a dot twice. Routes may meet at dots, but each arrow can belong to only one route in a collection. Use a different color or line pattern for each route. A marker closes one arrow.
+A route follows arrows from Start to Finish. Routes may meet at dots, but each arrow can belong to only one route. Use a different color or line pattern for each route. A marker closes one arrow.
 \vspace{0.1in}
 \par\textbf{Problem 1:} Fit as many routes as you can on each board. Find another largest collection, if you can.
 
@@ -123,7 +123,7 @@ A route follows arrows from Start to Finish without visiting a dot twice. Routes
 
 
 \newpage
-\par\textbf{Problem 3:} Fit the most routes on each board. Then stop all travel with the same number of markers.
+\par\textbf{Problem 3:} Fit the most routes on each board. Then stop all travel with as few markers as you can.
 
 \vspace{0.26in}
 \begin{center}
@@ -274,6 +274,60 @@ A route follows arrows from Start to Finish without visiting a dot twice. Routes
 \end{tikzpicture}
 \end{center}
 \vspace{0.08in}
+\noindent\begin{minipage}{0.48\linewidth}\centering
+\begin{tikzpicture}[x=0.47cm,y=0.65cm,>={Stealth[length=2.1mm,width=1.4mm]},line cap=round,line join=round]
+\coordinate (s) at (0,0);
+\coordinate (A) at (3.5,2.2);
+\coordinate (B) at (3.5,-2.2);
+\coordinate (C) at (7,0);
+\coordinate (D) at (10.5,2.2);
+\coordinate (E) at (10.5,-2.2);
+\coordinate (t) at (14,0);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (s) -- (A);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (s) -- (B);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (A) -- (C);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (B) -- (C);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (C) -- (D);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (C) -- (E);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (D) -- (t);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (E) -- (t);
+\fill (s) circle (1.9pt);
+\node[left=2pt,font=\fontsize{8}{9}\selectfont] at (s) {Start};
+\fill (A) circle (1.9pt);
+\fill (B) circle (1.9pt);
+\fill (C) circle (1.9pt);
+\fill (D) circle (1.9pt);
+\fill (E) circle (1.9pt);
+\fill (t) circle (1.9pt);
+\node[right=2pt,font=\fontsize{8}{9}\selectfont] at (t) {Finish};
+\end{tikzpicture}\end{minipage}\hfill\begin{minipage}{0.48\linewidth}\centering
+\begin{tikzpicture}[x=0.47cm,y=0.65cm,>={Stealth[length=2.1mm,width=1.4mm]},line cap=round,line join=round]
+\coordinate (s) at (0,0);
+\coordinate (A) at (3.5,2.2);
+\coordinate (B) at (3.5,-2.2);
+\coordinate (C) at (7,0);
+\coordinate (D) at (10.5,2.2);
+\coordinate (E) at (10.5,-2.2);
+\coordinate (t) at (14,0);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (s) -- (A);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (s) -- (B);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (A) -- (C);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (B) -- (C);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (C) -- (D);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (C) -- (E);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (D) -- (t);
+\draw[->,line width=0.8pt,shorten >=2pt,shorten <=2pt] (E) -- (t);
+\fill (s) circle (1.9pt);
+\node[left=2pt,font=\fontsize{8}{9}\selectfont] at (s) {Start};
+\fill (A) circle (1.9pt);
+\fill (B) circle (1.9pt);
+\fill (C) circle (1.9pt);
+\fill (D) circle (1.9pt);
+\fill (E) circle (1.9pt);
+\fill (t) circle (1.9pt);
+\node[right=2pt,font=\fontsize{8}{9}\selectfont] at (t) {Finish};
+\end{tikzpicture}\end{minipage}
+\par\vspace{0.15in}
 \noindent\begin{minipage}{0.48\linewidth}\centering
 \begin{tikzpicture}[x=0.47cm,y=0.65cm,>={Stealth[length=2.1mm,width=1.4mm]},line cap=round,line join=round]
 \coordinate (s) at (0,0);

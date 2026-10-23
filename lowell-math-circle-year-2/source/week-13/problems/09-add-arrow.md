@@ -13,7 +13,7 @@ On each board, add one new arrow between two inside dots so that three routes fi
 add_arrow()
 
 ## key
-Upper board: add D to G. Three routes are s-A-D-E-G-H-t, s-B-D-G-I-t, and s-C-D-F-G-J-t. They meet at D and G but share no arrows. Lower board: impossible. Start has only two outgoing arrows, and the allowed new arrow cannot touch Start. Every collection is therefore bounded by 2.
+Upper board: any new arrow from A, B, C or D to G, H, I or J works (16 choices); it must jump past both two-arrow bottlenecks. With D to G, three routes are s-A-D-E-G-H-t, s-B-D-G-I-t, and s-C-D-F-G-J-t. They meet at D and G but share no arrows. Lower board: impossible. Start has only two outgoing arrows, and the allowed new arrow cannot touch Start. Every collection is therefore bounded by 2.
 
 ## hints
 Hint: before searching, ask whether there is a bottleneck the allowed move cannot change.

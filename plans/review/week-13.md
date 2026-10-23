@@ -48,6 +48,8 @@ Routes follow arrows from Start to Finish and may share dots but not arrows; a m
 13. **could**, K–1 P6 and 2–3 P6: add K–1 P3's three-branch board, a second-player win because closing a dead arrow is a spare move (my game-tree check).
 14. **could**, guide p. 3 menu: match context.md's hour (run, launch, tables, share), not free tracing and a 25–28 standing break.
 
+**Fixed October 23, 2026**, after the student pages became problem files: shoulds 1–7 and coulds 8–12 and 14 (v3 packets: K–1 P3 "with as few markers as you can", 4–5 P2 "how you know your collection cannot be larger", the 4–5 P5 change-walk also on both P1 boards, ten K–1 P5 copies, the shorter K–1 rules, X and Y in the worked visual, "Extra workspace" labels; guide pp. 2, 3, 5, 6, 8, 9, 10 and 11). Could 13 left for the organizer (a third game board changes the game); the return visit's repeated map is in its separate, unreviewed package. Record: `lowell-math-circle-year-2/source/week-13/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 Week 19 (antichains) shares the two-sided certificate and "maximal is not maximum" on another object; Week 53 shares the improve-then-certify arc and, in the app, the graph board with 39, 52 and 62. No other theme has max-flow/min-cut; no merge.

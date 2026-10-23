@@ -67,9 +67,12 @@ def diagram(name,letters=True,marks=None, yscale=1, compact=False):
     return '\n'.join(lines)
 
 
-def recording_grid(name):
+K1_RECORDING_COPIES=10   # K-1 P5: more copies than its 8 answers
+
+
+def recording_grid(name,copies=8):
     row=r'\noindent\begin{minipage}{0.48\linewidth}\centering'+'\n'+diagram(name,False,compact=True)+r'\end{minipage}\hfill\begin{minipage}{0.48\linewidth}\centering'+'\n'+diagram(name,False,compact=True)+r'\end{minipage}'
-    return ('\n'+r'\par\vspace{0.15in}'+'\n').join([row]*4)
+    return ('\n'+r'\par\vspace{0.15in}'+'\n').join([row]*(copies//2))
 
 
 def cancellation_example():
@@ -81,9 +84,9 @@ def cancellation_example():
 \draw[->] (.15,0)--(1.25,0);
 \draw[->,dashed] (3.25,0)--(2.15,0);
 \draw[->] (4.15,0)--(5.25,0);
-\foreach \x/\t in {.15/C,1.25/D,2.15/C,3.25/D,4.15/C,5.25/D}{\fill (\x,0) circle(1.5pt);\node[below=4pt,font=\small] at (\x,0){\t};}
-\node[font=\small] at (2.7,.22) {walk D to C};
-\node[font=\small] at (4.7,-.48) {C to D is now unused};
+\foreach \x/\t in {.15/X,1.25/Y,2.15/X,3.25/Y,4.15/X,5.25/Y}{\fill (\x,0) circle(1.5pt);\node[below=4pt,font=\small] at (\x,0){\t};}
+\node[font=\small] at (2.7,.22) {walk Y to X};
+\node[font=\small] at (4.7,-.48) {X to Y is now unused};
 \end{tikzpicture}\end{center}
 '''
 
@@ -150,7 +153,7 @@ def k1_routes_and_markers(): return boards(diagram('three_two',False),diagram('t
 def bottleneck_23(): return boards(diagram('bottleneck',yscale=1.15),tail=r'\vspace{0.45in}')      # grades 2-3 P2
 def bottleneck_45(): return boards(diagram('bottleneck',yscale=1.2))                              # grades 4-5 P2
 def k1_one_closure(): return boards(diagram('three_two',False),diagram('greedy',False))            # K-1 P4
-def k1_closure_pairs(): return boards(diagram('bowtie',False),tail=r'\vspace{0.08in}'+'\n'+recording_grid('bowtie'),space='0.08in')  # K-1 P5
+def k1_closure_pairs(): return boards(diagram('bowtie',False),tail=r'\vspace{0.08in}'+'\n'+recording_grid('bowtie',K1_RECORDING_COPIES),space='0.08in')  # K-1 P5
 def closure_pairs_23(): return boards(diagram('bowtie'),tail=r'\vspace{0.3in}')                   # grades 2-3 P3
 def add_arrow(): return boards(diagram('bottleneck'),diagram('endpoint_two'))                     # grades 2-3 P4
 def two_splits(): return boards(diagram('backward'),diagram('backward'))                          # grades 4-5 P3

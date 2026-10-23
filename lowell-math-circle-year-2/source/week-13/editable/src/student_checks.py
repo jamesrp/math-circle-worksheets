@@ -7,6 +7,12 @@ Moved unchanged from the old student builder (build_packets.py) when the pages b
 problem files. The boards and reserved routes are read from the problem files'
 figures.py, so the checks cover what the pages draw. Writes math_checks.json and
 prints a one-line summary.
+
+The October 23, 2026 card fixes added the checks at the end, for the claims the revised
+pages rely on: K-1 boards have no directed cycle (so K-1's rules need not forbid
+revisiting a dot), K-1 P5 prints more copies than its eight answers, the grades 4-5
+change-walk works on both Problem 1 boards, and the worked visual's letters are on no
+grades 4-5 board.
 """
 from pathlib import Path
 from itertools import combinations
@@ -18,7 +24,7 @@ for week in (ROOT/'problem-files', ROOT.parent):
     if (week/'figures.py').exists(): break
 else: sys.exit('Cannot find the Week 13 problem files (figures.py); see README.md.')
 sys.path.insert(0,str(week)); sys.dont_write_bytecode=True
-from figures import G, reserved, R1, RDOUBLE, RSTAIR, RBOT  # noqa: E402
+from figures import G, reserved, R1, RDOUBLE, RSTAIR, RBOT, K1_RECORDING_COPIES, cancellation_example  # noqa: E402
 
 def paths(g, closed=frozenset()):
     out=[]
@@ -101,5 +107,37 @@ for k in range(5):
 assert len(splits)>=2
 checks['backward']['two_edge_cuts_with_back_arrows']=splits
 assert [('s','A'),('A','C'),('C','B'),('B','D'),('D','t')] in paths(b)
+# Card fixes, October 23, 2026.
+def acyclic(g):
+    """No directed cycle: repeatedly remove dots with no incoming arrow."""
+    es=set(g['edges']); left=set(g['pos'])
+    while left:
+        free=[v for v in left if not any(b==v and a in left for a,b in es)]
+        if not free: return False
+        left-=set(free)
+    return True
+K1_BOARDS=['greedy','bowtie','diamond','funnel','three_two','three']
+assert all(acyclic(G[n]) for n in K1_BOARDS)
+assert not acyclic(G['backward'])   # the grades 4-5 board where "a dot twice" matters
+assert checks['three_two']['max_routes']==len(checks['three_two']['all_minimum_closures'][0])==2
+assert checks['three']['max_routes']==len(checks['three']['all_minimum_closures'][0])==3
+assert len(checks['bowtie']['all_minimum_closures'])==8<K1_RECORDING_COPIES
+def toggle(R,walk):
+    new=set(R)
+    for a,b in zip(walk,walk[1:]):
+        if (a,b) in new:new.remove((a,b))
+        elif (b,a) in new:new.remove((b,a))
+        else:new.add((a,b))
+    return new
+for name,R,size in (('greedy',R1,1),('doubletrap',RDOUBLE,1),('staircase',RSTAIR,2)):
+    g=G[name]; residual={'pos':g['pos'],'edges':[(b,a) if (a,b) in R else (a,b) for a,b in g['edges']]}
+    walks=paths(residual)
+    assert walks
+    for w in walks:
+        dots=['s']+[b for a,b in w]; new=toggle(R,dots)
+        assert new<=set(g['edges']) and sum(1 for a,b in new if a=='s')==size+1==checks[name]['max_routes']
+import re
+letters=set(re.findall(r'\d/([A-Z])[,}]',cancellation_example()))   # the dot letters of the worked visual
+assert letters=={'X','Y'} and not letters&{v for n in ('greedy','doubletrap','bottleneck','backward','staircase') for v in G[n]['pos']}
 (SRC/'math_checks.json').write_text(json.dumps(checks,indent=2))
 print('Verified',len(G),'networks.')
