@@ -7,7 +7,7 @@ kernel = "A whole cell's four children are whole and a cover cell's children can
 +++
 
 ## prompt @0
-A big square is split into four small squares. Could the total inside area go down? Could the outside-cover area go up? Explain why your answers work for any of these shapes.
+A big square is split into four small squares. Could the total inside area go down? Could the cover's area go up? Explain why your answers work for any of these shapes.
 
 ## figure
 split_picture()

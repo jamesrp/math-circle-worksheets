@@ -11,17 +11,18 @@
 \begin{document}
 \noindent\begin{tikzpicture}[x=1mm,y=-1mm,line width=.5pt]
 \path[use as bounding box] (0,0) rectangle (185,235);
-\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{12}{15}\selectfont] at (0,0) {Use whole squares inside the gray shape. Cover all squares with some gray area. A touch at an edge or corner adds no square.};
+\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{12}{15}\selectfont] at (0,0) {Whole squares are all gray. A cover uses every square with some gray in it. A touch at an edge or corner adds no square.};
 \draw[fill=gray!22] (12,25) rectangle ++(24,24);
 \node[anchor=center,inner sep=1pt,font=\fontsize{11}{13}\selectfont] at (24,55) {whole};
 \fill[gray!22] (63,49)--(87,49)--(87,25)--cycle;
 \draw[] (63,25) rectangle ++(24,24);
 \draw[line width=1pt] (63,49) -- (87,25);
 \node[anchor=center,inner sep=1pt,font=\fontsize{11}{13}\selectfont] at (75,55) {partial};
+\fill[gray!22] (104,25) rectangle (114,49);
 \draw[] (114,25) rectangle ++(24,24);
 \draw[line width=1.2pt] (114,25) -- (114,49);
 \node[anchor=center,inner sep=1pt,font=\fontsize{11}{13}\selectfont] at (126,55) {outside};
-\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,65) {\textbf{Problem 1:} Find an inside cover and an outside cover for the triangle. Use as many whole inside squares and as few outside-cover squares as possible.};
+\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,65) {\textbf{Problem 1:} Mark all the whole squares inside the triangle. Cover the triangle with as few grid-square tiles as you can.};
 \fill[gray!22] (33.0,216.0) -- (153.0,216.0) -- (153.0,96.0) -- cycle;
 \draw[gray!70] (33.0,96) -- (33.0,216);
 \draw[gray!70] (33,96.0) -- (153,96.0);
@@ -39,7 +40,7 @@
 \newpage
 \noindent\begin{tikzpicture}[x=1mm,y=-1mm,line width=.5pt]
 \path[use as bounding box] (0,0) rectangle (185,235);
-\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,0) {\textbf{Problem 2:} Trap the diamond's area between an inside cover and an outside cover. Can you be certain its area is more than 3 big squares? Less than 13?};
+\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,0) {\textbf{Problem 2:} Trap the diamond's area between its whole squares and its cover. Can you be certain its area is more than 3 big squares? Less than 13?};
 \fill[gray!22] (33.0,98.0) -- (93.0,38.0) -- (153.0,98.0) -- (93.0,158.0) -- cycle;
 \draw[gray!70] (33.0,38) -- (33.0,158);
 \draw[gray!70] (33,38.0) -- (153,38.0);
@@ -53,7 +54,6 @@
 \draw[gray!70] (33,158.0) -- (153,158.0);
 \draw[line width=1pt] (33.0,98.0) -- (93.0,38.0) -- (153.0,98.0) -- (93.0,158.0) -- cycle;
 \node[anchor=north west,inner sep=0pt,text width=170mm,font=\fontsize{13}{16}\selectfont] at (10,175) {Inside: \rule{15mm}{.3pt} big-square units\\[5mm]Cover: \rule{15mm}{.3pt} big-square units};
-\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{12}{15}\selectfont] at (15,218) {One grid square is 1 big-square unit.};
 \end{tikzpicture}
 \newpage
 \noindent\begin{tikzpicture}[x=1mm,y=-1mm,line width=.5pt]
@@ -169,7 +169,7 @@
 \newpage
 \noindent\begin{tikzpicture}[x=1mm,y=-1mm,line width=.5pt]
 \path[use as bounding box] (0,0) rectangle (185,235);
-\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,0) {\textbf{Problem 6:} A big square is split into four small squares. Could the total inside area go down? Could the outside-cover area go up? Explain why your answers work for any of these shapes.};
+\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,0) {\textbf{Problem 6:} A big square is split into four small squares. Could the total inside area go down? Could the cover's area go up? Explain why your answers work for any of these shapes.};
 \draw[fill=gray!15] (7,37) rectangle ++(30,30);
 \node[anchor=center,inner sep=1pt,font=\fontsize{16}{18}\selectfont] at (44,52) {=};
 \draw[fill=gray!15] (51,37) rectangle ++(15,15);
@@ -192,50 +192,7 @@
 \draw[gray!70] (155.0,88) -- (155.0,118);
 \draw[gray!70] (125,118.0) -- (155,118.0);
 \draw[line width=1pt] (125.0,118.0) -- (155.0,118.0) -- (155.0,88.0) -- cycle;
-\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,166) {\textbf{Problem 7:} The original triangle on page 1 fits with a second copy into its 4-by-4 square. Find its exact area. Explain how that area fits between both pairs of bounds you found.};
-\node[anchor=north west,inner sep=0pt,text width=97mm,font=\fontsize{9}{12}\selectfont] at (5,198) {Smaller pictures of the original triangle; not to scale.};
-\fill[gray!22] (15.0,234.0) -- (38.0,234.0) -- (38.0,211.0) -- cycle;
-\draw[gray!70] (15.0,211) -- (15.0,234);
-\draw[gray!70] (15,211.0) -- (38,211.0);
-\draw[gray!70] (20.75,211) -- (20.75,234);
-\draw[gray!70] (15,216.75) -- (38,216.75);
-\draw[gray!70] (26.5,211) -- (26.5,234);
-\draw[gray!70] (15,222.5) -- (38,222.5);
-\draw[gray!70] (32.25,211) -- (32.25,234);
-\draw[gray!70] (15,228.25) -- (38,228.25);
-\draw[gray!70] (38.0,211) -- (38.0,234);
-\draw[gray!70] (15,234.0) -- (38,234.0);
-\draw[line width=1pt] (15.0,234.0) -- (38.0,234.0) -- (38.0,211.0) -- cycle;
-\fill[gray!22] (62.0,234.0) -- (85.0,234.0) -- (85.0,211.0) -- cycle;
-\draw[gray!70] (62.0,211) -- (62.0,234);
-\draw[gray!70] (62,211.0) -- (85,211.0);
-\draw[gray!70] (64.875,211) -- (64.875,234);
-\draw[gray!70] (62,213.875) -- (85,213.875);
-\draw[gray!70] (67.75,211) -- (67.75,234);
-\draw[gray!70] (62,216.75) -- (85,216.75);
-\draw[gray!70] (70.625,211) -- (70.625,234);
-\draw[gray!70] (62,219.625) -- (85,219.625);
-\draw[gray!70] (73.5,211) -- (73.5,234);
-\draw[gray!70] (62,222.5) -- (85,222.5);
-\draw[gray!70] (76.375,211) -- (76.375,234);
-\draw[gray!70] (62,225.375) -- (85,225.375);
-\draw[gray!70] (79.25,211) -- (79.25,234);
-\draw[gray!70] (62,228.25) -- (85,228.25);
-\draw[gray!70] (82.125,211) -- (82.125,234);
-\draw[gray!70] (62,231.125) -- (85,231.125);
-\draw[gray!70] (85.0,211) -- (85.0,234);
-\draw[gray!70] (62,234.0) -- (85,234.0);
-\draw[line width=.8pt] (62.0,211) -- (62.0,234);
-\draw[line width=.8pt] (62,211.0) -- (85,211.0);
-\draw[line width=.8pt] (67.75,211) -- (67.75,234);
-\draw[line width=.8pt] (62,216.75) -- (85,216.75);
-\draw[line width=.8pt] (73.5,211) -- (73.5,234);
-\draw[line width=.8pt] (62,222.5) -- (85,222.5);
-\draw[line width=.8pt] (79.25,211) -- (79.25,234);
-\draw[line width=.8pt] (62,228.25) -- (85,228.25);
-\draw[line width=.8pt] (85.0,211) -- (85.0,234);
-\draw[line width=.8pt] (62,234.0) -- (85,234.0);
-\draw[line width=1pt] (62.0,234.0) -- (85.0,234.0) -- (85.0,211.0) -- cycle;
-\node[anchor=north west,inner sep=0pt,text width=70mm,font=\fontsize{12}{15}\selectfont] at (112,202) {Exact area: \rule{15mm}{.3pt}\\big-square units};
+\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,166) {\textbf{Problem 7:} Find the exact area of the gray shape in Problem 5. Explain how it fits between the bounds you found there.};
+\node[anchor=north west,inner sep=0pt,text width=170mm,font=\fontsize{13}{16}\selectfont] at (15,186) {Exact area: \rule{15mm}{.3pt} big-square units};
 \end{tikzpicture}
 \end{document}

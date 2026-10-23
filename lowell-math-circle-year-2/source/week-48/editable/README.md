@@ -1,14 +1,18 @@
 # Week 48 Inside and outside covers editable source
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 23, 2026 card fixes
+
+The review card's should-fixes were made in the problem files and the guide: new shared rules that define a cover, every Problem 1 as K–1's, two boards side by side for the same-markings problem, a Grades 2–3 trapezoid page on both grids, Grades 4–5 Problem 7 on the trapezoid's exact area, and the guide's overview, materials, keys and hour plan. `materials/` builds a new tile sheet, `materials.pdf`: one card-stock sheet per pair with 16 big 30 mm and 16 small 15 mm tiles. `review/card-fixes-2026-10-23.md` lists every change and the checks; `src/check.py`, `materials/verify_materials.py` and `review/verify_card_fixes_2026_10_23.py` run them. Unpiloted; the sheet and the boards are physically unrehearsed.
+
+## Earlier release: October 4, 2026 fresh-review revision
 
 The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
-Current pages: **K–1 5; Grades 2–3 5; Grades 4–5 6; adult guide 4**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 5; Grades 2–3 6; Grades 4–5 6; adult guide 5; tile sheet 1**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
-The student pages are stored as problem files: `problem-files/week.toml`, `problem-files/figures.py` and one file per problem in `problem-files/problems/`, with each band's wording inside it (in the repository, `lowell-math-circle-year-2/source/week-48/`). `src/regenerate.py` writes the band LaTeX from them, and `src/build.sh` runs it before compiling, so `build.py` here and the problem-file tools (`problem-files/tools/build.py`) give the same student PDFs. The conversion, on October 23, 2026, changed no wording or figure: the regenerated LaTeX is byte-identical to the old builder's (`make.py`, archived in the project).
+The student pages are stored as problem files: `problem-files/week.toml`, `problem-files/figures.py` and one file per problem in `problem-files/problems/`, with each band's wording inside it (in the repository, `lowell-math-circle-year-2/source/week-48/`). `src/regenerate.py` writes the band LaTeX from them, and `src/build.sh` runs it before compiling, so `build.py` here and the problem-file tools (`problem-files/tools/build.py`) give the same student PDFs. The conversion, on October 23, 2026, changed no wording or figure: the regenerated LaTeX was byte-identical to the old builder's (`make.py`, archived in the project). The card fixes followed it the same day.
 
 ## Rebuild outside the project
 
@@ -17,6 +21,8 @@ Extract the complete ZIP. Install Python 3 with `requirements.txt`, a normal TeX
     python3 -m pip install -r requirements.txt
     python3 build.py
     python3 verify_revision.py
+    python3 verify_math.py
+    python3 review/verify_card_fixes_2026_10_23.py
 
 The current verifier compares paper geometry and every 100-dpi rendered page against `reference-pdfs/`; timestamps may differ. It permits only specifically audited full-page font/hyphenation alternatives for unchanged student PDFs. See `review/fresh-review-rebuild.md` for actual results. The original strict verifier (`verify_rebuild.py` or `verify.py`) is retained and rejects those alternatives. The corpus report explicitly records any pre-existing small TeX font-metric differences for unchanged student bands; their current print/reference PDFs stay byte-identical. For Weeks 24 and 35, the detailed student-stage record is `review/student-reviser-fresh-review.md`. The corpus release report records those differences explicitly rather than calling them pixel-identical.
 

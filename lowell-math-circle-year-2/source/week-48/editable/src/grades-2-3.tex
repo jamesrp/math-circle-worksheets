@@ -11,17 +11,18 @@
 \begin{document}
 \noindent\begin{tikzpicture}[x=1mm,y=-1mm,line width=.5pt]
 \path[use as bounding box] (0,0) rectangle (185,235);
-\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{12}{15}\selectfont] at (0,0) {Use whole squares inside the gray shape. Cover all squares with some gray area. A touch at an edge or corner adds no square.};
+\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{12}{15}\selectfont] at (0,0) {Whole squares are all gray. A cover uses every square with some gray in it. A touch at an edge or corner adds no square.};
 \draw[fill=gray!22] (12,25) rectangle ++(24,24);
 \node[anchor=center,inner sep=1pt,font=\fontsize{11}{13}\selectfont] at (24,55) {whole};
 \fill[gray!22] (63,49)--(87,49)--(87,25)--cycle;
 \draw[] (63,25) rectangle ++(24,24);
 \draw[line width=1pt] (63,49) -- (87,25);
 \node[anchor=center,inner sep=1pt,font=\fontsize{11}{13}\selectfont] at (75,55) {partial};
+\fill[gray!22] (104,25) rectangle (114,49);
 \draw[] (114,25) rectangle ++(24,24);
 \draw[line width=1.2pt] (114,25) -- (114,49);
 \node[anchor=center,inner sep=1pt,font=\fontsize{11}{13}\selectfont] at (126,55) {outside};
-\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,65) {\textbf{Problem 1:} Find an inside cover and an outside cover for the triangle. Use as many whole inside squares and as few outside-cover squares as possible.};
+\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,65) {\textbf{Problem 1:} Mark all the whole squares inside the triangle. Cover the triangle with as few grid-square tiles as you can.};
 \fill[gray!22] (33.0,216.0) -- (153.0,216.0) -- (153.0,96.0) -- cycle;
 \draw[gray!70] (33.0,96) -- (33.0,216);
 \draw[gray!70] (33,96.0) -- (153,96.0);
@@ -39,7 +40,7 @@
 \newpage
 \noindent\begin{tikzpicture}[x=1mm,y=-1mm,line width=.5pt]
 \path[use as bounding box] (0,0) rectangle (185,235);
-\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,0) {\textbf{Problem 2:} Trap the diamond's area between an inside cover and an outside cover. Can you be certain its area is more than 3 big squares? Less than 13?};
+\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,0) {\textbf{Problem 2:} Trap the diamond's area between its whole squares and its cover. Can you be certain its area is more than 3 big squares? Less than 13?};
 \fill[gray!22] (33.0,98.0) -- (93.0,38.0) -- (153.0,98.0) -- (93.0,158.0) -- cycle;
 \draw[gray!70] (33.0,38) -- (33.0,158);
 \draw[gray!70] (33,38.0) -- (153,38.0);
@@ -53,7 +54,6 @@
 \draw[gray!70] (33,158.0) -- (153,158.0);
 \draw[line width=1pt] (33.0,98.0) -- (93.0,38.0) -- (153.0,98.0) -- (93.0,158.0) -- cycle;
 \node[anchor=north west,inner sep=0pt,text width=170mm,font=\fontsize{13}{16}\selectfont] at (10,175) {Inside: \rule{15mm}{.3pt} big-square units\\[5mm]Cover: \rule{15mm}{.3pt} big-square units};
-\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{12}{15}\selectfont] at (15,218) {One grid square is 1 big-square unit.};
 \end{tikzpicture}
 \newpage
 \noindent\begin{tikzpicture}[x=1mm,y=-1mm,line width=.5pt]
@@ -144,18 +144,70 @@
 \newpage
 \noindent\begin{tikzpicture}[x=1mm,y=-1mm,line width=.5pt]
 \path[use as bounding box] (0,0) rectangle (185,235);
-\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,0) {\textbf{Problem 5:} Draw two different shapes, one at a time, with exactly 4 whole gray squares and 4 partly gray squares. Make one area less than 5 big-square units and the other greater than 7.};
-\draw[gray!70] (33.0,44) -- (33.0,164);
-\draw[gray!70] (33,44.0) -- (153,44.0);
-\draw[gray!70] (63.0,44) -- (63.0,164);
-\draw[gray!70] (33,74.0) -- (153,74.0);
-\draw[gray!70] (93.0,44) -- (93.0,164);
-\draw[gray!70] (33,104.0) -- (153,104.0);
-\draw[gray!70] (123.0,44) -- (123.0,164);
-\draw[gray!70] (33,134.0) -- (153,134.0);
-\draw[gray!70] (153.0,44) -- (153.0,164);
-\draw[gray!70] (33,164.0) -- (153,164.0);
-\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,189) {\textbf{Problem 6:} Could your shape's area be smaller than 4 big squares? Greater than 8? Decide what the square markings guarantee.};
-\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{12}{15}\selectfont] at (15,223) {One grid square is 1 big-square unit.};
+\draw[fill=gray!15] (7,0) rectangle ++(30,30);
+\node[anchor=center,inner sep=1pt,font=\fontsize{16}{18}\selectfont] at (44,15) {=};
+\draw[fill=gray!15] (51,0) rectangle ++(15,15);
+\draw[fill=gray!15] (51,15) rectangle ++(15,15);
+\draw[fill=gray!15] (66,0) rectangle ++(15,15);
+\draw[fill=gray!15] (66,15) rectangle ++(15,15);
+\node[anchor=north west,inner sep=0pt,text width=83mm,font=\fontsize{12}{15}\selectfont] at (92,2) {1 big square\\ = 4 small squares};
+\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,43) {\textbf{Problem 5:} Trap this shape's area with big squares and then with small squares. Compare what happens to the area left uncertain with the triangle and the diamond.};
+\fill[gray!22] (48.0,91.0) -- (138.0,91.0) -- (123.0,181.0) -- (63.0,181.0) -- cycle;
+\draw[gray!70] (33.0,76) -- (33.0,196);
+\draw[gray!70] (33,76.0) -- (153,76.0);
+\draw[gray!70] (48.0,76) -- (48.0,196);
+\draw[gray!70] (33,91.0) -- (153,91.0);
+\draw[gray!70] (63.0,76) -- (63.0,196);
+\draw[gray!70] (33,106.0) -- (153,106.0);
+\draw[gray!70] (78.0,76) -- (78.0,196);
+\draw[gray!70] (33,121.0) -- (153,121.0);
+\draw[gray!70] (93.0,76) -- (93.0,196);
+\draw[gray!70] (33,136.0) -- (153,136.0);
+\draw[gray!70] (108.0,76) -- (108.0,196);
+\draw[gray!70] (33,151.0) -- (153,151.0);
+\draw[gray!70] (123.0,76) -- (123.0,196);
+\draw[gray!70] (33,166.0) -- (153,166.0);
+\draw[gray!70] (138.0,76) -- (138.0,196);
+\draw[gray!70] (33,181.0) -- (153,181.0);
+\draw[gray!70] (153.0,76) -- (153.0,196);
+\draw[gray!70] (33,196.0) -- (153,196.0);
+\draw[line width=.8pt] (33.0,76) -- (33.0,196);
+\draw[line width=.8pt] (33,76.0) -- (153,76.0);
+\draw[line width=.8pt] (63.0,76) -- (63.0,196);
+\draw[line width=.8pt] (33,106.0) -- (153,106.0);
+\draw[line width=.8pt] (93.0,76) -- (93.0,196);
+\draw[line width=.8pt] (33,136.0) -- (153,136.0);
+\draw[line width=.8pt] (123.0,76) -- (123.0,196);
+\draw[line width=.8pt] (33,166.0) -- (153,166.0);
+\draw[line width=.8pt] (153.0,76) -- (153.0,196);
+\draw[line width=.8pt] (33,196.0) -- (153,196.0);
+\draw[line width=1pt] (48.0,91.0) -- (138.0,91.0) -- (123.0,181.0) -- (63.0,181.0) -- cycle;
+\node[anchor=north west,inner sep=0pt,text width=170mm,font=\fontsize{13}{16}\selectfont] at (10,207) {\begin{tabular}{@{}ll@{}}Big squares: & Inside \rule{15mm}{.3pt} \quad Cover \rule{15mm}{.3pt} big-square units\\[5mm]Small squares: & Inside \rule{15mm}{.3pt} \quad Cover \rule{15mm}{.3pt} big-square units\end{tabular}};
+\end{tikzpicture}
+\newpage
+\noindent\begin{tikzpicture}[x=1mm,y=-1mm,line width=.5pt]
+\path[use as bounding box] (0,0) rectangle (185,235);
+\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,0) {\textbf{Problem 6:} Draw two different shapes, each with exactly 4 whole gray squares and 4 partly gray squares. Make one area less than 5 big-square units and the other greater than 7.};
+\draw[gray!70] (4.0,30) -- (4.0,115);
+\draw[gray!70] (4,30.0) -- (89,30.0);
+\draw[gray!70] (25.25,30) -- (25.25,115);
+\draw[gray!70] (4,51.25) -- (89,51.25);
+\draw[gray!70] (46.5,30) -- (46.5,115);
+\draw[gray!70] (4,72.5) -- (89,72.5);
+\draw[gray!70] (67.75,30) -- (67.75,115);
+\draw[gray!70] (4,93.75) -- (89,93.75);
+\draw[gray!70] (89.0,30) -- (89.0,115);
+\draw[gray!70] (4,115.0) -- (89,115.0);
+\draw[gray!70] (96.0,30) -- (96.0,115);
+\draw[gray!70] (96,30.0) -- (181,30.0);
+\draw[gray!70] (117.25,30) -- (117.25,115);
+\draw[gray!70] (96,51.25) -- (181,51.25);
+\draw[gray!70] (138.5,30) -- (138.5,115);
+\draw[gray!70] (96,72.5) -- (181,72.5);
+\draw[gray!70] (159.75,30) -- (159.75,115);
+\draw[gray!70] (96,93.75) -- (181,93.75);
+\draw[gray!70] (181.0,30) -- (181.0,115);
+\draw[gray!70] (96,115.0) -- (181,115.0);
+\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{13}{16}\selectfont] at (0,132) {\textbf{Problem 7:} Could any shape with exactly 4 whole and 4 partly gray squares have area less than 4 big squares? More than 8? Decide what the square markings guarantee.};
 \end{tikzpicture}
 \end{document}

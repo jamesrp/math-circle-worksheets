@@ -37,9 +37,11 @@ def blanks(y, fine=False):
 
 
 def samples():
-    """Page 1: a whole, a partial and an outside cell."""
+    """Page 1: a whole, a partial and an outside cell; the outside cell's gray neighbour
+    shows that a touch at an edge adds no square."""
     s = rect(12, 25, 24, 24, 'fill=gray!22')+label(24, 55, 'whole', 11)
     s += r'\fill[gray!22] (63,49)--(87,49)--(87,25)--cycle;'+'\n'+rect(63, 25, 24, 24)+line(63, 49, 87, 25, 'line width=1pt')+label(75, 55, 'partial', 11)
+    s += r'\fill[gray!22] (104,25) rectangle (114,49);'+'\n'
     s += rect(114, 25, 24, 24)+line(114, 25, 114, 49, 'line width=1.2pt')+label(126, 55, 'outside', 11)
     return s
 
@@ -49,6 +51,13 @@ def split_picture():
     return legend(37)+shape(25, 88, 1, 'triangle', 30)+label(91, 103, r'$\longrightarrow$', 20)+shape(125, 88, 2, 'triangle', 30)
 
 
-def thumbnails():
-    """4-5 Problem 7: the page 1 triangle on both grids, small."""
-    return shape(15, 211, 4, 'triangle', 23)+shape(62, 211, 8, 'triangle', 23)
+def two_boards(y):
+    """K-1 and 2-3: two blank 85 mm boards side by side, one for each shape."""
+    return shape(4, y, 4, 'blank', 85)+shape(96, y, 4, 'blank', 85)
+
+
+def two_grid_blanks(y):
+    """2-3 trapezoid: inside and cover on the big grid and on the small grid."""
+    row = r'Inside \rule{15mm}{.3pt} \quad Cover \rule{15mm}{.3pt} big-square units'
+    return text(10, y, r'\begin{tabular}{@{}ll@{}}Big squares: & '+row+r'\\[5mm]Small squares: & '+row+r'\end{tabular}',
+                w=170, size=13)
