@@ -1,3 +1,3 @@
-# Week 30 revised student packets
+# Week 30 student packets
 
-Unpiloted. Rebuild with `bash build.sh` using Python 3, pdfLaTeX with TikZ and Helvetica, and Poppler (`pdftoppm`). The build runs two TeX passes and writes PDFs and QA renders to the parent directory. All source paths are relative.
+Unpiloted. The student pages are stored as problem files: `week.toml`, `figures.py` and `problems/` (in the portable ZIP, `../problem-files/`; in the project, `lowell-math-circle-year-2/source/week-30/`). Edit those, not the `.tex` files here. `regenerate.py` writes `k-1.tex`, `grades-2-3.tex` and `grades-4-5.tex` from them, compiles each twice with pdfLaTeX (TikZ, Helvetica) and copies the PDFs to the parent directory, with 60-dpi QA renders (Poppler `pdftoppm`) in `../qa/`. Run it with `bash build.sh`, or through the package's `build.py`. The old builder (`make_packets.py`, `draw.py`) is archived in the project.
