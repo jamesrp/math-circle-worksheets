@@ -42,8 +42,10 @@ def record(x, y, vals=None):
 
 
 def mats(y=60):
-    """The paired old and new four-station cube mats."""
-    return ring(20, y, None, 52, 20, squares=True)+ring(113, y, None, 52, 20, squares=True)
+    """The paired old and new four-station cube mats: 36 mm stations, centres 52 mm
+    apart, a 9 mm gap between the mats and the page-1 arrow from old to new."""
+    return (ring(18, y, None, 52, 18, squares=True)+ring(115, y, None, 52, 18, squares=True)
+            + line(78, y+26, 107, y+26, '-{Stealth[length=3mm]}'))
 
 
 def moves_row(x, y, tx, w):
@@ -67,9 +69,47 @@ def four_starts():
 
 def big_mats():
     """Page 2: the labelled old and new four-station mats."""
-    return label(46, 43, 'old', 12)+label(139, 43, 'new', 12)+mats(71)
+    return label(44, 43, 'old', 12)+label(141, 43, 'new', 12)+mats(71)
 
 
-def three_station_mats():
-    """The three-station starts' labelled old and new mats."""
-    return label(46, 91, 'old', 12)+label(139, 91, 'new', 12)+ring(20, 119, [None]*3, 52, 20, squares=True)+ring(113, 119, [None]*3, 52, 20, squares=True)
+def three_station_mats(y=104):
+    """The three-station starts' labelled old and new mats, spaced as the four-station ones."""
+    return (label(44, y-28, 'old', 12)+label(141, y-28, 'new', 12)
+            + ring(18, y, [None]*3, 52, 18, squares=True)+ring(115, y, [None]*3, 52, 18, squares=True)
+            + line(70, y, 111, y, '-{Stealth[length=3mm]}'))
+
+
+def abc_rows(x, y, first=1, n=3):
+    """A block of A-B-C record rows, numbered by move."""
+    s = ''
+    for i in range(3):
+        s += label(x+i*14+7, y-4, 'ABC'[i], 9)
+    for r in range(n):
+        s += label(x-6, y+r*11+5.5, str(first+r), 10)
+        for i in range(3):
+            s += rect(x+i*14, y+r*11, 14, 11)
+    return s
+
+
+def three_station_records(y=190):
+    """Six numbered A-B-C rows for the three-station run, in two blocks."""
+    return abc_rows(30, y, 1)+abc_rows(120, y, 4)
+
+
+def old_row(x, y):
+    """A four-box row for an old ring, labelled old."""
+    return label(x-8, y+5.5, 'old', 10)+record(x, y)
+
+
+def letter_runs(y):
+    """Four columns of A-B-C-D letter boxes, each a start (move 0) and four moves."""
+    s = label(5, y-4, 'move', 8)
+    for r in range(5):
+        s += label(5, y+r*9+4.5, str(r), 10)
+    for c in range(4):
+        x = 14+c*44
+        for i in range(4):
+            s += label(x+i*9+4.5, y-4, 'ABCD'[i], 9)
+            for r in range(5):
+                s += rect(x+i*9, y+r*9, 9, 9)
+    return s

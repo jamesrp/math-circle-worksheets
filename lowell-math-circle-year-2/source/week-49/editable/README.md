@@ -1,6 +1,10 @@
 # Week 49 Four towers and differences editable source
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 23, 2026 card fixes
+
+The review card's shoulds and clear coulds were made in the problem files and the guide: new printed orders and blank rings so no page shows an answer, 36 mm stations with a 9 mm gap and an arrow between the old and new mats, record rows on the three-station, predecessor and parity pages, the all-zero rule on page 1, new Grades 4–5 scaling starts, one theme name ("Four towers and differences"), and the guide's materials (40 cubes per pair), launch, hour and keys. `review/card-fixes-2026-10-23.md` lists every change and the checks; `src/check.py` and `review/verify_card_fixes_2026_10_23.py` run them. Unpiloted; the respaced mats are physically unrehearsed.
+
+## Earlier release: October 4, 2026 fresh-review revision
 
 The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
 
@@ -8,7 +12,7 @@ This is an unpiloted theme library, not a fixed meeting schedule. Select a manag
 
 Current pages: **K–1 5; Grades 2–3 5; Grades 4–5 6; adult guide 4**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
-The student pages are stored as problem files: `problem-files/week.toml`, `problem-files/figures.py` and one file per problem in `problem-files/problems/`, with each band's wording inside it (in the repository, `lowell-math-circle-year-2/source/week-49/`). `src/regenerate.py` writes the band LaTeX from them, and `src/build.sh` runs it before compiling, so `build.py` here and the problem-file tools (`problem-files/tools/build.py`) give the same student PDFs. The conversion, on October 23, 2026, changed no wording or figure: the PDFs match the previous ones in text and 100-dpi pixels (`make.py`, the old builder, is archived in the project).
+The student pages are stored as problem files: `problem-files/week.toml`, `problem-files/figures.py` and one file per problem in `problem-files/problems/`, with each band's wording inside it (in the repository, `lowell-math-circle-year-2/source/week-49/`). `src/regenerate.py` writes the band LaTeX from them, and `src/build.sh` runs it before compiling, so `build.py` here and the problem-file tools (`problem-files/tools/build.py`) give the same student PDFs. The conversion, on October 23, 2026, changed no wording or figure: the PDFs matched the previous ones in text and 100-dpi pixels (`make.py`, the old builder, is archived in the project). The card fixes followed it the same day.
 
 ## Rebuild outside the project
 
@@ -17,6 +21,8 @@ Extract the complete ZIP. Install Python 3 with `requirements.txt`, a normal TeX
     python3 -m pip install -r requirements.txt
     python3 build.py
     python3 verify_revision.py
+    python3 verify_math.py
+    python3 review/verify_card_fixes_2026_10_23.py
 
 The current verifier compares paper geometry and every 100-dpi rendered page against `reference-pdfs/`; timestamps may differ. It permits only specifically audited full-page font/hyphenation alternatives for unchanged student PDFs. See `review/fresh-review-rebuild.md` for actual results. The original strict verifier (`verify_rebuild.py` or `verify.py`) is retained and rejects those alternatives. The corpus report explicitly records any pre-existing small TeX font-metric differences for unchanged student bands; their current print/reference PDFs stay byte-identical. For Weeks 24 and 35, the detailed student-stage record is `review/student-reviser-fresh-review.md`. The corpus release report records those differences explicitly rather than calling them pixel-identical.
 

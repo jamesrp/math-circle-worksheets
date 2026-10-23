@@ -8,4 +8,4 @@ From this directory run:
 
     bash build.sh
 
-The script runs `regenerate.py`, which writes `k-1.tex`, `grades-2-3.tex` and `grades-4-5.tex` from the problem files, compiles the PDFs one directory above, and renders every page into ../qa/. `check.py` holds the checks the old builder ran; `checks.txt` records their results. The builder these files replaced, `make.py` with `draw.py`, is archived in the repository's `source/week-49/archive-before-problem-files-2026-10-23/`. Print on US Letter at 100 percent scale.
+The script runs `regenerate.py`, which writes `k-1.tex`, `grades-2-3.tex` and `grades-4-5.tex` from the problem files, compiles the PDFs one directory above, and renders every page into ../qa/. `check.py` holds the checks the old builder ran (`checks.txt` records their results) and, since the October 23, 2026 card fixes, checks of every changed order, run, count and key. The builder these files replaced, `make.py` with `draw.py`, is archived in the repository's `source/week-49/archive-before-problem-files-2026-10-23/`. Print on US Letter at 100 percent scale.

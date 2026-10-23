@@ -11,4 +11,4 @@ kernel = "A gap is never larger than the larger of its two heights, so no new to
 Can a new tower be taller than every old tower? Can the tallest height stay the same for a move? Give an explanation or an example for each claim.
 
 ## figure
-ring(25,181,[0,1,2,4],42,8)+ring(123,181,None,42,8)
+ring(25,181,None,42,8)+ring(123,181,None,42,8)

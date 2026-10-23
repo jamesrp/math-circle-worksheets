@@ -54,6 +54,8 @@ This is Ducci's four-number game: each tower becomes the gap to the next station
 10. could, the theme has three names: "Four-tower differences", "Four tower differences" and "Four towers and differences".
 11. could, bonus: page 1 says "Grades 2-5" and pages 2–3 say "Grades 4-5". In P3, change "within five rounds" to "by round 5" (math check, problem 4).
 
+**Done, October 23, 2026.** Converted to problem files, then shoulds 1–6 and coulds 7–10 made in the problem files and the guide (the mats as proposed; record rows in two numbered blocks of three, four-box old rows, and four start-and-four-moves letter columns on 4–5 P5); could 11 deferred because the bonus is not stored as problem files. Changes and checks: `lowell-math-circle-year-2/source/week-49/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 No other theme uses this object. Weeks 3 (iterate until a state repeats), 11 (a process that always stops) and 20 (a maximum that cannot grow) are kin with different objects and arguments. No merge.

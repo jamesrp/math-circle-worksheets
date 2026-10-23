@@ -7,10 +7,10 @@ route = ["first", "return"]
 +++
 
 ## text @0,0 size=12
-Use whole-number heights, including 0. Follow each arrow: the gap between its two old heights becomes the new height at its tail. Make every new tower before changing any old tower.
+Use whole-number heights, including 0. Follow each arrow: the gap between its two old heights becomes the new height at its tail. Make every new tower before changing any old tower. An all-zero start takes 0 moves.
 
 ## figure
 worked_example()
 
 ## text @15,111 size=12
-Edge A to B has gap 3, so new A is 3.\ All four gaps use the old ring.
+Edge A to B has gap 3, so new A is 3.

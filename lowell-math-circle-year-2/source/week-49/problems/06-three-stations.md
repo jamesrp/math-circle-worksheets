@@ -13,4 +13,4 @@ Try both starts with the same gap rule. Stop at all zeros or when the whole ring
 Use the gap rule on both rings. Keep going until the whole ring repeats or becomes all zeros. Does the number of stations change what can happen?
 
 ## figure
-ring(30,45,[1,0,0,0],28,6)+ring(127,45,[1,0,0],28,6)+three_station_mats()
+ring(30,30,[1,0,0,0],28,6)+ring(127,30,[1,0,0],28,6)+three_station_mats()+three_station_records()

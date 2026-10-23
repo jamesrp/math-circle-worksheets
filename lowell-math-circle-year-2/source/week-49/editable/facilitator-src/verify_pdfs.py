@@ -34,9 +34,10 @@ for n in [WEEK]:
   assert len(dimensions['coarse_cell_widths_mm'])==4 and len(dimensions['fine_cell_widths_mm'])==8
  elif n==49:
   for pageidx in [1,3]:
-   rects=[p['rect'] for p in k[pageidx].get_drawings() if abs(mm(p['rect'].width)-40)<.03 and abs(mm(p['rect'].height)-40)<.03]
+   # 36 mm stations since the October 23, 2026 card fixes (40 mm before), centres still 52 mm apart.
+   rects=[p['rect'] for p in k[pageidx].get_drawings() if abs(mm(p['rect'].width)-36)<.03 and abs(mm(p['rect'].height)-36)<.03]
    centers=[(round(mm((r.x0+r.x1)/2),2),round(mm((r.y0+r.y1)/2),2)) for r in rects]
-   dimensions[f'page{pageidx+1}_40mm_station_centers']=centers
+   dimensions[f'page{pageidx+1}_36mm_station_centers']=centers
    assert len(centers)==(8 if pageidx==1 else 6)
  elif n==50:
   b=[p['rect'] for p in k[1].get_drawings() if abs(mm(p['rect'].width)-160)<.03 and abs(mm(p['rect'].height)-120)<.03]
@@ -54,8 +55,10 @@ for n in [WEEK]:
   dimensions['unit_spacings_mm']=[round(b-a,2) for a,b in zip(xs,xs[1:])]
   assert all(abs(x-10)<.02 for x in dimensions['unit_spacings_mm'])
  pdf=f/'facilitator-guide.pdf';g=fitz.open(pdf)
- assert len(g)==3
- for p in g:
+ assert len(g)==4  # three guide pages and the appended route page (October 23, 2026)
+ for i,p in enumerate(g):
+  # The appended route page (add_route_note.py) right-aligns its page number at 567 pt.
+  right=567 if i==len(g)-1 else 565
   assert p.rect.width==612 and p.rect.height==792
   for block in p.get_text('dict')['blocks']:
    if 'lines' not in block:continue
@@ -63,7 +66,7 @@ for n in [WEEK]:
     for s in line['spans']:
      assert all(c not in s['text'] for c in ['\ufffd','\u25a0']),s['text']
      # Header/footer may live outside the body box, but all content fits page margins.
-     x0,y0,x1,y1=s['bbox'];assert x0>=45 and x1<=565 and y0>=15 and y1<=772,(n,s['text'],s['bbox'])
+     x0,y0,x1,y1=s['bbox'];assert x0>=45 and x1<=right+.01 and y0>=15 and y1<=772,(n,s['text'],s['bbox'])
  records[n]={'pages':len(g),'sha256':hashlib.sha256(pdf.read_bytes()).hexdigest(),'dimensions':dimensions}
  print(n,json.dumps(records[n]))
  (f/'facilitator-qa').mkdir(exist_ok=True)
