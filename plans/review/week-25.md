@@ -48,6 +48,8 @@ A picture is a 0/1 grid with fixed labels; its shadows are its row and column co
 
 **Fixed October 23, 2026 (guide only):** fix 1 (p. 11 hint now gives the counter-counting bound), fix 2 (launch on A1, A2, B1) and fix 8 (24 counters, no reusable grids); the student-page fixes are deferred. Record: `lowell-math-circle-year-2/source/week-25/editable/review/card-fixes-2026-10-23.md`.
 
+**Fixed October 23, 2026 (student pages, after the move to problem files):** fix 3 (grades 4–5 P1 has 8 grids for 6 pictures in two columns of 18.5 mm cells, P3 three blank grids; the K–1 catalogs unchanged, as optional), fix 4 (a grades 4–5 P4 workspace page with three blank grids), fix 5 ("Problem N (continued)" headings; grades 2–3 renumbered P1–P6 with the every-switch page as P4), fix 6, fix 7 (the P4 example and guide p. 10 draw the switch's rectangle; the prompt asks children to draw it), fix 9, and coulds 10 (eleven children, the five-minute run) and 12. Coulds 11, 13 and 14 are open. The 18.5 mm cells and spare grids are not rehearsed with counters. Same record.
+
 ## Overlaps
 
 No other theme has 0/1 grids with line counts. Week 14 asks the same connectivity and fewest-moves questions of triangulation flips; Week 46 also uses mismatch counts as distance. Week 54: pictures alone in their counts are Ferrers diagrams with rows and columns reordered, a return-visit bridge. Week 52 uses the same row–column graph for rigidity. The bonus's question game overlaps Week 6. No merge.

@@ -7,7 +7,7 @@ route = ["first", "return"]
 +++
 
 ## text @25 size=12
-Each circled number counts the counters in its whole row or column. Put at most one counter in a cell. Keep the row and column labels in place.
+Each circled number counts the counters in its whole row or column. Put at most one counter in a cell. Two pictures are different if any cell is different.
 
 ## figure [K-1]
 shadow_example('Example: two counters become row and column counts.', 'Across each row:', 'Down each column:')

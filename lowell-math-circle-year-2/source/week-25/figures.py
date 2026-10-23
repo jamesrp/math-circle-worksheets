@@ -53,9 +53,13 @@ def pair(y,r,c,rows,cols,pictures=None,blank=False):
 def center(y,r,c,rows=None,cols=None,picture=None,blank=False,cell=CELL):
     return board((215.9-c*cell)/2,y,r,c,rows,cols,picture,blank,cell)
 
-def switch_example(y,caption):
-    # A small notation example, not an answer to any displayed task.
+def switch_example(y,caption,record=False):
+    # A small notation example, not an answer to any displayed task. With record=True the
+    # switch's rectangle is drawn through its four corner cells on the left picture, the way
+    # children record a switch they find (grades 2-3; card should 7, October 23, 2026).
     out=fr'\node[anchor=west,font=\fontsize{{11}}{{13}}\selectfont] at (16,{y+8}) {{{caption}}};'
+    if record:
+        out+=fr'\draw[line width=1.1pt,black!55,rounded corners=.6mm] (75,{y+4}) rectangle (83,{y+12});'
     out+=board(71,y,2,2,[1,1],[1,1],['10','01'],cell=8)
     out+=board(135,y,2,2,[1,1],[1,1],['01','10'],cell=8)
     out+=fr'\draw[->,>=stealth,line width=.8pt] (103,{y+8}) -- (120,{y+8});'
@@ -164,8 +168,8 @@ def m_211_more():  # 11
 def m_two_counter_move():  # 12
     return lines(pair(181,3,3,[1,0,1],[1,0,1],[['100','000','001'],None]))
 
-def m_switch_pictures(caption):  # 13: the switch example, then pictures with 0, 1, 3 and 0 switches
-    return lines(switch_example(55,caption),
+def m_switch_pictures(caption,record=False):  # 13: the switch example, then pictures with 0, 1, 3 and 0 switches
+    return lines(switch_example(55,caption,record),
                  board(25,91,3,3,[2,1,0],[2,1,0],['110','100','000']),
                  board(122,91,3,3,[1,0,1],[1,0,1],['100','000','001']),
                  board(25,183,3,3,[2,1,1],[2,1,1],['110','001','100']),
@@ -177,11 +181,20 @@ def m_exact_switches():  # 14
 
 # ---------------------------------------------------------------- grades 4-5 figures
 
+# Grades 4-5 Problem 1 has eight recording grids for its six pictures, four on each page in two
+# columns of 18.5 mm cells (card should 3, October 23, 2026: the page should not show the total).
+# Left grids at x = 21 put the row labels inside the 14 mm margin; right grids at x = 118.4 end
+# their circled counts at 202 mm, 7 mm clear of the left grids' circles.
+SIX_CELL=18.5
+
+def six_grid_rows(*ys):
+    return lines(*(board(x,y,2,4,[2,2],[1,1,1,1],cell=SIX_CELL) for y in ys for x in (21,118.4)))
+
 def h_six_pictures():  # 16
-    return lines(*(center(y,2,4,[2,2],[1,1,1,1]) for y in (80,143,206)))
+    return six_grid_rows(84,168)
 
 def h_six_more():  # 17
-    return lines(*(center(y,2,4,[2,2],[1,1,1,1]) for y in (57,127,197)))
+    return six_grid_rows(58,148)
 
 def h_switch_distances(caption):  # 18
     return lines(switch_example(55,caption),*(center(y,2,4,[2,2],[1,1,1,1],cell=20) for y in (94,152,210)))
@@ -189,11 +202,14 @@ def h_switch_distances(caption):  # 18
 def h_route_endpoints():  # 19
     return lines(center(70,2,6,[3,3],[1,1,1,1,1,1],['111000','000111']),center(146,2,6,[3,3],[1,1,1,1,1,1],['000111','111000']))
 
-def h_route_grids():  # 20
-    return lines(center(68,2,6,[3,3],[1,1,1,1,1,1]),center(144,2,6,[3,3],[1,1,1,1,1,1]))
+def h_route_grids():  # 20: three grids, one more than a shortest route's two intermediate pictures
+    return lines(*(center(y,2,6,[3,3],[1,1,1,1,1,1]) for y in (44,114,184)))
 
 def h_fixed_columns():  # 21
     return lines(center(74,2,6,[3,3],[2,1,0,1,1,1],['110100','100011']),center(150,2,6,[3,3],[2,1,0,1,1,1],['100011','110100']))
 
-def h_two_row_blanks():  # 22
+def h_fixed_blanks():  # 22: workspace with Problem 4's counts, fewer grids than its six pictures
+    return lines(*(center(y,2,6,[3,3],[2,1,0,1,1,1]) for y in (44,114,184)))
+
+def h_two_row_blanks():  # 23
     return lines(center(92,2,6,blank=True),center(170,2,6,blank=True))

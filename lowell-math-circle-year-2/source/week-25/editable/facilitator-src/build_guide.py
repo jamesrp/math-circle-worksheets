@@ -51,10 +51,11 @@ class Guide:
         self.y-=5;self.c.setFont('GuideSans-Bold',12);self.c.setFillColor(colors.black)
         self.c.drawString(M,self.y-12,text);self.y-=23
     def boards(self,entries,cell=23):
-        # Entries are (caption, binary picture). Every diagram shows fixed labels and counts.
-        n=len(entries);slot=WIDTH/n;maxr=max(len(s.split('/')) for _,s in entries)
+        # Entries are (caption, binary picture[, switch rectangle]). Every diagram shows fixed labels and counts.
+        n=len(entries);slot=WIDTH/n;maxr=max(len(e[1].split('/')) for e in entries)
         height=maxr*cell+62;top=self.y
-        for index,(caption,s) in enumerate(entries):
+        for index,entry in enumerate(entries):
+            caption,s=entry[:2];rect=entry[2] if len(entry)>2 else None
             rows=s.split('/');r=len(rows);c=len(rows[0]); assert all(len(t)==c for t in rows)
             assert c*cell+37 <=slot,(caption,'too wide')
             left=M+index*slot;cap=Paragraph(caption,CAP);_,ch=cap.wrap(slot-10,32)
@@ -64,6 +65,11 @@ class Guide:
             self.c.setStrokeColor(colors.HexColor('#555555'));self.c.setLineWidth(.55)
             for j in range(c+1):self.c.line(x+j*cell,y,x+j*cell,y-r*cell)
             for i in range(r+1):self.c.line(x,y-i*cell,x+c*cell,y-i*cell)
+            if rect:
+                # A recorded switch: its rectangle drawn through the four corner cells, as children draw it.
+                i1,j1,i2,j2=rect;self.c.setStrokeColor(colors.HexColor('#777777'));self.c.setLineWidth(1.6)
+                self.c.roundRect(x+(j1+.5)*cell,y-(i2+.5)*cell,(j2-j1)*cell,(i2-i1)*cell,2.5,stroke=1,fill=0)
+                self.c.setStrokeColor(colors.HexColor('#555555'));self.c.setLineWidth(.55)
             self.c.setFont('GuideSans',9);self.c.setFillColor(colors.black)
             for j in range(c):self.c.drawCentredString(x+(j+.5)*cell,y+6,str(j+1))
             for i,row in enumerate(rows):
@@ -84,15 +90,15 @@ class Guide:
 
 def build(path):
     g=Guide(path)
-    g.new('Discrete tomography facilitator guide','Row and column shadows / Final student packets W25-K-v3, W25-23-v2, W25-45-v2')
+    g.new('Discrete tomography facilitator guide','Row and column shadows / Final student packets W25-K-v4, W25-23-v3, W25-45-v3')
     g.p('<b>Use this as a table-side answer and teaching guide.</b> Children build binary pictures, discover that identical line counts can hide different pictures, and investigate moves that preserve every count. The upper packet proves an exact shortest-route rule for two-row boards.')
     g.p('<b>Status:</b> facilitator draft, unpiloted; an unscheduled library slot. Week 25 is a library identifier, not a promised calendar date. K-1 page 1 models counts with A1 and A2 occupied; older packets retain their switch examples. Timing and hints below are proposals, not classroom observations.')
     g.h('Supplies and realistic preparation')
-    g.p('For each of three tables: 24 identical counters at most 18 mm wide; count cards 0-6; two pencils; an eraser; and loose paper. Children place counters on the printed student grids. At 100% Letter size, student task cells are 22 mm, except upper p3 (20 mm); small switch examples are diagrams, not working mats. Print single-sided.')
-    g.p('Print the three student packets: K-1 has 8 pages, grades 2-3 has 6, and grades 4-5 has 7. Print one guide for each adult, or just the relevant solution pages plus pages 1-2 and 16-18. Check scale with a ruler; clip each band separately. Draw a labeled 2-by-3 demonstration board on a whiteboard. Preparation should take about 10-15 minutes once materials are assembled.')
-    g.p('Twenty-four counters let each of two pairs keep two six-counter pictures side by side, the largest comparison in the packets; K-1 P5 and grades 2-3 P4-P5 need eight per pair. They do not preserve a whole catalog. Children draw each solution before reusing its counters. Keep both endpoints visible when comparing. Do not leave counters available to stack; every cell is empty or occupied once.')
+    g.p('For each of three tables: 24 identical counters at most 18 mm wide; count cards 0-6; two pencils; an eraser; and loose paper. Children place counters on the printed student grids. At 100% Letter size, student task cells are 22 mm, except upper pp. 1-2 (18.5 mm) and p. 3 (20 mm); small switch examples are diagrams, not working mats. Print single-sided.')
+    g.p('Print the three student packets: K-1 has 8 pages, grades 2-3 has 6, and grades 4-5 has 8. Print one guide for each adult, or just the relevant solution pages plus pages 1-2 and 16-18. Check scale with a ruler; clip each band separately. Draw a labeled 2-by-3 demonstration board on a whiteboard. Preparation should take about 10-15 minutes once materials are assembled.')
+    g.p('Twenty-four counters let each of two pairs keep two six-counter pictures side by side, the largest comparison in the packets; K-1 P5 and grades 2-3 P5-P6 need eight per pair. They do not preserve a whole catalog. Children draw each solution before reusing its counters. Keep both endpoints visible when comparing. Do not leave counters available to stack; every cell is empty or occupied once.')
     g.h('Place children by prerequisites')
-    g.p('Plan one adult at each table: the current ten-child group has three K-1 children, four third graders, and three upper-band children. The parent volunteer can lead K-1; move children between entry points by readiness.',small=True)
+    g.p('Plan one adult at each table: the current eleven-child group has four K-1 children, four third graders, and three upper-band children. The parent volunteer can lead K-1; move children between entry points by readiness.',small=True)
     g.p('<b>K-1:</b> count up to 4, match a spoken count to a row or column, and distinguish labeled positions. No independent reading is needed; an adult reads the question and may record dictated counts. The six-picture catalog asks for organized search and persistence.')
     g.p('<b>Grades 2-3:</b> count up to 6, coordinate row and column conditions, and compare pictures. Reading can be shared. The main reasoning is completeness, a preserved quantity, and why fewer moves cannot work.')
     g.p('<b>Grades 4-5:</b> the same small counting plus reasoning about all possible pairs and a general construction. Multiplication, binomial notation, set notation, and formal proof language are optional adult tools. Use the concrete two-row tasks before the general statement.')
@@ -104,9 +110,9 @@ def build(path):
     g.boards([('Launch picture','110/100')],cell=25)
     g.p('Stop once a child rebuilds it. These counts fit only this picture, so the launch shows the conversion without giving away an ambiguous case from the packets. Demonstrate drawing a dot record before lifting counters; the row letters and column numbers stay where they are. K-1 page 1 separates labels from circled counts with row/column sweeps. Hold back search orders, switches and uniqueness rules. Let children encounter ambiguity first.')
     g.h('An hour is a menu, not a page race')
-    g.p('<b>0-3 minutes:</b> free handling. <b>3-7:</b> shared launch. <b>7-47:</b> table investigations, with a one-minute stand-and-stretch when needed. <b>47-55:</b> choose one result to show. <b>55-60:</b> whole-group sharing and reset. Let a productive problem take the whole working period.')
+    g.p('<b>0-5 minutes:</b> running around; the children come straight from school. <b>5-8:</b> free handling. <b>8-12:</b> shared launch. <b>12-50:</b> table investigations, with a one-minute stand-and-stretch when needed. <b>50-55:</b> choose one result to show. <b>55-60:</b> whole-group sharing and reset. Let a productive problem take the whole working period.')
     g.p('<b>K-1 route:</b> P1 to establish the task, P2 or P3 for a catalog, then P4 for a forced picture. P5 and the new P6 are construction reserves. A child who is still comparing two pictures need not complete a six-picture catalog.')
-    g.p('<b>Middle route:</b> P1, P2, then P3. Offer P4 for a shortest-route question or P5 for puzzle-making. <b>Upper route:</b> P1-P2, P3, then P4 or P5. P4 earns its place by introducing fixed full and empty columns before the general rule.')
+    g.p('<b>Middle route:</b> P1, P2, then P3 and P4 (a two-counter move, then every switch). Offer P5 for a shortest-route question or P6 for puzzle-making. <b>Upper route:</b> P1-P2, P3, then P4 or P5. P4 earns its place by introducing fixed full and empty columns before the general rule.')
     g.h('Hold hints until they are needed')
     g.p('Read the goal once, ask the child to show a legal attempt, and let the attempt develop. If stuck, give only the first held hint for that problem. Wait for a new attempt before offering the next. Adults may count aloud, trace a row, or scribe without taking over the choices. A drawing or an explanation with counters is a complete mathematical argument when it covers every case.')
     g.p('Sharing prompt: "Show two pictures with the same counts, or show why your picture is forced." Ask the upper table to show a shortest route and explain its lower bound. Do not require each group to report a theorem.',small=True)
@@ -193,25 +199,25 @@ def build(path):
     g.p('If a child offers six, compare them cell by cell for a duplicate or recount the margins. If a child offers four, ask whether every top-row pattern has been considered. Accept a completeness explanation by pointing to drawings and covering row A with a strip of paper. Naming combinations is unnecessary.')
     g.p('<b>Optional bridge:</b> choose two catalog pictures and try to move between them while preserving counts. One pair may require more than one switch; finding a single switch is evidence of ambiguity, not a claim that every alternative is one move away.',small=True)
 
-    g.new('Grades 2-3 Problem 3','Student pages 3-4 / A two-counter move and every legal switch')
+    g.new('Grades 2-3 Problems 3 and 4','Student pages 3-4 / A two-counter move (P3) and every legal switch (P4)')
     g.p('<b>Page 3:</b> the only alternative moves A1 and C3 to A3 and C1. The selected rows and columns are nonadjacent. All of row B, column 2, and the other cells remain unchanged.')
-    g.boards([('Printed start','100/000/001'),('Only alternative','001/000/100')],cell=21)
+    g.boards([('Printed start','100/000/001'),('Only alternative','001/000/100')],cell=20)
     g.p('<b>Why a switch preserves counts:</b> each selected row loses one counter and gains one, and so does each selected column. Every other line is unchanged. The destination corners must both be empty. Counters need not move through the intervening cells.',small=True)
-    g.h('Page 4 pictures in reading order')
-    g.boards([('Top left: 0 switches','110/100/000'),('Top right: 1 switch','100/000/001')],cell=21)
-    g.boards([('Bottom left: 3 switches','110/001/100'),('Bottom right: 0 switches','111/110/100')],cell=21)
-    g.p('<b>Complete switch list:</b> top right has rows A,C and columns 1,3. Bottom left has rows A,B with columns 1,3; rows A,B with columns 2,3; and rows B,C with columns 1,3. Their results are respectively 011/100/100, 101/010/100, and 110/100/001, with slashes separating A/B/C. There are no others.',small=True)
+    g.h('Problem 4 pictures in reading order')
+    g.boards([('Top left: 0 switches','110/100/000'),('Top right: 1 switch, recorded','100/000/001',(0,0,2,2))],cell=20)
+    g.boards([('Bottom left: 3 switches','110/001/100'),('Bottom right: 0 switches','111/110/100')],cell=20)
+    g.p('<b>Complete switch list:</b> children record a switch by drawing its rectangle through the four corner cells, as on the student page 4 example. The top-right board above shows one recorded. Top right has rows A,C and columns 1,3. Bottom left has rows A,B with columns 1,3; rows A,B with columns 2,3; and rows B,C with columns 1,3. Their results are respectively 011/100/100, 101/010/100, and 110/100/001, with slashes separating A/B/C. There are no others.',small=True)
     g.p('<b>Why the list is complete:</b> for each pair of rows, a switch needs a column occupied only in the first row and a column occupied only in the second. In the bottom-left picture, A versus B gives 2 choices; A versus C gives none because C is contained in A; B versus C gives 1. The top-left and bottom-right pictures have nested occupied-column sets for every row pair, so no switch exists.',small=True)
     g.p('<b>Held hints:</b> (1) "Must the two rows be next to each other?" (2) Choose a pair of rows and look for one counter unique to each. Do not slide all counters inside a rectangle; only its four selected corner cells change.',small=True)
 
-    g.new('Grades 2-3 Problems 4 and 5','Student pages 5-6 / Exact move counts and partner constructions')
-    g.h('Problem 4')
+    g.new('Grades 2-3 Problems 5 and 6','Student pages 5-6 / Exact move counts and partner constructions')
+    g.h('Problem 5')
     g.p('<b>One complete answer:</b> use the middle picture below on the middle grid and the last picture on the bottom grid. The route switches columns 1,3 and then 2,4.')
     g.boards([('Start','1100/0011'),('Exactly 1 switch','0110/1001'),('Exactly 2 switches','0011/1100')],cell=23)
     g.p('<b>Why two cannot be one:</b> initially A occupies columns 1 and 2; in the last picture it occupies 3 and 4. One switch removes only one top-row counter from its old column and puts it in one new column. Two unwanted top positions must be removed, so at least two switches are necessary. The displayed route achieves two.')
     g.p('<b>All valid one-switch middle answers:</b> A occupies {1,3}, {1,4}, {2,3}, or {2,4}; B occupies the complementary pair. The only picture exactly two switches from the printed start has A={3,4}, B={1,2}. There are no other two-switch targets with these margins. The original picture has distance zero.',small=True)
     g.p('<b>Held hints:</b> first compare only row A of start and target. Then ask how many of its occupied columns one switch can replace. A child may also count counters: A1, A2, B3 and B4 must each be emptied, and each switch empties exactly two cells, so at least two switches are needed. Moving a counter more than once only adds switches.',small=True)
-    g.h('Problem 5')
+    g.h('Problem 6')
     g.p('<b>Yes, a different matching picture can be made impossible on both shapes.</b> These four-counter choices are valid. Their margins appear in the diagrams.')
     g.boards([('Unique 2-by-3 choice','111/100'),('Unique 3-by-3 choice','111/100/000')],cell=23)
     g.p('In each board A must be full. Column 1 requires B1. The 3-by-3 board has empty row C; all remaining cells are then forced empty. This establishes uniqueness. Other answers are welcome; check them using forcing or the criterion on guide page 16. A failed partner search alone proves nothing.',small=True)
@@ -221,7 +227,7 @@ def build(path):
     g.h('Problem 1 has exactly six pictures')
     g.boards([('Top columns 1,2','1100/0011'),('Top columns 1,3','1010/0101'),('Top columns 1,4','1001/0110')],cell=23)
     g.boards([('Top columns 2,3','0110/1001'),('Top columns 2,4','0101/1010'),('Top columns 3,4','0011/1100')],cell=23)
-    g.p('Every column contains exactly one counter, so choosing the two occupied top columns determines the bottom row. The six possible pairs are 12, 13, 14, 23, 24, and 34. One way to prove completeness is to list pairs by their smaller element: three beginning with 1, two beginning with 2, and one beginning with 3. Total: 3 + 2 + 1 = 6.')
+    g.p('Eight recording grids are printed for the six pictures; the two spares are intentional space, not evidence of more pictures. Every column contains exactly one counter, so choosing the two occupied top columns determines the bottom row. The six possible pairs are 12, 13, 14, 23, 24, and 34. One way to prove completeness is to list pairs by their smaller element: three beginning with 1, two beginning with 2, and one beginning with 3. Total: 3 + 2 + 1 = 6.')
     g.h('Problem 2 has answer yes and greatest distance two')
     g.p('A legal switch exchanges one selected top column with one unselected top column. If two pictures are identical, distance is 0. If their top pairs share one column, switch the unwanted top column with the missing one; distance is 1. If the pairs are disjoint, replace one unwanted column, then the other; distance is 2.')
     g.p('The only distance-two pairs are {1,2} versus {3,4}, {1,3} versus {2,4}, and {1,4} versus {2,3}. Each needs at least two moves because one switch replaces just one top position. Every distinct pair fits one of these two cases, so all pictures communicate and the largest shortest distance is exactly 2.')
@@ -230,7 +236,7 @@ def build(path):
     g.p('<b>P1 first:</b> "If I know the top row, is the bottom row still a choice?" <b>P1 second:</b> group pictures by the leftmost top counter. <b>P2 first:</b> choose a target and compare its top row with the current picture. <b>P2 second:</b> ask what one switch replaces. Keep a complete move graph as an optional child-made record, not an advance scaffold.')
 
     g.new('Grades 4-5 Problem 3','Student pages 4-5 / A shortest route on six columns')
-    g.p('<b>Answer:</b> exactly 3 switches. The two blank grids on student page 5 record the two intermediate pictures. The route below switches column pairs 1,4; then 2,5; then 3,6. These are all legal two-row rectangles.')
+    g.p('<b>Answer:</b> exactly 3 switches. Student page 5 has three blank grids: a shortest route needs two for its intermediate pictures, and the third is spare. The route below switches column pairs 1,4; then 2,5; then 3,6. These are all legal two-row rectangles.')
     g.boards([('Start: top 1,2,3','111000/000111'),('After switching 1 and 4','011100/100011')],cell=27)
     g.boards([('After switching 2 and 5','001110/110001'),('After switching 3 and 6','000111/111000')],cell=27)
     g.h('Why no shorter route exists')
@@ -241,8 +247,8 @@ def build(path):
     g.p('<b>Accept other routes:</b> pair the three unwanted top columns with the three missing top columns in any order, making each replacement once. Drawings or a list of switched column pairs both record a route, provided its moves are unambiguous. A legal move needs two occupied opposite corners and two empty opposite corners; check each actual intermediate board.')
     g.p('<b>Optional count:</b> these margins allow twenty pictures, because the top row chooses three of six columns. This fact is not required by P3. The proof of the shortest route does not depend on enumerating those twenty pictures.',small=True)
 
-    g.new('Grades 4-5 Problem 4','Student page 6 / Fixed columns and four free columns')
-    g.p('<b>Answers:</b> the printed endpoints are 2 switches apart; there are 6 pictures with these counts; the greatest shortest distance is 2. Column 1 is full and column 3 is empty in every solution. The only choices are columns 2, 4, 5, 6; exactly two must have their counter in row A.')
+    g.new('Grades 4-5 Problem 4','Student pages 6-7 / Fixed columns and four free columns')
+    g.p('<b>Answers:</b> the printed endpoints are 2 switches apart; there are 6 pictures with these counts; the greatest shortest distance is 2. Column 1 is full and column 3 is empty in every solution. The only choices are columns 2, 4, 5, 6; exactly two must have their counter in row A. Page 7 has three blank grids with these counts as workspace, fewer than the six pictures, so the page does not give the count away; a child may list free top pairs instead of drawing every picture.')
     g.boards([('Free top pair 2,4: start','110100/100011'),('Free top pair 2,5','110010/100101'),('Free top pair 2,6','110001/100110')],cell=20)
     g.boards([('Free top pair 4,5','100110/110001'),('Free top pair 4,6','100101/110010'),('Free top pair 5,6: target','100011/110100')],cell=20)
     g.h('A shortest route and its lower bound')
@@ -253,7 +259,7 @@ def build(path):
     g.h('Held hints')
     g.p('<b>First:</b> "Which columns are completely settled before you choose anything?" <b>Second:</b> "After placing the top counter in column 1, how many top counters remain among columns 2, 4, 5, and 6?" Preserve the original labels rather than silently renumbering those four columns.')
 
-    g.new('Grades 4-5 Problem 5','Student page 7 / A complete theorem for any two-row board')
+    g.new('Grades 4-5 Problem 5','Student page 8 / A complete theorem for any two-row board')
     g.p('<b>Rule:</b> the fewest switches equals the number of columns with a top counter in the start and no top counter in the target. Count unwanted top positions, not all differing cells. If there are none, the pictures already agree and the answer is zero.')
     g.h('A proof by construction and lower bound')
     g.p('<b>1. Separate forced columns.</b> A column total of 0 forces both cells empty; a total of 2 forces both full. Such columns agree in both pictures and never participate in a switch. Every remaining column has total 1 and exactly one counter, either above or below.')
@@ -264,7 +270,7 @@ def build(path):
     g.p('<b>Child-level explanation:</b> "Match each top counter in a wrong column with a column that needs one on top. Trade the top and bottom counters in each pair. Each trade fixes one wrong top place, and a move cannot fix more than one." Require both why the trades are legal and why they are enough.',small=True)
     g.p('<b>Held hints:</b> first identify forced columns; next pair a top counter that must leave with a top position that must be filled; only then ask why the two kinds occur equally often. A formula checked on the 6-column example alone is not a proof for any number of columns.',small=True)
 
-    g.new('Why no switch means unique','Adult background and optional extension / Useful for K-1 P6 and grades 2-3 P5')
+    g.new('Why no switch means unique','Adult background and optional extension / Useful for K-1 P6 and grades 2-3 P6')
     g.p('<b>Exact criterion:</b> a binary picture with fixed labeled row and column counts is uniquely determined by those counts if and only if it has no legal rectangle switch. This applies to any finite rectangular board, not only two rows.')
     g.h('One direction is visible')
     g.p('If a legal switch exists, make it. It produces a different picture with the same counts, because each affected row and column loses and gains exactly one counter. Thus the original picture is not unique.')
@@ -286,7 +292,7 @@ def build(path):
     g.p('These pictures have identical row and column counts and identical top rows, but one switch in rows B,C and columns 2,3 is needed. The two-row top-position formula would give zero, so it cannot be used for arbitrary-height pictures. General connectivity is true by Ryser, but our two-row proof alone does not establish it.',small=True)
     g.h('What to notice and what to record after a pilot')
     g.p('Record which exact problems children attempted, time spent, whether counts and fixed labels were clear, how they recorded catalogs, and which held hint changed the work. Note an actual child explanation of completeness or minimality if possible. Separate observations from hypotheses: "P3 needed three readings" is evidence; "the abstraction came too early" is an interpretation.')
-    g.p('Keep the current status unpiloted until a real session occurs. In particular, check whether the new K-1 P6 sustains construction work and whether upper P3 uses its two intermediate grids well. Do not infer readiness or successful pacing from page count or from this mathematical verification.',small=True)
+    g.p('Keep the current status unpiloted until a real session occurs. In particular, check whether the new K-1 P6 sustains construction work and whether upper P3 and P4 use their blank grids well. Do not infer readiness or successful pacing from page count or from this mathematical verification.',small=True)
 
     g.new('Sources and verification','Preparation and mathematical checks completed 3 October 2026')
     g.h('Primary mathematical source')
@@ -294,9 +300,9 @@ def build(path):
     g.p('The elementary nested-row uniqueness proof and exact two-row distance proof are supplied in this guide and the activity outline. They are not quoted from Ryser. Exhaustive finite tests support the printed examples; the general claims rest on the complete arguments on pages 15-17.')
     g.h('Pedagogy actually consulted')
     g.p('Laura Givental, Maria Nemirovskaya, and Ilya Zakharevich, <i>Math Circle by the Bay: Topics for Grades 1-5</i>, Preface, printed pages vii-ix (PDF pages 8-10), especially "How we teach" on page ix. The authors discuss peer interaction, manipulatives, varied pacing, independent problem solving, reserve challenges, and helping children articulate explanations. Local source: the repository copy in the MSRI math-circle collection.')
-    g.p('The short common launch, the 60-minute menu, the exact held hints, the readiness routes, and the observation plan are proposed adaptations for this Bellingham group. They are not presented as tested prescriptions from that book. The organizer\'s project guidance and September 28 group context supplied the current planning assumptions: ten children, three adults, and concrete work before abstraction.')
+    g.p('The short common launch, the 60-minute menu, the exact held hints, the readiness routes, and the observation plan are proposed adaptations for this Bellingham group. They are not presented as tested prescriptions from that book. The organizer\'s project guidance and October 3 group context supplied the current planning assumptions: eleven children, three adults, and concrete work before abstraction.')
     g.h('Packet alignment and independent checks')
-    g.p('Reviewed the final student PDFs and editable source, the Week 25 activity prompt, and both adversarial reviews. Final numbering is K-1 P1-P6 and each older band P1-P5. Revised enumeration tasks explicitly request drawings. K-1 P6 is the added contrast construction; upper P3 continues on the added route page. This revision adds small switch examples to the middle and upper packets.')
+    g.p('Reviewed the final student PDFs and editable source, the Week 25 activity prompt, and both adversarial reviews. Final numbering is K-1 and grades 2-3 P1-P6 and grades 4-5 P1-P5; grades 2-3 P3 and P4 were one problem until October 23, 2026. Revised enumeration tasks explicitly request drawings. K-1 P6 is the added contrast construction; upper P3 continues on the added route page. This revision adds small switch examples to the middle and upper packets.')
     g.p('The separate verifier reconstructs solutions by row-subset enumeration and checks shortest paths by breadth-first search, without importing student answer files or the student builder. It verifies 13 fixed margin cases, every printed switch, all displayed shortest routes, and unique/ambiguous four-counter examples on both shapes. Four-counter margins have 9 unique and 3 ambiguous classes on 2-by-3; 45 unique and 27 ambiguous classes on 3-by-3. Labels remain fixed throughout.')
     g.p('It also checks the no-switch uniqueness criterion for every binary 2-by-4, 2-by-6, and 3-by-3 board, totaling 4,864 boards, and checks every same-margin ordered pair on both two-row sizes against the distance formula. The portable source bundle contains build_guide.py, verify_math.py, verification.json, layout-checks.json, and rebuilding instructions. The checks are finite verification, not classroom testing.',small=True)
     g.p('<b>Honest limits:</b> this guide and the revised tasks have not been piloted. No claim is made that every child will finish the packet or follow every proof in one hour. Use actual work to choose the next question. The arbitrary-height connectivity theorem is cited, not proved here; the exact distance result is proved only for two-row boards.',small=True)

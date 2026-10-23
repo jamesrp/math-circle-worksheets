@@ -1,8 +1,8 @@
 # Discrete tomography and hidden pictures: Week 25 editable release
 
-## Current release: October 23, 2026 guide corrections
+## Current release: October 23, 2026 card fixes
 
-The adult guide carries the corrections from its review card: the Grades 2–3 Problem 4 held hint now accepts the counter-counting lower bound (p. 11), supplies are 24 counters per table (p. 1), and the launch uses a one-picture example (p. 2). See `review/card-fixes-2026-10-23.md`. The student pages are unchanged from the October 4, 2026 fresh-review revision.
+The adult guide carries the corrections from its review card: the Grades 2–3 lower-bound held hint now accepts the counter-counting argument (p. 11), supplies are 24 counters per table (p. 1), and the launch uses a one-picture example (p. 2). Later the same day the student pages, stored as problem files, got the card's student-page fixes: a clearer p. 1 rule in every band, continuing pages headed "Problem N (continued)", grades 2–3 renumbered P1–P6 with a recorded switch, spare grids in grades 4–5 P1 and P3, a new grades 4–5 workspace page for P4, and the card's K–1 P6 wording. See `review/card-fixes-2026-10-23.md`.
 
 **Problem files.** The student pages are now stored as problem files, one per problem, in `problem-files/` (in the repository: `lowell-math-circle-year-2/source/week-25/`). The conversion changed no wording or figure. `src/regenerate.py` writes the student LaTeX from them, `src/check_answers.py` runs the old builder's exhaustive checks of every printed set of counts (writing `src/answer-checks.json`), and `problem-files/tools/build.py` also builds first-route and return packets, a one-page problem menu and a key arranged by problem.
 
@@ -10,7 +10,7 @@ The October 4 revision gave the guide first routes, readiness-dependent continua
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
-Current pages: **K–1 8; Grades 2–3 6; Grades 4–5 7; adult guide 20**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 8; Grades 2–3 6; Grades 4–5 8; adult guide 20**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project
 
@@ -24,7 +24,7 @@ The current verifier compares paper geometry and every 100-dpi rendered page aga
 
 Edit student problems in `problem-files/problems/*.md` (figures and the page template in `problem-files/figures.py`); `build.sh` regenerates `src/*.tex` from them and reruns `src/check_answers.py` and `src/check_examples.py` before compiling, so do not edit the TeX by hand. To build every view: `python3 problem-files/tools/build.py problem-files --out views`. Each problem file's key repeats the main answer from the guide, and `problem-files/guide/overview.tex` repeats the guide's overview; `python3 problem-files/check_guide_copy.py` confirms every copied sentence is still in `facilitator-src/build_guide.py` or `overview-content.json`. Edit the existing guide source under `facilitator-src/`. Where present, `facilitator-src/route-note.json` holds the concise starting/return update; the root build regenerates the guide before appending it exactly once. Do not run the appender alone against an already appended guide. Build intermediates belong in a separate working copy; inspect changed pages before updating references.
 
-The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/fresh-review-2026-10-04.md` and, for the October 23 guide corrections, `review/card-fixes-2026-10-23.md` with its check `review/verify_card_fixes_2026_10_23.py`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
+The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/fresh-review-2026-10-04.md` and, for the October 23 card fixes, `review/card-fixes-2026-10-23.md` with its checks `review/verify_card_fixes_2026_10_23.py` (guide) and `review/verify_student_fixes_2026_10_23.py` (student pages). Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
 
 ## Use and rights
 

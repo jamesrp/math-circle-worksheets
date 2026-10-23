@@ -7,7 +7,7 @@ kernel = "A picture is the only one with its counts exactly when no two counters
 +++
 
 ## prompt @27
-Draw a four-counter picture on each grid and write its counts. Choose pictures whose counts fit only one picture on the left grids and more than one picture on the right grids.
+Draw a four-counter picture on each grid and write its counts. On the left grids, no other picture may fit your counts. On the right grids, another picture must fit them.
 
 ## figure
 blank_pairs()

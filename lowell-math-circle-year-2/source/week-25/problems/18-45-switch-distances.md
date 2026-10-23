@@ -7,7 +7,7 @@ kernel = "A switch trades one top column for another, so the six pictures are co
 +++
 
 ## prompt @27
-A switch moves the two counters to the empty corners shown; other cells stay fixed. Any two rows and columns may be used. Can any picture from Problem 1 reach any other by switches? Find the greatest number needed if you always take a shortest route.
+A switch moves the two counters to the empty corners shown; other cells stay fixed. Any two rows and columns may be used. Can any picture from Problem 1 reach any other by switches? What is the largest number of switches ever needed between two of them?
 
 ## figure
 h_switch_distances('One switch:')

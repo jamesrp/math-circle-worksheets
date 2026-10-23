@@ -13,6 +13,6 @@ Change the upper picture into the lower picture in as few switches as you can. R
 h_route_endpoints()
 
 ## key
-\emph{Print guide, p. 13.} \textbf{Answer:} exactly 3 switches. The two blank grids on student page 5 record the two intermediate pictures. The route below switches column pairs 1,4; then 2,5; then 3,6. These are all legal two-row rectangles.
+\emph{Print guide, p. 13.} \textbf{Answer:} exactly 3 switches. Student page 5 has three blank grids: a shortest route needs two for its intermediate pictures, and the third is spare. The route below switches column pairs 1,4; then 2,5; then 3,6. These are all legal two-row rectangles.
 
 The target has no top counter in columns 1, 2, or 3. The start has one in each of those columns. One switch can remove a top counter from at most one of these three unwanted columns, so every route uses at least three switches. The displayed three-switch route meets this lower bound exactly.

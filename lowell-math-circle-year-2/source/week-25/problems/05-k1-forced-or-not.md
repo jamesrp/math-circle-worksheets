@@ -8,7 +8,7 @@ kernel = "A full or empty row or column can force every cell: two of these three
 +++
 
 ## prompt @150
-Can you make two different pictures with these counts?
+Can you make two different pictures for each pair of grids?
 
 ## figure
 k1_forced_pair()

@@ -44,19 +44,19 @@ def main():
     cases=[('K1 P1 top',[1,1],[1,1],2),('K1 P1 middle',[1,1],[1,0,1],2),
       ('K1 P1 bottom; K1 P2 right; 23 P1 top',[2,1],[1,1,1],3),('K1 P2 left',[1,2],[1,1,1],3),
       ('K1 P3',[1,1,1],[1,1,1],6),('K1 P4 first; 23 P1 middle',[3,1],[2,1,1],1),
-      ('K1 P4 second; 23 P3 top left',[2,1,0],[2,1,0],1),('K1 P4 last; 23 P2',[2,1,1],[2,1,1],5),
+      ('K1 P4 second; 23 P4 top left',[2,1,0],[2,1,0],1),('K1 P4 last; 23 P2',[2,1,1],[2,1,1],5),
       ('23 P1 bottom',[2,2],[2,1,1],2),('23 P3 nonadjacent',[1,0,1],[1,0,1],2),
-      ('23 P4; 45 P1 and P2',[2,2],[1,1,1,1],6),('45 P3',[3,3],[1,1,1,1,1,1],20),
+      ('23 P5; 45 P1 and P2',[2,2],[1,1,1,1],6),('45 P3',[3,3],[1,1,1,1,1,1],20),
       ('45 P4',[3,3],[2,1,0,1,1,1],6)]
     result={'method':'Independent row-subset reconstruction and breadth-first search. No student answer file or student builder imported.','fixed_cases':[]}
     for label,rows,cols,n in cases:
         ss=solutions(rows,cols);assert len(ss)==n
         result['fixed_cases'].append(dict(label=label,rows=rows,columns=cols,count=n,pictures=[code(a) for a in ss]))
     printed=['110/100/000','100/000/001','110/001/100','111/110/100']
-    result['23_P3_switches']=[]
+    result['23_P4_switches']=[]
     for s,n in zip(printed,[0,1,3,0]):
         sw=switches(picture(s));assert len(sw)==n
-        result['23_P3_switches'].append(dict(start=s,count=n,moves=[dict(rows=[chr(65+x[0]),chr(65+x[1])],columns=[x[2]+1,x[3]+1],result=code(b)) for x,b in sw]))
+        result['23_P4_switches'].append(dict(start=s,count=n,moves=[dict(rows=[chr(65+x[0]),chr(65+x[1])],columns=[x[2]+1,x[3]+1],result=code(b)) for x,b in sw]))
     paths=[['1100/0011','0110/1001','0011/1100'],
            ['111000/000111','011100/100011','001110/110001','000111/111000'],
            ['110100/100011','100110/110001','100011/110100']]
@@ -66,7 +66,7 @@ def main():
         for a,b in zip(aa,aa[1:]):assert b in [t for _,t in switches(a)]
         result['shortest_routes'].append(dict(route=route,distance=len(route)-1))
     one=distances(picture('1100/0011'));assert sorted(one.values())==[0,1,1,1,1,2]
-    result['23_P4_distance_distribution']={str(i):list(one.values()).count(i) for i in range(3)}
+    result['23_P5_distance_distribution']={str(i):list(one.values()).count(i) for i in range(3)}
     result['construction_examples']=[]
     for s,n in [('111/100',1),('110/101',2),('111/100/000',1),('110/001/100',5)]:
         a=picture(s);rr,cc=margins(a);ss=solutions(rr,cc);assert len(ss)==n and sum(rr)==4

@@ -14,4 +14,4 @@ Find and draw every different picture with these counts. Explain why your list i
 h_six_pictures()
 
 ## key
-\emph{Print guide, p. 12.} Every column contains exactly one counter, so choosing the two occupied top columns determines the bottom row. The six possible pairs are 12, 13, 14, 23, 24, and 34. One way to prove completeness is to list pairs by their smaller element: three beginning with 1, two beginning with 2, and one beginning with 3. Total: 3 + 2 + 1 = 6.
+\emph{Print guide, p. 12.} Eight recording grids are printed for the six pictures; the two spares are intentional space, not evidence of more pictures. Every column contains exactly one counter, so choosing the two occupied top columns determines the bottom row. The six possible pairs are 12, 13, 14, 23, 24, and 34. One way to prove completeness is to list pairs by their smaller element: three beginning with 1, two beginning with 2, and one beginning with 3. Total: 3 + 2 + 1 = 6.

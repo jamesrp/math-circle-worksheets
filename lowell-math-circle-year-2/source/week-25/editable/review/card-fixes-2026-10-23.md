@@ -19,3 +19,30 @@ Deferred, because they change student pages and wait for a problem-file conversi
 - The previous guide and ZIP are archived in the project in `week-25/archive-before-card-fixes-2026-10-23/` and `source/week-25/archive-before-card-fixes-2026-10-23/`.
 
 The theme remains unpiloted; the counter count is arithmetic, not a rehearsal.
+
+# Student-page fixes, October 23, 2026, after the move to problem files
+
+Later the same day the student pages were stored as problem files (no wording change; `compare.py` and a byte-for-byte LaTeX diff against the old builder) and the deferred card items were made there. Every band changed, so the footers are now W25-K-v4, W25-23-v3 and W25-45-v3.
+
+## What changed
+
+- **Should 9, p. 1 of every band.** "Keep the row and column labels in place." is now "Two pictures are different if any cell is different."
+- **Should 6, K–1 P6 (p. 8).** "On the left grids, no other picture may fit your counts. On the right grids, another picture must fit them."
+- **Should 5, labels.** Continuing pages are headed "Problem N (continued)" with no restated task: K–1 pp. 5 and 6, grades 2–3 p. 3, grades 4–5 pp. 2, 5 and 7. K–1 P4's prompt on p. 5 now covers all three pairs: "Can you make two different pictures for each pair of grids?" Grades 2–3 are numbered P1–P6: the every-switch page is P4, with its switch definition, and the old P4 and P5 are P5 and P6.
+- **Should 3, spare grids (grades 4–5).** P1 has eight recording grids for its six pictures, four on each page in two columns of 18.5 mm cells (the old 22 mm cells could not fit two columns; the counters are at most 18 mm). P3's second page has three blank grids, one more than the two intermediate pictures of a shortest route. The K–1 catalogs (optional on the card) are unchanged: K–1 P3 still has exactly six grids.
+- **Should 4, grades 4–5 P4.** A new page 7, "Problem 4 (continued)", has three blank 2 × 6 grids with the counts 3, 3 / 2, 1, 0, 1, 1, 1 as workspace, fewer than the six pictures. P5 moved to page 8.
+- **Should 7, recording a switch.** The grades 2–3 P4 example draws the switch's rectangle through its four corner cells, and the prompt says "Find every switch in each picture and draw its rectangle." Guide p. 10 draws the rectangle on the top-right picture and says how children record a switch.
+- **Could 12.** Grades 4–5 P2 now asks "What is the largest number of switches ever needed between two of them?", P4's wording.
+- **Could 10.** Guide p. 1 has the current group (eleven: four K–1, four third graders, three upper), p. 18 the October 3 context, and p. 2's hour starts with five minutes of running around.
+- **Guide.** Page and problem references follow the new pages and numbers: pp. 1 (packet ids, cell sizes, 8 pages for grades 4–5, grades 2–3 P5–P6 need eight counters per pair), 2 (middle route), 10–11 (grades 2–3 P3–P4 and P5–P6), 12–15 (spare grids, pages 6–7 and 8), 16, 17 and 18, and the route note (grades 2–3 P5, P6). `verify_math.py` labels follow the new numbers.
+
+Not done: coulds 11 (crowded counts on K–1 p. 2 and grades 2–3 pp. 1 and 5; grades 4–5 pp. 1 and 3 are less crowded or unchanged), 13 (one name) and 14 (a three-row reserve).
+
+## Verification
+
+- `python3 review/verify_student_fixes_2026_10_23.py` (11 checks): the new wording and numbering in the reference PDFs; 8 grids for 6 pictures (brute force), 3 grids for a 3-switch route, 3 grids with P4's counts for 6 pictures, P4's endpoints 2 apart and greatest distance 2 (breadth-first search); the 18.5 mm cell spacing and the 14–202 mm margins; the recorded rectangle in the 2–3 P4 example and on guide p. 10, each on a picture whose switch it marks.
+- `src/check_answers.py`, `src/check_examples.py` and `facilitator-src/verify_math.py` pass; `check_guide_copy.py` finds every copied key sentence in the guide source.
+- Every page of the three packets and the changed guide pages (printed 1, 2, 10–18 and the route note) were rendered and inspected. A clean rebuild from the extracted portable ZIP reproduces exact 100-dpi pixels on every page of all four PDFs (`verify_revision.py`); the audited K–1 alternates no longer apply and were removed from `rebuild-pixel-allowances.json`.
+- The replaced print PDFs and guide are in the project's `week-25/archive-before-card-fixes-2026-10-23/`, and the conversion ZIP in `source/week-25/archive-before-card-fixes-2026-10-23/`.
+
+The 18.5 mm cells, the spare grids and the drawn rectangles are not rehearsed with counters or children; the theme remains unpiloted.
