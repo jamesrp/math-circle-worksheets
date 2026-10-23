@@ -1,0 +1,29 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=.7in,headheight=18pt,headsep=17pt,footskip=28pt]{geometry}
+\usepackage{tikz,fancyhdr,amssymb}
+\usetikzlibrary{arrows.meta}
+\pdfmapfile{+cm.map}\pdfmapfile{+cmextra.map}\pdfmapfile{+symbols.map}\pdfmapfile{+latxfont.map}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}\setlength{\parskip}{9pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week <<week>> / <<topic>> / <<header>>}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week <<week>> / <<footer>>}
+\fancyfoot[R]{\footnotesize\thepage}\renewcommand{\headrulewidth}{.4pt}
+
+\newcommand{\problem}[2]{\par\textbf{Problem #1:} #2\par}
+\newcommand{\grid}[1]{\draw[gray!60,line width=.6pt,step=1] (0,0) grid (#1,#1);\foreach \x in {0,...,#1}\foreach \y in {0,...,#1}\fill (\x,\y) circle (1.7pt);}
+\newcommand{\home}[3]{\node[draw,circle,fill=white,inner sep=2.5pt,font=\bfseries] at (#1,#2){#3};}
+\newcommand{\corners}[1]{\home{0}{0}{A}\home{#1}{0}{B}\home{#1}{#1}{C}}
+\newcommand{\treeone}{
+\foreach \n/\x/\y in {a/0/0,b/1/0,c/2/0,d/3/0,e/4/1,f/4/-1,g/2/1,h/2/2,i/1/-1,j/0/-1,k/3/2,l/0/1}{\coordinate (\n) at (\x,\y);}
+\draw[line width=.9pt] (a)--(b)--(c)--(d)--(e) (d)--(f) (c)--(g)--(h)--(k) (b)--(i)--(j) (a)--(l);
+\foreach \n in {a,b,c,d,e,f,g,h,i,j,k,l}\fill (\n) circle (2.6pt);}
+\newcommand{\treetwo}{
+\foreach \n/\x/\y in {a/0/0,b/1/0,c/2/0,d/3/0,e/4/0,f/1/1,g/0/2,h/2/2,i/3/-1,j/4/-2,k/2/-2}{\coordinate (\n) at (\x,\y);}
+\draw[line width=.9pt] (a)--(b)--(c)--(d)--(e) (b)--(f)--(g) (f)--(h) (d)--(i)--(j) (i)--(k);
+\foreach \n in {a,b,c,d,e,f,g,h,i,j,k}\fill (\n) circle (2.6pt);}
+\begin{document}
+
+<<body>>
+
+\end{document}

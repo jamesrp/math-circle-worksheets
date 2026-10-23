@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Build both PDFs from this portable authored-source package."""
+"""Build both PDFs from this portable authored-source package.
+
+The student LaTeX is first written from the problem files (student/regenerate.py);
+the builders then run on a copy in a temporary folder."""
 import argparse,json,shutil,subprocess,tempfile
 from pathlib import Path
 BASE=Path(__file__).resolve().parent
@@ -18,6 +21,8 @@ def main():
     a=parser.parse_args()
     out=Path(a.out).resolve()
     data=json.loads((BASE/'build-manifest.json').read_text())
+    if not a.verify_only:
+        print(run(['python3','regenerate.py'],BASE/'student').strip())
     with tempfile.TemporaryDirectory(prefix=f"week{data['week']}-build-") as temporary:
         work=Path(temporary)
         for directory in ['student','guide','checks']:
@@ -31,7 +36,7 @@ def main():
         for document in data['documents']:
             source=work/document['source_directory']
             build_out=work/(document['kind']+'-output')
-            print(run(['python3','build.py','--out',str(build_out)],source).strip())
+            print(run(['python3','build.py','--out',str(build_out)]+document.get('args',[]),source).strip())
             built=build_out/document['built_name']
             if not built.is_file(): raise SystemExit(f'Builder did not produce {built}')
             shutil.copy2(built,out/document['output_file'])

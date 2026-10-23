@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
-"""Build the standalone student packet; requires Python 3 and pdflatex."""
+"""Build the standalone student packet; requires Python 3.11+ and pdflatex.
+
+students.tex is written from the problem files by regenerate.py, which this script
+runs first unless --no-regenerate is given (the package's root build.py regenerates
+in place, then builds a copy)."""
 from pathlib import Path
-import argparse, subprocess, shutil, tempfile, os
+import argparse, subprocess, shutil, tempfile, os, sys
 p=argparse.ArgumentParser(); p.add_argument('--out',type=Path,default=Path(__file__).resolve().parent.parent)
+p.add_argument('--no-regenerate',action='store_true',help='compile students.tex as it is')
 a=p.parse_args(); src=Path(__file__).resolve().parent; out=a.out.resolve(); out.mkdir(parents=True,exist_ok=True)
+if not a.no_regenerate:
+    subprocess.run([sys.executable,str(src/'regenerate.py')],check=True)
 with tempfile.TemporaryDirectory(prefix='latex-', dir=out) as td:
     build=Path(td)
     for f in src.iterdir():
