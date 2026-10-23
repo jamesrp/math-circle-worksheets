@@ -4,7 +4,7 @@ title = "Fractions of the ball from meridian gaps"
 grades = ["shared"]
 route = "return"
 page = "new"
-kernel = 'A lune of angle g covers g/360 of the ball, so the pole triangle with gap g covers g/720.'
+kernel = 'A lune of angle g covers g/360 of the ball, so the pole triangle with gap g covers g/720: 1/16, 1/12 and 1/6 for gaps 45, 60 and 120 degrees.'
 +++
 
 ## text
@@ -19,11 +19,11 @@ A \textit{lune} is the strip between two great-circle semicircles from $N$ to it
 \end{tabular}\end{center}
 
 ## prompt
-Use the marked meridian pairs with gaps $45^\circ$, $72^\circ$, and $120^\circ$. For each pair, make a triangle with $N$ and the two equator points. What fraction of the ball's surface does each triangle cover?
+Use the marked meridian pairs with gaps $45^\circ$, $60^\circ$, and $120^\circ$. For each pair, make a triangle with $N$ and the two equator points. What fraction of the ball's surface does each triangle cover?
 
 ## text
 \begin{center}\begin{tabular}{>{\centering\arraybackslash}p{1.55in}|>{\centering\arraybackslash}p{1.55in}|>{\centering\arraybackslash}p{1.55in}}
-$45^\circ$ gap & $72^\circ$ gap & $120^\circ$ gap\\[6pt]
+$45^\circ$ gap & $60^\circ$ gap & $120^\circ$ gap\\[6pt]
 \begin{tikzpicture}[x=.67in,y=.67in]\draw[ink!60] (0,0) circle (1);\path[use as bounding box] (-1.1,-1.1) rectangle (1.1,1.1);\end{tikzpicture}&
 \begin{tikzpicture}[x=.67in,y=.67in]\draw[ink!60] (0,0) circle (1);\path[use as bounding box] (-1.1,-1.1) rectangle (1.1,1.1);\end{tikzpicture}&
 \begin{tikzpicture}[x=.67in,y=.67in]\draw[ink!60] (0,0) circle (1);\path[use as bounding box] (-1.1,-1.1) rectangle (1.1,1.1);\end{tikzpicture}\\[22pt]

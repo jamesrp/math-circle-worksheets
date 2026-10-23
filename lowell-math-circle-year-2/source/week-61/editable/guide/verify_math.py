@@ -100,16 +100,16 @@ def main():
     results.append(verify_instance('record-80-each',equal_corner(80),(80,80,80),Fraction(1,12),
         [Fraction(1,12)]+[Fraction(5,36)]*6+[Fraction(1,12)]))
     results.append(verify_instance('record-100-each',equal_corner(100),(100,100,100),Fraction(1,6)))
-    p4={str(gap):str(Fraction(gap,720)) for gap in (45,72,120)}
-    assert p4=={'45':'1/16','72':'1/10','120':'1/6'}
+    p4={str(gap):str(Fraction(gap,720)) for gap in (45,60,120)}
+    assert p4=={'45':'1/16','60':'1/12','120':'1/6'}
     assert Fraction(40,360)==Fraction(1,9)
     roster={'k1':4,'middle':4,'upper':3,'adults':3,'kits':5,'strings':15,'string_cm':1200,
-            'right_angle_tabs':11,'usable_dots':30,'spare_dots':10,'first_student_sheets':21,
-            'plain_k1_sheets':4,'return_student_sheets':16,'all_student_sheets':37,
+            'right_angle_tabs':11,'usable_dots':30,'spare_dots':10,'first_student_sheets':37,
+            'plain_k1_sheets':4,'all_student_sheets':37,'k1_straws':6,
             'guide_pages':9,'adult_guide_sheets':27}
     assert roster['k1']+roster['middle']+roster['upper']==11
-    assert roster['first_student_sheets']==3*(roster['middle']+roster['upper'])
-    assert roster['return_student_sheets']==roster['middle']+4*roster['upper']
+    # October 23, 2026: P1-4 for every older child and P5-7 for the trio, all on the first visit.
+    assert roster['first_student_sheets']==4*(roster['middle']+roster['upper'])+3*roster['upper']==roster['all_student_sheets']
     report={'status':'passed','method':'Independent coordinates, tangent angles, determinant solid angles, oriented side normals, eight sign cells; no student imports.',
             'exact_p4':p4,'roster_materials_printing':roster,'instances':results,
             'limits':'Numerical checks illustrate the exact proof. Physical fabrication, marking, fit, handling rehearsal and classroom piloting are unperformed.'}

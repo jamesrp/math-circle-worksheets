@@ -9,9 +9,9 @@ page = "new"
 
 ## text
 \band{2--5}
-Join three different markers by their shortest surface routes. Do not use opposite markers or put all three on one great circle. Use the smaller inside region; its corners must be smaller than a straight angle.
+Join three different markers by their shortest surface routes. Do not use opposite markers or put all three on one great circle. Use the smaller region inside the three sides.
 
-An angle on the ball is the angle between the directions of the two sides at their meeting point. Use the inside corner. A flat picture of the ball is a sketch, not an angle meter.
+An angle on the ball is the angle between the directions of the two sides at their meeting point. Use the inside corner.
 
 \begin{center}\begin{tabular}{ccc}
 \angleinput &

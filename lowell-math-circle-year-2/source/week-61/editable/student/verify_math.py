@@ -67,8 +67,8 @@ def check_triangle(name,vertices,expected):
         'six_lune_area_fraction':str(Fraction(2*sum(expected),360)),
         'checked':True})
 
-for theta in (45,72,90,110,120): check_triangle('meridian-'+str(theta),meridian(theta),(theta,90,90))
-for angles in ((60,60,90),(80,80,80),(100,100,100)):
+for theta in (45,60,72,90,110,120): check_triangle('meridian-'+str(theta),meridian(theta),(theta,90,90))
+for angles in ((60,60,90),(70,70,70),(80,80,80),(100,100,100)):  # 70-70-70: the p. 5 example (October 23, 2026)
     check_triangle('record-'+str(angles),from_angles(*angles),angles)
 assert Fraction(40,360)==Fraction(1,9)
 assert tangent_angle((0,0,1),(sin(radians(50)),0,cos(radians(50))),
@@ -85,7 +85,7 @@ for azimuth in (0,35,90):
 p=(cos(radians(-40)),sin(radians(-40)),0);q=(cos(radians(55)),sin(radians(55)),0)
 assert isclose(degrees(acos(d(p,q))),95,abs_tol=1e-12)
 covering_views=[]
-for name,v in [('octant',meridian(90)),('unequal-80',from_angles(80,80,80))]:
+for name,v in [('octant',meridian(90)),('example-70',from_angles(70,70,70)),('unequal-80',from_angles(80,80,80))]:
     camera=side_view(v)
     assert camera.z(v[0])>0 and abs(camera.z(v[1]))<1e-12 and abs(camera.z(v[2]))<1e-12
     front=[];back=[]
@@ -96,7 +96,7 @@ for name,v in [('octant',meridian(90)),('unequal-80',from_angles(80,80,80))]:
         assert min(depths)>-1e-12 if s[0]>0 else max(depths)<1e-12
     assert front==[1,2,3,4] and back==[5,6,7,8]
     covering_views.append({'name':name,'front_complete_cells':front,'back_complete_cells':back})
-v=from_angles(80,80,80)
+v=from_angles(70,70,70)  # the p. 5 example's patch X
 x=normalize(tuple(3*v[0][i]-v[1][i]-v[2][i] for i in range(3)))
 normals=[normalize(c(v[(i+1)%3],v[(i+2)%3])) for i in range(3)]
 assert tuple(1 if d(n,x)>0 else -1 for n in normals)==(1,-1,-1)

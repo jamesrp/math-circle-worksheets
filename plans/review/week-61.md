@@ -43,6 +43,8 @@ A taut string on a ball follows a great circle, and opposite dots have endless s
 10. **could**, guide p. 6 hint: "compare the sizes of cells 1 and 2" judges area by projection, which guide p. 5 forbids; say cells 1 and 2 make the 80° lune at C, 2/9 (math.md item 3).
 11. **could**, p. 3: cut "Its corner with the equator is a right angle."; checking it is part of P3.
 
+**October 23, 2026:** converted to problem files with no wording change, then fixed shoulds 1–8 and coulds 9–11 (W61-S-v4, W61-F-v3). Fix 3 kept v3's "Do not use opposite markers or put all three on one great circle" and ends "Use the smaller region inside the three sides."; fix 5 used three 70° corners; fix 7 both changed 72° to 60° and says rough marks suffice. Check: `checks/week-61/check_card_fixes.py`. Nothing deferred.
+
 ## Overlaps
 
 Week 56 proves the discrete version (total defect 720°); Week 65 is the negative-curvature case, and its card asks to cross-reference all three. Atlas GA-23 uses the octant for parallel transport (guide p. 9). No merge.

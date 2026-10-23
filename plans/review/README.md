@@ -93,7 +93,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 58 | Fair division | keep | [card](week-58.md), [math check](week-58-math.md) |
 | 59 | Constant-width shapes | keep | [card](week-59.md), [math check](week-59-math.md) |
 | 60 | Take it or pass (optimal stopping) | keep | [card](week-60.md), [math check](week-60-math.md) |
-| 61 | Geometry on a sphere (Girard's theorem) | keep | [card](week-61.md), [math check](week-61-math.md) |
+| 61 | Geometry on a sphere (Girard's theorem) | original verdict keep; shoulds 1–8 and coulds 9–11 fixed October 23 in the new problem files and the guide (W61-S-v4, W61-F-v3: a K–1 route on guide p. 3, shorter rules on pp. 1–3, Problem 4's gap 60° for 72°, a 70-70-70 lune-pair example, Problem 7 without the proof plan, "Outside our rules"); nothing deferred | [card](week-61.md), [math check](week-61-math.md) |
 | 62 | Conflict networks and scheduling | keep | [card](week-62.md), [math check](week-62-math.md) |
 | 63 | Cards away from home (derangements) | original verdict revise; the must (a K–1 route on guide p. 3; pp. 1–3 headed K–5; card pictures on the home cells and A–C outcome cards) fixed October 23, with shoulds 2–4 and coulds 5–9 and 11; could 10 (timing) deferred | [card](week-63.md), [math check](week-63-math.md) |
 | 64 | Straight paths on strange surfaces (a glued octagon, square-tiled surfaces) | keep | [card](week-64.md), [math check](week-64-math.md) |

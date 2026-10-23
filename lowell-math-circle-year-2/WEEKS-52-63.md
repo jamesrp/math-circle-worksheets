@@ -32,7 +32,7 @@ Each row counts one theme. The routes can support several investigations and ret
 - **Week 58:** Whole-card division → divisible strips and cut-and-choose → indivisibility → proportionality versus envy-freeness.
 - **Week 59:** Measure while turning between parallel supports → noncircular constant width → explain the support geometry.
 - **Week 60:** Irreversible take/pass play → complete equally weighted cases → continuation values, changing thresholds and optimality.
-- **Week 61:** Surface routes and corners → great circles and shortest arcs → spherical triangles, lunes and excess area.
+- **Week 61:** Surface routes and corners → great circles and shortest arcs → spherical triangles, lunes and excess area. Since October 23, K–1 has an adult-led route with string and straws on guide p. 3, and the packet is W61-S-v4.
 - **Week 62:** Minimum slots → odd cycles → first-fit order and repair → counts with named slots.
 - **Week 63:** Card-to-home assignments → overlapping forbidden events → complete derangement counts and reversible recurrence cases. Since October 23, K–1 has a route through Problems 1–3 on guide p. 3, and the cards' pictures sit beside the home letters.
 

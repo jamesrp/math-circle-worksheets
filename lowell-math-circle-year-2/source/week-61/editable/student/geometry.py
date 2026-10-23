@@ -134,7 +134,7 @@ def dotlabel(v,view,label,anchor='south',offset=(0,.035)):
     p=view.p(v);q=(p[0]+offset[0],p[1]+offset[1])
     return '\\fill[ink] '+xy(p)+' circle (.020);\\node[font=\\small,anchor='+anchor+',fill=white,inner sep=1pt] at '+xy(q)+' {$'+label+'$};'
 def triangle(verts,radius=.82,view=None,labels=('N','A','B'),full=False,regions=False,shade=False,pair=None,
-             surface_only=False,selected=None,focus=None,patch=None):
+             surface_only=False,selected=None,focus=None,patch=None,beside={}):
     view=view or View()
     lines=[begin(radius)]
     signs=list(product((1,-1),repeat=3))
@@ -161,7 +161,10 @@ def triangle(verts,radius=.82,view=None,labels=('N','A','B'),full=False,regions=
             candidates=[(v,label)]+([(mul(v,-1),label+'^*')] if full else [])
             for w,text in candidates:
                 depth=view.z(w)
-                if depth>1e-8: lines.append(dotlabel(w,view,text))
+                if depth>1e-8 and text in beside:
+                    # Beside the dot, so the label box does not hide the corner it names.
+                    lines.append(dotlabel(w,view,text,'west',beside[text]))
+                elif depth>1e-8: lines.append(dotlabel(w,view,text))
                 elif surface_only and abs(depth)<=1e-8:
                     p=view.p(w)
                     lines.append(dotlabel(w,view,text,'center',(p[0]*.105,p[1]*.105)))
@@ -211,15 +214,17 @@ def lune():
 def write_figures(pathname):
     eighty=from_angles(80,80,80); octant=meridian(90)
     ev=side_view(eighty); ov=side_view(octant)
+    # The p. 5 lune-pair example is a 70-70-70 triangle that no problem uses (Problem 6 is 80-80-80).
+    seventy=from_angles(70,70,70); sv=side_view(seventy); near={'A':(.08,-.06),'A^*':(.10,.02)}
     figures={
         'routeinput':route(0),'routecircle':route(1),'routeoutput':route(2),
         'angleinput':angle_input(),'luneexample':lune(),
         'triangleblank':triangle(meridian(75),1.13,shade=False),
         'movingtriangle':triangle(meridian(110),.86,shade=True),
-        'pairinput':triangle(eighty,.62,ev,('A','B','C'),focus=0,surface_only=True,shade=True),
-        'paircircles':triangle(eighty,.62,ev,('A','B','C'),full=True,surface_only=True,selected=(0,2),focus=0),
-        'pairfront':triangle(eighty,.62,ev,('A','B','C'),full=True,pair=0,surface_only=True,patch='X'),
-        'pairback':triangle(eighty,.62,ev.back(),('A','B','C'),full=True,pair=0,surface_only=True),
+        'pairinput':triangle(seventy,.62,sv,('A','B','C'),focus=0,surface_only=True,shade=True,beside=near),
+        'paircircles':triangle(seventy,.62,sv,('A','B','C'),full=True,surface_only=True,selected=(0,2),focus=0,beside=near),
+        'pairfront':triangle(seventy,.62,sv,('A','B','C'),full=True,pair=0,surface_only=True,patch='X',beside=near),
+        'pairback':triangle(seventy,.62,sv.back(),('A','B','C'),full=True,pair=0,surface_only=True,beside=near),
         'countfront':triangle(octant,1.08,ov,('N','A','B'),full=True,regions=True,surface_only=True),
         'countback':triangle(octant,1.08,ov.back(),('N','A','B'),full=True,regions=True,surface_only=True),
         'unequalfront':triangle(eighty,1.32,ev,('A','B','C'),full=True,regions=True,surface_only=True),

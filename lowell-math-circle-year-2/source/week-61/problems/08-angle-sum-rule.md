@@ -11,7 +11,7 @@ kernel = 'Girard: a triangle with corners A, B, C covers (A + B + C - 180)/720 o
 \band{4--5}
 
 ## prompt
-Find a rule for a triangle's fraction of the ball using the sum of its three surface corners. Explain why the covering counts persist for every triangle under our rules, and why opposite triangles have equal area. Use your rule for these three exact surface-angle records.
+Find a rule for a triangle's fraction of the ball using the sum of its three surface corners. Use it for these three triangles. Explain why your rule works for every triangle under our rules.
 
 ## text
 \begin{center}\begin{tabular}{ccc}

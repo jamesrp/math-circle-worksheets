@@ -13,7 +13,7 @@ macros()
 \band{2--5}
 Keep the ball on its support. Keep the string against its surface and its endpoints on the same two markers. Dashed arcs lie on the back of the ball.
 
-A \textit{great circle} is the circle made by a flat cut through the ball's center. For two distinct points that are not opposite, its shorter arc is the shortest surface route.
+A \textit{great circle} is the circle made by a flat cut through the ball's center. A shortest surface route between two points runs along a great circle through them.
 
 \begin{center}
 \begin{tabular}{ccc}
