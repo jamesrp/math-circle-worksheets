@@ -18,6 +18,7 @@ HERE = _os.path.dirname(_os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pdf31 as P  # noqa: E402
 import orchard31 as M  # noqa: E402
+from pathlib import Path  # noqa: E402
 
 OUT, FAIL = [], []
 
@@ -39,10 +40,19 @@ def text_of(path):
 
 TB = text_of(P.GUIDES['base'])
 TX = text_of(P.GUIDES['bonus'])
+# The guide corrections (bc911cb) and card fixes (f21417c) of 2026-10-23 reworded base-guide sentences this review
+# quoted.  A quote missing from the current base guide is located in the guide as reviewed
+# (archive-before-card-fixes-2026-10-23) and reported as such; its mathematics is still checked below.
+_RB = Path(P.GUIDES['base']).parent / 'archive-before-card-fixes-2026-10-23' / Path(P.GUIDES['base']).name
+TB_REVIEWED = text_of(_RB) if _RB.exists() else ''
 
 
 def quoted(T, q, label):
-    ok = ' '.join(q.split()) in T
+    qq = ' '.join(q.split())
+    ok = qq in T
+    if not ok and T is TB and qq in TB_REVIEWED:
+        say(f'ok   {label}: guide as reviewed (archived; reworded since) prints "{q[:90]}{"..." if len(q) > 90 else ""}"')
+        return True
     check(ok, f'{label}: guide prints "{q[:90]}{"..." if len(q) > 90 else ""}"')
     return ok
 
@@ -153,7 +163,13 @@ O2 = (1, 1)
 say(f'   from O: (3,3) blockers {M.between(O, (3, 3))}; (4,3) visible = {M.visible((4, 3))}')
 say(f'   from (1,1): (3,3) blockers {M.between(O2, (3, 3))}; (4,3) visible = {M.visible((4, 3), O2)}')
 check(M.between(O2, (3, 3)) == [(2, 2)], 'extension: from (1,1), (3,3) is hidden behind (2,2) only ("remains hidden" is right)')
-check(not M.visible((4, 3)), 'extension: "(4,3) is NOW visible" needs (4,3) hidden from O -- but gcd(4,3)=1, it was already visible')
+check(M.visible((4, 3)) and q in ' '.join(TB_REVIEWED.split()),
+      'finding confirmed: the guide as reviewed says "(4,3) is now visible", but gcd(4,3)=1, so it was already visible from O')
+q2 = ('for example (3,3) remains hidden behind (2,2), while (4,2), hidden from O behind (2,1), is now visible, '
+      'and (3,5), visible from O, is now hidden behind (2,3).')
+quoted(TB, q2, 'extension (current)')
+check(M.between(O, (4, 2)) == [(2, 1)] and M.visible((4, 2), O2) and M.visible((3, 5)) and M.between(O2, (3, 5)) == [(2, 3)],
+      'current extension: (4,2) hidden from O behind (2,1) and visible from (1,1); (3,5) visible from O and hidden from (1,1) behind (2,3)')
 changes_on = sorted(T for T in [(x, y) for x in range(7) for y in range(7)] if T not in (O, O2) and M.visible(T) != M.visible(T, O2))
 became_vis = [T for T in changes_on if M.visible(T, O2)]
 became_hid = [T for T in changes_on if not M.visible(T, O2)]

@@ -15,7 +15,7 @@ from itertools import product
 import pymupdf
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import HERE, PDFS, Log  # noqa: E402
+from common import HERE, PDFS, DELIVERED, Log  # noqa: E402
 
 log = Log()
 geo = json.load(open(os.path.join(HERE, 'pdf_geometry.json')))
@@ -92,9 +92,14 @@ for n in range(1, 9):
             ok &= cs == {'RB'}
 log.check(ok, 'guide P1 extension: n red clues -> RR 2^n/(2^n+1); mixed colours force RB (n = 1..8)')
 m = re.search(r'There are (\S+)=12 equally likely histories', g)
-log.check(m is not None and m.group(1) in ('3×2×2', '3·2·2', '3·2²', '3×2²'),
-          f'guide overview: history-count expression printed as "{m.group(1) if m else None}=12" '
-          '(should be a product equal to 12; source guide.md has 3*2*2=12 and the renderer turns *2* into italics)')
+# Review finding: the bonus guide as reviewed (PDFS, archived) printed "322=12".  The card's should 8 (de045a5)
+# prints "3 × 2 × 2 = 12"; the finding is confirmed here and the current print copy is checked after it.
+log.check(m is not None and m.group(1) == '322',
+          f'finding confirmed (bonus guide as reviewed, archived): history-count expression printed as "{m.group(1) if m else None}=12" '
+          '(should be a product equal to 12; source guide.md had 3*2*2=12 and the renderer turned *2* into italics)')
+_cur = re.sub(r'\s+', ' ', ''.join(p.get_text() for p in pymupdf.open(DELIVERED['bonus-guide'])))
+log.check('There are 3 × 2 × 2 = 12 equally likely histories' in _cur,
+          'current bonus guide prints "There are 3 × 2 × 2 = 12 equally likely histories"')
 
 # ------------------------------------------------------------------ P2: two hosts
 H = [(p, t) for p in (1, 2, 3) for t in (2, 3)]

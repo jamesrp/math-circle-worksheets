@@ -270,10 +270,17 @@ log.check(len(all6) == 36, f'unrestricted rooted orders: {len(all6)} (guide: 36)
 import pdfplumber
 from collections import Counter
 from common import PDFS, CM
-with pdfplumber.open(str(PDFS['grades-4-5'])) as pdf:
-    blanks = [l for l in pdf.pages[5].lines if 30 < l['x1'] - l['x0'] < 60]
-rows = len(Counter(round(l['top']) for l in blanks))
-log.check(rows == len(seq6), f'FINDING CHECK: P6 prints exactly {rows} answer rows of six blanks for an answer of {len(seq6)} (the page reveals the count)')
+# Review finding: P6 printed exactly as many answer rows as answers.  The student-page fixes (799a994) print
+# 16 rows for 12 answers, so the finding is checked in the packet as reviewed
+# (archive-before-student-page-fixes-2026-10-23) and the fix in the delivered packet.
+def p6_rows(path):
+    with pdfplumber.open(str(path)) as pdf:
+        blanks = [l for l in pdf.pages[5].lines if 30 < l['x1'] - l['x0'] < 60]
+    return len(Counter(round(l['top']) for l in blanks))
+rows = p6_rows(PDFS['grades-4-5'].parent / 'archive-before-student-page-fixes-2026-10-23' / PDFS['grades-4-5'].name)
+log.check(rows == len(seq6), f'FINDING CHECK (packet as reviewed, archived): P6 prints exactly {rows} answer rows of six blanks for an answer of {len(seq6)} (the page reveals the count)')
+rows = p6_rows(PDFS['grades-4-5'])
+log.check(rows > len(seq6), f'current P6 prints {rows} answer rows for an answer of {len(seq6)} (the count is no longer revealed)')
 # cyclic reading (for the record)
 cyc = {min(p[k:] + p[:k] for k in range(6)) for p in seq6}
 log.info(f'if rotations were identified, the 12 rooted orders form {len(cyc)} cyclic arrangements')
@@ -325,16 +332,19 @@ def printed(k):
     return GP[k]
 
 
-refs = [(2, 'table on page 10', 10, 'Clockwise sectors 1,2,3,4'),
+refs = [(2, 'sector lists on page 10', 10, 'Clockwise sectors 1,2,3,4'),  # as reviewed: 'table on page 10'
         (3, 'Page 4 gives a geometric certificate', 4, 'A geometric witness for the unequal model D'),
         (6, 'construction on page 3', 3, 'Two book folds give a verified right-angle example'),
         (7, 'page 6 proves', 6, 'A complete proof for the four right angles'),
         (9, 'catalog words on page 7', 7, 'eight-fold catalog'),
-        (11, 'certificate on page 4', 4, 'Why the certificate works'),
-        (11, 'necessity proof on page 5', 5, 'Every other sector must total a half-turn'),
+        # Since the student-page fixes (799a994) grades 2-3 Problems 2 and 3 are swapped: the witnesses are on
+        # guide p10 and the sector table on p11, and the p10 and p13 references were updated to match.  The p2
+        # reference above ("the sector lists on page 10") was not; it is left as printed, so it fails.
+        (10, 'certificate on page 4', 4, 'Why the certificate works'),
+        (10, 'necessity proof on page 5', 5, 'Every other sector must total a half-turn'),
         (12, 'diagrams on page 7', 7, 'E MVVV'),
-        (13, 'exact totals are on page 10', 10, 'Shaded 1+3'),
-        (13, 'witness assignments are on page 11', 11, 'Problem 3 witnesses'),
+        (13, 'exact totals are on page 11', 11, 'Shaded 1+3'),
+        (13, 'witness assignments are on page 10', 10, 'Problem 2 witnesses'),
         (14, 'Page 7 supplies exact labeled diagrams', 7, 'H VVVM'),
         (16, 'completion table on page 8', 8, 'All possible completed words'),
         (16, 'complementary-pair rule on page 9', 9, 'Complete move rule'),

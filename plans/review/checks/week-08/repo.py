@@ -40,3 +40,7 @@ STUDENT = {
 GUIDE = os.path.join(PKT, 'week-08-facilitator.pdf')
 RV_STUDENT = os.path.join(PKT, 'week-08-return-visit.pdf')
 RV_GUIDE = os.path.join(PKT, 'week-08-return-visit-facilitator.pdf')
+# The guides as reviewed, before the October 23, 2026 card fixes corrected some quoted sentences.
+REVIEWED = os.path.join(PKT, 'archive-before-card-fixes-2026-10-23')
+REVIEWED_GUIDE = os.path.join(REVIEWED, 'week-08-facilitator.pdf')
+REVIEWED_RV_GUIDE = os.path.join(REVIEWED, 'week-08-return-visit-facilitator.pdf')

@@ -151,7 +151,9 @@ st = colour_stories(4, (3, 3))
 ok(sorted(st) == sorted(["RRBB", "RBRB", "RBBR", "BRRB", "BRBR", "BBRR"]),
    f"P3: {len(st)} four-draw colour stories end at 3R/3B: {', '.join(st)}  [key]")
 cells = boxes_by_size(pg, 1.9 * 28.3465, 1.8 * 28.3465)
-ok(len(cells) == 24, f"P3 page: {len(cells)} cells = 6 rows of 4 (one row per colour story)")
+# As reviewed: 6 rows of 4, one per colour story.  Since the card's shoulds (142693b) the page has eight story
+# rows (two spare) and two bag boxes, each with a row of 4 beneath it: 10 rows of 4.
+ok(len(cells) == 40, f"P3 page: {len(cells)} cells = 10 rows of 4 (eight story rows for 6 stories, one row under each of two bag boxes)")
 H4 = list(histories("RB", 4, "copy", first_mark=1))
 n33 = sum(1 for h, p, bag in H4 if counts(bag, "RB") == (3, 3))
 note(f"P3 other reading - marked stories ending 3R/3B: {n33} (= 6 words x 2!2!)")

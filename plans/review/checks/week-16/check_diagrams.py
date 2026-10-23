@@ -155,15 +155,19 @@ for band in ('K-1', '2-3', '4-5'):
             elif isinstance(want_lab, dict):
                 exp = dict(want_lab)
             check(lab == exp, '%s p.%d: printed letters %s' % (band, pg, row_code(b.n, lab) if hasattr(b, 'n') and len(lab) == len(b.xy) else sorted(lab.items(), key=str)))
-            # fill colour of lettered dots matches the letter, blank dots white
+            # fill colour of lettered dots matches the letter, blank dots white.  Since the card's shoulds
+            # (bd86bf0) every blank side dot is split in the tints its side allows; those dots are left to
+            # source/week-16/editable/review/verify_card_fixes_2026_10_23.py, which checks the split tints.
             col = {'R': (0.984, 0.890, 0.882), 'B': (0.875, 0.922, 0.984), 'Y': (1.0, 0.969, 0.796)}
             fills_ok = True
             for v, p in match.items():
+                if v not in lab and hasattr(b, 'side_of') and b.side_of(v):
+                    continue
                 cpath = [c[3] for c in circ if (c[0], c[1]) == p][0]
                 want_col = col.get(lab.get(v), (1.0, 1.0, 1.0))
                 if max(abs(a - bb) for a, bb in zip(cpath.fill, want_col)) > 0.01:
                     fills_ok = False
-            check(fills_ok, '%s p.%d: lettered dots tinted by letter, blank dots white' % key)
+            check(fills_ok, '%s p.%d: lettered dots tinted by letter, blank inside dots white' % key)
             if band == 'K-1':
                 spac = min(dist(match[a], match[c]) for e in b.edge_cells for a, c in [tuple(e)])
                 say('     tightest dot spacing on this board %.4f in; blank dot diameter %.3f in' %

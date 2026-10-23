@@ -1,6 +1,9 @@
 """Cross-check: the edge numbers and card numbers in the LaTeX sources (source/week-05/src/*.tex)
 are the ones the final PDFs print (pdf_data.json from extract_pdf.py).
 
+Since October 23, 2026 the week is stored as problem files and src/*.tex is generated:
+band_tex() (../problem_tex.py) returns that generated LaTeX.
+
 Run after extract_pdf.py:  python3 -I source_vs_pdf.py > source_vs_pdf.out
 """
 import json
@@ -10,6 +13,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import REPO  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from problem_tex import band_tex  # noqa: E402
 
 SRC = REPO / "lowell-math-circle-year-2" / "source" / "week-05" / "src"
 DATA = json.loads((Path(__file__).resolve().parent / "pdf_data.json").read_text())
@@ -20,9 +25,9 @@ inner_re = re.compile(r"\\draw\[line width=0\.7pt\] \(([\d.]+),0\) -- ")
 node_re = re.compile(r"\\node at \((-?[\d.]+),(-?[\d.]+)\) \{\\Large (\d)\};")
 
 
-def tex_items(path):
+def tex_items(name):
     """Edge-number dicts for every printed puzzle grid and number pairs for every card, in source order."""
-    text = path.read_text()
+    text = band_tex("week-05", name)
     bodies = scope_re.findall(text)
     # puzzles drawn without a scope (single grid in a tikzpicture)
     for pic in re.findall(r"\\begin\{tikzpicture\}(.*?)\\end\{tikzpicture\}", text, re.S):
@@ -63,7 +68,7 @@ def pdf_items(band, pages):
 
 bad = 0
 for band, tex, pages in (("M", "grades-2-3.tex", (3, 4, 5)), ("U", "grades-4-5.tex", (3, 4, 5))):
-    tg, tc = tex_items(SRC / tex)
+    tg, tc = tex_items(tex)
     pg = pdf_items(band, pages)
     same = sorted(map(lambda d: sorted(d.items()), tg)) == sorted(map(lambda d: sorted(d.items()), pg))
     print(f"{tex}: {len(tg)} puzzle grids with printed numbers in source, {len(pg)} in PDF; same edge numbers: {same}")
@@ -72,7 +77,7 @@ for band, tex, pages in (("M", "grades-2-3.tex", (3, 4, 5)), ("U", "grades-4-5.t
         pc = [tuple(c) for c in DATA["student"]["U"]["1"]["cards"][1:]]
         print(f"  cards source {tc}\n  cards PDF    {pc}; same: {tc == pc}")
         bad += tc != pc
-tg, tc = tex_items(SRC / "k-1.tex")
+tg, tc = tex_items("k-1.tex")
 pc = [tuple(c) for p in (3, 6, 7) for c in DATA["student"]["K"][str(p)]["cards"]]  # p.6: the eight 2-2 frames
 print(f"k-1.tex cards source {tc}\n        cards PDF    {pc}; same: {tc == pc}")
 bad += tc != pc

@@ -62,6 +62,11 @@ def pdf_text(path):
 
 GUIDE_TEXT = pdf_text(PDF['guide'])
 STUDENT_TEXT = {k: pdf_text(PDF[k]) for k in ('K-1', '2-3', '4-5')}
+# The card fixes of 2026-10-23 corrected guide sentences this review flagged (the K-1 "keep going up"
+# rule and hints, the square sizes, the Christoffel-word remark). Those quotes are checked against
+# the guide as reviewed, kept in archive-before-card-fixes-2026-10-23, and reported as such.
+REVIEWED_GUIDE = PDF['guide'].parent / 'archive-before-card-fixes-2026-10-23' / PDF['guide'].name
+REVIEWED_GUIDE_TEXT = pdf_text(REVIEWED_GUIDE) if REVIEWED_GUIDE.exists() else ()
 
 
 def quoted(q, where=None):
@@ -69,6 +74,9 @@ def quoted(q, where=None):
     texts = GUIDE_TEXT if where is None else STUDENT_TEXT[where]
     qn = norm(q)
     ok = any(qn in t for t in texts)
+    if not ok and where is None and any(qn in t for t in REVIEWED_GUIDE_TEXT):
+        print(f'  ok       as reviewed (archived; corrected since): {qn[:70]}')
+        return True
     if not ok:
         print(f'  MISSING-QUOTE {qn[:90]}')
         problems.append('quote not found: ' + qn[:60])
@@ -161,37 +169,43 @@ lab_h = [w for w in ch_box if w[0] == 'height']
 check('4-5 p2 chart: "width" under the columns, "height" beside the rows',
       bool(lab_w) and bool(lab_h) and lab_w[0][2] < bottom[0][2] and lab_h[0][1] < left[0][1])
 
-# guide thumbnails
-for page, thumbs in GUIDE_THUMBS.items():
-    gs = sorted(geo['guide'][str(page)]['grids'], key=lambda g: (-round(g['y0'] / 12), g['x0']))
-    gw = words(PDF['guide'])[page]
-    check(f'guide p{page}: {len(thumbs)} path thumbnails', len(gs) == len(thumbs), f'found {len(gs)}')
-    for (w, h, start, cap1, cap2), g in zip(thumbs, gs):
-        r = ball(w, h, start)
-        sim = [tuple(map(float, p)) for p in r['points']]
-        path = [tuple(p) for p in g['path'][0]['pts']] if g['path'] else []
-        cx, cy = {'TR': (w, h), 'TL': (0, h), 'BR': (w, 0)}[r['corner']]
-        sx = 0 if start == 'BL' else w
-        ok = (g['w'], g['h']) == (w, h) and abs(g['cell_w'] - g['cell_h']) < 0.01
-        ok &= path == sim
-        ok &= [tuple(d[:2]) for d in g['dots']] == [(sx, 0)]
-        ok &= [tuple(x) for x in g['rings']] == [(float(cx), float(cy))]
-        # caption directly below the thumbnail
-        below = [x for x in gw if x[4] < g['y0'] and g['y0'] - x[4] < 30 and
-                 g['x0'] - 25 < (x[1] + x[3]) / 2 < g['x1'] + 25]
-        below.sort(key=lambda x: (-round(x[4]), x[1]))
-        cap = ' '.join(x[0] for x in below)
-        want = cap1 if cap2 is None else cap1 + ' ' + cap2
-        ok &= cap.startswith(want)
-        if cap2 is not None:
-            if cap2[0].isdigit():
-                n, rest = cap2.split(' ', 1)
-                ok &= int(n) == r['bounces'] and rest == f'({CN(r["corner"])})'
-            else:
-                cname, n = cap2.split(', ')
-                ok &= cname == CN(r['corner']) and int(n) == r['bounces']
-        check(f'guide p{page} thumbnail {cap1}: drawn path = simulated path, dot, ring, caption',
-              ok, f"caption '{cap}', simulated {CN(r['corner'])} {r['bounces']}")
+# guide thumbnails. GUIDE_THUMBS lists them by the reviewed guide's pages (8 on p. 4, 9 on p. 5);
+# the October 23, 2026 card fixes moved six of p. 4's onto p. 5, so they are matched in reading
+# order across the guide's pages, each against its own page's captions.
+want_all = [t for page in sorted(GUIDE_THUMBS) for t in GUIDE_THUMBS[page]]
+found_all = []
+for page in sorted(geo['guide'], key=int):
+    gw = words(PDF['guide'])[int(page)]
+    for g in sorted(geo['guide'][page]['grids'], key=lambda g: (-round(g['y0'] / 12), g['x0'])):
+        found_all.append((int(page), g, gw))
+check(f'guide: {len(want_all)} path thumbnails (pages {sorted({pg for pg, _, _ in found_all})})',
+      len(found_all) == len(want_all), f'found {len(found_all)}')
+for (w, h, start, cap1, cap2), (page, g, gw) in zip(want_all, found_all):
+    r = ball(w, h, start)
+    sim = [tuple(map(float, p)) for p in r['points']]
+    path = [tuple(p) for p in g['path'][0]['pts']] if g['path'] else []
+    cx, cy = {'TR': (w, h), 'TL': (0, h), 'BR': (w, 0)}[r['corner']]
+    sx = 0 if start == 'BL' else w
+    ok = (g['w'], g['h']) == (w, h) and abs(g['cell_w'] - g['cell_h']) < 0.01
+    ok &= path == sim
+    ok &= [tuple(d[:2]) for d in g['dots']] == [(sx, 0)]
+    ok &= [tuple(x) for x in g['rings']] == [(float(cx), float(cy))]
+    # caption directly below the thumbnail
+    below = [x for x in gw if x[4] < g['y0'] and g['y0'] - x[4] < 30 and
+             g['x0'] - 25 < (x[1] + x[3]) / 2 < g['x1'] + 25]
+    below.sort(key=lambda x: (-round(x[4]), x[1]))
+    cap = ' '.join(x[0] for x in below)
+    want = cap1 if cap2 is None else cap1 + ' ' + cap2
+    ok &= cap.startswith(want)
+    if cap2 is not None:
+        if cap2[0].isdigit():
+            n, rest = cap2.split(' ', 1)
+            ok &= int(n) == r['bounces'] and rest == f'({CN(r["corner"])})'
+        else:
+            cname, n = cap2.split(', ')
+            ok &= cname == CN(r['corner']) and int(n) == r['bounces']
+    check(f'guide p{page} thumbnail {cap1}: drawn path = simulated path, dot, ring, caption',
+          ok, f"caption '{cap}', simulated {CN(r['corner'])} {r['bounces']}")
 
 
 # =========================================================== Part B: student problems

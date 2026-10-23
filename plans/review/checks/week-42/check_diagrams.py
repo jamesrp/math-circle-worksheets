@@ -108,8 +108,16 @@ def caption_near(words, box_key, below=40):
     return ' '.join(w[4] for w in ws)
 
 
+# Re-pointed on 2026-10-23: the card's shoulds and coulds (d307721) redrew K-1 pages 1, 4 and 5, gave Grades 2-3
+# Problems 3 and 5 blank grids and Grades 4-5 Problem 2 a new grid, so the base-packet diagrams are read from
+# the packets as reviewed in week-42/archive-before-card-fixes-2026-10-23/.  The current pages are checked by
+# source/week-42/editable/review/verify_card_shoulds_2026_10_23.py.  The bonus is read from week-42/ as delivered.
+REVIEWED_BASE = WEEK / 'archive-before-card-fixes-2026-10-23'
+
+
 def doc_pages(name):
-    return pymupdf.open(str(WEEK / name))
+    folder = WEEK if name == 'week-42-bonus.pdf' else REVIEWED_BASE
+    return pymupdf.open(str(folder / name))
 
 
 report = {}

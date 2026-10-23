@@ -119,8 +119,14 @@ ok(bad == 0 and 2 ** 8 + 2 ** 12 + 2 ** 9 == 4864, 'p18 "every binary 2-by-4, 2-
 # ------------------------------------------------------------------ printed p2
 out('\n== p2 launch')
 b = gboards(2)
-ok(fmt(b[0][1]) == '101/010' and margins(b[0][1]) == ((2, 1), (1, 1, 1)), 'launch A1,A3,B2 -> rows 2,1; columns 1,1,1')
-ok(margins(b[1][1]) == margins(b[0][1]) and b[1][1] != b[0][1], f'"a different matching picture" {fmt(b[1][1])}')
+if len(b) == 1:
+    # Since the guide corrections of 2026-10-23 (bc911cb) the launch uses one picture whose counts fit only
+    # it (A1, A2, B1); as reviewed it used A1, A3, B2 and "a different matching picture".
+    ok(fmt(b[0][1]) == '110/100' and margins(b[0][1]) == ((2, 1), (2, 1, 0)), 'launch A1,A2,B1 -> rows 2,1; columns 2,1,0')
+    ok(solutions(*margins(b[0][1])) == [b[0][1]], '"These counts fit only this picture": unique')
+else:
+    ok(fmt(b[0][1]) == '101/010' and margins(b[0][1]) == ((2, 1), (1, 1, 1)), 'launch A1,A3,B2 -> rows 2,1; columns 1,1,1')
+    ok(margins(b[1][1]) == margins(b[0][1]) and b[1][1] != b[0][1], f'"a different matching picture" {fmt(b[1][1])}')
 
 out('\n== p3 K-1 P1')
 b = gboards(3)

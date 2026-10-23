@@ -9,6 +9,8 @@ import sys
 import hashlib
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pdfread as R
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from problem_tex import band_tex  # noqa: E402
 import pdfplumber
 
 FAILS = []
@@ -29,7 +31,7 @@ def norm(s):
 
 SRC = os.path.join(R.ROOT, 'lowell-math-circle-year-2', 'source', 'week-10', 'src')
 for key, tex in [('k1', 'k-1.tex'), ('g23', 'grades-2-3.tex'), ('g45', 'grades-4-5.tex')]:
-    body = open(os.path.join(SRC, tex), encoding='utf-8').read()
+    body = band_tex('week-10', tex)  # generated from problem files since October 23, 2026
     probs = re.findall(r'\\prob\{(\d+)\}(.*?)(?:\n\n|\\vspace|\\end\{minipage\})', body, re.S)
     pdf = pdfplumber.open(R.PDFS[key])
     text = norm(' '.join(p.extract_text() or '' for p in pdf.pages))

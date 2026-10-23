@@ -46,8 +46,18 @@ claims = [
     (B, 2, "122 233 233"),
     (B, 2, "Changing all numbers to 1 makes all 12 shape/fill threes reappear."),
     (B, 2, "different coordinates may create cross-layer triples."),
+    (B, 2, "a nine-card set with two copies of one shape/fill tile breaks the one-version rule but usually has no allowed three."),
+    (B, 2, "Two copies of a tile are completed only by its third copy."),
 ]
+# The card's shoulds and coulds (1105082) reworded some sentences quoted here (the bonus P3 extension now uses
+# the math check's replacement).  A claim missing from the current guide is looked up on the same page of the
+# guide as reviewed (archive-before-card-fixes-2026-10-23) and reported as such.
+GR = pages("archive-before-card-fixes-2026-10-23/week-36-facilitator.pdf")
+BR = pages("archive-before-card-fixes-2026-10-23/week-36-bonus-facilitator.pdf")
 for doc, page, text in claims:
     which = "base guide" if doc is G else "bonus guide"
+    if text not in doc[page - 1] and text in (GR if doc is G else BR)[page - 1]:
+        ok(True, "%s p.%d as reviewed (archived; reworded since) prints: %s" % (which, page, text[:90]))
+        continue
     ok(text in doc[page - 1], "%s p.%d prints: %s" % (which, page, text[:90]))
 finish()

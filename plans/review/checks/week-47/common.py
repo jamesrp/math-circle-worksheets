@@ -46,6 +46,15 @@ PDFS = {
     'bonus': os.path.join(WEEK, 'week-47-bonus.pdf'),
     'bonus-guide': os.path.join(WEEK, 'week-47-bonus-facilitator.pdf'),
 }
+# Re-pointed on 2026-10-23.  The card's shoulds (34e1dae), the bonus math-check items (98601c9) and the critic
+# follow-up (55acd79) reshaped every PDF this review read, so PDFS now names the copies as reviewed, all in
+# week-47/archive-before-card-fixes-2026-10-23/, and compare_source.py reads the reviewed TeX from the source ZIP
+# archived before the problem-file conversion (identical to the reviewed src/*.tex).  DELIVERED keeps the current
+# print copies, which pdf_extract.py still compares with the source reference copies.  The current pages are
+# checked by check_card_shoulds.py, check_bonus_fixes.py and check_critic_fixes.py in this folder.
+DELIVERED = dict(PDFS)
+PDFS = {k: os.path.join(WEEK, 'archive-before-card-fixes-2026-10-23', os.path.basename(v)) for k, v in DELIVERED.items()}
+REVIEWED_TEX_ZIP = os.path.join(SRC, 'archive-before-problem-files-2026-10-23', 'gentle-step-landscapes-week47-editable-source.zip')
 REFS = {
     'k-1': os.path.join(SRC, 'editable', 'reference-pdfs', 'k-1.pdf'),
     'grades-2-3': os.path.join(SRC, 'editable', 'reference-pdfs', 'grades-2-3.pdf'),

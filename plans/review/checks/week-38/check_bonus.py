@@ -128,50 +128,62 @@ for n in range(1, 9):
 
 print("\n######## Problem 2 (page 2): the local two-strip visual")
 p2, w2 = pages[1], wpages[1]
-rows = {}
-for d in p2:
-    size = max(d["bbox"][2] - d["bbox"][0], d["bbox"][3] - d["bbox"][1])
-    if d["c"][1] > 80 or size > 3:
-        continue
-    if d["kind"] == "curve" and black(d["fill"]):
-        k = "dot"
-    elif d["kind"] == "poly4" and white(d["fill"]):
-        k = "sq"
-    else:
-        continue
-    row = "M" if d["c"][1] < 60 else "R"
-    rows.setdefault(row, []).append((k, d["c"]))
-grey = [d for d in p2 if d["kind"] == "line" and d["stroke"] and abs(d["stroke"][0] - 0.55) < 0.01 and d["c"][1] < 80]
-for row in ("M", "R"):
-    marks = rows[row]
-    before = [(k, c) for k, c in marks if c[0] < 60]
-    s1 = {("T" if c[1] < min(cc[1] for _, cc in before) + 2 else "B"): k for k, c in before if c[0] < 37}
-    s2 = {("T" if c[1] < min(cc[1] for _, cc in before) + 2 else "B"): k for k, c in before if c[0] > 37}
-    pairs = []
-    for g in grey:
-        if (row == "M") != (g["c"][1] < 60):
+def seams(p2):
+    rows = {}
+    for d in p2:
+        size = max(d["bbox"][2] - d["bbox"][0], d["bbox"][3] - d["bbox"][1])
+        if d["c"][1] > 80 or size > 3:
             continue
-        a, b = g["pts"][0], g["pts"][-1]
-        if a[0] > b[0]:
-            a, b = b, a
-        ka = min(marks, key=lambda m: math.dist(m[1], a))[0]
-        kb = min(marks, key=lambda m: math.dist(m[1], b))[0]
-        pairs.append((ka, kb, "crossing" if abs(a[1] - b[1]) > 1 else "straight"))
-    pairs = sorted(set(pairs))
-    # the pairing as a map of strip-1 corners to strip-2 corners (flat positions before joining)
-    corner_map = {}
-    for ka, kb, _ in pairs:
-        t1 = [pos for pos, k in s1.items() if k == ka][0]
-        t2 = [pos for pos, k in s2.items() if k == kb][0]
-        corner_map[t1] = t2
-    implied = "M" if corner_map.get("T") == "T" else "R"
-    print(f"row {row}: before joining strip1 end {s1}, strip2 end {s2}; alignment lines pair {pairs}; "
-          f"strip1 corner -> strip2 corner {corner_map} => seam {implied}")
-    rows[row] = implied
+        if d["kind"] == "curve" and black(d["fill"]):
+            k = "dot"
+        elif d["kind"] == "poly4" and white(d["fill"]):
+            k = "sq"
+        else:
+            continue
+        row = "M" if d["c"][1] < 60 else "R"
+        rows.setdefault(row, []).append((k, d["c"]))
+    grey = [d for d in p2 if d["kind"] == "line" and d["stroke"] and abs(d["stroke"][0] - 0.55) < 0.01 and d["c"][1] < 80]
+    for row in ("M", "R"):
+        marks = rows[row]
+        before = [(k, c) for k, c in marks if c[0] < 60]
+        s1 = {("T" if c[1] < min(cc[1] for _, cc in before) + 2 else "B"): k for k, c in before if c[0] < 37}
+        s2 = {("T" if c[1] < min(cc[1] for _, cc in before) + 2 else "B"): k for k, c in before if c[0] > 37}
+        pairs = []
+        for g in grey:
+            if (row == "M") != (g["c"][1] < 60):
+                continue
+            a, b = g["pts"][0], g["pts"][-1]
+            if a[0] > b[0]:
+                a, b = b, a
+            ka = min(marks, key=lambda m: math.dist(m[1], a))[0]
+            kb = min(marks, key=lambda m: math.dist(m[1], b))[0]
+            pairs.append((ka, kb, "crossing" if abs(a[1] - b[1]) > 1 else "straight"))
+        pairs = sorted(set(pairs))
+        # the pairing as a map of strip-1 corners to strip-2 corners (flat positions before joining)
+        corner_map = {}
+        for ka, kb, _ in pairs:
+            t1 = [pos for pos, k in s1.items() if k == ka][0]
+            t2 = [pos for pos, k in s2.items() if k == kb][0]
+            corner_map[t1] = t2
+        implied = "M" if corner_map.get("T") == "T" else "R"
+        print(f"row {row}: before joining strip1 end {s1}, strip2 end {s2}; alignment lines pair {pairs}; "
+              f"strip1 corner -> strip2 corner {corner_map} => seam {implied}")
+        rows[row] = implied
+    return rows
+
+
+rows = seams(p2)
 C.ok(rows["M"] == "M", "P2 visual, M row: aligning the same marks (dot-dot) with unchanged marks is a matching seam")
-C.ok(rows["R"] == "R",
-     "P2 visual, R row: the drawn pairing should be a reversing seam (top corner of strip 1 to bottom corner of strip 2);"
-     " a FAIL here means the R row pairs the same corners as the M row (finding in math.md)")
+# Review finding (math.md): as reviewed the R row paired the same corners as the M row.  The card's fixes
+# (8a253a9, bonus v2) made the R row join dot to square, so the finding is confirmed on the archived bonus (WEEK)
+# and the fix is checked on the current bonus in week-38/.
+C.ok(rows["R"] != "R",
+     "finding confirmed (bonus as reviewed, archived): the P2 R row pairs the same corners as the M row, not a reversing seam")
+_cur = [[d for d in p if (d["bbox"][2] - d["bbox"][0]) > 1e-6 or (d["bbox"][3] - d["bbox"][1]) > 1e-6]
+        for p in page_shapes(WEEK.parent / BONUS)]
+_rows = seams(_cur[1])
+C.ok(_rows["M"] == "M" and _rows["R"] == "R",
+     "current bonus P2 visual: M row a matching seam and R row a reversing seam (top corner of strip 1 to bottom corner of strip 2)")
 
 # what the literal 'align the same marks' rule builds from the four printed circles
 words_p2 = {}

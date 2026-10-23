@@ -3,11 +3,15 @@ that every guide sentence quoted in math.md is in the delivered guide PDF.
 
 Student pages: each problem statement and the opening rules in
 source/week-07/src/*.tex, stripped of LaTeX, must appear in the PDF text.
-Guide: the quoted sentences below must appear in week-07-facilitator.pdf.
+Guide: the quoted sentences below must appear in week-07-facilitator.pdf, or in the guide as
+reviewed (archive-before-card-fixes-2026-10-23/) when the card fixes corrected them.
+The LaTeX comes from ../problem_tex.py: the week is stored as problem files since October 23, 2026.
 """
 import os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from games import ROOT
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from problem_tex import band_tex  # noqa: E402
 import pymupdf
 
 SRC = os.path.join(ROOT, 'lowell-math-circle-year-2', 'source', 'week-07')
@@ -37,7 +41,7 @@ def strip_tex(t):
 
 bad = 0
 for band, src in [('k-1', 'k-1.tex'), ('grades-2-3', 'grades-2-3.tex'), ('grades-4-5', 'grades-4-5.tex')]:
-    tex = open(os.path.join(SRC, 'src', src)).read()
+    tex = band_tex('week-07', src)  # src/*.tex is generated from problem files since October 23, 2026
     body = tex.split('\\begin{document}')[1]
     pdf = pdf_text(os.path.join(PKT, f'week-07-{band}.pdf'))
     opening = strip_tex(body.split('\\begin{problem}')[0])
@@ -65,9 +69,15 @@ quotes = [
     'In K-1 P8, 1 and 4 is P though unequal.',
     '6: first, take 1 or 4.',
 ]
+# The guide as reviewed, before the October 23, 2026 card fixes corrected some of these
+# sentences, is kept in the week's archive; a quote found only there says so.
+reviewed = pdf_text(os.path.join(PKT, 'archive-before-card-fixes-2026-10-23', 'week-07-facilitator.pdf'))
 print('guide quotes:')
 for q in quotes:
     found = norm(q) in guide
+    if not found and norm(q) in reviewed:
+        print(f'  found in the reviewed guide (archived; corrected since): {q}')
+        continue
     bad += not found
     print(f'  {"found" if found else "NOT FOUND"}: {q}')
 print('not found:', bad)

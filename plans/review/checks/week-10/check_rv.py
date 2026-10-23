@@ -313,13 +313,27 @@ diff = {v: sum(1 for a, b in cx_town.E if a == v) - sum(1 for a, b in cx_town.E 
 plus1 = [v for v in diff if diff[v] == 1]
 minus1 = [v for v in diff if diff[v] == -1]
 aug = cx_town.plus([(minus1[0], plus1[0])])
-check('RV guide p. 3 "Open walks" as worded: one island at +1 and one at -1 always give a walk',
-      cx_town.has_walk(), f'streets AB CD CD BC CB, out-in {diff}, walk exists: {cx_town.has_walk()}, augmented balances: '
+# Both statements were reviewed as worded and corrected on October 23, 2026 (math check items 2
+# and 3). The counterexamples still stand against the reviewed wording; the current guides must
+# carry the corrected hypotheses.
+import re as _re
+import subprocess as _sp
+
+
+def _guide_text(key):
+    t = _sp.run(['pdftotext', R.PDFS[key], '-'], capture_output=True, text=True).stdout
+    return _re.sub(r'\s+', ' ', t.replace('-\n', ''))
+
+
+check('RV guide p. 3 "Open walks" as reviewed (one island at +1, one at -1) has a counterexample with no walk',
+      not cx_town.has_walk(), f'streets AB CD CD BC CB, out-in {diff}, walk exists: {cx_town.has_walk()}, augmented balances: '
       f'{all(sum(1 for a, b in aug.E if a == v) == sum(1 for a, b in aug.E if b == v) for v in aug.V)}')
-# base guide p. 7: "an Euler circuit exists if and only if in-degree equals out-degree everywhere"
+check('current RV guide "Open walks" adds "every other island balances"', 'every other island balances' in _guide_text('rvfac'))
 t7 = Town(sorted(arrow[7]['V']), arrow[7]['E'], directed=True)
 bal = all(sum(1 for a, b in t7.E if a == v) == sum(1 for a, b in t7.E if b == v) for v in t7.V)
-check('base guide p. 7 as worded: in-degree = out-degree everywhere gives an Euler circuit', not (bal and not t7.has_closed()),
-      f'return-visit Town 7: balanced everywhere = {bal}, closed walk = {t7.has_closed()}')
+check('base guide p. 7 as reviewed (in-degree = out-degree everywhere gives an Euler circuit) has a counterexample',
+      bal and not t7.has_closed(), f'return-visit Town 7: balanced everywhere = {bal}, closed walk = {t7.has_closed()}')
+check('current base guide says "a connected directed graph has an Euler circuit"',
+      'a connected directed graph has an Euler circuit' in _guide_text('fac'))
 print()
 print('FAILURES:', FAILS if FAILS else 'none')

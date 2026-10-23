@@ -34,8 +34,8 @@ def note(label, detail=''):
     notes.append(label)
 
 
-def pdftext(fn):
-    t = subprocess.run(['pdftotext', os.path.join(PKT, fn), '-'], capture_output=True, text=True).stdout
+def pdftext(fn, folder=PKT):
+    t = subprocess.run(['pdftotext', os.path.join(folder, fn), '-'], capture_output=True, text=True).stdout
     t = t.replace('’', "'").replace('“', '"').replace('”', '"').replace('–', '-').replace('−', '-')
     t = t.replace('ﬁ', 'fi').replace('ﬂ', 'fl')
     # drop running heads and feet so that sentences broken by a page turn still match
@@ -47,11 +47,17 @@ def pdftext(fn):
 
 GUIDE = pdftext('week-06-facilitator.pdf')
 RVG = pdftext('week-06-return-visit-facilitator.pdf')
+# The guide as reviewed (F06-FAC-v4, before the October 23, 2026 card fixes), kept in the
+# week's archive. Quotes the card fixes corrected are confirmed there, and say so.
+REVIEWED_GUIDE = pdftext('week-06-facilitator.pdf', os.path.join(PKT, 'archive-before-card-fixes-2026-10-23'))
 
 
 def quoted(text, q, where='guide'):
     qn = re.sub(r'\s+', ' ', q.replace('–', '-'))
     ok = qn in text
+    if not ok and text is GUIDE and qn in REVIEWED_GUIDE:
+        check(f'{where} as reviewed (archived; corrected since) says: "{q[:90]}{"..." if len(q) > 90 else ""}"', True)
+        return True
     check(f'{where} says: "{q[:90]}{"..." if len(q) > 90 else ""}"', ok, '' if ok else 'quote NOT found in delivered PDF')
     return ok
 

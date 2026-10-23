@@ -11,6 +11,8 @@ pdfLaTeX/XeLaTeX are not installed here, so no rebuild is attempted.
 import os, re, sys, json, subprocess
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from codegame import HERE, PKT, SRC, RV_SRC
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from problem_tex import band_tex  # noqa: E402
 
 D = json.load(open(os.path.join(HERE, 'pdf_data.json')))
 
@@ -94,7 +96,7 @@ def problem_statements(tex):
 
 bad = 0
 for band, fn in (('k-1', 'k-1.tex'), ('grades-2-3', 'grades-2-3.tex'), ('grades-4-5', 'grades-4-5.tex')):
-    tex = open(os.path.join(SRC, 'src', fn)).read()
+    tex = band_tex('week-06', fn)  # src/*.tex is generated from problem files since October 23, 2026
     text = pdf_text(f'week-06-{band}.pdf')
     stm = problem_statements(tex)
     miss = [s for s in stm if s not in text]
@@ -102,8 +104,11 @@ for band, fn in (('k-1', 'k-1.tex'), ('grades-2-3', 'grades-2-3.tex'), ('grades-
     for s in miss:
         print('   MISSING:', s); bad += 1
     if band == 'grades-4-5':
-        intro = detex(tex.split('\\begin{document}', 1)[1].split('\\medskip')[0].replace('\\fontsize{12.5}{16.5}\\selectfont', ''))
-        ok = intro in text
+        # The 4-5 rules paragraph: the packet's unnumbered text block. Since the introduction
+        # follow-up (see week-06/archive-before-intro-followup/) it follows Problem 1, on page 2.
+        body = tex.split('\\begin{document}', 1)[1].replace('\\fontsize{12.5}{16.5}\\selectfont', '')
+        intro = ' '.join(detex(b) for b in re.split(r'\n\s*\n', body) if b.strip() and not b.strip().startswith('\\'))
+        ok = bool(intro) and intro in text
         print(f'   opening rules found verbatim: {ok}'); bad += not ok
     # puzzle records
     src_k = [[tuple(x.split('/')) for x in m.split(',')] for m in re.findall(r'\\kpuzzle\{([^}]*)\}', tex)]

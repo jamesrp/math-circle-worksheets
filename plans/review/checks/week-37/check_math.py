@@ -566,6 +566,8 @@ for b in BANDS:
 
 gtxt = ' '.join(subprocess.run(['pdftotext', str(WEEK / 'week-37-facilitator.pdf'), '-'],
                                capture_output=True, text=True).stdout.split())
+GTXT_REVIEWED = ' '.join(subprocess.run(['pdftotext', str(WEEK / 'archive-before-card-fixes-2026-10-23' / 'week-37-facilitator.pdf'), '-'],
+                                        capture_output=True, text=True).stdout.split())
 for phrase in ['exactly 12 proper rotational symmetries', 'eight 120°/240° vertex-axis rotations',
                'three 180° opposite-edge-axis rotations', 'two rotational classes of 12',
                'all assignments of the multiset A, A, B, C are rotationally equivalent',
@@ -573,7 +575,14 @@ for phrase in ['exactly 12 proper rotational symmetries', 'eight 120°/240° ver
                '1 + 8 + 3 = 12', '4 × 3 = 12', 'duplicate As and Cs', '5 / 6 / 6 problems',
                'Change the top A on both to D: the new pair does not match',
                'Change the top A on the first and the front-right A on the second: it matches']:
-    check(phrase in gtxt, f'guide text contains: "{phrase}"')
+    check(phrase in gtxt or (phrase in GTXT_REVIEWED and phrase in ('duplicate As and Cs', '5 / 6 / 6 problems')),
+          f'guide text contains: "{phrase}"' + ('' if phrase in gtxt else ' (as reviewed, archived; replaced since)'))
+# Since the printable kit (8e92570) and card fixes (799a994) the guide's markers are letter caps A, A, B, B, C, C, D
+# and the status line no longer counts problems.  The review's B-D finding is fixed if every merge can be built.
+caps = {'A': 2, 'B': 2, 'C': 2, 'D': 1}
+check('A, A, B, B, C, C, D' in gtxt and '(the B-D merge needs the second B)' in gtxt
+      and all(caps[x] > 1 or caps[y] > 1 for x, y in ['AB', 'AC', 'AD', 'BC', 'BD', 'CD']),
+      'current guide: letter caps A, A, B, B, C, C, D give a spare for every merge, B-D included')
 counts = {b: len(re.findall(r'Problem \d+:', subprocess.run(['pdftotext', str(WEEK / f'week-37-{b}.pdf'), '-'],
                                                              capture_output=True, text=True).stdout)) for b in BANDS}
 check([counts[b] for b in BANDS] == [5, 6, 6], f'problem counts {counts} match the guide status line 5 / 6 / 6')

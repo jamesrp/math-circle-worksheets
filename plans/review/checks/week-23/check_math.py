@@ -208,7 +208,18 @@ check(len(w2) == 6 and all(ok(v, W) for v in w2), 'P4: all 6 arrangements of 001
 fails = [(s(v), s(run(v, W))) for v in binary(4) if not ok(v, W)]
 say('P4: binary failures of W (start, finish):', fails)
 check(fails == [('0010', '0010'), ('0100', '0010'), ('1000', '0010'), ('1110', '1011')], 'P4 failures computed')
-check(s(run((1, 1, 1, 0), W)) == '1101', 'guide p7: "1110 finishes 1101"')
+# Review finding: the guide as reviewed said "1110 finishes 1101"; the machine gives 1011.  The card fixes
+# (f7a0b21) corrected the sentence, so the finding is checked against the archived guide as reviewed and
+# the correction against the current guide.
+import re, subprocess
+_W23 = os.path.normpath(os.path.join(HERE, '..', '..', '..', '..', 'lowell-math-circle-year-2', 'week-23'))
+def _guide(path):
+    return re.sub(r'\s+', ' ', subprocess.run(['pdftotext', path, '-'], capture_output=True, text=True).stdout)
+_rev = _guide(os.path.join(_W23, 'archive-before-card-fixes-2026-10-23', 'week-23-facilitator.pdf'))
+_cur = _guide(os.path.join(_W23, 'week-23-facilitator.pdf'))
+check('1110 finishes 1101' in _rev and s(run((1, 1, 1, 0), W)) != '1101',
+      'guide p7 as reviewed (archived) says "1110 finishes 1101"; the machine gives %s (finding confirmed)' % s(run((1, 1, 1, 0), W)))
+check('1110 finishes %s' % s(run((1, 1, 1, 0), W)) in _cur, 'current guide p7: "1110 finishes %s"' % s(run((1, 1, 1, 0), W)))
 say('    trace 1110:', [s(run((1, 1, 1, 0), W[:i])) for i in range(5)])
 # P5 audit table
 audit = {'0000': '0000', '0001': '0001', '0010': '0001', '0011': '0011', '0100': '0001', '0101': '0011', '0110': '0011',

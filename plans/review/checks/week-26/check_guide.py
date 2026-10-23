@@ -304,7 +304,8 @@ for n, P in ((12, 14), (13, 16), (17, 18), (20, 18), (21, 20)):
     f = fig(16, f'{n} tiles: P = {P}')
     L.ok(intervals(f['cells']) == sum(rows_cols(f['cells'])), f'{n} tiles: every row/column one run')
 for n, base in ((37, (6, 6)), (50, (7, 7)), (73, (9, 8))):
-    f = fig(17, f'{n} squares')
+    # captions read "37 squares" as reviewed and "37 tiles" since the card's student-page fixes (acb3820)
+    f = fig(17, f'{n} tiles:') if any(g['page'] == 17 and g['caption'].startswith(f'{n} tiles:') for g in G) else fig(17, f'{n} squares')
     cs = set(f['cells'])
     w, hh = base
     rect = None
@@ -371,6 +372,14 @@ refs = {3: 'The three reusable arguments', 5: 'K-1 / Problems 2 and 3', 6: 'K-1 
         14: 'Grades 4-5 / Problem 2'}
 for p, t in refs.items():
     L.ok(t in doc[p].get_text(), f'printed page {p} is "{t}"')
-L.ok('24 by 24 cm' in doc[1].get_text() and 12 * 20 == 240, 'p.1: a 12-by-12 mat of 20 mm tiles is 24 cm')
+# As reviewed p. 1 described a 24 by 24 cm mat; card could 4 (fb262ee) dropped the mat ("the table is the
+# board") and gives the length of a 12-tile row instead.  Both readings check the same arithmetic.
+_p1 = ' '.join(doc[1].get_text().split())
+if '24 by 24 cm' in _p1:
+    L.ok(12 * 20 == 240, 'p.1: a 12-by-12 mat of 20 mm tiles is 24 cm')
+else:
+    L.ok('A 12-tile straight row is 24 cm long with 20 mm tiles and about 30 cm with 1-inch tiles' in _p1
+         and 12 * 20 == 240 and 290 <= 12 * 25.4 <= 310,
+         'p.1: a 12-tile row is 24 cm with 20 mm tiles and about 30 cm (30.5) with 1-inch tiles')
 
 L.save(os.path.join(HERE, 'check_guide.out'))

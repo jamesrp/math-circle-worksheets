@@ -243,8 +243,10 @@ def min_strokes(pts, edges):
 CASES = {
     ('k1', 7): ['house', 'house', 'square-diamond', 'square-diamond', 'envelope', 'envelope'],
     ('k1', 8): ['circle-diameter', 'circle-diameter', 'wheel', 'wheel', 'triforce', 'triforce'],
-    ('g23', 8): ['house', 'house', 'window', 'window'],
-    ('g23', 9): ['star', 'star', 'envelope', 'envelope', 'rings', 'rings', 'square-diamond', 'square-diamond'],
+    # Grades 2-3 pages 8 and 9 of the reviewed packet are pages 9 and 10 since the October 23,
+    # 2026 card fixes moved Problems 6-7 onto a new page 9.
+    ('g23', 9): ['house', 'house', 'window', 'window'],
+    ('g23', 10): ['star', 'star', 'envelope', 'envelope', 'rings', 'rings', 'square-diamond', 'square-diamond'],
     ('g45', 7): ['house', 'house', 'window', 'window', 'cube', 'cube', 'grid', 'grid'],
     ('g45', 8): ['rings', 'rings', 'star', 'star'],
 }
@@ -281,7 +283,7 @@ for name, sigs in shapes.items():
     check(f'every copy of {name} in every band has the same graph', len(sigs) == 1, sigs)
 
 # regular figures: the star-in-pentagon and the triforce picture must have equal x/y scaling
-for key, pg, idx in [('g23', 9, 0), ('g45', 8, 2), ('k1', 8, 4)]:
+for key, pg, idx in [('g23', 10, 0), ('g45', 8, 2), ('k1', 8, 4)]:
     segs, circles = strokes(key, pg)
     box, s, c = clusters(segs, circles)[idx]
     P = sorted({(round(x, 2), round(y, 2)) for seg in s for (x, y) in seg})

@@ -251,13 +251,13 @@ def problem_text(src):
 
 # delivered PDFs are the reference copies in the source packages
 import hashlib
-from common import SRC
+from common import SRC, DELIVERED
 md5 = lambda f: hashlib.md5(Path(f).read_bytes()).hexdigest()
 for key, ref in [('k-1', SRC / 'reference-pdfs' / 'k-1.pdf'), ('grades-2-3', SRC / 'reference-pdfs' / 'grades-2-3.pdf'),
                  ('grades-4-5', SRC / 'reference-pdfs' / 'grades-4-5.pdf'), ('guide', SRC / 'reference-pdfs' / 'facilitator-guide.pdf'),
                  ('bonus', BONUS_SRC / 'reference-pdfs' / 'week-46-bonus.pdf'),
                  ('bonus-guide', BONUS_SRC / 'reference-pdfs' / 'week-46-bonus-facilitator.pdf')]:
-    R.check(md5(PDFS[key]) == md5(ref), f'{key}: delivered PDF is byte-identical to {ref.name} in the source package')
+    R.check(md5(DELIVERED[key]) == md5(ref), f'{key}: delivered PDF is byte-identical to {ref.name} in the source package')
 
 result = {}
 for band in ['k-1', 'grades-2-3', 'grades-4-5']:

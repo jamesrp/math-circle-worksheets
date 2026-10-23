@@ -1,5 +1,9 @@
 """Week 12 K-1: read every circle, dot, label and printed chord from the PDF and
-solve each problem from the extracted data.  Run: python3 check_k1.py > check_k1.out"""
+solve each problem from the extracted data.  Run: python3 check_k1.py > check_k1.out
+
+It reads the K-1 packet as reviewed, kept in week-12/archive-before-card-fixes-2026-10-23/:
+the October 23, 2026 card fixes redesigned K-1 pages 3-7 (seven pages now), and the package's
+editable/review/verify_card_fixes_2026_10_23.py checks the current K-1 packet."""
 import sys
 import os
 import math
@@ -137,7 +141,7 @@ def read_circles(page):
     return out, stray
 
 
-pages = G.load('week-12-k-1.pdf')
+pages = G.load('archive-before-card-fixes-2026-10-23/week-12-k-1.pdf')  # the K-1 packet as reviewed
 expected = {
     1: [(4, [(1, 2), (3, 4)]), (4, [(1, 4), (2, 3)]), (6, [])] + [(6, [])] * 6,
     2: [(6, [])] * 7,

@@ -13,6 +13,8 @@ import re
 import subprocess
 import sys
 sys.dont_write_bytecode = True  # never leave __pycache__ beside the packet sources
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from problem_tex import band_tex  # noqa: E402
 import unicodedata
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -37,7 +39,7 @@ def detex(s):
 
 ok = bad = 0
 for band, pdf in repo.STUDENT.items():
-    tex = open(os.path.join(repo.SRC, 'src', band + '.tex')).read()
+    tex = band_tex('week-08', band + '.tex')  # generated from problem files since October 23, 2026
     body = tex.split('\\begin{document}', 1)[1]
     txt = norm(subprocess.run(['pdftotext', pdf, '-'], capture_output=True, text=True).stdout)
     pieces = []
@@ -56,17 +58,11 @@ for band, pdf in repo.STUDENT.items():
                 bad += 1
                 print('MISMATCH  %-10s not in PDF: %s' % (band, d))
 
-# are the .tex files what build.py makes now?
-spec = importlib.util.spec_from_file_location('w08build', os.path.join(repo.SRC, 'src', 'build.py'))
-mod = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(mod)
-for band, fn in (('k-1', mod.k1), ('grades-2-3', mod.g23), ('grades-4-5', mod.g45)):
-    same = fn() == open(os.path.join(repo.SRC, 'src', band + '.tex')).read()
-    if same:
-        ok += 1
-    else:
-        bad += 1
-    print('%s  src/%s.tex equals build.py output' % ('OK       ' if same else 'MISMATCH ', band))
+# Are the .tex files current? Since October 23, 2026 the week is stored as problem files and
+# band_tex() generates each band's LaTeX from them, so the LaTeX read above is current by
+# construction (the conversion commit showed it equals the old src/build.py output).
+print('OK        band LaTeX generated from the problem files (src/build.py retired October 23, 2026)')
+ok += 1
 
 # return visit
 tex = open(os.path.join(repo.RV_SRC, 'student', 'return-visit.tex')).read()

@@ -21,7 +21,7 @@ def check(name, ok, detail=''):
         FAILS.append(name)
 
 
-PAGES = {'k1': range(1, 13), 'g23': range(1, 13), 'g45': range(1, 13)}
+PAGES = {'k1': range(1, 13), 'g23': range(1, 14), 'g45': range(1, 13)}  # Grades 2-3 has 13 pages since the October 23, 2026 card fixes
 min_vis = []
 for key, pages in PAGES.items():
     for pg in pages:

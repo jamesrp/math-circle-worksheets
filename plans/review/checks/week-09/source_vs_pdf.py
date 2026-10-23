@@ -9,9 +9,12 @@ pdfLaTeX is not installed here, so this stands in for a clean rebuild.
 import json
 import re
 import subprocess
+import sys
 from pathlib import Path
 
 from pdfgeom import PDF, SRC
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from problem_tex import band_tex  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
 bad = 0
@@ -36,7 +39,7 @@ if not (HERE / 'pdf_geometry.json').exists():
 geo = json.loads((HERE / 'pdf_geometry.json').read_text())
 
 for band, name in (('K-1', 'k-1'), ('2-3', 'grades-2-3'), ('4-5', 'grades-4-5')):
-    tex = (SRC / 'src' / f'{name}.tex').read_text()
+    tex = band_tex('week-09', f'{name}.tex')  # generated from problem files since October 23, 2026
     pdf = norm(subprocess.run(['pdftotext', str(PDF[band]), '-'], capture_output=True, text=True).stdout).replace('\u2013', '-')
     pdf = re.sub(r'Week 9 / Bouncing paths / \S+ ', ' ', pdf)
     pdf = re.sub(r'Bellingham Math Circle / Week 9 / F09-\S+ \d+', ' ', pdf)

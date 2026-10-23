@@ -69,21 +69,24 @@ def rings_of(n):
 k, m, u, g = doc('k-1'), doc('grades-2-3'), doc('grades-4-5'), doc('facilitator')
 G = re.sub(r'\s+', ' ', ' '.join(p.get_text() for p in g))
 
-check('packets are v3 with 6, 6 and 6 pages', [len(k), len(m), len(u)] == [6, 6, 6] and all(
-    f'F33-{t}-v3' in words(p) for d, t in ((k, 'K'), (m, '23'), (u, '45')) for p in d))
+# The critic follow-up (e33eed1, v4) changed P1 and the 4-5 P5 key word after these card fixes; the expectations
+# below follow v4 where it differs (six P1 boards of radius 1.75 cm; key word AAAAABBBB).  check_critic_fixes.py
+# checks the follow-up itself.
+check('packets are v4 with 6, 6 and 6 pages', [len(k), len(m), len(u)] == [6, 6, 6] and all(
+    f'F33-{t}-v4' in words(p) for d, t in ((k, 'K'), (m, '23'), (u, '45')) for p in d))
 
-# Fix 1: four three-bead boards on page 1 in every band; no AAA sentence in the launch
+# Fix 1: four three-bead boards on page 1 in every band (six since v4); no AAA sentence in the launch
 three = rings_of(3)
 for name, d in (('K-1', k), ('2-3', m), ('4-5', u)):
-    b = [x for x in boards(d[0]) if x[2] > 2]
-    check(f'{name} P1 has four three-bead boards of radius 2.3 cm', len(b) == 4 and all(x[2] == 2.3 and x[3] == 3 for x in b))
+    b = [x for x in boards(d[0]) if x[2] > 1.5]
+    check(f'{name} P1 has six three-bead boards of radius 1.75 cm (four of 2.3 cm in v3)', len(b) == 6 and all(x[2] == 1.75 and x[3] == 3 for x in b))
 check(f'there are exactly four three-bead rings {sorted(three)}, and six A and six B counters build all four at once',
       len(three) == 4 and sum(w.count('A') for w in three) == 6 and sum(w.count('B') for w in three) == 6)
 check('launch no longer shows AAA', 'Show AAA as a different ring' not in G)
 
 # Could 7: each moved "start" label in the example sits nearer its own ring than any other
 for name, d in (('K-1', k), ('2-3', m), ('4-5', u)):
-    ex = [x for x in boards(d[0]) if x[2] < 2]
+    ex = [x for x in boards(d[0]) if x[2] < 1.5]
     spans = [sp for bl in d[0].get_text('dict')['blocks'] for ln in bl.get('lines', []) for sp in ln['spans']]
     labels = [((sp['bbox'][0] + sp['bbox'][2]) / 2 / CM, (sp['bbox'][1] + sp['bbox'][3]) / 2 / CM) for sp in spans
               if sp['text'].strip() == 'start' and abs(sp['size'] - 9) < .2 and sp['bbox'][1] / CM < 8]
@@ -100,7 +103,7 @@ check('4-5 prime rule and colour count are now P6 and P7 on page 6',
       'Problem 6: A prime number has exactly two positive divisors' in words(u[5]) and 'Problem 7: How many five-bead rings' in words(u[5]))
 check(f'mixed rings: six beads {mixed_counts(6)}, seven {mixed_counts(7)}, nine {mixed_counts(9)}',
       mixed_counts(6) == [2, 3, 6] and mixed_counts(7) == [7] and mixed_counts(9) == [3, 9])
-for w, n in (('ABABAB', 2), ('AABAAB', 3), ('AAAAAB', 6), ('AABAABAAB', 3), ('AAAAAAAAB', 9)):
+for w, n in (('ABABAB', 2), ('AABAAB', 3), ('AAAAAB', 6), ('AABAABAAB', 3), ('AAAAABBBB', 9)):   # AAAAAAAAB in v3
     check(f'key example {w} has {n} readouts', len(readouts(w)) == n and w in G)
 check('2-3 P7 repeats K-1 P6 with two six-bead boards per row',
       'Problem 7: Use both A and B on a six-bead ring. Find rings with two, three and six different readouts.' in words(m[5])

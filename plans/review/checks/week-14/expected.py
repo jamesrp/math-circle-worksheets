@@ -25,7 +25,9 @@ EXPECTED = {
     (K, 2): blank(5, 9),
     (K, 3): blank(6, 9),
     (K, 4): [(5, '13')] * 5 + [(6, '14')] * 5,
-    (K, 5): [(6, '13 14 15'), (6, '13 15 35')] + blank(6, 8),
+    # As reviewed the eight copies were blank; the card's shoulds (0be5284) print each copy's start
+    # in light gray (0.65), four copies per start, so a child crosses out one line and draws one.
+    (K, 5): [(6, '13 14 15')] * 5 + [(6, '13 15 35')] * 5,
     (K, 6): [(5, '13 14')] + blank(5, 8),
     # Grades 2-3
     (M, 1): blank(6, 3) + blank(7, 3),

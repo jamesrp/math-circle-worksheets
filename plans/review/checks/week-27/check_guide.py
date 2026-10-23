@@ -28,10 +28,15 @@ pdf = pdfplumber.open(GUIDE)
 NP = len(pdf.pages)
 
 
-def text(printed):
+def text(printed, pdf=None):
     pg = printed + 1
-    return subprocess.run(['pdftotext', '-layout', '-f', str(pg), '-l', str(pg), GUIDE, '-'],
+    return subprocess.run(['pdftotext', '-layout', '-f', str(pg), '-l', str(pg), pdf or GUIDE, '-'],
                           capture_output=True, text=True).stdout
+
+
+# The card fixes (34082e7) reworded two guide sentences this review recorded; each is checked in the guide as
+# reviewed (archive-before-card-fixes-2026-10-23) and its current wording in the delivered guide.
+REVIEWED_GUIDE = os.path.join(WEEK, 'archive-before-card-fixes-2026-10-23', 'week-27-facilitator.pdf')
 
 
 def student(band, n, case=0):
@@ -258,8 +263,10 @@ L.check(blockers(student('grades-2-3', 1, 0), parse_m('AY / BX')) == ['AX'], 'P1
 L.check(len(stable_perfect(student('grades-2-3', 1, 1))) == 2, 'P1 bottom: both stay')
 P = arrows(t6)
 L.check(P == student('grades-2-3', 2), 'P2 profile matches the student page')
-L.check('the checker records all blockers' in t6.replace('\n', ' ').replace('  ', ' '),
-        'P2 text says: "One witness is enough to reject a candidate; the checker records all blockers."')
+L.check('the checker records all blockers' in ' '.join(text(6, REVIEWED_GUIDE).split()),
+        'P2 text as reviewed (archived) says: "One witness is enough to reject a candidate; the checker records all blockers."')
+L.check('One witness is enough to reject a candidate. Each row shows one blocker; a child may find another.' in ' '.join(t6.split()),
+        'current P2 text: "One witness is enough to reject a candidate. Each row shows one blocker; a child may find another."')
 check_table(P, cand_table(t6), 'P2 table')
 L.check([mname(m) for m in stable_perfect(P)] == ['AY / BZ / CX'], 'P2: only AY/BZ/CX')
 t7 = text(7)
@@ -342,7 +349,16 @@ oc, lg = da_all_schedules(P13, 'L')
 L.check(set().union(*oc.values()) == {13}, f'P4: these 4x4 lists need 13 requests in every order: {P13} -> {oc}')
 L.out('    one run: ' + '; '.join(f'{a}->{r}' for a, r, kp, fr in list(lg.values())[0]))
 t13 = ' '.join(text(13).split())
-L.check('Exact expected answer: 16 requests; 100 with ten per side' in t13, 'p13 heading reads "Exact expected answer: 16 requests; 100 with ten per side"')
+L.check('Exact expected answer: 16 requests; 100 with ten per side' in ' '.join(text(13, REVIEWED_GUIDE).split()),
+        'p13 heading as reviewed (archived) reads "Exact expected answer: 16 requests; 100 with ten per side"')
+L.check('A sufficient answer: 16 requests; 100 with ten per side' in t13 and 'at most 4 x 3 + 1 = 13 requests' in t13,
+        'current p13 heading reads "A sufficient answer: 16 requests; 100 with ten per side" and gives the 13 bound')
+P13g = ({'A': list('XWYZ'), 'B': list('XYWZ'), 'C': list('WYXZ'), 'D': list('YWXZ')},
+        {'W': list('BDAC'), 'X': list('DCAB'), 'Y': list('ADCB'), 'Z': list('BDCA')})
+L.check('A: XWYZ; B: XYWZ; C: WYXZ; D: YWXZ; W: BDAC; X: DCAB; Y: ADCB; Z: BDCA' in t13,
+        'current p13 prints the 13-request profile A: XWYZ ... Z: BDCA')
+ocg, _ = da_all_schedules(P13g, 'L')
+L.check(13 in set().union(*ocg.values()), f'current p13 profile: "Thirteen happens" (request counts over all orders {sorted(set().union(*ocg.values()))})')
 # P6
 t15 = text(15)
 P = arrows(t15)

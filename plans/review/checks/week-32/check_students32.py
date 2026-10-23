@@ -122,11 +122,12 @@ def k1():
 
     log('K-1 P4 (p4): "Cover each rectangle with squares that are all the same size. Find the biggest square size that works."')
     bs, fg, _ = page_boards(band, 4)
-    check_board('P4 board A', bs[0], 6, 4); check_board('P4 board B', bs[1], 8, 6)
-    for w, h in [(6, 4), (8, 6)]:
+    # Board B was 8 by 6 as reviewed; the card's shoulds (b2a20e1) made it 9 by 6 (biggest square 3, the guide's key).
+    check_board('P4 board A', bs[0], 6, 4); check_board('P4 board B', bs[1], 9, 6)
+    for w, h, want in [(6, 4, 2), (9, 6, 3)]:
         ok = [s for s in range(1, min(w, h) + 1) if equal_square_tiles(w, h, s)]
         log(f'    {w}x{h}: equal squares that tile (by search) {ok}')
-        check(f'P4 {w}x{h} biggest equal square is 2', max(ok) == 2)
+        check(f'P4 {w}x{h} biggest equal square is {want}', max(ok) == want)
 
     log('K-1 P5 (p5): "Find every rectangle you can make with four 3 by 3 squares, counting turns as the same shape. '
         'Will their last squares match under the biggest-square rule?"')
@@ -208,7 +209,8 @@ def g23():
     log(f'    rectangles with last square 3, grouped by first square: {byfirst}')
     check('P6 possible: first squares 3, 6, 9 available', sorted(byfirst) == [3, 6, 9])
     check('P6 6-first and 9-first rectangles are forced (6x9 and 9x12)', byfirst[6] == [(9, 6)] and byfirst[9] == [(12, 9)])
-    bs, fg, _ = page_boards(band, 5)
+    # P6 shared page 5 with P5 as reviewed; since the card's shoulds (b2a20e1) it has page 6 and a 12 by 18 grid.
+    bs, fg, _ = page_boards(band, 6)
     check('P6 one free work grid', len(fg) == 1)
     g = fg[0]
     log(f'    work grid {g["cols"]} x {g["rows"]} cells at {g["ux"]/CM:.3f} cm')

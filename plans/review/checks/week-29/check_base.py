@@ -23,8 +23,18 @@ student = {b: [re.sub(r'\s+', ' ', p.get_text()) for p in pymupdf.open(PDFS[b])]
 BIG = 400
 
 
+# The guide corrections (bc911cb) and student-page fixes (69100ef) of 2026-10-23 corrected the guide sentences
+# this review flagged.  A quote missing from the current guide is located in the guide as reviewed
+# (archive-before-card-fixes-2026-10-23); each finding is then paired with a check of the current wording.
+REVIEWED_GUIDE = re.sub(r'\s+', ' ', ''.join(p.get_text() for p in pymupdf.open(
+    PDFS['guide'].parent / 'archive-before-card-fixes-2026-10-23' / PDFS['guide'].name)))
+
+
 def says(snippet):
     ok = snippet in guide
+    if not ok and snippet in REVIEWED_GUIDE:
+        log.check(True, f'guide text found as reviewed (archived; corrected since): {snippet!r}')
+        return True
     if not ok:
         log.check(False, f'guide text not found: {snippet!r}')
     return ok
@@ -90,7 +100,7 @@ t = page_targets('k-1', 5)
 log.check([n for n in t if n in R24] == [2, 4, 6, 8, 10, 12], 'K P5 2/4 builds exactly the even targets 2..12')
 
 print('\n-- K P6 all pairs from {2,3,4,5}, targets 6..12')
-t = page_targets('k-1', 6)
+t = sorted(set(page_targets('k-1', 6)))   # one row of targets per pair since 69100ef
 good = []
 for a, b in combinations([2, 3, 4, 5], 2):
     R = reachable([a, b], 20)
@@ -102,8 +112,10 @@ log.check(good == [(2, 3), (2, 5), (3, 4)], f'K P6 pairs that cover 6..12: {good
 says('Exactly {2,3}, {2,5}, {3,4} cover every target 6-12')
 says('The failures are {2,4}: 7; {3,5}: 7; {4,5}: 6,7,11')
 miss24 = [n for n in t if n not in reachable([2, 4], 20)]
-log.check(miss24 == [7], f'K P6 guide lists {{2,4}} failures as "7"; actual failures in 6..12 are {miss24} '
-          '(the {4,5} entry lists all its failures, so this reads as complete)')
+log.check(miss24 != [7] and 'The failures are {2,4}: 7; {3,5}' in REVIEWED_GUIDE,
+          f'finding confirmed: K P6 guide as reviewed lists {{2,4}} failures as "7"; actual failures in 6..12 are {miss24}')
+log.check('The failures are {2,4}: %s; {3,5}: 7; {4,5}: 6,7,11' % ','.join(map(str, miss24)) in guide,
+          f'current K P6 guide lists {{2,4}} failures as {",".join(map(str, miss24))}')
 
 # ---------------- Grades 2-3 ----------------
 print('\n== Grades 2-3')
@@ -159,6 +171,8 @@ p2_47 = (last_gap([4, 7]), [18, 19, 20, 21])
 log.info(f'G45 P2 third pair (4 and 7) asks for the last gap {p2_47[0]} and a certificate {p2_47[1]}: that certificate plus one or two '
          '4-rods is the whole of P3, and "17 is the last gap" contains P4; guide P3-4 key cites "the four builds 18-21" and "the three-case argument above"')
 says('All twelve targets 18-29 work: use the four builds 18-21 and add 4 once or twice. Target 17 fails by the three-case argument above')
+says('All twelve targets 18-29 work: use the four builds 18=4+7+7, 19=4+4+4+7, 20=4+4+4+4+4, 21=7+7+7 and add 4 once or twice.')
+log.check(sorted([4 + 7 + 7, 4 + 4 + 4 + 7, 4 + 4 + 4 + 4 + 4, 7 + 7 + 7]) == [18, 19, 20, 21], 'current G45 P3 key: the four builds total 18, 19, 20, 21')
 
 print('\n-- G45 P5')
 for rods in ([2, 4], [3, 6], [4, 6], [3, 5], [4, 7]):
@@ -168,7 +182,11 @@ for rods in ([2, 4], [3, 6], [4, 6], [3, 5], [4, 7]):
 says('(odd targets, nonmultiples of 3, and odd targets respectively)')
 g46 = gaps([4, 6], BIG)
 even_gaps = [n for n in g46 if n % 2 == 0]
-log.check(even_gaps == [], f'G45 P5 guide calls the 4/6 gaps "odd targets"; even gaps of 4/6: {even_gaps}')
+log.check(even_gaps != [] and '(odd targets, nonmultiples of 3, and odd targets respectively)' in REVIEWED_GUIDE,
+          f'finding confirmed: G45 P5 guide as reviewed calls the 4/6 gaps "odd targets"; even gaps of 4/6: {even_gaps}')
+says('(odd targets; nonmultiples of 3; odd targets and 2)')
+log.check(g46 == [n for n in range(1, BIG + 1) if n % 2] + [2] or sorted(g46) == sorted([n for n in range(1, BIG + 1) if n % 2] + [2]),
+          'current G45 P5 guide: the 4/6 gaps are exactly the odd targets and 2')
 log.check([n for n in gaps([2, 4], BIG) if n % 2 == 0] == [] and all(n % 3 for n in gaps([3, 6], BIG))
           and len(gaps([3, 6], BIG)) == len([n for n in range(1, BIG + 1) if n % 3]),
           'G45 P5 guide: 2/4 gaps are exactly the odd targets, 3/6 gaps exactly the nonmultiples of 3')
@@ -238,11 +256,18 @@ pairs = [('grades-2-3', 1, r'from 1 through 16', list(range(1, 17))), ('grades-2
          ('grades-4-5', 3, r'from 18 through 29', list(range(18, 30))), ('k-1', 4, r'from 6 through 18', list(range(6, 19))),
          ('k-1', 5, r'from 1 through 12', list(range(1, 13))), ('k-1', 6, r'from 6 through 12', list(range(6, 13)))]
 for band, page, phrase, want in pairs:
+    if (band, page) == ('k-1', 6):
+        want = want * 6   # one row of targets per pair since 69100ef
     log.check(phrase in student[band][page - 1] and page_targets(band, page) == want, f'{band} p{page} "{phrase}" matches target boxes')
 
 unit_words = re.findall(r'\b\d*\s*(?:cm|centimet\w*|mm|inch\w*)\b', guide)
 log.check(bool(unit_words), f'guide states the size of the printed unit (strips and rulers are 1 cm per unit, see pdf_geometry.out); found {unit_words}')
 KIT = {2: 10, 3: 10, 4: 10, 5: 10, 7: 10}
+# Review finding: the kit had no 6-rods for G45 P5.  Since bc911cb the guide adds "a few 6-rods or 6 cm paper strips".
+log.check('6-rod' not in REVIEWED_GUIDE, 'finding confirmed: the guide kit as reviewed has no 6-rods (needed for G45 P5)')
+if 'a few 6-rods or 6 cm paper strips for grades 4-5 P5' in guide:
+    KIT[6] = 3
+    log.check(True, 'current guide kit adds "a few 6-rods or 6 cm paper strips for grades 4-5 P5"')
 needs = {('k-1', 'P1-P4'): [3, 4], ('k-1', 'P3'): [3, 5], ('k-1', 'P5'): [2, 4], ('grades-2-3', 'P5'): [4, 7],
          ('grades-4-5', 'P5'): [2, 4, 3, 6, 4, 6, 3, 5, 4, 7], ('grades-4-5', 'P7'): [5, 7]}
 for (band, prob), lens in needs.items():

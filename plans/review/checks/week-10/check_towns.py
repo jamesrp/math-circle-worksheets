@@ -203,8 +203,10 @@ for nm, t, k, n in [('house', house5, 1, 1), ('arc town', arc5, 2, 3), ('H town'
     kk, sols = fewest(lambda k: additions(t, k, closed=True))
     check(f'2-3 P5 {nm}: fewest new bridges for a closed walk = {k}, in {n} ways (guide)', kk == k and len(sols) == n,
           f'{kk}, {len(sols)} ways: ' + '; '.join('+'.join(a + b for a, b in s) for s in sols[:15]))
-arc10, _ = get('g23', 12, (4, 6))
-claw10, _ = get('g23', 12, (4, 3))
+# Page 12 of the reviewed packet is page 13 since the October 23, 2026 card fixes moved
+# Problems 6-7 onto a new page 9.
+arc10, _ = get('g23', 13, (4, 6))
+claw10, _ = get('g23', 13, (4, 3))
 for nm, t, k, n in [('arc town', arc10, 2, 3), ('three-arm star', claw10, 3, 1)]:
     sols = None
     for kk in range(len(t.E) + 1):

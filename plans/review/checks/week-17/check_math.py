@@ -41,12 +41,21 @@ def norm(s):
 
 
 GUIDE = norm(G.text(repo.PDF['GUIDE']))
+# The card's shoulds and coulds (750c916) reworded guide sentences this review quoted (keys, kit, P3
+# examples, machines).  A quote missing from the current guide is located in the guide as reviewed,
+# archive-before-card-fixes-2026-10-23, and reported as such; its mathematics is still checked below.
+REVIEWED_GUIDE_PDF = repo.WEEK / 'archive-before-card-fixes-2026-10-23' / repo.PDF['GUIDE'].name
+REVIEWED_GUIDE = norm(G.text(REVIEWED_GUIDE_PDF)) if REVIEWED_GUIDE_PDF.exists() else ''
 
 
 def quote(frag):
     """Locate a claim verbatim in the guide and return it."""
     f = norm(frag)
-    check(f in GUIDE, 'guide text found: "%s"' % (f[:90] + ('...' if len(f) > 90 else '')))
+    short = f[:90] + ('...' if len(f) > 90 else '')
+    if f not in GUIDE and f in REVIEWED_GUIDE:
+        say('ok   guide text found as reviewed (archived; reworded since): "%s"' % short)
+        return f
+    check(f in GUIDE, 'guide text found: "%s"' % short)
     return f
 
 
@@ -115,6 +124,20 @@ even = D.P['even_red']
 lastR, lastB = D.P['last_R'], D.P['last_B']
 
 # ---- P1
+def printed_pairs(pg):
+    """The (top/left row, bottom/right row) pairs of a pairs page; the first pair's first row has no cards.
+
+    As reviewed, Grades 2-3 P4 and Grades 4-5 P2 printed each pair side by side.  Since the card's
+    shoulds (750c916) each pair's rows sit one above the other, as K-1 P6 already did; both layouts are read."""
+    rws = [(round(r[0]), round(r[1]), r[2]) for r in pg['rows']]
+    if len({r[1] for r in rws}) == 1:
+        rws.sort(key=lambda r: -r[0])
+        return [('', rws[0][2])] + [(rws[i][2], rws[i + 1][2]) for i in range(1, len(rws) - 1, 2)]
+    left = [r for r in rws if r[1] < 200]
+    right = [r for r in rws if r[1] > 200]
+    return [('', right[0][2])] + [(l[2], r[2]) for l, r in zip(left, right[1:])]
+
+
 pg = page('K1', 1)
 check(len(pg['machines']) == 1, 'P1: one machine drawn')
 m1 = to_machine(pg['machines'][0])
@@ -226,8 +249,12 @@ check(sorted(rows_in(f)) == one4 and len(one4) == 8, 'guide P1 list equals all %
 quote('For the ending-B case the first three cards have an even red count: RRB, RBR, BRR, BBB.')
 check(sorted(w for w in D.strings(3) if w.count('R') % 2 == 0) == sorted(['RRB', 'RBR', 'BRR', 'BBB']), 'P1 even-red three-card prefixes are RRB, RBR, BRR, BBB')
 check(pg['lines'] == 12, 'P1 prints 12 answer lines for 8 answers (the guide does not say that 4 stay empty)')
-check('twelve' not in norm(GUIDE.split('Grades 2-3 solutions for Problems 1 to 4')[1].split('Problem 2 At least one red')[0]),
-      'guide 2-3 P1 section has no note about the 12 printed lines')
+# Review finding: no note about the 12 printed lines.  Card could 6 (750c916) added one, so the finding is
+# checked against the guide as reviewed and the current guide is checked for the note.
+check('twelve' not in norm(REVIEWED_GUIDE.split('Grades 2-3 solutions for Problems 1 to 4')[1].split('Problem 2 At least one red')[0]),
+      'guide as reviewed (archived): 2-3 P1 section has no note about the 12 printed lines')
+say('     current guide 2-3 P1 section mentions the printed lines: %s' %
+    ('twelve' in norm(GUIDE.split('Grades 2-3 solutions for Problems 1 to 4')[1].split('Problem 2 At least one red')[0])))
 
 # ---- P2, P3
 quote('Use N (start, NO) and Y (YES). N: B stays, R goes to Y. Y: R and B stay. Minimum two.')
@@ -239,11 +266,8 @@ check(D.accepts(D.seen_red(), 'RBB'), 'guide P2 hint row RBB must say YES')
 
 # ---- P4
 pg = page('G23', 3)
-rws = [(round(r[0]), round(r[1]), r[2]) for r in pg['rows']]
-left = [r for r in rws if r[1] < 200]
-right = [r for r in rws if r[1] > 200]
 check('no cards' in words_text('G23', 3), 'P4 first pair starts with "no cards"')
-pairs = [('', right[0][2])] + [(l[2], r[2]) for l, r in zip(left, right[1:])]
+pairs = printed_pairs(pg)
 check(pairs == [('', 'R'), ('R', 'RR'), ('RR', 'RRR'), ('RBR', 'RR'), ('B', 'RRR'), ('RB', 'BR')],
       'P4 printed pairs: ' + '; '.join('%s/%s' % (show(u), show(v)) for u, v in pairs))
 quote('In printed order: empty/R, append nothing -> YES/NO; R/RR, append R -> NO/YES; RR/RRR, append nothing -> NO/YES; RBR/RR, impossible; B/RRR, impossible; RB/BR, impossible.')
@@ -294,10 +318,7 @@ say('     P1 page prints %d grey lines (15 short answer lines + 3 long descripti
 
 # ---- P2
 pg = page('G45', 2)
-rws = [(round(r[0]), round(r[1]), r[2]) for r in pg['rows']]
-left = [r for r in rws if r[1] < 200]
-right = [r for r in rws if r[1] > 200]
-pairs = [('', right[0][2])] + [(l[2], r[2]) for l, r in zip(left, right[1:])]
+pairs = printed_pairs(pg)
 check(pairs == [('', 'R'), ('R', 'RR'), ('RR', 'BRR'), ('BBB', 'RRR')], 'P2 printed pairs: ' + '; '.join('%s/%s' % (show(u), show(v)) for u, v in pairs))
 quote('empty/R: stop -> YES/NO. R/RR: append R -> NO/YES. RR/BRR: impossible. BBB/RRR: impossible.')
 check(D.accepts(m3, '') and not D.accepts(m3, 'R'), 'P2 empty/R: stop -> YES/NO')

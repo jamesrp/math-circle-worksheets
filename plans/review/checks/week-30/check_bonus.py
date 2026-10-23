@@ -101,8 +101,15 @@ L.ok(q60 == [], f'P3 robust triples for 1..4 (different weights <= 60): {q60}')
 q60m = [k for k in combinations_with_replacement(range(1, 61), 3) if robust(k, 4)]
 L.ok(q60m == [], f'P3 with equal-valued cards allowed (<= 60): {q60m}')
 L.out('   => allowing equal-valued cards changes neither conclusion (P2 still only {1,2,3}; P3 still impossible)')
-L.ok(ghas('Ask how the conclusion changes if equal-valued cards are allowed'),
-     'guide p. 2 asks "how the conclusion changes" with equal-valued cards (it does not change; see above)')
+# Review finding: the bonus guide as reviewed asked "how the conclusion changes" although it does not change.
+# The card fixes (9d14e21) reworded it, so the finding is checked in the archived bonus guide as reviewed
+# (archive-before-card-fixes-2026-10-23) and the current wording in the delivered one.
+_RG = re.sub(r'\s+', ' ', '\n'.join(p.get_text() for p in pymupdf.open(
+    os.path.join(os.path.dirname(PDF['BGUIDE']), 'archive-before-card-fixes-2026-10-23', os.path.basename(PDF['BGUIDE'])))))
+L.ok('Ask how the conclusion changes if equal-valued cards are allowed' in _RG and r60m == [(1, 2, 3)] and q60m == [],
+     'finding confirmed: guide p. 2 as reviewed (archived) asks "how the conclusion changes" with equal-valued cards (it does not change; see above)')
+L.ok(ghas('Ask whether allowing equal-valued cards changes the conclusion. (It does not:'),
+     'current guide p. 2 asks whether equal-valued cards change the conclusion and says it does not')
 L.ok(not covers((3, 9), 1) and not covers((3, 9), 2) and 1 not in reachable([3, 9]) and 2 not in reachable([3, 9]),
      'guide: {1,3,9} minus 1 leaves 3, 9, which cannot balance 1 or 2')
 

@@ -246,8 +246,10 @@ g3 = [s['cells'] for s in page('g45', 3)['shapes']]
 for s in g3:
     r, c = rows_cols(s)
     L.out(f'P3 given {show(s)}: n={len(s)} rows {r} columns {c} boundary {perimeter(s)}')
-L.ok([(rows_cols(s), perimeter(s)) for s in g3] == [((2, 6), 16), ((3, 4), 14), ((4, 5), 18)],
-     'P3: (rows, columns, boundary) = (2,6,16), (3,4,14), (4,5,18)')
+# As reviewed the third shape had boundary 18; card should 3 (acb3820) replaced it with the guide's second
+# construction (boundary 20), so one shape breaks the rows-plus-columns pattern.
+L.ok([(rows_cols(s), perimeter(s)) for s in g3] == [((2, 6), 16), ((3, 4), 14), ((4, 5), 20)],
+     'P3: (rows, columns, boundary) = (2,6,16), (3,4,14), (4,5,20)')
 allP = span_box_perimeters(5, 4)
 minP = min(min(v) for v in allP.values())
 L.ok(minP == 18, f'P3: least boundary over every connected shape spanning exactly 4 rows and 5 columns = {minP}')

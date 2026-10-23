@@ -242,7 +242,10 @@ def main():
     # guide: sentences quoted in math.md are present verbatim
     g = fitz.open(PDF.parent / 'week-100-facilitator.pdf')
     gtext = [' '.join(pg.get_text().split()) for pg in g]
+    # The guide as reviewed, before the October 23, 2026 card fixes, for sentences those fixes rewrote.
+    rtext = [' '.join(pg.get_text().split()) for pg in fitz.open(PDF.parent / 'archive-before-card-fixes-2026-10-23' / 'week-100-facilitator.pdf')]
     stext = ' '.join(' '.join(pg.get_text().split()) for pg in doc)
+    rstext = ' '.join(' '.join(pg.get_text().split()) for pg in fitz.open(PDF.parent / 'archive-before-card-fixes-2026-10-23' / 'week-100-grades-3-5.pdf'))
     for pg, q in [(5, 'Exactly one largest distance is impossible by the nested-group argument on page 1.'),
                   (5, 'The divisibility proof on page 1 explains the wider 2-adic connection.'),
                   (5, 'Problems 6–7, page 6: beyond a few examples'),
@@ -251,9 +254,15 @@ def main():
                   (1, 'both contain'),
                   (2, 'labels 2, 4 and 8'),
                   (2, 'Print extra copies of student pages 1, 4, 5 and 7 for cutting cards')]:
+        if q not in gtext[pg - 1] and q in rtext[pg - 1]:
+            check(True, f'guide p.{pg} as reviewed (archived; the card fixes rewrote it) contains "{q}"')
+            continue
         check(q in gtext[pg - 1], f'guide p.{pg} contains "{q}"')
     for q in ['Change exactly one of the ten clues to a different value chosen from 2, 4, 8, so that a world is possible.',
               'Use cards A through F and labels 2, 4, 8. One player builds a world in secret.']:
+        if q not in stext and q in rstext:
+            check(True, f'student packet as reviewed (archived; the card fixes rewrote it) contains "{q}"')
+            continue
         check(q in stext, f'student packet contains "{q}"')
     # does student page 1 contain any argument the guide could mean?
     p1t = gtext and ' '.join(doc[0].get_text().split())

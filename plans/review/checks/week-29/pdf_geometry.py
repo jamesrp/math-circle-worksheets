@@ -98,7 +98,8 @@ for band in ('k-1', 'grades-2-3', 'grades-4-5'):
                     centre = word_at(W, (b['x0'] + b['x1']) / 2, (b['y0'] + b['y1']) / 2)
                     pg['strips'].append({'n': n, 'label': lab, 'centre_text': centre, 'cells': len(inner) + 1,
                                          'spaced': spaced, 'x0': round(b['x0'], 2), 'y0': round(b['y0'], 2)})
-            elif close(b['w'], 1.8 * unit) and close(b['h'], 1.2 * unit):
+            # target boxes are 1.8 x 1.2 cm; since the student-page fixes (69100ef) K-1 P6's six rows use 1.6 x 1.2 cm
+            elif (close(b['w'], 1.8 * unit) or close(b['w'], 1.6 * unit)) and close(b['h'], 1.2 * unit):
                 lab = word_at(W, (b['x0'] + b['x1']) / 2, (b['y0'] + b['y1']) / 2, 8)
                 pg['targets'].append(lab)
         # rulers: long horizontal line with ticks
@@ -146,11 +147,12 @@ for band in ('k-1', 'grades-2-3', 'grades-4-5'):
 # Expected diagram content from the printed problem text
 EXPECT = {
     ('k-1', 1): {'strips': [1, 2, 5, 6, 8, 9, 10], 'keys': [3, 4], 'example7': True},
-    ('k-1', 2): {'strips': [12, 12, 15, 15]},
+    ('k-1', 2): {'strips': [12, 12, 12, 15, 15, 15]},   # two strips per target as reviewed; three since 69100ef (should 3)
     ('k-1', 3): {'strips': [4, 7, 8, 9, 10, 11, 12], 'keys': [3, 5]},
     ('k-1', 4): {'targets': list(range(6, 19)), 'rulers': [18, 18]},
     ('k-1', 5): {'targets': list(range(1, 13)), 'rulers': [12, 12], 'keys': [2, 4]},
-    ('k-1', 6): {'targets': list(range(6, 13)), 'rulers': [12, 12], 'keys': [2, 3, 4, 5]},
+    # one row of targets 6-12 as reviewed; one row per pair (six) since 69100ef (should 8)
+    ('k-1', 6): {'targets': list(range(6, 13)) * 6, 'rulers': [12, 12], 'keys': [2, 3, 4, 5]},
     ('grades-2-3', 1): {'targets': list(range(1, 17)), 'rulers': [16, 16], 'keys': [3, 4], 'example7': True},
     ('grades-2-3', 3): {'targets': list(range(1, 21)), 'keys': [3, 5]},
     ('grades-2-3', 4): {'keys': [3, 4, 3, 5]},

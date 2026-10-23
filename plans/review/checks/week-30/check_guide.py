@@ -162,7 +162,12 @@ L.ok(sorted(v for v in one if v > 0) == list(range(1, 8)) and all(len(one[v]) ==
 
 # ------------------------------------------------------------ launch / route note
 L.out('\n== Launch, timing and route note')
-L.ok(has('Put 1 beside the target and 4 opposite, so 3+1=4'), 'Launch example matches the student pages (3 + 1 = 4)')
+# As reviewed the launch and the student example were target 3 with weights 1 and 4; the card's shoulds (9d14e21)
+# changed both to target 5 with weights 2 and 7.  The check reads the example from the student pages.
+_p1 = {b: ' '.join(pymupdf.open(PDF[b])[0].get_text().split()) for b in ('K', '23', '45')}
+_ex = {b: ('Target 5; weights 2 and 7' in t and '5+2=7' in t.replace(' ', '')) for b, t in _p1.items()}
+L.ok(has('Put 2 beside the target and 7 opposite, so 5+2=7') and all(_ex.values()),
+     f'Launch example matches the student pages (5 + 2 = 7 on every band: {_ex})')
 L.ok(has('K-1 can choose among two-weight kits (P4) or add a third weight (P5)'),
      'Route note K-1 references P4/P5 correctly')
 L.ok(has('Grades 4-5 can choose uniqueness (P3), a universal placement bound (P4-5), or the four-/five-weight '

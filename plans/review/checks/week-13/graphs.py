@@ -62,7 +62,8 @@ EXPECTED = {
     ('k-1', 2): [('diamond', N), ('funnel', N)],
     ('k-1', 3): [('threetwo', N), ('three', N)],
     ('k-1', 4): [('threetwo', N), ('greedy', N)],
-    ('k-1', 5): [('bowtie', N)] * 9,
+    # K-1 Problem 5: nine bowties as reviewed; the card's shoulds (45eb31c) gave ten recording copies, so 11.
+    ('k-1', 5): [('bowtie', N)] * 11,
     ('k-1', 6): [('diamond', N), ('greedy', N)],
     ('grades-2-3', 1): [('bowtie', N), ('greedy', N)],
     ('grades-2-3', 2): [('bottleneck', N)],

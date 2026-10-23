@@ -124,14 +124,17 @@ check(set(cp) == {parse('13 35', N), parse('13 14', N)} and
 if copies5 != len(cp):
     log(f'  NOTE K-1 P4: the pentagon has {copies5} pre-lined copies but only {len(cp)} answers')
 # P5
-starts = [d for n, d, r in fillings_on(K, 5, 6) if d]
+# The two starts are the large hexagons. Since the card's shoulds (0be5284) each small recording copy
+# also prints its start in light gray, so the copies are told apart by size, as in P4.
+starts = [d for n, d, r in fillings_on(K, 5, 6) if d and r['width_in'] >= 2]
 for s in starts:
     nb = G[6][s]
     log(f'  P5: start {name(s, N)} -> {len(nb)} results: {[name(t, N) for t in nb]}')
 check([set(G[6][s]) for s in starts] == [{parse(x, N) for x in ['13 14 46', '13 15 35', '14 15 24']},
                                          {parse(x, N) for x in ['13 35 36', '15 25 35', '13 14 15']}],
       'guide K-1 P5 neighbour lists (both starts) correct')
-log('      blank copies per start:', sum(1 for x in fillings_on(K, 5, 6) if not x[1]) // 2)
+log('      recording copies per start:', sum(1 for x in fillings_on(K, 5, 6) if x[2]['width_in'] < 2) // 2,
+    '(start printed in gray on each:', all(d in starts for n, d, r in fillings_on(K, 5, 6) if r['width_in'] < 2), ')')
 # P6
 (s6,) = [d for n, d, r in fillings_on(K, 6, 5) if d]
 log('  P6: start', name(s6, N))

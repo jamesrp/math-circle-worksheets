@@ -62,12 +62,20 @@ def fmt(s):
 strips = json.loads((HERE / 'pdf_strips.json').read_text())
 guide_doc = pymupdf.open(WEEK / 'week-18-facilitator.pdf')
 GUIDE = ' '.join(' '.join(p.get_text().split()) for p in guide_doc)
+# Guide sentences reworded by the card fixes (2026-10-23) are located in the guide as reviewed,
+# archive-before-card-fixes-2026-10-23, and reported as such; current-version checks follow them.
+_reviewed = WEEK / 'archive-before-card-fixes-2026-10-23' / 'week-18-facilitator.pdf'
+REVIEWED_GUIDE = ' '.join(' '.join(p.get_text().split()) for p in pymupdf.open(_reviewed)) if _reviewed.exists() else ''
 
 
 def quote(q):
     """Confirm a quoted guide claim exists verbatim (whitespace-normalised)."""
     q2 = ' '.join(q.split())
-    ok(q2 in GUIDE, 'guide quote present: "' + (q2[:70] + '...' if len(q2) > 70 else q2) + '"')
+    short = q2[:70] + '...' if len(q2) > 70 else q2
+    if q2 not in GUIDE and q2 in REVIEWED_GUIDE:
+        print('PASS guide quote present as reviewed (archived; reworded since): "' + short + '"')
+        return q2
+    ok(q2 in GUIDE, 'guide quote present: "' + short + '"')
     return q2
 
 
@@ -131,7 +139,9 @@ ok(sorted(k4) == sorted([tuple(x.split('/')) for x in '000/111, 001/110, 010/101
 
 # P5
 t5 = printed(k, 6, 'triangle')
-ok(t5 == ['0011', '0100'] and printed(k, 6, 'square') == ['----', '----'], 'K-1 P5 triangles 0011, 0100 with blank square rows')
+# As reviewed one blank square strip followed each triangle; card should 3 (64dbf65) prints two per triangle
+# and asks for every square row that always works.
+ok(t5 == ['0011', '0100'] and printed(k, 6, 'square') == ['----'] * 4, 'K-1 P5 triangles 0011, 0100, each with two blank square rows')
 comp = {}
 for a in t5:
     comp[a] = sorted(b for b in words(4) if '0' in b and '1' in b and works([a, b]))
@@ -142,6 +152,10 @@ quote('For triangle 0100, the square may be 0011, 1001, 1010, or 1011')
 ok(comp['0011'] == ['0100', '1000', '1100', '1101', '1110'], 'K-1 P5 guide list for 0011 (5 rows) is complete and correct')
 ok(comp['0100'] == ['0011', '1001', '1010', '1011'], 'K-1 P5 guide list for 0100 (4 rows) is complete and correct')
 ok(flip('1011', 1) == '1111', 'K-1 P5 guide: changing 1011 in its second position gives 1111')
+# Current guide (card fixes): the 0100 list names all five partners, 1111 included.
+quote('For triangle 0100, the square may be 0011, 1001, 1010, 1011, or 1111')
+ok(sorted(b for b in words(4) if works(['0100', b])) == ['0011', '1001', '1010', '1011', '1111'],
+   'K-1 P5 current guide list for 0100 (5 rows, 1111 included) is complete and correct')
 # Extension: every length-4 row has exactly 5 partners
 ok(all(len([b for b in words(4) if works([a, b])]) == 5 for a in words(4)),
    'K-1 extension: every fixed length-4 row has exactly 5 reliable partners (complement and its 4 neighbours)')

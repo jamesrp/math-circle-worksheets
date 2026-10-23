@@ -95,7 +95,13 @@ uses = [m.group(0) for m in re.finditer(r'[^.?:]*\brows?\b[^.?:]*', STUD)]
 say('     sentences on the student pages that use "row"/"rows":')
 for u in uses:
     say('       -', u.strip())
-check('two red cards in a row have appeared anywhere' in STUD, 'P1 wording located on the student page')
+# The ambiguous wording was this review's finding; card should 4 (750c916, W17-RV-v2) changed it to
+# "next to each other".  The finding is located on the page as reviewed and the fix on the current page.
+REVIEWED_RV = repo.WEEK / 'archive-before-card-fixes-2026-10-23' / repo.PDF['RV'].name
+check('two red cards in a row have appeared anywhere' in norm(G.text(REVIEWED_RV)),
+      'P1 wording located on the student page as reviewed (archived)')
+check('two red cards next to each other have appeared anywhere' in STUD,
+      'current P1 wording "two red cards next to each other" located on the student page')
 
 # return question: RBR anywhere
 quote('Their R/B destinations are respectively (R-suffix, empty-suffix), (R-suffix, RB-suffix), (found, empty-suffix), (found, found); only found says YES.')

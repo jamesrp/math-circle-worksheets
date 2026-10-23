@@ -16,7 +16,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import HERE, SRC, BONUS_SRC, Log  # noqa: E402
+from common import HERE, SRC, BONUS_SRC, REVIEWED_TEX_ZIP, Log  # noqa: E402
 
 log = Log('Week 47: editable sources vs delivered PDFs')
 G = json.load(open(os.path.join(HERE, 'pdf_geometry.json')))
@@ -24,7 +24,9 @@ NUM = r'(-?[\d.]+)'
 
 
 def tex_pages(band):
-    tex = open(os.path.join(SRC, 'editable', 'src', band + '.tex')).read()
+    # the reviewed TeX, from the source ZIP archived before the problem-file conversion (see common.py)
+    import zipfile
+    tex = zipfile.ZipFile(REVIEWED_TEX_ZIP).read(f'gentle-step-landscapes-week47-source/src/{band}.tex').decode()
     return tex.split('\\begin{document}', 1)[1].split('\\newpage')
 
 
@@ -106,5 +108,7 @@ log.check("{0:0,3:3}" in b and "{0:0,3:2}" in b and "cycle(c,167,281,5" in b and
           'build.py: row A=0,D=3; rings of 5 with clues A=0,D=3 and A=0,D=2')
 log.check("[(575,'Start',[1,2,3,2,1,0,1]),(483,'Finish',[1,0,1,2,3,2,1])]" in b, 'build.py: Start 1,2,3,2,1,0,1 and Finish 1,0,1,2,3,2,1')
 log.check([r['values'] for r in B[1]['start_finish']] == [list('1232101'), list('1012321')], 'PDF start/finish rows agree')
-log.check("cycle(c,306,447,6,r=141,clues={0:1,3:1}" in b and "(2,5,8,10,11)" in b, 'build.py: six-ring with A=1, D=1; budgets 2,5,8,10,11')
+# The bonus v2 (98601c9) moved the ring from y=447 to y=435 and reworded P3; the check keeps the ring and budgets.
+log.check(re.search(r"cycle\(c,306,4\d\d,6,r=141,clues=\{0:1,3:1\}", b) is not None and "(2,5,8,10,11)" in b,
+          'build.py: six-ring with A=1, D=1; budgets 2,5,8,10,11')
 log.dump(os.path.join(HERE, 'compare_source.out'))

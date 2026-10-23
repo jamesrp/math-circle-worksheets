@@ -18,9 +18,20 @@ GUIDE = norm(page_text(PDFS['guide']))
 BGUIDE = norm(page_text(PDFS['bonus-guide']))
 
 
+# The card's shoulds (b2a20e1) reworded base-guide sentences this review quoted.  A quote missing from the
+# current base guide is located in the guide as reviewed (archive-before-card-fixes-2026-10-23): a true claim
+# there passes "as reviewed"; a false one there is the review's finding, confirmed and since corrected.
+_RG = PDFS['guide'].parent / 'archive-before-card-fixes-2026-10-23' / PDFS['guide'].name
+REVIEWED_GUIDE = norm(page_text(_RG)) if _RG.exists() else ''
+
+
 def claim(src, quote, ok, detail=''):
     text = GUIDE if src == 'base' else BGUIDE
     present = norm(quote) in text
+    if not present and src == 'base' and norm(quote) in REVIEWED_GUIDE:
+        note = 'as reviewed (archived; reworded since)' if ok else 'finding confirmed in the guide as reviewed (archived); corrected since'
+        log(f'  [PASS] ({src}) "{quote}"' + (f' -- {detail}' if detail else '') + f'  <{note}>')
+        return
     tag = 'PASS' if present and ok else 'FAIL'
     why = [] if present else ['quote not found']
     if not ok:

@@ -458,7 +458,14 @@ phrases = [
     'Each shape has probability 3/12',
     'giving equal shape probabilities 3/16 and conditional probabilities 1/2',
 ]
+# The card's shoulds (d307721) reworded some of these sentences (page-4 picture references, the independence
+# sentence).  A phrase missing from the current guide is located in the guide as reviewed
+# (archive-before-card-fixes-2026-10-23) and reported as such.
+G_REVIEWED = pdftext('archive-before-card-fixes-2026-10-23/week-42-facilitator.pdf')
 for ph in phrases:
+    if norm(ph) not in G and norm(ph) in G_REVIEWED:
+        check(True, 'guide as reviewed (archived; reworded since) prints: ' + ph)
+        continue
     check(norm(ph) in G, 'guide prints: ' + ph)
 # G2-3 grid table in the guide
 m = re.search(r'First / second R1 R2 R3 B (R1 .*?) The three RB cells', G)
@@ -468,8 +475,10 @@ for la, name in zip(['R1', 'R2', 'R3', 'B1'], ['R1', 'R2', 'R3', 'B']):
     exp_rows += [name] + [grid[(la, lb)] for lb in ['R1', 'R2', 'R3', 'B1']]
 check(rows == exp_rows, 'guide p.4 grid table matches the 16 labelled colour pairs')
 check('(9/16)6' in G or '(9/16)^6' in G, 'guide prints (9/16)^6')
-check('Independence is sufficient, not necessary' in G,
-      'guide p.1 sentence "Independence is sufficient, not necessary" present (see finding)')
+check('Independence is sufficient, not necessary' in G_REVIEWED,
+      'guide p.1 as reviewed (archived): sentence "Independence is sufficient, not necessary" present (see finding)')
+check(norm('Independent draws from the same bag are sufficient but not necessary: the rule needs P(RB) = P(BR).') in G,
+      'current guide p.1 corrects it: "Independent draws from the same bag are sufficient but not necessary: the rule needs P(RB) = P(BR)."')
 
 say('\n## Printed numbers in the bonus guide')
 BG = pdftext('week-42-bonus-facilitator.pdf')

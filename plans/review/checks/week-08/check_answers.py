@@ -36,11 +36,16 @@ def pdftext(path):
 
 
 GUIDE = pdftext(repo.GUIDE)
+REVIEWED_GUIDE = pdftext(repo.REVIEWED_GUIDE)
 
 
 def quote(q):
-    """Fail loudly if a guide sentence I rely on is not in the delivered guide."""
+    """Fail loudly if a guide sentence I rely on is not in the delivered guide (or, for a
+    sentence the card fixes corrected, in the guide as reviewed, which is archived)."""
     global N_BAD
+    if norm(q) not in GUIDE and norm(q) in REVIEWED_GUIDE:
+        print('ok        guide quote found in the reviewed guide (archived; corrected since): %r' % q)
+        return True
     if norm(q) not in GUIDE:
         N_BAD += 1
         print('MISMATCH  guide quote not found in delivered PDF: %r' % q)

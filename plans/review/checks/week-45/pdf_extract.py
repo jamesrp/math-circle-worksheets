@@ -14,7 +14,7 @@ from collections import Counter
 import pymupdf
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import HERE, PDFS, REFS, Log  # noqa: E402
+from common import HERE, PDFS, REFS, DELIVERED, Log  # noqa: E402
 
 log = Log()
 PT_PER_CM = 72 / 2.54
@@ -48,7 +48,7 @@ def centre(r):
 
 # ---------------------------------------------------------------- hashes
 for key in PDFS:
-    a = hashlib.md5(open(PDFS[key], 'rb').read()).hexdigest()
+    a = hashlib.md5(open(DELIVERED[key], 'rb').read()).hexdigest()
     b = hashlib.md5(open(REFS[key], 'rb').read()).hexdigest()
     log.check(a == b, f'{key}: delivered PDF is byte-identical to source reference copy ({a})')
 

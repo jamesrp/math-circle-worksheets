@@ -289,6 +289,11 @@ ok(pairs_set == [("ABCDABC", "ADCBADC")] and pairs_ms == [],
 print("\n== Grades 2-3 and 4-5, Problem 1 (tree, printed routes)")
 for band in ("grades-2-3", "grades-4-5"):
     rs = [r["route"] for r in DATA[band][0]["routes"] if r["route"]]
+    # Since the card's shoulds (89149a6) the worked example on this page is labelled A-B-C-B-D and A-B-D,
+    # so its two routes are read first.
+    if rs[:2] == ["ABCBD", "ABD"]:
+        ok(valid("ABCBD", TREE) and all_results("ABCBD") == {"ABD"}, f"{band}: worked example ABCBD -> ABD")
+        rs = rs[2:]
     ok(rs == ["ABABDFDE", "ABDFDE", "CBCBDF"], f"{band}: printed routes {rs}")
 for x, want in [("ABABDFDE", "ABDE"), ("ABDFDE", "ABDE"), ("CBCBDF", "CBDF")]:
     ok(valid(x, TREE) and all_results(x) == {want}, f"{x} ({steps(x)} steps) is legal; every deletion order gives {want}")
@@ -345,7 +350,9 @@ bad = [x for n in range(0, 15) for x in walks(TREE, "C", n, "F") if stack(x) != 
 ok(not bad, "every C->F tree trip of length 0..14 reduces to CBDF (exhaustive)")
 print(" P4 (ring): three printed routes, every deletion order")
 rs = [r["route"] for r in DATA["grades-4-5"][2]["routes"] if r["route"]]
-ok(rs == ["ABABCBADCDA", "ABADCBC", "ABCDABCBA"], f"printed routes {rs}")
+# The third route was ABCDABCBA as reviewed; the card's shoulds (89149a6) print ABCBCDABA, with four removal orders.
+ok(rs == ["ABABCBADCDA", "ABADCBC", "ABCBCDABA"], f"printed routes {rs}")
+ok(count_orders("ABCBCDABA") == 4, f"ABCBCDABA has four complete deletion orders ({count_orders('ABCBCDABA')})")
 for x, want in zip(rs, ["A", "ADC", "ABCDA"]):
     ok(valid(x, RING) and all_results(x) == {want},
        f"{x}: legal, {count_orders(x)} complete deletion orders, all end at {want}")

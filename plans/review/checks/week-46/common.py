@@ -45,6 +45,28 @@ TEX = {
     'grades-4-5': SRC / 'src' / 'grades-4-5.tex',
 }
 
+# Re-pointed on 2026-10-23.  The card's shoulds and coulds (5c127cb) reshaped the pages this review read, so
+# PDFS now names the copies as reviewed (week-46/archive-before-card-fixes-2026-10-23/; the bonus is unchanged)
+# and TEX the reviewed sources, read from the source ZIP archived before the problem-file conversion
+# (identical to the reviewed src/*.tex).  DELIVERED keeps the current print copies, which extract_diagrams.py
+# still compares with the source reference copies; check_card_shoulds.py checks the current pages.
+DELIVERED = dict(PDFS)
+_REV = WEEK / 'archive-before-card-fixes-2026-10-23'
+PDFS = {k: (_REV / v.name if (_REV / v.name).exists() else v) for k, v in DELIVERED.items()}
+
+
+class _ZipText:
+    def __init__(self, member):
+        self.member = member
+
+    def read_text(self):
+        import zipfile
+        z = Y2 / 'source' / 'week-46' / 'archive-before-problem-files-2026-10-23' / 'forgetting-boards-week46-editable-source.zip'
+        return zipfile.ZipFile(z).read(self.member).decode()
+
+
+TEX = {b: _ZipText(f'forgetting-boards-week46-source/src/{b}.tex') for b in ('k-1', 'grades-2-3', 'grades-4-5')}
+
 BOARDS = [''.join(p) for p in itertools.product('RB', repeat=3)]
 SETS = [(i, c) for i in (1, 2, 3) for c in 'RB']          # the six cards
 TOGGLES = [('T', i) for i in (1, 2, 3)]

@@ -36,6 +36,15 @@ PDFS = {
     'bonus': os.path.join(WEEK, 'week-45-bonus.pdf'),
     'bonus-guide': os.path.join(WEEK, 'week-45-bonus-facilitator.pdf'),
 }
+# Re-pointed on 2026-10-23.  The card's shoulds (de045a5) and the introduction follow-up (aa01c74) reshaped the
+# student pages, guide and bonus this review read, so PDFS now names the copies as reviewed: base packets and
+# guide in week-45/archive-before-card-fixes-2026-10-23/, bonus and bonus guide in
+# week-45/archive-before-intro-followup/.  DELIVERED keeps the current print copies, which pdf_extract.py still
+# compares with the source reference copies; check_card_shoulds.py checks the current pages.
+DELIVERED = dict(PDFS)
+_REV_BASE = os.path.join(WEEK, 'archive-before-card-fixes-2026-10-23')
+_REV_BONUS = os.path.join(WEEK, 'archive-before-intro-followup')
+PDFS = {k: os.path.join(_REV_BONUS if k.startswith('bonus') else _REV_BASE, os.path.basename(v)) for k, v in DELIVERED.items()}
 REFS = {
     'k-1': os.path.join(SRC, 'editable', 'reference-pdfs', 'k-1.pdf'),
     'grades-2-3': os.path.join(SRC, 'editable', 'reference-pdfs', 'grades-2-3.pdf'),

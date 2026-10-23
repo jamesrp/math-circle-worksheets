@@ -295,7 +295,12 @@ check(all(F(four[k], 16) != F(orig[k], 9) for k in orig), 'every four-card chanc
 check(all(F(six[k], 36) == F(orig[k], 9) for k in orig), 'every six-card chance equals the original')
 check(four[('C', 'A')] > 8 and four[('A', 'B')] > 8 and four[('C', 'B')] > 8, 'four-card relation: C over A, A over B, C over B (no cycle)')
 # guide p.10 gate: "Counting distinct printed number-pairs as equally likely gives the wrong answer."
-in_guide('Counting distinct printed number-pairs as equally likely gives the wrong answer.')
+# The card fixes (2026-10-23) qualified this sentence after this review's finding below, so the sentence as
+# reviewed is located in the archived guide (archive-before-card-fixes-2026-10-23) and the current wording after it.
+REVIEWED_GUIDE = re.sub(r'\s+', ' ', ''.join(p.get_text() for p in pymupdf.open(
+    os.path.join(WEEK, 'archive-before-card-fixes-2026-10-23', 'week-24-facilitator.pdf'))))
+check('Counting distinct printed number-pairs as equally likely gives the wrong answer.' in REVIEWED_GUIDE,
+      'guide as reviewed (archived) has the unqualified gate: "Counting distinct printed number-pairs as equally likely gives the wrong answer."')
 from collections import Counter
 for nm, (X, Y) in (('six-card A/B', (A6, B6)), ('six-card B/C', (B6, C6)), ('four-card A/B', (A4, B4)), ('four-card B/C', (B4, C4))):
     mult = Counter((a, b) for a in X for b in Y)
@@ -304,8 +309,10 @@ for nm, (X, Y) in (('six-card A/B', (A6, B6)), ('six-card B/C', (B6, C6)), ('fou
     true = F(wins(X, Y), len(X) * len(Y))
     say(f'   {nm}: distinct number-pairs equally likely? {uniform}; distinct-pair count gives {distinct}, true chance {true}')
 six_ok = all(F(sum(1 for (a, b) in set(product(X, Y)) if a > b), 9) == F(wins(X, Y), 36) for X, Y in ((A6, B6), (B6, C6), (C6, A6)))
-check(not six_ok, 'guide gate sentence holds for the six-card decks too (expected FAIL: there the 9 distinct number-pairs are '
-      'equally likely, 4 physical copies each, and give the right 5/9)')
+check(six_ok, 'finding confirmed: the unqualified gate sentence as reviewed fails for the six-card decks (there the 9 distinct '
+      'number-pairs are equally likely, 4 physical copies each, and give the right 5/9)')
+in_guide('Counting distinct printed number-pairs as equally likely gives the wrong answer for the four-card decks '
+         '(B over C would look like 5/9 instead of 7/16). It works for the six-card decks only because every card is copied equally.')
 check(F(sum(1 for (a, b) in set(product(B4, C4)) if a > b), 9) == F(5, 9) and F(wins(B4, C4), 16) == F(7, 16),
       'four-card decks: distinct-pair counting gives B over C 5/9, true 7/16 (wrong winner) -- the gate is right here')
 check(wins((2, 2, 4, 9), (1, 1, 6, 8)) == 2 + 2 + 2 + 4 and wins((1, 1, 6, 8), (3, 3, 5, 7)) == 0 + 0 + 3 + 4

@@ -19,7 +19,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import (HERE, PDFS, REFS, PT_MM, Log, page_count, page_text, shapes, words)  # noqa: E402
+from common import (HERE, PDFS, REFS, DELIVERED, PT_MM, Log, page_count, page_text, shapes, words)  # noqa: E402
 
 log = Log('Week 47 PDF extraction (delivered PDFs, read with pdftocairo/pdftotext)')
 
@@ -289,7 +289,7 @@ def extract_bonus():
 def main():
     log.section('Delivered PDFs match the reference copies in the source folders')
     for k in PDFS:
-        log.check(md5(PDFS[k]) == md5(REFS[k]), '%s: delivered MD5 == reference MD5 (%s)' % (k, md5(PDFS[k])))
+        log.check(md5(DELIVERED[k]) == md5(REFS[k]), '%s: delivered MD5 == reference MD5 (%s)' % (k, md5(DELIVERED[k])))
 
     data = base()
     data['bonus'] = extract_bonus()

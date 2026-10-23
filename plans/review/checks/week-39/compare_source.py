@@ -25,8 +25,28 @@ def find_repo():
 
 
 REPO = find_repo()
-SRC = (REPO / "lowell-math-circle-year-2/source/week-39/editable/src/make_packets.py").read_text()
-PDF = json.loads((HERE / "extracted.json").read_text())
+# Re-pointed on 2026-10-23.  make_packets.py was retired when Week 39 became problem files (17b7c17), and the
+# card fixes then changed the pages, so this check now compares the source as reviewed
+# (source/week-39/archive-before-problem-files-2026-10-23/make_packets.py, identical to the reviewed copy)
+# with the student PDFs as reviewed (K-1 in archive-before-card-fixes-2026-10-23, Grades 2-3 and 4-5 in
+# archive-before-card-shoulds-2026-10-23), read with extract.py's own functions.  The current pages are
+# checked by check.py, the conversion's compare.py proof and source/week-39/editable verifiers.
+SRC = (REPO / "lowell-math-circle-year-2/source/week-39/archive-before-problem-files-2026-10-23/make_packets.py").read_text()
+sys.path.insert(0, str(HERE))
+import extract as X  # noqa: E402
+import pymupdf  # noqa: E402
+_W = REPO / "lowell-math-circle-year-2" / "week-39"
+REVIEWED = {"k-1": _W / "archive-before-card-fixes-2026-10-23" / "week-39-k-1.pdf",
+            "grades-2-3": _W / "archive-before-card-shoulds-2026-10-23" / "week-39-grades-2-3.pdf",
+            "grades-4-5": _W / "archive-before-card-shoulds-2026-10-23" / "week-39-grades-4-5.pdf"}
+PDF = {}
+for _band, _path in REVIEWED.items():
+    PDF[_band] = []
+    for _i, _page in enumerate(pymupdf.open(_path)):
+        _lines = X.text_lines(_page)
+        PDF[_band].append({"page": _i + 1, "problems": X.problems(_lines), "map": X.maps(_page, _lines),
+                           "routes": X.routes(_lines)})
+print("comparing the source as reviewed with the student PDFs as reviewed (archived)")
 MM = 72 / 25.4
 FAIL = []
 

@@ -268,7 +268,9 @@ EXPECTED = {
         1: [(None, RIGHT, '????')] * 4,
         2: [('A', RIGHT, 'MMMV'), ('B', RIGHT, 'MMMM'), ('C', RIGHT, 'MVVV'),
             ('D', RIGHT, 'MMVV'), ('E', RIGHT, 'MMVM'), ('F', RIGHT, 'MVMV')],
-        3: [(None, RIGHT, 'M???')] * 6,
+        # K-1 Problem 3: six marked disks as reviewed; since the student-page fixes (799a994) four marked
+        # disks and two blank ones as extra workspace.
+        3: [(None, RIGHT, 'M???')] * 4 + [(None, RIGHT, '????')] * 2,
         4: [('A', RIGHT, 'M?V?'), (None, RIGHT, 'MM??'), (None, RIGHT, 'V?V?'),
             ('B', RIGHT, 'M?V?'), (None, RIGHT, 'MM??'), (None, RIGHT, 'V?V?'),
             ('C', RIGHT, 'M?V?'), (None, RIGHT, 'MM??'), (None, RIGHT, 'V?V?')],
@@ -363,13 +365,16 @@ def main():
     log.check(any(abs(c['bbox_cm'][0] - 4.5) < 0.02 and abs(c['bbox_cm'][1] - 2.25) < 0.02 for c in tmpl),
               'half-turn template is a semicircle of radius 2.25 cm (width 4.5 cm, height 2.25 cm)')
 
-    log.head('Grades 2-3 Problem 2 shaded sectors')
-    for d, nm in zip(g23[1]['discs'], 'ABCD'):
+    # Grades 2-3 Problems 2 and 3 swapped in the student-page fixes (799a994): the shaded measuring disks,
+    # Problem 2 as reviewed, are Problem 3 on page 3 now.
+    SH = 2
+    log.head('Grades 2-3 Problem 3 (Problem 2 as reviewed) shaded sectors')
+    for d, nm in zip(g23[SH]['discs'], 'ABCD'):
         sh = sorted(s['sector'] for s in d['shaded'])
         log.check(sh == [0, 2], f'disk {nm}: shaded sectors {[s + 1 for s in sh]} (1 and 3), sectors {d["sectors"]}, r={d["r_cm"]} cm')
-    log.head('Grades 2-3 Problem 2 sector names A1..D4 sit in sectors 1..4 clockwise from the top ray')
+    log.head('Grades 2-3 Problem 3 sector names A1..D4 sit in sectors 1..4 clockwise from the top ray')
     raw23 = extract('grades-2-3')
-    for d, nm in zip(raw23[1]['discs'], 'ABCD'):
+    for d, nm in zip(raw23[SH]['discs'], 'ABCD'):
         rays = d['ray_angles']
         got = {}
         for t, a, rr in d['other']:
@@ -428,16 +433,19 @@ def main():
     log.info(f'guide p7 catalog read {cat}')
     log.check([w for _, w in cat] == ['MMMV', 'MMVM', 'MVMM', 'VMMM', 'MVVV', 'VMVV', 'VVMV', 'VVVM'],
               'guide p7 catalog disks A-H carry the words printed beneath them')
+    # As reviewed guide p11 held the 2-3 witnesses and the P4 completions.  Since the student-page fixes
+    # (799a994) the witnesses (now Problem 2) are on p10 and the P4 completions stay on p11.
+    p10 = gp[10]['discs']
     p11 = gp[11]['discs']
-    for d in p11:
-        log.info(f'guide p11 disk rays {d["ray_angles"]} word {d["word"]} dashed {[r["angle"] for r in d["rays"] if r["dashed"]]}')
-    log.check([d['word'] for d in p11[:4]] == ['VVVM', '????', 'VVVM', 'MVVV'],
-              'guide p11 P3 witnesses: A VVVM, B unlabeled, C VVVM, D MVVV')
-    log.check([d['ray_angles'] for d in p11[:4]] == [RIGHT, [0, 45, 135, 225], [0, 60, 180, 300], [0, 30, 90, 240]],
-              'guide p11 P3 disks have the printed ray angles')
-    log.check([d['ray_angles'] for d in p11[4:8]] == [RIGHT, [0, 60, 180, 300], [0, 30, 180, 330], [0, 120, 180, 240]],
+    for d in p10 + p11:
+        log.info(f'guide p10/p11 disk rays {d["ray_angles"]} word {d["word"]} dashed {[r["angle"] for r in d["rays"] if r["dashed"]]}')
+    log.check([d['word'] for d in p10[:4]] == ['VVVM', '????', 'VVVM', 'MVVV'],
+              'guide p10 P2 witnesses: A VVVM, B unlabeled, C VVVM, D MVVV')
+    log.check([d['ray_angles'] for d in p10[:4]] == [RIGHT, [0, 45, 135, 225], [0, 60, 180, 300], [0, 30, 90, 240]],
+              'guide p10 P2 disks have the printed ray angles')
+    log.check([d['ray_angles'] for d in p11[:4]] == [RIGHT, [0, 60, 180, 300], [0, 30, 180, 330], [0, 120, 180, 240]],
               'guide p11 P4 completions: rays incl. added 270, 300, 330, 240')
-    added = [[r['angle'] for r in d['rays'] if r['dashed']] for d in p11[4:8]]
+    added = [[r['angle'] for r in d['rays'] if r['dashed']] for d in p11[:4]]
     log.check(added == [[270.0], [300.0], [330.0], [240.0]], f'guide p11 dashed (added) rays {added}')
     p12 = gp[12]['discs']
     r12 = [d['ray_angles'] for d in p12]

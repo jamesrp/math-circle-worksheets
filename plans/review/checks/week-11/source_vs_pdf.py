@@ -11,6 +11,8 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from chipfire import PKT, SRC, SRC_RV, HERE, ROOT  # noqa: E402
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from problem_tex import band_parts  # noqa: E402
 
 out = []
 fails = 0
@@ -46,25 +48,27 @@ def pdftext(fn):
 
 def tex_clean(s):
     s = s.replace('--', '-').replace("``", '"').replace("''", '"').replace('\\\\', ' ')
-    s = re.sub(r'\\textbf\{([^}]*)\}', r'\1', s)
+    s = re.sub(r'\\(?:textbf|mbox)\{([^}]*)\}', r'\1', s)
     s = s.replace("\\'", "'")
     return norm(s)
 
 
 out.append('== problem statements and rules from the editable sources, found in the PDFs')
-builder = open(os.path.join(SRC, 'editable/src/build_packets.py')).read()
+# Since October 23, 2026 the packets are built from problem files (../problem_tex.py reads them);
+# the old builder build_packets.py, whose problem() calls this read, is archived.
 texts = {'K-1': pdftext('week-11-k-1.pdf'), '2-3': pdftext('week-11-grades-2-3.pdf'), '4-5': pdftext('week-11-grades-4-5.pdf')}
-probs = re.findall(r"problem\((\d),'([^']*)'", builder)
-bands = ['K-1'] * 6 + ['2-3'] * 6 + ['4-5'] * 6
-for (n, txt), band in zip(probs, bands):
-    t = tex_clean(txt)
-    # pdftotext may break "com-pare" style hyphenation; compare without hyphens and spaces
-    squash = lambda s: re.sub(r'[\s-]', '', s)
-    ok = f'Problem {n}: ' in texts[band] and squash(t) in squash(texts[band])
-    fails += not ok
-    out.append(f"  [{'ok  ' if ok else 'FAIL'}] {band} Problem {n}: {t[:90]}")
-rules = tex_clean(re.search(r"txt=\('(.*?)'\)", builder, re.S).group(1).replace("'\n         '", ''))
+files = {'K-1': 'k-1', '2-3': 'grades-2-3', '4-5': 'grades-4-5'}
+squash = lambda s: re.sub(r'[\s-]', '', s)  # pdftotext may break "com-pare" style hyphenation
 for band in texts:
+    parts = band_parts('week-11', files[band])
+    for n, kind, txt in parts:
+        if kind != 'prompt':
+            continue
+        t = tex_clean(' '.join(txt.split()))
+        ok = f'Problem {n}: ' in texts[band] and squash(t) in squash(texts[band])
+        fails += not ok
+        out.append(f"  [{'ok  ' if ok else 'FAIL'}] {band} Problem {n}: {t[:90]}")
+    rules = [tex_clean(' '.join(txt.split())) for n, kind, txt in parts if kind == 'text' and n is None][0]
     ok = rules in texts[band]
     fails += not ok
     out.append(f"  [{'ok  ' if ok else 'FAIL'}] {band} shared rules")

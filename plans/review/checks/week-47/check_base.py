@@ -235,7 +235,9 @@ log.note('K-1 P7 on the P6 board: %d consistent two-clue puzzles with clue heigh
 log.check(len(fu) == 0, 'K-1 P7: no two-clue puzzle drawable on the P6 board (levels 0..3) has a unique answer')
 g = para('Problem 7. Replace', 'Key for the older finishes')
 log.check(completions(5, path_edges(5), {0: 0, 4: 4}) == [(0, 1, 2, 3, 4)], 'guide K-1 P7: h(0)=0, h(4)=4 forces (0,1,2,3,4)')
-log.check(4 <= top, 'guide K-1 P7: its forcing example (height 4) can be placed on the P6 board the child is using (top level %d)' % top)
+# Review finding: as reviewed (PDFS, archived) the guide's forcing example needs height 4 but K-1 P7 used the P6 board
+# (top level 3).  Card should 2 (34e1dae) gave K-1 P7 its own levels 0-4 board; check_card_shoulds.py checks it.
+log.check(not (4 <= top), 'finding confirmed (as reviewed, archived): the guide K-1 P7 forcing example (height 4) cannot be placed on the P6 board (top level %d); fixed since by its own 0-4 board' % top)
 log.check(len(completions(5, path_edges(5), {0: 1, 4: 1})) > 1, 'guide K-1 P7: h(0)=h(4)=1 allows many answers')
 
 # ------------------------------------------------------------------ Grades 2-3 Problem 6
