@@ -1,0 +1,98 @@
+== Least centre angles (radii in mm) ==
+PASS  middle r=20, outside r=20,20: least angle 60.0000 deg (cosine rule) = 60.0000 (bisection)
+PASS  middle r=20, outside r=20,40: least angle 70.5288 deg (cosine rule) = 70.5288 (bisection)
+PASS  middle r=20, outside r=40,40: least angle 83.6206 deg (cosine rule) = 83.6206 (bisection)
+PASS  middle r=40, outside r=20,20: least angle 38.9424 deg (cosine rule) = 38.9424 (bisection)
+PASS  middle r=40, outside r=20,40: least angle 48.1897 deg (cosine rule) = 48.1897 (bisection)
+PASS  middle r=40, outside r=40,40: least angle 60.0000 deg (cosine rule) = 60.0000 (bisection)
+
+== Equal-size rings ==
+PASS  P1/P6 40 mm around 40 mm: alpha = 60.0000 deg, n*alpha <= 360 gives max 6 (expected 6)
+PASS    equally spaced 6-ring legal; least pair clearance -0.0000 mm
+PASS    7 disks would need 420.000 deg > 360
+PASS  P3 40 mm around 80 mm: alpha = 38.9424 deg, n*alpha <= 360 gives max 9 (expected 9)
+PASS    equally spaced 9-ring legal; least pair clearance 1.0424 mm
+PASS    10 disks would need 389.424 deg > 360
+PASS  P4 80 mm around 40 mm: alpha = 83.6206 deg, n*alpha <= 360 gives max 4 (expected 4)
+PASS    equally spaced 4-ring legal; least pair clearance 4.8528 mm
+PASS    5 disks would need 418.103 deg > 360
+PASS  80 mm around 80 mm (P5 context): alpha = 60.0000 deg, n*alpha <= 360 gives max 6 (expected 6)
+PASS    equally spaced 6-ring legal; least pair clearance -0.0000 mm
+PASS    7 disks would need 420.000 deg > 360
+PASS  P6 rigidity: least gap is exactly 60 deg and 6*60 = 360, so every gap is 60 and all neighbours touch
+PASS  P6: neighbouring centres in the six-ring are exactly 40 mm apart
+PASS  guide formula floor(pi/arcsin(r/(R+r))) equals the gap count on 40,000 radius pairs (mismatches: [])
+PASS  P11 hint: doubling both sizes leaves the maximum unchanged
+
+== Mixed rings: every cyclic order of S (40 mm) and L (80 mm) ==
+PASS  80 mm middle: every order passing the gap-sum test is realised with all pairs clear
+      80 mm middle: largest ring of any kind = 9; largest with both sizes = 8 (e.g. SSSSSSSL)
+PASS  80 mm middle: P5 maximum with at least one of each size is 8
+      80 mm middle: maximum mixed rings exist with [1, 2] large outside disks
+PASS  40 mm middle: every order passing the gap-sum test is realised with all pairs clear
+      40 mm middle: largest ring of any kind = 6; largest with both sizes = 5 (e.g. SSSSL)
+PASS  40 mm middle: P5 maximum with at least one of each size is 5
+      40 mm middle: maximum mixed rings exist with [1, 2] large outside disks
+
+== Guide's mixed witnesses (p. 3) ==
+      read from guide source: small angles [50, 90, 130, 170, 210, 250, 290] (80 mm middle), [80, 140, 200, 260] (40 mm middle); large at 0
+PASS  witness sizes 8 and 5
+PASS  eight-witness about 80 mm middle: all touch the middle, least pair clearance 1.042 mm
+PASS  five-witness about 40 mm middle: all touch the middle, least pair clearance -0.000 mm
+
+== Guide numbers ==
+PASS  alpha(40,20) ~ 38.942: computed 38.942441
+PASS  10*alpha = 389.42: computed 389.424413
+PASS  alpha(20,40) ~ 83.621: computed 83.620630
+PASS  5*alpha = 418.10: computed 418.103149
+PASS  beta = arccos(2/3) ~ 48.190: computed 48.189685
+PASS  beta formula arccos(2/3): computed 48.189685
+PASS  2 beta + 7 alpha ~ 368.976: computed 368.976459
+PASS  gamma = arccos(1/3) ~ 70.529: computed 70.528779
+PASS  gamma formula arccos(1/3): computed 70.528779
+PASS  2 arcsin(2/3) is the large-large angle about r=20: computed 83.620630
+PASS  2 gamma + 4*60 ~ 381.058: computed 381.057559
+PASS  P3 neighbour distance 120 sin 20 ~ 41.04: computed 41.042417
+PASS  P4 neighbour distance 60 sqrt2 ~ 84.85: computed 84.852814
+PASS  tray height 40+40 sqrt3 ~ 109.282: computed 109.282032
+PASS  110 tray spare ~ 0.718: computed 0.717968
+PASS  112 tray spare ~ 2.718: computed 2.717968
+PASS  large-large angle about 40 mm middle exceeds gamma
+PASS  about 40 mm middle, every gap is at least 60 deg (used in 2 gamma + 4*60)
+PASS  about 80 mm middle, every gap is at least alpha (used in 2 beta + 7 alpha)
+
+== Guide p. 3, Problem 5: 'Changing the central disk can change which size consumes the most room.' ==
+      80 mm middle: least gap S-S 38.94, S-L 48.19, L-L 60.00 deg; swapping one small for a large adds 18.49 deg; same-size maxima S 9, L 6
+PASS  80 mm middle: a large outside disk needs more angle than a small one
+      40 mm middle: least gap S-S 60.00, S-L 70.53, L-L 83.62 deg; swapping one small for a large adds 21.06 deg; same-size maxima S 6, L 4
+PASS  40 mm middle: a large outside disk needs more angle than a small one
+      => the large disk consumes more room around either middle; the guide sentence is false (reported)
+
+== Problem 10 presupposition ==
+PASS  a legal, non-maximal 8-ring of 40 mm disks about the 80 mm middle exists (clearance 5.92 mm), so 'a ring with more outside disks is impossible' is false for such a child's ring (reported)
+
+== Trays (mm; exact numbers p + q*sqrt3 with integers p, q) ==
+      read from guide source: 3 rows, centres [(20, '20+0sqrt3'), (60, '20+0sqrt3'), (100, '20+0sqrt3'), (140, '20+0sqrt3'), (40, '20+20sqrt3'), (80, '20+20sqrt3'), (120, '20+20sqrt3'), (20, '20+40sqrt3'), (60, '20+40sqrt3'), (100, '20+40sqrt3'), (140, '20+40sqrt3')]
+PASS  student source trays (160 mm wide) have interiors [112, 110, 108]
+PASS  P7 / P2: eleven centres
+PASS  P7: all 55 centre pairs at least 40 mm apart exactly (20 pairs exactly touching)
+PASS  P7: every centre at least 20 mm from the side walls of a 160 mm tray
+PASS  4-3-4 rows of height 40+40sqrt3 fit a 112 mm tray (exact)
+PASS  4-3-4 rows of height 40+40sqrt3 fit a 110 mm tray (exact)
+PASS  4-3-4 rows of height 40+40sqrt3 do not fit a 108 mm tray (exact)
+PASS  P8: four centres with gaps >= 40 in the 120 mm centre span are forced to 20, 60, 100, 140
+PASS  P8: over every middle position x in [20,140] the least offset is 34.641016 = 20 sqrt3
+PASS  P8: least offset only at x = [40.0, 80.0, 120.0]; these three are 40 apart, so the bound is attained
+PASS  P9: minimum height for straight rows 4,3,4 = 109.2820 mm = 40 + 40 sqrt3
+PASS  P2 guide: two straight rows of four (8 disks) fit the 112 mm tray
+PASS  P2 guide: a third straight row of four does not fit the 112 mm tray (needs 120 mm)
+
+== Oler's inequality: proven upper bounds for unrestricted packings ==
+      160 x 112 tray: any packing of 40 mm disks has at most 12.035, so at most 12 disks
+      160 x 110 tray: any packing of 40 mm disks has at most 11.812, so at most 11 disks
+      160 x 108 tray: any packing of 40 mm disks has at most 11.589, so at most 11 disks
+PASS  P2: 13 disks can never fit the 112 mm tray; the true maximum is 11 or 12
+PASS  P7: 11 is the true maximum for the 110 mm tray (any arrangement)
+PASS  P8: Oler does not rule out 11 disks in the 108 mm tray in other arrangements
+
+0 failure(s)

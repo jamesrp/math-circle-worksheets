@@ -117,6 +117,8 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 82 | Endless class lines (ordinal addition) | keep | [card](week-82.md), [math check](week-82-math.md) |
 | 83 | Hackenbush balances | keep | [card](week-83.md), [math check](week-83-math.md) |
 | 87 | Voting and agendas | keep | [card](week-87.md), [math check](week-87-math.md) |
+| 88 | Packing and kissing circles | keep | [card](week-88.md), [math check](week-88-math.md) |
+| 89 | Growing shapes and totals | keep | [card](week-89.md), [math check](week-89-math.md) |
 
 ## Calibration
 

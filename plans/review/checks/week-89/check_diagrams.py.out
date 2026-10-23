@@ -1,0 +1,71 @@
+== Pages, headers, footers, problem numbers ==
+PASS student p1: header and footer
+PASS student p2: header and footer
+PASS student p3: header and footer
+PASS student p4: header and footer
+PASS student p5: header and footer
+PASS student p6: header and footer
+PASS student p7: header and footer
+PASS student p8: header and footer
+PASS student p9: header and footer
+PASS student p10: header and footer
+PASS student p11: header and footer
+PASS problems numbered consecutively: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+PASS page counts 11 / 2 / 8
+PASS US Letter
+PASS US Letter
+PASS US Letter
+== Tile figures (pp. 1-3, 8) read from the PDF ==
+  p1: [('1x2 block', 'old shape'), ('2x3 block', 'add shaded tiles'), ('2x3 block', 'new shape'), ('1x1 block', 'side 1'), ('2x2 block', 'side 2'), ('3x3 block', 'side 3'), ('4x4 block', 'side 4'), ('5x5 block', '')] cell mm [5.0, 7.0]
+PASS p1 tile figures are ['1x2 block', '2x3 block', '2x3 block', '1x1 block', '2x2 block', '3x3 block', '4x4 block', '5x5 block']
+PASS p1 opening: white = old 1x2, white+grey = new 2x3, 4 shaded
+NOTE p1 opening example (1x2 -> 2x3, add 4) is the first growth of Problem 5 and the "1 to 2" rectangle entry of Problem 6
+  p2: [('1x1 block', '1 row'), ('2-row stairs', '2 rows'), ('3-row stairs', '3 rows'), ('4-row stairs', '4 rows'), ('3-row stairs', ''), ('3-row stairs', '')] cell mm [5.0]
+PASS p2 tile figures are ['1x1 block', '2-row stairs', '3-row stairs', '4-row stairs', '3-row stairs', '3-row stairs']
+  p3: [('1x2 block', '1 row'), ('2x3 block', '2 rows'), ('3x4 block', '3 rows'), ('4x5 block', '4 rows')] cell mm [5.0]
+PASS p3 tile figures are ['1x2 block', '2x3 block', '3x4 block', '4x5 block']
+  p8: [('1x1 block', 'step 1'), ('2x2 block', 'step 2'), ('3x3 block', 'step 3'), ('4x4 block', 'step 4')] cell mm [5.0]
+PASS p8 tile figures are ['1x1 block', '2x2 block', '3x3 block', '4x4 block']
+== Slips and tables (text inside boxes) ==
+  p4 slips ['0', '1', '2', '3', '4', '3']
+  p6 slips ['2', '2', '1', '0', '0', '2', '2']
+  p7 slips ['1', '3', '0', '0']
+PASS P7 slips 0 1 2 3 4
+PASS P11 slips 2 2 1 0 0
+PASS P12 slips 1 3 0 0
+PASS P8 table: start 2, totals 5 5 9 12
+PASS P9 table: totals 4 7 7 12
+== Materials ==
+PASS material p1: board 120.00 x 120.00 mm
+PASS material p1: grid spacing [20.0] mm
+PASS material p2: board 140.00 x 120.00 mm
+PASS material p2: grid spacing [20.0] mm
+PASS input cards ['0', '0', '1', '2', '2', '3', '4']
+== Problem 19 picture: drawing order vs true depth (from TikZ source) ==
+  step-1 pile: boxes in drawing order [((0.0, 1.0), (0.0, 1.0), (0.0, 1.0))]
+  middle (placing): boxes in drawing order [((0.0, 1.0), (1.0, 2.0), (0.0, 1.0)), ((1.0, 2.0), (0.0, 1.0), (0.0, 1.0)), ((0.0, 1.0), (0.0, 1.0), (0.0, 1.0)), ((0.0, 1.0), (0.0, 1.0), (1.8, 2.8))]
+  step-2 pile: boxes in drawing order [((0.0, 1.0), (1.0, 2.0), (0.0, 1.0)), ((1.0, 2.0), (0.0, 1.0), (0.0, 1.0)), ((0.0, 1.0), (0.0, 1.0), (0.0, 2.0))]
+PASS step-2 pile = cubes (0,1,0), (1,0,0) and a column of two at the square corner: {i+j+k<2}, 4 cubes
+PASS step-1 pile: 0.0 mm^2 of picture painted by a box that is actually behind another
+FAIL middle (placing): 24.1 mm^2 of picture painted by a box that is actually behind another
+NOTE   middle (placing): box ((0.0, 1.0), (0.0, 1.0), (0.0, 1.0)) drawn over box ((1.0, 2.0), (0.0, 1.0), (0.0, 1.0)), which is nearer the viewer
+FAIL step-2 pile: 24.1 mm^2 of picture painted by a box that is actually behind another
+NOTE   step-2 pile: box ((0.0, 1.0), (0.0, 1.0), (0.0, 2.0)) drawn over box ((1.0, 2.0), (0.0, 1.0), (0.0, 1.0)), which is nearer the viewer
+PASS step-1 pile: proposed order (back to front, left to right, bottom up) [((0.0, 1.0), (0.0, 1.0), (0.0, 1.0))] paints correctly
+PASS middle (placing): proposed order (back to front, left to right, bottom up) [((0.0, 1.0), (1.0, 2.0), (0.0, 1.0)), ((0.0, 1.0), (0.0, 1.0), (0.0, 1.0)), ((0.0, 1.0), (0.0, 1.0), (1.8, 2.8)), ((1.0, 2.0), (0.0, 1.0), (0.0, 1.0))] paints correctly
+PASS step-2 pile: proposed order (back to front, left to right, bottom up) [((0.0, 1.0), (1.0, 2.0), (0.0, 1.0)), ((0.0, 1.0), (0.0, 1.0), (0.0, 2.0)), ((1.0, 2.0), (0.0, 1.0), (0.0, 1.0))] paints correctly
+PASS middle (placing): minimal edit order [((0.0, 1.0), (1.0, 2.0), (0.0, 1.0)), ((0.0, 1.0), (0.0, 1.0), (0.0, 1.0)), ((1.0, 2.0), (0.0, 1.0), (0.0, 1.0)), ((0.0, 1.0), (0.0, 1.0), (1.8, 2.8))] paints correctly
+PASS step-2 pile: minimal edit order [((0.0, 1.0), (1.0, 2.0), (0.0, 1.0)), ((0.0, 1.0), (0.0, 1.0), (0.0, 2.0)), ((1.0, 2.0), (0.0, 1.0), (0.0, 1.0))] paints correctly
+== Guide page references ==
+  problem -> page {1: 1, 2: 1, 3: 2, 4: 2, 5: 3, 6: 3, 7: 4, 8: 4, 9: 5, 10: 5, 11: 6, 12: 7, 13: 7, 14: 8, 15: 8, 16: 9, 17: 9, 18: 10, 19: 11, 20: 11}
+PASS guide says "Problems 1–4 (student pages 1–2)"
+PASS guide says "Problems 5–6 (page 3)"
+PASS guide says "Problems 7–10 (pages 4–5)"
+PASS guide says "Problems 11–13 (pages 6–7)"
+PASS guide says "14–15 (page 8)"
+PASS guide says "16–17 (page 9)"
+PASS guide says "18–20 (pages 10–11)"
+
+FAILURES: 2
+   middle (placing): 24.1 mm^2 of picture painted by a box that is actually behind another
+   step-2 pile: 24.1 mm^2 of picture painted by a box that is actually behind another
