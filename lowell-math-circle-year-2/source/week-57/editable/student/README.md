@@ -1,5 +1,7 @@
 # Week 57 revised student source: Area from dots
 
+Since October 23, 2026 `students.tex` is written from the problem files by `regenerate.py` (`python3 regenerate.py --check` confirms it is current), with the figure definitions from `generate_figures.py` at the start of its body; edit the problem files or `assets/polygons.json`, not `students.tex`. `build.py` here still compiles the written file (it also writes `figures.tex`, which the packet no longer loads).
+
 This is the **fresh revision-stage packet**, awaiting organizer review. `students.pdf` is one combined ten-page packet. Pages 1–6 are labeled approximately Grades 3–5; pages 7–10 are readiness-dependent Grades 4–5 continuations. The footer identifies this version as `N57-S-final-v2`. It is unpiloted, and physical printing, cutting, handling, pegboard fit and pacing have **not** been pretested. There is no facilitator guide in this student-source package.
 
 The revision preserves Problems 1–10. Problem 2 now contrasts the L-shape with a nonempty triangle having `(I,B,A)=(3,5,9/2)`, and accepts pieces, cuts or copies for independent area. Shared hole rules appear before the first one-hole construction in Problem 9. The complete triangle proof below replaces the draft's unsupported arbitrary bounding-rectangle shortcut. Research notes, outlines and historical workflow prompts are outside this revision's editable scope.

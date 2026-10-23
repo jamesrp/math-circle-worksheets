@@ -52,13 +52,18 @@ def figure(case):
     return "\n".join(out)
 
 
-def generate(output):
+def definitions():
+    """The LaTeX that defines \\Figure{name} for every drawn case (the text of figures.tex)."""
     data = json.loads(Path(__file__).with_name("assets").joinpath("polygons.json").read_text())
     lines = [r"\newcommand{\Figure}[1]{\csname figure#1\endcsname}"]
     for name,case in data.items():
         if case.get("draw", True):
             lines.append(r"\expandafter\def\csname figure" + name + r"\endcsname{%" + "\n" + figure(case) + "\n}")
-    Path(output).write_text("\n".join(lines)+"\n")
+    return "\n".join(lines)+"\n"
+
+
+def generate(output):
+    Path(output).write_text(definitions())
 
 
 if __name__ == "__main__":
