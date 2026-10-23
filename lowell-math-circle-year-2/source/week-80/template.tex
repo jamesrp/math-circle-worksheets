@@ -1,0 +1,49 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=15mm,headheight=16pt,headsep=7mm,footskip=9mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\hypersetup{pdftitle={Week 80 Midnight laboratory - student materials},pdfauthor={Bellingham Math Circle}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Week <<week>> / <<topic>> / \band}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week <<week>> / <<footer>>}
+\fancyfoot[R]{\scriptsize \thepage}
+\renewcommand{\headrulewidth}{0.35pt}
+\renewcommand{\footrulewidth}{0pt}
+\newcommand{\band}{<<header>>}
+\newcommand{\problem}[2]{\par\textbf{Problem #1:} #2\par}
+\tikzset{every node/.style={font=\sffamily\small},line cap=round,line join=round}
+
+% The two endpoint ticks on each full-width board are exactly 180 mm apart.
+\newcommand{\timeline}[2]{%
+\begin{tikzpicture}[x=1mm,y=1mm]
+  \path[use as bounding box] (0,0) rectangle (184,44);
+  \draw[line width=0.9pt] (2,19)--(182,19);
+  \draw[line width=0.9pt] (2,15)--(2,23) (182,15)--(182,23);
+  \node[anchor=west] at (2,7) {#1};
+  \node[anchor=east] at (182,7) {#2};
+\end{tikzpicture}}
+
+\newcommand{\strip}[2]{%
+\begin{tikzpicture}[x=1mm,y=1mm]
+  \path[use as bounding box] (0,0) rectangle (184,38);
+  \draw[dashed,gray,line width=0.5pt] (0,0) rectangle (184,36);
+  \draw[line width=0.9pt] (2,21)--(182,21);
+  \draw[line width=0.9pt] (2,17)--(2,25) (182,17)--(182,25);
+  \node[anchor=west] at (2,7) {#1};
+  \node[anchor=east] at (182,7) {#2};
+\end{tikzpicture}}
+
+\begin{document}
+<<body>>
+\end{document}
