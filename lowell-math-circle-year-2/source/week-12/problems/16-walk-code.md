@@ -10,4 +10,4 @@ route = ["first", "return"]
 Start and finish at the root. Visit each child's whole branch from left to right before visiting the next child. Write U whenever you go away from the root along an edge and D whenever you return along it.
 
 ## figure
-walk_code_example('Example:', 'Numbers show the walk order.', 'On the path, U goes up and D goes down.')
+walk_code_example('Example:', 'On the path, U goes up and D goes down.')

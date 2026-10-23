@@ -200,7 +200,9 @@ def page_text(x, y, body, w, size):
 # ---------------------------------------------------------------- K-1 figures, by problem file
 # Large circles (physical=True) are string mats; small circles are pencil records.
 # 20 mm endpoint discs leave 12 mm or more between neighbors on the 4/6 mats,
-# 10.6 mm on the 8-dot mats, and 6.6 mm on the 10-dot mat.
+# 10.6 mm on the 8-dot mats, and 6.6 mm on the 10-dot mat. Since the October 23 card
+# fixes the mats on pages 2-4 sit 3 mm higher (2 mm on the parity page), so each
+# mat's bottom label clears the frames below it.
 
 def k1_four_dot_example(caption):  # 00: the two pairings of four dots
     return (text(18,51,caption,font=12.5,leading=15.5)
@@ -211,18 +213,28 @@ def k1_six_dot_mat_and_records():  # 01
     for j in range(6):s+=circle([131,177][j%2],[154,198,242][j//2],6,r=15)
     return s
 
-def k1_mat_and_records(n,count=6,fixed=(),mat_y=107,mat_r=40):
-    """A string mat and a 3-across block of pencil records (02, 03, 04)."""
-    s=circle(108,mat_y,n,r=mat_r,physical=True)
-    for j in range(count):s+=circle([41,108,175][j%3],[190,240][j//3],n,r=18.5,fixed=[fixed[j]] if fixed else ())
+def k1_mat_and_records(n):  # 02 and 04: a string mat and six pencil records, three across
+    s=circle(108,104,n,r=40,physical=True)
+    for j in range(6):s+=circle([41,108,175][j%3],[190,240][j//3],n,r=18.5)
     return s
 
-def k1_parity_circles():  # 05: a ten-dot mat, then 3 to 7 dots
-    s=circle(108,104,10,r=43,physical=True)
+def k1_finish_records(starts):  # 03: an eight-dot mat and a record for each drawn pair, four across
+    s=circle(108,104,8,r=40,physical=True)
+    for j,e in enumerate(starts):s+=circle([37.5,84.5,131.5,178.5][j%4],[191,241][j//4],8,r=16,fixed=[e])
+    return s
+
+def k1_more_records():  # 05: ten more eight-dot records, rows of three and two
+    s=''
+    for y,xs in zip([74,125,176,227],[[41,108,175],[74.5,141.5],[41,108,175],[74.5,141.5]]):
+        for x in xs:s+=circle(x,y,8,r=18.5)
+    return s
+
+def k1_parity_circles():  # 06: a ten-dot mat, then 3 to 7 dots
+    s=circle(108,102,10,r=43,physical=True)
     for j,n in enumerate([3,4,5,6,7]):s+=circle([41,108,175][j%3],[190,240][j//3],n,r=18.5)
     return s
 
-def k1_neighbor_records():  # 06: an eight-dot mat and four records
+def k1_neighbor_records():  # 07: an eight-dot mat and four records
     s=circle(108,107,8,r=40,physical=True)
     for j in range(4):s+=circle([61,155][j%2],[190,240][j//2],8,r=18.5)
     return s
@@ -234,42 +246,42 @@ def k1_neighbor_records():  # 06: an eight-dot mat and four records
 def ten_dot_example(caption):  # 00
     return text(18,50,caption,font=12,leading=15)+row(26,77,10,spacing=18,pairs=pairs_from_word('UUDDUUDUDD'),max_h=22)
 
-def six_dot_row_mat_and_records():  # 07
+def six_dot_row_mat_and_records():  # 08
     s=row(48,167,6,spacing=24,max_h=60,dot=1.6,label_gap=12.5)
     for j in range(6):s+=row([25,123][j%2],[205,230,255][j//2],6,spacing=12,max_h=19)
     return s
 
-def code_example(caption):  # 08: one pairing, its letters and its path
+def code_example(caption):  # 09: one pairing, its letters and its path
     example='UDUUDDUD'
     s=text(18,56,caption,font=12,leading=15)+row(25,91,8,spacing=10.2,pairs=pairs_from_word(example),max_h=23)
     for j,c in enumerate(example):s+=text(23.5+j*10.2,102,c,width=6,font=12,leading=14)
     return s+grid(126,103,8,height=3,step=8,word=example,mark_steps=True)
 
-def pairings_to_paths():  # 08
+def pairings_to_paths():  # 10
     s=''
     for j,w in enumerate(['UUUDDD','UUDDUD','UDUDUD']):
         y=[167,207,247][j]
         s+=row(25,y,6,spacing=12,pairs=pairs_from_word(w),max_h=23)+boxes(34,y+9,6,w=7,h=7)+grid(126,y+3,6,height=3,step=8)
     return s
 
-def paths_to_pairings():  # 09
+def paths_to_pairings():  # 11
     s=''
     for j,w in enumerate(['UUDUDD','UDUUDD','UUDDUUDD','UUUDUDDD']):
         y=[91,143,195,247][j]
         s+=grid(23,y,len(w),height=len(w)//2,step=7.5,word=w)+row(119,y,len(w),spacing=10.3,max_h=31)
     return s
 
-def six_path_grids():  # 10
+def six_path_grids():  # 12
     return ''.join(grid([27,126][j%2],[105,167,229][j//2],6,height=3,step=10) for j in range(6))
 
-def pairing_codes():  # 11
+def pairing_codes():  # 13
     s=''
     for j,w in enumerate(['UUUDDUDD','UDDUUDUD','UUDUDUDD','UUUUDDUD']):
         y=[74,122,170,218][j]
         s+=code(21,y,w,font=15)+row(109,y+27,8,spacing=11.4,max_h=28)
     return s
 
-def eight_dot_rows():  # 12: sixteen rows for the fourteen pairings
+def eight_dot_rows():  # 14: sixteen rows for the fourteen pairings
     return ''.join(row([23,121][j%2],[70,96,122,148,174,200,226,252][j//2],8,spacing=10.5,max_h=19,dot=1.05) for j in range(16))
 
 
@@ -280,30 +292,29 @@ def five_edge_example(caption):  # 00
             + text(146,75,'root',width=35,font=9,leading=11))
 
 def roots(xs,ys):
-    """A filled root dot to start each drawing (13, 17)."""
+    """A filled root dot to start each drawing (15, 20)."""
     return ''.join(root(xs[j%len(xs)],ys[j//len(xs)]) for j in range(len(xs)*len(ys)))
 
-def walk_code_example(caption,order_note,path_note):  # 14: the walk on a two-edge fork, and its path
+def walk_code_example(caption,path_note):  # 16: the walk on a two-edge fork, and its path
     return (text(18,57,caption,font=12,leading=15)+walk_example(52,72)
-            + (text(18,111,order_note,width=89,font=10,leading=12) if order_note else '')
             + text(112,62,path_note,width=83,font=10,leading=12)
             + grid(124,103,4,height=2,step=12,word='UDUD',mark_steps=True)
             + text(112,111,r'Walk code: \texttt{UDUD}',width=85,font=12,leading=15))
 
-def trees_to_codes():  # 14
+def trees_to_codes():  # 17
     s=''
     for j,w in enumerate(['UUUUDDDD','UDUDUDUD','UUDUDDUD','UDUUUDDD']):
         cx=[61,155][j%2]; y=[155,217][j//2]
         s+=tree(cx,y,w,width=56,depth_step=10)+boxes(cx-28,[200,254][j//2],8,w=7,h=8)
     return s
 
-def codes_to_trees():  # 15
+def codes_to_trees():  # 18
     s=''
     for j,w in enumerate(['UUDDUD','UDUUDD','UUDUDUDD','UUUDDUDD']):
         cx=[61,155][j%2]; y=[60,158][j//2]
         s+=code(cx-29,y,w,font=16)+root(cx,y+20)
     return s
 
-def tree_codes():  # 16
+def tree_codes():  # 19
     return ''.join(code([30,127][j%2],[84,110,136][j//2],w,font=17)
                    for j,w in enumerate(['UUUUDDDD','UUDDDUUD','UDUDUUDD','UUDUDUDU','UUUDUDDD','DUUUDDUD']))

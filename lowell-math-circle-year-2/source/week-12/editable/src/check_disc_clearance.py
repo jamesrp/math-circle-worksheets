@@ -3,12 +3,15 @@ import fitz, math, json
 from PIL import Image, ImageDraw
 ROOT=Path(__file__).resolve().parent
 RENDERS=ROOT.parent/'build'/'disc-checks';RENDERS.mkdir(parents=True,exist_ok=True)
-MATS={1:[(61,188,6,32)],2:[(108,107,6,40)],3:[(108,107,8,40)],4:[(108,107,8,40)],5:[(108,104,10,43)],6:[(108,107,8,40)]}
+# K-1 string mats by page since the October 23, 2026 card fixes: the mats on pages 2-4 moved up 3 mm and the
+# parity mat 2 mm; page 5 continues Problem 4 with pencil records only.
+MATS={1:[(61,188,6,32)],2:[(108,104,6,40)],3:[(108,104,8,40)],4:[(108,104,8,40)],6:[(108,102,10,43)],7:[(108,107,8,40)]}
+PAGES={'k-1':7,'grades-2-3':6,'grades-4-5':6}
 MM=72/25.4
 checks=[]
 for band in ['k-1','grades-2-3']:
     doc=fitz.open(ROOT.parent/'build'/(band+'.pdf'))
-    for page_number in range(1,7 if band=='k-1' else 2):
+    for page_number in (sorted(MATS) if band=='k-1' else [1]):
         page=doc[page_number-1]
         words=page.get_text('words')
         pix=page.get_pixmap(matrix=fitz.Matrix(85/72,85/72))
@@ -41,10 +44,10 @@ for band in ['k-1','grades-2-3']:
             d.ellipse(((x-10)*scale,(y-10)*scale,(x+10)*scale,(y+10)*scale),fill=(236,243,250),outline=(30,95,150),width=2)
         im.save(RENDERS/f'{band}-{page_number}-20mm-discs.png')
         checks.append({'band':band,'page':page_number,'disc_diameter_mm':20,'minimum_adjacent_disc_gap_mm':round(min(spacings)-20,3),'minimum_label_disc_clearance_mm':round(min(label_clearances),3)})
-# Verify all deliverables remain six US Letter pages, and mathematical checks stayed true.
+# Verify the page count of each deliverable, all US Letter.
 for band in ['k-1','grades-2-3','grades-4-5']:
     doc=fitz.open(ROOT.parent/'build'/(band+'.pdf'))
-    assert len(doc)==6
+    assert len(doc)==PAGES[band]
     assert all(abs(p.rect.width-612)<0.01 and abs(p.rect.height-792)<0.01 for p in doc)
 (ROOT/'disc-clearance-checks.json').write_text(json.dumps(checks,indent=2)+'\n')
 print(json.dumps(checks,indent=2))

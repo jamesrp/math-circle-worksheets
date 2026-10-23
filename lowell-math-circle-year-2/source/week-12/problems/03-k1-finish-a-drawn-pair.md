@@ -7,10 +7,10 @@ kernel = "A fixed string can be completed without crossings exactly when it leav
 +++
 
 ## prompt size=13.5
-Keep each drawn pair when you try it on the large circle. Find every way to finish it, or show why you cannot.
+For each drawn pair, put a string on the large circle and leave it there. Find every way to finish the pairing, or show why you cannot.
 
 ## figure
-k1_mat_and_records(8,fixed=[(1,4),(1,4),(1,6),(1,6),(1,3),(1,5)])
+k1_finish_records([(1,4),(1,4),(1,6),(1,6),(1,3),(1,3),(1,5),(1,5)])
 
 ## key
-\emph{Print guide, p. 4.} Keep each supplied chord. For 14, completions are 14|23|56|78 and 14|23|58|67. For 16, they are 16|23|45|78 and 16|25|34|78. The 13 and 15 starts are impossible: they trap respectively one or three dots on one side, and a string cannot leave without crossing the fixed chord. The duplicated 14 and 16 frames are for the two completions of each, not different starting cases.
+\emph{Print guide, p. 4.} Keep each supplied chord. For 14, completions are 14|23|56|78 and 14|23|58|67. For 16, they are 16|23|45|78 and 16|25|34|78. The 13 and 15 starts are impossible: they trap respectively one or three dots on one side, and a string cannot leave without crossing the fixed chord. Every start is printed twice, so the frames do not show which starts can be finished: the 14 and 16 frames hold the two completions of each, and the 13 and 15 frames hold none.
