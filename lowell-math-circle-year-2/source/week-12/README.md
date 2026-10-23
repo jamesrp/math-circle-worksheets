@@ -6,6 +6,8 @@
 
 **Key page map, October 23, 2026.** The key view in [band-views/week-12/](../../band-views/README.md#weeks-stored-as-problem-files) now lists which full-packet page each page of the first-route and return packets is (`page_map = true` under `[guide]` in `week.toml`), because some copied guide answers cite student pages by their full-packet number: K–1 Problem 4's "Pages 4 and 5 hold 16 frames", which are pages 3–4 of the K–1 return packet. Key id W12-G-v4; the packets, route packets and adult guide are unchanged.
 
+**Small deferred could, October 23, 2026.** The card's could 8, made later the same day: the guide's page 7 gallery of the fourteen eight-dot pairings prints each code's partner list beside it (for example UUDDUDUD 14|23|56|78), as page 3 does for the five six-dot pairings, so the K–1 adult can check circles by number (`editable/facilitator-src/build_guide.py`, computed from each code by the drawing helper's own pairing). A brute-force check confirmed the fourteen lists are exactly the noncrossing pairings of eight dots. Only guide page 7 changed; the student packets, key and route packets are unchanged. The replaced guide and ZIP are in the `archive-before-small-coulds-2026-10-23/` folders. Unpiloted.
+
 - **Student pages:** edit `problems/*.md` (figures and the page template in `figures.py`), then build every view:
 
   ```sh

@@ -8,6 +8,8 @@
 
 **Student-page fixes.** After the conversion: K–1 Problem 3 prints every drawn pair twice (eight frames), so the page no longer shows which starts can be finished, and its prompt says to leave a string on the drawn pair; K–1 Problem 4 continues on a new page 5 with ten more frames (16 for the 14 pairings) and no longer sends children to blank paper; the K–1 mats on pages 2–4 and 6 sit a little higher, clear of the frame labels; Grades 4–5 page 2 drops "Numbers show the walk order." Only K–1 pages 2–7, Grades 4–5 page 2 and guide pages 1 and 4 changed; the Grades 2–3 packet is unchanged. See `review/card-fixes-2026-10-23.md`, checked by `review/verify_card_fixes_2026_10_23.py` and `review/verify_student_fixes_2026_10_23.py`.
 
+**Partner lists.** Later on October 23 the guide's page 7 gallery began printing each eight-dot code's partner list, as page 3 does for six dots. No other page changed.
+
 The October 4 revision gave the guide first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
