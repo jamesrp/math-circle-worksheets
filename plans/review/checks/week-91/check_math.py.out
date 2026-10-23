@@ -1,0 +1,123 @@
+== One switch (depth 1) ==
+  first arrow L: XYXYXYXYXYXY, final card L
+  first arrow R: YXYXYXYXYXYX, final card R
+PASS  students P1 / guide: 12 counters give XYXY... or YXYX...
+PASS  students P1: XYXY can be made
+PASS  students P1: XXYY cannot be made
+PASS  students P1: YXYX can be made
+PASS  students P1: XYYX cannot be made
+PASS  guide overview: any consecutive n visits to one switch differ by at most one (n <= 40)
+  switch can make ['XYXYXY', 'YXYXYX'] as six-counter words; coin can make 64
+PASS  students P7 / guide: coin makes all 64 words incl. XXXXXX; switch only 2; coin covers switch
+PASS  guide: each length-6 coin word has probability 1/64
+
+== Four-exit tree (depth 2); card words: root, left child, right child ==
+  LLL: first four ACBD, eight ACBDACBD, cards after four LLL
+PASS  LLL repeats after four and cards return
+  LLR: first four ADBC, eight ADBCADBC, cards after four LLR
+PASS  LLR repeats after four and cards return
+  LRL: first four BCAD, eight BCADBCAD, cards after four LRL
+PASS  LRL repeats after four and cards return
+  LRR: first four BDAC, eight BDACBDAC, cards after four LRR
+PASS  LRR repeats after four and cards return
+  RLL: first four CADB, eight CADBCADB, cards after four RLL
+PASS  RLL repeats after four and cards return
+  RLR: first four DACB, eight DACBDACB, cards after four RLR
+PASS  RLR repeats after four and cards return
+  RRL: first four CBDA, eight CBDACBDA, cards after four RRL
+PASS  RRL repeats after four and cards return
+  RRR: first four DBCA, eight DBCADBCA, cards after four RRR
+PASS  RRR repeats after four and cards return
+PASS  guide P3 adult key: all eight words in the stated card order
+PASS  guide P2: D first iff root R and right child R (left free): RLR, RRR
+PASS  guide P2 table: RLR -> DACB DACB, RRR -> DBCA DBCA
+  students P2: every D-first eight-counter order: ['DACBDACB', 'DBCADBCA'] (two strips are printed)
+PASS  students P3: ACBD possible
+PASS  guide P3: ACBD from LLL
+PASS  students P3: BDAC possible
+PASS  guide P3: BDAC from LRR
+PASS  students P3: ABCD impossible
+PASS  students P3: DABC impossible
+PASS  guide P3: two consecutive outputs never share a root half (kills ABCD at 1-2 and DABC at 2-3)
+  four-exit tree makes 8 of 24 orders of A-D
+
+== Eight-exit tree (depth 3); seven cards by levels ==
+PASS  students P6 / guide: all 128 starts return every card after eight counters
+PASS  students P6 / guide: eight counters reach every exit exactly once, all 128 starts
+PASS  guide P4: each achievable eight-letter order comes from exactly one start (128 distinct orders)
+PASS  guide P4: AECGBFDH from all seven L
+PASS  guide P4: HDFBGCEA from all seven R
+PASS  guide P4: AEBFCGDH impossible
+PASS  guide P4: AEBFCGDH alternates at the root; left subtree gets A,B first
+PASS  guide P5 witness ABCDEFGH visits each exit once and is impossible
+PASS  guide P5 witness AEDFBGCH visits each exit once and is impossible
+PASS  guide P5: AEDFBGCH left subtree order A,D,B,C is legal
+  eight-exit tree makes 128 of 40320 orders of A-H
+
+== Complete trees, depths 1-4: blocks of 2^d from every state, three consecutive blocks ==
+PASS  depth 1: every window of 2 consecutive counters hits each leaf once; cards return (2 states)
+PASS  depth 2: every window of 4 consecutive counters hits each leaf once; cards return (8 states)
+PASS  depth 3: every window of 8 consecutive counters hits each leaf once; cards return (128 states)
+PASS  depth 4: every window of 16 consecutive counters hits each leaf once; cards return (32768 states)
+PASS  guide: unequal-depth tree fails the once-each block (e.g. start LL: PQP)
+
+== Return packet example road 0-3, entry 2, cards R,L ==
+  2:RL -> 1:RR -> 2:LR -> 3:LL
+PASS  example: 2->1 (R,R), 1->2 (L,R), 2->3 (L,L); exit 3 with cards L,L
+PASS  guide P5 score table: right cards 1,2,1,0 and total score 3 at every stage
+
+== Return P1 / guide P1 / P4: road 0-4, entry 1, start LLR ==
+  exits [0, 0, 4, 0, 0, 0, 4, 0, 0, 0, 4, 0]
+  cards after each counter ['RLR', 'RRR', 'LLL', 'RLL', 'RRL', 'RRR', 'LLL', 'RLL', 'RRL', 'RRR', 'LLL', 'RLL']
+PASS  P1: eight counters exit 0,0,4,0,0,0,4,0
+PASS  P1: next four exit 0,0,4,0
+PASS  guide P1 trace table: RLR, RRR, LLL, RLL
+PASS  guide P1/P4: cards RLL after four and after eight
+  first output block written as a word: 0040
+PASS  P4 example: both output blocks are the word 0040
+  FINDING: the guide's Problem 4 says 'The first two output blocks are both 0004'; the word is 0040 (0004 is the all-left entry-1 word of Problem 2)
+
+== Return P2: road 0-4, entries 1,2,3 ==
+  entry 1, all-left: 00040004
+PASS  guide P2: entry 1 all-left first four 0004, repeated
+PASS  guide P2: eight counters from entry 1 give 2 right, 6 left, for all 8 starts
+    distinct eight-exit orders over all starts: 4
+  entry 2, all-left: 04040404
+PASS  guide P2: entry 2 all-left first four 0404, repeated
+PASS  guide P2: eight counters from entry 2 give 4 right, 4 left, for all 8 starts
+    distinct eight-exit orders over all starts: 2
+  entry 3, all-left: 04440444
+PASS  guide P2: entry 3 all-left first four 0444, repeated
+PASS  guide P2: eight counters from entry 3 give 6 right, 2 left, for all 8 starts
+    distinct eight-exit orders over all starts: 4
+
+== Return P3: road 0-5, entries 1,2,4 (and 3) ==
+PASS  P3: five launches from entry 1: exactly 1 at 5 for all 16 starts (so never all five)
+PASS  guide P3: entry 1 all-left word 00005 (got 00005)
+PASS  P3: five launches from entry 2: exactly 2 at 5 for all 16 starts (so never all five)
+PASS  guide P3: entry 2 all-left word 00505 (got 00505)
+PASS  P3: five launches from entry 3: exactly 3 at 5 for all 16 starts (so never all five)
+  entry 3 all-left word 05055
+PASS  P3: five launches from entry 4: exactly 4 at 5 for all 16 starts (so never all five)
+PASS  guide P3: entry 4 all-left word 05555 (got 05555)
+
+== All roads m = 2..10, every state, every interior entry ==
+PASS  every counter exits (all roads m<=10, all states, all entries, 3m counters each)
+PASS  position + right cards is unchanged by every step; mR + S_final = ns + S_initial at every n
+PASS  every window of m consecutive launches has exactly s right exits (no burn-in)
+PASS  state after one block of m always equals the state after two and three blocks
+PASS  the cards change over a block exactly when the start has L immediately before R; after one block the word is always R...RL...L (no LR)
+  227316 walks, 3598292 steps; longest single walk 45 steps
+  (state, entry) cases whose state after one block differs from the start: 7864
+
+== Guide P4 and the student question: which starts change at a block boundary? ==
+  road 0-4, entry 1: 4 of 8 starts change over the first block
+  road 0-4, entry 2: 4 of 8 starts change over the first block
+  road 0-4, entry 3: 4 of 8 starts change over the first block
+  road 0-5, entry 1: 11 of 16 starts change over the first block
+  road 0-5, entry 2: 11 of 16 starts change over the first block
+  road 0-5, entry 3: 11 of 16 starts change over the first block
+  road 0-5, entry 4: 11 of 16 starts change over the first block
+PASS  printed roads: whenever block counts repeat, the state stops changing after the first block (any block size 1..2m)
+
+0 failure(s)

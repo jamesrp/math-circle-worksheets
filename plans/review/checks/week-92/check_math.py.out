@@ -1,0 +1,86 @@
+== Map sanity
+PASS worked example: input 13 -> distance 3 -> output 6
+PASS worked example distance is 3
+PASS page 2 distance band for [5,10] is [5,8]
+PASS page 2 output band for [5,10] is [10,16]
+PASS page 2 plotted points (5,10), (8,16), (10,12)
+
+== Problem 1 (Grades 2-3)
+pairs of different whole-number starts that meet after one move: [(0, 16), (1, 15), (2, 14), (3, 13), (4, 12), (5, 11), (6, 10), (7, 9)]
+PASS exactly the 8 mirror pairs (k, 16-k), k=0..7 (guide list)
+pairs whose gap strictly grows on moves 1, 2, 3: 24 of 136: [(0, 1), (0, 2), (1, 2), (2, 3), (2, 4), (3, 4), (4, 5), (4, 6), (5, 6), (6, 7), (6, 8), (7, 8), (8, 9), (8, 10), (9, 10), (10, 11), (10, 12), (11, 12), (12, 13), (12, 14), (13, 14), (14, 15), (14, 16), (15, 16)]
+PASS guide example (0,1): gaps ['1', '2', '4', '8', '16', '0']
+pairs whose gap strictly grows for some three consecutive moves: 38
+(0,1) orbit: [('0', '1'), ('0', '2'), ('0', '4'), ('0', '8'), ('0', '16'), ('0', '0')] -> gap grows on 4 moves in a row, then 0
+moves for each whole-number start to reach 0: {0: 0, 1: 5, 2: 4, 3: 5, 4: 3, 5: 5, 6: 4, 7: 5, 8: 2, 9: 5, 10: 4, 11: 5, 12: 3, 13: 5, 14: 4, 15: 5, 16: 1}
+PASS every whole-number start reaches 0 within five moves (max is 5)
+PASS after four moves every whole-number start is at an end (0 or 16)
+PASS guide: 32/3 is a fixed point
+fixed points of T on [0,16]: 2x=x -> 0; 32-2x=x -> 32/3 -> [Fraction(0, 1), Fraction(32, 3)]
+
+== Problem 2 (Grades 2-3)
+PASS start [1,4] -> [2, 8] (guide [2, 8])
+PASS start [10,15] -> [2, 12] (guide [2, 12])
+PASS start [6,11] -> [10, 16] (guide [10, 16])
+PASS start [2,14] -> [4, 16] (guide [4, 16])
+
+== Problem 3 (Grades 2-3)
+PASS start [1,2]: [1, 2] -> [2, 4] -> [4, 8] -> [8, 16] -> [0, 16] ; first full track after 4 moves (page gives 4 tracks)
+PASS start [7,9]: [7, 9] -> [14, 16] -> [0, 4] -> [0, 8] -> [0, 16] ; first full track after 4 moves (page gives 4 tracks)
+
+== Problem 4 (Grades 4-5)
+PASS [6,10]: both ends -> 12, full output [12,16]
+  guide/other example [7,9] -> ends 14,14 ; full [14, 16]
+  guide/other example [3,11] -> ends 6,10 ; full [6, 16]
+  guide/other example [5,11] -> ends 10,10 ; full [10, 16]
+PASS over all half-unit bands: endpoint-only shading misses places exactly when 8 is strictly inside
+
+== Problem 5 (Grades 4-5) and overview width claims
+PASS no band of positive width gets narrower (all eighth-unit bands)
+PASS a band on one half doubles its width
+PASS for a<=8<=b image is [min(2a,32-2b),16], width 2max(8-a,b-8)
+PASS a strictly crossing band keeps its width exactly when symmetric about 8
+PASS guide examples [1,3] width 2->4, [6,10] width 4->4
+
+== Problems 6-7 (Grades 4-5)
+PASS 3 moves: widest [0,q] staying in [0,2] has q = 1/4 (grid max 1/4); history [0, 1/4] -> [0, 1/2] -> [0, 1] -> [0, 2]
+PASS 4 moves: widest [0,q] staying in [0,2] has q = 1/8 (grid max 1/8); history [0, 1/8] -> [0, 1/4] -> [0, 1/2] -> [0, 1] -> [0, 2]
+PASS 6 moves: widest [0,q] staying in [0,2] has q = 1/32 (grid max 1/32); history [0, 1/32] -> [0, 1/16] -> [0, 1/8] -> [0, 1/4] -> [0, 1/2] -> [0, 1] -> [0, 2]
+PASS 3 moves, "after exactly n moves" reading: widest q is still 1/4
+PASS 4 moves, "after exactly n moves" reading: widest q is still 1/8
+PASS 6 moves, "after exactly n moves" reading: widest q is still 1/32
+PASS no [0,q] with q>1 stays in [0,2] even for one move
+PASS Problem 7: [0, 2/2^n] stays in [0,2] for n moves, n=0..29
+PASS ... and leaves [0,2] on move n+1 (no single band works forever)
+  answer 1/4 on the 160 mm enlarged 0-1 line sits 40.0 mm from 0
+  answer 1/8 on the 160 mm enlarged 0-1 line sits 20.0 mm from 0
+  answer 1/32 on the 160 mm enlarged 0-1 line sits 5.0 mm from 0
+
+== Problem 8 (Grades 4-5) and dyadic coverage
+PASS every cell [16k/2^n,16(k+1)/2^n] maps onto [0,16] after n moves, n=1..10 (both methods)
+PASS ... and not after n-1 moves
+PASS one move sends each 2^n-cell exactly onto a 2^(n-1)-cell (guide induction step)
+PASS piece A = [0,8], 1 move(s): [0, 8] -> [0, 16]
+PASS piece B = [8,16], 1 move(s): [8, 16] -> [0, 16]
+PASS piece C = [0,4], 2 move(s): [0, 4] -> [0, 8] -> [0, 16]
+PASS piece D = [4,8], 2 move(s): [4, 8] -> [8, 16] -> [0, 16]
+PASS piece E = [8,12], 2 move(s): [8, 12] -> [8, 16] -> [0, 16]
+PASS piece F = [12,16], 2 move(s): [12, 16] -> [0, 8] -> [0, 16]
+PASS piece G = [0,2], 3 move(s): [0, 2] -> [0, 4] -> [0, 8] -> [0, 16]
+PASS piece H = [2,4], 3 move(s): [2, 4] -> [4, 8] -> [8, 16] -> [0, 16]
+PASS piece I = [4,6], 3 move(s): [4, 6] -> [8, 12] -> [8, 16] -> [0, 16]
+PASS piece J = [6,8], 3 move(s): [6, 8] -> [12, 16] -> [0, 8] -> [0, 16]
+PASS piece K = [8,10], 3 move(s): [8, 10] -> [12, 16] -> [0, 8] -> [0, 16]
+PASS piece L = [10,12], 3 move(s): [10, 12] -> [8, 12] -> [8, 16] -> [0, 16]
+PASS piece M = [12,14], 3 move(s): [12, 14] -> [4, 8] -> [8, 16] -> [0, 16]
+PASS piece N = [14,16], 3 move(s): [14, 16] -> [0, 4] -> [0, 8] -> [0, 16]
+
+== Problem 9 (Grades 4-5)
+PASS 4000 random rational bands (ends between ticks) all reach [0,16]; method B agrees
+PASS each fills no later than the guide proof bound m (16/2^m <= width/2)
+PASS widths never decreased along the way
+PASS once filled it stays filled: T([0,16]) = [0,16]
+PASS zero-width bands are genuine exceptions (0 and 32/3 stay put)
+PASS guide P9 step: piece width < half the band width always fits a whole piece inside
+
+ALL CHECKS PASSED

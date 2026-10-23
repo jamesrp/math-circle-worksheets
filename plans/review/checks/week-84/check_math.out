@@ -1,0 +1,109 @@
+Week 84 (Public knowledge): independent checks
+==============================================
+
+## Cafe (page 1, Problem 1)
+  NOT YET / NOT YET / YES  <- YYY
+  NOT YET / NOT YET / NO   <- YYN
+  NOT YET / NO / NO        <- YNY, YNN
+  NO / NO / NO             <- NYY, NYN, NNY, NNN
+PASS  exactly 4 conversations are possible with 3 people (got 4)
+printed conversations: {1: ('NOT YET', 'NOT YET', 'NO'), 2: ('NO', 'NO', 'NO'), 3: ('NOT YET', 'NO', 'NO'), 4: ('NOT YET', 'NOT YET', 'YES')}
+PASS  the four printed conversations are exactly the four possible ones
+  Conversation 1: fitting deals = ['YYN']
+  Conversation 2: fitting deals = ['NNN', 'NNY', 'NYN', 'NYY']
+  Conversation 3: fitting deals = ['YNN', 'YNY']
+  Conversation 4: fitting deals = ['YYY']
+PASS  found the guide key for Problem 1
+guide key: [['YYN'], ['NNN', 'NNY', 'NYN', 'NYY'], ['YNN', 'YNY'], ['YYY']]
+PASS  guide key for Conversation 1 = ['YYN']
+PASS  guide key for Conversation 2 = ['NNN', 'NNY', 'NYN', 'NYY']
+PASS  guide key for Conversation 3 = ['YNN', 'YNY']
+PASS  guide key for Conversation 4 = ['YYY']
+PASS  p.1 example "Before" lists all four 2-person deals ['NN', 'NY', 'YN', 'YY']
+PASS  p.1 example: after person 1 says NO the deals are ['NN', 'NY']; printed ['NN', 'NY']
+PASS  guide: a first NOT YET proves first preference YES; a personally NO first player says NO
+PASS  guide: a later NO need not come from a NO card (person 2 says NO with a YES card in ['NYY', 'NYN'])
+PASS  guide p.1 prints: "Later NO need not mean the later speaker personally says NO."
+NOTE  Guide p.1 wording: every later NO speaker DOES "personally say NO"; the intended fact (checked above) is about the speaker's own card/preference. Guide p.3 states it correctly: "Do not infer every NO speaker has preference N."
+
+## Headbands (page 2 rules, Problems 2-4)
+PASS  p.2 example: doll 1 seeing R on doll 2 matches ['BR'] and shows PROVE BLUE
+printed deals (name, disk colours, disk letters, position labels): [('Deal 1', 'BRR', 'BRR', ['1', '2', '3']), ('Deal 2', 'BBR', 'BBR', ['1', '2', '3']), ('Deal 3', 'BBB', 'BBB', ['1', '2', '3'])]
+PASS  Deal 1: disk colours match letters and are numbered 1 2 3
+  Deal 1 BRR: round 1: PROVE NOT YET NOT YET
+PASS  Deal 1: every blue doll can first show PROVE BLUE in round 1 = number of blues 1
+PASS  Deal 1: no red doll ever shows PROVE BLUE
+PASS  Deal 2: disk colours match letters and are numbered 1 2 3
+  Deal 2 BBR: round 1: NOT YET NOT YET NOT YET; round 2: PROVE PROVE NOT YET
+PASS  Deal 2: every blue doll can first show PROVE BLUE in round 2 = number of blues 2
+PASS  Deal 2: no red doll ever shows PROVE BLUE
+PASS  Deal 3: disk colours match letters and are numbered 1 2 3
+  Deal 3 BBB: round 1: NOT YET NOT YET NOT YET; round 2: NOT YET NOT YET NOT YET; round 3: PROVE PROVE PROVE
+PASS  Deal 3: every blue doll can first show PROVE BLUE in round 3 = number of blues 3
+PASS  Deal 3: no red doll ever shows PROVE BLUE
+PASS  overview theorem: for n = 1..6 dolls, with k >= 1 blues the blue dolls first prove in round k (and keep proving), red dolls never
+PASS  guide p.2: private views in BBR are {1: ['BBR', 'RBR'], 2: ['BBR', 'BRR'], 3: ['BBB', 'BBR']}
+PASS  guide p.3: after round 1 in BBR the red doll still has ['BBB', 'BBR']
+PASS  guide p.3: in BRR a red doll (doll 2) initially has both own colours ['BBR', 'BRR']
+PASS  guide p.1: after the blues prove, each red doll knows it is red (yet shows NOT YET)
+PASS  guide p.2: sequential reveal inside a round leaks: in BBR it gives ('N', 'P', 'N'), simultaneous gives ('N', 'N', 'N')
+
+Problem 3: "Put deals into groups that give the same three replies in round 1. Can later rounds separate every group?"
+  ordered (per doll) groups after round 1: {('N', 'N', 'N'): ['BBB', 'BBR', 'BRB', 'RBB'], ('P', 'N', 'N'): ['BRR'], ('N', 'P', 'N'): ['RBR'], ('N', 'N', 'P'): ['RRB']}
+PASS  ordered reading: 4 groups, {BRR}, {RBR}, {RRB}, {BBR, BRB, RBB, BBB}
+PASS  ordered reading: all 7 reply histories differ by round 2; answer "yes"
+    BBB: NNN, NNN, PPP
+    BBR: NNN, PPN, PPN
+    BRB: NNN, PNP, PNP
+    BRR: PNN, PNN, PNN
+    RBB: NNN, NPP, NPP
+    RBR: NPN, NPN, NPN
+    RRB: NNP, NNP, NNP
+  unordered (which reply cards, not whose) groups after round 1: {(('N', 3),): ['BBB', 'BBR', 'BRB', 'RBB'], (('N', 2), ('P', 1)): ['BRR', 'RBR', 'RRB']}
+PASS  unordered reading: these deals keep identical reply multisets in rounds 1-4: [['BBR', 'BRB', 'RBB'], ['BRR', 'RBR', 'RRB']]; answer would be "no"
+NOTE  The answer to Problem 3 depends on whether "the same three replies" means the same reply from each doll (yes) or the same three reply cards (no).
+PASS  student p.3 prints: "Put deals into groups that give the same three replies in round 1."
+PASS  guide p.3 prints: "all seven deals have distinct public response histories by round 2"
+PASS  Problem 4: with all 8 cards and no announcement every reply is NOT YET in every round for every deal, and no card is ever removed; answer "no"
+PASS  guide p.3: in every private view each doll has an own-red alternative
+
+## Guide p.4: bounded hidden-number grid
+  Alice: don't know   -> rows [1, 2, 3, 4, 5], cols [0, 1, 2, 3, 4, 5, 6], 30 worlds
+  Bob: don't know   -> rows [1, 2, 3, 4, 5], cols [2, 3, 4], 12 worlds
+  Alice: don't know   -> rows [3], cols [2, 4], 2 worlds [(3, 2), (3, 4)]
+  Bob: A larger     -> rows [3], cols [2], 1 worlds [(3, 2)]
+PASS  Alice's first uncertainty removes rows 0 and 6
+PASS  Bob's uncertainty removes columns 0, 1, 5, 6
+PASS  Alice's next uncertainty leaves only row 3: {(3,2), (3,4)}
+PASS  Bob with private 2 now knows both numbers
+PASS  the audience does not yet know Bob's number
+PASS  Bob announces "Alice is larger", leaving (3,2)
+PASS  rows 1,2 know Bob is larger, rows 4,5 know Alice is larger, row 3 does not: {1: {'B'}, 2: {'B'}, 3: {'A', 'B'}, 4: {'A'}, 5: {'A'}}
+  domain 0-5, same deal: Alice: don't know; Bob: don't know; Alice: A larger; Bob: A larger
+PASS  domain 0-5 gives a different elimination pattern (Alice knows at her 2nd turn)
+PASS  49 cells in the 7 x 7 grid, 42 after the diagonal
+
+## Materials (pages 4-8) and guide setup arithmetic
+PASS  p.4: the eight deal cards are the eight YES/NO deals once each ['YYY', 'YYN', 'YNY', 'YNN', 'NYY', 'NYN', 'NNY', 'NNN']
+PASS  p.5: the eight headband cards are the eight arrangements once each ['BBB', 'BBR', 'BRB', 'BRR', 'RBB', 'RBR', 'RRB', 'RRR']
+PASS  pp.4-5: every card labels positions 1 2 3 left to right
+PASS  pp.4-5: configuration cards measure {(3.45, 1.85)} in (guide: 3.45 by 1.85)
+PASS  guide p.2: 4 x 2 display of 3.45 x 1.85 in cards is 14.55 x 3.95 in with gaps 0.25 and 0.25 in
+p.6 cards: {'YES': 3, 'NO': 3, 'B BLUE': 3, 'R RED': 3}
+p.7 cards: {'PROVE BLUE': 3, 'NOT YET': 3, 'YES': 1, 'NO': 1}
+PASS  p.6: 3 YES and 3 NO private cards cover every cafe deal
+PASS  p.6: 3 B and 3 R headbands cover every headband deal
+PASS  p.7: PROVE BLUE x3, NOT YET x3 cover one round of three dolls (max needed 3, 3)
+cafe reply cards needed to lay out a printed conversation: {'NOT YET': 2, 'NO': 3, 'YES': 1}; p.7 has YES x1, NO x1, NOT YET x3
+FAIL  p.7 reply cards suffice to lay out every printed cafe conversation (NO needed 3, printed 1)
+NOTE  Problem 1 can be solved from the printed transcripts without reply cards, so the shortfall only matters if a table acts the conversations out with cards.
+PASS  guide p.2 prints: "reply cards (pages 6–7)"
+PASS  p.8: three empty doll slots are the size of the p.7 reply cards (2.18 x 2.30 in)
+
+## Page furniture
+PASS  all 8 headers identical
+PASS  problems numbered 1-4 consecutively
+PASS  student p.1 prints: "Does everyone want a cup?"
+PASS  guide p.1 prints: "Does everyone want a drink?"
+
+1 failure(s)
