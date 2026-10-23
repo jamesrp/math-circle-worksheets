@@ -6,6 +6,13 @@ complete list of valid settings for the design modes. Also lists which
 targets in the worksheet's inverse problems are impossible.
 
 Usage: python3 -I app_check.py /path/to/small-math-adventure/dist/puzzles.json
+
+As reviewed, this read the pre-redesign app data. small-math-adventure 0769bac (October 17,
+2026) rebuilt the billiard family per the Week 9 card's decision (shape, find every, aim; the
+predict, choose_width and choose_direction modes are gone), so the current dist/puzzles.json
+stops with KeyError 'component_min'. To rerun the check as reviewed:
+    git -C /path/to/small-math-adventure show 0769bac~1:dist/puzzles.json > puzzles-reviewed.json
+and pass puzzles-reviewed.json (output identical to the committed .out, checked 2026-10-23).
 """
 import json
 import sys

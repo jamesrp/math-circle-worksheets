@@ -27,14 +27,24 @@ def find_repo(here):
 
 REPO = find_repo(HERE)
 SRC = REPO / 'lowell-math-circle-year-2' / 'source' / 'week-94'
-PDF = REPO / 'lowell-math-circle-year-2' / 'week-94'
-lines = []
+# Re-pointed to the reviewed version (4d507b6): the packets have since been converted to problem
+# files (c23f192) and revised (a4b598d, a10728d, f192b3c), and source/week-94/build.py moved into
+# editable/. The reviewed source is the archived ZIP and the reviewed PDFs are in
+# archive-before-card-fixes (MD5-identical to 4d507b6). The current packets are rebuilt and compared
+# by the problem-files compare.py and the package's editable/build.py (see source/week-94/README.md).
+REVIEWED_ZIP = SRC / 'archive-before-problem-files-2026-10-23' / 'week-94-source.zip'
+PDF = REPO / 'lowell-math-circle-year-2' / 'week-94' / 'archive-before-card-fixes-2026-10-23'
+import zipfile
+lines = ['reviewed version: ' + str(REVIEWED_ZIP.relative_to(REPO)) + ' against ' + str(PDF.relative_to(REPO))]
+bad = []
 if not shutil.which('pdflatex'):
     lines.append('SKIP pdflatex not on PATH')
 else:
     with tempfile.TemporaryDirectory() as t:
         t = Path(t)
-        r = subprocess.run([sys.executable, str(SRC / 'build.py'), '--out', str(t / 'out'), '--work', str(t / 'work')],
+        with zipfile.ZipFile(REVIEWED_ZIP) as z:
+            z.extractall(t / 'src')
+        r = subprocess.run([sys.executable, str(t / 'src' / 'week-94' / 'build.py'), '--out', str(t / 'out'), '--work', str(t / 'work')],
                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
         lines.append('build: ' + r.stdout.strip().splitlines()[-1] if r.stdout.strip() else 'build: (no output)')
         for name in ('k-1', 'grades-2-3', 'grades-4-5', 'facilitator'):
@@ -42,6 +52,8 @@ else:
             bp = t / 'out' / f'week-94-{name}.pdf'
             b = hashlib.sha256(bp.read_bytes()).hexdigest() if bp.exists() else 'missing'
             lines.append(('same bytes ' if a == b else 'bytes differ ') + f'week-94-{name}.pdf {a[:16]} rebuilt {b[:16]}')
+            if not bp.exists():
+                bad.append(name + ': not rebuilt')
             if a != b and bp.exists():
                 # different TeX Live builds give different bytes; compare what is printed
                 try:
@@ -67,6 +79,10 @@ else:
                                   for d in page.get_drawings() for it in d['items'])
                 same_geom = same_pages and all(geom(x) == geom(y) for x, y in zip(da, db))
                 lines.append(f'   pages {len(da)}/{len(db)}; page text identical: {same_text}; vector geometry identical (0.1 pt): {same_geom}')
+                if not (same_text and same_geom):
+                    bad.append(name + ': printed text or geometry differs')
+lines.append('FAIL ' + '; '.join(bad) if bad else 'all rebuilt PDFs match the reviewed print copies')
 text = '\n'.join(lines) + '\n'
 (HERE / 'rebuild_compare.py.out').write_text(text)
 print(text)
+sys.exit(1 if bad else 0)

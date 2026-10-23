@@ -28,8 +28,14 @@ def find_repo(start):
 
 
 REPO = find_repo(HERE)
-WEEK = REPO / 'lowell-math-circle-year-2' / 'week-99'
-SRC = REPO / 'lowell-math-circle-year-2' / 'source' / 'week-99' / 'student'
+# Reads the version reviewed on October 23 (230e7a3). Week 99 was since converted to problem files
+# (0842f62, which removed the per-page student TeX) and revised (8a555d1 card shoulds, f9d1bc1
+# critic coulds), so the reviewed PDFs come from archive-before-card-fixes and the per-page TeX from
+# archive-before-problem-files (both identical to 230e7a3). DELIVERED is the current print folder;
+# source/week-99/checks/card_fixes_2026_10_23.py checks the current packets.
+DELIVERED = REPO / 'lowell-math-circle-year-2' / 'week-99'
+WEEK = DELIVERED / 'archive-before-card-fixes-2026-10-23'
+SRC = REPO / 'lowell-math-circle-year-2' / 'source' / 'week-99' / 'archive-before-problem-files-2026-10-23' / 'student'
 
 spec = importlib.util.spec_from_file_location('w99math', HERE / 'check_math.py')
 W = importlib.util.module_from_spec(spec)

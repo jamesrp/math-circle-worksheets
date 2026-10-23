@@ -132,7 +132,7 @@ def main():
     R = Report('extract')
     data = {}
     import hashlib
-    from common import SRC, BONUS_SRC
+    from common import SRC, BONUS_SRC, DELIVERED
     refs = {'k-1': os.path.join(SRC, 'reference-pdfs', 'k-1.pdf'),
             'grades-2-3': os.path.join(SRC, 'reference-pdfs', 'grades-2-3.pdf'),
             'grades-4-5': os.path.join(SRC, 'reference-pdfs', 'grades-4-5.pdf'),
@@ -141,9 +141,9 @@ def main():
             'bonus-guide': os.path.join(BONUS_SRC, 'reference-pdfs', 'week-43-bonus-facilitator.pdf')}
     R.head('delivered PDFs vs source reference copies (MD5)')
     for k, ref in refs.items():
-        a = hashlib.md5(open(PDFS[k], 'rb').read()).hexdigest()
+        a = hashlib.md5(open(DELIVERED[k], 'rb').read()).hexdigest()
         b = hashlib.md5(open(ref, 'rb').read()).hexdigest()
-        R.check(a == b, f'{os.path.basename(PDFS[k])} == {os.path.relpath(ref, SRC + "/..")} ({a})')
+        R.check(a == b, f'{os.path.basename(DELIVERED[k])} == {os.path.relpath(ref, SRC + "/..")} ({a})')
     for band in ['k-1', 'grades-2-3', 'grades-4-5']:
         R.head(f'{band}: {PDFS[band]}')
         doc = pymupdf.open(PDFS[band])

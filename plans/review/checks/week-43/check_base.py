@@ -277,6 +277,8 @@ R.check('4, 5, 5, 5, 4, 4' in p1, 'overview counts present')
 R.check('produces only BCA and CAB' in p1, 'overview: no-self-swap gives only BCA, CAB')
 R.check('Draw C and then A from a cup without replacement, giving C A B' in G[1], 'launch chooser example CAB')
 R.check(run_story('ABC', (3,)) == 'CBA' and run_story('ABC', (3, 2)) == 'CBA', 'launch swap demo: ticket 3 -> CBA, ticket 2 -> CBA')
-R.check('The27-story' in G[5], 'route note typo "The27-story" (cosmetic)')
+R.check('The27-story' in G[5], 'route note typo "The27-story" (cosmetic; as reviewed, archived guide)')
+from common import DELIVERED  # noqa: E402
+R.check(not any('The27-story' in flat(t) for t in pdf_text(DELIVERED['guide'])), 'current guide: the "The27-story" typo is gone')
 
 R.finish()

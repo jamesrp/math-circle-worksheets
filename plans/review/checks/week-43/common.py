@@ -36,7 +36,8 @@ WEEK = os.path.join(ROOT, 'lowell-math-circle-year-2', 'week-43')
 SRC = os.path.join(ROOT, 'lowell-math-circle-year-2', 'source', 'week-43', 'editable')
 BONUS_SRC = os.path.join(ROOT, 'lowell-math-circle-year-2', 'source', 'week-43-bonus')
 
-PDFS = {
+# DELIVERED are the current print copies (compared with the source's reference copies in extract.py).
+DELIVERED = {
     'k-1': os.path.join(WEEK, 'week-43-k-1.pdf'),
     'grades-2-3': os.path.join(WEEK, 'week-43-grades-2-3.pdf'),
     'grades-4-5': os.path.join(WEEK, 'week-43-grades-4-5.pdf'),
@@ -44,6 +45,18 @@ PDFS = {
     'bonus': os.path.join(WEEK, 'week-43-bonus.pdf'),
     'bonus-guide': os.path.join(WEEK, 'week-43-bonus-facilitator.pdf'),
 }
+# The base packets and guide were redesigned after the review (6cd8fe9 card shoulds, 3b64f1a footer
+# ids, 599c24a Critic K follow-ups: new record rows, ticket boxes and a card kit), so this check reads
+# the copies as reviewed, archived MD5-identical to the review import (bb8a7eb): K-1 and the guide in
+# archive-before-card-fixes, Grades 2-3 and 4-5 in archive-before-card-shoulds. The current pages are
+# checked by the package (source/week-43/editable/verify_revision.py, review/verify_card_*.py) and
+# source/week-43/check_guide_copy.py. The bonus is unchanged apart from its guide's band labels
+# (4f66b9d), so the bonus reads stay on the current copies.
+PDFS = dict(DELIVERED)
+PDFS['k-1'] = os.path.join(WEEK, 'archive-before-card-fixes-2026-10-23', 'week-43-k-1.pdf')
+PDFS['guide'] = os.path.join(WEEK, 'archive-before-card-fixes-2026-10-23', 'week-43-facilitator.pdf')
+PDFS['grades-2-3'] = os.path.join(WEEK, 'archive-before-card-shoulds-2026-10-23', 'week-43-grades-2-3.pdf')
+PDFS['grades-4-5'] = os.path.join(WEEK, 'archive-before-card-shoulds-2026-10-23', 'week-43-grades-4-5.pdf')
 
 ROWS3 = [''.join(p) for p in permutations('ABC')]  # ABC ACB BAC BCA CAB CBA
 

@@ -51,7 +51,14 @@ def find_repo(here):
 
 REPO = find_repo(HERE)
 SRC = REPO / 'lowell-math-circle-year-2' / 'source' / 'week-94'
-PDF = REPO / 'lowell-math-circle-year-2' / 'week-94'
+# This check reads the version reviewed on October 23 (4d507b6). The packets were converted to
+# problem files (c23f192) and revised (a4b598d v2, a10728d K-1 v3, f192b3c), so it reads the
+# reviewed TeX from the archived source ZIP and the reviewed PDFs from archive-before-card-fixes
+# (both MD5-identical to 4d507b6). DELIVERED is the current print folder; the current packets are
+# checked by the package's own editable/check_math.py and k1-critic-2026-10-23/scripts/k1_check.py.
+DELIVERED = REPO / 'lowell-math-circle-year-2' / 'week-94'
+PDF = DELIVERED / 'archive-before-card-fixes-2026-10-23'
+REVIEWED_ZIP = SRC / 'archive-before-problem-files-2026-10-23' / 'week-94-source.zip'
 OUT, FAIL, NOTE = [], [], []
 
 
@@ -70,11 +77,16 @@ def note(msg):
     NOTE.append(msg)
 
 
-common = (SRC / 'student' / 'common.tex').read_text()
-k1 = (SRC / 'student' / 'k-1.tex').read_text()
-mid = (SRC / 'student' / 'grades-2-3.tex').read_text()
-up = (SRC / 'student' / 'grades-4-5.tex').read_text()
-guide = (SRC / 'guide' / 'facilitator.tex').read_text()
+import zipfile
+with zipfile.ZipFile(REVIEWED_ZIP) as _z:
+    def _member(name):
+        return _z.read('week-94/' + name).decode('utf-8')
+    common = _member('student/common.tex')
+    k1 = _member('student/k-1.tex')
+    mid = _member('student/grades-2-3.tex')
+    up = _member('student/grades-4-5.tex')
+    guide = _member('guide/facilitator.tex')
+say('reading the reviewed version: TeX from', REVIEWED_ZIP.relative_to(REPO), 'and PDFs from', PDF.relative_to(REPO))
 
 # ------------------------------------------------------------ source data
 m = re.search(r'\\foreach \\x/\\y/\\n/\\s in \{([^}]*)\}', common)

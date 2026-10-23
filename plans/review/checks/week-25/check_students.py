@@ -207,10 +207,12 @@ for (r, c) in ((2, 3), (3, 3)):
 # ============================================================== Grades 4-5
 U = 'week-25-grades-4-5.pdf'
 out('\n== Grades 4-5')
-out('-- P1 (p1-2): every picture with rows 2,2 and columns 1,1,1,1 (3+3 grids)')
+out('-- P1 (p1-2): every picture with rows 2,2 and columns 1,1,1,1 (3+3 grids as reviewed; 4+4 since c668ca3)')
 grids = boards(U, 1) + boards(U, 2)
 s = solutions((2, 2), (1, 1, 1, 1))
-ok(len(s) == len(grids) == 6, f'{len(s)} pictures, {len(grids)} grids')
+# The card fixes (c668ca3, W25-45-v3) print eight grids for the six pictures, so the count of grids
+# no longer gives the answer away.
+ok(len(s) == 6 and len(grids) == 8, f'{len(s)} pictures, {len(grids)} grids (eight for six since c668ca3)')
 out('-- P2 (p3): connected? greatest shortest distance?')
 D = {p: bfs(p) for p in s}
 ok(all(set(D[p]) == set(s) for p in s), 'switch graph on the 6 pictures is connected')

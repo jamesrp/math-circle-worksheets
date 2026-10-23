@@ -117,7 +117,8 @@ say('=== K-1 (F11-K-v3) ===')
 say('P1 triangle starts read from the page:')
 board_matches('K-1', 1, TRI)
 st = starts_from('K-1', 1, 2)
-check('K-1 P1 printed starts', st == [(2, 2), (3, 2), (2, 3), (3, 3)], str(st))
+# Since the card fixes (5acb95e, F11-K-v4) K-1 Problems 1 and 3 print each start on two rows.
+check('K-1 P1 printed starts (each on two rows since 5acb95e)', st == [x for x in [(2, 2), (3, 2), (2, 3), (3, 3)] for _ in (0, 1)], str(st))
 guide = {(2, 2): ((1, 1), (1, 1), 'AB'), (3, 2): ((1, 0), (2, 2), 'ABAB'), (2, 3): ((0, 1), (2, 2), 'ABBA'), (3, 3): ((1, 1), (2, 2), 'ABAB')}
 for s in st:
     r = row_check('K-1 P1', TRI, s, guide[s][0], guide[s][1], guide[s][2])
@@ -139,7 +140,7 @@ for N, g in ((4, g4), (5, g5)):
 say('P3 four-cycle starts:')
 board_matches('K-1', 3, FOUR)
 st = starts_from('K-1', 3, 3)
-check('K-1 P3 printed starts', st == [(0, 4, 0), (2, 2, 0), (0, 2, 2), (2, 0, 2)], str(st))
+check('K-1 P3 printed starts (each on two rows since 5acb95e)', st == [x for x in [(0, 4, 0), (2, 2, 0), (0, 2, 2), (2, 0, 2)] for _ in (0, 1)], str(st))
 guide = {(0, 4, 0): ((1, 0, 1), (1, 3, 1), 'BBACB'), (2, 2, 0): ((1, 1, 1), (1, 1, 0), 'AB'),
          (0, 2, 2): ((1, 1, 1), (0, 1, 1), 'BC'), (2, 0, 2): ((1, 0, 1), (1, 1, 1), 'ACB')}
 for s in st:
@@ -153,7 +154,8 @@ board_matches('K-1', 4, FOUR)
 stable = FOUR.stable_states()
 check('K-1 P4: exactly 8 stable placements, each circle 0 or 1', sorted(stable) == sorted(product((0, 1), repeat=3)), str(stable))
 check('K-1 P4: largest stable total is 3, so no stable placement uses 4 chips', max(map(sum, stable)) == 3)
-check('K-1 P4: answer table has 8 rows', len(table_rows('K-1', 4)) - 1 == 8)
+# The card fixes (5acb95e) gave K-1 Problem 4 ten rows for its eight stable placements.
+check('K-1 P4: answer table has 10 rows, room for all 8 stable placements (5acb95e)', len(table_rows('K-1', 4)) - 1 == 10)
 
 say('P5 additions in any timing (every interleaving of single chips and legal sharing):')
 board_matches('K-1', 5, TRI)
@@ -516,7 +518,7 @@ check('RV guide: three starts and eight legal histories', len({s for w, s in bac
 # ----------------------------------------------------------------- other readings (reported as NOTE lines)
 say('\n=== Other readings and gaps ===')
 nonempty = [s for s in FOUR.stable_states() if sum(s) > 0]
-note(f'K-1 P4: {len(nonempty)} stable placements use at least one chip; the 8-row table is full only if the empty board (0,0,0) counts as a way to put chips')
+note(f'K-1 P4: {len(nonempty)} stable placements use at least one chip; as reviewed, the 8-row table was full only if the empty board (0,0,0) counted; since 5acb95e the table has 10 rows and the guide asks whether a board with no chips counts')
 k1p6 = []
 x = (0, 0)
 for i in range(11):

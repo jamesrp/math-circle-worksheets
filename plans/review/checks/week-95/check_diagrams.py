@@ -30,7 +30,12 @@ def find_repo(start):
 
 
 REPO = find_repo(HERE)
-WEEK = REPO / "lowell-math-circle-year-2" / "week-95"
+# Reads the version reviewed on October 23 (366c49d, footers W95-*-v1). Week 95 was since converted
+# to problem files (e93a136) and revised (1e29ee4 card shoulds, dfbc5e4 footer ids), so the reviewed
+# PDFs come from archive-before-card-fixes (MD5-identical to 366c49d). DELIVERED is the current print
+# folder; source/week-95/review/check_card_fixes_2026_10_23.py checks the current packets.
+DELIVERED = REPO / "lowell-math-circle-year-2" / "week-95"
+WEEK = DELIVERED / "archive-before-card-fixes-2026-10-23"
 OUT, FAILS = [], []
 
 

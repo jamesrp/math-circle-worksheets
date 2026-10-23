@@ -731,7 +731,9 @@ for s in ['(0, 12, 5)', '(3, 5, 9/2)', '(1, 8, 4)', '(2, 6, 4)', '(0, 14), (1, 1
           'Area 16 − 4 = 12, I = 0, B = 16 + 8 = 24', 'Independent area 18 − 1 = 17', 'I_o = 10', 'Independent area is 24 − 1 − 1 = 22',
           '3 + 12 = 5 + 10 = 15', '51 Week 57 student sheets', '25 sheets', '2,148']:
     s2 = s.replace('I_o = 10', 'Io = 10')
-    check(in_guide(s2) or in_guide(s), 'guide PDF prints "%s"' % s)
+    # The card fixes (bc1b3ee) reordered the P5 sum by rows: 3/5+24/5+3/5 = 6 (same total).
+    s3 = s.replace('24/5 + 3/5 + 3/5 = 6', '3/5+24/5+3/5 = 6')
+    check(in_guide(s2) or in_guide(s) or in_guide(s3), 'guide PDF prints "%s"' % s)
 
 say('')
 say('%d checks, %d failures' % (sum(1 for l in OUT if l.startswith(('ok', 'FAIL'))), len(FAIL)))

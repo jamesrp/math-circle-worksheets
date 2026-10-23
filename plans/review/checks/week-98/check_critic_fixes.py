@@ -17,8 +17,14 @@ import pymupdf
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..', '..'))
-W = os.path.join(ROOT, 'lowell-math-circle-year-2/week-98')
-ARC = os.path.join(W, 'archive-before-critic-fixes-2026-10-23')
+DELIVERED = os.path.join(ROOT, 'lowell-math-circle-year-2/week-98')
+# This checks the critic follow-up version (W98-FAC-v3, 27b8dd5). The card coulds (6c3e6ba) then
+# made the guide W98-FAC-v4 and the student packets v3, archiving v3 in archive-before-small-coulds
+# (MD5-identical to 27b8dd5), so W points there and the reference copies are read from that
+# archive's source ZIP. source/week-98/checks/small_coulds_2026_10_23.py checks the current version.
+W = os.path.join(DELIVERED, 'archive-before-small-coulds-2026-10-23')
+W_ZIP = os.path.join(ROOT, 'lowell-math-circle-year-2/source/week-98/archive-before-small-coulds-2026-10-23/week-98-source.zip')
+ARC = os.path.join(DELIVERED, 'archive-before-critic-fixes-2026-10-23')
 OUT = []
 
 
@@ -92,7 +98,9 @@ for i in range(5):
         ok(flat(GO[i]).replace('W98-FAC-v2', 'W98-FAC-v3') == flat(G[i]), f'guide p. {i + 1}: text unchanged apart from the footer')
 for band in ('grades-2-3', 'grades-4-5'):
     a = open(os.path.join(W, f'week-98-{band}.pdf'), 'rb').read()
-    b = open(os.path.join(ROOT, f'lowell-math-circle-year-2/source/week-98/reference-pdfs/week-98-{band}.pdf'), 'rb').read()
+    import zipfile
+    with zipfile.ZipFile(W_ZIP) as z:
+        b = z.read(f'week-98/reference-pdfs/week-98-{band}.pdf')
     ok(a == b, f'student {band} packet unchanged (v2) and equal to its reference copy')
 
 print('\n'.join(OUT))

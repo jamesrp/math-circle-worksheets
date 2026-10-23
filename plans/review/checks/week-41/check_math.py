@@ -235,12 +235,13 @@ for w in P3_23:
 check(copy_of(lift("RRLL")[2]) == (1, 0), "RRLL enters the right copy before returning (guide p.4)")
 
 log("")
-log("== Grades 2-3 Problem 4: RRRUUU vs RURURU")
-check([w for p, w in tex_words("grades-2-3") if p == 4] == ["RRRUUU", "RURURU"], "2-3 p.4 prints RRRUUU and RURURU")
-a, b = lift("RRRUUU"), lift("RURURU")
+log("== Grades 2-3 Problem 4: RRRUUU vs RURURU (and RRRDDD since the v3 card fixes, 6e5b742)")
+check([w for p, w in tex_words("grades-2-3") if p == 4] == ["RRRUUU", "RURURU", "RRRDDD"], "2-3 p.4 prints RRRUUU, RURURU and RRRDDD")
+a, b, c3 = lift("RRRUUU"), lift("RURURU"), lift("RRRDDD")
 check(label(a[-1]) == label(b[-1]) == "H" and copy_of(a[-1]) == copy_of(b[-1]) == (1, 1),
       "both finish at H and in copy (1,1): yes and yes (guide p.4)")
-check(all(copy_of(p)[0] in (-1, 0, 1) and copy_of(p)[1] in (-1, 0, 1) for p in a + b), "both stay on the printed array")
+check(label(c3[-1]) == "H" and copy_of(c3[-1]) == (1, -1), f"RRRDDD finishes at H in copy {copy_of(c3[-1])} (commit 6e5b742: (1,-1))")
+check(all(copy_of(p)[0] in (-1, 0, 1) and copy_of(p)[1] in (-1, 0, 1) for p in a + b + c3), "all three stay on the printed array")
 
 log("")
 log("== Grades 2-3 Problem 5: visit another copy and finish at the original H")
@@ -266,9 +267,9 @@ for w, c in [("RRR", (1, 0)), ("LLL", (-1, 0)), ("UUU", (0, 1)), ("DDD", (0, -1)
     check(label(lift(w)[-1]) == "H" and copy_of(lift(w)[-1]) == c, f"guide p.5 {w} -> {c}")
 
 log("")
-log("== Grades 4-5 Problem 3: finishing copies")
+log("== Grades 4-5 finishing copies (Problem 3 as reviewed; Problem 2 on p.2 since the v3 card fixes swapped Problems 2 and 3, 6e5b742)")
 P3_45 = ["RRRUUU", "UUURRR", "RRLL", "RRRUUULLLDDD"]
-check([w for p, w in tex_words("grades-4-5") if p == 3] == P3_45, f"4-5 p.3 prints {P3_45}")
+check([w for p, w in tex_words("grades-4-5") if p == 2] == P3_45, f"4-5 p.2 prints {P3_45}")
 for w, c in zip(P3_45, [(1, 1), (1, 1), (0, 0), (0, 0)]):
     pts = lift(w)
     inside = all(max(abs(q) for q in copy_of(p)) <= 1 for p in pts)
@@ -319,8 +320,10 @@ def slide_ok(u, v):
 
 log("")
 log("== Grades 4-5 Problem 4: which trip shrinks to staying at H")
-check([w for p, w in tex_words("grades-4-5") if p == 4] == ["RRRUUULLLDDD", "RRR", "RRRUUU", "UUURRR"],
-      "4-5 p.4 prints RRRUUULLLDDD, RRR (P4) and RRRUUU, UUURRR (P5)")
+# Since the v3 card fixes (6e5b742) Problem 5 has its own page (p.5).
+check([w for p, w in tex_words("grades-4-5") if p == 4] == ["RRRUUULLLDDD", "RRR"]
+      and [w for p, w in tex_words("grades-4-5") if p == 5] == ["RRRUUU", "UUURRR"],
+      "4-5 p.4 prints RRRUUULLLDDD, RRR (P4) and p.5 prints RRRUUU, UUURRR (P5)")
 w = "RRRUUULLLDDD"
 chain = [w]
 # guide: commute each L leftward across each U (nine slides) -> RRRLLLUUUDDD

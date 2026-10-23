@@ -41,8 +41,14 @@ def find_repo(here):
 
 
 REPO = find_repo(HERE)
-WEEK = REPO / 'lowell-math-circle-year-2' / 'week-97'
-SRC = REPO / 'lowell-math-circle-year-2' / 'source' / 'week-97'
+# Reads the version reviewed on October 23 (f90860d, footer W97-35-v1). Week 97 was since converted
+# to problem files (965f8d8) and revised (c3f3bbb card shoulds, dfbc5e4 footer ids, 842a570 could 8),
+# so the reviewed PDFs come from archive-before-card-fixes and the rebuild uses the TeX from the
+# archive-before-problem-files ZIP (both identical to f90860d). DELIVERED is the current print folder;
+# source/week-97/checks/card_fixes_2026_10_23.py and card_checks.py here check the current packets.
+DELIVERED = REPO / 'lowell-math-circle-year-2' / 'week-97'
+WEEK = DELIVERED / 'archive-before-card-fixes-2026-10-23'
+SRC_REVIEWED_ZIP = REPO / 'lowell-math-circle-year-2' / 'source' / 'week-97' / 'archive-before-problem-files-2026-10-23' / 'week-97-source.zip'
 STUD = WEEK / 'week-97-students.pdf'
 GUIDE = WEEK / 'week-97-facilitator.pdf'
 OUT, FAIL = [], []
@@ -183,7 +189,9 @@ else:
         for kind, name, delivered in (('student', 'students', STUD), ('guide', 'facilitator', GUIDE)):
             folder = Path(tmp) / kind
             folder.mkdir()
-            shutil.copy2(SRC / kind / (name + '.tex'), folder)
+            import zipfile
+            with zipfile.ZipFile(SRC_REVIEWED_ZIP) as z:
+                (folder / (name + '.tex')).write_bytes(z.read('week-97/%s/%s.tex' % (kind, name)))
             for _ in range(2):
                 r = subprocess.run([latex, '-interaction=nonstopmode', '-halt-on-error', name + '.tex'],
                                    cwd=folder, env=env, capture_output=True, text=True)

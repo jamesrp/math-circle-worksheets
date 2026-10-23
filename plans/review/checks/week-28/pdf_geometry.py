@@ -268,9 +268,10 @@ EXPECTED = {
         1: [(None, RIGHT, '????')] * 4,
         2: [('A', RIGHT, 'MMMV'), ('B', RIGHT, 'MMMM'), ('C', RIGHT, 'MVVV'),
             ('D', RIGHT, 'MMVV'), ('E', RIGHT, 'MMVM'), ('F', RIGHT, 'MVMV')],
-        # K-1 Problem 3: six marked disks as reviewed; since the student-page fixes (799a994) four marked
-        # disks and two blank ones as extra workspace.
-        3: [(None, RIGHT, 'M???')] * 4 + [(None, RIGHT, '????')] * 2,
+        # K-1 Problem 3: six marked disks as reviewed; the student-page fixes (799a994) made it four marked
+        # disks and two blank ones as extra workspace, and the Critic K follow-ups (c6c73f2, F28-K-v4)
+        # mark all six again, so the count of marked disks does not give the four answers away.
+        3: [(None, RIGHT, 'M???')] * 6,
         4: [('A', RIGHT, 'M?V?'), (None, RIGHT, 'MM??'), (None, RIGHT, 'V?V?'),
             ('B', RIGHT, 'M?V?'), (None, RIGHT, 'MM??'), (None, RIGHT, 'V?V?'),
             ('C', RIGHT, 'M?V?'), (None, RIGHT, 'MM??'), (None, RIGHT, 'V?V?')],

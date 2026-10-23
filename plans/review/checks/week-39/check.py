@@ -478,9 +478,37 @@ claim("ABABD", TREE, "A", "D", 4, "ABD", "P1 A-B-A-B-D")
 ok(set(results_of(walks(RING, "A", 4, "A"))) == {"A", "ABCDA", "ADCBA"}, "P2 results stay at A, ABCDA, ADCBA")
 
 print(" labels")
+# As reviewed, the K-1 packet printed F39-K-v2 while the guide's key-alignment line named F39-K-v3 (a
+# finding). The card fixes and Critic K follow-ups (89149a6, df579d2) renumbered the packets, so the
+# finding is confirmed on the archived copies as reviewed (archive-before-card-fixes) and the current
+# footers are checked against the ids the current guide names.
+import re
+import pymupdf
+_W = HERE.parents[3] / "lowell-math-circle-year-2" / "week-39"
+
+
+def _key_alignment(path):
+    t = " ".join(" ".join(pg.get_text().split()) for pg in pymupdf.open(path))
+    m = re.search(r"Key alignment:(.{0,240})", t)
+    return set(re.findall(r"F39-(?:K|23|45)-v\d+", m.group(1))) if m else set()
+
+
+def _footer_ids(path):
+    return {i for pg in pymupdf.open(path) for i in re.findall(r"F39-(?:K|23|45)-v\d+", pg.get_text())}
+
+
+_arc = _W / "archive-before-card-fixes-2026-10-23"
+_k1_then, _guide_then = _footer_ids(_arc / "week-39-k-1.pdf"), _key_alignment(_arc / "week-39-facilitator.pdf")
+note(f"as reviewed (archived): K-1 footers {sorted(_k1_then)}; guide key-alignment line names {sorted(_guide_then)}")
+ok(_k1_then == {"F39-K-v2"} and "F39-K-v3" in _guide_then,
+   "finding confirmed (as reviewed, archived): K-1 printed F39-K-v2 but the guide's key alignment named F39-K-v3")
 k1_ids = {f for pg in DATA["k-1"] for f in pg["footer"]}
-note(f"K-1 packet footers: {sorted(k1_ids)}; guide p6 'Key alignment' line says K-1 is F39-K-v3")
-ok(all("F39-K-v3" in f for f in k1_ids), "K-1 footer ID matches the guide's key-alignment ID")
+_now = _key_alignment(_W / "week-39-facilitator.pdf")
+_printed = {b: _footer_ids(_W / f"week-39-{b}.pdf") for b in ("k-1", "grades-2-3", "grades-4-5")}
+note(f"current: K-1 packet footers {sorted(k1_ids)}; footer ids {dict((b, sorted(v)) for b, v in _printed.items())}; guide key alignment names {sorted(_now)}")
+ok(len(_now) == 3 and all(len(v) == 1 and v <= _now for v in _printed.values())
+   and all(any(i in f for i in _printed["k-1"]) for f in k1_ids),
+   "current: every packet's footer ID matches the guide's key-alignment ID")
 
 print("\nSUMMARY:", "all checks passed" if not FAIL else f"{len(FAIL)} check(s) failed:")
 for f in FAIL:

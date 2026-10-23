@@ -199,9 +199,12 @@ vertex_dots = [(float(a), float(b)) for a, b in re.findall(r"\\fill \(" + NUM + 
 
 
 def name_of(p):
-    for (lx, ly, t) in labs:
-        if abs(lx + 5 - p[0]) < 1e-6 and abs(ly + 5 - p[1]) < 1e-6:
-            return t
+    # Labels sat 5 mm up-left of their dots as reviewed and 4 mm since the v3 card fixes (6e5b742);
+    # the v3 backtrack arrows are drawn 1.6 mm above and below the dot row, hence the 2 mm snap.
+    for d in (5, 4):
+        for (lx, ly, t) in labs:
+            if abs(lx + d - p[0]) < 1e-6 and abs(ly + d - p[1]) < 2:
+                return t
     return None
 
 
@@ -210,7 +213,9 @@ for pth in paths:
     pts = [tuple(map(float, q)) for q in re.findall(r"\((-?[\d.]+),(-?[\d.]+)\)", pth)]
     got.append("→".join(name_of(p) or "?" for p in pts))
 log(f"   slide example paths: {got}")
-check(got == ["F→G→H", "F→D→H"], "slide example: input F→G→H, output F→D→H, endpoints fixed")
+check(got[:2] == ["F→G→H", "F→D→H"], "slide example: input F→G→H, output F→D→H, endpoints fixed")
+# Since the v3 card fixes (6e5b742) page 4 also pictures a backtrack: F→G, G→F, F→D against F→D.
+check(got[2:] == ["F→G", "G→F", "F→D", "F→D"], "backtrack example (v3): F→G→F→D against F→D, endpoints fixed")
 # geometry: D upper-left, H upper-right, F lower-left, G lower-right in each panel
 pos = {}
 for (lx, ly, t) in labs:

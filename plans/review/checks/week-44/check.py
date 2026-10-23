@@ -272,7 +272,10 @@ section("G. Bonus companion")
 # demo figure p.1
 pg = DATA["bonus"][0]
 labs = [d["label"] for d in sorted(pg["discs"], key=lambda d: d["cx"])]
-ok(labs == ["R0", "B0", "R0", "R0", "B0", "B1"], f"p.1 demo reads R0 B0 | draw R0 | R0 B0 B1: {labs}")
+# Could 15 (3e5ac6e, W44-BONUS-v2) raised every bonus mark by one to match the base packet: originals
+# are R1, B1 (G1) and the first added counter is 2. The model below keeps the reviewed marks from 0;
+# the printed labels are compared one higher.
+ok(labs == ["R1", "B1", "R1", "R1", "B1", "B2"], f"p.1 demo reads R1 B1 | draw R1 | R1 B1 B2 (marks from 1 since 3e5ac6e): {labs}")
 O1 = [(h, p, b) for h, p, b in histories("RB", 1, "other", first_mark=0)]
 ok(sorted(counts(b, "RB") for _, _, b in O1) == [(1, 2), (2, 1)] and
    any(h[0] == ("R", 0) and ("B", 1) in b for h, _, b in O1), "p.1 demo: draw R0 under add-other adds B1")
@@ -326,7 +329,8 @@ pg = DATA["bonus"][2]
 cards = sorted(tuple(bag["discs"]) for bag in pg["bags"] if len(bag["discs"]) == 2)
 H3c = list(histories("RBG", 2, "copy", first_mark=0))
 true = sorted((h[0][0] + str(h[0][1]), h[1][0] + str(h[1][1])) for h, _, _ in H3c)
-ok(cards == true and len(cards) == 12, "P3: the 12 printed cards are exactly the 12 marked two-draw histories")
+true1 = sorted((h[0][0] + str(h[0][1]), h[1][0] + str(h[1][1])) for h, _, _ in histories("RBG", 2, "copy", first_mark=1))
+ok(cards == true1 and len(cards) == 12, "P3: the 12 printed cards are exactly the 12 marked two-draw histories (marks from 1 since 3e5ac6e)")
 ok({p for _, p, _ in H3c} == {F(1, 12)}, "P3: each card 1/(3x4) = 1/12")
 fb = Counter(counts(b, "RBG") for _, _, b in H3c)
 ok(sorted(fb) == sorted([(3, 1, 1), (1, 3, 1), (1, 1, 3), (2, 2, 1), (2, 1, 2), (1, 2, 2)]) and
