@@ -28,6 +28,6 @@ The builder creates `week-94-k-1.pdf`, `week-94-grades-2-3.pdf`, `week-94-grades
 - `check_math.py`: portable standard-library checker written by the independent mathematics reviewer.
 - `SOURCES.md`, `QA.md`, `revision-response.md`: source attribution and digital verification record.
 
-Print US Letter, single-sided, Actual Size. Printed units are 12 mm; the guide gives exact kit quantities and cutting instructions. The upper noise-design page is a readiness-dependent continuation. K–1 Problems 4–6 (added October 23, 2026 from the review card) use about 30 interlocking cubes per pair. Commercial cubes are counting objects, not guaranteed to fit the paper scale.
+Print US Letter, single-sided, Actual Size. Printed units are 12 mm; the guide gives exact kit quantities and cutting instructions. The upper noise-design page is a readiness-dependent continuation. K–1 Problems 4–6 (added October 23, 2026 from the review card, then revised after an independent critic) use about 30 interlocking cubes per pair. Commercial cubes are counting objects, not guaranteed to fit the paper scale.
 
 Only owned teaching and build/check sources are bundled. Downloaded books, workflow exemplar excerpts, generated prompt copies, private records, caches and PDFs are excluded from the ZIP.

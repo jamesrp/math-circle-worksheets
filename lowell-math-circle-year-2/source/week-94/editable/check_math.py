@@ -53,6 +53,10 @@ assert [c for c in range(1, 6) if 4-c >= 1] == [1, 2, 3]  # extras 4, 5 leave no
 assert len(k1_pairs) < 4 and max(q for p,q,c in k1_pairs) <= 6  # 4 slots, 6-cell columns
 assert sum(p+q for p,q,c in k1_pairs) == 18 and 18 + 4 + 6 == 28 <= 30
 say('K1 P5', k1_pairs)
+# Why P5 says "P and Q went into the same machine": with a separate extra for
+# each tower, outputs 4 and 6 would fit 9 pairs, including P = Q = 3.
+separate = {(4-c, 6-d) for c in k1_extras for d in k1_extras}
+assert len(separate) == 9 and (3, 3) in separate
 # P6: each known tower (in, out) fixes the extra and picks one P5 pair.
 k1_rows = [(1,2),(2,5),(3,5)]
 picked = [(4-(o-i), 6-(o-i), o-i) for i,o in k1_rows]

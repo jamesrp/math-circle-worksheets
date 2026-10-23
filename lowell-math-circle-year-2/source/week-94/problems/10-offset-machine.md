@@ -8,7 +8,7 @@ page = { "K-1" = "new" }
 +++
 
 ## text [K-1]
-The machine takes a tower of cubes and gives back a tower with the same number of cubes plus a secret extra of 1, 2 or 3 cubes. The extra stays the same for the whole game.
+Behind a cover, the machine takes a tower of cubes and gives back a tower with the same number of cubes plus a secret extra. A machine always adds the same extra: 1, 2 or 3 cubes.
 \begin{center}\towerexample\end{center}
 
 ## text

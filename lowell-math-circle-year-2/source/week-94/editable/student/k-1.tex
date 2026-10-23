@@ -1,4 +1,4 @@
-\def\band{Grades K--1}\def\packet{W94-K-v2}\documentclass[letterpaper,12pt]{article}
+\def\band{Grades K--1}\def\packet{W94-K-v3}\documentclass[letterpaper,12pt]{article}
 \usepackage[margin=0.65in,headheight=18pt,headsep=18pt,footskip=24pt]{geometry}
 \usepackage{tikz,array,fancyhdr,amsmath}
 \usepackage[T1]{fontenc}
@@ -90,19 +90,19 @@ D\quad\ruler{2}
 
 \newpage
 
-The machine takes a tower of cubes and gives back a tower with the same number of cubes plus a secret extra of 1, 2 or 3 cubes. The extra stays the same for the whole game.
+Behind a cover, the machine takes a tower of cubes and gives back a tower with the same number of cubes plus a secret extra. A machine always adds the same extra: 1, 2 or 3 cubes.
 \begin{center}\towerexample\end{center}
 
-\problem{4}{Play the machine: choose a secret extra, and behind a cover build what comes out for each tower your partner gives you. Your partner finds your extra; then switch jobs.}
+\problem{4}{Take turns being the machine, with your secret extra as a stick of cubes behind the cover. Your partner finds the extra; then lift the cover to check.}
 
-\begin{center}\begin{tabular}{|p{2.6cm}|p{4.2cm}|p{4.2cm}|p{3.4cm}|}\hline
-Round & Towers in & Towers out & Extra \\\hline
-1\rule{0pt}{17mm}&&&\\\hline 2\rule{0pt}{17mm}&&&\\\hline 3\rule{0pt}{17mm}&&&\\\hline 4\rule{0pt}{17mm}&&&\\\hline
+\begin{center}\begin{tabular}{|p{2.6cm}|p{5.6cm}|p{5.6cm}|}\hline
+Round & Towers you gave & Extra you found \\\hline
+1\rule{0pt}{17mm}&&\\\hline 2\rule{0pt}{17mm}&&\\\hline 3\rule{0pt}{17mm}&&\\\hline 4\rule{0pt}{17mm}&&\\\hline
 \end{tabular}\end{center}
 
 \newpage
 
-\problem{5}{Build every pair of towers that could have gone in, and colour each pair you find. Could P be taller than Q?}
+\problem{5}{P and Q went into the same machine: build and color every pair of towers that could have gone in. Could P be taller than Q?}
 
 \begin{center}\begin{tikzpicture}[x=7mm,y=7mm]
 \node at(1.75,7.1){came out};
@@ -113,15 +113,15 @@ Round & Towers in & Towers out & Extra \\\hline
 \foreach\s in{0,...,3}{\tcells{6+4*\s}{0}{6}\node[below]at(6.5+4*\s,0){P};\tcells{7.5+4*\s}{0}{6}\node[below]at(8+4*\s,0){Q};}
 \end{tikzpicture}\end{center}
 
-\problem{6}{P and Q still come out as 4 and 6 cubes, but each machine has its own extra. Build P and Q for each machine, and colour them.}
+\problem{6}{P and Q still come out as 4 and 6 cubes, but each machine has its own extra. Build P and Q for each machine, and color them.}
 
 \begin{center}\begin{tikzpicture}[x=6.5mm,y=6.5mm]
 \foreach\i/\a/\b in{0/1/2,1/2/5,2/3/5}{\begin{scope}[shift={(9*\i,0)}]
 \draw[gray,rounded corners](-1,-10.9)rectangle(6.8,7.1);
 \node at(2.9,6.3){known tower};
-\tcubes{.4}{0}{\a}\node[below]at(.9,0){in};
+\tcubes{.4}{0}{\a}\node[below,text height=1.6ex,text depth=.3ex]at(.9,0){in};
 \draw[->,thick](1.8,1)--(3.6,1);
-\tcubes{4.4}{0}{\b}\node[below]at(4.9,0){out};
+\tcubes{4.4}{0}{\b}\node[below,text height=1.6ex,text depth=.3ex]at(4.9,0){out};
 \draw[gray!60](-1,-2)--(6.8,-2);
 \node at(2.9,-2.9){P and Q went in};
 \tcells{1.4}{-9.8}{6}\node[below]at(1.9,-9.8){P};

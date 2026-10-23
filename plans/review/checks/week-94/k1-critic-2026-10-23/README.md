@@ -1,0 +1,5 @@
+# Independent critic review of Week 94 K–1 Problems 4–6
+
+`review.md` is the independent critic's review of the new K–1 pages (W94-K-v2) and guide (W94-F-v2), written by a fresh agent with `worksheet-workflow/stages/critic.md` on October 23, 2026. `scripts/k1_check.py` reads the drawn heights from the problem files; run it with the path to `lowell-math-circle-year-2/source/week-94/problems`. `k1_check.out` is its output on v2.
+
+The same day, its four shoulds were fixed in W94-K-v3 and W94-F-v3. The rule now says a machine always adds the same extra, and P5 says P and Q went into the same machine. The keeper's extra waits behind the cover as a cube stick, and P4 ends by lifting the cover to check. The P4 table asks only for towers given and the extra found. The guide says children "may" ask for several towers. From the coulds it took only one-line changes: the shorter P4 sentence, aligned in/out labels, "color", the P5 extension's empty-tower case, a forward-check hint, the P3 timing and a crayon per child. Coulds 6 and 7 (drawn outputs in the P6 panels, larger cells) are deferred. The script still passes on v3.

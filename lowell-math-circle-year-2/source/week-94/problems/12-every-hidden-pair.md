@@ -8,7 +8,7 @@ kernel = 'Reports 7 and 10 fit six pairs, one for each extra: (6, 9), (5, 8), (4
 +++
 
 ## prompt [K-1]
-Build every pair of towers that could have gone in, and colour each pair you find. Could P be taller than Q?
+P and Q went into the same machine: build and color every pair of towers that could have gone in. Could P be taller than Q?
 
 ## prompt
 Two hidden strips give these reports. Find every possible pair of lengths.

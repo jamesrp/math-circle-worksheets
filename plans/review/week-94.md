@@ -44,7 +44,7 @@ Every report is a length plus one shared extra. Raising the lengths by t and low
 11. **could**, 2–3 P1: ask "How few strips do you need?", so that one standard being enough becomes a finding.
 12. **could**, 2–3 P1: the keeper writes the extra under the cover, as in P5.
 
-Fixed October 23, 2026 (v2): fix 1 with K–1 Problems 4–6 on two new pages (the tower machine, every pair for outputs 4 and 6, a known tower picking the pair) and their guide route, answers, timing and materials; fixes 2–9 as proposed; 10–12 deferred.
+Fixed October 23, 2026 (v2): fix 1 with K–1 Problems 4–6 on two new pages (the tower machine, every pair for outputs 4 and 6, a known tower picking the pair) and their guide route, answers, timing and materials; fixes 2–9 as proposed; 10–12 deferred. An independent critic then reviewed the new K–1 pages, and its four shoulds were fixed in K–1 v3 ([checks/week-94/k1-critic-2026-10-23/](checks/week-94/k1-critic-2026-10-23/README.md)).
 
 ## Overlaps
 
