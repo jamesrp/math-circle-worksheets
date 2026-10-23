@@ -1,6 +1,6 @@
 # Week 76: Substitution strips
 
-One shared Grades 3–5 prototype: 4 student pages, a separate 5-page theorem-first adult guide and a page of letter tiles to print and cut. Independently reviewed and digitally checked. **Promoted after organizer review on October 15, 2026.** The week number is a library identifier, not an adopted schedule. Physical preparation/handling and classroom piloting remain unperformed.
+One shared Grades 3–5 prototype: 4 student pages, a separate 5-page theorem-first adult guide and a page of letter tiles to print and cut. Independently reviewed and digitally checked. **Promoted after organizer review on October 15, 2026 (F76-35-v1).** The October 23 revision (F76-35-v2, F76-FAC-v3, F76-M-v1) post-dates that approval and has not been re-approved. The week number is a library identifier, not an adopted schedule. Physical preparation/handling and classroom piloting remain unperformed.
 
 ## Rebuild from this package
 

@@ -35,7 +35,7 @@ check((len(S), len(G), len(M)) == (4, 5, 1), f'page counts 4/5/1: {len(S)}/{len(
 for i, p in enumerate(S):
     check('Week 76 / F76-35-v2' in flat(p), f'student p.{i+1} footer F76-35-v2')
 for i, p in enumerate(G):
-    check('Week 76 / F76-FAC-v2' in flat(p), f'guide p.{i+1} footer F76-FAC-v2')
+    check('Week 76 / F76-FAC-v3' in flat(p), f'guide p.{i+1} footer F76-FAC-v3 (v2 until the October 23 critic follow-up)')
 check('Week 76 / F76-M-v1' in flat(M[0]), 'tile page footer F76-M-v1')
 
 s = ' '.join(flat(p) for p in S)

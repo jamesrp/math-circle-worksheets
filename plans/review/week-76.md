@@ -46,7 +46,9 @@ Rows grow from A by replacing every A with AB and every B with BA at once; each 
 10. **could**, AB and BA dominoes for growth would make the pair invariant physical.
 11. **could**, P3: "Keep a record that settles each decision" → "Show what settles each claim."
 
-October 23, 2026: shoulds 1–6 and coulds 7, 9 and 11 fixed, after storing the week as problem files (student F76-35-v2, guide F76-FAC-v2 at 5 pages, new letter-tile page F76-M-v1); the K–1 route is guide-only. Could 8 is left (Problem 4 established "cut piece"), and could 10 is left (pair dominoes would build in Problem 2's answer). Checked by `source/week-76/editable/review/verify_card_fixes_2026_10_23.py`.
+October 23, 2026: shoulds 1–6 and coulds 7, 9 and 11 fixed, after storing the week as problem files (student F76-35-v2, guide F76-FAC-v2 at 5 pages, new letter-tile page F76-M-v1); the K–1 route is guide-only. Could 8 is left (Problem 4 established "cut piece"), and could 10 is left (pair dominoes would build in Problem 2's answer). Checked by `source/week-76/editable/review/verify_card_fixes_2026_10_23.py`. The organizer approved F76-35-v1 on October 15; this revision (v2) post-dates that approval and has not been re-approved, and the approved PDFs are in `week-76/archive-before-card-fixes-2026-10-23/`.
+
+**Critic follow-up, October 23, 2026 (F76-FAC-v3):** an independent critic asked for the re-approval sentence above, and found that the guide's print list gave the K–1 route no copies of pages 1–2 and counted one kit for a K–1 table of two pairs. The list now names one copy of pages 1–2 for the parent and says the K–1 kit is shared, as the route describes; the page index's `guide_routes` gives the band-view menu and a K–1 slice pages 1–2. The README and catalog now say v2 is not re-approved. Unpiloted.
 
 ## Overlaps
 

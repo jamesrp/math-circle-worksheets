@@ -32,7 +32,7 @@ The packets and these views are unpiloted, as their weeks are.
 | 73 | The gentlest stretch | [4 pages](../week-73/week-73-students.pdf) | — | — | whole packet | [menu](week-73/week-73-menu.pdf) |
 | 74 | Doubling elevators | [4 pages](../week-74/week-74-students.pdf) | [1 of 4](week-74/week-74-k-1.pdf): pp. 1, the guide's adult-led route | [2 of 4](week-74/week-74-grades-2-3.pdf): pp. 1–2, the guide's adult-led route | whole packet | [menu](week-74/week-74-menu.pdf) |
 | 75 | Twists on a cylinder | [4 pages](../week-75/week-75-students.pdf) | — | — | whole packet | [menu](week-75/week-75-menu.pdf) |
-| 76 | Substitution strips | [4 pages](../week-76/week-76-students.pdf) | — | whole packet | whole packet | [menu](week-76/week-76-menu.pdf) |
+| 76 | Substitution strips | [4 pages](../week-76/week-76-students.pdf) | [2 of 4](week-76/week-76-k-1.pdf): pp. 1–2, the guide's adult-led route | whole packet | whole packet | [menu](week-76/week-76-menu.pdf) |
 | 77 | Persistent holes | [6 pages](../week-77/week-77-students.pdf) | — | — | whole packet | [menu](week-77/week-77-menu.pdf) |
 | 78 | Three-armed lines | [5 pages](../week-78/week-78-students.pdf) | — | — | whole packet | [menu](week-78/week-78-menu.pdf) |
 | 79 | Numbered-ball detectives | [6 pages](../week-79/week-79-students.pdf) | — | [5 of 6](week-79/week-79-grades-2-3.pdf): pp. 1–3, 5–6 | whole packet | [menu](week-79/week-79-menu.pdf) |
