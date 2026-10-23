@@ -57,7 +57,7 @@
   ok   P2 page: 12 story cells = 4 bags x 3 draws; no box for a fifth bag
   ok   P3 printed bag R3/B3 (6 counters = four draws)
   ok   P3: 6 four-draw colour stories end at 3R/3B: RRBB, RBRB, RBBR, BRRB, BRBR, BBRR  [key]
-  ok   P3 page: 24 cells = 6 rows of 4 (one row per colour story)
+  ok   P3 page: 40 cells = 10 rows of 4 (eight story rows for 6 stories, one row under each of two bag boxes)
   note P3 other reading - marked stories ending 3R/3B: 24 (= 6 words x 2!2!)
   ok   P3: blue-majority four-draw bags are 1R/5B (BBBB) and 2R/4B (RBBB, BRBB, BBRB, BBBR)  [key]
   ok   P4 printed finishes ['R5/B1', 'R4/B2', 'R3/B3']
@@ -68,7 +68,7 @@
 
 == D. Grades 2-3
   ok   P1: RR->3R/1B, RB->2R/2B, BR->2R/2B, BB->1R/3B; only 2R/2B has more than one story
-  note P1 page boxes: 14 (2 launch + 4 two-cell stories + 4 final-bag boxes = 14)
+  note P1 page boxes: 17 (2 launch + 4 two-cell stories + 4 final-bag boxes = 14)
   ok   P2 tree: roots ['R1', 'B1'], 12 boxes = 6 second-draw + 6 colour boxes
   ok   P2: the six marked histories and finals equal the guide's table
   ok   P2: histories per final colours {(3, 1): 2, (2, 2): 2, (1, 3): 2} - all tied, none has most
@@ -102,7 +102,7 @@
   note 2-3 P1 all four story finals at once: R=8, B=8;  K-1 P4 all five predecessor bags at once: R=16, B=9
 
 == G. Bonus companion
-  ok   p.1 demo reads R0 B0 | draw R0 | R0 B0 B1: ['R0', 'B0', 'R0', 'R0', 'B0', 'B1']
+  ok   p.1 demo reads R1 B1 | draw R1 | R1 B1 B2 (marks from 1 since 3e5ac6e): ['R1', 'B1', 'R1', 'R1', 'B1', 'B2']
   ok   p.1 demo: draw R0 under add-other adds B1
   note P1 copy : 6 marked stories, each {Fraction(1, 6)}, totals 0/1/2 = [Fraction(1, 3), Fraction(1, 3), Fraction(1, 3)]
   note P1 other: 6 marked stories, each {Fraction(1, 6)}, totals 0/1/2 = [Fraction(1, 6), Fraction(2, 3), Fraction(1, 6)]
@@ -119,7 +119,7 @@
   ok   P2: tied 1/2 by exactly the six 2R2B words
   ok   P2 key: forecasts 1/6..5/6 with 1,4,6,4,1 stories; RRRB, RRBR -> 2/3; RBBB, BRBB -> 1/3
   ok   P2: next-red forecast (r+1)/(r+b+2) = red share of the current bag after every 4-draw history
-  ok   P3: the 12 printed cards are exactly the 12 marked two-draw histories
+  ok   P3: the 12 printed cards are exactly the 12 marked two-draw histories (marks from 1 since 3e5ac6e)
   ok   P3: each card 1/(3x4) = 1/12
   ok   P3: six final bags, two cards each: {(3, 1, 1): 2, (2, 2, 1): 2, (2, 1, 2): 2, (1, 3, 1): 2, (1, 2, 2): 2, (1, 1, 3): 2}
   ok   P3: colour words not equal (RR 1/6, RG 1/12)
@@ -137,12 +137,8 @@
   note bonus materials: copy RBG 3 draws needs at most 4 of one colour (kit: six per colour)
 
 == H. Printed guide text against its source (rendering)
-  note guide.md has '1*2*3=6'
-  note guide.md has '3*4*...*(n+2)=(n+2)!/2'
-  FAIL bonus guide p.3 prints the product for (3,0,0) correctly (printed '123=6'; guide.md has '1*2*3=6')
-  FAIL bonus guide p.3 prints the total-histories product correctly (printed '34...*(n+2)'; guide.md has '3*4*...*(n+2)')
-  note printed: 'Total histories are 34...*(n+2)=(n+2)!/2'
+  ok   bonus guide p.3 prints the product for (3,0,0) correctly (printed '1×2×3=6'; guide.md has '1*2*3=6')
+  ok   bonus guide p.3 prints the total-histories product correctly (printed '3×4×...×(n+2)'; guide.md has '3*4*...*(n+2)')
+  note printed: 'Total histories are 3×4×...×(n+2)=(n+2)!/2'
 
-FAILURES: 2
-  bonus guide p.3 prints the product for (3,0,0) correctly (printed '123=6'; guide.md has '1*2*3=6')
-  bonus guide p.3 prints the total-histories product correctly (printed '34...*(n+2)'; guide.md has '3*4*...*(n+2)')
+FAILURES: 0

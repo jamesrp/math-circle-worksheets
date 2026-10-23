@@ -188,7 +188,9 @@ PASS RV p6 example: frames read 01, 11, 10 as captioned: (['01', '11', '10'], ['
 PASS RV p7 example: clockwise from the 0 the circle reads 011, windows 01, 11, 10: 011
 PASS RV p7 example: the join mark sits on the arc from the bottom-left 1 to the 0: (150, -150, -90)
 PASS RV guide p. 1 theorem: closed iff balanced; open iff one +1 start, one -1 end, rest balanced (6413 connected digraphs, up to 4 islands, 5 streets): []
-FAIL RV guide p. 3 "Open walks" as worded: one island at +1 and one at -1 always give a walk: streets AB CD CD BC CB, out-in {'A': 1, 'B': -1, 'C': 2, 'D': -2}, walk exists: False, augmented balances: False
-FAIL base guide p. 7 as worded: in-degree = out-degree everywhere gives an Euler circuit: return-visit Town 7: balanced everywhere = True, closed walk = False
+PASS RV guide p. 3 "Open walks" as reviewed (one island at +1, one at -1) has a counterexample with no walk: streets AB CD CD BC CB, out-in {'A': 1, 'B': -1, 'C': 2, 'D': -2}, walk exists: False, augmented balances: False
+PASS current RV guide "Open walks" adds "every other island balances"
+PASS base guide p. 7 as reviewed (in-degree = out-degree everywhere gives an Euler circuit) has a counterexample: return-visit Town 7: balanced everywhere = True, closed walk = False
+PASS current base guide says "a connected directed graph has an Euler circuit"
 
-FAILURES: ['RV guide p. 3 "Open walks" as worded: one island at +1 and one at -1 always give a walk', 'base guide p. 7 as worded: in-degree = out-degree everywhere gives an Euler circuit']
+FAILURES: none

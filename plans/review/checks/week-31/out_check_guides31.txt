@@ -19,10 +19,10 @@ ok   K P2: guide prints "(4,0) is blocked first by (1,0); (0,4) by (0,1); (2,2) 
 ok   K P2 second picture
 ok   K P3 one-blocker list (9 printed) is complete and correct
 ok   K P3 two-blocker list (5 printed) is complete and correct
-ok   K P4: guide prints "Row y=1 contains only visible dots, including (0,1), so there cannot be a hidden dot in ev..."
+ok   K P4: guide as reviewed (archived; reworded since) prints "Row y=1 contains only visible dots, including (0,1), so there cannot be a hidden dot in ev..."
 ok   K P4: (0,y) hidden for y=2..6
-ok   K P5: guide prints "Three first dots tie: (1,0),(0,1),(1,1). Each hides five dots, its multiples 2 through 6."
-ok   K P5: guide prints "Every other primitive direction has some coordinate at least 2, so it reaches at most thre..."
+ok   K P5: guide as reviewed (archived; reworded since) prints "Three first dots tie: (1,0),(0,1),(1,1). Each hides five dots, its multiples 2 through 6."
+ok   K P5: guide as reviewed (archived; reworded since) prints "Every other primitive direction has some coordinate at least 2, so it reaches at most thre..."
 ok   K P5: every other first dot hides at most 2
 ok   2-3 P1: guide prints "Three possible first-blocker marks: (6,4) → (3,2), (6,3) → (2,1), (4,4) → (1,1)."
 ok   2-3 P1 sample first blockers
@@ -38,7 +38,7 @@ ok   2-3 P3: (4,4) three, (6,6) five
 ok   2-3 P5: guide prints "(12,8) is hidden (first point (3,2), three blockers); (10,7) is visible; (15,5) is hidden ..."
 ok   2-3 P5 predictions
 ok   2-3 P6: guide prints "Every interior point of the segment to (x,1) has height strictly between 0 and 1, so canno..."
-ok   4-5 P1: guide prints "Hidden examples with distinct counts: (2,2) has (1,1); (3,3) has (1,1),(2,2); (4,4) has (1..."
+ok   4-5 P1: guide as reviewed (archived; reworded since) prints "Hidden examples with distinct counts: (2,2) has (1,1); (3,3) has (1,1),(2,2); (4,4) has (1..."
 ok   4-5 P1 samples
 ok   4-5 P2: guide prints "For (6,4), first (3,2), only blocker (3,2). For (6,3), first (2,1), blockers (2,1),(4,2). ..."
 ok   4-5 P2 (6,4),(6,3),(5,3)
@@ -56,11 +56,13 @@ ok   4-5 P5 group of (6, 6)
 ok   4-5 P6: guide prints "Its denominator must divide both u and v, hence is 1."
 ok   4-5 P7: guide prints "Target (100,100) has exactly 99 blockers, (k,k) for k=1,...,99; (100,0) is another valid e..."
 ok   4-5 P7: 99 blockers
-ok   extension: guide prints "for example (3,3) remains hidden behind (2,2), while (4,3) is now visible."
+ok   extension: guide as reviewed (archived; reworded since) prints "for example (3,3) remains hidden behind (2,2), while (4,3) is now visible."
    from O: (3,3) blockers [(1, 1), (2, 2)]; (4,3) visible = True
    from (1,1): (3,3) blockers [(2, 2)]; (4,3) visible = True
 ok   extension: from (1,1), (3,3) is hidden behind (2,2) only ("remains hidden" is right)
-FAIL extension: "(4,3) is NOW visible" needs (4,3) hidden from O -- but gcd(4,3)=1, it was already visible
+ok   finding confirmed: the guide as reviewed says "(4,3) is now visible", but gcd(4,3)=1, so it was already visible from O
+ok   extension (current): guide prints "for example (3,3) remains hidden behind (2,2), while (4,2), hidden from O behind (2,1), is..."
+ok   current extension: (4,2) hidden from O behind (2,1) and visible from (1,1); (3,5) visible from O and hidden from (1,1) behind (2,3)
    on the 0..6 board, dots hidden from O but visible from (1,1): [(0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (2, 0), (2, 2), (2, 4), (2, 6), (3, 0), (3, 6), (4, 0), (4, 2), (4, 6), (5, 0), (6, 0), (6, 2), (6, 3), (6, 4)]
    on the 0..6 board, dots visible from O but hidden from (1,1): [(1, 3), (1, 4), (1, 5), (1, 6), (3, 1), (3, 5), (4, 1), (5, 1), (5, 3), (6, 1)]
 ok   extension fix candidates: (4,2) becomes visible, (3,5) becomes hidden
@@ -97,5 +99,4 @@ ok   P6: guide prints "Finite bounded-6 growth gives all 23 positive coprime tar
 ok   P6: 23 coprime targets with 1 <= a, b <= 6
 ok   materials: guide prints "Working grid spacing is 20 mm."
 
-1 failures
-FAILED: extension: "(4,3) is NOW visible" needs (4,3) hidden from O -- but gcd(4,3)=1, it was already visible
+0 failures

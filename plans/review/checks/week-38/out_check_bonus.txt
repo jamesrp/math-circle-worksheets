@@ -49,7 +49,10 @@ PASS overview lanes n=8 R: 4 pieces, 8 edges, ['annulus', 'annulus', 'annulus', 
 row M: before joining strip1 end {'T': 'dot', 'B': 'sq'}, strip2 end {'T': 'dot', 'B': 'sq'}; alignment lines pair [('dot', 'dot', 'straight'), ('sq', 'sq', 'straight')]; strip1 corner -> strip2 corner {'T': 'T', 'B': 'B'} => seam M
 row R: before joining strip1 end {'T': 'dot', 'B': 'sq'}, strip2 end {'T': 'dot', 'B': 'sq'}; alignment lines pair [('dot', 'dot', 'crossing'), ('sq', 'sq', 'crossing')]; strip1 corner -> strip2 corner {'T': 'T', 'B': 'B'} => seam M
 PASS P2 visual, M row: aligning the same marks (dot-dot) with unchanged marks is a matching seam
-FAIL P2 visual, R row: the drawn pairing should be a reversing seam (top corner of strip 1 to bottom corner of strip 2); a FAIL here means the R row pairs the same corners as the M row (finding in math.md)
+PASS finding confirmed (bonus as reviewed, archived): the P2 R row pairs the same corners as the M row, not a reversing seam
+row M: before joining strip1 end {'T': 'dot', 'B': 'sq'}, strip2 end {'T': 'dot', 'B': 'sq'}; alignment lines pair [('dot', 'dot', 'straight'), ('sq', 'sq', 'straight')]; strip1 corner -> strip2 corner {'T': 'T', 'B': 'B'} => seam M
+row R: before joining strip1 end {'T': 'dot', 'B': 'sq'}, strip2 end {'T': 'dot', 'B': 'sq'}; alignment lines pair [('dot', 'sq', 'straight'), ('sq', 'dot', 'straight')]; strip1 corner -> strip2 corner {'T': 'B', 'B': 'T'} => seam R
+PASS current bonus P2 visual: M row a matching seam and R row a reversing seam (top corner of strip 1 to bottom corner of strip 2)
 P2 printed seam words (between strips, then closing seam): ['MMM', 'MMR', 'MRR', 'RRR']
 PASS P2: printed words are MMM, MMR, MRR, RRR (guide order)
    MMM: {'pieces': 1, 'boundary_circles': 2, 'per_piece_boundaries': [2], 'types': ['annulus'], 'boundary_is_manifold': True}
@@ -88,4 +91,4 @@ PASS per pair: 4 + 3 + 4 + 2 = 13 strips
 PASS six kits: 78 strips = 24 + 18 + 24 + 12, 72 edge dots
 PASS lane cut positions 80/3, 160/3 mm and 20/40/60 mm
 
-56 passed, 1 failed
+58 passed, 0 failed

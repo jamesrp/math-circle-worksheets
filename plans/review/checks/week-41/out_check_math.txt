@@ -1,12 +1,12 @@
 Week 41 independent math check
-repository: math-circle-worksheets
+repository: convert-w26
 
 == Page-1 worked example (all bands): two steps right from H
 PASS RR from H visits H, E, D on the portal map
 PASS E is in the original copy, D in the next copy right
    k-1: printed words (page, word) = [(1, 'RRD'), (1, 'UU'), (1, 'LD'), (1, 'UURR')]
-   grades-2-3: printed words (page, word) = [(1, 'RRD'), (1, 'UU'), (1, 'LD'), (1, 'UURR'), (3, 'RRR'), (3, 'UUU'), (3, 'RRRUUU'), (3, 'RRLL'), (4, 'RRRUUU'), (4, 'RURURU')]
-   grades-4-5: printed words (page, word) = [(1, 'RRD'), (1, 'UU'), (1, 'LD'), (1, 'UURR'), (3, 'RRRUUU'), (3, 'UUURRR'), (3, 'RRLL'), (3, 'RRRUUULLLDDD'), (4, 'RRRUUULLLDDD'), (4, 'RRR'), (4, 'RRRUUU'), (4, 'UUURRR')]
+   grades-2-3: printed words (page, word) = [(1, 'RRD'), (1, 'UU'), (1, 'LD'), (1, 'UURR'), (3, 'RRR'), (3, 'UUU'), (3, 'RRRUUU'), (3, 'RRLL'), (4, 'RRRUUU'), (4, 'RURURU'), (4, 'RRRDDD')]
+   grades-4-5: printed words (page, word) = [(1, 'RRD'), (1, 'UU'), (1, 'LD'), (1, 'UURR'), (2, 'RRRUUU'), (2, 'UUURRR'), (2, 'RRLL'), (2, 'RRRUUULLLDDD'), (4, 'RRRUUULLLDDD'), (4, 'RRR'), (5, 'RRRUUU'), (5, 'UUURRR')]
 
 == Problem 1 (all bands): RRD, UU, LD, UURR from H
 PASS k-1 p.1 prints exactly the words ['RRD', 'UU', 'LD', 'UURR']
@@ -91,10 +91,11 @@ PASS RRRUUU: finishes at H in copy (1, 1) (guide (1, 1)); stays on printed array
 PASS RRLL: finishes at H in copy (0, 0) (guide (0, 0)); stays on printed array: True
 PASS RRLL enters the right copy before returning (guide p.4)
 
-== Grades 2-3 Problem 4: RRRUUU vs RURURU
-PASS 2-3 p.4 prints RRRUUU and RURURU
+== Grades 2-3 Problem 4: RRRUUU vs RURURU (and RRRDDD since the v3 card fixes, 6e5b742)
+PASS 2-3 p.4 prints RRRUUU, RURURU and RRRDDD
 PASS both finish at H and in copy (1,1): yes and yes (guide p.4)
-PASS both stay on the printed array
+PASS RRRDDD finishes at H in copy (1, -1) (commit 6e5b742: (1,-1))
+PASS all three stay on the printed array
 
 == Grades 2-3 Problem 5: visit another copy and finish at the original H
 PASS guide p.4 RRRLLL: ends at original H, visits [(1, 0)]
@@ -110,8 +111,8 @@ PASS guide p.5 LLL -> (-1, 0)
 PASS guide p.5 UUU -> (0, 1)
 PASS guide p.5 DDD -> (0, -1)
 
-== Grades 4-5 Problem 3: finishing copies
-PASS 4-5 p.3 prints ['RRRUUU', 'UUURRR', 'RRLL', 'RRRUUULLLDDD']
+== Grades 4-5 finishing copies (Problem 3 as reviewed; Problem 2 on p.2 since the v3 card fixes swapped Problems 2 and 3, 6e5b742)
+PASS 4-5 p.2 prints ['RRRUUU', 'UUURRR', 'RRLL', 'RRRUUULLLDDD']
 PASS RRRUUU -> (1, 1) (guide (1, 1)); on printed array: True
 PASS UUURRR -> (1, 1) (guide (1, 1)); on printed array: True
 PASS RRLL -> (0, 0) (guide (0, 0)); on printed array: True
@@ -127,7 +128,7 @@ PASS copy (0, -1): its H is at lifted (3m,3n) = (0, -3)
 PASS copy (1, -1): its H is at lifted (3m,3n) = (3, -3)
 
 == Grades 4-5 Problem 4: which trip shrinks to staying at H
-PASS 4-5 p.4 prints RRRUUULLLDDD, RRR (P4) and RRRUUU, UUURRR (P5)
+PASS 4-5 p.4 prints RRRUUULLLDDD, RRR (P4) and p.5 prints RRRUUU, UUURRR (P5)
 PASS nine slides give RRRLLLUUUDDD (guide p.5)
 PASS each of the nine is a legal square slide
 PASS then six cancellations reach the empty trip (15 moves in all)

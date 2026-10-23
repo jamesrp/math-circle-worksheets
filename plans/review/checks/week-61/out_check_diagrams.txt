@@ -14,9 +14,9 @@ Page 1: route example (Mark P and Q -> great circle -> shorter arc)
 
 Page 2: angle convention at P
   ok   ball panel: P at the front centre
-  ok   ball panel: side to [0.766 0.    0.643] lies in a centre plane through P (res 0.0000)
+  ok   ball panel: side to [ 0.766 -0.     0.643] lies in a centre plane through P (res 0.0000)
   ok   ball panel: side to [-0.542  0.542  0.643] lies in a centre plane through P (res 0.0000)
-  ok   ball panel: surface angle between the two sides at P = 135.01 deg (record says 135)
+  ok   ball panel: surface angle between the two sides at P = 135.00 deg (record says 135)
   ok   flat 'Directions close to P' panel: angle 135.00 deg
 
 Page 3: Problem 3 printed triangle
@@ -38,14 +38,14 @@ Page 4: 40-degree lune, nine-strip view
   ok   shading lies inside the 40 deg lune
   ok   top view: 9 spokes, gaps [40.0, 40.0, 40.0, 40.0, 40.0, 40.0, 40.0, 40.0, 40.0]
 
-Page 5: lune-pair example (80-80-80 triangle ABC)
-  ok   'Corner A': corners (80.19, 79.56, 79.56); B, C on the limb (z=0.009,0.009)
+Page 5: lune-pair example (70-70-70 triangle ABC since 3e0a91b; 80-80-80 as reviewed)
+  ok   'Corner A': corners (70.41, 69.71, 69.5); B, C on the limb (z=0.010,0.008)
   ok   'Corner A' shading is triangle ABC (cell +++)
   ok   'Circles AB and AC': blue circle through ['A', 'B', 'B*'] (res 0.0001)
   ok   'Circles AB and AC': blue circle through ['A', 'C', 'C*'] (res 0.0001)
   ok   'Pair at A: front' shades cells ['+++', '+--'] (pair at A = cells whose B and C signs agree)
   ok   patch X is in cell +--: covered by pairs ['A'] only -> count 1, as the table says
-  ok   'Same pair: back' is a rotation of the front view (det +1, residual 0.0101)
+  ok   'Same pair: back' is a rotation of the front view (det +1, residual 0.0116)
   ok   'Same pair: back' shades cells ['-++', '---']
 
 Page 5: Problem 5 octant views
@@ -83,26 +83,23 @@ Page 7: Problem 7 records
   ok   record (60, 60, 90): printed sketch has corners A,B,C = (60.0, 60.0, 90.0)
   ok     side is a minor great-circle arc (70.5 deg, res 0.0000)
   ok     side is a minor great-circle arc (54.7 deg, res 0.0000)
-  ok     side is a minor great-circle arc (54.7 deg, res 0.0001)
+  ok     side is a minor great-circle arc (54.7 deg, res 0.0000)
   ok   record (80, 80, 80): printed sketch has corners A,B,C = (80.0, 80.0, 80.0)
   ok     side is a minor great-circle arc (77.9 deg, res 0.0001)
-  ok     side is a minor great-circle arc (77.9 deg, res 0.0001)
+  ok     side is a minor great-circle arc (77.9 deg, res 0.0000)
   ok     side is a minor great-circle arc (77.9 deg, res 0.0001)
   ok   record (100, 100, 100): printed sketch has corners A,B,C = (100.0, 100.0, 100.0)
   ok     side is a minor great-circle arc (98.5 deg, res 0.0001)
-  ok     side is a minor great-circle arc (98.5 deg, res 0.0000)
+  ok     side is a minor great-circle arc (98.5 deg, res 0.0001)
   ok     side is a minor great-circle arc (98.5 deg, res 0.0001)
 
 Page 5 example vs Problem 6 (guide calls the example a 'non-task 80 degree triangle')
-  INFO example front vs P6 front: max label-point offset 0.0000 radii; back vs back 0.0000 radii
+  INFO example front vs P6 front: max label-point offset 0.3261 radii; back vs back 0.3261 radii
   INFO -> the page-5 example is the Problem 6 triangle in the Problem 6 views; its shaded pair at A
        (front cells +++ and +--, back cells -++ and ---) is P6 regions 1, 4, 5, 8: P6's whole A column.
 
 Vertex-label boxes that sit on a shaded region at its own vertex (white box drawn over the shape)
-  INFO page 5, figure at (131,163): label A box 1.8-11.2 pt above its dot lies over shading (23/25 probe points)
-  INFO page 5, figure at (364,163): label A box 1.8-11.2 pt above its dot lies over shading (23/25 probe points)
-  INFO page 5, figure at (481,163): label A* box 1.8-11.4 pt above its dot lies over shading (21/25 probe points)
-  INFO page 7, figure at (458,181): label B box 2.3-11.7 pt above its dot lies over shading (15/25 probe points)
-  INFO page 7, figure at (458,181): label C box 2.3-11.7 pt above its dot lies over shading (15/25 probe points)
+  INFO page 7, figure at (458,166): label B box 2.3-11.7 pt above its dot lies over shading (15/25 probe points)
+  INFO page 7, figure at (458,166): label C box 2.3-11.7 pt above its dot lies over shading (15/25 probe points)
 
 ALL DIAGRAM CHECKS PASSED
