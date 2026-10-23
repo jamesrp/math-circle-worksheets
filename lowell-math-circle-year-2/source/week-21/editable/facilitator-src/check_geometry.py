@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Independent exact checks, transcribed from final student drawing data.
-Uses only Python's standard library. Does not execute/edit student builders.
+Uses only Python's standard library. Does not execute or edit the student sources: it
+parses figures.py's board assignments and reads the problem files' board order.
 """
 from fractions import Fraction as F
 from pathlib import Path
@@ -44,8 +45,23 @@ def solve(board,pair):
   value=math.sqrt(float(dist2(a,q)))+math.sqrt(float(dist2(b,q)))
   assert value+1e-11>=minv
  return {'contact':[str(x) for x in m],'contact_along':str(m[1-axis]),'minimum_squared_cm2':str(sq),'minimum_cm':minv,'reflected_finish':[str(x) for x in r]}
+def sources():
+ """The student board data (figures.py) and each band's board order (the problem files).
+ Since October 23, 2026 the student pages are problem files: in the repository they are
+ two folders up, in the portable ZIP in problem-files/."""
+ for week in (FINAL/'problem-files',FINAL.parent):
+  if (week/'week.toml').exists() and (week/'figures.py').exists():break
+ else:raise SystemExit('Cannot find the Week 21 problem files (week.toml, figures.py).')
+ import tomllib
+ order={}
+ for f in sorted((week/'problems').glob('*.md')):
+  head,body=f.read_text().split('+++')[1:3];meta=tomllib.loads(head)
+  m=re.search(r"board\('(\w+)'\)",body)
+  if meta.get('kind')=='setup' or not m:continue
+  for band in meta['grades']:order.setdefault(band,[]).append(m.group(1))
+ return week/'figures.py',{'k-1':order['K-1'],'grades-2-3':order['2-3'],'grades-4-5':order['4-5']}
 def main():
- source=FINAL/'src/build_packets.py';tree=ast.parse(source.read_text());found={};maps={}
+ source,maps=sources();tree=ast.parse(source.read_text());found={}
  for n in tree.body:
   if isinstance(n,ast.Assign) and isinstance(n.value,ast.Call) and isinstance(n.value.func,ast.Name) and n.value.func.id in ('horiz','vert'):
    name=n.targets[0].id
@@ -56,10 +72,6 @@ def main():
    if 'marks' in kw:
     assert {k:F(str(x)) for k,x in ast.literal_eval(kw['marks']).items()}=={k:F(v) for k,v in DATA[name]['marks'].items()}
    found[name]=True
-  if isinstance(n,ast.Assign) and isinstance(n.targets[0],ast.Name) and n.targets[0].id=='packets':
-   for key,val in zip(n.value.keys,n.value.values):
-    pages=next(k.value for k in val.keywords if k.arg=='pages')
-    maps[ast.literal_eval(key)]=[v.elts[1].id for v in pages.elts]
  assert set(found)==set(DATA) and maps==MAP
  out={name:{pair:solve(board,pair) for pair in ASSIGNED[name]} for name,board in DATA.items()}
  for name,b in DATA.items():
