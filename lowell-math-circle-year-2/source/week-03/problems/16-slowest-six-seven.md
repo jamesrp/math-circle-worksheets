@@ -7,7 +7,7 @@ page = "new"
 +++
 
 ## prompt
-Find a machine with 6 slots that takes as many turns as possible to bring all the blocks home. Do the same for 7 slots. For each, explain why no machine with that many slots takes more turns.
+Find a machine with 6 slots that takes as many turns as possible to bring all the cubes home. Do the same for 7 slots. For each, explain why no machine with that many slots takes more turns.
 
 ## text
 \fig[16pt]{u-p4}

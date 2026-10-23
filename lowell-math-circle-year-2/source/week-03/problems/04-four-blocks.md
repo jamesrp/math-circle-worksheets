@@ -1,13 +1,13 @@
 +++
 id = "w03.four-blocks"
-title = "Four blocks on two machines"
+title = "Four cubes on two machines"
 grades = ["K-1"]
 route = "first"
 page = "new"
 +++
 
 ## prompt
-Do the same with four blocks on each of these machines.
+Do the same with four cubes on each of these machines.
 
 ## text
 \fig{k-p2a}

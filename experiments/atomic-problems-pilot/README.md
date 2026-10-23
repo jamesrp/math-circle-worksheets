@@ -33,7 +33,7 @@ The three band packets rebuilt from the problem files have the same page counts 
 | Adult key, one entry per problem | 4 |
 | Session pack for KK1 / 3333 / 445, first route only | 30, against 53 for full packets |
 
-The Week 3 flow example (now in `source/week-03/`) rebuilds the same way, with the same result: pages, extracted text and every pixel at 100 dpi match the current K–1, 2–3 and 4–5 packets (10, 11 and 8 pages; October 23, TeX Live 2023):
+The Week 3 flow example (now in `source/week-03/`) rebuilds the same way. At the conversion its pages, extracted text and every pixel at 100 dpi matched the K–1, 2–3 and 4–5 packets of that day (10, 11 and 8 pages; October 23, TeX Live 2023); the same day the review card's page fixes were made in those files, so the current packets are built from them and the commands below now compare a rebuild with them:
 
 ```sh
 python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-03 --out tmp/week-03-views --tex

@@ -41,6 +41,8 @@ A pile is one to hand over when every move from it reaches one that is not; work
 
 October 23, 2026: fixes 1–3 are done in the guide, which also gives adults the words of fixes 4 and 5 for the K–1 pages; the student wording of 4 and 5 and fix 6 are deferred to the problem-file conversion. The source README link is fixed too.
 
+October 23, 2026, later: after the problem-file conversion, the K–1 wording of fixes 4 and 5 and fix 6 are on the pages (F07-K-v5, F07-M-v5), and the guide no longer supplies that wording.
+
 ## Overlaps
 
 Week 8 (Rook race and Nim) shares two-pile copying, which K–1 P8, 2–3 P7 and 4–5 P12 preview. Week 7 owns one pile with a menu; Week 8 owns free takes, XOR and the queen game. Keep both, Week 7 first. Week 60 shares only backward induction. No merge.

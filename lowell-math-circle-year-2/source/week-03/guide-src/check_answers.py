@@ -338,7 +338,7 @@ def check_k1():
            [["yellow", "green", "red", "blue"], ["blue", "yellow", "red", "green"], ["green", "blue", "red", "yellow"]])
     expect("  5-slot turns", order(ms[1].perm), 6)
     expect("  5-slot loops", loops(ms[1].perm), [(1, 3), (2, 4, 5)])
-    expect("  5-slot home times per block", home_times(ms[1].perm, ms[1].pictures), [2, 3, 2, 3, 3])
+    expect("  5-slot home times per cube", home_times(ms[1].perm, ms[1].pictures), [2, 3, 2, 3, 3])
     expect("  5-slot rows", run_until_home(ms[1].perm, ms[1].pictures)[1:], [
         ["red", "purple", "green", "blue", "yellow"],
         ["green", "yellow", "red", "purple", "blue"],
@@ -359,8 +359,8 @@ def check_k1():
 
     print("Problem 5")
     bad = [q for n in range(1, 8) for q in permutations(range(n)) if sum(q[i] != i for i in range(n)) == 1]
-    expect("  machines (1..7 slots) with exactly one block in a new slot", len(bad), 0)
-    expect("  smallest possible number of blocks that end up in a new slot (other than 0)",
+    expect("  machines (1..7 slots) with exactly one cube in a new slot", len(bad), 0)
+    expect("  smallest possible number of cubes that end up in a new slot (other than 0)",
            min(sum(q[i] != i for i in range(4)) for q in permutations(range(4)) if list(q) != [0, 1, 2, 3]), 2)
 
     print("Problem 6")
@@ -370,7 +370,7 @@ def check_k1():
     row1 = turn(a.pictures, a.perm)
     expect("  row after one turn", row1, ["red", "yellow", "blue", "green"])
     sols = [one(list(q)) for q in permutations(range(4)) if turn(row1, list(q)) == b.pictures]
-    expect("  machines on the second mat that put every block home", sols, [[3, 4, 2, 1]])
+    expect("  machines on the second mat that put every cube home", sols, [[3, 4, 2, 1]])
     expect("  equals the first machine with arrows reversed", sols[0], one(undo(a.perm)))
 
     print("Problem 7")
@@ -400,10 +400,10 @@ def check_m23():
     print("Problem 1")
     ms = [m for _, m in machines_in(byprob[1])]
     expect("  machines", [one(m.perm) for m in ms], [[4, 2, 1, 3], [3, 5, 4, 1, 2]])
-    expect("  per-block home times, machine 1", home_times(ms[0].perm, ms[0].pictures), [3, 1, 3, 3])
-    expect("  all blocks, machine 1", order(ms[0].perm), 3)
-    expect("  per-block home times, machine 2", home_times(ms[1].perm, ms[1].pictures), [3, 2, 3, 3, 2])
-    expect("  all blocks, machine 2", order(ms[1].perm), 6)
+    expect("  per-cube home times, machine 1", home_times(ms[0].perm, ms[0].pictures), [3, 1, 3, 3])
+    expect("  all cubes, machine 1", order(ms[0].perm), 3)
+    expect("  per-cube home times, machine 2", home_times(ms[1].perm, ms[1].pictures), [3, 2, 3, 3, 2])
+    expect("  all cubes, machine 2", order(ms[1].perm), 6)
     expect("  loops", [loops(m.perm) for m in ms], [[(1, 4, 3), (2,)], [(1, 3, 4), (2, 5)]])
 
     print("Problem 2")
@@ -492,9 +492,9 @@ def check_u45():
     print("Problem 1")
     ms = [m for _, m in machines_in(byprob[1])]
     expect("  machines", [one(m.perm) for m in ms], [[3, 2, 5, 1, 4], [5, 4, 1, 2, 3]])
-    expect("  per-block, machine 1", home_times(ms[0].perm, ms[0].pictures), [4, 1, 4, 4, 4])
+    expect("  per-cube, machine 1", home_times(ms[0].perm, ms[0].pictures), [4, 1, 4, 4, 4])
     expect("  all, machine 1", order(ms[0].perm), 4)
-    expect("  per-block, machine 2", home_times(ms[1].perm, ms[1].pictures), [3, 2, 3, 2, 3])
+    expect("  per-cube, machine 2", home_times(ms[1].perm, ms[1].pictures), [3, 2, 3, 2, 3])
     expect("  all, machine 2", order(ms[1].perm), 6)
     expect("  loops", [loops(m.perm) for m in ms], [[(1, 3, 5, 4), (2,)], [(1, 5, 3), (2, 4)]])
 
@@ -535,6 +535,10 @@ def check_u45():
         return out
     names = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q"]
     expect("  printed example", lay_out_and_shuffle(names[:8]), ["A", "5", "2", "6", "3", "7", "4", "8"])
+    packet = open(os.path.join(SRC, "grades-4-5.tex")).read()
+    rows = [r.split(",") for r in re.findall(r"\\foreach \\c \[count=\\i\] in \{([^}]*)\}", packet)]
+    expect("  printed rows: the deck, top half, bottom half, after one shuffle", rows,
+           [names[:8], names[:4], names[4:8], lay_out_and_shuffle(names[:8])])
     got = {}
     for N in (4, 6, 8, 10, 12):
         start = names[:N]
@@ -569,7 +573,7 @@ def check_u45():
         expect(f"  pair {k + 1}: B then A", one(then(B, A)), w[3])
         # physical check with blocks: run A, move the row, run B
         row = list("gbry")
-        expect(f"  pair {k + 1}: blocks agree with A then B", turn(turn(row, A), B), turn(row, then(A, B)))
+        expect(f"  pair {k + 1}: cubes agree with A then B", turn(turn(row, A), B), turn(row, then(A, B)))
         expect(f"  pair {k + 1}: blank mats", (ms[4 * k + 2].perm, ms[4 * k + 3].perm), (None, None))
 
     print("Problem 7")
@@ -599,7 +603,7 @@ def check_u45():
     print("Problem 8")
     der = [list(q) for q in permutations(range(4)) if all(q[i] != i for i in range(4))]
     pairs = [(a, b) for i, a in enumerate(der) for b in der[i + 1:] if then(a, b) == then(b, a)]
-    expect("  machines moving all four blocks", len(der), 9)
+    expect("  machines moving all four cubes", len(der), 9)
     expect("  unordered commuting pairs", len(pairs), 12)
     kinds = Counter((tuple(loop_lengths(a)), tuple(loop_lengths(b))) if loop_lengths(a) >= loop_lengths(b)
                     else (tuple(loop_lengths(b)), tuple(loop_lengths(a))) for a, b in pairs)

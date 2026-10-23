@@ -30,7 +30,7 @@ Problem 3
   [ok]   4-slot rows: [['yellow', 'green', 'red', 'blue'], ['blue', 'yellow', 'red', 'green'], ['green', 'blue', 'red', 'yellow']]
   [ok]   5-slot turns: 6
   [ok]   5-slot loops: [(1, 3), (2, 4, 5)]
-  [ok]   5-slot home times per block: [2, 3, 2, 3, 3]
+  [ok]   5-slot home times per cube: [2, 3, 2, 3, 3]
   [ok]   5-slot rows: [['red', 'purple', 'green', 'blue', 'yellow'], ['green', 'yellow', 'red', 'purple', 'blue'], ['red', 'blue', 'green', 'yellow', 'purple'], ['green', 'purple', 'red', 'blue', 'yellow'], ['red', 'yellow', 'green', 'purple', 'blue'], ['green', 'blue', 'red', 'yellow', 'purple']]
 Problem 4
   [ok]   targets printed beside the mats: ['2 turns', '3 turns', '4 turns']
@@ -40,13 +40,13 @@ Problem 4
   [ok]   example 1->2, 2->3, 3->1, 4->4 takes 3 turns: 3
   [ok]   example 1->2, 2->3, 3->4, 4->1 takes 4 turns: 4
 Problem 5
-  [ok]   machines (1..7 slots) with exactly one block in a new slot: 0
-  [ok]   smallest possible number of blocks that end up in a new slot (other than 0): 2
+  [ok]   machines (1..7 slots) with exactly one cube in a new slot: 0
+  [ok]   smallest possible number of cubes that end up in a new slot (other than 0): 2
 Problem 6
   [ok]   first machine: [4, 3, 1, 2]
   [ok]   second mat is blank: None
   [ok]   row after one turn: ['red', 'yellow', 'blue', 'green']
-  [ok]   machines on the second mat that put every block home: [[3, 4, 2, 1]]
+  [ok]   machines on the second mat that put every cube home: [[3, 4, 2, 1]]
   [ok]   equals the first machine with arrows reversed: [3, 4, 2, 1]
 Problem 7
   [ok]   blank 3-slot mats printed: 9
@@ -64,10 +64,10 @@ Problem 8
   [ok] number of problems: 8
 Problem 1
   [ok]   machines: [[4, 2, 1, 3], [3, 5, 4, 1, 2]]
-  [ok]   per-block home times, machine 1: [3, 1, 3, 3]
-  [ok]   all blocks, machine 1: 3
-  [ok]   per-block home times, machine 2: [3, 2, 3, 3, 2]
-  [ok]   all blocks, machine 2: 6
+  [ok]   per-cube home times, machine 1: [3, 1, 3, 3]
+  [ok]   all cubes, machine 1: 3
+  [ok]   per-cube home times, machine 2: [3, 2, 3, 3, 2]
+  [ok]   all cubes, machine 2: 6
   [ok]   loops: [[(1, 4, 3), (2,)], [(1, 3, 4), (2, 5)]]
 Problem 2
   [ok]   machines: [[2, 5, 1, 4, 3], [4, 3, 6, 1, 2, 5], [4, 1, 6, 2, 3, 5], [5, 6, 3, 1, 4, 2]]
@@ -126,9 +126,9 @@ Problem 8
   [ok] number of problems (figures reach P8; P9, P10 have none): 10
 Problem 1
   [ok]   machines: [[3, 2, 5, 1, 4], [5, 4, 1, 2, 3]]
-  [ok]   per-block, machine 1: [4, 1, 4, 4, 4]
+  [ok]   per-cube, machine 1: [4, 1, 4, 4, 4]
   [ok]   all, machine 1: 4
-  [ok]   per-block, machine 2: [3, 2, 3, 2, 3]
+  [ok]   per-cube, machine 2: [3, 2, 3, 2, 3]
   [ok]   all, machine 2: 6
   [ok]   loops: [[(1, 3, 5, 4), (2,)], [(1, 5, 3), (2, 4)]]
 Problem 2
@@ -148,6 +148,7 @@ Problem 4
   [ok]   7-slot loop splits reaching 12: [(4, 3)]
 Problem 5
   [ok]   printed example: ['A', '5', '2', '6', '3', '7', '4', '8']
+  [ok]   printed rows: the deck, top half, bottom half, after one shuffle: [['A', '2', '3', '4', '5', '6', '7', '8'], ['A', '2', '3', '4'], ['5', '6', '7', '8'], ['A', '5', '2', '6', '3', '7', '4', '8']]
   [ok]   shuffles to come back: {4: 2, 6: 4, 8: 3, 10: 6, 12: 10}
   [ok]   the card mat is blank, 8 slots: (8, None)
   [ok]   labels above the 8 slots: ['A', '2', '3', '4', '5', '6', '7', '8']
@@ -162,17 +163,17 @@ Problem 6
   [ok]   pair 1: A, B: ([2, 1, 3, 4], [1, 3, 2, 4])
   [ok]   pair 1: A then B: [3, 1, 2, 4]
   [ok]   pair 1: B then A: [2, 3, 1, 4]
-  [ok]   pair 1: blocks agree with A then B: ['b', 'r', 'g', 'y']
+  [ok]   pair 1: cubes agree with A then B: ['b', 'r', 'g', 'y']
   [ok]   pair 1: blank mats: (None, None)
   [ok]   pair 2: A, B: ([2, 1, 3, 4], [1, 2, 4, 3])
   [ok]   pair 2: A then B: [2, 1, 4, 3]
   [ok]   pair 2: B then A: [2, 1, 4, 3]
-  [ok]   pair 2: blocks agree with A then B: ['b', 'g', 'y', 'r']
+  [ok]   pair 2: cubes agree with A then B: ['b', 'g', 'y', 'r']
   [ok]   pair 2: blank mats: (None, None)
   [ok]   pair 3: A, B: ([2, 3, 1, 4], [1, 3, 4, 2])
   [ok]   pair 3: A then B: [3, 4, 1, 2]
   [ok]   pair 3: B then A: [2, 1, 4, 3]
-  [ok]   pair 3: blocks agree with A then B: ['r', 'y', 'g', 'b']
+  [ok]   pair 3: cubes agree with A then B: ['r', 'y', 'g', 'b']
   [ok]   pair 3: blank mats: (None, None)
 Problem 7
   [ok]   labels: ['A', 'B', 'A then B', 'undoes A', 'undoes B', 'undoes (A then B)', 'A', 'B', 'A then B', 'undoes A', 'undoes B', 'undoes (A then B)']
@@ -198,7 +199,7 @@ Problem 7
   [ok]   pair 2: only one machine undoes A then B: 1
   [ok]   rule holds for all 4-slot pairs: True
 Problem 8
-  [ok]   machines moving all four blocks: 9
+  [ok]   machines moving all four cubes: 9
   [ok]   unordered commuting pairs: 12
   [ok]   pair kinds: {((2, 2), (2, 2)): 3, ((4,), (2, 2)): 6, ((4,), (4,)): 3}
   [ok]   example [2, 3, 4, 1] and [4, 1, 2, 3] agree: True

@@ -11,7 +11,8 @@ page = "new"
 
 ## prompt
 Now make two piles, and take 1 or 2 counters from one pile. Whoever takes
-the last counter on the table wins.
+the last counter on the table wins. Play each pair of piles many times with
+your partner. Circle whether you would rather go 1st or 2nd.
 
 ## text
 \vspace{0.32in}

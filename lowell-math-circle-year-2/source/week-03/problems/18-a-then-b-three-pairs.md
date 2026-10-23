@@ -7,7 +7,7 @@ page = "new"
 +++
 
 ## prompt
-One turn of machine A followed by one turn of machine B moves the blocks the same way as one turn of a single machine, called A then B. For each pair of machines A and B, draw A then B and B then A.
+One turn of machine A followed by one turn of machine B moves the cubes the same way as one turn of a single machine, called A then B. For each pair of machines A and B, draw A then B and B then A.
 
 ## text
 \fig[16pt]{u-p6}

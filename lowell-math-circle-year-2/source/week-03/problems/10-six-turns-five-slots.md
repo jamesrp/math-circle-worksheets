@@ -7,7 +7,7 @@ page = "new"
 +++
 
 ## prompt
-Each partner draws a new machine with 5 slots that takes 6 turns, not the one in Problem 3. Check each other's machines with the blocks.
+Each partner draws a new machine with 5 slots that takes 6 turns, not the one in Problem 3. Check each other's machines with the cubes.
 
 ## text
 \fig{k-p8a}

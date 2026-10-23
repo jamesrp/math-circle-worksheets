@@ -4,7 +4,7 @@ Start here to print. To choose a theme first, use the [activity catalog](../CATA
 
 Print US Letter, single-sided, at 100% / Actual Size. Give one page at a time and keep facilitator solutions separate. Grade bands are entry points; extras are optional. These are prepared materials; actual use and classroom feedback are recorded separately in the use log.
 
-**October 3 concrete revision.** After the organizer's report on Weeks 1 and 2, Weeks 3–10 were rewritten around materials and two-player games that enforce their own rules, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet ([forecast and pivot](../plans/fall-forecast-2026-10-03.md)). Each week has three student packets and an adult guide with materials counts, the launch, answers and hints; the optional grades 6–7 extras were not rewritten. A [Week 1 encore](source/week-01-encore/README.md) adds a second pattern-block session. The replaced Weeks 3–10 PDFs are in each `week-NN/archive/` folder and their sources in `source/week-NN/archive/`; older versions remain in the `archive-before-*` folders. None of the October 3 packets has been taught.
+**October 3 concrete revision.** After the organizer's report on Weeks 1 and 2, Weeks 3–10 were rewritten around materials and two-player games that enforce their own rules, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet ([forecast and pivot](../LOCAL-RESOURCES.md#private-records)). Each week has three student packets and an adult guide with materials counts, the launch, answers and hints; the optional grades 6–7 extras were not rewritten. A [Week 1 encore](source/week-01-encore/README.md) adds a second pattern-block session. The replaced Weeks 3–10 PDFs are in each `week-NN/archive/` folder and their sources in `source/week-NN/archive/`; older versions remain in the `archive-before-*` folders. None of the October 3 packets has been taught.
 
 ## Week 2 catalogs
 
@@ -48,7 +48,7 @@ Week 1 also has an [extension facilitator guide](week-01/week-01-extensions-faci
 
 On October 23, 2026 the adult guides of Weeks 4, 5, 6 and 9 were corrected from their [review cards](../plans/review/README.md); each week's source README says what changed. Their student packets are unchanged, and the previous guides are in each week's `archive-before-card-fixes-2026-10-23/` folder.
 
-On October 23, 2026 the adult guides of Weeks 3, 7, 8 and 10 and the Week 8 and Week 10 return-visit guides were corrected from their [review cards](../plans/review/README.md); each source README says what changed. Week 8's separate game boards are now a [printable PDF](week-08/week-08-materials.pdf) with a 10 cm check line, not yet printed and measured. Student packets are unchanged, and the previous guides are in each week's `archive-before-card-fixes-2026-10-23/` folder.
+On October 23, 2026 the adult guides of Weeks 3, 7, 8 and 10 and the Week 8 and Week 10 return-visit guides were corrected from their [review cards](../plans/review/README.md); each source README says what changed. Week 8's separate game boards are now a [printable PDF](week-08/week-08-materials.pdf) with a 10 cm check line, not yet printed and measured. The same day the four weeks were stored as problem files and the cards' student-page items were made (Week 3 v6; Week 7 K–1 and 2–3, Week 8 K–1 and Week 10 2–3 v5, the last now 13 pages); the previous packets and guides are in each week's `archive-before-card-fixes-2026-10-23/` folder.
 
 ## Combined Weeks 2–10 packets
 

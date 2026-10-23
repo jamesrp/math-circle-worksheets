@@ -7,8 +7,8 @@ page = "new"
 +++
 
 ## prompt
-Your partner goes first, with the token in the corner farthest from the star on the
-separate 8-by-8 board. Show the adult how you can always win.
+Play on the separate 8-by-8 board, with the token where the dot is. Your partner
+goes first. Show the adult how you can always win.
 
 ## text
 \vspace{0.15in}

@@ -7,7 +7,7 @@ page = "new"
 +++
 
 ## prompt
-Find two different machines A and B with 4 slots, each moving all four blocks, so that A then B is the same machine as B then A.
+Find two different machines A and B with 4 slots, each moving all four cubes, so that A then B is the same machine as B then A.
 
 ## text
 \fig[14pt]{u-p8}

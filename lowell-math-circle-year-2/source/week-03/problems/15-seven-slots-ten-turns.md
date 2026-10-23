@@ -7,7 +7,7 @@ page = "new"
 +++
 
 ## prompt
-Draw a machine with 7 slots that takes more than 10 turns to bring all the blocks home. What is the most turns a machine with 7 slots can take? Explain.
+Draw a machine with 7 slots that takes more than 10 turns to bring all the cubes home. What is the most turns a machine with 7 slots can take? Explain.
 
 ## text
 \fig[16pt]{m-p8}

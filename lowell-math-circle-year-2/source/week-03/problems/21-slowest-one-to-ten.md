@@ -6,7 +6,7 @@ route = "return"
 +++
 
 ## prompt
-For each number of slots from 1 to 10, find the largest number of turns a machine can take to bring all the blocks home. Can you always build a slower machine when you have one more slot? Explain.
+For each number of slots from 1 to 10, find the largest number of turns a machine can take to bring all the cubes home. Can you always build a slower machine when you have one more slot? Explain.
 
 ## text
 \vspace{18pt}

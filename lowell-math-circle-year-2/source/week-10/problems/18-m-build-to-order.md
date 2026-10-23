@@ -3,6 +3,7 @@ id = "w10.m-build-to-order"
 title = "Build towns to a description"
 grades = ["2-3"]
 route = "return"
+page = "new"
 +++
 
 ## prompt

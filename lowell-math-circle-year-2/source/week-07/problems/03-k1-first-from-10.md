@@ -1,12 +1,13 @@
 +++
 id = "w07.k1-first-from-10"
-title = "Go first from 10 against your partner"
+title = "Play your partner from 10, taking turns going first"
 grades = ["K-1"]
 route = "first"
 +++
 
 ## prompt
-Now you go first from 10 against your partner. Colour your own squares.
+Now play your partner from 10, and take turns going first. Colour the first
+player's squares.
 
 ## text
 \vspace{0.2in}

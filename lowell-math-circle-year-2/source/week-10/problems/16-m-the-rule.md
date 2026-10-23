@@ -3,6 +3,7 @@ id = "w10.m-the-rule"
 title = "How to tell without walking"
 grades = ["2-3"]
 route = "return"
+page = "new"
 +++
 
 ## prompt

@@ -7,7 +7,7 @@ route = "return"
 
 ## prompt
 Now whoever takes the last counter loses. Play each pile many times with
-your partner.
+your partner. Circle whether you would rather go 1st or 2nd.
 
 ## text
 \vspace{0.32in}

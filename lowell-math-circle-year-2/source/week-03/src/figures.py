@@ -244,8 +244,8 @@ def m23():
     check(c, 6, [2, 3])
     assert block_home_times(a) == [3, 1, 3, 3]
     assert block_home_times(c) == [3, 2, 3, 3, 2]
-    full_mat("m-p1a", 4, a, side="num", side_label="all blocks", perblock=True)
-    full_mat("m-p1b", 5, c, side="num", side_label="all blocks", perblock=True)
+    full_mat("m-p1a", 4, a, side="num", side_label="all cubes", perblock=True)
+    full_mat("m-p1b", 5, c, side="num", side_label="all cubes", perblock=True)
 
     # Problem 2: loops, predict, check (four machines on two pages)
     f = P(2, 5, 1, 4, 3)     # 4 fixed, 1->2->5->3->1
@@ -330,8 +330,8 @@ def u45():
     check(b, 6, [2, 3])
     assert block_home_times(a) == [4, 1, 4, 4, 4]
     assert block_home_times(b) == [3, 2, 3, 2, 3]
-    full_mat("u-p1a", 5, a, side="num", side_label="all blocks", perblock=True)
-    full_mat("u-p1b", 5, b, side="num", side_label="all blocks", perblock=True)
+    full_mat("u-p1a", 5, a, side="num", side_label="all cubes", perblock=True)
+    full_mat("u-p1b", 5, b, side="num", side_label="all cubes", perblock=True)
 
     # Problem 2: none of these is a record holder for its number of slots except the 6-slot 1+2+3,
     # which ties with a single loop of 6.  (The records for 7 and 8 slots are 12 and 15.)

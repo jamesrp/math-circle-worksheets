@@ -11,5 +11,5 @@ like to leave the token for your opponent.
 
 ## text
 \vspace{0.2in}
-\track{20}\gap\track{20}
+\track{20}\rulelabel{Extra workspace}\track{20}
 \end{problem}
