@@ -44,6 +44,8 @@ A move removes one counter and may refill only buckets to its left. The second p
 10. **could**, P3 repeats P1's (2, 2, 2); (2, 0, 2) would add a case.
 11. **could**, return visit: with a cap of K the longest game is Σ a_i (K + 1)^i, which is 7 from (1, 1, 1) with a cap of one (card_appfit.py).
 
+October 23, 2026: shoulds 1–4 and coulds 5–11 fixed in v2 (W81-S-v2), after the organizer's October 17 approval; the K–1 route is a guide paragraph on the existing cards. Checks in the package's `check_card_fixes.py`.
+
 ## Overlaps
 
 Weeks 7 and 8 share the game frame (second-player starts by working back) but not this invariant. Week 11 shares termination by a decreasing measure. Week 79's card names the same quantifier swap. No merge; Weeks 79–81 make a return sequence.

@@ -1,6 +1,6 @@
-# Week 81: Buckets of Fish — organizer-approved
+# Week 81: Buckets of Fish — organizer-approved draft-v1, revised v2
 
-Grades 2–3 capped games; Grades 4–5 uncapped continuation. A selected-band menu, not a requirement to finish every page in one session. All activities are unpiloted; physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. The theorem-first guide gives assumptions, preparation, launch, first route, solutions, hints and return visits.
+Grades 2–3 capped games; Grades 4–5 uncapped continuation; an adult-led K–1 route in the guide. A selected-band menu, not a requirement to finish every page in one session. All activities are unpiloted; physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. The theorem-first guide gives assumptions, preparation, launch, first route, solutions, hints and return visits.
 
 ## Build the two PDFs
 
@@ -19,6 +19,7 @@ After extracting the portable ZIP, run `python3 week-81/build.py --out rebuilt -
 - Student pages: stored as problem files since October 23, 2026 (in the repository `../week.toml`, `../template.tex` and `../problems/`; in the ZIP `problem-files/`, with the tools in `problem-files/tools/`). `student/regenerate.py` writes `student/students.tex` from them; edit the problem files, not `students.tex`. The packet: final 5-page student/material draft, created by a fresh writer then revised by a separate agent after independent adversarial and mathematical reviews.
 - `reference-pdfs/`: copies of the current print PDFs.
 - `guide/facilitator.tex`: separate facilitator step, revised and independently reviewed. This guide-authoring step is untested as a classroom workflow.
+- `check_card_fixes.py`: checks the keys, starts and wording changed by the October 23 card fixes; the build runs it after `check_math.py`.
 - `check_math.py`: portable copy/adaptation of the independent mathematical checker's code; finite computation supports the proofs in the guide.
 - `build.py`: both-PDF deterministic builder; [SOURCES.md](SOURCES.md) records attribution.
 
@@ -32,4 +33,8 @@ All small starting boxes and sorting cards show counters, including empty boxes 
 
 See [QA.md](QA.md) for digital checks and independent review. The changes remain unpiloted.
 
-Organizer promotion: October 17, 2026, after review of the current packet. The student and facilitator PDFs are unchanged. Unpiloted; physical preparation, timing and classroom procedures remain untested.
+Organizer promotion: October 17, 2026, after review of the draft-v1 packet. Unpiloted; physical preparation, timing and classroom procedures remain untested.
+
+## October 23 card fixes (v2), after the organizer's approval
+
+From the review card (`plans/review/week-81.md`), made after the organizer's October 17 approval and not yet re-approved. Student pages: page 1's cap names the left side one way; Problem 3 starts from (2, 0, 2) instead of repeating Problem 1's (2, 2, 2); Problem 5 starts from each of two pictures, (0, 3) drawn like Problem 4's beside (1, 1, 1), and asks for an explanation only if a child thinks every game ends; the footer is W81-S-v2. Guide: the corrected repair move; the Grades 4–5 route on pages 1 and 2; a K–1 route; the cap in the launch; "written count" for "count card"; keys for (2, 0, 2) and (0, 3); a capped longest-game return visit (7 moves from (1, 1, 1) with a cap of one); the header "Adult guide". Unpiloted.

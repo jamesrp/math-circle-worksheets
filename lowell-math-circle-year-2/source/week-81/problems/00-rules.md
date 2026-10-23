@@ -9,7 +9,7 @@ route = ["first", "return"]
 ## text
 Take turns. Remove one counter from a nonempty bucket. You may then add counters only to buckets strictly to its left. If you cannot move, you lose.
 
-For Problems 1--3, add at most one counter to each earlier bucket.
+For Problems 1--3, add at most one counter to each bucket to the left of the one you took from.
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm]

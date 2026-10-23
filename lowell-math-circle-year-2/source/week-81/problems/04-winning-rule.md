@@ -13,7 +13,7 @@ Play from these three-bucket starts. Can you find a rule for choosing a winning 
 ## text
 \begin{center}
 \begin{tabular}{@{}c@{\hspace{.75in}}c@{}}
- \smallstart{2}{2}{2} & \smallstart{1}{2}{2} \\[22pt]
+ \smallstart{2}{0}{2} & \smallstart{1}{2}{2} \\[22pt]
  \smallstart{2}{1}{2} & \smallstart{2}{2}{1} \\[22pt]
  \smallstart{0}{2}{0} & \smallstart{3}{3}{1}
 \end{tabular}

@@ -14,7 +14,7 @@ Individual PDFs below open without unpacking a ZIP. These provisional library nu
 
 [Student/material PDF (6 pages)](week-80/week-80-students.pdf) · [Facilitator PDF (4 pages)](week-80/week-80-facilitator.pdf) · [Editable sources](source/week-80/README.md) · [Portable source ZIP](source/week-80-source.zip)
 
-**81. Buckets of Fish** — Play Hamkins’s remove-and-refill game. Later investigate plays that are always finite but can be arbitrarily long. Grades 2–3 capped play; Grades 4–5 uncapped continuation.
+**81. Buckets of Fish** — Play Hamkins’s remove-and-refill game. Later investigate plays that are always finite but can be arbitrarily long. Grades 2–3 capped play; Grades 4–5 uncapped continuation. Revised October 23 from its review card, after the organizer's October 17 approval: Problem 5 adds a two-bucket start, Problem 3 a new start, and the guide a corrected repair move, a Grades 4–5 route and a K–1 route; the approved PDFs are [archived](week-81/archive-before-card-fixes-2026-10-23/README.md).
 
 [Student/material PDF (5 pages)](week-81/week-81-students.pdf) · [Facilitator PDF (4 pages)](week-81/week-81-facilitator.pdf) · [Editable sources](source/week-81/README.md) · [Portable source ZIP](source/week-81-source.zip)
 

@@ -78,7 +78,7 @@ def main():
     printed_three = [tuple(map(int, match)) for match in
                      re.findall(r"\\smallstart\{(\d+)\}\{(\d+)\}\{(\d+)\}", tex)]
     problem1 = [(0, 0, 1), (1, 1, 0), (2, 1, 1), (2, 2, 2)]
-    problem3 = [(2, 2, 2), (1, 2, 2), (2, 1, 2), (2, 2, 1), (0, 2, 0), (3, 3, 1)]
+    problem3 = [(2, 0, 2), (1, 2, 2), (2, 1, 2), (2, 2, 1), (0, 2, 0), (3, 3, 1)]  # (2, 0, 2) since October 23
     assert printed_three == problem1 + problem3 + [(1, 1, 1)]
     printed_two = [tuple(map(int, match)) for match in
                    re.findall(r"\\paircard\{(\d+)\}\{(\d+)\}", tex)]
