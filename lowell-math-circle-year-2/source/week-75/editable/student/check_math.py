@@ -30,6 +30,13 @@ for length in range(1,7):
             for twist in word: final+=twist
             assert final==initial+delta
         assert abs(delta)<=length
+# The strip under Problem 4 prints B copies -4..4. All 28 words of two to four
+# twists from winding 0 end on it, and so does every partial word.
+words=[w for n in (2,3,4) for w in product((-1,1),repeat=n)]
+assert len(words)==28
+assert {sum(w) for w in words}==set(range(-4,5))
+assert all(-4<=sum(w[:i])<=4 for w in words for i in range(len(w)+1))
+print('PASS: the 28 words of two to four twists reach exactly windings -4..4, all printed on the Problem 4 strip.')
 # Each twist fixes all boundary x coordinates modulo one circumference.
 for x in [Fraction(i,13) for i in range(13)]:
     for t in (0,1):

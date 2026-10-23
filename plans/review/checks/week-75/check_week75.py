@@ -23,7 +23,7 @@ from pathlib import Path
 import sys
 
 REPO = Path(__file__).resolve().parents[4]
-STU = REPO / "lowell-math-circle-year-2/week-75/week-75-students.pdf"
+STU = REPO / "lowell-math-circle-year-2/week-75/archive-before-card-fixes-2026-10-23/week-75-students.pdf"  # the v1 packet this check reviewed
 
 fails = []
 

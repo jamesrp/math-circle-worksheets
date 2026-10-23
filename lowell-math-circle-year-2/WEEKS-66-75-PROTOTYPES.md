@@ -19,6 +19,8 @@ All ten complete pairs and portable source packages are available below. Combine
 | 74 | Doubling elevators | Grades 4–5 | [Students: 4 pages](week-74/week-74-students.pdf) · [Adult guide: 3 pages](week-74/week-74-facilitator.pdf) · [Editable source](source/week-74/README.md) · [ZIP](source/week-74-source.zip) |
 | 75 | Twists on a cylinder | Grades 4–5 | [Students: 4 pages](week-75/week-75-students.pdf) · [Adult guide: 3 pages](week-75/week-75-facilitator.pdf) · [Editable source](source/week-75/README.md) · [ZIP](source/week-75-source.zip) |
 
+Week 75 was revised on October 23, 2026 from its review card: its student pages are now stored as problem files, Problems 6–7 say "strand crossings", and Problem 4 has a strip for drawing the twisted routes. The previous PDFs are in [week-75/archive-before-card-fixes-2026-10-23/](week-75/archive-before-card-fixes-2026-10-23/).
+
 ## Review and reproduction
 
 Print single-sided US Letter at 100% / Actual Size. Each standalone source ZIP includes authored student/adult TeX, portable builders, mathematical checkers and source notes. It has been extracted into a clean directory and rebuilt using packaged inputs only; text, dimensions and every page raster match the delivered PDFs in the production environment. Different TeX/font versions may change appearance.

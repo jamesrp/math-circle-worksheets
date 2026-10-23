@@ -49,7 +49,13 @@ for length in range(7):
         assert sum([1 if n>0 else -1]*abs(n))==n
         if length==6 and n==0: assert word.count(1)==3
 assert sum(sum(word)==0 for word in product([-1,1],repeat=6))==comb(6,3)==20
+# The strip under Problem 4 prints B copies -4..4: every word of two to four twists
+# from winding 0, and every route along the way, ends on it.
+words=[w for n in (2,3,4) for w in product([-1,1],repeat=n)]
+assert len(words)==28
+assert {sum(w) for w in words}==set(range(-4,5))
+assert all(-4<=sum(w[:i])<=4 for w in words for i in range(len(w)+1))
 for word,expected in [('++-',1),('+--',-1),('+--+',0),('+++---',0)]:
     assert sum(1 if sign=='+' else -1 for sign in word)==expected
 assert [F(i,4) for i in range(5)]==[0,F(1,4),F(1,2),F(3,4),1]
-print('PASS Week 75: 289 winding pairs, all eight printed minima, one-route increase/decrease/tie examples, 20 balanced words, exact rational twist composition and fixed rims. Universal topological claims use the guide proofs.')
+print('PASS Week 75: 289 winding pairs, all eight printed minima, 28 twist words on the printed strip, one-route increase/decrease/tie examples, 20 balanced words, exact rational twist composition and fixed rims. Universal topological claims use the guide proofs.')

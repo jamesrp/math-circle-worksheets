@@ -42,6 +42,8 @@ P1's cylinder with yarn taped at fixed A and B, and the partner's seam check. Th
 12. **could**, the guide gives no per-problem timing.
 13. **could**, "The top dots are copies of the same B on the cylinder" narrates the board.
 
+October 23, 2026: fixes 1 and 2 done in the new problem files (GGT75-S-v2, GGT75-FAC-v2), Problem 5 kept on page 3 because it still fits; fixes 3, 9, 10 and 11 (page 3) done too; 4–8, 12, 13 and 11 on page 1 deferred. Record: `lowell-math-circle-year-2/source/week-75/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 Week 41 (Torus portals and lifts) classifies loops by lifted endpoints; P2–P3 are its annulus version, so children back from 41 move faster. It has no twist or intersection count; keep both. Week 38 (Seams and cuts) uses the same taped annulus: run it at the younger tables for a shared launch (tape a strip into a tube, cross the seam), since Week 75 alone cannot carry one. Week 39's free-group cancellation is richer than P4's commutative ±; do not count P4 as that work.
