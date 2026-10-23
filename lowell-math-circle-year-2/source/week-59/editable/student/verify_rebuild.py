@@ -10,7 +10,7 @@ import zipfile
 import pymupdf
 
 FILES=['README.md','mathematical-notes.md','students.tex','materials.tex','geometry.py',
-       'make_assets.py','build.py','verify_math.py','verify_rebuild.py']
+       'make_assets.py','build.py','verify_math.py','verify_rebuild.py','regenerate.py']
 
 
 def fingerprint(pdf):

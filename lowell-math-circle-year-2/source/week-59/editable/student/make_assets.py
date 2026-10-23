@@ -143,7 +143,9 @@ def table(name, rowh=25, fixed=False, marked=False):
     return p
 
 
-def make_all(dest):
+def pictures():
+    """Every picture, in order. The problem files' figures.py takes the student
+    pages' pictures from here; make_all writes them all as macros for materials.tex."""
     pics = []
     p = Picture("measureExample", 180, 40)
     q = [(0,0),(38,0),(46,32),(8,32)]
@@ -299,6 +301,11 @@ def make_all(dest):
     p.line((150,3),(150,7),role="check_endpoint")
     p.label(100,1,"100 mm",size="\\footnotesize")
     pics.append(p)
+    return pics
+
+
+def make_all(dest):
+    pics=pictures()
     dest=Path(dest)
     dest.mkdir(parents=True,exist_ok=True)
     (dest/"assets.tex").write_text("% Original generated TikZ assets; x = y = 1 mm.\n"+"\n".join(p.output() for p in pics))
