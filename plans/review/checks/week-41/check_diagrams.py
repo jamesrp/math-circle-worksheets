@@ -243,7 +243,15 @@ for pn in (1, 2):
     topbot = [c for c in heads if (c["pts"][0][1] < t0 or c["pts"][0][1] > t0 + 234) and x0 <= c["pts"][0][0] <= x0 + 234]
     log(f"   bonus p.{pn}: seam arrowheads beside the left/right edges: {len(side)}; above/below the top/bottom edges: {len(topbot)}")
     check(len(side) == 6, f"bonus p.{pn}: each row has a right-pointing arrow on both sides")
-    check(len(topbot) > 0, f"bonus p.{pn}: the top/bottom seam is marked on the board (the text says columns also wrap)")
+    # The review found no top/bottom marks (W41-BONUS-v1, archived below); the check-sweep fix of October 23, 2026
+    # (W41-BONUS-v2) added an up-pointing arrow above and below each column, like the row arrows.
+    cols = sorted(round((c["pts"][0][0] - x0) / 78 - 0.5) for c in topbot)
+    check(len(topbot) == 6 and cols == [0, 0, 1, 1, 2, 2],
+          f"bonus p.{pn}: the top/bottom seam is marked on the board, an arrow above and below each column (the text says columns also wrap)")
+    old_page = pdfplumber.open(Y2 / "week-41/archive-before-check-sweep-fix-2026-10-23/week-41-bonus.pdf").pages[pn - 1]
+    old_heads = [c for c in old_page.curves if c["fill"] and len(c["pts"]) == 4]
+    old_topbot = [c for c in old_heads if (c["pts"][0][1] < t0 or c["pts"][0][1] > t0 + 234) and x0 <= c["pts"][0][0] <= x0 + 234]
+    check(len(old_topbot) == 0, f"bonus p.{pn}: finding confirmed (as reviewed, archived W41-BONUS-v1): no top/bottom seam marks")
     # example strip
     strip = [r for r in page.rects if abs(r["width"] - 38) < 0.1]
     seq = []

@@ -25,7 +25,7 @@ def label(s,x,y,size=11,center=False,bold=False):
 def page(band,n):
     label(f'Week {WEEK} / {TOPIC} / {band}',44,751,13,bold=True)
     C.setStrokeColor(HexColor('#555555'));C.setLineWidth(.55);C.line(44,738,568,738)
-    label(f'Bellingham Math Circle / Week {WEEK} / W{WEEK}-BONUS-v1',44,34,9)
+    label(f'Bellingham Math Circle / Week {WEEK} / W{WEEK}-BONUS-v2',44,34,9)
     label(n,560,34,9)
 
 def end(): C.showPage()
@@ -64,6 +64,9 @@ def portal(x,y,cell=78):
     for t in [0.5,1.5,2.5]:
         arrow(x+3*cell+4,y+t*cell,x+3*cell+18,y+t*cell)
         arrow(x-18,y+t*cell,x-4,y+t*cell)
+        # Columns wrap too (top and bottom seams), marked the same way.
+        arrow(x+t*cell,y-18,x+t*cell,y-4)
+        arrow(x+t*cell,y+3*cell+4,x+t*cell,y+3*cell+18)
     C.setStrokeColor(black)
 
 def copies(x,y,cell=24):

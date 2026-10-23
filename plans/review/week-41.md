@@ -48,6 +48,8 @@ Fixed October 23, 2026, after converting the week to problem files: shoulds 1–
 
 **Critic follow-up, October 23, 2026 (F41-45-v4; K–1 and 2–3 unchanged):** an independent critic found that Grades 4–5 Problem 4 said "Use tracing paper on the repeated map from page 2", but in the return view page 2 is Problem 4's own page, with no repeated map; the only one in that view is with Problem 6. Problem 4 now says "Use tracing paper on a repeated map, such as the one with Problem 6.", which holds in the full packet and the return view, and the views are rebuilt. Clear coulds: the slide picture's line says "a square of four neighboring centers", since page 1 uses "small square" for a board cell; Problem 4 has nine record lines instead of seven; the catalog's reading field describes the pictured moves. Check: `plans/review/checks/week-41/check_critic_fixes.py`.
 
+**Bonus seams, October 23, 2026 (W41-BONUS-v2).** Math-check problem 1, still open after the check-script sweep: the bonus portal boards (pp. 1–2) marked only the left and right seams, though the rule wraps columns and the printed words RU and RRU, and 84 of the 96 nine-step tours, cross the top or bottom edge. Each board now has an up-pointing arrow above and below each column, matching the right-pointing arrows beside each row, as the math check proposed. Nothing else on the pages changed; the bonus guide is unchanged. Checked by `checks/week-41/check_diagrams.py`; v1 archived.
+
 ## Overlaps
 
 Week 39 asks the same shrinking question on roads without faces, where circuits do not commute; teach it first. In Week 72 the same moves remember area. Weeks 64 (glued squares), 70 (shields in this room) and 75 (the annulus) build on this board; Weeks 9 and 71 unfold billiards. None should absorb another.

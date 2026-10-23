@@ -2,6 +2,8 @@
 
 **Guide v2, October 23, 2026.** The adult guide printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5); it now prints the band labels "K–1 / 2–3 / 4–5", and a lone "KK11", "3333" or "445" as the table it names. Footer W41-BONUS-FAC-v2; the student companion is unchanged. The previous guide and source ZIP are in the `archive-before-bonus-label-fix-2026-10-23/` folders beside the print copies and the ZIPs.
 
+**Student v2, October 23, 2026.** The portal boards on pp. 1–2 (Problems 1 and 2) marked only the left and right seams, though the rule crosses top and bottom edges too and the printed words RU and RRU, and most nine-step tours, need it (math check problem 1). Each board now has an arrow above and below each column, matching the arrows beside each row. Footer W41-BONUS-v2; the adult guide is unchanged. The previous student PDF and source ZIP are in the `archive-before-check-sweep-fix-2026-10-23/` folders beside the print copies and the ZIPs. Checked by `plans/review/checks/week-41/check_diagrams.py`. Unpiloted.
+
 Local v1, October 4, 2026. **Unpiloted. Physical fit and procedures untested.**
 
 Three or more distinct investigations use selected bands by prerequisites. They complement, rather than replace, the base Week 41 packet. The student companion and adult mathematical guide are separate. Suitable routes, materials, launch, hints, precise solutions and extensions are in `guide.md`; investigation metadata is in `investigations.json`.
