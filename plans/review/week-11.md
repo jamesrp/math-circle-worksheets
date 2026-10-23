@@ -46,6 +46,8 @@ A circle holding one chip per line sends one along each; the sink only receives.
 11. **could**, "End A" (2–3 P2, P4; 4–5 P4) against "Finish A" elsewhere.
 12. **could**, the return visit says "fire" where the base pages say "share".
 
+**Fixed October 23, 2026**, after the student pages became problem files: shoulds 1–6 and coulds 7, 8 and 11 (v4 packets: each K–1 P1 and P3 start on two rows, ten K–1 P4 rows, "Can both circles ever be empty again?", the 2–3 P4 order question, a 2–3 P5 Timing column, taller rows in 2–3 P4, P6 and 4–5 P1, "Finish" headers; guide pp. 4, 6, 7 and 8). Coulds 9 and 10 left for the organizer (a new first-page figure; a substance change); could 12 needs the separate return-visit package. Record: `lowell-math-circle-year-2/source/week-11/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 Week 39 (road detours) and Week 27's Extension A reach a finish independent of order on other objects; cross-reference them. Week 20 uses anchored graphs for the maximum principle; Weeks 3 and 49 iterate a map until it cycles. No merge.

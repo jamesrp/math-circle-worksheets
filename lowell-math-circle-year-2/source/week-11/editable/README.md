@@ -1,8 +1,8 @@
 # Chip firing with a sink: Week 11 editable release
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 4, 2026 fresh-review revision, with the October 23 card fixes
 
-All three student bands now record one chronological firing word and final piles, deriving firing counts afterward. Every original mathematical investigation and board dimension remains. The adult guide uses the same record.
+All three student bands now record one chronological firing word and final piles, deriving firing counts afterward. Every original mathematical investigation and board dimension remains. The adult guide uses the same record. On October 23, 2026 the student pages became problem files, and the review card's should fixes were made in them (v4 packets): K–1 Problems 1 and 3 print each start twice, K–1 Problem 4 has ten rows, K–1 Problem 6 asks whether both circles can be empty again, grades 2–3 Problem 4 ends with the order question and Problem 5 has a Timing column, three tables have taller rows, and every table says Finish. The guide adds a partner routine to the launch and two hint sentences. See `review/card-fixes-2026-10-23.md`.
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 

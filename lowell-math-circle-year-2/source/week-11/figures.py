@@ -123,25 +123,40 @@ def page_text(x, y, body, w, size):
 
 
 # ---------------------------------------------------------------- figures
-# Each returns the drawing that followed a problem's statement on its page.
+# Each returns the drawing that followed a problem's statement on its page. The
+# printed starts are named here so that editable/src/student_checks.py checks them.
 
-def k1_order_triangle():  # K-1 P1, triangle board, word example, four starts as dots
-    return (board('triangle',88)+word_example(True)
-            +table(20,213,[25,25,76,25,25],['Start A','Start B','Sharing word','Finish A','Finish B'],[[dots(a),dots(b),'','',''] for a,b in [(2,2),(3,2),(2,3),(3,3)]],9,9,11))
+K1_ORDER_TRIANGLE=[(2,2),(3,2),(2,3),(3,3)]          # K-1 P1, each on two rows
+ORDER_TRIANGLE_23=[(2,2),(4,0),(3,3)]                # grades 2-3 P1, each on two rows
+ORDER_TRIANGLE_45=[(2,2),(4,0),(3,3),(5,4)]          # grades 4-5 P1, each on two rows
+K1_ORDER_SQUARE=[(0,4,0),(2,2,0),(0,2,2),(2,0,2)]    # K-1 P3, each on two rows
+ORDER_SQUARE_23=[(0,4,0),(2,1,2),(2,4,2)]            # grades 2-3 P2, each on two rows
+EXTRA_LINE_23=[(3,0,3),(0,6,0),(2,2,2),(4,1,2)]      # grades 2-3 P4, each on two rows
+EXTRA_LINE_45=[(3,0,3),(0,6,0),(4,1,2)]              # grades 4-5 P4, each on two rows
+K1_STABLE_ROWS=10                                    # K-1 P4: more rows than its 8 answers
+K1_ADD_ONE_ROWS=11                                   # K-1 P6
+BATCHES_23=((2,0,0),(0,4,0))                         # grades 2-3 P5: 2 at A and 4 at B on the four-cycle
+
+
+def twice(starts):
+    """Each start on two rows, one for each order."""
+    return [s for s in starts for _ in (0,1)]
+
+def k1_order_triangle():  # K-1 P1, triangle board, word example, four starts as dots, each twice
+    return (board('triangle',72)+word_example(True,132)
+            +table(20,196,[25,25,76,25,25],['Start A','Start B','Sharing word','Finish A','Finish B'],[[dots(a),dots(b),'','',''] for a,b in twice(K1_ORDER_TRIANGLE)],7,9,11))
 
 
 def order_triangle_23():  # grades 2-3 P1, three starts twice each
-    rows=[]
-    for a,b in [(2,2),(4,0),(3,3)]: rows.extend([[a,b,'','','']]*2)
+    rows=[[a,b,'','',''] for a,b in twice(ORDER_TRIANGLE_23)]
     return (board('triangle',88)+word_example()
             +table(18,208,[24,24,76,28,28],['Start A','Start B','Sharing word','Finish A','Finish B'],rows,7.4,9,10.5))
 
 
 def order_triangle_45():  # grades 4-5 P1, four starts twice each
-    rows=[]
-    for a,b in [(2,2),(4,0),(3,3),(5,4)]:rows.extend([[a,b,'','','']]*2)
-    return (board('triangle',87)+word_example()
-            +table(18,207,[24,24,76,28,28],['Start A','Start B','Sharing word','Finish A','Finish B'],rows,5.5,9,10.5))
+    rows=[[a,b,'','',''] for a,b in twice(ORDER_TRIANGLE_45)]
+    return (board('triangle',73)+word_example(y=134)
+            +table(18,193,[24,24,76,28,28],['Start A','Start B','Sharing word','Finish A','Finish B'],rows,7.2,9,10.5))
 
 
 def k1_four_and_five():  # K-1 P2, triangle board and two answer areas
@@ -150,16 +165,15 @@ def k1_four_and_five():  # K-1 P2, triangle board and two answer areas
             +r'\draw[black!30,line width=.4pt] (107,190) -- (107,257);'+'\n')
 
 
-def k1_order_square():  # K-1 P3, four-cycle board, four starts as dots
-    return (board('square',55)
-            +table(13,208,[24,24,24,55,21,21,21],['Start A','Start B','Start C','Sharing word','Finish A','Finish B','Finish C'],[[dots(a),dots(b),dots(c),'','','',''] for a,b,c in [(0,4,0),(2,2,0),(0,2,2),(2,0,2)]],10,9,10))
+def k1_order_square():  # K-1 P3, four-cycle board, four starts as dots, each twice
+    return (board('square',48)
+            +table(13,190,[24,24,24,55,21,21,21],['Start A','Start B','Start C','Sharing word','Finish A','Finish B','Finish C'],[[dots(a),dots(b),dots(c),'','','',''] for a,b,c in twice(K1_ORDER_SQUARE)],7.7,9,10))
 
 
 def order_square_23():  # grades 2-3 P2, three starts twice each
-    rows=[]
-    for a,b,c in [(0,4,0),(2,1,2),(2,4,2)]:rows.extend([[a,b,c,'','','','']]*2)
+    rows=[[a,b,c,'','','',''] for a,b,c in twice(ORDER_SQUARE_23)]
     return (board('square',53)
-            +table(13,201,[21,21,21,63,21,21,21],['Start A','Start B','Start C','Sharing word','End A','End B','End C'],rows,8.1,10,9.2))
+            +table(13,201,[21,21,21,63,21,21,21],['Start A','Start B','Start C','Sharing word','Finish A','Finish B','Finish C'],rows,8.1,10,9.2))
 
 
 def six_chip_starts():  # grades 2-3 P3, triangle board, seven start rows and two lines
@@ -168,9 +182,9 @@ def six_chip_starts():  # grades 2-3 P3, triangle board, seven start rows and tw
             +lines(247,2,10))
 
 
-def k1_stable_placements():  # K-1 P4, four-cycle board and eight answer rows
-    return (board('square',55)
-            +table(42,198,[44]*3,['A','B','C'],[['','',''] for _ in range(8)],6.8,9,12))
+def k1_stable_placements():  # K-1 P4, four-cycle board and ten answer rows (8 placements are stable)
+    return (board('square',48)
+            +table(42,188,[44]*3,['A','B','C'],[['','',''] for _ in range(K1_STABLE_ROWS)],6.5,9,12))
 
 
 def batches_45():  # grades 4-5 P2, four-cycle board and the six timing rows
@@ -185,17 +199,15 @@ def add_one_45():  # grades 4-5 P3, triangle board, four stable starts and a lin
 
 
 def extra_line_23():  # grades 2-3 P4, extra-line board, four starts twice each
-    rows=[]
-    for a,b,c in [(3,0,3),(0,6,0),(2,2,2),(4,1,2)]:rows.extend([[a,b,c,'','','','']]*2)
+    rows=[[a,b,c,'','','',''] for a,b,c in twice(EXTRA_LINE_23)]
     return (board('diagonal',53)
-            +table(13,201,[21,21,21,63,21,21,21],['Start A','Start B','Start C','Sharing word','End A','End B','End C'],rows,6,10,9.2))
+            +table(13,194,[21,21,21,63,21,21,21],['Start A','Start B','Start C','Sharing word','Finish A','Finish B','Finish C'],rows,7.1,10,9.2))
 
 
 def extra_line_45():  # grades 4-5 P4, extra-line board, three starts twice each
-    rows=[]
-    for a,b,c in [(3,0,3),(0,6,0),(4,1,2)]:rows.extend([[a,b,c,'','','','']]*2)
+    rows=[[a,b,c,'','','',''] for a,b,c in twice(EXTRA_LINE_45)]
     return (board('diagonal',56)
-            +table(13,204,[21,21,21,63,21,21,21],['Start A','Start B','Start C','Sharing word','End A','End B','End C'],rows,7.4,10,9.2))
+            +table(13,204,[21,21,21,63,21,21,21],['Start A','Start B','Start C','Sharing word','Finish A','Finish B','Finish C'],rows,7.4,10,9.2))
 
 
 def k1_batches():  # K-1 P5, triangle board, each addition row three times
@@ -203,19 +215,19 @@ def k1_batches():  # K-1 P5, triangle board, each addition row three times
             +table(20,191,[25,25,76,25,25],['Add at A','Add at B','Sharing word','Finish A','Finish B'],[[dots(a),dots(b),'','',''] for a,b in [(3,3)]*3+[(2,4)]*3],9.5,10,11))
 
 
-def batches_23():  # grades 2-3 P5, four-cycle board and three trial rows
+def batches_23():  # grades 2-3 P5, four-cycle board and one row for each timing
     return (board('square',61)
-            +table(18,211,[39,39,34,34,34],[r'Add at A',r'Add at B','Finish A','Finish B','Finish C'],[[2,4,'','',''] for _ in range(3)],10,9,10.5))
+            +table(18,211,[30,30,48,24,24,24],[r'Add at A',r'Add at B','Timing','Finish A','Finish B','Finish C'],[[2,4,t,'','',''] for t in ('together','2 at A first','4 at B first')],10,9,10.5))
 
 
 def k1_add_one():  # K-1 P6, triangle board and eleven addition rows
     return (board('triangle',55)
-            +table(42,178,[44]*3,['Chips added','Finish A','Finish B'],[[i,'',''] for i in range(1,12)],6.4,9,11.5))
+            +table(42,178,[44]*3,['Chips added','Finish A','Finish B'],[[i,'',''] for i in range(1,K1_ADD_ONE_ROWS+1)],6.4,9,11.5))
 
 
 def add_one_23():  # grades 2-3 P6, triangle board and twelve rows for both rules
-    return (board('triangle',61)
-            +table(23,183,[30,36,36,36,36],['Chips added',r'Add to A:\\final A',r'Add to A:\\final B',r'Add to B:\\final A',r'Add to B:\\final B'],[[i,'','','',''] for i in range(1,13)],5.4,13,10.5))
+    return (board('triangle',54)
+            +table(23,176,[30,36,36,36,36],['Chips added',r'Add to A:\\final A',r'Add to A:\\final B',r'Add to B:\\final A',r'Add to B:\\final B'],[[i,'','','',''] for i in range(1,13)],6,13,10.5))
 
 
 def termination_board():  # grades 4-5 P5, four-cycle board and four lines

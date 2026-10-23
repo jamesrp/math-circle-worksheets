@@ -7,7 +7,7 @@ kernel = "Adding one chip at A and finishing cycles through (1,0), (0,1), (1,1);
 +++
 
 ## prompt [K-1]
-Start with empty circles, then add one chip to A at a time, finishing all the sharing after each chip. Can you ever get empty circles again?
+Start with empty circles, then add one chip to A at a time, finishing all the sharing after each chip. Can both circles ever be empty again?
 
 ## prompt [2-3]
 Begin with empty circles. Add one chip to A and finish; keep repeating until you have added 12 chips. Begin again, adding to B instead. After at least one addition, which pairs of final piles can each rule reach?

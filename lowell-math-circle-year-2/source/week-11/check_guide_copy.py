@@ -4,8 +4,8 @@
 The print guide (week-11-facilitator.pdf) is built from editable/facilitator-src/build_guide.py,
 which writes facilitator-guide.tex. The problem files' key and hints sections repeat its
 answers by problem for the key view. Every sentence and table row of a key must appear in
-facilitator-guide.tex, after markup is removed. The guide's two page references
-(\\pageref{kcycle}, \\pageref{middleextra}) are written as page numbers in the keys; the
+facilitator-guide.tex, after markup is removed. The guide's page references
+(\\pageref{preparation}, \\pageref{kcycle}, \\pageref{middleextra}) are written as page numbers in the keys; the
 script checks those pages of the print guide carry the labelled headings. Run from anywhere:
 
     python3 lowell-math-circle-year-2/source/week-11/check_guide_copy.py
@@ -20,7 +20,8 @@ HERE = Path(__file__).resolve().parent
 PACKAGE = next(p for p in (HERE / 'editable', HERE.parent) if (p / 'facilitator-src/facilitator-guide.tex').exists())
 GUIDE = PACKAGE / 'facilitator-src/facilitator-guide.tex'
 PDF = PACKAGE / 'reference-pdfs/facilitator-guide.pdf'
-LABELS = {'kcycle': (7, 'K–1 solutions for Problems 4 to 6'),
+LABELS = {'preparation': (4, 'Preparing and using the packets'),
+          'kcycle': (7, 'K–1 solutions for Problems 4 to 6'),
           'middleextra': (9, 'Grades 2–3 solutions for Problems 4 to 6')}
 
 

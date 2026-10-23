@@ -7,7 +7,7 @@ kernel = "With the A-C line, A and C need 3 chips and B still needs 2; some fini
 +++
 
 ## prompt [2-3]
-Finish each start. Find another order wherever a choice is possible. After stopping, compare the final piles and count each letter in the sharing words.
+Finish each start. Find another order wherever a choice is possible. After stopping, \mbox{compare} the final piles and count each letter in the sharing words. Does the extra line change your \mbox{conclusion} about order?
 
 ## prompt [4-5]
 Finish each start in two different orders, if possible. After stopping, compare the final piles and count each letter in the sharing words. Does the extra line change your conclusion about order?

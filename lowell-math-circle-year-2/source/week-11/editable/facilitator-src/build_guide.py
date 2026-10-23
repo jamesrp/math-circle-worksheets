@@ -29,7 +29,7 @@ pre=r'''\documentclass[11pt,letterpaper]{article}
 '''
 pages=[(P/'mathematical-overview.tex').read_text()]
 pages.append(r'''\pagehead{Preparing and using the packets}\label{preparation}
-This guide keys all 18 numbered problems in the finalized K--1, grades 2--3, and grades 4--5 packets (F11-K-v3, F11-23-v3, F11-45-v3). Each packet has six pages, one problem per page. ``Week 11'' is an unscheduled library label. These materials are new, draft, and unpiloted; no classroom success is claimed.
+This guide keys all 18 numbered problems in the finalized K--1, grades 2--3, and grades 4--5 packets (F11-K-v4, F11-23-v4, F11-45-v4). Each packet has six pages, one problem per page. ``Week 11'' is an unscheduled library label. These materials are new, draft, and unpiloted; no classroom success is claimed.
 
 \textbf{How to use the overview.} Pages~\pageref{overview}--\pageref{determination} give the adult mathematical structure. Choose a few investigations from the grade map; do not lecture through the general theory first. A complete child solution may be a counter demonstration or a spoken argument. Finishing the packet is not the goal.
 
@@ -51,6 +51,8 @@ This guide keys all 18 numbered problems in the finalized K--1, grades 2--3, and
 \item Minutes 53--60: share one surprising finish and one reason to trust it. Leave unfinished collections intact for another meeting.
 \end{itemize}
 \textbf{Whole group launch.} Put $(2,2)$ on the triangle. Ask, ``Which circle can share? Show one chip going along every line from that circle.'' Move only those two chips. Ask another child to choose the next legal move. Restart the same piles and allow the other choice. Do not announce order independence before children test it. Empty the sink only when starting a new independent trial.
+
+\textbf{Table routine, every band.} One child moves the chips. The partner touches each line from the sharing circle, checks that one chip went along it, and says the circle's letter for the sharing word; an adult scribes for K--1. Swap roles at each new start. Without this check, a chip sent along only one line goes unnoticed.
 ''')
 pages.append(r'''\pagehead{Boards and the exact move rule}\label{boards}
 A state lists chips at A, B, then C when present. The sink is excluded. A word such as BBACB records the circles that share, from left to right. A ``finish'' means no legal move remains, not that every circle is empty.
@@ -94,7 +96,7 @@ Both have share counts $(1,1)$ and two chips in the sink. A child may verify eac
 s=r'''\pagehead{K--1 solutions for Problems 1 to 3}
 \prob{Problem 1}{Triangle starts. Changing legal move order cannot change the finish. The answer rows are:}
 '''+table('triangle',[(2,2),(3,2),(2,3),(3,3)],True)+r'''
-The share-count column is adult support; children are only asked about final piles. These trials deliberately give three different finishes across different starts.
+The share-count column is adult support; children are only asked about final piles. These trials deliberately give three different finishes across different starts. Each start is printed on two rows, one for each order, so that children compare two runs of the same start rather than different starts.
 \hint{If a child moves just one chip, touch both lines from the firing circle and send a chip along each. For an order comparison, restore the identical start first.}
 \notice{``The start matters; the order did not in our trials.'' Do not ask young children to recite a general theorem.}
 \prob{Problem 2}{Distribute 4 chips altogether, then 5 altogether. Each total has exactly three possible finishes: $(1,0),(0,1),(1,1)$. The following is a complete check, with A increasing by one.}
@@ -121,7 +123,7 @@ pages.append(r'''\pagehead{K--1 solutions for Problems 4 to 6}\label{kcycle}
 (1,0,0),\ (1,0,1),\ (1,1,0),\ (1,1,1).
 \]
 There cannot be a stable placement of four chips: three circles hold at most one each. This is a capacity proof, not merely a failed search.
-\hint{Ask how many chips one circle can hold without sharing. Once the child has examples, sort them by whether A is empty; each half has the four B/C choices.}
+\hint{Ask how many chips one circle can hold without sharing. Once the child has examples, sort them by whether A is empty; each half has the four B/C choices. If a child stops at seven, ask whether a board with no chips counts; the eighth way is $(0,0,0)$. The page has ten rows so that it does not give the count away.}
 \notice{Changing chip positions without making moves is allowed here: this problem asks for stable placements, not outcomes from a specified start.}
 \prob{Problem 5}{For every timing of additions and legal sharing, $(3,3)$ finishes at $(1,1)$, and $(2,4)$ finishes at $(1,0)$. All three repeated rows for each total have the same answer. In a batch of 3 at A then 3 at B: $(3,0)\to(1,1)$, then $(1,4)\to(1,1)$. Reversing the batch order agrees. For 2 at A then 4 at B: $(2,0)\to(0,1)$, then $(0,5)\to(1,0)$. Reversing gives $(0,4)\to(0,1)$, then $(2,1)\to(1,0)$.}
 \hint{Reserve the not-yet-added chips off the board, away from the sink. Stop only after all scheduled chips have been added and no circle can share.}
@@ -145,7 +147,7 @@ s=r'''\pagehead{Grades 2--3 solutions for Problems 1 to 3}
 \prob{Problem 1}{Triangle finishes and sharing counts are both independent of legal order, for the same start.}
 '''+table('triangle',[(2,2),(4,0),(3,3)],True)+r'''
 Two examples of orders are AB and BA for $(2,2)$, and ABAB and BABA for $(3,3)$. The start $(4,0)$ has only one complete legal word, AAB; the printed ``if possible'' matters. A cannot skip a legal forced move by inventing a second order.
-\hint{One child moves chips and another records the firing word; then exchange roles. After stopping, count its letters to recover the sharing counts. A count at A means the number of times A shared, not chips remaining at A.}
+\hint{Keep the table routine from page~\pageref{preparation}: one child moves chips and the other checks each line and records the firing word; then exchange roles. After stopping, count its letters to recover the sharing counts. A count at A means the number of times A shared, not chips remaining at A.}
 \prob{Problem 2}{Four-cycle starts have these exact records:}
 '''+table('square',[(0,4,0),(2,1,2),(2,4,2)],True)+r'''
 Other complete words are BBCAB, CBA, and CBBCBAABCAB, respectively. Every row duplicated on the student page should end with the same finish and count vector.
@@ -157,7 +159,7 @@ B initially&6&5&4&3&2&1&0\\\midrule
 Finish&$(1,1)$&$(0,1)$&$(1,0)$&$(1,1)$&$(0,1)$&$(1,0)$&$(1,1)$\\\bottomrule\end{tabular}\end{center}
 \textbf{Why complete.} There are seven possible values of A, 0 through 6. Once A is chosen, B is forced. Checking these seven starts leaves none untested. Order independence means no unsuccessful start can be rescued by a new firing order.
 \hint{If the child finds $(3,3)$ and stops, ask whether an empty circle is permitted at the start. If the list is disorganized, ask how one could be certain it includes every possible A pile.}
-\textbf{Optional invariant for a ready child.} On the triangle, the remainder of $A-B$ upon division by 3 never changes: an A move changes it by $-3$, a B move by $+3$. The three nonempty stable pairs have different remainders. This explains the repeating pattern here. It is an extension, not a prerequisite or a replacement for the child's complete list.
+\textbf{Optional invariant for a ready child.} On the triangle, the remainder of $A-B$ upon division by 3 never changes: an A move changes it by $-3$, a B move by $+3$. A start with chips never finishes empty, because the last share always leaves a chip on the other circle. The three nonempty stable pairs have different remainders. This explains the repeating pattern here. It is an extension, not a prerequisite or a replacement for the child's complete list.
 '''
 pages.append(s)
 s=r'''\pagehead{Grades 2--3 solutions for Problems 4 to 6}\label{middleextra}

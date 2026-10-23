@@ -22,4 +22,4 @@ Every stable four-cycle state has 0 or 1 chip at each circle. The complete set o
 There cannot be a stable placement of four chips: three circles hold at most one each. This is a capacity proof, not merely a failed search.
 
 ## hints
-Ask how many chips one circle can hold without sharing. Once the child has examples, sort them by whether A is empty; each half has the four B/C choices.
+Ask how many chips one circle can hold without sharing. Once the child has examples, sort them by whether A is empty; each half has the four B/C choices. If a child stops at seven, ask whether a board with no chips counts; the eighth way is $(0,0,0)$. The page has ten rows so that it does not give the count away.
