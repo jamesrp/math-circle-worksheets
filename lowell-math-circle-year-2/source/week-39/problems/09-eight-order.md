@@ -7,13 +7,13 @@ kernel = "On two rings joined at H, the order of whole ring trips matters: the s
 +++
 
 ## prompt @27 [2-3]
-Left forward is H to A to B and back to H, left backward is H to B to A and back to H, and right forward is H to C to D and back to H. Join these three ring trips in each of the six possible orders and shorten each journey. Which orders shorten to the same trip?
+Left forward (LF) is H to A to B and back to H, left backward (LB) is H to B to A and back to H, and right forward (RF) is H to C to D and back to H. Join these three ring trips in each of the six possible orders and shorten each journey. Which orders shorten to the same trip?
 
 ## prompt @27 [4-5]
 Left forward is H to A to B and back to H, and right forward is H to C to D and back to H. From H, go left forward, right forward, left backward, then right backward. Can the whole trip disappear by removing out-and-back pairs?
 
 ## figure [2-3]
-graph(40, 64, 32, EIGHT, EEDGES) + blank(16, 136, 180, 54)
+graph(56, 65, 24, EIGHT, EEDGES) + blank(16, 121, 180, 69)
 
 ## figure [4-5]
 graph(40, 62, 34, EIGHT, EEDGES)

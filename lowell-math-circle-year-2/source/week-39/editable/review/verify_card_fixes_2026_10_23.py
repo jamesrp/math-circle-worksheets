@@ -58,8 +58,9 @@ checks.append('P7: the 32 six-step A-to-C trips leave ABC, ADC (15 each), ABCDAB
               'two roads twice (so "no, the tiles differ" is a fair reading)')
 
 # 2. The printed K-1 packet: the new question, the old one gone, its id on every page (F39-K-v3 after this fix,
-# F39-K-v4 since the afternoon's K-1 changes, bumped by the footer-version sweep the same day).
-K1_ID = 'F39-K-v4'
+# F39-K-v4 since the afternoon's K-1 changes, bumped by the footer-version sweep the same day; F39-K-v5 since
+# a critic's follow-up reworded K-1 Problem 5).
+K1_ID = 'F39-K-v5'
 k1 = pymupdf.open(REF / 'k-1.pdf')
 text = lambda p: ' '.join(p.get_text().split())
 p6 = text(k1[5])
@@ -67,10 +68,10 @@ assert ('Problem 7: Make every different trip from A to C that can remain after 
         'Can two of your remaining trips use the same four roads?') in p6, p6
 assert not any('in a different order' in text(p) or 'visit exactly the same roads' in text(p) for p in k1)
 assert all(f'Bellingham Math Circle / Week 39 / {K1_ID}' in text(p) for p in k1) and len(k1) == 6
-for band, tag in (('grades-2-3', '23'), ('grades-4-5', '45')):   # v2 until the afternoon's shoulds made them v3
-    assert all(f'F39-{tag}-v3' in text(p) for p in pymupdf.open(REF / f'{band}.pdf'))
+for band, tag, v in (('grades-2-3', '23', 'v4'), ('grades-4-5', '45', 'v3')):   # v2 until the afternoon's shoulds made them v3; 2-3 v4 after the critic's follow-up
+    assert all(f'F39-{tag}-{v}' in text(p) for p in pymupdf.open(REF / f'{band}.pdf'))
 checks.append('K-1 p. 6: "Can two of your remaining trips use the same four roads?"; every K-1 page reads ' + K1_ID + ', '
-              'as guide p. 6 says; Grades 2-3 and 4-5 read v3 since review/card-shoulds-2026-10-23.md')
+              'as guide p. 6 says; Grades 2-3 and 4-5 read v3 since review/card-shoulds-2026-10-23.md (2-3 v4 since the critic follow-up)')
 
 # 3. The key: the guide's source and the printed guide accept the "no" reading.
 guide = json.loads((ROOT / 'facilitator-src' / 'content.json').read_text())

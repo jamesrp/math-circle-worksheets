@@ -8,7 +8,7 @@ kernel = 'Every trip from C to F, however long, shortens to C$\to$B$\to$D$\to$F,
 +++
 
 ## prompt @190 [K-1]
-Make trips from C to F that use every road and shorten each one. Can two of them end differently?
+Make trips from C to F that use every road and shorten each one. Can two of them shorten to different trips?
 
 ## prompt @225 [4-5]
 Can two trips from C to F finish with different routes after every out-and-back pair is removed? Explain using the roads.

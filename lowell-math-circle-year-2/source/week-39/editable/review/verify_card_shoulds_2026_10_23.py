@@ -107,7 +107,7 @@ checks.append('should 8: Grades 2-3 and 4-5 Problem 1 give each recorded trip an
               'new seven-step trip')
 
 k1 = docs['k-1']
-assert 'Problem 5: Make trips from C to F that use every road and shorten each one. Can two of them end differently?' in text(k1[3])
+assert 'Problem 5: Make trips from C to F that use every road and shorten each one. Can two of them shorten to different trips?' in text(k1[3])   # "end differently" until the critic follow-up
 assert 'Problem 6: Make eight-step trips from A back to A and shorten each. Find every different result.' in text(k1[4])
 checks.append('should 9: K-1 Problems 5 and 6 read as the card gives them')
 
@@ -122,16 +122,16 @@ assert 'Problem 2: Make two different 12-step trips from A back to A' in text(b2
 checks.append('shoulds 2-4 and coulds 14-15 on the pages: 4-5 P4\'s new third route, 4-5 P6 and 2-3 P5 as above, '
               '"H to A to B and back to H" in 2-3 and 4-5 P5, two 12-step trips in 2-3 P2')
 
-ids = {'k-1': 'F39-K-v4',   # v3 until the footer-version sweep, later on October 23
-       'grades-2-3': 'F39-23-v3', 'grades-4-5': 'F39-45-v3'}
+ids = {'k-1': 'F39-K-v5',   # v3 until the footer-version sweep, later on October 23; v5 after the critic follow-up
+       'grades-2-3': 'F39-23-v4', 'grades-4-5': 'F39-45-v3'}
 assert all(ids[b] in text(p) for b, d in docs.items() for p in d)
 
 # --- The guide ----------------------------------------------------------------------------
 guide = pymupdf.open(REF / 'facilitator-guide.pdf')
 g = [text(p) for p in guide]
 assert len(guide) == 7 and all(f'{i} / 7' in t for i, t in enumerate(g, 1)) and not any(' / 6' in t for t in g)
-assert 'F39-K-v4, F39-23-v3 and F39-45-v3' in g[5]
-checks.append('should 10: every guide page counts "n / 7", the route note included; guide p. 6 names the IDs (K-1 v4, the others v3), '
+assert 'F39-K-v5, F39-23-v4 and F39-45-v3' in g[5]
+checks.append('should 10: every guide page counts "n / 7", the route note included; guide p. 6 names the IDs (K-1 v5, 2-3 v4, 4-5 v3), '
               'which every student page prints')
 
 src = json.loads((ROOT / 'facilitator-src' / 'content.json').read_text())

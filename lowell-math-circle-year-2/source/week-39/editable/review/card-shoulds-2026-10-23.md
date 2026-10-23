@@ -33,3 +33,12 @@ The theme remains unpiloted, and the pawn-and-tile procedure has not been tried 
 ## Footer id, later on October 23
 
 These shoulds changed K–1 pages 1, 3, 4 and 5 after the morning's must fix had already printed F39-K-v3, so two K–1 printings shared that id. A footer-version sweep the same day bumped K–1 to F39-K-v4 (`version` in the K–1 table of `week.toml`) and guide p. 6's key-alignment line to match; Grades 2–3 and 4–5 keep v3, and the key view keeps F39-G-v3. The rebuilt K–1 packet and guide differ from the previous ones only in that id: the text is identical after the id swap, and the differing pixels lie in the footer row and the key-alignment line. Both card verifiers now expect F39-K-v4.
+
+## Critic follow-up, later on October 23
+
+An independent critic reviewed the day's changes, recomputing every key by enumerating walks on the printed graphs (no error found), and asked for two coulds:
+
+- **K–1 Problem 5:** "Can two of them end differently?" has a trivial reading, since every trip to F ends at F. It now asks "Can two of them shorten to different trips?". The answer, no, and the key are unchanged.
+- **Grades 2–3 Problem 5:** six orders of three ring trips run to about 54 letters before shortening. The definitions now give short names, "Left forward (LF) … left backward (LB) … right forward (RF)", and the map is drawn at 24 mm per unit instead of 32, so the answer box grows from 54 to 69 mm. The six orders are still not printed: finding them is part of the task. The key keeps its a, a⁻¹, b notation, which it defines.
+
+Ids: F39-K-v5, F39-23-v4; guide p. 6 names them, and both card verifiers expect them. Only K–1 p. 4, grades 2–3 p. 4 and guide p. 6 changed (besides footers).
