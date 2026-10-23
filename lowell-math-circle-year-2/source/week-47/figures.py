@@ -6,24 +6,7 @@ default page template in problem-files/canvas.py is the old builder's page. Prob
 files call these functions by name in their `figure` sections; the wording lives in
 the problem files.
 """
-from canvas import text, label, line, rect, circle, prob
-
-STATE = {'width': None}
-
-
-def prompt_width(w):
-    """Set the text width of the next numbered prompt (the old Problem 1 was 113 mm wide,
-    beside the 'jump too big' picture). Draws nothing."""
-    STATE['width'] = w
-    return ''
-
-
-def page_prompt(n, body, x, y, size):
-    """A numbered prompt at the left margin, as the old builder's prob()."""
-    w, STATE['width'] = STATE['width'], None
-    if w is not None:
-        return text(0, y or 0, rf'\textbf{{Problem {n}:}} '+body, w=w, size=size or 13)
-    return prob(n, body, y or 0, size=size or 13)
+from canvas import text, label, line, rect, circle
 
 
 def board(x, y, n=7, H=5, clues=None, star=None, dx=22, dy=20):
@@ -64,7 +47,8 @@ def hill(x, y, hs, scale=6):
 
 
 def height_example():
-    """Page 1: towers 1, 2, 2, 1 -> one marker per column -> the boxed row."""
+    """Page 1: towers 1, 2, 2, 1 -> one marker per column -> the boxed row, and the
+    illegal towers 1, 3, 2 below the allowed ones."""
     s = text(0, 17, 'One marker in each column shows its tower height.', size=11)
     s += hill(15, 58, [1, 2, 2, 1])+label(28, 68, 'allowed', 11)
     for h in range(3):
@@ -80,12 +64,12 @@ def height_example():
     for i, h in enumerate((1, 2, 2, 1)):
         if i: s += line(133+11*i, 44, 133+11*i, 56, 'line width=.8pt')
         s += label(138.5+11*i, 50, str(h), 13)+label(138.5+11*i, 64, str(i), 9)
-    return s
+    return s+hill(15, 90, [1, 3, 2])+label(25, 101, 'jump too big', 11)
 
 
-def jump_too_big():
-    """Page 1, beside Problem 1: the illegal 1, 3, 2 towers."""
-    return hill(142, 99, [1, 3, 2])+label(152, 110, 'jump too big', 11)
+def record_rows(x, y, vals, n, gap=22, dx=13):
+    """n small five-box rows for writing landscapes, with the clues printed and shaded."""
+    return ''.join(row(x, y+k*gap, vals, tuple(i for i, v in enumerate(vals) if v is not None), dx) for k in range(n))
 
 
 def clue_sets():
@@ -96,11 +80,7 @@ def clue_sets():
     return s+board(35, 151, 5, 3, dx=25, dy=20)
 
 
-def shaded_single_clue():
-    """Grades 4-5 Problem 6 (October 4 version): one clue at height 2, with the allowed
-    heights at sites 1, 2, 4 and 5 shaded."""
-    # example explicitly shows permitted single-clue bands, not combined envelopes
-    s = board(25, 48, 7, 5, {3: 2})
-    for i in [1, 2, 4, 5]:
-        for h in range(max(0, 2-abs(i-3)), min(5, 2+abs(i-3))+1): s += circle(25+22*i, 48+(5-h)*20, 3, 'fill=gray!45')
-    return s
+def shading_boards():
+    """Grades 4-5 Problem 6: a single clue h(3)=2, then clues h(0)=0 and h(5)=3, on seven
+    sites with levels 0-5. The level pitch is 16 mm, for pencil shading."""
+    return board(25, 32, 7, 5, {3: 2}, dy=16)+board(25, 136, 7, 5, {0: 0, 5: 3}, dy=16)

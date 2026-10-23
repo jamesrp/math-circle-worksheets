@@ -50,6 +50,8 @@ A landscape is a row of whole-number heights, neighbours at most 1 apart, some f
 
 I agree with all five math check items; none changes a printed answer.
 
+**October 23, 2026:** fixes 1–13 done after converting the week to problem files (v4 packets: K–1 6 pages, Grades 2–3 5, Grades 4–5 6; guide 5 pages). Fix 1 puts the rows beside the boards, so Problem 3 keeps its page; fix 4 asks also whether one shaded pick per column always makes a landscape. The bonus companion (math check items 2 and 4) is unchanged. Checked by `plans/review/checks/week-47/check_card_shoulds.py`; unpiloted.
+
 ## Overlaps
 
 Week 20 fills free places around fixed values with extremes as bounds, but by averaging, with one filling. Week 51 propagates ranges through sums. Week 1's cube piles are height functions connected by flips, the structure behind K–1 P6. No merge; Weeks 20 and 51 make good return-visit contrasts.

@@ -13,31 +13,45 @@
       ],
       [
         "p",
-        "The simultaneous least and greatest completions are<br/><b>L(i) = max(0, max<sub>c</sub>(a<sub>c</sub> - |i - c|))</b> and<br/><b>U(i) = min<sub>c</sub>(a<sub>c</sub> + |i - c|).</b><br/>Every legal completion lies between them. Both envelopes are themselves legal; thus they also minimize and maximize total height. No fixed supply of blocks or extra height ceiling is assumed. With no clues there is no greatest completion."
+        "When the pairwise condition holds, the simultaneous least and greatest completions are<br/><b>L(i) = max(0, max<sub>c</sub>(a<sub>c</sub> - |i - c|))</b> and<br/><b>U(i) = min<sub>c</sub>(a<sub>c</sub> + |i - c|).</b><br/>Every legal completion lies between them, and both envelopes are themselves legal; thus they also minimize and maximize total height. Without the condition the formulas are not landscapes: for P4’s first set, h(0)=0 and h(2)=3, they give L = (1,2,3,2,1) and U = (0,1,2,3,4), each breaking a clue. No fixed supply of blocks or extra height ceiling is assumed. With no clues there is no greatest completion."
       ],
       [
         "p",
-        "<b>Discovery by band.</b> K-1 builds legal landscapes, tests impossible jumps and finds a shortest sequence of one-level moves. Grades 2-3 links allowable heights to distance and optimizes a whole landscape. Grades 4-5 combines bounds and explains why pairwise-consistent clues can always be filled. Experiments support conjectures; the distance and envelope arguments establish them."
+        "<b>Moves.</b> Changing one free height by one level per move and keeping every intermediate row legal, the fewest moves between two landscapes with the same clues always equals the total change, the sum of |h(i) - g(i)|. Some orders are illegal, but a legal one always exists: among the sites above the target, a highest one can always come down a level, and symmetrically for sites below. K-1 P6 (5 moves) is an instance."
       ],
+      [
+        "p",
+        "<b>Discovery by band.</b> K-1 builds legal landscapes, tests impossible jumps and finds a shortest sequence of one-level moves. Grades 2-3 links allowable heights to distance and optimizes a whole landscape. Grades 4-5 shades allowed heights, finds that sitewise choices need not fit together, and explains why pairwise-consistent clues can always be filled. Experiments support conjectures; the distance and envelope arguments establish them."
+      ]
+    ],
+    [
       [
         "h",
         "Prepare and launch"
       ],
       [
         "p",
-        "Use each child’s chosen packet, pencils and 5-7 movable markers per board; make clue markers visually different. Flat markers keep zero visible and avoid a large cube supply. Main boards have 22 mm site spacing and 20 mm level spacing; the alternate five-site board uses 25 mm site spacing. Print at actual size. The drawing’s top edge is not an extra mathematical restriction."
+        "Give each child their chosen packet, a pencil, and 7 white and 3 black flat counters about 1.5 cm across. Black counters are the clues: they sit on the printed black discs, and they move off those discs when a problem moves or replaces a clue (K-1 P3 and Grades 2-3 and 4-5 P3, on the Problem 2 board; K-1 P7 on its own empty board). Flat counters keep zero visible and avoid a large cube supply. Main boards have 22 mm site spacing and 20 mm level spacing; the Problem 4 board uses 25 mm site spacing, and the Grades 4-5 Problem 6 boards 16 mm levels for pencil shading. The small rows beside the Grades 2-3 and 4-5 Problem 1-2 boards are for writing finished landscapes. Print at actual size. The drawing’s top edge is not an extra mathematical restriction."
       ],
       [
         "p",
-        "<b>Readiness.</b> K-1 can compare small whole heights with adult reading. Older entries require counting steps, then adding/subtracting distances; formulas are adult shorthand. With the current ten-child group, keep the three familiar adult-led tables and let readiness determine the page."
+        "<b>Readiness.</b> K-1 can compare small whole heights with adult reading. Older entries require counting steps, then adding/subtracting distances; formulas are adult shorthand. With the current eleven-child group (four at K-1, four at 2-3, three at 4-5), keep the three familiar adult-led tables and let readiness determine the page."
       ],
       [
         "p",
-        "<b>Launch, 4 minutes.</b> Let children place markers, then follow the printed 1,2,2,1 towers to one marker per column and the boxed row, always left to right. Contrast the illegal 1,3,2 jump. Point to the fixed clues and visibly represent height zero. Ask, “Can you change a white marker and keep every neighboring jump small enough?” Do not demonstrate the envelope recipe yet."
+        "<b>Launch, 4 minutes, after the five-minute run.</b> Let children place markers, then follow the printed 1,2,2,1 towers to one marker per column and the boxed row, always left to right. Contrast the illegal 1,3,2 jump. Point to the fixed clues and visibly represent height zero. Ask, “Can you change a white marker and keep every neighboring jump small enough?” Do not demonstrate the envelope recipe yet."
       ],
       [
         "p",
-        "<b>Flexible hour.</b> 0-5 launch; 5-22 construct and compare; 22-25 stand and act out a legal up/flat/down walk; 25-45 choose optimization or partner puzzles; 45-55 share one construction and one impossibility reason; 55-60 reset. Completing the packet is not the goal."
+        "<b>Flexible hour.</b> 0-5 running; 5-9 launch; 9-47 at the tables, constructing and comparing first, then optimization or partner puzzles; 47-55 share one construction and one impossibility reason; 55-60 reset. Completing the packet is not the goal."
+      ],
+      [
+        "h",
+        "Optional hints and stopping points"
+      ],
+      [
+        "p",
+        "For a stuck construction, ask what one neighbor permits; for impossibility, ask how many steps separate the clues. For an extremum, cover all but one clue and ask what that clue alone forces. For K-1 moves, compare the three starting and target heights before trying to prove optimality. Stop with a convincing construction and a local jump explanation; do not require the envelope notation from children."
       ]
     ],
     [
@@ -47,15 +61,15 @@
       ],
       [
         "p",
-        "<b>Problem 1, all bands.</b> Endpoints are 1 at sites 0 and 4. Examples: (1,0,0,0,1), (1,1,1,1,1), (1,2,1,2,1), (1,2,3,2,1). All adjacent differences are at most 1. The middle can be 0 and can be 3. Its full possible range is 0-3, since it is two steps from either clue. Any legal different constructions answer K-1."
+        "<b>Problem 1, all bands.</b> Endpoints are 1 at sites 0 and 4. There are 18 landscapes; Grades 2-3 and 4-5 write four in the rows beside the board, for example (1,0,0,0,1), (1,1,1,1,1), (1,2,1,2,1), (1,2,3,2,1). All adjacent differences are at most 1. The middle can be 0 and can be 3. Its full possible range is 0-3, since it is two steps from either clue. Any legal different constructions answer K-1."
       ],
       [
         "p",
-        "<b>Problem 2, all bands.</b> The star is site 2; clues are h(0)=0 and h(4)=2. Its possible heights are exactly 0, 1, 2. Witnesses are (0,0,0,1,2), (0,0,1,1,2), (0,1,2,2,2). The left clue bounds it above by 2; nonnegativity bounds it below by 0. K-1 asks only for the extrema."
+        "<b>Problem 2, all bands.</b> The star is site 2; clues are h(0)=0 and h(4)=2. Its possible heights are exactly 0, 1, 2. Witnesses, one per row, are (0,0,0,1,2), (0,0,1,1,2), (0,1,2,2,2). The left clue bounds it above by 2; nonnegativity bounds it below by 0. K-1 asks only for the extrema."
       ],
       [
         "p",
-        "<b>Problem 3.</b> K-1’s new right clue is 4: the only landscape is (0,1,2,3,4). In Grades 2-3 and 4-5, 4 is the only right-clue height that forces every site. Larger heights are impossible. For heights r=0,1,2,3, there is slack: the least completion and the greatest completion differ, so at least two landscapes exist."
+        "<b>Problem 3.</b> Children use the Problem 2 board, moving the right black counter off its printed disc. K-1’s new right clue is 4: the only landscape is (0,1,2,3,4). In Grades 2-3 and 4-5, 4 is the only right-clue height that forces every site. Larger heights are impossible. For heights r=0,1,2,3, there is slack: the least completion and the greatest completion differ, so at least two landscapes exist."
       ],
       [
         "p",
@@ -71,7 +85,7 @@
       ],
       [
         "p",
-        "For K-1, a third different answer is (1,1,1,2,3,2,1); many answers work. There are exactly 10 completions, independently enumerated, but no printed task asks children to list them all. Grades 2-3 asks for the totals’ extrema; Grades 4-5 asks for pointwise extrema. Here the same two constructions solve both questions."
+        "For K-1, a third different answer is (1,1,1,2,3,2,1); many answers work. There are exactly 10 completions, independently enumerated, but no printed task asks children to list them all. Grades 2-3 asks for the smallest and largest total heights, 10 and 16. Grades 4-5 asks whether one landscape is lowest at every site at once, and one highest: yes, these two. The same two constructions solve both questions."
       ],
       [
         "h",
@@ -79,11 +93,11 @@
       ],
       [
         "p",
-        "<b>Problem 6.</b> The minimum is <b>5 moves</b>. A legal route is<br/>(1,2,1,2,1) → (1,1,1,2,1) → (1,1,1,1,1) →<br/>(1,1,0,1,1) → (1,0,0,1,1) → (1,0,0,0,1).<br/>The three white heights must fall by 2, 1 and 2. One move changes just one height by one level, so fewer than 5 moves cannot suffice. Fixed end clues never move."
+        "<b>Problem 6.</b> The minimum is <b>5 moves</b>. A legal route is<br/>(1,2,1,2,1) → (1,1,1,2,1) → (1,1,1,1,1) →<br/>(1,1,0,1,1) → (1,0,0,1,1) → (1,0,0,0,1).<br/>The three white heights must fall by 2, 1 and 2. One move changes just one height by one level, so fewer than 5 moves cannot suffice. Fixed end clues never move. Lowering the middle first gives (1,2,0,2,1), with two jumps of 2, so the order matters. Partners: one child moves a marker; the other checks both jumps beside it before the next move."
       ],
       [
         "p",
-        "<b>Problem 7.</b> Replace, rather than supplement, the old clues. For example, clues h(0)=0 and h(4)=4 force (0,1,2,3,4); h(0)=h(4)=1 allow many answers. Check a child’s invented pair by height difference ≤ site distance. An impossible puzzle is a valid investigation if it is identified and explained as such."
+        "<b>Problem 7.</b> The page 6 board is empty, with sites 0-4 and levels 0-4. Clues h(0)=0 and h(4)=4 force (0,1,2,3,4), and their mirror forces (4,3,2,1,0); no other pair of clues on this board forces one landscape. Clues h(0)=h(4)=1 allow many answers. Check a child’s invented pair by height difference ≤ site distance. An impossible puzzle is a valid investigation if it is identified and explained as such."
       ]
     ],
     [
@@ -93,7 +107,7 @@
       ],
       [
         "p",
-        "<b>Grades 2-3 Problem 6.</b> On sites 0-6, h(0)=0 and h(6)=6 force (0,1,2,3,4,5,6). To gain 6 in six steps, every step must rise by 1. The pair h(0)=h(6)=0 allows the all-zero landscape and (0,1,0,0,0,0,0), so it allows more than one. These are examples, not a required classification of all invented pairs."
+        "<b>Grades 2-3 Problem 6.</b> On sites 0-6, h(0)=0 and h(6)=6 force (0,1,2,3,4,5,6). To gain 6 in six steps, every step must rise by 1. The pair h(0)=h(6)=0 allows the all-zero landscape and (0,1,0,0,0,0,0), so it allows more than one. On this board these are the only forcing pairs, with the mirror h(0)=6, h(6)=0. A clue away from an end leaves the end site at least two choices, so both clues must sit at sites 0 and 6, six levels apart. For example, h(1)=0, h(5)=4 fixes sites 1-5 but still allows 6 landscapes."
       ],
       [
         "p",
@@ -101,23 +115,15 @@
       ],
       [
         "p",
-        "<b>Grades 4-5 Problem 6.</b> Sites 0 and 6 are each three steps from the height-2 clue at site 3. At either site every height <b>0 through 5</b> is possible. “Possible at a site” is a separate existence claim; arbitrary independent choices at neighboring sites need not fit together."
+        "<b>Grades 4-5 Problem 6.</b> First board, one clue h(3)=2: sites 0 and 6 allow <b>0-5</b>, sites 1 and 5 allow 0-4, sites 2 and 4 allow 1-3 (from max(0, 2-d) to 2+d at distance d). Second board, h(0)=0 and h(5)=3: sites 1-4 allow <b>0-1, 0-2, 1-3, 2-4</b> and site 6 allows <b>2-4</b>, the overlap of each clue’s range. Picks need not fit: 0 at site 2 and 3 at site 3 are each allowed but never together, as are 4 at site 1 and 1 at site 2 on the first board. “Possible at a site” is a separate existence claim. Yet the lowest picks together, and the highest together, do make landscapes: they are Problem 5’s envelopes."
       ],
       [
         "p",
-        "<b>Grades 4-5 Problem 7.</b> Yes, under the printed nonnegative whole-height rule. Use the lower envelope L from page 1. Each clue contributes a downward tent a<sub>c</sub> - |i-c|; take the largest of these and zero at every site. The maximum of these 1-Lipschitz functions is 1-Lipschitz. At a clue d, its own tent equals a<sub>d</sub>; pairwise consistency makes every other tent no larger. Thus L has the required clue values and is nonnegative and integral. This is a complete construction, not only a feasibility test."
+        "<b>Grades 4-5 Problem 7.</b> Yes, under the printed nonnegative whole-height rule. Use the lower envelope L from page 1. Each clue contributes a downward tent a<sub>c</sub> - |i-c|; take the largest of these and zero at every site. The maximum of these 1-Lipschitz functions is 1-Lipschitz. At a clue d, its own tent equals a<sub>d</sub>; pairwise consistency makes every other tent no larger. Thus L has the required clue values and is nonnegative and integral. This is a complete construction, not only a feasibility test. The page 6 board is for trying clue sets."
       ],
       [
         "p",
-        "For completeness, the upper envelope U is also 1-Lipschitz: if every f<sub>c</sub> changes by at most one between adjacent sites, their finite minimum does too. Pairwise consistency makes U hit each clue. Every completion h must satisfy a<sub>c</sub>-|i-c| ≤ h(i) ≤ a<sub>c</sub>+|i-c|, proving the extremal claims."
-      ],
-      [
-        "h",
-        "Optional hints and stopping points"
-      ],
-      [
-        "p",
-        "For a stuck construction, ask what one neighbor permits; for impossibility, ask how many steps separate the clues. For an extremum, cover all but one clue and ask what that clue alone forces. For K-1 moves, compare the three starting and target heights before trying to prove optimality. Stop with a convincing construction and a local jump explanation; do not require the envelope notation from children."
+        "For completeness, the upper envelope U is also 1-Lipschitz: if every upward tent f<sub>c</sub>(i) = a<sub>c</sub> + |i-c| changes by at most one between adjacent sites, their finite minimum does too. Pairwise consistency makes U hit each clue. Every completion h must satisfy a<sub>c</sub>-|i-c| ≤ h(i) ≤ a<sub>c</sub>+|i-c|, proving the extremal claims."
       ],
       [
         "h",

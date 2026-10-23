@@ -13,11 +13,8 @@ Move the right clue to 4. Find every landscape that works.
 ## prompt @170
 Keep the left clue at 0. Choose a height for the right clue that forces every marker. Find all such right-clue heights.
 
-## text @40,197 w=140 size=11
-Shaded boxes are fixed clues.
-
 ## figure [K-1]
-row(40,216,[0,None,None,None,4],(0,4))
+row(40,196,[0,None,None,None,4],(0,4))
 
 ## figure
-row(40,216,[0,None,None,None,None],(0,4))
+row(40,196,[0,None,None,None,None],(0,4))

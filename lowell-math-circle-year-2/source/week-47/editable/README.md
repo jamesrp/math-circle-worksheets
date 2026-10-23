@@ -1,12 +1,16 @@
 # Week 47 Gentle step landscapes editable source
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 23, 2026 card fixes (v4)
+
+The [review card](../../../../plans/review/week-47.md)'s fixes, made in the problem files and the guide: Grades 2–3 and 4–5 Problems 1 and 2 have small record rows with the clues printed beside their boards; K–1 Problem 7 has its own page with an empty five-site board; Grades 4–5 Problem 6 asks children to shade the allowed heights on a one-clue board and a two-clue board, and Problem 7 moves to a page of its own with a board; "jump too big" joins the page 1 rules strip, the rules name shaded boxes as clues, Grades 2–3 Problem 5 says "smallest total height" and Grades 4–5 Problem 5 asks whether one landscape is lowest everywhere. The guide (now overview, preparation, two key pages and the route page) states the envelope claim's hypothesis and the move fact, gives each child 7 white and 3 black counters, has K–1 partners check each move, keys the new boards, names the only forcing pairs and plans the hour from the five-minute run. `python3 review/verify_card_shoulds_2026_10_23.py` checks every changed claim and count against `reference-pdfs/`. Unpiloted; physically unrehearsed.
+
+## Earlier release: October 4, 2026 fresh-review revision
 
 The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
-Current pages: **K–1 5; Grades 2–3 5; Grades 4–5 5; adult guide 4**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 6; Grades 2–3 5; Grades 4–5 6; adult guide 5**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 The student pages are stored as problem files: `problem-files/week.toml`, `problem-files/figures.py` and one file per problem in `problem-files/problems/`, with each band's wording inside it (in the repository, `lowell-math-circle-year-2/source/week-47/`). `src/regenerate.py` writes the band LaTeX from them, and `src/build.sh` runs it before compiling, so `build.py` here and the problem-file tools (`problem-files/tools/build.py`) give the same student PDFs. The conversion, on October 23, 2026, changed no wording or figure: the regenerated LaTeX is byte-identical to the old builder's (`make.py`, archived in the project).
 
