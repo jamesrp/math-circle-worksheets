@@ -48,6 +48,8 @@ Offers are fair draws, with replacement, from a known bag; a player takes one an
 
 October 23, 2026: shoulds 1–7 and coulds 8 and 10–14 done after converting the student packet to problem files (W60-S-v3, eight pages, with Problem 7 continued on p. 7; W60-FAC-v2); the K–1 route replaces the guide's Week 1 tiling paragraph, which takes the purple pieces and the roster sentence with it; could 9 left.
 
+**Critic follow-up, October 23, 2026 (W60-FAC-v3):** an independent critic noted that the guide gave KK11 one playing kit (one die, four counters, 30 cubes) for two pairs who roll and build towers, while the first-6 row alone takes 28 cubes. The guide now prepares five kits, two for KK11 (one per pair, so a second stickered die), 30 linking cubes per KK11 pair, and a page 1 and pages 2 and 6 for each pair. Student pages unchanged (W60-S-v3). Check: `checks/week-60/check_critic_fixes.py`.
+
 ## Overlaps
 
 Week 7 works up from 0 over positions without chance, the deterministic form of P6's induction. Week 24 asks whether the deck winning more of nine equally likely pairs must win more of six rounds (K–1 P4), P2's point; guide p. 8 also names Weeks 42–46. None has an irreversible take-or-pass choice under a deadline. No merge.

@@ -2,6 +2,8 @@
 
 **October 23, 2026 (W60-FAC-v2):** the review card's fixes: an adult-led K–1 route at KK11 on student pages 1, 2 and 6 (two-offer rounds, then take and pass cube towers row by row) with a plain-words key, replacing the Week 1 tiling paragraph; a blank die stickered 0, 0, 4, 4, 6, 6 per kit by default, with tickets and a display as the fallback; no erase step for Problem 4; cutting the 126 cards optional; the 0, 2, 6 bag in Problem 7's key; Problem 6's answer as "no legal plan beats B"; and the p. 8 tie sentence corrected (the page 2 practice 3 ties too). It accompanies W60-S-v3. The rest of this README records the October 4 stage.
 
+**Critic follow-up, October 23, 2026 (W60-FAC-v3):** KK11's two pairs each get a playing kit (five kits in all, so a second stickered die), their own page 1 and pages 2 and 6, and 30 linking cubes per pair (the first-6 row alone needs 28). `check_answers.py` recomputes the new counts.
+
 Separately authored adult guide for the final seven-page student packet W60-S-v2.
 Guide footer: W60-FAC-v1. Eight US Letter pages. The concrete student route is
 pages 1-3 and 6, Grades 3-5; pages 4-5 and 7 are readiness-dependent upper

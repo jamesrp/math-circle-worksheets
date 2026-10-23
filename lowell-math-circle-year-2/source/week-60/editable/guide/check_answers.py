@@ -96,14 +96,18 @@ def main():
     original = (0, 4, 6)
     # Independently recompute the operational counts printed in the guide.
     # Guide p. 2 (W60-FAC-v2): four die kits, 63 cards per older table, optional cutting.
+    # Critic follow-up, October 23, 2026 (W60-FAC-v3): five kits, two for KK11's two pairs, each
+    # pair with its own page 1, pages 2 and 6, and 30 linking cubes.
     table_cards = 3**2 + 3**3 + 3**2 + 3**2 + 3**2
     assert table_cards == 63 and 2 * table_cards == 126
-    page1 = 7 + 1 + 1
+    k1_pairs = 2
+    kits = 3 + k1_pairs
+    page1 = 7 + k1_pairs + 1
     core_paper = 4 * (3 + 1)
-    k1_paper = 2
+    k1_paper = 2 * k1_pairs
     upper_paper = 3 * (3 + 1)
     cardstock = 2 * 4 + 4
-    assert (page1, core_paper, k1_paper, upper_paper, cardstock) == (9, 16, 2, 12, 12)
+    assert (kits, page1, core_paper, k1_paper, upper_paper, cardstock) == (5, 10, 16, 4, 12, 12)
     # A 0, 0, 4, 4, 6, 6 die gives each score chance 1/3, as the three-ticket bag does.
     die = (0, 0, 4, 4, 6, 6)
     assert all(F(die.count(x), 6) == F(1, 3) for x in (0, 4, 6))
@@ -116,11 +120,12 @@ def main():
     assert towers == {'(0, 4, 6) first 0': (0, 10), '(0, 4, 6) first 4': (12, 10),
                       '(0, 4, 6) first 6': (18, 10), '(0, 3, 6) first 3': (9, 9)}
     assert max(a + b for a, b in towers.values()) == 28 <= 30
-    evidence['preparation_counts'] = {'kits': 4, 'dice': 4, 'spare_dice': 1, 'counters': 16,
+    evidence['preparation_counts'] = {'kits': kits, 'dice': kits, 'spare_dice': 1, 'counters': 4 * kits,
                                      'cards_per_older_table': table_cards, 'all_cards_if_cut': 126,
                                      'page1_sheets': page1, 'core_paper_sheets': core_paper,
                                      'K1_tower_sheets': k1_paper, 'upper_paper_sheets': upper_paper,
-                                     'cardstock_sheets': cardstock, 'K1_linking_cubes': 30}
+                                     'cardstock_sheets': cardstock, 'K1_linking_cubes_per_pair': 30,
+                                     'K1_linking_cubes': 30 * k1_pairs}
     evidence['K1_towers_take_pass'] = {k: list(v) for k, v in towers.items()}
     # Both practice conversions, including input, intermediate, output.
     assert evaluate((2, 1), lambda p: False) == 1
