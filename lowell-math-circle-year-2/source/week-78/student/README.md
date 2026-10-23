@@ -39,7 +39,8 @@ For visual review with Poppler:
     pdftoppm -r 90 -png /absolute/path/to/output/students.pdf /absolute/path/to/output/page
 
 All diagram coordinates are original. `data.py` supplies the task cases;
-`build.py` writes their TikZ definitions. `check_math.py` uses exact rational
+`../figures.py` draws their boards in the problem files (`../problems/`), and
+`regenerate.py` writes `students.tex` from those files. `check_math.py` uses exact rational
 ray intersection calculations to check every supplied finite case, including
 whole shared rays. It also checks 2,401 ordered integer-junction pairs against an
 independent rectangle formula, verifies inverse constructions, and checks the

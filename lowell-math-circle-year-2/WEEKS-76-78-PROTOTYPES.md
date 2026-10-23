@@ -8,7 +8,7 @@ The three strands are substitution order, persistent homology and tropical geome
 | --- | --- | --- | --- |
 | 76 | Substitution strips: hidden seams and order without an eventual repeating unit | Grades 3–5 | **Organizer-approved; unpiloted.** [Students: 4 pages](week-76/week-76-students.pdf) · [Adult guide: 4 pages](week-76/week-76-facilitator.pdf) · [Editable source](source/week-76/README.md) · [ZIP](source/week-76-source.zip) |
 | 77 | Persistent holes: saved loops, changing fillings and equivalent loops | Grades 4–5 | [Students: 6 pages](week-77/week-77-students.pdf) · [Adult guide: 4 pages](week-77/week-77-facilitator.pdf) · [Editable source](source/week-77/README.md) · [ZIP](source/week-77-source.zip) |
-| 78 | Three-armed lines: tropical intersections and hidden junctions | Grades 4–5 | [Students: 5 pages](week-78/week-78-students.pdf) · [Adult guide: 4 pages](week-78/week-78-facilitator.pdf) · [Editable source](source/week-78/README.md) · [ZIP](source/week-78-source.zip) |
+| 78 | Three-armed lines: tropical intersections and hidden junctions | Grades 4–5 | [Students: 5 pages](week-78/week-78-students.pdf) · [Adult guide: 4 pages](week-78/week-78-facilitator.pdf) · [Editable source](source/week-78/README.md) (problem files) · [ZIP](source/week-78-source.zip) |
 
 Weeks 77–78 have revised worked introductions dated October 15, 2026. Week 78 is organizer-approved and promoted October 17; Week 77 remains for organizer review.
 

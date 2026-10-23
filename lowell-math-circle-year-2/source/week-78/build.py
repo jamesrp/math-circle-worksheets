@@ -19,8 +19,14 @@ def main():
     manifest=json.loads((BASE/'build-manifest.json').read_text())
     with tempfile.TemporaryDirectory(prefix=f"week-{manifest['week']}-source-build-") as tmp:
         work=Path(tmp)
-        for name in ['student','guide','checks']:
+        for name in ['student','guide','checks','problems']:
             if (BASE/name).is_dir():shutil.copytree(BASE/name,work/name)
+        # The student pages are problem files: week.toml, template.tex and figures.py beside
+        # this file, with the tools in tools/ (portable ZIP) or ../problem-files/ (repository).
+        for name in ['week.toml','template.tex','figures.py']:
+            shutil.copy2(BASE/name,work/name)
+        tools=next(t for t in (BASE/'tools',BASE.parent/'problem-files') if (t/'atoms.py').is_file())
+        shutil.copytree(tools,work/'tools',ignore=shutil.ignore_patterns('__pycache__'))
         for check in manifest['checks']:
             print(run(['python3',check['script'],*check.get('args',[])],work).strip())
         if a.verify_only:return
