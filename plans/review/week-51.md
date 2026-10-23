@@ -49,7 +49,7 @@ I agree with all three math-check findings; I rate its problem 2 a must.
 
 **Fixed October 23, 2026:** fix 1, with a printable strip kit (`lowell-math-circle-year-2/week-51/week-51-materials.pdf`: two strips of each whole length 1–15 and the 4 and 1 add-ons at 10 mm per unit) and a guide without sleeves. Fix 2 changes K–1 student wording and waits for a problem-file conversion; the rest deferred. The kit is physically unrehearsed.
 
-**Fixed October 23, 2026, after the problem-file conversion:** fix 2 (K–1 P4, now P6: "Both A's in the top picture are the same length. Each try may use new lengths."), shoulds 3, 5, 6 and 7, and coulds 9 and 10, with the guide's keys, launch and route note renumbered to match (`source/week-51/editable/review/card-fixes-2026-10-23.md`). Shoulds 4 and 8 and could 11 deferred. The changed pages are physically unrehearsed.
+**Fixed October 23, 2026, after the problem-file conversion:** fix 2 (K–1 P4, now P6: "Both A's in the top picture are the same length. Each try may use new lengths."), shoulds 3, 5, 6 and 7, and coulds 9 and 10, with the guide's keys, launch and route note renumbered to match (`source/week-51/editable/review/card-fixes-2026-10-23.md`). Shoulds 4 and 8 and could 11 deferred. The changed pages are physically unrehearsed. Later the same day, should 8: the guide's hour plan now fits 35 to 40 minutes at the tables and drops the human strips. Should 4 and could 11 remain deferred.
 
 ## Overlaps
 

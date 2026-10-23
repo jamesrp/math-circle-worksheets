@@ -12,14 +12,16 @@ The review card is `plans/review/week-51.md` in the project, with its math check
 - **Could (fix 9), K–1 Problem 5 (was 6).** Two rulers, one for each way to make a gap of 3; the prompt moved up to make room.
 - **Could (fix 10), the shared-A page, all bands.** "One possible setting;" is cut; the line reads "The white pieces are exactly 4 and 1 units long."
 
-Deferred: should 4 (older Problem 6, the midpoint claim, which the two card runs agree repeats Problem 5's witnesses but would replace in different ways), should 8 (the guide's timing and the undescribed human strips; a guide-only change outside this pass) and could 11 (simpler Grades 2–3 wording for "tightest guaranteed range", which would leave the phrase in Problem 7 and "neither bound" in Problem 5).
+- **Should (fix 8), guide p. 1, later the same day.** The "Flexible hour" planned about fifty minutes at the tables and two undescribed slots ("human strips", "exchange guarantees"). It now gives 0-5 arrival, 5-9 launch, 9-47 at the tables (P1-2 with partner tests, then P3, and P4 for older bands, or return pages), 47-53 sharing (each pair shows one guarantee and the two settings at its ends) and 53-60 reset, matching the group's 35 to 40 minutes at the tables. Only guide page 1 changed.
+
+Deferred: should 4 (older Problem 6, the midpoint claim, which the two card runs agree repeats Problem 5's witnesses but would replace in different ways) and could 11 (simpler Grades 2–3 wording for "tightest guaranteed range", which would leave the phrase in Problem 7 and "neither bound" in Problem 5).
 
 ## Pages
 
 - K–1: pp. 1 and 3–6 changed; p. 2 unchanged.
 - Grades 2–3: pp. 1 and 4–6 changed. Pp. 2–3 have the same words and drawings, but this TeX Live breaks two lines without the old copies' hyphens ("reach-es", "with-in"), as recorded in `fresh-review-rebuild.md` for the old builder too.
 - Grades 4–5: pp. 1 and 4–5 changed; pp. 2–3 as for Grades 2–3; p. 6 unchanged.
-- Adult guide: all four pages (launch p. 1, reordered keys pp. 2–3, route note p. 4).
+- Adult guide: all four pages (launch p. 1, reordered keys pp. 2–3, route note p. 4); the hour plan (fix 8) changed p. 1 again.
 - The strip kit (`materials.pdf`) is unchanged: every changed build still uses whole lengths from one set.
 
 ## Verification

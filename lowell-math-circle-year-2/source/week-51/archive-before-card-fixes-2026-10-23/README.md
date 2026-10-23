@@ -4,3 +4,4 @@ Two complete previous portable packages, each with its editable sources and then
 
 - `honest-measurement-ranges-week51-editable-source.zip`: before the first card fix, the strip kit. The current files add the strip-kit builder and the revised guide preparation paragraph.
 - `honest-measurement-ranges-week51-editable-source-problem-files.zip`: after the kit and the problem-file conversion, before the student-page fixes (`../editable/review/card-fixes-2026-10-23.md` says what changed). Its student pages and guide are the October 4 versions with the kit paragraph. SHA-256: `08394ae52b496888ed8c63c158527b70061aa6d59c9ca2e9ad4d8e5c324dd0a3`.
+- `honest-measurement-ranges-week51-editable-source-student-fixes.zip`: after the student-page fixes, before the guide's hour plan was re-timed (card fix 8). SHA-256: `af7e2deff6c61878db4e4c188eede1d714dcd81d320c6356ed05125e546b1e9a`.
