@@ -14,7 +14,7 @@ A line that touches a circle at just one point meets the radius there at a right
 asset("tangentExample")
 
 ## prompt
-Explain why the exact curved triangle has the same width in every direction. Its arcs have radius 60 mm, with centers at $A$, $B$ and $C$. Include the turns between the drawings in your explanation.
+Explain why the exact curved triangle has the same width in every direction. Its arcs have radius 60 mm, with centers at $A$, $B$ and $C$. Your explanation should also work for every position between the drawings.
 
 ## figure
 asset("proofPositions")

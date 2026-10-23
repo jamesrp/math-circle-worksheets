@@ -1,5 +1,7 @@
 # Week 59 separate facilitator guide
 
+**October 23, 2026 (W59-F-v2):** the review card's fixes: an adult-led K–1 route on student p. 2 with a plain-words key; Problem 2's rails closed and taped on the kit's own disk, square-edged rails, and a blank deciding-position cell accepted; card backing by default for Problem 3's pieces; a 46 × 32 mm scrap parallelogram for the launch; the radius-60 generating circle as a held Problem 6 hint on p. 8; build residue cut. It accompanies W59-S-v3 and W59-M-v1. The rest of this README records the October 4 stage.
+
 Separately authored from the revised six-page `students.pdf` (W59-S-v2) and
 three-page `materials.pdf` (W59-M-v1), after the independent student reviews.
 This directory is a standalone original guide source, not a student rebuild.

@@ -15,7 +15,7 @@ The packets and these views are unpiloted, as their weeks are.
 | 56 | Corners of a solid | [9 pages](../week-56/week-56-students.pdf) | [4 of 9](week-56/week-56-k-1.pdf): pp. 1, 3–5 | [6 of 9](week-56/week-56-grades-2-3.pdf): pp. 1–6 | whole packet | [menu](week-56/week-56-menu.pdf) |
 | 57 | Area from dots | [10 pages](../week-57/week-57-students.pdf) | — | [6 of 10](week-57/week-57-grades-2-3.pdf): pp. 1–6 | whole packet | [menu](week-57/week-57-menu.pdf) |
 | 58 | Fair division | [7 pages](../week-58/week-58-students.pdf) | [2 of 7](week-58/week-58-k-1.pdf): pp. 1, 5 | whole packet | whole packet | [menu](week-58/week-58-menu.pdf) |
-| 59 | Constant width | [6 pages](../week-59/week-59-students.pdf) | — | [5 of 6](week-59/week-59-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-59/week-59-menu.pdf) |
+| 59 | Constant width | [6 pages](../week-59/week-59-students.pdf) | [1 of 6](week-59/week-59-k-1.pdf): pp. 2 | [5 of 6](week-59/week-59-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-59/week-59-menu.pdf) |
 | 60 | Take it or pass | [7 pages](../week-60/week-60-students.pdf) | — | [4 of 7](week-60/week-60-grades-2-3.pdf): pp. 1–3, 6 | whole packet | [menu](week-60/week-60-menu.pdf) |
 | 61 | Triangles on a ball | [7 pages](../week-61/week-61-students.pdf) | — | [4 of 7](week-61/week-61-grades-2-3.pdf): pp. 1–4 | whole packet | [menu](week-61/week-61-menu.pdf) |
 | 62 | Conflict networks | [9 pages](../week-62/week-62-students.pdf) | — | [5 of 9](week-62/week-62-grades-2-3.pdf): pp. 1–3, 6–7 | whole packet | [menu](week-62/week-62-menu.pdf) |

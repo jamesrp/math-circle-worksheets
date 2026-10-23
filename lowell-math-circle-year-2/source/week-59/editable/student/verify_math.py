@@ -257,6 +257,10 @@ def audit_point_example(assets,page):
 
 def audit_pdf(out,assets):
     byname={p['name']:p for p in assets}
+    # The radius-60 generating circle is a held guide hint, not on student p.6.
+    roles={x['role'] for x in byname['perimeterCompare']['primitives']}
+    assert not roles & {'generating_circle','sixth_radius','highlight_sixth_arc'},roles
+    assert {'perimeter_disk','perimeter_reuleaux','highlight_reuleaux_arc'} <= roles
     layouts={'students':[['measureExample','extremeTable'],['turnTable'],
                          ['compassExample','constructionRecords'],['tangentExample','proofPositions'],
                          ['pointSupportExample','heightTable'],['perimeterCompare']],
@@ -316,12 +320,24 @@ def audit_pdf(out,assets):
             assert 'Week 59 / Constant width /' in text and 'Bellingham Math Circle / Week 59 /' in text
             if name=='students':
                 assert f'Problem {i+1}:' in text
-                band=['Grades 2–5','Grades 2–5','Grades 3–5','Grades 3–5','Grades 3–5','Grades 4–5'][i]
+                band=['Grades 2–5','Grades K–5','Grades 3–5','Grades 3–5','Grades 3–5','Grades 4–5'][i]
                 assert band in text
                 if i==0:
                     assert text.startswith('Week 59 / Constant width / Grades 2–5\nTo measure width,')
+                flat=' '.join(text.split())
+                # October 23, 2026 review-card fixes (W59-S-v3).
+                if i==0:
+                    assert 'Drawings are smaller than the real pieces.' in flat
                 if i==1:
-                    assert 'Keep the parallel edges fixed 60 mm apart while the piece turns and slides.' in text
+                    assert 'Close the edges on the disk, then keep them fixed while the piece turns and slides.' in flat
+                    assert '60 mm apart' not in flat
+                if i==3:
+                    assert 'Your explanation should also work for every position between the drawings.' in flat
+                    assert 'Include the turns' not in flat
+                if i==5:
+                    assert 'Explain how you know.' in flat and 'exact argument' not in flat
+                    assert 'large circle' not in flat and 'six equally' not in flat
+                    assert 'radius 30 mm' in flat and 'arcs: radius 60 mm' in flat
                 if i==4:
                     checks.append(dict(pdf=name,page=5,point_support_example=audit_point_example(assets,page)))
     return checks

@@ -113,7 +113,10 @@ def guide_vectors(pdf):
     text='\n'.join(p.get_text() for p in d)
     assert text.index('Mathematical overview')<text.index('Problem 1 /')
     assert all(f'Problem {i} /' in text or f'Problem {i},' in text or f'Problem {i}\n' in text for i in range(1,7))
-    assert 'unperformed' in text and '0.001631' in text and '60.000456' in text
+    assert 'unperformed' in text and 'hundredths of a millimeter' in text
+    # October 23, 2026 card fixes: a K-1 route with a key, the held P6 hint, rails closed on the disk.
+    assert 'Plain-words key for K' in text and 'held hint' in text and 'closes the rails on the disk' in text
+    assert '60.000456' not in text and 'REPUBLISHING' not in text
     return result
 
 def inputs(students,materials):
@@ -147,7 +150,7 @@ def inputs(students,materials):
     if students:
         d=fitz.open(students);assert len(d)==6
         assert 'To measure width' in d[0].get_text()
-        assert 'fixed 60 mm apart' in d[1].get_text()
+        assert 'Close the edges on the disk' in d[1].get_text() and 'Grades K–5' in d[1].get_text()
         p=d[4];text=p.get_text();assert text.index('32 mm')<text.index('Problem 5:')
         rects=[p for p in p.get_drawings() if len(p['items'])==1 and p['items'][0][0]=='re' and abs(p['rect'].width/MM-26.4)<.002 and abs(p['rect'].height/MM-16.8)<.002]
         assert len(rects)==3

@@ -11,10 +11,10 @@ kernel = "Barbier's case: three sixths of a radius-60 circle equal the radius-30
 \renewcommand{\band}{Grades 4--5}
 
 ## prompt
-The large circle has six equally spaced boundary dots. Compare the boundary lengths of the 60 mm-width disk and curved triangle. Give an exact argument.
+Compare the boundary lengths of the 60 mm-width disk and curved triangle. Explain how you know.
 
 ## figure
 asset("perimeterCompare")
 
 ## text
-\spacebox{105}
+\spacebox{136}

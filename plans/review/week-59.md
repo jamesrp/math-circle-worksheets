@@ -46,6 +46,8 @@ Width is the gap between two parallel lines that enclose a shape and both touch 
 10. **could**, guide pp. 3 and 8: cut residue such as "Root REPUBLISHING.md was read and preserved" and the sampled 60.000456–60.016920 mm figures.
 11. **could**, guide p. 4: give the launch's "scrap four-sided piece" a size, the p. 1 parallelogram's 46 × 32 mm.
 
+**Fixed October 23, 2026 (W59-S-v3, W59-F-v2).** After a problem-file conversion with no wording change: shoulds 1–5 and coulds 6–11 as written above. Problem 6's curved triangle is labelled "arcs: radius 60 mm", since the removed circle carried the radius, and the student band views gain a K–1 slice (p. 2). Materials unchanged (W59-M-v1). Unpiloted; that K–1 sustains the route, and the taped-on-the-disk rails, are untested. Old PDFs in `week-59/archive-before-card-fixes-2026-10-23/`.
+
 ## Overlaps
 
 No other theme has support lines, width or a Reuleaux triangle. Weeks 26, 48 and 50 also separate boundary length from apparent size; Week 51's ranges suit the ±1 mm readings. No merge.

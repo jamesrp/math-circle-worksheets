@@ -8,7 +8,7 @@ kernel = "Width in a position is the perpendicular gap between two parallel edge
 +++
 
 ## text
-To measure width, keep the two straight edges parallel, enclosing the whole piece and just touching it. Turn and slide the piece freely. Measure the perpendicular gap, to the nearest millimeter. This gap is the width in that position.
+To measure width, keep the two straight edges parallel, enclosing the whole piece and just touching it. Turn and slide the piece freely. Measure the perpendicular gap, to the nearest millimeter. This gap is the width in that position. Drawings are smaller than the real pieces.
 
 ## figure
 asset("measureExample")
