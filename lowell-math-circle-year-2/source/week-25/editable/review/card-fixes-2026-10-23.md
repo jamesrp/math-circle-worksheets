@@ -50,3 +50,23 @@ Not done: coulds 11 (crowded counts on K–1 p. 2 and grades 2–3 pp. 1 and 5; 
 - The replaced print PDFs and guide are in the project's `week-25/archive-before-card-fixes-2026-10-23/`, and the conversion ZIP in `source/week-25/archive-before-card-fixes-2026-10-23/`.
 
 The 18.5 mm cells, the spare grids and the drawn rectangles are not rehearsed with counters or children; the theme remains unpiloted.
+
+# Small deferred coulds, October 23, 2026
+
+Later the same day two of the card's three remaining coulds were made. Every band changed, so the footers are now W25-K-v5, W25-23-v4 and W25-45-v4; the guide's first two pages changed.
+
+## What changed
+
+- **Could 11, crowded counts.** On K–1 p. 2 and Grades 2–3 pp. 1 and 5, the rows of 2-row grids were 63 mm apart, leaving 2.8 mm between one grid's circled column counts and the next grid's column labels; they are now 67–68 mm apart (6.8 and 7.8 mm). Grades 4–5 p. 3 (Problem 2) had three 20 mm-cell grids 58 mm apart (1.8 mm); it now uses Problem 1's 18.5 mm cells, 60 mm apart (6.8 mm), so a picture from Problem 1 is copied at the same size. Grades 4–5 p. 1 had already been relaid out by should 3. No wording, count or picture changed. The tightest gap left is 4.8 mm, on K–1 p. 3, which the card did not name.
+- **Could 13, one name.** The guide's overview was titled "Hidden pictures and line counts" and its p. 1 "Discrete tomography facilitator guide". Both now say "Row and column shadows", the name in every student header and the catalog; p. 1's subtitle reads "Discrete tomography / Final student packets W25-K-v5, W25-23-v4, W25-45-v4". The source folder, ZIP and this package's title keep their "discrete tomography" names.
+- **Guide p. 1 supplies.** The cell sizes now read "22 mm, except upper pp. 1-3 (18.5 mm)"; the 15–16 mm counters still leave at least 1 mm a side.
+
+Not made: could 14 (a Grades 4–5 reserve with guide p. 17's three-row pair) would add a student problem, a change of substance left to the organizer.
+
+## Verification
+
+- `python3 review/verify_small_coulds_2026_10_23.py` reads the reference PDFs: the footers and headers, every task cell (22 mm; 18.5 mm on Grades 4–5 pp. 1–3), the gap from each task grid's circled counts to the column labels below them on every page, and the guide's titles, packet ids and cell sizes. With `--before` and the project's `week-25/archive-before-small-coulds-2026-10-23/` it also checks that the student text is unchanged apart from the footer ids, that drawings moved only on the four named pages, and that the guide changed only in its two titles, p. 1's packet ids and the cell-size clause.
+- `src/check_answers.py`, `src/check_examples.py`, `facilitator-src/verify_math.py`, `review/verify_student_fixes_2026_10_23.py` (which now accepts either footer set) and `check_guide_copy.py` pass. A clean rebuild from the extracted portable ZIP reproduces exact 100-dpi pixels on every page of all four PDFs (`verify_revision.py`).
+- The four changed student pages and the guide's overview and p. 1 were rendered and inspected. The replaced print PDFs and the ZIP are in the project's `week-25/archive-before-small-coulds-2026-10-23/` and `source/week-25/archive-before-small-coulds-2026-10-23/`.
+
+The 18.5 mm cells on Grades 4–5 p. 3 are not tried with counters; the theme remains unpiloted.

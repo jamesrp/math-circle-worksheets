@@ -132,8 +132,10 @@ def shadow_example(caption,across,down):  # 00, K-1: two counters become row and
 
 # ---------------------------------------------------------------- K-1 figures, by problem file
 
+# Rows of two-row pairs 67 mm apart leave about 7 mm between one grid's circled column counts and
+# the next grid's column labels (card could 11, October 23, 2026: at 63 mm they crowded).
 def k1_two_picture_pairs():  # 01
-    return lines(pair(76,2,2,[1,1],[1,1]),pair(139,2,3,[1,1],[1,0,1]),pair(202,2,3,[2,1],[1,1,1]))
+    return lines(pair(68,2,2,[1,1],[1,1]),pair(135,2,3,[1,1],[1,0,1]),pair(202,2,3,[2,1],[1,1,1]))
 
 def k1_two_catalogs():  # 02: rows 1, 2 on the left and 2, 1 on the right
     return lines(*(board(x,y,2,3,rows,[1,1,1]) for y in (61,126,191) for x,rows in ((25,[1,2]),(122,[2,1]))))
@@ -157,7 +159,7 @@ def blank_pairs(y1=86,y2=170):  # 07, 08 (K-1) and 15 (grades 2-3, y1=85): a 2 x
 # ---------------------------------------------------------------- grades 2-3 figures
 
 def m_two_pictures_if_possible():  # 09
-    return lines(pair(76,2,3,[2,1],[1,1,1]),pair(139,2,3,[3,1],[2,1,1]),pair(202,2,3,[2,2],[2,1,1]))
+    return lines(pair(68,2,3,[2,1],[1,1,1]),pair(135,2,3,[3,1],[2,1,1]),pair(202,2,3,[2,2],[2,1,1]))
 
 def m_211_grids():  # 10
     return lines(pair(62,3,3,[2,1,1],[2,1,1]),pair(160,3,3,[2,1,1],[2,1,1]))
@@ -176,7 +178,7 @@ def m_switch_pictures(caption,record=False):  # 13: the switch example, then pic
                  board(122,183,3,3,[3,2,1],[3,2,1],['111','110','100']))
 
 def m_exact_switches():  # 14
-    return lines(center(80,2,4,[2,2],[1,1,1,1],['1100','0011']),center(143,2,4,[2,2],[1,1,1,1]),center(206,2,4,[2,2],[1,1,1,1]))
+    return lines(center(70,2,4,[2,2],[1,1,1,1],['1100','0011']),center(138,2,4,[2,2],[1,1,1,1]),center(206,2,4,[2,2],[1,1,1,1]))
 
 
 # ---------------------------------------------------------------- grades 4-5 figures
@@ -196,8 +198,8 @@ def h_six_pictures():  # 16
 def h_six_more():  # 17
     return six_grid_rows(58,148)
 
-def h_switch_distances(caption):  # 18
-    return lines(switch_example(55,caption),*(center(y,2,4,[2,2],[1,1,1,1],cell=20) for y in (94,152,210)))
+def h_switch_distances(caption):  # 18: P1's 18.5 mm cells, 60 mm apart, so counts and labels do not crowd (could 11)
+    return lines(switch_example(55,caption),*(center(y,2,4,[2,2],[1,1,1,1],cell=SIX_CELL) for y in (93,153,213)))
 
 def h_route_endpoints():  # 19
     return lines(center(70,2,6,[3,3],[1,1,1,1,1,1],['111000','000111']),center(146,2,6,[3,3],[1,1,1,1,1,1],['000111','111000']))

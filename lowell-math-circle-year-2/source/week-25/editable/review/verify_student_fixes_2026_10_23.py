@@ -88,10 +88,13 @@ K, M, H, G = (REF / f for f in ('k-1.pdf', 'grades-2-3.pdf', 'grades-4-5.pdf', '
 pages = {K: 8, M: 6, H: 8}
 for pdf, n in pages.items():
     assert len(pymupdf.open(pdf)) == n, (pdf.name, len(pymupdf.open(pdf)))
-footers = {K: 'W25-K-v4', M: 'W25-23-v3', H: 'W25-45-v3'}
+# The small deferred coulds made later the same day (the last section of
+# card-fixes-2026-10-23.md) respaced some grid rows and bumped the ids to v5, v4 and v4; they
+# changed nothing else this script checks, so either set of ids is accepted, one per packet.
+footers = {K: ('W25-K-v4', 'W25-K-v5'), M: ('W25-23-v3', 'W25-23-v4'), H: ('W25-45-v3', 'W25-45-v4')}
 for pdf, n in pages.items():
-    assert all(footers[pdf] in text(pdf, i) for i in range(1, n + 1)), pdf.name
-checks.append('page counts 8, 6, 8 and footers W25-K-v4, W25-23-v3, W25-45-v3 on every page')
+    assert any(all(f in text(pdf, i) for i in range(1, n + 1)) for f in footers[pdf]), pdf.name
+checks.append('page counts 8, 6, 8 and footers W25-K-v4, W25-23-v3, W25-45-v3 (v5, v4, v4 after the small coulds) on every page')
 
 # Should 9.
 for pdf in pages:

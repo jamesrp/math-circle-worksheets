@@ -183,8 +183,12 @@ check(all(w in W for w in ('ACA', 'CAC', 'BDB', 'DBD', 'ABA', 'BAB', 'CDC', 'DCD
       and not any(w in W for w in ('ADA', 'DAD', 'BCB', 'CBC')),
       'Week 71 rhombus sample: parallel-wall XYX and 60-degree-corner XYX occur, 120-degree-corner XYX never')
 
+# Week 25's guide and packets changed again later the same day (the small deferred coulds: one
+# theme name in the guide's titles, respaced grid rows, Grades 4-5 p. 3 at 18.5 mm). The files
+# these follow-ups produced are kept in LATER, and this script checks those.
+LATER = {25: 'archive-before-small-coulds-2026-10-23'}
 for week, old_id, new_id, n, what, old_s, new_s in GUIDES:
-    g, old = Y / f'week-{week}' / f'week-{week}-facilitator.pdf', Y / f'week-{week}' / A / f'week-{week}-facilitator.pdf'
+    g, old = Y / f'week-{week}' / LATER.get(week, '') / f'week-{week}-facilitator.pdf', Y / f'week-{week}' / A / f'week-{week}-facilitator.pdf'
     check(new_s in words(g) and old_s not in words(g) and old_s in words(old), f'Week {week} guide {what}')
     if new_id:
         check(text(g).count(new_id) == pages(g) == n, f'Week {week} guide: footer {new_id} on all {n} pages')
@@ -219,7 +223,7 @@ def cells(pdf):
 # ruled at 0.55 pt, so its inside is 18.5 - 0.55 * 25.4 / 72 = 18.31 mm.
 found = {}
 for stem in ('k-1', 'grades-2-3', 'grades-4-5'):
-    for pg, pairs in cells(Y / 'week-25' / f'week-25-{stem}.pdf').items():
+    for pg, pairs in cells(Y / 'week-25' / LATER[25] / f'week-25-{stem}.pdf').items():
         for side, w in pairs:
             if side < 23:   # 23.4 mm is the gap between the two grids side by side on 4-5 pp. 1-2
                 found.setdefault((side, w), []).append(f'{stem} p. {pg}')

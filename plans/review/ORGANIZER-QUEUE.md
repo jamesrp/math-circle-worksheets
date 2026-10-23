@@ -86,6 +86,7 @@ Each would add a problem, a question, a case or a printed material.
 
 - **Week 11, could 10:** should 2–3 P4's third order question become the extra-line capacity question (at most 5 chips)? [card](week-11.md)
 - **Week 13, could 13:** should K–1 P6 and 2–3 P6 get K–1 P3's three-branch board? It is a second-player win and would change the game. [card](week-13.md)
+- **Week 25, could 14:** should Grades 4–5 get a reserve problem with guide p. 17's three-row pair, two pictures with the same top row that are one switch apart, where the two-row rule would say zero? It is now only in the guide. [card](week-25.md)
 - **Week 44, could 10:** should K–1 add a sorting task after P1, sorting the six labelled two-draw ways onto the three bags? [card](week-44.md)
 - **Week 45, could 9:** should a 4–5 P8 on copies of whole cards be printed? It is now a guide extension. [card](week-45.md)
 - **Week 46, could 11:** should there be a separate cut sheet for the six cards? They are now cut from a spare page. [card](week-46.md)
@@ -130,18 +131,8 @@ These were left alone by instruction. Their cards' items wait for you.
 
 ## Small deferred coulds (no decision needed)
 
-These are layout, timing and citation items that the next person to touch the week can make. The eleven left all wait for the footer sweep now under way in Weeks 3–51 and 86–97, which owns their files. Weeks 53, 63 and 98's items were made later on October 23 (see their cards).
+These are layout, timing and citation items that the next person to touch the week can make. Weeks 53, 63 and 98's items were made later on October 23, and after the footer sweep so were the eleven it had held: Weeks 12, 14, 25 (coulds 11 and 13), 37, 42, 44, 45, 91, 94, 96 and 97 (see their cards). Week 45's citation names the slides' example 3, since the slides have no page numbers, and Week 97's aid for third graders went in the guide's Problem 4 notes, not on the student page. One piece is left:
 
-- Week 12 could 8: guide partner lists for the 14.
-- Week 14 could 11: tight copy sizes.
-- Week 25 coulds 11, 13 and 14: crowded circled counts, one theme name, a 4–5 reserve pair.
-- Week 37 coulds 7 and 11: a 35–40 minute timeline, a mirror note in the 4–5 P4 key.
-- Week 42 could 14: the timeline part.
-- Week 44 coulds 14 and 15: timeline, R0/B0 against R1/B1.
-- Week 45 could 14: the Mintz slide number; the source was unreachable.
-- Week 91 coulds 7 and 8: a second P2 board marked extra workspace, prep time and a counter source.
-- Week 94 could 10: a second K–1 ruler.
-- Week 96 could 8: token size.
-- Week 97 could 8: multiples of 15 for P4 if third graders stall.
+- Week 14 could 11, Grades 4–5 Problem 4: its recording copies are still small; larger ones need a new page layout. [card](week-14.md)
 
 Week 22 could 6 was left because the card itself says to leave it.
