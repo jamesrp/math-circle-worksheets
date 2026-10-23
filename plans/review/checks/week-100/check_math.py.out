@@ -1,0 +1,83 @@
+== worlds and the strong inequality ==
+ok   n=2: realisable tables (3) = ultrametrics with values in {2,4,8} (3)
+ok   n=3: realisable tables (12) = ultrametrics with values in {2,4,8} (12)
+ok   n=4: realisable tables (60) = ultrametrics with values in {2,4,8} (60)
+ok   n=5: realisable tables (358) = ultrametrics with values in {2,4,8} (358)
+ok   n=6: realisable tables (2471) = ultrametrics with values in {2,4,8} (2471)
+number of distinct distance tables by card count: {2: 3, 3: 12, 4: 60, 5: 358, 6: 2471}
+6-card labelled loop structures (no redundant frames): 2471
+ok   P6: no world (labels (2, 4, 8)) has a triple with a unique largest distance
+ok   P6: no world (labels (1, 2, 3, 4, 5, 6)) has a triple with a unique largest distance
+ok   P7a: in every 6-card world, overlapping balls are nested
+ok   P7b: moving the centre to any member never changes a ball
+
+== Problem 1 / page 1 ==
+ok   P1 world distances form a valid world table
+ok   worked example X-Z=6, X-Y=3
+labels used by the P1 world: [2, 2, 4, 8]; label cards printed: {'2': 4, '4': 2, '8': 2}
+
+== Problem 2 ==
+printed triples (AB,AC,BC) -> possible?: [((2, 2, 2), True), ((2, 4, 4), True), ((2, 2, 4), False), ((4, 4, 4), True), ((2, 4, 8), False), ((2, 8, 8), True)]
+ok   possible: 222, 244, 444, 288; impossible: 224, 248 (guide p.3 agrees)
+all realisable triples with labels 2,4,8: [(2, 2, 2), (2, 4, 4), (2, 8, 8), (4, 2, 4), (4, 4, 2), (4, 4, 4), (4, 8, 8), (8, 2, 8), (8, 4, 8), (8, 8, 2), (8, 8, 4), (8, 8, 8)]
+
+== Problem 3 ==
+  radius 3 around A: ['A', 'B']
+  radius 3 around C: ['C', 'E']
+  radius 3 around D: ['D']
+  radius 3 around F: ['F']
+ok   P3 radius-3 balls = {A,B},{C,E},{D},{F} (guide)
+ok   radius 0: every ball (any centre) containing B is the same set
+ok   radius 1: every ball (any centre) containing B is the same set
+ok   radius 2: every ball (any centre) containing B is the same set
+ok   radius 3: every ball (any centre) containing B is the same set
+ok   radius 4: every ball (any centre) containing B is the same set
+ok   radius 7: every ball (any centre) containing B is the same set
+ok   radius 8: every ball (any centre) containing B is the same set
+  balls containing B: {('B',): [0, 1], ('A', 'B'): [2, 3], ('A', 'B', 'D'): [4, 7], ('A', 'B', 'C', 'D', 'E', 'F'): [8]}
+ok   P3 four collections with radii as in guide table
+ok   P3 text: radius 1 around X = {X}, radius 4 = {X,Y}; guide launch radius 3 = {X,Y}
+
+== Problem 4 ==
+5-card loop structures (labels 2,4,8): 358; fitting the ten clues: 1
+  AB@2, DE@2, ABC@4, ABCDE@8
+ok   P4: exactly one loop structure (up to redundant frames and layout)
+ok   P4 structure = AB@2, ABC@4, DE@2, all@8 (guide)
+ok   P4: still unique if any labels 1..8 were allowed
+ok   P4 hidden world differs from the P1 world restricted to A-E
+
+== Problem 5 ==
+ok   P5 first question: with A-C = 2 no world fits
+  20 candidate changes from the broken set; repairs: ['A-B:2->4', 'A-C:2->4', 'B-C:4->2']
+ok   P5: exactly three repairs, as the guide says
+  other reading (start again from Problem 4 clues): single changes that keep a world: ['A-B:2->4', 'D-E:2->4', 'D-E:2->8']
+ok   guide: AB->8, AC->8, BC->8 each fail
+
+== Problems 8-9: number world ==
+ok   rules = 8 * 2^-v(a-b) on cards 0..7 (guide overview)
+ok   same remainder mod 4 on 0..7 <=> difference 4
+ok   worked number example: 1 and 5 at distance 2
+ok   P9: number distances satisfy the strong inequality (all 56 triples)
+ok   guide: the number world has no equilateral triple
+ok   P8: loops {0,4},{2,6},{1,5},{3,7}@2, evens/odds@4, all@8 realise the rules
+  labels the P8 world needs: [2, 2, 2, 2, 4, 4, 8]; printed label cards: {'2': 4, '4': 2, '8': 2}
+ok   P8: printed label cards suffice for the number world
+  radius-3 balls: [(0, 4), (1, 5), (2, 6), (3, 7)]
+  radius-5 balls: [(0, 2, 4, 6), (1, 3, 5, 7)]
+ok   P8 balls as in the guide
+ok   2-adic strong inequality on -20..20 (overview)
+
+== Problem 10: question game ==
+ok   all-8 world is allowed
+ok   for every pair, the world with just that pair at 2 is allowed (guide adversary)
+ok   guide: A at 2 from all five others forces the all-2 world
+ok   guide: AB=2 and AC=4 force BC=4
+ok   exact worst-case questions for 3 cards = 3 = all pairs
+ok   exact worst-case questions for 4 cards = 6 = all pairs
+ok   exact worst-case questions for 5 cards = 10 = all pairs
+  6-card worlds whose loops need more label cards than one page-1 set supplies: 15 of 2471
+    e.g. AB@4, CD@4, EF@4, ABCDEF@8
+    e.g. BC@4, AD@4, EF@4, ABCDEF@8
+    e.g. AC@4, BD@4, EF@4, ABCDEF@8
+
+FAILS: none
