@@ -260,7 +260,8 @@ def audit_pdf(out,assets):
     # The radius-60 generating circle is a held guide hint, not on student p.6.
     roles={x['role'] for x in byname['perimeterCompare']['primitives']}
     assert not roles & {'generating_circle','sixth_radius','highlight_sixth_arc'},roles
-    assert {'perimeter_disk','perimeter_reuleaux','highlight_reuleaux_arc'} <= roles
+    # Critic follow-up, October 23, 2026 (W59-S-v4): all three arcs at one weight, no bold BC arc.
+    assert {'perimeter_disk','perimeter_reuleaux'} <= roles and 'highlight_reuleaux_arc' not in roles,roles
     layouts={'students':[['measureExample','extremeTable'],['turnTable'],
                          ['compassExample','constructionRecords'],['tangentExample','proofPositions'],
                          ['pointSupportExample','heightTable'],['perimeterCompare']],

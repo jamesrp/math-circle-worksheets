@@ -4,6 +4,8 @@
 
 **October 23, 2026, review-card fixes (W59-S-v3).** Page 1's opening adds "Drawings are smaller than the real pieces."; page 2 is headed Grades K–5 (the guide's adult-led K–1 route) and Problem 2 begins "Close the edges on the disk, then keep them fixed while the piece turns and slides."; Problem 4 ends "Your explanation should also work for every position between the drawings."; Problem 6 drops the large radius-60 circle and its sentence (the drawing is the guide's held hint), labels the curved triangle "arcs: radius 60 mm" and asks "Explain how you know." Materials are unchanged (W59-M-v1).
 
+**Critic follow-up, October 23, 2026 (W59-S-v4).** Problem 6 drew arc BC of the curved triangle bold, a silent pointer to the first step of the guide's held hint; `make_assets.py` now draws all three arcs at the same weight, and `verify_math.py` checks that the highlight is gone. Only page 6 changed above the footer.
+
 This is one combined six-page student packet and a three-page materials packet,
 authored for the fresh writer and revision stages. The draft received separate
 adversarial and independent mathematical reviews; the revision addresses their

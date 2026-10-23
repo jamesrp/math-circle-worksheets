@@ -257,8 +257,6 @@ def pictures():
     p.label(52,17,"radius 30 mm",size="\\footnotesize")
     p.label(52,7,"disk",size="\\small")
     p.shape("reuleaux",128,42,scale=.63,labels=True,skeleton=True,role="perimeter_reuleaux")
-    c=transform((0,0),128,42,.63,0,60)
-    p.arc(c,37.8,0,60,"line width=1.3pt","highlight_reuleaux_arc")
     p.label(128,17,"arcs: radius 60 mm",size="\\footnotesize")
     p.label(128,7,"curved triangle",size="\\small")
     pics.append(p)

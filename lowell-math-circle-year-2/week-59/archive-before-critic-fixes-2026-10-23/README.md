@@ -1,0 +1,3 @@
+# Week 59 print copies before the October 23, 2026 critic follow-up
+
+The W59-S-v3 student packet and W59-F-v2 guide, replaced the same day by W59-S-v4 and W59-F-v3. An independent critic noted that Problem 6 still drew arc BC of the curved triangle bold, a silent pointer to the first step of the guide's held hint, and that the guide's K–1 route counted grid squares with nowhere to record them. In v4 all three arcs are drawn at the same weight, and the guide has the adult write the two counts beside each piece's name on page 2. The materials (W59-M-v1) did not change. The current copies are in [../](../). Kept for reference; do not print them.
