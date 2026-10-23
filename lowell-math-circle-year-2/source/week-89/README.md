@@ -1,15 +1,24 @@
-# Week 89 — Growing shapes and totals
+# Week 89: Growing shapes and totals — current editable source
 
-Owned editable source for the current unpiloted release. The shared K–5 menu has 20 problems; the header does not imply every page fits every age. K–1 may handle square/staircase layers with adult reading; 2–3 work with a single total and hidden additions; 4–5 can optimize two-stage inputs, investigate explicit building laws, peel cube shells and connect repeated sums to corner piles. Readiness and return routes are in the theorem-first facilitator guide. Physical copying/retention, tile fit, counters/cards, shell and pile handling remain untested.
+One shared Grades K–5 student packet (11 pages, W89-S-v2, Problems 1–20), a 2-page materials packet and an 8-page theorem-first adult guide. Unpiloted; tile fit, copying totals, zero turns, shells and piles are physically unrehearsed. The print PDFs are in [../../week-89/](../../week-89/).
 
-- `student/students.tex`: 11 student pages, problems 1–20.
-- `student/materials.tex`: two 20 mm working-board pages and reusable input cards.
-- `guide/facilitator.tex`: theorem-first overview, complete keys, proofs and limits, routes, preparation, sources.
-- `check_math.py`: independent standard-library checks of examples and finite cases; general proof explanations are in the guide.
-- `reference-pdfs/`: exact delivered PDFs for comparison.
+**Problem files, October 23, 2026.** The student packet is stored as [problem files](../problem-files/README.md): `week.toml`, `template.tex` (the old `students.tex` preamble) and one file per problem in `problems/`, in the flow layout. The conversion changed no wording or figure: the generated LaTeX differs from the old `students.tex` only by blank lines between sections, and in this container it compiles to a PDF byte-identical to the old source's. Against the print copy, compiled with a newer pdfTeX, the old and new sources both differ by the same antialiased glyph pixels (at most 153 on a page at 100 dpi); pages and extracted text are identical. The hand-written `students.tex` and the previous source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 
-Run `python3 build.py --out rebuilt`. Requires Python 3 and pdfLaTeX with TikZ, geometry, fancyhdr, AMS packages and Latin Modern (standard TeX Live). No network, absolute reference checkout, external art or external Python package is needed. The builder runs the independent checks and two LaTeX passes, fixes output metadata and rejects overfull content. A clean extracted ZIP rebuild must match every reference PDF byte for byte.
+- **Student pages:** edit `problems/*.md`, then build and compare:
 
-Print US Letter, Actual Size. Boards use 20 mm cells; keep reference pictures compact and build on the supplied boards or table. One current shape at a time; do not require simultaneous snapshots. Input cards are reusable across different visits; totals remain writable. The 72-tile kit covers the largest pairing; third-stage work uses numeral cards when counters exceed the supplied 40. A shared 64-cube kit supports one side-four cube.
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-89 --out tmp/week-89-views --tex
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-89-views lowell-math-circle-year-2/week-89 week-89
+  ```
 
-The rich reserved plan is retained as a shared menu and distinct return visits, rather than three forced packets. The optional general third-stage formula follows concrete pile work when useful. No claim of classroom use, physical rehearsal or remote Drive upload is made. See `SOURCES.md` for actual primary research and provenance and `QA.md` for review/rebuild evidence.
+  Week 89 is a shared-packet week, so its one-page menu in [band-views/week-89/](../../band-views/README.md) is built from the page index `../band-views/indexes/week-89.toml` by `band_views.py build`; update the index when a problem moves to another page.
+- **Adult guide and materials:** `editable/guide/facilitator.tex` and `editable/student/materials.tex`, built by the package. The problem files carry each problem's one-sentence idea (`kernel`), not its answers.
+- **Portable package:** `editable/` is the package (`editable/README.md`); `editable/student/regenerate.py` writes `students.tex` from the problem files and the package build runs it first. The [portable source ZIP](../week-89-source.zip) holds the package plus the problem files and tools in `problem-files/`. Rebuild it with
+
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-89 --zip ../week-89-source.zip --top week-89
+  ```
+
+  and check a clean rebuild from the extracted ZIP with `python3 week-89/build.py --out rebuilt --work tmp/build`.
+
+The production record is in [plans/seven-families-85-91/](../../../plans/seven-families-85-91/README.md) and the review card in [plans/review/week-89.md](../../../plans/review/week-89.md).

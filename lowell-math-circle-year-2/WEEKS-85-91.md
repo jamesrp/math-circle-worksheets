@@ -42,6 +42,10 @@ The seven numbers, themes and substantive mathematical directions are preserved.
 - **90:** nine problems preserve one-hole play, complete A/D/B catalogs, target-shape construction, nonunique preimages, reversal and local proofs. The general rectification theorem is attributed background; finite catalogs are not presented as its universal proof.
 - **91:** tree programming and absorbing roads are separate visits with complete follow-then-flip demonstrations and recoverable states. For an absorbing path with vertices 0 through m (m ≥ 2), a fixed interior source 1 ≤ s ≤ m−1, follow-then-flip switches and each walk completed before the next launch, **every m consecutive launches have exactly s right exits from any initial rotor state, with no burn-in**. This does not imply every full rotor configuration is already periodic; the guide proves the count identity and distinguishes state transients.
 
+## Changes after release
+
+- **89, October 23, 2026:** the student packet is stored as problem files ([source/week-89/](source/week-89/README.md)); the conversion changed no wording, figure or PDF.
+
 ## Verification, provenance and use history
 
 Every student family passed fresh writer, adversarial critic, independent mathematics and reviser stages. Each separately authored guide received independent final student–guide review. [Production status](../plans/seven-families-85-91/production/STATUS.md) links per-week review evidence and records the integration commits. The [release audit](../plans/seven-families-85-91/production/release-audit.json) records all 25 final PDF hashes/page counts, seven archive inventories, exact extracted rebuild comparisons and every local link in this index. Editable sources and packaged reference PDFs agree with the print copies. Each portable package rebuilds with Python 3 and pdfLaTeX, without private reference files or network access.
