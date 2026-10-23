@@ -1,6 +1,6 @@
 # Week 8: Rook race and Nim
 
-Concrete revision of October 3, 2026: F08-K-v5 / F08-M-v4 / F08-U-v4 (K–1 v4 until October 23), adult guide F08-FAC-v4. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 (the October 3 forecast and pivot, a private record: see [LOCAL-RESOURCES.md](../../../LOCAL-RESOURCES.md#private-records)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
+Concrete revision of October 3, 2026: F08-K-v5 / F08-M-v4 / F08-U-v4 (K–1 v4 until October 23), adult guide F08-FAC-v5 (F08-FAC-v4 until October 23; the id was bumped for the October 23 guide changes, with no other change). **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 (the October 3 forecast and pivot, a private record: see [LOCAL-RESOURCES.md](../../../LOCAL-RESOURCES.md#private-records)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
 
 - [K–1](../../week-08/week-08-k-1.pdf) — 7 pages.
 - [Grades 2–3](../../week-08/week-08-grades-2-3.pdf) — 5 pages.

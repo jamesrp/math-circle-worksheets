@@ -2,7 +2,7 @@
 
 Prepared October 4, 2026. **Unpiloted; physical material-fit and procedure rehearsal not performed.** Three distinct investigations in one shared student companion, with actual suitable bands on each page. The adult companion opens with precise facts, assumptions and limits, then gives practical entries and checked solutions. These files remain separate from every base packet and guide.
 
-October 23, 2026: one adult-guide sentence corrected from the Week 10 [math check](../../../plans/review/week-10-math.md) (item 3): the open-walk explanation now also requires every other island to balance. The student PDF is unchanged; the previous adult PDF and source ZIP are in `week-10/archive-before-card-fixes-2026-10-23/` and `source/archive-before-card-fixes-2026-10-23/`.
+October 23, 2026: one adult-guide sentence corrected from the Week 10 [math check](../../../plans/review/week-10-math.md) (item 3): the open-walk explanation now also requires every other island to balance. The student PDF is unchanged; the previous adult PDF and source ZIP are in `week-10/archive-before-card-fixes-2026-10-23/` and `source/archive-before-card-fixes-2026-10-23/`. The adult footer id was bumped from RV10-FAC-v1 to RV10-FAC-v2 for these October 23 changes; nothing else changed in that bump.
 
 - Current student PDF: [week-10-return-visit.pdf](../../week-10/week-10-return-visit.pdf).
 - Adult PDF: [week-10-return-visit-facilitator.pdf](../../week-10/week-10-return-visit-facilitator.pdf).

@@ -1,6 +1,6 @@
 # Week 10: Bridges and one-stroke drawings
 
-Concrete revision of October 3, 2026: F10-K-v4 / F10-M-v5 / F10-U-v4 (2–3 v4 until October 23), adult guide F10-FAC-v4. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 (the October 3 forecast and pivot, a private record: see [LOCAL-RESOURCES.md](../../../LOCAL-RESOURCES.md#private-records)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
+Concrete revision of October 3, 2026: F10-K-v4 / F10-M-v5 / F10-U-v4 (2–3 v4 until October 23), adult guide F10-FAC-v5 (F10-FAC-v4 until October 23; the id was bumped for the October 23 guide changes, with no other change). **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 (the October 3 forecast and pivot, a private record: see [LOCAL-RESOURCES.md](../../../LOCAL-RESOURCES.md#private-records)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
 
 - [K–1](../../week-10/week-10-k-1.pdf) — 12 pages.
 - [Grades 2–3](../../week-10/week-10-grades-2-3.pdf) — 13 pages.

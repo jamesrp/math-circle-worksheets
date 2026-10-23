@@ -1,6 +1,6 @@
 # Week 3: Shuffle machines
 
-Concrete revision of October 3, 2026: F03-K-v6 / F03-M-v6 / F03-U-v6 (v5 until October 23), adult guide F03-FAC-v5. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 (the October 3 forecast and pivot, a private record: see [LOCAL-RESOURCES.md](../../../LOCAL-RESOURCES.md#private-records)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
+Concrete revision of October 3, 2026: F03-K-v6 / F03-M-v6 / F03-U-v6 (v5 until October 23), adult guide F03-FAC-v6 (F03-FAC-v5 until October 23; the id was bumped for the October 23 guide changes, with no other change). **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 (the October 3 forecast and pivot, a private record: see [LOCAL-RESOURCES.md](../../../LOCAL-RESOURCES.md#private-records)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
 
 - [K–1](../../week-03/week-03-k-1.pdf) — 10 pages.
 - [Grades 2–3](../../week-03/week-03-grades-2-3.pdf) — 11 pages.
