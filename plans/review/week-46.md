@@ -49,6 +49,8 @@ A board is three slots of R or B; a setting instruction puts one colour in one s
 
 The math check's finding is fix 4 and its notes are fixes 12–13; I agree with all of it.
 
+**October 23, 2026:** fixes 1–5 and coulds 6–10, 12 and 13 done after converting the week to problem files (v3 packets, Grades 4–5 five pages, 7-page guide, bonus guide p. 2); could 11 done in the guide (counter size, cards cut from a spare page), with a separate cut sheet deferred. Checked by `plans/review/checks/week-46/check_card_shoulds.py`; unpiloted.
+
 ## Overlaps
 
 Week 18 counts differing slots, for codebooks. Week 2's flips and Week 3's shuffle machines are bijections, this week's toggle side. Week 44 also ends at a uniform law, by another route. No merge.

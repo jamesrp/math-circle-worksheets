@@ -8,7 +8,7 @@ kernel = "A setting story forgets every start exactly when it visits all three s
 +++
 
 ## prompt @19
-Explain exactly when an instruction story forgets every starting color. Could two particular boards agree before that happens?
+Explain exactly when an instruction story forgets every starting color. Could two different starts agree before that happens?
 
 ## figure
 space(22,2)

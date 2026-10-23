@@ -17,4 +17,4 @@ Can shared toggles erase a disagreement between two starting boards? Give an arg
 toggle_pairs()
 
 ## figure [4-5]
-space(11,4)
+toggle_pairs(9.6) + space(14.8,7,1.1)

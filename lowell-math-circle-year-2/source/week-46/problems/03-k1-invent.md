@@ -2,7 +2,7 @@
 id = "w46.k1-invent"
 title = "Invent a pair needing two instructions"
 grades = ["K-1"]
-route = "first"
+route = "return"
 page = "same"
 kernel = "Any pair differing in exactly two slots needs two; no pair needs four, since there are only three slots."
 +++

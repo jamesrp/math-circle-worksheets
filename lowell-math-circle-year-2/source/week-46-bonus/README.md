@@ -1,5 +1,9 @@
 # Week 46 bonus: Boards that forget
 
+## Card fix, October 23, 2026
+
+The guide's Problem 1 solution now says that any two starts differing in every slot, the pictured RBR and BRB included, can never be made alike by copies, and that other pairs can. Only guide page 2 changed; the student companion is unchanged. The replaced guide PDF is in `../../week-46/archive-before-card-fixes-2026-10-23/` and the replaced ZIP in `../archive-before-card-fixes-2026-10-23/`.
+
 Local v1, October 4, 2026. **Unpiloted. Physical fit and procedures untested.**
 
 Three or more distinct investigations use selected bands by prerequisites. They complement, rather than replace, the base Week 46 packet. The student companion and adult mathematical guide are separate. Suitable routes, materials, launch, hints, precise solutions and extensions are in `guide.md`; investigation metadata is in `investigations.json`.

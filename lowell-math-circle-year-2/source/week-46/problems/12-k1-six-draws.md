@@ -2,7 +2,7 @@
 id = "w46.k1-six-draws"
 title = "Six random draws"
 grades = ["K-1"]
-route = "return"
+route = "first"
 page = "same"
 kernel = "Random draws can repeat a slot, so matching can take more than three draws."
 +++

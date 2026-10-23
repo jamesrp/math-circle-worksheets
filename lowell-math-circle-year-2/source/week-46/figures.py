@@ -110,9 +110,23 @@ def history(b,x,y,h):
  for i,(p,c) in enumerate(h):card(b,x+i*2.6,y,p,c)
 
 
+def tcard(b,x,y,pos,w=2.2):  # a toggle card: the named slot holds a half-red, half-blue token
+ b.box(x,y,w,1.5)
+ d=(w-.3)/3
+ for j in range(3):
+  xx=x+.15+j*d
+  b.box(xx,y+.15,d,.78)
+  if j==pos-1:
+   b.put(fr'\draw[line width=1.4pt] ({xx},{-y-.15}) rectangle ({xx+d},{-y-.93});')
+   cx,cy,r=xx+d/2,y+.54,min(.24,d*.35)
+   b.put(fr'\fill[red!18] ({cx},{-cy}) -- ++(90:{r}) arc (90:270:{r}) -- cycle;\fill[blue!18] ({cx},{-cy}) -- ++(-90:{r}) arc (-90:90:{r}) -- cycle;')
+   b.put(fr'\draw[line width=.7pt] ({cx},{-cy}) circle ({r});')
+ b.text(y+1.05,'toggle '+str(pos),x+.16,w-.2,9)
+
+
 @draw
-def intro_picture(b):  # 00: RBR/BRB, then 2->B on both boards
- pairrows(b,0,2.5,'RBR','BRB',1.4);card(b,6,3.4,2,'B');b.arrow(4.7,4.1,5.6,4.1);b.arrow(8.7,4.1,10,4.1);pairrows(b,10.5,2.5,'RBR','BBB',1.4)
+def intro_picture(b):  # 00: BBR/RBB, then 1->B on both boards (a non-task pair)
+ pairrows(b,0,2.5,'BBR','RBB',1.4);card(b,6,3.4,1,'B');b.arrow(4.7,4.1,5.6,4.1);b.arrow(8.7,4.1,10,4.1);pairrows(b,10.5,2.5,'BBR','BBB',1.4)
 
 
 @draw
@@ -147,8 +161,8 @@ def story(b,x,y,h):
 
 
 @draw
-def g23_stories(b):  # grades 2-3: three stories, each with a marker board
- for y,h in [(5,[(1,'R'),(1,'B'),(3,'R')]),(10,[(2,'R'),(3,'B'),(1,'R')]),(15,[(2,'B'),(2,'R'),(2,'B')])]:history(b,0,y,h);row(b,10,y,'',2.3,True)
+def g23_stories(b,y=5):  # grades 2-3: three stories, each with a board beside it
+ for yy,h in [(y,[(1,'R'),(1,'B'),(3,'R')]),(y+5,[(2,'R'),(3,'B'),(1,'R')]),(y+10,[(2,'B'),(2,'R'),(2,'B')])]:history(b,0,yy,h);row(b,10,yy,'',2.3,True)
 
 
 @draw
@@ -157,8 +171,19 @@ def g45_stories(b):  # grades 4-5: the same three stories, each with an answer b
 
 
 @draw
-def toggle_pairs(b):  # grades 2-3: three starting pairs for shared toggles
- for i,(a,c) in enumerate([('RBR','RRR'),('RRB','BRR'),('BRB','BRB')]):pairrows(b,i*6.1,10,a,c,1.65)
+def toggle_pairs(b,y=10):  # three starting pairs for shared toggles
+ for i,(a,c) in enumerate([('RBR','RRR'),('RRB','BRR'),('BRB','BRB')]):pairrows(b,i*6.1,y,a,c,1.65)
+
+
+@draw
+def mixed_stories(b,y):  # grades 4-5: three stories of setting and toggle cards, each with a finish board
+ for k,h in enumerate([[(1,'R'),(1,'T'),(2,'B'),(3,'R')],[(3,'B'),(2,'T'),(1,'R'),(2,'T')],
+                       [(3,'T'),(2,'R'),(3,'B'),(1,'B'),(3,'T')]]):
+  yy=y+k*2.4
+  for i,(p,c) in enumerate(h):
+   if c=='T':tcard(b,i*2.6,yy,p)
+   else:card(b,i*2.6,yy,p,c)
+  b.text(yy-.05,'finish',13.6,2,9);row(b,13.6,yy+.3,'',1.4)
 
 
 @draw

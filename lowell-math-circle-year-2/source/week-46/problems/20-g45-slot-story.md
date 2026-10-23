@@ -8,7 +8,7 @@ kernel = "The final board is the last colors set at slots 1, 2, 3, so each of th
 +++
 
 ## prompt @8
-Suppose the chosen slots are 1, 3, 1, 2, in that order. Among the 16 equally likely color stories, which final boards have the greatest chance? Explain without assuming any starting colors.
+Suppose four draws name slots 1, 3, 1, 2, in that order. Among the 16 equally likely color stories, which final boards have the greatest chance? Explain without assuming any starting colors.
 
 ## figure
 box(0,12,18,5)

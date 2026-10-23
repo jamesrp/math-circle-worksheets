@@ -3,7 +3,7 @@ id = "w46.random-rules"
 kind = "setup"
 title = "Drawing instruction cards from a cup"
 grades = ["K-1", "2-3"]
-route = "return"
+route = { "K-1" = "first", "2-3" = "return" }
 +++
 
 ## text @0 size=13 [K-1]
