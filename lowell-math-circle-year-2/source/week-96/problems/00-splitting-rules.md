@@ -7,7 +7,7 @@ route = ["first", "return"]
 +++
 
 ## text
-A number card can split into two whole numbers greater than 1 that multiply to its value. These numbers are its factors. Keep splitting until every card is prime: a number greater than 1 with no factors except 1 and itself. The finished cards make a prime bag. Multiply its tokens to find its value.
+A number card can split into two whole numbers greater than 1 that multiply to its value. These numbers are its factors. Keep splitting until every card is prime: a number greater than 1 that cannot split. The finished cards make a prime bag. Multiply its tokens to find its value.
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm,>=Stealth]
@@ -20,4 +20,4 @@ A number card can split into two whole numbers greater than 1 that multiply to i
 \node at (0,-.85){card};\node at (2.6,-.85){$4\times5=20$};\node at (6.15,-.85){$2\times2\times5=20$};
 \end{tikzpicture}
 \end{center}
-Token order does not matter. Equal tokens are interchangeable.
+Token order does not matter. Tokens with the same number are the same.

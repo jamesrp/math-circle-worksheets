@@ -10,4 +10,4 @@ kernel = "A bag with counts $e_1,\\dots,e_r$ has $(e_1+1)\\cdots(e_r+1)$ divisor
 A bag has seven 2 tokens and four 3 tokens. How many different divisors does its value have? Explain a counting rule that works for any prime bag.
 
 ## text
-\workbox{17.8}{3.0}
+\workbox{17.8}{7.5}

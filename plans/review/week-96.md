@@ -43,6 +43,8 @@ Children split number cards into factors until only primes remain, then choose s
 9. **could**, guide p. 2: "Problem 4 is a return visit" and "later pages held back" keep 2–3's design problem from a quick child; print p. 4 and hold it at the table.
 10. **could**, guide p. 2: a printable sheet of 2, 3, 5, 7 circles would replace hand-marking three 20-token kits.
 
+Fixed October 23, 2026, after converting the week to problem files: shoulds 1–2 and coulds 3–7 and 9 (checked in `source/week-96/checks/card_fixes_2026_10_23.py`); coulds 8 and 10 deferred.
+
 ## Overlaps
 
 Week 19's subset cards are the sub-bags of a number with distinct primes; its antichain theorem is absent here. Weeks 4, 9, 29, 31 and 32 reach gcd or lcm by other routes, which the return visit only touches. Week 97 builds on this guide's Euclid's lemma. The year-1 door-toggle puzzle (Handouts 9, Problem 9.1) is divisor parity, deliberately not repeated. No other theme has unique factorization or the divisor count. No merge.
