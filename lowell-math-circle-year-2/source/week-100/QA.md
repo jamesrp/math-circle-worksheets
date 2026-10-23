@@ -12,7 +12,7 @@ A fresh writer, adversarial critic, mathematical reviewer and reviser completed 
 
 Swapped C/D only in the earlier visible world so it no longer supplies the later reconstruction solution. Hidden clues remain unchanged. Added the complete non-task 1-and-5 remainder-to-distance example; updated final answers, checker transcription and snapshot hashes.
 
-Detailed review reports are retained separately and are not included in this public release. Canonical editable inputs are the static TeX files, avoiding a stale parallel generator. Integration changes to the student TeX are only reproducibility metadata.
+Detailed review reports are retained separately and are not included in this public release. Since October 23, 2026 the student pages' source is the problem files (`week.toml`, `template.tex`, `problems/`); `student/regenerate.py` writes the packet TeX from them, and the conversion changed no page (same text and 100-dpi pixels). The guide's source is still `guide/*.tex`.
 
 ## Mathematics
 

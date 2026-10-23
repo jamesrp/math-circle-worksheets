@@ -1,0 +1,44 @@
+\documentclass[12pt]{extarticle}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,landscape,left=14.7mm,right=14.7mm,top=17mm,bottom=17mm,headheight=16pt,headsep=4mm,footskip=9mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\pdfmapfile{=lm.map}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\fontsize{12}{14}\selectfont Week <<week>> / <<topic>> / <<header>>}
+\fancyfoot[L]{\fontsize{10}{12}\selectfont Bellingham Math Circle / Week <<week>> / <<footer>>}
+\fancyfoot[R]{\fontsize{10}{12}\selectfont\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\newcommand{\txt}[4]{\node[anchor=north west,inner sep=0pt,text width=#3mm,align=left,font=\fontsize{13}{16}\selectfont] at (#1,#2) {#4};}
+\newcommand{\smalltxt}[4]{\node[anchor=north west,inner sep=0pt,text width=#3mm,align=left,font=\fontsize{11}{13}\selectfont] at (#1,#2) {#4};}
+\newcommand{\card}[3]{\draw[rounded corners=1mm,line width=.6pt,fill=white] (#1-5,#2-5) rectangle (#1+5,#2+5);\node[font=\fontsize{15}{17}\selectfont] at (#1,#2) {#3};}
+\newcommand{\grouplabel}[3]{\node[fill=white,inner sep=1.3pt,font=\fontsize{14}{16}\selectfont] at (#1,#2) {#3};}
+\newcommand{\world}[2]{
+  \begin{scope}[shift={(#1,#2)}]
+  \draw[rounded corners=4mm,line width=.85pt] (0,0) rectangle (112,67);\grouplabel{107}{0}{8}
+  \draw[rounded corners=3mm,line width=.8pt] (6,7) rectangle (76,33);\grouplabel{70}{7}{4}
+  \draw[rounded corners=3mm,line width=.8pt] (12,12) rectangle (50,28);\grouplabel{45}{12}{2}
+  \card{23}{21}{A}\card{40}{21}{B}\card{64}{21}{D}
+  \draw[rounded corners=3mm,line width=.8pt] (12,42) rectangle (58,60);\grouplabel{52}{42}{2}
+  \card{25}{51}{C}\card{45}{51}{E}\card{88}{49}{F}
+  \end{scope}
+}
+\newcommand{\lineat}[3]{\draw[black!22,line width=.35pt] (#1,#2)--(#3,#2);}
+% Each page is one pagepicture, 250 by 180 mm, y down. A problem's prompt is placed at
+% (0, 0) with width 250 mm unless its file sets \promptat{x}{y}{width} first.
+\newcommand{\promptat}[3]{\def\promptx{#1}\def\prompty{#2}\def\promptw{#3}}
+\newcommand{\problem}[2]{\txt{\promptx}{\prompty}{\promptw}{\textbf{Problem #1:} #2}}
+\newenvironment{pagepicture}{\begin{tikzpicture}[x=1mm,y=-1mm]\path[use as bounding box] (0,0) rectangle (250,180);\promptat{0}{0}{250}}{\end{tikzpicture}}
+\begin{document}
+\begin{pagepicture}
+<<body>>
+\end{pagepicture}
+\end{document}

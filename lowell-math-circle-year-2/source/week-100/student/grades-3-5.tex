@@ -32,10 +32,14 @@
   \end{scope}
 }
 \newcommand{\lineat}[3]{\draw[black!22,line width=.35pt] (#1,#2)--(#3,#2);}
-\newenvironment{pagepicture}{\begin{tikzpicture}[x=1mm,y=-1mm]\path[use as bounding box] (0,0) rectangle (250,180);}{\end{tikzpicture}}
+% Each page is one pagepicture, 250 by 180 mm, y down. A problem's prompt is placed at
+% (0, 0) with width 250 mm unless its file sets \promptat{x}{y}{width} first.
+\newcommand{\promptat}[3]{\def\promptx{#1}\def\prompty{#2}\def\promptw{#3}}
+\newcommand{\problem}[2]{\txt{\promptx}{\prompty}{\promptw}{\textbf{Problem #1:} #2}}
+\newenvironment{pagepicture}{\begin{tikzpicture}[x=1mm,y=-1mm]\path[use as bounding box] (0,0) rectangle (250,180);\promptat{0}{0}{250}}{\end{tikzpicture}}
 \begin{document}
-% Page 1: conventions, non-task example, concrete entry, reusable cards.
 \begin{pagepicture}
+% Page 1: conventions, non-task example, concrete entry, reusable cards.
 \txt{0}{0}{250}{Groups can sit inside one another or be separate. They never cross. One group contains all the cards. Each card is also a one-card group. A group may contain three or more smaller groups. Every larger group has a positive label, and labels increase as you go outward. A group's size and number of cards do not determine its label.}
 \txt{0}{27}{250}{The distance between two different cards is the label of their smallest common group. A card's distance from itself is 0. We write A--B for the distance between A and B.}
 % Worked visual: input, selected smallest common group, output.
@@ -46,9 +50,14 @@
 \smalltxt{0}{44}{114}{X and Z $\longrightarrow$ the thick group is their smallest common group $\longrightarrow$ X--Z = 6.}
 \smalltxt{0}{63}{114}{X--Y = 3.\qquad X--X = 0.}
 \end{scope}
-\txt{125}{49}{125}{\textbf{Problem 1:} Build this world with cards A through F and loops. Choose six pairs and record their distances. Rearrange the cards and loops so every distance stays the same.}
+
+\promptat{125}{49}{125}
+
+\problem{1}{Build this world with cards A through F and loops. Choose six pairs and record their distances. Rearrange the cards and loops so every distance stays the same.}
+
 \begin{scope}[shift={(132,84)},scale=.98]\world{0}{0}\end{scope}
 \lineat{2}{129}{114}\lineat{2}{140}{114}
+
 % Letter-and-shape cards: 27 mm square.
 \foreach \x/\letter in {0/A,29/B,58/C,87/D,116/E,145/F}{
 \draw[dashed,black!60,line width=.5pt] (\x,151) rectangle (\x+27,178);
@@ -61,55 +70,84 @@
 \node[regular polygon,regular polygon sides=6,draw,line width=.8pt,minimum size=9mm,inner sep=0pt] at (164,169) {};
 \foreach \x/\n in {176/2,195/2,214/2,233/2}{\draw[dashed,black!60] (\x,151) rectangle (\x+17,163);\node[font=\fontsize{19}{21}\selectfont] at (\x+8.5,157) {\n};}
 \foreach \x/\n in {176/4,195/4,214/8,233/8}{\draw[dashed,black!60] (\x,166) rectangle (\x+17,178);\node[font=\fontsize{19}{21}\selectfont] at (\x+8.5,172) {\n};}
+
 \end{pagepicture}
 \newpage
-% Page 2: contrasting triples, with no count of possible cases disclosed.
 \begin{pagepicture}
-\txt{0}{0}{250}{\textbf{Problem 2:} Use A, B, C and labels 2, 4, 8. Make each set of distances with loops, or cross it out if it cannot be made. Choose one crossed-out set and explain why no arrangement works.}
+
+% Page 2: contrasting triples, with no count of possible cases disclosed.
+
+\problem{2}{Use A, B, C and labels 2, 4, 8. Make each set of distances with loops, or cross it out if it cannot be made. Choose one crossed-out set and explain why no arrangement works.}
+
 \foreach \x/\y/\a/\b/\c in {0/29/2/2/2,85/29/2/4/4,170/29/2/2/4,0/105/4/4/4,85/105/2/4/8,170/105/2/8/8}{
 \draw[black!35,rounded corners=1mm] (\x,\y) rectangle (\x+80,\y+70);
 \node[anchor=north,inner sep=0pt,font=\fontsize{12}{14}\selectfont] at (\x+40,\y+4) {A--B = \a\quad A--C = \b};
 \node[anchor=north,inner sep=0pt,font=\fontsize{12}{14}\selectfont] at (\x+40,\y+12) {B--C = \c};
 }
+
 \end{pagepicture}
 \newpage
-% Page 3: radius convention, singleton and nonlabel radii.
 \begin{pagepicture}
-\txt{0}{0}{250}{\textbf{Problem 3:} A ball of radius $r$ around a card contains that card and every card at distance at most $r$. In the example on page 1, radius 1 around X gives just X; radius 4 around X gives X and Y.}
+
+% Page 3: radius convention, singleton and nonlabel radii.
+
+\problem{3}{A ball of radius $r$ around a card contains that card and every card at distance at most $r$. In the example on page 1, radius 1 around X gives just X; radius 4 around X gives X and Y.}
+
 \txt{0}{29}{122}{In this world, find the radius-3 balls around A, C, D and F. Then find all different balls that contain B, using radii 0, 1, 2, 3, 4, 7 and 8. Draw each different collection once and write the radii that give it.}
 \world{135}{31}
 \lineat{0}{111}{250}\lineat{0}{134}{250}\lineat{0}{157}{250}
+
 \end{pagepicture}
 \newpage
-% Page 4: complete five-card data on movable clue cards.
 \begin{pagepicture}
-\txt{0}{0}{250}{\textbf{Problem 4:} Use cards A through E to make a world that fits all ten clue cards. Use labels 2, 4, 8. Your partner checks each clue against the loops. Draw two different-looking worlds with exactly these distances.}
+
+% Page 4: complete five-card data on movable clue cards.
+
+\problem{4}{Use cards A through E to make a world that fits all ten clue cards. Use labels 2, 4, 8. Your partner checks each clue against the loops. Draw two different-looking worlds with exactly these distances.}
+
 \draw[black!25,rounded corners=2mm] (0,29) rectangle (121,120);
 \draw[black!25,rounded corners=2mm] (129,29) rectangle (250,120);
 \foreach \x/\y/\pair/\n in {0/131/A--B/2,51/131/A--C/4,102/131/B--C/4,153/131/D--E/2,204/131/A--D/8,0/156/A--E/8,51/156/B--D/8,102/156/B--E/8,153/156/C--D/8,204/156/C--E/8}{
 \draw[dashed,black!60,line width=.55pt] (\x,\y) rectangle (\x+46,\y+21);
 \node[font=\fontsize{17}{19}\selectfont] at (\x+23,\y+10.5) {\pair\ = \n};}
+
 \end{pagepicture}
 \newpage
-% Page 5: all one-clue repairs, with no answer-count scaffolding.
 \begin{pagepicture}
-\txt{0}{0}{193}{\textbf{Problem 5:} Start with the clues from Problem 4. Change only A--C from 4 to 2. Can any world fit these clues?}
+
+% Page 5: all one-clue repairs, with no answer-count scaffolding.
+\promptat{0}{0}{193}
+
+\problem{5}{Start with the clues from Problem 4. Change only A--C from 4 to 2. Can any world fit these clues?}
+
 \draw[dashed,black!60,line width=.55pt] (204,1) rectangle (250,22);
 \node[font=\fontsize{17}{19}\selectfont] at (227,11.5) {A--C = 2};
 \txt{0}{29}{250}{Change exactly one of the ten clues to a different value chosen from 2, 4, 8, so that a world is possible. Find every repair. For each repair, draw a world fitting all ten clues. Explain why your list is complete.}
+
 \end{pagepicture}
 \newpage
+\begin{pagepicture}
+
 % Page 6: general structural arguments complete the object route.
-\begin{pagepicture}
-\txt{0}{0}{250}{\textbf{Problem 6:} Choose three different cards in any allowed world. Can exactly one of their three distances be larger than the other two? Explain why your answer holds for every allowed arrangement of groups.}
+
+\problem{6}{Choose three different cards in any allowed world. Can exactly one of their three distances be larger than the other two? Explain why your answer holds for every allowed arrangement of groups.}
+
 \lineat{0}{48}{250}\lineat{0}{64}{250}\lineat{0}{80}{250}
-\txt{0}{95}{250}{\textbf{Problem 7:} Can two balls overlap while neither contains the other? Can a ball change when you keep its radius and move its center to one of its members? Settle both questions for every allowed arrangement of groups.}
+
+\promptat{0}{95}{250}
+
+\problem{7}{Can two balls overlap while neither contains the other? Can a ball change when you keep its radius and move its center to one of its members? Settle both questions for every allowed arrangement of groups.}
+
 \lineat{0}{142}{250}\lineat{0}{158}{250}\lineat{0}{174}{250}
+
 \end{pagepicture}
 \newpage
-% Page 7: late number continuation; exact restricted 2-adic convention.
 \begin{pagepicture}
-\txt{0}{0}{250}{\textbf{Problem 8:} Use the number cards 0--7. Each card has distance 0 from itself. The distances between different cards follow these rules:}
+
+% Page 7: late number continuation; exact restricted 2-adic convention.
+
+\problem{8}{Use the number cards 0--7. Each card has distance 0 from itself. The distances between different cards follow these rules:}
+
 \txt{5}{18}{242}{$\bullet$ One card is even and the other is odd: distance 8.\\
 $\bullet$ Both are even or both are odd, with different remainders after division by 4: distance 4.\\
 $\bullet$ They have the same remainder after division by 4: distance 2.}
@@ -117,15 +155,23 @@ $\bullet$ They have the same remainder after division by 4: distance 2.}
 \txt{0}{42}{250}{For cards 1 and 5, both leave remainder 1 when divided by 4. They belong to the same remainder group, so their distance is 2.}
 \txt{0}{54}{250}{Build a world of loops with exactly these distances. Find every different ball of radius 3 and every different ball of radius 5.}
 \draw[black!25,rounded corners=2mm] (0,65) rectangle (250,108);
-\txt{0}{115}{250}{\textbf{Problem 9:} Use the number rules to explain why the largest of the three distances between any three different number cards must occur at least twice.}
+
+\promptat{0}{115}{250}
+
+\problem{9}{Use the number rules to explain why the largest of the three distances between any three different number cards must occur at least twice.}
+
 \foreach \x/\n in {6/0,36/1,66/2,96/3,126/4,156/5,186/6,216/7}{
 \draw[dashed,black!60,line width=.55pt] (\x,151) rectangle (\x+27,178);
 \node[font=\fontsize{25}{28}\selectfont] at (\x+13.5,164.5) {\n};}
+
 \end{pagepicture}
 \newpage
-% Page 8: landscape workmat, 250 by 180 mm.
 \begin{pagepicture}
+
+% Page 8: landscape workmat, 250 by 180 mm.
 \draw[black!45,line width=.65pt] (0,0) rectangle (250,180);
-\txt{5}{5}{240}{\textbf{Problem 10:} Use cards A through F and labels 2, 4, 8. One player builds a world in secret. The other asks for distances between pairs until they can draw a world with the same distances. Try to use as few questions as possible. Trade places.}
+\promptat{5}{5}{240}
+
+\problem{10}{Use cards A through F and labels 2, 4, 8. One player builds a world in secret. The other asks for distances between pairs until they can draw a world with the same distances. Try to use as few questions as possible. Trade places.}
 \end{pagepicture}
 \end{document}
