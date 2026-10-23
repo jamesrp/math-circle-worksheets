@@ -79,7 +79,7 @@ for gone in ['Each dot on these maps has a three-digit label.', 'Keep a drawing 
     assert gone not in tex, gone
 assert tex.count('\\cube\\end{tikzpicture}') == 4 and 'GGT67-S-v2' in tex and 'GGT67-S-v1' not in tex
 guide = (WEEK/'guide'/'facilitator.tex').read_text()
-for s in ['GGT67-FAC-v2', 'K--1 tables.', 'median graphs', 'middle value', 'all six dots work for P and Q',
+for s in ['GGT67-FAC-v3', 'K--1 tables.', 'median graphs', 'middle value', 'all six dots work for P and Q',
           'about 1.2 cm across', 'keep a drawing of each attempt', 'Two more maps for a ready pair',
           'unique meeting label is \\textbf{001}', 'the five student pages', 'pages 4--5']:
     assert s in guide, s
@@ -90,7 +90,7 @@ if len(sys.argv) == 3:
     st, gdoc = pymupdf.open(sys.argv[1]), pymupdf.open(sys.argv[2])
     assert len(st) == 5 and len(gdoc) == 3
     assert all('GGT67-S-v2' in p.get_text() and 'Week 67 / Meeting on shortest roads / Grades 3' in p.get_text() for p in st)
-    assert all('GGT67-FAC-v2' in p.get_text() for p in gdoc)
+    assert all('GGT67-FAC-v3' in p.get_text() for p in gdoc)  # v3 since the critic follow-up
     assert 'Problem 4:' in st[3].get_text() and 'Problem 5:' not in st[3].get_text() and 'Problem 5:' in st[4].get_text()
     print('PDFs: 5 student pages and 3 guide pages, v2 footers, Problem 5 alone on p. 5.')
 print('Problem 4 keys 100 and 001; majority rule on all 56 cube triples; launch, K-1 key and extra maps checked.')

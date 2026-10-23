@@ -20,3 +20,7 @@ Also: the guide's materials say five pages, its first route calls pages 4–5 th
 Checks: `review/verify_card_fixes_2026_10_23.py` checks Problem 4's keys and routes, the majority rule on all 56 cube triples, the launch's six dots, the K–1 key, the two extra maps, the dot spacings, and the printed wording, numbering and footers (and the PDFs' page counts when given them). Page 3 of the packet changed only in its footer.
 
 Nothing was physically rehearsed; the packet remains unpiloted.
+
+## Critic follow-up, later on October 23, 2026 (guide v3)
+
+An independent critic's could 13, made in the guide only: "Put a counter on every dot where the walk can stop and still be shortest" needs about ten counters, more than the three home counters and one meeting counter per pair, so the materials now say "a smaller meeting counter (about ten for a K–1 pair)"; and the K–1 key says "the junction two roads below C", because a plain dot sits between C and the junction (`verify_card_fixes_2026_10_23.py`: C is next to t, t next to the meeting vertex v). Guide GGT67-FAC-v3, still three pages; the student pages are unchanged. Checked by `plans/review/checks/week-67/check_critic_fixes.py` in the repository.

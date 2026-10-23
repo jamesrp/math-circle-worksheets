@@ -43,6 +43,8 @@ A taut string on a ball follows a great circle, and opposite dots have endless s
 10. **could**, guide p. 6 hint: "compare the sizes of cells 1 and 2" judges area by projection, which guide p. 5 forbids; say cells 1 and 2 make the 80° lune at C, 2/9 (math.md item 3).
 11. **could**, p. 3: cut "Its corner with the equator is a right angle."; checking it is part of P3.
 
+**Critic follow-up, October 23, 2026:** could 6 of an independent critic made in the guide (W61-F-v4): the K–1 key's three-square-corner triangle starts from "any dot as the top", since the K–1 balls are unmarked. Checked by `plans/review/checks/week-61/check_critic_fixes.py`.
+
 **October 23, 2026:** converted to problem files with no wording change, then fixed shoulds 1–8 and coulds 9–11 (W61-S-v4, W61-F-v3). Fix 3 kept v3's "Do not use opposite markers or put all three on one great circle" and ends "Use the smaller region inside the three sides."; fix 5 used three 70° corners; fix 7 both changed 72° to 60° and says rough marks suffice. Check: `checks/week-61/check_card_fixes.py`. Nothing deferred.
 
 ## Overlaps

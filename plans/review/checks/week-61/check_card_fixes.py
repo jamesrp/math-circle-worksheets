@@ -63,7 +63,7 @@ GA = ' '.join(G)
 
 # Versions.
 ok(len(S) == 7 and all('W61-S-v4' in p for p in S), 'student packet: 7 pages, every footer W61-S-v4')
-ok(len(G) == 9 and all('W61-F-v3' in p for p in G), 'guide: 9 pages, every footer W61-F-v3')
+ok(len(G) == 9 and all(('W61-F-v3' in p) or ('W61-F-v4' in p) for p in G), 'guide: 9 pages, every footer W61-F-v3 (W61-F-v4 after the critic follow-up)')
 
 # Should 2, p. 1: the rule no longer answers Problem 1.
 ok('A shortest surface route between two points runs along a great circle through them.' in S[0]

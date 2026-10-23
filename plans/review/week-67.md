@@ -42,6 +42,8 @@ A meeting dot for three homes lies on some shortest route for each pair. On a fu
 9. **could**, guide launch: all six dots work for P and Q; two homes have many meeting dots, three have one.
 10. **could**, guide: give a counter size (about 1.2 cm) for the 1.6 cm spacing, or enlarge P1's boards into p. 1's empty lower third.
 
+**Critic follow-up, October 23, 2026:** could 13 of an independent critic made in the guide (GGT67-FAC-v3): about ten small counters for a K–1 pair, and "the junction two roads below C" in the K–1 key. Checked by `plans/review/checks/week-67/check_critic_fixes.py`.
+
 **Done October 23, 2026:** shoulds 1–3 and coulds 4–10 made in the problem files and guide (GGT67-S-v2, five pages with Problem 5 on its own page; GGT67-FAC-v2, three pages); could 7's maps went into the guide, not onto P3. Checked by `source/week-67/review/verify_card_fixes_2026_10_23.py`; unpiloted.
 
 ## Overlaps

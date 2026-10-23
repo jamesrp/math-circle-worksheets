@@ -1,6 +1,6 @@
 # Week 61 original facilitator guide
 
-W61-F-v3 (October 23, 2026: the review card's fixes) accompanies the seven-page student packet W61-S-v4; W61-F-v2 accompanied W61-S-v3. Authoring is separate from the worksheet stages. The current roster is 4/4/3 children at fixed K–1 / Grades 2–3 / Grades 4–5 tables, with three anchored adults. All fabrication, exact marking, material fit/handling rehearsal and classroom piloting remain unperformed.
+W61-F-v4 (October 23, 2026: the review card's fixes, then a critic's could: the K–1 key's square-corner triangle starts from "any dot as the top", since the K–1 balls are unmarked) accompanies the seven-page student packet W61-S-v4; W61-F-v3 was the same guide before that wording; W61-F-v2 accompanied W61-S-v3. Authoring is separate from the worksheet stages. The current roster is 4/4/3 children at fixed K–1 / Grades 2–3 / Grades 4–5 tables, with three anchored adults. All fabrication, exact marking, material fit/handling rehearsal and classroom piloting remain unperformed.
 
 This portable guide source is self-contained: original `facilitator.tex`, standard-library `build.py` and independent mathematical `verify_math.py`, plus this README. It imports no student generator or source figures and needs no external assets. No reference book, borrowed exemplar, prompt, intermediate or render belongs in the package.
 
