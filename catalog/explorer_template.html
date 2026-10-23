@@ -464,7 +464,7 @@ const DATA = /*__DATA__*/null;
           chipToggle(l, F.status.has(v), () => { toggle(F.status, v); renderFilters(); renderList(); }))),
       h("h2", { text: "Review card" }),
       h("div", { class: "chips" },
-        [["keep", "keep"], ["revise", "needs fixes"], ["none", "no card yet"]].map(([v, l]) =>
+        [["keep", "keep"], ["revise", "needs fixes"], ["revised", "fixes done"], ["none", "no card yet"]].map(([v, l]) =>
           chipToggle(l, F.verdict === v, () => { F.verdict = F.verdict === v ? "" : v; renderFilters(); renderList(); }))),
       h("h2", { text: "Materials" }),
       h("div", { class: "chips" }, chipToggle("paper only", F.paper, () => { F.paper = !F.paper; renderFilters(); renderList(); })),

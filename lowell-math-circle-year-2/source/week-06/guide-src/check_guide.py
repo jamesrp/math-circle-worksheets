@@ -215,7 +215,26 @@ for n in (2, 3, 4):
                for s in codes(n) for i in range(n - 1))
     check(f"n={n}: first score = reds; turning over place i moves the score -1 (red) / +1 (yellow)",
           rule and all(score("R" * n, s) == s.count("R") for s in codes(n)), True)
-    check(f"n={n}: testing every place without the count needs", len(one_at_a_time(n)) + 1, n + 1)
+    check(f"n={n}: all red and then every place is", len(["R" * n] + [flip("R" * n, {i}) for i in range(n)]), n + 1)
+
+# 2-3 P8, P11: testing every place with no all-red test (YRR, RYR, RRY; YRRR, ..., RRRY) also works in n tests:
+# the higher scores are the yellow places; all scores n-1 mean all red, all scores 1 mean all yellow
+for n in (3, 4):
+    each = [flip("R" * n, {i}) for i in range(n)]
+    check(f"n={n}: every place without the all-red test {each} tells every secret", nonadaptive_ok(each, n), True)
+    ok = True
+    for s in codes(n):
+        sc = [score(t, s) for t in each]
+        if len(set(sc)) == 2:
+            ok &= all((sc[i] == max(sc)) == (s[i] == "Y") for i in range(n))
+        else:
+            ok &= (s, sc[0]) in (("R" * n, n - 1), ("Y" * n, 1))
+    check(f"n={n}: higher scores are the yellow places; all {n - 1}s mean all red, all 1s all yellow", ok, True)
+check("2-3 P11 example: RYRY on YRRR, RYRR, RRYR, RRRY", [score(t, "RYRY") for t in ("YRRR", "RYRR", "RRYR", "RRRY")],
+      [1, 3, 1, 3])
+# launch: scoring the second test needs the secret, the first test (kept for the recheck), the second test
+# and its copy (the first copy is cleared and reused)
+check("launch counters while the second test is scored", 2 + 2 + 2 + 2, 8)
 
 # K-1 two-counter plan: RR; if 1, then RY
 plan2 = {}
@@ -323,6 +342,9 @@ for t1 in codes(4):
                 ok &= len(partition(t3, v)) < len(v)
 check("4-5 P9: score formula base-2+2|Q&D| and no test 2, test 3 separate the six", ok, True)
 check("4-5 P9: ways a test splits the six two-flip secrets", sorted(splits), [(1, 1, 4), (3, 3), (6,)])
+check("4-5 P9: test 2 with |D| = 0 or 4 leaves all six together",
+      all(len(partition(t2, [flip(t1, set(q)) for q in combinations(range(4), 2)])) == 1
+          for t1 in codes(4) for t2 in codes(4) if sum(a != b for a, b in zip(t2, t1)) in (0, 4)), True)
 
 # reduction used in 4-5 P10: a way that ends by test n would know after n-1 tests
 check("4-5 P10: hit = know + 1 for n=2,3,4", all(HIT[n] == KNOW[n] + 1 for n in (2, 3, 4)), True)

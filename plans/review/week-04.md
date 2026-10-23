@@ -44,6 +44,8 @@ Hop k around n evenly spaced dots, restarting at a bare dot until every dot has 
 
 Against the math check: its item 2 is a should fixed in the guide; items 3 and 4 are coulds.
 
+October 23, 2026: fixes 1, 2, 3, 5, 6 and 7, the guide part of 4 and the README link of 9 are done in the guide and source README; the student wording of 4, fix 8 and the redesign note of 9 are deferred.
+
 ## Overlaps
 
 Week 3 (shuffle machines) has cycles of any arrangement; a shift is the equal-loops case. Week 33 (necklaces) uses "period divides length" on bead rings. Weeks 9, 29, 31 and 32 reach gcd through other objects. None has the star or the wheel: no merge.

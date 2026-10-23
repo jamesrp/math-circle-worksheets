@@ -606,6 +606,32 @@ def check_45(W):
 
 
 # ============================================================================= numbers quoted in the prose
+def times_table_dents():
+    """The chord from dot m to dot km (24 dots, clockwise from the top) touches its envelope at
+    X = (k P(t) + P(kt))/(k + 1). Find where X stops moving (the dents) by a fine numerical search, and
+    check the guide: x2 touches the circle at dot 0 with its dent R/3 toward dot 12; x3 touches at dots 0
+    and 12 with dents R/2 toward dots 6 and 18."""
+    def P(t):
+        return complex(math.sin(t), math.cos(t))
+    want = {2: ([0], [(1 / 3, 12)]), 3: ([0, 12], [(1 / 2, 6), (1 / 2, 18)])}
+    for k, (touch, dents) in want.items():
+        X = lambda t: (k * P(t) + P(k * t)) / (k + 1)
+        if [m for m in range(24) if k * m % 24 == m] != touch:
+            return False
+        if any(abs(abs(X(2 * math.pi * m / 24)) - 1) > 1e-12 for m in touch):
+            return False
+        N, h, found = 24 * 2000, 1e-7, []
+        speed = [abs(X(2 * math.pi * i / N + h) - X(2 * math.pi * i / N - h)) / (2 * h) for i in range(N)]
+        for i in range(N):
+            if speed[i] < 1e-3 and speed[i] <= speed[i - 1] and speed[i] <= speed[(i + 1) % N]:
+                z = X(2 * math.pi * i / N)
+                toward = min(range(24), key=lambda m: abs(z - abs(z) * P(2 * math.pi * m / 24)))
+                found.append((round(abs(z), 6), toward))
+        if sorted(found) != sorted((round(r, 6), m) for r, m in dents):
+            return False
+    return True
+
+
 def check_prose():
     print('\n== Numbers in the prose ==')
     pics = load('grades-2-3')
@@ -633,6 +659,17 @@ def check_prose():
         '4-5 P11: N goes A, N, A': encode('A', 'N') == 'N' and encode('N', 'N') == 'A',
         'math: one-piece hops on 12 are 1, 5, 7, 11': [k for k in range(1, 12) if starts(12, k) == 1] == [1, 5, 7, 11],
         'math: they make two pictures': len({frozenset(chords(12, k)) for k in (1, 5, 7, 11)}) == 2,
+        'K-1 P5: from the black dot alone, 6 dots hop 4 is one triangle and hop 3 one line':
+            walk(6, 4) == [0, 4, 2] and walk(6, 3) == [0, 3],
+        'K-1: every other dot marked exactly for the circled hops (4: 1, 3; 5: all; 6: 1; 7: all)':
+            [[k for k in range(1, n) if sorted(walk(n, k)) == list(range(n))] for n in (4, 5, 6, 7)]
+            == [[1, 3], [1, 2, 3, 4], [1, 5], [1, 2, 3, 4, 5, 6]],
+        '4-5 P4: MROOB is DIFFS at setting J and PURRE at setting X':
+            encode('DIFFS', 'J') == 'MROOB' and encode('PURRE', 'X') == 'MROOB',
+        '4-5 P12: x2 dot 12 ends at dot 0; x3 dots 8, 16 end at 0 and 4, 20 at 12':
+            [m for m in range(1, 24) if 2 * m % 24 == 0] == [12]
+            and [m for m in range(1, 24) if 3 * m % 24 in (0, 12) and 3 * m % 24 != m] == [4, 8, 16, 20],
+        '4-5 P12 and section 5: touching points and dents of x2 and x3': times_table_dents(),
         'materials: counters 20+20+20+1 = 61': 20 + 20 + 20 + 1 == 61,
         'materials: fasteners 4+3+3 = 10, pencils 5+5+4 = 14, rulers 2+4+3 = 9': (4 + 3 + 3, 5 + 5 + 4, 2 + 4 + 3) == (10, 14, 9),
     }

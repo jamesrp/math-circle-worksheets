@@ -41,6 +41,8 @@ A ball leaves the corner of a w by h grid table at 45° and stops at the first c
 8. **could**, guide p. 10: the bounce order is the central word of a Christoffel word (math check item 4).
 9. **could**, source README: `plans/fall-forecast-2026-10-03.md` is not in the repository; link `LOCAL-RESOURCES.md#private-records`.
 
+October 23, 2026: fixes 1–4 and 7–9 are done in the guide and source README; the student-page fixes 5 and 6 and the second run's launch fold are deferred.
+
 ## Overlaps
 
 Week 71 unfolds the same rectangles with free aims, bounce words and a rhombus; its card calls it a 4–5 return after Week 9, and I agree. Week 21 reflects once for a shortest route; Week 31 meets the same gcd fact as the first lattice point on a ray; Week 41 lifts loops on a torus. Week 9 is the entry to them all. No merge.

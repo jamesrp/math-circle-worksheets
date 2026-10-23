@@ -46,6 +46,8 @@ A yes-or-no answer at best halves what is left, so k answers separate at most 2^
 12. **could**, guide p. 2: say how the keeper sees each test over the folder (standing, or the breaker reading colours by column number). Prediction; a solo rehearsal will not show it.
 13. **could**, 4–5 P8: "Explain why one test is not always enough … Then explain why two tests are not always enough" prints the conclusion; ask "Can one test always be enough …? Can two …?", as P9 does.
 
+October 23, 2026: fixes 1, 2, 3, 5, 6, 7, 8 and 10 are done in the guide; the student-page fixes 4 and 13 and fixes 9, 11 and 12 are deferred.
+
 ## Overlaps
 
 Week 18 (codebooks) and Week 46 use the same rows and Hamming distance for other theorems: recovery from changes, and making boards agree. Week 23 uses the 2^k count, Week 30 counts placements on a balance, and the return visit weighs with three outcomes, sharing the balance with Week 30 and the app's odd-pebble balance. None covers adaptive identification and its lower bounds. No merge.

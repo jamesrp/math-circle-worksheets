@@ -4,12 +4,14 @@
 
 Upper v5 places concise code-game rules with Problem 2. All four test rows and their original piece sizes remain; gaps on that board are closer. Other bands and the guide are unchanged. The shared font declaration now names the same TeX Gyre Heros font files directly, for portable XeLaTeX resolution. A standalone build is available with `python3 build.py --out output`. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
 
-Concrete revision of October 3, 2026: F06-K-v4 / F06-M-v4 / F06-U-v4, adult guide F06-FAC-v4. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 ([forecast and pivot](../../../plans/fall-forecast-2026-10-03.md)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
+Concrete revision of October 3, 2026: F06-K-v4 / F06-M-v4 / F06-U-v4, adult guide F06-FAC-v4. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 (the October 3 forecast and pivot, a private record: see [LOCAL-RESOURCES.md](../../../LOCAL-RESOURCES.md#private-records)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
 
 - [K–1](../../week-06/week-06-k-1.pdf) — 7 pages.
 - [Grades 2–3](../../week-06/week-06-grades-2-3.pdf) — 10 pages.
 - [Grades 4–5](../../week-06/week-06-grades-4-5.pdf) — 9 pages.
 - [Adult guide](../../week-06/week-06-facilitator.pdf) — 10 pages: materials and counts, launch, pairing, answers, hints, and what to record.
+
+October 23, 2026: guide-only corrections from the [review card](../../../plans/review/week-06.md). The 2–3 Problem 11 key now says that testing every place without the all-red test (YRRR, RYRR, RRYR, RRRY) takes four tests, not five, and Problem 8 gives the three-counter version. The overview now adds five counters, the full-score test and the turn-both invariant; the launch has 8 counters and no longer tells the room the answer; the print check measures a 1-inch score box; and three small slips are fixed. `guide-src/check_guide.py` checks the new statements. Student packets are unchanged; the previous guide and source ZIP are in `week-06/archive-before-card-fixes-2026-10-23/` and `source/archive-before-card-fixes-2026-10-23/`.
 
 Two partner games about guaranteed information. In guess-my-block, three yes-or-no questions always find one of the eight 21st Century Pattern Block shapes and two never can. In the code game, a secret row of red and yellow counters hides behind a folder; the keeper scores each test mechanically (lay the test copy under the secret, put a green triangle under each match), and breakers look for methods that always work in n tests.
 

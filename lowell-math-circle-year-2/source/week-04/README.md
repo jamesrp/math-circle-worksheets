@@ -1,11 +1,13 @@
 # Week 4: Stars and secret wheels
 
-Concrete revision of October 3, 2026: F04-K-v4 / F04-M-v4 / F04-U-v4, adult guide F04-FAC-v4. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 ([forecast and pivot](../../../plans/fall-forecast-2026-10-03.md)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
+Concrete revision of October 3, 2026: F04-K-v4 / F04-M-v4 / F04-U-v4, adult guide F04-FAC-v4. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 (the October 3 forecast and pivot, a private record: see [LOCAL-RESOURCES.md](../../../LOCAL-RESOURCES.md#private-records)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
 
 - [K–1](../../week-04/week-04-k-1.pdf) — 10 pages.
 - [Grades 2–3](../../week-04/week-04-grades-2-3.pdf) — 9 pages.
 - [Grades 4–5](../../week-04/week-04-grades-4-5.pdf) — 11 pages.
 - [Adult guide](../../week-04/week-04-facilitator.pdf) — 10 pages: materials and counts, launch, pairing, answers, hints, and what to record.
+
+October 23, 2026: guide-only corrections from the [review card](../../../plans/review/week-04.md). The 4–5 Problem 12 answer and section 5 now say that the times-table curves touch the circle at the fixed dots and put the dents inside: a third of the radius from the centre toward dot 12 for ×2, half the radius toward dots 6 and 18 for ×3. The guide also notes that K–1 Problem 5's six-pointed star and three lines need the restart, prints a second copy of 2–3 p. 6 for trying hops, adds a 2–3 pacing note, and corrects "every other dot" and the MROOB dictionary words. `guide-src/check_answers.py` checks the new statements. Student packets are unchanged; the previous guide is in `week-04/archive-before-card-fixes-2026-10-23/`.
 
 Ring shifts made visible. Children hop counters and draw skip-stars on circles of dots; the number of separate pieces of a star is gcd(n, k). Grades 2–3 and 4–5 also cut out and assemble shift wheels to encode, decode and crack messages and to combine shifts. K–1 uses picture rings instead of letters.
 

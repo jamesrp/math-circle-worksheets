@@ -1,11 +1,13 @@
 # Week 5: Tower cities
 
-Concrete revision of October 3, 2026: F05-K-v4 / F05-M-v4 / F05-U-v4, adult guide F05-FAC-v4. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 ([forecast and pivot](../../../plans/fall-forecast-2026-10-03.md)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
+Concrete revision of October 3, 2026: F05-K-v4 / F05-M-v4 / F05-U-v4, adult guide F05-FAC-v4. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 (the October 3 forecast and pivot, a private record: see [LOCAL-RESOURCES.md](../../../LOCAL-RESOURCES.md#private-records)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
 
 - [K–1](../../week-05/week-05-k-1.pdf) — 7 pages.
 - [Grades 2–3](../../week-05/week-05-grades-2-3.pdf) — 9 pages.
 - [Grades 4–5](../../week-05/week-05-grades-4-5.pdf) — 8 pages.
-- [Adult guide](../../week-05/week-05-facilitator.pdf) — 9 pages: materials and counts, launch, pairing, answers, hints, and what to record.
+- [Adult guide](../../week-05/week-05-facilitator.pdf) — 10 pages: materials and counts, launch, pairing, answers, hints, and what to record.
+
+October 23, 2026: guide-only corrections from the [review card](../../../plans/review/week-05.md). The 4–5 Problem 5 entry now tells the adult that 204 of the 576 4-by-4 cities (including Problem 4's A and D) share all sixteen numbers with another city, so they cannot be singled out, how to recognise such a pair and what to do. Section 1 now lists the week's facts, the hider points to each end while saying its number, and three small slips are fixed (the K–1 Problem 4 hint, "fewer numbers as they go", ln n + 0.58). `guide-src/check.py` checks the new counts. The guide grew from 9 to 10 pages; student packets are unchanged; the previous guide is in `week-05/archive-before-card-fixes-2026-10-23/`.
 
 Snap-cube towers viewed from the ends of a row at eye level, then Latin-square cities with outside clues. K–1 builds rows of three towers, finds every order and plays a hidden-row game behind a folder. Grades 2–3 build and solve 3-by-3 cities and make one-answer puzzles for a partner. Grades 4–5 solve a ladder of 4-by-4 puzzles and design puzzles with as few clues as possible; every printed puzzle was checked by computer.
 

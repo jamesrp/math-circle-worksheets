@@ -48,6 +48,8 @@ The [three frontier prototypes, Weeks 76–78](WEEKS-76-78-PROTOTYPES.md), inves
 
 Week 1 also has an [extension facilitator guide](week-01/week-01-extensions-facilitator.pdf) and [optional paper rhombi](week-01/week-01-extra-rhombi.pdf). The [classroom snapshot](week-01/archive-classroom-2026-09/) preserves the pre-September-27 packets. Its four earlier draft PDFs are preserved separately in `week-01/archive-v1/`; use the current PDFs above unless deliberately revisiting that [archived design](source/week-01/archive-v1/README.md).
 
+On October 23, 2026 the adult guides of Weeks 4, 5, 6 and 9 were corrected from their [review cards](../plans/review/README.md); each week's source README says what changed. Their student packets are unchanged, and the previous guides are in each week's `archive-before-card-fixes-2026-10-23/` folder.
+
 ## Combined Weeks 2–10 packets
 
 The combined print sets were built from the September versions of Weeks 3–10 and are preserved in [combined/archive-before-concrete-2026-10-03/](combined/archive-before-concrete-2026-10-03/). They have not been rebuilt for the October 3 weeks, so print the weekly PDFs above. The [combined builder](source/fall-weeks-02-10/README.md) expects the September file set, including the grades 6–7 extras.

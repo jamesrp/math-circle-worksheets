@@ -35,16 +35,16 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 1 | Tiling lab (pattern blocks) | keep | [card](week-01.md), [math check](week-01-math.md) |
 | 1e | Pattern blocks II (the Week 1 encore) | keep | [card](week-01e.md), [math check](week-01e-math.md) |
 | 2 | Switches and lamps | revise: a working board that enforces the pair rule, and an adult guide for the compact catalog | [card](week-02.md), [math check](week-02-math.md) |
-| 5 | Tower cities (visibility clues) | revise: 204 of the 576 4-by-4 cities can't be singled out by any puzzle, and the guide's entry for 4–5 Problem 5 doesn't say so | [card](week-05.md), [math check](week-05-math.md) |
+| 5 | Tower cities (visibility clues) | original verdict revise; the must-fix (the guide's 4–5 Problem 5 entry on the 204 cities no puzzle can single out) fixed October 23, with should-fixes 2–3 (pointing across the folder, the facts in section 1), coulds 4–6 and the README link of 9; could 7, the student-page could 8 and the redesign note of 9 deferred, student packets unchanged | [card](week-05.md), [math check](week-05-math.md) |
 | 8 | Rook race and Nim | keep | [card](week-08.md), [math check](week-08-math.md) |
-| 9 | Bouncing paths | revise: the guide's walking rule says to keep going up after a side wall, which is wrong once the ball is coming down, so an adult may correct a child who bounced correctly | [card](week-09.md), [math check](week-09-math.md) |
+| 9 | Bouncing paths | original verdict revise; the must-fix (the guide's walking rule and K–1 hints) fixed October 23, with should-fixes 2–4 and coulds 7–9; the student-page coulds 5–6 and the second run's launch fold deferred, student packets unchanged | [card](week-09.md), [math check](week-09-math.md) |
 | 10 | Bridges (Euler walks) | keep | [card](week-10.md), [math check](week-10-math.md) |
 | 11 | Chip firing with a sink | keep | [card](week-11.md), [math check](week-11-math.md) |
 | 12 | Catalan bijections (noncrossing pairings, paths and trees) | revise: the guide hint for K–1 Problem 4 says comparing the partners of one dot detects duplicates, so an adult may call a new pairing a repeat | [card](week-12.md), [math check](week-12-math.md) |
 | 15 | Nearest-site regions | keep | [card](week-15.md), [math check](week-15-math.md) |
 | 3 | Shuffle machines (permutations as arrow mats) | keep | [card](week-03.md), [math check](week-03-math.md) |
-| 4 | Stars and secret wheels | revise: the adult guide puts the 4–5 times-table dents where the curve touches the circle, so an adult would correct a right drawing | [card](week-04.md), [math check](week-04-math.md) |
-| 6 | Code breaking (guess my block, the counter code game) | revise: the guide's key for 2–3 Problem 11 says testing every place takes five tests, though YRRR, RYRR, RRYR, RRRY take four, so an adult may correct a right method | [card](week-06.md), [math check](week-06-math.md) |
+| 4 | Stars and secret wheels | original verdict revise; the must-fix (the 4–5 Problem 12 dents) fixed October 23, with should-fixes 2–3, the guide part of 4, coulds 5–7 and the README link of 9; the 2–3 Problem 5 wording (fix 4), could 8 and the redesign note of 9 deferred, student packets unchanged | [card](week-04.md), [math check](week-04-math.md) |
+| 6 | Code breaking (guess my block, the counter code game) | original verdict revise; the must-fix (the 2–3 Problem 11 key) fixed October 23, with should-fixes 2, 3, 5 and 6 and coulds 7, 8 and 10; the K–1 Problem 6 wording (should 4) and coulds 9, 11–13 deferred, student packets unchanged | [card](week-06.md), [math check](week-06-math.md) |
 | 7 | Take-away games | keep | [card](week-07.md), [math check](week-07-math.md) |
 | 13 | Route packing and bottlenecks | keep | [card](week-13.md), [math check](week-13-math.md) |
 | 14 | Polygon triangulations and flips | keep | [card](week-14.md), [math check](week-14-math.md) |

@@ -467,8 +467,15 @@ R['rise-then-fall rows = 2^(n-1)'] = all(sum(1 for p in orders(n) if sum(lr(p)) 
                                          for n in range(2, 7))
 R['average seen = H_n'] = all(Fraction(sum(seen(p) for p in orders(n)), len(orders(n)))
                               == sum(Fraction(1, j) for j in range(1, n + 1)) for n in range(1, 7))
+# 4-5 P5 twins note: which cities share all sixteen numbers with another city
+twin_cities = {sq for g in shared for sq in g}
+R['U P5 Problem 4 cities that are twins'] = [city(x) in {city(t) for t in twin_cities} for x in solve(4, U_P4)]
+R['U P5 twins with top row 1234'] = sum(1 for sq in twin_cities if sq[0] == (1, 2, 3, 4))
+R['L+R <= n+1 for every row'] = all(sum(lr(p)) <= n + 1 for n in range(1, 7) for p in orders(n))
 for k, v in {'shared pairs': 262, 'shared pairs differing in a 2x2 block': 152, 'L2': 2, 'L5': 161280,
-             'rise-then-fall rows = 2^(n-1)': True, 'average seen = H_n': True}.items():
+             'rise-then-fall rows = 2^(n-1)': True, 'average seen = H_n': True,
+             'U P5 Problem 4 cities that are twins': [True, False, False, True],
+             'U P5 twins with top row 1234': 4, 'L+R <= n+1 for every row': True}.items():
     if R[k] != v:
         bad.append(f"MISMATCH {k}: guide says {v}, computed {R[k]}")
 

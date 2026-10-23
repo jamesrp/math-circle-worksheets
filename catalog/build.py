@@ -26,7 +26,7 @@ REPO_URL = "https://github.com/jamesrp/math-circle-worksheets/blob/main/"
 
 BANDS = ["K-1", "2-3", "4-5"]
 STATUSES = ["piloted", "organizer-approved", "unpiloted"]
-VERDICTS = ["keep", "revise", "rework", "merge", "none"]
+VERDICTS = ["keep", "revise", "revised", "rework", "merge", "none"]
 APP_DECISIONS = ["in app", "not porting", "open"]
 KINDS = ["leads-to", "revisits", "same-theorem", "same-object", "contrast"]
 REQUIRED = ["week", "title", "hook", "math", "concepts", "mechanisms", "bands",

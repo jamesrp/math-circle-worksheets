@@ -515,6 +515,58 @@ def main():
             pred = (("T" if b % 2 else "B") + ("R" if a % 2 else "L"), a + b - 2)
             okrule &= outcome(w, h) == pred
     check(okrule, "lcm rule matches the simulation for all tables up to 60x60")
+    okterms = True
+    for w in range(1, 61):
+        for h in range(1, 61):
+            g = math.gcd(w, h)
+            p, q = w // g, h // g
+            okterms &= outcome(w, h) == (("T" if p % 2 else "B") + ("R" if q % 2 else "L"), p + q - 2)
+    check(okterms, "section 1: in lowest terms p by q, right iff q odd, top iff p odd, p+q-2 bounces (to 60x60)")
+
+    # ============================ the walking rule as the guide words it ============================
+    # p. 2: after a side wall keep going the same way along the grid (up or down) and slant toward the other
+    # side; after either end keep slanting toward the same side and turn back along the grid.
+    # K-1 Problem 2 hint (2): turn away from the wall you hit and keep the other direction the same.
+    def walk_by_words(w, h, start, rule):
+        x, y = (0, 0) if start == "BL" else (w, 0)
+        dx, dy = (1, 1) if start == "BL" else (-1, 1)
+        pts = [(x, y)]
+        while True:
+            x, y = x + dx, y + dy
+            pts.append((x, y))
+            side, end = x in (0, w), y in (0, h)
+            if side and end:
+                return pts
+            if side or end:
+                dx, dy = rule(x, y, dx, dy, side, w, h)
+    def by_direction(x, y, dx, dy, side, w, h):
+        return (-dx, dy) if side else (dx, -dy)
+    def away_from_wall(x, y, dx, dy, side, w, h):
+        return (1 if x == 0 else -1, dy) if side else (dx, 1 if y == 0 else -1)
+    k1 = [(3, 5, "BL"), (3, 5, "BR")] + [(w, h, "BL") for w, h in
+          [(2, 2), (1, 3), (2, 1), (2, 3), (3, 3), (3, 2), (1, 4), (1, 5), (2, 5), (3, 4), (1, 2), (2, 4),
+           (3, 6), (4, 6), (3, 1)]]
+    for name, rule in (("p. 2 walking rule", by_direction), ("K-1 P2 hint (2)", away_from_wall)):
+        check(all(walk_by_words(w, h, st, rule) == simulate(w, h, st)[2] for w, h, st in k1),
+              f"{name} reproduces the floor walks and every K-1 and jump-rope table")
+    _, _, pts = simulate(3, 5, "BL")
+    down_sides = [pts[i] for i in range(1, len(pts) - 1)
+                  if pts[i][0] in (0, 3) and pts[i][1] < pts[i - 1][1]]
+    check(down_sides == [(0, 4), (3, 1)],
+          f"floor walk from the left dot meets side walls coming down at {down_sides}, so 'keep going up' fails")
+
+    # ============================ materials and section 5 ============================
+    single = 2 * (4.5 + 7.5) + 2 * 7.5 + 4 * 4.5
+    check((single, single + 2 * (4.5 + 7.5)) == (57, 81),
+          f"floor grid tape: {single} ft single, {single + 24} ft with the outside walls doubled")
+    def christoffel(a, b):
+        return "".join("x" if (i * b) // (a + b) == ((i - 1) * b) // (a + b) else "y" for i in range(1, a + b + 1))
+    def bounce_word(w, h):
+        _, _, pts = simulate(w, h)
+        return "".join("x" if x in (0, w) else "y" for x, y in pts[1:-1] if x in (0, w) or y in (0, h))
+    okc = all(christoffel(h // math.gcd(w, h), w // math.gcd(w, h))[1:-1] == bounce_word(w, h)
+              for w in range(1, 25) for h in range(1, 25))
+    check(okc, "section 5: the bounce order is the Christoffel word without its first and last letters (to 24x24)")
 
     # ============================ outputs ============================
     write_paths()
