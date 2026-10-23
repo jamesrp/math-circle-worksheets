@@ -7,8 +7,7 @@ route = ["first", "return"]
 +++
 
 ## text
-\node[anchor=north west,inner sep=0pt,text width=186mm,font=\fontsize{13}{16.51}\selectfont] at (15,27) {Slide tiles to close a missing corner. Which finished shapes can you make?};
-\node[anchor=north west,inner sep=0pt,text width=186mm,font=\fontsize{11}{13.97}\selectfont] at (15,43) {Numbers increase to the right and down. Gray squares are missing; dark squares are outside. Replace a gray corner with the open ring. Slide the smaller numbered neighbor immediately right or below into the ring. If there is only one, use it. Move the ring to the emptied square. Repeat until neither neighbor is numbered; cover that exit with a dark piece.};
+\node[anchor=north west,inner sep=0pt,text width=186mm,font=\fontsize{11}{13.97}\selectfont] at (15,27) {Numbers increase to the right and down. Gray squares are missing; dark squares are outside. Replace a gray corner with the open ring. Slide the smaller numbered neighbor immediately right or below into the ring. If there is only one, use it. Move the ring to the emptied square. Repeat until neither neighbor is numbered; cover that exit with a dark piece.};
 \fill[white] (21,89) rectangle ++(14,14);
 \draw[line width=.45pt] (21,89) rectangle ++(14,14);
 \draw[line width=1.5pt] (28.0,96.0) circle (4.34);

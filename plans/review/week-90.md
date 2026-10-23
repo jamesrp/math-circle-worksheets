@@ -46,6 +46,8 @@ A slide opens an inner corner of an increasing skew filling and moves the smalle
 11. **could**, guide p. 4 hints: two orders that differ mean a slip; replay both with the partner pointing.
 12. **could**, p. 6: two targets show a dark exit and two do not; draw all four alike.
 
+October 23, 2026: fixes 1–12 made in the problem files and the guide; see `source/week-90/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 Weeks 11 (chip firing), 39 (road detours) and 98 (growing from seeds) also end the same in every order, with elementary proofs. Week 54 shares Young diagrams; Week 1's extension X3 counts standard tableaux. None slides a skew shape. No merge.

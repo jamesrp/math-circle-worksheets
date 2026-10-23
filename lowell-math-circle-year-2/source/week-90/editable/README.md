@@ -1,11 +1,12 @@
 # Week 90 — Sliding number arrays
 
-Owned editable source for the current unpiloted release. Shared Grades 2–5 menu; no K–1 packet is claimed. Children need to compare small labels, preserve masks and a single active hole, and reset from an unchanged card. Adult reading/recording is appropriate; adults should not choose every move. Whole-slide choices, target construction, preimages, reversal and local proofs are separate return routes.
+Owned editable source for the current unpiloted release. Shared Grades 2–5 menu; no K–1 packet is claimed, and the guide gives an adult-read K–1 route on the A board. Children need to compare small labels, preserve masks and a single active hole, and reset from an unchanged card. Adult reading/recording is appropriate; adults should not choose every move. Whole-slide choices, target construction, preimages, reversal and local proofs are separate return routes.
 
 - `student/students.tex`: eight pages, nine consecutive student investigations with complete forward, multiple-missing-corner and reverse convention examples, written from the problem files by `student/regenerate.py` (in the repository `../week.toml`, `../template.tex` and `../problems/`; in the ZIP `problem-files/`, with the tools in `problem-files/tools/`). Edit the problem files, not `students.tex`; the build regenerates it first. Stored this way since October 23, 2026.
 - `student/materials.tex`: eleven pages of 30 mm working inserts, 26 mm pieces, all A/D/B catalog cards and blank group cards.
 - `guide/facilitator.tex`: nine-page theorem-first assumptions and limits, complete catalogs and keyed solutions, route-specific preparation and proof/evidence distinction.
 - `check_math.py`: independent standard-library enumeration of all supplied starts, legal corner sequences, complete results and reversals.
+- `review/`: `verify_card_fixes_2026_10_23.py` checks the October 23, 2026 review-card fixes listed in `card-fixes-2026-10-23.md`.
 - `reference-pdfs/`: copies of the current print PDFs.
 
 Run `python3 build.py --out rebuilt` (after extracting the ZIP: `python3 week-90/build.py --out rebuilt --work tmp/build`). Requires Python 3.11 or later and pdfLaTeX with TikZ, geometry, fancyhdr, AMS packages and Latin Modern (standard TeX Live). No network or external Python package is needed. The builder writes `students.tex` from the problem files, runs finite checks and two LaTeX passes, fixes output metadata and rejects overfull content. A clean extracted ZIP rebuild matches the reference PDFs in pages, extracted text and pixels; a reference compiled with a different pdfTeX version can differ by a few antialiased glyph pixels.

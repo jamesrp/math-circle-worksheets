@@ -8,7 +8,7 @@ kernel = 'The A board has exactly five increasing starts, $3+2$ by where 1 sits:
 +++
 
 ## prompt
-Sort all five A cards by their finished outline. Could an increasing start be missing from this collection? Explain why your collection is complete.
+Sort all five A cards by their finished outline. Could an increasing start be missing from this collection? Explain how you know.
 
 ## text
 \fill[black!12] (85,61) rectangle ++(14,14);

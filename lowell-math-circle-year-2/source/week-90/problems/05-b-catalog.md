@@ -95,7 +95,7 @@ Share out the sixteen B cards. Finish each start with each possible first gray c
 \fill[black!70] (176,104) rectangle ++(14,14);
 \fill[pattern=crosshatch,pattern color=black!95] (176,104) rectangle ++(14,14);
 \draw[line width=.45pt] (176,104) rectangle ++(14,14);
-\node[anchor=north west,inner sep=0pt,text width=186mm,font=\fontsize{12}{15.24}\selectfont] at (15,134) {Can you account for every increasing start using 1, 2, 3, 4 and 5 on this shape?};
+\node[anchor=north west,inner sep=0pt,text width=186mm,font=\fontsize{12}{15.24}\selectfont] at (15,134) {Could an increasing start be missing from the sixteen cards?};
 \fill[black!12] (85,158) rectangle ++(14,14);
 \fill[pattern=north east lines,pattern color=black!40] (85,158) rectangle ++(14,14);
 \draw[line width=.45pt] (85,158) rectangle ++(14,14);

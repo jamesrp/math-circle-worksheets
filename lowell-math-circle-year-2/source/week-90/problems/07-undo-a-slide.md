@@ -80,4 +80,3 @@ Close the corner in A2 and A4, then undo each slide. Can you recover the start e
 \fill[black!70] (176,207) rectangle ++(14,14);
 \fill[pattern=crosshatch,pattern color=black!95] (176,207) rectangle ++(14,14);
 \draw[line width=.45pt] (176,207) rectangle ++(14,14);
-\node[anchor=north west,inner sep=0pt,text width=186mm,font=\fontsize{11}{13.97}\selectfont] at (15,235) {Use the S and E markers to save the two boundary squares.};
