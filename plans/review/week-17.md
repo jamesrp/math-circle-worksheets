@@ -45,6 +45,8 @@ A machine is circles, each with one R arrow, one B arrow and a fixed ✓ or ×. 
 11. **could**, guide p. 11: offer 2–3 P2–P3 to a 4–5 child who has not built a machine.
 12. **could**, guide pp. 2, 5, 10: cut the process notes ("Student pages have not been edited", "the FINAL task", "Artifact scope").
 
+Fixed October 23, 2026: shoulds 1–4 and coulds 5–12, in the problem files, a new table kit, the guide and the return visit (W17-K-v3, W17-23-v3, W17-45-v3, W17-M-v1, W17-RV-v2).
+
 ## Overlaps
 
 Week 4's wheel is the m-cycle, but it asks about stars and gcd. Week 76's Thue–Morse parity is a two-state machine, and its card names Week 17 as a return link. Week 23 counts comparator records and Week 6 counts yes/no tests; neither counts states. Week 3's "machines" share only the name. No other theme has state minimisation. No merge.

@@ -19,7 +19,7 @@ A row gets YES exactly when its red cards can be grouped in threes with none lef
 three(2.88,True)+pairs([('','R',4.65),('R','RR',5.98),('RR','RBR',7.31),('B','RRR',8.64)],True)
 
 ## figure [2-3]
-pairs([('','R',2.65),('R','RR',3.85),('RR','RRR',5.05),('RBR','RR',6.25),('B','RRR',7.45),('RB','BR',8.65)])
+pairs([('','R',2.6),('R','RR',3.88),('RR','RRR',5.16),('RBR','RR',6.44),('B','RRR',7.72),('RB','BR',9.0)])
 
 ## figure [4-5]
 pairs([('','R',2.6),('R','RR',3.9),('RR','BRR',5.2),('BBB','RRR',6.5)])

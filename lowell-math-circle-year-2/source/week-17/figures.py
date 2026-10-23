@@ -19,7 +19,7 @@ PRE = r'''\documentclass[letterpaper,12pt]{article}
 \usepackage{amssymb,amsmath}
 \pdfmapfile{+lm.map}
 \pdfmapfile{+symbols.map}
-\usetikzlibrary{arrows.meta}
+\usetikzlibrary{arrows.meta,decorations.pathreplacing}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \hyphenpenalty=10000
@@ -132,22 +132,32 @@ def three(y, k=False, prefix='t', xs=(2.0, 4.25, 6.5), labels=False):
     return out
 
 
+def brace(x, y0, y1):
+    """A closing brace from y0 down to y1 at x, its point to the right: the rows it joins share one ending."""
+    return rf'\draw[black!60,line width=.8pt,decorate,decoration={{brace,amplitude=5pt}}] ({x},{y0})--({x},{y1});'+'\n'
+
+
 def pair(a, b, y, k=False):
+    """Two printed rows, one above the other, joined by a brace to one '+ ____' line: the same
+    added cards go after both rows. Each row keeps its own answer to circle."""
     out = ''
     if k:
-        out += rf'\draw[black!45,line width=.6pt] (.8,{y-.22})--(.72,{y-.22})--(.72,{y+.72})--(.8,{y+.72});'+'\n'
-        for word, yy in [(a, y), (b, y+.48)]:
+        bot = y+.48; mid = (y+bot)/2
+        for word, yy in [(a, y), (b, bot)]:
             out += cards(word, 1.25, yy)
-            out += text(3.25, yy-.13, .3, '+', 18, 19)
-            out += line(3.75, yy+.15, 2.65)
             out += choices(7.03, yy)
+        out += brace(2.72, y-.2, bot+.2)
+        out += text(3.0, mid-.16, .3, '+', 18, 19)
+        out += line(3.45, mid+.15, 2.75)
     else:
-        for word, x in [(a, .9), (b, 4.5)]:
-            out += cards(word, x, y, step=.31, size=.25)
-            out += text(x+1.35, y-.13, .25, '+', 15, 16)
-            out += line(x+1.75, y+.12, 1.3)
-            out += text(x+1.7, y+.3, 1.5, 'YES / NO', 10.5, 12)
-        out += line(.9, y+.85, 6.8)
+        bot = y+.4; mid = (y+bot)/2
+        for word, yy in [(a, y), (b, bot)]:
+            out += cards(word, .9, yy, step=.31, size=.25)
+            out += text(6.2, yy-.09, 1.3, 'YES / NO', 11, 13)
+        out += brace(2.05, y-.17, bot+.17)
+        out += text(2.3, mid-.13, .25, '+', 15, 16)
+        out += line(2.7, mid+.12, 2.9)
+        out += line(.9, y+.92, 6.8)
     return out
 
 
