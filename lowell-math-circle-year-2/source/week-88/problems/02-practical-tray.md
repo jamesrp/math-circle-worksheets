@@ -13,6 +13,5 @@ How many 40 mm disks can you fit inside this tray? Make a packing that holds as 
 ## text
 \vspace{5mm}
 \tray{112}
-\begin{center}Practical tray: 160 mm $\times$ 112 mm interior\end{center}
 \vfill
 Our best packing holds \rule{20mm}{.3pt} disks.

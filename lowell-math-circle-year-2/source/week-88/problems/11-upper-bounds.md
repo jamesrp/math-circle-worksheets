@@ -8,7 +8,7 @@ kernel = "Each neighbouring pair needs a least angle at the middle; adding the l
 +++
 
 ## prompt
-Return to your rings in Problems 3--5. For each one, can you explain why a ring with more outside disks is impossible? Draw the center distances you need.
+For each of Problems 3--5, what is the largest possible ring? Explain why no ring can have more outside disks.
 
 ## text
 \vspace{2mm}

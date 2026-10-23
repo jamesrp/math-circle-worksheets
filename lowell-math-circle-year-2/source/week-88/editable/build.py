@@ -6,7 +6,7 @@ import argparse, os, shutil, subprocess, sys, tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 WEEK=88
-TARGETS=[('student','students'),('guide','facilitator')]
+TARGETS=[('student','students'),('student','materials'),('guide','facilitator')]
 def main():
  ap=argparse.ArgumentParser(description=__doc__)
  ap.add_argument('--out',type=Path,default=ROOT/'out')

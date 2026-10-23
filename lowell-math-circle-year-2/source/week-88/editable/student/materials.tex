@@ -1,0 +1,39 @@
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\documentclass[12pt]{article}
+\usepackage[letterpaper,left=18mm,right=18mm,top=22mm,bottom=20mm,headheight=15pt]{geometry}
+\usepackage{tikz,fancyhdr}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 88 / Packing and kissing circles / Materials}
+\fancyfoot[L]{\small Bellingham Math Circle / Week 88 / W88-M-v1}
+\fancyfoot[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}
+% Disk sheets, added October 23, 2026 from the review card (fix 1). Coordinates are
+% millimetres from the top-left corner of the paper, y down. Every circle is drawn with
+% a 0.2 mm line whose centre is at the stated diameter, with a dot at its centre;
+% editable/review/check_pdf.py measures them and the 100 mm bar in the PDF.
+\newcommand{\sheet}[1]{\begin{tikzpicture}[remember picture,overlay,x=1mm,y=-1mm,line width=0.2mm]
+\begin{scope}[shift={(current page.north west)}]#1
+\draw (58,256)--(158,256);\draw (58,254)--(58,258);\draw (158,254)--(158,258);
+\node[anchor=west,font=\small] at (161,256) {100 mm};
+\end{scope}\end{tikzpicture}}
+\newcommand{\disk}[3]{\draw (#1,#2) circle[radius=#3mm];\fill (#1,#2) circle[radius=0.4mm];}
+\begin{document}
+{\small Print at Actual Size on card stock and check that the bar below measures 100 mm. Cut on the line. A pair needs 13 disks 40 mm across and 5 disks 80 mm across; each table needs one 120 mm middle (page 3).\par}
+\sheet{%
+\foreach \x in {66,150}{\foreach \y in {82,166}{\disk{\x}{\y}{40}}}
+\foreach \x in {42,86,130,174}{\disk{\x}{230}{20}}}
+\newpage
+\null
+\sheet{%
+\foreach \x in {42,86,130,174}{\foreach \y in {50,94,138,182,226}{\disk{\x}{\y}{20}}}}
+\newpage
+\null
+\sheet{%
+\disk{80}{90}{60}\node[font=\small] at (80,98) {120 mm middle};
+\foreach \y in {50,94,138}{\disk{164}{\y}{20}}
+\foreach \x in {66,150}{\disk{\x}{202}{40}}}
+\end{document}

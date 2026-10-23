@@ -3,7 +3,7 @@ id = "w88.radius-bridge"
 title = "Touching disks: centre distance is the sum of radii"
 kind = "setup"
 grades = ["K-5"]
-route = "return"
+route = ["first", "return"]
 page = "new"
 +++
 

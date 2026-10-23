@@ -46,6 +46,8 @@ Disks touch a middle disk without overlapping. Each neighbouring pair needs a le
 12. **could**, guide pp. 2, 5–6: "KK11 / 3333 / 445", "in[20,140]", "For(20, 40)", "radiia, b".
 13. **could**, guide p. 4: six green pattern-block triangles make the 60° wedges; a seventh will not fit.
 
+Fixed October 23, 2026: shoulds 1–7 and coulds 9–13 in the problem files, a new 3-page materials PDF (40, 80 and 120 mm disks) and the guide; the tolerance is checked by script (rings unchanged for disks up to 0.5 mm under size; trays need 39.63–40.00 mm, stated as 39.7–40.0); could 8 deferred; see source/week-88/README.md.
+
 ## Overlaps
 
 Week 56 shares the proof move, sharing out 360° at a point, on a different object: cross-reference. Week 1: the six-ring's centres are six pattern-block triangles. Weeks 26, 32 and 93 pack squares for other theorems. No merge.

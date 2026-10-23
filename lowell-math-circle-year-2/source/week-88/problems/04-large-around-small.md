@@ -13,6 +13,7 @@ Now put a 40 mm disk in the middle. Make the biggest ring of 80 mm disks that ca
 \begin{center}\begin{tikzpicture}[x=1mm,y=1mm]
 \draw[thick,fill=black!6] (0,0) circle (10);\node at (0,0) {40 mm};
 \draw[thick] (50,0) circle (20);\node at (50,0) {80 mm};
+\node at (25,-28) {Sketches, not actual size};
 \end{tikzpicture}\end{center}
 \vfill
 Most outside disks: \rule{20mm}{.3pt}

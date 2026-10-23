@@ -29,3 +29,7 @@ The portable source ZIP was extracted into a fresh directory and rebuilt using o
 | Guide 5–6 | Eleven-disk diagram, row-height argument, size formula and both mixed-ring bounds; sources, recordkeeping and limits. |
 
 Actual printing, disk roundness, narrow physical fit, material handling, timings and children’s comprehension have not been tested. No school session or Drive upload is implied.
+
+## Card fixes, October 23, 2026
+
+Changed from the review card: student pages 2, 3, 5–8 (Problems 7, 10 and 11 reworded, Problem 11's 120 mm ring, Problem 4's caption, Problem 6's clearance, tray captions cut), all six guide pages, and a new 3-page materials PDF of disk sheets. Each changed page and every materials page was rendered at 80 dpi and inspected; student pages 1 and 4 are pixel-identical to the previous build. `review/check_pdf.py` measures every materials disk (40.000, 80.000 and 120.000 mm, round, centre dot, at least 3 mm apart, 15 mm inside the paper), the 100 mm bars, the unchanged tray interiors and Problem 6's 72 mm clearance, and reads the wording; `review/check_card_fixes_2026_10_23.py` checks the guide's tolerance figures (rings unchanged for disks 0–0.5 mm under size; trays need 39.63–40.00 mm), the 18.5° and 21° comparison, the 120 mm ring, the circumference estimate and the sliding chains. Cutting accuracy, disk fit and handling remain physically unrehearsed.
