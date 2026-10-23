@@ -44,6 +44,8 @@ Switches come at 11:30, 11:45, 11:52:30 and so on, at times 1 − 2⁻ⁿ of the
 11. **could**, guide pp. 3–4: cut the author-facing lines ("Do not provide those prompts after every small action on student pages", "not the old paper network-toggle rule", "(part0017)").
 12. **could**, the guide header still reads "Facilitator draft".
 
+October 23, 2026: shoulds 1–4 and coulds 5–12 fixed in v2 (M80-D-v2), after the organizer's October 17 approval; the K–1 route is a guide paragraph on pages 1 and 6, and the continuation is labelled Grades 4–5. Checks in the package's `check_card_fixes.py`.
+
 ## Overlaps
 
 Week 79 compares counts with a set-valued limit in the same supertask setting; Week 81 has plays that all end with no common bound; in Week 50 the limit of the lengths is not the length of the limit. None asks what an endpoint is. No merge: Weeks 79, 80 and 81 form a return sequence, and 80 is the simplest entry.

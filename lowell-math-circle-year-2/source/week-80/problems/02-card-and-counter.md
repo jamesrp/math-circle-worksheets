@@ -8,7 +8,7 @@ kernel = "The card flips forever and never settles, while the counter, halving i
 +++
 
 ## prompt
-Use the same switching marks. The card starts OFF. A counter starts at START. At each switching mark, flip the card and move the counter halfway from its present place toward END. As the rule keeps going, does the card settle on one side? What place does the counter approach?
+Use the same switching marks. The card starts OFF. A counter starts at START. At each switching mark, flip the card and move the counter halfway from its present place toward END. As the rule keeps going, does the card settle on one side? Does the counter get closer and closer to one place?
 
 ## text
 \begin{center}

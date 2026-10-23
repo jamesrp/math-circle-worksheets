@@ -60,6 +60,12 @@ def main():
         (work / f'week-{WEEK}-math-checks.log').write_text(check.stdout)
         if check.returncode:
             raise SystemExit(check.stdout)
+        # October 23, 2026 card fixes: keys, sizes and wording changed in v2.
+        fixes = subprocess.run([sys.executable, str(ROOT / 'check_card_fixes.py')], cwd=temp, text=True,
+                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        (work / f'week-{WEEK}-card-fix-checks.log').write_text(fixes.stdout)
+        if fixes.returncode:
+            raise SystemExit(fixes.stdout)
     print(f'PASS: Week {WEEK}, both PDFs built; independent mathematical checks passed.')
     print('Mathematical evidence:', result)
 

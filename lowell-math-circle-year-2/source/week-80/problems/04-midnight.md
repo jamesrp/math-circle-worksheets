@@ -11,7 +11,7 @@ kernel = "The rule fixes the card only before midnight, so ON and OFF both fit a
 \renewcommand{\band}{Grades 4--5}
 
 ## prompt
-What, if anything, does the switching rule alone tell you to show at midnight? Use the card and switching marks to support your answer.
+What, if anything, does the switching rule alone tell you to show at midnight?
 
 ## text
 \vspace{10mm}
@@ -20,9 +20,9 @@ What, if anything, does the switching rule alone tell you to show at midnight? U
 \vspace{15mm}
 \begin{center}
 \begin{tikzpicture}[x=1mm,y=1mm]
-  \path[use as bounding box] (0,0) rectangle (184,76);
-  \draw[rounded corners=2mm,line width=0.7pt] (59,12) rectangle (125,65);
-  \node at (92,70) {MIDNIGHT};
+  \path[use as bounding box] (0,0) rectangle (184,78);
+  \draw[rounded corners=2mm,line width=0.7pt] (52,10) rectangle (132,68);
+  \node at (92,73) {MIDNIGHT};
 \end{tikzpicture}
 \end{center}
 \vfill

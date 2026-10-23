@@ -8,7 +8,7 @@ kernel = "An extra rule such as ON at midnight, or OFF, keeps every earlier swit
 +++
 
 ## prompt
-Keep every switch before midnight. Make two different extra rules for the card at midnight. Decide whether either extra rule follows from the original switching rule.
+The switches before midnight stay the same. Make two different extra rules for the card at midnight. Decide whether either extra rule follows from the original switching rule.
 
 ## text
 \vspace{6mm}
