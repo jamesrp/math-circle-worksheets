@@ -72,3 +72,5 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Week 39 Road detours: convert to problem files, then the review card's must (K–1 Problem 7) | Claude, Autonomous worksheet improvement thread | `claude/flow-layout-ntxcu3` | in progress |
 | Fall Weeks 3, 7, 8, 10: the cards' guide-located should and could fixes, and Week 8's separate game boards as a printable | Claude, Autonomous worksheet improvement thread | `claude/fall-guides-ntxcu3` | in progress; student-page items wait for the flow layout |
 | Review cards: Weeks 83–100 (math check and card for each) | Claude, Autonomous worksheet improvement thread | `claude/review-cards-ntxcu3` | in progress |
+| Week 26: convert to problem files, then the card's student-page must (4–5 Problem 2 corner convention) and should 3 | Claude, Autonomous worksheet improvement thread | `claude/convert-w26-ntxcu3` | in progress |
+| Week 51: convert to problem files, then the card's K–1 Problem 4 must and student-page shoulds | Claude, Autonomous worksheet improvement thread | `claude/convert-w51-ntxcu3` | in progress |
