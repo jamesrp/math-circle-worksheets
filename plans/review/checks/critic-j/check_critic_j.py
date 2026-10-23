@@ -18,7 +18,9 @@ children; their guides route K-1, adult-led, through pp. 1-3, pp. 1-3 and copies
 page indexes name those routes, and the K-1 slices must be exactly those pages.
 
 Week 57 guide p. 1 (W57-FAC-v4): the K-1 route's page reference names guide p. 3 and the
-student p. 4 grids.
+student p. 4 grids. Week 71 guide p. 2 (GGT71-FAC-v3): "So XYX with X and Y meeting at a
+corner happens only at corners under 90 degrees", since ACA, CAC, BDB and DBD come from
+parallel walls and occur in every room.
 """
 import re
 import subprocess
@@ -118,15 +120,68 @@ def words(pdf):
     return ' '.join(re.sub(r'(?<=[a-z])- (?=[a-z])', '', ' '.join(text(pdf).split())).split())
 
 
-# Week 57 guide p. 1: the K-1 route's page reference. Only that sentence and the footer id may
-# differ from the guide archived before these follow-ups.
+# Guide wording: only the named sentence and the footer id may differ from the guide archived
+# before these follow-ups. Week 57 p. 1: the K-1 route's page reference. Week 71 p. 2: the
+# extension's XYX claim is about X and Y meeting at a corner (ACA, CAC, BDB and DBD bounce
+# between parallel walls and occur in every room).
 A = 'archive-before-critic-j-fixes-2026-10-23'
-g57, old57 = Y / 'week-57' / 'week-57-facilitator.pdf', Y / 'week-57' / A / 'week-57-facilitator.pdf'
-new_s = 'K–1 has an adult-led route with four or five squares on extra copies of the student p. 4 grids (guide p. 3), not a Week 57 theorem packet.'
-old_s = 'K–1 has an adult-led route with four or five squares on the existing grids (p. 3), not a Week 57 theorem packet.'
-check(new_s in words(g57) and old_s not in words(g57), 'Week 57 guide p. 1: the K–1 route is on guide p. 3 with student p. 4 grids')
-check(text(g57).count('W57-FAC-v4') == pages(g57) == 10, 'Week 57 guide: footer W57-FAC-v4 on all 10 pages')
-check(words(g57).replace(new_s, old_s).replace('W57-FAC-v4', 'W57-FAC-v3') == words(old57),
-      'Week 57 guide: nothing else changed since W57-FAC-v3')
+GUIDES = [
+    (57, 'W57-FAC-v3', 'W57-FAC-v4', 10, 'p. 1: the K–1 route is on guide p. 3 with student p. 4 grids',
+     'K–1 has an adult-led route with four or five squares on the existing grids (p. 3), not a Week 57 theorem packet.',
+     'K–1 has an adult-led route with four or five squares on extra copies of the student p. 4 grids (guide p. 3), not a Week 57 theorem packet.'),
+    (71, 'GGT71-FAC-v2', 'GGT71-FAC-v3', 4, 'p. 2: XYX at a corner needs X and Y to meet there',
+     'So XYX happens only at corners under 90◦ : here ABA, BAB, CDC and DCD.',
+     'So XYX with X and Y meeting at a corner happens only at corners under 90◦ : here ABA, BAB, CDC and DCD.'),
+]
+def three_letter_words(seed=71, shots=4000, bounces=12):
+    """Sample billiard shots in the guide's side-4 60-degree rhombus (A bottom, B left, C top,
+    D right) and return the three-letter words seen; shots passing within 1e-9 of a corner stop."""
+    import math, random
+    r3 = math.sqrt(3)
+    V = [(0, 0), (4, 0), (6, 2 * r3), (2, 2 * r3)]
+    walls = {'A': (V[0], V[1]), 'D': (V[1], V[2]), 'C': (V[2], V[3]), 'B': (V[3], V[0])}
+    rnd, seen = random.Random(seed), set()
+    for _ in range(shots):
+        while True:
+            x, y = rnd.uniform(0, 6), rnd.uniform(0, 2 * r3)
+            if y > 1e-6 and y < 2 * r3 - 1e-6 and x > y / r3 + 1e-6 and x < 4 + y / r3 - 1e-6:
+                break
+        a = rnd.uniform(0, 2 * math.pi)
+        dx, dy, last, word = math.cos(a), math.sin(a), None, ''
+        for _ in range(bounces):
+            best = None
+            for name, ((x1, y1), (x2, y2)) in walls.items():
+                if name == last:
+                    continue
+                ex, ey = x2 - x1, y2 - y1
+                den = dx * ey - dy * ex
+                if abs(den) < 1e-12:
+                    continue
+                s = ((x1 - x) * ey - (y1 - y) * ex) / den
+                u = ((x1 - x) * dy - (y1 - y) * dx) / den
+                if s > 1e-12 and -1e-9 <= u <= 1 + 1e-9 and (best is None or s < best[0]):
+                    best = (s, name, u, ex, ey)
+            s, name, u, ex, ey = best
+            if min(u, 1 - u) < 1e-9:
+                break
+            x, y = x + s * dx, y + s * dy
+            L = math.hypot(ex, ey); tx, ty = ex / L, ey / L
+            d = dx * tx + dy * ty
+            dx, dy = 2 * d * tx - dx, 2 * d * ty - dy
+            word, last = word + name, name
+        seen |= {word[i:i + 3] for i in range(len(word) - 2)}
+    return seen
+
+
+W = three_letter_words()
+check(all(w in W for w in ('ACA', 'CAC', 'BDB', 'DBD', 'ABA', 'BAB', 'CDC', 'DCD'))
+      and not any(w in W for w in ('ADA', 'DAD', 'BCB', 'CBC')),
+      'Week 71 rhombus sample: parallel-wall XYX and 60-degree-corner XYX occur, 120-degree-corner XYX never')
+
+for week, old_id, new_id, n, what, old_s, new_s in GUIDES:
+    g, old = Y / f'week-{week}' / f'week-{week}-facilitator.pdf', Y / f'week-{week}' / A / f'week-{week}-facilitator.pdf'
+    check(new_s in words(g) and old_s not in words(g) and old_s in words(old), f'Week {week} guide {what}')
+    check(text(g).count(new_id) == pages(g) == n, f'Week {week} guide: footer {new_id} on all {n} pages')
+    check(words(g).replace(new_s, old_s).replace(new_id, old_id) == words(old), f'Week {week} guide: nothing else changed since {old_id}')
 print('PASS' if not FAIL else f'{len(FAIL)} FAILED')
 raise SystemExit(1 if FAIL else 0)

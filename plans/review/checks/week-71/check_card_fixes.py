@@ -178,7 +178,7 @@ check('the mirror rule is still stated once, in Problem 2', ' '.join(s).count('U
 
 g = ' '.join(text('week-71-facilitator.pdf'))
 gp = text('week-71-facilitator.pdf')
-check('guide: 4 pages, GGT71-FAC-v2, sources on page 4', len(gp) == 4 and all('GGT71-FAC-v2' in p for p in gp)
+check('guide: 4 pages, GGT71-FAC-v2 or later (v3 after Critic J), sources on page 4', len(gp) == 4 and all(re.search(r'GGT71-FAC-v[2-9]', p) for p in gp)
       and 'Sources, checks, and limits' in gp[3])
 check('fix 1: overview says distinctions run both ways', 'Distinctions run both ways: the square word ACB is impossible in the rhombus' in g)
 check('fix 1: P3 key names ABA, BAB, CDC, DCD', 'An ABA (or BAB, CDC, DCD) drawing rules out both rectangles' in g)

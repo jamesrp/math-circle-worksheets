@@ -13,6 +13,6 @@ From any working directory:
 
 The builder runs the independent standard-library answer checks, then writes facilitator.pdf and guide-build.log. The source directory is self-contained; it needs no repository files, downloaded references, or machine-specific setup script. The default output directory is the source directory's parent.
 
-The October 6 guide was three letter-size pages; since the October 23, 2026 review-card fixes (GGT71-FAC-v2) it is four, with the sources on page 4. Every page was rendered and visually inspected; no overflow warnings remained. A source-only isolated rebuild from an unrelated working directory passed and matched the delivered PDF's extracted text.
+The October 6 guide was three letter-size pages; since the October 23, 2026 review-card fixes (GGT71-FAC-v2) it is four, with the sources on page 4. GGT71-FAC-v3 (October 23, Critic J) changes only the p. 2 extension sentence, to "XYX with X and Y meeting at a corner". Every page was rendered and visually inspected; no overflow warnings remained. A source-only isolated rebuild from an unrelated working directory passed and matched the delivered PDF's extracted text.
 
 The student source was not modified. Mathematical/print verification does not establish physical readiness or classroom suitability. The prototype is unpiloted, and no physical rehearsal was performed. Source lineage and proof limits are stated in the guide.

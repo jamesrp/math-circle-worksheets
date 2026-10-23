@@ -1,6 +1,6 @@
 # Week 71: Can you hear the room
 
-One shared Grades 4–5 prototype: 5 student pages and a separate 4-page theorem-first adult guide (v2, after the October 23, 2026 review-card fixes). Independently reviewed and digitally checked, awaiting organizer review. Unpiloted; physical preparation and handling have not been rehearsed. The week number is a library identifier, not an adopted schedule.
+One shared Grades 4–5 prototype: 5 student pages and a separate 4-page theorem-first adult guide (v2, after the October 23, 2026 review-card fixes; guide GGT71-FAC-v3). Independently reviewed and digitally checked, awaiting organizer review. Unpiloted; physical preparation and handling have not been rehearsed. The week number is a library identifier, not an adopted schedule.
 
 ## Build from this portable package
 

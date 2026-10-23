@@ -48,6 +48,8 @@ A shot in a room with lettered walls gives a bounce word. No rectangle shot goes
 
 **Fixed October 23, 2026, after the problem-file conversion:** shoulds 1–2 and coulds 3, 4 and 6–9 (GGT71-S-v2; guide GGT71-FAC-v2, now 4 pages with the sources on p. 4); could 5 left as the organizer's call. Check: `checks/week-71/check_card_fixes.py`.
 
+**Critic J could, October 23, 2026 (GGT71-FAC-v3; student packet unchanged):** the guide's p. 2 extension now says "So XYX with X and Y meeting at a corner happens only at corners under 90°". Read literally, the old sentence excluded ACA, CAC, BDB and DBD, which bounce between parallel walls and occur in every room. Only that sentence and the footer id changed (`checks/critic-j/check_critic_j.py`, which also samples rhombus shots for the claim). The previous guide and ZIP are in the `archive-before-critic-j-fixes-2026-10-23/` folders.
+
 ## Overlaps
 
 - Week 9, Bouncing paths, has the same unfolding in rectangles, with uniform scaling of 45° paths. Week 71 adds free directions, words, a rhombus and the unequal stretch. It makes a natural 4–5 return visit after Week 9; neither absorbs the other.
