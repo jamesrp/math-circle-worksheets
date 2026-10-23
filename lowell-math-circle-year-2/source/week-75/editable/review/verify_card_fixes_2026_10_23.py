@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Check the October 23, 2026 card fixes in the Week 75 student packet (GGT75-S-v3).
+"""Check the October 23, 2026 card fixes in the Week 75 student packet (GGT75-S-v3, or v4).
 
     python3 verify_card_fixes_2026_10_23.py [students.pdf] [previous-students.pdf]
 
 The defaults are ../reference-pdfs/week-75-students.pdf and, when present, the
 previous print copy (v2) in the repository's week-75/archive-before-shoulds-2026-10-23/.
-Version 2 made fixes 1-3 on pages 3-4; version 3 made shoulds 4-7 on pages 1-2.
+Version 2 made fixes 1-3 on pages 3-4; version 3 made shoulds 4-7 on pages 1-2; version 4
+(a true minus in page 2's lift-board labels) is checked by verify_minus_signs_2026_10_23.py
+and passes here too, since it reads every footer's version from page 1.
 Reads the printed PDF's vector data and text (PyMuPDF, `pip install pymupdf`).
 
   1. Twist words: the 28 words of two to four twists from winding 0 end at windings
@@ -86,7 +88,8 @@ check(partials <= set(range(-4, 5)), f'every partial word stays in {min(partials
 
 doc = pymupdf.open(PDF)
 check(len(doc) == 4, f'{PDF.name} has 4 pages ({len(doc)})')
-check(all('GGT75-S-v3' in p.get_text() for p in doc), 'every page footer reads GGT75-S-v3')
+VERSION = next(v for v in ('GGT75-S-v4', 'GGT75-S-v3') if v in doc[0].get_text())
+check(all(VERSION in p.get_text() for p in doc), f'every page footer reads {VERSION}')
 
 # 2. the strip
 p3 = doc[2]
@@ -179,7 +182,7 @@ check('Find a pair that can and a pair that cannot. Explain the difference.' in 
 if OLD.exists():
     old = pymupdf.open(OLD)
     for i in (2, 3):
-        a = doc[i].get_text().replace('GGT75-S-v3', 'GGT75-S-v2')
+        a = doc[i].get_text().replace(VERSION, 'GGT75-S-v2')
         check(a == old[i].get_text(), f'page {i + 1} text matches the previous packet apart from the footer version')
         pa, pb = doc[i].get_pixmap(dpi=100), old[i].get_pixmap(dpi=100)
         diff_rows = {y for y in range(pa.height) for x in range(0, pa.width, 1)

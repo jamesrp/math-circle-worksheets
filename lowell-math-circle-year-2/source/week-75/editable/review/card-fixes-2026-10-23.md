@@ -1,6 +1,6 @@
 # Week 75 card fixes, October 23, 2026
 
-The review card is `plans/review/week-75.md` (verdict revise, October 10), with its math check in `plans/review/week-75-math.md`. The student packet was first converted to problem files with no wording change; these fixes were then made in the problem files. Student packet GGT75-S-v1 → GGT75-S-v2 (fixes 1–3, pages 3–4) → GGT75-S-v3 (shoulds 4–7, pages 1–2), adult guide GGT75-FAC-v1 → v2 → v3. Problem numbers and pages are unchanged. Unpiloted; the tape, yarn and sleeve are physically unrehearsed, and so is drawing on the new strip.
+The review card is `plans/review/week-75.md` (verdict revise, October 10), with its math check in `plans/review/week-75-math.md`. The student packet was first converted to problem files with no wording change; these fixes were then made in the problem files. Student packet GGT75-S-v1 → GGT75-S-v2 (fixes 1–3, pages 3–4) → GGT75-S-v3 (shoulds 4–7, pages 1–2) → GGT75-S-v4 (a true minus in page 2's lift-board labels, after an independent critic's review; checked by `verify_minus_signs_2026_10_23.py`), adult guide GGT75-FAC-v1 → v2 → v3 → v4. Problem numbers and pages are unchanged. Unpiloted; the tape, yarn and sleeve are physically unrehearsed, and so is drawing on the new strip.
 
 ## Changed
 
