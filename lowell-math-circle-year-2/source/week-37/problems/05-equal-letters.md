@@ -28,4 +28,4 @@ Yes. After D becomes C, the pair is A B C C versus A C B C in the same positiona
 D becoming C allows a match, as above. Every other pairwise merge also allows a match: AB, AC, AD, BC, BD and CD. Start each test from the original A B C D / A C B D mirror pair; successive cumulative merges test a different question. The name kept for the merged pair does not change the result.
 
 ## key [4-5]
-All six unordered choices of two labels allow a rotational match after merging, with the original mirror pair restored each time. One proof uses the reflection swapping the two equal vertices, then composes it with the mirror comparison to obtain an orientation-preserving symmetry. Details follow on page 5.
+All six unordered choices of two labels allow a rotational match after merging, with the original mirror pair restored each time. Proof: the reflection swapping the two equal vertices (for the printed Cs, the mirror through A, B and the middle of the C–C edge) makes the model its own mirror image; composing it with the mirror comparison gives a rotation. See page 5.

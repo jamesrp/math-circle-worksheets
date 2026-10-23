@@ -60,11 +60,11 @@ Record the tester, date, model type and outcome before class. These steps are in
 
 ## Flexible hour
 
-**0-8 minutes:** allow handling, then stand two true copies on a pose mat and demonstrate one successful turn using the printed before/after figure. Say what counts as matching: every same-letter corner, regardless of the letter's direction. Demonstrate swapping a cap and keeping the caps on while turning. A successful copy match must precede the impossible comparison.
+**0-5 minutes:** running around. **5-10:** allow handling, then stand two true copies on a pose mat and demonstrate one turn with the printed before/after figure. Matching means every same-letter corner agrees, whatever the letter's direction. Show how to swap a cap and keep caps on while turning. A successful copy match must precede the impossible comparison.
 
-**8-22 minutes:** pairs hide and turn copies, then build the four-label mirror comparison with an adult checking the back vertex. Let children try several useful turns without prolonged frustration. **22-26:** movement break, using hands or bodies only to discuss “same view” and “other side,” not as a replacement tetrahedron model.
+**10-22 minutes:** pairs hide and turn copies, then build the four-label mirror comparison with an adult checking the back vertex. Let children try several useful turns without prolonged frustration. **22-24:** movement break, using hands or bodies only to discuss “same view” and “other side,” not as a replacement tetrahedron model.
 
-**26-44 minutes:** investigate repeated labels. Middle groups restore the original four-label pair before each merge. Upper groups can use the A-nearest-eye view. **44-56:** compare one successful match with one justified obstruction; upper children may count vertex destinations. **56-60:** restore and store models; note the tasks reached and any model or viewing confusion.
+**24-40 minutes:** investigate repeated labels. Middle groups restore the four-label pair before each merge. Upper groups can use the A-nearest-eye view. **40-47:** compare one match with one justified obstruction; upper children may count vertex destinations. **47-52:** share as a whole group. **52-57:** store models; note tasks reached and any model or viewing confusion.
 
 A successful physical match is already a complete existence demonstration. A failed search proves impossibility only when it covers every turn: A has to go on A, and then there are only three turns to try. Keep the cyclic-order argument optional until the question has become meaningful. An appropriate stopping point for younger children is discovering that the repeated-label pair can match.
 
@@ -108,7 +108,7 @@ A successful physical match is already a complete existence demonstration. A fai
 
 **Problem 3:** in the printed view from A, the original opposite face reads B, C, D counterclockwise, up to choice of starting place. The mirror reads B, D, C counterclockwise. A planar rotation of the view only changes the starting place, not this orientation. Use A nearest the eye on both; viewing one from the opposite side reverses the comparison and can create a false match.
 
-**Problem 4:** all six unordered choices of two labels allow a rotational match after merging, with the original mirror pair restored each time. One proof uses the reflection swapping the two equal vertices, then composes it with the mirror comparison to obtain an orientation-preserving symmetry. Details follow on page 5.
+**Problem 4:** all six unordered choices of two labels allow a rotational match after merging, with the original mirror pair restored each time. Proof: the reflection swapping the two equal vertices (for the printed Cs, the mirror through A, B and the middle of the C–C edge) makes the model its own mirror image; composing it with the mirror comparison gives a rotation. See page 5.
 
 **Problem 5:** 12 rotations as vertex maps, including leaving the model still. Only the final mapping counts, regardless of the motion history.
 

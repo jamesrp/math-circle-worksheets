@@ -48,6 +48,8 @@ Four different letters on a rigid regular tetrahedron make a chiral object: seen
 
 **Fixed October 23, 2026:** fix 1 (guide pp. 1, 3, 4), fix 2 (`week-37-materials.pdf`: 90 mm card net, letter caps A, A, B, B, C, C, D per model, pose mat; physically unrehearsed; "model" in the guide), the guide halves of fixes 5 and 6, and fix 12; the student-page fixes deferred. Record: `lowell-math-circle-year-2/source/week-37/editable/review/card-fixes-2026-10-23.md`. Later the same day, after the student pages became problem files: fixes 3, 4, 8, 9 and 10 and "frame" to "model" (v3 packets), with the guide keys to match; coulds 7 and 11 deferred.
 
+**October 23, 2026, later the same day:** coulds 7 and 11 made, guide pages 3 and 4 only. The flexible hour starts with about 5 minutes of running around, launches by minute 10, and keeps the tables at work from minute 10 to 47 (with a 2-minute movement break at 22, and the last 7 minutes comparing one match with one obstruction), then gives 5 minutes to whole-group sharing and 5 to storing models. The grades 4–5 Problem 4 key names the mirror through A, B and the middle of the C–C edge, which makes the merged model its own mirror image. The key view is W37-G-v4; the student packets and kit are unchanged. Unpiloted.
+
 ## Overlaps
 
 Week 34 also matches labelled objects by motions, but on a flat ring with flips allowed, toward a distinguishing number. Week 33's equal-size rotation families are 4–5 P6's 24 ÷ 12; cross-reference them. The bonus's flat tiles are the two-dimensional twin, a K–1 return visit. No other theme has chirality; no merge.
