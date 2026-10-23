@@ -209,7 +209,7 @@ def _gap_cut(path, cuts, gap):
 
 # The figure-eight knot drawn from the plane curve
 # (cos t - 1.5 cos 3t + 0.5 sin 2t, sin t + 0.5 sin 2t - 1.5 sin 3t), whose shadow has four
-# crossings (all at 59 degrees or more). Each crossing is made over or under by meeting them
+# crossings (all at about 58 degrees or more: 57.9, 58.3, 73.6 and 88.9). Each crossing is made over or under by meeting them
 # over-under-over-under along the curve, so the diagram is alternating; the review script
 # checks 3 three-colorings and 25 five-colorings (determinant 5).
 def _f8(t):return (math.cos(t)-1.5*math.cos(3*t)+0.5*math.sin(2*t),math.sin(t)+0.5*math.sin(2*t)-1.5*math.sin(3*t))
