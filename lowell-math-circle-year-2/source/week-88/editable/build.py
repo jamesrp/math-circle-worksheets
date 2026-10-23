@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Build the owned Week 88 PDFs and run the independent finite checks."""
+"""Build the owned Week 88 PDFs and run the independent finite checks.
+
+student/students.tex is written from the problem files first (student/regenerate.py)."""
 import argparse, os, shutil, subprocess, sys, tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
@@ -10,12 +12,14 @@ def main():
  ap.add_argument('--out',type=Path,default=ROOT/'out')
  ap.add_argument('--work',type=Path)
  args=ap.parse_args(); out=args.out.resolve(); out.mkdir(parents=True,exist_ok=True)
- repo=ROOT.parents[2] if len(ROOT.parents)>2 else ROOT
- work=(args.work or (repo/'tmp/pdf-builds' if (repo/'AGENTS.md').exists() else ROOT/'tmp')).resolve()
+ repo=next((p for p in ROOT.parents if (p/'AGENTS.md').exists()),None)
+ work=(args.work or (repo/'tmp/pdf-builds' if repo else ROOT/'tmp')).resolve()
  work.mkdir(parents=True,exist_ok=True)
  latex=shutil.which('pdflatex') or ('/Library/TeX/texbin/pdflatex' if Path('/Library/TeX/texbin/pdflatex').exists() else None)
  if not latex:raise SystemExit('Install TeX Live with pdfLaTeX, TikZ, geometry, fancyhdr and standard fonts.')
  env=dict(os.environ,SOURCE_DATE_EPOCH='1792195200',FORCE_SOURCE_DATE='1')
+ regen=subprocess.run([sys.executable,str(ROOT/'student/regenerate.py')],text=True,capture_output=True,env=env)
+ if regen.returncode:raise SystemExit(regen.stdout+regen.stderr)
  result=subprocess.run([sys.executable,str(ROOT/'check_math.py')],text=True,capture_output=True,env=env)
  (work/f'week-{WEEK}-math.txt').write_text(result.stdout+result.stderr)
  if result.returncode:raise SystemExit(result.stdout+result.stderr)

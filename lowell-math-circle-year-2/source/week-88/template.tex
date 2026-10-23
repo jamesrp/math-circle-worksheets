@@ -1,0 +1,27 @@
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\documentclass[12pt]{article}
+\usepackage[letterpaper,left=18mm,right=18mm,top=22mm,bottom=20mm,headheight=15pt]{geometry}
+\usepackage{tikz,fancyhdr,amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week <<week>> / <<topic>> / <<header>>}
+\fancyfoot[L]{\small Bellingham Math Circle / Week <<week>> / <<footer>>}
+\fancyfoot[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{8pt}
+\newcommand{\problem}[2]{\par\textbf{Problem #1:} #2\par}
+\newcommand{\tray}[1]{\begin{center}\begin{tikzpicture}[x=1mm,y=1mm]
+% Four filled strips, whose ink lies entirely outside the stated interior.
+\fill[black!75] (-.35,-.35) rectangle (160.35,0);
+\fill[black!75] (-.35,#1) rectangle (160.35,{#1+.35});
+\fill[black!75] (-.35,0) rectangle (0,#1);
+\fill[black!75] (160,0) rectangle (160.35,#1);
+\node[above] at (80,{#1+2}) {160 mm};
+\node[rotate=90,above] at (-3,{#1/2}) {#1 mm};
+\end{tikzpicture}\end{center}}
+\newcommand{\lines}[1]{\foreach \y in {1,...,#1}{\par\vspace{10mm}\hrule height .2pt}}
+\begin{document}
+<<body>>
+\end{document}
