@@ -3,7 +3,8 @@ set -euo pipefail
 cd "$(dirname "$0")"
 export SOURCE_DATE_EPOCH="${SOURCE_DATE_EPOCH:-1791061200}"
 export FORCE_SOURCE_DATE=1
-python3 build_packets.py
+python3 regenerate.py
+python3 student_checks.py
 python3 check_revised_cases.py
 mkdir -p ../build ../render
 for name in k-1 grades-2-3 grades-4-5; do

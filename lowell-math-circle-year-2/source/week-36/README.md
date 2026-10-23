@@ -1,4 +1,22 @@
-# Week 36 A nine-point world editable source — current editable source
+# Week 36 Making threes editable source — current editable source
+
+**Problem files, October 23, 2026.** The student packets are stored as [problem files](../problem-files/README.md): `week.toml`, `figures.py` (the old builder's drawing code and page template, unchanged) and one file per problem in `problems/`, with each band's wording inside it. The conversion changed no wording or figure. The rebuilt LaTeX is byte-identical to the previous builder's, and the three print PDFs match in pages, extracted text and 100-dpi pixels. The previous builder (`build_packets.py`) and source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md); its exact checks moved unchanged to `editable/src/student_checks.py`.
+
+- **Student pages:** edit `problems/*.md` (figures in `figures.py`), then build and compare:
+
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-36 --out tmp/week-36-views --tex
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-36-views lowell-math-circle-year-2/week-36 week-36
+  ```
+- **Adult guide:** its source is still `editable/facilitator-src/guide.md`, built by the package. The problem files carry each problem's one-sentence idea (`kernel`), not its answers.
+- **Portable package:** `editable/` is the package; `editable/src/regenerate.py` writes the student LaTeX from the problem files, and the package build runs it before compiling. The [portable source ZIP](nine-point-world-week36-editable-source.zip) holds the package plus the problem files and tools in `problem-files/`, written by `package.py`:
+
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-36 --zip nine-point-world-week36-editable-source.zip --top nine-point-world-week36-source
+  ```
+
+  Rebuild it after any change and check a clean rebuild from the extracted ZIP (`python3 build.py` in the extracted folder, then compare its PDFs).
+
 
 The [portable base source ZIP](nine-point-world-week36-editable-source.zip) and [complete extracted package](editable/README.md) contain the current **October 4, 2026 fresh-review revision**. Current print copies are in [../../week-36/](../../week-36/). References are exact duplicates of those print PDFs.
 
