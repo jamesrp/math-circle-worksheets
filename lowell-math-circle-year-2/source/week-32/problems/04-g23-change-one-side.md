@@ -10,4 +10,4 @@ kernel = "12 by 8 ends with a 4 by 4 and 12 by 9 with a 3 by 3: one side's chang
 Try the biggest-square rule on these rectangles. How does changing one side change the last square?
 
 ## figure
-gridrect(1,3,12,8)+gridrect(1,14,12,9)
+gridrect(1,3,12,8)+gridrect(1,14,12,9)+answer_lines([4.5,6.5,15.5,17.5],14)

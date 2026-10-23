@@ -1,12 +1,16 @@
 # Week 32 Squares inside rectangles editable source
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 23, 2026 card fixes (v3)
+
+The review card's ten shoulds and four coulds (`plans/review/week-32.md` in the project): Grades 2–3 Problem 6 on its own page with a 12 by 18 grid, K–1 Problem 4's second board 9 by 6, a 12 by 9 grid for K–1 Problem 5, answer lines beside Grades 2–3 Problems 2–3, reworded K–1 Problem 2, Grades 4–5 Problems 2, 4 and 6 and Grades 2–3 Problems 4 and 6, a new K–1 square sheet (`materials.pdf`, built by `materials/build_materials.py` and measured by `materials/verify_materials.py`), and guide keys, timing, counts and the reason 13 by 8 is the only five-size rectangle. Footers F32-K-v3, F32-23-v3, F32-45-v3 and F32-M-v1. The square sheet is physically unrehearsed.
+
+## Earlier release: October 4, 2026 fresh-review revision
 
 The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
-Current pages: **K–1 5; Grades 2–3 5; Grades 4–5 5; adult guide 5**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 5; Grades 2–3 6; Grades 4–5 5; K–1 square sheet 1; adult guide 5**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project
 
@@ -16,11 +20,11 @@ Extract the complete ZIP. Install Python 3 with `requirements.txt`, a normal TeX
     python3 build.py
     python3 verify_revision.py
 
-The current verifier compares paper geometry and every 100-dpi rendered page against `reference-pdfs/`; timestamps may differ. It permits only specifically audited full-page font/hyphenation alternatives for unchanged student PDFs. See `review/fresh-review-rebuild.md` for actual results. The original strict verifier (`verify_rebuild.py` or `verify.py`) is retained and rejects those alternatives. The corpus report explicitly records any pre-existing small TeX font-metric differences for unchanged student bands; their current print/reference PDFs stay byte-identical. For Weeks 24 and 35, the detailed student-stage record is `review/student-reviser-fresh-review.md`. The corpus release report records those differences explicitly rather than calling them pixel-identical.
+The current verifier compares paper geometry and every 100-dpi rendered page against `reference-pdfs/`; timestamps may differ. It permits only specifically audited full-page font/hyphenation alternatives for unchanged student PDFs. Since the October 23 card fixes every reference is the current build, so none is allowed. See `review/fresh-review-rebuild.md` for actual results. The original strict verifier (`verify_rebuild.py` or `verify.py`) is retained and rejects those alternatives. The corpus report explicitly records any pre-existing small TeX font-metric differences for unchanged student bands; their current print/reference PDFs stay byte-identical. For Weeks 24 and 35, the detailed student-stage record is `review/student-reviser-fresh-review.md`. The corpus release report records those differences explicitly rather than calling them pixel-identical.
 
 **Problem files, October 23, 2026.** The student pages are stored as problem files: in this ZIP `problem-files/` (with `week.toml`, `figures.py`, `problems/` and the tools in `problem-files/tools/`), in the repository `lowell-math-circle-year-2/source/week-32/`. `student-src/regenerate.py` writes the band LaTeX from them and `student-src/build.sh` runs it before compiling; edit the problem files, not the generated `.tex`. Python 3.11+ is needed for `tomllib`.
 
-Edit the guide source under `facilitator-src/`. Edit the existing guide source under `facilitator-src/`. Where present, `facilitator-src/route-note.json` holds the concise starting/return update; the root build regenerates the guide before appending it exactly once. Do not run the appender alone against an already appended guide. Build intermediates belong in a separate working copy; inspect changed pages before updating references.
+Edit the guide source under `facilitator-src/`. Where present, `facilitator-src/route-note.json` holds the concise starting/return update; the root build regenerates the guide before appending it exactly once. Do not run the appender alone against an already appended guide. Build intermediates belong in a separate working copy; inspect changed pages before updating references.
 
 The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/fresh-review-2026-10-04.md`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
 

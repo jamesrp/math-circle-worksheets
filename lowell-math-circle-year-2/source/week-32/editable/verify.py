@@ -4,7 +4,7 @@ from pathlib import Path
 import fitz,json,hashlib
 ROOT=Path(__file__).resolve().parent
 out={"dpi":100,"files":[]}
-for name in ['k-1','grades-2-3','grades-4-5','facilitator-guide']:
+for name in ['k-1','grades-2-3','grades-4-5','materials','facilitator-guide']:
  a=fitz.open(ROOT/'reference-pdfs'/(name+'.pdf'));b=fitz.open(ROOT/(name+'.pdf'))
  assert len(a)==len(b),(name,'page count')
  pages=[]

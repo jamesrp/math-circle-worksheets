@@ -47,6 +47,8 @@ Cutting the largest square from an a×b rectangle replaces (a, b) by (a − b, b
 13. **could**, 2–3 P2–P3: add two answer lines beside each pair of boards, as in P1.
 14. **could**, guide p. 1: Week 4 reaches gcd by star hops, not "subtraction-gcd".
 
+**Fixed October 23, 2026, after the problem-file conversion:** shoulds 1–10 and coulds 11–14 (v3 packets; Grades 2–3 now 6 pages), with the guide to match and fix 5 as `week-32-materials.pdf`, two K–1 square sets per page, measured by `materials/verify_materials.py` and physically unrehearsed. Check: `checks/week-32/check_card_fixes.py`.
+
 ## Overlaps
 
 Weeks 4, 9, 29 and 31 reach gcd through hops, bounces, rods and sight lines. Only Week 32 has the algorithm itself, its invariant and the Fibonacci worst case. No merge.

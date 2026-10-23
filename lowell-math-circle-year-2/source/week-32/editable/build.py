@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build all four PDFs using installed TeX packages and included fonts."""
+"""Build all five PDFs (three packets, the K-1 square sheet and the guide) using installed TeX packages and included fonts."""
 from pathlib import Path
 import os,subprocess,sys
 ROOT=Path(__file__).resolve().parent
@@ -20,6 +20,9 @@ if not fmt.stdout.strip():
   subprocess.run(['pdflatex','-ini','-etex','-jobname=pdflatex','-interaction=nonstopmode','-halt-on-error','pdflatex.ini'],cwd=state,env=env,stdout=f,stderr=subprocess.STDOUT,check=True)
 # The student pages are problem files; student-src/build.sh writes their LaTeX (regenerate.py) and compiles it.
 subprocess.run(['bash','build.sh'],cwd=ROOT/'student-src',env=env,check=True)
+# The K-1 square sheet (card fix 5, October 23, 2026): build it, then measure it against the K-1 boards.
+subprocess.run([sys.executable,str(ROOT/'materials/build_materials.py')],cwd=ROOT,env=env,check=True)
+subprocess.run([sys.executable,str(ROOT/'materials/verify_materials.py'),str(ROOT/'materials.pdf'),str(ROOT/'k-1.pdf')],cwd=ROOT,env=env,check=True)
 subprocess.run([sys.executable,'build.py'],cwd=ROOT/'facilitator-src',env=env,check=True)
 
 subprocess.run([sys.executable, str(ROOT/'facilitator-src/add_route_note.py')], cwd=ROOT, env=env, check=True)

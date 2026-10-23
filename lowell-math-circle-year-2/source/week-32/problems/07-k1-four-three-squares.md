@@ -10,4 +10,4 @@ kernel = "Four 3 by 3 squares make 3 by 12 and 6 by 6; their last squares differ
 Find every rectangle you can make with four 3 by 3 squares, counting turns as the same shape. Will their last squares match under the biggest-square rule?
 
 ## figure
-four_three_squares()+workgrid(1,9,12,8)+ruled(21,2)
+four_three_squares()+workgrid(1,9,12,9)+ruled(21,2)

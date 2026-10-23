@@ -7,7 +7,7 @@ kernel = "Rectangles of different shapes can end with the same last square: 7 by
 +++
 
 ## prompt @0
-Predict whether the last squares will match. Test both rectangles with the biggest-square rule.
+Will the last squares match? Use the biggest-square rule on both rectangles.
 
 ## figure
 gridrect(1,3,7,4)+gridrect(1,12,8,5)

@@ -7,7 +7,7 @@ kernel = "The last square's side is the greatest common divisor of the two sides
 +++
 
 ## prompt @0
-Predict the last square in each rectangle, then test. Find a rule that predicts the last square from the two starting side lengths.
+Find a rule that predicts the last square from the two starting side lengths.
 
 ## figure
 gridrect(1,3,15,9)+gridrect(1,15,14,8)

@@ -7,7 +7,7 @@ kernel = "A length divides both 14 and 8 exactly when it divides both 6 and 8: o
 +++
 
 ## prompt @0
-A 14 by 8 rectangle loses an 8 by 8 square and leaves a 6 by 8 rectangle. Which whole-number lengths measure both edges exactly before the cut? Which work afterward? Explain why these two lists always match after a biggest-square cut.
+Which sizes of identical whole-grid square can cover the 14 by 8 rectangle? Which can cover the 6 by 8? Explain why these two lists always match after a biggest-square cut.
 
 ## figure
 cut_14_by_8()+ruled(11.7,3)
