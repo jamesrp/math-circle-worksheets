@@ -1,6 +1,6 @@
 # Week 36 bonus: Making threes
 
-Local v1, October 4, 2026. **Unpiloted. Physical fit and procedures untested.**
+Local v1, October 4, 2026; adult guide v2, October 23, 2026 (the Problem 3 extension now says a repeated tile usually makes no allowed three, from the Week 36 review card, could 10). **Unpiloted. Physical fit and procedures untested.**
 
 Three or more distinct investigations use selected bands by prerequisites. They complement, rather than replace, the base Week 36 packet. The student companion and adult mathematical guide are separate. Suitable routes, materials, launch, hints, precise solutions and extensions are in `guide.md`; investigation metadata is in `investigations.json`.
 

@@ -117,6 +117,11 @@ def mini_(p,x,y,sel=()):
    tile(p,x+1.1+2.35*b,y+1.1+2.35*a,a,b,2.2)
    if (a,b) in sel:p.p.append(f'\\draw[line width=1.2pt] ({x+1.1+2.35*b},{y+1.1+2.35*a}) circle (1.05);')
 
+def board_(p,x,y,s,g):
+ # Added October 23, 2026: a nine-tile record board with cells s cm wide at pitch g cm.
+ for a in range(3):
+  for b in range(3):tile(p,x+s/2+g*b,y+s/2+g*a,a,b,s)
+
 
 # ---------------------------------------------------------------- figures
 # Each draws what followed a rule or problem statement on its page.
@@ -136,3 +141,7 @@ def mat(p,y=4.8,shown=False):  # a 3 x 3 mat of 60 mm cells, empty or with the n
 @draw
 def minis(p,*corners):  # small nine-tile record boards, one per (x, y) corner
  for x,y in corners:mini_(p,x,y)
+
+@draw
+def boards(p,*corners,s=1.8,g=1.9):  # smaller record boards (18 mm cells), one per (x, y) corner
+ for x,y in corners:board_(p,x,y,s,g)

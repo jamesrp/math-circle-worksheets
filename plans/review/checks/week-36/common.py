@@ -54,6 +54,11 @@ def find_repo():
 
 
 REPO = find_repo()
+# These checks describe the v2 snapshot reviewed October 10, 2026. Since the October 23 v3
+# revision the reviewed PDFs are in week-36/archive-before-card-fixes-2026-10-23/ (the bonus
+# student PDF is unchanged in week-36/), and src/*.tex is generated from the v3 problem files,
+# so a rerun against the current files reports the intended v3 changes. The stored out_*.txt
+# files are the review-time results.
 PRINT = REPO / "lowell-math-circle-year-2" / "week-36"
 SRC = REPO / "lowell-math-circle-year-2" / "source" / "week-36" / "editable" / "src"
 BONUS_SRC = REPO / "lowell-math-circle-year-2" / "source" / "week-36-bonus"

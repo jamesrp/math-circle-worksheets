@@ -42,6 +42,8 @@ The nine tiles are the plane over the integers mod 3; the allowed threes are its
 9. **could**, WEEKS-11-51.md and the source README say "A nine-point world"; the packets say "Making threes".
 10. **could**, bonus guide p. 2, P3 extension: use the math check's replacement; "may create cross-layer triples" sends an adult hunting for a triple that usually isn't there.
 
+**Fixed October 23, 2026 (v3).** After a no-wording-change conversion to problem files, shoulds 1–5 and coulds 6–10 were made as proposed (fix 6 as an hour-shaped timetable; fix 8's old question kept as a key hint); nothing deferred. Checked by `editable/review/verify_card_shoulds_2026_10_23.py`; record in `source/week-36/editable/review/card-shoulds-2026-10-23.md`; v2 PDFs in `week-36/archive-before-card-fixes-2026-10-23/`. Unpiloted.
+
 ## Overlaps
 
 Week 19 (antichains) shows maximal is not maximum; here they coincide, worth a cross-reference. Week 62 compares two and three colours for pairwise conflicts, bonus P2 for threes; Week 62's notes separate them. The two mixed splits are the orthogonal Latin squares of order 3, near the app's Symbol Orchard. Nothing else has this plane or a cap set: no merge.

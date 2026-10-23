@@ -14,7 +14,7 @@ Pick a third tile for each pair to make an allowed three. Then give your partner
 Complete each pair to make an allowed three. Choose other pairs to give your partner; can any pair have two different answers?
 
 ## prompt @9 [4-5]
-Complete the pairs. Explain why any two different tiles have exactly one tile that completes an allowed three.
+Complete the pairs. Can two different tiles have two completing tiles, or none? Explain.
 
 ## figure
 pairs()

@@ -10,4 +10,4 @@ kernel = "There are exactly four splits of the nine tiles into allowed threes, o
 Split the nine tiles into three allowed threes. Find every split, and explain why your list is complete.
 
 ## figure
-minis((.4,4.2),(10.3,4.2),(.4,14),(10.3,14))
+boards((1.8,2.6),(11,2.6),(1.8,10),(11,10),(1.8,17.4),(11,17.4))
