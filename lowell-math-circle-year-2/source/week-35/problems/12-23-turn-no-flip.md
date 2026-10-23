@@ -11,4 +11,4 @@ kernel = "Footprints and their half-turns alternating between the rows give half
 Make a repeating border that matches after a half-turn, but fails after the flip over the middle line.
 
 ## figure
-strip(7.1)+strip(16.1)
+strip(7.1)+strip(16.1)+extra(16.1)

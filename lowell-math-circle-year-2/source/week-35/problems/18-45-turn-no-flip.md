@@ -14,4 +14,4 @@ A half-turn turns the copy halfway around a chosen point on the table. You may c
 Make a border that matches after a half-turn and fails after a flip over the middle line. Can you also make every flip across a line perpendicular to the border fail?
 
 ## figure
-strip(8.3)+strip(16.1)
+strip(8.3)+strip(16.1)+extra(16.1)

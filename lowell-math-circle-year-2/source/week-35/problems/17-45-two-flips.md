@@ -11,4 +11,4 @@ kernel = "Flips over two perpendicular lines compose to a half-turn about their 
 Make a repeating border that matches after a flip over each of the two crossing lines. Which other matching moves are forced by those two flips? Explain why.
 
 ## figure
-strip(7.6,vertical=True)+strip(16.3,vertical=True)
+strip(7.6,vertical=True)+strip(16.3,vertical=True)+extra(16.3)

@@ -90,11 +90,13 @@ def main():
     print('PASS cutting: each set is one 6 x 4 block of abutting cards (174.00 x 104.00 mm): '
           '3 cuts across and 5 cuts down each strip.')
 
-    # The guide's witnesses (page 3), centres in mm, h = 15 mm; form -> card.
+    # The guide's witnesses (page 4 since October 23, 2026), centres in mm, h = 15 mm; form -> card.
+    # G at 4 and 8 cm: the 2-3 P2 pair of glide borders and the K-1 P4 longer slide.
     card_of = {'A': 'A', 'R A': 'A', 'H A': 'mirror', 'V A': 'mirror'}
     recipes = {
         'T (4 cm)': (40, [(0, 15, 'A')]), 'T (6 cm)': (60, [(0, 15, 'A')]),
-        'G': (60, [(0, 15, 'A'), (30, -15, 'H A')]), 'H': (60, [(0, 15, 'A'), (0, -15, 'H A')]),
+        'G': (60, [(0, 15, 'A'), (30, -15, 'H A')]), 'G (4 cm)': (40, [(0, 15, 'A'), (20, -15, 'H A')]),
+        'G (8 cm)': (80, [(0, 15, 'A'), (40, -15, 'H A')]), 'H': (60, [(0, 15, 'A'), (0, -15, 'H A')]),
         'R': (60, [(0, 15, 'A'), (30, -15, 'R A')]),
         'E': (60, [(15, 15, 'A'), (-15, 15, 'V A'), (15, -15, 'H A'), (-15, -15, 'R A')]),
     }
@@ -119,7 +121,7 @@ def main():
         for p, q in combinations(cs, 2):
             assert abs(p[0] - q[0]) >= CW or abs(p[1] - q[1]) >= CH, (name, p, q)
         assert all(abs(y) + CH / 2 <= 30 for _, y, _ in cs)
-    print('PASS fit: in all six witness borders (T at 4 and 6 cm, G, H, R, E with h = 15 mm) no two cards '
+    print('PASS fit: in all eight witness borders (T at 4 and 6 cm, G at 6, 4 and 8 cm, H, R, E with h = 15 mm) no two cards '
           'overlap, and every card stays within the 6 cm board (28 mm from the middle line at most).')
 
     board, strip = 176.5, 280.0

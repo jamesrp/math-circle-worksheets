@@ -87,3 +87,8 @@ def page_prompt(n, body, x, y, size):
 
 def page_text(x, y, body, w, size):
     return text(0 if x is None else x,.3 if y is None else y,18.4 if w is None else w,body,size)
+
+
+def extra(y, h=6.0):
+    """Label for a second board under a one-border problem (review card, October 23, 2026)."""
+    return text(.35, y-h/2-.6, 8, 'Extra workspace', 11)

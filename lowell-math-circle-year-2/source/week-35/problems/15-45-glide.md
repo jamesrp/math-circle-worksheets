@@ -14,4 +14,4 @@ glide_demo('start', 'flip over the line', 'then slide right')
 A glide is a flip over the middle line followed by a nonzero slide along it. Build a border that matches after a glide, but fails after the flip alone. Find its shortest matching slide and shortest matching glide.
 
 ## figure
-strip(10.8)+strip(18)
+strip(10.8)+strip(18)+extra(18)

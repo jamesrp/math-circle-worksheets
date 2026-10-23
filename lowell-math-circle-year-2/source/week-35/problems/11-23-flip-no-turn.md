@@ -14,4 +14,4 @@ A half-turn turns the copy halfway around a chosen point on the table. You may c
 Make a repeating border that matches after a flip over the middle line. Can you keep it from matching after any half-turn?
 
 ## figure
-strip(8.3)+strip(16.7)
+strip(8.3)+strip(16.7)+extra(16.7)
