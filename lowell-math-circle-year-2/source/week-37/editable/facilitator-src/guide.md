@@ -30,7 +30,7 @@
 
 ## Materials: the printed kit
 
-Print **week-37-materials.pdf** at 100% and check its 10 cm line. Counts are for eleven children (K-1 4, grades 2-3 4, grades 4-5 3) at three adult-led tables; the grades 4-5 trio compares two of its three models at a time.
+Print **week-37-materials.pdf** at 100% and check its 10 cm line. Counts are for eleven children (K-1 4, grades 2-3 4, grades 4-5 3) at three adult-led tables; the grades 4-5 trio compares two of its three models at a time. Grades 2-3 pairs share models in Problem 3 (route update).
 
 **Models, sheet 1, card stock, 13 sheets:** a net with 90 mm edges, one model per child and two for the adults (pretest, launch, spare). Cut, score with a ballpoint against a ruler, fold with the printed side in, and tape the three open edges. A closed card tetrahedron is rigid; it is what the student pages call a model. Leave the faces blank.
 

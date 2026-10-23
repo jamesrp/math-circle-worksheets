@@ -28,7 +28,7 @@ The student pages became problem files first, with no wording change (`problem-f
 - **Could (fix 9), K–1 pages 2–4 and 6.** Moving the frames down would have put the bottom labels on the footer, so the mats moved up instead: 3 mm on pages 2–4, 2 mm on the ten-dot page. The gap between each mat's lowest label and the frame labels below grew from 4.9 mm to 7.9 mm (pages 2 and 4), 11.4 mm (page 3) and 6.9 mm (page 6).
 - **Could (fix 7), Grades 4–5 page 2.** "Numbers show the walk order." is gone; the labels 1 U to 4 D say it.
 
-Not done: fix 8 (partner lists for the 14 on guide p. 7) is a guide addition left for a later pass. The packet ids stay W12-K-v3 and W12-45-v3, as for the other library weeks revised today.
+Not done: fix 8 (partner lists for the 14 on guide p. 7) is a guide addition left for a later pass. The packet ids first stayed W12-K-v3 and W12-45-v3; a later footer-version sweep the same day bumped them to W12-K-v4 and W12-45-v4, so the two printings no longer share an id (guide p. 1 names the new ids; nothing else changed).
 
 Changed pages: K–1 pages 2–6 (page 5 is new; page 7 is the old page 6 with a new page number); Grades 4–5 page 2; guide pages 1 and 4. The Grades 2–3 packet and every other page are unchanged.
 

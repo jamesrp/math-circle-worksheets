@@ -36,3 +36,7 @@ The student pages are now `problems/*.md` and `figures.py` beside `week.toml` (i
 - The replaced v2 packets and guide are archived in the project in `week-31/archive-before-card-fixes-2026-10-23/`, and the conversion's ZIP in `source/week-31/archive-before-card-fixes-2026-10-23/`.
 
 The theme remains unpiloted; thread handling, taping O and the 7 mm grid are unrehearsed.
+
+## The thread on (13, 8), later on October 23
+
+A critic review of the day's changes found that the Grades 4–5 Problem 3 key (guide p. 4 and the key view) said every target on the extra 7 mm grid can be checked with thread. That is false for (13, 8): since 5 × 8 − 3 × 13 = 1 and 8 × 8 − 5 × 13 = −1, its thread passes 1/√233 of a spacing, 0.46 mm, from the centres of (5, 3) and (8, 5), whose printed dots are 0.77 mm across, so any real thread touches both and (13, 8) looks hidden. The key now says that (12, 8), (15, 10) and (21, 14) can be checked with thread, that (25, 15) is close (the nearest other dot misses by 1/√34 of a spacing, 1.2 mm), and that (13, 8) cannot be: "That is the moment the rule beats the thread: 5 × 8 and 3 × 13 differ by 1." The route note (p. 5) says the same in one sentence. The key view's id is now F31-G-v4 (`version` in `week.toml` names the key; the packets keep v3 explicitly). Only guide pp. 4 and 5 changed; pp. 1–3 are pixel-identical at 100 dpi, and the student packets did not change.

@@ -35,7 +35,7 @@ def page(title,strap=''):
     c.setFillColor(INK);c.setFont('GuideBold',20);c.drawString(48,723,title)
     if strap:
         y=698;para(strap,small);y-=3
-    c.setFillColor(GRAY);c.setFont('Guide',8);c.drawString(48,30,'Bellingham Math Circle / Unscheduled library slot / 2026-10-03')
+    c.setFillColor(GRAY);c.setFont('Guide',8);c.drawString(48,30,'Bellingham Math Circle / Unscheduled library slot / 2026-10-23')
     c.drawRightString(564,30,str(page_num))
     records.append({'page':page_num,'title':title})
 def para(text,st=style,gap=8):

@@ -47,3 +47,7 @@ The theme remains unpiloted.
 
 Verification: `facilitator-src/check_math.py` and `check_pdf.py` pass and `problem-files/check_guide_copy.py` still finds every key sentence in the guide source. The rebuilt guide differs from the previous one only on PDF pages 2, 11 and 15 (printed pp. 1, 10, 14), each rendered and inspected; the other 17 pages are pixel-identical at 60 dpi with identical text. The student packets and band views did not change. The replaced guide is archived as `week-26/archive-before-card-fixes-2026-10-23/week-26-facilitator-before-guide-coulds.pdf`; the ZIP it replaced is in Git history (commit aa34b9b). A clean rebuild from the new ZIP passes `verify_revision.py`.
 
+
+## Part 4: footer ids and the guide date
+
+A critic review of the day's changes found that the changed Grades 2–3 and Grades 4–5 packets still carried W26-23-v2 and W26-45-v2, the ids of the October 3 printings, and that the guide footer still read 2026-10-03. The ids are now W26-23-v3 and W26-45-v3 (`week.toml`; K–1 keeps W26-K-v2 and the key W26-G-v2) and the guide footer reads 2026-10-23. Each rebuilt PDF differs from the previous one only in its footer: the extracted text is identical after the id or date swap, and the differing pixels lie in the footer row.
