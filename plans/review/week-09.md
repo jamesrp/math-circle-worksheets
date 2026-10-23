@@ -41,7 +41,7 @@ A ball leaves the corner of a w by h grid table at 45° and stops at the first c
 8. **could**, guide p. 10: the bounce order is the central word of a Christoffel word (math check item 4).
 9. **could**, source README: `plans/fall-forecast-2026-10-03.md` is not in the repository; link `LOCAL-RESOURCES.md#private-records`.
 
-October 23, 2026: fixes 1–4 and 7–9 are done in the guide and source README; the student-page fixes 5 and 6 and the second run's launch fold are deferred.
+October 23, 2026: fixes 1–4 and 7–9 are done in the guide and source README; later that day, after the conversion to problem files, fixes 5 and 6 on the pages (F09-K-v5, F09-U-v5); the second run's launch fold is left to the organizer.
 
 ## Overlaps
 

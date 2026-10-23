@@ -15,5 +15,7 @@ vspace(0.2) + row([chart(6, 0.85)])
 ## text
 \newpage
 
+\textbf{Extra workspace for Problem 2}
+
 ## figure
 row([blank_grid(14, 16, 0.5, dot=False)])

@@ -294,7 +294,7 @@ def main():
     WORDS = {"top left": "TL", "top right": "TR", "bottom right": "BR", "bottom left": "BL"}
 
     # ============================ K-1 ============================
-    print("K-1 (F09-K-v4)")
+    print("K-1 (F09-K-v5)")
     k = problems(read("k-1"))
     E = EXPECTED["K1"]
     # rules picture: 5 x 3 at 0.5in squares
@@ -411,7 +411,7 @@ def main():
     check(ret == [], "P8 no table up to 100x100 returns to its start")
 
     # ============================ 4-5 ============================
-    print("Grades 4-5 (F09-U-v4)")
+    print("Grades 4-5 (F09-U-v5)")
     u = problems(read("grades-4-5"))
     E = EXPECTED["U45"]
     check_list("U45 P1", all_boards(u[1]), E["P1"])
@@ -567,6 +567,19 @@ def main():
     okc = all(christoffel(h // math.gcd(w, h), w // math.gcd(w, h))[1:-1] == bounce_word(w, h)
               for w in range(1, 25) for h in range(1, 25))
     check(okc, "section 5: the bounce order is the Christoffel word without its first and last letters (to 24x24)")
+
+    # ============================ review card, October 23, 2026 ============================
+    print("Review card coulds 5 and 6")
+    k1p, u45p = problems(read("k-1")), problems(read("grades-4-5"))
+    check(r"\textbf{Problem 4, continued}" in k1p[4], "could 5: K-1 page 5 is labelled 'Problem 4, continued'")
+    check(r"\textbf{Extra workspace for Problem 2}" in u45p[2], "could 5: 4-5 page 3 is labelled as Problem 2 workspace")
+    p7 = " ".join(u45p[7].split())
+    check("Is there a table where the ball stops at the corner it started from?" in p7
+          and "Explain why the ball never" not in p7, "could 6: 4-5 Problem 7 asks the question, as 2-3 Problem 8 does")
+    guide = open(os.path.join(HERE, "facilitator.tex")).read()
+    ids = [re.search(r"F09-[KMU]-v\d+", read(n)).group(0) for n in ("k-1", "grades-2-3", "grades-4-5")]
+    check(all(i in guide for i in ids), f"guide names the printed packet IDs {ids}")
+    check(r"\ans There is none, as in 2--3 Problem 8." in guide, "guide 4-5 Problem 7 entry answers the page's question")
 
     # ============================ outputs ============================
     write_paths()

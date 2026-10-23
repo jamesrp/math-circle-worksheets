@@ -15,5 +15,7 @@ vspace(0.2) + row([table(1, 2, 0.75, box=0.65), table(2, 4, 0.75, box=0.65), tab
 ## text
 \newpage
 
+\textbf{Problem 4, continued}
+
 ## figure
 vspace(0.3) + row([table(2, 3, 0.75, box=0.65), table(4, 6, 0.75, box=0.65)], gap=1.2)
