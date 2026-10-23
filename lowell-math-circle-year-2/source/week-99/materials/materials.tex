@@ -1,0 +1,67 @@
+\documentclass{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[paperwidth=11in,paperheight=8.5in,margin=0in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\pdfmapfile{+lm.map}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\hyphenpenalty=10000\exhyphenpenalty=10000
+% Week 99 mats, from the guide's "Per pair" list: a six-bin line mat with bins 35 mm
+% apart (center to center), a target row outside the moving lane and a move-record
+% strip; and a three-leaf star board with 35 mm circles and a small target star.
+% Each page is one overlay picture in millimetres, y down from the top left corner
+% of a landscape US Letter page (279.4 x 215.9 mm). check_materials.py measures them.
+\newcommand{\matpage}[1]{\null\begin{tikzpicture}[remember picture,overlay]\begin{scope}[shift={(current page.north west)},x=1mm,y=-1mm]%
+\node[anchor=north west,inner sep=0pt,font=\sffamily\fontsize{11}{13.6}\selectfont] at (14,9.4) {Week 99 / Moving piles / Mats};%
+\draw[black!45,line width=.45pt] (14,16.5) -- (265.4,16.5);%
+\node[anchor=north west,inner sep=0pt,font=\sffamily\fontsize{9}{11.2}\selectfont] at (14,203.3) {Bellingham Math Circle / Week 99 / W99-MAT-v1};%
+\node[anchor=north east,inner sep=0pt,font=\sffamily\fontsize{9}{11.2}\selectfont] at (265.4,203.3) {#1};}
+\newcommand{\matclose}{\end{scope}\end{tikzpicture}}
+% A scale line 100 mm long with end ticks, starting at (#1, #2).
+\newcommand{\scaleline}[2]{\draw[line width=.8pt] (#1,#2) -- ++(100,0); \draw[line width=.8pt] (#1,#2-2) -- ++(0,4) (#1+100,#2-2) -- ++(0,4);%
+\node[anchor=west,inner sep=0pt,font=\sffamily\fontsize{10}{12}\selectfont] at (#1+103,#2) {10 cm};}
+% A row of six 30 mm bins, centers 35 mm apart, joined by roads, numbered 0-5 below; top edge at y = #1.
+\newcommand{\binrow}[1]{\foreach \i in {0,...,5}{%
+\draw[line width=.8pt,rounded corners=3pt] (50+35*\i,#1) rectangle ++(30,30);%
+\node[inner sep=0pt,font=\sffamily\fontsize{12}{14}\selectfont] at (65+35*\i,#1+35) {\i};}%
+\foreach \i in {0,...,4}{\draw[black!45,line width=.6pt] (80+35*\i,#1+15) -- ++(5,0);}}
+\begin{document}
+\matpage{1}
+\node[anchor=north west,inner sep=0pt,text width=250mm,align=left,font=\sffamily\fontsize{12}{15}\selectfont] at (14,22) {\textbf{Line mat: print one per pair and one for the launch.} Print single-sided at 100\% (Actual size, not Fit to page) and check the 10 cm line with a ruler. Bins are 35 mm apart, center to center; counters up to 2 cm wide stack in a bin. Children move counters in the moving lane; the target stays fixed in the target row, as counters of another color or drawn circles.};
+\node[anchor=west,inner sep=0pt,align=left,text width=34mm,font=\sffamily\fontsize{12}{14}\selectfont] at (14,63) {moving\\lane};
+\binrow{48}
+\node[anchor=west,inner sep=0pt,align=left,text width=34mm,font=\sffamily\fontsize{12}{14}\selectfont] at (14,113) {target};
+\binrow{98}
+\node[anchor=west,inner sep=0pt,font=\sffamily\fontsize{12}{14}\selectfont] at (14,154.5) {moves};
+\foreach \i in {0,...,15}{\draw[line width=.5pt] (50+13*\i,149) rectangle ++(13,11);}
+\node[anchor=west,inner sep=0pt,font=\sffamily\fontsize{12}{14}\selectfont] at (14,174) {work};
+\draw[line width=.5pt] (50,177) -- ++(30,0);
+\scaleline{50}{190}
+\matclose\newpage
+\matpage{2}
+\node[anchor=north west,inner sep=0pt,text width=250mm,align=left,font=\sffamily\fontsize{12}{15}\selectfont] at (14,22) {\textbf{Star roads: print one per pair for Problem 5.} Print single-sided at 100\% and check the 10 cm line. Each large circle is 35 mm across, for counters up to 2 cm. Counters travel only along roads, through O; one counter crossing one road costs 1. Draw the target with open circles in the small star.};
+\coordinate (O) at (95,110);
+\foreach \n/\a/\lx/\ly in {A/210/-20/-17,B/330/20/-17,C/90/0/22}{%
+\coordinate (\n) at ($(O)+(\a:56)$);%
+\draw[black!45,line width=.6pt] ($(O)+(\a:17.5)$) -- ($(O)+(\a:38.5)$);%
+\draw[line width=.8pt] (\n) circle[radius=17.5];%
+\node[inner sep=0pt,font=\sffamily\fontsize{14}{16}\selectfont] at ($(\n)+(\lx,\ly)$) {\n};}
+\draw[line width=.8pt] (O) circle[radius=17.5];
+\node[inner sep=0pt,font=\sffamily\fontsize{14}{16}\selectfont] at ($(O)+(21,9)$) {O};
+\node[inner sep=0pt,font=\sffamily\fontsize{12}{14}\selectfont] at (215,78) {target picture};
+\coordinate (T) at (215,120);
+\foreach \n/\a/\lx/\ly in {A/210/-12/-11,B/330/12/-11,C/90/0/14}{%
+\coordinate (T\n) at ($(T)+(\a:33)$);%
+\draw[black!45,line width=.6pt] ($(T)+(\a:10)$) -- ($(T)+(\a:23)$);%
+\draw[line width=.8pt] (T\n) circle[radius=10];%
+\node[inner sep=0pt,font=\sffamily\fontsize{12}{14}\selectfont] at ($(T\n)+(\lx,\ly)$) {\n};}
+\draw[line width=.8pt] (T) circle[radius=10];
+\node[inner sep=0pt,font=\sffamily\fontsize{12}{14}\selectfont] at ($(T)+(13,6)$) {O};
+\node[anchor=west,inner sep=0pt,font=\sffamily\fontsize{12}{14}\selectfont] at (185,174) {work};
+\draw[line width=.5pt] (199,177) -- ++(30,0);
+\scaleline{150}{192}
+\matclose
+\end{document}

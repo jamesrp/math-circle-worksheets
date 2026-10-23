@@ -17,7 +17,7 @@ Printed problem & Start & Target & Net gap crossings & Work\\\midrule
 
 \textbf{Reading one proof.} For the first $0005\to1234$ delivery, three counters must cross gap 0--1 to the right, two across 1--2, one across 2--3, none net across 3--4, and one across 4--5 to the left. At least $3+2+1+0+1=7$ counter-steps are required. Send the three counters at 0 to 1, 2 and 3, and the counter at 5 to 4: costs $1+2+3+1=7$. The lower and upper bounds agree.
 
-\textbf{Different plans.} Changing the order of independent legal deliveries gives different move sequences with the same total. Some different matchings also tie. The requested ``more than one'' plan does not mean the optimum is unique after ignoring interchangeable-counter identities. Conversely, inserting a needless out-and-back detour is a different plan but not another best plan. Both packets request two best move records. Different legal orders suffice; both records should attain the stated minimum. Different assignments are not required.
+\textbf{Different plans.} Different orders of the same moves give the same work. In every printed pair the best matching is unique once identical counters are ignored; different matchings can tie elsewhere, for example $01\to12$ by $0\to1$, $1\to2$ or by $0\to2$ with the counter at 1 staying. Inserting a needless out-and-back detour is a different plan but not another best plan.
 
 \textbf{A child-sized certificate.} Pick one gap, cover the bins to the right, and compare the starting and target number of counters on the left. The difference cannot vanish unless that many net crossings occur. Repeat for enough gaps to account for the full claimed cost. A single-gap bound can be useful but need not prove the complete optimum. Keep the target visible and unchanged while counting.
 
@@ -66,6 +66,8 @@ H&8&6&4&4&4&4&2&0
 The maximum is 8, attained only by A and H as an unordered card pair: two counters at 0 and two at 4 versus four at 2. A complete comparison of the 28 distinct pairs proves this finite maximum. The bound ``each can gather at 2 in at most 8'' would only give 16 by concatenation and is not enough to prove the claimed maximum.
 
 \textbf{Why no card is missing.} Sort the four positions $a\le b\le c\le d$. If $a=0$, then $b=0,1,2$ give respectively $0044$, $0134$, and $0224$ or $0233$; $b\ge3$ makes the sum too large. If $a=1$, then $b=1$ gives $1124$ or $1133$, and $b=2$ gives $1223$; $b\ge3$ is too large. If $a=2$, all entries must be 2. Larger $a$ is impossible. This proves the eight-card inventory without treating physical card order as a different arrangement.
+
+\textbf{A short reason no pair needs more than 8.} On every card, bin 0 and bins 0--1 each hold 0, 1 or 2 counters, and bins 0--2 and bins 0--3 each hold 2, 3 or 4. So the counts left of any of the four gaps differ by at most 2 between two cards, at most 2 counters must cross each gap, and no pair needs more than $4\times2=8$. Children can check the counts on the cards.
 
 \textbf{Pacing and support.} The essential discovery is that two distributions with the same center can still require work. The full maximum and completeness proof are later depth. Pairs can share comparisons and pool a checkable record; each child need not do 28 calculations or transcribe every card. The supplied cards carry the cases so sorting and comparison remain the mathematics.
 \newpage

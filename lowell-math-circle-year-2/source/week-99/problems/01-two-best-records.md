@@ -10,10 +10,10 @@ kernel = "Each gap between bins must be crossed by a fixed net number of counter
 \promptstyle{7.56}{7.2in}{13}{16.12}
 
 ## prompt [2-3]
-Match each target using the least work you can. Find two best move records for each pair. Changing the order of moves counts as different.
+Match each target using the least work you can.
 
 ## prompt [4-5]
-Make each start match its target using the least work you can. Find two best move records for each pair. Changing the order of moves counts as different.
+Make each start match its target using the least work you can.
 
 ## text [2-3]
 \node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,6.6000000000000005) {start};
@@ -57,7 +57,6 @@ Make each start match its target using the least work you can. Find two best mov
 \draw[line width=.65pt,rounded corners=3pt] (6.64,5.265000000000001) rectangle (7.46,5.835000000000001);
 \node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,5.195) {5};
 \draw[black!35,line width=.45pt,] (0.75,4.880000000000001) -- (7.65,4.880000000000001);
-\draw[black!35,line width=.45pt,] (0.75,4.49) -- (7.65,4.49);
 \node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,3.94) {start};
 \draw[black!45,line width=.45pt,] (1.96,3.82) -- (2.24,3.82);
 \draw[black!45,line width=.45pt,] (3.0600000000000005,3.82) -- (3.34,3.82);
@@ -99,7 +98,6 @@ Make each start match its target using the least work you can. Find two best mov
 \draw[line width=.65pt,rounded corners=3pt] (6.64,2.6049999999999995) rectangle (7.46,3.175);
 \node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,2.5349999999999997) {5};
 \draw[black!35,line width=.45pt,] (0.75,2.2199999999999998) -- (7.65,2.2199999999999998);
-\draw[black!35,line width=.45pt,] (0.75,1.8299999999999998) -- (7.65,1.8299999999999998);
 
 ## text [4-5]
 \node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,6.6000000000000005) {start};
@@ -147,7 +145,6 @@ Make each start match its target using the least work you can. Find two best mov
 \draw[line width=.65pt,rounded corners=3pt] (6.64,5.265000000000001) rectangle (7.46,5.835000000000001);
 \node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,5.195) {5};
 \draw[black!35,line width=.45pt,] (0.75,4.880000000000001) -- (7.65,4.880000000000001);
-\draw[black!35,line width=.45pt,] (0.75,4.49) -- (7.65,4.49);
 \node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,3.94) {start};
 \draw[black!45,line width=.45pt,] (1.96,3.82) -- (2.24,3.82);
 \draw[black!45,line width=.45pt,] (3.0600000000000005,3.82) -- (3.34,3.82);
@@ -193,4 +190,3 @@ Make each start match its target using the least work you can. Find two best mov
 \node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,2.5349999999999997) {5};
 \draw[line width=.7pt,fill=white] (7.05,2.8899999999999997) circle (0.065);
 \draw[black!35,line width=.45pt,] (0.75,2.2199999999999998) -- (7.65,2.2199999999999998);
-\draw[black!35,line width=.45pt,] (0.75,1.8299999999999998) -- (7.65,1.8299999999999998);

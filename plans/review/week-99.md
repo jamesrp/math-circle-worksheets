@@ -49,6 +49,8 @@ A move carries one counter across one gap between bins. Each gap's net traffic i
 13. **could**, 4–5 P3: ask for a pair where the rule wastes the most; 0,2,4 → 1,3,5 wastes 4 with unlucky ties (card_checks.py).
 14. **could**, guide p. 2: name each band's first-visit problems.
 
+Fixed October 23, 2026: shoulds 1–5 and coulds 6–11 and 14, in the problem files, the guide and a new week-99-materials.pdf (W99-23-v2, W99-45-v2, W99-FAC-v2, W99-MAT-v1); coulds 12 and 13 deferred.
+
 ## Overlaps
 
 Week 2's return visit (exchanges on a line) is a capacity-one relative. Week 13 shares the two-sided certificate, Week 53 the cut, Week 47 the dual (landscapes), Week 89 the prefix sums, Week 100 the triangle rule. No merge.

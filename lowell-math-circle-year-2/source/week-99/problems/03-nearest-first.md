@@ -12,10 +12,10 @@ kernel = "Making the shortest delivery first can fail: 0, 3 to 2, 5 costs 6 that
 \promptstyle{10.0}{7.2in}{12.8}{15.87}
 
 ## prompt [2-3]
-A delivery takes one counter that has not yet been delivered all the way to one target place that has not yet been filled. Once delivered, that counter stays there. Try this rule: always make the shortest remaining delivery. If deliveries tie, choose either. For each pair, can another plan use less work?
+A delivery carries one counter straight to an unfilled target place. Once delivered, that counter stays there. Try this rule: always make the shortest remaining delivery. For each pair, can another plan use less work?
 
 ## prompt [4-5]
-A delivery takes one counter that has not yet been delivered all the way to one target place that has not yet been filled. Once delivered, that counter stays there. A rule says to make the shortest remaining delivery each time. Test this rule on both pairs. Does it always give the least work? Can tied choices change the result?
+A delivery carries one counter straight to an unfilled target place. Once delivered, that counter stays there. A rule says to make the shortest remaining delivery each time. Test this rule on both pairs. Does it always give the least work? Can tied choices change the result?
 
 ## text [2-3]
 \node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,8.06) {start};

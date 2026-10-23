@@ -2,15 +2,17 @@
 
 Release date: October 17, 2026. **Prepared for organizer review; unpiloted.** Topic approval authorized production, not approval of the final worksheet or evidence of classroom use. Physical printing, preparation, handling, staffing and timing have not been rehearsed.
 
+**October 23, 2026.** The review card's fixes made the v2 packets and guide and the new `week-99-materials.pdf` (see README.md); `checks/card_fixes_2026_10_23.py` checks the new claims and wording and runs `materials/check_materials.py`. Still unpiloted and physically unrehearsed.
+
 ## Exact coverage
 
-6 pages for Grades 2–3; 6 pages for Grades 4–5; 6-page facilitator guide. Each output has a matching current reference copy. Grade labels are approximate prerequisites; no K–1 packet is claimed. Read the guide's entry requirements and first-visit route before choosing pages.
+6 pages for Grades 2–3; 6 pages for Grades 4–5; 6-page facilitator guide; 2 landscape pages of mats (since October 23, 2026). Each output has a matching current reference copy. Grade labels are approximate prerequisites; no K–1 packet is claimed. Read the guide's entry requirements and first-visit route before choosing pages.
 
 ## Independent stages and integration
 
 A fresh writer, adversarial critic, mathematical reviewer and reviser completed the repository's prescribed student workflow. A recorded band-only override used the approved honest levels without changing shared templates. The adult guide was authored separately, opens with actual theorems and limits, and received an independent full student–guide review. Guide authoring is an untested addition to the tested student workflow.
 
-Specified committed whole deliveries and equal counter totals; clarified that both first-task records must be optimal and different move orders count; added a non-task position-total example and more record space. The guide supplies a full-size reusable mat from the beginning and preparation of the catalog cards.
+Specified committed whole deliveries and equal counter totals; clarified that both first-task records must be optimal and different move orders count; added a non-task position-total example and more record space. The October 17 guide asked for a full-size reusable mat and a star board that nothing printed (the review card's should 1); since October 23, 2026 `week-99-materials.pdf` prints both. The guide also covers preparation of the catalog cards.
 
 Detailed review reports are retained separately and are not included in this public release. Since October 23, 2026 the student pages' source is the problem files (`week.toml`, `template.tex`, `problems/`); `student/regenerate.py` writes one band TeX per packet from them, and the conversion changed no page (same text and 100-dpi pixels). The guide's source is still `guide/*.tex`.
 

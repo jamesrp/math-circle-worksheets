@@ -131,7 +131,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 96 | Prime bags and divisor builders | keep | [card](week-96.md), [math check](week-96-math.md) |
 | 97 | Square remainders | keep | [card](week-97.md), [math check](week-97-math.md) |
 | 98 | Growing from a few seeds | original verdict keep; shoulds 1–6 (a K–1 route in the guide, the order question for Grades 4–5 and a child's explanation for 2–3, numbered orders in 2–3 Problem 4, the other-totals question in 2–3 Problem 3, the printed boards as workboards, the guide's two wording slips) and coulds 7, 10 and 12 fixed October 23 in the new problem files (v2 packets and guide); coulds 8, 9 and 11 (larger or extra boards) deferred | [card](week-98.md), [math check](week-98-math.md) |
-| 99 | Moving piles | keep | [card](week-99.md), [math check](week-99-math.md) |
+| 99 | Moving piles | original verdict keep; shoulds 1–5 (the line mat and star board printed as week-99-materials.pdf, measured by script, and QA.md corrected; Problem 1's copied second record removed; the guide's plans paragraph; 4–5 Problem 5's method sentence; a K–1 route) and coulds 6–11 and 14 fixed October 23 in the new problem files (v2 packets and guide); coulds 12 and 13 (new questions) deferred | [card](week-99.md), [math check](week-99-math.md) |
 | 100 | Distance in nested worlds | keep | [card](week-100.md), [math check](week-100-math.md) |
 
 ## Calibration

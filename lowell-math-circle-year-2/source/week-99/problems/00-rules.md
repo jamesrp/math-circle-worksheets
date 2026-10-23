@@ -8,7 +8,7 @@ route = ["first", "return"]
 
 ## text
 \portraitpage
-\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{12}{14.88}\selectfont] at (0.65,10.0) {Move one counter at a time to a neighboring bin. Each crossing costs 1. Bins hold any number of counters, and counters may pass through occupied bins. Any counter may fill any target place. Only start counters move; the target picture stays fixed. Keep one record of your moves at a time so you can count the work afterward.};
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{12}{14.88}\selectfont] at (0.65,10.0) {Move one counter at a time to a neighboring bin. Each crossing costs 1. Bins hold any number of counters, and counters may pass through occupied bins. Any counter may fill any target place. Only start counters move; the target picture stays fixed. Write each move as you make it.};
 \draw[black!35,line width=.45pt,] (1.27,8.53) -- (1.3900000000000001,8.53);
 \draw[line width=.6pt,rounded corners=2pt] (0.8500000000000001,8.34) rectangle (1.27,8.719999999999999);
 \fill[black!80] (1.06,8.53) circle (.065);
@@ -33,4 +33,4 @@ route = ["first", "return"]
 \draw[line width=.6pt,rounded corners=2pt] (6.49,8.34) rectangle (6.91,8.719999999999999);
 \draw[line width=.6pt,rounded corners=2pt] (7.03,8.34) rectangle (7.45,8.719999999999999);
 \fill[black!80] (7.24,8.53) circle (.065);
-\node[anchor=north west,inner sep=0pt,align=center,text width=1.7in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.86,8.25) {target};
+\node[anchor=north west,inner sep=0pt,align=center,text width=1.7in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.86,8.25) {end};
