@@ -7,7 +7,7 @@ kernel = "Halving the strip to 7.5 mm doubles the fewest turns to 16, and the st
 +++
 
 ## prompt
-Make a staircase inside this narrower strip with as few turns as you can. Is it shorter than your staircase in the wider strip? Explain your answer.
+Make a staircase inside this narrower strip with as few turns as you can. Its pieces may follow the strip's boundary. Is it shorter than your staircase in the wider strip? Explain your answer.
 
 ## figure
 diagram(45, corridor=7.5)

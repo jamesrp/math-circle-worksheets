@@ -62,8 +62,9 @@ def main():
     t = re.sub(r'differ- ent', 'different', text['grades-2-3'][4])
     assert 'Could a path with leftward pieces be shorter than 280 mm? Explain your answer.' in t
     t = text['grades-4-5']
-    assert 'Problem 5: Make a staircase inside this narrower strip with as few turns as you can. Is it shorter ' \
-           'than your staircase in the wider strip? Explain your answer.' in t[4]
+    assert 'Problem 5: Make a staircase inside this narrower strip with as few turns as you can. Its pieces may ' \
+           'follow the strip’s boundary. Is it shorter than your staircase in the wider strip? Explain your ' \
+           'answer.' in t[4]  # boundary sentence added by the critic follow-up, later on October 23
     assert 'The strip reaches 7.5 mm vertically above and below the diagonal.' in t[4]
     assert "Problem 6: Find this path’s exact length. Explain which part" in t[5]
     assert 'as the 200 mm diagonal? Explain your answer.' in t[5]
@@ -86,7 +87,7 @@ def main():
     assert len(g) == 4
     gt = ' '.join(words(p) for p in g)
     for need in ('Revised 23 October 2026', 'Fewest turns.', 'Without the boundary the answer is 9.',
-                 '7.5 mm strip of Grades 4-5 Problem 5 it is 16', '30 cm pipe cleaner',
+                 '7.5 mm strip of Grades 4-5 Problem 5 it is 16 (17 if no piece may touch the boundary)', '30 cm pipe cleaner',
                  'piece by piece, A to D, and straighten it beside the 70 mm bar',
                  'First-visit hour. 0-5 running around; 5-9 launch; 9-48 Problems 1-3, then Problem 4 for any pair '
                  'that finishes; 48-55 share; 55-60 reset.',

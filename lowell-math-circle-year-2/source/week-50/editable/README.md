@@ -1,6 +1,10 @@
 # Week 50 Staircases and lengths editable source
 
-## Current release: October 23, 2026 card fixes
+## Current release: October 23, 2026 critic follow-up (v3)
+
+An independent critic's two shoulds, the same day: Grades 4–5 Problem 5 now says "Its pieces may follow the strip's boundary.", as Problem 4 does, since the 16-turn witness puts its corners on the boundary and strictly inside the minimum is 17; the guide adds "(17 if no piece may touch the boundary)" to the overview and the key; the footers are F50-K-v3, F50-23-v3 and F50-45-v3 and the guide says "packets v3". To keep the guide at four pages, its materials paragraph says "The guide's own diagram" for "The diagram on the next guide page". Details are at the end of `review/card-fixes-2026-10-23.md`.
+
+## Earlier release: October 23, 2026 card fixes
 
 The review card's shoulds and coulds were made in the problem files and the guide: the page-1 example lettered in path order with one 70 mm bar, reworded Problems 2, 3 and 5, a 7.5 mm strip and a fewest-turns question for Grades 4–5 Problem 5, three stale phrases removed, and the guide's overview (the turn optimum), materials (a K–1 pipe cleaner), launch, hour and keys. `review/card-fixes-2026-10-23.md` lists every change and the checks; `src/check.py` and `review/verify_card_fixes_2026_10_23.py` run them. Unpiloted; the pipe cleaner is untried.
 

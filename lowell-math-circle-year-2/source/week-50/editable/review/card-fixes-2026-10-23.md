@@ -36,3 +36,14 @@ Unchanged pages match the previous print PDFs in text and 100-dpi pixels.
 - A clean rebuild from the extracted portable ZIP passes `verify.py`, `verify_revision.py`, `verify_math.py` and this verifier. The student pixel allowances in `rebuild-pixel-allowances.json` are removed, since all three packets were rebuilt here.
 
 The theme remains unpiloted. The pipe cleaner and the relettered example have not been tried with children.
+
+## Critic follow-up, later on October 23, 2026 (v3)
+
+An independent critic (Critic C) read the card-fix release and found two shoulds, now made:
+
+- **Grades 4–5 Problem 5.** It asked for the fewest turns "inside this narrower strip" without Problem 4's "Its pieces may follow the strip's boundary." The 16-turn witness (U7.5, then R20 pieces with U15 between, then U7.5) has every corner on the boundary; strictly inside, a horizontal piece spans less than 20 mm (an end piece less than 10 mm), so 16 turns fall short and the minimum is 17. Problem 5 now carries the same sentence as Problem 4, so the key's 16 holds, and the guide's overview and Problem 5 key add "(17 if no piece may touch the boundary)".
+- **Version.** The footers were still F50-K/23/45-v2, the ids of the October 4 packets, though every older-band page had changed. `week.toml` now says v3 and the guide's header "Final student packets v3".
+
+To keep the guide at four pages, its materials paragraph now says "The guide's own diagram is deliberately smaller" (it was "The diagram on the next guide page is deliberately smaller").
+
+Checks: `review/verify_card_fixes_2026_10_23.py` reads the new Problem 5 and the overview's 17; `plans/review/checks/week-50/check_critic_fixes.py` (repository) checks both minima exactly (16 with the boundary, 17 strictly inside, with fraction witnesses and the counting bound), the v3 footers, and that only the footers and 4–5 Problem 5 changed on the student pages. The previous PDFs and ZIP are in the week's `archive-before-critic-fixes-2026-10-23/` folders.

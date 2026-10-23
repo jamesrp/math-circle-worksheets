@@ -43,7 +43,7 @@ def build(data,out):
   if i:story.append(PageBreak())
   if i==0:
    story.append(Paragraph(f"Week {data['week']} {data['title']}",styles['title']))
-   story.append(Paragraph('Facilitator guide | Final student packets v2 | Prepared 3 October 2026 | Revised 23 October 2026 | Unpiloted',styles['sub']))
+   story.append(Paragraph('Facilitator guide | Final student packets v3 | Prepared 3 October 2026 | Revised 23 October 2026 | Unpiloted',styles['sub']))
   for item in page:
    typ=item[0]
    if typ in styles:story.append(Paragraph(item[1],styles[typ]))

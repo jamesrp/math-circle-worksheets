@@ -45,6 +45,8 @@ Every right-and-up staircase across the 160 × 120 mm rectangle measures 280 mm,
 
 **Done, October 23, 2026.** Converted to problem files, then shoulds 1–7 and coulds 8–11 made in the problem files and the guide. Fix 1's bar is one 70 mm bar captioned "the pieces in a row"; fix 5's label is B's (the up piece of 20) after the relettering; fix 6's launch follows the single bar; fix 2's 7.5 mm strip has 16 turns as its exact minimum, by the card's bound and witness. Fix 10's pipe cleaner is in the guide's materials, untried. Changes and checks: `lowell-math-circle-year-2/source/week-50/editable/review/card-fixes-2026-10-23.md`.
 
+**Critic follow-up, October 23, 2026.** An independent critic found that fix 2's 16 needs the boundary: strictly inside the 7.5 mm strip the minimum is 17. Grades 4–5 Problem 5 now says "Its pieces may follow the strip's boundary.", as Problem 4 does; the guide adds "(17 if no piece may touch the boundary)"; the footers are F50-K/23/45-v3 and the guide says "packets v3". Checked by `plans/review/checks/week-50/check_critic_fixes.py`; unpiloted.
+
 ## Overlaps
 
 Week 26 uses the same projection for P ≥ 2(r + c). Weeks 67 and 69 rely on staircases being shortest grid routes, and Week 55 uses one as its certificate. Week 72's robot walks the same staircases, whose areas differ while their lengths agree, so the two weeks make a good return-visit pair. Only Week 50 has the paradox and the corridor bound. No merge.
