@@ -40,6 +40,8 @@ The material draws the copy while the child steers one point. The real poses in 
 10. **could**, materials pp. 3 and 5: "P zone / clear overlay" overprints a registration circle.
 11. **could**, guide: give minute timings; cut p. 5's Git and Drive notes.
 
+Fixed October 23, 2026 (W85-S-v2, W85-U-v2, W85-M-v2, W85-F-v2): the must (one named foam-board build with parts, cost, time, a hardboard variant and a bought-pantograph fallback, stated as unbuilt and unrehearsed), shoulds 2–4 and coulds 5–7 and 9–11; could 8 deferred, since the dot numbers let children name dots and the prompt leaves the order free.
+
 ## Overlaps
 
 Week 52 uses hinged bars for rigidity; here the frame stays free and one rule holds in every pose. Weeks 73 and 93 are contrasts; Week 94's stretch and shift is a one-dimensional cousin. No merge.

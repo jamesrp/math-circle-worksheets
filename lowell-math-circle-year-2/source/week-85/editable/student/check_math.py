@@ -46,3 +46,17 @@ for tx,ty in [(75,-16),(100,-16),(100,12)]:
 assert [((x+40)/2,(y+140)/2) for x,y in [(220,125),(260,155)]] == [(130,132.5),(150,147.5)]
 assert [(2*x-40,2*y-140) for x,y in [(125,130),(155,150)]] == [(210,120),(270,160)]
 print('PASS: enlarged genuine operation poses; exact F and L outline targets.')
+# v2 diagrams: upper P3's small L box keeps its place inside the 0.55-scale L insert after the
+# 24 mm move (insert L's box is x+25..x+55, y+25..y+45 in a 70 mm square), and upper P4 has
+# no dashed frame.
+import re
+s=_fig.upper_p3()
+box=[tuple(map(float,m)) for m in re.findall(r'\(([\d.]+),([\d.]+)\) rectangle \+\(38\.5,38\.5\)',s)]
+assert box==[(154.0,94.0)],box
+path=re.findall(r'line join=round\] \(([\d.]+),([\d.]+)\) -- \(([\d.]+),([\d.]+)\) -- \(([\d.]+),([\d.]+)\)',s)
+corners=[tuple(map(float,c)) for c in path if float(c[0])>150]
+(x1,y1,x2,y2,x3,y3),=corners
+assert [round((x1-154)/.55,9),round((x2-154)/.55,9),round((y1-94)/.55,9),round((y3-94)/.55,9)]==[25,55,25,45]
+assert 'dashed' not in _fig.upper_p4()
+assert 'clear overlay' not in _fig.materials_tex()
+print('PASS: v2 diagrams; upper P3 L box in place, no P4 frame, no clear-overlay label.')

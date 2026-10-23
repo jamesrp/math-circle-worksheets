@@ -7,4 +7,4 @@ kind = "setup"
 +++
 
 ## text @14,250 w=186 size=12
-Use the assembled machine and joined mat. Keep the four-sided frame open and uncrossed. Each new copy goes on a fresh clear overlay. An adult resets the anchor or swaps the tips when a problem calls for it.
+Keep O fixed. Move T; P draws. Keep the four-sided frame open and uncrossed. Each new copy goes on a fresh overlay. An adult moves the anchor or swaps the tips when a problem calls for it.

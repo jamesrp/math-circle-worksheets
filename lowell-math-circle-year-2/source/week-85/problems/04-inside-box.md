@@ -1,13 +1,13 @@
 +++
 id = "w85.inside-box"
-title = "Keep the copy inside a box"
+title = "Where T can go"
 grades = ["2-5"]
 route = "first"
-kernel = "The copy stays inside a box exactly when T stays inside the half-size box, half as far from O."
+kernel = "P stays inside a box exactly when T stays inside the half-size box, half as far from O."
 +++
 
 ## prompt
-Make different paths for T whose copies stay inside the small solid box on insert F. Find a rectangle T can trace whose copy follows that box's outline.
+Where can T go while P stays inside the small solid box on insert F? Mark the edge of that region on your overlay.
 
 ## figure
 shared_p4()

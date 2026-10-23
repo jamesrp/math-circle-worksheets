@@ -1,7 +1,8 @@
 """Week 85 (Drawing machines): drawing code, page template and materials pages.
 
-Carried over unchanged from the old generator (archive-before-problem-files-2026-10-23/
-generate.py), whose shared() and upper() pages are now the problem files. All
+Carried over from the old generator (archive-before-problem-files-2026-10-23/
+generate.py), whose shared() and upper() pages are now the problem files. The v2 changes
+from the review card (October 23, 2026) are marked "v2" in comments. All
 dimensions are millimetres, y up, on a Letter page. The problem files call the
 figure functions below; materials_tex() writes the whole materials packet.
 """
@@ -199,21 +200,24 @@ def upper_p2():
     return b+workspace(28,58)
 
 def upper_p3():
+    # v2: the page's opening line moved into Problem 3, so everything sits 24 mm higher
+    # and the answer space grows from 20 to 50 mm.
     b=''
     for k,x in zip('JK',[20,86]):
-        b+=text(x,128,60,k,11);b+=thumbnail(OUTPUTS[k],x,70,.55,True)
-    b+=box(154,70,38.5,38.5,'',True)+path([(167.75,83.75),(184.25,83.75),(184.25,94.75),(167.75,94.75),(167.75,83.75)],width=.4)
-    b+=text(156,106,10,'L',11)
-    return b+workspace(24,20)
+        b+=text(x,152,60,k,11);b+=thumbnail(OUTPUTS[k],x,94,.55,True)
+    b+=box(154,94,38.5,38.5,'',True)+path([(167.75,107.75),(184.25,107.75),(184.25,118.75),(167.75,118.75),(167.75,107.75)],width=.4)
+    b+=text(156,130,10,'L',11)
+    return b+workspace(24,50)
 
 def upper_p4():
-    b=box(23,125,172,64,'',True)
+    # v2: no dashed locator frame; it matched no mat feature.
+    b=''
     for x,label in [(39,'O'),(55,r'O\(^{\prime}\)')]:b+=circle(x,157,1.7,'black',label)
     b+=path([(111,145),(127,145),(119,165),(111,145)],'blue!70!black')
     b+=text(114,181,30,'M',11)
     return b+workspace(28,78)
 
-# ---------------------------------------------------------------- materials packet (W85-M-v1)
+# ---------------------------------------------------------------- materials packet (W85-M-v2)
 
 def matdrawing():
     s=''
@@ -223,7 +227,7 @@ def matdrawing():
     s+=box(100,105,70,70,'Input insert corners',True)
     s+=box(110,115,50,50,'',True)
     s+=box(180,90,110,100,'Output target corners',True)
-    s+=text(110,102,60,'T zone',10)+text(181,84,100,'P zone / clear overlay',10)
+    s+=text(110,102,60,'T zone',10)+text(181,84,100,'P zone',10)
     for x,y in [(100,105),(170,105),(100,175),(170,175),(180,90),(290,90),(180,190),(290,190)]:
         s+=line([(x-3,y),(x+3,y)],'thick')+line([(x,y-3),(x,y+3)],'thick')
     for x in (204,228):
@@ -234,8 +238,8 @@ def matdrawing():
     return s
 
 def materials_tex():
-    p=[];lev='Materials / actual size';pid='W85-M-v1'
-    b=text(14,251,186,r'\textbf{Adult fabrication template.} Print at 100\%, with no scaling. Rigid strips are 182 by 18 mm or 102 by 18 mm. Crosses mark hole centers. Hole diameter follows the chosen pivot or coaxial sleeve, not the printed circle. Prototype hardware and physical clearances are untested.',11)
+    p=[];lev='Materials / actual size';pid='W85-M-v2'
+    b=text(14,251,186,r'\textbf{Adult cutting template.} Print at 100\%, with no scaling. Glue this page onto 5 mm foam board and cut out the four strips, 182 by 18 mm and 102 by 18 mm, with a craft knife and a metal ruler. Crosses mark hole centers. Make the O, X, Q and Y holes with a skewer; push the pencils themselves through T and P so that they fit snugly. Page 2 gives the parts and the assembly.',11)
     for y,names,length in [(171,['O','X','Q'],182),(127,['Q','Y','P'],182),(83,['X','T'],102),(39,['T','Y'],102)]:
         b+=box(16,y,length,18,'',False)
         for j,n in enumerate(names):
@@ -244,11 +248,15 @@ def materials_tex():
             b+=line([(x-3,y+9),(x+3,y+9)],'gray')+line([(x,y+6),(x,y+12)],'gray')
         b+=text(16,y-3,182,'80 mm between neighboring hole centers',9)
     p.append(page(b,lev,pid,1,True))
-    b=text(14,251,186,r'\textbf{Adult assembly and print setup.} Join O--X--Q as one long bar and Q--Y--P as the other. Join short bars X--T and T--Y. Fix O. X, Q and Y rotate. The T hinge must share its axis with the tracer pencil; P must carry its pencil on the P axis. Use spacers so all bars rotate freely.',11)
-    b+=mechanism(90,0,.6,(24,119),True,True)
-    b+=text(14,109,186,r'Keep X--Q--Y--T in the simple, noncrossed shape shown. Adult assembly must guard against collapse, sharp hardware, slipping anchors and off-axis tips. The line drawing is topology, not a tested stack of spacers or a sleeve specification.',11)
-    b+=text(14,77,186,r'Center the two-sheet mat on a board at least 450 by 400 mm. Match the paper edges and tape the backs. Cover the unprinted center seam with the bridge strip on page 5, aligning all four crosses. The joined sheets are 431.8 by 279.4 mm (nominally 432 by 279). Check the 100 mm line before use.',11)
-    b+=text(14,39,186,r'Before children use it, rehearse the whole T zone, both tracing directions and the anchor change. Check support, hand clearance, branch stability and coaxial tips. None of these physical tests has been done for this draft.',11)
+    # v2: one named build (foam board, brass fasteners, a pin at O, the pencils as the T and
+    # P axles), a sturdier variant and a bought fallback. Nobody has built it yet.
+    b=text(14,251,186,r'\textbf{Adult build, one machine (not yet built or rehearsed).} Parts: the four strips from page 1, cut from 5 mm foam board; three brass fasteners and a few small washers for X, Q and Y; one long pushpin for O; two round coloured pencils about 7 mm thick, blue for T and red for P; a binder clip; and a 20 by 30 inch sheet of foam board as the base. Rough cost: \$25--40 for three machines, with their bases and a pad of tracing paper. Rough time: 30 minutes for the first machine and 20 for each further one, plus the rehearsal. These are estimates.',11)
+    b+=text(14,214,104,r"Join O--X--Q as one long bar and Q--Y--P as the other; join short bars X--T and T--Y. Stack O--X--Q at the bottom, Q--Y--P and X--T on it, and T--Y on top. Fasten X, Q and Y head down, with a washer between the layers, loose enough to turn. Push the blue pencil through both T holes and the red pencil through P: each pencil is its joint's axle, so its point sits on the pivot axis. Push the pin through O and the mat into the base. Slide each pencil down until its point touches the paper. If a pencil marks faintly, clip the binder clip to the bar beside it.",11)
+    b+=mechanism(90,0,.42,(120,160),True,True)
+    b+=text(14,148,186,r'Keep X--Q--Y--T in the simple, noncrossed shape shown. Guard against collapse, sharp hardware, a slipping pin and pencils that lean off their axes; do not tape a pencil beside a bar. If the foam joints wobble in rehearsal, cut the same strips from 3 mm hardboard, use bolts, washers and lock nuts at X, Q and Y, and drill T and P to fit the pencils.',11)
+    b+=text(14,121,186,r"\textbf{Fallback.} A bought drawing pantograph set to enlarge 2 times, anchored at O. Check that P reaches all four output target corners while T stays inside the input corners, and that T can carry a pencil too: shared Problem 2 keeps T's paths and upper Problem 3 swaps the tips. Its bars differ from upper Problem 1's drawing, which children then reason about on paper.",11)
+    b+=text(14,89,186,r'Center the two-sheet mat on the base, which must be at least 450 by 400 mm; tape the base to the table. Match the paper edges and tape the backs. Cover the unprinted center seam with the bridge strip on page 5, aligning all four crosses. The joined sheets are 431.8 by 279.4 mm (nominally 432 by 279). Check the 100 mm line before use.',11)
+    b+=text(14,57,186,r'Before children use it, rehearse the whole T zone, both tracing directions and the anchor change. Check support, hand clearance, branch stability, that both pencils mark, and that the pencil points stay on their pivots. None of these physical tests has been done for this draft.',11)
     p.append(page(b,lev,pid,2,True))
     for isright in [False,True]:
         shift=-215.9 if isright else 0
@@ -262,7 +270,7 @@ def materials_tex():
     b+=box(151,73,44,145,'',False)+text(154,216,38,'Bridge',10)
     b+=input_insert('A',18,139)+input_insert('B',18,47)
     p.append(page(b,lev,pid,5,True))
-    b=text(14,251,186,'Cut the 110 by 100 mm targets. Place their corners on the output target corners of the joined mat, under a clear drawing overlay.',11)
+    b=text(14,251,186,'Cut the 110 by 100 mm targets. Place their corners on the output target corners of the joined mat, under a tracing-paper overlay.',11)
     b+=output_insert('D',51,132)+output_insert('E',51,23)
     p.append(page(b,lev,pid,6,True))
     b=text(14,251,186,'F goes on the output corners. G and H go on the input corners. Use one insert at a time and preserve each copy on its own overlay.',11)
@@ -278,8 +286,8 @@ def materials_tex():
     for j in range(4):
         for i in range(12):b+=box(39+10*i,159+10*j,10,10,'',False)
     for i in range(8):b+=box(59+10*i,115,10,10,'',False)+line([(59+10*i,115),(69+10*i,125)],'thick')
-    b+=text(14,92,186,'Also supply clear overlays large enough to cover both drawing zones, a 150 mm ruler, a straightedge, and removable tape. Pencil marks stay on overlays, so the mat and targets can be reused.',11)
-    b+=text(14,57,186,'Material check per pair: one assembled machine; one board; one joined mat with bridge; inserts A--M; 48 squares; 16 triangles; ruler; straightedge; overlays. Physical fit and operation remain untested.',11)
+    b+=text(14,92,186,'Also supply tracing-paper overlays (a 9 by 12 inch pad; one sheet covers both drawing zones), a 150 mm ruler, a straightedge, and removable tape. Pencil marks stay on the tracing paper, so the mat and targets can be reused.',11)
+    b+=text(14,57,186,'Material check per pair: one assembled machine; one base; one joined mat with bridge; inserts A--M; 48 squares; 16 triangles; ruler; straightedge; tracing paper. Physical fit and operation remain untested.',11)
     p.append(page(b,lev,pid,10,True))
     return document(p)
 
