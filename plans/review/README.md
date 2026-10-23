@@ -115,6 +115,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 80 | Midnight laboratory (the Thomson lamp) | keep | [card](week-80.md), [math check](week-80-math.md) |
 | 81 | Buckets of Fish (Hamkins's remove-and-refill game) | keep | [card](week-81.md), [math check](week-81-math.md) |
 | 82 | Endless class lines (ordinal addition) | keep | [card](week-82.md), [math check](week-82-math.md) |
+| 87 | Voting and agendas | keep | [card](week-87.md), [math check](week-87-math.md) |
 
 ## Calibration
 
