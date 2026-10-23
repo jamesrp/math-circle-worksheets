@@ -1,0 +1,32 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=.65in,top=.78in,bottom=.65in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,tikz,array,fancyhdr}
+\usetikzlibrary{arrows.meta}
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week <<week>> / <<topic>> / <<header>>}
+\fancyfoot[L]{\small Bellingham Math Circle / Week <<week>> / <<footer>>}
+\fancyfoot[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{8pt}
+\newcommand{\problem}[2]{\textbf{Problem #1:} #2\par}
+\newcommand{\answerline}{\par\vspace{.32in}\hrule height .25pt}
+\newcommand{\fanboard}{\begin{center}\begin{tikzpicture}[x=.94in,y=.94in,font=\small]
+\draw[step=.25,gray!22] (0,.5) grid (4,1.5);
+\draw[thick] (0,.5) rectangle (4,1.5);
+\foreach \x/\y/\name/\pos in {0/.5/A/below left,4/.5/B/below right,4/1.5/C/above right,0/1.5/D/above left}{\fill (\x,\y) circle (1.8pt);\node[\pos] at(\x,\y){\name};\draw (\x,\y)--(2,1);}
+\fill (2,1) circle (1.8pt);\node[above] at(2,1){O};
+\node at (2,.18) {bottom: 4 units};\node at(2,1.85){top};\node[rotate=90] at(-.38,1){left: 1 unit};\node[rotate=90] at(4.36,1){right};
+\draw[step=.25,gray!22,xshift=4.9in*.94] (0,0) grid (2,2);
+\begin{scope}[shift={(4.9,0)}]
+\draw[thick] (0,0) rectangle(2,2);
+\foreach \x/\y/\name/\pos in {0/0/A/below left,2/0/B/below right,2/2/C/above right,0/2/D/above left}{\fill(\x,\y)circle(1.8pt);\node[\pos]at(\x,\y){\name};}
+\node at(1,-.32){bottom: 2 units};\node at(1,2.35){top};\node[rotate=90]at(-.35,1){left};\node[rotate=90]at(2.35,1){right: 2 units};
+\end{scope}
+\end{tikzpicture}\end{center}}
+\begin{document}
+
+<<body>>
+
+\end{document}
