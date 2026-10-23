@@ -8,7 +8,7 @@ kernel = "After $n$ draws each red total from 0 to $n$ has chance $1/(n+1)$."
 +++
 
 ## prompt @14
-What do you predict about red-draw totals after five draws, or after more draws? Explore your prediction; an exact argument for every length is a further question.
+What do you predict about red-draw totals after five draws, or after more draws? Explore your prediction.
 
 ## figure
 lines(18,6)

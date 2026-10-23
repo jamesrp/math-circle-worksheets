@@ -8,7 +8,7 @@ kernel = "The six marked histories give two each to zero, one and two red draws:
 +++
 
 ## prompt @10.5
-Find all the two-draw marked stories. Use them to decide whether zero, one, or two red draws has the greatest chance.
+Find all the two-draw marked histories. Use them to decide whether zero, one, or two red draws has the greatest chance, if any.
 
 ## figure
 box_lines(0,14,18,7,(22,2))

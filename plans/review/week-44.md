@@ -50,6 +50,8 @@ Each draw goes back with a copy of its colour, starting from one red and one blu
 
 The math check's four items are fixes 9, 1, 2 and 4, each a should.
 
+Fixed October 23, 2026, after converting the week to problem files: shoulds 1–9 and coulds 11–13 and 16 (v3 packets; Grades 2–3 is five pages; bonus guide W44-BONUS-FAC-v2; checked in `source/week-44/editable/review/verify_card_shoulds_2026_10_23.py`). Deferred: coulds 10, 14 and 15.
+
 ## Overlaps
 
 Weeks 42, 43 and 45 also label look-alikes to get equally likely cases, and 42's unchanged bag is this week's return-only contrast. None has a reinforcing bag or the uniform law. No merge.

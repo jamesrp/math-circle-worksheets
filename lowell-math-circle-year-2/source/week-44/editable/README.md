@@ -1,12 +1,14 @@
 # Week 44 The bag that copies editable source
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 23, 2026 card shoulds, on the October 4 fresh-review revision
 
-The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
+The guide gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
+
+**Card shoulds, October 23, 2026.** The student pages are stored as problem files (see `src/README.md`). The review card's shoulds and four coulds were made there and in the guide: K–1 Problem 1 asks about color stories and Problem 2 about "these bags", Problem 3 has eight story rows and two bag boxes, and page 1 drops the unused random-play sentence; Grades 2–3 Problem 1 has a spare slot, Problem 2 drops the repeat, Problem 4 has a box, Problem 5 asks for every color story on its own page and a new Problem 6 compares two four-draw bags (page 5); Grades 4–5 says "marked histories" and "1 red draw", Problem 1 adds "if any" and Problem 6 drops its last clause; the guide's materials, launch, keys and first route (random games pooled on a chart) follow. All three packets are now v3. `review/card-shoulds-2026-10-23.md` lists the changes; `review/verify_card_shoulds_2026_10_23.py` checks them.
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
-Current pages: **K–1 4; Grades 2–3 4; Grades 4–5 4; adult guide 6**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 4; Grades 2–3 5; Grades 4–5 4; adult guide 6**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project
 

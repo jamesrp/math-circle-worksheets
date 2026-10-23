@@ -13,6 +13,6 @@ Find every four-draw story ending with this bag. Can you also make every four-dr
 k1_story_rows()
 
 ## key
-The displayed 3R/3B finish requires exactly two red draws and two blue draws. All six color stories are \textbf{RRBB, RBRB, RBBR, BRRB, BRBR, BBRR}. Completeness can be seen by choosing the two red positions among four: (1,2), (1,3), (1,4), (2,3), (2,4), (3,4).
+The displayed 3R/3B finish requires exactly two red draws and two blue draws. All six color stories are \textbf{RRBB, RBRB, RBBR, BRRB, BRBR, BBRR}. The page has eight story rows, two more than needed. Completeness can be seen by choosing the two red positions among four: (1,2), (1,3), (1,4), (2,3), (2,4), (3,4).
 
-The four-draw bags with more blue than red are exactly \textbf{1R/5B}, made by BBBB, and \textbf{2R/4B}, made by RBBB, BRBB, BBRB, or BBBR. The bag has six counters, with at least one of each color; the other mixtures are tied or red-majority. Children need a story for each blue-majority bag, not necessarily all four stories for the second bag.
+The four-draw bags with more blue than red are exactly \textbf{1R/5B}, made by BBBB, and \textbf{2R/4B}, made by RBBB, BRBB, BBRB, or BBBR. The bag has six counters, with at least one of each color; the other mixtures are tied or red-majority. The two bag boxes, each with a story row, hold these. Children need a story for each blue-majority bag, not necessarily all four stories for the second bag.

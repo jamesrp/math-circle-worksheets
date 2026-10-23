@@ -1,5 +1,6 @@
-"""Week 44 figures and canvas page template, carried over unchanged from the old builder
-(archive-before-problem-files-2026-10-23/write.py and common.py).
+"""Week 44 figures and canvas page template, carried over from the old builder
+(archive-before-problem-files-2026-10-23/write.py and common.py); the October 23, 2026
+card fixes changed the figures noted below.
 
 Coordinates are centimetres on an 18.2 x 23.6 cm page picture; a figure's y grows
 downward and is negated when drawn, as the old builder did. Problem files call the
@@ -121,9 +122,10 @@ def k1_three_draw_bags(b):  # 02
 
 
 @draw
-def k1_story_rows(b):  # 03
+def k1_story_rows(b):  # 03: eight story rows, then two bag boxes with a row each
  b.bag(0,2.3,'RRRBBB')
- for i in range(6):strip(b,(i%2)*9.2,7+(i//2)*4.6,4,1.9)
+ for i in range(8):strip(b,(i%2)*9.2,round(5.8+(i//2)*2.5,2),4,1.9)
+ for x in (0,9.2):bowl(b,x,16.3,7.6,3);strip(b,x,19.8,4,1.9)
 
 
 @draw
@@ -134,10 +136,10 @@ def k1_before_last(b):  # 04
 
 
 @draw
-def story_bowls(b):  # 10
- for i in range(4):
-  x=(i%2)*9.2;y=8+(i//2)*6.3;strip(b,x,y,2,2.2);bowl(b,x,y+2.3,7.8,3)
- b.space(22,2)
+def story_bowls(b):  # 10: five story slots (one spare), lines beside the fifth
+ for i in range(5):
+  x=(i%2)*9.2;y=7.6+(i//2)*5;strip(b,x,y,2,2.2);bowl(b,x,round(y+2.1,2),7.8,2.6)
+ for y in (19.3,20.6,21.9):b.line(y,8.8,9.2)
 
 
 @draw
@@ -156,9 +158,16 @@ def two_rules(b):  # 13
 
 
 @draw
-def four_draw_bags(b):  # 15
- for i,colors in enumerate(['RRRRRB','RRRRBB','RRRBBB']):
-  y=3+i*5.7;b.bag(0,y,colors);strip(b,7,y,4,2.2);strip(b,7,y+2.4,4,2.2)
+def four_draw_bags(b):  # 15: room for 2, 6 and 8 stories (1, 4 and 6 are needed)
+ for y,colors,rows in [(2.2,'RRRRRB',1),(6.0,'RRRRBB',3),(13.4,'RRRBBB',4)]:
+  b.bag(0,y,colors)
+  for r in range(rows):
+   for x in (5.6,11.9):strip(b,x,round(y+r*2.3,2),4,1.5)
+
+
+@draw
+def which_bag(b):  # 16: the two bags, a work box and lines
+ b.bag(0,2.3,'RRRRRB');b.bag(9.2,2.3,'RRRBBB');b.box(0,5.8,18,13);b.space(20,4)
 
 
 @draw
@@ -168,9 +177,9 @@ def order_boxes(b):  # 23
 
 
 @draw
-def total_boxes(b):  # 24
+def total_boxes(b):  # 24 ('1 red draw', singular, from October 23)
  for i in range(4):
-  x=(i%2)*9.2;y=4+(i//2)*8.2;b.text(y,str(i)+' red draws',x,8,14);b.box(x,y+1.2,8,5.7)
+  x=(i%2)*9.2;y=4+(i//2)*8.2;b.text(y,str(i)+(' red draw' if i==1 else ' red draws'),x,8,14);b.box(x,y+1.2,8,5.7)
  b.space(22,2)
 
 
