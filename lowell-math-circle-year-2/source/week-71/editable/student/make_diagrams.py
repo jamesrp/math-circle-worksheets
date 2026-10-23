@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Generate exact-reflection tracing windows as portable TikZ source."""
+"""Generate exact-reflection tracing windows as portable TikZ source.
+
+Since the October 23, 2026 problem-file conversion the macros are written into
+students.tex by the problem files (figures.py calls generate()); running this file
+alone writes them to windows.tex for inspection."""
 from pathlib import Path
 from math import sqrt
 
@@ -27,5 +31,8 @@ def window(poly,name,scale):
  out.append(r'\node[font=\small]at'+xy(c)+'{start};')
  out.append(r'\end{tikzpicture}}')
  return '\n'.join(out)
-text=window([(0,0),(4,0),(4,4),(0,4)],'squareABA',.62)+'\n'+window([(0,0),(4,0),(6,2*sqrt(3)),(2,2*sqrt(3))],'rhombusABA',.53)
-Path(__file__).with_name('windows.tex').write_text(text+'\n')
+def generate():
+ """The two window macros, \\squareABA and \\rhombusABA. The problem files' figures.py calls this."""
+ return window([(0,0),(4,0),(4,4),(0,4)],'squareABA',.62)+'\n'+window([(0,0),(4,0),(6,2*sqrt(3)),(2,2*sqrt(3))],'rhombusABA',.53)
+if __name__=='__main__':
+ Path(__file__).with_name('windows.tex').write_text(generate()+'\n')
