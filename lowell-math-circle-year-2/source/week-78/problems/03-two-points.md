@@ -10,4 +10,6 @@ kernel = "No: two lines with different junctions share one point or a whole ray,
 Can two lines with different junctions share exactly two points? Draw an example, or explain why this cannot happen.
 
 ## text
+\vspace{6pt}
+\noindent\board{.58}{}{}\hfill\begin{minipage}[b][2.05in][t]{4.3in}\strut\end{minipage}
 \vfill

@@ -42,6 +42,8 @@ A line is three closed rays from a junction, pointing east, north and southwest:
 8. **could**, p. 1: no problem uses the min rule. Late, ask which line "compare x, y + 1 and 3" makes: junction (3, 2), checked, with no negative numbers.
 9. **could**, Q off the line is an open circle on p. 1, but open circles are targets on p. 3. Mark Q with a cross.
 
+October 23, 2026: shoulds 1–4 and coulds 5, 6 and 9 done in the new problem files and guide (F78-S-v3, F78-FAC-v3), after the organizer's October 17 approval. Should 2's half on page 1 and Problem 1 is left: the organizer's October 15 revision asks for a whole-stretch overlap there. Coulds 7 and 8 are left (renumbering; a new problem). See `source/week-78/README.md`.
+
 ## Overlaps
 
 Week 15's boundaries are also ties of a minimum, with three-armed junctions, but its theorems are convexity and insertion, not incidence. Week 67's meeting of three homes is a different tripod. No merge.

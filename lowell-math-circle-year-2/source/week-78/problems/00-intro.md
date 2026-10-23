@@ -22,7 +22,7 @@ For a point $(x,y)$, compare $x$, $y$, and $2$. When the least number occurs at 
  \node[below right,font=\fontsize{9}{11}\selectfont,inner sep=4pt,fill=white] at (2,2){junction};
  \fill (4,2) circle[radius=2.2pt];
  \node[above right,font=\fontsize{9}{11}\selectfont] at (4,2){$P$};
- \draw[line width=.8pt,fill=white] (4,4) circle[radius=2.4pt];
+ \draw[line width=.9pt] (3.82,3.82)--(4.18,4.18) (3.82,4.18)--(4.18,3.82);
  \node[above right,font=\fontsize{9}{11}\selectfont] at (4,4){$Q$};
 \end{tikzpicture}
 \end{minipage}\hfill

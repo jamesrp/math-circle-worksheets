@@ -7,7 +7,7 @@ kernel = "Points on one row, column or rising diagonal allow a whole ray of junc
 +++
 
 ## prompt
-Find all possible junctions of a line through each pair of points. Mark a whole stretch if every point on it works.
+Find all possible junctions of a line through each pair of points.
 
 ## text
 \vspace{9pt}

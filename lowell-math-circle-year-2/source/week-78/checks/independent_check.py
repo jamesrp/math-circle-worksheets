@@ -62,7 +62,7 @@ Opening: min(x,y,2) has junction (2,2); (4,2) is on; (4,4) is off.
    yield one point, any of three shared rays, or the identical line if B=A.
    The two bottom fixed boards have A=(2,2), B=(6,5) and A=(2,2), B=(5,6).
    They meet only at (3,2) and (2,3), respectively. All outcomes are checked.
-2: Reading order: singleton (6,5); north ray from (3,6); east ray from
+2: Reading order: singleton (6,6) (a falling diagonal); north ray from (3,6); east ray from
    (6,4); southwest ray from (2,2). Counts are 1,infinite,infinite,infinite.
 3: Exactly two shared points is impossible for distinct junctions.
 4: Unique junctions (2,2) and (5,5), respectively; no second line in either.
@@ -93,9 +93,9 @@ EXPECTED_DATA = {
     'TRIAL_JUNCTION': (4, 4),
     'TRIAL_FIXED_PAIRS': (((2, 2), (6, 5)), ((2, 2), (5, 6))),
     'CROPPED_PAIR': ((2, 7), (10, 5)),
-    'INTERSECTION_PAIRS': (((2, 5), (6, 2)), ((3, 2), (3, 6)),
+    'INTERSECTION_PAIRS': (((2, 6), (6, 2)), ((3, 2), (3, 6)),
                            ((2, 4), (6, 4)), ((2, 2), (6, 6))),
-    'INVERSE_GENERAL': (((2, 5), (6, 2)), ((2, 2), (6, 5))),
+    'INVERSE_GENERAL': (((2, 6), (6, 2)), ((2, 2), (6, 5))),
     'INVERSE_ALIGNED': (((2, 4), (6, 4)), ((3, 2), (3, 6)),
                         ((2, 2), (5, 5))),
 }
@@ -262,7 +262,7 @@ def fixed_cases():
     assert solve_by_minima(*EXPECTED_DATA['CROPPED_PAIR']) == frozenset({('point', (10, 7))})
     assert not (0 <= 10 <= 8 and 0 <= 7 <= 8)
     expected_intersections = (
-        frozenset({('point', (6, 5))}),
+        frozenset({('point', (6, 6))}),
         frozenset({('ray', (3, 6), (0, 1))}),
         frozenset({('ray', (6, 4), (1, 0))}),
         frozenset({('ray', (2, 2), (-1, -1))}),
@@ -336,12 +336,12 @@ def check_diagram_source(path):
             ('junction', '2', '2', 'A'), ('junction', '6', '5', 'B'),
             ('junction', '2', '2', 'A'), ('junction', '5', '6', 'B')],
         'IntersectionBoards': [
-            ('junction', '2', '5', 'A'), ('junction', '6', '2', 'B'),
+            ('junction', '2', '6', 'A'), ('junction', '6', '2', 'B'),
             ('junction', '3', '2', 'A'), ('junction', '3', '6', 'B'),
             ('junction', '2', '4', 'A'), ('junction', '6', '4', 'B'),
             ('junction', '2', '2', 'A'), ('junction', '6', '6', 'B')],
         'GeneralBoards': [
-            ('target', '2', '5', 'P'), ('target', '6', '2', 'Q'),
+            ('target', '2', '6', 'P'), ('target', '6', '2', 'Q'),
             ('target', '2', '2', 'P'), ('target', '6', '5', 'Q')],
         'AlignedBoards': [
             ('target', '2', '4', 'P'), ('target', '6', '4', 'Q'),

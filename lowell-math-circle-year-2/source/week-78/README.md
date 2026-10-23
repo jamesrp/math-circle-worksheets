@@ -1,6 +1,18 @@
 # Week 78: Three-armed lines
 
-One shared Grades 4–5 prototype: 5 student pages and a separate 4-page theorem-first adult guide. Independently reviewed and digitally checked; organizer-approved and promoted October 17, 2026. The week number is a library identifier, not an adopted schedule. Physical preparation/handling and classroom piloting remain unperformed.
+One shared Grades 4–5 prototype: 5 student pages and a separate 4-page theorem-first adult guide. Independently reviewed and digitally checked; organizer-approved and promoted October 17, 2026 (v2), and revised from its review card on October 23 (v3), after that approval. The week number is a library identifier, not an adopted schedule. Physical preparation/handling and classroom piloting remain unperformed.
+
+## Review-card fixes, October 23, 2026
+
+These fixes post-date the organizer's October 17 approval of v2; the activity is the same seven problems on the same five pages. From the keep card (`plans/review/week-78.md`), all four shoulds and coulds 5, 6 and 9 are done (student packet F78-S-v3, guide F78-FAC-v3):
+
+- Problem 5 asks only "Find all possible junctions of a line through each pair of points."; the guide's second hint now says a whole stretch of junctions can be the answer.
+- Problems 2 and 4 open with (2,6) and (6,2), a falling diagonal: in Problem 2 the lines meet only at (6,6), and in Problem 4 the junction is still (2,2). The guide's Problem 3 explanation says "same row, column or rising diagonal".
+- Problem 3 has a blank 0–8 board. Page 1 marks the off-line point Q with a cross, since open circles are targets later.
+- The guide makes one traced three-arm shape per pair standard: it is made in preparation, used in the launch and named in Problem 4's first hint.
+- The guide adds an adult-led younger entry on student page 4, for K–1 or Grades 2–3, with a plain-words key. It is a prediction and untested.
+
+`checks/check_card_fixes.py` checks every changed claim and runs with the other checks. Left: could 7 (giving Problem 6's rule its own number would renumber the approved packet and the guide), could 8 (a new late problem on the min rule adds substance), and the second half of should 2. The organizer's October 15 revision deliberately made page 1 and Problem 1 ask for a single-point meeting and a whole-stretch overlap, so that wording is his call. The replaced PDFs are in [../../week-78/archive-before-card-fixes-2026-10-23/](../../week-78/archive-before-card-fixes-2026-10-23/README.md) and the replaced ZIP in [archive-before-card-fixes-2026-10-23/](archive-before-card-fixes-2026-10-23/README.md).
 
 ## Problem files, October 23, 2026
 

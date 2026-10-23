@@ -119,7 +119,7 @@ def main():
         ('P1 top: same line', (4, 4), (4, 4), family((4, 4))),
         ('P1 bottom left', (2, 2), (6, 5), point(3, 2)),
         ('P1 bottom right', (2, 2), (5, 6), point(2, 3)),
-        ('P2 top left', (2, 5), (6, 2), point(6, 5)),
+        ('P2 top left', (2, 6), (6, 2), point(6, 6)),
         ('P2 top right', (3, 2), (3, 6), ray(3, 6, (0, 1))),
         ('P2 bottom left', (2, 4), (6, 4), ray(6, 4, (1, 0))),
         ('P2 bottom right', (2, 2), (6, 6), ray(2, 2, (-1, -1))),
@@ -133,7 +133,7 @@ def main():
         print(f'{name}: {actual}')
 
     inverse = [
-        ('P4 left', (2, 5), (6, 2), point(2, 2)),
+        ('P4 left', (2, 6), (6, 2), point(2, 2)),
         ('P4 right', (2, 2), (6, 5), point(5, 5)),
         ('P5 left', (2, 4), (6, 4), ray(2, 4, (-1, 0))),
         ('P5 middle', (3, 2), (3, 6), ray(3, 2, (0, -1))),

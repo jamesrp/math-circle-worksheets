@@ -15,8 +15,8 @@ reasoning beyond a finite drawing and beyond integer grid points.
 
 Print on US Letter paper, single-sided, at 100% scale. Each pair needs two
 contrasting pencils and a ruler or straightedge. Large square-grid working boards
-and two movable junction counters can support further trials; tracing paper is
-optional. The printed packet can be used with ordinary paper and pencil. Physical
+and two movable junction counters can support further trials, and the guide asks
+for one traced three-arm shape per pair. The printed packet can be used with ordinary paper and pencil. Physical
 printing, manipulation, timing, and classroom use have not been tested.
 
 ## Build and checks

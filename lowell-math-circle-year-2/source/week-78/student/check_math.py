@@ -103,7 +103,7 @@ def main():
         for c in (-7,F(1,3),5):
             assert least_tied([a+c for a in values])==least_tied(values)
     explicit_intersections=(
-      (((6,5),),()),
+      (((6,6),),()),
       ((),(((3,6),(0,1)),)),
       ((),(((6,4),(1,0)),)),
       ((),(((2,2),(-1,-1)),)),

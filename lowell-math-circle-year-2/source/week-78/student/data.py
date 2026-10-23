@@ -8,13 +8,13 @@ TRIAL_FIXED_PAIRS = (
 )
 CROPPED_PAIR = ((2, 7), (10, 5))
 INTERSECTION_PAIRS = (
-    ((2, 5), (6, 2)),
+    ((2, 6), (6, 2)),
     ((3, 2), (3, 6)),
     ((2, 4), (6, 4)),
     ((2, 2), (6, 6)),
 )
 INVERSE_GENERAL = (
-    ((2, 5), (6, 2)),
+    ((2, 6), (6, 2)),
     ((2, 2), (6, 5)),
 )
 INVERSE_ALIGNED = (
