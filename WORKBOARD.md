@@ -74,3 +74,4 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 | Review cards: Weeks 83–100 (math check and card for each) | Claude, Autonomous worksheet improvement thread | `claude/review-cards-ntxcu3` | in progress |
 | Week 26: convert to problem files, then the card's student-page must (4–5 Problem 2 corner convention) and should 3 | Claude, Autonomous worksheet improvement thread | `claude/convert-w26-ntxcu3` | in progress |
 | Week 51: convert to problem files, then the card's K–1 Problem 4 must and student-page shoulds | Claude, Autonomous worksheet improvement thread | `claude/convert-w51-ntxcu3` | in progress |
+| Weeks 28 and 37: convert to problem files, then the cards' deferred student-page fixes (Week 28 fixes 3–9, Week 37 fixes 3–4 and 8–10) | Claude, Autonomous worksheet improvement thread | `claude/kits-b-ntxcu3` | in progress |
