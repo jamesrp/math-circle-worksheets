@@ -26,3 +26,5 @@ Deferred: could 7 (a second, extra-workspace board for P2), since page 2 has no 
 - Every changed page was rendered at 80 dpi and inspected.
 
 Unpiloted; printing, cutting, flipping, counter placement and timing remain physically unrehearsed.
+
+Later on October 23 a footer-version sweep found that the guide's footer, F91-FAC-v1, was also the id of its earlier printing, so the guide now prints F91-FAC-v2 (`guide/facilitator.tex`; `verify_card_fixes_2026_10_23.py` expects it). The student, return-visit and materials footers gained their ids in this change, so they keep v1. The rebuilt guide differs from the previous one only in its footer.

@@ -74,8 +74,8 @@ doc = fitz.open(WEEK / 'week-88-students.pdf')
 nums = []
 for i, page in enumerate(doc):
     t = text(page)
-    check(t.startswith('Week 88 / Packing and kissing circles / Grades K–5') and f'Bellingham Math Circle / Week 88 / W88-shared-v1 {i+1}' in t,
-          f'students p{i+1}: header, footer W88-shared-v1, page {i+1}')
+    check(t.startswith('Week 88 / Packing and kissing circles / Grades K–5') and f'Bellingham Math Circle / Week 88 / W88-shared-v2 {i+1}' in t,
+          f'students p{i+1}: header, footer W88-shared-v2, page {i+1}')
     nums += [int(n) for n in re.findall(r'Problem (\d+):', t)]
 check(len(doc) == 8 and nums == list(range(1, 12)), f'students: 8 pages, Problems {nums}')
 
@@ -117,8 +117,8 @@ check(len(mat) == 3, f'materials: 3 pages ({len(mat)})')
 counts = []
 for i, page in enumerate(mat):
     t = text(page)
-    check(t.startswith('Week 88 / Packing and kissing circles / Materials') and f'Bellingham Math Circle / Week 88 / W88-M-v1 {i+1}' in t,
-          f'materials p{i+1}: header, footer W88-M-v1, page {i+1}')
+    check(t.startswith('Week 88 / Packing and kissing circles / Materials') and f'Bellingham Math Circle / Week 88 / W88-M-v2 {i+1}' in t,
+          f'materials p{i+1}: header, footer W88-M-v2, page {i+1}')
     cs = circles(page)
     disks = [c for c in cs if c['stroked'] and not c['filled']]
     dots = [c for c in cs if c['filled'] and c['w'] < 1.5]

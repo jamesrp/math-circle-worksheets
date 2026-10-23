@@ -182,7 +182,7 @@ gp = [flat(p.get_text()) for p in fac]
 g = ' '.join(gp)
 
 print('== Student pages ==')
-check(stu.page_count == 8 and all(t.startswith('Week 90 / Sliding number arrays / Grades 2–5') and 'W90-students-v1' in t for t in sp),
+check(stu.page_count == 8 and all(t.startswith('Week 90 / Sliding number arrays / Grades 2–5') and 'W90-students-v2' in t for t in sp),
       'students: 8 pages, header and footer as before')
 check('Slide tiles to close a missing corner' not in sp[0], 'p1: the teaser line is gone')
 rule = [b for b in stu[0].get_text('blocks') if b[4].startswith('Numbers increase')]
@@ -230,7 +230,9 @@ if not args.before.is_dir():
     print(f'SKIP no previous PDFs at {args.before}')
 else:
     def same(a, b, label):
-        ta, tb = flat(a.get_text()), flat(b.get_text())
+        # The footer ids were bumped later on October 23 (W90-students-v2, W90-FAC-v2); compare the rest.
+        ta = flat(a.get_text())
+        tb = flat(b.get_text().replace('W90-students-v2', 'W90-students-v1').replace('W90-FAC-v2', 'W90-FAC-v1'))
         pa = a.get_pixmap(dpi=100, colorspace=fitz.csGRAY).samples
         pb = b.get_pixmap(dpi=100, colorspace=fitz.csGRAY).samples
         diff = sum(abs(x - y) > 64 for x, y in zip(pa, pb)) if len(pa) == len(pb) else -1

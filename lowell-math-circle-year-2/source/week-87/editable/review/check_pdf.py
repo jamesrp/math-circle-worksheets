@@ -113,9 +113,9 @@ shared = fitz.open(WEEK / 'week-87-shared.pdf')
 line = fitz.open(WEEK / 'week-87-line.pdf')
 upper = fitz.open(WEEK / 'week-87-upper.pdf')
 materials = fitz.open(WEEK / 'week-87-materials.pdf')
-check(header_footer(shared, 'Grades 2–5', 'W87-S-v1') == [1, 2, 3] and len(shared) == 3, 'shared: 3 pages, Problems 1-3')
-check(header_footer(line, 'Grades 3–5', 'W87-L-v1') == [1, 2, 3, 4] and len(line) == 4, 'line: 4 pages, Problems 1-4')
-check(header_footer(upper, 'Grades 4–5', 'W87-U-v1') == [1, 2] and len(upper) == 2, 'upper: 2 pages, Problems 1-2')
+check(header_footer(shared, 'Grades 2–5', 'W87-S-v2') == [1, 2, 3] and len(shared) == 3, 'shared: 3 pages, Problems 1-3')
+check(header_footer(line, 'Grades 3–5', 'W87-L-v2') == [1, 2, 3, 4] and len(line) == 4, 'line: 4 pages, Problems 1-4')
+check(header_footer(upper, 'Grades 4–5', 'W87-U-v2') == [1, 2] and len(upper) == 2, 'upper: 2 pages, Problems 1-2')
 
 # Fix 1: equal stems, the printed favorites, stacked labels only where favorites coincide
 expected = {0: [[0, 2, 4, 7, 10]], 1: [[0, 0, 0, 8, 10], [1, 4, 4, 4, 9], [9, 1, 10, 6, 0]], 2: [[]], 3: [[1, 3, 7, 9], []]}

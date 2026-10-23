@@ -127,7 +127,7 @@ want = {'students': ['Grades 2–5'] * 3 + ['Grades 4–5'] * 2 + ['Grades 2–5
 stu = [flat(p.get_text()) for p in docs['students']]
 for i, (t, g) in enumerate(zip(stu, want['students'])):
     check(t.startswith(f'Week 91 / Rotor-router machines / {g}'), f'students p{i + 1} header {g}')
-for k, f in [('students', 'F91-S-v1'), ('return-visit', 'F91-RV-v1'), ('materials', 'F91-M-v1'), ('facilitator', 'F91-FAC-v1')]:
+for k, f in [('students', 'F91-S-v1'), ('return-visit', 'F91-RV-v1'), ('materials', 'F91-M-v1'), ('facilitator', 'F91-FAC-v2')]:
     d = docs[k]
     check(all(f'Bellingham Math Circle / Week 91 / {f} {i + 1}' in flat(p.get_text()) for i, p in enumerate(d)),
           f'{k}: footer {f} on all {d.page_count} pages')

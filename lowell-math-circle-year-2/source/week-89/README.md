@@ -1,6 +1,6 @@
 # Week 89: Growing shapes and totals — current editable source
 
-One shared Grades K–5 student packet (11 pages, W89-S-v2, Problems 1–20), a 2-page materials packet and an 8-page theorem-first adult guide. Unpiloted; tile fit, copying totals, zero turns, shells and piles are physically unrehearsed. The print PDFs are in [../../week-89/](../../week-89/).
+One shared Grades K–5 student packet (11 pages, W89-S-v3, Problems 1–20; W89-S-v2 until the October 23 changes, when the id was bumped with the guide's, W89-FAC-v1 to v2), a 2-page materials packet and an 8-page theorem-first adult guide. Unpiloted; tile fit, copying totals, zero turns, shells and piles are physically unrehearsed. The print PDFs are in [../../week-89/](../../week-89/).
 
 **Problem files, October 23, 2026.** The student packet is stored as [problem files](../problem-files/README.md): `week.toml`, `template.tex` (the old `students.tex` preamble) and one file per problem in `problems/`, in the flow layout. The conversion changed no wording or figure: the generated LaTeX differs from the old `students.tex` only by blank lines between sections, and in this container it compiles to a PDF byte-identical to the old source's. Against the print copy, compiled with a newer pdfTeX, the old and new sources both differ by the same antialiased glyph pixels (at most 153 on a page at 100 dpi); pages and extracted text are identical. The hand-written `students.tex` and the previous source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 

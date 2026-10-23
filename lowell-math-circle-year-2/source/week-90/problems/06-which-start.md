@@ -47,4 +47,6 @@ Find every D start that reaches each target. Place its card beside the target. C
 \fill[white] (154,150) rectangle ++(14,14);
 \draw[line width=.45pt] (154,150) rectangle ++(14,14);
 \node[font=\fontsize{13.16}{14}\selectfont] at (161.0,157.0) {3};
-\node[anchor=north west,inner sep=0pt,text width=186mm,font=\fontsize{11}{13.97}\selectfont] at (15,239) {Can two different B starts reach exactly the same finished five-number arrangement?\newline Use your finished B arrangements from Problem 5.};
+\node[anchor=north west,inner sep=0pt,text width=186mm,font=\fontsize{11}{13.97}\selectfont] at (15,226) {Can two different B starts reach exactly the same finished five-number arrangement?\newline Use your finished B arrangements from Problem 5.};
+\draw[black!40] (15,245)--++(180,0);
+\draw[black!40] (15,255)--++(180,0);

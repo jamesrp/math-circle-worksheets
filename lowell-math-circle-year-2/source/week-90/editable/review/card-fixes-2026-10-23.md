@@ -29,3 +29,7 @@ Nothing deferred. No problem moved page, so the guide's page references and the 
 - Every changed page was rendered at 80 dpi and inspected.
 
 Unpiloted; handling, masks, resets and timing remain physically unrehearsed.
+
+## Footer ids and one could, later on October 23
+
+The packet and guide changed today under their earlier ids, so a footer-version sweep bumped them to W90-students-v2 and W90-FAC-v2 (`week.toml`, `guide/facilitator.tex`, the band index). In the same version, a critic's could: Problem 6's B question ("Can two different B starts reach exactly the same finished five-number arrangement?") had no answer line at the foot of p. 6; it now sits 13 mm higher with two answer lines below it. The unchanged-page check in `verify_card_fixes_2026_10_23.py` now compares text with the footer ids normalised. Every other page and the guide differ from the previous print only in the footer.

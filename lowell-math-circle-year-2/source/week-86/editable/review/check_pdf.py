@@ -295,13 +295,13 @@ def main():
     check(len(shared) == 4, 'shared has 4 pages', len(shared))
     check(len(upper) == 6, 'upper has 6 pages', len(upper))
     check(len(mats) == 3, 'materials has 3 pages', len(mats))
-    header_footer(shared, 'Grades 2–5', 'W86-S-v1', 'shared')
-    header_footer(upper, 'Grades 4–5', 'W86-U-v1', 'upper')
+    header_footer(shared, 'Grades 2–5', 'W86-S-v2', 'shared')
+    header_footer(upper, 'Grades 4–5', 'W86-U-v2', 'upper')
     for n, page in enumerate(mats, 1):
         t = page.get_text()
         level = 'Grades 4–5' if n <= 2 else 'Grades 2–5'
         check(f'Week 86 / Pursuit and escape / {level}' in t, f'materials p{n}: header {level}')
-        check(f'Bellingham Math Circle / Week 86 / W86-M-v1 / {n}' in t, f'materials p{n}: footer')
+        check(f'Bellingham Math Circle / Week 86 / W86-M-v2 / {n}' in t, f'materials p{n}: footer')
     for doc, lab, want in ((shared, 'shared', [1, 2, 3, 4]), (upper, 'upper', [1, 2, 3, 4, 5, 6])):
         nums = []
         for page in doc:
@@ -309,7 +309,7 @@ def main():
         check(nums == want, f'{lab}: problems numbered consecutively', nums)
     t1 = shared[0].get_text()
     t2 = upper[0].get_text()
-    strip = lambda t: re.sub(r'Grades \d–5|W86-[SU]-v1', '', t)
+    strip = lambda t: re.sub(r'Grades \d–5|W86-[SU]-v[0-9]+', '', t)
     check(strip(t1) == strip(t2), 'upper p1 text is the shared p1 text (apart from header/footer)')
 
     pages = [

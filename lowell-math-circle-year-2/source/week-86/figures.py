@@ -162,7 +162,7 @@ F1 = {'a': (0, 0), 'b': (32, -32), 'c': (64, 0), 'd': (96, 0), 'e': (128, 0), 'f
 F1_ROADS = [('a', 'b'), ('b', 'c'), ('c', 'a'), ('c', 'd'), ('d', 'e'), ('a', 'f')]
 
 
-def materials_tex(week=86, topic='Pursuit and escape', levels=('Grades 4--5', 'Grades 4--5', 'Grades 2--5'), tag='W86-M-v1'):
+def materials_tex(week=86, topic='Pursuit and escape', levels=('Grades 4--5', 'Grades 4--5', 'Grades 2--5'), tag='W86-M-v2'):
     """The three materials pages: F1 and F2 originals and working copies (upper Problem 4 only,
     so headed Grades 4-5), then turn tiles and counters for both packets."""
     pages = []
