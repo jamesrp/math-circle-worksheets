@@ -71,7 +71,7 @@ def check(out):
                 text = page.get_text()
                 assert 'Week 58 / Fair division /' in text
                 assert 'Bellingham Math Circle / Week 58 /' in text
-                assert '-v3' in text
+                assert ('-v4' if name == 'students' else '-v3') in text   # students v4 (critic follow-up), materials v3
                 if name == 'students':
                     band = 'Grades 3–5' if i in [3, 5, 6] else 'Grades K–5' if i in [0, 4] else 'Grades 2–5'
                     assert f'Week 58 / Fair division / {band}' in text

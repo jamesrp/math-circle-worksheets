@@ -1,0 +1,3 @@
+# Week 58 print copies before the October 23, 2026 critic follow-up
+
+The W58-shared-v3 student packet and W58-guide-v2, replaced the same day by W58-shared-v4 and W58-guide-v3. An independent critic noted that Problem 5, on a page headed Grades K–5, said "neither person envies the other", while envy is defined only on page 2, which the K–1 route does not use; it now says "so that neither person would rather have the other's cards". The guide's K–1 route now names pages 1 and 5 only, doing Problem 2's two splits with the cards. The materials (W58-materials-v3) did not change. The current copies are in [../](../). Kept for reference; do not print them.

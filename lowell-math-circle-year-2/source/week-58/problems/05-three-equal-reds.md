@@ -10,7 +10,7 @@ kernel = "An odd number of whole equal cards cannot be shared without envy; spli
 \newband{Grades K--5}
 
 ## prompt
-U and V each value every red card at 1. Divide all three cards between them, keeping each card whole, so neither person envies the other. If no division works, explain why. For a second trial, replace R3 with its paper copy; you may cut that copy. R1 and R2 must stay whole. Can you now make an envy-free division?
+U and V each value every red card at 1. Divide all three cards between them, keeping each card whole, so that neither person would rather have the other's cards. If no division works, explain why. For a second trial, replace R3 with its paper copy; you may cut that copy. R1 and R2 must stay whole. Can you now make such a division?
 
 ## text
 \begin{center}
