@@ -1,6 +1,6 @@
 # Week 47 bonus: Gentle-step landscapes
 
-Local v1, October 4, 2026. **Unpiloted. Physical fit and procedures untested.**
+Local v1, October 4, 2026; v2, October 23, 2026, from the Week 47 math check (items 2 and 4): Problem 3 now says the gray towers count in the total, and the adult guide states that the envelopes are legal when an extension exists and notes the white-towers-only reading (footers F47B-S-v2, W47-BONUS-FAC-v2). **Unpiloted. Physical fit and procedures untested.**
 
 Three or more distinct investigations use selected bands by prerequisites. They complement, rather than replace, the base Week 47 packet. The student companion and adult mathematical guide are separate. Suitable routes, materials, launch, hints, precise solutions and extensions are in `guide.md`; investigation metadata is in `investigations.json`.
 

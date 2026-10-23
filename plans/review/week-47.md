@@ -50,7 +50,7 @@ A landscape is a row of whole-number heights, neighbours at most 1 apart, some f
 
 I agree with all five math check items; none changes a printed answer.
 
-**October 23, 2026:** fixes 1–13 done after converting the week to problem files (v4 packets: K–1 6 pages, Grades 2–3 5, Grades 4–5 6; guide 5 pages). Fix 1 puts the rows beside the boards, so Problem 3 keeps its page; fix 4 asks also whether one shaded pick per column always makes a landscape. The bonus companion (math check items 2 and 4) is unchanged. Checked by `plans/review/checks/week-47/check_card_shoulds.py`; unpiloted.
+**October 23, 2026:** fixes 1–13 done after converting the week to problem files (v4 packets: K–1 6 pages, Grades 2–3 5, Grades 4–5 6; guide 5 pages). Fix 1 puts the rows beside the boards, so Problem 3 keeps its page; fix 4 asks also whether one shaded pick per column always makes a landscape. Checked by `plans/review/checks/week-47/check_card_shoulds.py`. Later that day the bonus companion's math-check items 2 and 4 were fixed in its ReportLab builder (bonus v2: Problem 3 says the gray towers count; the guide's envelopes need an extension to exist), checked by `check_bonus_fixes.py`; unpiloted.
 
 ## Overlaps
 

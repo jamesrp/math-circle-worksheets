@@ -33,8 +33,8 @@ def build(out):
     lines(c,90,1)
     save(c)
     page(c,47,'Gentle-step landscapes','Grades K-5',3)
-    problem(c,3,'Build this ring with exactly 2, 5, 8, 10, and 11 cubes. Which budgets work? Find the smallest and largest possible totals. Can every whole budget between them be built? Gray towers stay at 1; neighboring towers differ by at most 1.')
-    cycle(c,306,447,6,r=141,clues={0:1,3:1},side=68,labels=list('ABCDEF'))
+    problem(c,3,'Build this ring with exactly 2, 5, 8, 10, and 11 cubes. Which budgets work? Find the smallest and largest possible totals. Can every whole budget between them be built? Gray towers stay at 1 cube each and count in the total; neighboring towers differ by at most 1.')
+    cycle(c,306,435,6,r=141,clues={0:1,3:1},side=68,labels=list('ABCDEF'))
     label(c,'Budget',79,206,12)
     for i,t in enumerate((2,5,8,10,11)):
         x=180+i*83;label(c,str(t),x,206,14,True);box(c,x-29,132,58,53)
