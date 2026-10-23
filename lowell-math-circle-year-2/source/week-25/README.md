@@ -6,6 +6,8 @@
 
 **Key page map, October 23, 2026.** The key view in [band-views/week-25/](../../band-views/README.md#weeks-stored-as-problem-files) now lists which full-packet page each page of the first-route and return packets is (`page_map = true` under `[guide]` in `week.toml`), because some copied guide answers cite student pages by their full-packet number: the Grades 2–3 Problem 4 key's "student page 4 example" and the Grades 4–5 Problem 3 and 4 keys' pages 5 and 7, which are pages 2, 3 and 5 of their return packets. Key id W25-G-v4; the packets, route packets and adult guide are unchanged.
 
+**Counter size, October 23, 2026 (Critic J).** Guide p. 1's supplies line now asks for 15–16 mm (5/8-inch) counters, which leave at least 1 mm a side in every task cell; it had said that an 18 mm counter fits every task cell, but the 0.55 pt lines leave 18.3 mm inside the 18.5 mm cells of Grades 4–5 pp. 1–2, about 0.15 mm a side, and common 3/4-inch (19 mm) counters overlap them. Only that paragraph changed (the guide's footer has no version id); the student packets did not. The replaced guide and ZIP are in [../../week-25/archive-before-critic-j-fixes-2026-10-23/](../../week-25/archive-before-critic-j-fixes-2026-10-23/README.md) and [archive-before-critic-j-fixes-2026-10-23/](archive-before-critic-j-fixes-2026-10-23/README.md). The counters are not physically tried.
+
 - **Student pages:** edit `problems/*.md` (figures and the page template in `figures.py`), then build every view:
 
   ```sh

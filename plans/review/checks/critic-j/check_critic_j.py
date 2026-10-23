@@ -17,6 +17,8 @@ K-1 band views. Weeks 54, 55 and 57 print one shared packet whose pages are head
 children; their guides route K-1, adult-led, through pp. 1-3, pp. 1-3 and copies of p. 4. The
 page indexes name those routes, and the K-1 slices must be exactly those pages.
 
+Week 25 guide p. 1 (no footer id): 15-16 mm counters, since the 0.55 pt lines leave 18.3 mm
+inside the 18.5 mm cells of Grades 4-5 pp. 1-2, measured here from the print packets' drawings.
 Week 57 guide p. 1 (W57-FAC-v4): the K-1 route's page reference names guide p. 3 and the
 student p. 4 grids. Week 71 guide p. 2 (GGT71-FAC-v3): "So XYX with X and Y meeting at a
 corner happens only at corners under 90 degrees", since ACA, CAC, BDB and DBD come from
@@ -121,11 +123,14 @@ def words(pdf):
 
 
 # Guide wording: only the named sentence and the footer id may differ from the guide archived
-# before these follow-ups. Week 57 p. 1: the K-1 route's page reference. Week 71 p. 2: the
+# before these follow-ups. Week 25 p. 1: the supplies line's counter size. Week 57 p. 1: the K-1 route's page reference. Week 71 p. 2: the
 # extension's XYX claim is about X and Y meeting at a corner (ACA, CAC, BDB and DBD bounce
 # between parallel walls and occur in every room).
 A = 'archive-before-critic-j-fixes-2026-10-23'
 GUIDES = [
+    (25, None, None, 20, 'p. 1: supplies ask for 15–16 mm counters',
+     'For each of three tables: 24 identical counters at most 18 mm wide; count cards 0-6; two pencils; an eraser; and loose paper. Children place counters on the printed student grids. At 100% Letter size, student task cells are 22 mm, except upper pp. 1-2 (18.5 mm) and p. 3 (20 mm), so an 18 mm counter fits every task cell; small switch examples are diagrams, not working mats. Print single-sided.',
+     'For each of three tables: 24 identical counters 15-16 mm (5/8 inch) wide; count cards 0-6; two pencils; an eraser; and loose paper. Children place counters on the printed student grids. At 100% Letter size, student task cells are 22 mm, except upper pp. 1-2 (18.5 mm) and p. 3 (20 mm), so a 16 mm counter leaves at least 1 mm on each side of every task cell. An 18 mm counter just fits inside the lines of an 18.5 mm cell; common 3/4-inch (19 mm) counters overlap them. Small switch examples are diagrams, not working mats. Print single-sided.'),
     (57, 'W57-FAC-v3', 'W57-FAC-v4', 10, 'p. 1: the K–1 route is on guide p. 3 with student p. 4 grids',
      'K–1 has an adult-led route with four or five squares on the existing grids (p. 3), not a Week 57 theorem packet.',
      'K–1 has an adult-led route with four or five squares on extra copies of the student p. 4 grids (guide p. 3), not a Week 57 theorem packet.'),
@@ -181,7 +186,51 @@ check(all(w in W for w in ('ACA', 'CAC', 'BDB', 'DBD', 'ABA', 'BAB', 'CDC', 'DCD
 for week, old_id, new_id, n, what, old_s, new_s in GUIDES:
     g, old = Y / f'week-{week}' / f'week-{week}-facilitator.pdf', Y / f'week-{week}' / A / f'week-{week}-facilitator.pdf'
     check(new_s in words(g) and old_s not in words(g) and old_s in words(old), f'Week {week} guide {what}')
-    check(text(g).count(new_id) == pages(g) == n, f'Week {week} guide: footer {new_id} on all {n} pages')
-    check(words(g).replace(new_s, old_s).replace(new_id, old_id) == words(old), f'Week {week} guide: nothing else changed since {old_id}')
+    if new_id:
+        check(text(g).count(new_id) == pages(g) == n, f'Week {week} guide: footer {new_id} on all {n} pages')
+    else:
+        check(pages(g) == pages(old) == n, f'Week {week} guide: {n} pages, as before (its footer has no version id)')
+    check(words(g).replace(new_s, old_s).replace(new_id or '', old_id or '') == words(old),
+          f'Week {week} guide: nothing else changed since {old_id or "the archived guide"}')
+
+
+def cells(pdf):
+    """{page: set of (grid pitch in mm, line width in pt)}: the gaps between neighbouring
+    vertical grid lines that start at the same height, from the drawings."""
+    import collections
+    import pymupdf
+    mm = 72 / 25.4
+    out = {}
+    for i, page in enumerate(pymupdf.open(pdf), 1):
+        groups = collections.defaultdict(set)
+        for d in page.get_drawings():
+            for it in d['items']:
+                if it[0] == 'l' and abs(it[1].x - it[2].x) < 0.01 and abs(it[1].y - it[2].y) > 10 * mm:
+                    groups[(round(min(it[1].y, it[2].y), 1), round(d.get('width') or 0, 2))].add(round(it[1].x, 2))
+        found = set()
+        for (_, w), xs in groups.items():
+            xs = sorted(xs)
+            found |= {(round((b - a) / mm, 2), w) for a, b in zip(xs, xs[1:]) if 10 * mm < b - a < 30 * mm}
+        out[i] = found
+    return out
+
+
+# Week 25 counters: measure every task cell in the three print packets. The smallest is 18.5 mm,
+# ruled at 0.55 pt, so its inside is 18.5 - 0.55 * 25.4 / 72 = 18.31 mm.
+found = {}
+for stem in ('k-1', 'grades-2-3', 'grades-4-5'):
+    for pg, pairs in cells(Y / 'week-25' / f'week-25-{stem}.pdf').items():
+        for side, w in pairs:
+            if side < 23:   # 23.4 mm is the gap between the two grids side by side on 4-5 pp. 1-2
+                found.setdefault((side, w), []).append(f'{stem} p. {pg}')
+inside = {k: k[0] - k[1] * 25.4 / 72 for k in found}
+tight = min(inside, key=inside.get)
+least = inside[tight]
+check(sorted({s for s, _ in found}) == [18.5, 20.0, 22.0] and tight == (18.5, 0.55)
+      and found[tight] == ['grades-4-5 p. 1', 'grades-4-5 p. 2'] and found[(20.0, 0.55)] == ['grades-4-5 p. 3']
+      and (least - 16) / 2 >= 1 and (least - 18) / 2 < 0.2 and least < 19,
+      f'Week 25 cells: 22 mm except 18.5 mm on {", ".join(found[tight])} and 20 mm on {", ".join(found[(20.0, 0.55)])}; '
+      f'tightest inside {least:.2f} mm, so a 16 mm counter clears {(least - 16) / 2:.2f} mm a side, '
+      f'an 18 mm one {(least - 18) / 2:.2f} mm, and a 19 mm one overlaps the lines')
 print('PASS' if not FAIL else f'{len(FAIL)} FAILED')
 raise SystemExit(1 if FAIL else 0)

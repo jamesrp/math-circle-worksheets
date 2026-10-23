@@ -1,0 +1,3 @@
+# Week 25 guide before the critic J could
+
+`week-25-facilitator.pdf` (SHA-256 `553874ad82fe4dc6034c3124c520a9afb33ca74ff0f332e47df0511f10ea49c1`) is the adult guide whose supplies line (guide p. 1, the second PDF page) asked for counters "at most 18 mm wide" and said "an 18 mm counter fits every task cell". The 0.55 pt grid lines leave 18.3 mm inside an 18.5 mm cell, so an 18 mm counter clears them by about 0.15 mm a side. The current guide asks for 15–16 mm (5/8-inch) counters; only that paragraph changed. The guide's footer carries no version id. The student packets are unchanged. The source ZIP it came from is in `../../source/week-25/archive-before-critic-j-fixes-2026-10-23/`. Classroom use remains untested.

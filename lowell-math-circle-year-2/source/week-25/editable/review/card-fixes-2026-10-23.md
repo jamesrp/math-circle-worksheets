@@ -38,6 +38,8 @@ Later the same day the student pages were stored as problem files (no wording ch
 
 Amended the same day: guide p. 1's supplies line now says that an 18 mm counter fits every task cell, including the 18.5 mm cells of grades 4–5 pp. 1–2. Only that page changed; the previous build is in the repository history.
 
+Amended again the same day, after Critic J: an 18 mm counter clears the 0.55 pt lines of an 18.5 mm cell by only about 0.15 mm a side (18.3 mm inside), so the supplies line now asks for 15–16 mm (5/8-inch) counters, which leave at least 1 mm a side in every task cell, and says that common 3/4-inch (19 mm) counters overlap the 18.5 mm cells' lines. Only that paragraph changed; the previous guide and ZIP are archived in the repository's `archive-before-critic-j-fixes-2026-10-23/` folders. Measured from the print PDFs' drawings: 22 mm cells everywhere except grades 4–5 pp. 1–2 (18.5 mm) and p. 3 (20 mm), all ruled at 0.55 pt. Not physically tried with counters.
+
 Not done: coulds 11 (crowded counts on K–1 p. 2 and grades 2–3 pp. 1 and 5; grades 4–5 pp. 1 and 3 are less crowded or unchanged), 13 (one name) and 14 (a three-row reserve).
 
 ## Verification
