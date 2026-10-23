@@ -1,12 +1,12 @@
 # Week 76: Substitution strips
 
-One shared four-page Grades 3–5 student prototype. Packet ID: F76-35-v1.
+One shared four-page Grades 3–5 student prototype. Packet ID: F76-35-v2.
 
 ## Prerequisites and materials
 
 Children need to read short A/B strings, preserve left-to-right order and work with a partner. The late questions ask for impossibility explanations; the infinite-tail question needs readiness for abstract reasoning and may need an adult. Grade labels are approximate. There is no K–1 or separate Grades 2–3 edition.
 
-For each pair, provide 32 reusable A/B counters or cards and two separate table rows, plus four divider markers and pencils. Distinguish tiles by letters as well as any color. Separately handled counters should be at least 15 mm wide. The printed 7–10 mm cells are pencil diagrams, not counter-fitting mats. Long physical strips extend onto the table. Reuse the older row's counters only after the new row has been checked. No cutting or exact-fit pieces are required.
+For each pair, provide a kit of 36 letter tiles (18 A, 18 B) cut from week-76-materials.pdf, or two-colour counters lettered A and B on their two faces, and two separate table rows, plus four divider markers and pencils. Distinguish tiles by letters as well as any color. Separately handled counters should be at least 15 mm wide. The printed 7–10 mm cells are pencil diagrams, not counter-fitting mats. Long physical strips extend onto the table. Reuse the older row's counters only after the new row has been checked. Children do no cutting, and no exact-fit pieces are required.
 
 ## Build
 

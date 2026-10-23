@@ -1,6 +1,6 @@
 # Week 76 substitution strips adult guide
 
-Companion to the final four-page Grades 3–5 student packet F76-35-v1. This guide is F76-FAC-v1. It opens with exact theorems and limits, gives practical preparation for a three-child target table (and an optional four-child table), all seven solutions, complete enumeration answers, graduated hints, and an eventual-nonperiodicity proof.
+Companion to the four-page Grades 3–5 student packet F76-35-v2 and the F76-M-v1 tile page. This guide is F76-FAC-v2 (five pages, revised October 23, 2026 from the review card). It opens with exact theorems and limits, gives practical preparation for a three-child target table (and an optional four-child table), all seven solutions, complete enumeration answers, graduated hints, and an eventual-nonperiodicity proof.
 
 ## Rebuild
 

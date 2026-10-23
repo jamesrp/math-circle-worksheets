@@ -10,4 +10,4 @@ kernel = "Only ABABA and BABAB pair two ways, and both are impossible, so a genu
 \promptat{178}
 
 ## prompt
-Cut a piece with five tiles from a row grown from A. Can two different ways of pairing it fit the replacement rule? Find such a piece, or explain why none exists.
+Cut a piece with five tiles from a row grown from A. Can two different ways of pairing it, as in Problem 4, fit the replacement rule? Find such a piece, or explain why none exists.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild both owned PDFs, without repository or network inputs.
+"""Rebuild the owned PDFs (students, guide, letter tiles), without repository or network inputs.
 
 The student LaTeX is first written from the problem files (student/regenerate.py);
 the builders then run on a copy in a temporary folder."""
@@ -24,7 +24,7 @@ def main():
         print(run(['python3','regenerate.py'],BASE/'student').strip())
     with tempfile.TemporaryDirectory(prefix=f"week-{manifest['week']}-source-build-") as tmp:
         work=Path(tmp)
-        for name in ['student','guide','checks']:
+        for name in ['student','guide','materials','checks']:
             if (BASE/name).is_dir():shutil.copytree(BASE/name,work/name)
         for check in manifest['checks']:
             print(run(['python3',check['script'],*check.get('args',[])],work).strip())

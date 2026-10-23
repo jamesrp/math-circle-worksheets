@@ -24,7 +24,7 @@ Undo a replacement by turning each pair AB into A and each pair BA into B.
 \Strip{104}{32}{B,A}{8}
 \Arrow{126}{36}{138}{36}
 \Strip{145}{32}{B,A,B}{8}
-\Text{0}{54}{182}{Each row below claims to be a whole row grown from a single A. Which claims can be right? Keep a record that settles each decision.}
+\Text{0}{54}{182}{Each row below claims to be a whole row grown from a single A. Which claims can be right? Show what settles each claim.}
 \Strip{5}{83}{A,B,B,A,B,A,A,B}{8}
 \Strip{5}{122}{A,B,B,A,A,B,B,A}{8}
 \Strip{5}{161}{A,B,B,A,B,B,A,B}{8}

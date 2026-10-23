@@ -46,6 +46,8 @@ Rows grow from A by replacing every A with AB and every B with BA at once; each 
 10. **could**, AB and BA dominoes for growth would make the pair invariant physical.
 11. **could**, P3: "Keep a record that settles each decision" → "Show what settles each claim."
 
+October 23, 2026: shoulds 1–6 and coulds 7, 9 and 11 fixed, after storing the week as problem files (student F76-35-v2, guide F76-FAC-v2 at 5 pages, new letter-tile page F76-M-v1); the K–1 route is guide-only. Could 8 is left (Problem 4 established "cut piece"), and could 10 is left (pair dominoes would build in Problem 2's answer). Checked by `source/week-76/editable/review/verify_card_fixes_2026_10_23.py`.
+
 ## Overlaps
 
 Week 35's footprint borders and bonus study periodic strips, the counterpart of P7. Week 17's machines read two-letter rows; T[n] is the parity of n's binary 1s, a two-state machine, a good return link. Week 39 shortens words by a different local rewriting. The guide's "Where next" points to aperiodic tilings (Week 1) without a shared theorem. No other theme has substitution or aperiodicity. No merge.
