@@ -44,6 +44,8 @@ A start is a second-player win when every move leads to a first-player win. The 
 
 I agree with every math-check finding and rate its three items as coulds.
 
+October 23, 2026: fix 1 is done as `week-08-materials.pdf` (four sheets: 8-by-8, 5-by-5 and the 8-by-8 in halves, 1-inch squares measured in the PDF, a 10 cm check line; physically unrehearsed), which the guide points to. Fixes 2–5, 7, 8 (return-visit guide), 9 and the guide part of 6 are done; the K–1 Problem 7 wording of 6 is deferred to the problem-file conversion.
+
 ## Overlaps
 
 Week 7 shares two-pile copying; its card gives Week 7 one pile with a menu and Week 8 free takes, stacks and the queen. Week 30 (base three) and Week 60 (backward induction) share less. The return visit continues this theme. No merge.

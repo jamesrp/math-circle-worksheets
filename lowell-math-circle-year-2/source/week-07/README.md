@@ -1,11 +1,13 @@
 # Week 7: Take-away games
 
-Concrete revision of October 3, 2026: F07-K-v4 / F07-M-v4 / F07-U-v4, adult guide F07-FAC-v4. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 ([forecast and pivot](../../../plans/fall-forecast-2026-10-03.md)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
+Concrete revision of October 3, 2026: F07-K-v4 / F07-M-v4 / F07-U-v4, adult guide F07-FAC-v4. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 (the October 3 forecast and pivot, a private record: see [LOCAL-RESOURCES.md](../../../LOCAL-RESOURCES.md#private-records)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
 
 - [K–1](../../week-07/week-07-k-1.pdf) — 6 pages.
 - [Grades 2–3](../../week-07/week-07-grades-2-3.pdf) — 5 pages.
 - [Grades 4–5](../../week-07/week-07-grades-4-5.pdf) — 8 pages.
-- [Adult guide](../../week-07/week-07-facilitator.pdf) — 9 pages: materials and counts, launch, pairing, answers, hints, and what to record.
+- [Adult guide](../../week-07/week-07-facilitator.pdf) — 10 pages: materials and counts, launch, pairing, answers, hints, and what to record.
+
+October 23, 2026: guide-only corrections from the [review card](../../../plans/review/week-07.md). Section 5 said the last-counter-loses shift by one is special to moves 1 to k; for one pile it holds for every list of moves (with 1, 3 or 4: 1, 3, 8, 10, 15, 17), though not for two piles. Section 1 now gives the multiples of k + 1, when patterns repeat, copying and the shift, and separates experiment, conjecture and explanation. The p. 3 reply table now names the "Squares to leave" column, says to take the smallest number allowed, accepts 1 or 4 from remainder 1, and begins the 1-or-2 and 1-to-3 rows with the remainder. The K–1 notes give adults the words for Problems 3, 8 and 9 until those pages are revised. `guide-src/check.py` checks the new statements (85 checks). Student packets are unchanged; the previous guide is in `week-07/archive-before-card-fixes-2026-10-23/`.
 
 Two-player take-away games with counters and with a token on a number track, where colouring the squares you want to leave for your opponent becomes the win/lose chart. K–1 plays 1-or-2 games and the grown-up; grades 2–3 classify piles for moves 1, 3, 4; grades 4–5 find and explain repeating patterns, change the rule, and try last-counter-loses and two-pile versions.
 

@@ -62,7 +62,7 @@
 
 A town is islands joined by bridges. At the start a counter sits on every bridge, and crossing a bridge means picking up its counter, so no bridge can be crossed twice and the counters left show which bridges remain. The question all week: can you pick up every counter, and where do you have to start?
 
-The answer depends only on how many bridges each island has. Each time a walk passes through an island it arrives on one bridge and leaves on another, so it takes that island's counters two at a time. An island with an odd number of bridges (1, 3, 5) must therefore be where the walk starts or ends. So: if no island is odd, you can start anywhere and you end where you started; if exactly two islands are odd, you must start at one and you end at the other; if more are odd, it cannot be done. Tracing a picture without lifting the pencil or going over a line twice is the same question, with corners and crossings as the islands.
+For a town in one piece (every island can be reached from every other), the answer depends only on how many bridges each island has. Each time a walk passes through an island it arrives on one bridge and leaves on another, so it takes that island's counters two at a time. An island with an odd number of bridges (1, 3, 5) must therefore be where the walk starts or ends. So: if no island is odd, you can start anywhere and you end where you started; if exactly two islands are odd, you must start at one and you end at the other; if more are odd, it cannot be done. Tracing a picture without lifting the pencil or going over a line twice is the same question, with corners and crossings as the islands.
 
 The children should find this by walking, getting stuck and noticing which starts worked. Do not tell them the rule; let the counters show them.
 
@@ -146,7 +146,7 @@ Read each problem aloud once. Put counters on the bridges of one town at a time 
 
 \textbf{Core of the hour:} Problems 1--3. \textbf{Next:} 4 and 5. \textbf{For children who get further:} 6--8. \textbf{If a child is struggling:} one town at a time, you hold the counters bag, skip the big triangle in Problem 2, and switch to Problem 5 (tracing) or Problem 7 (building) before coming back.
 
-In the answer pictures, \textbf{filled islands} are where a walk that picks up every counter can start. The walk then ends on the other filled island. When every island is filled, it ends where it started.
+In the answer pictures, \textbf{filled islands} are where a walk that picks up every counter can start. The walk then ends on the other filled island. When every island has an even number of bridges, every island is filled and the walk ends where it started. (Two islands joined by three bridges, in Problem 3, are both filled, but each has 3 bridges: a walk from either ends on the other.)
 
 \kprob{Problem 1}{page 1, core}{Pick up every counter in each of four towns; colour the island you started on.}
 \input{figs/k1-p1.tex}
@@ -178,7 +178,7 @@ Each town has four islands with an odd number of bridges (filled). A new bridge 
 \hints{1. ``Where do you always get stuck? Try a new bridge from there.'' \;2. ``Which islands have 1 bridge or 3 bridges?'' \;3. ``Join two of those.''}
 
 \kprob{Problem 7}{page 10}{Build two towns from 4 hexagons and craft sticks, one where the partner can pick up every counter and one where they cannot, and draw both.}
-Answers vary. Can: a row of 4 hexagons (3 sticks), or a square (4 sticks). Cannot: one hexagon in the middle with a stick to each of the other three (the three-arm star from Problem 3). To check any town: count the sticks at each hexagon. It works only when no hexagon or exactly two hexagons have an odd number of sticks.
+Answers vary. Can: a row of 4 hexagons (3 sticks), or a square (4 sticks). Cannot: one hexagon in the middle with a stick to each of the other three (the three-arm star from Problem 3). To check any town: count the sticks at each hexagon. If all the sticks are joined in one piece, it works exactly when no hexagon or exactly two hexagons have an odd number of sticks; sticks in two separate pieces never work.
 \hints{1. ``Build a town from Problem 3 that got an X.'' \;2. ``Make an island with only one bridge. Make another.''}
 
 \kprob{Problem 8}{pages 11--12}{Put two counters on one bridge (so it can be crossed twice) and try to pick up every counter. Colour each bridge where that works.}
@@ -188,7 +188,7 @@ Arc town: all 6 bridges. Square with two tails: only the 2 tail bridges. Square 
 
 \subsection{Grades 2--3 (mathematician)}
 
-\textbf{Core:} Problems 1--4. \textbf{Then} 5 and 6 (the rule). \textbf{Further:} 7--10. \textbf{If a child is struggling:} do Problem 1, then Problem 3 by walking (drop ``without walking''), then Problem 7; skip Problem 2. ``Odd island'' below means an island with an odd number of bridges.
+\textbf{Core:} Problems 1--4. \textbf{Then} 5 and 6 (the rule). \textbf{Further:} 7--10. \textbf{If a child is struggling:} do Problem 1, then Problem 3 by walking (drop ``without walking''), then Problem 7; skip Problem 2. ``Odd island'' below means an island with an odd number of bridges. On page 8 the H town just above Problem 6 is the last town of Problem 5; Problem 6 has no town.
 
 {\small
 \begin{xltabular}{\linewidth}{@{}L{1.45cm}YL{5.9cm}@{}}
@@ -243,7 +243,7 @@ Arc town: all 6 bridges. Square with two tails: only the 2 tail bridges. Square 
 
 \textbf{Delivery routes} (Chinese postman problem: Kwan Mei-Ko 1962; Edmonds and Johnson 1973). The repeated crossings form an edge multiset $J$ such that every vertex has even degree in $G+J$; each repeated edge flips the parity of its two ends, so $J$ is a union of paths pairing up the odd vertices. The minimum is a minimum-weight perfect matching of the odd vertices under shortest-path distance; for an open route, leave the best pair unmatched. The bound ``half the number of odd vertices'' (4--5 Problem 11) is not always reached: the three-arm star has 4 odd vertices but needs 3 (paths of length 1 and 2).
 
-\textbf{Where it goes next.} Directed graphs: an Euler circuit exists if and only if in-degree equals out-degree everywhere; this gives de Bruijn sequences (the shortest cyclic string containing every $n$-bit word). The BEST theorem counts Euler circuits. Fleury's algorithm is the counters' own advice: never cross a bridge that cuts you off from counters you still need, unless there is no other choice. The contrast worth showing 4--5: visiting every island exactly once (a Hamiltonian path) has no parity rule and no known fast test.
+\textbf{Where it goes next.} Directed graphs: a connected directed graph has an Euler circuit if and only if in-degree equals out-degree everywhere; this gives de Bruijn sequences (the shortest cyclic string containing every $n$-bit word). The BEST theorem counts Euler circuits. Fleury's algorithm is the counters' own advice: never cross a bridge that cuts you off from counters you still need, unless there is no other choice. The contrast worth showing 4--5: visiting every island exactly once (a Hamiltonian path) has no parity rule and no known fast test.
 
 Sources: Euler, \emph{Solutio problematis ad geometriam situs pertinentis} (1736); Biggs, Lloyd and Wilson, \emph{Graph Theory 1736--1936}, ch.\,1; Levin, \emph{Discrete Mathematics: An Open Introduction}, \S4.4; Edmonds and Johnson (1973).
 

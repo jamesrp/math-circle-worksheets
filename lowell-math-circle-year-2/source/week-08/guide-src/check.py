@@ -432,7 +432,9 @@ def g45():
     check(b9["n"] == 20 and red20 == sorted(pairs20 + [(b, a) for a, b in pairs20]) and len(red20) == 14,
           f"4-5 P9 {red20}")
     check(QUEEN_P((12, 20)), "next pair (12,20) is just off the 20x20 board")
-    write_fig("queen20", fig_board(20, 0.057, shade=red20 + [(0, 0)], lw="0.2pt", star=False))
+    # The star is drawn, as on the 8-by-8 answer boards, so the shaded corner
+    # reads as the star's square and 14 red squares remain (card fix 4).
+    write_fig("queen20", fig_board(20, 0.062, shade=red20 + [(0, 0)], lw="0.2pt"))
 
     # Wythoff facts used in the guide: pairs ([n*phi], [n*phi^2]), difference n,
     # built by "smallest unused number, then add the next difference"

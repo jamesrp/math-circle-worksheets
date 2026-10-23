@@ -293,6 +293,15 @@ EXPECTED = {
     "largest two-pile total on a K-1 page": 8,
     "largest pile or two-pile total on a 2-3 page (built)": 11,
     "largest pile or two-pile total on a 4-5 page (built)": 16,
+    # October 23 card fixes: overview, reply table and the last-counter shift
+    "cheat {1,4} from piles of 6 or more": (5, [0, 2], {1: [1, 4], 3: [1], 4: [4]}),
+    "first take with 1 or 2 / 1, 2 or 3: the remainder on dividing by 3 / 4": True,
+    "moves 1 to k: squares to leave are the multiples of k+1 (k = 1..10)": True,
+    "every rule on the pages repeats from square 0": True,
+    "some finite lists repeat only from a later square (e.g. 2, 4 or 7)": (4, 3),
+    "two equal piles lose for the mover, every list from 1-6": True,
+    "one pile, last counter loses = ordinary squares moved up 1 (255 lists)": True,
+    "two piles 1 and 1, 1 or 2, last counter loses: mover wins": True,
 }
 
 # ---------------------------------------------------------------------------
@@ -557,6 +566,67 @@ for name, S, mis in (("cheat {1,2}", S12, False), ("cheat {1,2,3}", S123, False)
                      ("cheat misere {1,2}", S12, True),
                      ("cheat misere {1,2,3}", S123, True)):
     check(name, cheat(S, mis), EXPECTED[name])
+
+# The reply table's 1 or 4 row: from remainder 1, both takes win once the pile
+# is 6 or more (from a pile of 1 only taking 1 is allowed).
+def cheat_from(S, m, start):
+    w = make_win(S)
+    lose = sorted({n % m for n in range(start, 300) if not w(n)})
+    takes = {}
+    for r in range(m):
+        if r in lose:
+            continue
+        takes[r] = [s for s in sorted(S)
+                    if all(s <= n and not w(n - s) for n in range(start, 300) if n % m == r)]
+    return (m, lose, takes)
+
+
+check("cheat {1,4} from piles of 6 or more", cheat_from(S14, 5, 6),
+      EXPECTED["cheat {1,4} from piles of 6 or more"])
+check("first take with 1 or 2 / 1, 2 or 3: the remainder on dividing by 3 / 4",
+      all(not make_win(S12)(n - n % 3) for n in range(1, 300) if n % 3)
+      and all(not make_win(S123)(n - n % 4) for n in range(1, 300) if n % 4),
+      EXPECTED["first take with 1 or 2 / 1, 2 or 3: the remainder on dividing by 3 / 4"])
+check("moves 1 to k: squares to leave are the multiples of k+1 (k = 1..10)",
+      all(losing(tuple(range(1, k + 1)), 200) == list(range(0, 201, k + 1)) for k in range(1, 11)),
+      EXPECTED["moves 1 to k: squares to leave are the multiples of k+1 (k = 1..10)"])
+page_rules = [(S12, False), (S123, False), (S14, False), (S134, False), (S23, False),
+              (S135, False), ((2, 5, 6), False), (S12, True), (S123, True)]
+check("every rule on the pages repeats from square 0",
+      all(period([make_win(S, mis)(n) for n in range(400)])[0] == 0 for S, mis in page_rules),
+      EXPECTED["every rule on the pages repeats from square 0"])
+check("some finite lists repeat only from a later square (e.g. 2, 4 or 7)",
+      period([make_win((2, 4, 7))(n) for n in range(400)]),
+      EXPECTED["some finite lists repeat only from a later square (e.g. 2, 4 or 7)"])
+check("two equal piles lose for the mover, every list from 1-6",
+      all(not make_win2(S)(a, a) for k in range(1, 7)
+          for S in itertools.combinations(range(1, 7), k) for a in range(13)),
+      EXPECTED["two equal piles lose for the mover, every list from 1-6"])
+# Last counter loses, one pile: for every list of moves the squares to leave
+# are the ordinary ones moved up by one (a pile of n plays like n - 1).
+lists255 = [S for k in range(1, 5) for S in itertools.combinations(range(1, 10), k)]
+assert len(lists255) == 255
+check("one pile, last counter loses = ordinary squares moved up 1 (255 lists)",
+      all(losing(S, 61, True) == [n + 1 for n in losing(S, 60)] for S in lists255),
+      EXPECTED["one pile, last counter loses = ordinary squares moved up 1 (255 lists)"])
+
+
+def misere_win2(S):
+    S = tuple(sorted(S))
+
+    @lru_cache(maxsize=None)
+    def w(a, b):
+        if a == 0 and b == 0:
+            return True  # the previous player took the last counter and lost
+        nxt = [(a - s, b) for s in S if s <= a] + [(a, b - s) for s in S if s <= b]
+        if not nxt:
+            return False
+        return any(not w(x, y) for x, y in nxt)
+    return w
+
+
+check("two piles 1 and 1, 1 or 2, last counter loses: mover wins", misere_win2(S12)(1, 1),
+      EXPECTED["two piles 1 and 1, 1 or 2, last counter loses: mover wins"])
 
 check("K1 P5 first take by start",
       {n: winning_takes(S12, n) for n in range(1, 11) if make_win(S12)(n)},

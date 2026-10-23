@@ -79,10 +79,25 @@ taken; whoever puts the token on 0 wins.
 Every pile size is either one you want to hand to your opponent or one you
 want to be handed. Working up from 0 sorts them all: a pile is one you want to
 hand over when every move from it leads to a pile you do not want to hand
-over. With 1 or 2 those piles are 0, 3, 6, 9, \dots{} The pattern always
-repeats, and it changes when the rule changes. Taking as many as you can is
-often wrong. A winning strategy must answer every reply, not only the one you
-expect.
+over. With moves 1 to $k$ those piles are the multiples of $k+1$ (with 1 or
+2: 0, 3, 6, 9, \dots), and the reply to a take of $s$ is $k+1-s$. For any
+finite list of moves the pattern ends up repeating (for every rule on these
+pages, right from 0), and it changes when the rule changes: with 1, 3 or 4 the
+piles to hand over have remainder 0 or 2 on dividing by 7. Taking as many as
+you can is often wrong. A winning strategy must answer every reply, not only
+the one you expect.
+
+Two equal piles are always ones to hand over: whatever your opponent takes
+from one pile, take the same from the other. When the last counter loses,
+every one-pile square to leave moves up by one, for any list of moves: taking
+the last counter is never good unless forced, so a pile of $n$ plays like an
+ordinary pile of $n-1$. With two piles that shift fails.
+
+Children experiment by playing and colouring tracks. ``It repeats every 7'' and
+``copy your partner'' begin as conjectures from those games and charts. The
+explanations are checking every reply (Lena, 2--3 P4), the copying argument
+(K--1 P8, 2--3 P7, 4--5 P12) and the window argument for the repeat (4--5 P8,
+P14).
 
 \textbf{What a good session looks like}
 
@@ -241,22 +256,22 @@ the board in one column per rule.
 \subsection*{How the adult wins, every rule on the pages}
 
 Play to win, and let the children hunt for the secret. If you are handed one
-of the squares you want to leave, there is no good move: take 1 and wait for
-a mistake. ``Remainder'' means the remainder on dividing by the number in the
-second column.
+of the squares you want to leave, there is no good move: take the smallest
+number allowed and wait for a mistake. ``Remainder'' means the remainder on
+dividing by the number in the ``Squares to leave'' column.
 
 \noindent\begin{tabularx}{\linewidth}{@{}L{1.05in}L{1.45in}L{2.15in}Y@{}}
 \toprule
 \hd Rule & Where & Squares to leave & From any other pile, take \\
 \midrule
-1 or 2 & Launch; K--1 P1--5; 4--5 P1, P2, P6 & 0, 3, 6, 9, 12, \dots{} (multiples of 3) & what makes 3 with their take: they 1, you 2; they 2, you 1 \\
-1, 2 or 3 & K--1 P6; 4--5 P2, P6 & 0, 4, 8, 12, 16, 20 (multiples of 4) & what makes 4 with their take \\
-1 or 4 & K--1 P7; 2--3 P8, P9; 4--5 P7 & 0, 2, 5, 7, 10, 12, 15, 17, \dots{} (remainder 0 or 2, dividing by 5) & remainder 1: take 1; 3: take 1; 4: take 4 \\
+1 or 2 & Launch; K--1 P1--5; 4--5 P1, P2, P6 & 0, 3, 6, 9, 12, \dots{} (multiples of 3) & the remainder on dividing by 3; after that, what makes 3 with their take: they 1, you 2; they 2, you 1 \\
+1, 2 or 3 & K--1 P6; 4--5 P2, P6 & 0, 4, 8, 12, 16, 20 (multiples of 4) & the remainder on dividing by 4; after that, what makes 4 with their take \\
+1 or 4 & K--1 P7; 2--3 P8, P9; 4--5 P7 & 0, 2, 5, 7, 10, 12, 15, 17, \dots{} (remainder 0 or 2, dividing by 5) & remainder 1: take 1 or 4; 3: take 1; 4: take 4 \\
 1, 3 or 4 & 2--3 P1--7; 4--5 P3--6, P8 & 0, 2, 7, 9, 14, 16, 21, 23, 28, 30, \dots{} (remainder 0 or 2, dividing by 7) & remainder 1: take 1; 3: take 1 or 3; 4: take 4; 5: take 3; 6: take 4 \\
 2 or 3 & 4--5 P7 & 0, 1, 5, 6, 10, 11, \dots{} (remainder 0 or 1, dividing by 5) & remainder 2: take 2; 3: take 2 or 3; 4: take 3 \\
 1, 3 or 5 & 2--3 P9; 4--5 P7 & the even squares & take 1 \\
-Last counter loses, 1 or 2 & K--1 P9; 4--5 P10, P11 & 1, 4, 7, 10, 13, 16, 19 & remainder 2: take 1; remainder 0: take 2 \\
-Last counter loses, 1, 2 or 3 & 4--5 P11 & 1, 5, 9, 13, 17 & remainder 2: take 1; 3: take 2; 0: take 3 \\
+Last counter loses, 1 or 2 & K--1 P9; 4--5 P10, P11 & 1, 4, 7, 10, 13, 16, 19 (remainder 1, dividing by 3) & remainder 2: take 1; remainder 0: take 2 \\
+Last counter loses, 1, 2 or 3 & 4--5 P11 & 1, 5, 9, 13, 17 (remainder 1, dividing by 4) & remainder 2: take 1; 3: take 2; 0: take 3 \\
 Two piles, take from one & K--1 P8; 2--3 P7; 4--5 P12, P13 & equal piles; with 1 or 2, any two piles with the same remainder dividing by 3 & from equal piles: copy their move in the other pile \\
 2, 5 or 6 & 4--5 P14 (colouring only) & 0, 1, 4, 8, 11, 12, 15, 19, 22, 23, 26, 30 & \\
 \bottomrule
@@ -299,7 +314,9 @@ tracks.}
 \hi{2}``Where did I put the token first, every time?''
 \hi{3}``If the token is on 3 and it is your turn, can you win?''}
 \prow{\textbf{P3} \textit{(core)} The child goes first from 10 against the partner and colours
-their own squares.}
+their own squares. Both partners' pages say ``you go first'', so they take
+turns.
+\say{Take turns going first. Colour the first player's squares.}}
 {The first player wins by landing on 9, 6, 3, 0 (take 1 first). A child who
 colours exactly 9, 6, 3, 0 and wins has found the secret.}
 {\hi{1}``Where did I go first in Problem 2?''
@@ -338,7 +355,9 @@ first (8 \ra{} 4) loses: the other player takes 4 and lands on 0.}
 \hi{3}``If the token is on 2 and it's your partner's turn, what can they do?''}
 \prow{\textbf{P8} \textit{(further)} Two piles; take 1 or 2 from one pile; whoever takes the last
 counter on the table wins. Circle 1st or 2nd for 2 and 2, 1 and 2, 3 and 3,
-2 and 4, 4 and 4.}
+2 and 4, 4 and 4. The page prints the boxes but does not ask for them.
+\say{Play each pair of piles many times with your partner. Circle whether you
+would rather go 1st or 2nd.}}
 {Equal piles (2 and 2, 3 and 3, 4 and 4): \textbf{2nd}, then copy: whatever
 your partner takes from one pile, take the same from the other. 1 and 2:
 \textbf{1st}, take 1 from the 2. 2 and 4: \textbf{1st}, take 2 from the 4.
@@ -348,7 +367,8 @@ can do the same, so I always have a move, and I take the last one.''}
 \hi{2}``What if you do exactly what your partner did, in the other pile?''
 \hi{3}``With 1 and 2, can you make the piles the same?''}
 \prow{\textbf{P9} \textit{(further)} Now whoever takes the last counter loses. Piles 1 to 6, circle
-1st or 2nd.}
+1st or 2nd.
+\say{Circle whether you would rather go 1st or 2nd.}}
 {1: \textbf{2nd}. 2: 1st, take 1. 3: 1st, take 2. 4: \textbf{2nd}. 5: 1st,
 take 1. 6: 1st, take 2. Leave your partner 1 or 4.}
 {\hi{1}``With 1 counter, who has to take it?''
@@ -618,7 +638,12 @@ multiple of $m$ would join two P piles. Sufficiency is the argument for moves
 
 \textbf{Last counter loses.} With moves 1 to $k$, P = remainder 1 on dividing
 by $k+1$: the player facing 1 must take it, and the same complement strategy
-aims at 1 instead of 0. (The shift by one is special to moves 1 to $k$.)
+aims at 1 instead of 0. (For one pile the shift by one works for every rule
+on these pages, and for any list of moves, under the pages' rule that a player
+who cannot move loses: taking the last counter is never good unless forced,
+so a pile of $n$ plays like an ordinary pile of $n-1$. With 1, 3 or 4 the
+squares become 1, 3, 8, 10, 15, 17. It fails for two piles: with 1 or 2,
+piles of 1 and 1 are a win for the player to move.)
 
 \textbf{Two piles.} Copying (Tweedledum and Tweedledee) shows equal piles are
 P in any game of this kind. In general give each pile its Grundy value $g(n)$,
@@ -650,7 +675,8 @@ Claims to listen for. K--1: ``go 2nd with 3 and 6''; ``land on 9, 6, 3'';
 ``the secret changes with 1, 2 or 3''; ``copy your partner''. 2--3: ``leave 2
 or 7''; ``the coloured squares go 2 then 5''; ``take as many as you can''
 (false). 4--5: ``it repeats every 7''; ``when the last counter loses, every
-coloured square moves up 1''; ``every rule repeats''.
+coloured square moves up 1'' (true for one pile with any rule); ``every rule
+repeats''.
 
 \newcommand{\st}{\footnotesize tried \enspace guessed \enspace checked in some cases \enspace explained}
 \newcommand{\recordblock}[2]{%

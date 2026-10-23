@@ -638,11 +638,13 @@ def check_u45():
 
 def check_launch():
     print("\n=== Launch (floor map, five chairs) ===")
-    floor = [1, 0, 4, 2, 3]   # chair 1 -> 2, 2 -> 1, 3 -> 5, 4 -> 3, 5 -> 4
-    expect("  floor map", one(floor), [2, 1, 5, 3, 4])
-    expect("  loops", loops(floor), [(1, 2), (3, 5, 4)])
-    expect("  switches until everyone is back", order(floor), 6)
-    expect("  each child's first time back", home_times(floor, list("gbryp")), [2, 2, 3, 3, 3])
+    floor = [1, 2, 0, 3, 4]   # chair 1 -> 2, 2 -> 3, 3 -> 1; chairs 4 and 5 straight back
+    expect("  floor map", one(floor), [2, 3, 1, 4, 5])
+    expect("  loops", loops(floor), [(1, 2, 3), (4,), (5,)])
+    expect("  switches until everyone is back", order(floor), 3)
+    expect("  each child's first time back", home_times(floor, list("gbryp")), [3, 3, 3, 1, 1])
+    expect("  takes no more switches than it has chairs (the surprise stays for the tables)",
+           order(floor) <= len(floor), True)
     printed = [[3, 1, 2], [1, 3, 2], [3, 4, 2, 1], [3, 4, 1, 2], [2, 4, 3, 1], [3, 4, 1, 5, 2], [4, 3, 1, 2],
                [4, 2, 1, 3], [3, 5, 4, 1, 2], [2, 5, 1, 4, 3], [2, 4, 1, 3], [5, 1, 4, 3, 2],
                [3, 2, 5, 1, 4], [5, 4, 1, 2, 3]]
@@ -684,7 +686,7 @@ def write_generated():
         B = [x for x in ms if x.perm and x.label == "B"][0]
         one_row(f"Msix{tag}AB", turn(turn(A.pictures, A.perm), B.perm))
         one_row(f"Msix{tag}BA", turn(turn(B.pictures, B.perm), A.perm))
-    floor = [1, 0, 4, 2, 3]   # the launch floor map, as in check_launch()
+    floor = [1, 2, 0, 3, 4]   # the launch floor map, as in check_launch()
     rows = run_until_home(floor, ["green", "blue", "red", "yellow", "purple"])[1:]
     defs.append("\\newcommand{\\LaunchRows}{" + "".join(f"\\tn{{{k}}}{crow(r)}" for k, r in enumerate(rows, 1)) + "}")
     with open(os.path.join(HERE, "generated.tex"), "w") as fh:

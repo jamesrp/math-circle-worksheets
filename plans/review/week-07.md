@@ -39,6 +39,8 @@ A pile is one to hand over when every move from it reaches one that is not; work
 5. **should**, K–1 p. 2, P3: "Now you go first from 10 against your partner. Colour your own squares." Both partners' pages say it, but each game has a second player. A child who colours as second player gets no 9, 6, 3 (prediction), and the guide's check "colours exactly 9, 6, 3, 0" fails. Borrow P6 and P7's colouring rule: "Now play your partner from 10, and take turns going first. Colour the first player's squares."
 6. **could**, 2–3 P2: label the second 0–20 track extra workspace.
 
+October 23, 2026: fixes 1–3 are done in the guide, which also gives adults the words of fixes 4 and 5 for the K–1 pages; the student wording of 4 and 5 and fix 6 are deferred to the problem-file conversion. The source README link is fixed too.
+
 ## Overlaps
 
 Week 8 (Rook race and Nim) shares two-pile copying, which K–1 P8, 2–3 P7 and 4–5 P12 preview. Week 7 owns one pile with a menu; Week 8 owns free takes, XOR and the queen game. Keep both, Week 7 first. Week 60 shares only backward induction. No merge.

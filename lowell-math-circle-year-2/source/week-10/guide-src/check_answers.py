@@ -192,6 +192,51 @@ def main():
     cannot = [[(0, 1), (0, 2), (0, 3)], [(0, 1), (1, 2), (2, 0), (0, 3), (1, 3), (2, 3)]]
     check(all(has_walk(4, E) for E in can) and not any(has_walk(4, E) for E in cannot),
           'K-1 P7 examples: square and row of 4 can; star of 3 sticks and triangle-with-centre cannot')
+    # P7 key (October 23): the rule needs the sticks in one piece.  Every 4-hexagon town with up to
+    # 5 sticks: if the sticks form one piece (a bare hexagon does not matter) the parity rule decides;
+    # sticks in two separate pieces never work.
+    def stick_pieces(E):
+        used = sorted({x for e in E for x in e})
+        idx = {x: i for i, x in enumerate(used)}
+        return used, [(idx[u], idx[v]) for u, v in E]
+    rule_ok, split_ok = True, True
+    pairs4 = list(itertools.combinations(range(4), 2))
+    for m in range(1, 6):
+        for combo in itertools.combinations_with_replacement(range(6), m):
+            E = [pairs4[i] for i in combo]
+            used, E2 = stick_pieces(E)
+            walk = bool(start_end(len(used), E2))
+            if connected(len(used), E2):
+                odd = sum(1 for x in degrees(len(used), E2) if x % 2)
+                rule_ok &= walk == (odd in (0, 2))
+            else:
+                split_ok &= not walk
+    say(f'  P7 key, all 4-hexagon towns with 1-5 sticks: parity rule holds when the sticks are in one piece: {rule_ok}; '
+        f'sticks in two separate pieces never work: {split_ok}')
+    check(rule_ok, 'K-1 P7 key: sticks in one piece work exactly when 0 or 2 hexagons have an odd count')
+    check(split_ok, 'K-1 P7 key: sticks in two separate pieces never work')
+    # Legend (October 23): every island is filled exactly when every island is even, except a town
+    # of two islands that are both odd (the 3-bridge lens of P3), whose walks end on the other island.
+    legend_ok = True
+    for n in range(2, 6):
+        for m in range(1, 7 if n < 5 else 6):
+            for E in multigraphs(n, m):
+                se = start_end(n, E)
+                d = degrees(n, E)
+                all_even = all(x % 2 == 0 for x in d)
+                if len(se) == n:
+                    legend_ok &= all_even or (n == 2 and all(x % 2 for x in d))
+                    if all_even:
+                        legend_ok &= all(s in ends for s, ends in se.items())
+                    else:
+                        legend_ok &= all(ends == frozenset({1 - s}) for s, ends in se.items())
+    say(f'  legend, towns of 2-5 islands up to 6 bridges: all filled means all even or two odd islands: {legend_ok}')
+    check(legend_ok, 'K-1 legend: all islands filled = all even (walk closes), or two odd islands (walk ends on the other)')
+    lens = [t for t in K[3]['towns'] if t.n == 2]
+    check(len(lens) == 1 and len(lens[0].br) == 3 and
+          all(ends == frozenset({1 - s}) for s, ends in start_end(2, lens[0].edges()).items()) and
+          len(start_end(2, lens[0].edges())) == 2,
+          'K-1 P3 lens town (2 islands, 3 bridges): both islands filled, every walk ends on the other island')
 
     # ============================================================ grades 2-3
     say()

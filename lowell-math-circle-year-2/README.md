@@ -40,13 +40,15 @@ The [three frontier prototypes, Weeks 76–78](WEEKS-76-78-PROTOTYPES.md), inves
 | [5. Tower cities](source/week-05/README.md) | [PDF](week-05/week-05-k-1.pdf) | [PDF](week-05/week-05-grades-2-3.pdf) | [PDF](week-05/week-05-grades-4-5.pdf) | — ([September extra](week-05/archive/week-05-extra-grades-6-7.pdf)) | [PDF](week-05/week-05-facilitator.pdf) |
 | [6. Code breaking](source/week-06/README.md) | [PDF](week-06/week-06-k-1.pdf) | [PDF](week-06/week-06-grades-2-3.pdf) | [PDF](week-06/week-06-grades-4-5.pdf) | — ([September extra](week-06/archive/week-06-extra-grades-6-7.pdf)) | [PDF](week-06/week-06-facilitator.pdf) |
 | [7. Take-away games](source/week-07/README.md) | [PDF](week-07/week-07-k-1.pdf) | [PDF](week-07/week-07-grades-2-3.pdf) | [PDF](week-07/week-07-grades-4-5.pdf) | — ([September extra](week-07/archive/week-07-extra-grades-6-7.pdf)) | [PDF](week-07/week-07-facilitator.pdf) |
-| [8. Rook race and Nim](source/week-08/README.md) | [PDF](week-08/week-08-k-1.pdf) | [PDF](week-08/week-08-grades-2-3.pdf) | [PDF](week-08/week-08-grades-4-5.pdf) | — ([September extra](week-08/archive/week-08-extra-grades-6-7.pdf)) | [PDF](week-08/week-08-facilitator.pdf) |
+| [8. Rook race and Nim](source/week-08/README.md) | [PDF](week-08/week-08-k-1.pdf) | [PDF](week-08/week-08-grades-2-3.pdf) | [PDF](week-08/week-08-grades-4-5.pdf) | — ([September extra](week-08/archive/week-08-extra-grades-6-7.pdf)) | [PDF](week-08/week-08-facilitator.pdf) · [Game boards](week-08/week-08-materials.pdf) |
 | [9. Bouncing paths](source/week-09/README.md) | [PDF](week-09/week-09-k-1.pdf) | [PDF](week-09/week-09-grades-2-3.pdf) | [PDF](week-09/week-09-grades-4-5.pdf) | — ([September extra](week-09/archive/week-09-extra-grades-6-7.pdf)) | [PDF](week-09/week-09-facilitator.pdf) |
 | [10. Bridges and one-stroke drawings](source/week-10/README.md) | [PDF](week-10/week-10-k-1.pdf) | [PDF](week-10/week-10-grades-2-3.pdf) | [PDF](week-10/week-10-grades-4-5.pdf) | — ([September extra](week-10/archive/week-10-extra-grades-6-7.pdf)) | [PDF](week-10/week-10-facilitator.pdf) |
 
 Week 1 also has an [extension facilitator guide](week-01/week-01-extensions-facilitator.pdf) and [optional paper rhombi](week-01/week-01-extra-rhombi.pdf). The [classroom snapshot](week-01/archive-classroom-2026-09/) preserves the pre-September-27 packets. Its four earlier draft PDFs are preserved separately in `week-01/archive-v1/`; use the current PDFs above unless deliberately revisiting that [archived design](source/week-01/archive-v1/README.md).
 
 On October 23, 2026 the adult guides of Weeks 4, 5, 6 and 9 were corrected from their [review cards](../plans/review/README.md); each week's source README says what changed. Their student packets are unchanged, and the previous guides are in each week's `archive-before-card-fixes-2026-10-23/` folder.
+
+On October 23, 2026 the adult guides of Weeks 3, 7, 8 and 10 and the Week 8 and Week 10 return-visit guides were corrected from their [review cards](../plans/review/README.md); each source README says what changed. Week 8's separate game boards are now a [printable PDF](week-08/week-08-materials.pdf) with a 10 cm check line, not yet printed and measured. Student packets are unchanged, and the previous guides are in each week's `archive-before-card-fixes-2026-10-23/` folder.
 
 ## Combined Weeks 2–10 packets
 

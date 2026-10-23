@@ -87,6 +87,8 @@
 
 A shuffle machine is a mat with a top row of slots, a bottom row, and one arrow from each top slot to a bottom slot, with exactly one arrow arriving at each bottom slot. One turn: every cube goes down its own arrow, then the whole bottom row slides straight up. Run a machine over and over and every cube comes back home, under the picture of its colour. Following the arrows from any slot leads back to that slot, so the slots split into loops, and a cube in a loop of 3 is home every 3 turns. The whole row is home when all the loops are home together, so loops of 2 and 3 take 6 turns: more turns than cubes. Machines can be undone (reverse every arrow) and combined (run one, then the other), and a perfect card shuffle is a machine too.
 
+The facts the children can reach. No machine moves exactly one cube: the slot it moves into already has an arrow coming in, so that slot's cube moves too. A machine takes the least common multiple of its loop sizes, so listing every way to split the slots into loops gives every possible number of turns: exactly 1 to 6 for 5 slots and also for 6 slots, and 1 to 7, 10 and 12 for 7 slots. The most turns for 5, 6 and 7 slots are 6, 6 and 12, so one more slot does not always mean a slower machine. Reversing every arrow undoes a machine, and the machine that undoes ``A then B'' is ``undo B, then undo A''. Children experiment by running machines and keeping tallies; ``loops of 2 and 3 take 6'' and ``6 slots can't beat 5'' begin as conjectures from those runs. The explanations are the loop argument (a cube in a loop of 3 is home after 3, 6, 9 turns), a complete list of loop splits (2--3 Problems 7--8, 4--5 Problems 3--4) and undoing with cubes, last machine first (4--5 Problem 7).
+
 \begin{tabularx}{\linewidth}{@{}>{\bfseries}p{0.55in}X@{}}
 K--1 & Every child runs machines with cubes, moving all the cubes down before sliding the row up, and keeps a tally of turns. A good hour reaches Problem 4: each child draws a machine for 2 or 3 turns and the partner checks it with cubes. Someone says that the 5-cube machine took 6 turns, or that a cube on a straight arrow is home after every turn.\\
 2--3 & Children trace loops on the page and predict before running. A good hour reaches Problem 4, and a child can say why loops of 2 and 3 take 6 turns (``the pair is home at 2, 4, 6; the three are home at 3, 6'').\\
@@ -118,22 +120,22 @@ Print single-sided on US Letter, \textbf{in colour}, at \textbf{100\% (``Actual 
 K--1, F03-K-v5 & 10 & 6 & 4 children, the adult, 1 spare. One page at a time. On pages 1--3 and 7 a pair shares one sheet (one child moves, the other tallies). On pages 4--6 and 8 each child has a sheet. Pages 9 and 10: one partner takes each.\\
 2--3, F03-M-v5 & 11 & 6 & 4 children, the adult, 1 spare. One page at a time, one per child.\\
 4--5, F03-U-v5 & 8 & 5 & 3 children, the adult, 1 spare. One page at a time, one per child, the referee included.\\
-Test mats & 1 & 4 & Extra copies of K--1 page 9 (a blank 5-slot mat with pictures): 2 for the 2--3 table, 2 for the 4--5 table, to run machines drawn on the small mats.\\
+Test mats & 1 & 4 & Extra copies of K--1 page 10 (a blank 5-slot mat with pictures and no problem text): 2 for the 2--3 table, 2 for the 4--5 table, to run 4- and 5-slot machines drawn on the small mats.\\
 This guide & \pageref*{LastPage} & 3 & One per adult.\\
 \end{tabularx}
 
 \subsection{Set up before the children arrive}
-\textbf{Floor map for the launch.} Five chairs in a row, about 3 feet apart, facing the group. Tape a sheet of coloured paper to the front of each chair, where it shows while a child sits, left to right: green, blue, red, yellow, purple (the order of the mats). With masking tape, lay one arrow per chair on the floor in front of the chairs, as in the drawing: each arrow starts at the front of its chair, runs out into its own lane (about 1 foot or 2 feet from the chairs), and ends at the front of another chair. Mark each start with a short crossbar (like the dot on the mats) and each end with a V of tape. The arrows do not cross.
+\textbf{Floor map for the launch.} Five chairs in a row, about 3 feet apart, facing the group. Tape a sheet of coloured paper to the front of each chair, where it shows while a child sits, left to right: green, blue, red, yellow, purple (the order of the mats). With masking tape, lay one arrow per chair on the floor in front of the chairs, as in the drawing: each arrow starts at the front of its chair, runs out into its own lane (about 1 foot or 2 feet from the chairs), and ends at the front of a chair. Chairs 1, 2 and 3 make one loop; the arrows of chairs 4 and 5 run out and come back to their own chairs, like the straight arrows on the mats. Mark each start with a short crossbar (like the dot on the mats) and each end with a V of tape. The arrows do not cross.
 
 \begin{center}
 \begin{tikzpicture}[x=0.36in,y=0.36in]
   \foreach \c/\n [count=\i] in {cg/green,cb/blue,cr/red,cy/yellow,cp/purple} {
     \filldraw[fill=\c, draw=black] ({2*(\i-1)-0.5},0.15) rectangle ({2*(\i-1)+0.5},1.15);
     \node[font=\footnotesize, above] at ({2*(\i-1)},1.15) {\i\ \n};}
-  \foreach \a/\d/\b in {0.25/0.8/1.75, 2.25/1.6/-0.25, 3.75/1.6/8.25, 5.75/0.8/4.25, 7.75/0.8/6.25} {
+  \foreach \a/\d/\b in {0.25/0.8/1.75, 2.25/0.8/3.75, 4.25/1.6/-0.25, 5.7/0.8/6.3, 7.7/0.8/8.3} {
     \draw[line width=1.6pt, -{Stealth[length=7pt,width=7pt]}] (\a,0) -- (\a,-\d) -- (\b,-\d) -- (\b,0);
     \draw[line width=1.6pt] (\a-0.2,0) -- (\a+0.2,0);}
-  \node[font=\footnotesize, anchor=west, align=left] at (9.2,-0.3) {chair 1 \ar\ 2, \ 2 \ar\ 1\\ chair 3 \ar\ 5, \ 5 \ar\ 4, \ 4 \ar\ 3\\ 6 switches until all are home};
+  \node[font=\footnotesize, anchor=west, align=left] at (9.2,-0.3) {chair 1 \ar\ 2, \ 2 \ar\ 3, \ 3 \ar\ 1\\ chair 4 \ar\ 4, \ 5 \ar\ 5\\ 3 switches until all are home};
 \end{tikzpicture}
 \end{center}
 
@@ -162,7 +164,7 @@ This guide & \pageref*{LastPage} & 3 & One per adult.\\
 \begin{enumerate}
 \item Pick five children to sit, one per chair (K--1 children first). Hand each one the cube of their chair's colour. Say: ``This cube shows your home chair.''
 \item Say: ``Each chair has one arrow on the floor that starts at it. When I say \emph{switch}, everyone walks along the arrow that starts at your chair and sits in the chair at its end. Everyone moves at the same time. Everybody else, count the switches.''
-\item Say ``switch''. After each switch ask: ``Is everyone home?'' After 2 switches green and blue are home: ``Green and blue are home. Are we done?'' Keep going. After 3, red, yellow and purple are home, but green and blue are not. After 6 everyone is home: ``Six switches, and only five chairs.''
+\item Say ``switch''. After each switch ask: ``Is everyone home?'' Yellow and purple walk out along their arrows and sit down in their own chairs again every time. After 3 switches everyone is home. Do not explain why; the tables find out.
 \end{enumerate}
 Who sits in chairs 1--5 after each switch:\\
 \LaunchRows
@@ -178,7 +180,7 @@ Not legal: moving some cubes and not others; moving a cube from a top slot strai
 \begin{tabularx}{\linewidth}{@{}>{\bfseries}p{0.55in}X@{}}
 K--1 & Two pairs, each a kindergartner with a first grader. On running pages one child is the \emph{mover} (moves the cubes, slides the row) and the other the \emph{counter} (makes a tally after each turn, says when every cube is home); swap at each machine. On drawing pages each child draws and the partner checks the drawing with cubes.\\
 2--3 & Two pairs. One child runs the cubes, the other checks each turn and records; swap at each machine. In Problem 6 one partner runs A then B while the other runs B then A, and they compare rows.\\
-4--5 & A pair and a referee. The referee checks that every turn or shuffle is legal, keeps the count, and settles disagreements by running it again. The referee changes at each new problem. In Problem 5 the referee repeats the shuffle with the second deck.\\
+4--5 & A pair and a referee. The referee checks that every turn or shuffle is legal, keeps the count, and settles disagreements by running it again, or by tracing each loop when the machine has more slots than there are cubes. The referee changes at each new problem. In Problem 5 the referee repeats the shuffle with the second deck.\\
 \end{tabularx}
 
 \subsection{When attention runs out}
@@ -241,7 +243,7 @@ Why no more, as a child can say it: ``Green's arrow can go to 3 places. Then blu
 
 % --------------------------------------------------------------------------------------------
 \subsection{Grades 2--3 (mathematician)}
-Problems 1--4 are the core; 5--8 are further. If a child is struggling: in Problem 2 do the 5-slot machine and one 6-slot machine, in Problem 3 stop at 5 turns, and skip Problems 5 and 7. Loops are written in cycle notation: (1\,4\,3) means slot 1\ar4\ar3\ar1. The small mats (Problems 3, 5, 7, 8) are too small for cubes: run a drawn machine on a spare K--1 page 9 test mat, or trace it with a finger.
+Problems 1--4 are the core; 5--8 are further. If a child is struggling: in Problem 2 do the 5-slot machine and one 6-slot machine, in Problem 3 stop at 5 turns, and skip Problems 5 and 7. Loops are written in cycle notation: (1\,4\,3) means slot 1\ar4\ar3\ar1. The small mats (Problems 3, 5, 7, 8) are too small for cubes. Run a drawn 5-slot machine (Problems 3 and 5) on a spare K--1 page 10 test mat; trace the 6- and 7-slot machines of Problems 7 and 8 with a finger.
 
 \prob{1}{\core}{page 1}{Each block's first return, and the first time all are home.}
 \ans 4 slots, \arrs{4,2,1,3}, loops (1\,4\,3)(2): green 3, blue 1, red 3, yellow 3; all blocks 3.\\
@@ -290,7 +292,7 @@ Each answer is the only one, and is the machine with every arrow reversed; it ha
 
 % --------------------------------------------------------------------------------------------
 \subsection{Grades 4--5 (organizer)}
-Problems 1--5 are the core; 6--10 are further. If a child is struggling: in Problem 2 do only the 6- and 7-slot machines, and in Problem 5 use only 4, 6 and 8 cards. Composition: ``A then B'' sends slot $i$ to $B(A(i))$.
+Problems 1--5 are the core; 6--10 are further. If a child is struggling: in Problem 2 do only the 6- and 7-slot machines, and in Problem 5 use only 4, 6 and 8 cards. Composition: ``A then B'' sends slot $i$ to $B(A(i))$. Run drawn 4- and 5-slot machines (Problems 3 and 6--8) on a spare K--1 page 10 test mat; trace the 6- to 8-slot machines (Problems 2 and 4) with a finger, since a child has five cubes.
 
 \prob{1}{\core}{page 1}{Each block's first return, and all blocks.}
 \ans \arrs{3,2,5,1,4}, loops (1\,3\,5\,4)(2): 4, 1, 4, 4, 4; all 4.\\
@@ -351,7 +353,7 @@ Rule: undo (A then B) = undo B, then undo A. With cubes: the last thing done was
 \hints (1) ``For 8 slots, which two loops could beat 12?'' (2) ``Is the record for 6 slots bigger than for 5?'' (3) ``Why can one more slot never make the record smaller?''
 
 \prob{10}{\further}{page 8}{Perfect shuffles for 52 cards.}
-\ans 8. A card in position $k$ goes to $2k-1$ if $k\le 26$ and to $2k-52$ if $k\ge 27$. The card in position 2 visits 2, 3, 5, 9, 17, 33, 14, 27 and is back after 8 shuffles. The whole 52-card machine has six loops of 8, one loop of 2 (positions 18 and 35), and the top and bottom cards stay, so every card is home after 8 shuffles and not before. Counting positions from 0, position $i$ goes to $2i \bmod 51$, and $2^8 = 256 = 5\cdot 51+1$.\\
+\ans 8. A card in position $k$ goes to $2k-1$ if $k\le 26$ and to $2k-52$ if $k\ge 27$. The card in position 2 visits 2, 3, 5, 9, 17, 33, 14, 27 and is back after 8 shuffles. The whole 52-card machine has six loops of 8, one loop of 2 (positions 18 and 35), and the top and bottom cards stay, so every card is home after 8 shuffles and not before. Counting positions from 0, position $i$ goes to $2i \bmod 51$, and $2^8 = 256 = 5\cdot 51+1$. Fifty-two cards do not fit in one row as Problem 5 lays them out: use four rows of 13 (positions 1--13, 14--26, 27--39, 40--52, so the top half is the first two rows), or follow one card with the rule above instead of shuffling the deck.\\
 \hints (1) ``Where does the card in position 2 go? Position 3?'' (2) ``Find a rule for where a card in the top half goes.'' (3) ``Follow one card until it comes back. Is every card back by then?''
 
 % ============================================================================================

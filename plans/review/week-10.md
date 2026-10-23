@@ -39,6 +39,8 @@ Towns are connected multigraphs. Euler's theorem: a walk over every bridge once 
 4. **could**, 2–3 p. 8: the H town ending P5 sits directly above "Problem 6:", so a child given p. 8 alone may read it as P6's town; start P6 on a fresh page.
 5. **could**, source README: `plans/fall-forecast-2026-10-03.md` is not in the repository; link `LOCAL-RESOURCES.md#private-records` as the top README does.
 
+October 23, 2026: fixes 1, 2, 3 and 5 are done in the guide and source README, the return-visit guide's open-walk sentence (math check item 3) is corrected, and the guide notes that the H town on 2–3 p. 8 belongs to Problem 5; moving Problem 6 to a fresh page (fix 4) is deferred to the problem-file conversion.
+
 ## Overlaps
 
 Week 2 (lamps) shares the parity step: a press flips both ends of a wire as an extra counter does at both ends of a bridge, and its T-joins are 4–5 P10's repeated-bridge sets; its theorem is linear algebra over F₂. Week 39 walks similar maps for another theorem; Week 56 shares only Euler's name. No merge.

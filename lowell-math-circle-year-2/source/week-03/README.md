@@ -1,11 +1,13 @@
 # Week 3: Shuffle machines
 
-Concrete revision of October 3, 2026: F03-K-v5 / F03-M-v5 / F03-U-v5, adult guide F03-FAC-v5. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 ([forecast and pivot](../../../plans/fall-forecast-2026-10-03.md)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
+Concrete revision of October 3, 2026: F03-K-v5 / F03-M-v5 / F03-U-v5, adult guide F03-FAC-v5. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 (the October 3 forecast and pivot, a private record: see [LOCAL-RESOURCES.md](../../../LOCAL-RESOURCES.md#private-records)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
 
 - [K–1](../../week-03/week-03-k-1.pdf) — 10 pages.
 - [Grades 2–3](../../week-03/week-03-grades-2-3.pdf) — 11 pages.
 - [Grades 4–5](../../week-03/week-03-grades-4-5.pdf) — 8 pages.
-- [Adult guide](../../week-03/week-03-facilitator.pdf) — 10 pages: materials and counts, launch, pairing, answers, hints, and what to record.
+- [Adult guide](../../week-03/week-03-facilitator.pdf) — 11 pages: materials and counts, launch, pairing, answers, hints, and what to record.
+
+October 23, 2026: guide-only corrections from the [review card](../../../plans/review/week-03.md). The floor launch is now one loop, chairs 1 → 2 → 3 → 1, with chairs 4 and 5 on straight arrows, home after 3 switches, so it no longer shows the result that machines can take more turns than they have slots. Spare test mats are K–1 page 10 (no problem text), for 4- and 5-slot machines only; larger machines are traced with a finger. Section 1 now states the facts children can reach, the 4–5 referee may trace loops, and 4–5 Problem 10 lays 52 cards in four rows of 13. `guide-src/check_answers.py` checks the new launch. Student packets are unchanged; the previous guide is in `week-03/archive-before-card-fixes-2026-10-23/`.
 
 Permutations as printed arrow mats. One turn moves every object down its own arrow, then the bottom row slides straight up, so the mat enforces the rule that the old letter-key version left in children's heads. Children count turns until everything is home, find loops, build machines with chosen return times, undo and combine machines, and (grades 4–5) treat perfect card shuffles as machines.
 

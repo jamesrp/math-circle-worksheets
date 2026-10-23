@@ -41,6 +41,8 @@ A machine is a permutation of n slots. Following arrows from any slot returns to
 7. **could**, guide p. 9, 4–5 P10: "laid out in a row" (P5) does not fit 52 cards; suggest four rows of 13, or following one card.
 8. **could**, source README: the link to plans/fall-forecast-2026-10-03.md points to no file.
 
+October 23, 2026: fixes 1, 2, 3, 6 and 7 are done in the guide and the README link of 8 in the source README; the student-page fixes 4 and 5 are deferred to the problem-file conversion.
+
 ## Overlaps
 
 Week 43 shuffles the same cups toward fairness; its card says no merge. K–1 P5 is Week 63's "exactly n − 1 at home is impossible", but Week 63's theorem is inclusion–exclusion. Week 4's hop-k wheel is one rotation machine with gcd(n, k) loops, and its Caesar shifts compose and invert as in 4–5 P6–P7. Week 39 has ab ≠ ba in words. The app's Cup swaps uses the same loops for the fewest swaps (n − c), not return time. Week 17's "machines" are automata, a shared name only. No other theme has return time as an lcm: no merge.
