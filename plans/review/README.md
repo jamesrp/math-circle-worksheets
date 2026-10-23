@@ -2,6 +2,8 @@
 
 One card per theme says whether the theme is good enough to keep as it is, and what to do with it if not. A theme is ported to the app only after its card exists ([the plan](https://github.com/jamesrp/small-math-adventure/tree/main/docs/plan), Track C). Cards live here as `week-NN.md`, each with its correctness check as `week-NN-math.md`.
 
+Every decision the October 23 revisions left for the organizer (re-approvals, substance changes, new content and untouched weeks) is on one page: [ORGANIZER-QUEUE.md](ORGANIZER-QUEUE.md).
+
 ## What a card says
 
 A card follows [TEMPLATE.md](TEMPLATE.md): a verdict, the mathematics in a few sentences, nine ratings with evidence, what to keep, a located fix list, overlaps with other themes, the app fit, and what children actually did.
