@@ -89,7 +89,8 @@ if (folder / 'week-99-grades-2-3.pdf').exists():
     check(both.count('A delivery carries one counter straight to an unfilled target place.') == 2, 'Problem 3 delivery wording (both bands)')
     check('If deliveries tie' not in t23, '2-3 Problem 3: tie sentence cut')
     check('to test your way' not in t45, '4-5 Problem 5: "Make a start and target ... to test your way" cut')
-    check('W99-23-v2' in t23 and 'W99-45-v2' in t45 and 'W99-FAC-v2' in tg, 'footers read v2')
+    check('W99-23-v2' in t23 and ('W99-45-v2' in t45 or 'W99-45-v3' in t45) and ('W99-FAC-v2' in tg or 'W99-FAC-v3' in tg),
+          'footers read v2 (Grades 4-5 and the guide v3 after the critic coulds)')
     for phrase in ('K–1 route, adult-led', 'week-99-materials.pdf', 'In every printed pair the best matching is unique',
                    'A short reason no pair needs more than 8', 'First route: Problems 1–3 in both bands', 'The record is 0 → 1, 2 → 3'):
         check(phrase in tg, f'guide says: {phrase}')

@@ -48,6 +48,8 @@ A person knows something when every remaining possibility that fits their privat
 
 Fixed October 23, 2026 (packet W84-PK-draft-v3, problem files): the must, shoulds 2–9 and coulds 10–14. Problem 3 reads "in which each doll gives the same reply in round 1"; the deal boxes grew 7 cm, the space the page had.
 
+**Critic M coulds, October 23, 2026.** From an independent critic's review: the K–1 route on guide p. 2 gives a time, about 10–15 minutes (could 2; the guide footer has no version id). Could 1, Problem 3's grouping sentence, is left: every reading gives the key's answer. The replaced PDFs and ZIP are in the `archive-before-critic-m-fixes-2026-10-23/` folders; checked by `plans/review/checks/critic-m/check_critic_m.py`. Unpiloted.
+
 ## Overlaps
 
 Weeks 5, 6, 45 and 94 also keep the possibilities that fit clues, answers or reports, but none has private views or public announcements. No merge; this fits after Week 5 or 45.

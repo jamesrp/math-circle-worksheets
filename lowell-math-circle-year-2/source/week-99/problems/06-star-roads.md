@@ -174,6 +174,7 @@ Move counters along the roads. One counter crossing one road costs 1. Find the l
 \node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.49,4.96) {O};
 \node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (0.75,3.64) {work: \rule{.6in}{.4pt}};
 \draw[black!35,line width=.45pt,] (2.3,3.54) -- (7.65,3.54);
+\node[anchor=north west,inner sep=0pt,align=left,text width=2.5in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (0.75,3.26) {Extra workspace};
 \node[anchor=north west,inner sep=0pt,align=center,text width=2.5in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (1.0,2.88) {start};
 \node[anchor=north west,inner sep=0pt,align=center,text width=2.5in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (4.9,2.88) {target picture};
 \draw[black!50,line width=.45pt,] (2.25,1.94) -- (1.3900000000000001,2.39);

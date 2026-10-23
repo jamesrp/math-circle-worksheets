@@ -4,6 +4,8 @@ Release date: October 17, 2026. **Prepared for organizer review; unpiloted.** To
 
 **October 23, 2026.** The review card's fixes made the v2 packets and guide and the new `week-99-materials.pdf` (see README.md); `checks/card_fixes_2026_10_23.py` checks the new claims and wording and runs `materials/check_materials.py`. Still unpiloted and physically unrehearsed.
 
+**Critic coulds, later October 23, 2026.** The guide's "Readiness and discovery" says K–1 has an adult-led route on page 2 (W99-FAC-v3), and Grades 4–5 Problem 5 labels its third, blank star pair "Extra workspace" (W99-45-v3); Grades 2–3, the mats and every other page are unchanged. `plans/review/checks/critic-m/check_critic_m.py` checks both against the archived copies; a clean rebuild from the extracted ZIP reproduces every print page.
+
 ## Exact coverage
 
 6 pages for Grades 2–3; 6 pages for Grades 4–5; 6-page facilitator guide; 2 landscape pages of mats (since October 23, 2026). Each output has a matching current reference copy. Grade labels are approximate prerequisites; no K–1 packet is claimed. Read the guide's entry requirements and first-visit route before choosing pages.

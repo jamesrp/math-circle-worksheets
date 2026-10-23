@@ -51,6 +51,8 @@ A move carries one counter across one gap between bins. Each gap's net traffic i
 
 Fixed October 23, 2026: shoulds 1–5 and coulds 6–11 and 14, in the problem files, the guide and a new week-99-materials.pdf (W99-23-v2, W99-45-v2, W99-FAC-v2, W99-MAT-v1); coulds 12 and 13 deferred.
 
+**Critic M coulds, October 23, 2026.** From an independent critic's review: guide p. 1 says K–1 has an adult-led route on page 2 in place of "No K–1 coverage … is implied" (W99-FAC-v3), and Grades 4–5 Problem 5 labels its third, blank star pair "Extra workspace" (W99-45-v3). The replaced PDFs and ZIP are in the `archive-before-critic-m-fixes-2026-10-23/` folders; checked by `plans/review/checks/critic-m/check_critic_m.py`. Unpiloted.
+
 ## Overlaps
 
 Week 2's return visit (exchanges on a line) is a capacity-one relative. Week 13 shares the two-sided certificate, Week 53 the cut, Week 47 the dual (landscapes), Week 89 the prefix sums, Week 100 the triangle rule. No merge.
