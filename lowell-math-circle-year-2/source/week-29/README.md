@@ -1,5 +1,18 @@
 # Week 29 Two-length builders editable source — current editable source
 
+**Problem files, October 23, 2026.** The student packets are stored as [problem files](../problem-files/README.md): `week.toml`, `figures.py` (the old builder's drawing code and page template) and one file per problem in `problems/`, with each band's wording inside it. The conversion changed no wording or figure. The three print PDFs rebuild with the same pages, extracted text and 100-dpi pixels, and the rebuilt LaTeX matches the old builder's byte for byte. The previous builder (`make_packets.py`, `draw.py`) and the ZIP it replaced are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
+
+- **Student pages:** edit `problems/*.md` (figures and the page template in `figures.py`), then build every view:
+
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-29 --out tmp/week-29-views --tex --publish lowell-math-circle-year-2/band-views/week-29
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-29-views lowell-math-circle-year-2/week-29 week-29
+  ```
+
+  The print copies in [../../week-29/](../../week-29/) and `editable/reference-pdfs/` come from the package build below, whose student pages are these same packets. The first-route and return packets, the one-page problem menu and the key arranged by problem are published in [band-views/week-29/](../../band-views/README.md#weeks-stored-as-problem-files).
+- **Adult guide:** its source is still `editable/facilitator-src/guide.json`, built by the package. Each problem file's `key` repeats the main answer from the guide page it names, and `guide/overview.tex` repeats the guide's first page; `python3 lowell-math-circle-year-2/source/week-29/check_guide_copy.py` checks that every copied sentence is still in the guide source. Change both together.
+- **Portable package:** `editable/` is the package. `editable/student-src/regenerate.py` writes and compiles the student LaTeX from the problem files; the package's `build.py` runs it. The [portable source ZIP](two-length-builders-week29-editable-source.zip) holds the package plus the problem files and tools in `problem-files/`, written by `package.py` (see the problem-files README). Rebuild it after any change and check a clean rebuild from the extracted ZIP with its `build.py` and `verify_revision.py`.
+
 The [portable base source ZIP](two-length-builders-week29-editable-source.zip) and [complete extracted package](editable/README.md) contain the current **October 4, 2026 fresh-review revision** with the **October 23, 2026 guide corrections** from the review card (`editable/review/card-fixes-2026-10-23.md`); only the adult guide changed. Current print copies are in [../../week-29/](../../week-29/). References are exact duplicates of those print PDFs.
 
 Read `editable/README.md` for dependencies and commands. Copy the complete package to a fresh folder under the project's `tmp/` before rebuilding; keep intermediates out of current print/source folders. `verify_revision.py` checks current pages and permits only specifically audited full-page alternate hashes for pre-existing font/hyphenation differences in unchanged student packets; the original strict verifier remains available. Every changed packet and guide reproduces exact 100-dpi pixels from the extracted ZIP.
