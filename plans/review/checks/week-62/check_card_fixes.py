@@ -187,7 +187,8 @@ ok(len(dashed) == 12 and diam == {16.0}, 'materials: each header has a 16 mm key
 ok(3 * 3 >= 6 + 1, 'three sheets give 9 kits for the 6 working kits and 1 spare ("nine kits for the seven needed")')
 
 # ---------------------------------------------------------------------- guide
-G_OLD, G_NEW = 'W62-FAC-v1', 'W62-FAC-v2'
+G_OLD = 'W62-FAC-v1'
+G_NEW = next(f for f in ('W62-FAC-v3', 'W62-FAC-v2') if f in flat(NEW_G[0]))  # v3 since the roster-label fix (p. 2 only)
 ok(len(NEW_G) == 10, 'guide still has 10 pages, each section on its own page')
 for i, p in enumerate(NEW_G, 1):
     ok(f'Bellingham Math Circle / Week 62 / {G_NEW}' in flat(p), f'guide p. {i} footer {G_NEW}')

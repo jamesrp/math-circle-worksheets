@@ -1,6 +1,6 @@
 # Week 54 facilitator guide
 
-Since the October 23, 2026 card fixes the guide is W54-FAC-v2 and the student packet W54-S-v2; the rest of this paragraph describes the original. Original adult guide for the final combined student packet W54-S-v1 (9 pages): Grades 2–5 on student pp. 1–5, Grades 4–5 on pp. 6–9. The guide is W54-FAC-v1, 8 US Letter pages. It is an unpiloted adaptation; all physical pretests are unperformed. K–1 has no packet of its own; since October 23, 2026 the guide gives an adult-led K–1 route through student pp. 1–3 with two 12-cube kits (guide p. 2).
+Since the October 23, 2026 card fixes the guide is W54-FAC-v2 and the student packet W54-S-v2; the rest of this paragraph describes the original. Original adult guide for the final combined student packet W54-S-v1 (9 pages): Grades 2–5 on student pp. 1–5, Grades 4–5 on pp. 6–9. The guide is W54-FAC-v1, 8 US Letter pages. It is an unpiloted adaptation; all physical pretests are unperformed. K–1 has no packet of its own; since October 23, 2026 the guide gives an adult-led K–1 route through student pp. 1–3 with two 12-cube kits (guide p. 2). Later on October 23 the guide became W54-FAC-v3: it names the fixed tables "K–1, 2–3 and 4–5" where it printed the roster code "KK11, 3333 and 445" (K, K, 1, 1 / four third graders / 4, 4, 5); W54-FAC-v2 is in `archive-before-roster-label-fix-2026-10-23/` beside the print copy.
 
 Build from any location:
 

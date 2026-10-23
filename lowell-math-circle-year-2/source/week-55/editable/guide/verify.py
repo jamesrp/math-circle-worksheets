@@ -176,7 +176,7 @@ def fingerprint(pdf, render=None):
         assert tuple(page.rect)==(0.0,0.0,612.0,792.0)
         text=page.get_text()
         assert markers[i] in text,(i+1,markers[i],text[:500])
-        assert 'W55-F-v2' in text
+        assert 'W55-F-v3' in text
         for block in page.get_text('dict')['blocks']:
             if 'lines' not in block:
                 continue

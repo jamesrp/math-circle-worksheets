@@ -67,7 +67,7 @@ check(len(dots) == 27 and grey and not late, f'p8: {len(dots)} dots and {len(gre
 
 g = ' '.join(subprocess.run(['pdftotext', str(WEEK / 'week-55-facilitator.pdf'), '-'], capture_output=True, text=True, check=True).stdout.split())
 g = re.sub(r'(?<=[a-z])- (?=[a-z])', '', g)
-check(fitz.open(WEEK / 'week-55-facilitator.pdf').page_count == 9 and g.count('W55-F-v2') == 9, 'guide: 9 pages, footer W55-F-v2')
+check(fitz.open(WEEK / 'week-55-facilitator.pdf').page_count == 9 and max(g.count('W55-F-v2'), g.count('W55-F-v3')) == 9, 'guide: 9 pages, footer W55-F-v2 (v3 after the roster-label fix)')
 for s in ['An adult-led route on student pages 1–3 uses dot cards', 'K–1 route, adult-led, on student pages 1–3', '28 dot cards and 40 more counters',
           'cards 0–6 showing the numeral and that many dots', '1, 3, 5 (three places; 2 + 1 and 0 + 3 both land on 3), then 1, 3, 4, 6 (four)',
           'choose three A cards and three B cards that land on as few places as you can', 'Five is the fewest',

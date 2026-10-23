@@ -1,6 +1,6 @@
 # Week 55 facilitator source
 
-Since the October 23, 2026 card fixes the guide is W55-F-v2 and the student packet W55-S-v3. This is the separately authored facilitator guide W55-F-v1 for the final ten-page Grades 3–5 student packet W55-S-v2. It supplies the exact mathematical overview, concrete setup/launch, fixed-table staffing and print counts, readiness gates, complete keys, arbitrary-size proofs, return visits and evidence-scoped provenance. It contains no student edits or borrowed worksheet prose/figures. Physical kit-fit pretests, handling rehearsal, launch rehearsal and classroom piloting have not been performed.
+Since the October 23, 2026 card fixes the guide is W55-F-v2 and the student packet W55-S-v3. This is the separately authored facilitator guide W55-F-v1 for the final ten-page Grades 3–5 student packet W55-S-v2. It supplies the exact mathematical overview, concrete setup/launch, fixed-table staffing and print counts, readiness gates, complete keys, arbitrary-size proofs, return visits and evidence-scoped provenance. It contains no student edits or borrowed worksheet prose/figures. Physical kit-fit pretests, handling rehearsal, launch rehearsal and classroom piloting have not been performed. Later on October 23 the guide became W55-F-v3: it names the fixed tables "K–1 / 2–3 / 4–5" where it printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5); W55-F-v2 is in `archive-before-roster-label-fix-2026-10-23/` beside the print copy.
 
 ## Build anywhere
 

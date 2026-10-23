@@ -223,7 +223,7 @@ def pdf_checks(pdf,qa,rebuild):
         assert abs(p.rect.width-612)<.01 and abs(p.rect.height-792)<.01
         text=p.get_text()
         assert 'Week 57 / Area from dots / Adult guide' in text
-        assert 'Bellingham Math Circle / Week 57 / W57-FAC-v2' in text
+        assert 'Bellingham Math Circle / Week 57 / W57-FAC-v3' in text
         for block in p.get_text('dict')['blocks']:
             if 'lines' not in block:continue
             x0,y0,x1,y1=block['bbox'];assert 15<=x0 and x1<=600 and 15<=y0 and y1<=780,(n+1,block)

@@ -1,6 +1,6 @@
 # Week 62 independently authored adult guide
 
-The guide is for the actual final nine-page `students.pdf`: Problems 1–3 are headed Grades 2–5, and Problems 4–9 Grades 4–5. It does not change the student packet. Current staffing is eleven children at KK11 / 3333 / 445 fixed tables, with three anchored adults. The younger entry is optional and shallow, with a familiar accepted activity available when children do not retain endpoint conflicts.
+The guide is for the actual final nine-page `students.pdf`: Problems 1–3 are headed Grades 2–5, and Problems 4–9 Grades 4–5. It does not change the student packet. Current staffing is eleven children at KK11 / 3333 / 445 fixed tables, with three anchored adults. The younger entry is optional and shallow, with a familiar accepted activity available when children do not retain endpoint conflicts. Later on October 23 the guide became W62-FAC-v3: it names the fixed tables "K–1 / 2–3 / 4–5" where it printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5); W62-FAC-v2 is in `archive-before-roster-label-fix-2026-10-23/` beside the print copy.
 
 The ten-page guide opens with the actual scheduling/coloring facts and their assumptions, then preparation, a common concrete launch, routes, all solutions, hints, optional extensions, and exact source references. No completion requirement is tied to one hour. Physical handling, kit preparation time and classroom piloting remain untested. A fresh reviewer must inspect the guide before release.
 

@@ -1,6 +1,6 @@
 # Week 57 facilitator guide source
 
-**October 23, 2026 card fixes** (`W57-FAC-v2`, with student packet `N57-S-final-v3`):
+**October 23, 2026 card fixes** (`W57-FAC-v2`, with student packet `N57-S-final-v3`): Later on October 23 the guide became W57-FAC-v3: it names the fixed tables "K–1, 2–3 and 4–5" where it printed the roster code "KK11, 3333 and 445" (K, K, 1, 1 / four third graders / 4, 4, 5); W57-FAC-v2 is in `archive-before-roster-label-fix-2026-10-23/` beside the print copy.
 an adult-led K–1 route with four or five squares on p. 3 and a plain-words key; P7
 does not accept "each value is the area"; the joining limits on p. 1 say a seam of
 consecutive sides works; the kit pieces come from `week-57-materials.pdf`, with a

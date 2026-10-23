@@ -104,7 +104,7 @@ check('60 squares, each 20 mm' in mt[0] and '120 halves' in mt[1], 'materials: 6
 
 g = ' '.join(subprocess.run(['pdftotext', str(WEEK / 'week-57-facilitator.pdf'), '-'], capture_output=True, text=True, check=True).stdout.split())
 g = re.sub(r'(?<=[a-z])- (?=[a-z])', '', g)
-check(fitz.open(WEEK / 'week-57-facilitator.pdf').page_count == 10 and g.count('W57-FAC-v2') == 10, 'guide: 10 pages, footer W57-FAC-v2')
+check(fitz.open(WEEK / 'week-57-facilitator.pdf').page_count == 10 and max(g.count('W57-FAC-v2'), g.count('W57-FAC-v3')) == 10, 'guide: 10 pages, footer W57-FAC-v2 (v3 after the roster-label fix)')
 for s in ['contact in two or more separate places, overlaps, pinches and closed seams do not satisfy this claim. A seam made of several consecutive sides does',
           'K–1 has an adult-led route with four or five squares on the existing grids (p. 3)',
           'Younger: the K–1 four-square route below, with the parent.',

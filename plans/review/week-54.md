@@ -46,6 +46,8 @@ A collection is a partition: unordered strips adding to a total. Joining equal p
 
 October 23, 2026: shoulds 1–3 and coulds 4–8 and 10 fixed, after storing the week as problem files; the K–1 route is guide-only (headers unchanged), and could 9's printed (6, 6, 1) case is deferred, with the contrast given aloud in the guide. Checked by `source/week-54/editable/review/`. Footers: student W54-S-v2, guide W54-FAC-v2.
 
+**Roster labels, October 23, 2026.** The guide (p. 2) printed the roster code "KK11, 3333 and 445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1, 2–3 and 4–5" (W54-FAC-v3; W54-FAC-v2 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
+
 ## Overlaps
 
 Week 38 lists the partitions of four in passing. Week 30 shares the uniqueness of a power representation behind P6, but in base 3. Week 12 is the other bijection theme, on Catalan objects. None takes partitions or Euler's theorem as its object. No merge.

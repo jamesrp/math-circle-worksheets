@@ -81,7 +81,7 @@ check(ok and sizes == {(0.22, 0.22)}, f'P7: six answer grids of 5 x 5 cells, 0.2
 
 g = ' '.join(subprocess.run(['pdftotext', str(WEEK / 'week-54-facilitator.pdf'), '-'], capture_output=True, text=True, check=True).stdout.split())
 g = re.sub(r'(?<=[a-z])- (?=[a-z])', '', g)
-check(fitz.open(WEEK / 'week-54-facilitator.pdf').page_count == 8 and g.count('W54-FAC-v2') == 8, 'guide: 8 pages, footer W54-FAC-v2')
+check(fitz.open(WEEK / 'week-54-facilitator.pdf').page_count == 8 and max(g.count('W54-FAC-v2'), g.count('W54-FAC-v3')) == 8, 'guide: 8 pages, footer W54-FAC-v2 (v3 after the roster-label fix)')
 for s in ['K–1 has no packet of its own: an adult-led route uses the cubes on student pp. 1–3', 'K–1 route, adult-led, on student pp. 1–3',
           'Five collections: one strip of 4; 3 and 1; 2 and 2; 2, 1 and 1; four 1s', 'end as an 8 and a 1',
           'Four collections use only odd strips: 5 and 1; 3 and 3; 3, 1, 1 and 1; six 1s', 'Two kits of 12 linking cubes', '108 cubes',

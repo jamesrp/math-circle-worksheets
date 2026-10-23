@@ -45,6 +45,8 @@ Two finite sets of whole numbers have at least m + n − 1 and at most mn differ
 
 October 23, 2026: shoulds 1–2 and coulds 3 and 6–8 fixed, after storing the week as problem files (could 8 by replacing the tiling kit with the K–1 route's dot cards); the K–1 route is guide-only (headers unchanged), and coulds 4–5 are deferred, with both variants given aloud in the guide. Checked by `source/week-55/editable/review/`. Footers: student W55-S-v3, guide W55-F-v2.
 
+**Roster labels, October 23, 2026.** The guide (p. 2) printed the roster code "KK11 / 3333 / 445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1 / 2–3 / 4–5" (W55-F-v3; W55-F-v2 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
+
 ## Overlaps
 
 Week 52's fewest braces for an m by n frame are also m + n − 1. Week 50's staircases are P8's routes. Week 51 adds measurement ranges, the interval form of A + B. Weeks 29 and 30 build totals from rods and weights. None has the inverse theorem. No merge.

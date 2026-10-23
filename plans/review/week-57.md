@@ -50,6 +50,8 @@ The objects are simple lattice polygons, with I dots inside and B dots on the ou
 
 October 23, 2026: shoulds 1–6 and coulds 7–11 fixed, after storing the week as problem files (student N57-S-final-v3, guide W57-FAC-v2, new materials pages N57-M-v1); the K–1 route is guide-only (headers unchanged). Checked by `source/week-57/editable/review/`.
 
+**Roster labels, October 23, 2026.** The guide (p. 2) printed the roster code "KK11, 3333 and 445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1, 2–3 and 4–5" (W57-FAC-v3; W57-FAC-v2 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
+
 ## Overlaps
 
 Week 26 is the case of shapes built from squares. There B is the perimeter, so Pick gives P = 2n + 2 − 2I, which is Week 26's tree maximum at I = 0. Neither absorbs the other, but the guide should name the bridge. Week 31's bonus states Pick only in its guide and can point here. Weeks 48 and 14 complement this week.
