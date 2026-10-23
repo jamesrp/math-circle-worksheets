@@ -2,6 +2,8 @@
 
 **Problem files, October 23, 2026.** The student packets are stored as [problem files](../problem-files/README.md): `week.toml`, `figures.py` (the old builder's drawing code; the pages use the house canvas template) and one file per problem in `problems/`, with each band's wording inside it. The conversion changed no wording or figure: the rebuilt LaTeX is byte-identical to the old builder's, the three PDFs are pixel-identical to the old builder's compiled on the same machine, and against the print PDFs `compare.py` finds identical pages and text, with the same 0, 48 and 21 differing pixels at most per page (K–1, 2–3, 4–5) that the old builder itself gives there. The previous builder (`make.py`, `draw.py`, `examples.py`) and the ZIP it came in are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 
+**Critic follow-up, October 23, 2026 (v5).** An independent critic noted that Grades 2–3 and 4–5 Problem 2 printed exactly three record rows for a starred marker with exactly three possible heights, which gave the count away. Problem 2 now has five rows (packets F47-K-v5, F47-23-v5, F47-45-v5; K–1 changed only in its footer), the guide's key no longer says "one per row", and hyphenation is off on the student pages (`figures.py`'s `page_preamble`), so "pre-vents" no longer breaks in Problem 4. `plans/review/checks/week-47/check_critic_fixes.py` checks it. The v4 PDFs and ZIP are in `archive-before-critic-fixes-2026-10-23/` folders.
+
 - **Student pages:** edit `problems/*.md` (figures in `figures.py`), then build every view:
 
   ```sh

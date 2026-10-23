@@ -16,4 +16,4 @@ Which heights can the starred marker have? Make a landscape for each possible he
 board(40,50,5,4,{0:0,4:2},2)
 
 ## figure
-board(18,50,5,4,{0:0,4:2},2)+record_rows(120,50,[0,None,None,None,2],3)
+board(18,50,5,4,{0:0,4:2},2)+record_rows(120,34,[0,None,None,None,2],5,gap=21)

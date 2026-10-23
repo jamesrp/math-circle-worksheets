@@ -1,6 +1,8 @@
 # Week 47 Gentle step landscapes editable source
 
-## Current release: October 23, 2026 card fixes (v4)
+## Current release: October 23, 2026 card fixes (v4) and critic follow-up (v5)
+
+**Critic follow-up, October 23, 2026 (v5).** Grades 2–3 and 4–5 Problem 2 print five record rows instead of three, so the rows no longer give away that the starred marker has exactly three heights; the guide's key says two rows stay empty. Hyphenation is off on the student pages (`figures.py`'s `page_preamble`), so no word breaks across lines. `review/verify_card_shoulds_2026_10_23.py` checks the v5 build.
 
 The [review card](../../../../plans/review/week-47.md)'s fixes, made in the problem files and the guide: Grades 2–3 and 4–5 Problems 1 and 2 have small record rows with the clues printed beside their boards; K–1 Problem 7 has its own page with an empty five-site board; Grades 4–5 Problem 6 asks children to shade the allowed heights on a one-clue board and a two-clue board, and Problem 7 moves to a page of its own with a board; "jump too big" joins the page 1 rules strip, the rules name shaded boxes as clues, Grades 2–3 Problem 5 says "smallest total height" and Grades 4–5 Problem 5 asks whether one landscape is lowest everywhere. The guide (now overview, preparation, two key pages and the route page) states the envelope claim's hypothesis and the move fact, gives each child 7 white and 3 black counters, has K–1 partners check each move, keys the new boards, names the only forcing pairs and plans the hour from the five-minute run. `python3 review/verify_card_shoulds_2026_10_23.py` checks every changed claim and count against `reference-pdfs/`. Unpiloted; physically unrehearsed.
 

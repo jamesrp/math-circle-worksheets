@@ -102,10 +102,10 @@ for name, doc, tag in (('K-1', k1, 'K'), ('2-3', b23, '23'), ('4-5', b45, '45'))
     numbers = []
     for i, p in enumerate(doc):
         t = text(p)
-        assert f'Bellingham Math Circle / Week 47 / F47-{tag}-v4' in t, (name, i)
+        assert f'Bellingham Math Circle / Week 47 / F47-{tag}-v5' in t, (name, i)   # v5: critic follow-up
         numbers += [int(n) for n in re.findall(r'Problem (\d+):', t)]
     assert numbers == list(range(1, 8)), (name, numbers)
-checks.append('packets: K-1 6 pages, Grades 2-3 5, Grades 4-5 6, guide 5; footers F47-*-v4; Problems 1-7 in order')
+checks.append('packets: K-1 6 pages, Grades 2-3 5, Grades 4-5 6, guide 5; footers F47-*-v5; Problems 1-7 in order')
 
 # --- Should 1: record rows for Grades 2-3 and 4-5 Problems 1 and 2 ------------------------
 p1 = completions(5, {0: 1, 4: 1})
@@ -115,10 +115,10 @@ assert sorted({h[2] for h in p2}) == [0, 1, 2]
 for doc in (b23, b45):
     s1, s2 = boxes(doc[0], True), boxes(doc[1], True)
     assert [b[3] for b in s1] == ['1'] * 8 and len(boxes(doc[0], False)) == 12, s1   # four rows 1 _ _ _ 1
-    assert [b[3] for b in s2][:6] == ['0', '2'] * 3 and all(b[2] == 11 for b in s2[:6]), s2   # three rows 0 _ _ _ 2
+    assert [b[3] for b in s2][:10] == ['0', '2'] * 5 and all(b[2] == 11 for b in s2[:10]), s2   # five rows 0 _ _ _ 2 (v5; three in v4)
     assert 'Problem 3' in text(doc[1])                      # P3 keeps its place on page 2
 checks.append('should 1: Grades 2-3 and 4-5 p. 1 print four rows 1 _ _ _ 1 beside the Problem 1 board (18 landscapes '
-              'exist, middle 0-3), p. 2 three rows 0 _ _ _ 2 beside the Problem 2 board (star heights exactly 0, 1, '
+              'exist, middle 0-3), p. 2 five rows 0 _ _ _ 2 (three in v4) beside the Problem 2 board (star heights exactly 0, 1, '
               '2); Problem 3 stays on p. 2')
 
 # --- Should 2: K-1 Problem 7 has its own empty board, levels 0-4 ----------------------------

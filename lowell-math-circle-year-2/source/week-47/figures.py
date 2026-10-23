@@ -7,6 +7,14 @@ files call these functions by name in their `figure` sections; the wording lives
 the problem files.
 """
 from canvas import text, label, line, rect, circle
+import canvas
+
+
+def page_preamble(week, topic, header_band, footer_id):
+    """The house page template with hyphenation turned off (critic follow-up, October 23,
+    2026: words such as "pre-vents" broke across lines), as Week 40 does."""
+    return canvas.page_preamble(week, topic, header_band, footer_id).replace(
+        '\\begin{document}', '\\hyphenpenalty=10000\\exhyphenpenalty=10000\n\\begin{document}')
 
 
 def board(x, y, n=7, H=5, clues=None, star=None, dx=22, dy=20):

@@ -1,0 +1,3 @@
+# Week 47 print copies before the October 23, 2026 critic follow-up
+
+The v4 student packets (F47-K-v4, F47-23-v4, F47-45-v4) and the guide that named them, replaced the same day by v5. An independent critic noted that Grades 2–3 and 4–5 Problem 2 printed exactly three record rows for a marker with exactly three possible heights, which gave the count away; v5 prints five rows, and the guide no longer says "one per row". Hyphenation is also turned off on the student pages ("pre-vents" broke in Problem 4). Nothing else changed. The current copies are in [../](../). Kept for reference; do not print them.
