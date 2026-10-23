@@ -46,6 +46,8 @@ A move removes one counter and may refill only buckets to its left. The second p
 
 October 23, 2026: shoulds 1–4 and coulds 5–11 fixed in v2 (W81-S-v2), after the organizer's October 17 approval; the K–1 route is a guide paragraph on the existing cards. Checks in the package's `check_card_fixes.py`.
 
+**Critic follow-up, October 23, 2026 (W81-S-v3, W81-FAC-v2):** an independent critic's two shoulds and a could are made. The K–1 rule read aloud is now "Take one. If you took it from bucket 2, you may put one in bucket 1." (the old "You may put one in bucket 1." allowed taking from bucket 1 and putting it back, so a game need not end); `editable/check_card_fixes.py` solves the nine cards under the new rule and the key stands. The guide's footer reads W81-FAC-v2. Problem 5's (0, 3) is drawn like (1, 1, 1). The band-view menu and a K–1 slice list pages 2–3. Not re-approved. Unpiloted.
+
 ## Overlaps
 
 Weeks 7 and 8 share the game frame (second-player starts by working back) but not this invariant. Week 11 shares termination by a decreasing measure. Week 79's card names the same quantifier swap. No merge; Weeks 79–81 make a return sequence.

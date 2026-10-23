@@ -26,3 +26,5 @@ Organizer promotion: October 17, 2026. Status/metadata only; accepted student an
 - Student packet: 5 pages; guide: 4 pages. Every changed page was rendered at 80 dpi and inspected: student pp. 1, 4 and 5 and all four guide pages. Pages 2–3 differ from draft-v1 only in the footer id.
 - The portable ZIP was extracted into an empty folder and rebuilt: both PDFs match the installed copies in pages, text and 100-dpi pixels.
 - Unpiloted; the (0, 3) start and the K–1 route are unrehearsed.
+
+Critic follow-up, October 23, 2026 (W81-S-v3, W81-FAC-v2): the guide's K–1 rule no longer allows a do-nothing move, checked by solving the nine K–1 cards under the rule as read; the guide's footer carries a version id; Problem 5's (0, 3) picture matches (1, 1, 1)'s style. A clean build from the extracted ZIP matches the print copies. Unpiloted.

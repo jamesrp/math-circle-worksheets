@@ -88,18 +88,42 @@ p1, p3 = three[:4], three[4:10]
 check('P3 starts are (2,0,2), (1,2,2), (2,1,2), (2,2,1), (0,2,0), (3,3,1) and repeat no P1 start',
       p3 == [(2, 0, 2), (1, 2, 2), (2, 1, 2), (2, 2, 1), (0, 2, 0), (3, 3, 1)] and not set(p1) & set(p3))
 check('P3 key: (2,0,2) and (0,2,0) are the second-player wins', [s for s in p3 if not first_wins(s, 1)] == [(2, 0, 2), (0, 2, 0)])
-check('P5 pictures: (0, 3) drawn like P4 beside (1, 1, 1)',
-      tex.count(r'\dotsbucket{0}{0}{0}{1}\dotsbucket{2}{0}{3}{2}') == 1 and three[10:] == [(1, 1, 1)]
-      and tex.index(r'\problem{5}') < tex.index(r'\dotsbucket{2}{0}{3}{2}'))
+check('P5 pictures: (0, 3) drawn in the P1-P3 style beside (1, 1, 1) (critic follow-up; it had been drawn like P4)',
+      tex.count(r'\foreach \x/\count in {0/0,1.3/3}') == 1 and three[10:] == [(1, 1, 1)]
+      and tex.index(r'\problem{5}') < tex.index(r'\foreach \x/\count in {0/0,1.3/3}')
+      and r'\dotsbucket' not in tex[tex.index(r'\problem{5}'):])
 check('P5 says "Start from each picture." and no longer presumes the answer',
       'Start from each picture.' in tex and 'however big the refills, explain why.' in tex
       and 'cannot prevent it' not in tex)
 check('p. 1 names the left side one way', 'to each bucket to the left of the one you took from' in tex
       and 'each earlier bucket' not in tex)
 footer = re.search(r'\\fancyfoot\[L\]\{[^\n]*', tex).group(0)
-check('footer W81-S-v2, no "draft"', footer.endswith('/ W81-S-v2}') and 'draft' not in footer)
+check('footer W81-S-v3, no "draft"', footer.endswith('/ W81-S-v3}') and 'draft' not in footer)
 check('five problems, four page breaks', re.findall(r'\\problem\{(\d+)\}', tex) == ['1', '2', '3', '4', '5']
       and tex.count(r'\newpage') == 4)
+
+# Critic follow-up, October 23, 2026: the K-1 rule as read aloud. "Take one. If you took it
+# from bucket 2, you may put one in bucket 1." on buckets 1 and 2 is exactly the cap-1 move on
+# two buckets; the earlier wording "Take one. You may put one in bucket 1." also let a child take
+# from bucket 1 and put it back, a move that changes nothing, so a game need not end.
+def k1_moves(state):
+    a, b = state
+    out = set()
+    if a:
+        out.add((a - 1, b))                 # from bucket 1: nothing may be put back
+    if b:
+        out |= {(a, b - 1), (a + 1, b - 1)}  # from bucket 2: you may put one in bucket 1
+    return out
+@lru_cache(None)
+def k1_first_wins(state):
+    return any(not k1_first_wins(nxt) for nxt in k1_moves(state))
+cards = [(a, b) for a in range(3) for b in range(3)]
+check('K-1 rule as read equals the cap-1 move on two buckets', all(k1_moves(s) == set(moves(s, 1)) for s in cards))
+check('K-1 key: the four even-even cards are second-player wins, the other five first-player wins',
+      [s for s in cards if not k1_first_wins(s)] == [(0, 0), (0, 2), (2, 0), (2, 2)]
+      and sum(k1_first_wins(s) for s in cards) == 5)
+check('the old wording allowed a do-nothing move: take from bucket 1, put it back, e.g. (1, 0) -> (1, 0)',
+      (1, 0) not in k1_moves((1, 0)))
 
 # Adult guide.
 flat = ' '.join((HERE / 'guide' / 'facilitator.tex').read_text().split())
@@ -107,7 +131,8 @@ for phrase in [r'\rhead{Adult guide}', 'add 1 to each earlier odd bucket (0 to e
                'Grades 4--5 learn the move on Problem 1 and some Problem 2 cards',
                'ten minutes of Problem 1 and some Problem 2 cards', 'Problem 3 for a pair that finishes',
                'adding at most one counter to the bucket on its left', 'K--1, adult-led, after the launch',
-               "``Take one. You may put one in bucket 1.''", 'the other five cards',
+               "``Take one. If you took it from bucket 2, you may put one in bucket 1.''", 'the other five cards',
+               'Week 81 / W81-FAC-v2',
                'Problem 3: $(2,0,2)$ and $(0,2,0)$ are second-player wins', 'from $(0,3)$, the second bucket never refills',
                'which is 7 from $(1,1,1)$ with a cap of one']:
     check(f'guide says "{phrase}"', phrase in flat)
