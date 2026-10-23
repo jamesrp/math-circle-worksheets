@@ -8,7 +8,7 @@ page = "new"
 +++
 
 ## text
-A reshaping move keeps the area: average the two sides, then divide the area by that average to get the other new side. We are making the rectangle closer to a square and trying to trap the square's side length.
+A reshaping move keeps the area: average the two sides, then divide the area by that average to get the other new side.
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm,>=stealth]
@@ -29,4 +29,4 @@ A reshaping move keeps the area: average the two sides, then divide the area by 
 \end{tikzpicture}
 \end{center}
 
-Keep side lengths exact: $20\div6=\frac{10}{3}$. Use fractions as labels; a calculator estimate can help place them. Check any proposed decimal bound by squaring it.
+Write each side length exactly, using fractions when needed.

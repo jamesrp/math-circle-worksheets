@@ -22,5 +22,4 @@ For any rectangle, is the square whose side is the average of the rectangle's si
 \node[below,align=center] at (12.5,-1) {average of\\the two sides};
 \end{tikzpicture}
 \end{center}
-\begin{center}\small Diagrams not to scale.\end{center}
 \vspace{19mm}

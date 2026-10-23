@@ -9,7 +9,7 @@
 \pagestyle{fancy}\fancyhf{}
 \newcommand{\band}{Grades 3--5}
 \fancyhead[L]{\small Week 93 / Squaring a rectangle / \band}
-\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 93 / W93-S-v2}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 93 / W93-S-v3}
 \fancyfoot[R]{\footnotesize\thepage}
 \renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0.4pt}
 \setlength{\parindent}{0pt}\setlength{\parskip}{9pt}
@@ -25,7 +25,7 @@
 \begin{document}
 Each grid-square edge is 1 unit. Rectangles turned around count as the same rectangle.
 
-\problem{1}{Use 24 square tiles to make every different rectangle you can. Draw your collection. Which rectangle comes closest to being a square?}
+\problem{1}{Use all 24 square tiles to make each different rectangle you can. Draw your collection. Which rectangle comes closest to being a square? How long would the side of a square with the area of 24 tiles be?}
 
 \vspace{3mm}
 \begin{center}
@@ -38,7 +38,7 @@ Each grid-square edge is 1 unit. Rectangles turned around count as the same rect
 
 \newpage
 
-\problem{2}{Cut each rectangle into pieces and fit all its pieces inside the matching square, without overlaps. Can you leave exactly one square uncovered in each case? Find the side length of each uncovered square.}
+\problem{2}{Cut each rectangle into pieces and fit all its pieces inside the matching square, without overlaps. Can the uncovered part be a single square, of any size, in each case? Find its side length.}
 
 \begin{center}
 \begin{tikzpicture}[x=1.5cm,y=1.5cm]
@@ -46,13 +46,15 @@ Each grid-square edge is 1 unit. Rectangles turned around count as the same rect
 \unitrect{7}{5}{4}{4}{A}
 \unitrect{0}{0.5}{4}{2}{B}
 \unitrect{7}{0}{3}{3}{B}
+\unitrect{0}{-3.5}{5}{1}{C}
+\unitrect{7}{-4.5}{3}{3}{C}
 \end{tikzpicture}
 \end{center}
 \vfill
 
 \newpage
 
-A reshaping move keeps the area: average the two sides, then divide the area by that average to get the other new side. We are making the rectangle closer to a square and trying to trap the square's side length.
+A reshaping move keeps the area: average the two sides, then divide the area by that average to get the other new side.
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm,>=stealth]
@@ -73,7 +75,7 @@ A reshaping move keeps the area: average the two sides, then divide the area by 
 \end{tikzpicture}
 \end{center}
 
-Keep side lengths exact: $20\div6=\frac{10}{3}$. Use fractions as labels; a calculator estimate can help place them. Check any proposed decimal bound by squaring it.
+Write each side length exactly, using fractions when needed.
 
 \problem{3}{Reshape each rectangle once. Mark the old and new side lengths on its number line. Which two of those four lengths give the tightest guaranteed range for the side of a square with that area?}
 
@@ -123,7 +125,6 @@ Keep side lengths exact: $20\div6=\frac{10}{3}$. Use fractions as labels; a calc
 \node[below,align=center] at (12.5,-1) {average of\\the two sides};
 \end{tikzpicture}
 \end{center}
-\begin{center}\small Diagrams not to scale.\end{center}
 \vspace{19mm}
 
 \problem{7}{Start with an unequal-sided rectangle and keep reshaping it. Can the guaranteed range for the equal-area square's side become as narrow as you want? Can a move ever produce the exact square? Explain why your answers must hold for every unequal-sided rectangle.}

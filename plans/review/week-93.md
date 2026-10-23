@@ -47,6 +47,8 @@ A rectangle a by b, a < b, becomes m = (a + b)/2 by h = ab/m, with the same area
 11. **could**, p. 5: drop "Diagrams not to scale"; 7 by 3 and 5 by 5 are in proportion.
 12. **could**, guide p. 5: cut the production notes (workflow stages, atlas exclusions, rebuild claims).
 
+Fixed October 23, 2026 (W93-S-v3, after the problem-file conversion): shoulds 1–7 and coulds 8–12; Problem 1's added question reads "How long would the side of a square with the area of 24 tiles be?", and fix 9's tile rebuild is a Problem 3 hint rather than part of the launch, so the launch does not show Problem 3's first answer; see `source/week-93/README.md`.
+
 ## Overlaps
 
 Week 48 traps an area between cell counts and Week 51 carries ranges through sums; here a transformation narrows a range while keeping an area. Week 26's balanced rectangles touch P1; Week 32 cuts rectangles toward gcd. Atlas GA-28 and AP-06 do bisection and tangent Newton; comparing bisection's halving would make a return visit. No merge.
