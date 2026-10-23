@@ -1,0 +1,56 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=0.65in,top=0.78in,bottom=0.68in,headheight=15pt,headsep=17pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{fancyhdr}
+\usepackage{array}
+\pagestyle{fancy}
+\fancyhf{}
+\newcommand{\band}{Grades 3--5}
+\fancyhead[L]{\small Week 60 / Take it or pass / \band}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 60 / W60-S-v2}
+\fancyfoot[R]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\setlength{\tabcolsep}{7pt}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\newcommand{\problem}[2]{\textbf{Problem #1:} #2\par}
+\newcommand{\blanklines}[1]{\foreach \i in {1,...,#1}{\par\vspace{0.28in}\noindent\rule{\linewidth}{0.25pt}}}
+\newcommand{\cardtwo}[4]{%
+  \begin{scope}[shift={({#1},{#2})}]
+    \draw[dashed,gray] (0,0) rectangle (2.15,0.88);
+    \node[font=\Large] at (0.69,0.59) {#3};
+    \node[font=\Large] at (1.46,0.59) {#4};
+    \draw[gray] (1.075,0.43) -- (1.075,0.75);
+    \node[font=\small] at (1.075,0.20) {score \rule{0.69in}{0.35pt}};
+  \end{scope}}
+\newcommand{\cardthree}[5]{%
+  \begin{scope}[shift={({#1},{#2})}]
+    \draw[dashed,gray] (0,0) rectangle (2.15,0.70);
+    \node[font=\large] at (0.45,0.47) {#3};
+    \node[font=\large] at (1.075,0.47) {#4};
+    \node[font=\large] at (1.70,0.47) {#5};
+    \draw[gray] (0.76,0.34) -- (0.76,0.60);
+    \draw[gray] (1.39,0.34) -- (1.39,0.60);
+    \node[font=\small] at (1.075,0.17) {score \rule{0.69in}{0.35pt}};
+  \end{scope}}
+\newcommand{\position}[2]{%
+\begin{tikzpicture}[x=1in,y=1in]
+\draw[rounded corners=3pt] (0,0) rectangle (2.85,1.22);
+\node[font=\small] at (1.425,0.99) {#2 offers left, including this one};
+\draw (0.27,0.24) rectangle (0.85,0.78);
+\node[font=\Large] at (0.56,0.51) {#1};
+\foreach \i in {1,...,#2}{\draw (1.02+\i*0.38,0.52) circle (0.12);}
+\node[font=\small] at (1.94,0.24) {turn counters};
+\end{tikzpicture}}
+\begin{document}
+
+<<body>>
+
+\end{document}

@@ -113,7 +113,7 @@ for i,im in enumerate(images):
     draw.text((8,i*180+5),f"page {i+1}",fill="black")
 montage.save(qa/"headers-footers.png")
 
-allowed={"students.tex","build.py","check_math.py","check_pdf.py","README.md","mathematics.md"}
+allowed={"students.tex","regenerate.py","build.py","check_math.py","check_pdf.py","README.md","mathematics.md"}
 actual={str(f.relative_to(source)) for f in source.rglob("*") if f.is_file()}
 assert actual==allowed,(actual,allowed)
 source_hashes={name:hashlib.sha256((source/name).read_bytes()).hexdigest() for name in sorted(allowed)}
