@@ -52,6 +52,8 @@ Cells wholly inside a polygon bound its area from below; cells with any gray bou
 
 **Bonus, October 23, 2026.** Should 11 done in the bonus's own ReportLab builder (bonus v2): page 2 numbers the card pairs 1–3, both witness grids are captioned "Pair: ____", and the guide says one grid per possible pair. Checked by `plans/review/checks/week-48/check_bonus_fixes.py`; unpiloted.
 
+**Critic follow-up, October 23, 2026.** An independent critic found two shoulds and a could in the card-fix release, all made (v3): the tile sheet now has 48 small tiles, so K–1 Problem 3's small-square cover of the triangle (36) can be tiled, and its caption names the 4-by-4 and 8-by-8 cells; the footers are F48-K/23/45-v3 and the guide says "packets v3"; Grades 4–5 Problem 5 says "between your inside count and your cover". Checked by `plans/review/checks/week-48/check_critic_fixes.py`; unpiloted, sheet physically unrehearsed.
+
 I agree with the math check's three items (fixes 6, 7, 11); none strands a child or marks a right answer wrong.
 
 ## Overlaps

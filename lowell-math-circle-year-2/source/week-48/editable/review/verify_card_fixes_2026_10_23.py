@@ -91,7 +91,7 @@ def main():
 
     g = pymupdf.open(folder / 'facilitator-guide.pdf')
     gt = ' '.join(words(p) for p in g)
-    for need in ('strictly between w and w + p', 'week-48-materials.pdf', '16 big 30 mm and 16 small 15 mm',
+    for need in ('strictly between w and w + p', 'week-48-materials.pdf', '16 big 30 mm and 48 small 15 mm',
                  'Up to eight could change this way, one in each partial big cell.',
                  'bounds 6 and 9 big units', 'The gap falls from 12 to 3', 'at most 2.5 mm wide',
                  '15/2 = 7.5 big-square units', 'Grades 2-3 Problem 6.', 'Grades 2-3 Problem 7.',

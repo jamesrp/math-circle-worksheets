@@ -10,7 +10,7 @@ kernel = "A split removes at most its own cell's uncertainty, so the best three 
 legend()
 
 ## prompt @43
-Split exactly three big squares into four small squares each. Choose the three that most reduce the gap between your inside and outside bounds.
+Split exactly three big squares into four small squares each. Choose the three that most reduce the gap between your inside count and your cover.
 
 ## figure
 shape(33,76,4,'trap')+blanks(207,True)

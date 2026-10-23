@@ -39,3 +39,13 @@ Unchanged pages match the previous print PDFs in text and 100-dpi pixels.
 - A clean rebuild from the extracted portable ZIP passes `verify.py`, `verify_revision.py`, `verify_math.py`, the tile-sheet verifier and this verifier. The student pixel allowances in `rebuild-pixel-allowances.json` are removed, since all three packets were rebuilt here.
 
 The theme remains unpiloted. The tile sheet and the 85 mm boards have not been cut, printed or tried with children.
+
+## Critic follow-up, later on October 23, 2026 (v3)
+
+An independent critic (Critic C) read the card-fix release and found two shoulds and one could, now made:
+
+- **Tile sheet.** K–1 Problem 3 ("Do Problem 1 again with small squares") asks for the fewest-tile cover of the triangle on the 8-by-8 board, which takes 36 small tiles; the sheet gave 16 and called them "the cells of the 120 mm boards". The sheet (W48-M-v2) now has six rows of eight, 48 small tiles, in the free space below the big tiles, and its caption reads "16 big squares (30 mm, one cell of a 4-by-4 board) and 48 small squares (15 mm, one cell of an 8-by-8 board)". Every fine cover in the week fits: triangle 36, trapezoid 36, diamond 40. The guide's materials paragraph says so and lets children tile or shade a fine cover.
+- **Version.** The footers were still F48-K/23/45-v2, the ids of the archived October 4 packets, although every Grades 2–3 page and several others changed. `week.toml` now says v3 and the guide's header "Final student packets v3".
+- **Grades 4–5 Problem 5** now says "the gap between your inside count and your cover", the last trace of the old inside/outside-cover wording.
+
+Checks: `materials/verify_materials.py` measures 16 tiles of 30.00 mm and 48 of 15.00 mm and checks the fine covers with `src/check.py`'s exact cell counts; `review/verify_card_fixes_2026_10_23.py` checks the guide's new tile count; `plans/review/checks/week-48/check_critic_fixes.py` (repository) reads the print PDFs for the v3 footers, the new wording, the caption and the tile counts. Only the footers, the Grades 4–5 Problem 5 sentence, the guide's header and materials paragraph and the tile sheet changed (extracted-text diff against the archived PDFs). The previous PDFs and ZIP are in the week's `archive-before-critic-fixes-2026-10-23/` folders. The sheet is still physically unrehearsed.

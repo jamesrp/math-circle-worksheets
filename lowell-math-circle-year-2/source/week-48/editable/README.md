@@ -1,8 +1,12 @@
 # Week 48 Inside and outside covers editable source
 
-## Current release: October 23, 2026 card fixes
+## Current release: October 23, 2026 critic follow-up (v3)
 
-The review card's should-fixes were made in the problem files and the guide: new shared rules that define a cover, every Problem 1 as K–1's, two boards side by side for the same-markings problem, a Grades 2–3 trapezoid page on both grids, Grades 4–5 Problem 7 on the trapezoid's exact area, and the guide's overview, materials, keys and hour plan. `materials/` builds a new tile sheet, `materials.pdf`: one card-stock sheet per pair with 16 big 30 mm and 16 small 15 mm tiles. `review/card-fixes-2026-10-23.md` lists every change and the checks; `src/check.py`, `materials/verify_materials.py` and `review/verify_card_fixes_2026_10_23.py` run them. Unpiloted; the sheet and the boards are physically unrehearsed.
+An independent critic's two shoulds and one could, the same day: the tile sheet (`materials.pdf`, W48-M-v2) now has 48 small tiles, so K–1 Problem 3's small-square cover of the triangle (36 tiles) can be tiled, and its caption names the boards' cells correctly; the student footers are F48-K-v3, F48-23-v3 and F48-45-v3 and the guide says "packets v3"; Grades 4–5 Problem 5 says "between your inside count and your cover". `materials/verify_materials.py` now checks the fine covers (36, 36 and 40 small tiles) against the sheet. Details are at the end of `review/card-fixes-2026-10-23.md`.
+
+## Earlier release: October 23, 2026 card fixes
+
+The review card's should-fixes were made in the problem files and the guide: new shared rules that define a cover, every Problem 1 as K–1's, two boards side by side for the same-markings problem, a Grades 2–3 trapezoid page on both grids, Grades 4–5 Problem 7 on the trapezoid's exact area, and the guide's overview, materials, keys and hour plan. `materials/` builds a new tile sheet, `materials.pdf`: one card-stock sheet per pair with 16 big 30 mm and (since the critic follow-up) 48 small 15 mm tiles. `review/card-fixes-2026-10-23.md` lists every change and the checks; `src/check.py`, `materials/verify_materials.py` and `review/verify_card_fixes_2026_10_23.py` run them. Unpiloted; the sheet and the boards are physically unrehearsed.
 
 ## Earlier release: October 4, 2026 fresh-review revision
 

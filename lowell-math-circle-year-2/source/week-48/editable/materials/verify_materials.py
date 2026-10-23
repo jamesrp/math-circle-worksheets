@@ -35,8 +35,8 @@ def measure(pdf):
         elif kinds == ['l'] and close(r[1], r[3]) and close(r[2] - r[0], 100.0):
             scale.append(r)
     assert len(scale) == 1, scale
-    assert tiles == Counter({30.0: 16, 15.0: 16}), tiles
-    print('PASS sheet: one US Letter page with a 100.00 mm scale line, 16 squares of 30.00 mm and 16 of 15.00 mm.')
+    assert tiles == Counter({30.0: 16, 15.0: 48}), tiles
+    print('PASS sheet: one US Letter page with a 100.00 mm scale line, 16 squares of 30.00 mm and 48 of 15.00 mm.')
     return tiles
 
 
@@ -71,10 +71,14 @@ def check_needs(tiles):
     dia_big = sum(v != 'O' for v in check.cells('diamond', 4).values())
     assert (tri_big, dia_big, cover_big) == (10, 12, 16)
     assert max(tri_big, dia_big, cover_big) <= tiles[30.0]
+    fine = {k: sum(v != 'O' for v in check.cells(k, 8).values()) for k in ('triangle', 'trap', 'diamond')}
+    assert fine == {'triangle': 36, 'trap': 36, 'diamond': 40}, fine
+    assert max(fine.values()) <= tiles[15.0]  # K-1 Problem 3 tiles the fine triangle cover: 36
     k1_small, older_small = 2 * 4, 3 * 4      # K-1: two big tiles split; grades 4-5: three
     assert max(k1_small, older_small) <= tiles[15.0]
     print('PASS problem needs: the coarse covers take 10 (triangle), 12 (diamond) and 16 (trapezoid) big tiles; '
-          'K-1 splits two big tiles (8 small) and grades 4-5 three (12 small). Fine covers are shaded, not tiled.')
+          'the fine covers take 36 (triangle, K-1 Problem 3), 36 (trapezoid) and 40 (diamond) small tiles, '
+          'at most the 48 on the sheet; K-1 splits two big tiles (8 small) and grades 4-5 three (12 small).')
 
 
 def main():
