@@ -2,14 +2,11 @@
 
 Student pages only; two packets, four pages each. K–1 omitted by the authorized outline override. These are unpiloted revised drafts. Physical mixing, marker retention, erase/reset and tactile uniformity have not been rehearsed.
 
-Build with Python 3 standard library and a TeX installation containing pdflatex, TikZ, Latin Modern, fancyhdr, array and amsmath:
+Since October 23, 2026 the editable source is the problem files one folder up (`../problems/*.md`, `../figures.py`, `../template.tex`); the package's `../build.py` writes and compiles their LaTeX and runs `verify.py`. The previous student builder is in `../archive-before-problem-files-2026-10-23/student/build.py`. Dates, IDs and path metadata are suppressed for deterministic reconstruction. Generated TeX, aux and log files are build intermediates.
 
 ```
-python3 build.py --output-dir /path/to/output
 python3 verify.py
 ```
-
-`build.py` is the editable source, including text and TikZ diagrams. It accepts an arbitrary output directory and suppresses dates, IDs and path metadata for deterministic reconstruction. Generated TeX, aux and log files are build intermediates. No absolute source locations are needed; the /Library/TeX fallback only locates the Mac TeX executable if it is absent from PATH.
 
 The printed repeat records are **invented illustrative records**, not collected classroom data or a seeded simulation. Lower: first=second=4, overlaps 2,1,3,1,2,0; these can all occur in the same unchanged population of 8, or of 16. Upper: first=second=6, overlaps 1,2,3,2,0; all can occur in the same unchanged population of 18. The examples intentionally include a zero and contradictory single-record guesses. Neither packet claims that its example series uniquely determines the hidden total. Clear all marks and return all objects between rounds. The model treats each catch as a uniform subset; shaking a real bag approximates this assumption.
 
