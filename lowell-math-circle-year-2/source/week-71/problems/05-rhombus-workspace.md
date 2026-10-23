@@ -8,7 +8,7 @@ page = "new"
 +++
 
 ## text
-Extra workspace for Problems 2--3. Draw new rhombus shots here. Stand the mirror on each wall hit: the incoming line and the mirror image of the outgoing line must line up. Keep the checked drawing to reveal after the guess.
+Extra workspace for Problems 2--3.
 \begin{center}
 \rhombusroom{1.90}\par\vspace{.1in}
 word: \rule{2.8in}{.3pt}\par\vspace{.45in}

@@ -46,6 +46,8 @@ A shot in a room with lettered walls gives a bounce word. No rectangle shot goes
 8. **could**, guide extension: ADA and BCB are impossible in the rhombus (120° corners: the three seams would span 240°; none in my sample), so XYX happens only at corners under 90°.
 9. **could**, guide launch: fold the AD copies and hold them to the light, as Week 9 P3 does.
 
+**Fixed October 23, 2026, after the problem-file conversion:** shoulds 1–2 and coulds 3, 4 and 6–9 (GGT71-S-v2; guide GGT71-FAC-v2, now 4 pages with the sources on p. 4); could 5 left as the organizer's call. Check: `checks/week-71/check_card_fixes.py`.
+
 ## Overlaps
 
 - Week 9, Bouncing paths, has the same unfolding in rectangles, with uniform scaling of 45° paths. Week 71 adds free directions, words, a rhombus and the unequal stretch. It makes a natural 4–5 return visit after Week 9; neither absorbs the other.

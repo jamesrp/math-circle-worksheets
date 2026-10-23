@@ -7,7 +7,7 @@ kernel = "A bounce word can be read from a straight line through reflected copie
 +++
 
 ## prompt
-Find six different three-letter bounce words in the square. Draw straight shots from the dot through the reflected copies. Write each word by the end of its shot. Your partner checks the crossed walls and any corner hits.
+Find six different three-letter bounce words in the square. Draw straight shots from the dot through the reflected copies. Write each word by the end of its shot.
 
 ## text
 \begin{center}\tilewindow{-2}{3}{1}{1}\end{center}

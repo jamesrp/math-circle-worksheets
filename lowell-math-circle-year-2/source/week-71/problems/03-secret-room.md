@@ -11,7 +11,7 @@ kernel = "A word rules out a room only by an impossibility argument; failing to 
 One partner secretly chooses a room and draws a checked shot with at least three bounces. Give only its word. The other partner circles the rooms they have not ruled out. To rule out a room, explain why the word is impossible there. Then reveal the shot and swap jobs.
 
 ## text
-You may reuse a checked shot from Problems 1--2. For new shots, use the square and rectangle windows on page 4, or the mirror and large rhombus rooms on page 5. Keep your drawing hidden until the guess.
+You may reuse a checked shot from Problems 1--2. For new shots, use the square and rectangle windows on page 4, or the mirror and large rhombus rooms on page 5.
 
 Failing to find a shot is not a reason to rule out a room.
 \begin{center}
