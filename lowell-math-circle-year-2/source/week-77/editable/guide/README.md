@@ -1,7 +1,7 @@
 # Week 77 adult guide: Persistent holes
 
 Four-page adult guide for the six-page, six-problem Grades 4-5 prerequisite-led
-student prototype (F77-45-v3). The adult guide is F77-FAC-v3. It opens with the
+student prototype (F77-45-v4). The adult guide is F77-FAC-v4. It opens with the
 mathematical facts and limits, supplies one practical route for three children
 and a mathematical adult, and gives complete solutions, ordered hints, exact
 preparation counts, and a return-visit route for the fan-board problem.

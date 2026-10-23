@@ -24,7 +24,9 @@ Start with the four solid edges. Add one dashed edge at stage 2 and the other at
 \lineat{0}{12.55}{8.7}\lineat{0}{13.85}{8.7}
 \smallat{9.5}{11.45}{8.7}{DE first:}
 \lineat{9.5}{12.55}{18.2}\lineat{9.5}{13.85}{18.2}
-\smallat{0}{14.75}{18.2}{Square:}
-\lineat{0}{15.85}{18.2}\lineat{0}{17.15}{18.2}
+\smallat{0}{14.75}{8.7}{Square, AC first:}
+\lineat{0}{15.85}{8.7}\lineat{0}{17.15}{8.7}
+\smallat{9.5}{14.75}{8.7}{Square, DA first:}
+\lineat{9.5}{15.85}{18.2}\lineat{9.5}{17.15}{18.2}
 \textat{0}{18.0}{18.2}{Count each enclosed, unfilled region as one hole. Every build on these two boards has 0, 1, 2, 1, 0 holes after stages 0, 2, 4, 5, 8. Can those counts alone tell you when the first loop disappears?}
 \lineat{0}{20.55}{18.2}\lineat{0}{21.85}{18.2}

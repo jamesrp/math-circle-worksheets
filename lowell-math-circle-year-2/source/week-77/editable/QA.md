@@ -11,8 +11,10 @@ The review card's shoulds 1–5 and coulds 6–8 (plans/review/week-77.md), made
 
 Physical rehearsal with the printed pieces and classroom piloting remain unperformed.
 
-- week-77-students.pdf: 6 pages; SHA-256 dba23b24789bea9c3dd4c6f998eb930cadad97d6e50598ad9c119b5d6b5afbdb
-- week-77-facilitator.pdf: 4 pages; SHA-256 93c5739871178ba718e19c5dd22329556ebaf0bdf4b2157cf5474a47d69858f7
+Critic follow-up, later on October 23, 2026 (F77-45-v4, F77-FAC-v4): Problem 3's square answer area is split into "Square, AC first:" and "Square, DA first:", and the guide gives Problem 3 about 8 minutes. Student page 4 changed above the footer; the other pages changed only their footer. A clean build from the extracted ZIP matches the print copies. Current hashes:
+
+- week-77-students.pdf: 6 pages; SHA-256 5ae3ee7b1214a2d0353654b2990939ea114e3fd07872709f9fdcdc56a92bc489
+- week-77-facilitator.pdf: 4 pages; SHA-256 6d88063412ffdd3bdffb71560bfe455a73a952b120b7c5f9447b3fcf32e4328b
 - week-77-materials.pdf: 2 pages; SHA-256 42256b059d80b89a4f60a5b13b0210ccb8d7dfff81e65f79c971b111364cd4fe
 
 ## October 15, 2026 introduction revision

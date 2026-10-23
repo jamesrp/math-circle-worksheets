@@ -57,9 +57,9 @@ G = fitz.open(DIR / 'week-77-facilitator.pdf')
 M = fitz.open(DIR / 'week-77-materials.pdf')
 check((len(S), len(G), len(M)) == (6, 4, 2), f'page counts 6/4/2: {len(S)}/{len(G)}/{len(M)}')
 for i, p in enumerate(S):
-    check('Week 77 / F77-45-v3' in flat(p), f'student p.{i+1} footer F77-45-v3')
+    check('Week 77 / F77-45-v4' in flat(p), f'student p.{i+1} footer F77-45-v4 (v3 until the October 23 critic follow-up)')
 for i, p in enumerate(G):
-    check('Week 77 / F77-FAC-v3' in flat(p), f'guide p.{i+1} footer F77-FAC-v3')
+    check('Week 77 / F77-FAC-v4' in flat(p), f'guide p.{i+1} footer F77-FAC-v4 (v3 until the October 23 critic follow-up)')
 for i, p in enumerate(M):
     check('Week 77 / F77-M-v1' in flat(p), f'materials p.{i+1} footer F77-M-v1')
 
@@ -69,7 +69,7 @@ check('hole' not in p2.replace('Persistent holes', ''), 'should 3: Problem 2 no 
 for phrase in ['Whichever dashed edge comes first, can the first loop be gone at stage 5?',
                'Answer the same question for the square in Problem 2.',
                'record a schedule your partner can replay or explain why there is none.',
-               'AB first:', 'DE first:', 'Square:',
+               'AB first:', 'DE first:', 'Square, AC first:', 'Square, DA first:',
                'Count each enclosed, unfilled region as one hole. Every build on these two boards has 0, 1, 2, 1, 0 holes after stages 0, 2, 4, 5, 8.',
                'Can those counts alone tell you when the first loop disappears?']:
     check(phrase in p3, f'should 1/3: Problem 3 has "{phrase[:60]}"')

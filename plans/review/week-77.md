@@ -44,6 +44,8 @@ Small planar triangle boards grow by edges and filled triangles. A saved loop is
 
 October 23, 2026: shoulds 1–5 and coulds 6–8 fixed in the new problem files, guide and materials sheet (F77-45-v3, F77-FAC-v3, F77-M-v1), with C moved to (5.8, 1.4) rather than D and E moved, and Week 2's Problem 1C cited in the guide; checked by `source/week-77/editable/review/verify_card_fixes_2026_10_23.py`.
 
+**Critic follow-up, October 23, 2026 (F77-45-v4, F77-FAC-v4):** an independent critic found no must or should. Its coulds are made: Problem 3's single "Square:" answer area is now "Square, AC first:" and "Square, DA first:", the guide gives Problem 3 about 8 minutes (33–41) and the rest to Problem 4 or 5, and the band-view menu and slices list the younger tables' guide-led pages (K–1 page 2, Grades 2–3 pages 2–3). Unpiloted.
+
 ## Overlaps
 
 Week 2's bonus Problem 1C finds the same square's three do-nothing sets, P, Q and R. Week 77 adds filled faces and time, so it is the sequel; cite it in the guide. Weeks 39 (reduced walks), 56 (V − E + F), 41 and 75 (winding) treat loops otherwise. None has filled faces or a growing board. No merge.

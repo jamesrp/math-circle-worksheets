@@ -98,7 +98,7 @@ require(3,
     'Whichever dashed edge comes first, can the first loop be gone at stage 5?',
     'Answer the same question for the square in Problem 2.',
     "Save the first loop's edges each time, and record a schedule your partner can replay or explain why there is none.",
-    'AB first:', 'DE first:', 'Square:',
+    'AB first:', 'DE first:', 'Square, AC first:', 'Square, DA first:',
     'Count each enclosed, unfilled region as one hole.',
     'Every build on these two boards has 0, 1, 2, 1, 0 holes after stages 0, 2, 4, 5, 8.',
     'Can those counts alone tell you when the first loop disappears?')

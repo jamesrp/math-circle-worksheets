@@ -25,6 +25,10 @@ The portable ZIP excludes stage prompts, borrowed style examples, downloaded boo
 
 Added a full introductory page: square rim, diagonal, one filled half, both halves, then a complete-loop token example. All six investigations remain; student task pages are now 2–6. “Gone” means a boundary of filled tiles, with all board edges retained. This organizer-directed revision is unpiloted.
 
+## October 23 critic follow-up
+
+F77-45-v4 and F77-FAC-v4: Problem 3's square answer area is split into "Square, AC first:" and "Square, DA first:", and the guide gives Problem 3 about 8 minutes. `review/verify_card_fixes_2026_10_23.py` and `checks/independent_check.py` expect the new labels and ids.
+
 ## October 23 review-card fixes
 
 F77-45-v3, F77-FAC-v3 and the new F77-M-v1. Problem 3 asks whether the first loop can be gone at stage 5 whichever dashed edge comes first, on the joined board and on Problem 2's square (yes on the joined board; on the square only with AC first), and ends with the hole-count question; Problem 2 no longer states the counts. The joined board's C is raised to (5.8, 1.4) so that its four solid edges bend at C; AB and DE stay 5.8 cm. Problem 5 says "come back". The materials sheet prints the nine tiles at board scale, each with its name, board and edge names, the seven edge strips, 48 tokens and 8 stage cards. The guide corrects the counts-versus-history sentence, states that a loop is gone exactly when every triangle inside it is filled, makes the square the shared launch and the XYZ token test the 4–5 table's own, and adds an adult-led K–1 and 2–3 route with a plain-words key. Unpiloted; the printed pieces are physically unrehearsed.

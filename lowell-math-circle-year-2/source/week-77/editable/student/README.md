@@ -1,6 +1,6 @@
 # Week 77: Persistent holes
 
-A six-page shared Grades 4-5 prototype, F77-45-v3. Grade labels are approximate. The prerequisites are following short edge labels, keeping an earlier loop's edge list unchanged, matching physical triangle tiles to their complete boundaries, and cancelling identical token pairs with support. No separate younger-band editions are intended. The general explanation and final two-loop construction are readiness-dependent.
+A six-page shared Grades 4-5 prototype, F77-45-v4. Grade labels are approximate. The prerequisites are following short edge labels, keeping an earlier loop's edge list unchanged, matching physical triangle tiles to their complete boundaries, and cancelling identical token pairs with support. No separate younger-band editions are intended. The general explanation and final two-loop construction are readiness-dependent.
 
 ## Build
 
