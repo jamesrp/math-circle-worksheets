@@ -56,6 +56,8 @@ Creases from one centre fold flat only if there is an even number of them, since
 
 I agree with the math check. Its finding 1 concerns the bonus, which this card does not review.
 
+**Fixed October 23, 2026:** fix 1 (`week-28-materials.pdf`, 15 pages, checked by the package's `materials-src/check_materials.py` and `checks/week-28/kit_crosscheck.py`; physically unrehearsed), fix 2 (guide p. 1) and the guide halves of fixes 3 and 10 (two spare K–1 P3 disks; eleven children); the student-page fixes deferred. Record: `lowell-math-circle-year-2/source/week-28/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 - Week 56 looks at how far the corners around a point fall short of a full turn, a different condition.

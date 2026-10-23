@@ -26,3 +26,6 @@ builder='build.py' if (guide/'build.py').exists() else 'build_guide.py'
 subprocess.run([sys.executable,builder],cwd=guide,env=env,check=True)
 
 subprocess.run([sys.executable, str(ROOT/'facilitator-src/add_route_note.py')], cwd=ROOT, env=env, check=True)
+# Printable kit (added October 23, 2026): build, then check the finished PDF independently.
+subprocess.run([sys.executable, str(ROOT/'materials-src/build_materials.py')], cwd=ROOT, env=env, check=True)
+subprocess.run([sys.executable, str(ROOT/'materials-src/check_materials.py')], cwd=ROOT, env=env, check=True)

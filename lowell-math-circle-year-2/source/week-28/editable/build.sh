@@ -21,6 +21,8 @@ for tex in src/k-1.tex src/grades-2-3.tex src/grades-4-5.tex; do
   if ! pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build "$tex" >"build/$name-console.txt" 2>&1; then cat "build/$name-console.txt" >&2; exit 1; fi
  done
 done
-printf '\nBuilt and checked four PDFs in build/. Run python3 verify_rebuild.py for reference comparison.\n'
+"$PYTHON" materials-src/build_materials.py
+"$PYTHON" materials-src/check_materials.py > build/materials-check-results.txt
+printf '\nBuilt and checked five PDFs in build/. Run python3 verify_revision.py for reference comparison.\n'
 
 "$PYTHON" facilitator-src/add_route_note.py

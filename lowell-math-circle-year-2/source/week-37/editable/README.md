@@ -1,12 +1,12 @@
 # Week 37 Mirror twins editable source
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 4, 2026 fresh-review revision, with the October 23 kit
 
-The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
+The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained. On October 23, 2026 the review card's two must-fixes were made: the guide now accepts a complete check of the three turns about A as a proof, and a printable kit, `materials.pdf` (3 pages: a 90 mm tetrahedron net, letter caps A, A, B, B, C, C, D per model, a pose mat), is built by `materials-src/build_materials.py` and checked by `materials-src/check_materials.py`. See `review/card-fixes-2026-10-23.md`. The kit is digitally checked and physically unrehearsed.
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
-Current pages: **K–1 4; Grades 2–3 4; Grades 4–5 5; adult guide 6**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 4; Grades 2–3 4; Grades 4–5 5; adult guide 6; kit 3**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project
 

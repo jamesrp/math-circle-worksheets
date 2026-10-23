@@ -45,6 +45,8 @@ A press flips both lamps at the ends of one line. Children can reach five result
 
 Where I differ from the math check: its point 2 is a could, since the notes say "Choosing no lines is allowed"; P9 is a should, not just layout; and it does not check the boards.
 
+**Fixed October 23, 2026 (compact catalog pages unchanged):** fix 1 (`week-02-shared-catalog-boards.pdf`: one blank board per graph with 22 mm lamps, labelled extra workspace, and a sheet of two-sided card counters; physically unrehearsed), fix 2 (`week-02-shared-catalog-facilitator.pdf`: theorem-first overview, shared launch, answers renumbered and replayed by `plans/verify-week-02-catalog-kit.py`, the invented-puzzle test, and the one-light rule read aloud for P3) and fix 3 (links in the root README, the year-2 index and `source/week-02/README.md`); the rest deferred.
+
 ## Overlaps
 
 Weeks 46 (toggle boards), 25 (uniqueness, as on trees), 10 (odd junctions), 53 (tree cuts) and 39 (cancelling repeats) share pieces only. Neither side should absorb the other.

@@ -3,7 +3,7 @@ from pathlib import Path
 import subprocess,sys
 ROOT=Path(__file__).resolve().parent
 checks=[]
-for sub in ['src','facilitator-src']:
+for sub in ['src','facilitator-src','materials-src']:
  for pattern in ['check*.py','verify*.py']:
   checks.extend(sorted((ROOT/sub).glob(pattern)))
 if not checks:raise RuntimeError('No mathematical verification script found.')
