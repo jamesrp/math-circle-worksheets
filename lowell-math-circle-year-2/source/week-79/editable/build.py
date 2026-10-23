@@ -18,8 +18,8 @@ def main():
     args = parser.parse_args()
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=True)
-    repo = ROOT.parents[2] if len(ROOT.parents) > 2 else ROOT
-    work = args.work or ((repo / 'tmp/pdf-builds') if (repo / 'AGENTS.md').is_file() else ROOT / 'tmp')
+    repo = next((p for p in ROOT.parents if (p / 'AGENTS.md').is_file()), None)
+    work = args.work or ((repo / 'tmp/pdf-builds') if repo else ROOT / 'tmp')
     work = work.resolve()
     work.mkdir(parents=True, exist_ok=True)
     latex = shutil.which('pdflatex')
@@ -28,6 +28,11 @@ def main():
     if not latex:
         raise SystemExit('Install pdfLaTeX with geometry, fancyhdr, TikZ, lmodern, helvet, amsmath and hyperref.')
     env = dict(os.environ, SOURCE_DATE_EPOCH='1791504000', FORCE_SOURCE_DATE='1')
+    # The student pages are stored as problem files; write students.tex from them first.
+    regen = subprocess.run([sys.executable, str(ROOT / 'student' / 'regenerate.py')], text=True,
+                           stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    if regen.returncode:
+        raise SystemExit(regen.stdout)
     with tempfile.TemporaryDirectory(prefix=f'week-{WEEK}-', dir=work) as name:
         temp = Path(name)
         for kind, filename in [('student', 'students'), ('guide', 'facilitator')]:
