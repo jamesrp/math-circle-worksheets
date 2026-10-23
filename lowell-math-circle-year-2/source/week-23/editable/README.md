@@ -6,6 +6,10 @@ Draft and unpiloted. Week 23 identifies an unscheduled activity-library slot, no
 
 `materials/build_materials.py` builds `materials.pdf` (reference copy in `reference-pdfs/`; print copy `week-23-materials.pdf`), four US Letter pages to print at 100%: a four-lane mat on two taped sheets (lanes 45 mm apart, 38 mm start and finish boxes), a card-stock sheet of 35 mm cards (K–1 dot cards 0, 0, 1, 1, 2, 3, 4; number cards 1–4 twice; four 0s and four 1s) and a card-stock sheet of 14 comparator bars (8 neighboring, 4 skipping a lane, 2 from lane 1 to lane 4) with a time strip. Every page has a 10 cm scale check and says how many to print per table. `materials/verify_materials.py` reads every size back from the PDF and checks the cards and bars against each problem's starts and machines; `build.sh` runs both, and the check needs PyMuPDF (now in `requirements.txt`). The guide's preparation section now names the kit and counts cutting time; no other guide page and no student page changed. The previous guide and source ZIP are archived in the project. The kit is physically unrehearsed.
 
+## Problem files, October 23, 2026
+
+The student pages are now stored as problem files, one per problem, in `problem-files/` (in the repository: `lowell-math-circle-year-2/source/week-23/`): `week.toml`, `figures.py` (the old builder's drawing code and page template) and `problems/*.md`, with each band's wording and machines inside them. The conversion changed no wording or figure: the regenerated LaTeX matches the old `src/build_packets.py` byte for byte, and the three packets rebuild with identical text and pixels. `src/regenerate.py` writes the student LaTeX from the problem files, `src/check_networks.py` runs the old builder's exhaustive checks unchanged (writing `src/math-audit.json`), and `problem-files/tools/build.py` also builds first-route and return packets, a one-page problem menu and a key arranged by problem. The old builder is archived in the project.
+
 ## Print-ready material and flexible readiness
 
 Four reviewed PDFs accompany this ZIP, with identical reference copies in `reference-pdfs/`.
@@ -30,7 +34,7 @@ Edit `facilitator-src/overview-content.json` for overview prose and `facilitator
 
 ## Contents and editing
 
-- `src/build_packets.py` and `src/*.tex`: editable student text, examples, diagrams and generated LaTeX.
+- `problem-files/problems/*.md`: the student text, machines and examples, one file per problem; `problem-files/figures.py`: the drawing code and page template; `problem-files/tools/`: the problem-file tools. `src/regenerate.py` writes `src/*.tex` from them; `src/check_networks.py` checks every printed machine by exhaustion.
 - `facilitator-src/build.py` and accompanying local modules/data: editable adult-guide prose and drawings.
 - `materials/build_materials.py`, its generated `materials.tex` and `verify_materials.py`: the table kit and its measurements.
 - Mathematics-check scripts and checked data remain beside their sources.
@@ -38,7 +42,7 @@ Edit `facilitator-src/overview-content.json` for overview prose and `facilitator
 - `review/`: historical student reviews, original adult QA, reference hashes and release-validation results. Original adult build instructions are historical; they may describe bundled fonts in the authoring workspace. This release excludes font binaries. Use this README and top-level build for the portable release.
 - `verify_rebuild.py`: checks reference hashes and compares every rebuilt page's text, US Letter size and 100-dpi grayscale pixels.
 
-Edit the generators or guide data for changes that survive rebuilding. Normal build regenerates student LaTeX; `bash build.sh --from-tex` instead preserves manual LaTeX edits. The adult guide is regenerated in either mode. Checks are tied to these examples and need deliberate updates if examples change. Keep reference PDFs unchanged unless issuing a newly reviewed release.
+Edit student problems in `problem-files/problems/*.md` (figures and the page template in `problem-files/figures.py`); `build.sh` regenerates `src/*.tex` from them and reruns `src/check_networks.py`, so do not edit the TeX by hand. When a machine changes, change it in `src/check_networks.py` too. To build every view: `python3 problem-files/tools/build.py problem-files --out views`. Edit the guide data for guide changes. Normal build regenerates student LaTeX; `bash build.sh --from-tex` instead preserves manual LaTeX edits. The adult guide is regenerated in either mode. Checks are tied to these examples and need deliberate updates if examples change. Keep reference PDFs unchanged unless issuing a newly reviewed release.
 
 ## Portable local rebuild
 
