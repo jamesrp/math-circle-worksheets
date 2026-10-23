@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Standalone TeX build; no repository, network or absolute project paths required."""
-import argparse,json,shutil,subprocess,tempfile
+import argparse,json,shutil,subprocess,sys,tempfile
 from pathlib import Path
 
 BASE=Path(__file__).resolve().parent
@@ -10,6 +10,8 @@ def main():
  dest=Path(a.out).resolve();dest.mkdir(parents=True,exist_ok=True)
  manifest=json.loads((BASE/'build-manifest.json').read_text())
  if not shutil.which('pdflatex'):raise SystemExit('Install TeX Live or MacTeX with TikZ, then rerun this command.')
+ # The student pages are stored as problem files; write student/students.tex from them first.
+ subprocess.run([sys.executable,str(BASE/'student'/'regenerate.py')],check=True)
  with tempfile.TemporaryDirectory(prefix='math-circle-rebuild-') as task_dir:
   for item in manifest['documents']:
    src=BASE/item['source_directory'];work=Path(task_dir)/item['kind'];shutil.copytree(src,work)

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Build the original combined packet. All intermediates stay in output/.build."""
+"""Build the combined packet from students.tex, which regenerate.py writes from the
+problem files. All intermediates stay in output/.build."""
 import argparse
 from pathlib import Path
 import shutil
 import subprocess
 import sys
 sys.dont_write_bytecode=True
-import diagrams
 
 
 def main():
@@ -19,8 +19,11 @@ def main():
     work=out/'.build'
     work.mkdir(exist_ok=True)
     src=Path(__file__).resolve().parent
+    # students.tex is generated from the problem files, map macros included;
+    # regenerate it when they are present (not in a copy of this folder alone).
+    if (src.parent/'problem-files'/'week.toml').exists() or (src.parent.parent/'week.toml').exists():
+        subprocess.run([sys.executable,str(src/'regenerate.py')],check=True,stdout=subprocess.DEVNULL)
     shutil.copyfile(src/'students.tex',work/'students.tex')
-    (work/'generated-diagrams.tex').write_text(diagrams.generate())
     for _ in range(2):
         r=subprocess.run([a.pdflatex,'-interaction=nonstopmode','-halt-on-error','students.tex'],cwd=work,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True)
         (work/'compile-console.txt').write_text(r.stdout)

@@ -11,15 +11,15 @@ python3 build.py --output .
 # Or: python3 build.py --output /absolute/path/to/output
 ```
 
-The command writes `students.pdf` and puts generated TikZ, TeX logs and compiler intermediates in `output/.build/`. It uses no repository files and no network. Source files can be copied or extracted to any new folder; the output directory can be anywhere writable. Python bytecode generation is disabled in the builder so that source stays clean.
+The command writes `students.pdf` and puts TeX logs and compiler intermediates in `output/.build/`. It uses no repository files and no network. Source files can be copied or extracted to any new folder; the output directory can be anywhere writable. Python bytecode generation is disabled in the builder so that source stays clean.
 
 Dependencies: Python 3 standard library and `pdflatex` with the standard TeX Live packages geometry, fontenc, helvet, TikZ/PGF, fancyhdr, array, xcolor and microtype. `--pdflatex /path/to/pdflatex` selects another installed compiler. No third-party images, copied book text, prompt files or reference PDFs are needed.
 
 ## Editable files
 
-- `students.tex`: original student wording, page order, typography and workspace.
+- `students.tex`: generated since October 23, 2026 from the problem files (in the repository `../../problems/`, `../../template.tex`, `../../figures.py` and `../../week.toml`; in the ZIP `../problem-files/`) by `regenerate.py`, which `build.py` runs first. Edit the problem files for wording, page order and workspace.
 - `networks.json`: original vertex coordinates, available edges, prices and expected finite answers. Diagonal label fractions are editable independently of link geometry.
-- `diagrams.py`: original TikZ network asset builder. Prices are offset from links; circles are the only junctions. Compact diagrams retain the same labeled graph for purchase records.
+- `diagrams.py`: original TikZ network asset builder; the problem files' `figures.py` places its macro definitions at the start of the packet. Prices are offset from links; circles are the only junctions. Compact diagrams retain the same labeled graph for purchase records.
 - `build.py`: portable compiler wrapper.
 - `verify_math.py`: original exhaustive enumeration of all connected subsets, all spanning trees, optimum counts, improving exchanges, cut/cycle evidence and all 4,096 inverse-price assignments.
 - `verify_output.py`: reads actual PDF vector paths and text to reconstruct every graph, selected link, price numeral, price dot and vertex spacing; also checks headers, footers, page sizes and text bounds. It can compare rebuilds by full extracted text, dimensions and exact 144 dpi pixel arrays.

@@ -1,0 +1,32 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=0.65in,top=0.77in,bottom=0.65in,headheight=16pt,headsep=14pt,footskip=22pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usetikzlibrary{arrows.meta}
+\definecolor{linkgrey}{gray}{0.48}
+\definecolor{ink}{gray}{0.08}
+\tikzset{available/.style={draw=linkgrey,line width=0.65pt},bought/.style={draw=ink,line width=2.4pt},place/.style={circle,draw=ink,line width=0.9pt,fill=white,inner sep=0pt},price/.style={fill=white,inner sep=1.4pt}}
+\newcommand\pricedots[1]{\begin{tikzpicture}[baseline=-0.7ex]\foreach \i in {1,...,#1}{\fill (\i*0.135,0) circle (0.034);}\end{tikzpicture}}
+\newcommand\coins[1]{\begin{tikzpicture}[baseline=-0.7ex]\foreach \i in {1,...,#1}{\draw[line width=0.6pt] (\i*0.21,0) circle (0.082);}\end{tikzpicture}}
+\newcommand\Band{Grades 2--5}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week <<week>> / <<topic>> / \Band}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week <<week>> / <<footer>>}
+\fancyfoot[R]{\scriptsize\thepage}
+\renewcommand\headrulewidth{0pt}\renewcommand\footrulewidth{0pt}
+\setlength\parindent{0pt}\setlength\parskip{8pt}
+\newcommand\problem[2]{\textbf{Problem #1:} #2\par}
+\newcommand\cost{Cost: \rule{1.2cm}{0.4pt}}
+\newcommand\writing[1]{\vspace{#1}\par}
+\newcommand\swaprows{\begin{tabular}{@{}p{1.6cm}p{1.6cm}p{2.5cm}@{}}Return & Buy & New cost\\[3pt]\hline\\[10pt]\hline\\[10pt]\hline\\[10pt]\hline\\[10pt]\hline\end{tabular}}
+% The diagram macros (\TriangleOne, ...) are defined at the start of the body by
+% problems/00-diagram-macros.md, drawn by editable/student/diagrams.py from networks.json.
+\begin{document}
+<<body>>
+\end{document}
