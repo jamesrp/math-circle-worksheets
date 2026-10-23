@@ -1,13 +1,13 @@
-# Week 86 revised student sources
+# Week 86 student sources
 
-Build with Python 3 and pdfLaTeX/TikZ (TeX Live). No artwork or Python packages are needed for the build.
+The student packets are stored as problem files (October 23, 2026): one file per problem in `../problem-files/problems/` (in the repository, `lowell-math-circle-year-2/source/week-86/problems/`), with the boards, page template and materials pages in `figures.py`. `build.py` writes `shared.tex`, `upper.tex` and `materials.tex` from them and compiles each twice. The previous builder, which held the wording and drawing code in one script, is archived in the repository's `source/week-86/archive-before-problem-files-2026-10-23/`; the conversion changed no wording or drawing, and the LaTeX it writes is byte-identical.
 
 ```sh
-python3 build.py --out ../ --work ../build
+python3 build.py --out ../out --work ../build
 python3 verify.py
 ```
 
-The builder uses `PDFLATEX` if set, otherwise `pdflatex` on PATH, with `/Library/TeX/texbin/pdflatex` as a macOS fallback. Each PDF compiles twice; creation/modification dates and trailer IDs are suppressed. Sources are self-contained and may be copied or extracted into a fresh directory.
+The builder uses `PDFLATEX` if set, otherwise `pdflatex` on PATH, with `/Library/TeX/texbin/pdflatex` as a macOS fallback. Creation/modification dates and trailer IDs are suppressed.
 
 Outputs: `shared.pdf` (Grades 2–5, 4 pages), `upper.pdf` (Grades 4–5, 6 pages), and `materials.pdf` (3 pages). No standalone K–1 packet. Print single-sided US Letter at 100%. F1/F2 original and working copies remain visible together. Working dots are 22 mm diameter, except P7's 20 mm dots with 28 mm center spacing. Other working centers are at least 32 mm apart. Examples use 8 mm reference dots. Turn tiles are 35 mm square; cutout counters are 18 mm.
 

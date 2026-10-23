@@ -1,20 +1,20 @@
-# Week 86: Pursuit and escape
+# Week 86 Pursuit and escape: editable source
 
-Prepared shared Grades 2–5 and upper Grades 4–5 investigations: 4+6 student pages, 3 materials pages, 6-page theorem-first facilitator guide. No independent K–1 packet. Unpiloted; printed counter fit, stacking, turn-tile assembly and fold-cover procedures remain physically untested. This is a library entry with several possible visits, not an adopted date.
+**Problem files, October 23, 2026.** The student packets are stored as [problem files](../problem-files/README.md): `week.toml`, `figures.py` (the old builder's drawing code, page template and materials pages, unchanged) and one file per problem in `problems/`. The two packets are the week's two bands: the shared Grades 2–5 packet and the upper Grades 4–5 packet, whose Problem 1 is the same file as the shared Problem 1. The conversion changed no wording or drawing: the LaTeX of both packets and of the materials is byte-identical to the previous builder's, and every PDF matches a rebuild by the previous builder in exact 100-dpi pixels. The print copies were compiled with a newer pdfTeX (1.40.27) than this project's TeX Live (1.40.25), so a rebuild here, by the old builder or the new, has the same text and drawings with slightly different glyph rasters (at most 42 differing pixels on a page at 100 dpi). The previous builder and source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/).
 
-## Printing and routes
+- **Student pages:** edit `problems/*.md` (boards in `figures.py`), then build every view:
 
-Print US Letter, single-sided at Actual Size. The shared packet explores paths, trees and rings. The upper packet preserves road edits, game design, graph folds and two-cop strategies as return visits; it repeats the path launch so it can stand alone. Read the guide for prerequisites, preparation, launch, first routes and full mathematical arguments. Materials pages 1–2 contain unchanged original and working copies of the fold graphs; page 3 contains turn tiles, counters and cover preparation instructions. Use opaque removable covers: ink printed underneath a sleeve cannot be erased. Keep surviving features visible. Two cops on one dot may be stacked or slightly offset with both identities visible.
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-86 --out tmp/week-86-views --tex --publish lowell-math-circle-year-2/band-views/week-86
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-86-views lowell-math-circle-year-2/week-86 week-86
+  ```
 
-## Rebuild offline
+  The first-route and return packets, the one-page problem menu and the key arranged by problem are published in [band-views/week-86/](../../band-views/README.md#weeks-stored-as-problem-files). The routes follow the guide: the shared packet is the first visit; the upper packet's Problem 1 is its stand-alone entry and Problems 2–6 are return visits.
+- **Materials and adult guide:** the materials pages are drawn by `materials_tex()` in `figures.py`; the guide's source is `editable/guide/facilitator.tex`. The problem files' `key` sections and `guide/overview.tex` repeat the guide's answer keys and overview for the key view; `python3 lowell-math-circle-year-2/source/week-86/check_guide_copy.py` checks that every copied sentence is still in the guide source. Change both together.
+- **Portable package:** `editable/` is the package (README, mathematical checks, guide source, reference PDFs). `editable/student/build.py` writes the student and materials LaTeX from the problem files, and `editable/build.py` builds all four PDFs. The [portable source ZIP](../week-86-source.zip) holds the package plus the problem files and tools in `problem-files/`, written by `package.py`:
 
-Requires Python 3 and TeX Live/MacTeX with pdfLaTeX, TikZ/PGF, geometry, fancyhdr, AMS, hyperref, T1 and Latin Modern. No third-party Python module, network, private reference or repository file is needed.
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-86 --zip ../week-86-source.zip --top week-86
+  ```
 
-    python3 build.py --out output
-    python3 build.py --verify-only
-
-The first builds all four named PDFs; the second runs independent finite-state checks without TeX. Edit `student/build.py` for student/material content and `guide/facilitator.tex` for the guide. The wrapper builds in temporary directories with fixed metadata. Different TeX/font versions may change bytes. `reference-pdfs/` contains the delivered owned PDFs for comparison.
-
-## Evidence and limits
-
-The production record in `plans/seven-families-85-91/production/week-86/` preserves separate fresh writer, adversarial critic, mathematical reviewer and reviser reports, final student–guide review and release audit. The guide is separately authored. `student/QA.md` records all 13 final student/material page inspections and geometric checks. Finite checks support examples; general strategies and assumptions appear in the guide. Source ZIP excludes downloaded references, borrowed prompt exemplars, caches, logs and private records. Canonical Git publication does not imply a Drive upload.
+Read `editable/README.md` for printing, dependencies and evidence. Current print copies are in [../../week-86/](../../week-86/). The week is unpiloted; counters, turn tiles and fold covers are physically unrehearsed.

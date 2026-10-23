@@ -190,8 +190,9 @@ def problem_file_rows(indexed):
             continue
         meta = tomllib.loads(toml.read_text())
         topic = meta['topic']
-        # The week's own bands, in week.toml order; a band outside K-1, 2-3, 4-5 names its file.
-        bands = [BANDS[b] if b in BANDS else (style.get('file', f'grades-{b}'), style['header'].replace('--', '–'))
+        # The week's own bands, in week.toml order; a band outside K-1, 2-3, 4-5, or one that sets
+        # file (Week 86's 4-5 band prints week-86-upper.pdf), names its file.
+        bands = [BANDS[b] if b in BANDS and 'file' not in style else (style.get('file', f'grades-{b}'), style['header'].replace('--', '–'))
                  for b, style in meta.get('bands', {}).items()] or list(BANDS.values())
         cells = []
         for route in ('first', 'return'):

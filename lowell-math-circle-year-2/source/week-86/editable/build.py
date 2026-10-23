@@ -10,15 +10,15 @@ def main():
  subprocess.run([sys.executable,str(ROOT/'check_math.py')],check=True)
  if a.verify_only:return
  out=a.out.resolve();out.mkdir(parents=True,exist_ok=True)
- repo=ROOT.parents[2] if len(ROOT.parents)>2 else ROOT
- work=(a.work or (repo/'tmp/pdf-builds' if (repo/'AGENTS.md').exists() else ROOT/'tmp')).resolve();work.mkdir(parents=True,exist_ok=True)
+ repo=next((d for d in ROOT.parents if (d/'AGENTS.md').exists()),None)
+ work=(a.work or (repo/'tmp/pdf-builds' if repo else ROOT/'tmp')).resolve();work.mkdir(parents=True,exist_ok=True)
  latex=shutil.which('pdflatex') or ('/Library/TeX/texbin/pdflatex' if Path('/Library/TeX/texbin/pdflatex').exists() else None)
  if not latex:raise SystemExit('Install TeX Live/MacTeX with pdfLaTeX, TikZ, geometry, fancyhdr, AMS and Latin Modern.')
  env=dict(os.environ,SOURCE_DATE_EPOCH='1792195200',FORCE_SOURCE_DATE='1')
  with tempfile.TemporaryDirectory(prefix=f'week-{WEEK}-',dir=work) as td:
   temp=Path(td); studentout=temp/'student-pdfs';studentout.mkdir()
-  shutil.copytree(ROOT/'student',temp/'student')
-  run=subprocess.run([sys.executable,str(temp/'student'/'build.py'),'--out',str(studentout),'--work',str(temp/'student-work')],env=env,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+  # student/build.py reads the problem files beside this package; it writes only into --out and --work.
+  run=subprocess.run([sys.executable,str(ROOT/'student'/'build.py'),'--out',str(studentout),'--work',str(temp/'student-work')],env=env,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
   (work/f'week-{WEEK}-students-build.log').write_text(run.stdout)
   if run.returncode:raise SystemExit(run.stdout[-7000:])
   for name in NAMES:shutil.copy2(studentout/(name+'.pdf'),out/f'week-{WEEK}-{name}.pdf')
