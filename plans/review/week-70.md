@@ -46,6 +46,8 @@ The 4×4 room with opposite edges glued by translation is a flat torus. S is the
 
 October 23, 2026: after the conversion to problem files, fixes 1–11 are done (GGT70-S-v2, GGT70-FAC-v2).
 
+**Critic follow-up, October 23, 2026 (GGT70-FAC-v3):** an independent critic noted that the guide's possible Grades 2–3 route was "Problem 1 alone", which the same guide budgets at about 5 minutes. The route now continues to Problem 2's shots A–C, aimed with a ruler at the letters on the map without reading coordinates (A and B are Problem 1's drawn shots unfolded; C stops at the room's own T), about 15–20 minutes in all. Student pages unchanged (GGT70-S-v2). Check: `checks/week-70/check_critic_fixes.py`.
+
 ## Overlaps
 
 Week 41 (Torus portals and lifts) has the same room, portal rule and lift map, but a different theorem: winding pairs classify loops. Week 70 is a natural 4–5 return visit to that theme, and neither should absorb the other. Week 31 (Hidden orchard) gives the first-lattice-point fact behind the (6,6) case. Weeks 9 and 71 unfold billiard rooms; they share the representation but ask a different question.

@@ -174,14 +174,17 @@ here = pathlib.Path(__file__).resolve().parent
 guide = (here/'facilitator.tex').read_text()
 student = (here.parent/'student'/'students.tex').read_text()
 def wording():
-    for phrase in ['GGT70-FAC-v2', 'GGT70-S-v2 student packet', 'about 5 minutes on Problem 1',
+    for phrase in ['GGT70-FAC-v3', 'GGT70-S-v2 student packet', 'about 5 minutes on Problem 1',
                    'meets the diagonals only at $(1,3)$', 'only at $(3,1)$', 'at $(\\frac12,1\\frac12)$ or $(1\\frac12,\\frac12)$, needs five',
                    'tracing paper about 6\\,cm square', 'clear counters with a centre dot',
                    'the shot toward $(6,-2)$ meets the diagonals only at $(3,3)$', 'the shot toward $(10,2)$ then forces $(1,1)$',
                    'Extension: shots back to $S$', 'folds to $(2,0)$, $(0,2)$ or $(2,2)$', 'The shots to $(4,0)$, $(0,4)$ and $(4,4)$',
-                   'A possible Grades 2--3 route, untested', 'A $(2,6)$ & $(2,6)$ & $(1,3)$']:
+                   'A possible Grades 2--3 route, untested', 'A $(2,6)$ & $(2,6)$ & $(1,3)$',
+                   # critic follow-up, October 23, 2026 (GGT70-FAC-v3): the Grades 2-3 route continues to Problem 2's A-C
+                   'about 15--20 minutes', "then Problem 2's shots A--C, laying a ruler from S to each letter", "A and B are Problem 1's drawn shots unfolded",
+                   "C stops at the room's own T."]:
         assert phrase in guide, phrase
-    for phrase in ['roughly 10 minutes on Problem 1', 'four small counters', 'All four small student rooms', 'GGT70-S-v1', 'move a counter']:
+    for phrase in ['Problem 1 alone', 'roughly 10 minutes on Problem 1', 'four small counters', 'All four small student rooms', 'GGT70-S-v1', 'move a counter']:
         assert phrase not in guide, phrase
     for phrase in ['GGT70-S-v2', 'marked with a small pencil cross', 'A shield stops a shot only if the shot passes exactly through that point',
                    'each large square is another copy of the same room, and every T is the same target',
