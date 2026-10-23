@@ -45,6 +45,7 @@ The seven numbers, themes and substantive mathematical directions are preserved.
 ## Changes after release
 
 - **89, October 23, 2026:** the student packet is stored as problem files ([source/week-89/](source/week-89/README.md)); the conversion changed no wording, figure or PDF.
+- **89, October 23, 2026:** the review card's fixes: Problem 19's cube pictures drawn in depth order, Problem 18's worked turn off the task's path, a new opening example, Problem 2 peeling layers, the tray rules before Problems 7 and 11, and a K–1 return route in the guide ([what changed](source/week-89/editable/review/card-fixes-2026-10-23.md)); student pages 1, 4, 6, 10, 11 and guide pages 1–3, 7, 8 changed, and the old PDFs are archived.
 
 ## Verification, provenance and use history
 

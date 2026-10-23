@@ -15,7 +15,7 @@ On each turn, update the first tray, then the second, then the third. Each tray 
 
 \begin{center}\begin{tikzpicture}[x=1cm,y=1cm]
 \node[anchor=west] at (0,4.6){One turn with input 1:};
-\foreach \yy/\aa/\bb/\cc/\txt in {3.1/2/3/4/before,1.3/3/3/4/add input 1,-0.5/3/6/4/add new first total,-2.3/3/6/10/add new second total}{
+\foreach \yy/\aa/\bb/\cc/\txt in {3.1/3/3/3/before,1.3/4/3/3/add input 1,-0.5/4/7/3/add new first total,-2.3/4/7/10/add new second total}{
 \node[anchor=west,font=\small] at (0,\yy+.55){\txt};
 \tray{4}{\yy}{first}{\aa}\tray{6.2}{\yy}{second}{\bb}\tray{8.4}{\yy}{third}{\cc}}
 \end{tikzpicture}\end{center}
@@ -23,5 +23,10 @@ On each turn, update the first tray, then the second, then the third. Each tray 
 \begin{center}\renewcommand{\arraystretch}{2}
 \begin{tabular}{c|ccc}
 turns&first total&second total&third total\\\hline
+1&&&\\
+2&&&\\
+3&&&\\
+4&&&\\
+5&&&\\
 6&&&
 \end{tabular}\end{center}

@@ -23,12 +23,12 @@ At step 1, use one cube. At step 2, stack the step-1 pile on a bottom layer of 2
 \filldraw[fill=black!6] (0,1,0)--(1,1,0)--(1,1,1)--(0,1,1)--cycle;
 \filldraw[fill=black!20] (1,1,0)--(1,2,0)--(1,2,1)--(1,1,1)--cycle;
 \filldraw[fill=black!10] (0,1,1)--(1,1,1)--(1,2,1)--(0,2,1)--cycle;
-\filldraw[fill=black!6] (1,0,0)--(2,0,0)--(2,0,1)--(1,0,1)--cycle;
-\filldraw[fill=black!20] (2,0,0)--(2,1,0)--(2,1,1)--(2,0,1)--cycle;
-\filldraw[fill=black!10] (1,0,1)--(2,0,1)--(2,1,1)--(1,1,1)--cycle;
 \filldraw[fill=black!6] (0,0,0)--(1,0,0)--(1,0,1)--(0,0,1)--cycle;
 \filldraw[fill=black!20] (1,0,0)--(1,1,0)--(1,1,1)--(1,0,1)--cycle;
 \filldraw[fill=black!10] (0,0,1)--(1,0,1)--(1,1,1)--(0,1,1)--cycle;
+\filldraw[fill=black!6] (1,0,0)--(2,0,0)--(2,0,1)--(1,0,1)--cycle;
+\filldraw[fill=black!20] (2,0,0)--(2,1,0)--(2,1,1)--(2,0,1)--cycle;
+\filldraw[fill=black!10] (1,0,1)--(2,0,1)--(2,1,1)--(1,1,1)--cycle;
 \begin{scope}[shift={(0,0,1.8)}]\filldraw[fill=black!6] (0,0,0)--(1,0,0)--(1,0,1)--(0,0,1)--cycle;
 \filldraw[fill=black!20] (1,0,0)--(1,1,0)--(1,1,1)--(1,0,1)--cycle;
 \filldraw[fill=black!10] (0,0,1)--(1,0,1)--(1,1,1)--(0,1,1)--cycle;
@@ -36,12 +36,12 @@ At step 1, use one cube. At step 2, stack the step-1 pile on a bottom layer of 2
 \filldraw[fill=black!6] (0,1,0)--(1,1,0)--(1,1,1)--(0,1,1)--cycle;
 \filldraw[fill=black!20] (1,1,0)--(1,2,0)--(1,2,1)--(1,1,1)--cycle;
 \filldraw[fill=black!10] (0,1,1)--(1,1,1)--(1,2,1)--(0,2,1)--cycle;
-\filldraw[fill=black!6] (1,0,0)--(2,0,0)--(2,0,1)--(1,0,1)--cycle;
-\filldraw[fill=black!20] (2,0,0)--(2,1,0)--(2,1,1)--(2,0,1)--cycle;
-\filldraw[fill=black!10] (1,0,1)--(2,0,1)--(2,1,1)--(1,1,1)--cycle;
 \filldraw[fill=black!6] (0,0,0)--(1,0,0)--(1,0,2)--(0,0,2)--cycle;
 \filldraw[fill=black!20] (1,0,0)--(1,1,0)--(1,1,2)--(1,0,2)--cycle;
 \filldraw[fill=black!10] (0,0,2)--(1,0,2)--(1,1,2)--(0,1,2)--cycle;
+\filldraw[fill=black!6] (1,0,0)--(2,0,0)--(2,0,1)--(1,0,1)--cycle;
+\filldraw[fill=black!20] (2,0,0)--(2,1,0)--(2,1,1)--(2,0,1)--cycle;
+\filldraw[fill=black!10] (1,0,1)--(2,0,1)--(2,1,1)--(1,1,1)--cycle;
 \draw (0,0,1)--(1,0,1)--(1,1,1);\end{scope}
 \end{tikzpicture}\end{center}
 \answer{20mm}

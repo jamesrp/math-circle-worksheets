@@ -121,7 +121,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 86 | Pursuit and escape | keep | [card](week-86.md), [math check](week-86-math.md) |
 | 87 | Voting and agendas | keep | [card](week-87.md), [math check](week-87-math.md) |
 | 88 | Packing and kissing circles | keep | [card](week-88.md), [math check](week-88-math.md) |
-| 89 | Growing shapes and totals | keep | [card](week-89.md), [math check](week-89-math.md) |
+| 89 | Growing shapes and totals | original verdict keep; shoulds 1–6 (Problem 19's cubes in depth order, Problem 18's worked turn off the task path, a non-task opening example, Problem 2 peeling layers, Problem 20's wording, a K–1 return route in the guide) and coulds 7, 8, 10–12 (tray rules before Problems 7 and 11, the label nudge, a row per turn in Problem 18's table, guide tile fit and board size) fixed October 23 in the new problem files and the guide; could 9 deferred, materials unchanged | [card](week-89.md), [math check](week-89-math.md) |
 | 90 | Sliding number arrays (jeu de taquin) | keep | [card](week-90.md), [math check](week-90-math.md) |
 | 91 | Rotor-router machines | keep | [card](week-91.md), [math check](week-91-math.md) |
 | 92 | Fold-and-stretch predictions | keep | [card](week-92.md), [math check](week-92-math.md) |

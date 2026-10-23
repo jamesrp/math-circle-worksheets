@@ -46,6 +46,8 @@ A layer kept around the old shape is the difference: 2n + 1 for squares, n + 1 f
 11. **could**, guide p. 2: say 1-inch colour tiles do not fit the 20 mm boards; 2 cm snap cubes laid flat do.
 12. **could**, guide p. 2: "120 × 140 mm" against the materials page's "140 mm × 120 mm".
 
+October 23, 2026: fixes 1–8 and 10–12 made in the problem files and the guide; could 9 deferred; see `source/week-89/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 Week 49 iterates differences on a closed ring to zero; here differences recover layers of an open row. Week 50 uses stairs for length, Week 20 is the zero-second-difference case, Week 26 counts perimeter of growing shapes. No merge either way.

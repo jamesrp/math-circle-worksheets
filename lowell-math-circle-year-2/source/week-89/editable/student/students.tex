@@ -26,11 +26,11 @@
 Use square tiles on the large boards or the tabletop. Build one picture at a time. Keep the old tiles in place when you grow a shape.
 
 \begin{center}\begin{tikzpicture}[x=7mm,y=7mm]
-\tile{0}{0}{white}\tile{1}{0}{white}
+\foreach \x in {0,1}{\foreach \y in {0,1}{\tile{\x}{\y}{white}}}
 \node[below] at (1,-.2){old shape};
 \draw[-{Latex}] (2.6,.7)--(3.5,.7);
-\tile{4}{0}{white}\tile{5}{0}{white}\tile{6}{0}{black!25}
-\foreach \x in {4,5,6}{\tile{\x}{1}{black!25}}
+\foreach \x in {4,5}{\foreach \y in {0,1}{\tile{\x}{\y}{white}}}
+\tile{6}{0}{black!25}\tile{6}{1}{black!25}
 \node[below] at (5.5,-.2){add shaded tiles};
 \draw[-{Latex}] (7.5,.7)--(8.4,.7);
 \foreach \x in {9,10,11}{\foreach \y in {0,1}{\tile{\x}{\y}{white}}}
@@ -45,7 +45,7 @@ side 1&side 2&side 3&side 4
 \end{tabular}\end{center}
 \answer{25mm}
 
-\problem{2}{Make a square with side 5. Take away tiles to leave a smaller square tucked into its bottom-left corner; find every possible size.}
+\problem{2}{Make a square with side 5. Take it apart one layer at a time, always leaving a square in the bottom-left corner. How many tiles come off each time?}
 
 \begin{center}\squarefig{5}\end{center}
 
@@ -86,9 +86,6 @@ rectangles&&&&&
 
 \newpage
 
-\problem{7}{Can the order of these inputs change the final total? Use each shown input once. Try a tray starting at 0, then a tray starting at 3.}
-
-\begin{center}\slips{0,1,2,3,4}\end{center}
 Use the supplied input cards. An input tells how many counters to add. Keep the counters already in the tray. The number in the tray is its total. You may replace counters by one card showing their total.
 
 \begin{center}\begin{tikzpicture}[x=1cm,y=1cm]
@@ -104,6 +101,10 @@ Use the supplied input cards. An input tells how many counters to add. Keep the 
 \tray{8.3}{0}{total after}{5}
 \node[font=\small,align=center] at (5,1.8){one turn: add 3 counters};
 \end{tikzpicture}\end{center}
+
+\problem{7}{Can the order of these inputs change the final total? Use each shown input once. Try a tray starting at 0, then a tray starting at 3.}
+
+\begin{center}\slips{0,1,2,3,4}\end{center}
 \answer{20mm}
 
 \problem{8}{Find the missing inputs. These are the totals after each turn. The tray starts at 2.}
@@ -132,9 +133,6 @@ total&4&7&7&12
 
 \newpage
 
-\problem{11}{Arrange the five inputs to make the second tray finish as large as possible. Then make it as small as possible. Start both totals at 0 each time.}
-
-\begin{center}\slips{2,2,1,0,0}\end{center}
 Each turn, add the input to the first total. Then add a copy of the \emph{new first total} to the second total. Keep both totals; nothing moves out of either tray. Use one total card in each tray and change it when needed.
 
 \begin{center}\begin{tikzpicture}[x=1cm,y=1cm]
@@ -144,14 +142,18 @@ Each turn, add the input to the first total. Then add a copy of the \emph{new fi
 \tray{2}{5.3}{first total}{1}\tray{5}{5.3}{second total}{1}
 \node[font=\small,anchor=west] at (0,4.45){Add input 2 to the first total.};
 \draw[-{Latex}] (3,4.1)--(3,3.75);
-\node[draw,minimum width=1cm,minimum height=.7cm] at (.6,3){2};
-\node[font=\small,align=center] at (.6,2.25){same input\\already added};
+\node[draw,minimum width=1cm,minimum height=.7cm] at (.6,3.1){2};
+\node[font=\footnotesize,align=center] at (.6,2.3){same input\\already added};
 \tray{2}{2.5}{first total}{3}\tray{5}{2.5}{second total}{1}
 \node[font=\small,anchor=west] at (0,1.65){Copy the new first total, 3, and add it to the second.};
 \draw[-{Latex}] (3,1.3)--(3,.95);
 \tray{2}{-.4}{first total}{3}\tray{5}{-.4}{second total}{4}
 \node[font=\small,anchor=west] at (0,-1.25){Turn finished: both totals stay in their trays.};
 \end{tikzpicture}\end{center}
+
+\problem{11}{Arrange the five inputs to make the second tray finish as large as possible. Then make it as small as possible. Start both totals at 0 each time.}
+
+\begin{center}\slips{2,2,1,0,0}\end{center}
 \vspace{6mm}
 Largest final second total: \underline{\hspace{19mm}}\quad order: \underline{\hspace{50mm}}
 
@@ -215,7 +217,7 @@ On each turn, update the first tray, then the second, then the third. Each tray 
 
 \begin{center}\begin{tikzpicture}[x=1cm,y=1cm]
 \node[anchor=west] at (0,4.6){One turn with input 1:};
-\foreach \yy/\aa/\bb/\cc/\txt in {3.1/2/3/4/before,1.3/3/3/4/add input 1,-0.5/3/6/4/add new first total,-2.3/3/6/10/add new second total}{
+\foreach \yy/\aa/\bb/\cc/\txt in {3.1/3/3/3/before,1.3/4/3/3/add input 1,-0.5/4/7/3/add new first total,-2.3/4/7/10/add new second total}{
 \node[anchor=west,font=\small] at (0,\yy+.55){\txt};
 \tray{4}{\yy}{first}{\aa}\tray{6.2}{\yy}{second}{\bb}\tray{8.4}{\yy}{third}{\cc}}
 \end{tikzpicture}\end{center}
@@ -223,6 +225,11 @@ On each turn, update the first tray, then the second, then the third. Each tray 
 \begin{center}\renewcommand{\arraystretch}{2}
 \begin{tabular}{c|ccc}
 turns&first total&second total&third total\\\hline
+1&&&\\
+2&&&\\
+3&&&\\
+4&&&\\
+5&&&\\
 6&&&
 \end{tabular}\end{center}
 
@@ -242,12 +249,12 @@ At step 1, use one cube. At step 2, stack the step-1 pile on a bottom layer of 2
 \filldraw[fill=black!6] (0,1,0)--(1,1,0)--(1,1,1)--(0,1,1)--cycle;
 \filldraw[fill=black!20] (1,1,0)--(1,2,0)--(1,2,1)--(1,1,1)--cycle;
 \filldraw[fill=black!10] (0,1,1)--(1,1,1)--(1,2,1)--(0,2,1)--cycle;
-\filldraw[fill=black!6] (1,0,0)--(2,0,0)--(2,0,1)--(1,0,1)--cycle;
-\filldraw[fill=black!20] (2,0,0)--(2,1,0)--(2,1,1)--(2,0,1)--cycle;
-\filldraw[fill=black!10] (1,0,1)--(2,0,1)--(2,1,1)--(1,1,1)--cycle;
 \filldraw[fill=black!6] (0,0,0)--(1,0,0)--(1,0,1)--(0,0,1)--cycle;
 \filldraw[fill=black!20] (1,0,0)--(1,1,0)--(1,1,1)--(1,0,1)--cycle;
 \filldraw[fill=black!10] (0,0,1)--(1,0,1)--(1,1,1)--(0,1,1)--cycle;
+\filldraw[fill=black!6] (1,0,0)--(2,0,0)--(2,0,1)--(1,0,1)--cycle;
+\filldraw[fill=black!20] (2,0,0)--(2,1,0)--(2,1,1)--(2,0,1)--cycle;
+\filldraw[fill=black!10] (1,0,1)--(2,0,1)--(2,1,1)--(1,1,1)--cycle;
 \begin{scope}[shift={(0,0,1.8)}]\filldraw[fill=black!6] (0,0,0)--(1,0,0)--(1,0,1)--(0,0,1)--cycle;
 \filldraw[fill=black!20] (1,0,0)--(1,1,0)--(1,1,1)--(1,0,1)--cycle;
 \filldraw[fill=black!10] (0,0,1)--(1,0,1)--(1,1,1)--(0,1,1)--cycle;
@@ -255,17 +262,17 @@ At step 1, use one cube. At step 2, stack the step-1 pile on a bottom layer of 2
 \filldraw[fill=black!6] (0,1,0)--(1,1,0)--(1,1,1)--(0,1,1)--cycle;
 \filldraw[fill=black!20] (1,1,0)--(1,2,0)--(1,2,1)--(1,1,1)--cycle;
 \filldraw[fill=black!10] (0,1,1)--(1,1,1)--(1,2,1)--(0,2,1)--cycle;
-\filldraw[fill=black!6] (1,0,0)--(2,0,0)--(2,0,1)--(1,0,1)--cycle;
-\filldraw[fill=black!20] (2,0,0)--(2,1,0)--(2,1,1)--(2,0,1)--cycle;
-\filldraw[fill=black!10] (1,0,1)--(2,0,1)--(2,1,1)--(1,1,1)--cycle;
 \filldraw[fill=black!6] (0,0,0)--(1,0,0)--(1,0,2)--(0,0,2)--cycle;
 \filldraw[fill=black!20] (1,0,0)--(1,1,0)--(1,1,2)--(1,0,2)--cycle;
 \filldraw[fill=black!10] (0,0,2)--(1,0,2)--(1,1,2)--(0,1,2)--cycle;
+\filldraw[fill=black!6] (1,0,0)--(2,0,0)--(2,0,1)--(1,0,1)--cycle;
+\filldraw[fill=black!20] (2,0,0)--(2,1,0)--(2,1,1)--(2,0,1)--cycle;
+\filldraw[fill=black!10] (1,0,1)--(2,0,1)--(2,1,1)--(1,1,1)--cycle;
 \draw (0,0,1)--(1,0,1)--(1,1,1);\end{scope}
 \end{tikzpicture}\end{center}
 \answer{20mm}
 
-\problem{20}{How many cubes would a step-10 corner pile need? Find a way to get the total without building it or listing all ten running totals.}
+\problem{20}{How many cubes would a step-10 corner pile need? Find a way to get the total without building it or running the trays for ten turns.}
 
 \answer{40mm}
 
