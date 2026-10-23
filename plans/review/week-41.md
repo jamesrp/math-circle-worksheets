@@ -44,6 +44,8 @@ A 3×3 board with opposite edges glued by translation is a torus. A trip back to
 9. **could**, p. 1: "Keep moving in the arrow direction", while board edges carry arrows; say "keep going the same way".
 10. **could**, guide K–1 key: add the plain-board contrasts (two steps reach five cells; no odd trip returns).
 
+Fixed October 23, 2026, after converting the week to problem files: shoulds 1–8 and coulds 9–10 (v3 packets, week-41-materials.pdf; checked in `source/week-41/editable/review/verify_card_shoulds_2026_10_23.py` and `materials/verify_materials.py`).
+
 ## Overlaps
 
 Week 39 asks the same shrinking question on roads without faces, where circuits do not commute; teach it first. In Week 72 the same moves remember area. Weeks 64 (glued squares), 70 (shields in this room) and 75 (the annulus) build on this board; Weeks 9 and 71 unfold billiards. None should absorb another.

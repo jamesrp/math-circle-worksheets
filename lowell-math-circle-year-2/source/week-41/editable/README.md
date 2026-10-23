@@ -1,12 +1,14 @@
 # Week 41 Torus portals and lifts editable source
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 23, 2026 card shoulds, on the October 4 fresh-review revision
 
-The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
+The guide gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
+
+**Card shoulds, October 23, 2026.** The student pages are stored as problem files (see `src/README.md`). The review card's eight shoulds and two coulds were made there and in the guide: page 1 of every band names the portal map and the repeated map, and the rules say "keep going the same way"; Grades 2–3 Problem 2 has a 120 mm map with ruled lines, and Problem 4 compares RRRUUU with RURURU and with RRRDDD; Grades 4–5 Problems 2 and 3 are swapped, Problem 2 no longer narrates the copy labels, page 4 shows each allowed change as a picture with one line beside it and says "trip", Problem 5 has its own page with ruled lines, and Problem 6 asks "When can two trips from H back to H be changed into each other? Explain."; a table-copies sheet, `materials.pdf` (four lettered 90 mm copies of the portal map), built by `materials/build_materials.py` and measured by `materials/verify_materials.py`. All three packets are now v3. `review/card-shoulds-2026-10-23.md` lists the changes; `review/verify_card_shoulds_2026_10_23.py` checks them. The table copies are physically unrehearsed.
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
-Current pages: **K–1 4; Grades 2–3 5; Grades 4–5 5; adult guide 7**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 4; Grades 2–3 5; Grades 4–5 6; adult guide 7; table copies 1**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project
 

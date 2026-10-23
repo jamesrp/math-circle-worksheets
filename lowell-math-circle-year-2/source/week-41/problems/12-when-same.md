@@ -7,7 +7,7 @@ kernel = "Two trips from H back to H change into each other by backtracks and sq
 +++
 
 ## prompt @27
-When can two trips from H back to H be changed into each other? Explain what their finishing copies decide, using the repeated map. Add copies if your journey leaves the page.
+When can two trips from H back to H be changed into each other? Explain. Add copies if your trip leaves the page.
 
 ## figure
 tiled(18,73,60,True)

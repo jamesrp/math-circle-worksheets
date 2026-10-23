@@ -1,5 +1,6 @@
-"""Week 41 figures and canvas page template, carried over unchanged from the old builder
-(archive-before-problem-files-2026-10-23/make_packets.py and common.py).
+"""Week 41 figures and canvas page template, carried over from the old builder
+(archive-before-problem-files-2026-10-23/make_packets.py and common.py); the October 23, 2026
+card fixes renamed the worked example's panels and added the layouts at the end.
 
 Coordinates are millimetres from the top-left corner of the paper, y down: each page
 is a TikZ overlay on the whole page that draws its own header, rule, footer and page
@@ -118,7 +119,7 @@ def tiled(x,y,s,coords=False):
 
 def arrtrip(x,y,w,s,size=15):return text(x,y,w,'$'+r'\;'.join({'R':r'\rightarrow','L':r'\leftarrow','U':r'\uparrow','D':r'\downarrow'}[c] for c in s)+'$',size)
 def example():
- s=lab(41,62,'input',10)+lab(88,62,'process',10)+lab(151,62,'output',10)
+ s=lab(41,62,'portal map',10)+lab(151,62,'repeated map',10)
  s+=tile(17,73,48,True,True,True,9)
  # H -> E -> D on quotient, paired with a continuous path in two copies.
  s+=line(41,97,65,97,'-{Stealth[length=2mm]},blue!65!black,line width=1.1pt')+line(17,97,25,97,'-{Stealth[length=2mm]},blue!65!black,line width=1.1pt')
@@ -164,3 +165,49 @@ def k1_step_maps():
 def trip_list(trips,y,w,size):
  """Trips in two columns of arrows, 10 mm apart."""
  return ''.join(arrtrip(18+(j%2)*93,y+(j//2)*10,w,rt,size) for j,rt in enumerate(trips))
+
+
+# ---------------------------------------------------------------- October 23, 2026 card fixes
+
+def ruled(y0,y1,step=10,x=16,w=180):
+ """Ruled lines for a running list of trips, from y0 to y1."""
+ out='';y=y0
+ while y<=y1+1e-6:out+=line(x,y,x+w,y,'gray!40');y+=step
+ return out
+
+def board_and_lines():
+ """Grades 2-3 trips home: a 120 mm portal map with ruled lines beside and below it."""
+ return tile(18,50,120,True,True,True,14)+ruled(58,168,10,148,48)+ruled(184,254,10)
+
+def compare_three():
+ """Grades 2-3: three trips from H, each on its own repeated map (25 mm copies), and an answer box."""
+ s=''
+ for x,y,rt in [(20,48,'RRRUUU'),(116,48,'RURURU'),(20,145,'RRRDDD')]:
+  s+=arrtrip(x,y,81,rt,13)+tiled(x,y+12,25)
+ return s+blank(112,157,84,75)
+
+def _block(x,y,c=20):
+ """The lower-left 2-by-2 block of the portal map (D H over F G), cells c mm; returns centres."""
+ out=blank(x,y,2*c,2*c)+line(x+c,y,x+c,y+2*c,'gray!50')+line(x,y+c,x+2*c,y+c,'gray!50')
+ pts={'D':(x+c/2,y+c/2),'H':(x+1.5*c,y+c/2),'F':(x+c/2,y+1.5*c),'G':(x+1.5*c,y+1.5*c)}
+ for k,(a,b) in pts.items():out+=lab(a-4,b-4,k,11)+rf'\fill ({a},{b}) circle (.7);'+'\n'
+ return out,pts
+
+def _path(pts,o=(0,0)):
+ return rf'\draw[-{{Stealth[length=2.5mm]}},blue!65!black,line width=1.4pt] '+'--'.join(f'({a+o[0]},{b+o[1]})' for a,b in pts)+';\n'
+
+def move_pictures(y):
+ """Grades 4-5: the two allowed changes, each a before/after pair with one line of text beside it."""
+ out=''
+ for row,(name,words) in enumerate([('slide','Slide: swap two sides of one small square for its other two sides, in any rotation.'),
+                                    ('backtrack','Backtrack: add or erase a step followed straight away by the opposite step.')]):
+  yy=y+row*50
+  left,p=_block(20,yy);right,q=_block(84,yy)
+  out+=left+right
+  if name=='slide':
+   out+=_path([p['F'],p['G'],p['H']])+_path([q['F'],q['D'],q['H']])
+  else:
+   out+=_path([p['F'],p['G']],(0,-1.6))+_path([p['G'],p['F']],(0,1.6))+_path([p['F'],p['D']])+_path([q['F'],q['D']])
+  out+=line(64,yy+20,80,yy+20,'{Stealth[length=2.5mm]}-{Stealth[length=2.5mm]},line width=.8pt')
+  out+=text(128,yy+13,68,words,11)
+ return out
