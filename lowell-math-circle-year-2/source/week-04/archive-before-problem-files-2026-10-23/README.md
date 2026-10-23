@@ -1,0 +1,3 @@
+# Week 4 before problem files
+
+The student packets' builder (`gen.py`, which wrote and compiled `k-1.tex`, `grades-2-3.tex` and `grades-4-5.tex`, drawing with `../src/tikzlib.py`), those generated files, and the week's `build.sh`, as they were until October 23, 2026, when the week was converted to [problem files](../week.toml). `../figures.py` carries over the builder's ring, grid, code-block and layout helpers unchanged, with the drawings its page functions wrote inline as named helpers. The conversion changed no wording: the rebuilt packets match these files' PDFs in pages, extracted text and 100-dpi pixels. Kept for reference; they are not built.
