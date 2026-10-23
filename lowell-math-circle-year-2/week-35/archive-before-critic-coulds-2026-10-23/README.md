@@ -1,0 +1,3 @@
+# Archived Week 35 K–1 and Grades 4–5 packets and guide (before three review coulds)
+
+`week-35-k-1.pdf` (W35-k-1-v4), `week-35-grades-4-5.pdf` (W35-grades-4-5-v4) and `week-35-facilitator.pdf` were replaced on October 23, 2026 by W35-k-1-v5, W35-grades-4-5-v5 and a guide that names them: K–1 Problem 4 asks for a border "where the shortest slide is longer", Grades 4–5 Problem 3 names its move ("a flip over the middle line and a 3 cm slide along it") so the return-route view does not need Problem 2, and the guide counts five card sets (120 cards, about 25 minutes) instead of four. The Grades 2–3 packet and the kit did not change. The current copies are in `../`.

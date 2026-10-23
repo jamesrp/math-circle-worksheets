@@ -20,7 +20,7 @@
 
 - **Grades 4-5:** Explain forced symmetries by composition and justify a full symmetry description for one chosen construction. Sampling several moves is not a proof of completeness.
 
-**Status.** Current packets (v4, October 23, 2026): K-1 has seven problems on five pages, Grades 2-3 six on four pages and Grades 4-5 six on five pages. Mathematical examples are verified; the card kit, physical handling and classroom pacing are untested.
+**Status.** Current packets (October 23, 2026: K-1 v5, Grades 2-3 v4, Grades 4-5 v5): K-1 has seven problems on five pages, Grades 2-3 six on four pages and Grades 4-5 six on five pages. Mathematical examples are verified; the card kit, physical handling and classroom pacing are untested.
 
 ---page---
 
@@ -34,7 +34,7 @@ For eleven children, use three adult-led tables. Three-child groups can rotate b
 
 **Boards, tape and tracing:** children build each border in a printed box (17.65 by 6 cm), which holds two and a half to three repeats of a 6 cm border with card centres 1.5 cm above and below the middle line. Move to a long strip only when one repeat is longer than 6 cm, such as K-1 Problem 4's longer slide or a Grades 2-3 Problem 6 edit with a 12 cm repeating part. When a border is finished, tack its cards down with removable tape so that testing cannot nudge a card into a match. Lay a tracing strip over the box and always trace the middle line first: the flip is made over it. A rough outline of each footprint with its arrow is enough, since the arrow's place and direction tell the four forms apart. At K-1 the adult traces and the children move the copy.
 
-**Preparation estimate:** about 20 minutes to cut four sets with scissors (96 cards on straight lines; less with a paper trimmer). The cards are reusable. A set holds any two of page 4's borders on the printed boards, or one on a long strip. Before class, check the 10 cm scale line, test one reflected tracing strip, and rehearse the common launch. The kit is physically unrehearsed.
+**Preparation estimate:** about 25 minutes to cut five sets with scissors (120 cards on straight lines; less with a paper trimmer): both sets on the K-1 and Grades 2-3 sheets, for two pairs each, and Set 1 for the Grades 4-5 trio. The cards are reusable. A set holds any two of page 4's borders on the printed boards, or one on a long strip. Before class, check the 10 cm scale line, test one reflected tracing strip, and rehearse the common launch. The kit is physically unrehearsed.
 
 **Readiness:** children need to extend a repeating arrangement and compare a moved copy with every motif in the original. Reading and measured lengths can be adult-supported; the youngest can compare slide lengths directly. If keeping the original fixed or mentally continuing the ends is difficult, spend the session on one border and slide matching.
 
@@ -156,4 +156,4 @@ Joseph A. Gallian, **Contemporary Abstract Algebra**, author-hosted Chapter 28, 
 
 Laura Givental, Maria Nemirovskaya and Ilya Zakharevich, **Math Circle by the Bay**, AMS/MSRI Mathematical Circles Library 21 (2018), Preface pp. viii-ix. It describes substantial themes, manipulatives, dialogue and varied pace. The proposed one-hour sequence, exact motif preparation and readiness gates here are local plans, not a report of testing these tasks in that source.
 
-**Packet basis:** current Week 35 Footprint borders, October 23, 2026: K-1 v4, Problems 1-7; Grades 2-3 v4 and Grades 4-5 v4, Problems 1-6. K-1 skips v3 because the October 4 guide called the packet printed W35-k-1-v2 "K-1 v3", and an archived six-problem packet also printed W35-k-1-v2. This guide uses the revised shortest-period wording, freely chosen half-turn centers, excluded guide lines and enlarged-repeat edit convention.
+**Packet basis:** current Week 35 Footprint borders, October 23, 2026: K-1 v5, Problems 1-7; Grades 2-3 v4 and Grades 4-5 v5, Problems 1-6. K-1 skips v3 because the October 4 guide called the packet printed W35-k-1-v2 "K-1 v3", and an archived six-problem packet also printed W35-k-1-v2. This guide uses the revised shortest-period wording, freely chosen half-turn centers, excluded guide lines and enlarged-repeat edit convention.

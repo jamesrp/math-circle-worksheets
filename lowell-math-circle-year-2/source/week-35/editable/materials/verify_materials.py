@@ -140,8 +140,10 @@ def main():
           f'one kind) and any two witnesses side by side on the printed boards (at most {pairs_board}). '
           f'Two slide-only borders on 280 mm strips (K-1 P2, 2-3 P1, 4-5 P1) use {two_t} A cards.')
     r_t = need['R'][1]['A'] + need['T (6 cm)'][1]['A']
-    print(f'NOTE: K-1 P6 on two 280 mm strips with R and a 6 cm slide border would use {r_t} A cards; '
-          'its table has one group, so Set 2 on the same sheet covers it.')
+    # Corrected October 23, 2026 (Critic L could 8): the K-1 table works as two pairs, one set each, so Set 2 is not
+    # spare there. Both P6 borders repeat every 6 cm, which the guide builds in the printed boxes.
+    print(f'NOTE: K-1 P6 on two 280 mm strips with R and a 6 cm slide border would use {r_t} A cards, more than a set; '
+          f'both repeat every 6 cm, so they go in the printed boxes, where two borders use at most {pairs_board}.')
 
 
 if __name__ == '__main__':

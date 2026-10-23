@@ -59,7 +59,8 @@ T = {n: [text(p) for p in d] for n, d in docs.items()}
 for n, count in (('k-1', 5), ('grades-2-3', 4), ('grades-4-5', 5)):
     ok(len(T[n]) == count, (n, 'pages', len(T[n])))
     for i, t in enumerate(T[n], 1):
-        ok(f'Bellingham Math Circle / Week 35 / W35-{n}-v4' in t, (n, i, 'footer v4'))
+        # K-1 and Grades 4-5 went to v5 with the Critic L coulds (verify_critic_coulds_2026_10_23.py).
+        ok(any(f'Bellingham Math Circle / Week 35 / W35-{n}-{v}' in t for v in (('v4',) if n == 'grades-2-3' else ('v4', 'v5'))), (n, i, 'footer v4'))
         ok(f'Week 35 / Footprint borders / ' in t, (n, i, 'header'))
 
 # ---------------------------------------------------------------- rules (second run 2; fix 9)
@@ -77,7 +78,9 @@ for n in ('grades-2-3', 'grades-4-5'):
     ok(p1[1] - rules[3] > 0.4, (n, 'rules clear of Problem 1', p1[1] - rules[3]))
 
 # ---------------------------------------------------------------- the changed prompts
-ok("Problem 4: Make another border like Problem 3's, with a longer slide." in T['k-1'][2], 'K-1 P4 (second run 5, fix 11)')
+ok(any(p in T['k-1'][2] for p in ("Problem 4: Make another border like Problem 3's, with a longer slide.",
+                                   "Problem 4: Make another border like Problem 3's, where the shortest slide is longer.")),
+   'K-1 P4 (second run 5, fix 11; Critic L could 7)')
 ok('Problem 1: Make two repeating borders whose shortest matching slides are different lengths.' in T['grades-2-3'][0], '2-3 P1 shortest')
 ok('Problem 1: Build two repeating borders with different shortest matching slides. Measure those slides; explain why a '
    'shorter slide cannot match each border.' in T['grades-4-5'][0], '4-5 P1 shortest')
@@ -87,8 +90,8 @@ ok('Make two borders that match after a glide but fail after the flip alone. Giv
    in T['grades-2-3'][1], '2-3 P2 two glide borders (second run 3)')
 ok('Problem 3: On each border, how does the shortest matching glide compare with the shortest matching slide?'
    in T['grades-2-3'][1], '2-3 P3 on each border')
-ok('Problem 3: A border matches after a 3 cm glide. Must a 6 cm slide also match? Must a 3 cm slide match? Explain why.'
-   in T['grades-4-5'][1], '4-5 P3 a 3 cm glide (fix 6)')
+ok(any(f'Problem 3: A border matches after {m}. Must a 6 cm slide also match? Must a 3 cm slide match? Explain why.' in T['grades-4-5'][1]
+       for m in ('a 3 cm glide', 'a flip over the middle line and a 3 cm slide along it')), '4-5 P3 a 3 cm glide (fix 6; Critic L could 6)')
 ok('A glide is a flip over the middle line followed by a nonzero slide along it.' in T['grades-4-5'][1], '4-5 glide defined on the P3 page')
 p6 = T['grades-4-5'][4]
 ok('Problem 6: For one border you made, describe every matching slide, glide, flip and turn. Explain why no other move matches.'
@@ -182,7 +185,7 @@ ok(F(25, 10) <= width <= 3, ('printed motif width (cm)', width))
 g = pymupdf.open(build / 'facilitator-guide.pdf')
 G = [text(p) for p in g]
 ok(len(G) == 8, ('guide pages', len(G)))
-ok('Revised October 23 2026 2 Preparation Materials and readiness' in G[1], 'p. 2 Preparation')
+ok(re.search(r'Revised October 23 2026( \(K-1 and 4-5 v5\))? 2 Preparation Materials and readiness', G[1]), 'p. 2 Preparation')
 ok('Running the session' in G[2] and 'Concrete answer bank' in G[3] and 'Keys for K-1 and Grades 2-3' in G[4]
    and 'Key for Grades 4-5' in G[5] and 'Why these descriptions are complete' in G[5] and 'Shortest glide theorem' in G[6]
    and 'Starting routes and return visits' in G[7], 'page plan')
@@ -241,6 +244,6 @@ ok('recipe positions on page 4 are card centres' in G[1] and "any two of page 4'
    and 'Use the recipes on page 4 as checks' in G[4], 'page 4 references')
 # Second run 13: revision residue cut; version note.
 ok('older v3 packets' not in all_g and 'older v2 packets' not in all_g and 'retain six problems' not in all_g, 'residue cut')
-ok('K-1 v4, Problems 1-7; Grades 2-3 v4 and Grades 4-5 v4, Problems 1-6. K-1 skips v3' in G[6], 'packet basis')
+ok(any(f'K-1 {v}, Problems 1-7; Grades 2-3 v4 and Grades 4-5 {v}, Problems 1-6. K-1 skips v3' in G[6] for v in ('v4', 'v5')), 'packet basis')
 ok('Grades 2-3 six on four pages and Grades 4-5 six on five pages' in G[0], 'status line')
 print(f'PASS: {checks} checks on the October 23, 2026 card fixes (student pages, witnesses, guide).')

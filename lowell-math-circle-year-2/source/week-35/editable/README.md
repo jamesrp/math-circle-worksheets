@@ -1,5 +1,9 @@
 # Week 35 Footprint borders editable source
 
+## Three review coulds, later on October 23, 2026
+
+An independent review's coulds 6–8 are made in the problem files, the guide source and the kit checker's console note: K–1 Problem 4 asks for a border "where the shortest slide is longer", Grades 4–5 Problem 3 names its move ("a flip over the middle line and a 3 cm slide along it") for the return-route view, and the guide's preparation estimate counts five card sets (120 cards, about 25 minutes). The packets are W35-k-1-v5, W35-grades-2-3-v4 (unchanged) and W35-grades-4-5-v5; the guide footer says "(K-1 and 4-5 v5)". See `review/critic-coulds-2026-10-23.md` and run `python3 review/verify_critic_coulds_2026_10_23.py [build-folder]`.
+
 ## Card shoulds and coulds, October 23, 2026
 
 The review card's deferred shoulds and clear coulds and the second card run's extra shoulds are made in the problem files, the guide source and the kit's checker; `review/card-fixes-2026-10-23.md` lists each change and `review/verify_card_fixes_2026_10_23.py [build-folder]` checks them in the built PDFs (default: this folder). The packets are W35-k-1-v4, W35-grades-2-3-v4 and W35-grades-4-5-v4; the guide's `build_guide.py` draws the five witnesses on page 4 from the same motif. The table kit did not change. Unpiloted.
