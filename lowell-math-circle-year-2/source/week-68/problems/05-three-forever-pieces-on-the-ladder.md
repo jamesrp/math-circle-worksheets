@@ -2,7 +2,7 @@
 id = "w68.three-forever-pieces-on-the-ladder"
 title = "Three forever pieces on the ladder?"
 grades = ["3-5"]
-route = "first"
+route = "return"
 kernel = "All blockers lie between two far columns, so at most the two tails go on forever: the ladder has two ends."
 +++
 

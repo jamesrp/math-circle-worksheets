@@ -54,13 +54,22 @@ vs=list(product(range(-5,6),repeat=2))
 grid=graph(vs,[(a,b) for a,b in combinations(vs,2) if abs(a[0]-b[0])+abs(a[1]-b[1])==1])
 cs=components(grid,{(1,0),(-1,0),(0,1),(0,-1)})
 assert len(cs)==2 and {(0,0)} in cs
-wall={(0,y) for y in range(-2,3)}
+wall={(0,y) for y in range(-3,4)}          # the seven printed X dots (v2)
 assert len(components(grid,wall))==1
-assert distances(grid,(-2,0),wall)[(2,0)]==10
-p=(-2,0)
-for dx,dy in [(0,1)]*3+[(1,0)]*4+[(0,-1)]*3:
+assert distances(grid,(-2,0),wall)[(2,0)]==12
+p=(-2,0);left_window=False
+for dx,dy in [(0,1)]*4+[(1,0)]*4+[(0,-1)]*4:
     p=(p[0]+dx,p[1]+dy);assert p not in wall
-assert p==(2,0)
+    left_window|=max(abs(p[0]),abs(p[1]))>3
+assert p==(2,0) and left_window
+# inside the printed 7x7 window no route exists: every route leaves it
+window=graph([v for v in product(range(-3,4),repeat=2)],
+             [(a,b) for a,b in combinations(list(product(range(-3,4),repeat=2)),2) if abs(a[0]-b[0])+abs(a[1]-b[1])==1])
+assert (2,0) not in distances(window,(-2,0),wall)
+# P5 left: a dot can be trapped by four printed blockers only if its four neighbours are printed,
+# i.e. it is one of the 25 dots off the window's edge
+printed=set(product(range(-3,4),repeat=2))
+assert sum(1 for v in printed if all(n in printed for n in grid[v]))==25
 
 # A depth-6 window of the 3-regular tree: center has three children;
 # every other nonterminal vertex has two. Only this explicit rule is used.
@@ -77,7 +86,42 @@ for r in range(4):
     counts.append(len(cs));blocked_counts.append(len(blocked))
 assert counts==[3,6,12,24]
 assert blocked_counts==[1,4,10,22]
+# Review card, October 23, 2026 (GGT68-S-v2, GGT68-FAC-v2)
+# P3: one blocked dot never splits; two split in 25 ways on the printed 9-column ladder,
+# 9 rungs and 16 diagonal pairs; same-rail pairs and pairs two or more columns apart do not
+cols=range(-4,5)
+pdots=[(x,y) for x in cols for y in (0,1)]
+far={(-7,0),(-7,1),(7,0),(7,1)}
+def forever(blocked): return sum(bool(c&far) for c in components(ladder,blocked))
+assert all(forever({d})==1 for d in pdots)
+splits=[c for c in combinations(pdots,2) if forever(set(c))==2]
+rungs=[c for c in splits if c[0][0]==c[1][0]]
+diag=[c for c in splits if abs(c[0][0]-c[1][0])==1 and c[0][1]!=c[1][1]]
+assert (len(splits),len(rungs),len(diag))==(25,9,16)
+assert all(forever(set(c))==1 for c in combinations(pdots,2) if c[0][1]==c[1][1] or abs(c[0][0]-c[1][0])>=2)
+# launch: a ray with its third dot covered traps the first two dots; the rest is one forever piece
+ray=graph(range(1,15),[(x,x+1) for x in range(1,14)])
+cs=components(ray,{3})
+assert sorted(sorted(c) for c in cs if 14 not in c)==[[1,2]] and sum(14 in c for c in cs)==1
+# K-1 key: 1, 4 and 10 blockers leave 3, 6 and 12 forever pieces (checked with the tree below)
+# the printed wording
+import pathlib
+here=pathlib.Path(__file__).resolve().parent
+guide=(here/'facilitator.tex').read_text()
+student=(here.parent/'student'/'students.tex').read_text()
+for phrase in ['GGT68-FAC-v2','\\textbf{4 up, 4 right, 4 down}','\\textbf{12 steps}','seven-X wall','diagonal pair',
+               '25 two-dot placements split it: 9 rungs and 16 diagonal pairs','not on the window\'s edge',
+               'a finite wall stops somewhere','A K--1 table','cover its third dot','12 mm at 100',
+               '12-step wall route']:
+    assert phrase in guide, phrase
+for phrase in ['10-step','five-X','3 up, 4 right, 3 down','a finite wall has ends','10 mm at 100']:
+    assert phrase not in guide, phrase
+for phrase in ['GGT68-S-v2','Cover dots with blockers.','When you have a placement to keep, mark its dots with X before lifting the blockers.',
+               'How few blocked dots can split the ladder into two forever pieces?','the seven X dots are closed',
+               '\\foreach \\y in {-3,...,3}\\node','[x=1.2cm,y=1.2cm]\\grid']:
+    assert phrase in student, phrase
+assert 'counters' not in student and 'Keep one attempt' not in student
 print(json.dumps({'status':'PASS','P1':[2,2,2],'P2_blocked_visible_dots':[2,4,5,7],
- 'P2_trapped_visible_dots':[3,6],'P5_wall_shortest_route':10,'P7_P8':counts,
+ 'P2_trapped_visible_dots':[3,6],'P5_wall_shortest_route':12,'P3_two_dot_splits':[25,9,16],'P7_P8':counts,
  'blocked_vertices_by_radius':blocked_counts,
  'scope':'Finite windows check examples only. Tails, connected exterior, and continuing-tree proofs handle infinity.'},indent=2))

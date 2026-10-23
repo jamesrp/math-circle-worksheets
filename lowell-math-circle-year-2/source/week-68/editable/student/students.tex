@@ -7,7 +7,7 @@
 \setlength{\parindent}{0pt}\setlength{\parskip}{9pt}
 \pagestyle{fancy}\fancyhf{}
 \fancyhead[L]{\small Week 68 / How many ways out / Grades 3--5}
-\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 68 / GGT68-S-v1}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 68 / GGT68-S-v2}
 \fancyfoot[R]{\footnotesize\thepage}\renewcommand{\headrulewidth}{.4pt}
 
 \newcommand{\problem}[2]{\par\textbf{Problem #1:} #2\par}
@@ -22,7 +22,7 @@
 \foreach \x in {-3,...,3}\foreach \y in {-3,...,3}\fill (\x,\y) circle (1.8pt);}
 \begin{document}
 
-Cover dots with counters. A covered dot and every road touching it are closed. Before lifting counters, mark their dots with X. One partner places the blockers; the other traces open routes. Swap jobs between attempts.
+Cover dots with blockers. A covered dot and every road touching it are closed. When you have a placement to keep, mark its dots with X before lifting the blockers. One partner places the blockers; the other traces open routes. Swap jobs between attempts.
 \begin{center}
 \begin{tikzpicture}[x=.75cm,y=.75cm,font=\small]
 \foreach \s in {0,5,10}{\begin{scope}[shift={(\s,0)}]
@@ -55,7 +55,7 @@ On the maps below, arrows mean the road pattern keeps going forever. A piece cou
 
 The ladder has two endless rails. A rung joins them at every dot pair, including beyond the arrows.
 
-\problem{3}{One partner covers one dot and chooses two open dots. The other tries to join them by an open route. Swap jobs, then allow two blocked dots. Keep one attempt that separates forever pieces and one that leaves them together.}
+\problem{3}{One partner covers one or two dots and chooses two open dots. The other tries to join them by an open route. How few blocked dots can split the ladder into two forever pieces? Show a split on one ladder, and on the other a two-dot placement that does not split it.}
 
 \vspace{.3in}
 \begin{center}\ladder\end{center}
@@ -73,13 +73,13 @@ The ladder has two endless rails. A rung joins them at every dot pair, including
 
 The square grid continues in every direction, with the same rows, columns, and connecting roads. Routes may leave the printed window.
 
-\problem{5}{On the left grid, use four blockers to trap an open dot. On the right grid, the five X dots are closed. Join P to Q by an open route. Which pieces on each map keep going forever?}
+\problem{5}{On the left grid, use four blockers to trap an open dot. On the right grid, the seven X dots are closed. Join P to Q by an open route. Which pieces on each map keep going forever?}
 
-\vspace{.2in}
+\vspace{.45in}
 \begin{center}
-\begin{tikzpicture}[x=1cm,y=1cm]\grid\end{tikzpicture}\hfill
-\begin{tikzpicture}[x=1cm,y=1cm]\grid
-\foreach \y in {-2,...,2}\node[fill=white,inner sep=0pt,font=\bfseries\large] at (0,\y){X};
+\begin{tikzpicture}[x=1.2cm,y=1.2cm]\grid\end{tikzpicture}\hfill
+\begin{tikzpicture}[x=1.2cm,y=1.2cm]\grid
+\foreach \y in {-3,...,3}\node[fill=white,inner sep=0pt,font=\bfseries\large] at (0,\y){X};
 \node[draw,circle,fill=white,inner sep=2pt] at (-2,0){P};\node[draw,circle,fill=white,inner sep=2pt] at (2,0){Q};
 \end{tikzpicture}
 \end{center}

@@ -7,14 +7,14 @@ kernel = "Blockers on the grid can trap finite pockets, but a finite wall can be
 +++
 
 ## prompt
-On the left grid, use four blockers to trap an open dot. On the right grid, the five X dots are closed. Join P to Q by an open route. Which pieces on each map keep going forever?
+On the left grid, use four blockers to trap an open dot. On the right grid, the seven X dots are closed. Join P to Q by an open route. Which pieces on each map keep going forever?
 
 ## text
-\vspace{.2in}
+\vspace{.45in}
 \begin{center}
-\begin{tikzpicture}[x=1cm,y=1cm]\grid\end{tikzpicture}\hfill
-\begin{tikzpicture}[x=1cm,y=1cm]\grid
-\foreach \y in {-2,...,2}\node[fill=white,inner sep=0pt,font=\bfseries\large] at (0,\y){X};
+\begin{tikzpicture}[x=1.2cm,y=1.2cm]\grid\end{tikzpicture}\hfill
+\begin{tikzpicture}[x=1.2cm,y=1.2cm]\grid
+\foreach \y in {-3,...,3}\node[fill=white,inner sep=0pt,font=\bfseries\large] at (0,\y){X};
 \node[draw,circle,fill=white,inner sep=2pt] at (-2,0){P};\node[draw,circle,fill=white,inner sep=2pt] at (2,0){Q};
 \end{tikzpicture}
 \end{center}

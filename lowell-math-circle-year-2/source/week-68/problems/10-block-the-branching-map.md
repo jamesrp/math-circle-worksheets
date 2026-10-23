@@ -2,7 +2,7 @@
 id = "w68.block-the-branching-map"
 title = "Blocking the branching map"
 grades = ["3-5"]
-route = "return"
+route = "first"
 kernel = "Blocking the centre and then each ring doubles the forever pieces: 3, 6, 12."
 +++
 

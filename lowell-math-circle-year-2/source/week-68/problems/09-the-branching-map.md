@@ -3,7 +3,7 @@ id = "w68.the-branching-map"
 kind = "setup"
 title = "The branching map"
 grades = ["3-5"]
-route = ["return"]
+route = ["first", "return"]
 page = "new"
 +++
 

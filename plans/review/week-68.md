@@ -47,6 +47,8 @@ Children block finitely many dots on an endless map and count the pieces that go
 12. **could**, p. 4: ask how many forever pieces ten blockers can make (21, spread over the outer dots; each blocker adds at most two).
 13. **could**, p. 3: rehearse the blockers on the 10 mm grid, or use 12 mm, at which two grids still fit.
 
+October 23, 2026: after the conversion to problem files, fixes 1–10 and 13 are done (GGT68-S-v2, GGT68-FAC-v2); 11 and 12 add new questions and are left for the organizer.
+
 ## Overlaps
 
 Week 13 counts the fewest closures that block routes on finite one-way maps. P3's split is a cousin, but the object and theorem differ. Weeks 67 and 69 share the tree-against-grid contrast (meeting points, thin triangles), and Week 68 is the natural first of the three. Weeks 35 and 41 also treat a printed window as an endless pattern. No merge.

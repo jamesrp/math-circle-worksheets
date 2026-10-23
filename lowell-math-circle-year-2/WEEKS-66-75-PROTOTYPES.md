@@ -10,7 +10,7 @@ All ten complete pairs and portable source packages are available below. Combine
 | --- | --- | --- | --- |
 | 66 | Lamplighter streets | Grades 3–5 | [Students: 4 pages](week-66/week-66-students.pdf) · [Adult guide: 2 pages](week-66/week-66-facilitator.pdf) · [Editable source](source/week-66/README.md) · [ZIP](source/week-66-source.zip) |
 | 67 | Meeting on shortest roads | Grades 3–5 | [Students: 4 pages](week-67/week-67-students.pdf) · [Adult guide: 2 pages](week-67/week-67-facilitator.pdf) · [Editable source](source/week-67/README.md) · [ZIP](source/week-67-source.zip) |
-| 68 | How many ways out | Grades 3–5 | [Students: 4 pages](week-68/week-68-students.pdf) · [Adult guide: 2 pages](week-68/week-68-facilitator.pdf) · [Editable source](source/week-68/README.md) · [ZIP](source/week-68-source.zip) |
+| 68 | How many ways out | Grades 3–5 | [Students: 4 pages](week-68/week-68-students.pdf) · [Adult guide: 3 pages](week-68/week-68-facilitator.pdf) · [Editable source](source/week-68/README.md) · [ZIP](source/week-68-source.zip) |
 | 69 | Thin and fat road triangles | Grades 4–5 | [Students: 4 pages](week-69/week-69-students.pdf) · [Adult guide: 2 pages](week-69/week-69-facilitator.pdf) · [Editable source](source/week-69/README.md) · [ZIP](source/week-69-source.zip) |
 | 70 | Four shields in a portal room | Grades 4–5 | [Students: 4 pages](week-70/week-70-students.pdf) · [Adult guide: 3 pages](week-70/week-70-facilitator.pdf) · [Editable source](source/week-70/README.md) · [ZIP](source/week-70-source.zip) |
 | 71 | Can you hear the room | Grades 4–5 | [Students: 5 pages](week-71/week-71-students.pdf) · [Adult guide: 3 pages](week-71/week-71-facilitator.pdf) · [Editable source](source/week-71/README.md) · [ZIP](source/week-71-source.zip) |

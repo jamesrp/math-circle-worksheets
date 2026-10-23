@@ -7,7 +7,7 @@ route = ["first", "return"]
 +++
 
 ## text
-Cover dots with counters. A covered dot and every road touching it are closed. Before lifting counters, mark their dots with X. One partner places the blockers; the other traces open routes. Swap jobs between attempts.
+Cover dots with blockers. A covered dot and every road touching it are closed. When you have a placement to keep, mark its dots with X before lifting the blockers. One partner places the blockers; the other traces open routes. Swap jobs between attempts.
 \begin{center}
 \begin{tikzpicture}[x=.75cm,y=.75cm,font=\small]
 \foreach \s in {0,5,10}{\begin{scope}[shift={(\s,0)}]

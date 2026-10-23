@@ -30,7 +30,7 @@ assert len(comps(vs,edges,[(0,0)]))==1
 assert len(comps(vs,edges,[(0,0),(0,1)]))==2
 vs=[(x,y) for x in range(-5,6) for y in range(-5,6)];edges=[(v,w) for v,w in combinations(vs,2) if abs(v[0]-w[0])+abs(v[1]-w[1])==1]
 cs=comps(vs,edges,[(-1,0),(1,0),(0,-1),(0,1)]);assert {frozenset(c) for c in cs}=={frozenset({(0,0)}),frozenset(set(vs)-{(-1,0),(1,0),(0,-1),(0,1),(0,0)})}
-assert len(comps(vs,edges,[(0,y) for y in range(-2,3)]))==1
+assert len(comps(vs,edges,[(0,y) for y in range(-3,4)]))==1
 tree_vs=[''];tree_edges=[];layer=['']
 for depth in range(5):
     next_layer=[]
