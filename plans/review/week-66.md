@@ -43,6 +43,8 @@ A state is the walker's position plus the lit lamps; a move is L, R or F. This i
 8. **could**, p. 1: cut "Use the large street for your counters."; the launch shows it.
 9. **could**, guide launch: show the goal too, a non-task target reached by a long word and a short one.
 
+**Done October 23, 2026:** shoulds 1–5 and coulds 6–9 made in the problem files and guide (GGT66-S-v2, five pages with the new Problem 6; GGT66-FAC-v2, three pages). Checked by `source/week-66/review/verify_card_fixes_2026_10_23.py`; unpiloted.
+
 ## Overlaps
 
 Week 2 also flips lamps for fewest moves (upper P4–P5), but over F₂ with no walker, so order never matters. Weeks 39, 67, 72 and 74 are geometric-group-theory siblings; Week 74's elevator word metric is nearest. None has dead ends or a walker carrying state. No merge.

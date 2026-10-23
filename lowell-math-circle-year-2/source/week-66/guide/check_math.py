@@ -51,6 +51,24 @@ for label,p,lamps,minimum,word in cases:
 base = (0,frozenset({-1,0,1}))
 assert distance[base] == 7
 assert [distance[t] for _,t in next_states(base)] == [6,6,6]
-print(json.dumps({'status':'PASS','independent_bfs_states':len(distance),
+# October 23, 2026 (GGT66-FAC-v2): the launch's goal example, Problem 6's key and the
+# dead-end paragraph. Within distance 11, a target has every neighbour nearer exactly when
+# the walker is at 0, lamp 0 is on and a lamp is on each side; neighbours never tie.
+assert execute('LFLRR') == execute('LFR') == (0,frozenset({-1})) and distance[(0,frozenset({-1}))] == 3
+dead = []
+for s, d in distance.items():
+    if d > 11: continue
+    near = [distance[t] for _,t in next_states(s)]
+    assert all(abs(x - d) == 1 for x in near)
+    p, lamps = s
+    shape = p == 0 and 0 in lamps and min(lamps) < 0 < max(lamps)
+    assert all(x < d for x in near) == shape, s
+    if shape: dead.append(d)
+assert sorted(dead)[:6] == [7, 9, 9, 10, 10, 11]
+for lamps, d in [({-2,0,1},9),({-1,0,2},9),({-2,-1,0,1},10),({-1,0,1,2},10),({-2,0,2},11)]:
+    s = (0,frozenset(lamps)); assert distance[s] == d and [distance[t] for _,t in next_states(s)] == [d-1]*3
+assert [distance[t] for _,t in next_states((0,frozenset({-1,1})))] == [5,5,7]
+assert [distance[t] for _,t in next_states((0,frozenset({0,2})))] == [7,5,5]
+print(json.dumps({'status':'PASS','independent_bfs_states':len(distance),'dead_ends_within_11':len(dead),
  'depth':12,'printed_answers':{r[0]:r[3] for r in cases},
  'scope':'Unbounded-position BFS is finite evidence; general proof is in the guide.'},indent=2))

@@ -12,6 +12,8 @@ A walk must encounter the two extremes in one order or the other; those two orde
 
 For `L={-1,0,1}`, `p=0`, three flips and four steps are both necessary and attainable: distance 7. Changing `p` to either `-1` or `1` leaves distance 6; flipping the origin lamp off also leaves distance 6. Thus this is a strict local maximum of distance **from the original state**, not an obstruction to moving toward some other goal.
 
+**Dead ends (added October 23, 2026).** The targets all of whose three neighbours are nearer the origin are exactly those with `p=0`, `0` in `L`, and lamps on both sides (`l<0<r`). Between the end lamps the walk is `2(r-l)-|p|`, so at 0 a step either way shortens it and switching lamp 0 off saves a flip without moving an end; for any other target a step toward 0, a step past an end lamp, a step toward an empty side, or switching lamp 0 on costs one more. `|L|+p` changes parity with every move, so neighbours differ by exactly one. The smallest examples have distances 7 (`{-1,0,1}`), 9 (`{-2,0,1}`, `{-1,0,2}`), 10 and 11 (`{-2,0,2}`). `review/verify_card_fixes_2026_10_23.py` checks the rule by BFS to distance 13 and by the formula on 26,624 targets.
+
 Independent check: BFS verified the formula on all 4,167 states at distance at most 12.
 
 

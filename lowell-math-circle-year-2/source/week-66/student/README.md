@@ -1,6 +1,6 @@
 # Week 66 reviewed prototype
 
-One shared four-page Grades 3–5 packet. Prerequisites: order signed positions on a line, count moves, preserve both lamp and walker state, compare short move words. No group notation. Status: reviewed prototype, unpiloted. This package contains the revised student pages; the adult guide is a separate stage.
+One shared five-page Grades 3–5 packet (v2, October 23, 2026: the review card's fixes, with a new Problem 6 on dead ends). Prerequisites: order signed positions on a line, count moves, preserve both lamp and walker state, compare short move words. No group notation. Status: reviewed prototype, unpiloted. This package contains the revised student pages; the adult guide is a separate stage.
 
 Build: `python3 build.py` or `python3 build.py --out PATH`. Produces `students.pdf` and `build.log`. Since October 23, 2026 `students.tex` is written from the problem files one folder up (`week.toml`, `template.tex`, `problems/`) by `regenerate.py`, which `build.py` runs first unless given `--no-regenerate`; edit the problem files, not `students.tex`. The old hand-written file is in `../archive-before-problem-files-2026-10-23/`. Requirements: Python 3, TeX Live with TikZ, fancyhdr, amssymb. No repository imports, absolute paths, external images, or downloaded texts.
 

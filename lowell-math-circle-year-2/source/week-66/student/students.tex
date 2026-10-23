@@ -7,7 +7,7 @@
 \setlength{\parindent}{0pt}\setlength{\parskip}{9pt}
 \pagestyle{fancy}\fancyhf{}
 \fancyhead[L]{\small Week 66 / Lamplighter streets / Grades 3--5}
-\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 66 / GGT66-S-v1}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 66 / GGT66-S-v2}
 \fancyfoot[R]{\footnotesize\thepage}\renewcommand{\headrulewidth}{.4pt}
 \newcommand{\problem}[2]{\par\textbf{Problem #1:} #2\par}
 \newcommand{\lineword}{\par Move word: \hrulefill\par Fewest moves: \rule{1.2in}{.4pt}\par}
@@ -19,9 +19,17 @@
 \ifnum#3>-5 \fill (#3,{#2+.23})--++(-.12,.22)--++(.24,0)--cycle;\fi
 \end{tikzpicture}}
 \newcommand{\target}[3]{\textbf{#1}\quad\street{.63}{.12}{#2}{#3}}
+% A working street for counters: all lamps off and a home mark at 0 instead of the walker.
+\newcommand{\homestreet}{\begin{tikzpicture}[x=1.9cm,y=1cm,baseline]
+\draw[line width=.8pt] (-4,0)--(4,0);
+\foreach \i in {-4,...,4}{\draw[fill=white,line width=.8pt] (\i,0) circle (.65cm);\node[below=0pt,font=\small] at (\i,{-.65-.16}){\i};}
+\node[above=1pt,font=\small\bfseries] at (0,.65){home};
+\end{tikzpicture}}
+% A small draw-in street with the fewest moves to it and to its three one-move neighbours.
+\newcommand{\deadrow}{\par\street{.92}{.15}{-8}{}\hfill Fewest \rule{.42in}{.4pt}\quad After L \rule{.42in}{.4pt}\quad R \rule{.42in}{.4pt}\quad F \rule{.42in}{.4pt}\par}
 \begin{document}
 
-One move is \textbf{L}: walk left one place, \textbf{R}: walk right one place, or \textbf{F}: flip the lamp under the walker. $\circ$ is off, $\bullet$ is on, and $\blacktriangledown$ is the walker.
+One move is \textbf{L}: walk left one place, \textbf{R}: walk right one place, or \textbf{F}: flip the lamp under the walker. $\circ$ is off, $\bullet$ is on, and $\blacktriangledown$ is the walker. Every target starts with every lamp off and the walker at home, 0.
 
 One partner moves the walker. The other flips the lamp, only after pointing to the walker's place. Write one letter per move. Swap jobs between targets.
 
@@ -40,18 +48,18 @@ One partner moves the walker. The other flips the lamp, only after pointing to t
 \end{tikzpicture}
 \end{center}
 
-\problem{1}{Start with every lamp off and the walker at 0. Reach each target in as few moves as you can. Reset before each attempt. Use the large street for your counters.}
+\problem{1}{Reach each target in as few moves as you can. Reset before each attempt.}
 
-\begin{center}\street{1.9}{.65}{0}{}\end{center}
+\begin{center}\homestreet\end{center}
 \target{A}{1}{1}\lineword
 \target{B}{1}{-1,1}\lineword
 \target{C}{0}{0,2}\lineword
 
 \newpage
 
-\problem{2}{Start with every lamp off and the walker at 0. These targets have the same lamps on, but the walker ends in different places. Find the fewest moves to each target.}
+\problem{2}{Find the fewest moves to each target.}
 
-\begin{center}\street{1.9}{.65}{0}{}\end{center}
+\begin{center}\homestreet\end{center}
 \vspace{.15in}
 \target{A}{-2}{-2,0,2}\lineword
 \vspace{.35in}
@@ -62,13 +70,13 @@ One partner moves the walker. The other flips the lamp, only after pointing to t
 
 \newpage
 
-\problem{3}{Start with every lamp off and the walker at 0. Reach this target in the fewest moves. Find a way to convince your partner that fewer moves cannot work.}
+\problem{3}{Reach this target in the fewest moves. Find a way to convince your partner that fewer moves cannot work.}
 
 \begin{center}\street{1.9}{.65}{0}{-1,0,1}\end{center}
 \lineword
 \vspace{.2in}
 Workspace
-\begin{center}\street{1.9}{.65}{0}{}\end{center}
+\begin{center}\homestreet\end{center}
 \vspace{.45in}
 \rule{\linewidth}{.4pt}\par\vspace{.4in}\rule{\linewidth}{.4pt}\par\vspace{.4in}\rule{\linewidth}{.4pt}\par\vspace{.4in}\rule{\linewidth}{.4pt}
 
@@ -83,8 +91,23 @@ Workspace
 \textbf{F}\quad\street{1.1}{.17}{-8}{}\lineword
 \vspace{.2in}
 
-\problem{5}{Can you always make a target harder to reach from all-off at 0 by making one more legal move? Use your results to settle this question.}
+\problem{5}{Does every target have at least one next move, L, R or F, that makes it harder to reach from all-off at 0? Use your results to settle this question.}
 
 \vspace{.35in}\rule{\linewidth}{.4pt}\par\vspace{.35in}\rule{\linewidth}{.4pt}
+
+\newpage
+
+\problem{6}{Find other targets where L, R and F each make the target easier to reach from all-off at 0. Which targets are like this?}
+
+\begin{center}\homestreet\end{center}
+\vspace{.1in}
+\deadrow\vspace{.16in}
+\deadrow\vspace{.16in}
+\deadrow\vspace{.16in}
+\deadrow\vspace{.16in}
+\deadrow\vspace{.16in}
+\deadrow
+\vspace{.3in}
+\rule{\linewidth}{.4pt}\par\vspace{.35in}\rule{\linewidth}{.4pt}\par\vspace{.35in}\rule{\linewidth}{.4pt}
 
 \end{document}

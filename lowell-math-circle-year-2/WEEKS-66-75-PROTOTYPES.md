@@ -8,7 +8,7 @@ All ten complete pairs and portable source packages are available below. Combine
 
 | Week | Investigation | Approximate entry | Print and edit |
 | --- | --- | --- | --- |
-| 66 | Lamplighter streets | Grades 3–5 | [Students: 4 pages](week-66/week-66-students.pdf) · [Adult guide: 2 pages](week-66/week-66-facilitator.pdf) · [Editable source](source/week-66/README.md) (problem files) · [ZIP](source/week-66-source.zip) |
+| 66 | Lamplighter streets | Grades 3–5 | [Students: 5 pages](week-66/week-66-students.pdf) · [Adult guide: 3 pages](week-66/week-66-facilitator.pdf) · [Editable source](source/week-66/README.md) (problem files) · [ZIP](source/week-66-source.zip) |
 | 67 | Meeting on shortest roads | Grades 3–5 | [Students: 4 pages](week-67/week-67-students.pdf) · [Adult guide: 2 pages](week-67/week-67-facilitator.pdf) · [Editable source](source/week-67/README.md) · [ZIP](source/week-67-source.zip) |
 | 68 | How many ways out | Grades 3–5 | [Students: 4 pages](week-68/week-68-students.pdf) · [Adult guide: 3 pages](week-68/week-68-facilitator.pdf) · [Editable source](source/week-68/README.md) · [ZIP](source/week-68-source.zip) |
 | 69 | Thin and fat road triangles | Grades 4–5 | [Students: 4 pages](week-69/week-69-students.pdf) · [Adult guide: 2 pages](week-69/week-69-facilitator.pdf) · [Editable source](source/week-69/README.md) · [ZIP](source/week-69-source.zip) |
@@ -20,6 +20,8 @@ All ten complete pairs and portable source packages are available below. Combine
 | 75 | Twists on a cylinder | Grades 4–5 | [Students: 4 pages](week-75/week-75-students.pdf) · [Adult guide: 3 pages](week-75/week-75-facilitator.pdf) · [Editable source](source/week-75/README.md) · [ZIP](source/week-75-source.zip) |
 
 Week 75 was revised on October 23, 2026 from its review card: its student pages are now stored as problem files, Problems 6–7 say "strand crossings", Problem 4 has a strip for drawing the twisted routes, Problem 1 has two sketch boxes, and the page 1–2 wording leaves taping and method to the adult. The previous PDFs are in [week-75/archive-before-card-fixes-2026-10-23/](week-75/archive-before-card-fixes-2026-10-23/) (version 1) and [week-75/archive-before-shoulds-2026-10-23/](week-75/archive-before-shoulds-2026-10-23/) (version 2).
+
+Week 66 was revised on October 23, 2026 from its review card: its student pages are now stored as problem files, Problem 5 asks whether every target has a move that makes it harder, and a new Problem 6 asks for the dead ends, targets where every move makes the target easier. The previous PDFs are in [week-66/archive-before-card-fixes-2026-10-23/](week-66/archive-before-card-fixes-2026-10-23/README.md).
 
 ## Review and reproduction
 

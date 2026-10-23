@@ -19,6 +19,14 @@
 \ifnum#3>-5 \fill (#3,{#2+.23})--++(-.12,.22)--++(.24,0)--cycle;\fi
 \end{tikzpicture}}
 \newcommand{\target}[3]{\textbf{#1}\quad\street{.63}{.12}{#2}{#3}}
+% A working street for counters: all lamps off and a home mark at 0 instead of the walker.
+\newcommand{\homestreet}{\begin{tikzpicture}[x=1.9cm,y=1cm,baseline]
+\draw[line width=.8pt] (-4,0)--(4,0);
+\foreach \i in {-4,...,4}{\draw[fill=white,line width=.8pt] (\i,0) circle (.65cm);\node[below=0pt,font=\small] at (\i,{-.65-.16}){\i};}
+\node[above=1pt,font=\small\bfseries] at (0,.65){home};
+\end{tikzpicture}}
+% A small draw-in street with the fewest moves to it and to its three one-move neighbours.
+\newcommand{\deadrow}{\par\street{.92}{.15}{-8}{}\hfill Fewest \rule{.42in}{.4pt}\quad After L \rule{.42in}{.4pt}\quad R \rule{.42in}{.4pt}\quad F \rule{.42in}{.4pt}\par}
 \begin{document}
 
 <<body>>

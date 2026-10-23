@@ -8,10 +8,10 @@ kernel = "With the lamps fixed, where the walker must end changes the walk: endi
 +++
 
 ## prompt
-Start with every lamp off and the walker at 0. These targets have the same lamps on, but the walker ends in different places. Find the fewest moves to each target.
+Find the fewest moves to each target.
 
 ## text
-\begin{center}\street{1.9}{.65}{0}{}\end{center}
+\begin{center}\homestreet\end{center}
 \vspace{.15in}
 \target{A}{-2}{-2,0,2}\lineword
 \vspace{.35in}

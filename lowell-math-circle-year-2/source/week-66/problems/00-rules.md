@@ -7,7 +7,7 @@ route = ["first", "return"]
 +++
 
 ## text
-One move is \textbf{L}: walk left one place, \textbf{R}: walk right one place, or \textbf{F}: flip the lamp under the walker. $\circ$ is off, $\bullet$ is on, and $\blacktriangledown$ is the walker.
+One move is \textbf{L}: walk left one place, \textbf{R}: walk right one place, or \textbf{F}: flip the lamp under the walker. $\circ$ is off, $\bullet$ is on, and $\blacktriangledown$ is the walker. Every target starts with every lamp off and the walker at home, 0.
 
 One partner moves the walker. The other flips the lamp, only after pointing to the walker's place. Write one letter per move. Swap jobs between targets.
 
