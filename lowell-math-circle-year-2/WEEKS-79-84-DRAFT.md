@@ -6,7 +6,7 @@ Individual PDFs below open without unpacking a ZIP. These provisional library nu
 
 **All unpiloted.** Physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. Print US Letter, single-sided, Actual Size; cut only the materials needed for your chosen route.
 
-**79. Numbered-ball detectives** — Follow numbered cards through two bowls. Compare counting with tracking one label; a changed rule has the same finite counts. Grades 2–3 concrete core; Grades 4–5 continuation. Revised October 23 from its review card, after the organizer's October 15 approval: a new chosen-moves Problem 4, entry and move days in Problem 2, and a fuller guide; the approved PDFs are [archived](week-79/archive-organizer-approved-2026-10-15/README.md).
+**79. Numbered-ball detectives** — Follow numbered cards through two bowls. Compare counting with tracking one label; a changed rule has the same finite counts. Grades 2–3 concrete core; Grades 4–5 continuation. Revised October 23 from its review card (v2), after the organizer's October 15 approval of v1: a new chosen-moves Problem 4, entry and move days in Problem 2, and a fuller guide. v2 has not been re-approved; the approved v1 PDFs are [archived](week-79/archive-organizer-approved-2026-10-15/README.md).
 
 [Student/material PDF (6 pages)](week-79/week-79-students.pdf) · [Facilitator PDF (4 pages)](week-79/week-79-facilitator.pdf) · [Editable sources](source/week-79/README.md) · [Portable source ZIP](source/week-79-source.zip)
 
