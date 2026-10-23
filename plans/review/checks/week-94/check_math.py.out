@@ -1,0 +1,133 @@
+strip lengths from common.tex: {'A': 2, 'B': 3, 'C': 4, 'D': 6}
+ok   strips A,B,C,D are 2,3,4,6 units
+ok   unit row has 12 squares
+ok   every K-1 ruler is \ruler{2}
+K-1 ruler labels: 2 ... 14
+ok   K-1 rulers are labelled 2..14
+
+== K-1 ==
+ok   P1 strip A: every placement on the ruler spans 2 units (11 placements)
+ok   P1 strip B: every placement on the ruler spans 3 units (10 placements)
+ok   P1 strip C: every placement on the ruler spans 4 units (9 placements)
+ok   P1 strip D: every placement on the ruler spans 6 units (7 placements)
+P2 placements with one end at 7: {'A': [(5, 7), (7, 9)], 'B': [(4, 7), (7, 10)], 'C': [(3, 7), (7, 11)], 'D': [(7, 13)]}
+ok   P2: A 5-7/7-9, B 4-7/7-10, C 3-7/7-11, D 7-13 only (1-7 is off the ruler)
+P3 two pieces covered exactly by a third: [('A', 'C', 'D')]
+ok   P3: only A+C covered by D
+ok   P3: distinct-piece sums are 5,6,7,8,9,10 (guide lists 5,8,7,9,10 besides 6)
+ok   P3: the 12-unit row is not the length of any pair, so it cannot be a third cover
+P3 if duplicate pieces were available: [('A', 'A', 'C'), ('A', 'C', 'D'), ('B', 'B', 'D')]
+
+== Grades 2-3 ==
+ok   extras are 1..6
+ok   P1: strip A alone identifies every extra (reports [3, 4, 5, 6, 7, 8])
+ok   P1: strip B alone identifies every extra (reports [4, 5, 6, 7, 8, 9])
+ok   P1: strip C alone identifies every extra (reports [5, 6, 7, 8, 9, 10])
+ok   P1: strip D alone identifies every extra (reports [7, 8, 9, 10, 11, 12])
+ok   P1: every report fits on the 12-square row
+P2 worlds (P, Q, extra): [(6, 9, 1), (5, 8, 2), (4, 7, 3), (3, 6, 4), (2, 5, 5), (1, 4, 6)]
+ok   P2: exactly six pairs; page gives seven rows
+ok   P2 matches guide table
+ok   P2: every length buildable with 12 cubes
+ok   P3: Q is always exactly 3 longer; P never longer
+ok   P4: known 4 -> 8 gives allowed extra 4
+ok   P4: known 6 -> 8 gives allowed extra 2
+ok   P4: known 2 -> 8 gives allowed extra 6
+P4 hidden lengths per row: [(5, 8), (7, 10), (3, 6)]
+ok   P4 matches guide (5,8),(7,10),(3,6)
+ok   P5: for every extra the hidden lengths are positive and one supplied standard reveals the extra
+P6 boxes (read column-wise from source): {'I': [(2, 5), (4, 7), (6, 10)], 'II': [(2, 8), (4, 10), (6, 12)], 'III': [(2, 3), (4, 6), (6, 7)]}
+P6 box I: consistent=False repairs=[((6, 10), 9)]
+P6 box II: consistent=True repairs=[]
+P6 box III: consistent=False repairs=[((4, 6), 5)]
+ok   P6: only box II possible
+ok   P7: all 933120 one-wrong-report puzzles (lengths 1-12) have exactly one repair, the intended one
+
+== Grades 4-5 ==
+ok   finite machine family read from source
+ok   21 machines
+P1 single lengths that separate all 21 machines (1..19): [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+ok   P1: every length >= 7, and none <= 6, separates all 21 in one request
+P1 strip A (2): ambiguous reports [4, 5, 6, 7, 8, 9, 10]
+ok   P1: strip A alone does not always identify
+P1 strip B (3): ambiguous reports [6, 7, 8, 9, 10, 11, 12]
+ok   P1: strip B alone does not always identify
+P1 strip C (4): ambiguous reports [8, 9, 10, 12, 13, 14]
+ok   P1: strip C alone does not always identify
+P1 strip D (6): ambiguous reports [12, 18]
+ok   P1: strip D alone does not always identify
+ok   P1: any two different supplied strips always identify the machine
+P1 lucky single reports with supplied strips (length, report): [(2, 2), (2, 3), (2, 11), (2, 12), (3, 3), (3, 4), (3, 5), (3, 13), (3, 14), (3, 15), (4, 4), (4, 5), (4, 6), (4, 7), (4, 11), (4, 15), (4, 16), (4, 17), (4, 18), (6, 6), (6, 7), (6, 8), (6, 9), (6, 10), (6, 11), (6, 13), (6, 14), (6, 15), (6, 16), (6, 17), (6, 19), (6, 20), (6, 21), (6, 22), (6, 23), (6, 24)]
+ok   guide: input 6 report 24 forces 3 copies, extra 6
+P1 end-to-end combinations of distinct supplied strips: [5, 6, 7, 8, 9, 10, 11, 12, 13, 15] -> separating: [7, 8, 9, 10, 11, 12, 13, 15]
+ok   guide: copies-1 and copies-2 ranges overlap exactly for L<=6
+ok   guide: input 7 gives 7-13, 14-20, 21-27
+P2 machines with 2 -> 6: [(1, 4), (2, 2), (3, 0)]
+ok   P2: three machines (1,4),(2,2),(3,0)
+P2 second lengths 0..12 that separate them: [0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+ok   P2: every second length except 2 separates
+ok   guide: input 3 gives 7,8,9
+ok   P2: a single first request can identify (yes)
+P3 / P4 use the positive-stretch, any-shift family
+P3 machine A: stretch 2, shift 4, reports at 0,4,10: [Fraction(4, 1), Fraction(12, 1), Fraction(24, 1)]
+ok   P3 machine A matches guide
+P3 machine B: stretch 1, shift 6, reports at 0,4,10: [Fraction(6, 1), Fraction(10, 1), Fraction(16, 1)]
+ok   P3 machine B matches guide
+ok   P3: distinct inputs give a unique line (no other rule)
+P4 reports: [(2, 7), (4, 11), (6, 16)]
+ok   P4: the three reports are not on one line
+P4 repairs (changed length, new report, stretch, shift): [(2, '6', '5/2', '1'), (4, '23/2', '9/4', '5/2'), (6, '15', '2', '3')]
+ok   P4: exactly three repairs 2->6, 4->11 1/2, 6->15, all positive stretch (guide rules 5/2x+1, 9/4x+5/2, 2x+3)
+ok   P4 guide rules
+ok   P5: guide tables fit and differ at 8
+ok   P5: table A as in guide
+P6: exact feasible stretch set for displays d1 at x1, d2 at x2, errors |e|<=1
+P6 pair A: exact [1, 3], grid min 1 max 3
+ok   P6 pair A: stretch range [1, 3], both attained, positive
+ok   P6 pair A: witness y=1x+7 gives true reports (9, 11) within 1 of the displays
+ok   P6 pair A: witness y=3x+1 gives true reports (7, 13) within 1 of the displays
+ok   P6 pair A: every intermediate stretch feasible (sampled)
+ok   P6 pair A: nothing outside the range
+P6 pair B: exact [7/4, 9/4], grid min 7/4 max 9/4
+ok   P6 pair B: stretch range [7/4, 9/4], both attained, positive
+ok   P6 pair B: witness y=7/4x+11/2 gives true reports (9, 23) within 1 of the displays
+ok   P6 pair B: witness y=9/4x+5/2 gives true reports (7, 25) within 1 of the displays
+ok   P6 pair B: every intermediate stretch feasible (sampled)
+ok   P6 pair B: nothing outside the range
+P7 smallest worst-case width 4/9 at [(1, 10)]
+ok   P7: unique best pair 1 and 10, worst-case width 4/9
+ok   P7: worst-case width is exactly 4/D for every pair
+ok   P7: one reference (even repeated) fits stretches 1/100, 1, 100
+guide P7 remark: stretch 2, exact displays, D=1: untruncated [0, 4]
+guide P7 remark: stretch 2, exact displays, D=2: untruncated [1, 3]
+guide P7 remark: stretch 2, exact displays, D=9: untruncated [16/9, 20/9]
+NOTE guide P7: with true stretch 2, exact displays and D=1 the untruncated interval is [0, 4]; positivity removes the endpoint 0, so the positive-stretch set is (0, 4] (width still 4, but truncation does occur and the smallest stretch is not attained). Stretch 3 would avoid it: lower endpoint 1 > 0 at D=1.
+ok   stretch 3 with exact displays avoids truncation for every D in 1..9
+
+== PDF geometry ==
+k-1 p1: strips [2.0, 3.0, 4.0, 6.0] units; 12 unit squares; 2 tick rows, 21 ticks, gaps [1.0] units; example blocks (width units, grey, x0 units, y0 pt) [(1.0, 0.925, 3.697, 123.2), (1.0, 0.925, 7.397, 126.0)]
+ok   k-1 p1: cut strips are 2,3,4,6 units of 12 mm, 1 unit tall
+ok   k-1 p1: unit row is 12 squares of 12 mm
+ok   k-1 p1: every ruler tick gap is 12 mm
+ok   k-1 p1 example: the placed 1-unit strip spans exactly one tick gap (ticks 8-9)
+k-1 p2: 5 tick rows, 65 ticks, gaps [1.0] units;
+ok   k-1 p2: every ruler tick gap is 12 mm
+grades-2-3 p1: strips [2.0, 3.0, 4.0, 6.0] units; 12 unit squares; example blocks (width units, grey, x0 units, y0 pt) [(1.0, 0.925, 4.475, 138.4), (1.0, 0.925, 7.775, 138.4), (1.0, 0.825, 8.775, 138.4)]
+ok   grades-2-3 p1: cut strips are 2,3,4,6 units of 12 mm, 1 unit tall
+ok   grades-2-3 p1: unit row is 12 squares of 12 mm
+ok   2-3 example: input 1 unit, then input 1 + extra 1
+grades-2-3 p2:
+grades-2-3 p3:
+grades-2-3 p4:
+grades-4-5 p1: strips [2.0, 3.0, 4.0, 6.0] units; 12 unit squares; example blocks (width units, grey, x0 units, y0 pt) [(1.0, 0.925, 3.825, 123.5), (1.0, 0.925, 6.925, 123.5), (1.0, 0.925, 7.925, 123.5), (1.0, 0.925, 8.925, 123.5), (1.0, 0.825, 9.925, 123.5)]
+ok   grades-4-5 p1: cut strips are 2,3,4,6 units of 12 mm, 1 unit tall
+ok   grades-4-5 p1: unit row is 12 squares of 12 mm
+ok   4-5 p1 example: input 1, three 1-unit copies, extra 1 (report 4)
+grades-4-5 p2:
+grades-4-5 p3: example blocks (width units, grey, x0 units, y0 pt) [(1.0, 0.925, 2.196, 141.8), (1.0, 0.925, 3.196, 141.8), (1.0, 0.925, 4.196, 141.8), (1.5, 0.925, 6.496, 141.8), (1.5, 0.925, 7.996, 141.8), (1.5, 0.925, 9.496, 141.8), (3.5, 0.925, 12.296, 141.8)]
+ok   4-5 p3 example: 3 units, stretched pieces 1 1/2 each (4 1/2), report bar 3 1/2
+grades-4-5 p4:
+grades-4-5 p5:
+
+SUMMARY: all checks passed ; 1 note(s)
+  note: guide P7: with true stretch 2, exact displays and D=1 the untruncated interval is [0, 4]; positivity removes the endpoint 0, so the positive-stretch set is (0, 4] (width still 4, but truncation does occur and the smallest stretch is not attained). Stretch 3 would avoid it: lower endpoint 1 > 0 at D=1.

@@ -126,6 +126,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 91 | Rotor-router machines | keep | [card](week-91.md), [math check](week-91-math.md) |
 | 92 | Fold-and-stretch predictions | keep | [card](week-92.md), [math check](week-92-math.md) |
 | 93 | Squaring a rectangle | keep | [card](week-93.md), [math check](week-93-math.md) |
+| 94 | Calibration lab | revise: the K–1 packet is three quick problems on two pages and never uses a known strip to find the machine's hidden extra; both card runs agree | [card](week-94.md), [math check](week-94-math.md) |
 | 95 | Count the unseen | keep | [card](week-95.md), [math check](week-95-math.md) |
 | 96 | Prime bags and divisor builders | keep | [card](week-96.md), [math check](week-96-math.md) |
 | 97 | Square remainders | keep | [card](week-97.md), [math check](week-97-math.md) |
