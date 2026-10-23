@@ -140,6 +140,10 @@ def hold_release_example(sentence,before,after):  # grades 4-5 Problem 2: one ho
  c+=r'\draw[->,line width=.7pt] (3.43,-3.74) -- (4.26,-3.74);'+'\n'
  return c
 
+def record_boxes(left,right):  # grades 4-5 Problem 2: one record box per asking side, labelled (card could 9)
+ return (tx(.65,6.98,left,w=3.35,size=11.5)+box(.65,7.24,3.35,.75)
+         +tx(4.5,6.98,right,w=3.35,size=11.5)+box(4.5,7.24,3.35,.75))
+
 # Guidance-revision single hold/release step uses distinct example labels (build_packets.py).
 _receiver_order = ['Q', 'P']
 _old_hold, _new_asker = 'P', 'Q'

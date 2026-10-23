@@ -7,7 +7,7 @@ ROOT=Path(__file__).resolve().parent
 pdf=ROOT.parent/'build'/'facilitator-guide.pdf'
 doc=fitz.open(pdf);reader=PdfReader(pdf)
 assert len(doc)==17
-expected={1:'Week 27',2:'Prepare, launch',3:'K-1 / Problems 1 and 2',4:'K-1 / Problems 3 and 4',5:'K-1 / Problems 5 and 6',6:'Grades 2-3 / Problems 1 and 2',7:'Grades 2-3 / Problem 3',8:'Grades 2-3 / Problem 4',9:'Grades 2-3 / Problem 5',10:'Grades 4-5 / Problems 1 and 2',11:'Grades 4-5 / Problem 2 request logs',12:'Grades 4-5 / Problem 3',13:'Grades 4-5 / Problem 4',14:'Grades 4-5 / Problem 5',15:'Grades 4-5 / Problem 6',16:'Optional depth',17:'Sources, fidelity'}
+expected={1:'Week 27',2:'Prepare, launch',3:'K-1 / Problems 1 and 2',4:'K-1 / Problems 3 and 4',5:'K-1 / Problems 5 and 6',6:'Grades 2-3 / Problems 1 and 2',7:'Grades 2-3 / Problem 3',8:'Grades 2-3 / Problem 4',9:'Grades 2-3 / Problem 5',10:'Grades 4-5 / Problems 1 and 2',11:'Grades 4-5 / Problem 2 request logs',12:'Grades 4-5 / Problem 3',13:'Grades 4-5 / Problem 4',14:'Grades 4-5 / Problem 5',15:'Grades 4-5 / Problem 6',16:'Optional depth',17:'Sources and local evidence'}
 report={'page_count':len(doc),'page_checks':[],'guide_sha256':hashlib.sha256(pdf.read_bytes()).hexdigest()}
 for number,page in enumerate(doc,1):
  t=page.get_text();assert expected[number] in t,(number,expected[number]);assert 'Draft, unpiloted' in t

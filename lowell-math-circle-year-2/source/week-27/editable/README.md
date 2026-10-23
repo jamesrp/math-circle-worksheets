@@ -1,5 +1,11 @@
 # Stable matching and two-sided choices: Week 27 editable release
 
+## Card shoulds and coulds, October 23, 2026
+
+After the problem-file conversion below, the review card's deferred shoulds and clear coulds, and the second card run's should for Grades 2–3 Problem 1, were made: Grades 2–3 Problem 1 asks for "a circle and a square that would both rather be together" and Problem 4 prints six boards (W27-23-v4); Grades 4–5 Problem 2's record boxes are labelled by asking side (W27-45-v3); the guide starts K–1 in P1 instead of gating it, adds a two-voice check and a note that a case's four strips serve both pairings, says each audit row shows one blocker, calls 16 requests a sufficient answer with the sharper 13, adds held notes for K–1 P6, 2–3 P4 and 4–5 P5, and cuts build residue. K–1, the kit and the bonus did not change. See `review/card-fixes-2026-10-23.md` and run `python3 review/verify_card_fixes_2026_10_23.py build`.
+
+Current pages: **K–1 7; Grades 2–3 6; Grades 4–5 6; adult guide 19; table kit 9**.
+
 ## Problem files, October 23, 2026
 
 The student pages are now stored as problem files, one per problem, in `problem-files/` (in the repository: `lowell-math-circle-year-2/source/week-27/`): `week.toml`, `figures.py` (the old builder's drawing code, the P–U and hold/release worked examples, and the page template) and `problems/*.md`, with each band's wording inside them. The preference lists stay in `src/math_checks.json`, written by `src/check_math.py` and read by both the figures and the kit. The conversion changed no wording or figure: the regenerated LaTeX matches the old `src/build_packets.py` byte for byte. `src/regenerate.py` writes the student LaTeX from the problem files, and `problem-files/tools/build.py` also builds first-route and return packets, a one-page problem menu and a key arranged by problem. Edit student problems in `problem-files/problems/*.md` (figures and the page template in `problem-files/figures.py`); `build.sh` regenerates `src/*.tex` from them, so do not edit the TeX by hand. To build every view: `python3 problem-files/tools/build.py problem-files --out views`. The old builder is archived in the project.

@@ -1,0 +1,3 @@
+# Archived Week 27 packets and guide: before the card's shoulds and coulds
+
+The Grades 2–3 and 4–5 packets (W27-23-v3, W27-45-v2) and the adult guide immediately before the October 23, 2026 fixes of the review card's deferred shoulds and clear coulds: Grades 2–3 Problem 1's blocker wording and six Problem 4 boards, labelled record boxes in Grades 4–5 Problem 2, and in the guide a start-in-P1 route, a two-voice check, the corrected audit and request-bound wording, held notes and cut residue. The current PDFs are one directory above. The K–1 packet, the table kit and the bonus did not change and are not duplicated here; the guide from before the kit is in `../archive-before-card-fixes-2026-10-23/`.
