@@ -38,6 +38,10 @@ Only Week 94 claims a K–1 packet. A shared launch in another week is not a sub
 
 **Products and prime structure.** Week 96's factor bags connect to earlier gcd/lcm work and support the prime-divides-a-product argument in Week 97. The optional square/nonsquare multiplication investigation is a further return visit. Week 95's balanced catch allocation reuses fixed-sum rectangle reasoning from Week 51's bonus to maximize expected overlap; this does not claim to optimize every measure of estimation error.
 
+## Changes after release
+
+- **92, October 23, 2026:** the student packet is stored as problem files ([source/week-92/](source/week-92/README.md)); the conversion changed no wording, figure or PDF.
+
 ## Verification and use history
 
 Each student family passed fresh writer, adversarial critic, independent mathematics and reviser stages. The separately authored guides then received independent final student–guide review. All 16 PDFs were rendered and inspected, including every grade band. All six portable ZIPs were extracted into fresh directories and rebuilt byte-for-byte against the final PDFs; editable sources, any packaged reference PDFs, and ZIP contents agree.

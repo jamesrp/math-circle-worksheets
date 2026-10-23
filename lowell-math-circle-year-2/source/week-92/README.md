@@ -1,21 +1,24 @@
-# Week 92: Fold-and-stretch predictions
+# Week 92: Fold-and-stretch predictions — current editable source
 
-Unpiloted; physical rehearsal untested. Grades 2-3 concrete points and bands; Grades 4-5 interval certificates and readiness-dependent proof continuation. No K-1 packet.
+One shared student packet (7 pages, W92-S-v2: Grades 2–3 pages 1–3, Grades 4–5 pages 4–7) and a 5-page theorem-first adult guide. Unpiloted; physical rehearsal untested. The print PDFs are in [../../week-92/](../../week-92/).
 
-New uncertainty/prediction investigation within the existing atlas GA-10 tent-map theme.
+**Problem files, October 23, 2026.** The student packet is stored as [problem files](../problem-files/README.md): `week.toml`, `figures.py` (the old `students.tex` preamble and drawing macros, as its page template) and one file per problem or shared rule in `problems/`, in the canvas layout: each page is one TikZ picture, each prompt and text sits at the height its heading gives, and each figure is the old TikZ code verbatim. `band(...)` at the top of a page sets the grade range its header prints. The conversion changed no wording or figure: the rebuilt packet is byte-identical to the old source's build in this container. Against the print copy, compiled with a newer pdfTeX (1.40.27), the old and new sources both differ by the same antialiased glyph pixels (at most 76 on a page at 100 dpi); pages and extracted text are identical. The hand-written `students.tex` and the previous source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 
-## Print and rebuild
+- **Student pages:** edit `problems/*.md`, then build and compare:
 
-The current owned PDFs are preserved in [reference-pdfs/week-92-students.pdf](reference-pdfs/week-92-students.pdf) and [reference-pdfs/week-92-facilitator.pdf](reference-pdfs/week-92-facilitator.pdf). Print US Letter at Actual Size for measured or cutting diagrams. Follow the facilitator preparation notes for duplicated cutting/card sheets and optional later pages.
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-92 --out tmp/week-92-views --tex
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-92-views lowell-math-circle-year-2/week-92 week-92
+  ```
 
-Requirements: Python 3 and pdfLaTeX with TikZ, geometry, fancyhdr, Latin Modern, amsmath, amssymb and hyperref (TeX Live/MacTeX). The checker uses only Python's standard library. No downloaded books, network access, repository files outside this folder, or proprietary fonts are required.
+  Week 92 is a shared-packet week, so its band slices and one-page menu in [band-views/week-92/](../../band-views/README.md) are built from the page index `../band-views/indexes/week-92.toml` by `band_views.py build`; update the index when a problem moves to another page or a page's grade range changes.
+- **Adult guide:** `editable/guide/facilitator.tex`, built by the package. The problem files carry each problem's one-sentence idea (`kernel`), not its answers.
+- **Portable package:** `editable/` is the package (`editable/README.md`); `editable/student/regenerate.py` writes `students.tex` from the problem files and the package build runs it first, then the mathematical checker. The [portable source ZIP](../week-92-source.zip) holds the package plus the problem files and tools in `problem-files/`. Rebuild it with
 
-```sh
-python3 build.py --out out --work tmp/build
-```
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-92 --zip ../week-92-source.zip --top week-92
+  ```
 
-This builds `out/week-92-students.pdf` and `out/week-92-facilitator.pdf`, runs `check_math.py`, and keeps compilation/check logs under `tmp/build`. The fixed build epoch and PDF metadata permit byte-identical builds with the same pdfTeX/toolchain; different TeX versions may change bytes without changing content.
+  and check a clean rebuild from the extracted ZIP with `python3 week-92/build.py --out rebuilt --work tmp/build`.
 
-Edit `student/students.tex` or `guide/facilitator.tex`, rebuild, then repeat mathematical review and every-page visual QA. Reference PDFs and any distributed ZIP must be synchronized after changes. The student writer/critic/math/reviser workflow is separate from guide authoring. See [SOURCES.md](SOURCES.md), [PROVENANCE.md](PROVENANCE.md), and the review records for scope and evidence.
-
-The portable ZIP contains only owned activity sources, current reference PDFs, checks, source notes and selected review records. It contains no wholesale books, private records, build intermediates or virtual environment.
+The production record is in [plans/new-families-92-97/](../../../plans/new-families-92-97/STATUS.md) and the review card in [plans/review/week-92.md](../../../plans/review/week-92.md).

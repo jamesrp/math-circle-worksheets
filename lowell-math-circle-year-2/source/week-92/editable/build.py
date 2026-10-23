@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Rebuild this week's owned student and facilitator PDFs, then check its mathematics."""
+"""Rebuild this week's owned student and facilitator PDFs, then check its mathematics.
+
+student/students.tex is written from the problem files first (student/regenerate.py)."""
 import argparse
 import os
 from pathlib import Path
@@ -17,13 +19,15 @@ def main():
     parser.add_argument('--work',type=Path)
     args=parser.parse_args()
     out=args.out.resolve();out.mkdir(parents=True,exist_ok=True)
-    repo=ROOT.parents[2] if len(ROOT.parents)>2 else ROOT
-    work=(args.work or (repo/'tmp/pdf-builds' if (repo/'AGENTS.md').exists() else ROOT/'tmp')).resolve()
+    repo=next((p for p in ROOT.parents if (p/'AGENTS.md').exists()),None)
+    work=(args.work or (repo/'tmp/pdf-builds' if repo else ROOT/'tmp')).resolve()
     work.mkdir(parents=True,exist_ok=True)
     latex=shutil.which('pdflatex')
     if not latex and Path('/Library/TeX/texbin/pdflatex').is_file():latex='/Library/TeX/texbin/pdflatex'
     if not latex:raise SystemExit('Install pdfLaTeX with TikZ, geometry, fancyhdr, lmodern, amsmath and hyperref.')
     env=dict(os.environ,SOURCE_DATE_EPOCH='1792195200',FORCE_SOURCE_DATE='1',TZ='UTC')
+    # The student LaTeX is generated from the problem files (week.toml, figures.py, problems/).
+    subprocess.run([sys.executable,str(ROOT/'student'/'regenerate.py')],check=True,stdout=subprocess.DEVNULL)
     with tempfile.TemporaryDirectory(prefix=f'week-{WEEK}-',dir=work) as name:
         temp=Path(name)
         for folder,stem in [('student','students'),('guide','facilitator')]:
