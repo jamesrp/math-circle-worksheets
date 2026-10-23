@@ -1,27 +1,24 @@
-# Week 91: Rotor-router machines
+# Week 91: Rotor-router machines — current editable source
 
-Prepared review draft. Unpiloted; physical printing, cutting, flipping, counter placement, timing and classroom handling remain unrehearsed. This is a library investigation with several visits, not an adopted meeting schedule.
+One shared student packet (6 pages, Problems 1–7), a Grades 4–5 return-visit packet on roads (4 pages), 7 materials pages and a 6-page theorem-first adult guide. Unpiloted; printing, cutting, flipping, counter placement and timing are physically unrehearsed. The print PDFs are in [../../week-91/](../../week-91/).
 
-The six-page student packet has Grades 2–3 tree programming on pp1–3, upper tree continuations on pp4–5, and a Grades 2–5 coin comparison on p6. The four-page return packet is Grades 4–5, with concrete absorbing roads before optional general arguments. Seven separately printable materials pages supply boards, cards and records. A six-page theorem-first guide gives proofs, complete answers, preparation, launch, hints and first-route choices. There is no independent K–1 packet; the optional one-switch station requires its own anchored adult/materials.
+**Problem files, October 23, 2026.** The student packet is stored as [problem files](../problem-files/README.md): `week.toml`, `figures.py` (the old generator's drawing helpers, unchanged, and the page template) and one file per problem in `problems/`, in the canvas layout. Each page's first file draws its header with `head(...)`, since the pages name different grade ranges. The conversion changed no wording or figure: the generated LaTeX is the old generator's byte for byte apart from a final newline, and in this container both compile to the same PDF. Against the print copy, compiled with a newer pdfTeX, both differ by the same antialiased glyph pixels (at most 133 on a page at 100 dpi); pages and extracted text are identical. The old generator and the previous source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 
-## Build
+- **Student pages:** edit `problems/*.md` (figures in `figures.py`), then build and compare:
 
-Requires Python 3 standard library and pdfLaTeX (TeX Live/MacTeX) with TikZ, geometry, fancyhdr, lmodern, helvet, amsmath/amssymb, array, booktabs, enumitem and hyperref. No Python package, external artwork, font download or private reference is required.
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-91 --out tmp/week-91-views --tex
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-91-views lowell-math-circle-year-2/week-91 week-91
+  ```
 
-```sh
-python3 build.py --out ../../week-91
-```
+  Week 91 is a shared-packet week, so its band slices and one-page menu in [band-views/week-91/](../../band-views/README.md) are built from the page index `../band-views/indexes/week-91.toml` by `band_views.py build`; update the index when a page's header or problems change.
+- **Return visit, materials and adult guide:** `editable/student/generate.py` (return-visit packet and materials) and `editable/guide/facilitator.tex`, built by the package. The problem files carry each problem's one-sentence idea (`kernel`), not its answers.
+- **Portable package:** `editable/` is the package (`editable/README.md`); `editable/student/regenerate.py` writes `students.tex` from the problem files and the package build runs it first. The [portable source ZIP](../week-91-source.zip) holds the package plus the problem files and tools in `problem-files/`. Rebuild it with
 
-After extracting the portable source ZIP:
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-91 --zip ../week-91-source.zip --top week-91
+  ```
 
-```sh
-python3 week-91/build.py --out rebuilt --work tmp/build
-```
+  and check a clean rebuild from the extracted ZIP with `python3 week-91/build.py --out rebuilt --work tmp/build`.
 
-The builder runs the independent finite verifier, generates the student TeX from `student/generate.py`, checks it against the packaged readable snapshots, compiles every PDF twice with deterministic metadata, and rejects errors/overfull boxes. Intermediates stay in `tmp/` or the supplied `--work` directory. The `reference-pdfs/` copies are comparison outputs, never build inputs.
-
-Edit student text/diagrams in `student/generate.py`. Its `.tex` files are readable generated snapshots; refresh them after a generator edit by running `python3 student/generate.py /path/to/scratch` and copying the three emitted `scratch/src/*.tex` files back into `student/`. Edit the separate adult guide in `guide/facilitator.tex`. Rebuild, review changed pages and recreate the source ZIP after any change. `check_math.py` is the independently authored finite checker, adapted only for portable paths/output and final examples. General proofs remain in the guide.
-
-Print US Letter, single-sided, Actual Size, preserving the four landscape apparatus pages. Use the guide's selected-route print list instead of printing the entire set for every child. The 50 mm bar and 15 mm squares permit print-scale checking; they do not establish physical fit. A partner enforces each move and flip. Arrow cards persist between counters; endpoints retain counters.
-
-See SOURCES.md for primary mathematics, convention differences and prior-use boundaries, and QA.md for actual stage/reconstruction evidence. Only owned sources, checks, documentation and current reference PDFs are packaged. No books, downloaded papers, stage prompts, borrowed style examples, caches, machine paths or private records are included.
+The production record is in [plans/seven-families-85-91/](../../../plans/seven-families-85-91/README.md) and the review card in [plans/review/week-91.md](../../../plans/review/week-91.md).

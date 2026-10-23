@@ -1,17 +1,28 @@
 #!/usr/bin/env python3
-"""Build all four owned Week91 PDFs without external assets or private inputs."""
+"""Build all four owned Week91 PDFs without external assets or private inputs.
+
+student/students.tex is written from the problem files first (student/regenerate.py);
+student/generate.py writes the return-visit packet and the materials."""
 import argparse, os, shutil, subprocess, sys, tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
-NAMES=('students','return-visit','materials')
+NAMES=('return-visit','materials')
+def latex_twice(latex,folder,name,env,work):
+ for _ in range(2):
+  run=subprocess.run([latex,'-interaction=nonstopmode','-halt-on-error',name+'.tex'],cwd=folder,env=env,text=True,capture_output=True)
+  (work/f'week-91-{name}-build.log').write_text(run.stdout+run.stderr)
+  if run.returncode:raise SystemExit(run.stdout+run.stderr)
+ if 'Overfull' in run.stdout:raise SystemExit('Overfull content in '+name)
 def main():
  ap=argparse.ArgumentParser(description=__doc__); ap.add_argument('--out',type=Path,default=ROOT/'out'); ap.add_argument('--work',type=Path); a=ap.parse_args()
  out=a.out.resolve();out.mkdir(parents=True,exist_ok=True)
- repo=ROOT.parents[2] if len(ROOT.parents)>2 else ROOT
- work=(a.work or (repo/'tmp/pdf-builds' if (repo/'AGENTS.md').exists() else ROOT/'tmp')).resolve();work.mkdir(parents=True,exist_ok=True)
+ repo=next((p for p in ROOT.parents if (p/'AGENTS.md').exists()),None)
+ work=(a.work or (repo/'tmp/pdf-builds' if repo else ROOT/'tmp')).resolve();work.mkdir(parents=True,exist_ok=True)
  latex=shutil.which('pdflatex') or ('/Library/TeX/texbin/pdflatex' if Path('/Library/TeX/texbin/pdflatex').exists() else None)
  if not latex:raise SystemExit('Install TeX Live/pdfLaTeX with the packages named in README.md.')
  env=dict(os.environ,SOURCE_DATE_EPOCH='1792195200',FORCE_SOURCE_DATE='1',W91_PDFLATEX=latex)
+ regen=subprocess.run([sys.executable,str(ROOT/'student/regenerate.py')],env=env,text=True,capture_output=True)
+ if regen.returncode:raise SystemExit(regen.stdout+regen.stderr)
  check=subprocess.run([sys.executable,str(ROOT/'check_math.py')],env=env,text=True,capture_output=True)
  (work/'week-91-math.txt').write_text(check.stdout+check.stderr)
  if check.returncode:raise SystemExit(check.stdout+check.stderr)
@@ -26,12 +37,11 @@ def main():
    log=(t/'student/src'/f'{name}-build.log').read_text()
    if 'Overfull' in log:raise SystemExit(f'Overfull content in {name}')
    shutil.copy2(t/'student'/f'{name}.pdf',out/f'week-91-{name}.pdf')
+  s=t/'students';s.mkdir();shutil.copy2(ROOT/'student/students.tex',s/'students.tex')
+  latex_twice(latex,s,'students',env,work)
+  shutil.copy2(s/'students.pdf',out/'week-91-students.pdf')
   g=t/'guide';g.mkdir();shutil.copy2(ROOT/'guide/facilitator.tex',g/'facilitator.tex')
-  for _ in range(2):
-   run=subprocess.run([latex,'-interaction=nonstopmode','-halt-on-error','facilitator.tex'],cwd=g,env=env,text=True,capture_output=True)
-   (work/'week-91-facilitator-build.log').write_text(run.stdout+run.stderr)
-   if run.returncode:raise SystemExit(run.stdout+run.stderr)
-  if 'Overfull' in run.stdout:raise SystemExit('Overfull content in facilitator')
+  latex_twice(latex,g,'facilitator',env,work)
   shutil.copy2(g/'facilitator.pdf',out/'week-91-facilitator.pdf')
  print('PASS: Week91, four PDFs; independent finite math and source-snapshot checks passed.')
 if __name__=='__main__':main()
