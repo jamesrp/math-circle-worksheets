@@ -10,7 +10,7 @@ kernel = "From the printed octagon filling the fans at A and E need 3 and 5 flip
 A filling whose inside lines all meet at one corner is called a fan. Find the fewest flips from this filling to a fan at A, and to a fan at E. Explain why each route is shortest.
 
 ## figure
-large_plus_copies(8,oct_start,'letters',topcy=4.4,copyy=7.7)
+large_plus_copies(8,oct_start,'letters',topcy=4.3,copyy=7.75,copy_h=1.15,rowgap=1.62)
 
 ## key
 The printed start is $S=\{AC,AD,DF,DG,DH\}$. A fan at A has five diagonals $\{AC,AD,AE,AF,AG\}$; a fan at E has $\{AE,BE,CE,EG,EH\}$. The minimum distances are 3 and 5, respectively. Three-flip route to the A fan

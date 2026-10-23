@@ -88,10 +88,10 @@ def copies(n,rows,cols,starty,labels='numbers',rowgap=1.30,w=1.35,h=.87):
     if cols==3: xs=[1.45,4.25,7.05]
     if cols==4: xs=[1.35,3.28,5.22,7.15]
     return ''.join(polygon(n,x,starty+r*rowgap,w,h,labels=labels,small=True) for r in range(rows) for x in xs)
-def large_plus_copies(n,edges=(),labels='numbers',topcy=4.25,copyy=7.45):
+def large_plus_copies(n,edges=(),labels='numbers',topcy=4.25,copyy=7.45,copy_h=.92,rowgap=1.50):
     if n==6:
         return polygon(n,4.25,topcy,4.8,4.40,edges,labels)+copies(n,2,4,7.55,labels,rowgap=1.78,w=1.30,h=1.30)
-    return polygon(n,4.25,topcy,4.8,3.35,edges,labels)+copies(n,2,4,copyy,labels,rowgap=1.50,w=1.30,h=.92)
+    return polygon(n,4.25,topcy,4.8,3.35,edges,labels)+copies(n,2,4,copyy,labels,rowgap=rowgap,w=1.30,h=copy_h)
 
 def flip_example():
     """The AC-to-BD example before the map; its caption is a text section in the problem file."""
@@ -136,8 +136,8 @@ def two_cases_with_records(n1,n2,e1=(),e2=(),labels='numbers',keep_edges=False,g
                         drawings+=polygon(n,x,cy+dy,1.30,1.30,edges if keep_edges else (),labels,small=True)
         else:
             drawings+=polygon(n,4.25,y,4.80,2.30,edges,labels)
-            for x in [1.35,3.28,5.22,7.15]:
-                drawings+=polygon(n,x,y+2.00,1.30,.80,edges if keep_edges else (),labels,small=True)
+            for x in [1.35,3.28,5.22,7.15]:   # small coulds: copies 1.05 in tall (were 0.80)
+                drawings+=polygon(n,x,y+2.10,1.30,1.05,edges if keep_edges else (),labels,small=True)
     return drawings
 
 THREE_STARTS_Y=2.40; TARGET_Y=4.58   # card fix: room for arrows from each start to the target
@@ -157,8 +157,8 @@ def three_routes():
 def hexagon_route_23():
     """Grades 2-3: the B fan, an arrow, the A fan, a working hexagon and eight copies."""
     return (polygon(6,2.05,2.85,2.15,1.85,hex_fan_b,'letters')+polygon(6,6.35,2.85,2.15,1.85,fan(6,0),'letters')
-            +r'\draw[-stealth,line width=.8pt] (3.45,2.85) -- (4.95,2.85);'+'\n'+polygon(6,4.25,5.90,4.8,3.80,labels='letters')
-            +copies(6,2,4,8.25,'letters',rowgap=1.40,w=1.30,h=.96))   # card fix: bottom row clear of the footer (was 8.38)
+            +r'\draw[-stealth,line width=.8pt] (3.45,2.85) -- (4.95,2.85);'+'\n'+polygon(6,4.25,5.65,4.8,3.30,labels='letters')
+            +copies(6,2,4,8.00,'letters',rowgap=1.54,w=1.30,h=1.10))   # card fix: bottom row clear of the footer (was 8.38); small coulds: copies 1.10 in (were 0.96), working board 3.30 in (was 3.80)
 
 def octagon_route_45():
     """Grades 4-5: the two printed octagon fillings, an arrow and a working octagon."""

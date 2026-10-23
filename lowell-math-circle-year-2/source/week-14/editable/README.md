@@ -6,6 +6,8 @@ The guide now gives first routes, readiness-dependent continuation and return vi
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
+Later on October 23 the tightest recording copies were enlarged (K–1 p. 4, Grades 2–3 p. 6, Grades 4–5 p. 5; footers v4, named on guide p. 2).
+
 Current pages: **K–1 6; Grades 2–3 8; Grades 4–5 7; adult guide 14**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project

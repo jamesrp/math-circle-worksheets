@@ -47,7 +47,7 @@ pre=r'''\documentclass[11pt,letterpaper]{article}
 '''
 pages=[(P/'mathematical-overview.tex').read_text()]
 pages.append(r'''\pagehead{Polygon triangulations facilitator guide}
-This guide keys the final F14-K-v3, F14-23-v3, and F14-45-v3 student packets. They have 6, 8, and 7 pages, respectively. The middle packet has seven problems; page 8 is explicitly labeled Problem 7 (continued) and provides extra hexagons for the same collection. There are 20 distinct numbered problems across the three bands. ``Week 14'' is an unscheduled library label. This guide and these activities are draft and unpiloted.
+This guide keys the final F14-K-v4, F14-23-v4, and F14-45-v4 student packets. They have 6, 8, and 7 pages, respectively. The middle packet has seven problems; page 8 is explicitly labeled Problem 7 (continued) and provides extra hexagons for the same collection. There are 20 distinct numbered problems across the three bands. ``Week 14'' is an unscheduled library label. This guide and these activities are draft and unpiloted.
 
 \textbf{Mathematical purpose.} Children construct complete triangle fillings, distinguish fixed-label configurations, find complete small collections, and investigate how one local change connects them. The pentagon admits a five-flip return loop. Fan targets have a useful exact distance rule. These conclusions should emerge after drawing and comparing.
 
