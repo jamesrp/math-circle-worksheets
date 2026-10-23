@@ -1,0 +1,143 @@
++++
+id = "w90.a-catalog"
+title = "Every A start, sorted by outline"
+grades = ["2-5"]
+route = "first"
+page = "new"
+kernel = 'The A board has exactly five increasing starts, $3+2$ by where 1 sits: two finish as rows of 2 and 2, three as rows of 3 and 1.'
++++
+
+## prompt
+Sort all five A cards by their finished outline. Could an increasing start be missing from this collection? Explain why your collection is complete.
+
+## text
+\fill[black!12] (85,61) rectangle ++(14,14);
+\fill[pattern=north east lines,pattern color=black!40] (85,61) rectangle ++(14,14);
+\draw[line width=.45pt] (85,61) rectangle ++(14,14);
+\fill[white] (99,61) rectangle ++(14,14);
+\draw[line width=.45pt] (99,61) rectangle ++(14,14);
+\fill[white] (113,61) rectangle ++(14,14);
+\draw[line width=.45pt] (113,61) rectangle ++(14,14);
+\fill[white] (85,75) rectangle ++(14,14);
+\draw[line width=.45pt] (85,75) rectangle ++(14,14);
+\fill[white] (99,75) rectangle ++(14,14);
+\draw[line width=.45pt] (99,75) rectangle ++(14,14);
+\fill[black!70] (113,75) rectangle ++(14,14);
+\fill[pattern=crosshatch,pattern color=black!95] (113,75) rectangle ++(14,14);
+\draw[line width=.45pt] (113,75) rectangle ++(14,14);
+\node[anchor=north west,inner sep=0pt,text width=100mm,font=\fontsize{11}{13.97}\selectfont] at (61,93) {Use 1, 2, 3 and 4 once each.};
+\node[anchor=north west,inner sep=0pt,text width=100mm,font=\fontsize{10}{12.7}\selectfont] at (20,108) {Extra workspace};
+\fill[white] (20,119) rectangle ++(14,14);
+\draw[line width=.45pt] (20,119) rectangle ++(14,14);
+\fill[white] (34,119) rectangle ++(14,14);
+\draw[line width=.45pt] (34,119) rectangle ++(14,14);
+\fill[white] (48,119) rectangle ++(14,14);
+\draw[line width=.45pt] (48,119) rectangle ++(14,14);
+\fill[white] (20,133) rectangle ++(14,14);
+\draw[line width=.45pt] (20,133) rectangle ++(14,14);
+\fill[white] (34,133) rectangle ++(14,14);
+\draw[line width=.45pt] (34,133) rectangle ++(14,14);
+\fill[white] (48,133) rectangle ++(14,14);
+\draw[line width=.45pt] (48,133) rectangle ++(14,14);
+\fill[white] (20,147) rectangle ++(14,14);
+\draw[line width=.45pt] (20,147) rectangle ++(14,14);
+\fill[white] (34,147) rectangle ++(14,14);
+\draw[line width=.45pt] (34,147) rectangle ++(14,14);
+\fill[white] (48,147) rectangle ++(14,14);
+\draw[line width=.45pt] (48,147) rectangle ++(14,14);
+\draw[black!40] (20,167)--++(42,0);
+\fill[white] (84,119) rectangle ++(14,14);
+\draw[line width=.45pt] (84,119) rectangle ++(14,14);
+\fill[white] (98,119) rectangle ++(14,14);
+\draw[line width=.45pt] (98,119) rectangle ++(14,14);
+\fill[white] (112,119) rectangle ++(14,14);
+\draw[line width=.45pt] (112,119) rectangle ++(14,14);
+\fill[white] (84,133) rectangle ++(14,14);
+\draw[line width=.45pt] (84,133) rectangle ++(14,14);
+\fill[white] (98,133) rectangle ++(14,14);
+\draw[line width=.45pt] (98,133) rectangle ++(14,14);
+\fill[white] (112,133) rectangle ++(14,14);
+\draw[line width=.45pt] (112,133) rectangle ++(14,14);
+\fill[white] (84,147) rectangle ++(14,14);
+\draw[line width=.45pt] (84,147) rectangle ++(14,14);
+\fill[white] (98,147) rectangle ++(14,14);
+\draw[line width=.45pt] (98,147) rectangle ++(14,14);
+\fill[white] (112,147) rectangle ++(14,14);
+\draw[line width=.45pt] (112,147) rectangle ++(14,14);
+\draw[black!40] (84,167)--++(42,0);
+\fill[white] (148,119) rectangle ++(14,14);
+\draw[line width=.45pt] (148,119) rectangle ++(14,14);
+\fill[white] (162,119) rectangle ++(14,14);
+\draw[line width=.45pt] (162,119) rectangle ++(14,14);
+\fill[white] (176,119) rectangle ++(14,14);
+\draw[line width=.45pt] (176,119) rectangle ++(14,14);
+\fill[white] (148,133) rectangle ++(14,14);
+\draw[line width=.45pt] (148,133) rectangle ++(14,14);
+\fill[white] (162,133) rectangle ++(14,14);
+\draw[line width=.45pt] (162,133) rectangle ++(14,14);
+\fill[white] (176,133) rectangle ++(14,14);
+\draw[line width=.45pt] (176,133) rectangle ++(14,14);
+\fill[white] (148,147) rectangle ++(14,14);
+\draw[line width=.45pt] (148,147) rectangle ++(14,14);
+\fill[white] (162,147) rectangle ++(14,14);
+\draw[line width=.45pt] (162,147) rectangle ++(14,14);
+\fill[white] (176,147) rectangle ++(14,14);
+\draw[line width=.45pt] (176,147) rectangle ++(14,14);
+\draw[black!40] (148,167)--++(42,0);
+\fill[white] (20,191) rectangle ++(14,14);
+\draw[line width=.45pt] (20,191) rectangle ++(14,14);
+\fill[white] (34,191) rectangle ++(14,14);
+\draw[line width=.45pt] (34,191) rectangle ++(14,14);
+\fill[white] (48,191) rectangle ++(14,14);
+\draw[line width=.45pt] (48,191) rectangle ++(14,14);
+\fill[white] (20,205) rectangle ++(14,14);
+\draw[line width=.45pt] (20,205) rectangle ++(14,14);
+\fill[white] (34,205) rectangle ++(14,14);
+\draw[line width=.45pt] (34,205) rectangle ++(14,14);
+\fill[white] (48,205) rectangle ++(14,14);
+\draw[line width=.45pt] (48,205) rectangle ++(14,14);
+\fill[white] (20,219) rectangle ++(14,14);
+\draw[line width=.45pt] (20,219) rectangle ++(14,14);
+\fill[white] (34,219) rectangle ++(14,14);
+\draw[line width=.45pt] (34,219) rectangle ++(14,14);
+\fill[white] (48,219) rectangle ++(14,14);
+\draw[line width=.45pt] (48,219) rectangle ++(14,14);
+\draw[black!40] (20,239)--++(42,0);
+\fill[white] (84,191) rectangle ++(14,14);
+\draw[line width=.45pt] (84,191) rectangle ++(14,14);
+\fill[white] (98,191) rectangle ++(14,14);
+\draw[line width=.45pt] (98,191) rectangle ++(14,14);
+\fill[white] (112,191) rectangle ++(14,14);
+\draw[line width=.45pt] (112,191) rectangle ++(14,14);
+\fill[white] (84,205) rectangle ++(14,14);
+\draw[line width=.45pt] (84,205) rectangle ++(14,14);
+\fill[white] (98,205) rectangle ++(14,14);
+\draw[line width=.45pt] (98,205) rectangle ++(14,14);
+\fill[white] (112,205) rectangle ++(14,14);
+\draw[line width=.45pt] (112,205) rectangle ++(14,14);
+\fill[white] (84,219) rectangle ++(14,14);
+\draw[line width=.45pt] (84,219) rectangle ++(14,14);
+\fill[white] (98,219) rectangle ++(14,14);
+\draw[line width=.45pt] (98,219) rectangle ++(14,14);
+\fill[white] (112,219) rectangle ++(14,14);
+\draw[line width=.45pt] (112,219) rectangle ++(14,14);
+\draw[black!40] (84,239)--++(42,0);
+\fill[white] (148,191) rectangle ++(14,14);
+\draw[line width=.45pt] (148,191) rectangle ++(14,14);
+\fill[white] (162,191) rectangle ++(14,14);
+\draw[line width=.45pt] (162,191) rectangle ++(14,14);
+\fill[white] (176,191) rectangle ++(14,14);
+\draw[line width=.45pt] (176,191) rectangle ++(14,14);
+\fill[white] (148,205) rectangle ++(14,14);
+\draw[line width=.45pt] (148,205) rectangle ++(14,14);
+\fill[white] (162,205) rectangle ++(14,14);
+\draw[line width=.45pt] (162,205) rectangle ++(14,14);
+\fill[white] (176,205) rectangle ++(14,14);
+\draw[line width=.45pt] (176,205) rectangle ++(14,14);
+\fill[white] (148,219) rectangle ++(14,14);
+\draw[line width=.45pt] (148,219) rectangle ++(14,14);
+\fill[white] (162,219) rectangle ++(14,14);
+\draw[line width=.45pt] (162,219) rectangle ++(14,14);
+\fill[white] (176,219) rectangle ++(14,14);
+\draw[line width=.45pt] (176,219) rectangle ++(14,14);
+\draw[black!40] (148,239)--++(42,0);

@@ -21,6 +21,8 @@ def find_repo():
 REPO = find_repo()
 WEEK = REPO / 'lowell-math-circle-year-2' / 'week-89'
 SRC = REPO / 'lowell-math-circle-year-2' / 'source' / 'week-89'
+if (SRC / 'editable').is_dir():   # the package moved to editable/ at the problem-file conversion
+    SRC = SRC / 'editable'
 MM = 72 / 25.4
 FAILS = []
 

@@ -1,0 +1,27 @@
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\documentclass[letterpaper,11pt]{article}
+\usepackage[margin=0mm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{patterns,arrows.meta}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\renewcommand\familydefault{\sfdefault}
+\pagestyle{empty}
+\setlength\parindent{0pt}
+% Each page is one overlay picture in millimetres, y down from the top left corner.
+% \pageopen draws the header and its rule; \pageclose the footer and page number.
+% A problem's prompt is placed at (15,28) unless its file sets \promptat{y} first.
+\newcommand{\promptat}[1]{\def\prompty{#1}}
+\newcommand{\pageopen}{\null\begin{tikzpicture}[remember picture,overlay,x=1mm,y=-1mm]\begin{scope}[shift={(current page.north west)}]%
+\node[anchor=north west,inner sep=0pt,text width=186mm,font=\fontsize{11}{13.97}\selectfont] at (15,11) {Week <<week>> / <<topic>> / <<header>>};%
+\draw[black!50] (15,20)--(201,20);%
+\promptat{28}}
+\newcommand{\pageclose}{\node[anchor=north west,inner sep=0pt,text width=180mm,font=\fontsize{9}{11.43}\selectfont] at (15,267) {Bellingham Math Circle / Week <<week>> / <<footer>> \hfill \thepage};%
+\end{scope}\end{tikzpicture}}
+\newcommand{\problem}[2]{\node[anchor=north west,inner sep=0pt,text width=186mm,font=\fontsize{12}{15.24}\selectfont] at (15,\prompty) {\textbf{Problem #1:} #2};}
+\begin{document}
+\pageopen
+<<body>>
+\pageclose
+\end{document}

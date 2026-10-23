@@ -54,6 +54,8 @@ def find_repo(here):
 
 REPO = find_repo(HERE)
 SRC = REPO / 'lowell-math-circle-year-2' / 'source' / 'week-90'
+if (SRC / 'editable').is_dir():   # the package moved to editable/ at the problem-file conversion
+    SRC = SRC / 'editable'
 OUT = []
 FAIL = []
 
@@ -82,7 +84,7 @@ RE_TEXT = re.compile(r'\\node\[anchor=north west[^\]]*\] at \(' + NUM + ',' + NU
 
 def pages(tex):
     body = tex.split('\\begin{document}', 1)[1]
-    return [p for p in body.split('\\newpage') if 'tikzpicture' in p]
+    return [p for p in body.split('\\newpage') if 'tikzpicture' in p or '\\pageopen' in p]   # \pageopen: problem-file pages
 
 
 def grids_on_page(page):
