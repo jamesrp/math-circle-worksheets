@@ -1,5 +1,11 @@
 # Stable matching and two-sided choices: Week 27 editable release
 
+## Table kit, October 23, 2026
+
+`materials/build_materials.py` builds `materials.pdf` (reference copy in `reference-pdfs/`; print copy `week-27-materials.pdf`): nine US Letter pages, three per table band, to print on card stock at 100%. Each band's sheets hold its tokens (A, B, X, Y for K–1; A–D and W–Z for the older bands, 24 mm), four links and a dashed link, the launch card, and one case card for every printed case in its packet, with all of that case's strips at the guide's 20 mm icon size (four-choice strips 122 mm). K–1 adds sixteen 18 mm letter tiles for swapping and filling strips; Grades 4–5 adds sixteen already-asked markers. Profiles are read from `src/math_checks.json`, the student builder's data, so nobody copies a case by hand. Every page has a 10 cm scale check and a per-table print count. `materials/verify_materials.py` measures every size and reads each case card back letter by letter; `build.sh` runs both. The guide's page 2 now names the kit and counts cutting time, and its shared launch uses a profile printed in no packet (A: Y > X; B: X > Y; X: A > B; Y: A > B); no other guide page and no student page changed. A clean rebuild from the extracted ZIP reproduces the guide and the kit with exact 100-dpi pixels; with TeX Live 2023 the unchanged student packets rebuild with small font-metric differences outside the audited allowances, as they did before this change, and their print and reference copies are unchanged. The previous guide and ZIP are archived in the project. The kit is physically unrehearsed.
+
+Current pages: **K–1 7; Grades 2–3 6; Grades 4–5 6; adult guide 19; table kit 9**.
+
 ## Current release: October 4, 2026 fresh-review revision
 
 The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.

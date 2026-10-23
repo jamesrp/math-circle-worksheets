@@ -49,6 +49,8 @@ A border is an endless strip of one asymmetric notched F in four forms (A, two m
 
 I agree with every math-check item; its items 5 and 6 are in the bonus, which I did not review. It did not cover materials, boards or tracing.
 
+**Fixed October 23, 2026:** fix 1, with a printable card kit (`lowell-math-circle-year-2/week-35/week-35-materials.pdf`: per group 12 A and 12 mirror-A cards of 29 × 26 mm, the F 26 mm wide) and the guide's materials section, which also says recipe positions are card centres (part of fix 5); the rest deferred. The kit is physically unrehearsed.
+
 ## Overlaps
 
 Weeks 34 (flips and turns of a ring), 33 (necklaces), 37 (handedness) and 1e (half-turn copying) share pieces. None has slides, glides or a forced half-turn on an endless strip, so no merge. The bonus's common periods and odd-ring parity echo Weeks 3 and 33–34; it stays a companion.

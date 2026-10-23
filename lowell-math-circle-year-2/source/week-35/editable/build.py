@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build all four PDFs using installed TeX packages and included fonts."""
+"""Build all five PDFs (three packets, guide, table kit) using installed TeX packages and included fonts."""
 from pathlib import Path
 import os,subprocess,sys
 ROOT=Path(__file__).resolve().parent
@@ -26,3 +26,6 @@ builder='build.py' if (guide/'build.py').exists() else 'build_guide.py'
 subprocess.run([sys.executable,builder],cwd=guide,env=env,check=True)
 
 subprocess.run([sys.executable, str(ROOT/'facilitator-src/add_route_note.py')], cwd=ROOT, env=env, check=True)
+# Table kit (footprint cards), October 23, 2026; the verifier measures it from the PDF.
+subprocess.run([sys.executable, str(ROOT/'materials/build_materials.py')], cwd=ROOT, env=env, check=True)
+subprocess.run([sys.executable, str(ROOT/'materials/verify_materials.py'), str(ROOT/'materials.pdf')], cwd=ROOT, env=env, check=True)

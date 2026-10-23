@@ -1,5 +1,11 @@
 # Week 35 Footprint borders editable source
 
+## Table kit, October 23, 2026
+
+`materials/build_materials.py` builds `materials.pdf` (reference copy in `reference-pdfs/`; print copy `week-35-materials.pdf`): one US Letter page to print on card stock at 100%, one sheet per table. Each half is a set of 24 footprint cards, 29 by 26 mm, for one pair or trio: 12 cards of A and 12 of A's mirror over a horizontal line, each with the notched F outline at 26 mm wide and its direction arrow. The outline comes from `src/mathematical-checks.json`, the student builder's motif. Turning a card gives the other two forms. The page has a 10 cm scale check and a per-table print count. `materials/verify_materials.py` measures every card and reads each outline back vertex by vertex, and checks that the guide's six witness borders fit the cards; `build.py` runs both. The guide's page 2 now names the kit, says recipe positions are card centres, and counts cutting time; no other guide page and no student page changed. A clean rebuild from the extracted ZIP reproduces the guide and the kit with exact 100-dpi pixels; with TeX Live 2023 the unchanged student packets rebuild with identical text and drawings but small font-rendering pixel differences outside the audited allowances, and their print and reference copies are unchanged. The previous guide and ZIP are archived in the project. The kit is physically unrehearsed.
+
+Current pages: **K–1 5; Grades 2–3 4; Grades 4–5 4; adult guide 7; table kit 1**.
+
 ## Introduction-audit follow-up
 
 Grades 2–3 and 4–5 are v3: the glide visual appears on page 2 immediately before the first glide task. Both 6 cm working strips remain. K–1 stays v2. The guide packet identifiers are synchronized. Poppler is optional for preview images; the PDF build does not require it. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.

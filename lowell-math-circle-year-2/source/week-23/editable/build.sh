@@ -18,4 +18,6 @@ for tex in src/k-1.tex src/grades-2-3.tex src/grades-4-5.tex; do
   if ! pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build "$tex" >"build/$name-console.txt" 2>&1; then cat "build/$name-console.txt" >&2; exit 1; fi
  done
 done
-printf '\nBuilt and checked four PDFs in build/. Run python3 verify_rebuild.py for reference comparison.\n'
+"$PYTHON" materials/build_materials.py build
+"$PYTHON" materials/verify_materials.py build/materials.pdf > build/materials-checks.txt
+printf '\nBuilt and checked five PDFs in build/. Run python3 verify_rebuild.py for reference comparison.\n'

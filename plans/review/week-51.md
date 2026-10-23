@@ -47,6 +47,8 @@ Each strip's length lies somewhere in a band. A join ends in [L+V, U+W], a gap i
 
 I agree with all three math-check findings; I rate its problem 2 a must.
 
+**Fixed October 23, 2026:** fix 1, with a printable strip kit (`lowell-math-circle-year-2/week-51/week-51-materials.pdf`: two strips of each whole length 1–15 and the 4 and 1 add-ons at 10 mm per unit) and a guide without sleeves. Fix 2 changes K–1 student wording and waits for a problem-file conversion; the rest deferred. The kit is physically unrehearsed.
+
 ## Overlaps
 
 Week 48 (inside and outside covers) is the nearest sibling: bounds on a hidden area. Week 47's lowest and highest landscapes bound every completion; Weeks 29 and 54 put strips on a line without ranges. None has interval sums or the dependency problem, so no merge.

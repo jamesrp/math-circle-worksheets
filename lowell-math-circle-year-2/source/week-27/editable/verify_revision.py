@@ -20,7 +20,7 @@ for name,entry in manifest.items():
  assert len(a)==len(b)==entry['pages'],(name,'page count')
  pages=[]
  for i,(p,q) in enumerate(zip(a,b),1):
-  assert p.rect==q.rect==pymupdf.Rect(0,0,612,792),(name,i,'Letter page')
+  assert p.rect==q.rect and p.rect in (pymupdf.Rect(0,0,612,792),pymupdf.Rect(0,0,792,612)),(name,i,'Letter page')
   x=sha(p.get_pixmap(dpi=100,alpha=False).samples)
   y=sha(q.get_pixmap(dpi=100,alpha=False).samples)
   if x==y:status='exact reference pixels'

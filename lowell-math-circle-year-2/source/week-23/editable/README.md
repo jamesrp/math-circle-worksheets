@@ -2,6 +2,10 @@
 
 Draft and unpiloted. Week 23 identifies an unscheduled activity-library slot, not a booked meeting. No adoption, classroom success or tested pacing is claimed. Prepared October 3, 2026.
 
+## Table kit, October 23, 2026
+
+`materials/build_materials.py` builds `materials.pdf` (reference copy in `reference-pdfs/`; print copy `week-23-materials.pdf`), four US Letter pages to print at 100%: a four-lane mat on two taped sheets (lanes 45 mm apart, 38 mm start and finish boxes), a card-stock sheet of 35 mm cards (K–1 dot cards 0, 0, 1, 1, 2, 3, 4; number cards 1–4 twice; four 0s and four 1s) and a card-stock sheet of 14 comparator bars (8 neighboring, 4 skipping a lane, 2 from lane 1 to lane 4) with a time strip. Every page has a 10 cm scale check and says how many to print per table. `materials/verify_materials.py` reads every size back from the PDF and checks the cards and bars against each problem's starts and machines; `build.sh` runs both, and the check needs PyMuPDF (now in `requirements.txt`). The guide's preparation section now names the kit and counts cutting time; no other guide page and no student page changed. The previous guide and source ZIP are archived in the project. The kit is physically unrehearsed.
+
 ## Print-ready material and flexible readiness
 
 Four reviewed PDFs accompany this ZIP, with identical reference copies in `reference-pdfs/`.
@@ -28,6 +32,7 @@ Edit `facilitator-src/overview-content.json` for overview prose and `facilitator
 
 - `src/build_packets.py` and `src/*.tex`: editable student text, examples, diagrams and generated LaTeX.
 - `facilitator-src/build.py` and accompanying local modules/data: editable adult-guide prose and drawings.
+- `materials/build_materials.py`, its generated `materials.tex` and `verify_materials.py`: the table kit and its measurements.
 - Mathematics-check scripts and checked data remain beside their sources.
 - `outlines/`: kernels, prerequisites, source attribution and materials.
 - `review/`: historical student reviews, original adult QA, reference hashes and release-validation results. Original adult build instructions are historical; they may describe bundled fonts in the authoring workspace. This release excludes font binaries. Use this README and top-level build for the portable release.

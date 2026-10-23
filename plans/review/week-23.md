@@ -46,6 +46,8 @@ A bar puts the smaller of two lanes' values above the larger; a machine is a fix
 
 I agree with the math check, which did not cover materials, wording or the launch.
 
+**Fixed October 23, 2026:** fix 1, with a printable table kit (`lowell-math-circle-year-2/week-23/week-23-materials.pdf`: two-sheet lane mat, 35 mm cards, comparator bars and a time strip) and a guide preparation section that names it and counts cutting; the rest deferred. The kit is physically unrehearsed.
+
 ## Overlaps
 
 Week 3's fixed machine is a permutation, with a theorem about cycles. Week 6 uses the same count (k yes/no answers separate at most 2^k cases) as 4–5 P6–P7; the guides could cross-reference. Week 43 counts orders of cards with repeated pictures, as 2–3 P4 counts the orders of 0011. In the app, Cup Swaps chooses adjacent swaps after looking; 2–3 P6 gets the same inversion bound for a machine fixed in advance. None has comparator networks or the zero–one principle, so no merge. The bonus stays a companion.

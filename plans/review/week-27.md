@@ -44,6 +44,8 @@ Two sides of letters rank each other on strips. A pairing is stable when no two 
 10. **could**, guide p. 14: before P5, run the rules on P1's bottom lists; the result must be AY / BZ / CX.
 11. **could**, guide pp. 1, 11, 17: cut residue ("a library label, not a booked meeting", the "instance-specific count" hedge, "Fidelity", "Checks packaged").
 
+**Fixed October 23, 2026:** fix 1, with a printable table kit (`lowell-math-circle-year-2/week-27/week-27-materials.pdf`: tokens, links, markers and a card for every case's strips, read from the student builder's data) rather than pencil work on the pages, and fix 2 (the launch profile); the rest deferred. The kit is physically unrehearsed.
+
 ## Overlaps
 
 Week 11's chip firing has the same order-independent finish as Extension A; cross-reference them. Week 58 judges allocations against preferences, and Week 13 packs routes without them. None has blocking pairs: no merge. The bonus (lowest total unstable, unpaired letters fixed, roommates) stays a companion.

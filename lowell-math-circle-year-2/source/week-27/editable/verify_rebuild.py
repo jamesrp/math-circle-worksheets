@@ -14,7 +14,7 @@ with tempfile.TemporaryDirectory(prefix='math-circle-render-check-') as td:
   a,b=PdfReader(ref),PdfReader(built)
   assert len(a.pages)==len(b.pages)==item['pages'],(name,'page count')
   for i,(p,q) in enumerate(zip(a.pages,b.pages),1):
-   assert tuple(p.mediabox)==tuple(q.mediabox)==(0,0,612,792),(name,i,'paper size')
+   assert tuple(p.mediabox)==tuple(q.mediabox) and tuple(p.mediabox) in [(0,0,612,792),(0,0,792,612)],(name,i,'paper size')
    assert p.extract_text()==q.extract_text(),(name,i,'text differs')
   dirs=[]
   for label,pdf in [('reference',ref),('rebuilt',built)]:

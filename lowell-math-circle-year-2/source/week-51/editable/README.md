@@ -1,5 +1,11 @@
 # Week 51 Honest measurement ranges editable source
 
+## Table kit, October 23, 2026
+
+`materials/build_materials.py` builds `materials.pdf` (reference copy in `reference-pdfs/`; print copy `week-51-materials.pdf`): one US Letter page to print on card stock at 100%, one per pair or trio. It holds two gray strips of every whole length from 1 to 15 units and two white add-ons each of 4 and 1 units, all 10 mm wide at the student pages' 10 mm per unit, in abutting rows of 16 units (160 mm, one 0–16 ruler). Each strip carries its length. No sleeves: a child lays a strip along a printed band from 0 and checks that its end lands inside, then joins strips on a 0–16 ruler; every extreme in the keys is a whole length. The page has a 10 cm scale check and a per-table print count. `materials/verify_materials.py` measures every strip, reads its numeral back, reads the printed ranges from the student reference PDFs and rebuilds every key's witnesses from one set; `build.py` runs both. The guide's page 1 now names the kit, replaces the sleeves and add-on instructions, and counts cutting time; no other guide page and no student page changed. A clean rebuild from the extracted ZIP reproduces the guide and the kit with exact 100-dpi pixels; with TeX Live 2023 the unchanged Grades 2–3 and 4–5 packets rebuild with two different hyphenations outside the audited allowances, and their print and reference copies are unchanged. The previous guide and ZIP are archived in the project. The kit is physically unrehearsed.
+
+Current pages: **K–1 6; Grades 2–3 6; Grades 4–5 6; adult guide 4; table kit 1**.
+
 ## Current release: October 4, 2026 fresh-review revision
 
 The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
