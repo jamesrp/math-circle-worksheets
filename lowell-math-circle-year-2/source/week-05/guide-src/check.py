@@ -482,9 +482,19 @@ for k, v in {'shared pairs': 262, 'shared pairs differing in a 2x2 block': 152, 
 # review card could 8 (October 23, 2026): the guide names the printed IDs, and in the
 # build (where the packets' LaTeX sits in ../views) 2-3 page 7 is headed for Problem 5
 GUIDE = open(os.path.join(HERE, "facilitator.tex")).read()
-if not ("F05-FAC-v5" in GUIDE and "F05-K-v4, 7 pages" in GUIDE and "F05-M-v5, 9 pages" in GUIDE
+if not ("F05-FAC-v6" in GUIDE and "F05-K-v4, 7 pages" in GUIDE and "F05-M-v5, 9 pages" in GUIDE
         and "F05-U-v4, 8 pages" in GUIDE):
-    bad.append("MISMATCH guide IDs: expected F05-FAC-v5, F05-K-v4, F05-M-v5, F05-U-v4")
+    bad.append("MISMATCH guide IDs: expected F05-FAC-v6, F05-K-v4, F05-M-v5, F05-U-v4")
+# review card could 7 (October 23, 2026): one colour per height is the default at the
+# 2-3 and 4-5 tables; the cube counts per colour follow from the materials table
+# (12 towers of each height at each table, so a height-h colour needs 12h cubes)
+per_colour = {'2-3': [12 * h for h in (1, 2, 3)], '4-5': [12 * h for h in (1, 2, 3, 4)]}
+if not (sum(per_colour['2-3']) == 72 and sum(per_colour['4-5']) == 120
+        and "& 36 (12 of each height) & 72 &" in GUIDE and "& 48 (12 of each height) & 120 &" in GUIDE
+        and max(max(v) for v in per_colour.values()) == 48
+        and "no colour needs more than 48 cubes (2--3: 12, 24 and 36 cubes for heights 1, 2 and 3; 4--5: 12, 24, 36 and 48 for heights 1 to 4)" in GUIDE
+        and "build all towers of one height in one colour" in GUIDE and "If colours allow" not in GUIDE):
+    bad.append("MISMATCH materials: one colour per height and its cube counts")
 M_TEX = os.path.join(HERE, "..", "views", "grades-2-3.tex")
 if os.path.exists(M_TEX):
     m_tex = open(M_TEX).read()

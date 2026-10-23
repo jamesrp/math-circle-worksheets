@@ -4,6 +4,8 @@
 
 **Review card, rest, October 23, 2026** (F05-K-v4 and F05-U-v4 unchanged, F05-M-v5, guide F05-FAC-v5), made in the problem files after the conversion. Grades 2–3 page 7, the two spare grids, is headed "Extra grids for Problem 5", so it is not handed out without a task; the guide's printing table and IDs match, and `guide-src/check.py` checks them. The previous PDFs are in `week-05/archive-before-card-shoulds-2026-10-23/`. Unpiloted.
 
+**Review card could 7, October 23, 2026** (guide F05-FAC-v6; student packets unchanged). The materials section now makes one colour per height the default at the 2–3 and 4–5 tables, not "if colours allow", so a repeated height shows as a repeated colour, and gives the cubes each colour needs (at most 48 with different colours at the two tables). `guide-src/check.py` checks the counts against the materials table. The previous guide is in `week-05/archive-before-card-could-7-2026-10-23/`. Unpiloted.
+
 Concrete revision of October 3, 2026: F05-K-v4 / F05-M-v4 / F05-U-v4, adult guide F05-FAC-v4. **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 (the October 3 forecast and pivot, a private record: see [LOCAL-RESOURCES.md](../../../LOCAL-RESOURCES.md#private-records)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
 
 - [K–1](../../week-05/week-05-k-1.pdf) — 7 pages.
