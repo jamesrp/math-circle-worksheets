@@ -1,22 +1,20 @@
-# Week 87: Voting and agendas
+# Week 87 Voting and agendas: editable source
 
-Prepared shared Grades 2–5, line Grades 3–5, and upper Grades 4–5 investigations: 3+4+2 student pages, 5 materials pages, and a 6-page theorem-first facilitator guide. No independent K–1 packet. Unpiloted; cutting, physical token fit, reset handling and timing remain untested. This is a library entry with several possible visits, not an adopted date.
+**Problem files, October 23, 2026.** The student packets are stored as [problem files](../problem-files/README.md): `week.toml`, `figures.py` (the old builder's drawing code, page template and materials pages, unchanged) and one file per problem in `problems/`. The three packets are the week's three bands: the card packet (Grades 2–5), the line packet (Grades 3–5) and the upper packet (Grades 4–5), each numbered from 1. The conversion changed no wording or drawing: the LaTeX of the three packets and of the materials is byte-identical to the previous builder's, and every PDF built by `editable/build.py` is byte-identical to a rebuild by the previous builder. The print copies were compiled with a newer pdfTeX (1.40.27) than this project's TeX Live (1.40.25), so a rebuild here, by the old builder or the new, has the same text and drawings with slightly different glyph rasters (at most 24 differing pixels on a student page at 100 dpi; the materials pages match exactly). The previous builder and source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/).
 
-## Print and routes
+- **Student pages:** edit `problems/*.md` (cards, number lines and tallies in `figures.py`), then build every view:
 
-Print US Letter, single-sided at Actual Size. Shared explores fixed imaginary rankings and agenda choice. Line begins a separate nearest-location visit, including repeated favorites, the odd-voter explanation and an even-voter limit. Upper offers pair-vote explanations and an impossibility question about the common-line model. Problems restart numbering within each packet; the guide identifies each packet. Read its prerequisites, preparation, concrete launches, first routes, return choices and full arguments. Finishing every page is not the goal.
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-87 --out tmp/week-87-views --tex --publish lowell-math-circle-year-2/band-views/week-87
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-87-views lowell-math-circle-year-2/week-87 week-87
+  ```
 
-Materials provide fixed and blank ranking cards, letter slips, option tiles, vote tokens, a tally mat, knockout mat and a five-lane favorite board. Keep favorites fixed and proposals on the board while tally labels identify the same comparison. A favorite at zero still votes; repeated favorites retain separate identities. Equal-distance voters place one token in Tie. Remove both the fifth favorite and its token for the four-voter visit. Check all five tokens fit any tally destination after actual-size printing.
+  The route packets, the one-page problem menu and the key arranged by problem are published in [band-views/week-87/](../../band-views/README.md#weeks-stored-as-problem-files). The routes follow the guide: the card packet is a first visit; the line packet's Problems 1–3 are a separate first visit and its Problem 4 a return; the upper packet is return work.
+- **Materials and adult guide:** the materials pages are drawn by `materials_tex()` in `figures.py`; the guide's source is `editable/guide/facilitator.tex`. The problem files' `key` sections and `guide/overview.tex` repeat the guide's answer keys and overview for the key view; `python3 lowell-math-circle-year-2/source/week-87/check_guide_copy.py` checks that every copied sentence is still in the guide source. Change both together.
+- **Portable package:** `editable/` is the package (README, mathematical checks, guide source, reference PDFs). `editable/student/build.py` writes the student and materials LaTeX from the problem files, and `editable/build.py` builds all five PDFs. The [portable source ZIP](../week-87-source.zip) holds the package plus the problem files and tools in `problem-files/`, written by `package.py`:
 
-## Rebuild offline
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-87 --zip ../week-87-source.zip --top week-87
+  ```
 
-Requires Python 3 and TeX Live/MacTeX with pdfLaTeX, TikZ/PGF, geometry, fancyhdr, AMS, hyperref, T1 and Latin Modern. No third-party Python module, network, private reference or repository file is needed.
-
-    python3 build.py --out output
-    python3 build.py --verify-only
-
-The first builds all five named PDFs; the second runs independent finite checks without TeX. Edit `student/build.py` for student/material content and `guide/facilitator.tex` for the guide. The wrapper uses temporary build directories and fixed metadata. Different TeX/font versions may change bytes. `reference-pdfs/` contains the delivered owned PDFs for comparison.
-
-## Evidence and limits
-
-The production record in `plans/seven-families-85-91/production/week-87/` preserves separate fresh writer, adversarial critic, mathematical reviewer and reviser stages, independent final student–guide review and release audit. The guide is separately authored. Finite enumeration supports the examples; universal arguments and their assumptions appear in the guide. Physical rehearsal and classroom testing remain distinct from digital checks. The ZIP excludes downloaded references, borrowed prompt exemplars, caches, raw renders and private records. Canonical Git publication does not imply a Drive upload.
+Read `editable/README.md` for printing, dependencies and evidence. Current print copies are in [../../week-87/](../../week-87/). The week is unpiloted; cutting, token fit, resets and timing are physically unrehearsed.

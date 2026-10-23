@@ -1,9 +1,12 @@
 Week 87 revised student packet. Unpiloted.
 
-Build with Python 3 and pdflatex with TikZ/lmodern:
+Build with Python 3.11 or later and pdflatex with TikZ/lmodern:
   python3 build.py --out ../rebuilt --work ../rebuild-work
   python3 check_math.py
-The builder uses Python's standard library only, creates its LaTeX in --work,
+Since October 23, 2026 the wording and drawings are in the problem files
+(../problem-files/ in the ZIP; lowell-math-circle-year-2/source/week-87/ in the
+repository); build.py assembles them with the problem-file tools. The builder
+uses Python's standard library only, creates its LaTeX in --work,
 and produces shared.pdf (3 pages), line.pdf (4), upper.pdf (2), materials.pdf (5).
 Two TeX passes are required and run automatically. PDF dates/trailer IDs are
 suppressed; SOURCE_DATE_EPOCH fixes other time inputs. No external assets.
