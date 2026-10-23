@@ -12,14 +12,14 @@ The packets and these views are unpiloted, as their weeks are.
 | 53 | Connecting networks | [9 pages](../week-53/week-53-students.pdf) | [4 of 9](week-53/week-53-k-1.pdf): pp. 1–4 | [4 of 9](week-53/week-53-grades-2-3.pdf): pp. 1–4 | whole packet | [menu](week-53/week-53-menu.pdf) |
 | 54 | Partitions and rebuilding | [9 pages](../week-54/week-54-students.pdf) | — | [5 of 9](week-54/week-54-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-54/week-54-menu.pdf) |
 | 55 | Few sums and equal spacing | [10 pages](../week-55/week-55-students.pdf) | — | whole packet | whole packet | [menu](week-55/week-55-menu.pdf) |
-| 56 | Corners of a solid | [9 pages](../week-56/week-56-students.pdf) | — | [6 of 9](week-56/week-56-grades-2-3.pdf): pp. 1–6 | whole packet | [menu](week-56/week-56-menu.pdf) |
+| 56 | Corners of a solid | [9 pages](../week-56/week-56-students.pdf) | [4 of 9](week-56/week-56-k-1.pdf): pp. 1, 3–5 | [6 of 9](week-56/week-56-grades-2-3.pdf): pp. 1–6 | whole packet | [menu](week-56/week-56-menu.pdf) |
 | 57 | Area from dots | [10 pages](../week-57/week-57-students.pdf) | — | [6 of 10](week-57/week-57-grades-2-3.pdf): pp. 1–6 | whole packet | [menu](week-57/week-57-menu.pdf) |
 | 58 | Fair division | [7 pages](../week-58/week-58-students.pdf) | — | whole packet | whole packet | [menu](week-58/week-58-menu.pdf) |
 | 59 | Constant width | [6 pages](../week-59/week-59-students.pdf) | — | [5 of 6](week-59/week-59-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-59/week-59-menu.pdf) |
 | 60 | Take it or pass | [7 pages](../week-60/week-60-students.pdf) | — | [4 of 7](week-60/week-60-grades-2-3.pdf): pp. 1–3, 6 | whole packet | [menu](week-60/week-60-menu.pdf) |
 | 61 | Triangles on a ball | [7 pages](../week-61/week-61-students.pdf) | — | [4 of 7](week-61/week-61-grades-2-3.pdf): pp. 1–4 | whole packet | [menu](week-61/week-61-menu.pdf) |
 | 62 | Conflict networks | [9 pages](../week-62/week-62-students.pdf) | — | [3 of 9](week-62/week-62-grades-2-3.pdf): pp. 1–3 | whole packet | [menu](week-62/week-62-menu.pdf) |
-| 63 | Cards away from home | [9 pages](../week-63/week-63-students.pdf) | — | [5 of 9](week-63/week-63-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-63/week-63-menu.pdf) |
+| 63 | Cards away from home | [9 pages](../week-63/week-63-students.pdf) | [3 of 9](week-63/week-63-k-1.pdf): pp. 1–3 | [5 of 9](week-63/week-63-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-63/week-63-menu.pdf) |
 | 64 | Straight paths on strange surfaces | [9 pages](../week-64/week-64-students.pdf) | — | [6 of 9](week-64/week-64-grades-2-3.pdf): pp. 1–6 | whole packet | [menu](week-64/week-64-menu.pdf) |
 | 65 | Hyperbolic octagon streets | [6 pages](../week-65/week-65-students.pdf) | — | whole packet | whole packet | [menu](week-65/week-65-menu.pdf) |
 | 66 | Lamplighter streets | [4 pages](../week-66/week-66-students.pdf) | — | whole packet | whole packet | [menu](week-66/week-66-menu.pdf) |

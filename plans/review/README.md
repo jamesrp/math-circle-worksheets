@@ -88,14 +88,14 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 53 | Cheapest connected networks | original verdict revise; both musts fixed October 23 after the problem-file conversion: the CD, DE and BD price labels on pp. 6 and 8 now sit on their own links, and the K–1 route (dots on P3–P4, pp. 1–4 headed K–5, K–1 through pp. 1–4 in the guide), with shoulds 3 (five record maps on P2 and P4) and 4 (P6 answer headings); coulds 5–8 deferred; counters and markers physically unrehearsed | [card](week-53.md), [math check](week-53-math.md) |
 | 54 | Partitions and rebuilding (Euler's odd and distinct parts) | keep | [card](week-54.md), [math check](week-54-math.md) |
 | 55 | Sumsets (fewest and most totals) | keep | [card](week-55.md), [math check](week-55-math.md) |
-| 56 | Corners of a solid (Euler's formula and angular defect) | revise: the K–1 table gets only the p. 3 fans and a fallback that repeats them, though the outline promised work with the closed solids | [card](week-56.md), [math check](week-56-math.md) |
+| 56 | Corners of a solid (Euler's formula and angular defect) | original verdict revise; the must (a K–1 route: P1 and P4 for the cube and tetrahedron by paper gap copies, P3, and P5 as which corner leaves the bigger gap; pp. 1 and 3–5 headed K–5; gap circles on materials p. 5) fixed October 23, with shoulds 2 and 4 and coulds 5, 7, 9 and 10; should 3 (more opened drawings for P7) and coulds 6 and 8 deferred | [card](week-56.md), [math check](week-56-math.md) |
 | 57 | Lattice area (Pick's theorem) | keep | [card](week-57.md), [math check](week-57-math.md) |
 | 58 | Fair division | keep | [card](week-58.md), [math check](week-58-math.md) |
 | 59 | Constant-width shapes | keep | [card](week-59.md), [math check](week-59-math.md) |
 | 60 | Take it or pass (optimal stopping) | keep | [card](week-60.md), [math check](week-60-math.md) |
 | 61 | Geometry on a sphere (Girard's theorem) | keep | [card](week-61.md), [math check](week-61-math.md) |
 | 62 | Conflict networks and scheduling | keep | [card](week-62.md), [math check](week-62-math.md) |
-| 63 | Cards away from home (derangements) | revise: the K–1 table has no route after the launch, though placing and checking cards suits it | [card](week-63.md), [math check](week-63-math.md) |
+| 63 | Cards away from home (derangements) | original verdict revise; the must (a K–1 route on guide p. 3; pp. 1–3 headed K–5; card pictures on the home cells and A–C outcome cards) fixed October 23, with shoulds 2–4 and coulds 5–9 and 11; could 10 (timing) deferred | [card](week-63.md), [math check](week-63-math.md) |
 | 64 | Straight paths on strange surfaces (a glued octagon, square-tiled surfaces) | keep | [card](week-64.md), [math check](week-64-math.md) |
 | 65 | Hyperbolic octagon streets | keep | [card](week-65.md), [math check](week-65-math.md) |
 | 66 | Lamplighter streets (the lamplighter group) | keep | [card](week-66.md), [math check](week-66-math.md) |
