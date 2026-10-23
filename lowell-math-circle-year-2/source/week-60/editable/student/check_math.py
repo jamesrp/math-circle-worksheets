@@ -62,7 +62,7 @@ def optimal_word_scores(bag, horizon):
 
 
 audits = {f"{bag}/n={n}": history_audit(bag,n)
-          for bag in ((0,4,6),(0,3,6),(0,5,6)) for n in (2,3)}
+          for bag in ((0,4,6),(0,3,6),(0,5,6),(0,2,6)) for n in (2,3)}
 for check in audits.values():
     assert check["best_average"] == str(values(check["bag"],check["offers"])[-1])
 assert audits["(0, 4, 6)/n=2"]["best_total"] == 40
@@ -74,6 +74,10 @@ assert audits["(0, 3, 6)/n=2"]["first_choices_in_bag_order"] == [
     ["pass","pass","take"],["pass","take","take"]]
 assert audits["(0, 5, 6)/n=2"]["best_total"] == 44
 assert audits["(0, 5, 6)/n=2"]["first_choices_in_bag_order"] == [["pass","take","take"]]
+# Problem 7, bag 0, 2, 6 (W60-S-v3): the middle ticket is passed; unique best total 34.
+assert audits["(0, 2, 6)/n=2"]["best_total"] == 34
+assert audits["(0, 2, 6)/n=2"]["first_choices_in_bag_order"] == [["pass","pass","take"]]
+assert values((0,2,6),2) == [Fraction(8,3),Fraction(34,9)] and 2 < Fraction(8,3)
 
 # Revised Problem 2: even arbitrary legal rules admit opposite sample winners.
 for check in audits.values():
@@ -129,7 +133,17 @@ for bag in product(range(-2,3),repeat=3):
         assert all(a<b<max(bag) for a,b in zip(seq,seq[1:]))
 
 # Legal practice and the after-decision deadline for two offers.
-assert outcome((3,1),lambda prefix: prefix[-1] in (3,5))==3
+assert outcome((3,1),lambda prefix: True)==3
+# Page 2's practice rule (W60-S-v3) takes any first offer; with 1, 3, 5 it is not optimal.
+practice=list(product((1,3,5),repeat=2))
+assert sum(outcome(w,lambda prefix: True) for w in practice)==27
+assert history_audit((1,3,5),2)["best_total"]==33
+# Ties among the printed student positions: the 0, 3, 6 middle and the practice first 3.
+positions=[((1,2,5),2),((1,3,5),2),((0,4,6),2),((0,4,6),3),((0,3,6),2),((0,5,6),2),
+           ((0,2,6),2),((0,5,6),3),((0,5,6),4)]
+ties=sorted({(bag,x) for bag,n in positions for k in range(2,n+1)
+             for x in bag if Fraction(x)==values(bag,n)[k-2]})
+assert ties==[((0,3,6),3),((1,3,5),3)],ties
 counters=2
 before_decisions=[]
 for score in (2,1):

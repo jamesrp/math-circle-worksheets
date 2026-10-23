@@ -4,14 +4,14 @@ title = "Best first-offer choices for new bags"
 grades = ["shared"]
 route = "first"
 page = "new"
-kernel = "For 0, 3, 6 taking or passing 3 ties at 36; for 0, 5, 6 take 5 or 6 first for 44."
+kernel = "For 0, 3, 6 taking or passing 3 ties at 36; for 0, 5, 6 take 5 or 6 first for 44; for 0, 2, 6 pass 0 and 2 and take 6 for 34."
 +++
 
 ## text
-\renewcommand{\band}{Grades 3--5}
+\renewcommand{\band}{Grades K--5}
 
 ## prompt
-For each new bag, find all the first-offer choices that give the highest total score on its nine two-offer cards. Each bag has one of each shown ticket; return and mix after every draw.
+For each new bag, find all the first-offer choices that give the highest total score on its nine two-offer cards.
 
 ## text
 \vspace{0.07in}

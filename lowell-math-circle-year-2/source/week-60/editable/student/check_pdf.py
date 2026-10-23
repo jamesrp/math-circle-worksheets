@@ -28,8 +28,8 @@ qa.mkdir(parents=True,exist_ok=True)
 render=qa/"render"
 render.mkdir(exist_ok=True)
 doc=pymupdf.open(pdf)
-assert len(doc)==7
-bands=("3–5","3–5","3–5","4–5","4–5","3–5","4–5")
+assert len(doc)==8
+bands=("K–5","K–5","3–5","4–5","4–5","K–5","3–5","4–5")
 problems=[]
 pages=[]
 scale=pymupdf.Matrix(1.7,1.7)
@@ -37,7 +37,7 @@ for i,page in enumerate(doc,1):
     text=page.get_text()
     assert tuple(page.rect)==(0,0,612,792)
     assert f"Week 60 / Take it or pass / Grades {bands[i-1]}" in text
-    assert "Bellingham Math Circle / Week 60 / W60-S-v2" in text
+    assert "Bellingham Math Circle / Week 60 / W60-S-v3" in text
     assert text.rstrip().endswith(str(i))
     labels=[int(n) for n in re.findall(r"Problem (\d+):",text)]
     problems+=labels
@@ -55,8 +55,12 @@ first=" ".join(doc[0].get_text().split())
 forced="With one counter left, you must take the offer, even if it is 0."
 removal="Remove one turn counter after deciding on each offer."
 assert forced in first and removal in first and first.index(forced)<first.index(removal)
-assert "opposite winners in two six-round matches" in first
-assert "Show possible offers for both" in first
+assert "put out one turn counter for each offer" in first
+assert "roll the bag\u2019s die, or put the ticket back and mix" in first
+assert "beat your three-offer rule in one six-round match and lose to it in another" in first
+assert "Show possible offers for both matches" in first
+second=" ".join(doc[1].get_text().split())
+assert "this rule takes any first offer:" in second
 
 def cards(page):
     result=[]
@@ -70,16 +74,20 @@ def cards(page):
                 assert edge[2]==edges[(i+1)%4][1]
                 assert edge[1].x==edge[2].x or edge[1].y==edge[2].y
             tokens=page.get_textbox(r).split()
-            assert tokens[-1]=="score"
-            result.append((r,tuple(int(x) for x in tokens[:-1])))
+            # Two-offer cards have one score line; Problem 4's cards one line per plan.
+            labels=["score"] if tokens[-1]=="score" else ["A","B"]
+            assert tokens[-len(labels):]==labels,tokens
+            result.append((r,tuple(int(x) for x in tokens[:-len(labels)])))
     return sorted(result,key=lambda row:(row[0].y0,row[0].x0))
 
-pairs=cards(doc[1]);triples=cards(doc[2]);new=cards(doc[5])
-assert (len(pairs),len(triples),len(new))==(9,27,18)
+pairs=cards(doc[1]);triples=cards(doc[2]);new=cards(doc[5]);more=cards(doc[6])
+assert (len(pairs),len(triples),len(new),len(more))==(9,27,18,9)
+assert "Problem 7 (continued)" in doc[6].get_text()
 collections=[("p2 0/4/6",pairs,(0,4,6),2),
              ("p3 0/4/6",triples,(0,4,6),3),
              ("p6 0/3/6",new[:9],(0,3,6),2),
-             ("p6 0/5/6",new[9:],(0,5,6),2)]
+             ("p6 0/5/6",new[9:],(0,5,6),2),
+             ("p7 0/2/6",more,(0,2,6),2)]
 card_evidence=[]
 for label,rows,bag,n in collections:
     assert [word for _,word in rows]==list(product(bag,repeat=n))
@@ -103,8 +111,8 @@ assert sum(r.x0<306 for r in circles)==2 and sum(r.x0>306 for r in circles)==3
 assert all(abs(r.width-17.28)<0.01 for r in circles)
 
 # Non-deduplicated header/footer evidence prevents display tooling hiding repeats.
-images=[Image.open(render/f"page-{i:02d}.png").convert("RGB") for i in range(1,8)]
-montage=Image.new("RGB",(images[0].width,7*180),"white")
+images=[Image.open(render/f"page-{i:02d}.png").convert("RGB") for i in range(1,9)]
+montage=Image.new("RGB",(images[0].width,8*180),"white")
 draw=ImageDraw.Draw(montage)
 for i,im in enumerate(images):
     top=im.crop((0,0,im.width,105));bottom=im.crop((0,im.height-75,im.width,im.height))
@@ -147,7 +155,7 @@ for label,src in (("copied",copied),("zip",extracted/"week-60-source")):
     assert "Overfull" not in (out/".build/students.log").read_text()
     assert {name:hashlib.sha256((src/name).read_bytes()).hexdigest()
             for name in sorted(allowed)}==source_hashes
-    builds.append({"source":label,"pages":7,"text_dimensions_pixels":"identical"})
+    builds.append({"source":label,"pages":8,"text_dimensions_pixels":"identical"})
 assert {str(f.relative_to(source)) for f in source.rglob("*") if f.is_file()}==allowed
 evidence={"PASS":True,"pdf":str(pdf),"pdf_sha256":hashlib.sha256(pdf.read_bytes()).hexdigest(),
           "pages":pages,"actual_card_collections":card_evidence,
@@ -157,4 +165,4 @@ evidence={"PASS":True,"pdf":str(pdf),"pdf_sha256":hashlib.sha256(pdf.read_bytes(
           "portable_source_contains_only_authored_files":True,
           "physical_rehearsal":"unperformed","classroom_pilot":"unperformed"}
 (qa/"verification.json").write_text(json.dumps(evidence,indent=2)+"\n")
-print("PASS: seven Letter pages; all labels; 9+27+9+9 complete cards; equal circles; copied and ZIP-extracted sources reproduce every page's text/dimensions/pixels.")
+print("PASS: eight Letter pages; all labels; 9+27+9+9+9 complete cards; equal circles; copied and ZIP-extracted sources reproduce every page's text/dimensions/pixels.")

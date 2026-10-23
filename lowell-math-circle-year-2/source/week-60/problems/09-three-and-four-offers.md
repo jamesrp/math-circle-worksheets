@@ -11,7 +11,7 @@ kernel = "With 0, 5, 6 a first 5 is taken with three offers (5 > 44/9) and passe
 \renewcommand{\band}{Grades 4--5}
 
 ## prompt
-Use a bag with tickets 0, 5, 6. Find the best taking plan for three-offer rounds and for four-offer rounds. How should the first offer 5 be treated in each? Give each plan's average score.
+Use a bag with tickets 0, 5, 6. Find the best taking plan for three-offer rounds and for four-offer rounds. Give each plan's average score.
 
 ## text
 \vspace{0.13in}

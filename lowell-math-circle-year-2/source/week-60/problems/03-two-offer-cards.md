@@ -8,10 +8,10 @@ kernel = "All nine equally likely two-offer cards evaluate a fixed rule exactly;
 +++
 
 ## text
-\renewcommand{\band}{Grades 3--5}
+\renewcommand{\band}{Grades K--5}
 A card lists offers in drawing order, including offers that would remain unseen after you take one. All complete cards of the same length have the same chance.
 
-With practice tickets 1, 3, 5, this rule takes 3 or 5 and passes 1:
+With practice tickets 1, 3, 5, this rule takes any first offer:
 \begin{center}
 \begin{tikzpicture}[x=1in,y=1in,>=Latex]
   \draw (0,0.06) rectangle (1.55,0.72);

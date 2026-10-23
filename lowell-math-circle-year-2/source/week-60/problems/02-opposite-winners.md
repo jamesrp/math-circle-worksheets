@@ -7,7 +7,7 @@ kernel = "Short samples can reverse which rule wins; a sample does not settle a 
 +++
 
 ## prompt
-Can the same fixed rules give opposite winners in two six-round matches? Show possible offers for both. Can either match settle which rule has the better average over many rounds?
+Can your fixed two-offer rule beat your three-offer rule in one six-round match and lose to it in another? Show possible offers for both matches. Can either match settle which rule has the better average over many rounds?
 
 ## text
 \blanklines{3}

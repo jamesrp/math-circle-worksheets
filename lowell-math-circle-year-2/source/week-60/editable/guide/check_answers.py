@@ -57,15 +57,17 @@ def threshold_scores(bag, n):
 def actual_cards(pdf):
     import pymupdf
     doc = pymupdf.open(pdf)
-    assert len(doc) == 7
+    assert len(doc) == 8
     result = {}
-    for index, length, expected in [(1, 2, words((0, 4, 6), 2)),
-                                    (2, 3, words((0, 4, 6), 3)),
-                                    (5, 2, words((0, 3, 6), 2) + words((0, 5, 6), 2))]:
+    # W60-S-v3: Problem 4's cards end with one score line per plan, "A" and "B".
+    for index, length, label, expected in [(1, 2, 'score', words((0, 4, 6), 2)),
+                                           (2, 3, 'A', words((0, 4, 6), 3)),
+                                           (5, 2, 'score', words((0, 3, 6), 2) + words((0, 5, 6), 2)),
+                                           (6, 2, 'score', words((0, 2, 6), 2))]:
         lines = [s.strip() for s in doc[index].get_text().splitlines()]
         cards = []
         for i, s in enumerate(lines):
-            if s == 'score':
+            if s == label:
                 prev = lines[i - length:i]
                 assert all(x.isdigit() for x in prev), (index, prev)
                 cards.append(tuple(map(int, prev)))
@@ -93,21 +95,36 @@ def main():
     evidence = {}
     original = (0, 4, 6)
     # Independently recompute the operational counts printed in the guide.
-    table_cards = 3**2 + 3**3 + 3**2 + 3**2
-    assert table_cards == 54 and 2 * table_cards == 108
-    assert 7 + 1 == 8 and 3 * (3 + 1) == 12
-    assert 2 * 3 == 6 and 2 * (4 + 1) == 10
-    k1_spare_kits = 4 + 1
-    assert [k1_spare_kits * n for n in (6, 12, 3, 2, 2)] == [30, 60, 15, 10, 10]
-    evidence['preparation_counts'] = {'older_kits': 3, 'bags': 3, 'original_tickets': 9,
-                                     'counters': 12, 'new_bag_tickets': 18,
-                                     'cards_per_table': table_cards, 'cut_cards': 108,
-                                     'uncut_spare_cards': 54, 'older_paper_sheets': 32,
-                                     'cardstock_sheets': 9, 'prior_K1_sheets': 10,
-                                     'prior_K1_blocks_with_spare_kit': [30, 60, 15, 10, 10]}
+    # Guide p. 2 (W60-FAC-v2): four die kits, 63 cards per older table, optional cutting.
+    table_cards = 3**2 + 3**3 + 3**2 + 3**2 + 3**2
+    assert table_cards == 63 and 2 * table_cards == 126
+    page1 = 7 + 1 + 1
+    core_paper = 4 * (3 + 1)
+    k1_paper = 2
+    upper_paper = 3 * (3 + 1)
+    cardstock = 2 * 4 + 4
+    assert (page1, core_paper, k1_paper, upper_paper, cardstock) == (9, 16, 2, 12, 12)
+    # A 0, 0, 4, 4, 6, 6 die gives each score chance 1/3, as the three-ticket bag does.
+    die = (0, 0, 4, 4, 6, 6)
+    assert all(F(die.count(x), 6) == F(1, 3) for x in (0, 4, 6))
+    # K-1 towers (guide p. 2): take and pass towers for each first-offer row.
+    towers = {}
+    for bag, rows in [((0, 4, 6), (0, 4, 6)), ((0, 3, 6), (3,))]:
+        for first in rows:
+            take, pass_ = 3 * first, sum(bag)
+            towers[f'{bag} first {first}'] = (take, pass_)
+    assert towers == {'(0, 4, 6) first 0': (0, 10), '(0, 4, 6) first 4': (12, 10),
+                      '(0, 4, 6) first 6': (18, 10), '(0, 3, 6) first 3': (9, 9)}
+    assert max(a + b for a, b in towers.values()) == 28 <= 30
+    evidence['preparation_counts'] = {'kits': 4, 'dice': 4, 'spare_dice': 1, 'counters': 16,
+                                     'cards_per_older_table': table_cards, 'all_cards_if_cut': 126,
+                                     'page1_sheets': page1, 'core_paper_sheets': core_paper,
+                                     'K1_tower_sheets': k1_paper, 'upper_paper_sheets': upper_paper,
+                                     'cardstock_sheets': cardstock, 'K1_linking_cubes': 30}
+    evidence['K1_towers_take_pass'] = {k: list(v) for k, v in towers.items()}
     # Both practice conversions, including input, intermediate, output.
     assert evaluate((2, 1), lambda p: False) == 1
-    assert evaluate((3, 1), lambda p: p[-1] in (3, 5)) == 3
+    assert evaluate((3, 1), lambda p: True) == 3  # "this rule takes any first offer"
     assert F(1 + 3 + 5, 3) == 3
     evidence['practice'] = {'2_then_1_forced_score': 1, '3_then_unseen_1_score': 3,
                             'non_target_mean_1_3_5': 3}
@@ -128,7 +145,7 @@ def main():
                         'full_sample_probability': str(F(1, 3**30))})
     evidence['opposite_six_round_matches'] = samples
 
-    for bag, two_total in [(original, 40), ((0, 3, 6), 36), ((0, 5, 6), 44)]:
+    for bag, two_total in [(original, 40), ((0, 3, 6), 36), ((0, 5, 6), 44), ((0, 2, 6), 34)]:
         key = ','.join(map(str, bag))
         v = values(bag, 4)
         audit = {str(n): full_history_audit(bag, n) for n in (2, 3)}
@@ -145,6 +162,20 @@ def main():
     assert evidence['0,4,6']['values'][:3] == ['10/3', '40/9', '134/27']
     assert evidence['0,5,6']['values'] == ['11/3', '44/9', '143/27', '448/81']
     assert [r['choices'] for r in evidence['0,3,6']['two_offer_rules'] if r['total'] == 36] == ['PPT', 'PTT']
+    assert [r['choices'] for r in evidence['0,2,6']['two_offer_rules'] if r['total'] == 34] == ['PPT']
+    assert max(r['total'] for r in evidence['0,2,6']['two_offer_rules']) == 34
+    # P7 take/pass group totals printed in the guide's table, and the best scores row by row.
+    for bag, table in [((0, 3, 6), [(0, 9), (9, 9), (18, 9)]), ((0, 5, 6), [(0, 11), (15, 11), (18, 11)]),
+                       ((0, 2, 6), [(0, 8), (6, 8), (18, 8)])]:
+        assert [(3 * x, sum(bag)) for x in bag] == table
+    assert values((0, 2, 6), 2)[1:] == [F(8, 3), F(34, 9)] and 2 < F(8, 3)
+    # Ties among printed student positions (guide p. 8): the 0, 3, 6 middle and a practice first 3.
+    positions = [((1, 2, 5), 2), ((1, 3, 5), 2), ((0, 4, 6), 2), ((0, 4, 6), 3), ((0, 3, 6), 2),
+                 ((0, 5, 6), 2), ((0, 2, 6), 2), ((0, 5, 6), 3), ((0, 5, 6), 4)]
+    ties = sorted({(bag, x) for bag, n in positions for k in range(2, n + 1)
+                   for x in bag if F(x) == values(bag, n)[k - 1]})
+    assert ties == [((0, 3, 6), 3), ((1, 3, 5), 3)], ties
+    evidence['printed_position_ties'] = [list(b) + [x] for b, x in ties]
 
     plan_a = lambda p: p[-1] in (4, 6)
     plan_b = lambda p: p[-1] == 6 if len(p) == 1 else p[-1] in (4, 6)

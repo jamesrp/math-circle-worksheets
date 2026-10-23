@@ -11,7 +11,7 @@ kernel = "Take when the offer beats the best average of the remaining plan: 4 > 
 \renewcommand{\band}{Grades 4--5}
 
 ## prompt
-The current offer is 4. Compare taking 4 with your best plan after passing 4. Which choice has the higher average score in each position? Use all possible future offers from the 0, 4, 6 bag to support your choices.
+The current offer is 4. Take or pass in each position? Explain with average scores.
 
 ## text
 \begin{center}
@@ -20,20 +20,16 @@ The current offer is 4. Compare taking 4 with your best plan after passing 4. Wh
 
 \begin{minipage}[t]{3.15in}
 Choice: \rule{1.60in}{0.3pt}\par
-Average if you take: \rule{1.05in}{0.3pt}\par
-Best average if you pass: \rule{0.66in}{0.3pt}\par
 \vspace{0.20in}
 \begin{tikzpicture}[x=1in,y=1in]
-\draw[gray] (0,0) rectangle (3.1,3.90);
+\draw[gray] (0,0) rectangle (3.1,4.50);
 \end{tikzpicture}
 \end{minipage}\hfill
 \begin{minipage}[t]{3.15in}
 Choice: \rule{1.60in}{0.3pt}\par
-Average if you take: \rule{1.05in}{0.3pt}\par
-Best average if you pass: \rule{0.66in}{0.3pt}\par
 \vspace{0.20in}
 \begin{tikzpicture}[x=1in,y=1in]
-\draw[gray] (0,0) rectangle (3.1,3.90);
+\draw[gray] (0,0) rectangle (3.1,4.50);
 \end{tikzpicture}
 \end{minipage}
 

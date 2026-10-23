@@ -46,6 +46,8 @@ Offers are fair draws, with replacement, from a known bag; a player takes one an
 13. **could**, P6 follows P4, which prints the optimum as B; ask "Can any legal plan beat B? Explain."
 14. **could**, guide p. 2: cut "The old guide’s 3/3/1 roster is historical." and make cutting all 108 cards optional.
 
+October 23, 2026: shoulds 1–7 and coulds 8 and 10–14 done after converting the student packet to problem files (W60-S-v3, eight pages, with Problem 7 continued on p. 7; W60-FAC-v2); the K–1 route replaces the guide's Week 1 tiling paragraph, which takes the purple pieces and the roster sentence with it; could 9 left.
+
 ## Overlaps
 
 Week 7 works up from 0 over positions without chance, the deterministic form of P6's induction. Week 24 asks whether the deck winning more of nine equally likely pairs must win more of six rounds (K–1 P4), P2's point; guide p. 8 also names Weeks 42–46. None has an irreversible take-or-pass choice under a deadline. No merge.
