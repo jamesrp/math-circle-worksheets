@@ -1,6 +1,8 @@
 # Week 65 verification
 
-Prepared 2026-10-05. Current IDs: W65-S-v3 and W65-FAC-v3 (October 23, 2026 card fixes). Seven student pages, seven adult-guide pages. Prepared for review; physical rehearsal and classroom piloting remain unperformed.
+Prepared 2026-10-05. Current IDs: W65-S-v4 and W65-FAC-v4 (October 23, 2026 critic follow-up after the card fixes). Seven student pages, seven adult-guide pages. Prepared for review; physical rehearsal and classroom piloting remain unperformed.
+
+**October 23, 2026, critic follow-up (v4).** Problem 6's octagon map, the guide's "encloses only those n rooms" and its other three notes are checked by `student/build.py` (the map's 17 rooms, each neighbour's 1 + 2 + 5 doors, 40 distinct off-map rooms) and by `plans/review/checks/week-65/check_critic_fixes.py` in the repository (an independent tiling: 48 rooms, the turning rule on 1, 2 and 3 rooms and 72 for the ring of 16 around Home, page 7's 112 walls, unchanged pages 1–6 apart from footers, the guide's wording). Every page of both PDFs was rendered and inspected; both keep seven pages, and a clean rebuild from the extracted ZIP matches every page's text and 100-dpi pixels.
 
 **October 23, 2026.** The v3 changes are checked by `review/verify_card_fixes_2026_10_23.py` (turning rule 4 + 4n on every simple cluster of up to four rooms, shortest full return 8 with no odd return, Problem 6 counts 48 and 8, R label distances, wording and footers) and recorded in `review/card-fixes-2026-10-23.md`. All seven pages of each PDF were rendered and inspected; page 1 of the packet differs from v2 only in its footer, and a clean rebuild from the extracted ZIP matches every page's text and 100-dpi pixels. The notes below describe the v2 release of October 5–6.
 

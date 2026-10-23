@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the Week 65 geometry and compile the student packet (v3) with pdfLaTeX/TikZ.
+"""Check the Week 65 geometry and compile the student packet (v4) with pdfLaTeX/TikZ.
 
 students.tex is written from the problem files by regenerate.py, which this script runs
 first unless --no-regenerate is given (the package's root build.py regenerates in place,
@@ -94,8 +94,20 @@ def verify():
     # Square floor: the cells at grid distance exactly 2 from Home, 12 - 4 = 8.
     squares2=sum(1 for x in range(-3,4) for y in range(-3,4) if abs(x)+abs(y)==2)
     assert squares2==8 and Counter(d for _,_,d in TILES)[2]==48
-    return {'version':'W65-S-v3','student_pages':7,'problems':[1,2,3,4,5,6],
+    # Problem 6's map (v4): Home, its 8 side neighbours and its 8 corner rooms. Each neighbour's
+    # 8 doors lead to Home, 2 corner rooms and 5 rooms off the map; each corner room is next to
+    # exactly 2 neighbours; the 8 x 5 rooms off the map are all different. So 40 + 8 = 48.
+    neighbours=sorted(ADJ[HOME]); drawn={HOME,*ROOMS_AROUND_HOME}
+    assert len(neighbours)==8 and len(CORNER_ROOMS)==8 and ROOMS_AROUND_HOME==neighbours+CORNER_ROOMS
+    assert all(len(ADJ[c].intersection(neighbours))==2 and HOME not in ADJ[c] for c in CORNER_ROOMS)
+    assert all(len(ADJ[i])==8 and len(ADJ[i].intersection(CORNER_ROOMS))==2 for i in neighbours)
+    outward=[j for i in neighbours for j in ADJ[i] if j not in drawn]
+    assert len(outward)==40 and len(set(outward))==40
+    assert set(outward)|set(CORNER_ROOMS)=={i for i,(_,_,d) in enumerate(TILES) if d==2}
+    return {'version':'W65-S-v4','student_pages':7,'problems':[1,2,3,4,5,6],
             'two_crossing_rooms':{'octagon_floor':48,'square_floor':squares2},
+            'problem_6_map':{'rooms_drawn':1+len(ROOMS_AROUND_HOME),'side_neighbours':8,'corner_rooms':8,
+                'neighbour_doors':{'home':1,'corner_rooms':2,'off_map':5},'off_map_rooms_distinct':40},
             'geometry':'regular hyperbolic {8,4}', 'corner_degrees':angles,
             'layer_counts':[1,8,48], 'two_step_multiplicities':{'once':40,'twice':8},
             'whole_circle_disjointness_gaps':disjoint,
@@ -154,6 +166,6 @@ def main():
                 print(run.stdout);raise SystemExit(run.returncode)
         shutil.copy(dest/'students.pdf',output)
         (ROOT/'build.log').write_text((dest/'students.log').read_text())
-    print(f'Built {output} (seven student pages, v3). Geometry and route checks passed.')
+    print(f'Built {output} (seven student pages, v4). Geometry and route checks passed.')
 
 if __name__=='__main__':main()

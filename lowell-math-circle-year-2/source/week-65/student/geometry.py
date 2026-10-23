@@ -1,8 +1,9 @@
 """Week 65 geometry: the regular hyperbolic {8,4} tiling in the Poincare disk.
 
 Carried over unchanged from the old student builder (archive-before-problem-files-2026-10-23/
-build.py). student/build.py checks it (verify) and ../figures.py draws the student pages
-with it, so the pages and the checks use one construction.
+build.py), with CORNER_ROOMS and ROOMS_AROUND_HOME added for Problem 6's map (v4).
+student/build.py checks it (verify) and ../figures.py draws the student pages with it, so
+the pages and the checks use one construction.
 """
 from math import sqrt, pi, cos, sin, atan2, acos, acosh
 import cmath
@@ -137,3 +138,8 @@ STAR=next(i for i in FOUR if i!=0 and i not in NEIGHBORS)
 A=next(i for i in NEIGHBORS if corner_view(TILES[i][0]).imag>0)
 B=next(i for i in NEIGHBORS if i!=A)
 NAMES={HOME:'Home', A:'A', B:'B', STAR:r'$\star$'}
+# Problem 6's map (v4): Home's 8 side neighbours, then the 8 corner rooms, which share
+# only a corner with Home (each is adjacent to two neighbours).
+CORNER_ROOMS=sorted(i for i,(_,poly,_) in enumerate(TILES)
+    if i!=HOME and i not in ADJ[HOME] and any(abs(z-v)<1e-7 for z in poly for v in V))
+ROOMS_AROUND_HOME=sorted(ADJ[HOME])+CORNER_ROOMS

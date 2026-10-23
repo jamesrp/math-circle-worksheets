@@ -186,7 +186,7 @@ assert old_23 < old_R            # the card's finding about the old position
 
 # ---- printed wording and numbering
 tex = (WEEK/'student'/'students.tex').read_text()
-assert tex.count('W65-S-v3') == 7 and 'W65-S-v2' not in tex
+assert tex.count('W65-S-v4') == 7 and 'W65-S-v3' not in tex  # v4 since the critic follow-up
 assert re.findall(r'\\textbf\{Problem (\d)[:\s]', tex) == ['1', '2', '3', '4', '5', '5', '6']
 for s in ['return to your starting place, facing the same way?', 'two different ordinary straight lines',
           r'\textbf{Problem 5 (continued)}', 'at (-0.66,0) {R}', r'scale=2.2] at', 'in 2 door crossings but not fewer',
@@ -195,7 +195,7 @@ for s in ['return to your starting place, facing the same way?', 'two different 
 for s in ['Mark dots where you go straight.', 'Extra workspace', 'starting place and heading']:
     assert s not in tex, s
 guide = (WEEK/'guide'/'facilitator.tex').read_text()
-for s in ['W65-FAC-v3', r'\(4+4n\)', 'Week~56', 'Week~61', 'K--1, adult-led on these pages',
+for s in ['W65-FAC-v4', r'\(4+4n\)', 'Week~56', 'Week~61', 'K--1, adult-led on these pages',
           'fewer than 8 moves', 'two alternating colors', '17 left turns and 1 right', '5 left and 1 right',
           r'\(56-8=48\)', r'\(12-4=8\)', 'seven pages', '35 sheets', 'Problems 4--6',
           'corner of an index card']:
@@ -207,10 +207,10 @@ if len(sys.argv) == 3:
     st = pymupdf.open(sys.argv[1]); gd = pymupdf.open(sys.argv[2])
     assert len(st) == 7 and len(gd) == 7
     text = [p.get_text() for p in st]
-    assert all('W65-S-v3' in t and 'Week 65 / Hyperbolic octagon streets / Grades 3' in t for t in text)
+    assert all('W65-S-v4' in t and 'Week 65 / Hyperbolic octagon streets / Grades 3' in t for t in text)
     assert 'Problem 5 (continued)' in text[5] and 'Problem 6:' in text[6]
-    assert all('W65-FAC-v3' in p.get_text() for p in gd)
-    print('PDFs: 7 student pages and 7 guide pages, v3 footers, P5 continued on p. 6, P6 on p. 7.')
+    assert all('W65-FAC-v4' in p.get_text() for p in gd)
+    print('PDFs: 7 student pages and 7 guide pages, v4 footers, P5 continued on p. 6, P6 on p. 7.')
 
 print('Clusters checked:', dict(sorted(checked.items())))
 print('Layers 1, 8, 48; routes 56 = 40 once + 8 twice; squares 12 routes, 8 rooms.')

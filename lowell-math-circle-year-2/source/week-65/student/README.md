@@ -1,10 +1,11 @@
-# Week 65: Hyperbolic octagon streets, student version 3
+# Week 65: Hyperbolic octagon streets, student version 4
 
 Original student text and vector diagrams. One shared Grades 3-5 packet:
 seven US Letter pages, six consecutively numbered problems; Problem 5's
 recording sheet is its own page. Version 3 (October 23, 2026) has the review
-card's fixes, including the new Problem 6. Digitally reviewed; not physically
-rehearsed or classroom piloted.
+card's fixes, including the new Problem 6; version 4 (the same day) adds
+Problem 6's octagon map. Digitally reviewed; not physically rehearsed or
+classroom piloted.
 
 ## Portable build
 
@@ -48,8 +49,11 @@ for this v2 source package.
    rather than preprinting the number of solutions. Long-route rows are
    6.9 inches wide and 0.55 inches apart.
 7. Problem 6: rooms reached from Home in 2 door crossings but not fewer,
-   on the octagon floor (reasoned, 48) and on a printed 5 x 5 square floor
-   (8). `checks.json` records both counts.
+   on the octagon floor (48) and on a printed 5 x 5 square floor (8). The
+   octagon map (v4) draws Home, its 8 side neighbours and its 8 corner rooms;
+   each neighbour's doors lead to Home, 2 corner rooms and 5 rooms off the
+   map, and `build.py` checks that those 40 rooms are all different.
+   `checks.json` records both counts and the map's door counts.
 
 ## Construction and checks
 

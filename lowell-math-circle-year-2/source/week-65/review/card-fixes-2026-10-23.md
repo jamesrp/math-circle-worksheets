@@ -17,3 +17,14 @@ The review card is `plans/review/week-65.md` (verdict keep). This pass made its 
 Checks: `review/verify_card_fixes_2026_10_23.py` rebuilds the tiling and checks the 4 + 4n rule on every simple connected cluster of up to four rooms around Home (and on squares), the named cases, the shortest full return (8, none odd, by search of every turn sequence up to 9 moves), the Problem 6 counts (layers 1, 8, 48; 56 routes with 8 rooms reached twice; squares 12 routes, 8 rooms), the R label distances, and the printed wording, numbering and footers. `student/build.py` records the Problem 6 counts in `checks.json`.
 
 Not changed: the card's App-fit notes (the organizer's decision is recorded there). Nothing was physically rehearsed; the packet remains unpiloted.
+
+## Critic follow-up, later on October 23, 2026 (v4)
+
+An independent critic (Critic C) read the card-fix release and found two shoulds and two coulds, now made:
+
+- **Should 8, Problem 6 (p. 7).** The page drew only the square floor, and the answer 48 rests on there being no overlaps beyond the 8 corner rooms, which a child could not see. The page now prints an octagon map beside a smaller square floor: Home, its 8 side neighbours and its 8 corner rooms, each drawn whole (`first_ring()` in `figures.py`, rooms listed in `student/geometry.py` as `ROOMS_AROUND_HOME`). Each neighbour visibly has one wall to Home, two to corner rooms and five on the map's outside; the prompt adds "Only the rooms around Home are drawn; the floor goes on."
+- **Should 9, guide p. 1.** The rule "left minus right quarter-turns is 4 + 4n" was stated for any n rooms whose outside is one closed walk that does not touch itself. That is false for a ring around a hole: Home's 16 surrounding rooms have such an outside walk and give 72 = 4 + 4·17, not 68. The rule now adds "and encloses only those n rooms", with that ring as the example.
+- **Could 10, readiness.** The guide said multiplication was not a prerequisite; it now says Problem 6 uses 8 × 7 or 8 × 5 + 8.
+- **Could 11, "A third case".** The page-5 board's corners are unmarked, so the guide now says to dot them first before counting the 17 left turns and 1 right.
+
+The Problem 6 key and its adult background now read the doors off the map. To keep the guide at seven pages, "can wait for another visit" became "can wait". Footers W65-S-v4 and W65-FAC-v4. Checks: `student/build.py` (the map's rooms and doors), `review/verify_card_fixes_2026_10_23.py` (now expecting v4 footers), and `plans/review/checks/week-65/check_critic_fixes.py` in the repository. The previous PDFs and ZIP are in the week's `archive-before-critic-fixes-2026-10-23/` folders. Still physically unrehearsed and unpiloted.

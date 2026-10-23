@@ -44,6 +44,8 @@ The {8,4} tiling: right-angled octagons, four at each corner, in the Poincaré d
 
 **Done October 23, 2026:** shoulds 1–4 and coulds 5–9 made in the problem files and guide (W65-S-v3, seven pages with the new Problem 6; W65-FAC-v3); could 6 keeps "ordinary" in P4, which contrasts ordinary lines with the map's streets. Checked by `source/week-65/review/verify_card_fixes_2026_10_23.py`; unpiloted.
 
+**Critic follow-up, October 23, 2026:** an independent critic's shoulds and coulds made (W65-S-v4, W65-FAC-v4, both seven pages). Problem 6 prints an octagon map of Home, its 8 side neighbours and its 8 corner rooms beside the square floor, so the 48 can be checked on the page; the guide's 4 + 4n rule now requires the outside walk to enclose only those n rooms (the ring of 16 around Home gives 72, not 68), names Problem 6's 8 × 7 or 8 × 5 + 8, and dots the page-5 corners before the third-case count. Checked by `plans/review/checks/week-65/check_critic_fixes.py`; unpiloted.
+
 ## Overlaps
 
 Week 64 walks straight paths on a flat glued octagon; both guides keep them apart. Weeks 56 (720° defect) and 61 (spherical excess) are the same theorem with positive curvature; this is the only negative-curvature theme. Cross-reference the three; no merge.

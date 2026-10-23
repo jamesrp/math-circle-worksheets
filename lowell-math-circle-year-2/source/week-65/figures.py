@@ -23,6 +23,7 @@ V, n, edge, polygon, full_ends, point, tangent = (_geometry.V, _geometry.n, _geo
 LEFT, RIGHT, BOUNDARY, SQUARE_BOUNDARY = _geometry.LEFT, _geometry.RIGHT, _geometry.BOUNDARY, _geometry.SQUARE_BOUNDARY
 PAIR_SCALE, SINGLE_SCALE, stubs, key = _geometry.PAIR_SCALE, _geometry.SINGLE_SCALE, _geometry.stubs, _geometry.key
 TILES, FOUR, NAMES, P, corner_view = _geometry.TILES, _geometry.FOUR, _geometry.NAMES, _geometry.P, _geometry.corner_view
+ROOMS_AROUND_HOME = _geometry.ROOMS_AROUND_HOME
 
 
 # ---------------------------------------------------------------- page template (packet's page_start and end)
@@ -242,7 +243,24 @@ def route_rows(short_heading, long_heading):  # 07: 3 rows for 2-crossing routes
     return out
 
 
-# ---------------------------------------------------------------- page 7 (October 23, 2026: card should 4)
+# ---------------------------------------------------------------- page 7 (October 23, 2026: card should 4; the map, v4)
+
+def first_ring(center=(2.95, 6.95), scale=2.3):  # 08 (v4): Home and the 16 rooms around it, Home in the middle
+    """Home, its 8 side neighbours and its 8 corner rooms, each drawn whole; the rooms beyond are left out."""
+    rooms = [0] + ROOMS_AROUND_HOME
+    out = scope(*center, scale)
+    out += polygon(TILES[0][1], 'fill=black!5,draw=none')
+    seen = set()
+    for i in rooms:
+        poly = TILES[i][1]
+        for k in range(8):
+            p, q = poly[k], poly[(k + 1) % 8]; ek = tuple(sorted((key(p), key(q))))
+            if ek in seen: continue
+            seen.add(ek); out += edge(p, q, 'black,line width=.8pt')
+    out += '\\node[font=\\sffamily\\bfseries\\normalsize] at (0,0) {Home};\n'
+    out += '\\end{scope}\n'
+    return out
+
 
 def square_floor(cells=5, size=.7, center=(4.25, 6.45)):  # 08: a floor of square rooms with Home in the middle
     half = cells*size/2
