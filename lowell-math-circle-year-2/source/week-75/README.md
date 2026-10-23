@@ -1,22 +1,24 @@
-# Week 75: Twists on a cylinder
+# Week 75: Twists on a cylinder — current editable source
 
-One shared Grades 4–5 prototype: 4 student pages and a separate 3-page theorem-first adult guide. Independently reviewed and digitally checked, awaiting organizer review. Unpiloted; physical preparation and handling have not been rehearsed. The week number is a library identifier, not an adopted schedule.
+One shared Grades 4–5 packet (4 student pages, GGT75-S-v1) and a 3-page theorem-first adult guide (GGT75-FAC-v1). Unpiloted; the tape, yarn and paper sleeve have not been rehearsed. The print PDFs are in [../../week-75/](../../week-75/).
 
-## Build from this portable package
+**Problem files, October 23, 2026.** The student packet is stored as [problem files](../problem-files/README.md): `week.toml`, `template.tex` (the old `students.tex` preamble) and one file per problem in `problems/`. The conversion changed no wording or figure: the generated LaTeX differs from the old `students.tex` only by blank lines between sections, and the rebuilt packet matches the print PDF in pages, extracted text and 100-dpi pixels. The hand-written `students.tex` and the previous source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 
-Use Python 3 and a normal TeX Live/MacTeX installation with pdfLaTeX, TikZ/PGF, AMS fonts, geometry, fancyhdr and Latin Modern (the guides may additionally use enumitem and hyperref). No network, repository files, private references, external artwork or custom Python packages are needed.
+- **Student pages:** edit `problems/*.md`, then build and compare:
 
-    python3 build.py --out output
-    python3 build.py --verify-only
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-75 --out tmp/week-75-views --tex
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-75-views lowell-math-circle-year-2/week-75 week-75
+  ```
 
-The first command reconstructs both named PDFs; the second runs the independent, student and adult mathematical checks without TeX. Builders run in an isolated temporary directory. Edit `student/students.tex` and `guide/facilitator.tex`; if a README says a diagram file is generated, edit its included generator and rebuild. All required authored input is here.
+  Week 75 is a shared-packet week, so its one-page menu in [band-views/week-75/](../../band-views/README.md) is built from the page index `../band-views/indexes/week-75.toml` by `band_views.py build`; update the index when a problem moves to another page.
+- **Adult guide:** `editable/guide/facilitator.tex`, built by the package. The problem files carry each problem's one-sentence idea (`kernel`), not its answers.
+- **Portable package:** `editable/` is the package (`editable/README.md`); `editable/student/regenerate.py` writes `students.tex` from the problem files and the package build runs it first. The [portable source ZIP](../week-75-source.zip) holds the package plus the problem files and tools in `problem-files/`. Rebuild it with
 
-## Readiness and use
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-75 --zip ../week-75-source.zip --top week-75
+  ```
 
-Print single-sided US Letter at 100% / Actual Size. The grade band is approximate and not a readiness guarantee. Read `student/README.md` for the particular reading, arithmetic, spatial and representational prerequisites, and the adult guide for materials, preparation, a manageable first route, hints and stopping points. No K–1 route is implied. Page completion is not the goal.
+  and check a clean rebuild from the extracted ZIP with `python3 build.py --out output` in its `week-75/` folder.
 
-The mathematical destination is distinct from the familiar props: An annulus is a cylinder with two boundary circles.
-
-`MATHEMATICS.md` records assumptions and general arguments. `SOURCES.md` gives verified primary-source locations and attribution limits. Independent adversarial review and revision decisions are preserved in the repository's `plans/ggt-prototypes-66-75/week-75/` record. The actual ZIP extraction/rebuild comparison is recorded there as `release-checks.json`; a source/PDF build does not establish physical readiness.
-
-The package excludes stage prompts, borrowed exemplars, downloaded references, cached fonts, generated render images, build logs, old versions and private classroom information.
+The review and research record is in [plans/ggt-prototypes-66-75/week-75/](../../../plans/ggt-prototypes-66-75/week-75/) and the review card in [plans/review/week-75.md](../../../plans/review/week-75.md).
