@@ -48,6 +48,8 @@ Children turn ordered pairs of draws from three red counters and one blue into a
 
 Fixed October 23, 2026, after converting the week to problem files: shoulds 1–9 and coulds 11–13 and 14's other fair rules (v3 packets; K–1 is six pages; checked in `source/week-42/editable/review/verify_card_shoulds_2026_10_23.py`). Should 10 was already done in W42-BONUS-v2. Deferred: 14's timeline.
 
+**Critic follow-up, October 23, 2026 (W42-grades-4-5-v4; K–1, 2–3 and the guide unchanged):** an independent critic noted that the Grades 4–5 Problem 2 grid has the same heads on both axes and, unlike Grades 2–3, never says which axis is the first draw, though RB and BR are the cells the question compares. The grid now outlines the R2-row, B-column cell, as Grades 2–3 does, and the example's caption adds "Its cell is outlined." Check: `plans/review/checks/week-42/check_critic_fixes.py`. The critic's other could (the K–1 p. 4 captions) is a layout change and is left.
+
 ## Overlaps
 
 Week 43 (shuffling picture cards) has the same obstruction: 27 equally likely stories cannot split evenly among six orders. Week 44 (the bag that copies) reaches exchangeability, where 4–5 P6 leads; the guides could cross-refer. Week 24's two-deck pairs resemble the cross-bag cases; Week 45's fair ticket cups are near the bonus P3. None has unbiasing, the skip minimum or p = q. No merge.

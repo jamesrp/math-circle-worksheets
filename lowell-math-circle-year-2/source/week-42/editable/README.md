@@ -1,6 +1,8 @@
 # Week 42 Fair results from a bag editable source
 
-## Current release: October 23, 2026 card shoulds, on the October 4 fresh-review revision
+## Current release: October 23, 2026 card shoulds and critic follow-up, on the October 4 fresh-review revision
+
+**Critic follow-up, October 23, 2026 (W42-grades-4-5-v4).** The Grades 4–5 Problem 2 grid outlines the R2-row, B-column cell beside the caption "R2 then B is one labeled pair. Its cell is outlined.", so it shows which head is the first draw. K–1, Grades 2–3 and the guide are unchanged. `review/verify_card_shoulds_2026_10_23.py` checks the v4 build.
 
 The guide gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
 

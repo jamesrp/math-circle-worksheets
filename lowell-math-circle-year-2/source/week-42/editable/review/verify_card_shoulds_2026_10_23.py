@@ -10,7 +10,7 @@ Usage: python3 review/verify_card_shoulds_2026_10_23.py [folder with the built P
 2. The problem files' wording: the K-1 return sentence, "Keep your rule." in K-1 Problem 5,
    "always give a shape", no "independently", no story demand in Grades 2-3 Problem 6, no
    presupposed success in Grades 4-5 Problem 2, no bag captions where the card cut them.
-3. The built packets: v3 footers; K-1 has six pages with Problems 1-6 one per page and
+3. The built packets: v3 footers (Grades 4-5 v4 after the same day's critic follow-up); K-1 has six pages with Problems 1-6 one per page and
    page 4 pictures all 32 marked pairs; Grades 2-3 page 3 has two blank 4-by-4 grids and
    page 4 one; Grades 4-5 page 1 has a 4-by-4 grid headed R1, R2, R3, B; the cut sentences
    are gone.
@@ -108,7 +108,8 @@ else:
     MM = 25.4 / 72
     docs = {b: pymupdf.open(folder / f'{b}.pdf') for b in ('k-1', 'grades-2-3', 'grades-4-5')}
     for b, d in docs.items():
-        check(all(f'W42-{b}-v3' in p.get_text() for p in d), f'{b}: every page carries W42-{b}-v3')
+        v = 'v4' if b == 'grades-4-5' else 'v3'
+        check(all(f'W42-{b}-{v}' in p.get_text() for p in d), f'{b}: every page carries W42-{b}-{v}')
     all_text = ' '.join(p.get_text() for d in docs.values() for p in d)
     for gone in ('Each box names', 'independently', 'force a shape', 'Make a six-pair story', 'Explain why the shape chances match',
                  'two red, two blue', 'one red, three blue', 'five red, two blue', 'three red, four blue'):

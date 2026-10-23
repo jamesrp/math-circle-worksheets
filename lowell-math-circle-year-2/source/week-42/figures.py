@@ -221,8 +221,11 @@ def two_bags_grid(b):  # 15: the two bags over one blank grid, lines beside it
 
 @draw
 def labeled_grid_lines(b):  # 21: a grid headed R1, R2, R3, B; the pair example and lines beside it
- blank_grid(b,1.1,15.6,1.85,['R1','R2','R3','B'])
- b.pair(9.8,15.6,'R','B',('R2','B'));b.text(17.3,'R2 then B is one labeled pair.',9.8,8.2,12)
+ x,y,d=1.1,15.6,1.85
+ blank_grid(b,x,y,d,['R1','R2','R3','B'])
+ # The R2-row, B-column cell is outlined, as in Grades 2-3 Problem 3, so the example shows which head is the first draw.
+ b.put(fr'\draw[line width=1.4pt] ({round(x+3*d,3)},{round(-y-d,3)}) rectangle ({round(x+4*d,3)},{round(-y-2*d,3)});')
+ b.pair(9.8,15.6,'R','B',('R2','B'));b.text(17.3,'R2 then B is one labeled pair.\\\\ Its cell is outlined.',9.8,8.2,12)
  for y in (19.2,20.2,21.2,22.2,23.2):b.line(y,8.2,9.8)
 
 
