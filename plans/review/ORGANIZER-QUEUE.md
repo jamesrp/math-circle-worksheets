@@ -10,12 +10,12 @@ What follows is what nobody else should decide: one line per choice, with its ca
 
 The catalog still lists 76 and 78–82 as organizer-approved. The pre-revision PDFs are in each week's `archive-before-card-fixes-2026-10-23/` (79's approved v1 is in `archive-organizer-approved-2026-10-15/`).
 
-- **Week 76** (approved Oct 15): re-approve F76-35-v2. It adds an adult-led K–1 route on the same pages, a printed tile page and the Problem 1 matching shortcut. [card](week-76.md)
-- **Week 78** (approved Oct 17): re-approve F78-S-v3. Problem 5 no longer prints its discovery, and the guide gains a younger entry. [card](week-78.md)
+- **Week 76** (approved Oct 15): re-approve F76-35-v2 with guide F76-FAC-v3. It adds an adult-led K–1 route on the same pages, a printed tile page and the Problem 1 matching shortcut. [card](week-76.md)
+- **Week 78** (approved Oct 17): re-approve F78-S-v3 with guide F78-FAC-v4. Problem 5 no longer prints its discovery, and the guide gains a younger entry. [card](week-78.md)
 - **Week 79** (v1 approved Oct 15): re-approve v2. It has a new chosen-moves Problem 4 for Grades 2–5, entry and move days in Problem 2, both rules side by side and a K–1 route. [card](week-79.md)
-- **Week 80** (approved Oct 17): re-approve v2. It has a new Grades 2–5 Problem 3 (a card that settles and a counter that does not) and now runs to 6 pages. [card](week-80.md)
-- **Week 81** (approved Oct 17): re-approve v2. It adds the start (0, 3) to Problem 5 and (2, 0, 2) to Problem 3, and the guide's repair move changed. [card](week-81.md)
-- **Week 82** (approved Oct 17): re-approve v2. Problems 1–3 now say "complete match", Problem 4 has two endless rows, and a third panel is added. [card](week-82.md)
+- **Week 80** (approved Oct 17): re-approve v2 with guide M80-FAC-v2 (the guides had no id before). It has a new Grades 2–5 Problem 3 (a card that settles and a counter that does not) and now runs to 6 pages. [card](week-80.md)
+- **Week 81** (approved Oct 17): re-approve v3 with guide W81-FAC-v2. It adds the start (0, 3) to Problem 5 and (2, 0, 2) to Problem 3, and the guide's repair move and K–1 rule changed. [card](week-81.md)
+- **Week 82** (approved Oct 17): re-approve v2 with guide W82-FAC-v2. Problems 1–3 now say "complete match", Problem 4 has two endless rows, and a third panel is added. [card](week-82.md)
 - **Week 2** (approved catalog pages unchanged): look over the new blank boards with two-sided counters and the new theorem-first guide keyed to compact P1–P10. [card](week-02.md)
 - **Weeks 66–75 and 77** (prototypes awaiting your first review since Oct 6–7): all were revised today, so review the current versions. [card table](README.md#cards)
 - **Weeks 83–100** (new this month; no approval on record): first review when convenient. [card table](README.md#cards)
