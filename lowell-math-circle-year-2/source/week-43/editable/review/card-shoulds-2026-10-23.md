@@ -25,3 +25,7 @@ Not taken: coulds 9 (a new 4–5 P7), 12 (restructure the launch around five min
 - The previous print PDFs and ZIP are archived in the project in `week-43/archive-before-card-shoulds-2026-10-23/` and `source/week-43/archive-before-card-shoulds-2026-10-23/`.
 
 The theme remains unpiloted. The kit has been checked digitally but not cut out or used, and the changed pages have not been tried with cards on a table.
+
+## Footer ids, later on October 23
+
+These changes reached the printed packets while their footers still carried the v2 ids of the earlier printings, so two printings shared each id. A footer-version sweep the same day raised `version` in `week.toml` to v3, so every packet, route packet and the key view now print v3 ids. The rebuilt packets differ from the previous ones only in the footer: the extracted text is identical after the id swap, and the differing pixels lie in the footer row.

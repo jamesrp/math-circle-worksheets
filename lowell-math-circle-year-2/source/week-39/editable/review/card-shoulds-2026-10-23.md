@@ -29,3 +29,7 @@ The second set of fixes from the review card (`plans/review/week-39.md` in the p
 - The previous print PDFs and ZIP are archived in the project in `week-39/archive-before-card-shoulds-2026-10-23/` and `source/week-39/archive-before-card-shoulds-2026-10-23/`.
 
 The theme remains unpiloted, and the pawn-and-tile procedure has not been tried with children.
+
+## Footer id, later on October 23
+
+These shoulds changed K–1 pages 1, 3, 4 and 5 after the morning's must fix had already printed F39-K-v3, so two K–1 printings shared that id. A footer-version sweep the same day bumped K–1 to F39-K-v4 (`version` in the K–1 table of `week.toml`) and guide p. 6's key-alignment line to match; Grades 2–3 and 4–5 keep v3, and the key view keeps F39-G-v3. The rebuilt K–1 packet and guide differ from the previous ones only in that id: the text is identical after the id swap, and the differing pixels lie in the footer row and the key-alignment line. Both card verifiers now expect F39-K-v4.

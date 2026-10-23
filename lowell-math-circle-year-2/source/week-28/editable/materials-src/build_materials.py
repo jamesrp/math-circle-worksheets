@@ -30,7 +30,7 @@ pdfmetrics.registerFontFamily('Kit', normal='Kit', bold='KitBold', italic='Kit',
 MM = 72 / 25.4
 W, H = 612, 792
 LEFT = 40
-ID = 'W28-M-v1'
+ID = 'W28-M-v2'   # v1 until the footer-version sweep for the October 23 student-page fixes
 DISK_R = 90 * MM            # 18 cm folding disks
 DISK_CY = 372               # disk centre height on its page (points)
 

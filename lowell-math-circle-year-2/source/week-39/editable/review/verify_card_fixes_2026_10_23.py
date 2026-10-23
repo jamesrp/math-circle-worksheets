@@ -57,17 +57,19 @@ checks.append('P7: the 32 six-step A-to-C trips leave ABC, ADC (15 each), ABCDAB
               'ABCDABC and ADCBADC use the same four roads (yes), and their tiles differ: each crosses a different '
               'two roads twice (so "no, the tiles differ" is a fair reading)')
 
-# 2. The printed K-1 packet: the new question, the old one gone, F39-K-v3 on every page, older bands still v2.
+# 2. The printed K-1 packet: the new question, the old one gone, its id on every page (F39-K-v3 after this fix,
+# F39-K-v4 since the afternoon's K-1 changes, bumped by the footer-version sweep the same day).
+K1_ID = 'F39-K-v4'
 k1 = pymupdf.open(REF / 'k-1.pdf')
 text = lambda p: ' '.join(p.get_text().split())
 p6 = text(k1[5])
 assert ('Problem 7: Make every different trip from A to C that can remain after shortening a six-step trip. '
         'Can two of your remaining trips use the same four roads?') in p6, p6
 assert not any('in a different order' in text(p) or 'visit exactly the same roads' in text(p) for p in k1)
-assert all('Bellingham Math Circle / Week 39 / F39-K-v3' in text(p) for p in k1) and len(k1) == 6
+assert all(f'Bellingham Math Circle / Week 39 / {K1_ID}' in text(p) for p in k1) and len(k1) == 6
 for band, tag in (('grades-2-3', '23'), ('grades-4-5', '45')):   # v2 until the afternoon's shoulds made them v3
     assert all(f'F39-{tag}-v3' in text(p) for p in pymupdf.open(REF / f'{band}.pdf'))
-checks.append('K-1 p. 6: "Can two of your remaining trips use the same four roads?"; every K-1 page reads F39-K-v3, '
+checks.append('K-1 p. 6: "Can two of your remaining trips use the same four roads?"; every K-1 page reads ' + K1_ID + ', '
               'as guide p. 6 says; Grades 2-3 and 4-5 read v3 since review/card-shoulds-2026-10-23.md')
 
 # 3. The key: the guide's source and the printed guide accept the "no" reading.
@@ -76,9 +78,9 @@ key = next(b[1] for b in guide['pages'][2]['body'] if b[0] == 'p' and b[1].start
 assert key.endswith('Accept no with the reason that the tiles differ.') and 'ABCDABC, and ADCBADC' in key, key
 pdf = pymupdf.open(REF / 'facilitator-guide.pdf')
 assert len(pdf) == 7 and 'Accept no with the reason that the tiles differ.' in text(pdf[2])
-assert 'K-1 has six pages, Problems 1-7;' in text(pdf[5]) and 'F39-K-v3' in text(pdf[5])
+assert 'K-1 has six pages, Problems 1-7;' in text(pdf[5]) and K1_ID in text(pdf[5])
 checks.append('guide p. 3: the Problem 7 key adds "Accept no with the reason that the tiles differ."; '
-              'guide p. 6 names F39-K-v3, now true')
+              'guide p. 6 names ' + K1_ID + ', now true')
 
 for c in checks:
     print('PASS', c)

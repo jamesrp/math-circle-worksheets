@@ -210,7 +210,7 @@ for i, page in enumerate(doc, 1):
     check(page.rect == pymupdf.Rect(0, 0, 612, 792), f'p{i}: US Letter')
     t = page.get_text()
     check('Week 28 / Flat folds / Materials' in t, f'p{i}: header')
-    check(f'Bellingham Math Circle / Week 28 / W28-M-v1 / physically unrehearsed' in t, f'p{i}: footer with id and status')
+    check(f'Bellingham Math Circle / Week 28 / W28-M-v2 / physically unrehearsed' in t, f'p{i}: footer with id and status')
     check(len(scale_line(page)) == 1 and '10 cm check' in t, f'p{i}: one 10 cm scale line (100.00 mm)')
     if i > 1:
         check('at 100%:' in t and ('copy paper' in t or 'card stock' in t), f'p{i}: heading states paper and print counts')

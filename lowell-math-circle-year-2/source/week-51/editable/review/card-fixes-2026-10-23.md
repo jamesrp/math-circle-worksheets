@@ -34,3 +34,7 @@ Deferred: should 4 (older Problem 6, the midpoint claim, which the two card runs
 - A clean rebuild from the extracted portable ZIP passes `verify.py`, `verify_revision.py`, `verify_math.py` and this verifier. The student pixel allowances in `rebuild-pixel-allowances.json` are removed, since all three packets were rebuilt.
 
 The theme remains unpiloted, and the changed pages have not been tried with strips on a table.
+
+## Footer ids, later on October 23
+
+These changes reached the printed packets while their footers still carried the v2 ids of the earlier printings, so two printings shared each id. A footer-version sweep the same day raised `version` in `week.toml` to v3, so every packet, route packet and the key view now print v3 ids. The rebuilt packets differ from the previous ones only in the footer: the extracted text is identical after the id swap, and the differing pixels lie in the footer row. The guide's subtitle now reads "Final student packets v3" and gives the revision date, 23 October 2026; no other guide text changed.
