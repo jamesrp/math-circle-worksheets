@@ -50,6 +50,8 @@ Routes follow arrows from Start to Finish and may share dots but not arrows; a m
 
 **Fixed October 23, 2026**, after the student pages became problem files: shoulds 1–7 and coulds 8–12 and 14 (v3 packets: K–1 P3 "with as few markers as you can", 4–5 P2 "how you know your collection cannot be larger", the 4–5 P5 change-walk also on both P1 boards, ten K–1 P5 copies, the shorter K–1 rules, X and Y in the worked visual, "Extra workspace" labels; guide pp. 2, 3, 5, 6, 8, 9, 10 and 11). Could 13 left for the organizer (a third game board changes the game); the return visit's repeated map is in its separate, unreviewed package. Record: `lowell-math-circle-year-2/source/week-13/editable/review/card-fixes-2026-10-23.md`.
 
+**Critic follow-up, October 23, 2026 (F13-K-v4, F13-45-v4; grades 2–3 unchanged):** an independent critic found that grades 4–5 Problem 5 names both boards of Problem 1, which the 4–5 return view did not contain and the full packet had only on page 1, already drawn over. A new page 7, "Extra workspace for Problem 5.", reprints both boards with their reserved routes and is routed with Problem 5 (8 pages). Two clear coulds: K–1 Problem 1 says "Find another way to fit that many routes, if you can." instead of the undefined "another largest collection", and the guide's supplies are for eleven children with about 132 markers. Check: `plans/review/checks/week-13/check_critic_fixes.py`.
+
 ## Overlaps
 
 Week 19 (antichains) shares the two-sided certificate and "maximal is not maximum" on another object; Week 53 shares the improve-then-certify arc and, in the app, the graph board with 39, 52 and 62. No other theme has max-flow/min-cut; no merge.

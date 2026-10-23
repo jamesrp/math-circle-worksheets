@@ -1,12 +1,14 @@
 # Route packing and bottlenecks: Week 13 editable release
 
-## Current release: October 4, 2026 fresh-review revision, with the October 23 card fixes
+## Current release: October 4, 2026 fresh-review revision, with the October 23 card fixes and critic follow-up
+
+**Critic follow-up, October 23, 2026 (F13-K-v4, F13-45-v4; Grades 2–3 unchanged at F13-23-v3).** An independent critic noted that grades 4–5 Problem 5 asks for change-walks on both boards of Problem 1, which a return visit's packet did not contain and the full packet had only on page 1, already drawn over. A new page 7, "Extra workspace for Problem 5.", reprints both Problem 1 boards with their reserved routes and travels with Problem 5 in the return view (grades 4–5 now 8 pages). K–1 Problem 1 says "Find another way to fit that many routes" instead of the undefined "another largest collection", and the guide's supplies are for eleven children (about 132 markers).
 
 The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained. On October 23, 2026 the student pages became problem files, and the review card's should fixes were made in them (v3 packets): K–1 Problem 3 no longer states that routes and markers match, grades 4–5 Problem 2 no longer states the certificate, grades 4–5 Problem 5 tries the change-walk on three boards, K–1 Problem 5 has ten recording copies, the K–1 rules are shorter, the change-walk example uses X and Y, and the clean copies are labelled as extra workspace. The guide adds erasable route drawing and an illegal shared arrow to the launch, a menu matching the group's hour, two completed keys and a clearer token proof. See `review/card-fixes-2026-10-23.md`.
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
-Current pages: **K–1 6; Grades 2–3 7; Grades 4–5 7; adult guide 11**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 6; Grades 2–3 7; Grades 4–5 8; adult guide 11**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project
 

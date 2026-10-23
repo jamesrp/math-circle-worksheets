@@ -8,7 +8,7 @@ kernel = "A stuck collection need not be largest: on the greedy board the route 
 +++
 
 ## prompt [K-1]
-Fit as many routes as you can on each board. Find another largest collection, if you can.
+Fit as many routes as you can on each board. Find another way to fit that many routes, if you can.
 
 ## prompt [2-3]
 On each board, fit as many routes as possible. Find the fewest arrows you can close to stop every route.
