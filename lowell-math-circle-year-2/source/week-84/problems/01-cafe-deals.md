@@ -7,7 +7,7 @@ kernel = "A first NOT YET proves a YES card; after the first NO, later answers r
 +++
 
 ## prompt
-Make every YES/NO deal that fits each conversation. Use the eight deal cards; start with all eight for each conversation.
+Find every deal card that fits each conversation. Start with all eight deal cards each time.
 
 ## text
 \begin{center}

@@ -7,11 +7,11 @@ kind = "setup"
 +++
 
 ## text
-Each person sees only their own YES or NO card. Everyone knows the cards can be dealt in any way.
+Each person sees only their own card: YES if they want a cup, NO if not. Everyone knows the cards can be dealt in any way.
 
-In order, people 1, 2, 3 answer ``Does everyone want a cup?'' Say YES or NO when the cards and earlier answers settle it. Otherwise say NOT YET.
+In order, people 1, 2, 3 answer ``Does everyone want a cup?'' Say YES or NO when your card and the earlier answers settle it. Otherwise say NOT YET.
 
-With two people, hearing the first answer changes the possibilities:
+With two people:
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm,>=Latex]

@@ -13,7 +13,7 @@ Coach three dolls with each of these deals. Find their replies in each round unt
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm]
  \foreach \x/\name in {0/1,5.7/2,11.4/3}{
-  \draw[rounded corners=3pt] (\x,0) rectangle ++(5.25,-4.0);
+  \draw[rounded corners=3pt] (\x,0) rectangle ++(5.25,-11.0);
   \node[font=\small] at (\x+2.625,-0.45) {Deal \name};
   \foreach \i in {1,2,3}{\node[font=\small] at ({\x+0.7+1.3*(\i-1)},-1.9) {\i};}}
  \hatdisk{0.7}{-1.28}{1}\hatdisk{2}{-1.28}{0}\hatdisk{3.3}{-1.28}{0}

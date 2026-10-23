@@ -46,6 +46,8 @@ A person knows something when every remaining possibility that fits their privat
 13. **could**, 4–5 return visit: four blue dolls prove in round 4, BBBR in round 3 (card_checks.py); ask why.
 14. **could**, guide: mark p. 6's café cards (no problem uses them) and the dolls (P2 prints the deals) optional; match "Grades 3–5 coach dolls" to the packet's Grades 2–5; drop p. 5's repeated Oxford title.
 
+Fixed October 23, 2026 (packet W84-PK-draft-v3, problem files): the must, shoulds 2–9 and coulds 10–14. Problem 3 reads "in which each doll gives the same reply in round 1"; the deal boxes grew 7 cm, the space the page had.
+
 ## Overlaps
 
 Weeks 5, 6, 45 and 94 also keep the possibilities that fit clues, answers or reports, but none has private views or public announcements. No merge; this fits after Week 5 or 45.

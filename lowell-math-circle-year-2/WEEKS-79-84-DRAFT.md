@@ -26,7 +26,7 @@ Individual PDFs below open without unpacking a ZIP. These provisional library nu
 
 [Student/material PDF (8 pages)](week-83/week-83-students.pdf) · [Facilitator PDF (5 pages)](week-83/week-83-facilitator.pdf) · [Editable sources](source/week-83/README.md) · [Portable source ZIP](source/week-83-source.zip)
 
-**84. Public knowledge** — Use café cards and three dolls to distinguish private views from simultaneous public information. Grades 2–3 café; Grades 3–5 doll coaching.
+**84. Public knowledge** — Use café cards and three dolls to distinguish private views from simultaneous public information. Grades 2–3 café; Grades 3–5 doll coaching. Revised October 23 from its review card: Problem 3 has one reading, and page 2 shows a whole worked round.
 
 [Student/material PDF (8 pages)](week-84/week-84-students.pdf) · [Facilitator PDF (5 pages)](week-84/week-84-facilitator.pdf) · [Editable sources](source/week-84/README.md) · [Portable source ZIP](source/week-84-source.zip)
 

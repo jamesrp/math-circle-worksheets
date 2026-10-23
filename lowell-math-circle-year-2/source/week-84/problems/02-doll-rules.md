@@ -12,16 +12,22 @@ Each doll wears B (blue) or R (red), sees the other dolls' headbands and cannot 
 
 A doll shows PROVE BLUE only when every possible arrangement matching what it sees gives it a blue headband. Otherwise it shows NOT YET.
 
-A doll's matching cards are a temporary private view. Leave the shared set unchanged while choosing all three replies. Reveal replies together. Then remove arrangements that could not give those replies. Keep the headbands unchanged.
+Choose all three replies from the cards on the table, without removing any. Show them together. Then remove every card that would have given different replies. Keep the headbands unchanged.
 
-With two dolls, match a doll's view to the possibility cards:
+With two dolls:
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
- \draw (0,0) rectangle (4.8,2.5);\draw (6,0) rectangle (10.8,2.5);\draw (12,0) rectangle (16.8,2.5);
- \node[font=\small] at (2.4,2.2) {Input};\node[font=\small] at (8.4,2.2) {Private matches for doll 1};\node[font=\small] at (14.4,2.2) {Doll 1's reply};
- \node[align=center,font=\small] at (2.4,1.05) {Possible: BB, BR, RB.\\Doll 1 sees R on doll 2.};
- \node[font=\Large\bfseries] at (8.4,1.15) {BR};
- \node[font=\small\bfseries] at (14.4,1.15) {PROVE BLUE};
- \draw[->,thick] (4.9,1.2)--(5.9,1.2);\draw[->,thick] (10.9,1.2)--(11.9,1.2);
+ \draw (0,0) rectangle (5.2,3.7);\draw (6.3,0) rectangle (11.5,3.7);\draw (12.6,0) rectangle (17.8,3.7);
+ \node[font=\small] at (2.6,3.35) {Cards on the table};\node[font=\small] at (8.9,3.35) {Replies, shown together};\node[font=\small] at (15.2,3.35) {Remove the others};
+ \node[font=\Large\bfseries] at (2.6,2.45) {BB\enspace BR\enspace RB};
+ \node[font=\small,anchor=east] at (2.4,1.3) {Deal:};
+ \hatdisk{2.9}{1.3}{0}\hatdisk{3.7}{1.3}{1}
+ \node[font=\scriptsize] at (2.9,0.75) {1};\node[font=\scriptsize] at (3.7,0.75) {2};
+ \node[align=left,anchor=north west,font=\small] at (6.55,3.0) {Doll 1 sees B: BB, RB\\\textbf{NOT YET}};
+ \node[align=left,anchor=north west,font=\small] at (6.55,1.75) {Doll 2 sees R: RB\\\textbf{PROVE BLUE}};
+ \node[align=left,anchor=north west,font=\small] at (12.85,3.0) {BB would give\\NOT YET, NOT YET};
+ \node[align=left,anchor=north west,font=\small] at (12.85,1.95) {BR would give\\PROVE BLUE, NOT YET};
+ \node[align=left,anchor=north west,font=\small] at (12.85,0.85) {Left: \textbf{RB}};
+ \draw[->,thick] (5.3,1.85)--(6.2,1.85);\draw[->,thick] (11.6,1.85)--(12.5,1.85);
 \end{tikzpicture}
 \end{center}
