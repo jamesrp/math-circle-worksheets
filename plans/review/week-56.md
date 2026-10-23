@@ -45,6 +45,8 @@ Children count the vertices, edges and faces of closed convex solids and fold fa
 
 **October 23, 2026:** fixed the must (pages 1 and 3–5 headed Grades K–5, a K–1 route section in the guide, gap circles on materials p. 5, Problem 5 asks which corner leaves the bigger gap), shoulds 2 and 4 and coulds 5, 7, 9 and 10 (N56-S-v3, N56-M-v2, N56-FAC-v2); should 3 and coulds 6 and 8 deferred.
 
+**Critic follow-up, October 23, 2026 (N56-S-v4, N56-M-v3, N56-FAC-v3):** an independent critic found the 68 mm gap circles larger than the 30 mm fan edges, so the free sides stopped 4 mm short of the rim and "cut out the uncovered part" took slivers. The circles are now 60 mm (radius one face edge) and the copy is cut along the two lines; Problem 5 says "the pyramid's total gap"; the guide asks for one more copy of materials p. 5 for the octahedron or prism and writes out the group. Check: `checks/week-56/check_critic_fixes.py`.
+
 ## Overlaps
 
 Week 61 reaches 720° as a whole sphere's excess. Week 64's genus-two octagon has 720° extra at its one point, the signed case of guide p. 1's 360(V − E + F). Week 53's spanning trees are P7's trees, Week 14's triangulations give P8's 180(n − 2), and Week 28 folds paper around a gapless point. Week 26's bonus corner rule is the flat analogue; Weeks 37 and 38 share objects, not theorems. None covers closed polyhedra: no merge, but pair 56 with 61 and 64.

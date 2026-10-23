@@ -11,7 +11,7 @@ kernel = 'The pyramid top leaves $120^\circ$ and each base corner $150^\circ$, t
 \renewcommand{\band}{Grades K--5}
 
 ## prompt
-The square pyramid has one square face and four equilateral triangle faces. Which corner leaves the bigger gap, the top or a base corner? Find its total gap.
+The square pyramid has one square face and four equilateral triangle faces. Which corner leaves the bigger gap, the top or a base corner? Find the pyramid's total gap.
 
 ## text
 \begin{center}\pyramid\hspace{1.2cm}

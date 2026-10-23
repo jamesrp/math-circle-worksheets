@@ -61,7 +61,7 @@ for i,page in enumerate(material_doc):
             assert abs(path['rect'].height-80*72/25.4)<.005
             circles+=1
         if not path['fill'] and i==4 and len(items)==4 and all(it[0]=='c' for it in items) and path['rect'].width>100:
-            assert abs(path['rect'].width-68*72/25.4)<.005 and abs(path['rect'].height-68*72/25.4)<.005
+            assert abs(path['rect'].width-60*72/25.4)<.005 and abs(path['rect'].height-60*72/25.4)<.005
             gap_circles+=1
 assert printed_face_count==28 and cutout_counts==[8,8] and circles==2 and gap_circles==6
 results={}
@@ -92,5 +92,5 @@ for name,expected in [('students',9),('materials',5)]:
     sheet.save(qa/(name+'-contact.png'))
     (qa/(name+'-text.txt')).write_text(alltext)
     results[name]=dict(pages=len(doc),page_size_points=[612,792],rendered=True)
-(qa/'verification.json').write_text(json.dumps(dict(pdf=results,actual_pdf_30mm_faces=28,actual_pdf_30mm_cutouts=cutout_counts,actual_pdf_80mm_circles=2,actual_pdf_68mm_gap_circles=6,fan_gaps=fan_gaps,subdivisions=subdivisions,upper_counts=upper,math='checked',physical_rehearsal='unperformed'),indent=2)+'\n')
-print('Checked student Problems 1–9, five solid inventories/gaps, fan gaps, subdivision counts, upper counts, page contracts, six 68 mm gap circles; rendered 14 pages.')
+(qa/'verification.json').write_text(json.dumps(dict(pdf=results,actual_pdf_30mm_faces=28,actual_pdf_30mm_cutouts=cutout_counts,actual_pdf_80mm_circles=2,actual_pdf_60mm_gap_circles=6,fan_gaps=fan_gaps,subdivisions=subdivisions,upper_counts=upper,math='checked',physical_rehearsal='unperformed'),indent=2)+'\n')
+print('Checked student Problems 1–9, five solid inventories/gaps, fan gaps, subdivision counts, upper counts, page contracts, six 60 mm gap circles; rendered 14 pages.')

@@ -241,7 +241,7 @@ def run():
         for i,p in enumerate(gd):
             assert tuple(p.rect)==(0,0,612,792)
             assert 'Week 56 / Corners of a solid / Adult guide' in p.get_text()
-            assert 'N56-FAC-v2' in p.get_text()
+            assert 'N56-FAC-v3' in p.get_text()
             for block in p.get_text('dict')['blocks']:
                 for line in block.get('lines',[]):
                     for span in line['spans']:
