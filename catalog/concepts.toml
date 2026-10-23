@@ -283,6 +283,18 @@ area = "symmetry"
 requires = ["parity"]
 about = "Switch presses that cancel in pairs: vectors over the two-element field."
 
+[concepts.linear-maps]
+name = "Linear maps and matrices"
+area = "symmetry"
+requires = ["coordinates"]
+about = "Rules that respect adding and scaling: matrices, invariant directions, conserved weights and determinants over ordinary numbers."
+
+[concepts.quotients]
+name = "Gluing and quotients"
+area = "symmetry"
+requires = ["remainders"]
+about = "Treating things that count as the same as one object: classes, quotient sets and quotient groups."
+
 # ---------------------------------------------------------------- networks
 [concepts.graphs]
 name = "Graphs: dots and links"
@@ -566,6 +578,11 @@ area = "shape"
 requires = ["parity"]
 about = "Any proper three-colouring of a triangulated triangle has an odd number of rainbow triangles."
 
+[concepts.connectedness]
+name = "Connectedness"
+area = "shape"
+about = "Whether a set stays in one piece, and how the number of pieces changes as it grows or shrinks."
+
 # ---------------------------------------------------------------- chance
 [concepts.equally-likely]
 name = "Equally likely outcomes"
@@ -711,6 +728,12 @@ area = "logic"
 requires = ["algorithms"]
 about = "Fixed comparison patterns that sort any input; the 0–1 principle."
 
+[concepts.diagonal-argument]
+name = "Diagonal arguments"
+area = "logic"
+requires = ["bijection", "infinite-processes"]
+about = "Building an object that differs from every item on a list in at least one place."
+
 [concepts.iteration]
 name = "Iteration and dynamics"
 area = "chance"
@@ -745,6 +768,29 @@ name = "Differences and sums"
 area = "number"
 about = "Discrete calculus: layers added to growing shapes and the totals they build."
 
+[concepts.diophantine-equations]
+name = "Whole-number equations"
+area = "number"
+requires = ["gcd"]
+about = "Equations whose solutions must be whole numbers, and the lattice points on lines, conics and curves."
+
+[concepts.finite-fields]
+name = "Finite fields"
+area = "number"
+requires = ["remainders", "primes"]
+about = "Arithmetic of remainders modulo a prime, where every nonzero number can be divided by."
+
+[concepts.polynomials]
+name = "Polynomials"
+area = "number"
+about = "Expressions in powers of an unknown: their roots, factors and growth."
+
+[concepts.complex-numbers]
+name = "Complex numbers"
+area = "number"
+requires = ["coordinates", "angles"]
+about = "Points of the plane that multiply by adding angles and multiplying lengths."
+
 # ---------------------------------------------------------------- games: choices
 [concepts.optimization]
 name = "Best possible"
@@ -756,6 +802,12 @@ name = "Cheapest networks"
 area = "networks"
 requires = ["trees", "optimization"]
 about = "Minimum spanning trees and the cut and cycle rules."
+
+[concepts.series-parallel]
+name = "Series and parallel"
+area = "networks"
+requires = ["graphs"]
+about = "End-to-end parts add their stretches and side-by-side parts add their stiffness: springs, resistors and the reductions that combine them."
 
 [concepts.fair-division]
 name = "Fair division"
@@ -772,6 +824,12 @@ name = "Optimal transport"
 area = "games"
 requires = ["matchings", "optimization"]
 about = "The cheapest way to move piles to holes."
+
+[concepts.equilibria]
+name = "Equilibria"
+area = "games"
+requires = ["optimization"]
+about = "Choices where no single player gains by switching alone, from selfish routing to mixed strategies."
 
 # ---------------------------------------------------------------- chance: infinity
 [concepts.infinite-processes]
@@ -796,3 +854,50 @@ name = "Games that may run forever"
 area = "chance"
 requires = ["backward-induction", "ordinals"]
 about = "Games where every play ends but no bound on its length exists."
+
+[concepts.continuity]
+name = "Continuity"
+area = "chance"
+requires = ["limits"]
+about = "Quantities that change without jumps, so they pass every value in between."
+
+[concepts.derivatives]
+name = "Rates of change"
+area = "chance"
+requires = ["limits", "coordinates"]
+about = "Slopes of curves and tangent lines: the gate for Newton steps, Euler updates and smooth optimization."
+
+[concepts.integrals]
+name = "Integrals"
+area = "chance"
+requires = ["area", "limits"]
+about = "Adding up many thin pieces: areas under graphs and averages over regions."
+
+[concepts.differential-equations]
+name = "Differential equations"
+area = "chance"
+requires = ["derivatives"]
+about = "Rules that give a rate of change from the current state, followed by small steps or solved exactly."
+
+[concepts.fourier]
+name = "Waves and Fourier sums"
+area = "chance"
+requires = ["angles"]
+about = "Writing a signal as a sum of waves; signed waves can add up or cancel."
+
+[concepts.function-distance]
+name = "Distance between functions"
+area = "chance"
+requires = ["continuity"]
+about = "How far apart two graphs are, by largest or average gap, and the best approximation in that sense."
+
+[concepts.measure-zero]
+name = "Measure zero"
+area = "chance"
+requires = ["limits", "length"]
+about = "Sets that fit under covers of any small total length, such as any list of points."
+
+[concepts.balance-laws]
+name = "Balance laws"
+area = "chance"
+about = "Conserved totals in models, such as volume, energy, charge or atoms, that rule out impossible proposals."

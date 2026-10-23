@@ -120,6 +120,7 @@ select.sel { width: 100%; padding: 7px 10px; border: 1px solid var(--line); bord
 .item:hover { border-color: var(--ink-3); }
 .item[aria-current="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
 .item .num { font-family: var(--mono); font-weight: 500; font-size: 1.05rem; text-align: right; color: var(--ink); padding-top: 1px; border-right: 4px solid var(--area, var(--line)); padding-right: 10px; }
+.item .num.aid { font-size: .74rem; padding-top: 4px; letter-spacing: -.02em; }
 .item .t { font-weight: 700; font-size: 1rem; line-height: 1.3; }
 .item .hook { color: var(--ink-2); font-size: .9rem; margin-top: 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .item .meta { display: flex; flex-wrap: wrap; gap: 6px 10px; margin-top: 7px; align-items: center; font-size: .78rem; color: var(--ink-3); }
@@ -130,6 +131,12 @@ select.sel { width: 100%; padding: 7px 10px; border: 1px solid var(--line); bord
 .pill.approved { color: var(--accent); }
 .pill.revise { color: var(--warn); }
 .pill.used { color: var(--ink-2); background: var(--surface-2); border-color: transparent; }
+.pill.atlas { color: var(--ink-2); border-style: dashed; }
+.gates { display: grid; gap: 6px; font-size: .9rem; }
+.gates .g { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 8px; }
+.gates .gk { color: var(--ink-3); }
+.codes { font-size: .8rem; color: var(--ink-3); margin-top: 8px; }
+.codes b { font-family: var(--mono); font-weight: 500; color: var(--ink-2); }
 .area-name { display: inline-flex; align-items: center; gap: 5px; }
 .area-name .sw { width: 8px; height: 8px; border-radius: 50%; }
 .empty { padding: 32px; text-align: center; color: var(--ink-2); background: var(--surface); border: 1px dashed var(--line); border-radius: var(--r); }
@@ -235,6 +242,7 @@ svg text { font-family: var(--body); fill: var(--ink); }
 .wk:hover .wt { color: var(--accent); text-decoration: underline; }
 .wk.used .wt { color: var(--ink-3); text-decoration: line-through; }
 .also { font-size: .78rem; color: var(--ink-3); margin-top: 4px; }
+.also.at { margin-top: 2px; }
 .alsob { border: 0; background: none; padding: 0; font-family: var(--mono); font-size: .76rem; color: var(--accent); cursor: pointer; text-decoration: underline; }
 
 footer.foot { color: var(--ink-3); font-size: .82rem; padding-block: 24px; max-width: 1500px; margin: 0 auto; border-top: 1px solid var(--line); }
@@ -288,7 +296,7 @@ footer.foot { color: var(--ink-3); font-size: .82rem; padding-block: 24px; max-w
           <span class="active" id="active-filters"></span>
           <label class="sort" for="sort">Order
             <select id="sort">
-              <option value="week">by week</option>
+              <option value="week">by number</option>
               <option value="depth">entry first (fewest prerequisites)</option>
               <option value="area">by area</option>
             </select>
@@ -336,6 +344,7 @@ footer.foot { color: var(--ink-3); font-size: .82rem; padding-block: 24px; max-w
           <option value="">all</option><option value="K-1">K–1</option><option value="2-3">2–3</option><option value="4-5">4–5</option>
         </select>
       </label>
+      <label class="kind-key" for="strand-atlas"><input type="checkbox" id="strand-atlas"> atlas investigations too</label>
     </div>
     <div id="strand-list"></div>
   </section>
@@ -373,13 +382,28 @@ const DATA = /*__DATA__*/null;
     return el;
   }
 
+  for (const w of DATA.weeks) w.kind = "week";
+  for (const a of DATA.atlas) a.kind = "atlas";
   const W = new Map(DATA.weeks.map(w => [w.id, w]));
+  const AT = new Map(DATA.atlas.map(a => [a.id, a]));
+  const I = new Map([...W, ...AT]);
+  const ITEMS = [...DATA.weeks, ...DATA.atlas];
   const C = new Map(DATA.concepts.map(c => [c.id, c]));
   const AREAS = DATA.areas;
   const areaColor = a => `var(--a-${a})`;
   const bandLabel = b => b.replace("-", "–");
   const fileUrl = p => DATA.repo + p.split("/").map(encodeURIComponent).join("/");
   const sortWeeks = ids => ids.slice().sort((a, b) => parseInt(a) - parseInt(b) || a.localeCompare(b));
+  const itemOrder = (a, b) => (a.kind === b.kind ? 0 : a.kind === "week" ? -1 : 1) || (a.kind === "week" ? parseInt(a.id) - parseInt(b.id) : 0) || a.id.localeCompare(b.id);
+
+  // Atlas links to weekly themes, both directions.
+  const AREL = new Map();
+  for (const e of DATA.atlasEdges) {
+    if (!AREL.has(e.week)) AREL.set(e.week, []);
+    if (!AREL.has(e.atlas)) AREL.set(e.atlas, []);
+    AREL.get(e.week).push({ other: e.atlas, kind: e.kind, note: e.note });
+    AREL.get(e.atlas).push({ other: e.week, kind: e.kind, note: e.note });
+  }
 
   // Relations, both directions.
   const REL = new Map(DATA.weeks.map(w => [w.id, []]));
@@ -407,26 +431,25 @@ const DATA = /*__DATA__*/null;
   function setUsed(id, on) { on ? used.add(id) : used.delete(id); store.set("mce-used", [...used]); renderList(); renderStrands(); }
   function readyIds() {
     const met = new Set();
-    for (const id of used) for (const c of W.get(id)?.concepts || []) met.add(c);
+    for (const id of used) for (const c of I.get(id)?.concepts || []) met.add(c);
     const out = new Set();
-    for (const w of DATA.weeks) {
+    for (const w of ITEMS) {
       if (used.has(w.id)) continue;
       if (w.uses.every(c => met.has(c) || C.get(c).depth === 0)) out.add(w.id);
     }
     return out;
   }
 
-  $("#subline").textContent = `${DATA.weeks.length} themes · ${DATA.concepts.length} concepts · K–5`;
+  $("#subline").textContent = `${DATA.weeks.length} themes` + (DATA.atlas.length ? ` · ${DATA.atlas.length} atlas investigations` : "") + ` · ${DATA.concepts.length} concepts · K–5`;
   $("#foot").append(
     "Built from the catalog records in ",
     h("a", { href: DATA.repo + "catalog/README.md", target: "_blank", rel: "noopener" }, "math-circle-worksheets/catalog"),
-    ". Print files open on GitHub. Bands are entry points by prerequisites, not age limits. Unless a theme says piloted, no child has used it yet. Marks for themes you have used stay in this browser only."
+    ". Print files open on GitHub. Atlas investigations come from the mathematics atlas books; their bands name where a K–5 child can genuinely enter. Bands are entry points by prerequisites, not age limits. Unless a theme says piloted, no child has used it yet. Marks for themes you have used stay in this browser only."
   );
 
   // ---------------------------------------------------------------- filters
-  const F = { q: "", bands: new Set(), areas: new Set(), mech: "", concept: "", status: new Set(), verdict: "", paper: false, app: "", used: "", sort: "week" };
-  const MECH_COUNT = {};
-  for (const w of DATA.weeks) for (const m of w.mechanisms) MECH_COUNT[m] = (MECH_COUNT[m] || 0) + 1;
+  const F = { lib: new Set(["week"]), q: "", bands: new Set(), areas: new Set(), mech: "", concept: "", status: new Set(), verdict: "", paper: false, app: "", used: "", sort: "week" };
+  const inLib = () => ITEMS.filter(x => F.lib.has(x.kind));
 
   function chipToggle(label, pressed, onclick, sw) {
     return h("button", { class: "chip", "aria-pressed": pressed ? "true" : "false", onclick }, sw ? h("span", { class: "sw", style: `background:${sw}` }) : null, label);
@@ -434,7 +457,15 @@ const DATA = /*__DATA__*/null;
   function renderFilters() {
     const el = $("#filters");
     el.replaceChildren();
+    const pool = inLib();
+    const mechCount = {};
+    for (const x of pool) for (const m of x.mechanisms) mechCount[m] = (mechCount[m] || 0) + 1;
+    const conceptCount = c => pool.filter(x => x.concepts.includes(c)).length;
     el.append(
+      DATA.atlas.length ? h("h2", { text: "Library" }) : null,
+      DATA.atlas.length ? h("div", { class: "chips" },
+        [["week", `weekly themes (${DATA.weeks.length})`], ["atlas", `atlas (${DATA.atlas.length})`]].map(([v, l]) =>
+          chipToggle(l, F.lib.has(v), () => { toggle(F.lib, v); if (!F.lib.size) F.lib.add(v === "week" ? "atlas" : "week"); renderFilters(); renderList(); }))) : null,
       h("h2", { text: "Search" }),
       h("input", { class: "search", id: "q", type: "search", placeholder: "Title, idea, material…", value: F.q, "aria-label": "Search themes",
         oninput: e => { F.q = e.target.value; renderList(); } }),
@@ -442,7 +473,7 @@ const DATA = /*__DATA__*/null;
       h("div", { class: "chips" }, DATA.bands.map(b => chipToggle(bandLabel(b), F.bands.has(b), () => { toggle(F.bands, b); renderFilters(); renderList(); }))),
       h("div", { class: "row-between" }, h("h2", { text: "Area" }), F.areas.size ? h("button", { class: "linkbtn", onclick: () => { F.areas.clear(); renderFilters(); renderList(); } }, "clear") : null),
       h("div", { class: "areas-list" }, Object.entries(AREAS).map(([a, name]) => {
-        const n = DATA.weeks.filter(w => w.area === a).length;
+        const n = pool.filter(w => w.area === a).length;
         const b = chipToggle(name, F.areas.has(a), () => { toggle(F.areas, a); renderFilters(); renderList(); }, areaColor(a));
         b.append(h("span", { class: "count", text: n }));
         return b;
@@ -451,13 +482,13 @@ const DATA = /*__DATA__*/null;
       h("select", { class: "sel", id: "mech", "aria-label": "Reasoning move", onchange: e => { F.mech = e.target.value; renderList(); } },
         h("option", { value: "" }, "any"),
         Object.entries(DATA.mechanisms).sort((a, b) => a[1].localeCompare(b[1])).map(([m, label]) =>
-          h("option", { value: m, selected: F.mech === m }, `${label} (${MECH_COUNT[m] || 0})`))),
+          h("option", { value: m, selected: F.mech === m }, `${label} (${mechCount[m] || 0})`))),
       h("h2", { text: "Concept" }),
       h("select", { class: "sel", id: "concept", "aria-label": "Concept", onchange: e => { F.concept = e.target.value; renderList(); } },
         h("option", { value: "" }, "any"),
         Object.entries(AREAS).map(([a, name]) => h("optgroup", { label: name },
-          DATA.concepts.filter(c => c.area === a && (c.weeks.length || c.usedBy.length)).sort((x, y) => x.name.localeCompare(y.name))
-            .map(c => h("option", { value: c.id, selected: F.concept === c.id }, `${c.name} (${c.weeks.length})`))))),
+          DATA.concepts.filter(c => c.area === a && (c.weeks.length || c.usedBy.length || c.atlas.length)).sort((x, y) => x.name.localeCompare(y.name))
+            .map(c => h("option", { value: c.id, selected: F.concept === c.id }, `${c.name} (${conceptCount(c.id)})`))))),
       h("h2", { text: "Status" }),
       h("div", { class: "chips" },
         [["piloted", "piloted"], ["organizer-approved", "approved"], ["unpiloted", "unpiloted"]].map(([v, l]) =>
@@ -483,6 +514,7 @@ const DATA = /*__DATA__*/null;
   }
   function toggle(set, v) { set.has(v) ? set.delete(v) : set.add(v); }
   function resetFilters() {
+    F.lib = new Set(["week"]);
     Object.assign(F, { q: "", mech: "", concept: "", verdict: "", paper: false, app: "", used: "" });
     F.bands.clear(); F.areas.clear(); F.status.clear();
     renderFilters(); renderList();
@@ -493,9 +525,12 @@ const DATA = /*__DATA__*/null;
   });
 
   function matches(w, ready) {
+    if (!F.lib.has(w.kind)) return false;
+    const atlas = w.kind === "atlas";
     if (F.q) {
       const q = F.q.toLowerCase();
-      const hay = [w.id, w.title, w.hook, w.math, w.discover, w.gem, w.app, w.materials.join(" "),
+      const hay = [w.id, w.title, w.hook, w.math, w.discover, w.gem, w.app, w.question, w.book,
+        atlas ? w.materials : w.materials.join(" "),
         ...w.concepts.map(c => C.get(c).name), ...w.mechanisms.map(m => DATA.mechanisms[m])].join(" ").toLowerCase();
       if (!q.split(/\s+/).every(t => hay.includes(t))) return false;
     }
@@ -503,10 +538,10 @@ const DATA = /*__DATA__*/null;
     if (F.areas.size && !F.areas.has(w.area)) return false;
     if (F.mech && !w.mechanisms.includes(F.mech)) return false;
     if (F.concept && !w.concepts.includes(F.concept) && !w.uses.includes(F.concept)) return false;
-    if (F.status.size && !F.status.has(w.status)) return false;
-    if (F.verdict && w.verdict !== F.verdict) return false;
-    if (F.paper && w.materials.length) return false;
-    if (F.app && w.appDecision !== F.app) return false;
+    if (F.status.size && !F.status.has(atlas ? "unpiloted" : w.status)) return false;
+    if (F.verdict && (atlas ? "none" : w.verdict) !== F.verdict) return false;
+    if (F.paper && (atlas || w.materials.length)) return false;
+    if (F.app && (atlas || w.appDecision !== F.app)) return false;
     if (F.used === "hide" && used.has(w.id)) return false;
     if (F.used === "ready" && !ready.has(w.id)) return false;
     return true;
@@ -515,11 +550,13 @@ const DATA = /*__DATA__*/null;
   let current = null;
   function renderList() {
     const ready = F.used === "ready" ? readyIds() : null;
-    let ws = DATA.weeks.filter(w => matches(w, ready));
+    let ws = ITEMS.filter(w => matches(w, ready)).sort(itemOrder);
     const areaIdx = Object.keys(AREAS);
-    if (F.sort === "depth") ws.sort((a, b) => a.depth - b.depth || parseInt(a.id) - parseInt(b.id));
-    else if (F.sort === "area") ws.sort((a, b) => areaIdx.indexOf(a.area) - areaIdx.indexOf(b.area) || parseInt(a.id) - parseInt(b.id));
-    $("#count").textContent = ws.length === DATA.weeks.length ? `All ${ws.length} themes` : `${ws.length} of ${DATA.weeks.length} themes`;
+    if (F.sort === "depth") ws.sort((a, b) => a.depth - b.depth || itemOrder(a, b));
+    else if (F.sort === "area") ws.sort((a, b) => areaIdx.indexOf(a.area) - areaIdx.indexOf(b.area) || itemOrder(a, b));
+    const total = inLib().length;
+    const noun = F.lib.size > 1 ? "entries" : F.lib.has("atlas") ? "atlas investigations" : "themes";
+    $("#count").textContent = ws.length === total ? `All ${ws.length} ${noun}` : `${ws.length} of ${total} ${noun}`;
     const act = [];
     if (F.q) act.push(`“${F.q}”`);
     if (F.bands.size) act.push([...F.bands].map(bandLabel).join(", "));
@@ -530,7 +567,7 @@ const DATA = /*__DATA__*/null;
     const list = $("#list");
     list.replaceChildren();
     if (!ws.length) {
-      list.append(h("div", { class: "empty" }, "No theme matches these filters. ", h("button", { class: "linkbtn", onclick: resetFilters }, "Reset filters")));
+      list.append(h("div", { class: "empty" }, "Nothing matches these filters. ", h("button", { class: "linkbtn", onclick: resetFilters }, "Reset filters")));
       return;
     }
     for (const w of ws) list.append(itemEl(w));
@@ -540,34 +577,39 @@ const DATA = /*__DATA__*/null;
     if (w.status === "organizer-approved") return h("span", { class: "pill approved", text: "approved" });
     return null;
   }
+  function bandsEl(w) {
+    if (w.kind === "atlas" && !w.bands.length) return h("span", { class: "band", text: "entry beyond K–5" });
+    return h("span", {}, DATA.bands.map(b => h("span", { class: "band" + (w.bands.includes(b) ? "" : " off"), text: bandLabel(b), style: "margin-right:3px" })));
+  }
   function itemEl(w) {
+    const atlas = w.kind === "atlas";
     return h("button", { class: "item", style: `--area:${areaColor(w.area)}`, "aria-current": current === w.id ? "true" : "false",
       onclick: () => openDetail(w.id), "data-id": w.id },
-      h("span", { class: "num", text: w.id }),
+      h("span", { class: "num" + (atlas ? " aid" : ""), text: w.id }),
       h("span", { style: "min-width:0" },
         h("div", { class: "t", text: w.title }),
         h("div", { class: "hook", text: w.hook }),
         h("div", { class: "meta" },
           h("span", { class: "area-name" }, h("span", { class: "sw", style: `background:${areaColor(w.area)}` }), AREAS[w.area]),
-          h("span", {}, DATA.bands.map(b => h("span", { class: "band" + (w.bands.includes(b) ? "" : " off"), text: bandLabel(b), style: "margin-right:3px" }))),
-          statusPill(w),
+          bandsEl(w),
+          atlas ? h("span", { class: "pill atlas", text: "atlas · " + w.book.toLowerCase() }) : statusPill(w),
           w.verdict === "revise" ? h("span", { class: "pill revise", text: "card: fixes due" }) : null,
           used.has(w.id) ? h("span", { class: "pill used", text: "used" }) : null)));
   }
 
   // ---------------------------------------------------------------- detail
   function openDetail(id, opts = {}) {
-    const w = W.get(id);
+    const w = I.get(id);
     if (!w) return;
     current = id;
     if (!opts.keepView) showView("activities", false);
     $("#acts").classList.add("has-detail");
     const d = $("#detail");
     d.hidden = false;
-    d.replaceChildren(detailEl(w));
+    d.replaceChildren(w.kind === "atlas" ? atlasDetailEl(w) : detailEl(w));
     d.scrollTop = 0;
     for (const el of document.querySelectorAll(".item")) el.setAttribute("aria-current", el.dataset.id === id ? "true" : "false");
-    setHash("w" + id);
+    setHash(w.kind === "atlas" ? id : "w" + id);
     if (opts.focus !== false) $(".close", d)?.focus({ preventScroll: true });
   }
   function closeDetail() {
@@ -616,13 +658,16 @@ const DATA = /*__DATA__*/null;
     const groups = {};
     for (const r of rels) (groups[r.kind] = groups[r.kind] || []).push(r);
     const builders = sortWeeks(DATA.weeks.filter(o => o.id !== w.id && o.concepts.some(c => w.uses.includes(c)) && !rels.some(r => r.other === o.id)).map(o => o.id));
-    if (rels.length || builders.length) {
+    if (rels.length || builders.length || (AREL.get(w.id) || []).length) {
       const relEl = h("div", { class: "rel" });
       for (const kind of ["prepared-by", "leads-to", "revisits", "same-theorem", "same-object", "contrast"]) {
         if (!groups[kind]) continue;
         relEl.append(h("div", { class: "rel-group" }, h("h4", { text: KIND_TITLE[kind] }),
           h("div", { style: "display:grid;gap:6px" }, groups[kind].sort((a, b) => parseInt(a.other) - parseInt(b.other)).map(r => relItem(r.other, r.notes.join(" "))))));
       }
+      const ar = AREL.get(w.id) || [];
+      if (ar.length) relEl.append(h("div", { class: "rel-group" }, h("h4", { text: "Atlas investigations" }),
+        h("div", { style: "display:grid;gap:6px" }, ar.sort((a, b) => a.other.localeCompare(b.other)).map(r => relItem(r.other, r.note)))));
       if (builders.length) relEl.append(h("div", { class: "rel-group" }, h("h4", { text: "Introduce what this builds on" }),
         h("div", { class: "chips" }, builders.slice(0, 12).map(id => h("button", { class: "cchip", onclick: () => openDetail(id) },
           h("span", { style: "font-family:var(--mono);font-size:.78rem;color:var(--ink-3)", text: id }), W.get(id).title)))));
@@ -630,6 +675,7 @@ const DATA = /*__DATA__*/null;
     }
     const status = [];
     if (w.verdict === "none") status.push("No review card yet.");
+    else if (w.verdict === "revised") status.push("Review card: revise; its must-fixes are done." + (w.verdictNote ? " " + w.verdictNote : ""));
     else status.push(`Review card: ${w.verdict}.` + (w.verdictNote ? " " + w.verdictNote : ""));
     status.push(w.app ? `App: ${w.app} (${w.appDecision}).` : `App: ${w.appDecision}.`);
     body.append(h("section", {}, h("h3", { text: "Review and app" }), h("p", { style: "font-size:.9rem", text: status.join(" ") })));
@@ -638,10 +684,59 @@ const DATA = /*__DATA__*/null;
     frag.append(body);
     return frag;
   }
+  function atlasDetailEl(a) {
+    const frag = document.createDocumentFragment();
+    frag.append(h("div", { class: "d-head" },
+      h("div", { class: "kicker" }, h("span", { text: `Atlas ${a.id}` }), h("span", { text: a.book })),
+      h("button", { class: "close", "aria-label": "Close", onclick: closeDetail }, "×"),
+      h("h2", { text: a.title }),
+      h("div", { class: "tags" },
+        h("span", { class: "area-name" }, h("span", { class: "sw", style: `background:${areaColor(a.area)}` }), AREAS[a.area]),
+        a.bands.length ? DATA.bands.map(b => h("span", { class: "band" + (a.bands.includes(b) ? "" : " off"), text: bandLabel(b) })) : h("span", { class: "band", text: "entry beyond K–5" }),
+        h("span", { class: "pill", style: "color:var(--ink-3)", text: "unpiloted" }))));
+    const body = h("div", { class: "d-body" });
+    body.append(h("section", {}, h("p", { class: "d-hook", text: a.hook })));
+    if (a.question) body.append(h("section", {}, h("h3", { text: "The adult question" }), h("p", { text: a.question })));
+    body.append(h("section", {}, h("h3", { text: "The mathematics" }), h("p", { text: a.math })));
+    if (a.gem) body.append(h("section", {}, h("h3", { text: "Why a mathematician enjoys it" }), h("p", { class: "d-gem", text: a.gem })));
+    body.append(h("section", {}, h("h3", { text: "Concepts" }),
+      h("div", { class: "chips" }, a.concepts.map(c => conceptChip(c))),
+      a.uses.length ? h("p", { style: "margin-top:8px;font-size:.9rem;color:var(--ink-2)" }, "Builds on: ") : null,
+      a.uses.length ? h("div", { class: "chips" }, a.uses.map(c => conceptChip(c))) : null,
+      h("p", { style: "margin-top:8px;font-size:.9rem;color:var(--ink-2)" }, "Reasoning: " + a.mechanisms.map(m => DATA.mechanisms[m].toLowerCase()).join("; ") + ".")));
+    const g = a.gates;
+    const codes = new Set();
+    for (const k of ["entry", "explore", "explain", "prove"]) {
+      const head = (g[k] || "").split(":")[0];
+      if (head.length < 24) for (const m of head.matchAll(/\b[OCMFVAPLDIX]\b/g)) codes.add(m[0]);
+    }
+    body.append(h("section", {}, h("h3", { text: "Who can do what" }),
+      h("div", { class: "gates" },
+        [["Entry", "entry"], ["Explore", "explore"], ["Explain", "explain"], ["Prove", "prove"], ["Reading", "reading"], ["Arithmetic", "arithmetic"], ["Reasoning", "reasoning"], ["Stop at", "hard_stop"]]
+          .filter(([, k]) => g[k]).map(([l, k]) => h("div", { class: "g" }, h("span", { class: "gk", text: l }), h("span", { text: g[k] })))),
+      codes.size ? h("p", { class: "codes" }, "Letters: ", [...Object.keys(DATA.gateCodes)].filter(c => codes.has(c)).map((c, i) => [i ? "; " : "", h("b", { text: c }), " " + DATA.gateCodes[c].toLowerCase()]), ".") : null));
+    body.append(h("section", {}, h("h3", { text: "Before you start" }),
+      h("dl", { class: "kv" },
+        h("dt", { text: "Materials" }), h("dd", { text: a.materials || "Paper and pencils" }),
+        a.prep !== "" ? h("dt", { text: "Preparation" }) : null, a.prep !== "" ? h("dd", { text: `About ${a.prep} minutes` }) : null),
+      h("p", { style: "font-size:.8rem;color:var(--ink-3);margin-top:6px", text: "From the atlas plan. Some printed pages use a different example from the plan; the facilitator pages give the exact materials and launch." })));
+    body.append(h("section", {}, h("h3", { text: "Print and read" }),
+      h("ul", { class: "files" },
+        h("li", {}, h("a", { href: fileUrl(a.student.path), target: "_blank", rel: "noopener" }, `Student pages ${a.student.pages}`), h("span", { class: "ext", text: "PDF" })),
+        h("li", {}, h("a", { href: fileUrl(a.guide.path), target: "_blank", rel: "noopener" }, `Facilitator pages ${a.guide.pages}`), h("span", { class: "ext", text: "PDF" }))),
+      h("p", { style: "font-size:.8rem;color:var(--ink-3);margin-top:6px", text: `Page numbers are in the ${a.book.toLowerCase()} books.` })));
+    const ar = AREL.get(a.id) || [];
+    if (ar.length) body.append(h("section", {}, h("h3", { text: "Weekly themes" }),
+      h("div", { style: "display:grid;gap:6px" }, ar.sort((x, y) => parseInt(x.other) - parseInt(y.other)).map(r => relItem(r.other, `${KIND_TITLE[r.kind]}. ${r.note}`)))));
+    const box = h("input", { type: "checkbox", id: "used-" + a.id, checked: used.has(a.id), onchange: e => setUsed(a.id, e.target.checked) });
+    body.append(h("label", { class: "usedbox", for: "used-" + a.id }, box, "Used with my group (kept in this browser)"));
+    frag.append(body);
+    return frag;
+  }
   function relItem(id, note) {
-    const o = W.get(id);
+    const o = I.get(id);
     return h("div", { class: "rel-item" },
-      h("button", { onclick: () => openDetail(id), "aria-label": `Open week ${id}` }, id),
+      h("button", { onclick: () => openDetail(id), "aria-label": o && o.kind === "atlas" ? `Open atlas investigation ${id}` : `Open week ${id}` }, id),
       h("span", { class: "rt", text: o ? o.title : `Week ${id}` }),
       h("span", { class: "rn", text: note }));
   }
@@ -710,7 +805,7 @@ const DATA = /*__DATA__*/null;
     const nodes = new Map();
     for (const c of DATA.concepts) {
       const wdt = nodeW(c);
-      const g = s("g", { class: "cnode" + (c.weeks.length ? "" : " empty"), transform: `translate(${c.x},${c.y - 11})`, tabindex: 0, role: "button",
+      const g = s("g", { class: "cnode" + (c.weeks.length || c.atlas.length ? "" : " empty"), transform: `translate(${c.x},${c.y - 11})`, tabindex: 0, role: "button",
         "aria-label": `${c.name}, ${c.weeks.length} themes`, onclick: () => selectConcept(c.id),
         onkeydown: e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectConcept(c.id); } } });
       g.append(
@@ -769,7 +864,7 @@ const DATA = /*__DATA__*/null;
   }
   function weekList(ids) {
     if (!ids.length) return h("p", { class: "muted", text: "None yet." });
-    return h("ul", {}, ids.map(id => { const w = W.get(id); return h("li", {}, h("button", { onclick: () => openDetail(id) }, h("span", { class: "wn", text: id }), w.title)); }));
+    return h("ul", {}, ids.map(id => { const w = I.get(id); return h("li", {}, h("button", { onclick: () => openDetail(id) }, h("span", { class: "wn", text: id }), w.title)); }));
   }
   function conceptSide(id) {
     const side = $("#cside");
@@ -792,7 +887,9 @@ const DATA = /*__DATA__*/null;
       h("h3", { text: `Themes about it (${c.weeks.length})` }), weekList(c.weeks),
       c.usedBy.length ? h("h3", { text: `Themes that build on it (${c.usedBy.length})` }) : null,
       c.usedBy.length ? weekList(c.usedBy) : null,
-      h("p", {}, h("button", { class: "linkbtn", onclick: () => { F.concept = id; renderFilters(); renderList(); showView("activities"); } }, "Show these in the activity list")));
+      c.atlas.length ? h("h3", { text: `Atlas investigations (${c.atlas.length})` }) : null,
+      c.atlas.length ? weekList(c.atlas) : null,
+      h("p", {}, h("button", { class: "linkbtn", onclick: () => { F.concept = id; if (c.atlas.length) F.lib.add("atlas"); renderFilters(); renderList(); showView("activities"); } }, "Show these in the activity list")));
   }
 
   // ---------------------------------------------------------------- week map
@@ -877,20 +974,23 @@ const DATA = /*__DATA__*/null;
     const root = $("#strand-list");
     if (!root) return;
     const band = $("#strand-band").value;
+    const withAtlas = $("#strand-atlas").checked;
     root.replaceChildren();
     for (const [a, name] of Object.entries(AREAS)) {
-      const cs = DATA.concepts.filter(c => c.area === a && c.weeks.length);
+      const cs = DATA.concepts.filter(c => c.area === a && (c.weeks.length || (withAtlas && c.atlas.length)));
       if (!cs.length) continue;
       const byDepth = new Map();
       for (const c of cs) { if (!byDepth.has(c.depth)) byDepth.set(c.depth, []); byDepth.get(c.depth).push(c); }
       const depths = [...byDepth.keys()].sort((x, y) => x - y);
       const nThemes = new Set(cs.flatMap(c => c.weeks)).size;
+      const nAtlas = withAtlas ? new Set(cs.flatMap(c => c.atlas)).size : 0;
       const cols = h("div", { class: "strand-cols" }, depths.map((d, i) => h("div", { class: "col" },
         h("div", { class: "col-head", text: d === 0 ? "needs nothing earlier" : `builds on ${d} step${d > 1 ? "s" : ""}` }),
         byDepth.get(d).sort((x, y) => y.weeks.length - x.weeks.length).map(c => {
           const ws = c.weeks.filter(id => !band || W.get(id).bands.includes(band));
           const main = ws.filter(id => W.get(id).concepts[0] === c.id);
           const also = ws.filter(id => W.get(id).concepts[0] !== c.id);
+          const ats = withAtlas ? c.atlas.filter(id => !band || AT.get(id).bands.includes(band)) : [];
           return h("div", { class: "sconcept", style: `--area:${areaColor(a)}` },
             h("div", { class: "cn", role: "button", tabindex: 0, onclick: () => { showView("map"); selectConcept(c.id, true); },
               onkeydown: e => { if (e.key === "Enter") { showView("map"); selectConcept(c.id, true); } } }, c.name),
@@ -898,15 +998,18 @@ const DATA = /*__DATA__*/null;
             main.map(id => { const w = W.get(id); return h("button", { class: "wk" + (used.has(id) ? " used" : ""), onclick: () => openDetail(id) },
               h("span", { class: "wn", text: id }), h("span", { class: "wt", text: w.title }), h("span", { class: "bs", text: w.bands.map(bandLabel).join(" ") })); }),
             also.length ? h("div", { class: "also" }, "Also in ", also.map((id, i) => [i ? ", " : "", h("button", { class: "alsob", title: W.get(id).title, onclick: () => openDetail(id) }, id)])) : null,
-            !ws.length ? h("div", { class: "req", text: band ? `No ${bandLabel(band)} pages yet.` : "" }) : null);
+            ats.length ? h("div", { class: "also at" }, "Atlas ", ats.map((id, i) => [i ? ", " : "", h("button", { class: "alsob", title: AT.get(id).title, onclick: () => openDetail(id) }, id)])) : null,
+            !ws.length && !ats.length ? h("div", { class: "req", text: band ? `No ${bandLabel(band)} pages yet.` : "" }) : null);
         }))));
       root.append(h("div", { class: "strand" },
         h("div", { class: "strand-head" }, h("h2", {}, h("span", { class: "sw", style: `background:${areaColor(a)}` }), name),
-          h("span", { class: "muted", text: `${cs.length} concepts · ${nThemes} themes` })),
+          h("span", { class: "muted", text: `${cs.length} concepts · ${nThemes} themes` + (nAtlas ? ` · ${nAtlas} atlas` : "") })),
         h("div", { class: "strand-scroll" }, cols)));
     }
   }
   $("#strand-band").addEventListener("change", renderStrands);
+  $("#strand-atlas").addEventListener("change", renderStrands);
+  if (!DATA.atlas.length) $("#strand-atlas").parentElement.hidden = true;
 
   // ---------------------------------------------------------------- start
   renderFilters();
@@ -915,6 +1018,7 @@ const DATA = /*__DATA__*/null;
     const tok = (location.hash || "").slice(1);
     suppressHash = true;
     if (/^w\d+e?$/.test(tok) && W.has(tok.slice(1))) openDetail(tok.slice(1), { focus: false });
+    else if (AT.has(tok)) openDetail(tok, { focus: false });
     else if (["map", "links", "strands", "activities"].includes(tok)) showView(tok, false);
     suppressHash = false;
   }

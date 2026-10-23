@@ -32,6 +32,14 @@ KINDS = ["leads-to", "revisits", "same-theorem", "same-object", "contrast"]
 REQUIRED = ["week", "title", "hook", "math", "concepts", "mechanisms", "bands",
             "reading", "arithmetic", "materials", "status", "verdict", "app", "app_decision"]
 OPTIONAL = ["discover", "gem", "uses", "prep", "verdict_note", "related", "proposed_concepts"]
+ATLAS_FIELDS = {"id", "hook", "concepts", "uses", "mechanisms", "bands", "gem", "related", "proposed_concepts"}
+ATLAS = ROOT / "plans" / "atlas"
+ATLAS_BOOKS = {
+    "algebra-discrete": ("Algebra and discrete mathematics", "atlas-algebra-discrete"),
+    "geometry-analysis": ("Geometry and analysis", "atlas-geometry-analysis"),
+    "applied-probability": ("Probability and applications", "atlas-probability-applications"),
+    "random-ten": ("The random ten", "atlas-random-ten"),
+}
 
 # Collections the library was built in, by week number.
 SERIES = [
@@ -75,6 +83,21 @@ FILE_ROLES = [
 STUDENT_ROLES = {"K–1 packet", "Grades 2–3 packet", "Grades 4–5 packet", "Grades 3–5 packet",
                  "Shared student packet", "Upper packet", "Line packet", "Compact catalog",
                  "Compact catalog, upper"}
+
+
+GATE_CODES = {
+    "O": "Follow a short spoken rule; sort, match, move or compare objects",
+    "C": "Count small sets and track cases; add or subtract",
+    "M": "Multiply and divide; factors or remainders",
+    "F": "Fractions, ratios and signed numbers",
+    "V": "Coordinates, vectors or geometric measurement",
+    "A": "Variables, equations and functions",
+    "P": "Systematic proof: cases, induction, contradiction",
+    "L": "Linear algebra",
+    "D": "Differential calculus",
+    "I": "Integral calculus",
+    "X": "A named advanced prerequisite",
+}
 
 
 class CatalogError(Exception):
@@ -202,9 +225,90 @@ def load():
                 errors.append(f"{week_slug(wid)}.toml: related week {other} does not exist")
             if other == wid:
                 errors.append(f"{week_slug(wid)}.toml: relates to itself")
+    atlas = load_atlas(concepts, mechanisms, weeks, errors)
     if errors:
         raise CatalogError("\n".join(errors))
-    return areas, mechanisms, concepts, weeks
+    return areas, mechanisms, concepts, weeks, atlas
+
+
+def atlas_pages():
+    """Print book, page ranges and printed title for each atlas family, from the page finders and the random-ten builder."""
+    pages = {}
+    index = (ATLAS / "worksheet-expansion" / "INDEX.md").read_text()
+    book = None
+    for line in index.splitlines():
+        if line.startswith("## "):
+            low = line.lower()
+            book = ("algebra-discrete" if "algebra" in low else "geometry-analysis" if "geometry" in low
+                    else "applied-probability" if "probab" in low else None)
+        m = re.match(r"\|\s*([A-Z]{2}-\d{2})\s*[—-]\s*(.*?)\s*\|.*?\|\s*([\d–-]+)\s*\|\s*([\d–-]+)\s*\|", line)
+        if m and book:
+            pages[m.group(1)] = (book, m.group(3), m.group(4), m.group(2))
+    trial = (ATLAS / "worksheet-trial" / "README.md").read_text()
+    titles = dict(re.findall(r"'([A-Z]{2}-\d{2})':\('([^']+)'",
+                             (ROOT / "lowell-math-circle-year-2" / "source" / "atlas-random-ten" / "build.py").read_text()))
+    for line in trial.splitlines():
+        m = re.match(r"\|\s*([A-Z]{2}-\d{2})\s*\|\s*([\d–-]+)\s*\|\s*([\d–-]+)\s*\|\s*$", line)
+        if m:
+            pages[m.group(1)] = ("random-ten", m.group(2), m.group(3), titles.get(m.group(1), ""))
+    return pages
+
+
+def load_atlas(concepts, mechanisms, weeks, errors):
+    fams = {}
+    for f in sorted((ATLAS / "families").glob("*.json")):
+        for fam in json.loads(f.read_text()):
+            fams[fam["id"]] = fam
+    pages = atlas_pages()
+    atlas = {}
+    folder = CAT / "atlas"
+    if not folder.is_dir():
+        return atlas
+    for path in sorted(folder.glob("*.toml")):
+        where = f"atlas/{path.name}"
+        try:
+            rec = tomllib.loads(path.read_text())
+        except tomllib.TOMLDecodeError as exc:
+            errors.append(f"{where}: {exc}")
+            continue
+        aid = rec.get("id", "")
+        if path.stem != aid:
+            errors.append(f"{where}: id should be {path.stem}")
+        if aid not in fams:
+            errors.append(f"{where}: no family {aid!r} in plans/atlas/families")
+            continue
+        for field in rec:
+            if field not in ATLAS_FIELDS:
+                errors.append(f"{where}: unknown field {field!r}")
+        for field in ("hook", "concepts", "mechanisms", "bands"):
+            if field not in rec:
+                errors.append(f"{where}: missing {field}")
+        for cid in rec.get("concepts", []) + rec.get("uses", []):
+            if cid not in concepts:
+                errors.append(f"{where}: unknown concept {cid!r}")
+        if not 1 <= len(rec.get("concepts", [])) <= 4:
+            errors.append(f"{where}: concepts should list 1 to 4 ids")
+        for mid in rec.get("mechanisms", []):
+            if mid not in mechanisms:
+                errors.append(f"{where}: unknown mechanism {mid!r}")
+        for b in rec.get("bands", []):
+            if b not in BANDS:
+                errors.append(f"{where}: unknown band {b!r}")
+        for rel in rec.get("related", []):
+            if rel.get("kind") not in KINDS or "note" not in rel or "week" not in rel:
+                errors.append(f"{where}: each related entry needs week, a known kind and note")
+                continue
+            try:
+                if week_id(rel["week"]) not in weeks:
+                    errors.append(f"{where}: related week {rel['week']} has no record")
+            except CatalogError as exc:
+                errors.append(f"{where}: {exc}")
+        if aid not in pages:
+            errors.append(f"{where}: no page range for {aid} in the atlas page finders")
+        rec["_family"] = fams[aid]
+        rec["_pages"] = pages.get(aid)
+        atlas[aid] = rec
+    return atlas
 
 
 def print_files(wid):
@@ -352,7 +456,7 @@ def layout_weeks(weeks, edges, areas):
     return pos, round(width), round(height)
 
 
-def build_data(areas, mechanisms, concepts, weeks):
+def build_data(areas, mechanisms, concepts, weeks, atlas):
     depth = concept_depths(concepts)
     concept_weeks = defaultdict(list)
     concept_uses = defaultdict(list)
@@ -363,6 +467,10 @@ def build_data(areas, mechanisms, concepts, weeks):
             concept_uses[cid].append(wid)
         rec["_area"] = concepts[rec["concepts"][0]]["area"]
         rec["_depth"] = max(depth[c] for c in rec["concepts"])
+    concept_atlas = defaultdict(list)
+    for aid, rec in atlas.items():
+        for cid in rec["concepts"]:
+            concept_atlas[cid].append(aid)
 
     # relations: keep leads-to directed, merge symmetric duplicates
     edges = {}
@@ -395,7 +503,7 @@ def build_data(areas, mechanisms, concepts, weeks):
                 keep(r)
 
     for cid in concepts:
-        if concept_weeks[cid] or concept_uses[cid]:
+        if concept_weeks[cid] or concept_uses[cid] or concept_atlas[cid]:
             keep(cid)
     cpos, cw, ch, lanes = layout_concepts(concepts, depth, areas, shown)
     wpos, ww, wh = layout_weeks(weeks, edge_list, areas)
@@ -447,11 +555,45 @@ def build_data(areas, mechanisms, concepts, weeks):
             "depth": depth[cid],
             "weeks": sorted(concept_weeks[cid], key=week_key),
             "usedBy": sorted(concept_uses[cid], key=week_key),
+            "atlas": sorted(concept_atlas[cid]),
             "x": cpos[cid][0],
             "y": cpos[cid][1],
         })
+    out_atlas, atlas_edges = [], []
+    for aid in sorted(atlas):
+        rec = atlas[aid]
+        fam = rec["_family"]
+        book, sp, gp, printed = rec["_pages"]
+        label, stem = ATLAS_BOOKS[book]
+        gates = fam.get("gates", {})
+        out_atlas.append({
+            "id": aid,
+            "title": printed or fam["title"],
+            "hook": rec["hook"],
+            "question": fam.get("adult_question", ""),
+            "math": fam.get("anchor", ""),
+            "gem": rec.get("gem", ""),
+            "concepts": rec["concepts"],
+            "uses": rec.get("uses", []),
+            "mechanisms": rec["mechanisms"],
+            "bands": [b for b in BANDS if b in rec["bands"]],
+            "gates": {k: gates.get(k, "") for k in ("entry", "explore", "explain", "prove", "reading", "arithmetic", "reasoning", "hard_stop")},
+            "materials": fam.get("materials", ""),
+            "prep": fam.get("prep_minutes", ""),
+            "bridge": fam.get("bridge", {}).get("type", ""),
+            "book": label,
+            "student": {"path": f"lowell-math-circle-year-2/combined/{stem}-student-worksheets.pdf", "pages": sp},
+            "guide": {"path": f"lowell-math-circle-year-2/combined/{stem}-facilitator-guide.pdf", "pages": gp},
+            "area": concepts[rec["concepts"][0]]["area"],
+            "depth": max(depth[c] for c in rec["concepts"]),
+        })
+        for rel in rec.get("related", []):
+            atlas_edges.append({"atlas": aid, "week": week_id(rel["week"]), "kind": rel["kind"], "note": rel["note"]})
     return {
         "repo": REPO_URL,
+        "atlas": out_atlas,
+        "atlasEdges": atlas_edges,
+        "gateCodes": GATE_CODES,
         "areas": areas,
         "mechanisms": mechanisms,
         "bands": BANDS,
@@ -504,13 +646,32 @@ def write_catalog_md(data, path):
             title = w["title"].replace("|", "\\|")
             lines.append(f"| {w['id']} | {title} | {hook} | {bands} | {status} | {' · '.join(prints)} |")
         lines.append("")
+    if data["atlas"]:
+        lines += ["## Atlas investigations", "",
+                  "Ninety investigation families from the [mathematics atlas](plans/atlas/README.md), printed in four books. "
+                  "Bands are the K–5 bands with a genuine entry; a dash means the entry needs algebra or more. None is classroom-piloted.", ""]
+        books = defaultdict(list)
+        for a in data["atlas"]:
+            books[a["book"]].append(a)
+        for book in sorted(books):
+            first = books[book][0]
+            lines += [f"### {book}", "",
+                      f"[Student book]({first['student']['path']}) · [Facilitator guide]({first['guide']['path']})", "",
+                      "| Family | Investigation | What learners do | Entry | Student pages | Guide pages |", "|---|---|---|---|---|---|"]
+            for a in sorted(books[book], key=lambda a: a["id"]):
+                bands = ", ".join(b.replace("-", "–") for b in a["bands"]) or "—"
+                hook = a["hook"].replace("|", "\\|")
+                title = a["title"].replace("|", "\\|")
+                lines.append(f"| {a['id']} | {title} | {hook} | {bands} | {a['student']['pages']} | {a['guide']['pages']} |")
+            lines.append("")
     lines += ["## Concepts", "", "Each concept with the themes about it. A concept's prerequisites are in [catalog/concepts.toml](catalog/concepts.toml).", ""]
     for a, name in areas.items():
         cs = [c for c in data["concepts"] if c["area"] == a]
         items = []
         for c in sorted(cs, key=lambda c: (c["depth"], c["name"])):
-            if c["weeks"]:
-                items.append(f"{c['name']} ({', '.join(c['weeks'])})")
+            refs = c["weeks"] + c.get("atlas", [])
+            if refs:
+                items.append(f"{c['name']} ({', '.join(refs)})")
         if items:
             lines.append(f"- **{name}:** " + "; ".join(items) + ".")
     lines.append("")
@@ -536,14 +697,14 @@ def main():
     ap.add_argument("--fragment", help="also write the page body without the document wrapper")
     args = ap.parse_args()
     try:
-        areas, mechanisms, concepts, weeks = load()
+        areas, mechanisms, concepts, weeks, atlas = load()
     except CatalogError as exc:
         print("The catalog has problems:\n" + str(exc), file=sys.stderr)
         sys.exit(1)
-    print(f"{len(weeks)} week records, {len(concepts)} concepts: all checks pass")
+    print(f"{len(weeks)} week records, {len(atlas)} atlas records, {len(concepts)} concepts: all checks pass")
     if args.check:
         return
-    data = build_data(areas, mechanisms, concepts, weeks)
+    data = build_data(areas, mechanisms, concepts, weeks, atlas)
     write_explorer(data, ROOT / "explorer" / "index.html", args.fragment)
     write_catalog_md(data, ROOT / "CATALOG.md")
     print("Wrote explorer/index.html and CATALOG.md")

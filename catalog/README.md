@@ -1,6 +1,6 @@
 # Activity catalog
 
-One record per theme (Weeks 1–100 and the Week 1 encore), a concept map, and a builder that turns them into a browsable explorer and the [catalog page](../CATALOG.md). The records describe the activities; the PDFs, guides and review cards stay where they are, and the builder finds each week's current print files itself.
+One record per theme (Weeks 1–100 and the Week 1 encore), one per atlas investigation family, a concept map, and a builder that turns them into a browsable explorer and the [catalog page](../CATALOG.md). The records describe the activities; the PDFs, guides and review cards stay where they are, and the builder finds each week's current print files itself.
 
 The explorer is one self-contained page, `explorer/index.html`: download it and open it in a browser. The organizer's published copy is the [Math Circle Explorer](https://claude.ai/artifact/DarUYkLh2qfEBBDGF4cZm1) (private to the owner unless shared). It has four views: an activity list with filters (band, area, reasoning move, concept, status, review verdict, materials, app) and a detail panel with print links and connected themes; the concept map in area lanes; the network of links between themes; and strands, one per area, ordered by prerequisites for planning return visits. Marks for themes used with a group stay in the viewer's browser.
 
@@ -8,6 +8,7 @@ The explorer is one self-contained page, `explorer/index.html`: download it and 
 catalog/
   concepts.toml       areas, reasoning mechanisms and the concept map (each concept names the concepts it requires)
   weeks/week-NN.toml  one record per theme; week-01e.toml is the encore
+  atlas/XX-NN.toml    one record per atlas investigation family (AD, GA, AP)
   build.py            checks every record and writes explorer/index.html and CATALOG.md
 ```
 
@@ -87,3 +88,25 @@ Relation kinds:
 Write `leads-to` on the earlier week only; the explorer shows the reverse link on the later week. The other kinds can be written on either side, and the explorer merges duplicates.
 
 Records are descriptions, not new claims: take the mathematics from the theorem-first guide and the review card, and say "unpiloted" unless a classroom report exists.
+
+## Atlas investigations
+
+The [mathematics atlas](../plans/atlas/README.md) has ninety investigation families with student pages and facilitator guides in four print books (the random ten, and the algebra/discrete, geometry/analysis and probability/applications books). They are not weekly themes, but they belong on the same map, so the explorer can show them beside the weeks (the Library filter) and on the concept map and strands. Each family has a short record in `catalog/atlas/XX-NN.toml`. The builder takes the printed title and page ranges from the two page finders and the random-ten builder, and the adult question, anchor theorem, capability gates, materials and preparation from `plans/atlas/families/*.json`, so the record holds only what those files lack:
+
+```toml
+id = "AD-09"
+hook = "Advance two small clocks of different sizes together one step at a time and decide which pairs of readings can occur at the same moment, and when."
+concepts = ["remainders", "gcd", "lcm"]   # 1–4 concept ids, most central first
+uses = ["divisibility"]                  # concept ids assumed
+mechanisms = ["every-case", "construct"]
+bands = ["2-3", "4-5"]                   # K–5 bands with a genuine entry on the printed pages; [] when the entry needs algebra or more
+gem = "The Chinese remainder theorem as two clocks."   # optional
+proposed_concepts = []                   # optional: "id: description" for a concept the map lacks
+
+[[related]]                              # links to weekly themes, same kinds as week records
+week = "4"
+kind = "revisits"
+note = "Week 4's hops follow one remainder orbit; here two orbits must agree at the same time."
+```
+
+The builder checks these like week records. The cards' launches are not shown, because the print books often use a different example from the card; [plans/atlas/catalog-notes.md](../plans/atlas/catalog-notes.md) lists the differences the readers found.

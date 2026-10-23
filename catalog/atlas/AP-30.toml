@@ -1,0 +1,17 @@
+id = "AP-30"
+hook = "Find a node's voltage in a two-resistor circuit by balancing currents, then attach a meter as an extra branch and recalculate the voltage it reports."
+concepts = ["averaging", "measurement-error", "balance-laws", "series-parallel"]
+uses = ["graphs"]
+mechanisms = ["limit", "certificate"]
+bands = []
+gem = "Current balance makes the node voltage a conductance-weighted average of its neighbours, so any finite meter pulls it down: X = 6R/(3R + 2) stays below 2 V and approaches it only as R grows."
+
+[[related]]
+week = "20"
+kind = "same-theorem"
+note = "Week 20's circles hold the average of their neighbours; with resistors the node voltage is the conductance-weighted average, so the balanced voltage is unique and a grounded meter branch pulls it toward 0."
+
+[[related]]
+week = "94"
+kind = "contrast"
+note = "Week 94 corrects readings by calibrating offset and scale; here the error arises because the meter becomes part of the circuit, so the model must include the instrument."

@@ -11,6 +11,7 @@ This is a research-to-investigation library for expanding the circle across math
 - [Prerequisite key and design contract](DESIGN.md): joining, exploring, explaining and proving are separate gates.
 - [Prior-use map](prior-use-map.md) and [connections](connections.md): avoid accidental repeats; label intentional revisits.
 - [Actual-use log](use-log.csv): empty until a family is actually used.
+- [Activity catalog](../../CATALOG.md#atlas-investigations) and the explorer: every family beside the weekly themes, with concepts, K–5 entry bands and links to related weeks. [Catalog notes](catalog-notes.md) list where the cards and the print books differ.
 
 Each card includes the adult question, exact mathematical anchor, source locator, fidelity limits, prerequisites, materials, preparation, an hour-long menu, launch, learner choices, prompts, hints, a worked example and boundary, extensions, and a satisfying early stop. Cards with substantial algebra, calculus or other advanced gates retain them. The small preparation estimates and session timings are proposals, not pilot results.
 

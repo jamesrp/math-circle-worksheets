@@ -1,0 +1,17 @@
+id = "AP-07"
+hook = "Apply 'new difference = old difference minus h times old difference' over and over to a cooling model and sort step sizes into ones that cool, oscillate or blow up."
+concepts = ["iteration", "limits", "derivatives"]
+uses = ["coordinates"]
+mechanisms = ["every-case", "counterexample", "certificate"]
+bands = []
+gem = "Forward Euler turns y′ = −y into multiplying by 1 − h each step, so stability is a question about powers of one number, and a run can settle while still being badly inaccurate."
+
+[[related]]
+week = "92"
+kind = "revisits"
+note = "Week 92's tent map doubles small differences each move; here one update multiplies by 1 − h, and the size of that number decides whether the simulation shrinks, persists or grows."
+
+[[related]]
+week = "89"
+kind = "revisits"
+note = "Week 89 reads differences as the layers of a growing total; here a difference equation stands in for a rate law, and the question is when it behaves like the real solution."
