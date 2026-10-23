@@ -1,6 +1,6 @@
 # Week 48 bonus: Inside and outside covers
 
-Local v1, October 4, 2026. **Unpiloted. Physical fit and procedures untested.**
+Local v1, October 4, 2026; v2, October 23, 2026, from the Week 48 review card's should 11: page 2's card pairs are numbered 1-3 and its witness grids are captioned "Pair: ____" instead of "First pair" and "Third pair", which answered "Which pair cannot be true?"; the adult guide says so (footers F48B-S-v2, W48-BONUS-FAC-v2). **Unpiloted. Physical fit and procedures untested.**
 
 Three or more distinct investigations use selected bands by prerequisites. They complement, rather than replace, the base Week 48 packet. The student companion and adult mathematical guide are separate. Suitable routes, materials, launch, hints, precise solutions and extensions are in `guide.md`; investigation metadata is in `investigations.json`.
 

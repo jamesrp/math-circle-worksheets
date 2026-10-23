@@ -20,7 +20,7 @@ def page(c,week,topic,band,num):
     c.drawString(43,754,f'Week {week} / {topic} / {band}')
     c.setLineWidth(.55); c.line(43,743,569,743)
     c.setFont('Helvetica',9)
-    c.drawString(43,29,f'Bellingham Math Circle / Week {week} / F{week}B-S')
+    c.drawString(43,29,f'Bellingham Math Circle / Week {week} / F{week}B-S-v2')
     c.drawRightString(569,29,str(num))
 
 def para(c,text,y,x=43,width=526,size=14,leading=19):

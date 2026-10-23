@@ -29,12 +29,15 @@ def build(out):
     box(c,56,600,57,57);arrow(c,130,627,190,627)
     label(c,'0 to 1',232,622,16,True);label(c,'one partial square',85,584,10,True)
     problem(c,2,'Each pair of cards reports on one shape. Make the narrowest range card that keeps every possible area. Which pair cannot be true? For each possible pair, draw a shape whose area fits both cards.',577)
-    for y,vals in [(438,('2 to 8','4 to 9')),(344,('3 to 5','6 to 7')),(250,('1 to 6','4 to 4'))]:
+    for n,(y,vals) in enumerate([(438,('2 to 8','4 to 9')),(344,('3 to 5','6 to 7')),(250,('1 to 6','4 to 4'))],1):
+        label(c,str(n),56,y+24,16,True)   # pair numbers, for the "Pair:" captions below
         for x,v in [(74,vals[0]),(247,vals[1])]:
             box(c,x,y,136,67);label(c,v,x+68,y+24,16,True)
         box(c,437,y,112,67)
-    for x,tag in [(86,'First pair'),(359,'Third pair')]:
-        label(c,tag,x+81,211,11,True)
+    for x in (86,359):
+        # The child writes the pair's number: the captions must not say which pairs are possible.
+        label(c,'Pair:',x+60,211,11,True)
+        c.setStrokeColor(INK);c.setLineWidth(.6);c.line(x+76,209,x+112,209)
         grid(c,x,84,6,4,s=27)
     save(c)
     page(c,48,'Inside and outside covers','Grades 4-5',3)

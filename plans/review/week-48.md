@@ -50,6 +50,8 @@ Cells wholly inside a polygon bound its area from below; cells with any gray bou
 
 **Done, October 23, 2026.** Converted to problem files, then shoulds 1–10 and coulds 12–13 made in the problem files, the guide and a new tile sheet, `week-48-materials.pdf` (16 big and 16 small tiles per pair, replacing fix 6's cut-up board, which fix 1 shrank to 85 mm); should 11 deferred because the bonus is not stored as problem files. Changes and checks: `lowell-math-circle-year-2/source/week-48/editable/review/card-fixes-2026-10-23.md`.
 
+**Bonus, October 23, 2026.** Should 11 done in the bonus's own ReportLab builder (bonus v2): page 2 numbers the card pairs 1–3, both witness grids are captioned "Pair: ____", and the guide says one grid per possible pair. Checked by `plans/review/checks/week-48/check_bonus_fixes.py`; unpiloted.
+
 I agree with the math check's three items (fixes 6, 7, 11); none strands a child or marks a right answer wrong.
 
 ## Overlaps
