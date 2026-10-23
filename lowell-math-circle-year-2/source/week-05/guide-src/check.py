@@ -104,7 +104,7 @@ K_P1 = [(1, 3, 2), (3, 2, 1)]             # page 1, left and right picture
 K_P3 = [(1, 3), (2, 1), (3, 3), (2, 2), (1, 1), (1, 2)]   # page 3, reading order
 K_P4_HIDDEN = (2, 3, 1)                   # page 4 folder picture
 K_P7 = [(2, 3), (1, 4), (3, 3), (3, 1), (4, 2), (1, 2)]   # page 7, reading order
-# Grades 2-3 (F05-M-v4), page 3 and 4: Problem 3, four grids top to bottom
+# Grades 2-3 (F05-M-v4, unchanged in v5), page 3 and 4: Problem 3, four grids top to bottom
 M_P3 = [P(T=[0, 1, 3], L=[2, 0, 0], R=[0, 2, 1]),
         P(L=[2, 1, 0], R=[0, 0, 2]),
         P(T=[2, 2, 2]),
@@ -478,6 +478,18 @@ for k, v in {'shared pairs': 262, 'shared pairs differing in a 2x2 block': 152, 
              'U P5 twins with top row 1234': 4, 'L+R <= n+1 for every row': True}.items():
     if R[k] != v:
         bad.append(f"MISMATCH {k}: guide says {v}, computed {R[k]}")
+
+# review card could 8 (October 23, 2026): the guide names the printed IDs, and in the
+# build (where the packets' LaTeX sits in ../views) 2-3 page 7 is headed for Problem 5
+GUIDE = open(os.path.join(HERE, "facilitator.tex")).read()
+if not ("F05-FAC-v5" in GUIDE and "F05-K-v4, 7 pages" in GUIDE and "F05-M-v5, 9 pages" in GUIDE
+        and "F05-U-v4, 8 pages" in GUIDE):
+    bad.append("MISMATCH guide IDs: expected F05-FAC-v5, F05-K-v4, F05-M-v5, F05-U-v4")
+M_TEX = os.path.join(HERE, "..", "views", "grades-2-3.tex")
+if os.path.exists(M_TEX):
+    m_tex = open(M_TEX).read()
+    if not ("\\textbf{Extra grids for Problem 5}" in m_tex and "F05-M-v5" in m_tex):
+        bad.append("MISMATCH 2-3 page 7: expected the heading Extra grids for Problem 5 and F05-M-v5")
 
 # ------------------------------------------------------------ report
 lines = []

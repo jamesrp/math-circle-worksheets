@@ -15,5 +15,7 @@ close(gap(0.1) + inch_grids(3, 2))
 ## text
 \newpage
 
+\textbf{Extra grids for Problem 5}
+
 ## figure
 gap(0.6) + inch_grids(3, 2, dy=11.0)

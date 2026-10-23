@@ -44,7 +44,7 @@ A row of towers is a permutation, and the towers seen from an end are its record
 
 Against the math check: its items 1 and 3 are fixes 1 and 2, and items 2, 4 and 5 are coulds. Item 6 is in the return-visit guide, which I did not review.
 
-October 23, 2026: fixes 1–6 and the README link of 9 are done in the guide and source README; fix 7, the student-page fix 8 and the redesign note of 9 are deferred.
+October 23, 2026: fixes 1–6 and the README link of 9 are done in the guide and source README; later that day, after the conversion to problem files, fix 8 on the page (F05-M-v5); fix 7 and the redesign note of 9 are deferred.
 
 ## Overlaps
 
