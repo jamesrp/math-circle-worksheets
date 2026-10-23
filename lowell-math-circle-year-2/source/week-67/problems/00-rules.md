@@ -12,7 +12,7 @@ Travel along roads from dot to dot. Each road counts as one step. A shortest rou
 A meeting dot works when \textbf{each pair of homes has a shortest route through it}. The meeting dot may also be a home. Keep all three homes and the meeting dot fixed while checking the three pairs. One partner draws the routes in three colors; the other checks them.
 
 \begin{center}
-\begin{tikzpicture}[x=.9cm,y=.9cm,font=\small]
+\begin{tikzpicture}[x=1.6cm,y=1.6cm,font=\small]
 \draw[gray!65,step=1] (0,0) grid (2,1);\foreach \x in {0,1,2}\foreach \y in {0,1}\fill (\x,\y) circle (1.5pt);
 \draw[line width=2.2pt] (0,0)--(1,0)--(1,1)--(2,1);
 \home{0}{0}{P}\home{2}{1}{Q}\node[draw,circle,fill=white,inner sep=2pt] at (1,1){M};

@@ -23,8 +23,8 @@ def median_checks():
     dist = {p: k.bfs(p, graph.__getitem__, 12) for p in graph}
     assert k.median_candidates(graph, 'abc', lambda a, b: dist[a][b]) == ['v']
     cube = list(product(range(2), repeat=3))
-    assert k.median_candidates(cube, ((0, 0, 1), (0, 1, 0), (1, 1, 1))) == [(0, 1, 1)]
-    return {'1_left': [1, 1], '1_right': [4, 3], '2': 'unique for every placement', '3_tree': 'v=(2,0)', '3_triangle': 'none', '3_square': 'B', '4_left': '100', '4_right': '011', '5': 'coordinatewise majority'}
+    assert k.median_candidates(cube, ((0, 0, 0), (0, 0, 1), (1, 1, 1))) == [(0, 0, 1)]  # GGT67-S-v2
+    return {'1_left': [1, 1], '1_right': [4, 3], '2': 'unique for every placement', '3_tree': 'v=(2,0)', '3_triangle': 'none', '3_square': 'B', '4_left': '100', '4_right': '001', '5': 'coordinatewise majority'}
 
 HERE = Path(__file__).resolve().parent
 

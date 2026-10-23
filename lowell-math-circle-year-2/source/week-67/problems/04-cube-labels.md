@@ -8,7 +8,7 @@ page = "new"
 +++
 
 ## text
-Each dot on these maps has a three-digit label. A road changes exactly one digit. Crossed roads connect only at a labeled dot.
+A road changes exactly one digit. Crossed roads connect only at a labeled dot.
 \begin{center}
 \begin{tikzpicture}[font=\small]
 \node[draw,circle] (a) at (0,0){001};\node[draw,circle] (b) at (4,0){101};\node[draw,circle] (c) at (8,0){100};

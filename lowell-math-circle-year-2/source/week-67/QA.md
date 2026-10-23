@@ -1,6 +1,8 @@
 # Week 67: release verification scope
 
-Prepared October 6, 2026 for review. Current IDs: GGT67-S-v1 and GGT67-FAC-v1. 4 student pages; 2 adult-guide pages.
+Prepared October 6, 2026 for review. Current IDs: GGT67-S-v2 and GGT67-FAC-v2 (October 23, 2026 card fixes). 5 student pages; 3 adult-guide pages.
+
+**October 23, 2026.** The student pages are now problem files; the v2 changes are checked by `review/verify_card_fixes_2026_10_23.py` and recorded in `review/card-fixes-2026-10-23.md`. Every changed page of both PDFs was rendered and inspected, and a clean rebuild from the extracted ZIP matches every page's text and 100-dpi pixels. The rest of this note describes the October 6 v1 release.
 
 The student packet passed an independent adversarial review followed by a fresh revision. Each final student page was rendered and visually inspected after changes; its standalone builder and mathematical checks were rerun. The adult guide is a separate stage: its author checked the exact final student questions, independently verified its answers, and rendered and inspected every guide page. Reviewer findings and revision decisions are kept with the repository's per-week review record.
 

@@ -42,6 +42,8 @@ A meeting dot for three homes lies on some shortest route for each pair. On a fu
 9. **could**, guide launch: all six dots work for P and Q; two homes have many meeting dots, three have one.
 10. **could**, guide: give a counter size (about 1.2 cm) for the 1.6 cm spacing, or enlarge P1's boards into p. 1's empty lower third.
 
+**Done October 23, 2026:** shoulds 1–3 and coulds 4–10 made in the problem files and guide (GGT67-S-v2, five pages with Problem 5 on its own page; GGT67-FAC-v2, three pages); could 7's maps went into the guide, not onto P3. Checked by `source/week-67/review/verify_card_fixes_2026_10_23.py`; unpiloted.
+
 ## Overlaps
 
 Week 69 (Thin and fat road triangles) shares the three homes, coloured pairwise routes, partner checks, trees and grids, and its P1 tree question is P3's tripod. Its theorem, thinness, differs, so teach 67 first and 69 as a return visit. Week 50's staircases are the grid fact behind P1. Weeks 18 and 46 count differing digits, which is cube distance. No merge.

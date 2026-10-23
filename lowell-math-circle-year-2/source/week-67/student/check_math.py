@@ -28,4 +28,6 @@ edges=[('a','u'),('u','v'),('v','w'),('w','b'),('v','t'),('t','c'),('w','s'),('s
 vs=sorted(set(sum(([a,b] for a,b in edges),[])));adj={v:[] for v in vs}
 for a,b in edges:adj[a].append(b);adj[b].append(a)
 d=distances(vs,adj);assert meetings(('a','b','c'),vs,d)=={'v'}
-print('Tree meeting: v at drawing coordinate (2,0). Cube targets: 100 and 011.')
+cube=[''.join(t) for t in product('01',repeat=3)];cadj={v:[w for w in cube if sum(x!=y for x,y in zip(v,w))==1] for v in cube};cd=distances(cube,cadj)
+assert meetings(('000','110','101'),cube,cd)=={'100'} and meetings(('000','001','111'),cube,cd)=={'001'}
+print('Tree meeting: v at drawing coordinate (2,0). Cube targets: 100 and 001.')

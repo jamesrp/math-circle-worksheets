@@ -8,7 +8,7 @@ kernel = "On a full grid every placement of three homes has exactly one meeting 
 +++
 
 ## prompt
-Put A, B, and C at three different dots. Challenge your partner to find every meeting dot that works, then swap jobs. Can you place the homes so that no meeting dot works? Can you make more than one work? Keep a drawing of your attempts.
+Put A, B, and C at three different dots. Challenge your partner to find every meeting dot that works, then swap jobs. Can you place the homes so that no meeting dot works? Can you make more than one work?
 
 ## text
 \vspace{.25in}

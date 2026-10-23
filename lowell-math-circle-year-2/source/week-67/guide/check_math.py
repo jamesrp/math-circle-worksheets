@@ -45,13 +45,21 @@ cycle=graph('abcd',[('a','b'),('b','c'),('c','d'),('d','a')]); assert meetings(c
 verts=[''.join(s) for s in product('01',repeat=3)]
 cube=graph(verts,[(a,b) for a,b in combinations(verts,2) if sum(x!=y for x,y in zip(a,b))==1]); cd=distances(cube)
 assert meetings(cube,cd,['000','110','101'])=={'100'}
-assert meetings(cube,cd,['001','010','111'])=={'011'}
+assert meetings(cube,cd,['000','001','111'])=={'001'}   # GGT67-S-v2: the right map's homes
 ct=0
 for homes in combinations(verts,3):
     majority=''.join(str(int(sum(h[k]=='1' for h in homes)>=2)) for k in range(3))
     assert meetings(cube,cd,homes)=={majority}; ct+=1
-for homes, m in [(['000','110','101'],'100'),(['001','010','111'],'011')]:
-    assert all(cd[a][m]+cd[m][b]==cd[a][b]==2 for a,b in combinations(homes,2))
+assert all(cd[a][m]+cd[m][b]==cd[a][b]==2 for a,b in combinations(['000','110','101'],2) for m in ['100'])
+assert [cd[a][b] for a,b in combinations(['000','001','111'],2)]==[1,3,2] and cd['001']['111']==2
+# October 23, 2026 (GGT67-FAC-v2): the launch, the K-1 key and the two extra maps.
+small=[(x,y) for x in range(3) for y in range(2)]
+sg=graph(small,[(a,b) for a,b in combinations(small,2) if sum(abs(x-y) for x,y in zip(a,b))==1]); sd=distances(sg)
+assert {m for m in sg if sd[(0,0)][m]+sd[m][(2,1)]==sd[(0,0)][(2,1)]}==set(small)
+two={m for m in g if d[(0,0)][m]+d[m][(4,1)]==d[(0,0)][(4,1)]}
+assert two=={(x,y) for x in range(5) for y in range(2)} and len(two)==10
+k23=graph('abcxy',[(h,c) for h in 'abc' for c in 'xy']); assert meetings(k23,distances(k23),'abc')=={'x','y'}
+ring=graph(range(6),[(i,(i+1)%6) for i in range(6)]); assert meetings(ring,distances(ring),[0,2,4])==set()
 print(json.dumps({'status':'PASS','grid_distinct_triples':triples,'cube_distinct_triples':ct,
- 'P1':[[1,1],[4,3]],'P3':['central junction below C',None,'B'],'P4':['100','011'],
+ 'P1':[[1,1],[4,3]],'P3':['central junction below C',None,'B'],'P4':['100','001'],
  'scope':'Finite checks certify the printed boards; coordinate and tripod proofs establish the general claims.'},indent=2))
