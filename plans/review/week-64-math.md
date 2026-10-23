@@ -4,7 +4,7 @@ Scope:
 - `lowell-math-circle-year-2/week-64/week-64-students.pdf`: one shared packet, 9 pages, Problems 1–9. Pages 1–6 are headed Grades 3–5 and pp. 7–9 Grades 4–5. I treated it as the single band.
 - `week-64-facilitator.pdf`: 12 pages.
 
-Sources read: `source/week-64/student/generate.py` (exact coordinates, gluing arrows, start dots, sector data) and the guide TeX files in `source/week-64/guide/`. I did not run or import the packet's `verify.py` files or rely on `student-checks.json`. Every diagram check reads the **delivered** PDFs. Checked October 10, 2026.
+Sources read: `source/week-64/student/generate.py` (since October 23 in `source/week-64/archive-before-problem-files-2026-10-23/`; exact coordinates, gluing arrows, start dots, sector data) and the guide TeX files in `source/week-64/guide/`. I did not run or import the packet's `verify.py` files or rely on `student-checks.json`. Every diagram check reads the **delivered** PDFs. Checked October 10, 2026.
 
 **Result: every answer, length, corner class, cone angle, trajectory, first return, development and proof in the packet and guide is correct, and every diagram encodes what its text says. I found 1 problem, a minor misworded hint in the guide (p. 3).**
 

@@ -1,5 +1,7 @@
 # Week 64 student packet source
 
+**October 23, 2026.** `generate.py` was replaced by the problem files (`../week.toml`, `../figures.py`, `../problems/`). `regenerate.py` writes `students.tex` from them, and `build.sh` runs it when the problem files are beside this folder. Where this README says `generate.py` below, read `regenerate.py`.
+
 Newly authored, unpiloted nine-page Grades 3–5 packet. Pages 7–9 carry readiness-dependent Grades 4–5 labels. The build produces `../students.pdf`.
 
 ## Build

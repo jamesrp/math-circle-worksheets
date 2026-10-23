@@ -1,5 +1,19 @@
 # Week 64: Straight paths on strange surfaces
 
+**Problem files, October 23, 2026.** The student packet is stored as [problem files](../problem-files/README.md) in this folder, in the canvas layout: `week.toml`, `figures.py` (the old `student/generate.py`'s page template and drawing code) and one file per problem in `problems/`. This is a shared-packet week with one band, `shared`; each page's first figure, `page_start(level)`, prints that page's grade range. `student/regenerate.py` writes `student/students.tex` from the problem files, and `build.py` and `student/build.sh` run it before compiling; edit the problem files, not `students.tex`. The conversion changed no wording or figure: the new `students.tex` differs from the old only by writing page 1's paragraph break as `\par`, and the packet rebuilds with the same pages, text and 100-dpi pixels as the print copy. The old generator, its `students.tex` and the October 5 source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md); `source-manifest.json` and `RECOVERY.md` describe the October 6 recovery package and still name `generate.py`.
+
+- **Student pages:** edit `problems/*.md` (figures and the page template in `figures.py`), then build and compare:
+
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-64 --out tmp/week-64-views --tex
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-64-views lowell-math-circle-year-2/week-64 week-64
+  ```
+
+  Its band slices and page menu in [band-views/week-64/](../../band-views/README.md) are built from `../band-views/indexes/week-64.toml` by `band_views.py build`; update the index when a page's grade range or problems change.
+- **Portable ZIP:** [../week-64-source.zip](../week-64-source.zip) holds this folder with the problem-file tools in `tools/`, written by `python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-64 --flat --zip week-64-source.zip --top week-64-source`.
+
+The rest of this README records the October 5 package; where it says `student/generate.py`, read `student/regenerate.py` and the problem files.
+
 A newly authored, unpiloted packet for Grades 3–5, with readiness-dependent Grades 4–5 continuations. It develops opposite-edge translation paths on a regular octagon, its exceptional corner point, and exact path experiments on a three-square L surface. These are two different flat metrics on genus-two surfaces. They are not a hyperbolic octagon tessellation.
 
 ## Printable outputs

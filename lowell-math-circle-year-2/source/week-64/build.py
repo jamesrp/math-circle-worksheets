@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """Build all Week64 PDFs without repository paths or network access."""
-import argparse,shutil,subprocess,tempfile
+import argparse,shutil,subprocess,sys,tempfile
 from pathlib import Path
 BASE=Path(__file__).resolve().parent
+# The student pages' source is the problem files (week.toml, figures.py, problems/) beside
+# this script; student/regenerate.py writes student/students.tex from them in place first.
+subprocess.run([sys.executable,str(BASE/'student'/'regenerate.py')],check=True,stdout=subprocess.DEVNULL)
 p=argparse.ArgumentParser();p.add_argument('--out',default='output');args=p.parse_args()
 out=Path(args.out).resolve();out.mkdir(parents=True,exist_ok=True)
 if not shutil.which('pdflatex'):raise SystemExit('Install TeX Live or MacTeX with TikZ before rebuilding.')
