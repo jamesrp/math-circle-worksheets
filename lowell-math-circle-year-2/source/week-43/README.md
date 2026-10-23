@@ -4,6 +4,8 @@
 
 **Card fixes, October 23, 2026.** Made in the problem files after the conversion: K–1 Problem 2 prints each first card in the first box of its rows instead of crossing it out (the review card's must), with the guide key to match; the K–1 rules no longer speak of chance; K–1 Problem 3 has larger records and no second mat; a guide typo is fixed. Only K–1 pages 2–3 and guide pages 3 and 6 changed. [editable/review/card-fixes-2026-10-23.md](editable/review/card-fixes-2026-10-23.md) lists what changed, what was deferred and how it was checked. The ZIP from the conversion is in [archive-before-card-fixes-2026-10-23/](archive-before-card-fixes-2026-10-23/README.md), and the replaced print PDFs are beside the current ones.
 
+**Card shoulds and kit, October 23, 2026.** The card's remaining shoulds followed that afternoon: spare answer rows (K–1 P1, P3, P4; Grades 2–3 and 4–5 P1), Grades 2–3 Problem 4 rewritten so children shuffle six times and judge the claim, the all-slots demonstration ending at C A B, method sentences moved to the guide's hints, and a print-and-cut card kit ([week-43-materials.pdf](../../week-43/week-43-materials.pdf), built by `editable/materials/build_materials.py`). Grades 2–3 page 2, Grades 4–5 page 4 and guide pages 3 and 6 are unchanged. [editable/review/card-shoulds-2026-10-23.md](editable/review/card-shoulds-2026-10-23.md) lists the changes and checks; the replaced ZIP is in [archive-before-card-shoulds-2026-10-23/](archive-before-card-shoulds-2026-10-23/README.md).
+
 - **Student pages:** edit `problems/*.md` (figures in `figures.py`), then build every view:
 
   ```sh

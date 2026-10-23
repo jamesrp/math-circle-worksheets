@@ -9,7 +9,7 @@ K–1 pages 2 and 3 and adult guide pages 3 and 6 changed. K–1 pages 1 and 4, 
 - **Should (fix 5), K–1 p. 3, Problem 3.** The second slot mat is gone; Problem 1's mat serves. The six records now have card boxes 2.07 × 2.2 cm (0.81 × 0.87 in), up from 1.03 × 1.4 cm and about the size of Problem 4's (2.13 × 2.2 cm). The tickets stay 1 cm, as on Problem 4.
 - **Could (fix 14, the typo), guide p. 6.** "The27-story" now reads "The 27-story".
 
-Deferred: shoulds 2 (the Grades 2–3 example before Problem 5), 3 (method sentences on the Grades 2–3 and 4–5 pages), 6 (spare answer rows), 7 (Grades 2–3 Problem 4) and 8 (a print-and-cut kit page), coulds 9–13, and the Sattolo naming in could 14.
+Deferred: shoulds 2 (the Grades 2–3 example before Problem 5), 3 (method sentences on the Grades 2–3 and 4–5 pages), 6 (spare answer rows), 7 (Grades 2–3 Problem 4) and 8 (a print-and-cut kit page), coulds 9–13, and the Sattolo naming in could 14. Later the same day shoulds 2, 3, 6, 7 and 8, coulds 10 and 11 (in part) and the Sattolo naming were made; see `card-shoulds-2026-10-23.md`.
 
 ## Verification
 

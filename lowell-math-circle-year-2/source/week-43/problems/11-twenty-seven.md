@@ -11,7 +11,7 @@ kernel = "27 equally likely stories cannot split equally among 6 rows, since 6 d
 There are 27 equally likely three-ticket stories. Could this rule give all six rows the same chance?
 
 ## prompt @3 [4-5]
-Can this rule give all six orders the same chance? Find an exact reason; a short run of random shuffles cannot settle the question.
+Can this rule give every order the same chance? Find an exact reason.
 
 ## figure [2-3]
 lines(23, 1)

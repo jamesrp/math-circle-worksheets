@@ -88,13 +88,15 @@ p3 = boxes(k1[2], 'Problem 3')
 assert not [r for r in p3 if r.width > 4 * CM], 'the slot mat is still printed under Problem 3'
 cards = [r for r in p3 if r.width > 1.5 * CM]
 tix = [r for r in p3 if r.width <= 1.5 * CM]
-assert len(cards) == 18 and len(tix) == 12, (len(cards), len(tix))
-p4 = [r for r in boxes(k1[3], 'Problem 4') if r.width > 1.5 * CM]
+# Six records, eight since the afternoon's should 6 added two spare ones (review/card-shoulds-2026-10-23.md).
+assert len(cards) == 24 and len(tix) == 16, (len(cards), len(tix))
+p5top = next(b[1] for b in k1[3].get_text('blocks') if b[4].startswith('Problem 5'))
+p4 = [r for r in boxes(k1[3], 'Problem 4') if r.width > 1.5 * CM and r.y1 < p5top]
 size3 = min(r.width for r in cards) / 72
-size4 = max(r.width for r in p4) / 72   # P4's card boxes (P5's printed rows are 0.79 in)
-assert size3 >= 0.8 and abs(size3 - size4) < 0.05 and min(r.height for r in cards) / 72 >= 0.85, (size3, size4)
-checks.append(f'K-1 p. 3: no second mat under Problem 3; six records of two tickets and three card boxes, '
-              f'card boxes {size3:.2f} in wide (P4: {size4:.2f} in; before, 0.41 in)')
+high3, high4 = min(r.height for r in cards) / 72, max(r.height for r in p4) / 72
+assert size3 >= 0.8 and high3 >= 0.85 and abs(high3 - high4) < 0.01, (size3, high3, high4)
+checks.append(f'K-1 p. 3: no second mat under Problem 3; eight records of two tickets and three card boxes, '
+              f'card boxes {size3:.2f} x {high3:.2f} in (before, 0.41 x 0.55 in), as tall as P4\'s')
 
 # 4. The key: the guide's source and the printed guide agree with the page and the enumeration.
 guide = json.loads((ROOT / 'facilitator-src' / 'guide.json').read_text())

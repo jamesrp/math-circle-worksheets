@@ -116,29 +116,29 @@ def swap_picture(b,y):
 @draw
 def k1_every_row(b):  # 00
  row(b,1,1.7,'ABC',6,2.2,True);mat(b,2,5)
- for i in range(6):row(b,(i%2)*9,13+(i//2)*3.3,w=7.8,h=2.5)
+ for i in range(8):row(b,(i%2)*9,12.5+(i//2)*2.75,w=7.8,h=2.3)  # two spare rows
 
 
 @draw
 def k1_first_card_rows(b):  # 02, K-1: each card fills the first box of its two rows
  w,h=7.8,2.5
  for i,c in enumerate('ABC'):
-  y=9+i*4.5
+  y=8+i*4.5
   for j in range(2):
    x=j*9;row(b,x,y,w=w,h=h)
    icon(b,x+.5*w/3,y+h*.43,c,min(.38,w/9));b.text(y+h*.72,c,x+.15,w/3-.2,9)
 
 
 @draw
-def chooser_answer_rows(b,h):  # 02, grades 2-3 (h=2.6) and 4-5 (h=2.5)
- for i in range(6):row(b,(i%2)*9,9+(i//2)*3.6,w=7.8,h=h)
- b.space(21,3)
+def chooser_answer_rows(b,h):  # 02, grades 2-3 (h=2.6) and 4-5 (h=2.5); two spare rows
+ for i in range(8):row(b,(i%2)*9,7.6+(i//2)*3.1,w=7.8,h=h)
+ b.space(20.8,3)
 
 
 @draw
-def k1_ticket_records(b):  # 04, K-1: P1's mat serves; card boxes about P4's size
- for i in range(6):
-  x=(i%2)*9.55;y=9.8+(i//2)*4
+def k1_ticket_records(b):  # 04, K-1: P1's mat serves; card boxes about P4's size; two spare records
+ for i in range(8):
+  x=(i%2)*9.55;y=9.8+(i//2)*3.4
   tickets(b,x,y+.6,['','']);row(b,x+2.45,y,w=6.2,h=2.2)
 
 
@@ -156,7 +156,7 @@ def answer_box(b,y,h):  # 04 and 11, grades 4-5
 @draw
 def bac_targets(b):  # 05, grades 2-3
  for i,word in enumerate(['ABC','ACB','BAC','BCA','CAB','CBA']):
-  x=(i%2)*9.2;y=3+(i//2)*4.9;row(b,x,y,word,6.4,2,True);b.box(x,y+2.4,2,1.5);b.box(x+2.5,y+2.4,2,1.5)
+  x=(i%2)*9.2;y=3+(i//2)*4.3;row(b,x,y,word,6.4,2,True);b.box(x,y+2.4,2,1.5);b.box(x+2.5,y+2.4,2,1.5)
 
 
 @draw
@@ -165,10 +165,10 @@ def start_row_and_lines(b,word,y,lines):  # 05 and 12, grades 4-5
 
 
 @draw
-def k1_missing_ticket_rows(b):  # 06
+def k1_missing_ticket_rows(b):  # 06; three rows per ticket, one spare
  for i,u in enumerate([1,2,3]):
   y=3+i*4.8;tickets(b,0,y,[v for v in [1,2,3] if v!=u])
-  for j in range(2):row(b,4+j*7,y,w=6.4,h=2.2)
+  for j in range(3):row(b,2.45+j*5.3,y,w=4.65,h=2.2)
 
 
 @draw
@@ -182,9 +182,15 @@ def lines(b,y,n):  # 08 and 11, grades 2-3
 
 
 @draw
-def three_swap_demo(b):  # 09, grades 2-3
+def six_shuffle_records(b):  # 08, grades 2-3: six final rows, then the answer
+ for i in range(6):row(b,(i%3)*6.3,18.1+(i//3)*2.5,w=5.4,h=2.0)
+ b.line(23.4)
+
+
+@draw
+def three_swap_demo(b):  # 09, grades 2-3; story (3,2,2) ends at C A B, not at A B C, the row (1,2,3) already makes
  swapdemo(b,3)
- row(b,0,5.2,'CBA',4.3,1.4,True);b.arrow(4.8,5.9,7,5.9,'3 with 1');row(b,7.5,5.2,'ABC',4.3,1.4,True)
+ row(b,0,5.2,'CBA',4.3,1.4,True);b.arrow(4.8,5.9,7,5.9,'3 with 2');row(b,7.5,5.2,'CAB',4.3,1.4,True)
 
 
 @draw

@@ -14,7 +14,7 @@ Start with A B C and choose tickets to make every row. Can any row be made by tw
 Start with A B C. Match each two-ticket story to the final row it makes. Does this give each row the same chance?
 
 ## prompt @7.3 [4-5]
-Does this two-swap rule give every order the same chance? Find all its choice stories and their final orders.
+Does this two-swap rule give every order the same chance?
 
 ## figure [K-1]
 k1_ticket_records()
@@ -23,7 +23,7 @@ k1_ticket_records()
 printed_stories()
 
 ## figure [4-5]
-answer_box(10, 4.5)
+answer_box(8.8, 5.7)
 
 ## key [K-1]
 Write a ticket story as (first ticket, second ticket), not as card names. The complete correspondence from ABC is:\par

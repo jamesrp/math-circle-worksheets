@@ -47,7 +47,7 @@ A direct chooser and left-to-right Fisher–Yates (slot 1 swaps with a ticket fr
 13. **could**, K–1 p. 4: P4 pictures the tickets left but asks about the missing one; P5 could print boxes to tick off stories tried.
 14. **could**, guide: name P5's rule as Sattolo's and point to Weeks 3, 23, 42, 44 and 63; "The27-story" (p. 6) needs a space.
 
-October 23, 2026: fixes 1, 4, 5 and the typo in 14 made in the problem files; see `source/week-43/editable/review/card-fixes-2026-10-23.md`.
+October 23, 2026: fixes 1, 4, 5 and the typo in 14 made in the problem files (see `source/week-43/editable/review/card-fixes-2026-10-23.md`), then fixes 2, 3, 6, 7, 8 (card kit), 10, 11's example line and 14's Sattolo naming (see `card-shoulds-2026-10-23.md` beside it).
 
 ## Overlaps
 

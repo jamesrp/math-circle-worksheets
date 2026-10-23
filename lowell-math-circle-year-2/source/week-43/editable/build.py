@@ -26,3 +26,6 @@ builder='build.py' if (guide/'build.py').exists() else 'build_guide.py'
 subprocess.run([sys.executable,builder],cwd=guide,env=env,check=True)
 
 subprocess.run([sys.executable, str(ROOT/'facilitator-src/add_route_note.py')], cwd=ROOT, env=env, check=True)
+# Card kit (cards A-E, tickets 1-5, three-slot strip), October 23, 2026; the verifier measures it from the PDF.
+subprocess.run([sys.executable, str(ROOT/'materials/build_materials.py')], cwd=ROOT, env=env, check=True)
+subprocess.run([sys.executable, str(ROOT/'materials/verify_materials.py'), str(ROOT/'materials.pdf')], cwd=ROOT, env=env, check=True)

@@ -17,3 +17,6 @@ For ABCD, swap slot 1 with a uniform ticket from \{1,2,3,4\}; swap slot 2 with a
 
 ## key
 A target order uniquely specifies the ticket at each step: locate the target first card, swap it into slot 1, then locate the target second card in the suffix, then the third. Later steps cannot disturb a settled slot. Consequently each of the 24 orders has exactly one story, of probability 1/24.
+
+## key
+Other designs pass too. Keeping the swaps of slot 1, then 2, then 3, exactly six choices of ticket sets give one story per order, one for each order of the set sizes 4, 3, 2; for example \{1,4\}, \{1,2,4\}, \{1,2,3,4\}.

@@ -7,14 +7,14 @@ page = "same"
 kernel = "Each order has exactly one first-two draw story, of probability (1/3)(1/2) = 1/6, so the chooser is fair."
 +++
 
-## prompt @6 [K-1]
+## prompt @5 [K-1]
 Each row starts with the card drawn first. Find every row that can still happen. Could two different first-two draws make the same row?
 
-## prompt @6 [2-3]
-Find every possible final row. Could the chooser give any row more chance than another? Use the possible choices to decide.
+## prompt @5 [2-3]
+Find every possible final row. Could the chooser give any row more chance than another?
 
-## prompt @6 [4-5]
-Does this chooser give every order of A, B, C the same chance? Settle the question using every possible choice story.
+## prompt @5 [4-5]
+Does this chooser give every order of A, B, C the same chance?
 
 ## figure [K-1]
 k1_first_card_rows()

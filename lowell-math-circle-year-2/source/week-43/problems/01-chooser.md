@@ -14,6 +14,3 @@ Mix the three picture cards in a cup. Each card has the same chance. Draw the fi
 
 ## figure
 chooser_picture(0)
-
-## text @4.5 size=12
-Example: choose triangle, then square; circle is left.
