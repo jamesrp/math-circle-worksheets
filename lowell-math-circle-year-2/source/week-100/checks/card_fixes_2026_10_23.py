@@ -156,12 +156,12 @@ except ImportError:
     import fitz
 sp = ' '.join(' '.join(p.get_text().split()) for p in fitz.open(folder / 'week-100-grades-3-5.pdf'))
 gp = ' '.join(' '.join(p.get_text().split()) for p in fitz.open(folder / 'week-100-facilitator.pdf'))
-for q in ['Draw your world. Could loops around different sets of cards fit the same ten clues?',
+for q in ['Draw your world. Could a world with different groups fit the same ten clues?',  # 'loops around different sets of cards' until the critic follow-up (v3)
           'Change exactly one of these ten clues, with A–C = 2, to a different value chosen from 2, 4, 8',
           'Then the builder shows the secret world: if any distance in the drawing is different, the round is lost.']:
     check(q in sp, f'student packet: "{q[:60]}..."')
 check('two different-looking' not in sp, 'student packet: the old P4 question is gone')
-check(sp.count('W100-G35-v2') == 8 and 'v1' not in sp, 'student packet: eight W100-G35-v2 footers')
+check(sp.count('W100-G35-v3') == 8 and 'v1' not in sp, 'student packet: eight W100-G35-v3 footers (v2 until the critic follow-up)')
 check(gp.count('W100-FAC-v2') == 5 and 'FAC-v1' not in gp, 'guide: five W100-FAC-v2 footers')
 check('on page 1' not in gp and gp.count('in the mathematical overview') == 2, 'guide: both proofs point to the mathematical overview')
 for q in ['K–1 route, adult-led', 'First route: Problems 1–4; return visits: Problems 5–10.',

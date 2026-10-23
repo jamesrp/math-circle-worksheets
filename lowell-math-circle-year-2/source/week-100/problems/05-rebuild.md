@@ -11,7 +11,7 @@ kernel = "Complete consistent distances determine the groups and their labels."
 % Page 4: complete five-card data on movable clue cards.
 
 ## prompt
-Use cards A through E to make a world that fits all ten clue cards. Use labels 2, 4, 8. Your partner checks each clue against the loops. Draw your world. Could loops around different sets of cards fit the same ten clues?
+Use cards A through E to make a world that fits all ten clue cards. Use labels 2, 4, 8. Your partner checks each clue against the loops. Draw your world. Could a world with different groups fit the same ten clues?
 
 ## text
 \draw[black!25,rounded corners=2mm] (0,29) rectangle (121,120);

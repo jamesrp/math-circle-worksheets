@@ -48,6 +48,8 @@ Cards sit in nested loops whose labels grow outward, and two cards' distance is 
 
 Fixed October 23, 2026: shoulds 1–3 and coulds 4, 5, 9, 11, in the problem files and guide (W100-G35-v2, W100-FAC-v2); coulds 6, 7, 8, 10 deferred.
 
+**Critic follow-up, October 23, 2026 (W100-G35-v3):** Problem 4's last question now reads "Could a world with different groups fit the same ten clues?", using the rules' word "group" for fix 1's "loops around different sets of cards". The guide's answer is unchanged. Check: `checks/week-100/check_critic_fixes.py`.
+
 ## Overlaps
 
 Weeks 67 and 69 use road length on trees, an ordinary metric that breaks this rule (1, 1, 2). Week 6's yes/no tree on 0–7 is P8's parity loops. Week 19 nests sets, with no distance. No merge.
