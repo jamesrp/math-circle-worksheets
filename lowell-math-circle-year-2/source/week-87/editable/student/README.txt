@@ -15,9 +15,11 @@ Routes override the generic three-grade-band workflow filenames.
 shared: grades 2–5 readiness; card ranking and one-token-per-voter counts.
 line: grades 3–5 readiness; unit distances on a common line, five voter identities,
 ties, repetition. This is a separate visit; begin with its complete first-page example.
-upper: return work after shared and line conventions are familiar. The second
-page explicitly demonstrates conversion from distances to a strict ranking.
-There is deliberately no independent K–1 packet. Adults may read or record.
+upper: Problem 1 continues the card visit after shared Problem 2 (October 23,
+2026); Problem 2 is return work after the line conventions are familiar. The
+second page explicitly demonstrates conversion from distances to a strict ranking.
+There is deliberately no independent K–1 packet; the guide has an adult-led
+K–1 route. Adults may read or record.
 
 Materials are per pair: three fixed cards, six blank cards, 36 small letter slips
 (18 per blank-card page), six option tiles, five vote tokens, five favorite
@@ -32,7 +34,7 @@ tally mat 170x90 mm and wells 54x54 mm; each well has five 18 mm targets
 in a quincunx; separate 30x30 mm label slots fit 28 mm option tiles or
 23 mm X/Y labels with clearance; 2 mm minimum boundary clearance and 4.627 mm minimum
 inter-token clearance;
-knockout mat 175x100 mm. Digital geometry checked, physical cutting, fit,
+knockout mat 175x100 mm, whose boxes are at least 5 mm wider than the tiles they hold. Digital geometry checked, physical cutting, fit,
 procedure rehearsal, timing and classroom use remain untested.
 
 Mathematical basis: Week 87 outline and reviewed planning record

@@ -17,7 +17,7 @@ t(18, 49, 'Fixed locations', 65, 9) + numberline(23, 72, 52, [1], [('D', 0), ('E
 Could these three cards come from distance choices on one line? Put A, B and C at different places and choose a favorite for each voter, or explain why it cannot be done.
 
 ## figure
-cards(29, 142, ['ABC', 'BCA', 'CAB'], 43, 44, 9) + line(23, 210, 193, 210) + t(18, 194, 'Favorite markers above; letter tiles below', 180, 10) + space(225, 26)
+cards(29, 142, ['ABC', 'BCA', 'CAB'], 43, 44, 9) + numberline(23, 210, 170) + space(225, 26)
 
 ## key
 No. Put the three distinct candidate locations in order $\ell<m<r$. For any voter favorite p at or left of m, the rightmost candidate r is strictly farther away than m. For any p at or right of m, the leftmost candidate $\ell$ is strictly farther away than m. At least one extreme is therefore farther from p than the middle candidate; m cannot be that voter's strict worst choice. This holds for arbitrary real positions and favorites, including favorites outside the candidate interval.

@@ -23,7 +23,7 @@ def main():
  assert vote(['DFE','EFD','FED'],'D','E')=='E'
  assert vote(['DFE','EFD','FED'],'E','F')=='F'
  assert distance_votes([0,1,5,8,10],2,8)==(2,2,1)
- for fs in [[0,0,0,8,10],[1,4,4,4,9],[0,1,6,9,10]]:
+ for fs in [[0,0,0,8,10],[1,4,4,4,9],[9,1,10,6,0]]:
   m=sorted(fs)[2]
   assert all(distance_votes(fs,m,q)[0]>=3 for q in range(11) if q!=m)
  for q in range(11):

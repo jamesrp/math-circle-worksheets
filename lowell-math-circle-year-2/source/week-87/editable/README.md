@@ -2,6 +2,8 @@
 
 Prepared shared Grades 2–5, line Grades 3–5, and upper Grades 4–5 investigations: 3+4+2 student pages, 5 materials pages, and a 6-page theorem-first facilitator guide. No independent K–1 packet. Unpiloted; cutting, physical token fit, reset handling and timing remain untested. This is a library entry with several possible visits, not an adopted date.
 
+Revised October 23, 2026 from the review card (plans/review/week-87.md in the repository): equal favorite stems on the line pages with one set numbered out of order, line Problem 3 asks how to tell the winner without trying every vote, upper Problem 1 named as the agenda visit's continuation, a K–1 route and a corrected shared Problem 3 key in the guide, small wording trims, a numbered work line on upper p. 2 and roomier Out and Winner boxes on the knockout mat. `review/check_card_fixes_2026_10_23.py` (claims) and `review/check_pdf.py [FOLDER]` (read from the PDFs) check them.
+
 ## Print and routes
 
 Print US Letter, single-sided at Actual Size. Shared explores fixed imaginary rankings and agenda choice. Line begins a separate nearest-location visit, including repeated favorites, the odd-voter explanation and an even-voter limit. Upper offers pair-vote explanations and an impossibility question about the common-line model. Problems restart numbering within each packet; the guide identifies each packet. Read its prerequisites, preparation, concrete launches, first routes, return choices and full arguments. Finishing every page is not the goal.

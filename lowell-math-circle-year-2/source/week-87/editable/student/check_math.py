@@ -19,7 +19,7 @@ assert [vote(['ABC','BCA','CAB'],*p) for p in ['AB','BC','CA']]==list('ABC')
 assert agendas(['ABC','BCA','CAB'])==dict(zip('ABC','ABC'))
 assert set(agendas(['ABC','ACB','BAC']).values())=={'A'}
 assert len(set(agendas(['ACB','CBA','BAC']).values()))==3
-for fs,m in [([0,2,4,7,10],4),([0,0,0,8,10],0),([1,4,4,4,9],4),([0,1,6,9,10],6)]:assert winners(fs,True)==[m]
+for fs,m in [([0,2,4,7,10],4),([0,0,0,8,10],0),([1,4,4,4,9],4),([9,1,10,6,0],6)]:assert winners(fs,True)==[m]
 assert count([0,2,4,7,10],4,0)==(3,1,1)
 assert count([0,2,4,7,10],4,8)==(3,2,0)
 assert count([0,1,5,8,10],2,8)==(2,2,1)

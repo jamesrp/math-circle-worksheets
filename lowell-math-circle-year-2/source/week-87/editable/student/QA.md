@@ -11,3 +11,7 @@ Rendered and visually inspected all 14 final pages individually: shared 1–3, l
 Portable source ZIP contains only owned Python/README/QA sources and four matching reference PDFs. Clean extraction and rebuild produce byte-identical copies of all four final PDFs. See revision-audit/rebuild.json for hashes and counts and geometry.json for measurements. These stage evidence paths are outside the portable package; the package is independently rebuildable.
 
 Physical cutting, placement, classroom procedure, timing and piloting remain untested. No facilitator guide was authored in this stage.
+
+## Card fixes, October 23, 2026
+
+Student pages changed from the review card: shared pp. 2–3; line pp. 1–4; upper pp. 1–2; materials p. 4 (wording, number-line stems, the third set's voter order, upper p. 2's work line and the knockout mat's Out and Winner boxes). Each changed page was rendered at 80 dpi and inspected; shared p. 1 and materials pp. 1–3 and 5 are pixel-identical to the previous build. `../review/check_pdf.py` reads every number line from the new PDFs: all favorite stems are 4 mm, labels stack 7 mm apart only where favorites coincide, and each voter's favorite matches the checked data. It also measures the knockout boxes: each is at least 5 mm wider and 11 mm taller than the 28 mm tiles it holds, inside the unchanged 175 × 100 mm mat. `../review/check_card_fixes_2026_10_23.py` checks the guide's new claims. Cutting, fit and use remain physically unrehearsed.

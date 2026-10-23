@@ -46,6 +46,8 @@ The rankings ABC, BCA, CAB give a majority cycle, so the letter that waits alway
 12. **could**, line p. 1: "Keep X/Y proposals on the board; use the separate X/Y tally labels" belongs in the launch.
 13. **could**, materials pp. 2–3: replace the 36 slips per kit with pencil on the blank cards.
 
+Fixed October 23, 2026: shoulds 1–5 and coulds 6–12 in the problem files, materials and guide (line P3 asks "How can you tell which location beats every other location without trying every vote?"; the knockout mat's Out box holds the two losers side by side); could 13 deferred; see source/week-87/README.md.
+
 ## Overlaps
 
 Week 24's decks make a chance "beats" cycle, with no agenda. Week 27 uses ranking cards for stable pairs. Week 15's bisector is what a line voter computes. Week 67's middle-value dot minimizes path length. No other theme has voting. No merge.

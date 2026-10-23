@@ -18,7 +18,7 @@ Give only a few selected pages at a time. Familiar examples may be skipped after
 
 **Band views.** Weeks 52–84, 88–93 and 97 print one shared packet with the grade range on each page. [band-views/](band-views/README.md) gives each band only its pages (for example, Week 62's Grades 2–3 pages are 3 of 9) and each week a one-page menu of its pages, without changing the packets.
 
-The [seven reserved investigations, Weeks 85–91](WEEKS-85-91.md), now have complete reviewed student pages, theorem-first guides, materials and portable sources: pantographs, pursuit, voting, packing, discrete calculus, sliding number arrays and rotor routers. The index gives exact print links, readiness routes, changes from the plans and verification evidence; Week 86's October 23 card revision is recorded there. All remain unpiloted and physically unrehearsed.
+The [seven reserved investigations, Weeks 85–91](WEEKS-85-91.md), now have complete reviewed student pages, theorem-first guides, materials and portable sources: pantographs, pursuit, voting, packing, discrete calculus, sliding number arrays and rotor routers. The index gives exact print links, readiness routes, changes from the plans and verification evidence; the October 23 card revisions of Weeks 86 and 87 are recorded there. All remain unpiloted and physically unrehearsed.
 
 The [six connected investigations, Weeks 92–97](WEEKS-92-97.md), add analysis/dynamics, inference and multiplicative number theory. The index links every selected-band student packet, theorem-first guide and portable source package, with prerequisite routes and connections to existing work. All remain unpiloted; physical rehearsal is untested.
 

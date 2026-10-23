@@ -1,5 +1,6 @@
-"""Week 87 figures, canvas page template and materials pages, carried over unchanged from
-the old builder (archive-before-problem-files-2026-10-23/build.py).
+"""Week 87 figures, canvas page template and materials pages, carried over from the old
+builder (archive-before-problem-files-2026-10-23/build.py). The October 23, 2026 card fixes
+changed two drawings: number-line stems (numberline) and the knockout mat's Out and Winner boxes.
 
 Coordinates are millimetres from the top-left corner of the paper, y down: each page is
 one TikZ overlay that draws its own header, rules, footer and page number. Problem files
@@ -63,9 +64,14 @@ def numberline(x, y, span=160, favs=None, proposals=None, small=False):
         xx = x+span*i/10
         out += line(xx, y-1.5, xx, y+1.5)+t(xx-2, y+3, str(i), 6, 7 if small else 9)
     if favs:
+        # Every favorite has the same 4 mm stem and its label 6 mm above it; voters who share a
+        # favorite stack their labels 7 mm apart over that one stem. (Until October 23, 2026 the
+        # stem height followed the voter number, so V3, the middle favorite, always stood tallest.)
+        stacked = {}
         for i, f in enumerate(favs):
-            yy = y-8-(i % 3)*7
-            out += line(x+span*f/10, yy+2, x+span*f/10, y-2)+t(x+span*f/10-4, yy-4, 'V'+str(i+1), 10, 7 if small else 9)
+            k = stacked[f] = stacked.get(f, -1)+1
+            xx = x+span*f/10
+            out += (line(xx, y-6, xx, y-2) if k == 0 else '')+t(xx-4, y-12-7*k, 'V'+str(i+1), 10, 7 if small else 9)
     if proposals:
         for lab, f in proposals:
             xx = x+span*f/10
@@ -166,8 +172,10 @@ def materials_tex(week=87, topic='Voting and agendas', level='Materials', ident=
         for dx, dy in [(11, 11), (43, 11), (27, 27), (11, 43), (43, 43)]:
             s += circle(xx+dx, 77+dy, 9, '', 8)
     s += box(20, 147, 175, 100)
-    s += box(25, 154, 61, 39, 'First pair', 9)+box(92, 154, 33, 39, 'Waiting', 9)+box(162, 154, 29, 85, 'Out', 9)
-    s += box(25, 200, 33, 39, 'First winner', 9)+box(63, 200, 61, 39, 'Final pair', 9)+box(129, 200, 29, 39, 'Winner', 9)
+    # Every box holds the 28 mm tiles it needs with at least 2.5 mm to spare on each side; Out
+    # holds the two losers side by side (it was a 29 mm column until October 23, 2026).
+    s += box(25, 154, 61, 39, 'First pair', 9)+box(92, 154, 33, 39, 'Waiting', 9)+box(130, 154, 61, 39, 'Out', 9)
+    s += box(25, 200, 33, 39, 'First winner', 9)+box(63, 200, 61, 39, 'Final pair', 9)+box(129, 200, 34, 39, 'Winner', 9)
     page(s)
     s = t(18, 29, 'Keep the board whole. Favorite markers stay on their own lanes; proposal markers go below the line.', size=11)
     # Board: five lanes precisely aligned to the 16mm tick spacing.
