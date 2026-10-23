@@ -19,4 +19,4 @@ tree(60,79,2,1)+strip(15,135,8,15)
 What can you change in the starting arrows while keeping D first? Find every arrival order.
 
 ## figure
-tree(60,184,2,1)+strip(15,240,8,15)
+tree(30.5,184,2,1)+strip(15,240,8,11)+tree(126.5,184,2,1)+strip(111,240,8,11,'Extra workspace: arrival order')

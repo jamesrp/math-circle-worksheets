@@ -127,7 +127,9 @@ want = {'students': ['Grades 2–5'] * 3 + ['Grades 4–5'] * 2 + ['Grades 2–5
 stu = [flat(p.get_text()) for p in docs['students']]
 for i, (t, g) in enumerate(zip(stu, want['students'])):
     check(t.startswith(f'Week 91 / Rotor-router machines / {g}'), f'students p{i + 1} header {g}')
-for k, f in [('students', 'F91-S-v1'), ('return-visit', 'F91-RV-v1'), ('materials', 'F91-M-v1'), ('facilitator', 'F91-FAC-v2')]:
+# Later on October 23 the small coulds 7 and 8 moved the students packet to F91-S-v2 (an extra
+# Problem 2 board) and the guide to F91-FAC-v3 (preparation time, a counter source).
+for k, f in [('students', 'F91-S-v2'), ('return-visit', 'F91-RV-v1'), ('materials', 'F91-M-v1'), ('facilitator', 'F91-FAC-v3')]:
     d = docs[k]
     check(all(f'Bellingham Math Circle / Week 91 / {f} {i + 1}' in flat(p.get_text()) for i, p in enumerate(d)),
           f'{k}: footer {f} on all {d.page_count} pages')
@@ -149,6 +151,16 @@ for (t, yc, top, right), ry in zip(labels, roots):
 leaf_rows = [r + 47.25 for r in roots]
 for (t, yc, top, right), prev in zip(labels[1:], leaf_rows):
     check(top - (prev + 3) > 8, f'Problem 4: "{t}" starts {top - prev - 3:.1f} mm below the leaves of the tree above')
+
+print('== Problem 2 extra workspace (could 7, later on October 23) ==')
+check('Extra workspace: arrival order' in stu[1], 'Problem 2: a second board under "Find every arrival order", marked extra workspace')
+cells = [r for r in (dr['rect'] for dr in docs['students'][1].get_drawings()) if abs(r.width / MM - 11) < 0.3 and abs(r.height / MM - 11) < 0.3]
+check(len(cells) == 16, f'Problem 2: two arrival strips of 8 cells (11 mm) side by side under the question ({len(cells)} cells)')
+
+print('== Guide preparation (could 8, later on October 23) ==')
+gg = ' '.join(' '.join(p.get_text().split()) for p in docs['facilitator'])
+check('1 cm base-ten unit cubes' in gg and 'Allow about an hour to print, cut, fold and glue all three kits' in gg and 'not yet timed' in gg,
+      'guide p. 2: an example counter source and an estimated (untimed) preparation time')
 
 print('== Problem 5 ==')
 check('Problem 5: How many different arrival orders can the eight-exit tree make? Explain why.' in stu[4],
@@ -179,7 +191,7 @@ print('== Unchanged pages ==')
 if not args.before.is_dir():
     print(f'SKIP no previous PDFs at {args.before}')
 else:
-    norm = lambda t: re.sub(r'(students|return-visit|materials)-v1|F91-(S|RV|M)-v1', 'FOOTER', re.sub(r'Grades [2-5]–[2-5]', 'GRADES', t))
+    norm = lambda t: re.sub(r'(students|return-visit|materials)-v1|F91-(S|RV|M)-v[12]', 'FOOTER', re.sub(r'Grades [2-5]–[2-5]', 'GRADES', t)).replace(' A B C D Extra workspace: arrival order', '')
     same = {'students': [1, 2, 3, 4, 6], 'return-visit': [1, 2, 3, 4], 'materials': [1, 2, 3, 4, 5, 6, 7]}
     for k, pages in same.items():
         old = fitz.open(args.before / f'week-91-{k}.pdf')
@@ -189,8 +201,8 @@ else:
             ta, tb = norm(flat(a.get_text())), norm(flat(b.get_text()))
             check(ta == tb, f'{k} p{n}: text unchanged apart from header grades and footer')
             clip = fitz.Rect(0, 22 * MM, a.rect.width, a.rect.height - 22 * MM)
-            if k == 'students' and n == 4:
-                continue  # labels moved on purpose
+            if k == 'students' and n in (2, 4):
+                continue  # p4 labels moved on purpose; p2 gained an extra board later on October 23
             pa = a.get_pixmap(dpi=100, clip=clip, colorspace=fitz.csGRAY).samples
             pb = b.get_pixmap(dpi=100, clip=clip, colorspace=fitz.csGRAY).samples
             diff = sum(abs(x - y) > 64 for x, y in zip(pa, pb)) if len(pa) == len(pb) else -1

@@ -54,6 +54,8 @@ A card shows the next exit and flips after each departure. So at one switch, any
 
 October 23, 2026: fixes 1–6 and 9–11 made in the problem files and the guide; coulds 7 and 8 deferred; see `source/week-91/editable/review/card-fixes-2026-10-23.md`.
 
+October 23, 2026, later the same day: coulds 7 and 8 made. Problem 2's second question has two boards side by side, the second marked "Extra workspace: arrival order" (F91-S-v2; the other pages changed only in their footers). The guide's kit section gives 1 cm base-ten unit cubes as an example counter and about an hour to prepare three kits, marked as an estimate not yet timed (F91-FAC-v3). Band views rebuilt. Unpiloted.
+
 ## Overlaps
 
 Week 11's chip firing sends a chip along every edge, with order independence; here one chip follows one remembered edge, with block balance. On a path, Week 20's averaging values are the s/m that return P5 delivers exactly. Week 42 contrasts with P7. No merge; cross-reference all three.
