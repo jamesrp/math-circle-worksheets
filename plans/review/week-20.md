@@ -42,6 +42,8 @@ Squares hold fixed values, and each circle must equal the average of its neighbo
 8. **could**, guide p. 3: "eight edge strips" and "a seventh place on the largest board" fit no task, and nothing says how the K–1 P4 cards are made.
 9. **could**, the guide's footers count 25 pages, and p. 26 has a different header.
 
+October 23, 2026: shoulds 1–5 and coulds 6–9 done in the new problem files and guide (K–1 v4, Grades 2–3 v3, Grades 4–5 v4). K–1 Problem 7 got 9 and 8 boards for its 6 and 6 fillings; the quarter cards are 1/4 and 3/4. See `source/week-20/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 Week 47 (gentle-step landscapes) also fills free places between fixed clues and bounds them by extremes, under a step rule instead of averaging; it might share a height board in the app. Week 11 (chip firing) uses anchored graphs for a different theorem. No merge.

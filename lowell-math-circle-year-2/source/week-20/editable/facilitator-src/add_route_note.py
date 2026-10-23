@@ -26,11 +26,22 @@ styles={
 story=[Paragraph('Starting routes and return visits',styles['title']),Paragraph('Planning update of 4 October 2026. The timing menus are examples; a theme can continue over several meetings. Keep the full Grades 4-5 investigations and choose by readiness.',styles['small'])]
 for heading,body in cfg['notes']:
  story.extend([Paragraph(escape(heading),styles['head']),Paragraph(escape(body),styles['body'])])
+# October 23, 2026: the appended page carries the guide's own header and footer
+# (build_guide.py's CountCanvas.footer), with the same page count.
+import reportlab
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.lib.colors import HexColor
+import os
+FONT_DIR=Path(os.environ.get('MATH_CIRCLE_FONT_DIR', HERE/'fonts'))
+if not FONT_DIR.is_dir(): FONT_DIR=Path(reportlab.__file__).resolve().parent/'fonts'
+pdfmetrics.registerFont(TTFont('Vera',str(FONT_DIR/'Vera.ttf')))
 def decorate(c,doc):
- c.saveState();c.setFont('Helvetica',8)
- c.drawString(45,762,f"Week {cfg['week']} / {cfg['title']} / Adult guide")
- c.drawString(45,28,f"Bellingham Math Circle / Week {cfg['week']} / Route update / Unpiloted")
- c.drawRightString(567,28,str(len(reader.pages)+doc.page));c.restoreState()
+ c.saveState();c.setFont('Vera',8);c.setFillColor(HexColor('#555555'))
+ total=len(reader.pages)+doc.page
+ c.drawString(48,792-29,'Bellingham Math Circle / Averaging / Adult guide')
+ c.drawString(48,25,'Week 20 library slot / Draft and unpiloted / route update')
+ c.drawRightString(612-48,25,f'{total} / {total}');c.restoreState()
 SimpleDocTemplate(stream,pagesize=(612,792),leftMargin=45,rightMargin=45,topMargin=55,bottomMargin=48,title=f"Week {cfg['week']} route update").build(story,onFirstPage=decorate,onLaterPages=decorate)
 stream.seek(0);note=PdfReader(stream)
 assert len(note.pages)==1,('Route note must remain concise: one page',cfg['week'])

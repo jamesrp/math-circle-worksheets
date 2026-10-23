@@ -3,7 +3,7 @@ id = "w20.k1-linked-circles"
 title = "Two circles in a row"
 grades = ["K-1"]
 route = "return"
-kernel = "Both circles must work on one unchanged board, which forces equal steps: (1,2), (2,1), (2,4) and (4,2)."
+kernel = "After the one-circle and inverse pages: both circles must work on one unchanged board, which forces equal steps: (1,2), (2,1), (2,4) and (4,2)."
 +++
 
 ## prompt @7.30

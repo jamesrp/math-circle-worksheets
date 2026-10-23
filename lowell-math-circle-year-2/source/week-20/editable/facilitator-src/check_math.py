@@ -36,10 +36,10 @@ for key,g in G.items():
 star=[v for v in product(range(4),repeat=3) if sum(v)==6]
 assert len(star)==10
 assert set(star)==set(permutations((0,3,3)))|set(permutations((1,2,3)))|{(2,2,2)}
-lines.append('K3 exact positional list: '+str(star))
+lines.append('K2 exact positional list: '+str(star))
 triples=[v for v in permutations(range(5),3) if v[0]+v[2]==2*v[1]]
 assert len(triples)==8
-lines.append('K4 exact positional list: '+str(triples))
+lines.append('K3 exact positional list: '+str(triples))
 tri=[(0,1),(1,2),(2,0)];cycle=[(0,1),(1,2),(2,3),(3,0)]
 for label,n,e,m,c in [('K7 triangle',3,tri,5,6),('K7 path',4,[(0,1),(1,2),(2,3)],5,6),('M6 cycle',4,cycle,5,6),('M6 path',3,[(0,1),(1,2)],5,6),('O6 upper',3,tri,4,5),('O6 lower',4,[(0,1),(2,3)],4,25)]:
     ways=enum(n,e,m);assert len(ways)==c
@@ -51,6 +51,6 @@ for key in ['M1.1','M1.2','M1.3','M1.4']:
         assert solve(g2)['u']==old+2
 assert len([v for v in product(range(4),repeat=3) if sum(v)==3])==10
 assert len([v for v in product(range(5),repeat=3) if v[0]+v[2]==2*v[1]])==13
-lines.append('PASS: K3 and K4 numerical extensions independently enumerated.')
+lines.append('PASS: K2 and K3 numerical extensions independently enumerated.')
 lines.append(f'PASS: {count} fixed-value solution diagrams; 10 single-square changes; all 8 bounded enumeration tasks. Exact Fraction arithmetic; no floating-point tolerance.')
 out='\n'.join(lines)+'\n';Path(__file__).with_name('check-results.txt').write_text(out);print(out)

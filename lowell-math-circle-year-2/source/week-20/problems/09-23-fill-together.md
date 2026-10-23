@@ -10,4 +10,4 @@ kernel = "Several circles must work on one unchanged board; paths take equal ste
 Fill every circle so that all circles on a board work at once.
 
 ## figure
-numeric_chain_example(9.18,9.86) + path(6.80,(0,9)) + path(5.55,(2,11)) + path(4.30,(3,3)) + tree(3.65,1.98,(0,6,8))
+numeric_chain_example(9.18,9.86,divide=r'\div ') + path(6.80,(0,9)) + path(5.55,(2,11)) + path(4.30,(3,3)) + tree(3.65,1.98,(0,6,8))

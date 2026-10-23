@@ -1,6 +1,10 @@
 # Averaging and the maximum principle: Week 20 editable release
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 23, 2026 review-card fixes
+
+Packets K–1 v4, Grades 2–3 v3 and Grades 4–5 v4, with the guide to match: see `review/card-fixes-2026-10-23.md`, checked by `review/check_card_fixes.py` (run by `build.sh`).
+
+## Earlier release: October 4, 2026 fresh-review revision
 
 The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
 

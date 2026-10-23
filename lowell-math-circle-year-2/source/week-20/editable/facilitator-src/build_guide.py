@@ -60,11 +60,15 @@ class GraphGrid(Flowable):
    # Figure captions are short and centered; wrap long single-panel caption.
    caption=g['title'];c.drawCentredString(x0+pw/2,y0+self.panel-13,caption)
 
+ROUTE_NOTE_PAGES=1
 class CountCanvas(canvas.Canvas):
  def __init__(self,*a,**kw):canvas.Canvas.__init__(self,*a,**kw);self.saved=[]
  def showPage(self):self.saved.append(dict(self.__dict__));self._startPage()
  def save(self):
   n=len(self.saved)
+  # October 23, 2026: count the route-note page that add_route_note.py appends, so the
+  # footers read N / 26 like the appended page.
+  n+=ROUTE_NOTE_PAGES
   for s in self.saved:
    self.__dict__.update(s);self.footer(n);canvas.Canvas.showPage(self)
   canvas.Canvas.save(self)

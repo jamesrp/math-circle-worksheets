@@ -6,6 +6,9 @@ corner, Latin Modern, and each page an overlay on the whole sheet that draws its
 header, rule, footer and page number. Every item ends with a newline, so a page's LaTeX
 is the old builder's line for line. The figure functions return the LaTeX of the old
 builder's graph(), path(), star(), tree(), diamond() and worked-example calls.
+The v4 changes of October 23, 2026 (review card) are marked "v4": captions that repeated
+the rules are gone, the K-1 recording pages have spare boards, Grades 2-3 checks with a
+division sign, and the Grades 4-5 fraction cards include two quarters that fit no board.
 
 The old builder solved every board with fixed values (sympy) as it drew it. Here graph()
 records each such board in CHECKS, and editable/src/answer_checks.py solves them exactly
@@ -121,7 +124,7 @@ def k1_sharing_example():
     s += _example_mat(4.49, 7.75, 3, width=.70, height=.60)
     s += _example_mat(5.46, 7.75, 3, width=.70, height=.60)
     s.append(_txt(4.27, 7.34, '3 each', 10.5, width=1.8))
-    s.append(_txt(.64, 6.99, 'Both square stacks stay. Use two mats, even for 0.', 11))
+    # v4: the caption "Both square stacks stay. Use two mats, even for 0." repeated the rules; cut.
     return _out(s)
 
 
@@ -141,22 +144,23 @@ def k1_chain_example():
         s += _example_mat(left + 1.97, 8.17, pile)
         s += _example_mat(left + 2.66, 8.17, pile)
         s.append(_txt(left + 1.75, 7.83, str(pile) + ' each', 10.5, width=1.55))
-    s.append(_txt(.64, 7.62, 'Check both circles on the same board. Keep all four stacks.', 10.5, width=7.18))
+    # v4: the caption "Check both circles on the same board. Keep all four stacks." repeated the rules; cut.
     return _out(s)
 
 
-def numeric_chain_example(y, heading_y):
-    """Grades 2-3 and 4-5: the board 2, 3, 4, 5 with both circle checks."""
+def numeric_chain_example(y, heading_y, divide='/'):
+    """Grades 2-3 and 4-5: the board 2, 3, 4, 5 with both circle checks.
+    v4: Grades 2-3 passes a division sign (TeX's div) in place of the slash."""
     s = [_txt(.64, heading_y, 'Example: both circles work.', 12.5)]
     for i, (value, fixed) in enumerate([(2, True), (3, False), (4, False), (5, True)]):
         shape = 'rectangle' if fixed else 'circle'
         s.append(r'\node[draw,fill=white,' + shape + r',minimum size=.60in,line width=.8pt,inner sep=0pt,font=\fontsize{16}{20}\selectfont] (ex' + str(i) + ') at (' + str(1.4 + 1.9 * i) + ',' + str(y) + ') {' + str(value) + '};')
     for i in range(3):
         s.append(_example_edge('ex' + str(i), 'ex' + str(i + 1)))
-    for name, x, formula, circle in [('three', 3.3, r'(2+4)/2=3', 'ex1'), ('four', 5.2, r'(3+5)/2=4', 'ex2')]:
+    for name, x, formula, circle in [('three', 3.3, '(2+4)' + divide + '2=3', 'ex1'), ('four', 5.2, '(3+5)' + divide + '2=4', 'ex2')]:
         s.append(r'\node[inner sep=.03in,font=\fontsize{13}{17}\selectfont] (' + name + ') at (' + str(x) + ',' + str(y - .70) + ') {$' + formula + '$};')
         s.append(r'\draw[->,line width=.55pt] (' + name + '.north)--(' + circle + '.south);')
-    s.append(_txt(.64, y - 1.05, 'Check both circles on this same unchanged board.', 11.5))
+    # v4: the caption "Check both circles on this same unchanged board." repeated the rules; cut.
     return _out(s)
 
 
@@ -226,36 +230,50 @@ def raw(*items):
 
 # ---------------------------------------------------------------- K-1 recording pages
 
+RECORD_ROWS_2CUBE = [(4.59, [1.30, 2.775, 4.25, 5.725, 7.20]), (3.04, [1.30, 2.775, 4.25, 5.725, 7.20]), (1.49, [2.775, 4.25, 5.725])]
+
+
 def k1_three_square_boards():
-    """K-1, put 2 cubes in the circle: the stack mat and the recording boards."""
+    """K-1, put 2 cubes in the circle: the stack mat and the recording boards.
+    v4: 13 recording boards for the 10 fillings (two rows of five, then three), so the
+    number of boards does not tell children when they have them all."""
     s = graph([('a', 4.25, 8.45, True, None), ('b', 2.90, 6.20, True, None), ('c', 5.60, 6.20, True, None), ('u', 4.25, 6.95, False, 2)], [('a', 'u'), ('b', 'u'), ('c', 'u')], check=False)
-    for y in [4.25, 2.45]:
-        for x in [1.30, 2.775, 4.25, 5.725, 7.20]:
+    for y, xs in RECORD_ROWS_2CUBE:
+        for x in xs:
             s += graph([('a', x, y + .60, True, None), ('b', x - .45, y - .35, True, None), ('c', x + .45, y - .35, True, None), ('u', x, y, False, 2)], [('a', 'u'), ('b', 'u'), ('c', 'u')], size=.42, check=False, record=True)
     return s
 
 
+RECORD_ROWS_CARDS = [4.75, 3.85, 2.95, 2.05, 1.15]
+
+
 def k1_card_boards():
-    """K-1, three different cards: the cards 0-4, the working board and the recording boards."""
+    """K-1, three different cards: the cards 0-4, the working board and the recording boards.
+    v4: 10 recording boards for the 8 fillings (five rows of two)."""
     s = ''
     for i in range(5):
         x = 2.05 + 1.1 * i
         s += raw(r'\node[draw,minimum width=.65in,minimum height=.85in,font=\fontsize{23}{26}\selectfont] at (' + str(x) + ',8.15) {' + str(i) + '};')
     s += graph([('a', 2.05, 6.05, True, None), ('u', 4.25, 6.05, False, None), ('b', 6.45, 6.05, True, None)], [('a', 'u'), ('u', 'b')], check=False)
-    for y in [4.6, 3.5, 2.4, 1.3]:
+    for y in RECORD_ROWS_CARDS:
         for x in [2.15, 6.35]:
             s += graph([('a', x - .88, y, True, None), ('u', x, y, False, None), ('b', x + .88, y, True, None)], [('a', 'u'), ('u', 'b')], size=.48, check=False, record=True)
     return s
 
 
+RECORD_TRIANGLES = [(x, y) for y in [8.55, 7.45, 6.35] for x in [4.80, 6.00, 7.20]]
+RECORD_PATH_ROWS = [3.30, 2.52, 1.74, .96]
+
+
 def k1_no_square_boards():
-    """K-1, no squares: the triangle and the four-circle path, each with recording boards."""
+    """K-1, no squares: the triangle and the four-circle path, each with recording boards.
+    v4: 9 small triangles and 8 small paths for the 6 fillings of each board; the triangles
+    are a little smaller (circles .38 in) to fit three across, and the path board is higher."""
     s = graph([('a', 2.30, 8.2, False, None), ('u', 1.25, 6.6, False, None), ('v', 3.35, 6.6, False, None)], [('a', 'u'), ('a', 'v'), ('u', 'v')], check=False)
-    for y in [8.05, 6.95, 5.85]:
-        for x in [5.15, 6.95]:
-            s += graph([('a', x, y + .35, False, None), ('u', x - .39, y - .25, False, None), ('v', x + .39, y - .25, False, None)], [('a', 'u'), ('a', 'v'), ('u', 'v')], size=.42, check=False, record=True)
-    s += graph([(str(i), 1.4 + 1.9 * i, 4.55, False, None) for i in range(4)], [(str(i), str(i + 1)) for i in range(3)], check=False)
-    for y in [3.0, 2.1, 1.2]:
+    for x, y in RECORD_TRIANGLES:
+        s += graph([('a', x, y + .30, False, None), ('u', x - .34, y - .22, False, None), ('v', x + .34, y - .22, False, None)], [('a', 'u'), ('a', 'v'), ('u', 'v')], size=.38, check=False, record=True)
+    s += graph([(str(i), 1.4 + 1.9 * i, 4.75, False, None) for i in range(4)], [(str(i), str(i + 1)) for i in range(3)], check=False)
+    for y in RECORD_PATH_ROWS:
         for x in [.95, 4.95]:
             s += graph([(str(i), x + .8 * i, y, False, None) for i in range(4)], [(str(i), str(i + 1)) for i in range(3)], size=.42, check=False, record=True)
     return s
@@ -268,14 +286,19 @@ def dashed_group():
     return raw(r'\draw[rounded corners=.18in,line width=.7pt,dashed] (.68,2.65) rectangle (7.82,4.35);')
 
 
+FRACTION_CARDS = [(1, 4), (1, 3), (1, 2), (2, 3), (3, 4)]
+
+
 def fraction_cards():
-    """Grades 4-5, whole numbers: printed area cards for 1/2, 1/3 and 2/3."""
+    """Grades 4-5, whole numbers: printed area cards.
+    v4: 1/4 and 3/4 fit no board, beside the needed 1/2, 1/3 and 2/3, in order of size."""
     s = []
-    for x, n, d in [(2.15, 1, 2), (4.25, 1, 3), (6.35, 2, 3)]:
-        s.append(r'\draw[line width=.65pt] (' + str(x - .78) + r',1.15) rectangle (' + str(x + .78) + ',2.3);')
+    for k, (n, d) in enumerate(FRACTION_CARDS):
+        x = 1.30 + 1.475 * k
+        s.append(r'\draw[line width=.65pt] (' + str(round(x - .6, 3)) + r',1.15) rectangle (' + str(round(x + .6, 3)) + ',2.3);')
         for i in range(d):
-            left = x - .6 + 1.2 * i / d
-            right = x - .6 + 1.2 * (i + 1) / d
+            left = round(x - .48 + .96 * i / d, 4)
+            right = round(x - .48 + .96 * (i + 1) / d, 4)
             s.append(r'\draw[fill=' + ('black!30' if i < n else 'white') + '] (' + str(left) + ',1.82) rectangle (' + str(right) + ',2.08);')
-        s.append(r'\node[font=\fontsize{18}{22}\selectfont] at (' + str(x) + r',1.48) {$\frac{' + str(n) + '}{' + str(d) + '}$};')
+        s.append(r'\node[font=\fontsize{18}{22}\selectfont] at (' + str(round(x, 3)) + r',1.48) {$\frac{' + str(n) + '}{' + str(d) + '}$};')
     return _out(s)

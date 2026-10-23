@@ -3,7 +3,7 @@ id = "w20.45-fractions"
 title = "Whole numbers or fractions"
 grades = ["4-5"]
 route = "return"
-kernel = "Whole-number squares can force fractions: a path from A to B with L steps is whole exactly when L divides B - A."
+kernel = "Whole-number squares can force fractions: a path from A to B with L steps is whole exactly when L divides B - A. The quarter cards fit no board."
 +++
 
 ## prompt @9.86

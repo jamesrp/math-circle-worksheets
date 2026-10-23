@@ -23,3 +23,4 @@ done
 printf '\nBuilt and checked four PDFs in build/. Run python3 verify_rebuild.py for reference comparison.\n'
 
 "$PYTHON" facilitator-src/add_route_note.py
+"$PYTHON" review/check_card_fixes.py > build/card-fixes-checks.txt

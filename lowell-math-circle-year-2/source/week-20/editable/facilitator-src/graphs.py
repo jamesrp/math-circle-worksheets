@@ -17,9 +17,10 @@ def tree(key,a,c,b,u,v,title=''):
 def diamond(key,a,b,u,v,tie=False,title=''):
     return graph(key,[('a',0,0,True,a),('b',3,0,True,b),('u',1.5,.8,False,u),('v',1.5,-.8,False,v)],[('a','u'),('a','v'),('b','u'),('b','v')]+([('u','v')] if tie else []),title)
 for i,(a,b,c) in enumerate([(0,2,1),(2,4,3),(0,4,2),(2,6,4)],1): star(f'K1.{i}',[a,b],c,f'Board {i}')
-for i,vals in enumerate([[0,1,2,3],[3,2,1,0],[0,2,4,6],[6,4,2,0]],1):path(f'K2.{i}',vals,title=f'Row {i}')
-star('K3',[1,2,3],2,'One of 10 fillings')
-path('K4',[0,1,2],title='One of 8 fillings')
+# October 23, 2026: the K-1 pages were reordered (linked circles now Problem 4), so the keys follow the new numbers.
+for i,vals in enumerate([[0,1,2,3],[3,2,1,0],[0,2,4,6],[6,4,2,0]],1):path(f'K4.{i}',vals,title=f'Row {i}')
+star('K2',[1,2,3],2,'One of 10 fillings')
+path('K3',[0,1,2],title='One of 8 fillings')
 path('K5.1',[0,1,2,3],title='Upper board');path('K5.2',[1,2,3,4],title='Lower board')
 graph('K6.1',[('a',1,1,True,2),('u',0,0,False,2),('v',2,0,False,2)],[('a','u'),('a','v'),('u','v')],'Triangle')
 graph('K6.2',[('a',0,1,True,3),('u',2,1,False,3),('v',2,0,False,3),('w',0,0,False,3)],[('a','u'),('u','v'),('v','w'),('w','a')],'Four-cycle')
