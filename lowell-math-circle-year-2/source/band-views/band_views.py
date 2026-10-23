@@ -6,10 +6,15 @@ grade range. Each week has a checked page index in indexes/. This script
 
   draft  writes an index for a week from its page headers (never overwrites);
   build  checks every index against its PDF, then writes the band slices,
-         a page menu per week and the folder README in ../../band-views/.
+         a page menu per week and the folder README in ../../band-views/;
+  readme rewrites only the folder README.
 
     python3 band_views.py draft week-52
     python3 band_views.py build
+
+The README also lists the views published here for weeks stored as problem files
+(their week-NN/ folders hold a week-NN-menu.pdf and have no index); the problem-file
+tools write those (../problem-files/build.py --publish), and build leaves them alone.
 
 A slice holds the pages whose range includes the band, plus any earlier page
 whose opening rules the index lists for that band (`rules_for`). Pages are
@@ -174,9 +179,30 @@ def menu(index, pdf, slices, out):
     pdflatex(tex, out, {'packet.pdf': pdf})
 
 
-def build():
+def problem_file_rows(indexed):
+    """README rows for views published from problem files: week-NN/ folders without an index."""
+    rows = []
+    for folder in sorted(OUT.glob('week-*'), key=lambda p: int(p.name[5:])):
+        n = int(folder.name[5:])
+        menu_pdf = folder / f'{folder.name}-menu.pdf'
+        toml = YEAR2 / 'source' / f'week-{n:02d}' / 'week.toml'
+        if n in indexed or not menu_pdf.exists() or not toml.exists():
+            continue
+        topic = tomllib.loads(toml.read_text())['topic']
+        cells = []
+        for route in ('first', 'return'):
+            links = [f'[{name}]({folder.name}/{folder.name}-{fname}-{route}.pdf)'
+                     for fname, name in BANDS.values() if (folder / f'{folder.name}-{fname}-{route}.pdf').exists()]
+            cells.append(' · '.join(links) or '—')
+        packets = ' · '.join(f'[{name}](../week-{n:02d}/week-{n:02d}-{fname}.pdf)' for fname, name in BANDS.values())
+        rows.append(f'| {n} | {topic} | {packets} | {cells[0]} | {cells[1]} | [menu]({folder.name}/{menu_pdf.name}) | '
+                    f'[key]({folder.name}/{folder.name}-key.pdf) |')
+    return rows
+
+
+def build(write=True):
     OUT.mkdir(exist_ok=True)
-    table, failures = [], []
+    table, failures, indexed = [], [], set()
     for path in sorted(INDEXES.glob('week-*.toml'), key=lambda p: int(p.stem[5:])):
         index = tomllib.loads(path.read_text())
         problems = check(index)
@@ -184,12 +210,14 @@ def build():
             failures.append(f'{path.name}: ' + '; '.join(problems))
             continue
         week = f'week-{index["week"]}'
+        indexed.add(index['week'])
         pdf = YEAR2 / index['source']
         reader = PdfReader(pdf)
         folder = OUT / week
-        if folder.exists():
-            shutil.rmtree(folder)
-        folder.mkdir()
+        if write:
+            if folder.exists():
+                shutil.rmtree(folder)
+            folder.mkdir()
         total = len(index['page'])
         slices = {b: slice_pages(index, b) for b in BANDS}
         cells = []
@@ -200,19 +228,22 @@ def build():
             elif len(pages) == total:
                 cells.append('whole packet')
             else:
-                w = PdfWriter()
-                for n in pages:
-                    w.add_page(reader.pages[n - 1])
-                w.add_metadata({'/Title': f'Week {index["week"]} {index["topic"]}, {name} pages'})
                 out = folder / f'{week}-{fname}.pdf'
-                w.write(out)
+                if write:
+                    w = PdfWriter()
+                    for n in pages:
+                        w.add_page(reader.pages[n - 1])
+                    w.add_metadata({'/Title': f'Week {index["week"]} {index["topic"]}, {name} pages'})
+                    w.write(out)
                 cells.append(f'[{len(pages)} of {total}]({week}/{out.name}): pp. {ranges(pages)}')
-        menu(index, pdf, slices, folder / f'{week}-menu.pdf')
+        if write:
+            menu(index, pdf, slices, folder / f'{week}-menu.pdf')
         table.append(f'| {index["week"]} | {index["topic"]} | [{total} pages](../{index["source"]}) | '
                      + ' | '.join(cells) + f' | [menu]({week}/{week}-menu.pdf) |')
     readme = OUT / 'README.md'
-    readme.write_text(README_HEAD + '\n'.join(table) + '\n' + README_TAIL)
-    print(f'{len(table)} weeks built; {len(failures)} failed')
+    readme.write_text(README_HEAD + '\n'.join(table) + '\n' + README_TAIL
+                      + PROBLEM_FILES_HEAD + '\n'.join(problem_file_rows(indexed)) + '\n')
+    print(f'{len(table)} weeks {"built" if write else "listed"}; {len(failures)} failed')
     for f in failures:
         print('  ' + f)
     return not failures
@@ -232,6 +263,14 @@ The packets and these views are unpiloted, as their weeks are.
 README_TAIL = '''
 Rebuild after any change to a listed packet: `python3 lowell-math-circle-year-2/source/band-views/band_views.py build`. The build stops for a week whose index no longer matches its PDF.
 '''
+PROBLEM_FILES_HEAD = '''
+## Weeks stored as problem files
+
+A week stored as [problem files](../source/problem-files/README.md) has separate band packets, printed from its week folder. Its other views are built from the same files and published here: first-route and return packets for each band, which keep the full packet's problem numbers; a one-page problem menu; and a key arranged by problem, which repeats the answers of the week's adult guide. The guide remains the adult text to print. Rebuild with `python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-NN --out tmp/week-NN-views --publish lowell-math-circle-year-2/band-views/week-NN`, then `python3 lowell-math-circle-year-2/source/band-views/band_views.py readme`.
+
+| Week | Topic | Packets | First route | Return visits | Menu | Key |
+|---|---|---|---|---|---|---|
+'''
 
 
 if __name__ == '__main__':
@@ -240,5 +279,7 @@ if __name__ == '__main__':
             draft(w)
     elif sys.argv[1:] == ['build']:
         sys.exit(0 if build() else 1)
+    elif sys.argv[1:] == ['readme']:
+        sys.exit(0 if build(write=False) else 1)
     else:
         sys.exit(__doc__)

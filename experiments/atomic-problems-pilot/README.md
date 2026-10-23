@@ -11,6 +11,7 @@ October 22, 2026. The pilot that tested storing each problem once, with its band
 | `week-50/problems/*.md` | Week 50 as ten problem files: one shared rule and nine problems, each with its grades, route, optional app link, band-specific wording and adult key. |
 | `week-50/week.toml`, `figures.py`, `guide/` | The week's band styles, the figure code carried over unchanged from the current builder, and the week-level guide prose. |
 | `output/week-50/` | The views built from those files. `session-pack.pdf` is not committed. |
+| `week-03/` | Added October 23: Week 3 (Shuffle machines) in the flow layout, the worked example of a flowing LaTeX week carried over verbatim. `template.tex` is the head of the old band files; it reads Week 3's own `preamble.tex` and figure files from `source/week-03/src/`. An example only: `source/week-03/` stays the source of the print packets until Week 3 is next revised. |
 
 ## Result
 
@@ -32,8 +33,15 @@ The three band packets rebuilt from the problem files have the same page counts 
 | Adult key, one entry per problem | 4 |
 | Session pack for KK1 / 3333 / 445, first route only | 30, against 53 for full packets |
 
+The Week 3 flow example rebuilds the same way, with the same result: pages, extracted text and every pixel at 100 dpi match the current K–1, 2–3 and 4–5 packets (10, 11 and 8 pages; October 23, TeX Live 2023):
+
+```sh
+python3 lowell-math-circle-year-2/source/problem-files/build.py experiments/atomic-problems-pilot/week-03 --out tmp/week-03-views --tex
+python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-03-views lowell-math-circle-year-2/week-03 week-03
+```
+
 ## Limits
 
-- One week converted, in the canvas layout. Weeks written as flowing LaTeX need the flow layout, which is not built yet.
+- One week converted in the pilot, in the canvas layout; the flow layout was added on October 23 with Week 3 as its example, and Week 43 was the first week converted for revision.
 - The adult key view is a new layout built from the same text as the current guide, not a replacement for it.
 - Digital checks only. Unpiloted, as the source week is.

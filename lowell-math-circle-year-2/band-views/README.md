@@ -50,3 +50,11 @@ The packets and these views are unpiloted, as their weeks are.
 | 97 | Square remainders | [6 pages](../week-97/week-97-students.pdf) | — | whole packet | whole packet | [menu](week-97/week-97-menu.pdf) |
 
 Rebuild after any change to a listed packet: `python3 lowell-math-circle-year-2/source/band-views/band_views.py build`. The build stops for a week whose index no longer matches its PDF.
+
+## Weeks stored as problem files
+
+A week stored as [problem files](../source/problem-files/README.md) has separate band packets, printed from its week folder. Its other views are built from the same files and published here: first-route and return packets for each band, which keep the full packet's problem numbers; a one-page problem menu; and a key arranged by problem, which repeats the answers of the week's adult guide. The guide remains the adult text to print. Rebuild with `python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-NN --out tmp/week-NN-views --publish lowell-math-circle-year-2/band-views/week-NN`, then `python3 lowell-math-circle-year-2/source/band-views/band_views.py readme`.
+
+| Week | Topic | Packets | First route | Return visits | Menu | Key |
+|---|---|---|---|---|---|---|
+| 43 | Shuffling picture cards | [K–1](../week-43/week-43-k-1.pdf) · [Grades 2–3](../week-43/week-43-grades-2-3.pdf) · [Grades 4–5](../week-43/week-43-grades-4-5.pdf) | [K–1](week-43/week-43-k-1-first.pdf) · [Grades 2–3](week-43/week-43-grades-2-3-first.pdf) · [Grades 4–5](week-43/week-43-grades-4-5-first.pdf) | [K–1](week-43/week-43-k-1-return.pdf) · [Grades 2–3](week-43/week-43-grades-2-3-return.pdf) · [Grades 4–5](week-43/week-43-grades-4-5-return.pdf) | [menu](week-43/week-43-menu.pdf) | [key](week-43/week-43-key.pdf) |

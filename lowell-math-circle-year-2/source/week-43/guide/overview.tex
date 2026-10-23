@@ -1,0 +1,16 @@
+\subsection*{Mathematics before the session}
+A fair shuffle of three distinct cards gives each of the six orders probability 1/6. Choosing the first card uniformly from three, the second uniformly from the two remaining, and the last by necessity does this: every final order has exactly one first-two choice story, of probability (1/3)(1/2).
+
+The ticket-and-swap version is Fisher-Yates in a left-to-right form. From slots 1, 2, 3, first swap slot 1 with a uniformly chosen slot in \{1,2,3\}; then swap slot 2 with a uniformly chosen slot in \{2,3\}. The six equally likely ticket stories give six distinct orders. Swapping a slot with itself is allowed. After a position is settled, later swaps do not revisit it.
+
+For n distinct cards, at step i choose uniformly among slots i through n and swap that slot with i. The last slot is forced. There are n! equally likely stories, and each target order determines a unique story: choose the current location of its first card, then of its second, and so on. Thus any fixed starting order produces a uniform output.
+
+\subsection*{What can go wrong}
+The tempting rule that swaps slot 1, then 2, then 3 with a fresh choice from all three slots has $3^3 = 27$ equally likely stories. Uniformity among six outputs would require 27/6 histories per output, which is not an integer. In order ABC, ACB, BAC, BCA, CAB, CBA, the exact counts are 4, 5, 5, 5, 4, 4. Random choices at each step alone do not make the final order uniform.
+
+Forbidding self-swaps also changes the mechanism: the printed alternative, swapping 1 with 2 or 3 and then swapping 2 with 3, produces only BCA and CAB. They can be equally likely without constituting a fair shuffle of all six orders.
+
+One fixed swap history is a bijection of starting orders, so it cannot merge two different starts. This does not conflict with the uniform distribution from every start when the history itself is random. Distinguish ``the same history gives the same answer'' from ``the random answers have the same distribution.''
+
+\subsection*{Assumptions and discoveries by band}
+All eligible tickets must have equal conditional chances at each fresh draw; reset the ticket sets between full shuffles. Cards must be distinct and equally selectable. A small sample need not show each order equally often. \textbf{K-1:} build all six orders, follow the two swaps, and investigate missing choices. \textbf{Grades 2-3:} match histories to outputs and contrast a six-story rule with a 27-story rule. \textbf{Grades 4-5:} prove the bijection, find algorithm failures, and design four- and five-card versions.
