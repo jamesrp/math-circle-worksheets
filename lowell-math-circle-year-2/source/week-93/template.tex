@@ -1,0 +1,27 @@
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=0.65in,headheight=16pt,headsep=18pt,footskip=25pt]{geometry}
+\usepackage{tikz,amsmath,array,fancyhdr}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{fancy}\fancyhf{}
+\newcommand{\band}{<<header>>}
+\fancyhead[L]{\small Week 93 / Squaring a rectangle / \band}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 93 / <<footer>>}
+\fancyfoot[R]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{9pt}
+\newcommand{\problem}[2]{\par\textbf{Problem #1:} #2\par}
+\newcommand{\unitrect}[5]{% x,y,width,height,label
+  \begin{scope}[shift={(#1,#2)}]
+  \draw[step=1,gray!45,very thin] (0,0) grid (#3,#4);
+  \draw[thick] (0,0) rectangle (#3,#4);
+  \node[below] at (#3/2,0) {#3};
+  \node[left] at (0,#4/2) {#4};
+  \node[above] at (#3/2,#4) {#5};
+  \end{scope}}
+\begin{document}
+<<body>>
+\end{document}

@@ -1,21 +1,24 @@
-# Week 93: Squaring a rectangle
+# Week 93: Squaring a rectangle — current editable source
 
-Unpiloted; physical rehearsal untested. Grades 3-5 area/fraction route, with Grades 4-5 proof continuation. Some Grades 2-3 children can do the concrete area entry; no K-1 packet.
+One shared student packet (5 pages, W93-S-v2: Grades 3–5 pages 1–4, a Grades 4–5 page 5 for children ready for general reasoning) and a 5-page theorem-first adult guide. Unpiloted; cutting, card fit and timing are unrehearsed. The print PDFs are in [../../week-93/](../../week-93/).
 
-New equal-area rectangle iteration, connected to area and interval certificates; distinct from atlas bisection and tangent tasks.
+**Problem files, October 23, 2026.** The student packet is stored as [problem files](../problem-files/README.md): `week.toml`, `template.tex` (the old `students.tex` preamble) and one file per problem or shared rule in `problems/`, in the flow layout. The conversion changed no wording or figure: the generated LaTeX differs from the old `students.tex` only by blank lines between sections, and in this container it compiles to a PDF byte-identical to the old source's. Against the print copy, compiled with a newer pdfTeX (1.40.27), the old and new sources both differ by the same antialiased glyph pixels (at most 116 on a page at 100 dpi); pages and extracted text are identical. The hand-written `students.tex` and the previous source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 
-## Print and rebuild
+- **Student pages:** edit `problems/*.md`, then build and compare:
 
-The current owned PDFs are preserved in [reference-pdfs/week-93-students.pdf](reference-pdfs/week-93-students.pdf) and [reference-pdfs/week-93-facilitator.pdf](reference-pdfs/week-93-facilitator.pdf). Print US Letter at Actual Size for measured or cutting diagrams. Follow the facilitator preparation notes for duplicated cutting/card sheets and optional later pages.
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-93 --out tmp/week-93-views --tex
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-93-views lowell-math-circle-year-2/week-93 week-93
+  ```
 
-Requirements: Python 3 and pdfLaTeX with TikZ, geometry, fancyhdr, Latin Modern, amsmath, amssymb and hyperref (TeX Live/MacTeX). The checker uses only Python's standard library. No downloaded books, network access, repository files outside this folder, or proprietary fonts are required.
+  Week 93 is a shared-packet week, so its Grades 2–3 slice and one-page menu in [band-views/week-93/](../../band-views/README.md) are built from the page index `../band-views/indexes/week-93.toml` by `band_views.py build`; update the index when a problem moves to another page.
+- **Adult guide:** `editable/guide/facilitator.tex`, built by the package. The problem files carry each problem's one-sentence idea (`kernel`), not its answers.
+- **Portable package:** `editable/` is the package (`editable/README.md`); `editable/student/regenerate.py` writes `students.tex` from the problem files and the package build runs it first, then the mathematical checker. The [portable source ZIP](../week-93-source.zip) holds the package plus the problem files and tools in `problem-files/`. Rebuild it with
 
-```sh
-python3 build.py --out out --work tmp/build
-```
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-93 --zip ../week-93-source.zip --top week-93
+  ```
 
-This builds `out/week-93-students.pdf` and `out/week-93-facilitator.pdf`, runs `check_math.py`, and keeps compilation/check logs under `tmp/build`. The fixed build epoch and PDF metadata permit byte-identical builds with the same pdfTeX/toolchain; different TeX versions may change bytes without changing content.
+  and check a clean rebuild from the extracted ZIP with `python3 week-93/build.py --out rebuilt --work tmp/build`.
 
-Edit `student/students.tex` or `guide/facilitator.tex`, rebuild, then repeat mathematical review and every-page visual QA. Reference PDFs and any distributed ZIP must be synchronized after changes. The student writer/critic/math/reviser workflow is separate from guide authoring. See [SOURCES.md](SOURCES.md), [PROVENANCE.md](PROVENANCE.md), and the review records for scope and evidence.
-
-The portable ZIP contains only owned activity sources, current reference PDFs, checks, source notes and selected review records. It contains no wholesale books, private records, build intermediates or virtual environment.
+The production record is in [plans/new-families-92-97/](../../../plans/new-families-92-97/STATUS.md) and the review card in [plans/review/week-93.md](../../../plans/review/week-93.md).

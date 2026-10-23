@@ -42,6 +42,7 @@ Only Week 94 claims a K–1 packet. A shared launch in another week is not a sub
 
 - **92, October 23, 2026:** the student packet is stored as problem files ([source/week-92/](source/week-92/README.md)); the conversion changed no wording, figure or PDF.
 - **92, October 23, 2026:** card fixes (W92-S-v3): pages 1–2 and 4 are headed Grades 2–5 and join the Grades 2–3 slice, Problem 3 has six after-tracks per band, Problem 5 has tracks, and the guide adds an adult-led K–1 route; previous PDFs archived in [week-92/archive-before-card-fixes-2026-10-23/](week-92/archive-before-card-fixes-2026-10-23/README.md).
+- **93, October 23, 2026:** the student packet is stored as problem files ([source/week-93/](source/week-93/README.md)); the conversion changed no wording, figure or PDF.
 
 ## Verification and use history
 
