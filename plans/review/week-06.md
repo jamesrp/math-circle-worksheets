@@ -46,7 +46,7 @@ A yes-or-no answer at best halves what is left, so k answers separate at most 2^
 12. **could**, guide p. 2: say how the keeper sees each test over the folder (standing, or the breaker reading colours by column number). Prediction; a solo rehearsal will not show it.
 13. **could**, 4–5 P8: "Explain why one test is not always enough … Then explain why two tests are not always enough" prints the conclusion; ask "Can one test always be enough …? Can two …?", as P9 does.
 
-October 23, 2026: fixes 1, 2, 3, 5, 6, 7, 8 and 10 are done in the guide; the student-page fixes 4 and 13 and fixes 9, 11 and 12 are deferred.
+October 23, 2026: fixes 1, 2, 3, 5, 6, 7, 8 and 10 are done in the guide; later that day, after the conversion to problem files, fixes 4 and 13 on the pages (F06-K-v5, F06-U-v6) and 9, 11 and 12 in the guide (F06-FAC-v5).
 
 ## Overlaps
 

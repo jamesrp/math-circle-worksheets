@@ -8,11 +8,9 @@ page = "new"
 
 ## prompt
 The grown-up hides two counters behind the folder.
-Put two counters in a test row to make a test.
-The grown-up puts a green triangle under each counter that matches the secret and tells you how many.
-When you say what the secret is, the grown-up lifts the folder and you check every score together.
+Make a test with two counters, and the grown-up says how many match.
 Can you always be sure of the secret after one test?
-Can you always be sure after two tests?
+After two tests?
 
 ## text
 \vspace{0.2in}

@@ -356,6 +356,26 @@ check("5 counters: some 4 fixed tests tell every secret", four_ok is not None, T
 print("      example:", four_ok)
 check("5 counters: fewest tests that always tell the secret", know_min(5), 4)
 
+# ---------------------------------------------------------------- review card, October 23, 2026
+guide = " ".join((HERE / "facilitator.tex").read_text().split())
+k1p6 = " ".join(P["k-1"][5].split())
+check("K-1 P6 (should 4): short wording; the adult's scoring box has the triangles and the reveal",
+      ("how many match" in k1p6, "triangle" in k1p6, "lifts the folder" in k1p6), (True, False, False))
+u8 = " ".join(P["grades-4-5"][7].split())
+check("4-5 P8 (could 13): asked as questions, not as a printed conclusion",
+      ("Can one test always be enough" in u8, "Can two tests always be enough" in u8, "Explain why" in u8),
+      (True, True, False))
+check("4-5 P8 guide entry asks the same question and answers no to both",
+      ("Decide whether one test can always be enough" in guide, "No to both." in guide), (True, True))
+ids = {b: re.search(r"F06-[KMU]-v\d+", t).group(0) for b, t in tex.items()}
+check("guide printing table names the IDs the packets print", all(i in guide for i in ids.values()), True)
+print("      packet IDs:", ids)
+check("board set-up (could 9): only the boards in use, packet pages left whole, no 10-minute claim",
+      ("only those each table will use first" in guide, "Leave the packet pages whole" in guide,
+       "About 10 minutes in all" in guide), (True, True, False))
+check("keeper sees the test (could 12) and 2-3 P5 shows R and Y in a record table (could 11)",
+      ("reads it aloud by column number" in guide, "an R or a Y in each square" in guide), (True, True))
+
 print()
 if FAIL:
     print("FAILED:", FAIL)
