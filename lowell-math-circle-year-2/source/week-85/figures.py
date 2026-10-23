@@ -217,7 +217,7 @@ def upper_p4():
     b+=text(114,181,30,'M',11)
     return b+workspace(28,78)
 
-# ---------------------------------------------------------------- materials packet (W85-M-v2)
+# ---------------------------------------------------------------- materials packet (W85-M-v3)
 
 def matdrawing():
     s=''
@@ -238,8 +238,8 @@ def matdrawing():
     return s
 
 def materials_tex():
-    p=[];lev='Materials / actual size';pid='W85-M-v2'
-    b=text(14,251,186,r'\textbf{Adult cutting template.} Print at 100\%, with no scaling. Glue this page onto 5 mm foam board and cut out the four strips, 182 by 18 mm and 102 by 18 mm, with a craft knife and a metal ruler. Crosses mark hole centers. Make the O, X, Q and Y holes with a skewer; push the pencils themselves through T and P so that they fit snugly. Page 2 gives the parts and the assembly.',11)
+    p=[];lev='Materials / actual size';pid='W85-M-v3'
+    b=text(14,251,186,r'\textbf{Adult cutting template.} Print at 100\%, with no scaling. Glue this page onto 5 mm foam board and cut out the four strips, 182 by 18 mm and 102 by 18 mm, with a craft knife and a metal ruler. Crosses mark hole centers. Make the X, Q and Y holes with a skewer and the O hole with the pushpin itself, so that O does not wobble. Glue an 18 by 25 mm offcut of the board on top of the P end of Q--Y--P, flush with the end, so that P has two layers like T. Push the pencils themselves through both T holes and both P layers so that they fit snugly. Page 2 gives the parts and the assembly.',11)
     for y,names,length in [(171,['O','X','Q'],182),(127,['Q','Y','P'],182),(83,['X','T'],102),(39,['T','Y'],102)]:
         b+=box(16,y,length,18,'',False)
         for j,n in enumerate(names):
@@ -250,13 +250,13 @@ def materials_tex():
     p.append(page(b,lev,pid,1,True))
     # v2: one named build (foam board, brass fasteners, a pin at O, the pencils as the T and
     # P axles), a sturdier variant and a bought fallback. Nobody has built it yet.
-    b=text(14,251,186,r'\textbf{Adult build, one machine (not yet built or rehearsed).} Parts: the four strips from page 1, cut from 5 mm foam board; three brass fasteners and a few small washers for X, Q and Y; one long pushpin for O; two round coloured pencils about 7 mm thick, blue for T and red for P; a binder clip; and a 20 by 30 inch sheet of foam board as the base. Rough cost: \$25--40 for three machines, with their bases and a pad of tracing paper. Rough time: 30 minutes for the first machine and 20 for each further one, plus the rehearsal. These are estimates.',11)
-    b+=text(14,214,104,r"Join O--X--Q as one long bar and Q--Y--P as the other; join short bars X--T and T--Y. Stack O--X--Q at the bottom, Q--Y--P and X--T on it, and T--Y on top. Fasten X, Q and Y head down, with a washer between the layers, loose enough to turn. Push the blue pencil through both T holes and the red pencil through P: each pencil is its joint's axle, so its point sits on the pivot axis. Push the pin through O and the mat into the base. Slide each pencil down until its point touches the paper. If a pencil marks faintly, clip the binder clip to the bar beside it.",11)
+    b=text(14,251,186,r'\textbf{Adult build, one machine (not yet built or rehearsed).} Parts: the four strips from page 1, cut from 5 mm foam board; three brass fasteners about 20--25 mm (3/4 to 1 inch) long, to pass through two layers and a washer and still fold, and a few small washers for X, Q and Y; one long pushpin for O; two round coloured pencils about 7 mm thick, blue for T and red for P; a binder clip; and a 20 by 30 inch sheet of foam board as the base. Rough cost: \$25--40 for three machines, with their bases and a pad of tracing paper. Rough time: 30 minutes for the first machine and 20 for each further one, plus the rehearsal. These are estimates.',11)
+    b+=text(14,214,104,r"Join O--X--Q as one long bar and Q--Y--P as the other; join short bars X--T and T--Y. Stack O--X--Q at the bottom, Q--Y--P and X--T on it, and T--Y on top. Fasten X, Q and Y head down, with a washer between the layers, loose enough to turn. Push the blue pencil through both T holes and the red pencil through both P layers: each pencil is its joint's axle, so its point sits on the pivot axis. Once the mat is on the base (below), push the pin through O and the mat into the base. Slide each pencil down until its point touches the paper. If a pencil marks faintly, clip the binder clip to that pencil just above the bar, so its weight presses the point.",11)
     b+=mechanism(90,0,.42,(120,160),True,True)
     b+=text(14,148,186,r'Keep X--Q--Y--T in the simple, noncrossed shape shown. Guard against collapse, sharp hardware, a slipping pin and pencils that lean off their axes; do not tape a pencil beside a bar. If the foam joints wobble in rehearsal, cut the same strips from 3 mm hardboard, use bolts, washers and lock nuts at X, Q and Y, and drill T and P to fit the pencils.',11)
     b+=text(14,121,186,r"\textbf{Fallback.} A bought drawing pantograph set to enlarge 2 times, anchored at O. Check that P reaches all four output target corners while T stays inside the input corners, and that T can carry a pencil too: shared Problem 2 keeps T's paths and upper Problem 3 swaps the tips. Its bars differ from upper Problem 1's drawing, which children then reason about on paper.",11)
     b+=text(14,89,186,r'Center the two-sheet mat on the base, which must be at least 450 by 400 mm; tape the base to the table. Match the paper edges and tape the backs. Cover the unprinted center seam with the bridge strip on page 5, aligning all four crosses. The joined sheets are 431.8 by 279.4 mm (nominally 432 by 279). Check the 100 mm line before use.',11)
-    b+=text(14,57,186,r'Before children use it, rehearse the whole T zone, both tracing directions and the anchor change. Check support, hand clearance, branch stability, that both pencils mark, and that the pencil points stay on their pivots. None of these physical tests has been done for this draft.',11)
+    b+=text(14,57,186,r'Before children use it, rehearse the whole T zone, both tracing directions and the anchor change. Check support, hand clearance, branch stability, that both pencils mark, and that the pencil points stay on their pivots: push each pencil sideways, and its point should move no more than about 1 mm. None of these physical tests has been done for this draft.',11)
     p.append(page(b,lev,pid,2,True))
     for isright in [False,True]:
         shift=-215.9 if isright else 0

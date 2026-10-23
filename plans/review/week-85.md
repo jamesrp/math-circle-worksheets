@@ -42,6 +42,8 @@ The material draws the copy while the child steers one point. The real poses in 
 
 Fixed October 23, 2026 (W85-S-v2, W85-U-v2, W85-M-v2, W85-F-v2): the must (one named foam-board build with parts, cost, time, a hardboard variant and a bought-pantograph fallback, stated as unbuilt and unrehearsed), shoulds 2–4 and coulds 5–7 and 9–11; could 8 deferred, since the dot numbers let children name dots and the prompt leaves the order free.
 
+**Critic follow-up, October 23, 2026 (W85-M-v3, W85-F-v3):** an independent critic found the red pencil at P held by one 5 mm layer, free to tilt 2–3 mm off its pivot. An 18 by 25 mm offcut glued on the P end now gives it two layers, and the rehearsal pushes each pencil sideways (within about 1 mm). Also: 20–25 mm fasteners, the O hole made with the pin, the binder clip on the pencil, the pin pushed in after the mat, and guide p. 4's stops (X–T meets Q–Y above OT 159 mm; the offcut meets T–Y below OT 22 mm). Student pages unchanged; the critic's coulds on upper p. 1 ("swaps the tips") and shared p. 4 (the box under F) are left. Check: `checks/week-85/check_critic_fixes.py`.
+
 ## Overlaps
 
 Week 52 uses hinged bars for rigidity; here the frame stays free and one rule holds in every pose. Weeks 73 and 93 are contrasts; Week 94's stretch and shift is a one-dimensional cousin. No merge.

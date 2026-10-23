@@ -1,6 +1,6 @@
 # Week 85: Drawing machines
 
-Prepared shared Grades 2–5 and upper Grades 4–5 investigations: 4+4 student pages, 10 materials pages, 6-page theorem-first facilitator guide (v2, October 23, 2026). No independent K–1 packet; the guide gives an adult-led K–1 route. Materials page 2 and the guide name one build (foam-board strips, brass fasteners at X, Q and Y, a pin at O, the pencils as the T and P axles) and a bought-pantograph fallback, but nobody has built it: assembly, branch retention and full-zone hand and board clearance are untested. An assembled machine must pass the guide's rehearsal before use. This week is a library identifier, not an adopted date.
+Prepared shared Grades 2–5 and upper Grades 4–5 investigations: 4+4 student pages, 10 materials pages, 6-page theorem-first facilitator guide (student packets v2; materials W85-M-v3 and guide W85-F-v3 after a critic's follow-up, October 23, 2026). No independent K–1 packet; the guide gives an adult-led K–1 route. Materials page 2 and the guide name one build (foam-board strips, brass fasteners at X, Q and Y, a pin at O, the pencils as the T and P axles, P's held in two layers by a glued offcut) and a bought-pantograph fallback, but nobody has built it: assembly, branch retention and full-zone hand and board clearance are untested. An assembled machine must pass the guide's rehearsal before use. This week is a library identifier, not an adopted date.
 
 ## Print and routes
 
