@@ -11,4 +11,4 @@ kernel = "In a bag of $N$ the overlap takes every value from $\\max(0,M+n-N)$ to
 Use each bag below. The first catch has 5 objects and the second has 4. Find every overlap that can happen. Arrange catches to show your possibilities.
 
 ## figure
-table(['Bag total','Possible overlaps'],[[6,r'\rule{0pt}{.8in}'],[8,r'\rule{0pt}{.8in}'],[12,r'\rule{0pt}{.8in}']],[1.5,4.5])
+table(['Bag total','Possible overlaps'],[[6,r'\rule{0pt}{.8in}'],[8,r'\rule{0pt}{.8in}'],[12,r'\rule{0pt}{.8in}']],[1.5,4.5],'m')

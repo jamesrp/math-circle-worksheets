@@ -45,6 +45,8 @@ Mark a first catch of M, return it, catch n, and find R marked. Exactly M + n �
 11. **could**, 2–3 p. 4, P6: centre the bag totals in their cells.
 12. **could**, both p. 1: phrase the rules as actions, keeping every assumption the organizer asked for (outline, October 17).
 
+Fixed October 23, 2026, after converting the week to problem files: shoulds 1–3 and coulds 4, 5 and 8–11 (Problem 5 key and letter leak checked in `source/week-95/review/check_card_fixes_2026_10_23.py`); coulds 6, 7 and 12 deferred.
+
 ## Overlaps
 
 Week 42 draws from the same bags for fairness; Week 45 gets an exact chance from a clue; Week 94 recovers a hidden offset exactly. Week 51's bonus holds the fixed-sum product behind P6–P7. No other theme counts an unseen population. No merge.

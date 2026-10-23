@@ -1,0 +1,27 @@
+== 1a. Run filling A, B, C, ...: P(highest letter caught = total) over three rounds ==
+  2-3 N= 8: 0.984
+  2-3 N=12: 0.912
+  2-3 N=16: 0.822
+  2-3 N=20: 0.738
+PASS 2-3: under run filling the highest letter equals the total with probability 0.74 to 0.98 (the leak the card measured)
+  4-5 N=12: 0.984
+  4-5 N=16: 0.940
+  4-5 N=20: 0.882
+  4-5 N=24: 0.822
+PASS 4-5: under run filling the highest letter equals the total with probability 0.82 to 0.98 (the leak the card measured)
+== 1b. Shuffled filling: letters add nothing beyond the count of different letters seen ==
+PASS kit of 7, totals 4-7, two rounds of catches of 2: given the overlaps and the number of different letters seen, every set of that many letters is equally likely for every total, so the letters themselves carry no information about the total
+== 1b. Real sizes: the best possible guess of the total from the letters seen, letters A-X ==
+  2-3: best guess right with probability 0.867 (run filling), 0.340 (shuffled), 0.340 (count of different letters only), 0.077 (blind)
+PASS 2-3: with shuffled filling the letters add nothing to the count of different letters seen (best guess 0.340 either way); with run filling they lift it to 0.867
+  4-5: best guess right with probability 0.910 (run filling), 0.362 (shuffled), 0.362 (count of different letters only), 0.077 (blind)
+PASS 4-5: with shuffled filling the letters add nothing to the count of different letters seen (best guess 0.362 either way); with run filling they lift it to 0.910
+== 2. Grades 4-5 Problem 5: bag of 12 to 20; which catch sizes rule out overlap 0? ==
+PASS a record of 6 and 6 with overlap 0 needs at least 12 objects
+PASS for every bag up to 20 and every pair of catches, overlap 0 is impossible exactly when M + n > N
+PASS the catch sizes are exactly the pairs with each at most 12 and total at least 21: [(9, 12), (10, 11), (10, 12), (11, 10), (11, 11), (11, 12), (12, 9), (12, 10), (12, 11), (12, 12)]
+PASS 12 + 9 and 11 + 10 work; 10 + 10 still allows 0 in a bag of 20; 13 cannot be caught from a bag of 12
+== 3. K-1 route ==
+PASS bag of 5, 3 dotted, catch 3: every catch has at least one dot
+PASS bag of 6, 3 dotted, catch 3: the 3 undotted counters miss every dot
+0 failures

@@ -9,14 +9,14 @@ route = ["first", "return"]
 ## text
 Use identical-size cards or counters with visible marker dots that cannot be felt. Keep the same objects throughout a series; add, remove or exchange none except for temporary catches. For sampling trials, draw without looking; every group of the chosen size should have the same chance, whether marked or unmarked.
 
-Keep each catch out until it is counted. Mark the first catch, return \emph{all} of it, and mix before the second catch. Marks stay on through both catches. An overlap is a marked object in the second catch. Before a new round, return everything and clear the marks. To show a record is possible, you may arrange catches: use distinct objects in each catch, from the same bag.
+Keep each catch out until it is counted. Mark the first catch, return \emph{all} of it, and mix before the second catch. Marks stay on through both catches. An overlap is a marked object in the second catch. Before a new round, return everything and clear the marks. To show a record is possible, you may arrange catches by hand from the same bag; no object appears twice in one catch.
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm,>=Stealth]
 % Six identities persist through the entire operation.
 \node[anchor=west,font=\small] at (0,5.55) {Start: six unmarked objects};
 \draw[rounded corners] (0,4.25) rectangle (4.95,5.25);
 \card{.5}{4.52}{A}{0}\card{1.15}{4.52}{B}{0}\card{1.8}{4.52}{C}{0}\card{2.45}{4.52}{D}{0}\card{3.1}{4.52}{E}{0}\card{3.75}{4.52}{F}{0}
-\draw[->,thick] (2.5,4.12)--(2.5,3.57) node[midway,right,font=\scriptsize]{catch 2};
+\draw[->,thick] (2.5,4.12)--(2.5,3.57) node[midway,right,font=\scriptsize]{catch 2 objects};
 \node[anchor=west,font=\small] at (0,3.28) {First catch: A, C};
 \draw[rounded corners] (0,1.5) rectangle (4.95,3);
 \node[font=\scriptsize] at (2.5,2.78) {Bag: B, D, E, F};

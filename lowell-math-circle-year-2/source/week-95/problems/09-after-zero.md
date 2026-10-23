@@ -1,10 +1,10 @@
 +++
 id = "w95.after-zero"
-title = "After an overlap of zero"
+title = "Catch sizes that force an overlap"
 grades = ["4-5"]
 route = "return"
-kernel = "An overlap of 0 fits every bag of at least $M+n$ objects."
+kernel = "In a bag of $N$, overlap 0 is impossible exactly when $M+n>N$; for every bag from 12 to 20 that needs catches of at most 12 totalling at least 21."
 +++
 
 ## prompt
-The last round caught no marked objects. Does that rule out every finite bag? Build two different finite bags that could give this record. What would you change about the next round to get more useful evidence?
+The last round caught no marked objects. The keeper says the bag holds at most 20. Which catch sizes make an overlap of 0 impossible? Explain.

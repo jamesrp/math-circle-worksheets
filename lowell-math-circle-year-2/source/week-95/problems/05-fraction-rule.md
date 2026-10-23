@@ -32,7 +32,7 @@ A proposed guessing rule chooses a total that makes the marked fraction in the b
 \node[font=\small] at (14,.65) {$\dfrac{2}{6}=\dfrac{1}{3}$};
 \end{tikzpicture}
 \end{center}
-Find the rule's guess for record A. Does the catch record force that total? Make a different possible bag to test your answer.
+Find the rule's guess for record A. Does the catch record force that total?
 
 \begin{center}
 \begin{tikzpicture}
