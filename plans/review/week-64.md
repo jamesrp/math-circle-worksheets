@@ -43,6 +43,8 @@ Opposite sides of a regular octagon are glued by translations, so a straight tri
 8. **could**, p. 9: one L board holds four trials (3 right, 1 up alone takes thirteen segments); print it twice.
 9. **could**, guide p. 3, P1 hint 3: use math.md's "comes back onto its starting line at a left edge".
 
+**October 23, 2026:** converted to problem files with no wording change, then fixed shoulds 1–2 and coulds 3, 4 and 6–9 (W64-G35-v2, W64-FAC-v2). Fix 1 prints seven numbered ticks, counted from the arrow's tail, on every edge of the octagons on pp. 1–3, says "match the numbered ticks" in the p. 1 rule, and adds a sloping B-edge crossing to the launch. Fix 2 is an adult-led K–1 route on pp. 1 and 6 with a plain-words key on guide p. 1, pointing to Week 41's K–1 packet, not new pages. Fix 7 puts the L rules in ordinary type above Problem 6; fix 8 is a print note on guide p. 2. Check: `checks/week-64/check_card_fixes.py`. Deferred: could 5 (a glued hexagon), a new case.
+
 ## Overlaps
 
 - Week 41 (torus portals) has the same rule and developed copies on one square; this week is its genus-two sequel. Week 70 repeats torus lifts, and Week 3's return times are the cycles behind P7–P9.

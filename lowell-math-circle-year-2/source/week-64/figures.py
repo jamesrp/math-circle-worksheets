@@ -96,7 +96,7 @@ def page_text(x, y, body, w, size):
 
 # ---------------------------------------------------------------- octagon, square, sectors and L (generate.py)
 
-def octagon(cx,cy,width,numbers=False,labelsize=11):
+def octagon(cx,cy,width,numbers=False,labelsize=11,ticks=False):
     s=width/(2*a)
     T=lambda v:(cx+s*v[0],cy-s*v[1])
     vs=[T(v) for v in V]
@@ -104,12 +104,22 @@ def octagon(cx,cy,width,numbers=False,labelsize=11):
     # The global orientations of the two arrows in each pair agree.
     # Top/bottom A right; NE/SW B down-right; right/left C up; SE/NW D up-right.
     edges=[(7,0,'A'),(0,1,'B'),(2,1,'C'),(3,2,'D'),(4,3,'A'),(5,4,'B'),(5,6,'C'),(6,7,'D')]
+    # With ticks (October 23, 2026): seven numbered ticks at eighths of each edge, counted
+    # from the arrow's tail, so matching points of paired edges carry the same numbers; the
+    # arrow is shortened to clear ticks 3 and 5, and the letter moves out past the numbers.
+    lo,hi,out=(.40,.60,.31) if ticks else (.37,.63,.13)
     for i,j,c in edges:
         x1,y1=vs[i];x2,y2=vs[j]
-        q1=(x1+.37*(x2-x1),y1+.37*(y2-y1));q2=(x1+.63*(x2-x1),y1+.63*(y2-y1))
+        q1=(x1+lo*(x2-x1),y1+lo*(y2-y1));q2=(x1+hi*(x2-x1),y1+hi*(y2-y1))
         line(*q1,*q2,'edge')
         mx=(x1+x2)/2;my=(y1+y2)/2;d=math.hypot(mx-cx,my-cy)
-        label(mx+.13*(mx-cx)/d,my+.13*(my-cy)/d,c,labelsize)
+        if ticks:
+            nx,ny=(mx-cx)/d,(my-cy)/d
+            for k in range(1,8):
+                tx,ty=x1+k/8*(x2-x1),y1+k/8*(y2-y1)
+                line(tx,ty,tx+.06*nx,ty+.06*ny,'line width=.5pt')
+                label(tx+.15*nx,ty+.15*ny,str(k),7)
+        label(mx+out*(mx-cx)/d,my+out*(my-cy)/d,c,labelsize)
     if numbers:
         for i,(x,y) in enumerate(vs):
             d=math.hypot(x-cx,y-cy)
@@ -207,21 +217,21 @@ def crossing_example():
 
 def three_trips():
     """Page 1: the working octagon with the marked starts P, Q and R."""
-    T=octagon(3.7,7.08,3.94)
+    T=octagon(3.7,6.98,3.94,ticks=True)
     for xy,name in [((-.65,0),'P'),((-.3,1.60),'Q'),((.20,-1.45),'R')]:
         dot(*T(xy),name,dx=-.10,dy=-.13);path_arrow(T,xy,(1,0),length=.43)
 
 
 def development_example():
     """Page 3: a non-task example of developing a single crossing into a translated copy."""
-    T1=octagon(2.95,2.58,1.40,labelsize=8)
-    T2=octagon(4.35,2.58,1.40,labelsize=8)
+    T1=octagon(2.95,2.43,1.40,labelsize=8)
+    T2=octagon(4.35,2.43,1.40,labelsize=8)
     S=(.15,-.65); hit=(a,-.65+.20*(a-.15)); res=(-a,hit[1]);end=(-.50,hit[1]+.20*(a-.50))
     dot(*T1(S),'S',dx=-.08,dy=.12)
     line(*T1(S),*T1(hit),'line width=1.35pt')
     line(*T2(res),*T2(end),'travel')
-    label(2.95,2.09,'1',10)
-    label(4.35,2.09,'2',10)
+    label(2.95,1.94,'1',10)
+    label(4.35,1.94,'2',10)
 
 
 def corner_pieces():

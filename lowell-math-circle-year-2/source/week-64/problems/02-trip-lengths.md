@@ -13,4 +13,4 @@ page_start()
 Choose starting dots inside the octagon and head to the right. Find all the different lengths of a closed trip that you can. Mark the starting places that give each length, and the starting places whose paths hit a corner. Count only the lines inside the octagon when you measure a trip.
 
 ## figure
-fig(octagon(3.7,4.80,5.35), lines(8.03,4,.36))
+fig(octagon(3.7,4.80,5.35,ticks=True), lines(8.03,4,.36))

@@ -10,7 +10,7 @@ kernel = "Eight 135-degree corners make 1080 degrees, three full turns, around t
 page_start()
 
 ## prompt @.48
-Cut out the corner pieces. Put the octagon corners around their shared point in edge-matching order. Do the same with the square corners. How many full turns belong to each point? Let the pieces overlap as needed, keeping track of every numbered piece.
+Cut out the corner pieces. Put the octagon corners around the point where they meet, in edge-matching order. Do the same with the square corners. How many full turns belong to each point? Let the pieces overlap as needed, keeping track of every numbered piece.
 
 ## figure
 fig(corner_pieces())

@@ -10,7 +10,7 @@ kernel = 'The two chords of an outer trip are equal only when it runs through th
 page_start()
 
 ## prompt @.48
-Start on an edge, away from a corner. Find a right-going closed trip whose two edge-to-edge stretches in the octagon have equal lengths. Show one full trip as a straight line across numbered tracings. To continue into a new tracing, slide its matching edge onto the edge you are leaving. Keep it facing the same way. Treat overlapping copies as separate sheets.
+Start on an edge, away from a corner. Find a right-going closed trip whose two edge-to-edge stretches in the octagon have equal lengths. Show one full trip as a straight line across numbered tracings. To continue into a new tracing, slide its matching edge onto the edge you are leaving. Keep it facing the same way.
 
 ## figure
-fig(development_example(), octagon(3.7,6.43,4.65), lines(9.06,1))
+fig(development_example(), octagon(3.7,6.13,4.65,ticks=True), lines(9.06,1))

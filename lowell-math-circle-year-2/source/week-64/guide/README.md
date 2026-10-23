@@ -1,6 +1,6 @@
 # Week 64 facilitator guide
 
-The editable sources build the separate adult guide for **Straight paths on strange surfaces**. The guide is paired with the nine-problem Week 64 student packet, version W64-G35-v1. Page and problem references refer to that packet; the guide has its own page numbers.
+The editable sources build the separate adult guide for **Straight paths on strange surfaces**. The guide is paired with the nine-problem Week 64 student packet, version W64-G35-v2 (October 23, 2026; v1 before). Page and problem references refer to that packet; the guide has its own page numbers.
 
 ## Build
 
