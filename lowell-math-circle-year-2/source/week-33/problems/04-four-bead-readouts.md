@@ -10,10 +10,13 @@ kernel = "A four-bead ring has 1, 2 or 4 readouts, never 3: the number of readou
 Make four-bead rings with one, two, three or four different readouts. Which are possible?
 
 ## prompt @0 [2-3]
-Make four-bead rings with exactly one, two, three or four different readouts. For each impossible number, explain why it cannot happen.
+Make four-bead rings with exactly one, two, three or four different readouts. Which numbers are possible? Explain how you know.
 
 ## prompt @0 [4-5]
 Find four-bead rings with one, two, three or four different readouts, or explain why a requested number is impossible. What feature lets a mixed ring repeat early?
 
-## figure
+## figure [K-1]
 mats(4,8)+mats(4,18)
+
+## figure
+mats(4,8)+mats(4,18)+ruled(23,2)

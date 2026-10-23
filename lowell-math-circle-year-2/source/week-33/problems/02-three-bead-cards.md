@@ -13,7 +13,7 @@ Put cards in the same group when they make the same ring. Do all groups have the
 Group cards that make the same ring. How many groups are there, and how many cards are in each group?
 
 ## prompt @0 [4-5]
-Group the eight cards by rotation. Explain how their group sizes give the number of different rings, and why dividing eight by three does not work.
+Group the eight cards by turning. Someone divides 8 by 3 to count the rings. What went wrong?
 
 ## figure
 three_cards()

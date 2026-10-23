@@ -1,12 +1,16 @@
 # Week 33 Prime-length necklaces editable source
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 23, 2026 card fixes (v3)
+
+The review card's five shoulds and the clear coulds (`plans/review/week-33.md` in the project): four smaller three-bead boards for Problem 1 in every band, with recording lines beside each; a Grades 4–5 Problem 5 on six, seven and nine beads before the prime rule (now Problems 6–7); K–1's six-bead problem added as Grades 2–3 Problem 7; Grades 4–5 Problems 2 and 4 reworded; two lines under the older Problem 3 boards; the example's moved start labels placed under their own beads; and guide materials, launch, timing, hints and keys. Footers F33-K-v3, F33-23-v3, F33-45-v3.
+
+## Earlier release: October 4, 2026 fresh-review revision
 
 The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
-Current pages: **K–1 6; Grades 2–3 5; Grades 4–5 5; adult guide 5**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 6; Grades 2–3 6; Grades 4–5 6; adult guide 5**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project
 
@@ -16,7 +20,7 @@ Extract the complete ZIP. Install Python 3 with `requirements.txt`, a normal TeX
     python3 build.py
     python3 verify_revision.py
 
-The current verifier compares paper geometry and every 100-dpi rendered page against `reference-pdfs/`; timestamps may differ. It permits only specifically audited full-page font/hyphenation alternatives for unchanged student PDFs. See `review/fresh-review-rebuild.md` for actual results. The original strict verifier (`verify_rebuild.py` or `verify.py`) is retained and rejects those alternatives. The corpus report explicitly records any pre-existing small TeX font-metric differences for unchanged student bands; their current print/reference PDFs stay byte-identical. For Weeks 24 and 35, the detailed student-stage record is `review/student-reviser-fresh-review.md`. The corpus release report records those differences explicitly rather than calling them pixel-identical.
+The current verifier compares paper geometry and every 100-dpi rendered page against `reference-pdfs/`; timestamps may differ. It permits only specifically audited full-page font/hyphenation alternatives for unchanged student PDFs. Since the October 23 card fixes every reference is the current build, so none is allowed. See `review/fresh-review-rebuild.md` for actual results. The original strict verifier (`verify_rebuild.py` or `verify.py`) is retained and rejects those alternatives. The corpus report explicitly records any pre-existing small TeX font-metric differences for unchanged student bands; their current print/reference PDFs stay byte-identical. For Weeks 24 and 35, the detailed student-stage record is `review/student-reviser-fresh-review.md`. The corpus release report records those differences explicitly rather than calling them pixel-identical.
 
 **Problem files, October 23, 2026.** The student pages are stored as problem files: in this ZIP `problem-files/` (with `week.toml`, `figures.py`, `problems/` and the tools in `problem-files/tools/`), in the repository `lowell-math-circle-year-2/source/week-33/`. `student-src/regenerate.py` writes the band LaTeX from them and `student-src/build.sh` runs it before compiling; edit the problem files, not the generated `.tex`. Python 3.11+ is needed for `tomllib`.
 

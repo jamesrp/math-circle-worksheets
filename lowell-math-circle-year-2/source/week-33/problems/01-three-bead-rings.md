@@ -17,4 +17,4 @@ Make every different three-bead ring using A and B. Find all its readouts as you
 Find every three-bead ring using A and B. How many different readouts does each ring have?
 
 ## figure
-mats(3,15)+ruled(22,2)
+four_boards(3)

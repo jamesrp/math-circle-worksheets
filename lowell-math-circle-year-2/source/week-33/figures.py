@@ -91,8 +91,11 @@ def ring(x, y, n, word=None, r=2.9, start=0, bead=.38, labels=False):  # a bead 
     X = x + (r+.95)*math.cos(a); Y = y - (r+.95)*math.sin(a)
     XX = x + (r+bead+.12)*math.cos(a); YY = y - (r+bead+.12)*math.sin(a)
     s += line(X, Y, XX, YY, '->,line width=.8pt')
-    s += node(X if start == 0 else X + .5*math.cos(a), Y - .2 if start == 0 else Y - .5*math.sin(a), 'start', 9)
-    # Keep the direction arrow outside bead positions and moved start labels.
+    if start == 0:
+        s += node(X, Y - .2, 'start', 9)
+    else:  # a moved start: label it just below its own bead, so neighbouring rings' labels stay apart
+        s += node(x + r*math.cos(a), y - r*math.sin(a) + bead + .36, 'start', 9)
+    # Keep the direction arrow outside bead positions.
     ar = r + bead + .2
     ax = x + ar*math.cos(math.radians(150))
     ay = y - ar*math.sin(math.radians(150))
@@ -134,3 +137,22 @@ def three_cards():  # all eight three-bead readouts, two to a row
 
 def five_cards():  # all 32 five-bead readouts, four to a row
     return ''.join(card((i % 4)*4.7, 2.5+(i//4)*2.65, ''.join(t), w=4.4, h=2.3, num=i+1) for i, t in enumerate(product('AB', repeat=5)))
+
+
+def short_lines(x, y, X, rows=3, gap=1.2):  # gray recording lines beside a board
+    return ''.join(line(x, y+j*gap, X, y+j*gap, 'gray!45,line width=.35pt') for j in range(rows))
+
+
+def four_boards(n):  # four smaller n-bead boards, 2 by 2, each with three recording lines beside it
+    s = ''
+    for y in (13.4, 20.3):
+        s += ring(3.3, y, n, None, 2.3, 0, .42) + short_lines(6.3, y-.9, 9.6)
+        s += ring(12.9, y, n, None, 2.3, 0, .42) + short_lines(15.9, y-.9, 18.5)
+    return s
+
+
+def six_seven_nine():  # one six-, one seven- and one nine-bead board, each named, with answer lines beside the nine
+    s = ring(4.4, 6.6, 6, None, 3.0, 0, .42) + node(4.4, 10.65, '6 beads', 11)
+    s += ring(14.0, 6.6, 7, None, 3.0, 0, .42) + node(14.0, 10.65, '7 beads', 11)
+    s += ring(5.0, 16.4, 9, None, 3.7, 0, .42) + node(5.0, 21.15, '9 beads', 11)
+    return s + short_lines(10.4, 14.0, 18.5, 5)

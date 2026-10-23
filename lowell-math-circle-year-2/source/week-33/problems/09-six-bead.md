@@ -1,7 +1,7 @@
 +++
-id = "w33.k1-six-bead"
+id = "w33.six-bead"
 title = "Six-bead rings with two, three and six readouts"
-grades = ["K-1"]
+grades = ["K-1", "2-3"]
 route = "return"
 kernel = "On six beads a two-colour ring can have 2, 3 or 6 readouts, the divisors of 6 above 1."
 +++

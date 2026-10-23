@@ -4,6 +4,8 @@ Three distinct theme-matched encore investigations, in one shared selected-band 
 
 Print selected pages single-sided on US Letter at 100% scale. Choose an investigation and an entry route from the guide; the theme may support multiple visits. Finishing every page is not the goal. Readiness is based on reading, arithmetic, representation and reasoning prerequisites.
 
+**Guide correction, October 23, 2026.** From the Week 33 review card (could 10): the P7 solution now says flipping either ring gives a turn of the other, and the launch reads B-A-B from the marked B, then A-B-A across the closing gap. Only the adult guide changed (pages 1 and 4); the previous guide is archived in `week-33/archive-before-card-fixes-2026-10-23/` and the previous ZIP in `source/week-33/archive-before-card-fixes-2026-10-23/`.
+
 ## Rebuild
 
 Requirements: Python 3.10+, packages in requirements.txt, and a normal TeX Live/MacTeX distribution with pdflatex, TikZ, geometry, fancyhdr, Latin Modern and standard LaTeX packages. No font files or TeX binaries are bundled. Set PDFLATEX to your executable if pdflatex is not on PATH. A complete TeX distribution provides its own normal configuration.
