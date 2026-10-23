@@ -1,0 +1,36 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=0.6in,top=0.7in,bottom=0.62in,headheight=15pt,headsep=15pt,footskip=20pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,tikz,fancyhdr,xcolor}
+\usetikzlibrary{arrows.meta}
+\renewcommand\familydefault{\sfdefault}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Week <<week>> / <<topic>> / <<header>>}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week <<week>> / <<footer>>}
+\fancyfoot[R]{\footnotesize\thepage}
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0pt}
+\setlength\parindent{0pt}
+\setlength\parskip{9pt}
+\pdfinfoomitdate=1
+\pdfsuppressptexinfo=15
+\pdftrailerid{}
+\definecolor{hatblue}{RGB}{40,98,171}
+\definecolor{hatred}{RGB}{193,70,67}
+\definecolor{lightgray}{RGB}{240,240,240}
+\newcommand\problem[2]{\textbf{Problem #1:} #2\par}
+\newcommand\yn[3]{\node[draw,rounded corners=2pt,minimum width=#3 cm,minimum height=0.62cm,font=\bfseries] at (#1) {#2};}
+\newcommand\hatdisk[3]{\ifnum#3=1\fill[hatblue] (#1,#2) circle (0.27);\node[text=white,font=\bfseries] at (#1,#2) {B};\else\fill[hatred] (#1,#2) circle (0.27);\node[text=white,font=\bfseries] at (#1,#2) {R};\fi}
+\newcommand\tinydeal[3]{\node[font=\small] at (#1,#2) {#3};}
+\newcommand\transcript[6]{%
+ \draw[rounded corners=3pt] (#1,#2) rectangle ++(8.05,-2.9);
+ \node[anchor=west,font=\bfseries\small] at (#1+0.3,#2-0.38) {Conversation #3};
+ \foreach \i/\reply in {1/#4,2/#5,3/#6}{\node[anchor=west,font=\small] at (#1+0.4,#2-0.38-0.7*\i) {\i\quad \reply};}}
+\begin{document}
+\fontsize{13}{16}\selectfont
+\raggedright
+
+<<body>>
+
+\end{document}
