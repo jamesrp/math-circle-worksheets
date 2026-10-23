@@ -11,7 +11,7 @@ kernel = "A row from R to B has an odd number of doors and a row from R to R an 
 Write R or B on every empty dot and mark the doors. Can any row have an even number of doors? Explain why or why not.
 
 ## prompt [4-5]
-Write R or B on every empty dot and mark the doors. Decide which rows must have an odd number of doors and which must have an even number. Explain your answer for rows of any length.
+Write R or B on every empty dot and mark the doors. Which numbers of doors can each row have? Explain your answer for rows of any length.
 
 ## figure [2-3]
 chains(['RB']*5,[2,3,4,5,6])

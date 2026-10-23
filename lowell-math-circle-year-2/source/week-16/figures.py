@@ -5,6 +5,11 @@ functions in their `figure` sections; the wording lives in the problem files.
 
 FANLABELS, R3 and R4 are the printed letters of the fan board and the two route
 boards, read from the package's math_checks.json as the old generator read them.
+
+October 23, 2026 card fixes: every blank side dot is split in the tints of the letters
+its side allows (bottom R and B, left R and Y, right B and Y; all three on the K-1
+Problem 6 bottom and at the Grades 4-5 Problem 6 star), K-1 rings are 0.30 in across
+instead of 0.18 in, and record_triangles() draws the four small K-1 Problem 6 records.
 """
 import ast
 import itertools
@@ -36,12 +41,37 @@ def mesh(n,fan=False):
   ts=nt
  return vs,xy,ts
 
+# Half (or third) discs of a side dot: (letter, start angle, end angle), the half nearer
+# a corner taking that corner's tint.
+TINTS={'bottom':[('R',90,270),('B',-90,90)],'left':[('R',150,330),('Y',-30,150)],
+ 'right':[('B',210,390),('Y',30,210)],'all':[('Y',30,150),('R',150,270),('B',270,390)]}
+
+def side_of(v,n):
+ """The outside side a mesh dot lies on (None inside, and for the fan board's inserted centres)."""
+ i,j=v
+ if i==10 or not(j==0 or i==0 or i+j==n):return None
+ return 'bottom' if j==0 else 'left' if i==0 else 'right'
+
+def record_triangles(count=4,width=1.5,gap=0.3):
+ """Small unlettered three-step triangles for an adult to letter each filling found."""
+ vs,xy,ts=mesh(3)
+ edges=sorted({tuple(sorted(e)) for t in ts for e in itertools.combinations(t,2)})
+ out=[r'\begin{center}',r'\begin{tikzpicture}[x=1in,y=1in,line cap=round,line join=round]']
+ for c in range(count):
+  ox=c*(width+gap)
+  for a,b in edges:
+   out.append(f'\\draw[line width=0.6pt] ({ox+xy[a][0]*width:.4f},{xy[a][1]*width:.4f}) -- ({ox+xy[b][0]*width:.4f},{xy[b][1]*width:.4f});')
+  for v in vs:
+   out.append(f'\\draw[line width=0.6pt,fill=white] ({ox+xy[v][0]*width:.4f},{xy[v][1]*width:.4f}) circle[radius=0.05in];')
+ out.extend([r'\end{tikzpicture}',r'\end{center}'])
+ return '\n'.join(out)
+
 def board(n,width=5.25,fan=False,labels=None,exception=None,counter=False):
  vs,xy,ts=mesh(n,fan)
  edges=sorted({tuple(sorted(e)) for t in ts for e in itertools.combinations(t,2)})
  labels=labels or {(0,0):'R',(n,0):'B',(0,n):'Y'}
  h=width*math.sqrt(3)/2
- blank_radius=0.092 if counter else 0.145
+ blank_radius=0.15 if counter else 0.145
  out=[r'\begin{center}',r'\begin{tikzpicture}[x=1in,y=1in,line cap=round,line join=round]']
  out.append(r'\path[use as bounding box] (-0.63,-0.64) rectangle ('+f'{width+.63:.4f},{h+.25:.4f}'+');')
  for a,b in edges:
@@ -52,7 +82,13 @@ def board(n,width=5.25,fan=False,labels=None,exception=None,counter=False):
   if lab:
    out.append(f'\\node[circle,draw,line width=0.8pt,fill={lab}fill,minimum size=0.30in,inner sep=0pt,font=\\sffamily\\bfseries\\fontsize{{11.5}}{{12}}\\selectfont] at ({x:.4f},{y:.4f}) {{{lab}}};')
   else:
-   out.append(f'\\draw[line width=0.8pt,fill=white] ({x:.4f},{y:.4f}) circle[radius={blank_radius:.3f}in];')
+   side=side_of(v,n)
+   if side and (exception=='whole' and side=='bottom' or exception=='single' and v==(n//2,0)):side='all'
+   for letter,a1,a2 in TINTS.get(side,[]):
+    out.append(f'\\fill[{letter}fill] ({x:.4f},{y:.4f}) -- +({a1}:{blank_radius:.3f}in) arc[start angle={a1},end angle={a2},radius={blank_radius:.3f}in] -- cycle;')
+   for letter,a1,a2 in TINTS.get(side,[]):
+    out.append(f'\\draw[line width=0.4pt,black!45] ({x:.4f},{y:.4f}) -- +({a1}:{blank_radius:.3f}in);')
+   out.append(f'\\draw[line width=0.8pt{"" if side else ",fill=white"}] ({x:.4f},{y:.4f}) circle[radius={blank_radius:.3f}in];')
  out += [f'\\node[rotate=60,font=\\sffamily\\fontsize{{11}}{{12}}\\selectfont] at ({width/4-.33:.4f},{h/2+.16:.4f}) {{R or Y}};',f'\\node[rotate=-60,font=\\sffamily\\fontsize{{11}}{{12}}\\selectfont] at ({width*3/4+.33:.4f},{h/2+.16:.4f}) {{B or Y}};']
  bot={'whole':'R or B or Y','single':r'R or B, except $*$'}.get(exception,'R or B')
  out.append(f'\\node[font=\\sffamily\\fontsize{{11}}{{12}}\\selectfont] at ({width/2:.4f},-0.48) {{{bot}}};')

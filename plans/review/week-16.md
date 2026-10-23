@@ -45,6 +45,8 @@ With corners R, B and Y, side dots limited to their side's two corner letters an
 11. **could**, 4–5 P2: "including any that stay inside the big triangle" gives away what the guide holds as a hint; unused marked doors already show it.
 12. **could**, 2–3 P2: "Which entrances lead back outside?" uses an undefined word; say "outside doors".
 
+Fixed October 23, 2026: shoulds 1–5 and coulds 6–12, in the problem files, the guide and the return visit (F16-K-v3, F16-23-v3, F16-45-v3, W16-RV-v2).
+
 ## Overlaps
 
 Week 2's lamp wires flip only a path's endpoints, the same endpoint parity as an R…B row. Week 26 counts shared edges twice (P = 4n − 2e), the same pairing as T + 2U = b + 2I. Week 19 shares Sperner's name, not this lemma; the guide says so (p. 11). Week 1 and its encore share the triangle grid. None reaches this theorem. No merge.

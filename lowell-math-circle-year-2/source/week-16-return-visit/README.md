@@ -1,5 +1,7 @@
 # Week 16 return visits
 
+**October 23, 2026.** From the Week 16 review card (should 5): page 2 now states "Side dots use that side's corner letters. The middle dot may be R, B, Y or G.", so Problem 2 can be handed out alone (footer W16-RV-v2). The guide is unchanged. Rebuilt with TeX Live 2023, pages 3–4 differ from the October 4 copy by at most 180 anti-aliased pixels at 100 dpi, with the same words; rebuilding the unchanged guide shows the same kind of drift, so its October 4 PDF stays current. The October 4 ZIP is in [archive-before-card-fixes-2026-10-23/](archive-before-card-fixes-2026-10-23/README.md).
+
 Three investigations within the Week 16 theme. Separate draft/unpiloted companions; existing base packets and guides are untouched. Readiness is labeled on each student page; the adult guide states prerequisites, precise facts, assumptions, materials, a common launch, first routes, flexible return-visit pacing, solutions, hints and extensions. Physical counter fit, preparation stock, procedures and classroom response are untested.
 
 - Student: `../../week-16/week-16-return-visit.pdf`

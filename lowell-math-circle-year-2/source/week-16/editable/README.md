@@ -1,6 +1,8 @@
 # Three-color triangles: Week 16 editable release
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 4, 2026 fresh-review revision, with the October 23, 2026 card fixes
+
+**Card fixes, October 23, 2026.** The v3 student packets split every blank side dot in its side's tints, enlarge the K–1 rings, replace the repeated Problem 1 text with "Another board for Problem 1.", reword Grades 4–5 Problems 2 and 4 and Grades 2–3 Problem 2, and add four record triangles to K–1 Problem 6; the guide's preparation, hour, launch and keys follow. `review/verify_card_fixes_2026_10_23.py` checks them.
 
 **Problem files.** The student pages are now stored as problem files, one per problem, in `problem-files/` (in the repository: `lowell-math-circle-year-2/source/week-16/`). The conversion changed no wording or figure. `src/regenerate.py` writes the student LaTeX from them, and `problem-files/tools/build.py` also builds first-route and return packets, a one-page problem menu and a key view.
 
@@ -22,7 +24,7 @@ The current verifier compares paper geometry and every 100-dpi rendered page aga
 
 Edit student problems in `problem-files/problems/*.md` (the board, door, local-case and row drawings in `problem-files/figures.py`, the page frame in `problem-files/template.tex`); `build.sh` regenerates `src/*.tex` from them before compiling, so do not edit the TeX by hand. To build every view: `python3 problem-files/tools/build.py problem-files --out views`. Edit the existing guide source under `facilitator-src/`. Where present, `facilitator-src/route-note.json` holds the concise starting/return update; the root build regenerates the guide before appending it exactly once. Do not run the appender alone against an already appended guide. Build intermediates belong in a separate working copy; inspect changed pages before updating references.
 
-The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/fresh-review-2026-10-04.md`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
+The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/fresh-review-2026-10-04.md` and, for the October 23 card fixes, `review/verify_card_fixes_2026_10_23.py`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
 
 ## Use and rights
 

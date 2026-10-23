@@ -11,4 +11,4 @@ kernel = "Once the bottom side may use Y, fillings with no triangle with R, B an
 The bottom side now allows R, B, or Y. Find four different fillings with no little triangle that has R, B, and Y.
 
 ## figure
-board(3,exception='whole',counter=True)
+board(3,exception='whole',counter=True)+'\n\\vspace{0.2in}\n'+record_triangles()

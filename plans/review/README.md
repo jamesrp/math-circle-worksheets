@@ -48,7 +48,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 7 | Take-away games | keep; guide should-fixes 1–3 applied October 23, with the README link; the K–1 wording of 4 and 5 and could 6 made after the problem-file conversion the same day (K–1 and 2–3 v5) | [card](week-07.md), [math check](week-07-math.md) |
 | 13 | Route packing and bottlenecks | keep | [card](week-13.md), [math check](week-13-math.md) |
 | 14 | Polygon triangulations and flips | keep | [card](week-14.md), [math check](week-14-math.md) |
-| 16 | Three-colour triangles (Sperner's lemma) | keep | [card](week-16.md), [math check](week-16-math.md) |
+| 16 | Three-colour triangles (Sperner's lemma) | original verdict keep; shoulds 1–5 (side dots split in their side's tints with larger K–1 rings, Grades 4–5 Problem 4's open question, "Another board for Problem 1", four K–1 Problem 6 record triangles, the return visit's page-2 rule) and coulds 6–12 (group size and hour, fan numbering, launch board, gesture game timing, 3/4-inch counters, two route-prompt trims) fixed October 23 in the new problem files (v3 packets and guide) | [card](week-16.md), [math check](week-16-math.md) |
 | 17 | Machine memory (fewest states) | keep | [card](week-17.md), [math check](week-17-math.md) |
 | 18 | Error-correcting codebooks | keep | [card](week-18.md), [math check](week-18-math.md) |
 | 19 | No card inside another (subset antichains) | keep | [card](week-19.md), [math check](week-19-math.md) |
