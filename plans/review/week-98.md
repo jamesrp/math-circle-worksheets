@@ -46,6 +46,8 @@ An empty square fills when two side-neighbours are filled. Every complete run fr
 
 Fixed October 23, 2026: shoulds 1–6 and coulds 7, 10, 12, in the problem files and guide (W98-23-v2, W98-45-v2, W98-FAC-v2); coulds 8, 9, 11 deferred.
 
+**Critic follow-up, October 23, 2026 (W98-FAC-v3):** an independent critic found that fix 2's order question used the diagonal seeds, which fill the board in every order and so test nothing. The guide now uses (1,1), (1,2), (2,3), which can start with (1,3) or (2,2) and finish with the top two rows either way, in both bands' notes; the 2–3 notes also put each order number in a cell corner. Check: `checks/week-98/check_critic_fixes.py`.
+
 ## Overlaps
 
 Week 26 counts exposed sides of tile shapes; here they certify a process. Week 11's chip firing has an order-independent finish. Week 19 separates "no card can be added" from "largest", as "no seed can be removed" differs from "fewest" here. None has threshold growth or the seed bound. No merge.

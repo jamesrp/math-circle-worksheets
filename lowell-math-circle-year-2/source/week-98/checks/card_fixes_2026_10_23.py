@@ -104,7 +104,7 @@ if (folder / 'week-98-grades-2-3.pdf').exists():
     check('Can three seeds finish with any other number of filled squares?' in t23, '2-3 Problem 3 asks about other totals')
     check('Number the added squares in the order you add them.' in t23, '2-3 Problem 4 asks for the order')
     check('Opposite edges' not in t23 + t45, 'both bands: "Opposite edges do not meet" cut')
-    check('W98-23-v2' in t23 and 'W98-45-v2' in t45 and 'W98-FAC-v2' in tg, 'footers read v2')
+    check('W98-23-v2' in t23 and 'W98-45-v2' in t45 and 'W98-FAC-v3' in tg, 'footers read v2 (the guide v3 since the critic follow-up)')
     for phrase in ('K–1 route, adult-led', 'take the first such square in A’s order', "Before Problem 1, ask Grades 2–3 Problem 4’s question aloud",
                    'no cell outside C has two side-neighbors in C', 'No separate board or mask is needed', 'First route: Grades 2–3 Problems 1, 2 and 4'):
         check(phrase.replace('’', "'") in tg.replace('’', "'"), f'guide says: {phrase}')
