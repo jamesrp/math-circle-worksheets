@@ -16,7 +16,7 @@ import zipfile
 import pymupdf
 
 PT_PER_MM = 72 / 25.4
-SOURCE_FILES = ['common.tex', 'students.tex', 'materials.tex', 'build.sh',
+SOURCE_FILES = ['common.tex', 'students.tex', 'materials.tex', 'build.sh', 'regenerate.py',
                 'README.md', 'verify_math.py', 'verify_pdf.py']
 
 
