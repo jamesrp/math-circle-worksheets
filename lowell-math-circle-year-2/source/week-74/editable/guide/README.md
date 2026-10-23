@@ -1,6 +1,6 @@
 # Week 74 adult guide source
 
-This independently authored companion matches the final four-page GGT74-S-v1 student prototype. It contains no student source, downloaded reference, cache, or machine-specific dependency.
+This independently authored companion matches the four-page GGT74-S-v2 student packet and the GGT74-M-v1 stride strips. It contains no student source, downloaded reference, cache, or machine-specific dependency.
 
 Requires Python 3 and pdflatex with the standard LaTeX packages listed in facilitator.tex (including Latin Modern, amsmath, amssymb, fancyhdr and hyperref).
 

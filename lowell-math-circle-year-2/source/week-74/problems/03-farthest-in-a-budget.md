@@ -8,7 +8,7 @@ kernel = "With top level H, a budget of N moves reaches at most $(N-2H)2^H$, and
 +++
 
 ## prompt
-Start at 0 on level 0. With each move budget, finish as far right as possible on level 0. Your partner tries to beat your distance. You may use fewer moves than the budget.
+With each move budget, finish as far right as possible on level 0. Your partner tries to beat your distance. You may use fewer moves than the budget.
 
 ## text
 \vspace{.14in}

@@ -1,6 +1,6 @@
 # Week 74: Doubling elevators
 
-One shared Grades 4–5 prototype: 4 student pages and a separate 3-page theorem-first adult guide. Independently reviewed and digitally checked, awaiting organizer review. Unpiloted; physical preparation and handling have not been rehearsed. The week number is a library identifier, not an adopted schedule.
+One shared Grades 4–5 prototype: 4 student pages, a separate 3-page theorem-first adult guide and a 1-page sheet of stride strips. Independently reviewed and digitally checked, awaiting organizer review. Unpiloted; physical preparation and handling have not been rehearsed. The week number is a library identifier, not an adopted schedule.
 
 ## Build from this portable package
 
@@ -9,9 +9,9 @@ Use Python 3.11+ and a normal TeX Live/MacTeX installation with pdfLaTeX, TikZ/P
     python3 build.py --out output
     python3 build.py --verify-only
 
-The first command reconstructs both named PDFs; the second runs the independent, student and adult mathematical checks without TeX. Builders run in an isolated temporary directory. All required authored input is here.
+The first command reconstructs the three named PDFs; the second runs the independent, student and adult mathematical checks without TeX. Builders run in an isolated temporary directory. All required authored input is here.
 
-The student pages are stored as problem files (since October 23, 2026): one file per problem in `problem-files/problems/`, with `problem-files/week.toml` and `problem-files/template.tex` (in the repository, `lowell-math-circle-year-2/source/week-74/`). Edit a problem there. `student/regenerate.py` writes `student/students.tex` from them, and `build.py` runs it first, so do not edit `students.tex` by hand. `problem-files/tools/build.py problem-files --out DIR` builds the same student packet together with a one-page problem menu and first-route and return packets. Edit the adult guide in `guide/facilitator.tex`. `reference-pdfs/` holds the current print PDFs, for comparing a rebuild.
+The student pages are stored as problem files (since October 23, 2026): one file per problem in `problem-files/problems/`, with `problem-files/week.toml` and `problem-files/template.tex` (in the repository, `lowell-math-circle-year-2/source/week-74/`). Edit a problem there. `student/regenerate.py` writes `student/students.tex` from them, and `build.py` runs it first, so do not edit `students.tex` by hand. `problem-files/tools/build.py problem-files --out DIR` builds the same student packet together with a one-page problem menu and first-route and return packets. Edit the adult guide in `guide/facilitator.tex` and the stride strips in `materials/materials.tex`. `review/verify_card_fixes_2026_10_23.py` (needs PyMuPDF) checks the October 23, 2026 review-card fixes in built PDFs. `reference-pdfs/` holds the current print PDFs, for comparing a rebuild.
 
 ## Readiness and use
 

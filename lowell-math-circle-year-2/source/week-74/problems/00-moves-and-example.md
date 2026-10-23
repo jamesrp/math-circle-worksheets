@@ -7,7 +7,7 @@ route = ["first", "return"]
 +++
 
 ## text
-Move a pawn. Your partner checks each move and writes its letter.
+Move a marker. Your partner checks each move and writes its letter.
 Swap jobs after a trip. Start at ground coordinate 0, level 0.
 
 U and D move one level straight up or down, keeping the ground coordinate.

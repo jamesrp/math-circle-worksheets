@@ -25,7 +25,7 @@ def main():
         print(run(['python3','regenerate.py'],BASE/'student').strip())
     with tempfile.TemporaryDirectory(prefix=f"week{data['week']}-build-") as temporary:
         work=Path(temporary)
-        for directory in ['student','guide','checks']:
+        for directory in ['student','guide','materials','checks']:
             if (BASE/directory).exists(): shutil.copytree(BASE/directory,work/directory)
         for check in data.get('checks',[]):
             script=work/check

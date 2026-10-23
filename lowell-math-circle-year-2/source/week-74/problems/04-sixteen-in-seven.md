@@ -10,4 +10,4 @@ kernel = "The top-level bound covers every trip, including left moves and repeat
 Can any trip reach 16 and return to level 0 in seven or fewer moves? Explain why your answer covers trips that move left or change levels many times.
 
 ## text
-\lineblank\lineblank\lineblank
+\lineblank\lineblank\lineblank\lineblank\lineblank\lineblank\lineblank\lineblank

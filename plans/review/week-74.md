@@ -44,6 +44,8 @@ The board is a graph on (x, h) with h ≥ 0. At level h a stride moves 2^h, and 
 7. **could**, p. 3, P3: "Start at 0 on level 0." repeats the shared rule. Cut it.
 8. **could**, guide overview: add that two more moves double the reach (4, 8, 16, 32), so the shortest trip to 2^k is 2k moves. This is the distortion it names.
 
+October 23, 2026: shoulds 1–3 and coulds 4–8 fixed, after storing the week as problem files (student GGT74-S-v2, guide GGT74-FAC-v2, new stride-strip page GGT74-M-v1); the K–1 and 2–3 routes are guide-only. Checked by `source/week-74/editable/review/verify_card_fixes_2026_10_23.py`.
+
 ## Overlaps
 
 Week 66 (Lamplighter streets) is the nearest sibling. It also asks for shortest move words with lower bounds from unavoidable moves, but its group and theorem differ (dead ends, a decomposition). Keep both, and consider sharing a move-word board in the app. Week 30's signed-digit weights echo the 23 = 24 − 1 saving on a different object. No merge.
