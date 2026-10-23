@@ -18,7 +18,8 @@ if not fmt.stdout.strip():
  for k in ['TEXMFVAR','TEXMFCONFIG','VARTEXFONTS']:Path(env[k]).mkdir(parents=True,exist_ok=True)
  with (state/'format-build.log').open('w') as f:
   subprocess.run(['pdflatex','-ini','-etex','-jobname=pdflatex','-interaction=nonstopmode','-halt-on-error','pdflatex.ini'],cwd=state,env=env,stdout=f,stderr=subprocess.STDOUT,check=True)
-subprocess.run([sys.executable,'make_packets.py'],cwd=ROOT/'student-src',env=env,check=True)
+# The student pages are problem files; student-src/build.sh writes their LaTeX (regenerate.py) and compiles it.
+subprocess.run(['bash','build.sh'],cwd=ROOT/'student-src',env=env,check=True)
 subprocess.run([sys.executable,'build.py'],cwd=ROOT/'facilitator-src',env=env,check=True)
 
 subprocess.run([sys.executable, str(ROOT/'facilitator-src/add_route_note.py')], cwd=ROOT, env=env, check=True)
