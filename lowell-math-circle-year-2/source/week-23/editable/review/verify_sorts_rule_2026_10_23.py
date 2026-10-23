@@ -9,7 +9,8 @@ keys change (Problem 2: 2 bars, Problem 6: 3 bars, Problem 4's second half has n
 that under the restored rule ("the cards finish in order: fewest dots at the top, most dots at the
 bottom") every K-1 key in the guide holds. It then checks the printed K-1 rule and footers, the
 guide's packet names, footer and overview wording, and the K-1 Problem 5 key line in the problem
-file (and in the key view, if a views folder from problem-files/tools/build.py is given).
+file (and in the key view, with its id F23-G-v4, if a views folder from problem-files/tools/build.py
+is given).
 The build folder (default build/) holds build.sh's PDFs. Needs PyMuPDF.
 """
 import sys
@@ -110,5 +111,6 @@ if views:
     key = ' '.join(text(views / 'guide-keys.pdf'))
     ok('(1,2), (2,3) and (2,3) respectively' in key, 'key view P5 line')
     ok(all('F23-K-v4' in t for t in text(views / 'k-1.pdf')), 'problem-file K-1 packet v4')
+    ok(all('Bellingham Math Circle / Week 23 / F23-G-v4' in t for t in text(views / 'guide-keys.pdf')), 'key view id F23-G-v4')
 
 print(f'PASS: {checks} checks of the October 23 sorts-rule fix' + (' (with the views)' if views else ''))
