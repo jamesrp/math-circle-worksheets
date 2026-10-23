@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write k-1.tex, grades-2-3.tex and grades-4-5.tex from the Week 19 problem files, then run the answer checks.
+"""Write k-1.tex, grades-2-3.tex, grades-4-5.tex and materials.tex (the card sheet) from the Week 19 problem files, then run the answer checks.
 
 The problem files are the student pages' source. In the portable ZIP they are in
 ../problem-files/ with the tools in ../problem-files/tools/; in the repository they
@@ -31,4 +31,7 @@ for band, slug in (('K-1', 'k-1'), ('2-3', 'grades-2-3'), ('4-5', 'grades-4-5'))
     tex = atoms.student_tex(w, band)
     (HERE / f'{slug}.tex').write_text(tex)
     pages[slug] = tex.count('\\newpage') + 1
+# v3: the adult card sheet (sixteen 4.5 cm cards), drawn by card_sheet_tex() in figures.py.
+(HERE / 'materials.tex').write_text(w.figures['card_sheet_tex']())
+pages['materials'] = 1
 print(json.dumps({'pages': pages, 'checks': answer_checks.run()}, indent=2))

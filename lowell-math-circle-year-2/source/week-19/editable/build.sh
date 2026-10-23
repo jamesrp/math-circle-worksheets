@@ -12,13 +12,14 @@ case "${1:-}" in
  *) echo "Usage: bash build.sh [--from-tex]" >&2; exit 2 ;;
 esac
 "$PYTHON" "facilitator-src/independent_checks.py" > "build/independent_checks.py-results.txt"
+"$PYTHON" review/check_card_fixes.py > build/card-fixes-checks.txt
 "$PYTHON" facilitator-src/build_guide.py
-for tex in src/k-1.tex src/grades-2-3.tex src/grades-4-5.tex; do
+for tex in src/k-1.tex src/grades-2-3.tex src/grades-4-5.tex src/materials.tex; do
  name="$(basename "$tex" .tex)"
  for pass in 1 2; do
   if ! pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build "$tex" >"build/$name-console.txt" 2>&1; then cat "build/$name-console.txt" >&2; exit 1; fi
  done
 done
-printf '\nBuilt and checked four PDFs in build/. Run python3 verify_rebuild.py for reference comparison.\n'
+printf '\nBuilt and checked five PDFs in build/. Run python3 verify_revision.py for reference comparison.\n'
 
 "$PYTHON" facilitator-src/add_route_note.py

@@ -7,7 +7,7 @@ kernel = "The six two-symbol cards form a collection of six; the rows that follo
 +++
 
 ## prompt @0.98
-Use this sixteen-card deck. Find the largest collection you can. Explain why you think it is best.
+Use this sixteen-card deck. Find the largest collection you can.
 
 ## figure
 deck(D16,2.04,cols=8,s=.69,gap=.20)

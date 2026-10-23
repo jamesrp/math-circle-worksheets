@@ -45,6 +45,8 @@ Cards are the subsets of up to four symbols; "fits inside" is containment, so a 
 9. **could**, guide pp. 2, 11: cut build residue ("follows FINAL F19-K-v2", "Included independent_checks.py").
 10. **could**, guide p. 1: say every full deck has a cover with as many rows as its largest collection.
 
+October 23, 2026: shoulds 1–4 and coulds 5 and 7–10 done in the new problem files and guide (F19-v3, card sheet week-19-materials.pdf). The launch builds BC and BD, rejects B and adds ACD instead of AB/AC/BC, which answers tasks (K–1 P1's third group; a largest eight-card collection). Could 6 deferred: it changes 2–3 P1's task. See `source/week-19/editable/review/card-fixes-2026-10-23.md`.
+
 I agree with the math check, which did not cover materials or the launch.
 
 ## Overlaps

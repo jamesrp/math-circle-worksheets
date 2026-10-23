@@ -1,0 +1,12 @@
+# Review-card fixes, October 23, 2026
+
+From the keep card `plans/review/week-19.md` (all shoulds and the clear coulds). Student packets v3 (F19-K-v3, F19-23-v3, F19-45-v3), a new card sheet (F19-C-v1) and the adult guide, rebuilt from source.
+
+- **Should 1, card sheet.** `materials.pdf` (print copy `week-19-materials.pdf`) prints the sixteen cards at 4.5 cm in a 4 × 4 grid with 0.15 in cutting gaps, drawn by `card_sheet_tex()` in the problem files' `figures.py` with the student pages' card geometry, heavier lines, and every card's top mark just inside its border. Guide p. 2 now names it, prints it six times on different colours as deck backs, says that every card (the empty card included) carries the mark, and restates the cutting time as an untested estimate.
+- **Should 2, launch.** Guide p. 2 builds one collection that is in no task, BC/BD/ACD, rejects B by pointing to its triangle on BC, and sketches the finished collection; collections and rows stay on the table, and children sketch only finished arrangements. The card proposed AB/AC/BC; that collection is K–1 P1's third group answer and one of the two largest eight-card collections, so a non-task collection replaced it.
+- **Should 3, partner checking.** The partner points to every picture of the smaller card on the larger, partners swap with each card, and the 4–5 third child referees.
+- **Should 4, caption.** "One nested row." replaces the two-sentence caption on K–1 p. 4, Grades 2–3 p. 3 and Grades 4–5 p. 4.
+- **Coulds 5, 7–10.** Timing fits 35–40 working minutes; Grades 2–3 P6 drops "Explain why you think it is best" (P8 asks it; the key's note changed to match); the p. 8 rows use arrows; build residue is cut from pp. 2 and 11; p. 1 says every full deck has a cover with as many rows as its largest collection (Dilworth's theorem).
+- **Deferred.** Could 6 (open Grades 2–3 P1 with K–1 P1's groups) would replace a problem's examples; it is left for the organizer.
+
+`review/check_card_fixes.py` checks the card sheet's geometry, the launch collection, the arrow rows, the cover-equals-maximum claim for two, three and four symbols, the timing and the changed wording; `build.sh` runs it. Every changed page was rendered at 80 dpi and inspected: K–1 p. 4, Grades 2–3 pp. 3 and 5, Grades 4–5 p. 4, the card sheet (materials), and guide pp. 1, 2, 8 and 11. The other student pages differ from the previous print copies only in the footer; guide pp. 3–7, 9, 10 and 12 are unchanged. Physical card making and the launch remain unrehearsed; the week is unpiloted.

@@ -6,7 +6,7 @@ The guide now gives first routes, readiness-dependent continuation and return vi
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
-Current pages: **K–1 5; Grades 2–3 6; Grades 4–5 6; adult guide 12**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 5; Grades 2–3 6; Grades 4–5 6; adult guide 12; card sheet (`materials.pdf`) 1**. The October 23, 2026 review-card fixes are recorded in `review/card-fixes-2026-10-23.md`. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project
 
