@@ -3,7 +3,7 @@ id = "w21.45-shared-contact"
 title = "Two journeys share the best contact"
 grades = ["4-5"]
 route = "return"
-kernel = "A–B and C–D both cross the line at 6.2 cm: different journeys can share a best contact."
+kernel = "A–B and C–D both cross the line 5.6 cm from its left end mark: different journeys can share a best contact."
 +++
 
 ## prompt

@@ -42,6 +42,8 @@ For A and B strictly on one side of a line, reflect B to B′. Every route A–M
 8. **could**, guide: older explanations can go on a blank sheet or be told aloud, since B′ uses the space below the line.
 9. **could**, guide pp. 1, 16–17: move production and rebuild notes to the source README; number the route update "18 / 18".
 
+October 23, 2026: shoulds 1–5 and coulds 6–9 done in the new problem files and guide (Grades 2–3 v3; K–1 and Grades 4–5 unchanged). A contact 1.5 cm from the best costs 0.97–3.49 mm on these boards, so the guide says "1 to 3.5 mm"; the production notes are in `source/week-21/editable/README.md`. See `source/week-21/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 Week 9 (bouncing paths) and Week 71 (billiard words) unfold reflections into straight lines but ask where a path goes, not which route is shortest. Weeks 41, 61 and 64 share only unfolding or the word "shortest". Only Week 21 has the optimality theorem, its uniqueness and its inverse ray. No merge.

@@ -26,11 +26,23 @@ styles={
 story=[Paragraph('Starting routes and return visits',styles['title']),Paragraph('Planning update of 4 October 2026. The timing menus are examples; a theme can continue over several meetings. Keep the full Grades 4-5 investigations and choose by readiness.',styles['small'])]
 for heading,body in cfg['notes']:
  story.extend([Paragraph(escape(heading),styles['head']),Paragraph(escape(body),styles['body'])])
+# The update carries the numbered guide's header and footer (build_guide.py) and is its last
+# numbered page; the guide's first page, the mathematical overview, is unnumbered.
+import os
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+dejavu=Path(os.environ.get('DEJAVU_FONT_DIR',''))/'DejaVuSans.ttf'
+if os.environ.get('DEJAVU_FONT_DIR') and dejavu.is_file():
+ pdfmetrics.registerFont(TTFont('RouteBody',str(dejavu)));RULE_FONT='RouteBody'
+else:
+ RULE_FONT='Helvetica'
 def decorate(c,doc):
- c.saveState();c.setFont('Helvetica',8)
- c.drawString(45,762,f"Week {cfg['week']} / {cfg['title']} / Adult guide")
- c.drawString(45,28,f"Bellingham Math Circle / Week {cfg['week']} / Route update / Unpiloted")
- c.drawRightString(567,28,str(len(reader.pages)+doc.page));c.restoreState()
+ n=len(reader.pages)-1+doc.page
+ c.saveState();c.setFillColorRGB(0,0,0);c.setFont(RULE_FONT,8.3)
+ c.drawString(44,763,f"BELLINGHAM MATH CIRCLE  /  ADULT GUIDE  /  UNSCHEDULED LIBRARY SLOT {cfg['week']}")
+ c.setFont(RULE_FONT,8.2);c.setFillColorRGB(.267,.267,.267)
+ c.drawString(44,29,f"Week {cfg['week']}  /  Draft and unpiloted  /  Facilitator guide")
+ c.drawRightString(568,29,f'{n} / {n}');c.restoreState()
 SimpleDocTemplate(stream,pagesize=(612,792),leftMargin=45,rightMargin=45,topMargin=55,bottomMargin=48,title=f"Week {cfg['week']} route update").build(story,onFirstPage=decorate,onLaterPages=decorate)
 stream.seek(0);note=PdfReader(stream)
 assert len(note.pages)==1,('Route note must remain concise: one page',cfg['week'])
