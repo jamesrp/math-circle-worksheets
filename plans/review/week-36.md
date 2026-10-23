@@ -44,6 +44,8 @@ The nine tiles are the plane over the integers mod 3; the allowed threes are its
 
 **Fixed October 23, 2026 (v3).** After a no-wording-change conversion to problem files, shoulds 1–5 and coulds 6–10 were made as proposed (fix 6 as an hour-shaped timetable; fix 8's old question kept as a key hint); nothing deferred. Checked by `editable/review/verify_card_shoulds_2026_10_23.py`; record in `source/week-36/editable/review/card-shoulds-2026-10-23.md`; v2 PDFs in `week-36/archive-before-card-fixes-2026-10-23/`. Unpiloted.
 
+**Critic follow-up, October 23, 2026 (guide only):** an independent critic noted that the guide's straight-line warning named only the record boards, though the 60 mm grids on K–1 p. 3, Grades 2–3 p. 3 and Grades 4–5 p. 2 use the same rows-by-shape layout, and K–1 chooses tiles on that page. The warning now begins "On every printed nine-tile grid (K-1 p. 3, Grades 2-3 pp. 3-4, Grades 4-5 pp. 2-4)". Student packets unchanged (v3). Check: `checks/week-36/check_critic_fixes.py`, which finds every printed nine-tile grid in the PDFs.
+
 ## Overlaps
 
 Week 19 (antichains) shows maximal is not maximum; here they coincide, worth a cross-reference. Week 62 compares two and three colours for pairwise conflicts, bonus P2 for threes; Week 62's notes separate them. The two mixed splits are the orthogonal Latin squares of order 3, near the app's Symbol Orchard. Nothing else has this plane or a cap set: no merge.

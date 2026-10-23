@@ -2,7 +2,7 @@
 
 ## Current release: October 4, 2026 fresh-review revision
 
-The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained. On October 23, 2026 the student pages became problem files and the review card's shoulds and clear coulds were made (v3): see `review/card-shoulds-2026-10-23.md`, checked by `review/verify_card_shoulds_2026_10_23.py`.
+The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained. On October 23, 2026 the student pages became problem files and the review card's shoulds and clear coulds were made (v3): see `review/card-shoulds-2026-10-23.md`, checked by `review/verify_card_shoulds_2026_10_23.py`. A critic's follow-up the same day changed only the guide: its straight-line warning names every printed nine-tile grid.
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 

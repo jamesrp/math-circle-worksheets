@@ -104,6 +104,9 @@ check('For eleven children' in g and 'For ten children' not in g, 'guide: eleven
 check('youngest adult' not in g and g.count("K-1 table's adult") == 2, "guide: the K-1 table's adult, pp. 2 and 6")
 check('all eight straight lines of that layout are allowed threes' in g and 'four threes through the centre tile, three through a corner and two through an edge tile' in g,
       'guide p. 1: the record-board facts')
+# Critic follow-up, October 23, 2026: the warning names every printed nine-tile grid.
+check('On every printed nine-tile grid (K-1 p. 3, Grades 2-3 pp. 3-4, Grades 4-5 pp. 2-4)' in ' '.join(g.split()),
+      'guide p. 1: the straight-line warning names every printed nine-tile grid')
 check('judge shapes only, with all nine tiles (fills ignored)' in g and 'again four, two each of two shapes' in g, 'guide p. 2: the shapes-only fallback')
 check('0-5 minutes: the usual movement break' in g and '48-55 minutes' in g and '57-60' not in g, 'guide p. 2: the timetable fits the hour (35-40 minutes at tables)')
 with pdfplumber.open(PDF / 'facilitator-guide.pdf') as pdf:

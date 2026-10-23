@@ -4,6 +4,8 @@
 
 **Review-card fixes, October 23, 2026 (v3).** After the conversion, the card's shoulds and clear coulds were made: Grades 4-5 Problem 1 asks openly whether a pair can have two completing tiles or none, Grades 4-5 Problem 4 has six record boards, Grades 2-3 Problem 3 asks "How do you know you cannot keep more?", and the guide prints the tiles from K-1 p. 3, states the record-board facts, gives a shapes-only fallback and an hour-shaped timetable. The bonus guide's Problem 3 extension is corrected. [editable/review/card-shoulds-2026-10-23.md](editable/review/card-shoulds-2026-10-23.md) lists every change and check; the replaced PDFs are in `../../week-36/archive-before-card-fixes-2026-10-23/` and the replaced ZIPs in [archive-before-card-fixes-2026-10-23/](archive-before-card-fixes-2026-10-23/README.md).
 
+**Critic follow-up, October 23, 2026 (guide only).** An independent critic noted that the guide's straight-line warning named only the record boards, while the 60 mm grids on K–1 p. 3, Grades 2–3 p. 3 and Grades 4–5 p. 2 use the same rows-by-shape layout, and K–1 chooses tiles on that page. The guide's Limits paragraph now says "On every printed nine-tile grid (K-1 p. 3, Grades 2-3 pp. 3-4, Grades 4-5 pp. 2-4)"; `editable/review/verify_card_shoulds_2026_10_23.py` checks it. The guide stays six pages (its footer names the v3 student packets, which are unchanged). The replaced guide is in `../../week-36/archive-before-critic-fixes-2026-10-23/` and the previous ZIP in [archive-before-critic-fixes-2026-10-23/](archive-before-critic-fixes-2026-10-23/README.md). Unpiloted.
+
 - **Student pages:** edit `problems/*.md` (figures in `figures.py`), then build and compare:
 
   ```sh
