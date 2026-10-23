@@ -1,6 +1,6 @@
 # Week 71: release verification scope
 
-Prepared October 6, 2026 for review. Current IDs: GGT71-S-v1 and GGT71-FAC-v1. 5 student pages; 3 adult-guide pages.
+Prepared October 6, 2026 for review. Current IDs: GGT71-S-v2 and GGT71-FAC-v2 (revised October 23, 2026 from the review card; the repository's `plans/review/checks/week-71/check_card_fixes.py` checks the changes in the rendered PDFs). 5 student pages; 4 adult-guide pages.
 
 The student packet passed an independent adversarial review followed by a fresh revision. Each final student page was rendered and visually inspected after changes; its standalone builder and mathematical checks were rerun. The adult guide is a separate stage: its author checked the exact final student questions, independently verified its answers, and rendered and inspected every guide page. Reviewer findings and revision decisions are kept with the repository's per-week review record.
 

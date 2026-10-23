@@ -1,6 +1,6 @@
 # Week 72 adult guide
 
-This is the separate guide for the final GGT72-S-v1 student prototype.
+This is the separate guide for the five-page GGT72-S-v2 student packet.
 
 ## Build
 

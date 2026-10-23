@@ -1,6 +1,6 @@
 # Week 71 adult guide
 
-This is the separate guide for the final GGT71-S-v1 student prototype.
+This is the separate guide for the five-page GGT71-S-v2 student packet.
 
 ## Build
 
