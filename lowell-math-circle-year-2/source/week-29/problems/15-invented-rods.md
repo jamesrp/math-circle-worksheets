@@ -8,7 +8,7 @@ kernel = 'For coprime a and b, the multiples 0, b, ..., (a-1)b reach every remai
 +++
 
 ## prompt @16
-Invent paper rods of two different whole-number lengths a and b that have no common divisor larger than 1. Explain why some finite group of builds must settle every sufficiently long target.
+Invent paper rods of two different whole-number lengths a and b that have no common divisor larger than 1. Explain why some finite group of builds must settle every length from some point on.
 
 ## figure
 draw(('ruled', 19, 4))

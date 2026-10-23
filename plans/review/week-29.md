@@ -52,6 +52,8 @@ With unlimited rods of lengths a and b, n can be built exactly when n = ax + by 
 
 **Fixed October 23, 2026 (guide only):** fix 1 ("{2,4}: 7,9,11"), fix 4 (1 cm per unit), fix 5's guide line (6-rods; the printable rod sheet is deferred), fix 6 (4/6 gaps include 2) and fix 10 (timing); the student-page fixes are deferred. Record: `lowell-math-circle-year-2/source/week-29/editable/review/card-fixes-2026-10-23.md`.
 
+**Fixed later October 23, 2026 (student pages, after the problem-file conversion):** shoulds 2, 3, 7, 8, 9, 11 and 12 and coulds 13–17 (v3 packets, with guide pages 1–3 to match), and fix 5's printable rod sheet (`week-29-materials.pdf`, one pair-kit per sheet, measured by `materials/verify_materials.py`). Same record.
+
 ## Overlaps
 
 Week 30 also builds targets from a kit, but with one copy of each weight on either pan; its card suggests these rods as its weights. Weeks 4, 31 and 32 reach gcd through hops, sight lines and squares; Week 55 counts sums of two sets. None has the last gap or the run certificate. No merge.

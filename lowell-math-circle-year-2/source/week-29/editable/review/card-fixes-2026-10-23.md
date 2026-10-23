@@ -19,3 +19,27 @@ Deferred: fixes 2, 3, 7, 8, 9, 11 and 12 change student pages and wait for a pro
 - The previous guide and ZIP are archived in the project in `week-29/archive-before-card-fixes-2026-10-23/` and `source/week-29/archive-before-card-fixes-2026-10-23/`.
 
 The theme remains unpiloted; rod fit and timing are unrehearsed.
+
+## Part 2: student-page fixes and the rod sheet, after the problem-file conversion
+
+The student pages are now `problems/*.md` and `figures.py` beside `week.toml` (in the ZIP, `problem-files/`). The conversion itself changed nothing: the rebuilt LaTeX was the old builder's byte for byte and the packets matched the print PDFs in pages, text and 100-dpi pixels. Then, as v3 packets (F29-K-v3, F29-23-v3, F29-45-v3):
+
+- **Should 2, Grades 4–5 Problem 2.** It asks for 3 and 5, and 4 and 5, only, with more room for each; 4 and 7 is left to Problems 3 and 4, which it used to answer. Guide p. 3's P2 key drops 4/7 and "18,19,20,21 as above"; its P3–4 key now lists the builds 18–21 and the three cases for 17 itself.
+- **Should 3, K–1 Problem 2.** Three strips under 12 and three under 15; each has exactly two ways, so one strip per target stays empty (guide p. 2 says so).
+- **Should 7, Grades 4–5 Problem 7.** "propose a rule that gives the last impossible length from the two rod lengths", so the comparison leads to ab − a − b rather than restating Problem 5's divisor rule.
+- **Should 8, K–1 Problem 6.** Six rows, one per pair, each with two boxes for the pair's rod lengths and the targets 6–12, replacing one target row and ruled lines.
+- **Should 9, K–1 Problem 4 and Grades 2–3 Problem 1.** "Mark a target on a ruler and build from 0 to the mark." is gone; the guide's launch (p. 2) builds the 3 + 4 train from 0 on a printed ruler instead.
+- **Should 11, Grades 2–3 Problem 4.** "Can 3-rods and 4-rods build every length after 16? Can 3-rods and 5-rods build every length after 20? Explain how you know." Guide p. 3's key answers yes to both.
+- **Should 12, Grades 2–3 Problem 6.** "Is the claim true? Use rods 2, 3, 4, 5 and 7 to decide." The page no longer names the counterexample; the key adds that 2/4 is the only one of the ten pairs with gaps forever.
+- **Coulds 13–17.** The labels of 2- and 4-rods have the rod's colour behind them, so the cell line no longer runs through the numeral (13); Grades 2–3 Problem 2 no longer repeats "Rod order does not count." (14); Grades 4–5 Problem 6 reads "Find every way to build 24 with 3-rods and 4-rods. How can you change one way into another?" (15); Grades 4–5 Problem 8 says "every length from some point on" (16); guide p. 1 plans for the eleven children, with the five kits named (17).
+- **Should 5, the rod sheet.** `week-29-materials.pdf`, built by `materials/build_materials.py`: one pair-kit per sheet of card stock, ten rods each of 2, 3, 4, 5 and 7 units and three 6-rods at 1 cm per unit, in twelve abutting 19 cm rows, with a 10 cm scale check. Guide p. 1 points to it.
+
+### Verification
+
+- `python3 review/verify_student_fixes_2026_10_23.py` reads the printed pages and checks each fix and its mathematics: v3 footers; no ruler sentence; three 12 cm and three 15 cm strips, with exactly two builds each; six pair rows of targets 6–12, with exactly {2,3}, {2,5}, {3,4} covering them; last gaps 5 and 7 for 3/4 and 3/5, and the certificates 17–19 and 21–23; of the ten pairs from 2, 3, 4, 5, 7 only 2/4 has gaps forever and the other nine have last gap ab − a − b; the 4–5 P2 pairs and the 4/7 builds; the five last gaps 5, 7, 11, 17, 23; the three builds of 24; the label patches.
+- `python3 materials/verify_materials.py` measures the rod sheet from the PDF: 53 rods, each 10.00 mm wide and n × 10.00 mm long with its numeral, rows of 190.00 mm that abut, one 100.00 mm scale line; the K–1 strips they fill measure n cm by 1 cm. Every buildable target the problems print or the keys use has a build from one kit, and the certificate runs 6–8, 8–10, 12–15 and 18–21 fit one kit side by side; the 5/7 run 24–28 needs twelve 5-rods at once, so it is built in turns, as the guide's "large targets can be represented by counts" allows.
+- `python3 problem-files/check_guide_copy.py` confirms the key view's copy of the guide. Guide pages 4 and 5 are pixel-identical to the previous release; pages 1–3 changed. Every student page changed (the footer is v3). Each changed page and the rod sheet were rendered and inspected.
+- A clean rebuild from the extracted ZIP passes `verify_revision.py` with exact 100-dpi reference pixels on all pages, and both verifiers pass there.
+- The replaced v2 packets and guide are archived in the project in `week-29/archive-before-card-fixes-2026-10-23/`, and the conversion's ZIP in `source/week-29/archive-before-card-fixes-2026-10-23/`.
+
+The theme remains unpiloted; the rod sheet is physically unrehearsed (nobody has cut or used it), and rod fit and timing are untested.

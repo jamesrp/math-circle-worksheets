@@ -35,9 +35,10 @@ class Page:
     def rect(self, x, y, w, h, style='black,line width=.65pt'):
         self.add(r'\draw[' + style + '] (' + f'{x},{-y}' + ') rectangle (' + f'{x+w},{-y-h}' + ');')
 
-    def node(self, x, y, s, size=12):
-        self.add(r'\node[font=\fontsize{' + str(size) + '}{' + str(size + 2) + r'}\selectfont,inner sep=1pt] at ('
-                 + f'{x},{-y}' + ') {' + esc(str(s)) + '};')
+    def node(self, x, y, s, size=12, fill=None):
+        """A label; `fill` paints its background, hiding a cell line behind it."""
+        self.add(r'\node[font=\fontsize{' + str(size) + '}{' + str(size + 2) + r'}\selectfont,inner sep=1pt'
+                 + (',fill=' + fill if fill else '') + '] at (' + f'{x},{-y}' + ') {' + esc(str(s)) + '};')
 
     def strip(self, x, y, n, label=True, fill=None, unit=1):
         self.rect(x, y, n * unit, 1, ('fill=' + fill + ',' if fill else '') + 'line width=.7pt')
@@ -68,8 +69,19 @@ class Page:
         x = 0
         for n in vals:
             self.strip(x, y, n, label=False, fill='gray!12')
-            self.node(x + n / 2, y + .5, n, 14)
+            # An even rod's middle is a cell line, so its label gets the rod's colour behind it.
+            self.node(x + n / 2, y + .5, n, 14, 'gray!12' if n % 2 == 0 else None)
             x += n + .9
+
+    def pair_row(self, y, vals):
+        """Two boxes for a pair of rod lengths ("[ ] and [ ]"), then a row of target boxes."""
+        self.rect(0, y + .05, 1.1, 1.1)
+        self.node(1.75, y + .6, 'and', 12)
+        self.rect(2.4, y + .05, 1.1, 1.1)
+        for i, v in enumerate(vals):
+            x = 4.3 + i * 2.0
+            self.rect(x, y, 1.6, 1.2)
+            self.node(x + .8, y + .6, v, 16)
 
 
 def draw(*steps):
@@ -137,5 +149,5 @@ def page_text(x, y, body, w, size):
 def rules_example():
     """The shared rules' worked example: the 3- and 4-rods and the train 3 + 4 = 7."""
     return draw(('rodkey', [3, 4], 2), ('strip', 0, 3.6, 7, False), ('rect', 0, 3.6, 3, 1, 'line width=1.5pt'),
-                ('rect', 3, 3.6, 4, 1, 'line width=1.5pt'), ('node', 1.5, 4.1, 3), ('node', 5, 4.1, 4),
+                ('rect', 3, 3.6, 4, 1, 'line width=1.5pt'), ('node', 1.5, 4.1, 3), ('node', 5, 4.1, 4, 12, 'white'),
                 ('node', 9, 4.1, '3 + 4 = 7', 14))

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build all four PDFs using installed TeX packages and included fonts."""
+"""Build all five PDFs (three packets, the rod sheet, the guide) using installed TeX packages and included fonts."""
 from pathlib import Path
 import os,subprocess,sys
 ROOT=Path(__file__).resolve().parent
@@ -19,6 +19,7 @@ if not fmt.stdout.strip():
  with (state/'format-build.log').open('w') as f:
   subprocess.run(['pdflatex','-ini','-etex','-jobname=pdflatex','-interaction=nonstopmode','-halt-on-error','pdflatex.ini'],cwd=state,env=env,stdout=f,stderr=subprocess.STDOUT,check=True)
 subprocess.run([sys.executable,'regenerate.py'],cwd=ROOT/'student-src',env=env,check=True)
+subprocess.run([sys.executable,str(ROOT/'materials/build_materials.py')],cwd=ROOT,env=env,check=True)
 subprocess.run([sys.executable,'build.py'],cwd=ROOT/'facilitator-src',env=env,check=True)
 
 subprocess.run([sys.executable, str(ROOT/'facilitator-src/add_route_note.py')], cwd=ROOT, env=env, check=True)

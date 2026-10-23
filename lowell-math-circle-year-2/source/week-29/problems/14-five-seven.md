@@ -7,7 +7,7 @@ kernel = 'The last gap for 5/7 is 23; with 5, 7, 11 and 17 from earlier pairs it
 +++
 
 ## prompt
-Predict the last impossible length for 5-rods and 7-rods, then test your prediction. Compare the answer with your earlier pairs and propose a rule for pairs that eventually have no gaps.
+Predict the last impossible length for 5-rods and 7-rods, then test your prediction. Compare the answer with your earlier pairs and propose a rule that gives the last impossible length from the two rod lengths.
 
 ## figure
 draw(('targets', range(19, 32), 3, 7), ('ruled', 8, 5))
