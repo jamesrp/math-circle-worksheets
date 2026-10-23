@@ -199,7 +199,7 @@ def _path(pts,o=(0,0)):
 def move_pictures(y):
  """Grades 4-5: the two allowed changes, each a before/after pair with one line of text beside it."""
  out=''
- for row,(name,words) in enumerate([('slide','Slide: swap two sides of one small square for its other two sides, in any rotation.'),
+ for row,(name,words) in enumerate([('slide','Slide: swap two sides of a square of four neighboring centers for its other two sides, in any rotation.'),
                                     ('backtrack','Backtrack: add or erase a step followed straight away by the opposite step.')]):
   yy=y+row*50
   left,p=_block(20,yy);right,q=_block(84,yy)

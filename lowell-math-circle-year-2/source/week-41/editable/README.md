@@ -1,6 +1,8 @@
 # Week 41 Torus portals and lifts editable source
 
-## Current release: October 23, 2026 card shoulds, on the October 4 fresh-review revision
+## Current release: October 23, 2026 card shoulds and critic follow-up, on the October 4 fresh-review revision
+
+**Critic follow-up, October 23, 2026 (F41-45-v4).** Grades 4–5 Problem 4 names "a repeated map, such as the one with Problem 6" instead of "page 2", which in the return view is Problem 4's own page; it has nine record lines; the slide picture says "a square of four neighboring centers". K–1 and Grades 2–3 are unchanged. `review/verify_card_shoulds_2026_10_23.py` checks the v4 build.
 
 The guide gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
 

@@ -10,7 +10,7 @@ Usage: python3 review/verify_card_shoulds_2026_10_23.py [folder with the built P
 2. The problem files' wording: no "Draw or replay", no named invariant in Grades 4-5
    Problem 6, "trip" rather than "journey", "keep going the same way", and no "Repeated
    copies continue beyond the page." for K-1.
-3. The built packets: v3 footers; every band's page 1 names the portal map and the
+3. The built packets: v3 footers (Grades 4-5 v4 after the same day's critic follow-up); every band's page 1 names the portal map and the
    repeated map and no longer says input/process/output; Grades 2-3 Problem 2's map is
    120 mm with ruled lines; Grades 4-5 has six pages, the finishing-copy map before the
    four trips home, and Problem 5 alone on page 5.
@@ -127,9 +127,9 @@ if pymupdf is None:
 else:
     MM = 25.4 / 72
     docs = {b: pymupdf.open(folder / f'{b}.pdf') for b in ('k-1', 'grades-2-3', 'grades-4-5')}
-    for b, tag in (('k-1', 'K'), ('grades-2-3', '23'), ('grades-4-5', '45')):
+    for b, tag in (('k-1', 'K-v3'), ('grades-2-3', '23-v3'), ('grades-4-5', '45-v4')):
         d = docs[b]
-        check(all(f'F41-{tag}-v3' in p.get_text() for p in d), f'{b}: every page carries F41-{tag}-v3')
+        check(all(f'F41-{tag}' in p.get_text() for p in d), f'{b}: every page carries F41-{tag}')
         t = d[0].get_text()
         check('portal map' in t and 'repeated map' in t and not re.search(r'\b(input|process|output)\b', t),
               f'{b} page 1: panels named "portal map" and "repeated map"; no input/process/output')
@@ -148,6 +148,7 @@ else:
     check(len(d) == 6 and nums == [['1'], ['2'], ['3'], ['4'], ['5'], ['6']],
           f'4-5: six pages with problems {nums}')
     check('(0,0)' in pages[1].replace(' ', '') or '(0, 0)' in pages[1], '4-5 page 2 holds the copy-labelled repeated map')
-    check('Slide' in pages[3] and 'Backtrack' in pages[3] and 'page 2' in pages[3], '4-5 page 4: both pictures with their lines; P4 points to page 2')
+    check('Slide' in pages[3] and 'Backtrack' in pages[3] and 'the one with Problem 6' in pages[3] and 'page 2' not in pages[3],
+          '4-5 page 4: both pictures with their lines; P4 names the repeated map with Problem 6 (critic follow-up), not a page')
 print(f'{len(fails)} failure(s)')
 raise SystemExit(1 if fails else 0)
