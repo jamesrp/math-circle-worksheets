@@ -13,13 +13,13 @@ Health sweep of every script under `plans/review/checks/`, October 23, 2026, aft
 - *FAIL: packet error*: a real error in the current packet. The packet was not changed.
 - *FAIL: open finding*: a reviewed finding that is still open in the current packet.
 
-**Result.** 394 scripts (plus 69 helper modules). 244 pass unchanged, 68 re-pointed, 53 updated, 21 with a finding paired, 5 need input. 2 fail on real packet errors and 1 on an open finding.
+**Result.** 394 scripts (plus 69 helper modules). 244 pass unchanged, 68 re-pointed, 54 updated, 23 with a finding paired, 5 need input. At the sweep, 2 failed on real packet errors and 1 on an open finding; all three were fixed the same day (below), and those checks now pass.
 
-**Real packet errors (not fixed here).**
-- Week 5 return-visit guide, p. 3, order-3 impossibility argument: "The bottom corners are forced to be b, a." With the top corners a (left) and b (right), the diagonals force bottom-left a and bottom-right b, so the bottom corners are a, b. The contradiction still follows. Check: `week-05/check_return_visit.py`.
-- Week 28 guide, p. 2: "(the sector lists on page 10)". The sector table is on printed p. 11, since the 2-3 Problems 2 and 3 swap (799a994); the pp. 10 and 13 references were updated, this one was not. It is still present after c6c73f2. Check: `week-28/check_base.py`.
+**Real packet errors found by the sweep (fixed October 23 in c5e196d and def2afb).**
+- Week 5 return-visit guide, p. 3, order-3 impossibility argument: "The bottom corners are forced to be b, a." With the top corners a (left) and b (right), the diagonals force bottom-left a and bottom-right b, so the bottom corners are a, b. The contradiction still follows. Fixed: the guide (F05-RV-FAC-v2) now says a, b and ends at the contradiction this gives at once, the left column repeating a. Check: `week-05/check_return_visit.py`.
+- Week 28 guide, p. 2: "(the sector lists on page 10)". The sector table is on printed p. 11, since the 2-3 Problems 2 and 3 swap (799a994); the pp. 10 and 13 references were updated, this one was not. It was still present after c6c73f2. Fixed: the guide now says page 11. Check: `week-28/check_base.py`.
 
-**Open finding.** Week 41 bonus, pp. 1-2: the portal boards mark only the left and right seams, though the rule wraps columns too (math review problem 1; the bonus was not on the card). Check: `week-41/check_diagrams.py`.
+**Open finding (fixed October 23 in ab16390).** Week 41 bonus, pp. 1-2: the portal boards marked only the left and right seams, though the rule wraps columns too (math review problem 1; the bonus was not on the card). W41-BONUS-v2 adds an arrow above and below each column, matching the row arrows. Check: `week-41/check_diagrams.py`.
 
 **Other findings.** Several checks had been passing for the wrong reason. Week 94's `rebuild_compare.py` rebuilt nothing, since `build.py` had moved, and still exited 0; it now exits 1 when a PDF is not rebuilt. When the scripts run in alphabetical order, the checks in Weeks 5, 18, 20, 22, 25, 27, 29, 30, 34, 35, 43 and 61 read a JSON extracted from older PDFs. The Week 9 app checks need the pre-redesign app data, `git -C <small-math-adventure> show 0769bac~1:dist/puzzles.json > puzzles-reviewed.json`, because the app's billiard family was redesigned in 0769bac. Week 4's `check_codes.py` needs `pip install wordfreq english-words`. Week 43's typo "The27-story" is already fixed in the current guide. Weeks 98-100 and 83-85 may still change in other lanes.
 
@@ -56,7 +56,7 @@ Health sweep of every script under `plans/review/checks/`, October 23, 2026, aft
 | 04 | check_times.py | `python3 extract_pdf.py && python3 check_times.py` | pass |  |
 | 04 | edge_cases.py | `python3 extract_pdf.py && python3 edge_cases.py` | pass |  |
 | 05 | extract_pdf.py | `python3 extract_pdf.py > extract_pdf.out` | pass |  |
-| 05 | check_return_visit.py | `python3 extract_pdf.py && python3 check_return_visit.py > check_return_visit.out` | FAIL: packet error | return-visit guide p. 3: "The bottom corners are forced to be b, a"; they are a, b (left, right) |
+| 05 | check_return_visit.py | `python3 extract_pdf.py && python3 check_return_visit.py > check_return_visit.out` | pass; finding paired | return-visit guide p. 3 said "The bottom corners are forced to be b, a"; they are a, b (left, right). Confirmed on the archived F05-RV-FAC-v1; fixed in F05-RV-FAC-v2 (c5e196d), checked on the current guide |
 | 05 | check_week05.py | `python3 extract_pdf.py && python3 check_week05.py > check_week05.out` | pass; updated | guide grids taken by reading order: could 7 (d04ef8f, F05-FAC-v6) moved the 4-5 ladder to p. 7 and the P6 example to p. 8 |
 | 05 | edge_cases.py | `python3 extract_pdf.py && python3 edge_cases.py > edge_cases.out` | pass |  |
 | 05 | geometry.py | `python3 extract_pdf.py && python3 geometry.py > geometry.out` | pass |  |
@@ -166,7 +166,7 @@ Health sweep of every script under `plans/review/checks/`, October 23, 2026, aft
 | 27 | check_guide.py | `python3 extract.py && python3 check_guide.py` | pass; finding paired | two reworded sentences confirmed in the archived guide; current wording checked (34082e7) |
 | 27 | check_students.py | `python3 extract.py && python3 check_students.py` | pass; updated | 2-3 Problem 4 prints six boards (34082e7, W27-23-v4) |
 | 28 | pdf_geometry.py | `python3 pdf_geometry.py > pdf_geometry.out` | pass; updated | 2-3 P2/P3 swapped (799a994); K-1 P3 six M disks again (c6c73f2, F28-K-v4) |
-| 28 | check_base.py | `python3 pdf_geometry.py && python3 check_base.py > check_base.out` | FAIL: packet error | guide p. 2 still says "(the sector lists on page 10)"; the table is on printed p. 11. P6 rows finding paired (799a994) |
+| 28 | check_base.py | `python3 pdf_geometry.py && python3 check_base.py > check_base.out` | pass; updated | guide p. 2 said "(the sector lists on page 10)"; the table is on printed p. 11, and the guide now says so (def2afb). P6 rows finding paired (799a994) |
 | 28 | check_bonus.py | `python3 pdf_geometry.py && python3 check_bonus.py > check_bonus.out` | pass |  |
 | 28 | kit_crosscheck.py | `python3 pdf_geometry.py && python3 kit_crosscheck.py > kit_crosscheck.out` | pass |  |
 | 29 | pdf_geometry.py | `python3 pdf_geometry.py` | pass; updated | target boxes and strips (69100ef); run before check_base.py and check_bonus.py |
@@ -221,7 +221,7 @@ Health sweep of every script under `plans/review/checks/`, October 23, 2026, aft
 | 40 | check_main.py | `python3 check_main.py` | pass |  |
 | 40 | diag.py | `python3 diag.py` | pass |  |
 | 41 | check_critic_fixes.py | `python3 check_critic_fixes.py > out_check_critic_fixes.txt` | pass |  |
-| 41 | check_diagrams.py | `python3 check_diagrams.py` | FAIL: open finding | base slide example follows v3 (6e5b742, plus backtrack picture); the reviewed bonus finding stands: bonus pp. 1-2 boards mark only the left/right seams |
+| 41 | check_diagrams.py | `python3 check_diagrams.py` | pass; finding paired | base slide example follows v3 (6e5b742, plus backtrack picture); bonus seam finding confirmed on the archived W41-BONUS-v1, and the current v2 boards have an arrow above and below each column (ab16390) |
 | 41 | check_math.py | `python3 check_math.py` | pass; updated | v3 pages: 2-3 P4 adds RRRDDD, 4-5 P2/P3 swapped, P5 on its own page (6e5b742) |
 | 42 | appfit_counts.py | `python3 appfit_counts.py > out_appfit_counts.txt` | pass |  |
 | 42 | check_critic_fixes.py | `python3 check_critic_fixes.py > out_check_critic_fixes.txt` | pass |  |
