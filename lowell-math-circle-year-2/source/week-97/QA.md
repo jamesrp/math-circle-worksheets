@@ -28,3 +28,7 @@ These are digital checks, not a classroom pilot or physical rehearsal.
 ## October 23, 2026 card fixes
 
 The packet was converted to problem files (byte-identical to the previous builder in the same TeX installation), then revised from the review card. Every changed page (students 1, 3, 5; guide 1, 2, 3, 5) was rendered and inspected; in the same TeX installation the other pages are pixel-identical to the conversion build. `checks/card_fixes_2026_10_23.py` checks the K–1 route's remainders, the counters picture (expanded from its TikZ source: 15 black, 6 gray and 4 open dots in the square; three loops of 7 in the rectangle), the prime pairing for 3, 5, 7 and 11, Problem 3's answer under the new wording and the page 1 claims. A clean rebuild from the extracted ZIP reproduces the print and reference PDFs. The earlier `release-check.json` record describes the October 17 release.
+
+## Small could 8, October 23, 2026
+
+The guide's Problem 4 key adds an adult-held list of the multiples of 15 up to 195 for a child who stalls on 169 or 196 (W97-FAC-v3). Guide page 4 changed; the other pages only in the footer; the student packet is byte-identical. A clean rebuild from the extracted ZIP reproduces both PDFs. Unpiloted.
