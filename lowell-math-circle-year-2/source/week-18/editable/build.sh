@@ -7,10 +7,11 @@ PYTHON="${PYTHON:-python3}"
 for tool in "$PYTHON" pdflatex; do command -v "$tool" >/dev/null || { echo "Missing tool: $tool" >&2; exit 1; }; done
 mkdir -p build
 case "${1:-}" in
- "") "$PYTHON" src/build_packets.py > build/student-checks.txt ;;
+ "") "$PYTHON" src/regenerate.py > build/student-checks.txt ;;
  --from-tex) ;;
  *) echo "Usage: bash build.sh [--from-tex]" >&2; exit 2 ;;
 esac
+"$PYTHON" src/check_math.py >> build/student-checks.txt
 "$PYTHON" src/check_examples.py >> build/student-checks.txt
 "$PYTHON" "facilitator-src/independent_checks.py" > "build/independent_checks.py-results.txt"
 "$PYTHON" facilitator-src/build_guide.py
