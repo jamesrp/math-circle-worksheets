@@ -1,8 +1,10 @@
 # Polyomino perimeter and shared edges: Week 26 editable release
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 23, 2026 guide corrections
 
-The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
+The adult guide carries the corrections from its review card: the Grades 4–5 Problem 2 hole question is accepted either way with its corner convention (overview, pp. 3, 14 and 18), and the K–1 Problem 1 extension names the L, T and zigzag (p. 4). See `review/card-fixes-2026-10-23.md`. The student pages are unchanged from the October 4, 2026 fresh-review revision.
+
+The October 4 revision gave the guide first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
@@ -20,7 +22,7 @@ The current verifier compares paper geometry and every 100-dpi rendered page aga
 
 Edit student generators and their generated TeX in `src/` or `student-src/`. Edit the existing guide source under `facilitator-src/`. Where present, `facilitator-src/route-note.json` holds the concise starting/return update; the root build regenerates the guide before appending it exactly once. Do not run the appender alone against an already appended guide. Build intermediates belong in a separate working copy; inspect changed pages before updating references.
 
-The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/fresh-review-2026-10-04.md`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
+The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/fresh-review-2026-10-04.md` and, for the October 23 guide corrections, `review/card-fixes-2026-10-23.md` with its check `review/verify_card_fixes_2026_10_23.py`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
 
 ## Use and rights
 

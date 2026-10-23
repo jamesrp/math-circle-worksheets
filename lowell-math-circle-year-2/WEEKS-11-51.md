@@ -12,6 +12,8 @@ Targeted worked examples were added October 4 to all bands in Weeks 18, 20, 22, 
 
 The approved [fresh-review revision report](../plans/fresh-review-revision-2026-10-04/REPORT.md) records six revised student PDFs (all three Week 11 bands; K–1 Weeks 24, 35 and 39), 39 refined facilitator guides, per-packet coverage and clean portable-ZIP rebuilds. Week 24 pooling covers both K–1 and Grades 2–3; Weeks 20, 27, 33 and 40 have guide refinements with student PDFs retained. All Grades 4–5 mathematical material remains. Weeks 15 and 23 already have sufficient routes and retain their complete base releases. Current PDFs, reference copies, editable packages and ZIPs match; prior affected base releases are separately archived. Unchanged TeX font/hyphenation rebuild differences are explicitly documented in the report. Bonus companions are separate additions and are not incorporated into these base ZIPs.
 
+On October 23, 2026 the adult guides of Weeks 12, 25, 26, 29 and 31 were corrected from their [review cards](../plans/review/README.md); their student pages are unchanged. Each week's `source/week-NN/editable/review/card-fixes-2026-10-23.md` says what changed, and the replaced guide and ZIP are in that week's `archive-before-card-fixes-2026-10-23/` folders.
+
 | Week and activity | K–1 | Grades 2–3 | Grades 4–5 | Adult guide | Editable source |
 |---|---|---|---|---|---|
 | 11. Chip firing with a sink | [PDF](week-11/week-11-k-1.pdf) | [PDF](week-11/week-11-grades-2-3.pdf) | [PDF](week-11/week-11-grades-4-5.pdf) | [PDF](week-11/week-11-facilitator.pdf) | [Sources](source/week-11/README.md) |

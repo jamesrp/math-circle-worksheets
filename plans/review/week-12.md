@@ -44,6 +44,8 @@ Noncrossing pairings of 2n fixed points, paths of n up and n down steps that nev
 9. **could**, K–1 pp. 2–5: lower the record rows a few millimetres; each mat's bottom label sits just above the middle frame's "1".
 10. **could**, K–1 P3: "Keep each drawn pair when you try it on the large circle" is hard to hear once; "Put a string on the drawn pair and leave it there."
 
+**Fixed October 23, 2026 (guide only):** fix 1 (the K–1 P4 hint now says every dot must match, with the 12|34|56|78 / 12|38|45|67 example), fix 2 (p. 10), fix 5 (p. 2: strings about 20 cm, measured from the student PDFs, still unrehearsed) and fix 6 (p. 3); the rest deferred. Record: `lowell-math-circle-year-2/source/week-12/editable/review/card-fixes-2026-10-23.md`.
+
 ## Overlaps
 
 Week 14 reaches 1, 2, 5, 14 through polygon fillings, but its theorem is about flips; its card proposes matching the 14 hexagon fillings with these 14 pairings on a return visit. This return visit's P4 (the fewest swaps equals half the summed height gap) is Week 47's "fewest moves equals total change"; cross-reference them. No merge.
