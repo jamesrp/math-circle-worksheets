@@ -1,0 +1,34 @@
+week = "99"
+title = "Moving piles"
+hook = "Move counters between bins on a line to match a target picture, paying one step per counter per gap, and find the cheapest plan."
+math = "Moving counters between bins on a line, the net flow across the gap after bin i must equal the running surplus S_i of starting over target counters to its left, so every plan costs at least Σ|S_i|. Matching starting counters to target slots in order never sends traffic both ways across a gap and attains this bound, so it is optimal, while nearest-first can fail (0, 3 to slots 2, 5 costs 6 against 4). The least work is a distance between arrangements, and on a tree the same edge-cut count gives the exact optimum."
+discover = "Each gap has traffic no plan can avoid, and a plan that never crosses itself pays exactly that."
+gem = "Earth mover's distance on a line: a lower bound you can see at every gap, matched by sorting."
+concepts = ["optimal-transport", "optimization"]
+uses = []
+mechanisms = ["certificate", "greedy", "counterexample"]
+bands = ["2-3", "4-5"]
+reading = "An adult may read pictured piles or record plans; children choose the deliveries."
+arithmetic = "Counting piles and counter-steps; Grades 4–5 add up gap bounds."
+materials = ["a six-bin line mat with bins about 35 mm apart per pair", "8–12 counters, a fixed target card and a move-record strip", "a three-leaf star board for later"]
+prep = "About 15 minutes with existing counters and handwritten cards; cut the eight catalog cards for upper Problem 4."
+status = "unpiloted"
+verdict = "none"
+verdict_note = "No review card yet."
+app = ""
+app_decision = "open"
+
+[[related]]
+week = "13"
+kind = "same-theorem"
+note = "A matching certificate on each side: k routes and k closures prove Week 13's maximum, and a plan's cost equal to the unavoidable gap traffic proves this minimum."
+
+[[related]]
+week = "53"
+kind = "same-theorem"
+note = "Splitting the places in two drives both: Week 53's cut rule picks the links to build, and here the imbalance across each split of the line or tree sets the traffic."
+
+[[related]]
+week = "100"
+kind = "contrast"
+note = "Both build a distance between things and test the triangle rule: transport work obeys the ordinary one, Week 100's nested distances a stronger one."

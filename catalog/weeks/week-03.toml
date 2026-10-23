@@ -1,0 +1,37 @@
+week = "3"
+title = "Shuffle machines"
+hook = "Run coloured cubes through a two-row arrow mat again and again, counting turns until every cube is back under its own picture, then draw machines that take a chosen number of turns."
+math = "A machine is a permutation of n slots: following arrows splits the slots into loops, a cube in a loop of k is home exactly at multiples of k, and the row returns after the lcm of the loop lengths. So loops of 2 and 3 take 6 turns on 5 slots, no machine moves exactly one cube, and the record return time (1, 2, 3, 4, 6, 6, 12, 15, 20, 30 for 1 to 10 slots, Landau's function) stalls at 6 slots. Reversing every arrow undoes a machine, and the machine that undoes 'A then B' is 'undo B, then undo A'."
+discover = "The loops decide the return time, so a machine can take more turns than it has cubes."
+gem = "Cycle decomposition, order as an lcm, Landau's function and socks-and-shoes inverses, all reached with cubes on a mat."
+concepts = ["permutation-cycles", "lcm", "composition"]
+mechanisms = ["construct", "every-case"]
+bands = ["K-1", "2-3", "4-5"]
+reading = "K–1 needs none after the launch; 2–3 has one seven-sentence problem an adult reads once; 4–5 reads short tasks."
+arithmetic = "K–1 tallies to 6; 2–3 and 4–5 find common multiples of small loop lengths (up to 30)."
+materials = ["snap cubes in green, blue, red, yellow, purple and pink (about 75)", "coloured pencils", "small whiteboards", "two decks of playing cards (4–5)", "masking tape and five chairs for the floor launch"]
+prep = "Tape a five-chair floor machine, put a cube set in a cup per child, and run one machine on a printed mat the day before; nothing to cut."
+status = "unpiloted"
+verdict = "keep"
+app = "Shuffle machines in Cup swaps"
+app_decision = "in app"
+
+[[related]]
+week = "4"
+kind = "leads-to"
+note = "A hop-k star is a rotation machine whose gcd(n, k) loops all have the same length."
+
+[[related]]
+week = "43"
+kind = "same-object"
+note = "The same card shuffles, now asked whether a shuffling rule makes every order equally likely."
+
+[[related]]
+week = "63"
+kind = "leads-to"
+note = "Derangements draw the same card-to-home arrow loops, and 'exactly one card moved' is impossible in both."
+
+[[related]]
+week = "64"
+kind = "leads-to"
+note = "On square-tiled surfaces a direction permutes the squares, so these return times decide when straight trips close."

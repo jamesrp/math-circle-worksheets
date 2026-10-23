@@ -1,6 +1,6 @@
 # Lowell Math Circle — year 2
 
-Start here to print. Current PDFs are organized by week; editable files and build instructions are in [source/](source/README.md). Session plans and the use log remain in the top-level [plans/](../plans/README.md).
+Start here to print. To choose a theme first, use the [activity catalog](../CATALOG.md), which lists every week by area with its bands and print links. Current PDFs are organized by week; editable files and build instructions are in [source/](source/README.md). Session plans and the use log remain in the top-level [plans/](../plans/README.md).
 
 Print US Letter, single-sided, at 100% / Actual Size. Give one page at a time and keep facilitator solutions separate. Grade bands are entry points; extras are optional. These are prepared materials; actual use and classroom feedback are recorded separately in the use log.
 

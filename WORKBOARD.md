@@ -63,7 +63,7 @@ One line per item. Review cards follow [plans/review/README.md](plans/review/REA
 
 | Produce approved final families, Weeks 98–100: bootstrap percolation, optimal transport, ultrametric geometry | dot | `dot/final-worksheets-98-100` | done: [eight PDFs, 47 pages and three portable source ZIPs](lowell-math-circle-year-2/WEEKS-98-100.md); independent stages, all-page inspection and clean byte-identical rebuilds; unpiloted and physically unrehearsed; breadth closes at 100 |
 
-| Activity catalog and explorer: a record per theme (1–100 and 1e), a concept map, and a browsable explorer of how activities relate | Claude, Autonomous worksheet improvement thread | `claude/project-thread-ntxcu3` | in progress: `catalog/`, `explorer/`, `CATALOG.md` |
+| Activity catalog and explorer: a record per theme (1–100 and 1e), a concept map, and a browsable explorer of how activities relate | Claude, Autonomous worksheet improvement thread | `claude/project-thread-ntxcu3` | done: 101 records and a 128-concept map in [catalog/](catalog/README.md), [CATALOG.md](CATALOG.md) and `explorer/index.html` built by `catalog/build.py`; AGENTS.md now asks every change to keep the records current |
 | Guide-only corrections from the cards, LaTeX guides: Weeks 4, 5 (guide part), 6, 9 | Claude, Autonomous worksheet improvement thread | `claude/guide-fixes-latex-ntxcu3` | in progress |
 | Guide-only corrections from the cards, generated-library guides: Weeks 12, 25, 26 (guide part), 29, 31 | Claude, Autonomous worksheet improvement thread | `claude/guide-fixes-library-ntxcu3` | in progress |
 | Printable kits the cards ask for: Weeks 23, 27, 35, 51 (kit and guide pointer) | Claude, Autonomous worksheet improvement thread | `claude/kits-a-ntxcu3` | in progress |

@@ -1,0 +1,924 @@
+<title>Math Circle Explorer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Browse the Bellingham math circle library: every theme, its mathematics, grade bands, print files, and how the activities and concepts connect.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,750&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a library index with a working drawer. Filters left, activity list centre, detail drawer right; the maps are full-width scrollable canvases. */
+:root {
+  --bg: #eef2f2;
+  --surface: #fbfcfc;
+  --surface-2: #e4eaeb;
+  --ink: #14202a;
+  --ink-2: #4a5864;
+  --ink-3: #6f7c87;
+  --line: #d2dadd;
+  --accent: #1f55c6;
+  --accent-soft: #dfe8fb;
+  --hi: #fff0ad;
+  --dot: rgba(20, 32, 42, .16);
+  --shadow: 0 1px 2px rgba(20, 32, 42, .06), 0 6px 24px rgba(20, 32, 42, .08);
+  --a-networks: #2a78d6; --a-games: #eb6834; --a-chance: #1baf7a; --a-number: #eda100;
+  --a-symmetry: #e87ba4; --a-shape: #008300; --a-logic: #6250d6; --a-counting: #e34948;
+  --good: #0b7a0b; --warn: #9a6a00; --bad: #b42f2f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --r: 8px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1318; --surface: #141a20; --surface-2: #1c242c; --ink: #e4e9ed; --ink-2: #a8b4be; --ink-3: #85919c;
+    --line: #2a343e; --accent: #82a8ff; --accent-soft: #1d2a45; --hi: #3d3510; --dot: rgba(228, 233, 237, .14);
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 28px rgba(0,0,0,.35);
+    --a-networks: #3987e5; --a-games: #d95926; --a-chance: #199e70; --a-number: #c98500;
+    --a-symmetry: #d55181; --a-shape: #008300; --a-logic: #9085e9; --a-counting: #e66767;
+    --good: #4cc44c; --warn: #e3b341; --bad: #ff7b72;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1318; --surface: #141a20; --surface-2: #1c242c; --ink: #e4e9ed; --ink-2: #a8b4be; --ink-3: #85919c;
+  --line: #2a343e; --accent: #82a8ff; --accent-soft: #1d2a45; --hi: #3d3510; --dot: rgba(228, 233, 237, .14);
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 28px rgba(0,0,0,.35);
+  --a-networks: #3987e5; --a-games: #d95926; --a-chance: #199e70; --a-number: #c98500;
+  --a-symmetry: #d55181; --a-shape: #008300; --a-logic: #9085e9; --a-counting: #e66767;
+  --good: #4cc44c; --warn: #e3b341; --bad: #ff7b72;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+a { color: var(--accent); }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--surface); }
+
+.wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* Header: a triangle-dot lattice, the grid the library's first week tiles. */
+header.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background-color: var(--surface);
+  background-image:
+    radial-gradient(circle at 1px 1px, var(--dot) 1.1px, transparent 1.6px),
+    radial-gradient(circle at 1px 1px, var(--dot) 1.1px, transparent 1.6px);
+  background-size: 18px 31.18px; background-position: 0 0, 9px 15.59px;
+  border-bottom: 1px solid var(--line);
+}
+.top-inner { display: flex; align-items: center; gap: 12px 24px; flex-wrap: wrap; padding-block: 12px 0; max-width: 1500px; margin: 0 auto; }
+.brand { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; min-width: 0; }
+.brand h1 { font-family: var(--display); font-weight: 750; font-size: 1.45rem; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
+.brand .sub { color: var(--ink-2); font-size: .88rem; }
+nav.tabs { display: flex; gap: 2px; margin-left: auto; flex-wrap: wrap; }
+nav.tabs button {
+  border: 0; background: transparent; padding: 10px 14px 11px; cursor: pointer; color: var(--ink-2);
+  font-weight: 700; font-size: .92rem; border-bottom: 3px solid transparent; border-radius: 0;
+}
+nav.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+nav.tabs button:hover { color: var(--ink); }
+
+main { max-width: 1500px; margin: 0 auto; padding-block: 16px 48px; }
+.view[hidden] { display: none !important; }
+
+/* Activities view */
+.acts { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 20px; align-items: start; }
+.acts.has-detail { grid-template-columns: 250px minmax(0, 1fr) minmax(340px, 440px); }
+.filters { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 72px); max-height: calc(100vh - 92px); overflow: auto; padding-right: 4px; }
+.filters h2 { font-family: var(--display); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); margin: 16px 0 6px; font-weight: 600; }
+.filters h2:first-child { margin-top: 0; }
+.search { width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface); cursor: pointer; font-size: .84rem; line-height: 1.3; color: var(--ink-2);
+}
+.chip[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--ink); }
+.chip .sw { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.areas-list { display: grid; gap: 4px; }
+.areas-list .chip { border-radius: 6px; justify-content: flex-start; width: 100%; text-align: left; }
+.areas-list .count { margin-left: auto; font-family: var(--mono); font-size: .75rem; color: var(--ink-3); }
+select.sel { width: 100%; padding: 7px 10px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
+.row-between { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.row-between h2 { margin: 0 0 6px; }
+.linkbtn { border: 0; background: none; color: var(--accent); cursor: pointer; padding: 0; font-size: .84rem; text-decoration: underline; }
+.toggle-filters { display: none; }
+
+.results-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+.results-head .n { font-family: var(--display); font-weight: 600; font-size: 1.05rem; }
+.results-head .active { color: var(--ink-2); font-size: .88rem; min-width: 0; }
+.results-head .sort { margin-left: auto; display: flex; gap: 6px; align-items: center; font-size: .86rem; color: var(--ink-2); }
+.results-head .sort select { padding: 4px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+
+.list { display: grid; gap: 8px; }
+.item {
+  display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 12px; padding: 12px 14px 12px 0; text-align: left;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); cursor: pointer; width: 100%;
+  position: relative; overflow: hidden;
+}
+.item:hover { border-color: var(--ink-3); }
+.item[aria-current="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.item .num { font-family: var(--mono); font-weight: 500; font-size: 1.05rem; text-align: right; color: var(--ink); padding-top: 1px; border-right: 4px solid var(--area, var(--line)); padding-right: 10px; }
+.item .t { font-weight: 700; font-size: 1rem; line-height: 1.3; }
+.item .hook { color: var(--ink-2); font-size: .9rem; margin-top: 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.item .meta { display: flex; flex-wrap: wrap; gap: 6px 10px; margin-top: 7px; align-items: center; font-size: .78rem; color: var(--ink-3); }
+.band { font-family: var(--mono); font-size: .74rem; padding: 1px 6px; border-radius: 4px; background: var(--surface-2); color: var(--ink-2); }
+.band.off { opacity: .35; text-decoration: line-through; }
+.pill { font-size: .74rem; padding: 1px 7px; border-radius: 999px; border: 1px solid currentColor; line-height: 1.5; white-space: nowrap; }
+.pill.piloted { color: var(--good); }
+.pill.approved { color: var(--accent); }
+.pill.revise { color: var(--warn); }
+.pill.used { color: var(--ink-2); background: var(--surface-2); border-color: transparent; }
+.area-name { display: inline-flex; align-items: center; gap: 5px; }
+.area-name .sw { width: 8px; height: 8px; border-radius: 50%; }
+.empty { padding: 32px; text-align: center; color: var(--ink-2); background: var(--surface); border: 1px dashed var(--line); border-radius: var(--r); }
+
+/* Detail drawer */
+.detail { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 72px); max-height: calc(100vh - 92px); overflow: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); }
+.detail[hidden] { display: none; }
+.d-head { padding: 16px 18px 12px; border-bottom: 1px solid var(--line); position: relative; }
+.d-head .kicker { font-family: var(--mono); font-size: .8rem; color: var(--ink-3); display: flex; gap: 10px; flex-wrap: wrap; padding-right: 36px; }
+.d-head h2 { font-family: var(--display); font-weight: 750; font-size: 1.5rem; line-height: 1.15; margin: 6px 0 8px; text-wrap: balance; }
+.d-head .close { position: absolute; top: 10px; right: 10px; border: 0; background: var(--surface-2); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; line-height: 1; }
+.d-head .tags { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.d-body { padding: 4px 18px 18px; }
+.d-body section { padding-top: 14px; }
+.d-body h3 { font-family: var(--display); font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 5px; font-weight: 600; }
+.d-body p { margin: 0 0 6px; }
+.d-hook { font-size: 1.06rem; line-height: 1.45; }
+.d-gem { border-left: 3px solid var(--a-number); padding-left: 10px; color: var(--ink); font-style: italic; }
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 3px 12px; font-size: .9rem; }
+.kv dt { color: var(--ink-3); }
+.kv dd { margin: 0; }
+.files { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; font-size: .9rem; }
+.files a { text-decoration: none; }
+.files a:hover { text-decoration: underline; }
+.files .ext { font-family: var(--mono); font-size: .7rem; color: var(--ink-3); margin-left: 6px; }
+.rel { display: grid; gap: 8px; }
+.rel-group h4 { margin: 0 0 4px; font-size: .82rem; color: var(--ink-2); font-weight: 700; }
+.rel-item { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 8px; font-size: .88rem; }
+.rel-item button { grid-row: span 2; border: 1px solid var(--line); background: var(--surface-2); border-radius: 6px; cursor: pointer; font-family: var(--mono); font-size: .82rem; padding: 2px 7px; align-self: start; min-width: 38px; }
+.rel-item button:hover { border-color: var(--accent); }
+.rel-item .rt { font-weight: 700; }
+.rel-item .rn { color: var(--ink-2); }
+.cchip { border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 2px 8px; font-size: .84rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.cchip:hover { border-color: var(--accent); }
+.usedbox { display: flex; gap: 8px; align-items: center; font-size: .9rem; padding: 10px 12px; background: var(--surface-2); border-radius: var(--r); margin-top: 14px; }
+
+/* Maps */
+.map-bar { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin-bottom: 10px; }
+.map-bar .hint { color: var(--ink-2); font-size: .9rem; min-width: 0; flex: 1 1 320px; }
+.zoom { display: flex; gap: 4px; }
+.zoom button { border: 1px solid var(--line); background: var(--surface); border-radius: 6px; width: 34px; height: 32px; cursor: pointer; font-size: 1rem; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.map-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 16px; align-items: start; }
+.canvas { overflow: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); height: min(76vh, 900px); position: relative; touch-action: pan-x pan-y; }
+.canvas svg { display: block; transform-origin: 0 0; }
+.side { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 72px); max-height: min(76vh, 900px); overflow: auto; }
+.side h2 { font-family: var(--display); font-size: 1.2rem; margin: 2px 0 6px; line-height: 1.2; }
+.side .muted { color: var(--ink-2); font-size: .9rem; }
+.side ul { padding-left: 0; list-style: none; margin: 6px 0 12px; display: grid; gap: 4px; }
+.side li button { border: 0; background: none; color: var(--accent); text-align: left; padding: 0; cursor: pointer; font-size: .9rem; }
+.side li button .wn { font-family: var(--mono); color: var(--ink-3); margin-right: 6px; }
+.side h3 { font-family: var(--display); font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 12px 0 2px; font-weight: 600; }
+
+svg text { font-family: var(--body); fill: var(--ink); }
+.cnode rect { fill: var(--surface); stroke: var(--line); stroke-width: 1; }
+.cnode .bar { stroke: none; }
+.cnode text { font-size: 11.5px; }
+.cnode .cnt { font-family: var(--mono); font-size: 10px; fill: var(--ink-3); }
+.cnode.empty text { fill: var(--ink-3); }
+.cnode { cursor: pointer; }
+.cnode:hover rect.box { stroke: var(--ink-3); }
+.lane { fill: var(--surface-2); opacity: .55; }
+.lane-label { font-family: var(--display); font-size: 12px; font-weight: 600; fill: var(--ink-2); letter-spacing: .04em; text-transform: uppercase; }
+.cedge { fill: none; stroke: var(--ink-3); stroke-opacity: .35; stroke-width: 1.2; }
+.dim .cnode:not(.on), .dim .wnode:not(.on) { opacity: .18; }
+.dim .cedge:not(.on), .dim .wedge:not(.on) { stroke-opacity: .06; }
+.cnode.on.sel rect.box { stroke: var(--accent); stroke-width: 2.5; }
+.wnode.on.sel circle { fill: var(--accent-soft); }
+.cedge.on { stroke: var(--accent); stroke-opacity: .8; stroke-width: 1.6; }
+.wnode { cursor: pointer; }
+.wnode circle { fill: var(--surface); stroke-width: 3.5; }
+.wnode text { font-family: var(--mono); font-size: 10px; font-weight: 500; fill: var(--ink); pointer-events: none; }
+.wnode .lab { font-family: var(--body); font-size: 11px; fill: var(--ink); font-weight: 400; display: none; paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; }
+.wnode:hover .lab, .wnode:focus .lab, .dim .wnode.on .lab { display: inline; }
+.wedge { stroke: var(--ink-3); stroke-opacity: .35; fill: none; }
+.wedge.k-leads-to { stroke-width: 1.4; }
+.wedge.k-revisits { stroke-dasharray: 5 3; }
+.wedge.k-same-theorem { stroke-width: 2.4; }
+.wedge.k-same-object { stroke-dasharray: 1.5 3; stroke-linecap: round; stroke-width: 1.8; }
+.wedge.k-contrast { stroke-dasharray: 8 3 1 3; }
+.wedge.on { stroke: var(--accent); stroke-opacity: .85; }
+.kind-key { display: inline-flex; align-items: center; gap: 6px; font-size: .84rem; color: var(--ink-2); }
+.kind-key svg { width: 34px; height: 10px; }
+.kind-key line { stroke: var(--ink-2); }
+
+/* Strands */
+.strand { margin-bottom: 26px; }
+.strand-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.strand-head h2 { font-family: var(--display); font-size: 1.25rem; margin: 0; display: flex; align-items: center; gap: 8px; }
+.strand-head .sw { width: 12px; height: 12px; border-radius: 3px; }
+.strand-head .muted { color: var(--ink-2); font-size: .9rem; }
+.strand-scroll { overflow-x: auto; padding-bottom: 6px; }
+.strand-cols { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 260px); gap: 10px; }
+.col-head { font-family: var(--mono); font-size: .74rem; color: var(--ink-3); margin-bottom: 4px; }
+.col { display: grid; gap: 8px; align-content: start; }
+.sconcept { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 8px 10px; border-top: 3px solid var(--area); }
+.sconcept .cn { font-weight: 700; font-size: .9rem; line-height: 1.25; cursor: pointer; }
+.sconcept .cn:hover { color: var(--accent); }
+.sconcept .req { font-size: .75rem; color: var(--ink-3); margin-top: 2px; }
+.wk { display: flex; gap: 6px; align-items: baseline; width: 100%; border: 0; background: none; padding: 3px 0; text-align: left; cursor: pointer; font-size: .84rem; color: var(--ink); }
+.wk .wn { font-family: var(--mono); font-size: .76rem; color: var(--ink-3); min-width: 26px; }
+.wk .bs { margin-left: auto; font-family: var(--mono); font-size: .68rem; color: var(--ink-3); white-space: nowrap; }
+.wk:hover .wt { color: var(--accent); text-decoration: underline; }
+.wk.used .wt { color: var(--ink-3); text-decoration: line-through; }
+.also { font-size: .78rem; color: var(--ink-3); margin-top: 4px; }
+.alsob { border: 0; background: none; padding: 0; font-family: var(--mono); font-size: .76rem; color: var(--accent); cursor: pointer; text-decoration: underline; }
+
+footer.foot { color: var(--ink-3); font-size: .82rem; padding-block: 24px; max-width: 1500px; margin: 0 auto; border-top: 1px solid var(--line); }
+
+/* Phone and narrow layouts */
+@media (max-width: 1100px) {
+  .acts.has-detail { grid-template-columns: 230px minmax(0, 1fr); }
+  .acts.has-detail .detail { position: fixed; inset: 0 0 0 auto; width: min(460px, 100%); max-height: none; top: 0; border-radius: 0; z-index: 40;
+    padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); padding-right: env(safe-area-inset-right, 0px); }
+  .map-wrap { grid-template-columns: minmax(0, 1fr); }
+  .side { position: static; max-height: none; }
+}
+@media (max-width: 760px) {
+  .acts, .acts.has-detail { grid-template-columns: minmax(0, 1fr); }
+  .filters { position: static; max-height: none; display: none; padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); }
+  .filters.open { display: block; }
+  .toggle-filters { display: inline-flex; }
+  nav.tabs { margin-left: 0; width: 100%; overflow-x: auto; flex-wrap: nowrap; }
+  nav.tabs button { padding: 8px 7px 9px; white-space: nowrap; font-size: .84rem; }
+  .brand h1 { font-size: 1.25rem; }
+  .canvas { height: 62vh; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .canvas svg { transition: transform .15s ease-out; }
+}
+</style>
+
+<header class="top">
+  <div class="top-inner wrap">
+    <div class="brand">
+      <h1>Math Circle Explorer</h1>
+      <span class="sub" id="subline"></span>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Views">
+      <button role="tab" id="tab-activities" data-view="activities" aria-selected="true">Activities</button>
+      <button role="tab" id="tab-map" data-view="map" aria-selected="false">Concept map</button>
+      <button role="tab" id="tab-links" data-view="links" aria-selected="false">Connections</button>
+      <button role="tab" id="tab-strands" data-view="strands" aria-selected="false">Strands</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="view" id="view-activities" aria-labelledby="tab-activities">
+    <div class="acts" id="acts">
+      <aside class="filters" id="filters" aria-label="Filters"></aside>
+      <div style="min-width:0">
+        <div class="results-head">
+          <button class="chip toggle-filters" id="toggle-filters" aria-expanded="false">Filters</button>
+          <span class="n" id="count"></span>
+          <span class="active" id="active-filters"></span>
+          <label class="sort" for="sort">Order
+            <select id="sort">
+              <option value="week">by week</option>
+              <option value="depth">entry first (fewest prerequisites)</option>
+              <option value="area">by area</option>
+            </select>
+          </label>
+        </div>
+        <div class="list" id="list"></div>
+      </div>
+      <aside class="detail" id="detail" hidden aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section class="view" id="view-map" aria-labelledby="tab-map" hidden>
+    <div class="map-bar">
+      <p class="hint">Each box is a concept; arrows run from what children usually meet first to what builds on it. Choose a concept to light up its prerequisites and what it leads to, and the activities about it.</p>
+      <div class="zoom" aria-label="Zoom">
+        <button id="cz-out" aria-label="Zoom out">−</button><button id="cz-in" aria-label="Zoom in">+</button><button id="cz-reset" aria-label="Reset zoom">↺</button>
+      </div>
+    </div>
+    <div class="legend" id="map-legend"></div>
+    <div class="map-wrap">
+      <div class="canvas" id="cmap"></div>
+      <aside class="side" id="cside"></aside>
+    </div>
+  </section>
+
+  <section class="view" id="view-links" aria-labelledby="tab-links" hidden>
+    <div class="map-bar">
+      <p class="hint">Each dot is a theme, coloured by the area of its central idea; lines are the links written in the catalog. Choose a theme to see its neighbours.</p>
+      <div class="zoom" aria-label="Zoom">
+        <button id="wz-out" aria-label="Zoom out">−</button><button id="wz-in" aria-label="Zoom in">+</button><button id="wz-reset" aria-label="Reset zoom">↺</button>
+      </div>
+    </div>
+    <div class="legend" id="kind-legend"></div>
+    <div class="map-wrap">
+      <div class="canvas" id="wmap"></div>
+      <aside class="side" id="wside"></aside>
+    </div>
+  </section>
+
+  <section class="view" id="view-strands" aria-labelledby="tab-strands" hidden>
+    <div class="map-bar">
+      <p class="hint">One strand per area, read left to right: concepts that need nothing earlier come first, then the ones that build on them. Each theme sits under its central concept, with the bands that have pages; “also in” lists themes that touch the concept on the way. Use it to plan a return visit or a route across years.</p>
+      <label class="kind-key" for="strand-band">Band
+        <select class="sel" id="strand-band" style="width:auto">
+          <option value="">all</option><option value="K-1">K–1</option><option value="2-3">2–3</option><option value="4-5">4–5</option>
+        </select>
+      </label>
+    </div>
+    <div id="strand-list"></div>
+  </section>
+</main>
+<footer class="foot wrap" id="foot"></footer>
+
+<script>
+const DATA = /*__DATA__*/null;
+(function () {
+  "use strict";
+  const $ = (s, el = document) => el.querySelector(s);
+  function h(tag, attrs, ...kids) {
+    const el = document.createElement(tag);
+    if (attrs) for (const [k, v] of Object.entries(attrs)) {
+      if (v == null || v === false) continue;
+      if (k === "class") el.className = v;
+      else if (k === "text") el.textContent = v;
+      else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+      else if (k === "style") el.setAttribute("style", v);
+      else el.setAttribute(k, v === true ? "" : v);
+    }
+    for (const kid of kids.flat(Infinity)) if (kid != null && kid !== false) el.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+    return el;
+  }
+  const SVGNS = "http://www.w3.org/2000/svg";
+  function s(tag, attrs, ...kids) {
+    const el = document.createElementNS(SVGNS, tag);
+    if (attrs) for (const [k, v] of Object.entries(attrs)) {
+      if (v == null) continue;
+      if (k === "text") el.textContent = v;
+      else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+      else el.setAttribute(k, v);
+    }
+    for (const kid of kids.flat(Infinity)) if (kid) el.append(kid);
+    return el;
+  }
+
+  const W = new Map(DATA.weeks.map(w => [w.id, w]));
+  const C = new Map(DATA.concepts.map(c => [c.id, c]));
+  const AREAS = DATA.areas;
+  const areaColor = a => `var(--a-${a})`;
+  const bandLabel = b => b.replace("-", "–");
+  const fileUrl = p => DATA.repo + p.split("/").map(encodeURIComponent).join("/");
+  const sortWeeks = ids => ids.slice().sort((a, b) => parseInt(a) - parseInt(b) || a.localeCompare(b));
+
+  // Relations, both directions.
+  const REL = new Map(DATA.weeks.map(w => [w.id, []]));
+  for (const e of DATA.edges) {
+    if (!REL.has(e.a) || !REL.has(e.b)) continue;
+    if (e.kind === "leads-to") {
+      REL.get(e.a).push({ other: e.b, kind: "leads-to", notes: e.notes });
+      REL.get(e.b).push({ other: e.a, kind: "prepared-by", notes: e.notes });
+    } else {
+      REL.get(e.a).push({ other: e.b, kind: e.kind, notes: e.notes });
+      REL.get(e.b).push({ other: e.a, kind: e.kind, notes: e.notes });
+    }
+  }
+  const KIND_TITLE = {
+    "leads-to": "Leads to", "prepared-by": "Prepared by", "revisits": "Returns to the same object",
+    "same-theorem": "Same theorem, different objects", "same-object": "Same object, different mathematics", "contrast": "Worth contrasting"
+  };
+
+  // Per-viewer "used" marks.
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (_) { return d; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (_) {} }
+  };
+  let used = new Set(store.get("mce-used", []));
+  function setUsed(id, on) { on ? used.add(id) : used.delete(id); store.set("mce-used", [...used]); renderList(); renderStrands(); }
+  function readyIds() {
+    const met = new Set();
+    for (const id of used) for (const c of W.get(id)?.concepts || []) met.add(c);
+    const out = new Set();
+    for (const w of DATA.weeks) {
+      if (used.has(w.id)) continue;
+      if (w.uses.every(c => met.has(c) || C.get(c).depth === 0)) out.add(w.id);
+    }
+    return out;
+  }
+
+  $("#subline").textContent = `${DATA.weeks.length} themes · ${DATA.concepts.length} concepts · K–5`;
+  $("#foot").append(
+    "Built from the catalog records in ",
+    h("a", { href: DATA.repo + "catalog/README.md", target: "_blank", rel: "noopener" }, "math-circle-worksheets/catalog"),
+    ". Print files open on GitHub. Bands are entry points by prerequisites, not age limits. Unless a theme says piloted, no child has used it yet. Marks for themes you have used stay in this browser only."
+  );
+
+  // ---------------------------------------------------------------- filters
+  const F = { q: "", bands: new Set(), areas: new Set(), mech: "", concept: "", status: new Set(), verdict: "", paper: false, app: "", used: "", sort: "week" };
+  const MECH_COUNT = {};
+  for (const w of DATA.weeks) for (const m of w.mechanisms) MECH_COUNT[m] = (MECH_COUNT[m] || 0) + 1;
+
+  function chipToggle(label, pressed, onclick, sw) {
+    return h("button", { class: "chip", "aria-pressed": pressed ? "true" : "false", onclick }, sw ? h("span", { class: "sw", style: `background:${sw}` }) : null, label);
+  }
+  function renderFilters() {
+    const el = $("#filters");
+    el.replaceChildren();
+    el.append(
+      h("h2", { text: "Search" }),
+      h("input", { class: "search", id: "q", type: "search", placeholder: "Title, idea, material…", value: F.q, "aria-label": "Search themes",
+        oninput: e => { F.q = e.target.value; renderList(); } }),
+      h("h2", { text: "Band with pages" }),
+      h("div", { class: "chips" }, DATA.bands.map(b => chipToggle(bandLabel(b), F.bands.has(b), () => { toggle(F.bands, b); renderFilters(); renderList(); }))),
+      h("div", { class: "row-between" }, h("h2", { text: "Area" }), F.areas.size ? h("button", { class: "linkbtn", onclick: () => { F.areas.clear(); renderFilters(); renderList(); } }, "clear") : null),
+      h("div", { class: "areas-list" }, Object.entries(AREAS).map(([a, name]) => {
+        const n = DATA.weeks.filter(w => w.area === a).length;
+        const b = chipToggle(name, F.areas.has(a), () => { toggle(F.areas, a); renderFilters(); renderList(); }, areaColor(a));
+        b.append(h("span", { class: "count", text: n }));
+        return b;
+      })),
+      h("h2", { text: "Reasoning move" }),
+      h("select", { class: "sel", id: "mech", "aria-label": "Reasoning move", onchange: e => { F.mech = e.target.value; renderList(); } },
+        h("option", { value: "" }, "any"),
+        Object.entries(DATA.mechanisms).sort((a, b) => a[1].localeCompare(b[1])).map(([m, label]) =>
+          h("option", { value: m, selected: F.mech === m }, `${label} (${MECH_COUNT[m] || 0})`))),
+      h("h2", { text: "Concept" }),
+      h("select", { class: "sel", id: "concept", "aria-label": "Concept", onchange: e => { F.concept = e.target.value; renderList(); } },
+        h("option", { value: "" }, "any"),
+        Object.entries(AREAS).map(([a, name]) => h("optgroup", { label: name },
+          DATA.concepts.filter(c => c.area === a && (c.weeks.length || c.usedBy.length)).sort((x, y) => x.name.localeCompare(y.name))
+            .map(c => h("option", { value: c.id, selected: F.concept === c.id }, `${c.name} (${c.weeks.length})`))))),
+      h("h2", { text: "Status" }),
+      h("div", { class: "chips" },
+        [["piloted", "piloted"], ["organizer-approved", "approved"], ["unpiloted", "unpiloted"]].map(([v, l]) =>
+          chipToggle(l, F.status.has(v), () => { toggle(F.status, v); renderFilters(); renderList(); }))),
+      h("h2", { text: "Review card" }),
+      h("div", { class: "chips" },
+        [["keep", "keep"], ["revise", "needs fixes"], ["none", "no card yet"]].map(([v, l]) =>
+          chipToggle(l, F.verdict === v, () => { F.verdict = F.verdict === v ? "" : v; renderFilters(); renderList(); }))),
+      h("h2", { text: "Materials" }),
+      h("div", { class: "chips" }, chipToggle("paper only", F.paper, () => { F.paper = !F.paper; renderFilters(); renderList(); })),
+      h("h2", { text: "In the app" }),
+      h("div", { class: "chips" },
+        [["in app", "in the app"], ["not porting", "not porting"]].map(([v, l]) =>
+          chipToggle(l, F.app === v, () => { F.app = F.app === v ? "" : v; renderFilters(); renderList(); }))),
+      h("h2", { text: "Your marks" }),
+      h("div", { class: "chips" },
+        [["hide", "hide used"], ["ready", "ready next"]].map(([v, l]) =>
+          chipToggle(l, F.used === v, () => { F.used = F.used === v ? "" : v; renderFilters(); renderList(); }))),
+      h("p", { style: "font-size:.8rem;color:var(--ink-3);margin:6px 0 0" },
+        "Mark themes as used in their detail panel. Ready next lists unused themes whose prerequisite concepts are covered by what you have used."),
+      h("p", {}, h("button", { class: "linkbtn", onclick: resetFilters }, "Reset all filters"))
+    );
+  }
+  function toggle(set, v) { set.has(v) ? set.delete(v) : set.add(v); }
+  function resetFilters() {
+    Object.assign(F, { q: "", mech: "", concept: "", verdict: "", paper: false, app: "", used: "" });
+    F.bands.clear(); F.areas.clear(); F.status.clear();
+    renderFilters(); renderList();
+  }
+  $("#toggle-filters").addEventListener("click", e => {
+    const f = $("#filters"); f.classList.toggle("open");
+    e.currentTarget.setAttribute("aria-expanded", f.classList.contains("open") ? "true" : "false");
+  });
+
+  function matches(w, ready) {
+    if (F.q) {
+      const q = F.q.toLowerCase();
+      const hay = [w.id, w.title, w.hook, w.math, w.discover, w.gem, w.app, w.materials.join(" "),
+        ...w.concepts.map(c => C.get(c).name), ...w.mechanisms.map(m => DATA.mechanisms[m])].join(" ").toLowerCase();
+      if (!q.split(/\s+/).every(t => hay.includes(t))) return false;
+    }
+    if (F.bands.size && !w.bands.some(b => F.bands.has(b))) return false;
+    if (F.areas.size && !F.areas.has(w.area)) return false;
+    if (F.mech && !w.mechanisms.includes(F.mech)) return false;
+    if (F.concept && !w.concepts.includes(F.concept) && !w.uses.includes(F.concept)) return false;
+    if (F.status.size && !F.status.has(w.status)) return false;
+    if (F.verdict && w.verdict !== F.verdict) return false;
+    if (F.paper && w.materials.length) return false;
+    if (F.app && w.appDecision !== F.app) return false;
+    if (F.used === "hide" && used.has(w.id)) return false;
+    if (F.used === "ready" && !ready.has(w.id)) return false;
+    return true;
+  }
+
+  let current = null;
+  function renderList() {
+    const ready = F.used === "ready" ? readyIds() : null;
+    let ws = DATA.weeks.filter(w => matches(w, ready));
+    const areaIdx = Object.keys(AREAS);
+    if (F.sort === "depth") ws.sort((a, b) => a.depth - b.depth || parseInt(a.id) - parseInt(b.id));
+    else if (F.sort === "area") ws.sort((a, b) => areaIdx.indexOf(a.area) - areaIdx.indexOf(b.area) || parseInt(a.id) - parseInt(b.id));
+    $("#count").textContent = ws.length === DATA.weeks.length ? `All ${ws.length} themes` : `${ws.length} of ${DATA.weeks.length} themes`;
+    const act = [];
+    if (F.q) act.push(`“${F.q}”`);
+    if (F.bands.size) act.push([...F.bands].map(bandLabel).join(", "));
+    if (F.areas.size) act.push([...F.areas].map(a => AREAS[a]).join(", "));
+    if (F.mech) act.push(DATA.mechanisms[F.mech].toLowerCase());
+    if (F.concept) act.push(C.get(F.concept).name);
+    $("#active-filters").textContent = act.join(" · ");
+    const list = $("#list");
+    list.replaceChildren();
+    if (!ws.length) {
+      list.append(h("div", { class: "empty" }, "No theme matches these filters. ", h("button", { class: "linkbtn", onclick: resetFilters }, "Reset filters")));
+      return;
+    }
+    for (const w of ws) list.append(itemEl(w));
+  }
+  function statusPill(w) {
+    if (w.status === "piloted") return h("span", { class: "pill piloted", text: "piloted" });
+    if (w.status === "organizer-approved") return h("span", { class: "pill approved", text: "approved" });
+    return null;
+  }
+  function itemEl(w) {
+    return h("button", { class: "item", style: `--area:${areaColor(w.area)}`, "aria-current": current === w.id ? "true" : "false",
+      onclick: () => openDetail(w.id), "data-id": w.id },
+      h("span", { class: "num", text: w.id }),
+      h("span", { style: "min-width:0" },
+        h("div", { class: "t", text: w.title }),
+        h("div", { class: "hook", text: w.hook }),
+        h("div", { class: "meta" },
+          h("span", { class: "area-name" }, h("span", { class: "sw", style: `background:${areaColor(w.area)}` }), AREAS[w.area]),
+          h("span", {}, DATA.bands.map(b => h("span", { class: "band" + (w.bands.includes(b) ? "" : " off"), text: bandLabel(b), style: "margin-right:3px" }))),
+          statusPill(w),
+          w.verdict === "revise" ? h("span", { class: "pill revise", text: "card: fixes due" }) : null,
+          used.has(w.id) ? h("span", { class: "pill used", text: "used" }) : null)));
+  }
+
+  // ---------------------------------------------------------------- detail
+  function openDetail(id, opts = {}) {
+    const w = W.get(id);
+    if (!w) return;
+    current = id;
+    if (!opts.keepView) showView("activities", false);
+    $("#acts").classList.add("has-detail");
+    const d = $("#detail");
+    d.hidden = false;
+    d.replaceChildren(detailEl(w));
+    d.scrollTop = 0;
+    for (const el of document.querySelectorAll(".item")) el.setAttribute("aria-current", el.dataset.id === id ? "true" : "false");
+    setHash("w" + id);
+    if (opts.focus !== false) $(".close", d)?.focus({ preventScroll: true });
+  }
+  function closeDetail() {
+    current = null;
+    $("#acts").classList.remove("has-detail");
+    $("#detail").hidden = true;
+    for (const el of document.querySelectorAll(".item")) el.setAttribute("aria-current", "false");
+    setHash("activities");
+  }
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && current) closeDetail(); });
+
+  function detailEl(w) {
+    const frag = document.createDocumentFragment();
+    const tags = h("div", { class: "tags" },
+      h("span", { class: "area-name" }, h("span", { class: "sw", style: `background:${areaColor(w.area)}` }), AREAS[w.area]),
+      DATA.bands.map(b => h("span", { class: "band" + (w.bands.includes(b) ? "" : " off"), text: bandLabel(b) })),
+      statusPill(w) || h("span", { class: "pill", style: "color:var(--ink-3)", text: "unpiloted" }));
+    frag.append(h("div", { class: "d-head" },
+      h("div", { class: "kicker" }, h("span", { text: `Week ${w.id}` }), h("span", { text: w.series })),
+      h("button", { class: "close", "aria-label": "Close", onclick: closeDetail }, "×"),
+      h("h2", { text: w.title }), tags));
+    const body = h("div", { class: "d-body" });
+    body.append(h("section", {}, h("p", { class: "d-hook", text: w.hook })));
+    body.append(h("section", {}, h("h3", { text: "The mathematics" }), h("p", { text: w.math })));
+    if (w.discover) body.append(h("section", {}, h("h3", { text: "What children can find" }), h("p", { text: w.discover })));
+    if (w.gem) body.append(h("section", {}, h("h3", { text: "Why a mathematician enjoys it" }), h("p", { class: "d-gem", text: w.gem })));
+    body.append(h("section", {}, h("h3", { text: "Concepts" }),
+      h("div", { class: "chips" }, w.concepts.map(c => conceptChip(c))),
+      w.uses.length ? h("p", { style: "margin-top:8px;font-size:.9rem;color:var(--ink-2)" }, "Builds on: ") : null,
+      w.uses.length ? h("div", { class: "chips" }, w.uses.map(c => conceptChip(c))) : null,
+      h("p", { style: "margin-top:8px;font-size:.9rem;color:var(--ink-2)" }, "Reasoning: " + w.mechanisms.map(m => DATA.mechanisms[m].toLowerCase()).join("; ") + ".")));
+    body.append(h("section", {}, h("h3", { text: "Before you start" }),
+      h("dl", { class: "kv" },
+        h("dt", { text: "Reading" }), h("dd", { text: w.reading }),
+        h("dt", { text: "Arithmetic" }), h("dd", { text: w.arithmetic }),
+        h("dt", { text: "Materials" }), h("dd", { text: w.materials.length ? w.materials.join("; ") : "Paper and pencils" }),
+        w.prep ? h("dt", { text: "Preparation" }) : null, w.prep ? h("dd", { text: w.prep }) : null)));
+    const files = w.files.concat(w.views.map(v => ({ role: v.role + " (band view)", path: v.path })));
+    if (files.length || w.links.length) {
+      body.append(h("section", {}, h("h3", { text: "Print and read" }),
+        h("ul", { class: "files" },
+          files.map(f => h("li", {}, h("a", { href: fileUrl(f.path), target: "_blank", rel: "noopener" }, f.role), h("span", { class: "ext", text: "PDF" }))),
+          w.links.map(f => h("li", {}, h("a", { href: fileUrl(f.path), target: "_blank", rel: "noopener" }, f.role))))));
+    }
+    const rels = REL.get(w.id) || [];
+    const groups = {};
+    for (const r of rels) (groups[r.kind] = groups[r.kind] || []).push(r);
+    const builders = sortWeeks(DATA.weeks.filter(o => o.id !== w.id && o.concepts.some(c => w.uses.includes(c)) && !rels.some(r => r.other === o.id)).map(o => o.id));
+    if (rels.length || builders.length) {
+      const relEl = h("div", { class: "rel" });
+      for (const kind of ["prepared-by", "leads-to", "revisits", "same-theorem", "same-object", "contrast"]) {
+        if (!groups[kind]) continue;
+        relEl.append(h("div", { class: "rel-group" }, h("h4", { text: KIND_TITLE[kind] }),
+          h("div", { style: "display:grid;gap:6px" }, groups[kind].sort((a, b) => parseInt(a.other) - parseInt(b.other)).map(r => relItem(r.other, r.notes.join(" "))))));
+      }
+      if (builders.length) relEl.append(h("div", { class: "rel-group" }, h("h4", { text: "Introduce what this builds on" }),
+        h("div", { class: "chips" }, builders.slice(0, 12).map(id => h("button", { class: "cchip", onclick: () => openDetail(id) },
+          h("span", { style: "font-family:var(--mono);font-size:.78rem;color:var(--ink-3)", text: id }), W.get(id).title)))));
+      body.append(h("section", {}, h("h3", { text: "Connected themes" }), relEl));
+    }
+    const status = [];
+    if (w.verdict === "none") status.push("No review card yet.");
+    else status.push(`Review card: ${w.verdict}.` + (w.verdictNote ? " " + w.verdictNote : ""));
+    status.push(w.app ? `App: ${w.app} (${w.appDecision}).` : `App: ${w.appDecision}.`);
+    body.append(h("section", {}, h("h3", { text: "Review and app" }), h("p", { style: "font-size:.9rem", text: status.join(" ") })));
+    const box = h("input", { type: "checkbox", id: "used-" + w.id, checked: used.has(w.id), onchange: e => setUsed(w.id, e.target.checked) });
+    body.append(h("label", { class: "usedbox", for: "used-" + w.id }, box, "Used with my group (kept in this browser)"));
+    frag.append(body);
+    return frag;
+  }
+  function relItem(id, note) {
+    const o = W.get(id);
+    return h("div", { class: "rel-item" },
+      h("button", { onclick: () => openDetail(id), "aria-label": `Open week ${id}` }, id),
+      h("span", { class: "rt", text: o ? o.title : `Week ${id}` }),
+      h("span", { class: "rn", text: note }));
+  }
+  function conceptChip(cid) {
+    const c = C.get(cid);
+    return h("button", { class: "cchip", onclick: () => { showView("map"); selectConcept(cid, true); }, title: c.about },
+      h("span", { class: "sw", style: `width:8px;height:8px;border-radius:50%;background:${areaColor(c.area)}` }), c.name);
+  }
+
+  // ---------------------------------------------------------------- views and hash
+  let suppressHash = false;
+  function setHash(tok) {
+    if (suppressHash) return;
+    try { history.replaceState(null, "", "#" + tok); } catch (_) { location.hash = tok; }
+  }
+  const built = {};
+  function showView(v, updateHash = true) {
+    for (const b of document.querySelectorAll("nav.tabs button")) b.setAttribute("aria-selected", b.dataset.view === v ? "true" : "false");
+    for (const sec of document.querySelectorAll(".view")) sec.hidden = sec.id !== "view-" + v;
+    if (v === "map" && !built.map) { buildConceptMap(); built.map = true; }
+    if (v === "links" && !built.links) { buildWeekMap(); built.links = true; }
+    if (v === "strands" && !built.strands) { renderStrands(); built.strands = true; }
+    if (updateHash) setHash(v === "activities" && current ? "w" + current : v);
+  }
+  for (const b of document.querySelectorAll("nav.tabs button")) b.addEventListener("click", () => showView(b.dataset.view));
+  $("#sort").addEventListener("change", e => { F.sort = e.target.value; renderList(); });
+
+  // ---------------------------------------------------------------- zoom helper
+  function zoomable(container, svg, w, hgt, ids) {
+    let z = 1;
+    const apply = () => {
+      svg.style.transform = `scale(${z})`;
+      svg.parentElement.style.width = (w * z) + "px";
+      svg.parentElement.style.height = (hgt * z) + "px";
+    };
+    $(ids[0]).addEventListener("click", () => { z = Math.max(.35, z / 1.25); apply(); });
+    $(ids[1]).addEventListener("click", () => { z = Math.min(2.5, z * 1.25); apply(); });
+    $(ids[2]).addEventListener("click", () => { z = fit(); apply(); });
+    const fit = () => Math.max(.35, Math.min(1, (container.clientWidth - 8) / w));
+    z = fit(); apply();
+    return { center(x, y) { container.scrollTo({ left: x * z - container.clientWidth / 2, top: y * z - container.clientHeight / 2, behavior: "smooth" }); } };
+  }
+
+  // ---------------------------------------------------------------- concept map
+  let cmapState = null;
+  function textWidth(t, px) { return t.length * px * 0.52 + 26; }
+  function buildConceptMap() {
+    const { width, height } = DATA.conceptMap;
+    const svg = s("svg", { width, height, viewBox: `0 0 ${width} ${height}`, role: "img", "aria-label": "Concept map" });
+    const gL = s("g"), gE = s("g"), gN = s("g");
+    svg.append(gL, gE, gN);
+    DATA.conceptMap.lanes.forEach((ln, i) => {
+      if (i % 2 === 0) gL.append(s("rect", { class: "lane", x: 0, y: ln.y, width, height: ln.h }));
+      gL.append(s("rect", { x: 12, y: ln.y + 9, width: 9, height: 9, rx: 2, fill: areaColor(ln.area) }),
+        s("text", { class: "lane-label", x: 28, y: ln.y + 18, text: AREAS[ln.area] }));
+    });
+    const nodeW = c => Math.min(196, textWidth(c.name, 11.5) + (c.weeks.length ? 18 : 0));
+    const edges = [];
+    for (const c of DATA.concepts) for (const r of c.requires) {
+      const a = C.get(r);
+      const x1 = a.x + nodeW(a), y1 = a.y, x2 = c.x, y2 = c.y;
+      const mx = (x1 + x2) / 2;
+      const p = s("path", { class: "cedge", d: `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`, "data-a": r, "data-b": c.id });
+      gE.append(p); edges.push(p);
+    }
+    const nodes = new Map();
+    for (const c of DATA.concepts) {
+      const wdt = nodeW(c);
+      const g = s("g", { class: "cnode" + (c.weeks.length ? "" : " empty"), transform: `translate(${c.x},${c.y - 11})`, tabindex: 0, role: "button",
+        "aria-label": `${c.name}, ${c.weeks.length} themes`, onclick: () => selectConcept(c.id),
+        onkeydown: e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectConcept(c.id); } } });
+      g.append(
+        s("rect", { class: "box", x: 0, y: 0, width: wdt, height: 22, rx: 5 }),
+        s("rect", { class: "bar", x: 0, y: 0, width: 5, height: 22, rx: 2, fill: areaColor(c.area) }),
+        s("text", { x: 11, y: 15, text: c.name.length > 32 ? c.name.slice(0, 31) + "…" : c.name }),
+        c.weeks.length ? s("text", { class: "cnt", x: wdt - 6, y: 15, "text-anchor": "end", text: c.weeks.length }) : null,
+        s("title", { text: `${c.name}: ${c.about}` }));
+      gN.append(g); nodes.set(c.id, g);
+    }
+    const inner = h("div", { style: "position:relative" });
+    inner.append(svg);
+    $("#cmap").replaceChildren(inner);
+    const zoom = zoomable($("#cmap"), svg, width, height, ["#cz-out", "#cz-in", "#cz-reset"]);
+    cmapState = { svg, nodes, edges, zoom };
+    const legend = $("#map-legend");
+    legend.replaceChildren(...Object.entries(AREAS).map(([a, name]) =>
+      h("button", { class: "chip", "aria-pressed": "false", onclick: e => highlightArea(a, e.currentTarget) }, h("span", { class: "sw", style: `background:${areaColor(a)}` }), name)));
+    conceptSide(null);
+  }
+  function highlightArea(a, btn) {
+    const on = btn.getAttribute("aria-pressed") !== "true";
+    for (const b of document.querySelectorAll("#map-legend .chip")) b.setAttribute("aria-pressed", "false");
+    const { svg, nodes, edges } = cmapState;
+    if (!on) { svg.classList.remove("dim"); for (const g of nodes.values()) g.classList.remove("on", "sel"); for (const p of edges) p.classList.remove("on"); conceptSide(null); return; }
+    btn.setAttribute("aria-pressed", "true");
+    svg.classList.add("dim");
+    for (const [id, g] of nodes) { g.classList.toggle("on", C.get(id).area === a); g.classList.remove("sel"); }
+    for (const p of edges) p.classList.toggle("on", C.get(p.dataset.a).area === a && C.get(p.dataset.b).area === a);
+    const cs = DATA.concepts.filter(c => c.area === a);
+    const ws = sortWeeks([...new Set(cs.flatMap(c => c.weeks))]);
+    const side = $("#cside");
+    side.replaceChildren(h("h2", { text: AREAS[a] }), h("p", { class: "muted", text: `${cs.length} concepts and ${ws.length} themes.` }),
+      h("h3", { text: "Themes" }), weekList(ws));
+  }
+  function ancestors(id, acc = new Set()) { for (const r of C.get(id).requires) if (!acc.has(r)) { acc.add(r); ancestors(r, acc); } return acc; }
+  const CHILDREN = new Map(DATA.concepts.map(c => [c.id, []]));
+  for (const c of DATA.concepts) for (const r of c.requires) CHILDREN.get(r).push(c.id);
+  function descendants(id, acc = new Set()) { for (const r of CHILDREN.get(id)) if (!acc.has(r)) { acc.add(r); descendants(r, acc); } return acc; }
+  function selectConcept(id, center) {
+    if (!cmapState) { buildConceptMap(); built.map = true; }
+    for (const b of document.querySelectorAll("#map-legend .chip")) b.setAttribute("aria-pressed", "false");
+    const { svg, nodes, edges, zoom } = cmapState;
+    const up = ancestors(id), down = descendants(id);
+    const on = new Set([id, ...up, ...down]);
+    svg.classList.add("dim");
+    for (const [cid, g] of nodes) { g.classList.toggle("on", on.has(cid)); g.classList.toggle("sel", cid === id); }
+    for (const p of edges) {
+      const a = p.dataset.a, b = p.dataset.b;
+      p.classList.toggle("on", (on.has(a) && on.has(b)) && ((up.has(a) || a === id) && (up.has(b) || b === id) || (down.has(b) && (down.has(a) || a === id))));
+    }
+    conceptSide(id);
+    const c = C.get(id);
+    if (center) setTimeout(() => zoom.center(c.x + 90, c.y), 30);
+    setHash("map");
+  }
+  function weekList(ids) {
+    if (!ids.length) return h("p", { class: "muted", text: "None yet." });
+    return h("ul", {}, ids.map(id => { const w = W.get(id); return h("li", {}, h("button", { onclick: () => openDetail(id) }, h("span", { class: "wn", text: id }), w.title)); }));
+  }
+  function conceptSide(id) {
+    const side = $("#cside");
+    if (!id) {
+      const roots = DATA.concepts.filter(c => !c.requires.length && c.weeks.length).sort((a, b) => b.weeks.length - a.weeks.length);
+      side.replaceChildren(h("h2", { text: "Choose a concept" }),
+        h("p", { class: "muted", text: "The number on a box counts the themes about it. Starting points with the most themes:" }),
+        h("ul", {}, roots.slice(0, 14).map(c => h("li", {}, h("button", { onclick: () => selectConcept(c.id, true) }, h("span", { class: "wn", text: c.weeks.length }), c.name)))));
+      return;
+    }
+    const c = C.get(id);
+    side.replaceChildren(
+      h("p", { style: "margin:0;font-size:.8rem;color:var(--ink-3)" }, h("span", { class: "area-name" }, h("span", { class: "sw", style: `background:${areaColor(c.area)}` }), AREAS[c.area])),
+      h("h2", { text: c.name }),
+      h("p", { class: "muted", text: c.about }),
+      c.requires.length ? h("h3", { text: "Usually met first" }) : null,
+      c.requires.length ? h("div", { class: "chips" }, c.requires.map(r => h("button", { class: "cchip", onclick: () => selectConcept(r, true) }, C.get(r).name))) : null,
+      CHILDREN.get(id).length ? h("h3", { text: "Leads to" }) : null,
+      CHILDREN.get(id).length ? h("div", { class: "chips" }, CHILDREN.get(id).map(r => h("button", { class: "cchip", onclick: () => selectConcept(r, true) }, C.get(r).name))) : null,
+      h("h3", { text: `Themes about it (${c.weeks.length})` }), weekList(c.weeks),
+      c.usedBy.length ? h("h3", { text: `Themes that build on it (${c.usedBy.length})` }) : null,
+      c.usedBy.length ? weekList(c.usedBy) : null,
+      h("p", {}, h("button", { class: "linkbtn", onclick: () => { F.concept = id; renderFilters(); renderList(); showView("activities"); } }, "Show these in the activity list")));
+  }
+
+  // ---------------------------------------------------------------- week map
+  let wmapState = null;
+  const kindsOn = new Set(DATA.kinds);
+  function buildWeekMap() {
+    const { width, height } = DATA.weekMap;
+    const svg = s("svg", { width, height, viewBox: `0 0 ${width} ${height}`, role: "img", "aria-label": "Connections between themes" });
+    const defs = s("defs", {}, s("marker", { id: "arrow", viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 6, markerHeight: 6, orient: "auto-start-reverse" },
+      s("path", { d: "M0,0 L10,5 L0,10 z", fill: "var(--ink-3)", "fill-opacity": ".7" })));
+    const gE = s("g"), gN = s("g");
+    svg.append(defs, gE, gN);
+    const edges = [];
+    for (const e of DATA.edges) {
+      const a = W.get(e.a), b = W.get(e.b);
+      if (!a || !b) continue;
+      let x2 = b.x, y2 = b.y;
+      if (e.kind === "leads-to") { const dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx, dy) || 1; x2 = b.x - dx / d * 15; y2 = b.y - dy / d * 15; }
+      const ln = s("line", { class: `wedge k-${e.kind}`, x1: a.x, y1: a.y, x2, y2, "data-a": e.a, "data-b": e.b, "data-k": e.kind,
+        "marker-end": e.kind === "leads-to" ? "url(#arrow)" : null });
+      ln.append(s("title", { text: `${e.a} → ${e.b}: ${e.notes.join(" ")}` }));
+      gE.append(ln); edges.push(ln);
+    }
+    const nodes = new Map();
+    for (const w of DATA.weeks) {
+      const g = s("g", { class: "wnode", transform: `translate(${w.x},${w.y})`, tabindex: 0, role: "button", "aria-label": `Week ${w.id}, ${w.title}`,
+        onclick: () => selectWeek(w.id), onkeydown: e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectWeek(w.id); } } });
+      g.append(s("circle", { r: 13, stroke: areaColor(w.area) }), s("text", { "text-anchor": "middle", y: 3.5, text: w.id }),
+        s("text", { class: "lab", x: 16, y: 4, text: w.title.length > 26 ? w.title.slice(0, 25) + "…" : w.title }),
+        s("title", { text: `${w.id}. ${w.title}` }));
+      gN.append(g); nodes.set(w.id, g);
+    }
+    const inner = h("div", { style: "position:relative" });
+    inner.append(svg);
+    $("#wmap").replaceChildren(inner);
+    const zoom = zoomable($("#wmap"), svg, width, height, ["#wz-out", "#wz-in", "#wz-reset"]);
+    wmapState = { svg, nodes, edges, zoom };
+    const kl = $("#kind-legend");
+    const label = { "leads-to": "leads to", "revisits": "returns to", "same-theorem": "same theorem", "same-object": "same object", "contrast": "contrast" };
+    kl.replaceChildren(...DATA.kinds.map(k => {
+      const b = h("button", { class: "chip", "aria-pressed": "true", onclick: () => { toggle(kindsOn, k); b.setAttribute("aria-pressed", kindsOn.has(k) ? "true" : "false"); applyKinds(); } });
+      const sv = s("svg", { viewBox: "0 0 34 10", width: 34, height: 10 }, s("line", { class: `wedge k-${k}`, x1: 2, y1: 5, x2: 32, y2: 5, style: "stroke-opacity:.9" }));
+      b.append(sv, label[k]);
+      return b;
+    }), ...Object.entries(AREAS).map(([a, name]) => h("span", { class: "kind-key" }, h("span", { class: "sw", style: `display:inline-block;width:9px;height:9px;border-radius:50%;background:${areaColor(a)}` }), name)));
+    weekSide(null);
+  }
+  function applyKinds() { for (const ln of wmapState.edges) ln.style.display = kindsOn.has(ln.dataset.k) ? "" : "none"; }
+  function selectWeek(id) {
+    const { svg, nodes, edges, zoom } = wmapState;
+    const nb = new Set([id]);
+    for (const ln of edges) if (kindsOn.has(ln.dataset.k) && (ln.dataset.a === id || ln.dataset.b === id)) { nb.add(ln.dataset.a); nb.add(ln.dataset.b); }
+    svg.classList.add("dim");
+    for (const [wid, g] of nodes) { g.classList.toggle("on", nb.has(wid)); g.classList.toggle("sel", wid === id); }
+    for (const ln of edges) ln.classList.toggle("on", ln.dataset.a === id || ln.dataset.b === id);
+    weekSide(id);
+  }
+  function weekSide(id) {
+    const side = $("#wside");
+    if (!id) {
+      const deg = DATA.weeks.map(w => [w, (REL.get(w.id) || []).length]).sort((a, b) => b[1] - a[1]);
+      side.replaceChildren(h("h2", { text: "Choose a theme" }), h("p", { class: "muted", text: "Most connected themes:" }),
+        h("ul", {}, deg.slice(0, 12).map(([w, n]) => h("li", {}, h("button", { onclick: () => { selectWeek(w.id); wmapState.zoom.center(w.x, w.y); } }, h("span", { class: "wn", text: w.id }), `${w.title} (${n})`)))));
+      return;
+    }
+    const w = W.get(id);
+    const rels = REL.get(id) || [];
+    side.replaceChildren(
+      h("p", { style: "margin:0;font-size:.8rem;color:var(--ink-3)" }, `Week ${w.id} · `, h("span", { class: "area-name" }, h("span", { class: "sw", style: `background:${areaColor(w.area)}` }), AREAS[w.area])),
+      h("h2", { text: w.title }), h("p", { class: "muted", text: w.hook }),
+      h("p", {}, h("button", { class: "linkbtn", onclick: () => openDetail(id) }, "Open the full entry")),
+      h("h3", { text: `Connections (${rels.length})` }),
+      h("div", { style: "display:grid;gap:8px;margin-top:6px" }, rels.sort((a, b) => parseInt(a.other) - parseInt(b.other)).map(r => {
+        const el = relItem(r.other, `${KIND_TITLE[r.kind]}. ${r.notes.join(" ")}`);
+        el.querySelector("button").onclick = () => { selectWeek(r.other); const o = W.get(r.other); wmapState.zoom.center(o.x, o.y); };
+        return el;
+      })));
+  }
+
+  // ---------------------------------------------------------------- strands
+  function renderStrands() {
+    const root = $("#strand-list");
+    if (!root) return;
+    const band = $("#strand-band").value;
+    root.replaceChildren();
+    for (const [a, name] of Object.entries(AREAS)) {
+      const cs = DATA.concepts.filter(c => c.area === a && c.weeks.length);
+      if (!cs.length) continue;
+      const byDepth = new Map();
+      for (const c of cs) { if (!byDepth.has(c.depth)) byDepth.set(c.depth, []); byDepth.get(c.depth).push(c); }
+      const depths = [...byDepth.keys()].sort((x, y) => x - y);
+      const nThemes = new Set(cs.flatMap(c => c.weeks)).size;
+      const cols = h("div", { class: "strand-cols" }, depths.map((d, i) => h("div", { class: "col" },
+        h("div", { class: "col-head", text: d === 0 ? "needs nothing earlier" : `builds on ${d} step${d > 1 ? "s" : ""}` }),
+        byDepth.get(d).sort((x, y) => y.weeks.length - x.weeks.length).map(c => {
+          const ws = c.weeks.filter(id => !band || W.get(id).bands.includes(band));
+          const main = ws.filter(id => W.get(id).concepts[0] === c.id);
+          const also = ws.filter(id => W.get(id).concepts[0] !== c.id);
+          return h("div", { class: "sconcept", style: `--area:${areaColor(a)}` },
+            h("div", { class: "cn", role: "button", tabindex: 0, onclick: () => { showView("map"); selectConcept(c.id, true); },
+              onkeydown: e => { if (e.key === "Enter") { showView("map"); selectConcept(c.id, true); } } }, c.name),
+            c.requires.length ? h("div", { class: "req", text: "after " + c.requires.map(r => C.get(r).name.toLowerCase()).join(", ") }) : null,
+            main.map(id => { const w = W.get(id); return h("button", { class: "wk" + (used.has(id) ? " used" : ""), onclick: () => openDetail(id) },
+              h("span", { class: "wn", text: id }), h("span", { class: "wt", text: w.title }), h("span", { class: "bs", text: w.bands.map(bandLabel).join(" ") })); }),
+            also.length ? h("div", { class: "also" }, "Also in ", also.map((id, i) => [i ? ", " : "", h("button", { class: "alsob", title: W.get(id).title, onclick: () => openDetail(id) }, id)])) : null,
+            !ws.length ? h("div", { class: "req", text: band ? `No ${bandLabel(band)} pages yet.` : "" }) : null);
+        }))));
+      root.append(h("div", { class: "strand" },
+        h("div", { class: "strand-head" }, h("h2", {}, h("span", { class: "sw", style: `background:${areaColor(a)}` }), name),
+          h("span", { class: "muted", text: `${cs.length} concepts · ${nThemes} themes` })),
+        h("div", { class: "strand-scroll" }, cols)));
+    }
+  }
+  $("#strand-band").addEventListener("change", renderStrands);
+
+  // ---------------------------------------------------------------- start
+  renderFilters();
+  renderList();
+  function fromHash() {
+    const tok = (location.hash || "").slice(1);
+    suppressHash = true;
+    if (/^w\d+e?$/.test(tok) && W.has(tok.slice(1))) openDetail(tok.slice(1), { focus: false });
+    else if (["map", "links", "strands", "activities"].includes(tok)) showView(tok, false);
+    suppressHash = false;
+  }
+  fromHash();
+  window.addEventListener("hashchange", fromHash);
+})();
+</script>

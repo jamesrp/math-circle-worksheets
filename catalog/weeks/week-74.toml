@@ -1,0 +1,34 @@
+week = "74"
+title = "Doubling elevators"
+hook = "Ride a marker up and down levels where each stride is double the one below, and find the shortest trip from 0 to a target on the ground."
+math = "On the graph with states (x, h), h ≥ 0, where a horizontal move at level h covers 2^h and every move costs one, a trip of at most N moves that tops out at level H spends 2H moves climbing and descending, so it ends at most (N − 2H)·2^H from 0; the bound is attained, so 16 needs 8 moves. Stepping back can strictly win: 23 takes 10 moves via 24, against 11 with no left moves."
+discover = "Climbing pays for distant targets, overshooting and stepping back can save a move, and \"best found\" differs from \"proved best\"."
+gem = "Exponential distortion as in the Baumslag–Solitar group BS(1, 2): 2k moves reach 2^k."
+concepts = ["cayley-graphs", "graph-distance", "optimization"]
+uses = ["place-value"]
+mechanisms = ["certificate", "extremal", "construct"]
+bands = ["4-5"]
+reading = "Short reading; the partner records one move word per trip."
+arithmetic = "Adding and subtracting step sizes 1, 2, 4, 8 and 16 with signed coordinates under 25."
+materials = ["a very small pointed marker"]
+prep = "Print at actual size and rehearse moves at an odd coordinate; a stride strip would help, but none is printed."
+status = "unpiloted"
+verdict = "keep"
+verdict_note = "No must; a guide sentence implies more tied eight-move trips than the two that exist, and nothing enforces the stride."
+app = "Doubling elevators"
+app_decision = "in app"
+
+[[related]]
+week = "66"
+kind = "same-theorem"
+note = "Shortest move words in a group, with lower bounds from moves every route must spend."
+
+[[related]]
+week = "30"
+kind = "same-theorem"
+note = "A signed digit saves effort: 23 = 24 − 1 here, weights on both pans in balanced ternary."
+
+[[related]]
+week = "72"
+kind = "contrast"
+note = "Both measure a group by move words; here strides grow exponentially with height, there memory grows like area."

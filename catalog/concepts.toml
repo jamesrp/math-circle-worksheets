@@ -1,0 +1,798 @@
+# Concept map for the activity catalog.
+#
+# A concept is a piece of mathematics an activity can be about. `requires` names
+# the concepts a child should usually meet first; together they form a directed
+# acyclic graph (the builder checks this). Areas group concepts for browsing.
+# Mechanisms are reasoning moves, listed separately because any area uses them.
+#
+# Add a concept when two or more activities need it and no existing one fits.
+# Keep names short and in plain words; `about` is one sentence for an adult.
+
+[areas]
+networks  = "Networks and graphs"
+games     = "Games, choices and optimization"
+chance    = "Chance, dynamics and infinity"
+number    = "Numbers and divisibility"
+symmetry  = "Symmetry, groups and algebra"
+shape     = "Shape, space and surfaces"
+logic     = "Logic, algorithms and information"
+counting  = "Counting and arrangements"
+
+[mechanisms]
+invariant       = "Find something that never changes"
+monovariant     = "Find something that always shrinks, so the process must stop"
+colouring       = "Colour or label the board to expose an obstruction"
+copying         = "Copy or mirror the opponent's move"
+work-backward   = "Work backward from the end"
+pair-up         = "Pair things up one-to-one"
+double-count    = "Count the same thing two ways"
+pigeonhole      = "Too many objects for the boxes"
+extremal        = "Look at the biggest or smallest case"
+smaller-cases   = "Build from smaller cases (recursion, induction)"
+every-case      = "Check every case systematically"
+construct       = "Build an example that works"
+certificate     = "Match a best example with a proof nothing beats it"
+counterexample  = "Find the case that breaks a claim"
+unfold          = "Reflect, unfold or lift to a simpler picture"
+greedy          = "Make the locally best choice and see if it is enough"
+up-to-symmetry  = "Treat arrangements that differ by a symmetry as the same"
+limit           = "Follow a process forever and ask where it goes"
+coordinates     = "Name positions with numbers and compute"
+simulate        = "Run the process many times and compare with a prediction"
+
+# ---------------------------------------------------------------- counting
+[concepts.listing-cases]
+name = "Listing every case"
+area = "counting"
+about = "Organizing a search so that every case appears exactly once and you know you are done."
+
+[concepts.multiplying-choices]
+name = "Multiplying choices"
+area = "counting"
+requires = ["listing-cases"]
+about = "Independent choices multiply: the product rule behind trees of options."
+
+[concepts.subsets]
+name = "Subsets and yes/no choices"
+area = "counting"
+requires = ["multiplying-choices"]
+about = "Each item is in or out, so n items have 2^n subsets."
+
+[concepts.binomial]
+name = "Choose-k counts and Pascal's triangle"
+area = "counting"
+requires = ["subsets"]
+about = "Counting the k-element subsets and the recurrence that builds Pascal's triangle."
+
+[concepts.recurrence]
+name = "Recurrences"
+area = "counting"
+requires = ["listing-cases"]
+about = "Counting a size-n family from the counts of smaller ones."
+
+[concepts.bijection]
+name = "One-to-one matchings of collections"
+area = "counting"
+requires = ["listing-cases"]
+about = "Two collections have the same size when a rule pairs them perfectly."
+
+[concepts.catalan]
+name = "Catalan families"
+area = "counting"
+requires = ["bijection", "recurrence"]
+about = "Noncrossing pairings, mountain paths, trees and triangulations all counted by 1, 2, 5, 14, 42."
+
+[concepts.lattice-paths]
+name = "Grid paths"
+area = "counting"
+requires = ["multiplying-choices"]
+about = "Counting monotone paths on a grid and paths that stay above a line."
+
+[concepts.inclusion-exclusion]
+name = "Inclusion–exclusion"
+area = "counting"
+requires = ["subsets"]
+about = "Add the sets, subtract the overlaps, add back the triple overlaps."
+
+[concepts.derangements]
+name = "Derangements"
+area = "counting"
+requires = ["permutations", "inclusion-exclusion"]
+about = "Arrangements in which nothing is in its home place."
+
+[concepts.partitions]
+name = "Integer partitions"
+area = "counting"
+requires = ["listing-cases"]
+about = "Ways to write a number as a sum of parts, drawn as Young diagrams."
+
+[concepts.posets]
+name = "Orders, chains and antichains"
+area = "counting"
+requires = ["subsets"]
+about = "Partial orders such as 'is inside', with chains, antichains and Sperner-type bounds."
+
+[concepts.tableaux]
+name = "Young tableaux and sliding"
+area = "counting"
+requires = ["posets", "partitions"]
+about = "Number arrays increasing along rows and columns, and the jeu-de-taquin slides between them."
+
+[concepts.words]
+name = "Words and patterns in sequences"
+area = "counting"
+requires = ["listing-cases"]
+about = "Strings of letters, the patterns they avoid and how many there are."
+
+[concepts.finite-geometry]
+name = "Finite geometry"
+area = "counting"
+requires = ["remainders"]
+about = "Points and lines over a finite number system, as in the game SET (AG(2,3))."
+
+[concepts.polyominoes]
+name = "Polyominoes"
+area = "counting"
+requires = ["area"]
+about = "Shapes made of unit squares joined edge to edge, and their perimeters and counts."
+
+# ---------------------------------------------------------------- number
+[concepts.parity]
+name = "Odd and even"
+area = "number"
+about = "Parity as the simplest invariant: pairs cancel, and odd totals cannot split evenly."
+
+[concepts.place-value]
+name = "Bases: binary and ternary"
+area = "number"
+about = "Writing numbers with powers of 2 or 3, and why each number has one such form."
+
+[concepts.balanced-ternary]
+name = "Balanced ternary"
+area = "number"
+requires = ["place-value"]
+about = "Digits −1, 0, 1 in base 3: weights on both pans of a balance."
+
+[concepts.divisibility]
+name = "Divisibility and factors"
+area = "number"
+about = "Equal groups, factors and multiples."
+
+[concepts.primes]
+name = "Primes"
+area = "number"
+requires = ["divisibility"]
+about = "Numbers with no factors but 1 and themselves."
+
+[concepts.prime-factorization]
+name = "Prime factorization"
+area = "number"
+requires = ["primes"]
+about = "Every whole number is one bag of primes; divisors are its sub-bags."
+
+[concepts.remainders]
+name = "Remainders and clock arithmetic"
+area = "number"
+requires = ["divisibility"]
+about = "Arithmetic that wraps around: working modulo n."
+
+[concepts.gcd]
+name = "Greatest common divisor"
+area = "number"
+requires = ["divisibility"]
+about = "The largest shared factor, which controls orbits, visibility and reachable totals."
+
+[concepts.lcm]
+name = "Least common multiple"
+area = "number"
+requires = ["divisibility"]
+about = "The first time two repeating cycles line up again."
+
+[concepts.euclid]
+name = "Euclid's algorithm"
+area = "number"
+requires = ["gcd"]
+about = "Repeatedly removing the smaller from the larger finds the gcd."
+
+[concepts.frobenius]
+name = "Totals from two sizes"
+area = "number"
+requires = ["gcd"]
+about = "Which totals a and b can build; the largest gap is ab − a − b when gcd(a, b) = 1."
+
+[concepts.fermat]
+name = "Fermat's little theorem"
+area = "number"
+requires = ["primes", "remainders", "group-actions"]
+about = "p divides c^p − c, seen by turning necklaces of prime length."
+
+[concepts.square-remainders]
+name = "Square remainders"
+area = "number"
+requires = ["remainders"]
+about = "Which remainders squares leave, and why inputs pair up modulo an odd prime."
+
+[concepts.sumsets]
+name = "Sums of sets"
+area = "number"
+requires = ["listing-cases"]
+about = "How few or how many totals two sets can make; arithmetic progressions are extreme."
+
+# ---------------------------------------------------------------- symmetry
+[concepts.symmetry]
+name = "Symmetry of shapes"
+area = "symmetry"
+about = "Turns and flips that leave a shape looking the same."
+
+[concepts.permutations]
+name = "Permutations"
+area = "symmetry"
+about = "Rearrangements of a set of things."
+
+[concepts.permutation-cycles]
+name = "Cycles of a permutation"
+area = "symmetry"
+requires = ["permutations"]
+about = "A rearrangement splits into loops; the return time is the lcm of their lengths."
+
+[concepts.composition]
+name = "Composing and undoing moves"
+area = "symmetry"
+requires = ["permutations"]
+about = "Doing one move after another, inverses, and when order matters."
+
+[concepts.groups]
+name = "Groups"
+area = "symmetry"
+requires = ["composition", "symmetry"]
+about = "A set of moves closed under doing one after another and undoing."
+
+[concepts.group-actions]
+name = "Orbits and counting up to symmetry"
+area = "symmetry"
+requires = ["groups"]
+about = "Moves sort objects into orbits; counting orbits counts arrangements up to symmetry."
+
+[concepts.frieze-patterns]
+name = "Frieze patterns"
+area = "symmetry"
+requires = ["symmetry", "composition"]
+about = "The seven kinds of border patterns and how slides, flips and glides combine."
+
+[concepts.chirality]
+name = "Mirror images in three dimensions"
+area = "symmetry"
+requires = ["symmetry"]
+about = "Solids that rotations cannot turn into their mirror images."
+
+[concepts.free-groups]
+name = "Words, cancellation and free groups"
+area = "symmetry"
+requires = ["composition"]
+about = "Move words that cancel back-and-forth steps, and the unique reduced form."
+
+[concepts.cayley-graphs]
+name = "Groups as road maps"
+area = "symmetry"
+requires = ["groups", "graph-distance"]
+about = "Drawing a group as a street map (Cayley graph) and measuring it: geometric group theory."
+
+[concepts.linear-algebra-f2]
+name = "Toggling and linear algebra mod 2"
+area = "symmetry"
+requires = ["parity"]
+about = "Switch presses that cancel in pairs: vectors over the two-element field."
+
+# ---------------------------------------------------------------- networks
+[concepts.graphs]
+name = "Graphs: dots and links"
+area = "networks"
+about = "Points joined by links, as maps, networks and state diagrams."
+
+[concepts.euler-trails]
+name = "Euler trails"
+area = "networks"
+requires = ["graphs", "parity"]
+about = "Walks using every link once exist exactly when zero or two places have odd degree."
+
+[concepts.trees]
+name = "Trees and spanning trees"
+area = "networks"
+requires = ["graphs"]
+about = "Connected networks with no loops; n dots need n − 1 links."
+
+[concepts.graph-colouring]
+name = "Colouring and conflicts"
+area = "networks"
+requires = ["graphs"]
+about = "Giving linked dots different colours, as in scheduling."
+
+[concepts.bipartite]
+name = "Two-colourable networks"
+area = "networks"
+requires = ["graph-colouring", "parity"]
+about = "A network can be two-coloured exactly when it has no odd loop."
+
+[concepts.matchings]
+name = "Matchings"
+area = "networks"
+requires = ["graphs"]
+about = "Pairing dots along links, and when a perfect pairing is impossible."
+
+[concepts.stable-matching]
+name = "Stable matching"
+area = "networks"
+requires = ["matchings"]
+about = "Pairings with no blocking pair, found by the proposal algorithm."
+
+[concepts.flows-cuts]
+name = "Flows and cuts"
+area = "networks"
+requires = ["graphs"]
+about = "The most routes through a network equals the fewest links that block them all."
+
+[concepts.euler-formula]
+name = "Euler's formula"
+area = "networks"
+requires = ["graphs"]
+about = "V − E + F = 2 for maps on a sphere and polyhedra."
+
+[concepts.rigidity]
+name = "Rigid and flexible frames"
+area = "networks"
+requires = ["graphs"]
+about = "When braces make a frame hold its shape: a connected row–column graph."
+
+[concepts.graph-distance]
+name = "Distance in a network"
+area = "networks"
+requires = ["graphs"]
+about = "Counting steps along links, and shortest routes."
+
+[concepts.infinite-graphs]
+name = "Infinite networks and their ends"
+area = "networks"
+requires = ["graph-distance"]
+about = "Endless grids, ladders and trees, and how many ways there are to escape to infinity."
+
+[concepts.chip-firing]
+name = "Chip firing"
+area = "networks"
+requires = ["graphs"]
+about = "Overfull sites send chips to neighbours; the end state does not depend on the order."
+
+[concepts.rotor-routing]
+name = "Rotor routers"
+area = "networks"
+requires = ["chip-firing"]
+about = "Deterministic arrows that mimic random walks and chip firing."
+
+[concepts.cops-and-robbers]
+name = "Cops and robbers"
+area = "networks"
+requires = ["graph-distance"]
+about = "Pursuit on a network: which boards let a cop always catch the robber."
+
+# ---------------------------------------------------------------- shape
+[concepts.area]
+name = "Area"
+area = "shape"
+about = "Measuring by covering with unit squares, and cutting and rearranging."
+
+[concepts.length]
+name = "Length and perimeter"
+area = "shape"
+about = "Measuring along a path or boundary."
+
+[concepts.angles]
+name = "Angles and turning"
+area = "shape"
+about = "Amounts of turn, angle sums and full turns of 360°."
+
+[concepts.tilings]
+name = "Tilings"
+area = "shape"
+requires = ["area"]
+about = "Covering a region with pieces, obstructions to tiling, and moves between tilings."
+
+[concepts.dissection]
+name = "Cutting and rearranging"
+area = "shape"
+requires = ["area"]
+about = "Reshaping a region by cuts that keep its area."
+
+[concepts.pick]
+name = "Pick's theorem"
+area = "shape"
+requires = ["area"]
+about = "The area of a dot-grid polygon from its inside and boundary dots."
+
+[concepts.area-bounds]
+name = "Area from inside and outside"
+area = "shape"
+requires = ["area"]
+about = "Inner and outer square counts trap an area, and refining closes the gap."
+
+[concepts.convexity]
+name = "Convexity"
+area = "shape"
+about = "Shapes that contain every segment between their points."
+
+[concepts.nearest-regions]
+name = "Nearest-site regions"
+area = "shape"
+requires = ["convexity"]
+about = "Voronoi regions bounded by perpendicular bisectors."
+
+[concepts.reflection]
+name = "Reflections and unfolding"
+area = "shape"
+requires = ["symmetry"]
+about = "Unfolding bounces into straight lines: billiards and shortest reflected paths."
+
+[concepts.polyhedra]
+name = "Polyhedra"
+area = "shape"
+requires = ["angles"]
+about = "Solids with flat faces, their corners and nets."
+
+[concepts.curvature]
+name = "Curvature and angle defect"
+area = "shape"
+requires = ["angles", "polyhedra"]
+about = "Missing or extra angle at a corner; the total is fixed (Descartes, Gauss–Bonnet)."
+
+[concepts.spherical-geometry]
+name = "Geometry on a sphere"
+area = "shape"
+requires = ["angles"]
+about = "Great-circle triangles whose angles add to more than 180°."
+
+[concepts.hyperbolic-geometry]
+name = "Hyperbolic geometry"
+area = "shape"
+requires = ["angles", "tilings"]
+about = "Spaces where angle sums fall short and straight lines spread apart."
+
+[concepts.constant-width]
+name = "Constant width"
+area = "shape"
+requires = ["convexity"]
+about = "Shapes like the Reuleaux triangle that roll like a circle between two lines."
+
+[concepts.folding]
+name = "Paper folding"
+area = "shape"
+requires = ["angles"]
+about = "When creases fold flat: Maekawa's and Kawasaki's rules."
+
+[concepts.packing]
+name = "Packing"
+area = "shape"
+requires = ["area"]
+about = "Fitting as many disks or pieces as possible, and kissing numbers."
+
+[concepts.scaling]
+name = "Scaling and similarity"
+area = "shape"
+requires = ["length"]
+about = "Enlarging by a factor multiplies lengths by it and areas by its square."
+
+[concepts.coordinates]
+name = "Coordinates"
+area = "shape"
+about = "Naming points by numbers on a grid."
+
+[concepts.distance-rules]
+name = "Different ways to measure distance"
+area = "shape"
+requires = ["coordinates"]
+about = "Grid, tree-like and other metrics, and which triangle rules they satisfy."
+
+[concepts.tropical-geometry]
+name = "Tropical geometry"
+area = "shape"
+requires = ["coordinates"]
+about = "Geometry where 'plus' becomes 'minimum': three-armed lines that always meet."
+
+[concepts.slope-limits]
+name = "Slope limits"
+area = "shape"
+requires = ["coordinates"]
+about = "Filling in values whose neighbours differ by at most one: Lipschitz extension, lowest and highest fills."
+
+[concepts.thin-triangles]
+name = "Thin and fat triangles"
+area = "shape"
+requires = ["graph-distance"]
+about = "Gromov's test of hyperbolicity: whether each side of a shortest-route triangle stays close to the other two."
+
+[concepts.stretch-maps]
+name = "Least stretch of a map"
+area = "shape"
+requires = ["scaling", "coordinates"]
+about = "How far a map between shapes must stretch some distance, measured by its Lipschitz constant."
+
+[concepts.measurement-error]
+name = "Measurement ranges"
+area = "shape"
+requires = ["length"]
+about = "What ranges of true values a rough measurement allows, and how ranges combine."
+
+# ---------------------------------------------------------------- shape: surfaces
+[concepts.surfaces]
+name = "Surfaces from glued edges"
+area = "shape"
+about = "Making cylinders, tori and stranger surfaces by gluing the edges of polygons."
+
+[concepts.torus]
+name = "The torus"
+area = "shape"
+requires = ["surfaces"]
+about = "The doughnut surface from a square with opposite sides glued."
+
+[concepts.mobius]
+name = "The Möbius band"
+area = "shape"
+requires = ["surfaces"]
+about = "A one-sided band with one edge, and what happens when you cut it."
+
+[concepts.winding]
+name = "Winding numbers"
+area = "shape"
+requires = ["surfaces"]
+about = "How many times a path goes around, which no wiggling can change."
+
+[concepts.knots]
+name = "Knots and invariants"
+area = "shape"
+about = "Telling knots apart with a count that moves cannot change, such as tricolourings."
+
+[concepts.holes]
+name = "Holes and loops"
+area = "shape"
+requires = ["graphs", "parity"]
+about = "Loops that do not bound a filled region: homology, mod 2."
+
+[concepts.persistence]
+name = "Persistent holes"
+area = "shape"
+requires = ["holes"]
+about = "Watching holes appear and fill as a shape grows."
+
+[concepts.sperner]
+name = "Sperner's lemma"
+area = "shape"
+requires = ["parity"]
+about = "Any proper three-colouring of a triangulated triangle has an odd number of rainbow triangles."
+
+# ---------------------------------------------------------------- chance
+[concepts.equally-likely]
+name = "Equally likely outcomes"
+area = "chance"
+requires = ["listing-cases"]
+about = "Probability as counting equally likely cases."
+
+[concepts.conditional-probability]
+name = "Conditional probability"
+area = "chance"
+requires = ["equally-likely"]
+about = "Updating chances after a clue, by keeping only the cases that fit."
+
+[concepts.expected-value]
+name = "Expected value"
+area = "chance"
+requires = ["equally-likely"]
+about = "The long-run average of a random amount."
+
+[concepts.fair-randomness]
+name = "Fair results from unfair sources"
+area = "chance"
+requires = ["equally-likely"]
+about = "Von Neumann's trick and fair shuffles: making exact fairness from biased or naive randomness."
+
+[concepts.urns]
+name = "Urns and exchangeability"
+area = "chance"
+requires = ["conditional-probability"]
+about = "Pólya's urn: reinforcing draws whose order does not matter."
+
+[concepts.nontransitive]
+name = "Nontransitive dice"
+area = "chance"
+requires = ["equally-likely"]
+about = "A beats B beats C beats A."
+
+[concepts.coupling]
+name = "Coupling"
+area = "chance"
+requires = ["equally-likely"]
+about = "Running two random processes with shared choices until they agree."
+
+[concepts.random-walks]
+name = "Random walks"
+area = "chance"
+requires = ["equally-likely"]
+about = "Steps chosen at random, and where they end up."
+
+[concepts.inference]
+name = "Inference from data"
+area = "chance"
+requires = ["conditional-probability"]
+about = "Estimating hidden quantities, such as a population from marked recaptures, and how sure to be."
+
+[concepts.optimal-stopping]
+name = "Optimal stopping"
+area = "chance"
+requires = ["expected-value", "backward-induction"]
+about = "When to stop and take what you have."
+
+# ---------------------------------------------------------------- logic
+[concepts.deduction]
+name = "Deduction from clues"
+area = "logic"
+about = "Reasoning from given facts to what must be true, and when clues pin down one answer."
+
+[concepts.latin-squares]
+name = "Latin squares"
+area = "logic"
+requires = ["deduction"]
+about = "Grids with each symbol once per row and column."
+
+[concepts.information]
+name = "Questions and information"
+area = "logic"
+requires = ["place-value"]
+about = "k yes/no answers separate at most 2^k possibilities."
+
+[concepts.codes]
+name = "Error-correcting codes"
+area = "logic"
+requires = ["information"]
+about = "Codewords far enough apart that errors can be detected and fixed."
+
+[concepts.automata]
+name = "Finite-state machines"
+area = "logic"
+requires = ["deduction"]
+about = "Machines with a few memory states, and the histories they must tell apart."
+
+[concepts.common-knowledge]
+name = "Knowledge and common knowledge"
+area = "logic"
+requires = ["deduction"]
+about = "What everyone knows that everyone knows, and how announcements change it."
+
+[concepts.tomography]
+name = "Pictures from row and column counts"
+area = "logic"
+requires = ["deduction"]
+about = "Recovering a picture from its row and column totals, and when it is unique."
+
+# ---------------------------------------------------------------- games
+[concepts.backward-induction]
+name = "Working backward in games"
+area = "games"
+about = "Label the end positions, then every earlier position, as wins or losses."
+
+[concepts.take-away-games]
+name = "Take-away games"
+area = "games"
+requires = ["backward-induction"]
+about = "Players remove counters by allowed amounts; losing positions repeat."
+
+[concepts.nim]
+name = "Nim and Nim-sums"
+area = "games"
+requires = ["take-away-games", "place-value"]
+about = "Several piles at once, solved by binary addition without carrying."
+
+[concepts.copying-strategies]
+name = "Copying strategies"
+area = "games"
+requires = ["symmetry"]
+about = "Winning by mirroring the opponent on a symmetric board."
+
+[concepts.partizan-games]
+name = "Partizan games and game values"
+area = "games"
+requires = ["take-away-games"]
+about = "Games where players have different moves, valued as numbers (Hackenbush, surreal numbers)."
+
+# ---------------------------------------------------------------- processes (logic, chance, counting, number)
+[concepts.algorithms]
+name = "Algorithms and termination"
+area = "logic"
+about = "Step-by-step procedures, whether they stop and what they produce."
+
+[concepts.sorting]
+name = "Sorting networks"
+area = "logic"
+requires = ["algorithms"]
+about = "Fixed comparison patterns that sort any input; the 0–1 principle."
+
+[concepts.iteration]
+name = "Iteration and dynamics"
+area = "chance"
+about = "Applying the same rule again and again, and what happens in the long run."
+
+[concepts.averaging]
+name = "Averaging and the maximum principle"
+area = "chance"
+requires = ["iteration"]
+about = "Each value the average of its neighbours: harmonic functions have no inside peaks."
+
+[concepts.substitution]
+name = "Substitution sequences"
+area = "counting"
+requires = ["words"]
+about = "Growing words by replacing letters, as in the Thue–Morse sequence."
+
+[concepts.chaos]
+name = "Stretching and folding"
+area = "chance"
+requires = ["iteration"]
+about = "Maps that double distances, so any band of uncertainty eventually fills everything."
+
+[concepts.percolation]
+name = "Bootstrap percolation"
+area = "chance"
+requires = ["iteration"]
+about = "Cells infected by enough infected neighbours, and which seeds take over."
+
+[concepts.differences-sums]
+name = "Differences and sums"
+area = "number"
+about = "Discrete calculus: layers added to growing shapes and the totals they build."
+
+# ---------------------------------------------------------------- games: choices
+[concepts.optimization]
+name = "Best possible"
+area = "games"
+about = "Finding the best arrangement and proving nothing does better."
+
+[concepts.cheapest-networks]
+name = "Cheapest networks"
+area = "networks"
+requires = ["trees", "optimization"]
+about = "Minimum spanning trees and the cut and cycle rules."
+
+[concepts.fair-division]
+name = "Fair division"
+area = "games"
+about = "Cake cutting: proportional and envy-free shares."
+
+[concepts.voting]
+name = "Voting rules"
+area = "games"
+about = "How the choice of rule and agenda changes the winner."
+
+[concepts.optimal-transport]
+name = "Optimal transport"
+area = "games"
+requires = ["matchings", "optimization"]
+about = "The cheapest way to move piles to holes."
+
+# ---------------------------------------------------------------- chance: infinity
+[concepts.infinite-processes]
+name = "Infinite processes"
+area = "chance"
+about = "Tasks with infinitely many steps, and what can be said after all of them."
+
+[concepts.limits]
+name = "Limits"
+area = "chance"
+requires = ["infinite-processes"]
+about = "Values a sequence settles toward, and sequences that never settle."
+
+[concepts.ordinals]
+name = "Ordinals"
+area = "chance"
+requires = ["infinite-processes"]
+about = "Counting past infinity: ω, ω + 1 and order types of endless lines."
+
+[concepts.infinite-games]
+name = "Games that may run forever"
+area = "chance"
+requires = ["backward-induction", "ordinals"]
+about = "Games where every play ends but no bound on its length exists."

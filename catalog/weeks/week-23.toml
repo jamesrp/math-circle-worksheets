@@ -1,0 +1,33 @@
+week = "23"
+title = "Sorting machines"
+hook = "Run number cards through a fixed set of bars, each putting the smaller of two lanes on top, and find a start the machine fails to sort or build a machine that sorts every start."
+math = "A comparator network is a fixed list of compare-and-swap bars; one failing start disproves a sorter, and a network sorts every input exactly when it sorts every 0–1 input, because thresholding commutes with each bar (the zero–one principle). k bars allow at most 2^k swap/stay records and each record sorts at most one order, so three lanes need 3 bars and four need 5 (2^4 = 16 < 24 = 4!); with neighbouring lanes only, the six reversed pairs of 4321 force 6 bars."
+discover = "One bad start defeats a machine, testing only 0s and 1s is enough to trust it, and counting records shows how few bars can work."
+gem = "The zero–one principle with a child-sized proof, and two different lower-bound arguments that are both exact."
+concepts = ["sorting", "algorithms", "permutations", "information"]
+mechanisms = ["counterexample", "pigeonhole", "every-case"]
+bands = ["K-1", "2-3", "4-5"]
+reading = "K–1 needs none, with rules read aloud and dot cards; 2–3 reads little; 4–5 meets variables and proof by contradiction late in the packet."
+arithmetic = "K–1 compares dot cards to four; 2–3 only compares; 4–5 compares with a threshold, including negative numbers, and weighs 2^k against n!."
+materials = ["a four-lane mat and removable comparator bars per table (not supplied; must be made)", "about 16 cards per table: dot cards 1–4, numerals, 0s and 1s", "a ruler as a time cursor"]
+prep = "Make a four-lane mat, spare bars and 3 cm cards for each table; nothing in the week prints them."
+status = "unpiloted"
+verdict = "revise"
+verdict_note = "The guide runs the week on a full-size mat with removable bars and 3 cm cards, forbids the printed diagrams as card holders, and nothing in the week supplies them."
+app = "Sorting machines"
+app_decision = "in app"
+
+[[related]]
+week = "6"
+kind = "same-theorem"
+note = "k yes-or-no answers separate at most 2^k cases, the same count that limits k swap-or-stay bars."
+
+[[related]]
+week = "43"
+kind = "same-theorem"
+note = "Both weigh a count of equally weighted histories against n! orders: here to bound bars, there to show a shuffle rule cannot be fair."
+
+[[related]]
+week = "3"
+kind = "contrast"
+note = "Week 3's fixed machine is a permutation studied for its loops; here each bar looks at the values before deciding to swap."

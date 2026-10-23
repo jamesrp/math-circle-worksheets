@@ -1,0 +1,39 @@
+week = "43"
+title = "Shuffling picture cards"
+hook = "Shuffle three picture cards by drawing numbered tickets from a cup and swapping slots, and check whether every order of the cards is equally likely."
+math = "Left-to-right Fisher–Yates (swap slot 1 with a slot drawn from 1–3, then slot 2 with one drawn from 2–3) has six equally likely ticket stories, exactly one for each order, so it is fair from any start; for n cards it has n! stories, one per order. The tempting rule that draws from all three slots at every step has 27 equally likely stories, which cannot split evenly over six orders (the counts are 4, 5, 5, 5, 4, 4), and forbidding self-swaps reaches only BCA and CAB."
+discover = "A shuffle is fair when each order has exactly one ticket story, and 27 equally likely stories can never share fairly among six orders."
+gem = "The classic shuffling bug refuted by divisibility alone: 27 is not a multiple of 6."
+concepts = ["fair-randomness", "permutations", "bijection"]
+uses = ["equally-likely"]
+mechanisms = ["pair-up", "every-case", "counterexample"]
+bands = ["K-1", "2-3", "4-5"]
+reading = "K–1 needs positional language with an adult reading; 2–3 has each rule read once by an adult; 4–5 reads short proof prompts."
+arithmetic = "None at K–1; 2–3 shares 27 into six piles; 4–5 uses division with remainder."
+materials = ["three same-size picture cards A, B, C per pair (index cards serve)", "a cup and tickets 1, 2, 3", "a three-slot strip"]
+prep = "Make five card-and-ticket kits; nothing prints them, but index cards work."
+status = "unpiloted"
+verdict = "revise"
+verdict_note = "K–1 Problem 2's crossed-out cards and four rows fit 'this card can't be first', while the key reads them as drawn first, so an adult may mark a right answer wrong."
+app = "Ticket shuffles"
+app_decision = "in app"
+
+[[related]]
+week = "42"
+kind = "same-theorem"
+note = "The same divisibility obstruction: equal-weight cases can't be shared evenly, 27 stories among six orders here, 9 against 7 there."
+
+[[related]]
+week = "3"
+kind = "same-object"
+note = "Cards rearranged by fixed shuffles, studied there for their cycles and return times rather than for fairness."
+
+[[related]]
+week = "63"
+kind = "leads-to"
+note = "The no-self-swap rule produces orders with no card in its home slot, the derangements Week 63 counts."
+
+[[related]]
+week = "23"
+kind = "same-theorem"
+note = "Histories are weighed against the n! orders: m comparisons have only 2^m outcomes, so too few cannot sort, as 27 stories cannot shuffle fairly."

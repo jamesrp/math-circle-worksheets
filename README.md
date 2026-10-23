@@ -12,6 +12,7 @@ An activity library for an elementary-school math circle in Bellingham, built ar
 |---|---|
 | [external-resources/](external-resources/README.md) | Downloaded books, activity collections, and other reference material: our inputs. |
 | [lowell-math-circle-year-1/](lowell-math-circle-year-1/README.md) | The organizer's 2025–26 worksheets and shape-subtraction work, preserving their original folders. |
+| [CATALOG.md](CATALOG.md) and [catalog/](catalog/README.md) | Every theme on one page, grouped by area, and the records behind the Math Circle Explorer: mathematics, bands, prerequisites, materials, print links, and how themes and concepts connect. Start here to choose an activity. |
 | [lowell-math-circle-year-2/](lowell-math-circle-year-2/README.md) | Our printable worksheets, organized by week, plus combined packets and a separate editable `source/` folder. Start here to print. |
 | [plans/](plans/README.md) | Session plans, teaching/source notes, mathematical checks and data, review records, and the use log. |
 | [worksheet-workflow/](worksheet-workflow/README.md) | The tested agent workflow for drafting a week's student worksheets: prompt files, outline template, and the prompt builder. |
