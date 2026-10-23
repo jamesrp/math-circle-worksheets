@@ -10,10 +10,10 @@ The packets and these views are unpiloted, as their weeks are.
 |---|---|---|---|---|---|---|
 | 52 | Hinged frames and braces | [12 pages](../week-52/week-52-students.pdf) | [4 of 12](week-52/week-52-k-1.pdf): pp. 1–4 | [7 of 12](week-52/week-52-grades-2-3.pdf): pp. 3–9 | [8 of 12](week-52/week-52-grades-4-5.pdf): pp. 5–12 | [menu](week-52/week-52-menu.pdf) |
 | 53 | Connecting networks | [9 pages](../week-53/week-53-students.pdf) | [4 of 9](week-53/week-53-k-1.pdf): pp. 1–4 | [4 of 9](week-53/week-53-grades-2-3.pdf): pp. 1–4 | whole packet | [menu](week-53/week-53-menu.pdf) |
-| 54 | Partitions and rebuilding | [9 pages](../week-54/week-54-students.pdf) | — | [5 of 9](week-54/week-54-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-54/week-54-menu.pdf) |
-| 55 | Few sums and equal spacing | [10 pages](../week-55/week-55-students.pdf) | — | whole packet | whole packet | [menu](week-55/week-55-menu.pdf) |
+| 54 | Partitions and rebuilding | [9 pages](../week-54/week-54-students.pdf) | [3 of 9](week-54/week-54-k-1.pdf): pp. 1–3, the guide's adult-led route | [5 of 9](week-54/week-54-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-54/week-54-menu.pdf) |
+| 55 | Few sums and equal spacing | [10 pages](../week-55/week-55-students.pdf) | [3 of 10](week-55/week-55-k-1.pdf): pp. 1–3, the guide's adult-led route | whole packet | whole packet | [menu](week-55/week-55-menu.pdf) |
 | 56 | Corners of a solid | [9 pages](../week-56/week-56-students.pdf) | [4 of 9](week-56/week-56-k-1.pdf): pp. 1, 3–5 | [6 of 9](week-56/week-56-grades-2-3.pdf): pp. 1–6 | whole packet | [menu](week-56/week-56-menu.pdf) |
-| 57 | Area from dots | [10 pages](../week-57/week-57-students.pdf) | — | [6 of 10](week-57/week-57-grades-2-3.pdf): pp. 1–6 | whole packet | [menu](week-57/week-57-menu.pdf) |
+| 57 | Area from dots | [10 pages](../week-57/week-57-students.pdf) | [1 of 10](week-57/week-57-k-1.pdf): pp. 4, the guide's adult-led route | [6 of 10](week-57/week-57-grades-2-3.pdf): pp. 1–6 | whole packet | [menu](week-57/week-57-menu.pdf) |
 | 58 | Fair division | [7 pages](../week-58/week-58-students.pdf) | [2 of 7](week-58/week-58-k-1.pdf): pp. 1, 5 | whole packet | whole packet | [menu](week-58/week-58-menu.pdf) |
 | 59 | Constant width | [6 pages](../week-59/week-59-students.pdf) | [1 of 6](week-59/week-59-k-1.pdf): pp. 2 | [5 of 6](week-59/week-59-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-59/week-59-menu.pdf) |
 | 60 | Take it or pass | [8 pages](../week-60/week-60-students.pdf) | [3 of 8](week-60/week-60-k-1.pdf): pp. 1–2, 6 | [5 of 8](week-60/week-60-grades-2-3.pdf): pp. 1–3, 6–7 | whole packet | [menu](week-60/week-60-menu.pdf) |
@@ -53,7 +53,7 @@ Rebuild after any change to a listed packet: `python3 lowell-math-circle-year-2/
 
 ## Weeks stored as problem files
 
-A week stored as [problem files](../source/problem-files/README.md) has separate band packets, printed from its week folder. Its other views are built from the same files and published here: first-route and return packets for each band, which keep the full packet's problem numbers; a one-page problem menu; and a key arranged by problem, which repeats the answers of the week's adult guide. The guide remains the adult text to print. Rebuild with `python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-NN --out tmp/week-NN-views --publish lowell-math-circle-year-2/band-views/week-NN`, then `python3 lowell-math-circle-year-2/source/band-views/band_views.py readme`.
+A week stored as [problem files](../source/problem-files/README.md) has separate band packets, printed from its week folder. Its other views are built from the same files and published here: first-route and return packets for each band, which keep the full packet's problem numbers but number their own pages; a one-page problem menu; and a key arranged by problem, which repeats the answers of the week's adult guide. A page number in a key counts the full packet; a key whose answers cite student pages lists which full-packet page each route-packet page is. The guide remains the adult text to print. Rebuild with `python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-NN --out tmp/week-NN-views --publish lowell-math-circle-year-2/band-views/week-NN`, then `python3 lowell-math-circle-year-2/source/band-views/band_views.py readme`.
 
 | Week | Topic | Packets | First route | Return visits | Menu | Key |
 |---|---|---|---|---|---|---|

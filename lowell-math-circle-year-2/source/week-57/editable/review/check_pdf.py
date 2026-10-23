@@ -104,9 +104,9 @@ check('60 squares, each 20 mm' in mt[0] and '120 halves' in mt[1], 'materials: 6
 
 g = ' '.join(subprocess.run(['pdftotext', str(WEEK / 'week-57-facilitator.pdf'), '-'], capture_output=True, text=True, check=True).stdout.split())
 g = re.sub(r'(?<=[a-z])- (?=[a-z])', '', g)
-check(fitz.open(WEEK / 'week-57-facilitator.pdf').page_count == 10 and max(g.count('W57-FAC-v2'), g.count('W57-FAC-v3')) == 10, 'guide: 10 pages, footer W57-FAC-v2 (v3 after the roster-label fix)')
+check(fitz.open(WEEK / 'week-57-facilitator.pdf').page_count == 10 and max(g.count('W57-FAC-v2'), g.count('W57-FAC-v3'), g.count('W57-FAC-v4')) == 10, 'guide: 10 pages, footer W57-FAC-v2 (v3 after the roster-label fix, v4 after the critic J could)')
 for s in ['contact in two or more separate places, overlaps, pinches and closed seams do not satisfy this claim. A seam made of several consecutive sides does',
-          'K–1 has an adult-led route with four or five squares on the existing grids (p. 3)',
+          'K–1 has an adult-led route with four or five squares on extra copies of the student p. 4 grids (guide p. 3)',
           'Younger: the K–1 four-square route below, with the parent.',
           'K–1 route, outside the numbered packet.', 'Can you make a four-square shape with a different number?',
           'every four-square shape has 10 outline dots and none inside, except the 2 × 2 square, which has 8 and one inside',

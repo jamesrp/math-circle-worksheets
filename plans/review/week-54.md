@@ -48,6 +48,8 @@ October 23, 2026: shoulds 1–3 and coulds 4–8 and 10 fixed, after storing the
 
 **Roster labels, October 23, 2026.** The guide (p. 2) printed the roster code "KK11, 3333 and 445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1, 2–3 and 4–5" (W54-FAC-v3; W54-FAC-v2 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
 
+**Critic J could, October 23, 2026.** An independent critic noted that card fix 1 asked for "Grades K–5" on pp. 1–3 while the pages stay headed "Grades 2–5" (a recorded choice), and that band-views showed no K–1 entry though the guide routes K–1 through pp. 1–3. The page index now names that route (`guide_routes`), so band-views has a K–1 slice of pp. 1–3 and the menu and README call it the guide's adult-led route; the guide's print set already gives the K–1 parent two copies of pp. 1–3. Headers unchanged, still the organizer's call.
+
 ## Overlaps
 
 Week 38 lists the partitions of four in passing. Week 30 shares the uniqueness of a power representation behind P6, but in base 3. Week 12 is the other bijection theme, on Catalan objects. None takes partitions or Euler's theorem as its object. No merge.

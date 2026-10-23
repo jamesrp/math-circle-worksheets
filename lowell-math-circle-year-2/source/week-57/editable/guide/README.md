@@ -6,6 +6,7 @@ does not accept "each value is the area"; the joining limits on p. 1 say a seam 
 consecutive sides works; the kit pieces come from `week-57-materials.pdf`, with a
 smaller untested cutting forecast; a (5, 4) triangle with base 2 and height 6 in P5's
 table; process residue removed from p. 10.
+Later the same day it became `W57-FAC-v4`, after an independent critic's review: the readiness map on p. 1 says the K–1 route is on guide p. 3 and uses extra copies of the student p. 4 grids, where "(p. 3)" read as student p. 3, whose 5 × 5-dot boards cannot hold a 1 × 5 strip. Only that sentence and the footer changed.
 
 Separate guide authorship from the final ten-page student packet, version
 `N57-S-final-v2`, October 4, 2026. The guide was `W57-FAC-v1`, ten US Letter

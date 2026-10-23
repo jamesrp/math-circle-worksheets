@@ -48,6 +48,8 @@ Noncrossing pairings of 2n fixed points, paths of n up and n down steps that nev
 
 **Fixed October 23, 2026 (student pages, after the move to problem files):** fix 3 (K–1 P3 prints each of its four starts twice), fix 4 (K–1 P4 continues on a new page 5 with ten frames, 16 in all; the blank-paper sentence is gone), fix 7 (the walk-order caption), fix 9 (the K–1 mats moved up 2–3 mm instead, since lowering the frames would hit the footer) and fix 10 ("For each drawn pair, put a string on the large circle and leave it there."). Fix 8 is still open. The frames and mats are not rehearsed with strings. Same record.
 
+**Critic J could, October 23, 2026 (key view W12-G-v4; packets, route packets and guide unchanged):** an independent critic noted that the key view's K–1 Problem 4 entry, "Pages 4 and 5 hold 16 frames for the 14 pairings", copied from the guide, points at the wrong sheets of the K–1 return packet, where those frames are pages 3–4. Rather than reword guide sentences the key repeats, the key now carries a page map: each route packet's pages as full-packet pages (`page_map = true` in `week.toml`; the problem-file tools gained it the same day). A survey of every key in the weeks with published route packets found the same pattern in Weeks 13, 14, 25 and 42, which got maps too. `plans/review/checks/critic-j/check_critic_j.py` checks the maps against the published packets.
+
 ## Overlaps
 
 Week 14 reaches 1, 2, 5, 14 through polygon fillings, but its theorem is about flips; its card proposes matching the 14 hexagon fillings with these 14 pairings on a return visit. This return visit's P4 (the fewest swaps equals half the summed height gap) is Week 47's "fewest moves equals total change"; cross-reference them. No merge.

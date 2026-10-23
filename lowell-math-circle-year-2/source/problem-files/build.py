@@ -9,6 +9,7 @@ Views written to --out:
   <band>-return.pdf   the return-visit problems only
   menu.pdf            one page: every problem once, with its number in each band
   guide-keys.pdf      the adult key, one entry per problem, cross-referenced by band
+                      ([guide] page_map = true adds each route packet's pages as full-packet pages)
   session-pack.pdf    first-route packets for each table, in copies (with --tables)
   <band>.tex          the LaTeX of each full packet (with --tex)
 
@@ -124,6 +125,38 @@ def numbers_line(week, atom):
     return r' \textperiodcentered{} '.join(f'{band_name(week, b)} P{n}' for b, n in w.items())
 
 
+def page_map(week) -> str:
+    """For week.toml's [guide] page_map = true: which full-packet page each route-packet
+    page is, so a key that cites a student page by its full-packet number can be used
+    with the route packets. Canvas only, where each composed page is one printed page."""
+    if week.layout != 'canvas':
+        raise ProblemFileError('week.toml: [guide] page_map = true needs layout = "canvas"')
+    rows = []
+    for band in week.bands:
+        full = {id(p.atom): p.page for p in atoms.compose(week, band)}
+        for route in ('first', 'return'):
+            pages = {}
+            for p in atoms.compose(week, band, route):
+                pages.setdefault(p.page, full[id(p.atom)])
+            if not pages:
+                continue
+            runs, start = [], None
+            for r in sorted(pages):
+                if start is None:
+                    start = r
+                if r + 1 not in pages or pages[r + 1] != pages[r] + 1:
+                    own = f'p.~{start}' if start == r else f'pp.~{start}--{r}'
+                    was = f'p.~{pages[start]}' if start == r else f'pp.~{pages[start]}--{pages[r]}'
+                    runs.append(f'{own} = {was}')
+                    start = None
+            rows.append(f'{band_name(week, band)} {route} & {"; ".join(runs)} \\\\\n')
+    return (r'\textbf{Page numbers.} A key that names a student page counts the pages of the full band '
+            r'packet. The route packets keep the problem numbers but number their own pages; each '
+            r'route-packet page is this page of the full packet:\par' '\n'
+            r'\begin{tabular}{@{}ll@{}}\toprule Route packet & its pages = full-packet pages\\\midrule' '\n'
+            + ''.join(rows) + r'\bottomrule\end{tabular}\par' '\n')
+
+
 def guide_tex(week) -> str:
     g = week.meta.get('guide', {})
     read = lambda key: (week.folder / g[key]).read_text() if key in g else ''
@@ -167,6 +200,7 @@ def guide_tex(week) -> str:
     section = lambda title, key, size='': (f'\\section*{{{title}}}\n{{{size}{read(key)}}}\n' if size else
                                           f'\\section*{{{title}}}\n{read(key)}\n') if key in g else ''
     note = f'{g["note"]}\\par\n' if 'note' in g else ''
+    pages = f'\\par\n{page_map(week)}' if g.get('page_map') else ''
     return rf'''\documentclass[10pt,letterpaper]{{article}}
 \usepackage[margin=17mm,top=20mm]{{geometry}}
 \usepackage[T1]{{fontenc}}\usepackage{{helvet}}\renewcommand{{\familydefault}}{{\sfdefault}}
@@ -184,7 +218,7 @@ def guide_tex(week) -> str:
 \toprule Problem & {cols} & route\\\midrule
 {rows}\bottomrule\end{{tabular}}\par
 \textbf{{First route.}} {route}. \textbf{{Return visits.}} {route_r}.
-\section*{{Key, one entry per problem}}
+{pages}\section*{{Key, one entry per problem}}
 {body}
 {section('Optional hints and facilitation checks', 'hints')}{section('Source and verification', 'sources', '\\small ')}\end{{document}}
 '''

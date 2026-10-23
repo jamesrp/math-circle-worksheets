@@ -52,6 +52,8 @@ October 23, 2026: shoulds 1–6 and coulds 7–11 fixed, after storing the week 
 
 **Roster labels, October 23, 2026.** The guide (p. 2) printed the roster code "KK11, 3333 and 445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1, 2–3 and 4–5" (W57-FAC-v3; W57-FAC-v2 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
 
+**Critic J coulds, October 23, 2026 (W57-FAC-v4; student packet and materials unchanged):** guide p. 1's readiness map now says the K–1 route is on guide p. 3 and uses extra copies of the student p. 4 grids; "(p. 3)" read as student p. 3, whose 5 × 5-dot boards cannot hold a 1 × 5 strip. The page index names that route (`guide_routes`), so band-views has a K–1 slice of p. 4 and the menu and README call it the guide's adult-led route. The previous guide and ZIP are in the `archive-before-critic-j-fixes-2026-10-23/` folders.
+
 ## Overlaps
 
 Week 26 is the case of shapes built from squares. There B is the perimeter, so Pick gives P = 2n + 2 − 2I, which is Week 26's tree maximum at I = 0. Neither absorbs the other, but the guide should name the bridge. Week 31's bonus states Pick only in its guide and can point here. Weeks 48 and 14 complement this week.

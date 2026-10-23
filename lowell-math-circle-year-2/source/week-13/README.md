@@ -6,6 +6,8 @@
 
 **Critic follow-up, October 23, 2026.** After an independent critic's review the same day: grades 4–5 gets a page 7, "Extra workspace for Problem 5." (`problems/14a-workspace-45.md`), that reprints both Problem 1 boards with their reserved routes and is routed with Problem 5, so the return view now holds the boards Problem 5 names; K–1 Problem 1 says "Find another way to fit that many routes, if you can."; the guide's supplies are for eleven children (about 132 markers) and its first paragraph names the new page. Footer ids F13-K-v4 and F13-45-v4; grades 2–3 and the key are unchanged (F13-23-v3, F13-G-v3). `plans/review/checks/week-13/check_critic_fixes.py` checks it. The replaced PDFs and ZIP are in the `archive-before-critic-fixes-2026-10-23/` folders.
 
+**Key page map, October 23, 2026.** The key view in [band-views/week-13/](../../band-views/README.md#weeks-stored-as-problem-files) now lists which full-packet page each page of the first-route and return packets is (`page_map = true` under `[guide]` in `week.toml`), because some copied guide answers cite student pages by their full-packet number: K–1 Problem 5's "K–1 page 5 has a large working board", page 3 of the K–1 return packet. Key id F13-G-v4; the packets, route packets and adult guide are unchanged.
+
 - **Student pages:** edit `problems/*.md` (boards in `figures.py`), then build every view:
 
   ```sh

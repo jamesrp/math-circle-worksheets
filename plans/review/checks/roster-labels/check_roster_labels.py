@@ -18,6 +18,8 @@ import pymupdf
 ROOT = Path(__file__).resolve().parents[4]
 Y = ROOT / 'lowell-math-circle-year-2'
 WEEKS = [27, 53, 54, 55, 57, 62, 63]
+# A guide revised again after this fix is checked through the copy archived before that revision.
+LATER = {57: 'archive-before-critic-j-fixes-2026-10-23'}   # W57-FAC-v3; v4 changed p. 1's K-1 route reference
 CODE = re.compile(r'KK11|\b3333\b|\b445\b')
 FOOT = re.compile(r'Bellingham Math Circle / Week \d+ / (\S+-v)(\d+)')
 
@@ -35,6 +37,8 @@ rows = []
 for w in WEEKS:
     name = f'week-{w}-facilitator.pdf'
     new, old = Y / f'week-{w}' / name, Y / f'week-{w}/archive-before-roster-label-fix-2026-10-23' / name
+    if w in LATER:
+        new = Y / f'week-{w}' / LATER[w] / name
     nt, ot = text(new), text(old)
     assert CODE.search(ot), (w, 'archived guide should have the code')
     for pdf in sorted((Y / f'week-{w}').glob('*.pdf')):

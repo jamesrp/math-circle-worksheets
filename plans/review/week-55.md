@@ -47,6 +47,8 @@ October 23, 2026: shoulds 1–2 and coulds 3 and 6–8 fixed, after storing the 
 
 **Roster labels, October 23, 2026.** The guide (p. 2) printed the roster code "KK11 / 3333 / 445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1 / 2–3 / 4–5" (W55-F-v3; W55-F-v2 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
 
+**Critic J could, October 23, 2026.** As for Week 54: pp. 1–3 stay headed "Grades 3–5" (a recorded choice; card fix 1 asked for "Grades K–5"), and band-views showed no K–1 entry for the guide's K–1 route. The page index now names that route (`guide_routes`), so band-views has a K–1 slice of pp. 1–3 and the menu and README call it the guide's adult-led route; the guide's first-visit print set already covers pp. 1–3 for every table. Headers unchanged, still the organizer's call.
+
 ## Overlaps
 
 Week 52's fewest braces for an m by n frame are also m + n − 1. Week 50's staircases are P8's routes. Week 51 adds measurement ranges, the interval form of A + B. Weeks 29 and 30 build totals from rods and weights. None has the inverse theorem. No merge.
