@@ -1,6 +1,6 @@
 # Week 54 facilitator guide
 
-Original adult guide for the final combined student packet W54-S-v1 (9 pages): Grades 2–5 on student pp. 1–5, Grades 4–5 on pp. 6–9. The guide is W54-FAC-v1, 8 US Letter pages. It is an unpiloted adaptation; all physical pretests are unperformed. K–1 uses accepted prior Week 1 material, not a new Week 54 student packet.
+Original adult guide for the final combined student packet W54-S-v1 (9 pages): Grades 2–5 on student pp. 1–5, Grades 4–5 on pp. 6–9. The guide is W54-FAC-v1, 8 US Letter pages. It is an unpiloted adaptation; all physical pretests are unperformed. K–1 has no packet of its own; since October 23, 2026 the guide gives an adult-led K–1 route through student pp. 1–3 with two 12-cube kits (guide p. 2).
 
 Build from any location:
 

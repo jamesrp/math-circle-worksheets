@@ -8,7 +8,7 @@ route = "first"
 
 ## text
 \beginpage{2--5}
-\textat{0.6}{9.78}{Use all the units in a collection of straight strips. Every strip has at least one unit. Moving or reordering strips does not make a new collection.}
+\textat{0.6}{9.78}{A collection uses all the units, in straight strips. Every strip has at least one unit. Moving or reordering strips does not make a new collection.}
 \centerlabel{1.38}{8.89}{Strips}
 \draw[fill=squaregray,line width=0.55pt] (1.38,8.48) rectangle ++(0.22,-0.22);
 \draw[fill=squaregray,line width=0.55pt] (1.03,8.13) rectangle ++(0.22,-0.22);

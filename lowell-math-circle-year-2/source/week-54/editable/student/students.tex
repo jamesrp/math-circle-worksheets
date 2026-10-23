@@ -63,15 +63,16 @@
    \draw[gridgray,line width=0.4pt] (#1,\yy)--++(#3,0);
  }
 }
+% Problem 7's answer grids: 5 x 5 cells of 0.22 in, the size of the input squares.
 \newcommand{\tinygrid}[2]{%
- \foreach \i in {0,...,6}{%
-  \draw[gridgray,line width=0.35pt] ({#1+\i*0.18},#2)--++(0,-1.08);
-  \draw[gridgray,line width=0.35pt] (#1,{#2-\i*0.18})--++(1.08,0);
+ \foreach \i in {0,...,5}{%
+  \draw[gridgray,line width=0.35pt] ({#1+\i*0.22},#2)--++(0,-1.1);
+  \draw[gridgray,line width=0.35pt] (#1,{#2-\i*0.22})--++(1.1,0);
  }
 }
 \begin{document}
 
-\beginpage{2--5} \textat{0.6}{9.78}{Use all the units in a collection of straight strips. Every strip has at least one unit. Moving or reordering strips does not make a new collection.} \centerlabel{1.38}{8.89}{Strips} \draw[fill=squaregray,line width=0.55pt] (1.38,8.48) rectangle ++(0.22,-0.22); \draw[fill=squaregray,line width=0.55pt] (1.03,8.13) rectangle ++(0.22,-0.22); \draw[fill=squaregray,line width=0.55pt] (1.25,8.13) rectangle ++(0.22,-0.22); \arrowat{2.02}{3.05}{8.28}{arrange}{} \centerlabel{3.92}{8.89}{Longest first} \strips{3.65}{8.48}{0.22}{2,1} \arrowat{4.8}{5.7}{8.28}{record}{} \centerlabel{6.62}{8.89}{Sizes} \node[font=\fontsize{21}{25}\selectfont] at (6.62,8.26) {$2+1$};
+\beginpage{2--5} \textat{0.6}{9.78}{A collection uses all the units, in straight strips. Every strip has at least one unit. Moving or reordering strips does not make a new collection.} \centerlabel{1.38}{8.89}{Strips} \draw[fill=squaregray,line width=0.55pt] (1.38,8.48) rectangle ++(0.22,-0.22); \draw[fill=squaregray,line width=0.55pt] (1.03,8.13) rectangle ++(0.22,-0.22); \draw[fill=squaregray,line width=0.55pt] (1.25,8.13) rectangle ++(0.22,-0.22); \arrowat{2.02}{3.05}{8.28}{arrange}{} \centerlabel{3.92}{8.89}{Longest first} \strips{3.65}{8.48}{0.22}{2,1} \arrowat{4.8}{5.7}{8.28}{record}{} \centerlabel{6.62}{8.89}{Sizes} \node[font=\fontsize{21}{25}\selectfont] at (6.62,8.26) {$2+1$};
 \problem{7.53}{1}{Find every collection you can make with 4 units, and with 5 units. Record each once, as rows or sizes.}
 \labelat{0.6}{6.78}{4 units} \draw[rulegray,line width=0.5pt] (0.6,6.51) rectangle (7.9,4.43); \draw[gridgray,line width=0.4pt] (0.6,5.47)--(7.9,5.47); \foreach \xx in {3.03333,5.46666}{\draw[gridgray,line width=0.4pt] (\xx,6.51)--(\xx,4.43);} \labelat{0.6}{4.12}{5 units} \draw[rulegray,line width=0.5pt] (0.6,3.85) rectangle (7.9,0.9); \draw[gridgray,line width=0.4pt] (0.6,2.375)--(7.9,2.375); \foreach \xx in {2.425,4.25,6.075}{\draw[gridgray,line width=0.4pt] (\xx,3.85)--(\xx,0.9);}
 \lastpage
@@ -97,7 +98,7 @@
 \lastpage
 \newpage
 \beginpage{4--5}
-\problem{9.78}{6}{Start with four 3-unit strips and six 1-unit strips. Try different legal joining routes until all sizes are different. Can the routes end with different collections? Decide whether this can happen from any all-odd collection.}
+\problem{9.78}{6}{Try different legal joining routes for this collection until all sizes are different. Can the routes end with different collections? Decide whether this can happen from any collection with only odd sizes.}
 \strips{0.87}{8.54}{0.13}{3,3,3,3,1,1,1,1,1,1} \centerlabel{3.72}{8.78}{Route 1} \centerlabel{6.54}{8.78}{Route 2} \draw[rulegray,line width=0.5pt] (2.4,8.5) rectangle (5.04,4.55); \draw[rulegray,line width=0.5pt] (5.22,8.5) rectangle (7.86,4.55); \draw[rulegray,line width=0.5pt] (0.6,4.18) rectangle (7.9,0.9);
 \lastpage
 \newpage
@@ -112,7 +113,7 @@
 \lastpage
 \newpage
 \beginpage{4--5}
-\problem{9.78}{9}{For any total, are there exactly as many collections with only odd sizes as collections with all sizes different? Explain how joining and splitting can decide this without making every catalog.}
+\problem{9.78}{9}{For any total, are there exactly as many collections with only odd sizes as collections with all sizes different? Explain how you know.}
 \draw[rulegray,line width=0.5pt] (0.6,8.57) rectangle (7.9,0.9);
 \lastpage
 \end{document}

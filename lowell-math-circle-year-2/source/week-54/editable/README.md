@@ -1,6 +1,6 @@
 # Week 54: portable editable source
 
-**October 23, 2026.** The student pages are stored as problem files (in the repository `../week.toml`, `../figures.py` and `../problems/`; in the ZIP `problem-files/`, with the tools in `problem-files/tools/`). `student/regenerate.py` writes `student/students.tex` from them, and `build.py` runs it before compiling; edit the problem files, not `students.tex`. `reference-pdfs/` holds copies of the current print PDFs. The rest of this README records the October 4 package.
+**October 23, 2026.** The student pages are stored as problem files (in the repository `../week.toml`, `../figures.py` and `../problems/`; in the ZIP `problem-files/`, with the tools in `problem-files/tools/`). `student/regenerate.py` writes `student/students.tex` from them, and `build.py` runs it before compiling; edit the problem files, not `students.tex`. `reference-pdfs/` holds copies of the current print PDFs. The same day the review card's fixes changed student pp. 1, 6, 7 and 9 and the guide (an adult-led K–1 route, linking-cube kits); `review/check_card_fixes_2026_10_23.py` and `review/check_pdf.py` check them. The rest of this README records the October 4 package.
 
 Current original student and facilitator sources, plus any necessary authored assets.
 The student and guide READMEs give exact prerequisites, preparation, source references,

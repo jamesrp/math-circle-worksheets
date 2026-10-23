@@ -73,10 +73,11 @@ PREAMBLE = r'''\documentclass[letterpaper,12pt]{article}
    \draw[gridgray,line width=0.4pt] (#1,\yy)--++(#3,0);
  }
 }
+% Problem 7's answer grids: 5 x 5 cells of 0.22 in, the size of the input squares.
 \newcommand{\tinygrid}[2]{%
- \foreach \i in {0,...,6}{%
-  \draw[gridgray,line width=0.35pt] ({#1+\i*0.18},#2)--++(0,-1.08);
-  \draw[gridgray,line width=0.35pt] (#1,{#2-\i*0.18})--++(1.08,0);
+ \foreach \i in {0,...,5}{%
+  \draw[gridgray,line width=0.35pt] ({#1+\i*0.22},#2)--++(0,-1.1);
+  \draw[gridgray,line width=0.35pt] (#1,{#2-\i*0.22})--++(1.1,0);
  }
 }
 \begin{document}

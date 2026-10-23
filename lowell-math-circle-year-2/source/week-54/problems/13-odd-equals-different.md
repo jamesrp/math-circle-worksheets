@@ -11,7 +11,7 @@ kernel = 'Euler: for every total, joining and splitting match the only-odd colle
 \beginpage{4--5}
 
 ## prompt @9.78
-For any total, are there exactly as many collections with only odd sizes as collections with all sizes different? Explain how joining and splitting can decide this without making every catalog.
+For any total, are there exactly as many collections with only odd sizes as collections with all sizes different? Explain how you know.
 
 ## text
 \draw[rulegray,line width=0.5pt] (0.6,8.57) rectangle (7.9,0.9);
