@@ -51,6 +51,8 @@ Children place lettered cards in lettered homes and hunt for rows with no card a
 11. **could**, guide p. 2 launch: "Put one card in each matching set of homes" reads oddly; "Put each card on the strip with the same letters."
 
 **October 23, 2026:** fixed the must (pages 1–3 headed Grades K–5, card pictures on materials pp. 1–2, a K–1 route page in the guide), should 2 by its first option, shoulds 3 and 4 and coulds 5–9 and 11 (W63-S-v3, W63-M-v3, W63-G-v2); could 10 deferred.
+
+**Critic follow-up, October 23, 2026 (W63-S-v4):** an independent critic found should 2's kept sentence, "Smaller arrow loops keep their remaining letters.", cryptic standing alone above Problem 8 once the pictures it captioned had gone. Problem 8 now says "A smaller row keeps its letters." right after its question about smaller rows; the guide's held hint already says "No survivor is renamed." Checked in `plans/review/checks/week-63/check_k1_route.py`. Unpiloted.
 12. **could**, guide pp. 2 and 10: cut residue ("superseding the older ten-child snapshot in the root README"; "not a claim of publication, remote upload or classroom success").
 
 ## Overlaps

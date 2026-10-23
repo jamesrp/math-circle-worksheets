@@ -11,7 +11,7 @@ verifiers) and checks:
     home A; no four-card row with exactly three matches; P4 = 14; P5 = 9; P8 = 11;
     each of E's four homes gives 11, pooled 44; the rule from D1 = 0, D2 = 1 for n >= 3;
   * with PDFs given: the guide's K-1 key lists exactly those rows; the student headers
-    (K-5 on pp. 1-3) and footers W63-S-v3; p. 8 without the worked removals and with
+    (K-5 on pp. 1-3) and footers W63-S-v4 (v3 before the critic follow-up); p. 8 without the worked removals and with
     twelve A-E boards; p. 9's "three or more" and "homes B, C, D"; and on materials
     pp. 1-2 that every home letter, outcome letter and group label has, just to its
     right or left, the picture of that letter's card (circle, triangle, square,
@@ -113,8 +113,8 @@ if len(sys.argv) == 4:
     want = {1: 'K–5', 2: 'K–5', 3: 'K–5', 4: '3–5', 5: '3–5', 6: '4–5', 7: '4–5', 8: '4–5', 9: '4–5'}
     for i, page in enumerate(sdoc, 1):
         t = page.get_text()
-        check(f'Week 63 / Cards away from home / Grades {want[i]}' in t and 'Bellingham Math Circle / Week 63 / W63-S-v3' in t
-              and re.findall(r'Problem (\d+):', t) == [str(i)], f'p. {i}: Grades {want[i]}, W63-S-v3, Problem {i}')
+        check(f'Week 63 / Cards away from home / Grades {want[i]}' in t and 'Bellingham Math Circle / Week 63 / W63-S-v4' in t
+              and re.findall(r'Problem (\d+):', t) == [str(i)], f'p. {i}: Grades {want[i]}, W63-S-v4, Problem {i}')
     p1 = ' '.join(sdoc[0].get_text().split())
     check('different rows count separately' not in p1, 'p. 1: "different rows count separately" removed (could 7)')
     p2 = ' '.join(sdoc[1].get_text().split())
@@ -123,7 +123,7 @@ if len(sys.argv) == 4:
     p8 = sdoc[7]
     t8 = ' '.join(p8.get_text().split())
     check('Remove both' not in t8 and 'becomes' not in t8 and 'These examples remove U' not in t8
-          and 'Smaller arrow loops keep their remaining letters.' in t8, 'p. 8: worked removals gone; the letters sentence kept (should 2)')
+          and 'smaller home-free rows? A smaller row keeps its letters.' in t8, 'p. 8: worked removals gone; the letters convention kept, inside P8 since the critic follow-up (should 2)')
     cells = [d for d in p8.get_drawings() if abs(d['rect'].width * 25.4 / 72 - 12) < 0.05 and abs(d['rect'].height * 25.4 / 72 - 10) < 0.05]
     check(len(cells) == 60, f'p. 8: {len(cells)} cells of 12 x 10 mm = twelve A-E boards (should 3)')
     t9 = ' '.join(sdoc[8].get_text().split())
