@@ -130,7 +130,7 @@ These were left alone by instruction. Their cards' items wait for you.
 
 ## Small deferred coulds (no decision needed)
 
-These are layout, timing and citation items that the next person to touch the week can make.
+These are layout, timing and citation items that the next person to touch the week can make. The eleven left all wait for the footer sweep now under way in Weeks 3–51 and 86–97, which owns their files. Weeks 53, 63 and 98's items were made later on October 23 (see their cards).
 
 - Week 12 could 8: guide partner lists for the 14.
 - Week 14 could 11: tight copy sizes.
@@ -139,12 +139,9 @@ These are layout, timing and citation items that the next person to touch the we
 - Week 42 could 14: the timeline part.
 - Week 44 coulds 14 and 15: timeline, R0/B0 against R1/B1.
 - Week 45 could 14: the Mintz slide number; the source was unreachable.
-- Week 53 coulds 7 and 8: move figures to the source notes, name the marker object.
-- Week 63 could 10: first-route timing.
 - Week 91 coulds 7 and 8: a second P2 board marked extra workspace, prep time and a counter source.
 - Week 94 could 10: a second K–1 ruler.
 - Week 96 could 8: token size.
 - Week 97 could 8: multiples of 15 for P4 if third graders stall.
-- Week 98 coulds 8, 9 and 11: a larger start board, more boards, a spare.
 
 Week 22 could 6 was left because the card itself says to leave it.
