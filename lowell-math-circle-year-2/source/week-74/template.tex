@@ -1,0 +1,33 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=.65in,top=.78in,bottom=.65in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,tikz,array,fancyhdr}
+\usetikzlibrary{arrows.meta}
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week <<week>> / <<topic>> / <<header>>}
+\fancyfoot[L]{\small Bellingham Math Circle / Week <<week>> / <<footer>>}
+\fancyfoot[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{8pt}
+\newcommand{\problem}[2]{\textbf{Problem #1:} #2\par}
+\newcommand{\lineblank}{\par\vspace{.35in}\hrule height .25pt\vspace{.15in}}
+\newcommand{\board}{
+\begin{center}\begin{tikzpicture}[x=.23in,y=.68in,font=\small]
+ \foreach \x in {-4,...,24} {\draw[gray!25] (\x,0)--(\x,4);}
+ \foreach \h/\step in {0/1,1/2,2/4,3/8,4/16} {
+  \draw[<->,>=Stealth] (-4.4,\h)--(24.4,\h);
+  \foreach \x in {-4,...,24} {\fill (\x,\h) circle (1pt);}
+  \node[anchor=east] at (-4.6,\h) {\h};
+  \node[anchor=west,font=\scriptsize,fill=white,inner sep=1pt] at (19,\h+.22) {step \step};
+ }
+ \foreach \x in {-4,-2,...,24} {\node[below] at (\x,-.04) {\x};}
+ \node[anchor=east] at (-4.6,4.5) {level};
+ \node at (8,-.66) {ground coordinate};
+ \draw[very thick] (0,0) circle (3pt);
+\end{tikzpicture}\end{center}}
+\begin{document}
+
+<<body>>
+
+\end{document}
