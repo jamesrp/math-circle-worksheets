@@ -7,7 +7,7 @@ kernel = "Three equally likely tickets give a red clue; two of them hide red, so
 +++
 
 ## prompt @0
-You are told only that red is showing. Which hidden color is the better guess? Explain using the tickets that could have produced that clue.
+You are told only that red is showing. Which hidden color is the better guess, and why?
 
 ## figure
 bins(3,h=5)

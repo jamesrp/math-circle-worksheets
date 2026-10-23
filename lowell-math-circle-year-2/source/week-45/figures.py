@@ -53,6 +53,7 @@ def page_preamble(week, topic, header, footer):
 \usetikzlibrary{arrows.meta,shapes.geometric}
 \pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}
 \setlength{\parindent}{0pt}\setlength{\parskip}{0pt}
+\hyphenation{better differ}
 '''
     pre += r'\fancyhead[L]{\small Week '+str(week)+' / '+topic+' / '+header+'}\n'
     pre += r'\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week '+str(week)+' / '+footer+'}'+r'\fancyfoot[R]{\footnotesize\thepage}'+'\n'+r'\begin{document}'+'\n'
@@ -99,9 +100,9 @@ def cards(b,y):  # the three cards, each face pair bracketed as "same card"
 
 
 @draw
-def intro_example(b):  # 00: ticket 4 shows blue with its mark covered, red underneath
- ticket(b,0,9.8,4);b.arrow(1.7,10.4,3.2,10.4);face(b,3.8,9.4,4,hide=True);b.arrow(6.5,10.6,9,10.6,'turn over');face(b,9.7,9.4,3)
- b.text(12.6,'ticket 4',0,3,11);b.text(12.6,'blue showing',3.4,5,11);b.text(12.6,'red underneath',9.3,7,11)
+def intro_example(b,top=9.4):  # 00: ticket 4 shows blue with its number covered, red underneath
+ ticket(b,0,top+.4,4);b.arrow(1.7,top+1,3.2,top+1);face(b,3.8,top,4,hide=True);b.arrow(6.5,top+1.2,9,top+1.2,'turn over');face(b,9.7,top,3)
+ b.text(top+3.2,'ticket 4',0,3,11);b.text(top+3.2,'blue showing',3.4,5,11);b.text(top+3.2,'red underneath',9.3,7,11)
 
 
 @draw
@@ -111,21 +112,33 @@ def bins(b,y,labels=('red underneath','blue underneath'),h=6):  # two labelled a
 
 
 @draw
-def changed_picture(b,y=0):  # 10: tickets 1 and 3 each show red with the mark covered
+def changed_picture(b,top=3):  # 10: tickets 1 and 3 each show red with the number covered
  for x,n in [(0,1),(9.2,3)]:
-  ticket(b,x,y+3.4,n);b.arrow(x+1.6,y+4,x+3,y+4);face(b,x+3.5,y+3,n,hide=True)
+  ticket(b,x,top+.4,n);b.arrow(x+1.6,top+1,x+3,top+1);face(b,x+3.5,top,n,hide=True)
 
 
 @draw
-def ticket_records(b,y):  # 02, grades 2-3: each ticket with a box for its two colors
- for i in range(6):
-  x=(i%3)*6.1;yy=y+(i//3)*3.4;ticket(b,x,yy,i+1);b.box(x+1.65,yy,3.8,2.2)
+def pair_slots(b,y,n=6,s=1.5,gap=2.6):  # 02, grades 2-3: n answer slots of two ticket boxes, three to a row
+ for j in range(n):
+  x=(j%3)*6.1;yy=y+(j//3)*gap
+  for i in range(2):b.box(x+i*(s+.35),yy,s,s)
 
 
 @draw
-def ticket_slots(b,y,groups):  # 12, K-1: groups of three ticket boxes
+def ticket_slots(b,y,groups,gap=2):  # 12, K-1: groups of three ticket boxes, three groups to a row
  for j in range(groups):
-  for i in range(3):b.box(j*6.1+i*1.55,y,1.25,1.25)
+  for i in range(3):b.box((j%3)*6.1+i*1.55,y+(j//3)*gap,1.25,1.25)
+
+
+@draw
+def boxes_row(b,y,n,w,h,gap):  # 17, K-1: n answer boxes in a row
+ for i in range(n):b.box(i*(w+gap),y,w,h)
+
+
+@draw
+def fact_lines(b,y,labels,gap=1.75):  # 09, grades 4-5: a label and two writing lines per fact
+ for i,l in enumerate(labels):
+  yy=y+i*gap;b.text(yy,l,0,3.6,12);b.line(yy+.5,14.2,3.8);b.line(yy+1.3,14.2,3.8)
 
 
 @draw

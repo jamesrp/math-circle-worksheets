@@ -50,6 +50,8 @@ Cards RR, RB and BB have six faces; a secret ticket picks the face that shows. G
 
 Both reviews agree with math.md, which read K–1 P5 under the p. 1 rule only (fix 1).
 
+**October 23, 2026:** fixes 1–8 and coulds 10–13 done after converting the week to problem files (v3 packets, 9-page guide, bonus guide pp. 1 and 3); could 9 kept as a Grades 4–5 guide extension rather than a new P8, could 14 deferred (the slides could not be reached). Checked by `plans/review/checks/week-45/check_card_shoulds.py`; unpiloted.
+
 ## Overlaps
 
 In Week 44 one visible colour word merges equally likely histories; Week 42 conditions by discarding outcomes and designs fair rules. Neither has a clue whose production changes the answer. Atlas AP-02, "The clue that changes the bag", reaches the same 2/3 against 1/2 contrast with bags. No merge; the guides could cross-refer.

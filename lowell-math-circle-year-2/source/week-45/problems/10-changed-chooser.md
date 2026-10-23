@@ -6,8 +6,11 @@ grades = ["K-1", "2-3", "4-5"]
 route = "return"
 +++
 
+## text @0 size=13 [K-1]
+Only tickets 1 and 3 are in the cup.
+
 ## text @0 size=13
-Use only tickets 1 and 3, with equal chances. Choose and orient behind the screen, keep the ticket secret, and show its red face with the mark covered. Replace and mix each round.
+Only tickets 1 and 3 are in the cup, each with the same chance.
 
 ## figure
-changed_picture(0)
+changed_picture(1.3)

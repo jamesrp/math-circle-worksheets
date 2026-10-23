@@ -8,7 +8,7 @@ kernel = "Tickets 4, 5, 6 give a blue clue and hide red, blue, blue: blue is the
 +++
 
 ## prompt @12
-You are told only that blue is showing. Does the better guess change? Account for every ticket that could give this clue.
+You are told only that blue is showing. Does the better guess change?
 
 ## figure
 bins(15,h=5)

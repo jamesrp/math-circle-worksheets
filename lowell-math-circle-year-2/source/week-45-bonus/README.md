@@ -1,5 +1,9 @@
 # Week 45 bonus: The visible side
 
+## Card fix, October 23, 2026
+
+The guide's overview printed "322=12" because the Markdown read `3*2*2` as emphasis; it now prints 3 × 2 × 2 = 12, and the reporter page's `b*h=r*f` prints b × h = r × f. Only guide pages 1 and 3 changed; the student companion is unchanged. The replaced guide PDF is in `../../week-45/archive-before-card-fixes-2026-10-23/` and the replaced ZIP in `../archive-before-card-fixes-2026-10-23/`.
+
 ## Introduction-audit follow-up
 
 Student v2 and guide v2 use the same numeric-door input, prize and ticket to demonstrate both hosts, including a winning switch and a discarded prize reveal. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.

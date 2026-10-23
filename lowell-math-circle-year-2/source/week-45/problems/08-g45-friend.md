@@ -7,7 +7,7 @@ kernel = "Equally likely outcomes are the six faces, not the two red-faced cards
 +++
 
 ## prompt @0
-A friend says, "Red is showing, so only the red/red and red/blue cards remain. Each is one card, so each must have the same chance." Does the selection rule support that argument?
+A friend says, ``Red is showing, so only the red/red and red/blue cards remain. Each is one card, so each must have the same chance.'' Does the selection rule support that argument?
 
 ## figure
-cards(4) + box(0,10,18,5)
+cards(4) + box(0,10,18,4.6)
