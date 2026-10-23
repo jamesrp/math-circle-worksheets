@@ -62,7 +62,7 @@ g = [text(p) for p in guide]
 pages = {(n, i + 1): text(p) for n, d in (('K-1', k1), ('2-3', b23), ('4-5', b45)) for i, p in enumerate(d)}
 assert (len(k1), len(b23), len(b45)) == (4, 4, 5)
 for (n, i), t in pages.items():
-    assert f"W46-{ {'K-1': 'k-1', '2-3': 'grades-2-3', '4-5': 'grades-4-5'}[n] }-v3" in t, (n, i)
+    assert f"W46-{ {'K-1': 'k-1', '2-3': 'grades-2-3', '4-5': 'grades-4-5'}[n] }-v4" in t, (n, i)  # v4 since the critic follow-up
 
 # --- Should 1: the launch pair ------------------------------------------------------------
 task_pairs = {('RBR', 'BRB'), ('RBR', 'RRR'), ('RRB', 'BRR'), ('BRB', 'BRB'), ('RRR', 'BBB')}

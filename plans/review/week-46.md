@@ -51,6 +51,8 @@ The math check's finding is fix 4 and its notes are fixes 12–13; I agree with 
 
 **October 23, 2026:** fixes 1–5 and coulds 6–10, 12 and 13 done after converting the week to problem files (v3 packets, Grades 4–5 five pages, 7-page guide, bonus guide p. 2); could 11 done in the guide (counter size, cards cut from a spare page), with a separate cut sheet deferred. Checked by `plans/review/checks/week-46/check_card_shoulds.py`; unpiloted.
 
+**Critic follow-up, October 23, 2026 (v4):** an independent critic found new text breaking across lines ("match-ing" in K–1 P4, "cho-sen" in the 2–3 and 4–5 toggle rule). Hyphenation is now off on the student pages (`\hyphenpenalty=10000`, as Week 40); wording unchanged; all three packets move to v4. The critic's other could (4–5 P5's one "finish" board per story, though the second story's finish depends on the start) is not done here. Check: `checks/week-46/check_critic_fixes.py`.
+
 ## Overlaps
 
 Week 18 counts differing slots, for codebooks. Week 2's flips and Week 3's shuffle machines are bijections, this week's toggle side. Week 44 also ends at a uniform law, by another route. No merge.

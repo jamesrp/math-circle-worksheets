@@ -52,6 +52,8 @@ Both reviews agree with math.md, which read K–1 P5 under the p. 1 rule only (f
 
 **October 23, 2026:** fixes 1–8 and coulds 10–13 done after converting the week to problem files (v3 packets, 9-page guide, bonus guide pp. 1 and 3); could 9 kept as a Grades 4–5 guide extension rather than a new P8, could 14 deferred (the slides could not be reached). Checked by `plans/review/checks/week-45/check_card_shoulds.py`; unpiloted.
 
+**Critic follow-up, October 23, 2026 (v4):** an independent critic found could 13 only partly done: `figures.py` protected "better" and "differ", but the pages still broke "keep-ing" (2–3 P4), "cer-tain" and "some-times" (2–3 P5–P6) and "when-ever" (4–5 P7); and K–1 Problem 4 said "this chooser" under the rule "Only tickets 1 and 3 are in the cup". Hyphenation is now off on the student pages (`\hyphenpenalty=10000`, as Week 40) and K–1 Problem 4 says "this cup"; all three packets move to v4. Check: `checks/week-45/check_critic_fixes.py`.
+
 ## Overlaps
 
 In Week 44 one visible colour word merges equally likely histories; Week 42 conditions by discarding outcomes and designs fair rules. Neither has a clue whose production changes the answer. Atlas AP-02, "The clue that changes the bag", reaches the same 2/3 against 1/2 contrast with bags. No merge; the guides could cross-refer.

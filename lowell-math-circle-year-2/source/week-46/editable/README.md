@@ -8,6 +8,8 @@ The guide now gives first routes, readiness-dependent continuation and return vi
 
 **Card fixes, October 23, 2026.** After the conversion the review card's shoulds 1–5 and coulds 6–12 were made: all three packets (now v3; Grades 4–5 has five pages) and the guide (now 7 pages) changed. `review/verify_card_shoulds_2026_10_23.py` checks every changed claim and key against `reference-pdfs/`; the source README in the repository lists what changed and what was deferred.
 
+**Critic follow-up, October 23, 2026 (v4).** An independent critic noted that new text on the student pages broke words across lines ("match-ing" in K–1 Problem 4, "cho-sen" in the Grades 2–3 and 4–5 toggle rule). Hyphenation is now off on the student pages (`\hyphenpenalty=10000` in `figures.py`'s page preamble, as Week 40 does). Wording is unchanged; the reflowed pages are K–1 p. 3, Grades 2–3 pp. 2–4 and Grades 4–5 p. 3, and every packet moves to v4 (W46-k-1-v4, W46-grades-2-3-v4, W46-grades-4-5-v4). The guide did not change. `review/verify_card_shoulds_2026_10_23.py` now checks the v4 footers.
+
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
 Current pages: **K–1 4; Grades 2–3 4; Grades 4–5 4; adult guide 7**. Print selected student pages single-sided on US Letter at Actual Size / 100%.

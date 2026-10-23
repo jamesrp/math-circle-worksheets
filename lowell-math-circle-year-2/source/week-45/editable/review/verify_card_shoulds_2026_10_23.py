@@ -67,7 +67,7 @@ gtext = [text(p) for p in guide]
 # --- Student pages: wording --------------------------------------------------------------
 pages = {(name, i + 1): text(p) for name, doc in (('K-1', k1), ('2-3', b23), ('4-5', b45)) for i, p in enumerate(doc)}
 for (name, n), t in pages.items():
-    assert f'W45-{ {"K-1": "k-1", "2-3": "grades-2-3", "4-5": "grades-4-5"}[name] }-v3' in t, (name, n)
+    assert f'W45-{ {"K-1": "k-1", "2-3": "grades-2-3", "4-5": "grades-4-5"}[name] }-v4' in t, (name, n)  # v4 since the critic follow-up
     for gone in ('Use matching-size cards', 'small marks', 'show the face named by each draw', 'Explain using the tickets',
                  'Account for every ticket', 'Give a possible set', 'face mark', 'Choose and orient', 'show its red face',
                  'Which tickets show the same color on both faces', 'remove both its tickets', 'bet-ter', 'dif-fer'):
@@ -77,12 +77,12 @@ assert pages[('K-1', 1)].count(rule) == 1 and 'same chance' not in pages[('K-1',
 for b in ('2-3', '4-5'):
     assert rule + ' Every ticket has the same chance.' in pages[(b, 1)]
 checks.append('should 2: page 1 of every band gives the card\'s three sentences and no operator paragraph; Grades 2-3 '
-              'and 4-5 add "Every ticket has the same chance." (their chances rest on it); every footer reads v3')
+              'and 4-5 add "Every ticket has the same chance." (their chances rest on it); every footer reads v4 (v3 before the critic follow-up)')
 
 assert 'Only tickets 1 and 3 are in the cup.' in pages[('K-1', 3)]
 for b in ('2-3', '4-5'):
     assert 'Only tickets 1 and 3 are in the cup, each with the same chance.' in pages[(b, 3)]
-assert 'Problem 4: Add just one extra ticket to this chooser: 2, 4, 5, or 6. Among red-showing rounds' in pages[('K-1', 3)]
+assert 'Problem 4: Add just one extra ticket to this cup: 2, 4, 5, or 6. Among red-showing rounds' in pages[('K-1', 3)]  # critic follow-up (v4)
 before = ways({1, 3})
 assert before['R'] == before['B'] == 1
 after = {t: ways({1, 3, t}) for t in (2, 4, 5, 6)}

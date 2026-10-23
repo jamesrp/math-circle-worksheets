@@ -54,6 +54,8 @@ def page_preamble(week, topic, header, footer):
 \pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}
 \setlength{\parindent}{0pt}\setlength{\parskip}{0pt}
 \hyphenation{better differ}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
 '''
     pre += r'\fancyhead[L]{\small Week '+str(week)+' / '+topic+' / '+header+'}\n'
     pre += r'\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week '+str(week)+' / '+footer+'}'+r'\fancyfoot[R]{\footnotesize\thepage}'+'\n'+r'\begin{document}'+'\n'
