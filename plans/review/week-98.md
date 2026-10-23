@@ -48,6 +48,8 @@ Fixed October 23, 2026: shoulds 1–6 and coulds 7, 10, 12, in the problem files
 
 **Critic follow-up, October 23, 2026 (W98-FAC-v3):** an independent critic found that fix 2's order question used the diagonal seeds, which fill the board in every order and so test nothing. The guide now uses (1,1), (1,2), (2,3), which can start with (1,3) or (2,2) and finish with the top two rows either way, in both bands' notes; the 2–3 notes also put each order number in a cell corner. Check: `checks/week-98/check_critic_fixes.py`.
 
+**October 23, 2026, later the same day:** coulds 8, 9 and 11 made (W98-23-v3, W98-45-v3, W98-FAC-v4), as layout only. Could 8: the Grades 2–3 page 5 start is printed at 30 mm cells, with its four removal boards at 18 mm. Could 9: rather than adding exactly two boards, which would print one board per possible finish and so hint at the answer, Grades 4–5 Problem 1 is followed by a page of four more 30 mm boards labelled Extra workspace (six boards for four finishes); the later Grades 4–5 pages move back by one, and the guide's workboard page list follows. Could 11: a spare 10-by-10 board labelled Extra workspace on Grades 4–5 Problem 3. `checks/small_coulds_2026_10_23.py` in the source folder checks the PDFs. Unpiloted.
+
 ## Overlaps
 
 Week 26 counts exposed sides of tile shapes; here they certify a process. Week 11's chip firing has an order-independent finish. Week 19 separates "no card can be added" from "largest", as "no seed can be removed" differs from "fewest" here. None has threshold growth or the seed bound. No merge.

@@ -2,11 +2,11 @@
 
 Release date: October 17, 2026. **Prepared for organizer review; unpiloted.** Topic approval authorized production, not approval of the final worksheet or evidence of classroom use. Physical printing, preparation, handling, staffing and timing have not been rehearsed.
 
-**October 23, 2026.** The review card's fixes made the v2 packets and guide (see README.md); `checks/card_fixes_2026_10_23.py` checks the new claims and wording. Still unpiloted and physically unrehearsed.
+**October 23, 2026.** The review card's fixes made the v2 packets and guide (see README.md); `checks/card_fixes_2026_10_23.py` checks the new claims and wording. Still unpiloted and physically unrehearsed. Later that day review card coulds 8, 9 and 11 enlarged and added boards (W98-23-v3, W98-45-v3, W98-FAC-v4); `checks/small_coulds_2026_10_23.py` checks them in the PDFs, and a clean build from the extracted ZIP matches the print copies.
 
 ## Exact coverage
 
-5 pages for Grades 2–3; 6 pages for Grades 4–5; 5-page facilitator guide. Each output has a matching current reference copy. Grade labels are approximate prerequisites; no K–1 packet is claimed. Read the guide's entry requirements and first-visit route before choosing pages.
+5 pages for Grades 2–3; 7 pages for Grades 4–5 (6 before the October 23 extra-workspace page); 5-page facilitator guide. Each output has a matching current reference copy. Grade labels are approximate prerequisites; no K–1 packet is claimed. Read the guide's entry requirements and first-visit route before choosing pages.
 
 ## Independent stages and integration
 

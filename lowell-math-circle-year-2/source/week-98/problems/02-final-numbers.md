@@ -24,3 +24,25 @@ Choose exactly three seeds on a 3-by-3 board. How many different final numbers o
 \draw[line width=0.45pt] (111,178) -- ++(90,0);
 \draw[line width=0.45pt] (111,208) -- ++(90,0);
 \draw[black!35,line width=0.3pt] (15,252) -- ++(186,0);
+\pageclose\newpage\pageopen
+\node[anchor=north west,inner sep=0pt,font=\sffamily\fontsize{11.5}{13.5}\selectfont] at (15,29) {Extra workspace};
+\draw[line width=0.65pt] (15,42) rectangle ++(90,90);
+\draw[line width=0.45pt] (45,42) -- ++(0,90);
+\draw[line width=0.45pt] (75,42) -- ++(0,90);
+\draw[line width=0.45pt] (15,72) -- ++(90,0);
+\draw[line width=0.45pt] (15,102) -- ++(90,0);
+\draw[line width=0.65pt] (111,42) rectangle ++(90,90);
+\draw[line width=0.45pt] (141,42) -- ++(0,90);
+\draw[line width=0.45pt] (171,42) -- ++(0,90);
+\draw[line width=0.45pt] (111,72) -- ++(90,0);
+\draw[line width=0.45pt] (111,102) -- ++(90,0);
+\draw[line width=0.65pt] (15,140) rectangle ++(90,90);
+\draw[line width=0.45pt] (45,140) -- ++(0,90);
+\draw[line width=0.45pt] (75,140) -- ++(0,90);
+\draw[line width=0.45pt] (15,170) -- ++(90,0);
+\draw[line width=0.45pt] (15,200) -- ++(90,0);
+\draw[line width=0.65pt] (111,140) rectangle ++(90,90);
+\draw[line width=0.45pt] (141,140) -- ++(0,90);
+\draw[line width=0.45pt] (171,140) -- ++(0,90);
+\draw[line width=0.45pt] (111,170) -- ++(90,0);
+\draw[line width=0.45pt] (111,200) -- ++(90,0);
