@@ -47,6 +47,8 @@ Hinged bars make a rigid triangle and a shearing square; one diagonal fixes the 
 
 October 23, 2026: musts 1–2, shoulds 3–8 and coulds 9, 11 and 12 fixed in F52-S-v3 and F52-FAC-v3 (checked by `checks/week-52/check_card_fixes.py`); could 10 deferred.
 
+**Critic follow-up, October 23, 2026 (F52-FAC-v4):** an independent critic found that the handoff's spoken question, "Can you brace it so every row and column has a brace but it still changes shape?", asked Problem 8 aloud. Guide p. 4 now asks "Use three braces so that every row and every column has one. Does it hold?", so children still find a covering design themselves (should 4) without the general question, and the P8 key on p. 6 accepts that 2-by-3 as a counterexample and keeps the A/B contrast. The critic's second could (third graders' print plan and the link picture on p. 6) was not made. Checked by `checks/week-52/check_critic_fixes.py`. Unpiloted.
+
 ## Overlaps
 
 Week 53 also reaches minimum connected sets as trees, with prices. Week 25's 0/1 grids are the same row–column graph, read for counts rather than connectivity. Week 14's triangulations use the n − 3 diagonals that make a hinged polygon rigid, but never ask about rigidity. No merge; 52 and 53 can share the app's graph editor.

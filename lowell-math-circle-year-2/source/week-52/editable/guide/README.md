@@ -1,6 +1,6 @@
 # Week 52 independent facilitator guide source
 
-Current guide: **F52-FAC-v3**, 10 US Letter pages, for the 12-page student packet **F52-S-v3**, Problems 1–14. F52-FAC-v2 was separately authored October 4, 2026 for F52-S-v2; the October 23, 2026 card fixes made v3 (see the last section). Physical fabrication/fit, pin freedom/slop/friction, tabletop handling, three-adult servicing rehearsal and classroom piloting are unperformed.
+Current guide: **F52-FAC-v4**, 10 US Letter pages, for the 12-page student packet **F52-S-v3**, Problems 1–14. F52-FAC-v2 was separately authored October 4, 2026 for F52-S-v2; the October 23, 2026 card fixes made v3 and a critic follow-up the same day made v4 (see the last two sections). Physical fabrication/fit, pin freedom/slop/friction, tabletop handling, three-adult servicing rehearsal and classroom piloting are unperformed.
 
 ## Portable build
 
@@ -67,3 +67,7 @@ package root `python3 build.py --out output` to build every delivered PDF.
 ## October 23, 2026 card fixes (F52-FAC-v3)
 
 The review card `plans/review/week-52.md` asked for a real K–1 route and a correct Problem 13 claim. The guide now gives each K–1 pair a 2-by-2 kit (kit table row 24 side bars, 8 braces, 18 pins; totals 108, 35, 90 with spares), routes K–1 through Problems 4–5 after Problem 3 in the print plan and timetable, and keys Problem 13 to "braces in six different cells" (doubled braces in 11, 22, 33 cover every row and column and still move). It also names an untested default stock and a test 2-by-3, prints 22 student sheets, leaves the launch test to the tables, and lets children find a covering-but-flexing 2-by-3 design for the handoff (there are six). `plans/review/checks/week-52/check_card_fixes.py` checks these counts and claims and the printed pages. The kits remain physically unrehearsed.
+
+## October 23, 2026 critic follow-up (F52-FAC-v4)
+
+An independent critic found that the handoff's spoken question, "Can you brace it so every row and column has a brace but it still changes shape?", is Problem 8's question asked aloud. Page 4 now asks "Use three braces so that every row and every column has one. Does it hold?": children still find one of the six covering three-brace designs and test it, and every one moves. Page 6's Problem 8 key says a child may cite that 2-by-3 as a counterexample, so the work is why B holds and A does not. No other page changed. `plans/review/checks/week-52/check_critic_fixes.py` checks the designs and the wording.

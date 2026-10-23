@@ -23,7 +23,7 @@ Each row counts one theme. The routes can support several investigations and ret
 
 ## Routes and relationships
 
-- **Week 52:** Changing shapes → local braces → row/column links → minimum bracing and count limits. Revised October 23, 2026 (F52-S-v3): K–1 pairs continue to Problems 4–5 on their own 2-by-2 kit, and Problem 13 names six different cells.
+- **Week 52:** Changing shapes → local braces → row/column links → minimum bracing and count limits. Revised October 23, 2026 (F52-S-v3): K–1 pairs continue to Problems 4–5 on their own 2-by-2 kit, and Problem 13 names six different cells. After a critic's review the same day, the guide's handoff no longer asks Problem 8's question aloud (F52-FAC-v4).
 - **Week 53:** Buy a connected network → remove loops → improve by exchange → certify minimum cost and examine ties. Revised October 23, 2026 (W53-networks-v2): the page 6 and 8 price labels sit on their own links, and K–1 pairs work pages 1–4, whose prices all have dots.
 - **Week 54:** Small strip catalogs → odd/distinct matching and inverse → join-order independence; a separate row/column investigation. Revised October 23, 2026: K–1 has an adult-led route through pages 1–3 on guide p. 2 with two 12-cube kits, the kits are linking cubes, and Problem 7's answer grids match the input squares.
 - **Week 55:** Distinct sums → the smallest possible sumset → explain the bound and recover equal spacing from equality. Revised October 23, 2026: K–1 has an adult-led route through pages 1–3 with dot cards on guide p. 2, the input rule says A and B may share numbers, and the page 8 grid lines no longer cross the numbers.
