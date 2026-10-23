@@ -7,7 +7,7 @@ kernel = "Eight-step trips home on the ring leave exactly five results: staying 
 +++
 
 ## prompt @27 [K-1]
-Make every different trip from A back to A that can remain after shortening an eight-step trip on this ring. Replay each result with your pawn.
+Make eight-step trips from A back to A and shorten each. Find every different result.
 
 ## prompt @27 [2-3]
 Make every different trip from A back to A that can remain after shortening an eight-step ring trip. Find the fewest road steps in a surviving trip home.

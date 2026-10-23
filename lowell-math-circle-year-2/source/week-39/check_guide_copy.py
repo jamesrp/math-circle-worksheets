@@ -3,9 +3,9 @@
 
 The print guide (week-39-facilitator.pdf) is built from editable/facilitator-src/content.json,
 with route-note.json appended as its last page. The problem files repeat its answer keys by
-problem (the K-1 Problem 1-2 keys come from the route note), and guide/*.tex repeat its
-overview, the K-1 key's reading note, the hints and the primary source, for the adult key
-view. Every sentence and table row in one must appear in the other, after markup is removed.
+problem (all seven K-1 keys on page 3 since October 23, 2026; before that Problems 1-2 were in
+the route note), and guide/*.tex repeat its overview, the K-1 key's reading note, the hints and
+the primary source, for the adult key view. Every sentence and table row in one must appear in the other, after markup is removed.
 Run from anywhere:
 
     python3 lowell-math-circle-year-2/source/week-39/check_guide_copy.py
@@ -20,7 +20,6 @@ HERE = Path(__file__).resolve().parent
 SRC = next(p for p in (HERE / 'editable/facilitator-src', HERE.parent / 'facilitator-src') if (p / 'content.json').exists())
 # content.json page index -> what is copied: 'all', or the headed sections named.
 COPIED = {0: 'all', 2: 'all', 3: 'all', 4: ('',), 5: ('Primary source',)}
-NOT_COPIED = ['The continuation key is renumbered Problems 3-7.']   # route note: about the print guide only
 VIEW_ONLY = ['Reading the keys']   # a heading the key view adds above the K-1 key's reading note
 
 
@@ -61,10 +60,6 @@ def guide_units():
                 out += [words(' '.join(map(str, row))) for row in block[1]]
             elif block[0] in ('p', 'small'):
                 out += units(block[1])
-    note = dict(json.loads((SRC / 'route-note.json').read_text())['notes'])['Entry keys: K-1 Problems 1-2']
-    for s in NOT_COPIED:
-        note = note.replace(s, '')
-    out += units(note)
     return [u for u in out if u]
 
 

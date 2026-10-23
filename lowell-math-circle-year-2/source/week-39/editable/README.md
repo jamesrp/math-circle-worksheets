@@ -8,6 +8,8 @@ The guide now gives first routes, readiness-dependent continuation and return vi
 
 **Card fixes, October 23, 2026.** After the conversion, K–1 Problem 7 (page 6) now asks "Can two of your remaining trips use the same four roads?", the guide key (page 3) accepts "no" with the reason that the tiles differ, and the K–1 packet prints F39-K-v3. The other pages are unchanged in content. `review/card-fixes-2026-10-23.md` lists what changed, what was deferred and how it was checked; `review/verify_card_fixes_2026_10_23.py` checks it.
 
+**Card shoulds, October 23, 2026.** Later the same day the card's remaining shoulds and coulds were made: the rules name "an out-and-back pair" and every problem uses it; the worked example is labelled with its routes; Grades 2–3 and 4–5 Problem 1 have answer lines; K–1 Problems 5–6, Grades 2–3 Problems 2 and 5 and Grades 4–5 Problems 4 and 6 are reworded or given new examples; the guide has one K–1 key, a first route per band, "n / 7" footers and no unprinted mat. Grades 2–3 and 4–5 now print v3 IDs. `review/card-shoulds-2026-10-23.md` lists the changes and checks; `review/verify_card_shoulds_2026_10_23.py` checks them.
+
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
 Current pages: **K–1 6; Grades 2–3 4; Grades 4–5 4; adult guide 7**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
@@ -20,6 +22,7 @@ Extract the complete ZIP. Install Python 3.11 or later with `requirements.txt`, 
     python3 build.py
     python3 verify_revision.py
     python3 review/verify_card_fixes_2026_10_23.py
+    python3 review/verify_card_shoulds_2026_10_23.py
 
 The current verifier compares paper geometry and every 100-dpi rendered page against `reference-pdfs/`; timestamps may differ. It permits only specifically audited full-page font/hyphenation alternatives for unchanged student PDFs. See `review/fresh-review-rebuild.md` for actual results. The original strict verifier (`verify_rebuild.py` or `verify.py`) is retained and rejects those alternatives. The corpus report explicitly records any pre-existing small TeX font-metric differences for unchanged student bands; their current print/reference PDFs stay byte-identical. For Weeks 24 and 35, the detailed student-stage record is `review/student-reviser-fresh-review.md`. The corpus release report records those differences explicitly rather than calling them pixel-identical.
 

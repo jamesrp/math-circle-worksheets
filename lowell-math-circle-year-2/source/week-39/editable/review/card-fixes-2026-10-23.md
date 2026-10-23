@@ -7,7 +7,7 @@ K–1 page 6, the K–1 footer id and adult guide page 3 changed. The Grades 2�
 - **Must (card fix 1), K–1 p. 6, Problem 7.** "Can two of your remaining trips visit exactly the same roads in a different order?" had two readings: ABCDABC and ADCBADC use the same four roads, but each crosses a different two roads twice, so a child comparing tiles can rightly say no, and the key called that wrong. The question now reads "Can two of your remaining trips use the same four roads?", and the guide's key (p. 3) adds "Accept no with the reason that the tiles differ."
 - **Should (fix 10, the K–1 part).** Guide p. 6 says the K–1 packet is F39-K-v3, but it printed F39-K-v2. The revised K–1 now prints F39-K-v3 on every page; Grades 2–3 and 4–5 keep v2.
 
-Deferred: the rest of should 10 (the guide's "n / 6" page footers in a 7-page file), shoulds 2–9, 11 and 12, and coulds 13–15.
+Deferred: the rest of should 10 (the guide's "n / 6" page footers in a 7-page file), shoulds 2–9, 11 and 12, and coulds 13–15. All were made later the same day; see `card-shoulds-2026-10-23.md`.
 
 ## Verification
 

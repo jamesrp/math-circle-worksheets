@@ -30,7 +30,7 @@ def decorate(c,doc):
  c.saveState();c.setFont('Helvetica',8)
  c.drawString(45,762,f"Week {cfg['week']} / {cfg['title']} / Adult guide")
  c.drawString(45,28,f"Bellingham Math Circle / Week {cfg['week']} / Route update / Unpiloted")
- c.drawRightString(567,28,str(len(reader.pages)+doc.page));c.restoreState()
+ c.drawRightString(567,28,f'{len(reader.pages)+doc.page} / {len(reader.pages)+1}');c.restoreState()
 SimpleDocTemplate(stream,pagesize=(612,792),leftMargin=45,rightMargin=45,topMargin=55,bottomMargin=48,title=f"Week {cfg['week']} route update").build(story,onFirstPage=decorate,onLaterPages=decorate)
 stream.seek(0);note=PdfReader(stream)
 assert len(note.pages)==1,('Route note must remain concise: one page',cfg['week'])

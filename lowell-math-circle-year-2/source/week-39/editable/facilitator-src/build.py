@@ -64,7 +64,7 @@ class CheckCanvas(canvas.Canvas):
  def __init__(self,*a,**k):super().__init__(*a,**k);self._saved=[]
  def showPage(self):self._saved.append(dict(self.__dict__));self._startPage()
  def save(self):
-  total=len(self._saved)
+  total=len(self._saved)+(ROOT/'route-note.json').exists()   # add_route_note.py appends one page after this build
   for state in self._saved:
    self.__dict__.update(state);self.setFont('Body',8);self.setFillColor(colors.HexColor('#444444'));self.drawString(48,28,footer);self.drawRightString(564,28,f'{self._pageNumber} / {total}');super().showPage()
   super().save()

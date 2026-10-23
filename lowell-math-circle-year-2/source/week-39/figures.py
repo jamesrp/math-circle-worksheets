@@ -95,13 +95,13 @@ def step_card(x,y,a,b,removed=False):
 def demo(y):
     s=lab(21,y+13,'input',9,anchor='east')
     for i,(a,b) in enumerate(zip('ABCB','BCBD')):s+=step_card(25+38*i,y,a,b)
-    s+=lab(193,y+13,'replay',9)
+    s+=lab(173,y+13,r'$A\to B\to C\to B\to D$',9,anchor='west')
     s+=lab(21,y+47,'remove',9,anchor='east')
     for i,(a,b) in enumerate(zip('ABCB','BCBD')):s+=step_card(25+38*i,y+34,a,b,i in (1,2))
-    s+=lab(193,y+47,'then replay',8)
     s+=lab(21,y+81,'output',9,anchor='east')
     for i,(a,b) in enumerate([('A','B'),('B','D')]):s+=step_card(25+38*i,y+68,a,b)
-    s+=text(111,y+74,82,'No steps left means the pawn stays at its start.',10)
+    s+=lab(98,y+81,r'$A\to B\to D$',9,anchor='west')
+    s+=text(130,y+74,66,'No steps left means the pawn stays at its start.',10)
     return s
 
 
@@ -112,6 +112,17 @@ def routes(y,rs,size=13):
  for i,r in enumerate(rs):
   yy=y+i*21
   s+=text(19,yy,175,r'$'+r'\to '.join(r)+r'$'+r'\hfill $\longrightarrow$ \rule{48mm}{.3pt}',size)
+ return s
+
+def routes_with_answers(y,rs):
+ """Problem 1, grades 2-3 and 4-5: each recorded route with an answer line under it, left of
+ the map, then two lines for the new seven-step trip (card fix 8, October 23, 2026)."""
+ s=''
+ for i,r in enumerate(rs):
+  yy=y+i*20
+  s+=text(19,yy,92,r'$'+r'\to '.join(r)+r'$',13)
+  s+=text(19,yy+8,92,r'$\longrightarrow$ \rule{70mm}{.3pt}',13)
+ for k in range(2):s+=line(19,y+70+k*11,110,y+70+k*11,'gray!60,line width=.3pt')
  return s
 
 def routes_beside_map(y,rs):

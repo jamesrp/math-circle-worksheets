@@ -11,7 +11,7 @@
 \null\begin{tikzpicture}[remember picture,overlay,shift={(current page.north west)},x=1mm,y=-1mm,line cap=round,line join=round]
 \node[anchor=north west,inner sep=0pt,text width=182mm,align=left,font=\fontsize{10.5}{13.125}\selectfont] at (16,11) {Week 39 / Road detours / K--1};
 \draw[gray!55] (16,19)--(200,19);
-\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{11}{13.75}\selectfont] at (16,25) {Move a pawn on the roads. Keep each journey as ordered step tiles; an adult may record. Remove only two adjacent steps along the same road in opposite directions. Replay the other steps in order. The map, start, and finish stay fixed.};
+\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{11}{13.75}\selectfont] at (16,25) {Move a pawn on the roads. Keep each journey as ordered step tiles. Two adjacent steps along the same road in opposite directions are an out-and-back pair. Remove only out-and-back pairs, and replay the other steps in order. The map, start, and finish stay fixed.};
 \node[anchor=east,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (21,73) {input};
 \draw[gray!45,line width=.3pt] (25,60) rectangle ++(31,26);
 \draw[gray!40,line width=1mm] (30,77)--(40,77);
@@ -65,7 +65,7 @@
 \node[anchor=center,inner sep=1pt,font=\fontsize{7}{8.4}\selectfont] at (154,63) {C};
 \fill[green!55!black] (164,77) circle (1.2);
 \node[anchor=center,inner sep=1pt,font=\fontsize{7}{8.4}\selectfont] at (164,73) {D};
-\node[anchor=center,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (193,73) {replay};
+\node[anchor=west,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (173,73) {$A\to B\to C\to B\to D$};
 \node[anchor=east,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (21,107) {remove};
 \draw[gray!45,line width=.3pt] (25,94) rectangle ++(31,26);
 \draw[gray!40,line width=1mm] (30,111)--(40,111);
@@ -121,7 +121,6 @@
 \node[anchor=center,inner sep=1pt,font=\fontsize{7}{8.4}\selectfont] at (154,97) {C};
 \fill[green!55!black] (164,111) circle (1.2);
 \node[anchor=center,inner sep=1pt,font=\fontsize{7}{8.4}\selectfont] at (164,107) {D};
-\node[anchor=center,inner sep=1pt,font=\fontsize{8}{9.6}\selectfont] at (193,107) {then replay};
 \node[anchor=east,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (21,141) {output};
 \draw[gray!45,line width=.3pt] (25,128) rectangle ++(31,26);
 \draw[gray!40,line width=1mm] (30,145)--(40,145);
@@ -149,7 +148,8 @@
 \node[anchor=center,inner sep=1pt,font=\fontsize{7}{8.4}\selectfont] at (78,131) {C};
 \fill[green!55!black] (88,145) circle (1.2);
 \node[anchor=center,inner sep=1pt,font=\fontsize{7}{8.4}\selectfont] at (88,141) {D};
-\node[anchor=north west,inner sep=0pt,text width=82mm,align=left,font=\fontsize{10}{12.5}\selectfont] at (111,134) {No steps left means the pawn stays at its start.};
+\node[anchor=west,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (98,141) {$A\to B\to D$};
+\node[anchor=north west,inner sep=0pt,text width=66mm,align=left,font=\fontsize{10}{12.5}\selectfont] at (130,134) {No steps left means the pawn stays at its start.};
 \node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{14}{17.5}\selectfont] at (16,158) {\textbf{Problem 1:} Make a three-step trip from A to E and four-step trips from B back to B and from A to D. Make each one as a row of step tiles, then shorten it as much as you can.};
 \draw[line width=3mm,gray!25] (36,222)--(68,222);
 \draw[line width=.7pt] (36,222)--(68,222);
@@ -205,7 +205,7 @@
 \null\begin{tikzpicture}[remember picture,overlay,shift={(current page.north west)},x=1mm,y=-1mm,line cap=round,line join=round]
 \node[anchor=north west,inner sep=0pt,text width=182mm,align=left,font=\fontsize{10.5}{13.125}\selectfont] at (16,11) {Week 39 / Road detours / K--1};
 \draw[gray!55] (16,19)--(200,19);
-\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{14}{17.5}\selectfont] at (16,27) {\textbf{Problem 3:} Make a seven-step trip from A to E and a seven-step trip from C to F. Replay each one, removing immediate out-and-back steps until none remain.};
+\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{14}{17.5}\selectfont] at (16,27) {\textbf{Problem 3:} Make a seven-step trip from A to E and a seven-step trip from C to F. Replay each one, removing out-and-back pairs until none remain.};
 \draw[line width=3mm,gray!25] (36,109)--(68,109);
 \draw[line width=.7pt] (36,109)--(68,109);
 \draw[line width=3mm,gray!25] (68,109)--(68,77);
@@ -259,7 +259,7 @@
 \node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (177,77) {E};
 \draw[fill=violet!20,line width=.7pt] (177,175) circle (3.5);
 \node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (177,175) {F};
-\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{14}{17.5}\selectfont] at (16,190) {\textbf{Problem 5:} Make a trip from C to F that uses every road. Can any such trip keep an extra road step after all immediate reversals are removed?};
+\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{14}{17.5}\selectfont] at (16,190) {\textbf{Problem 5:} Make trips from C to F that use every road and shorten each one. Can two of them end differently?};
 \draw[gray!45,line width=.3pt] (16,235) rectangle ++(180,20);
 \node[anchor=north west,inner sep=0pt,text width=174mm,align=left,font=\fontsize{9}{11.25}\selectfont] at (16,266) {Bellingham Math Circle / Week 39 / F39-K-v3};
 \node[anchor=center,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (198,268) {4};
@@ -268,7 +268,7 @@
 \null\begin{tikzpicture}[remember picture,overlay,shift={(current page.north west)},x=1mm,y=-1mm,line cap=round,line join=round]
 \node[anchor=north west,inner sep=0pt,text width=182mm,align=left,font=\fontsize{10.5}{13.125}\selectfont] at (16,11) {Week 39 / Road detours / K--1};
 \draw[gray!55] (16,19)--(200,19);
-\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{14}{17.5}\selectfont] at (16,27) {\textbf{Problem 6:} Make every different trip from A back to A that can remain after shortening an eight-step trip on this ring. Replay each result with your pawn.};
+\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{14}{17.5}\selectfont] at (16,27) {\textbf{Problem 6:} Make eight-step trips from A back to A and shorten each. Find every different result.};
 \draw[line width=3mm,gray!25] (50,130)--(103,77);
 \draw[line width=.7pt] (50,130)--(103,77);
 \draw[line width=3mm,gray!25] (103,77)--(156,130);

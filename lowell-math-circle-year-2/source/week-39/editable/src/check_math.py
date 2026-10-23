@@ -4,13 +4,27 @@ from itertools import product
 def outcomes(route):
     nxt=[route[:i]+route[i+2:] for i in range(len(route)-2) if route[i]==route[i+2]]
     return frozenset().union(*(outcomes(x) for x in nxt)) if nxt else frozenset([route])
-for r in ['ABCBD','ABABDFDE','ABDFDE','CBCBDF','ABABCBADCDA','ABADCBC','ABCDABCBA']:
+for r in ['ABCBD','ABABDFDE','ABDFDE','CBCBDF','ABABCBADCDA','ABADCBC','ABCBCDABA']:
     o=outcomes(r);assert len(o)==1;print(r, sorted(o))
 assert outcomes('ABCBD')==frozenset(['ABD'])
 # Figure-eight commutator of directed triangular circuits.
 comm='HABHCDHBAHDCH'
 assert outcomes(comm)==frozenset([comm])
 assert outcomes('HABHBAHCDHDCH')==frozenset(['H'])
+# Grades 2-3 Problem 5 and Grades 4-5 Problem 6 (card shoulds, October 23, 2026): whole ring trips in every order.
+from itertools import permutations
+trip={'a':'HABH','A':'HBAH','b':'HCDH','B':'HDCH'}   # A, B: the backward trips
+def joined(order):
+    r=trip[order[0]]
+    for c in order[1:]:r+=trip[c][1:]
+    return r
+six={''.join(o):outcomes(joined(o)) for o in permutations('abA')}
+assert sorted(o for o,v in six.items() if v==frozenset(['HCDH']))==sorted(['aAb','Aab','baA','bAa'])
+assert six['abA']==frozenset(['HABHCDHBAH']) and six['Aba']==frozenset(['HBAHCDHABH'])
+four={''.join(o):outcomes(joined(o)) for o in permutations('abAB')}
+survive=sorted(o for o,v in four.items() if v!=frozenset(['H']))
+assert len(four)==24 and len(survive)==8 and all(o[i].lower()!=o[i+1].lower() for o in survive for i in range(3))
+print('two rings: 4 of 6 three-trip orders shorten to HCDH; 16 of 24 four-trip orders disappear, the 8 alternating ones survive')
 # All walks of up to ten edges on the given tree have one reduced route.
 adj={v:[] for v in 'ABCDEF'}
 for a,b in ['AB','BC','BD','DE','DF']:adj[a].append(b);adj[b].append(a)

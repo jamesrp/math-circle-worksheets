@@ -65,10 +65,10 @@ assert ('Problem 7: Make every different trip from A to C that can remain after 
         'Can two of your remaining trips use the same four roads?') in p6, p6
 assert not any('in a different order' in text(p) or 'visit exactly the same roads' in text(p) for p in k1)
 assert all('Bellingham Math Circle / Week 39 / F39-K-v3' in text(p) for p in k1) and len(k1) == 6
-for band, tag in (('grades-2-3', '23'), ('grades-4-5', '45')):
-    assert all(f'F39-{tag}-v2' in text(p) for p in pymupdf.open(REF / f'{band}.pdf'))
+for band, tag in (('grades-2-3', '23'), ('grades-4-5', '45')):   # v2 until the afternoon's shoulds made them v3
+    assert all(f'F39-{tag}-v3' in text(p) for p in pymupdf.open(REF / f'{band}.pdf'))
 checks.append('K-1 p. 6: "Can two of your remaining trips use the same four roads?"; every K-1 page reads F39-K-v3, '
-              'as guide p. 6 says; Grades 2-3 and 4-5 keep v2')
+              'as guide p. 6 says; Grades 2-3 and 4-5 read v3 since review/card-shoulds-2026-10-23.md')
 
 # 3. The key: the guide's source and the printed guide accept the "no" reading.
 guide = json.loads((ROOT / 'facilitator-src' / 'content.json').read_text())
@@ -76,9 +76,9 @@ key = next(b[1] for b in guide['pages'][2]['body'] if b[0] == 'p' and b[1].start
 assert key.endswith('Accept no with the reason that the tiles differ.') and 'ABCDABC, and ADCBADC' in key, key
 pdf = pymupdf.open(REF / 'facilitator-guide.pdf')
 assert len(pdf) == 7 and 'Accept no with the reason that the tiles differ.' in text(pdf[2])
-assert 'K-1 has six pages, Problems 1-7, F39-K-v3' in text(pdf[5])
+assert 'K-1 has six pages, Problems 1-7;' in text(pdf[5]) and 'F39-K-v3' in text(pdf[5])
 checks.append('guide p. 3: the Problem 7 key adds "Accept no with the reason that the tiles differ."; '
-              'guide p. 6 still names F39-K-v3, now true')
+              'guide p. 6 names F39-K-v3, now true')
 
 for c in checks:
     print('PASS', c)

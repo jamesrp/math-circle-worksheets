@@ -17,7 +17,7 @@ Shorten each recorded trip until no move is possible. Make a different seven-ste
 graph(36, 190, 32, TREE, TEDGES)
 
 ## figure
-graph(119, 207, 23, TREE, TEDGES) + routes_beside_map(207, ['ABABDFDE', 'ABDFDE', 'CBCBDF'])
+graph(119, 207, 23, TREE, TEDGES) + routes_with_answers(175, ['ABABDFDE', 'ABDFDE', 'CBCBDF'])
 
 ## key [K-1]
 The three-step A-to-E trip is A-B-D-E. Every four-step B-home trip reduces to staying at B; every four-step A-to-D trip reduces to A-B-D. For example B-A-B-A-B disappears, while A-B-A-B-D leaves A-B-D.

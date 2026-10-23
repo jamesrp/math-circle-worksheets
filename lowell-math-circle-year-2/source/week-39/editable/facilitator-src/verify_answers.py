@@ -44,9 +44,9 @@ def check39():
         walks=['A']
         for _ in range(length):walks=[r+q for r in walks for q in ring[r[-1]]]
         assert {reduced(r) for r in walks if r[-1]==finish}==expected
-    samples={'ABABABABA':'A','ABABABCDA':'ABCDA','ABABADCBA':'ADCBA','ABABABC':'ABC','ABABADC':'ADC','ABABCBADCDA':'A','ABADCBC':'ADC','ABCDABCBA':'ABCDA'}
+    samples={'ABABABABA':'A','ABABABCDA':'ABCDA','ABABADCBA':'ADCBA','ABABABC':'ABC','ABABADC':'ADC','ABABCBADCDA':'A','ABADCBC':'ADC','ABCBCDABA':'ABCDA'}
     for r,e in samples.items():assert reduced(r)==e
-    chains=['ABABCBADCDA ABCBADCDA ABADCDA ADCDA ADA A','ABABCBADCDA ABABADCDA ABADCDA ADCDA ADA A','ABADCBC ADCBC ADC','ABCDABCBA ABCDABA ABCDA']
+    chains=['ABABCBADCDA ABCBADCDA ABADCDA ADCDA ADA A','ABABCBADCDA ABABADCDA ABADCDA ADCDA ADA A','ABADCBC ADCBC ADC','ABCBCDABA ABCDABA ABCDA','ABCBCDABA ABCBCDA ABCDA']
     for chain in chains:
         for a,b in zip(chain.split(),chain.split()[1:]):
             assert b in [a[:i]+a[i+2:] for i in range(len(a)-2) if a[i]==a[i+2]],(a,b)

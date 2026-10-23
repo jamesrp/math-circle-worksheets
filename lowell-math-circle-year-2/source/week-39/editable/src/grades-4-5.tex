@@ -11,7 +11,7 @@
 \null\begin{tikzpicture}[remember picture,overlay,shift={(current page.north west)},x=1mm,y=-1mm,line cap=round,line join=round]
 \node[anchor=north west,inner sep=0pt,text width=182mm,align=left,font=\fontsize{10.5}{13.125}\selectfont] at (16,11) {Week 39 / Road detours / Grades 4--5};
 \draw[gray!55] (16,19)--(200,19);
-\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{11}{13.75}\selectfont] at (16,25) {Move a pawn on the roads. Keep each journey as ordered step tiles; an adult may record. Remove only two adjacent steps along the same road in opposite directions. Replay the other steps in order. The map, start, and finish stay fixed.};
+\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{11}{13.75}\selectfont] at (16,25) {Move a pawn on the roads. Keep each journey as ordered step tiles. Two adjacent steps along the same road in opposite directions are an out-and-back pair. Remove only out-and-back pairs, and replay the other steps in order. The map, start, and finish stay fixed.};
 \node[anchor=east,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (21,73) {input};
 \draw[gray!45,line width=.3pt] (25,60) rectangle ++(31,26);
 \draw[gray!40,line width=1mm] (30,77)--(40,77);
@@ -65,7 +65,7 @@
 \node[anchor=center,inner sep=1pt,font=\fontsize{7}{8.4}\selectfont] at (154,63) {C};
 \fill[green!55!black] (164,77) circle (1.2);
 \node[anchor=center,inner sep=1pt,font=\fontsize{7}{8.4}\selectfont] at (164,73) {D};
-\node[anchor=center,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (193,73) {replay};
+\node[anchor=west,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (173,73) {$A\to B\to C\to B\to D$};
 \node[anchor=east,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (21,107) {remove};
 \draw[gray!45,line width=.3pt] (25,94) rectangle ++(31,26);
 \draw[gray!40,line width=1mm] (30,111)--(40,111);
@@ -121,7 +121,6 @@
 \node[anchor=center,inner sep=1pt,font=\fontsize{7}{8.4}\selectfont] at (154,97) {C};
 \fill[green!55!black] (164,111) circle (1.2);
 \node[anchor=center,inner sep=1pt,font=\fontsize{7}{8.4}\selectfont] at (164,107) {D};
-\node[anchor=center,inner sep=1pt,font=\fontsize{8}{9.6}\selectfont] at (193,107) {then replay};
 \node[anchor=east,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (21,141) {output};
 \draw[gray!45,line width=.3pt] (25,128) rectangle ++(31,26);
 \draw[gray!40,line width=1mm] (30,145)--(40,145);
@@ -149,7 +148,8 @@
 \node[anchor=center,inner sep=1pt,font=\fontsize{7}{8.4}\selectfont] at (78,131) {C};
 \fill[green!55!black] (88,145) circle (1.2);
 \node[anchor=center,inner sep=1pt,font=\fontsize{7}{8.4}\selectfont] at (88,141) {D};
-\node[anchor=north west,inner sep=0pt,text width=82mm,align=left,font=\fontsize{10}{12.5}\selectfont] at (111,134) {No steps left means the pawn stays at its start.};
+\node[anchor=west,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (98,141) {$A\to B\to D$};
+\node[anchor=north west,inner sep=0pt,text width=66mm,align=left,font=\fontsize{10}{12.5}\selectfont] at (130,134) {No steps left means the pawn stays at its start.};
 \node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{12.5}{15.625}\selectfont] at (16,159) {\textbf{Problem 1:} Shorten each recorded trip until no move is possible. Make a different seven-step trip from C to F that finishes with the same route as the last one.};
 \draw[line width=3mm,gray!25] (119,230)--(142,230);
 \draw[line width=.7pt] (119,230)--(142,230);
@@ -173,17 +173,22 @@
 \node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (188,207) {E};
 \draw[fill=violet!20,line width=.7pt] (188,253) circle (3.5);
 \node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (188,253) {F};
-\node[anchor=north west,inner sep=0pt,text width=90mm,align=left,font=\fontsize{13}{16.25}\selectfont] at (19,207) {$A\to B\to A\to B\to D\to F\to D\to E$ $\longrightarrow$};
-\node[anchor=north west,inner sep=0pt,text width=90mm,align=left,font=\fontsize{13}{16.25}\selectfont] at (19,228) {$A\to B\to D\to F\to D\to E$ $\longrightarrow$};
-\node[anchor=north west,inner sep=0pt,text width=90mm,align=left,font=\fontsize{13}{16.25}\selectfont] at (19,249) {$C\to B\to C\to B\to D\to F$ $\longrightarrow$};
-\node[anchor=north west,inner sep=0pt,text width=174mm,align=left,font=\fontsize{9}{11.25}\selectfont] at (16,266) {Bellingham Math Circle / Week 39 / F39-45-v2};
+\node[anchor=north west,inner sep=0pt,text width=92mm,align=left,font=\fontsize{13}{16.25}\selectfont] at (19,175) {$A\to B\to A\to B\to D\to F\to D\to E$};
+\node[anchor=north west,inner sep=0pt,text width=92mm,align=left,font=\fontsize{13}{16.25}\selectfont] at (19,183) {$\longrightarrow$ \rule{70mm}{.3pt}};
+\node[anchor=north west,inner sep=0pt,text width=92mm,align=left,font=\fontsize{13}{16.25}\selectfont] at (19,195) {$A\to B\to D\to F\to D\to E$};
+\node[anchor=north west,inner sep=0pt,text width=92mm,align=left,font=\fontsize{13}{16.25}\selectfont] at (19,203) {$\longrightarrow$ \rule{70mm}{.3pt}};
+\node[anchor=north west,inner sep=0pt,text width=92mm,align=left,font=\fontsize{13}{16.25}\selectfont] at (19,215) {$C\to B\to C\to B\to D\to F$};
+\node[anchor=north west,inner sep=0pt,text width=92mm,align=left,font=\fontsize{13}{16.25}\selectfont] at (19,223) {$\longrightarrow$ \rule{70mm}{.3pt}};
+\draw[gray!60,line width=.3pt] (19,245)--(110,245);
+\draw[gray!60,line width=.3pt] (19,256)--(110,256);
+\node[anchor=north west,inner sep=0pt,text width=174mm,align=left,font=\fontsize{9}{11.25}\selectfont] at (16,266) {Bellingham Math Circle / Week 39 / F39-45-v3};
 \node[anchor=center,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (198,268) {1};
 \end{tikzpicture}
 \newpage
 \null\begin{tikzpicture}[remember picture,overlay,shift={(current page.north west)},x=1mm,y=-1mm,line cap=round,line join=round]
 \node[anchor=north west,inner sep=0pt,text width=182mm,align=left,font=\fontsize{10.5}{13.125}\selectfont] at (16,11) {Week 39 / Road detours / Grades 4--5};
 \draw[gray!55] (16,19)--(200,19);
-\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{12.5}{15.625}\selectfont] at (16,27) {\textbf{Problem 2:} On this map, can a trip from A back to A survive after every immediate reversal is removed? Explain why your answer holds for trips of any length.};
+\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{12.5}{15.625}\selectfont] at (16,27) {\textbf{Problem 2:} On this map, can a trip from A back to A survive after every out-and-back pair is removed? Explain why your answer holds for trips of any length.};
 \draw[line width=3mm,gray!25] (30,118)--(79,118);
 \draw[line width=.7pt] (30,118)--(79,118);
 \draw[line width=3mm,gray!25] (79,118)--(79,69);
@@ -207,15 +212,15 @@
 \draw[fill=violet!20,line width=.7pt] (177,167) circle (3.5);
 \node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (177,167) {F};
 \draw[gray!45,line width=.3pt] (16,179) rectangle ++(180,34);
-\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{12.5}{15.625}\selectfont] at (16,225) {\textbf{Problem 3:} Can two trips from C to F finish with different routes after every immediate reversal is removed? Explain using the roads.};
-\node[anchor=north west,inner sep=0pt,text width=174mm,align=left,font=\fontsize{9}{11.25}\selectfont] at (16,266) {Bellingham Math Circle / Week 39 / F39-45-v2};
+\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{12.5}{15.625}\selectfont] at (16,225) {\textbf{Problem 3:} Can two trips from C to F finish with different routes after every out-and-back pair is removed? Explain using the roads.};
+\node[anchor=north west,inner sep=0pt,text width=174mm,align=left,font=\fontsize{9}{11.25}\selectfont] at (16,266) {Bellingham Math Circle / Week 39 / F39-45-v3};
 \node[anchor=center,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (198,268) {2};
 \end{tikzpicture}
 \newpage
 \null\begin{tikzpicture}[remember picture,overlay,shift={(current page.north west)},x=1mm,y=-1mm,line cap=round,line join=round]
 \node[anchor=north west,inner sep=0pt,text width=182mm,align=left,font=\fontsize{10.5}{13.125}\selectfont] at (16,11) {Week 39 / Road detours / Grades 4--5};
 \draw[gray!55] (16,19)--(200,19);
-\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{12.5}{15.625}\selectfont] at (16,27) {\textbf{Problem 4:} Shorten each recorded trip in different orders. Can the choice of first reversal ever change the final route on any road map? Explain, or give a counterexample.};
+\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{12.5}{15.625}\selectfont] at (16,27) {\textbf{Problem 4:} Shorten each recorded trip in different orders. Can the choice of first out-and-back pair ever change the final route on any road map? Explain, or give a counterexample.};
 \draw[line width=3mm,gray!25] (54,106)--(92,68);
 \draw[line width=.7pt] (54,106)--(92,68);
 \draw[line width=3mm,gray!25] (92,68)--(130,106);
@@ -234,41 +239,41 @@
 \node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (92,144) {D};
 \node[anchor=north west,inner sep=0pt,text width=175mm,align=left,font=\fontsize{13}{16.25}\selectfont] at (19,159) {$A\to B\to A\to B\to C\to B\to A\to D\to C\to D\to A$\hfill $\longrightarrow$ \rule{48mm}{.3pt}};
 \node[anchor=north west,inner sep=0pt,text width=175mm,align=left,font=\fontsize{13}{16.25}\selectfont] at (19,180) {$A\to B\to A\to D\to C\to B\to C$\hfill $\longrightarrow$ \rule{48mm}{.3pt}};
-\node[anchor=north west,inner sep=0pt,text width=175mm,align=left,font=\fontsize{13}{16.25}\selectfont] at (19,201) {$A\to B\to C\to D\to A\to B\to C\to B\to A$\hfill $\longrightarrow$ \rule{48mm}{.3pt}};
+\node[anchor=north west,inner sep=0pt,text width=175mm,align=left,font=\fontsize{13}{16.25}\selectfont] at (19,201) {$A\to B\to C\to B\to C\to D\to A\to B\to A$\hfill $\longrightarrow$ \rule{48mm}{.3pt}};
 \draw[gray!45,line width=.3pt] (16,225) rectangle ++(180,30);
-\node[anchor=north west,inner sep=0pt,text width=174mm,align=left,font=\fontsize{9}{11.25}\selectfont] at (16,266) {Bellingham Math Circle / Week 39 / F39-45-v2};
+\node[anchor=north west,inner sep=0pt,text width=174mm,align=left,font=\fontsize{9}{11.25}\selectfont] at (16,266) {Bellingham Math Circle / Week 39 / F39-45-v3};
 \node[anchor=center,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (198,268) {3};
 \end{tikzpicture}
 \newpage
 \null\begin{tikzpicture}[remember picture,overlay,shift={(current page.north west)},x=1mm,y=-1mm,line cap=round,line join=round]
 \node[anchor=north west,inner sep=0pt,text width=182mm,align=left,font=\fontsize{10.5}{13.125}\selectfont] at (16,11) {Week 39 / Road detours / Grades 4--5};
 \draw[gray!55] (16,19)--(200,19);
-\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{12.5}{15.625}\selectfont] at (16,27) {\textbf{Problem 5:} From H, go around the left ring through A, then the right ring through C, then the left ring backward, then the right ring backward. Can the whole trip disappear by removing immediate reversals?};
-\draw[line width=3mm,gray!25] (107,125)--(25,84);
-\draw[line width=.7pt] (107,125)--(25,84);
-\draw[line width=3mm,gray!25] (25,84)--(25,166);
-\draw[line width=.7pt] (25,84)--(25,166);
-\draw[line width=3mm,gray!25] (25,166)--(107,125);
-\draw[line width=.7pt] (25,166)--(107,125);
-\draw[line width=3mm,gray!25] (107,125)--(189,84);
-\draw[line width=.7pt] (107,125)--(189,84);
-\draw[line width=3mm,gray!25] (189,84)--(189,166);
-\draw[line width=.7pt] (189,84)--(189,166);
-\draw[line width=3mm,gray!25] (189,166)--(107,125);
-\draw[line width=.7pt] (189,166)--(107,125);
-\draw[fill=black!20,line width=.7pt] (107,125) circle (3.5);
-\node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (107,125) {H};
-\draw[fill=red!65!black!20,line width=.7pt] (25,84) circle (3.5);
-\node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (25,84) {A};
-\draw[fill=blue!70!black!20,line width=.7pt] (25,166) circle (3.5);
-\node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (25,166) {B};
-\draw[fill=yellow!80!black!20,line width=.7pt] (189,84) circle (3.5);
-\node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (189,84) {C};
-\draw[fill=green!55!black!20,line width=.7pt] (189,166) circle (3.5);
-\node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (189,166) {D};
-\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{12.5}{15.625}\selectfont] at (16,197) {\textbf{Problem 6:} This trip goes around each ring once each way. Does that information alone tell whether a trip can disappear? Make another trip with those same counts and a different result.};
-\draw[gray!45,line width=.3pt] (16,237) rectangle ++(180,19);
-\node[anchor=north west,inner sep=0pt,text width=174mm,align=left,font=\fontsize{9}{11.25}\selectfont] at (16,266) {Bellingham Math Circle / Week 39 / F39-45-v2};
+\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{12.5}{15.625}\selectfont] at (16,27) {\textbf{Problem 5:} Left forward is H to A to B and back to H, and right forward is H to C to D and back to H. From H, go left forward, right forward, left backward, then right backward. Can the whole trip disappear by removing out-and-back pairs?};
+\draw[line width=3mm,gray!25] (108,96)--(40,62);
+\draw[line width=.7pt] (108,96)--(40,62);
+\draw[line width=3mm,gray!25] (40,62)--(40,130);
+\draw[line width=.7pt] (40,62)--(40,130);
+\draw[line width=3mm,gray!25] (40,130)--(108,96);
+\draw[line width=.7pt] (40,130)--(108,96);
+\draw[line width=3mm,gray!25] (108,96)--(176,62);
+\draw[line width=.7pt] (108,96)--(176,62);
+\draw[line width=3mm,gray!25] (176,62)--(176,130);
+\draw[line width=.7pt] (176,62)--(176,130);
+\draw[line width=3mm,gray!25] (176,130)--(108,96);
+\draw[line width=.7pt] (176,130)--(108,96);
+\draw[fill=black!20,line width=.7pt] (108,96) circle (3.5);
+\node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (108,96) {H};
+\draw[fill=red!65!black!20,line width=.7pt] (40,62) circle (3.5);
+\node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (40,62) {A};
+\draw[fill=blue!70!black!20,line width=.7pt] (40,130) circle (3.5);
+\node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (40,130) {B};
+\draw[fill=yellow!80!black!20,line width=.7pt] (176,62) circle (3.5);
+\node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (176,62) {C};
+\draw[fill=green!55!black!20,line width=.7pt] (176,130) circle (3.5);
+\node[anchor=center,inner sep=1pt,font=\fontsize{12}{14.399999999999999}\selectfont] at (176,130) {D};
+\node[anchor=north west,inner sep=0pt,text width=180mm,align=left,font=\fontsize{12.5}{15.625}\selectfont] at (16,150) {\textbf{Problem 6:} Join the same four ring trips in every possible order. Which orders disappear?};
+\draw[gray!45,line width=.3pt] (16,163) rectangle ++(180,93);
+\node[anchor=north west,inner sep=0pt,text width=174mm,align=left,font=\fontsize{9}{11.25}\selectfont] at (16,266) {Bellingham Math Circle / Week 39 / F39-45-v3};
 \node[anchor=center,inner sep=1pt,font=\fontsize{9}{10.799999999999999}\selectfont] at (198,268) {4};
 \end{tikzpicture}
 \end{document}
