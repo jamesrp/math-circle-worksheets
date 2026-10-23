@@ -64,7 +64,7 @@ def figures_check(pdf,cases):
         assert f'Week 57 / Area from dots / {band}' in text
         assert f'Problem {page_number}:' in text
         assert re.findall(r'Problem \d+:',text)==[f'Problem {page_number}:']
-        assert 'Bellingham Math Circle / Week 57 / N57-S-final-v2' in text
+        assert 'Bellingham Math Circle / Week 57 / N57-S-final-v3' in text
         assert 'Name' not in text and 'Date' not in text
         for block in page.get_text('blocks'):
             assert block[0]>=40 and block[2]<=572 and block[1]>=20 and block[3]<=778,block

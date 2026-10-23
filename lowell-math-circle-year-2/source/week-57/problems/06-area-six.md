@@ -10,7 +10,7 @@ kernel = 'For area 6, $B=14-2I\ge3$ allows exactly six records, $(I,B)=(0,14),\l
 ## prompt
 Pick's rule for the allowed polygons is
 \[\text{area}= I + (\text{half of }B) - 1.\]
-Make shapes of area 6 with as many different \((I,B)\) records as you can. Check at least one area with pieces, cuts or copies.
+Make shapes of area 6 with as many different \((I,B)\) records as you can.
 
 ## text
 \begin{center}\BlankBoard{6}{6}\end{center}

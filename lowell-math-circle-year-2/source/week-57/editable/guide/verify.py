@@ -133,14 +133,15 @@ def mathematics():
       [[0,0],[3,0],[3,2],[0,2]],
       [[0,0],[3,0],[4,2],[1,2]],
       [[0,0],[2,0],[3,3],[1,3]],
-      [[0,0],[2,1],[6,6],[4,5]],
+      [[0,0],[2,0],[1,6]],
     ]
     six_data=[]
-    area_certificates=[F(6*1),F(5*1)+F(2*1,2),F(3*2),F(3*2),F(2*3),F(24,5)+F(3,5)+F(3,5)]
+    area_certificates=[F(6*1),F(5*1)+F(2*1,2),F(3*2),F(3*2),F(2*3),F(2*6,2)]
     for i,p in enumerate(six):
         d=info(p);assert (d['I'],d['B'],F(d['area']))==(i,14-2*i,area_certificates[i])
         assert all(0<=x<=6 and 0<=y<=6 for x,y in d['vertices']);six_data.append(d)
     assert [(i,14-2*i) for i in range(8) if 14-2*i>=3]==[(i,d['B']) for i,d in enumerate(six_data)]
+    alt=info([[0,0],[2,1],[6,6],[4,5]]);assert (alt['I'],alt['B'],F(alt['area']))==(5,4,F(24,5)+F(3,5)+F(3,5))
     seam_results=[]
     for whole,l,r,a,b in [
       ('P6-rectangle','P6-left','P6-right',(2,0),(2,2)),
@@ -204,10 +205,12 @@ def mathematics():
         squares_cut_before_diagonals=60+120//2,straightedges=6,pencils=12,erasers=6,colored_pencils=12,
         scissors=6,student_sheets=2*6+10+10+10+3*2+3,guide_sheets=3*10,
         first_visit_student_sheets=2*3+3+3+3*2+7,
-        untested_first_fabrication_minutes=[45,75],untested_first_print_rehearsal_minutes=[15,25],
+        materials_pages=2,printed_intact_squares=6*10,printed_diagonal_squares=6*10,
+        untested_first_fabrication_minutes=[20,35],untested_first_print_rehearsal_minutes=[15,25],
         untested_reuse_sort_restock_print_minutes=[10,15])
     assert prep['student_sheets']==51 and prep['first_visit_student_sheets']==25
     assert prep['squares_cut_before_diagonals']==120
+    assert prep['printed_intact_squares']==prep['whole_squares'] and 2*prep['printed_diagonal_squares']==prep['half_squares']
     return dict(method='Exact winding-number dot membership; segment/domain validation; exact horizontal-strip geometric integration plus independent shoelace check. Pick is compared only after independent area/count calculation.',
         cases=checked,area6_complete_records=six_data,seams=seam_results,bridge_finite_checks=proof_tests,
         proof_example=proof_example,preparation=prep,physical_rehearsal='unperformed',piloting='unperformed')
@@ -220,7 +223,7 @@ def pdf_checks(pdf,qa,rebuild):
         assert abs(p.rect.width-612)<.01 and abs(p.rect.height-792)<.01
         text=p.get_text()
         assert 'Week 57 / Area from dots / Adult guide' in text
-        assert 'Bellingham Math Circle / Week 57 / W57-FAC-v1' in text
+        assert 'Bellingham Math Circle / Week 57 / W57-FAC-v2' in text
         for block in p.get_text('dict')['blocks']:
             if 'lines' not in block:continue
             x0,y0,x1,y1=block['bbox'];assert 15<=x0 and x1<=600 and 15<=y0 and y1<=780,(n+1,block)

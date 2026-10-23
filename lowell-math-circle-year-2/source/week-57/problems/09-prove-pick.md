@@ -8,7 +8,7 @@ kernel = 'Rectangles, then right triangles, then all triangles, then ears prove 
 +++
 
 ## prompt
-Find an explanation that Pick's rule works for every allowed polygon. Use the joining result and what you know about rectangles and triangles. These shapes can be test cases for your explanation.
+Explain why Pick's rule works for every allowed polygon, including these two.
 
 ## text
 \PairFigures{explain-triangle}{explain-concave}

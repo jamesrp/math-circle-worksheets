@@ -10,7 +10,7 @@ route = "first"
 definitions()
 
 ## text
-Join dots with straight sides to make one closed outline. Sides cannot cross or touch except at neighboring corners. Leave no holes until Problem 9. The area of one grid square is 1. Dots are 20 mm apart; print at 100\%.
+Join dots with straight sides to make one closed outline. Sides cannot cross or touch except at neighboring corners. The area of one grid square is 1. Find or check areas with pieces, cuts or copies.
 
 \begin{center}
 \begin{minipage}[t]{.31\textwidth}\centering

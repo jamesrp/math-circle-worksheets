@@ -1,14 +1,21 @@
 # Week 57 facilitator guide source
 
+**October 23, 2026 card fixes** (`W57-FAC-v2`, with student packet `N57-S-final-v3`):
+an adult-led K–1 route with four or five squares on p. 3 and a plain-words key; P7
+does not accept "each value is the area"; the joining limits on p. 1 say a seam of
+consecutive sides works; the kit pieces come from `week-57-materials.pdf`, with a
+smaller untested cutting forecast; a (5, 4) triangle with base 2 and height 6 in P5's
+table; process residue removed from p. 10.
+
 Separate guide authorship from the final ten-page student packet, version
-`N57-S-final-v2`, October 4, 2026. The guide is `W57-FAC-v1`, ten US Letter
+`N57-S-final-v2`, October 4, 2026. The guide was `W57-FAC-v1`, ten US Letter
 pages. It preserves the corrected general-triangle proof, full P1–10 keys,
 independent area checks and actual-board witnesses. It does not revise students.
 The new adaptation is **unpiloted**. Physical print/piece fit, cutting/handling,
 staffing and pacing have not been rehearsed. The required checks are on guide p. 2.
 That page retains the full reusable 51-student-sheet stock and offers a 25-sheet
 first-visit option for Problems 1–3. The preparation forecast is explicitly
-untested: 45–75 minutes for one-time cutting/bagging, 15–25 for printing/rehearsal,
+untested: 45–75 minutes (now 20–35 with the printed materials pages) for one-time cutting/bagging, 15–25 for printing/rehearsal,
 then reuse the pieces with 10–15 minutes of sorting/restocking/selected printing
 plus rehearsal of new procedures. These are operational estimates, not pilot data.
 

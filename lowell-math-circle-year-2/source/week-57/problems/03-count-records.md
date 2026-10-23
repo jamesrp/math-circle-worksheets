@@ -7,7 +7,7 @@ kernel = 'Each allowed polygon has a record $(I,B,\text{area})$ of inside dots, 
 +++
 
 ## prompt
-For each shape, mark the dots you count and make an \(I,B,\text{area}\) record. Check area with pieces, cuts or copies.
+For each shape, mark the dots you count and make an \(I,B,\text{area}\) record.
 
 ## text
 \PairFigures{count-L}{count-triangle}

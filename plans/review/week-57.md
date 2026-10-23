@@ -48,6 +48,8 @@ The objects are simple lattice polygons, with I dots inside and B dots on the ou
 10. **could**, guide p. 5: for (5, 4), give the triangle (0,0), (2,0), (1,6) before the slender parallelogram.
 11. **could**, guide p. 10: cut the process residue ("Root REPUBLISHING.md was read and preserved…").
 
+October 23, 2026: shoulds 1–6 and coulds 7–11 fixed, after storing the week as problem files (student N57-S-final-v3, guide W57-FAC-v2, new materials pages N57-M-v1); the K–1 route is guide-only (headers unchanged). Checked by `source/week-57/editable/review/`.
+
 ## Overlaps
 
 Week 26 is the case of shapes built from squares. There B is the perimeter, so Pick gives P = 2n + 2 − 2I, which is Week 26's tree maximum at I = 0. Neither absorbs the other, but the guide should name the bridge. Week 31's bonus states Pick only in its guide and can point here. Weeks 48 and 14 complement this week.

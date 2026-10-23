@@ -1,0 +1,47 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=15mm,top=19mm,bottom=18mm,headheight=15pt,headsep=5mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{\small Week 57 / Area from dots / Materials}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 57 / N57-M-v1}
+\fancyfoot[R]{\footnotesize\thepage}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3mm}
+% Area pieces for the five partner kits (guide p. 2): 60 squares and 60 squares to cut
+% into 120 diagonal halves. Each square is 20 mm, one interval of the dot boards.
+\newcommand{\CheckBar}{%
+\begin{tikzpicture}[x=1mm,y=1mm]
+\draw[line width=.8pt] (0,0)--(100,0);
+\draw[line width=.5pt] (0,-2)--(0,2) (100,-2)--(100,2);
+\node[right] at (101,0) {\small 100 mm};
+\end{tikzpicture}}
+% #1 = 1 draws one diagonal in every square.
+\newcommand{\SquareSheet}[1]{%
+\begin{center}
+\begin{tikzpicture}[x=20mm,y=20mm]
+\foreach \x in {0,...,6} \draw[line width=.5pt] (\x,0)--(\x,10);
+\foreach \y in {0,...,10} \draw[line width=.5pt] (0,\y)--(6,\y);
+\ifnum#1=1
+\foreach \x in {0,...,5} \foreach \y in {0,...,9}
+  \draw[line width=.5pt] (\x,\y)--(\x+1,\y+1);
+\fi
+\end{tikzpicture}
+\end{center}}
+\begin{document}
+Print at 100\% on card stock and check the bar. Cut along the lines: 60 squares, each 20 mm, area 1 on the dot boards.
+
+\CheckBar
+\SquareSheet{0}
+\newpage
+Print at 100\% on card stock and check the bar. Cut along every line: 60 squares, then each square along its diagonal, for 120 halves of area $\frac12$.
+
+\CheckBar
+\SquareSheet{1}
+\end{document}

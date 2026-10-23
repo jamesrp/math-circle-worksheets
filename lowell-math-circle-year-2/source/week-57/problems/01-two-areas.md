@@ -7,7 +7,7 @@ kernel = 'Area is found by unit squares, cuts and congruent copies: the rectangl
 +++
 
 ## prompt
-Find the exact area of each shape. Show a way to check each area with a cut or a second copy.
+Find the exact area of each shape.
 
 ## text
 \PairFigures{area-rectangle}{area-slanted}
