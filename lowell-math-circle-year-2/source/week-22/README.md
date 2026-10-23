@@ -1,5 +1,18 @@
 # Four-point convex partitions: Week 22 editable release — current editable source
 
+**Problem files, October 23, 2026.** The student packets are stored as [problem files](../problem-files/README.md) in the flow layout: `week.toml`, `template.tex` (the old builder's document head), `figures.py` (its board, recording-board and region-key code) and one file per problem in `problems/`, with each band's wording inside it. The conversion changed no wording or figure: the rebuilt LaTeX is the old builder's apart from blank lines between sections, and the packets match the old builder's rebuild in pages, extracted text and 100-dpi pixels. The print copies were made with another TeX version and differ from any rebuild here, the old builder's included, by at most 55 glyph pixels a page. The previous builder (`build_packets.py`, `examples.py`) and the ZIP it replaced are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
+
+- **Student pages:** edit `problems/*.md` (figures in `figures.py`, the document head in `template.tex`), then build every view:
+
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-22 --out tmp/week-22-views --tex --publish lowell-math-circle-year-2/band-views/week-22
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-22-views lowell-math-circle-year-2/week-22 week-22
+  ```
+
+  The print copies in [../../week-22/](../../week-22/) and `editable/reference-pdfs/` come from the package build below, whose student pages are these same packets. The first-route and return packets, the one-page problem menu and the key of each problem's idea are published in [band-views/week-22/](../../band-views/README.md#weeks-stored-as-problem-files).
+- **Adult guide:** its source is still `editable/facilitator-src/build_guide.py`, built by the package. The problem files carry each problem's one-sentence idea (`kernel`), not its answers.
+- **Portable package:** `editable/` is the package. `editable/src/regenerate.py` writes the student LaTeX from the problem files; the package's `build.sh` runs it. The [portable source ZIP](four-point-convex-partitions-week22-editable-source.zip) holds the package plus the problem files and tools in `problem-files/`, written by `package.py` (see the problem-files README). Rebuild it after any change and check a clean rebuild from the extracted ZIP with its `build.sh` and `verify_revision.py`.
+
 ## Introduction-audit follow-up
 
 All three student bands are v4. The region key now includes one complete two-group split and its shared point. The guide launch uses the same labels. Existing 12.6 cm work boards and page counts remain. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
