@@ -1,0 +1,67 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=0.62in,headheight=18pt,headsep=18pt,footskip=22pt]{geometry}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetikzlibrary{arrows.meta}
+\pdfinfoomitdate=1
+\pdftrailerid{<5745454b38314649534844524146543031><5745454b38314649534844524146543031>}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Week <<week>> / <<topic>> / \band}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week <<week>> / <<footer>>}
+\fancyfoot[R]{\scriptsize\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+\newcommand{\band}{<<header>>}
+\newcommand{\problem}[2]{\textbf{Problem #1:} #2\par}
+\tikzset{fish/.style={circle,fill=black!65,draw=black,minimum size=4.1mm,inner sep=0pt},
+ arrow/.style={-{Latex[length=2.3mm]},line width=0.9pt}}
+% Miniature diagrams are instructions for setting up the large reusable board.
+% All positions and labels read left to right.
+\newcommand{\smallstart}[3]{%
+\begin{tikzpicture}[x=1cm,y=1cm]
+ \foreach \x/\count in {0/#1,1.3/#2,2.6/#3}{
+  \draw[rounded corners=2pt,line width=.65pt] (\x,0) rectangle +(1.1,1.15);
+  \node[font=\small] at (\x+.55,-.28) {\pgfmathparse{int(\x/1.3+1)}\pgfmathresult};
+  \ifnum\count>0
+   \foreach \n in {1,...,\count}{
+    \pgfmathsetmacro{\xx}{mod(\n-1,2)*.43+.33}
+    \pgfmathsetmacro{\yy}{floor((\n-1)/2)*.4+.35}
+    \node[fish] at (\x+\xx,\yy) {};
+   }
+  \fi
+ }
+\end{tikzpicture}}
+\newcommand{\paircard}[2]{%
+\begin{tikzpicture}[x=1cm,y=1cm]
+ \draw[dashed,black!55] (0,0) rectangle (3.9,2.75);
+ \foreach \x/\count/\label in {.45/#1/1,2.15/#2/2}{
+  \draw[rounded corners=2pt,line width=.7pt] (\x,.75) rectangle +(1.3,1.25);
+  \ifnum\count>0
+   \foreach \n in {1,...,\count}{
+    \pgfmathsetmacro{\xx}{mod(\n-1,2)*.43+.44}
+    \pgfmathsetmacro{\yy}{floor((\n-1)/2)*.4+.35}
+    \node[fish] at (\x+\xx,.75+\yy) {};
+   }
+  \fi
+  \node[font=\small] at (\x+.65,.45) {\label};
+ }
+\end{tikzpicture}}
+\newcommand{\dotsbucket}[4]{% origin x, origin y, count, bucket label
+ \draw[rounded corners=2pt] (#1,#2) rectangle +(1.35,1.25);
+ \node[font=\scriptsize] at (#1+.675,#2-.22) {#4};
+ \foreach \n in {1,...,#3}{
+  \ifnum#3>0
+   \pgfmathsetmacro{\xx}{mod(\n-1,2)*.43+.44}
+   \pgfmathsetmacro{\yy}{floor((\n-1)/2)*.4+.35}
+   \node[fish] at (#1+\xx,#2+\yy) {};
+  \fi
+ }
+}
+\begin{document}
+<<body>>
+\end{document}

@@ -1,34 +1,24 @@
-# Week 81: Buckets of Fish — organizer-approved
+# Week 81: Buckets of Fish — current editable source
 
-Grades 2–3 capped games; Grades 4–5 uncapped continuation. A selected-band menu, not a requirement to finish every page in one session. All activities are unpiloted; physical fit, actual-size printing, timing and classroom procedures have not been rehearsed. The theorem-first guide gives assumptions, preparation, launch, first route, solutions, hints and return visits.
+One shared student packet (5 pages, W81-S-draft-v1) and a 4-page theorem-first adult guide. Organizer-approved and promoted October 17, 2026. Unpiloted. The print PDFs are in [../../week-81/](../../week-81/).
 
-## Build the two PDFs
+**Problem files, October 23, 2026.** The student packet is stored as [problem files](../problem-files/README.md): `week.toml`, `template.tex` (the old `students.tex` preamble) and one file per problem or material page in `problems/`, in the flow layout. The conversion changed no wording or figure: the generated LaTeX differs from the old `students.tex` only by blank lines between sections, and the rebuilt packet matches the print copy in pages, extracted text and 100-dpi pixels. The hand-written `students.tex` and the previous source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 
-Python 3 (standard library) and pdfLaTeX/TeX Live are required, with TikZ, geometry, fancyhdr, helvet, lmodern, amsmath/amssymb, parskip and hyperref. No font, book, binary, image asset or Python package is bundled.
+- **Student pages:** edit `problems/*.md`, then build and compare:
 
-From this folder, run:
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-81 --out tmp/week-81-views --tex
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-81-views lowell-math-circle-year-2/week-81 week-81
+  ```
 
-```sh
-python3 build.py --out ../../week-81
-```
+  Week 81 is a shared-packet week, so its band slices and one-page menu in [band-views/week-81/](../../band-views/README.md) are built from the page index `../band-views/indexes/week-81.toml` by `band_views.py build`; update the index when a problem moves to another page.
+- **Adult guide:** `editable/guide/facilitator.tex`, built by the package. The problem files carry each problem's one-sentence idea (`kernel`), not its answers.
+- **Portable package:** `editable/` is the package (`editable/README.md`); `editable/student/regenerate.py` writes `students.tex` from the problem files and the package build runs it first, then the mathematical checker. The [portable source ZIP](../week-81-source.zip) holds the package plus the problem files and tools in `problem-files/`. Rebuild it with
 
-After extracting the portable ZIP, run `python3 week-81/build.py --out rebuilt --work tmp/build`. Paths are resolved against your current directory. Both commands also run the independent mathematical checker. The builder rejects TeX errors and overfull boxes. Intermediates and check evidence go into repository `tmp/` or the supplied `--work` folder; generated files are not source inputs.
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-81 --zip ../week-81-source.zip --top week-81
+  ```
 
-## Contents and lineage
+  and check a clean rebuild from the extracted ZIP with `python3 week-81/build.py --out rebuilt --work tmp/build`.
 
-- `student/students.tex`: final 5-page student/material draft, created by a fresh writer then revised by a separate agent after independent adversarial and mathematical reviews.
-- `guide/facilitator.tex`: separate facilitator step, revised and independently reviewed. This guide-authoring step is untested as a classroom workflow.
-- `check_math.py`: portable copy/adaptation of the independent mathematical checker's code; finite computation supports the proofs in the guide.
-- `build.py`: both-PDF deterministic builder; [SOURCES.md](SOURCES.md) records attribution.
-
-Print US Letter, single-sided, Actual Size. Cut only the material pages needed for the selected route; preparation details are in the guide. Printable PDFs live in `../../week-81/`. The mobile review index links each PDF individually.
-
-ZIPs contain only owned teaching/build/check sources. Generated stage prompts and borrowed workflow style excerpts remain local and are excluded. No new open research problem is claimed solved, and no Lean certification is claimed.
-
-## October 15 review revision
-
-All small starting boxes and sorting cards show counters, including empty boxes for zero. The five-page packet omits the former blank quantity-card page. Written finite quantities remain permitted during upper-level play; rules and all printed starting positions are unchanged.
-
-See [QA.md](QA.md) for digital checks and independent review. The changes remain unpiloted.
-
-Organizer promotion: October 17, 2026, after review of the current packet. The student and facilitator PDFs are unchanged. Unpiloted; physical preparation, timing and classroom procedures remain untested.
+The research and review record is in [plans/infinity-prototypes-79-84/](../../../plans/infinity-prototypes-79-84/README.md) and the review card in [plans/review/week-81.md](../../../plans/review/week-81.md).
