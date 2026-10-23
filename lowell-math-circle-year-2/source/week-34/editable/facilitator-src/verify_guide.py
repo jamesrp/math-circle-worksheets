@@ -9,10 +9,11 @@ def symmetry_keys():
  def good(w):return not any(all(w[i]==w[p[i]] for i in range(len(w))) for p in maps(len(w)))
  counts={n:sum(good(w) for w in it.product('AB',repeat=n)) for n in range(3,11)}
  assert list(counts.values())==[0,0,0,12,28,96,252,600]
- for w in ['ABC','ABCC','ABCCC','AABABB','AABABBBB','AABBABBB','ABBC']:assert good(w),w
+ for w in ['ABC','ABCC','ABCCC','AABABB','AABABBBB','AABBABBB','ABBC','AABABBB','AABABBBBB','BBABAAAA']:assert good(w),w
  assert not good('ABAC')
  w,v='AABABBBB','AABBABBB'
  assert not any(all(w[i]==v[p[i]] for i in range(8)) for p in maps(8)+[tuple(range(8))])
+ assert not any(all(w[i]==x[p[i]] for i in range(8)) for x in ['BBABAAAA'] for p in maps(8)+[tuple(range(8))])  # a kind swap is a different pattern
  minority={n:min(min(w.count('A'),w.count('B')) for w in it.product('AB',repeat=n) if good(w)) for n in range(6,11)}
  assert all(x==3 for x in minority.values())
  return {'binary_distinguishing_words':counts,'minimum_minority':minority,'witnesses_and_edits_pass':True}

@@ -43,6 +43,8 @@ A pattern colours the n spots of a regular ring; it is distinguishing when no tu
 10. **could**, guide p. 2: "For ten children" (context.md has eleven); the hour lacks the opening run and has an eleven-minute share.
 11. **could**, guide p. 6 repeats p. 2's routes in another header style.
 
+**Fixed October 23, 2026, after the problem-file conversion:** shoulds 1–5 and coulds 6–10 (v3 packets; Grades 4–5 now 6 pages, the sixth extra workspace), with the guide to match; could 11 left, since the route-note page is the October 4 corpus-wide pattern and the organizer's call. Check: `checks/week-34/check_card_fixes.py`.
+
 ## Overlaps
 
 Week 33 (prime-length necklaces) uses the same counter rings, face up and turns only; its "n distinct readouts" is this week's "no turn matches", and the encore's d | n flip count echoes its period theorem. Teach 33, then 34. Week 37 (mirror twins) asks the chirality question on tetrahedra. No other theme has the distinguishing number; no merge.

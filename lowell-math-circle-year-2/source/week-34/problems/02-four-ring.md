@@ -7,13 +7,13 @@ kernel = "On four spots every two-kind pattern is matched by some turn or flip; 
 +++
 
 ## prompt [K-1]
-Make a pattern on this ring that no turn or flip can hide. How few kinds of counter can you use?
+Make a pattern on this ring that no turn or flip can match. How few kinds of counter can you use?
 
 ## prompt [2-3]
-Find how few kinds of counter can stop every turn and flip on this ring. Let someone test your best pattern.
+Find how few kinds of counter can make a pattern on this ring that no turn or flip can match. Let someone test your best pattern.
 
 ## prompt [4-5]
-Find the fewest kinds of counter that stop every turn and flip on the four-ring. Explain why fewer kinds cannot work.
+Find the fewest kinds of counter for a pattern on the four-ring that no turn or flip can match. Explain why fewer kinds cannot work.
 
 ## figure [K-1]
 ring(9.2,13,4)

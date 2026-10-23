@@ -44,7 +44,7 @@ def build():
  def footer(c,doc):
   c.saveState();c.setFont('Guide',8);c.setFillColor(colors.HexColor('#555555'))
   c.drawString(45,759,f"Bellingham Math Circle / Week {week} / Adult facilitator guide")
-  c.drawString(45,30,'Unpiloted / Final student packet v2 / Prepared October 3 2026')
+  c.drawString(45,30,'Unpiloted / Final student packet v3 / Revised October 23 2026')
   c.drawRightString(567,30,str(doc.page));c.restoreState()
  doc=SimpleDocTemplate(str(out),pagesize=(612,792),rightMargin=45,leftMargin=45,topMargin=50,bottomMargin=48,title=f"Week {week} {cfg['title']} facilitator guide",author='Bellingham Math Circle',pageCompression=1)
  doc.build(story,onFirstPage=footer,onLaterPages=footer)

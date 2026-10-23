@@ -7,13 +7,13 @@ kernel = "On five spots two kinds still fail, because some flip axis always matc
 +++
 
 ## prompt [K-1]
-Can two kinds of counter stop every turn and flip on this ring? Try three kinds too.
+Can two kinds of counter make a pattern on this ring that no turn or flip can match? Try three kinds too.
 
 ## prompt [2-3]
-Find how few kinds of counter can stop every turn and flip on this ring. Can you explain why fewer kinds would fail?
+Find how few kinds of counter can make a pattern on this ring that no turn or flip can match. Can you explain why fewer kinds would fail?
 
 ## prompt [4-5]
-Find the fewest kinds of counter that stop every turn and flip on the five-ring. Find an explanation that also works for the three-ring and four-ring.
+Find the fewest kinds of counter for a pattern on the five-ring that no turn or flip can match. Find an explanation that also works for the three-ring and four-ring.
 
 ## figure [K-1]
 ring(9.2,13,5)

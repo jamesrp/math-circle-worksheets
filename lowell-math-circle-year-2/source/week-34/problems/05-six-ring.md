@@ -7,13 +7,13 @@ kernel = "From six spots two kinds suffice: a pattern such as AABABB has no matc
 +++
 
 ## prompt [K-1]
-Make a pattern with two kinds of counter that no turn or flip can hide. Let your partner test it.
+Make a pattern with two kinds of counter that no turn or flip can match. Let your partner test it.
 
 ## prompt [2-3]
-Find a six-ring pattern using only two kinds of counter that stops every turn and flip. Show how you know every possible move fails.
+Find a six-ring pattern using only two kinds of counter that no turn or flip can match. Show how you know every possible move fails.
 
 ## prompt [4-5]
-Use two kinds of counter to stop every turn and flip on this six-ring. Explain why no turn or flip can match it.
+Use two kinds of counter to make a pattern on this six-ring that no turn or flip can match. Explain why each turn and flip fails.
 
 ## figure [K-1]
 ring(9.2,13,6)

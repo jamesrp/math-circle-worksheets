@@ -8,4 +8,4 @@ kernel = "Changing one counter can destroy every matching move or create one: as
 +++
 
 ## prompt @21.8
-Change just one counter in different ways. Find changes that allow a matching turn or flip and changes that do not.
+Change just one counter in different ways. Find changes that let some turn or flip match and changes that do not.

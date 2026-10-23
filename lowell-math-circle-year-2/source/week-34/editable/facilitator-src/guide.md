@@ -18,7 +18,7 @@
 
 - **Grades 4-5:** Explain the small-ring obstruction and turn the six-ring discovery into a construction for every larger ring. Unequal gaps are a useful explanation after a child has a successful pattern.
 
-**Status.** This guide keys the final v2 student PDFs, with 6 / 5 / 5 problems. Mathematical cases are checked. These pages and the proposed pacing have not been classroom-tested.
+**Status.** This guide keys the final v3 student PDFs, with 6 / 5 / 5 problems; the grades 4-5 packet adds a page of extra workspace (a seven-ring and a nine-ring) for Problem 5. Mathematical cases are checked. These pages and the proposed pacing have not been classroom-tested.
 
 ---page---
 
@@ -26,27 +26,25 @@
 
 ## Materials and preparation
 
-**For ten children and three adults:** use three stable adult-led tables. At three-child tables, rotate builder, tester and observer; budget five pair-sized material sets overall. Supply each pair with about 24 counters, eight in each of three easily distinguished kinds, and a small bowl. Use pieces at least 20 mm wide; colors should have a shape or texture backup. Loose counters make changes quick; no bead threading is needed.
+**For eleven children and three adults:** use the three fixed tables (four K-1, four 2-3, three 4-5). Children work in pairs; at the three-child table, rotate builder, tester and observer. Budget five pair-sized material sets overall. Supply each pair with about 24 counters, eight in each of three easily distinguished kinds, and a small bowl. Use pieces at least 20 mm wide; colors should have a shape or texture backup.
 
-Print the selected student mats at actual size. Each pair needs tracing paper large enough to cover the whole ring, pencils or washable markers, and at least two separate copies for K-1 Problem 6. Keep spare tracing sheets so successful patterns can be saved. One eight-ring per pair is enough if partners take turns. The final spot circles are roughly 28 mm across.
+Print the selected student mats at actual size. Each pair needs about ten sheets of tracing paper large enough to cover the whole ring and coloured pencils in the counters' colours; K-1 Problem 6 needs at least two separate copies. One eight-ring per pair is enough if partners take turns. The final spot circles are roughly 28 mm across.
 
-**Adult preparation, estimated 15-20 minutes:** print only likely starting pages, check a tracing-sheet flip on a blank ring, and prepare the alternating four-ring shown in the student introduction. The drawing should be visible from both sides. A reflected category symbol can face backward; its direction is deliberately ignored. Remove any temporary home tick before testing a pattern. Do not flip a loose-counter board and spill the pieces.
+**Making a tracing copy:** lay a sheet over the ring with its counters in place, trace each spot circle, and colour it with its counter's colour. Make a fresh copy for each new or changed pattern; keep earlier copies to compare. Lift a copy to turn or flip it (untested prediction: sliding it moves loose counters).
 
-**Readiness:** no arithmetic beyond comparing or counting small collections is required. Adults read aloud and can record a child's construction. Before offering optimization, check that the child keeps the original fixed, lines up all spots, and checks every kind. A turn that leaves even one spot between printed positions is not an allowed comparison.
+**Adult preparation, estimated 15-20 minutes:** print only likely starting pages and make one coloured copy at home to check that a flipped sheet still shows its circles and colours from the back. Remove any temporary home tick before testing a pattern. Do not flip a loose-counter board and spill the pieces.
+
+**Readiness:** no arithmetic beyond counting small collections. Adults read aloud and can record a child's construction. Before offering optimization, check that the child keeps the original fixed, lines up all spots, and checks every kind. A turn that leaves even one spot between printed positions is not an allowed comparison.
 
 ## Common launch and flexible hour
 
-**0-7 minutes:** let children handle counters and overlays. On the alternating four-ring, demonstrate the printed two-spot matching turn and one-spot mismatch. Flip the tracing copy once, keeping the original still. Ask, “Could I change this pattern without you noticing?” Do not reveal a successful six-ring.
+**0-5, after the opening run-around:** let children handle counters and tracing paper. On a printed four-ring (a Problem 2 page), lay out the alternating pattern and make its copy in front of the children. Keeping the original still, turn the copy one spot (no match) and two spots (match), then flip it over the line through two opposite spots (match), as in the page-1 picture. Ask, “Could I change this pattern without you noticing?” Do not reveal a successful six-ring.
 
-**7-23 minutes:** youngest children start K-1 Problems 1-2; middle and upper groups try the three- and four-rings. Partners alternate builder and tester. Save at least one candidate before changing it.
+**5-20:** youngest children start K-1 Problems 1-2; middle and upper groups try the three- and four-rings. Partners alternate builder and tester. Save at least one candidate on its own copy before changing it.
 
-**23-27 minutes:** take a short movement break. Children can hold four places in a circle while an adult models moving a copy; then return to the exact table rules.
+**20-38:** continue a worthwhile construction. Offer the five- or six-ring when the small-ring pattern is clear; offer the eight-ring or general construction only when testing is reliable. Grades 4-5 can test an eight-ring construction on the extra page's seven- and nine-rings.
 
-**27-46 minutes:** continue a worthwhile construction. Offer the five- or six-ring when the small-ring pattern is clear; offer the eight-ring or general construction only when testing is reliable.
-
-**46-57 minutes:** compare one pattern that failed and one that resisted every tested move. Separate “we tried these moves,” “we think this always works,” and “this feature rules out every move.”
-
-**57-60 minutes:** save or photograph the children's patterns with permission under the circle's normal practice; note which tasks they actually reached. Finishing all pages is unnecessary. A productive stopping point is one defended construction and one newly noticed obstruction.
+**38 to the end:** each table shows one pattern that failed and one that resisted every tested move. Separate “we tried these moves,” “we think this always works,” and “this feature rules out every move.” Minutes count from the launch; the tables have about 35-40 minutes. Save or photograph patterns under the circle's normal practice and note which tasks each table reached. A productive stopping point is one defended construction and one newly noticed obstruction.
 
 ---page---
 
@@ -56,7 +54,7 @@ Print the selected student mats at actual size. Each pair needs tracing paper la
 
 ## Problems 1 through 3
 
-**Problem 1, three-ring exploration.** Every two-kind pattern admits a nonidentity reflection. If all three spots match, every motion works. Otherwise one kind occurs once and the other twice; a reflection fixes the lone spot and exchanges the other two. A mixed ring has no nonidentity matching rotation, so “no matching turn” is not enough. Accept repeated experiments and a physically demonstrated surviving flip.
+**Problem 1, three-ring exploration.** Every two-kind pattern admits a nonidentity reflection. If all three spots match, every motion works. Otherwise one kind occurs once and the other twice; a reflection fixes the lone spot and exchanges the other two. A mixed ring has no nonidentity matching rotation, so “no matching turn” is not enough. Accept repeated experiments and a physically demonstrated surviving flip. The answer to “Can you make one your partner cannot match?” is no with two kinds; a child who adds a third kind (A B C) can.
 
 **Problem 2, four-ring minimum.** The answer is 3 kinds. A B C C is a witness. Since A and B each occur once, any matching motion must fix both adjacent spots; only the identity does. With two kinds, the minority has 0, 1 or 2 spots and a reflection survives. The general lower-bound reason appears on page 5.
 
@@ -68,7 +66,7 @@ Print the selected student mats at actual size. Each pair needs tracing paper la
 
 **Problem 5, six-ring.** One answer is A A B A B B, whose A spots are 0, 1, 3. The gaps between A spots are 1, 2, 3. No rotation or reflection preserves their cyclic placement. Children may instead check all five nonidentity rotations and six reflections using an overlay. Record the candidate before testing.
 
-**Problem 6, two genuinely different eight-rings.** Use A A B A B B B B and A A B B A B B B. Their A-gap multisets are {1, 2, 5} and {1, 3, 4}; both contain three different gaps and so are distinguishing. Dihedral motions preserve the gap multiset, so the two patterns cannot match each other. Separate tracing copies are essential. A mere rotation, reflection, or shifted drawing of the first pattern is not a second answer.
+**Problem 6, two genuinely different eight-rings.** Use A A B A B B B B and A A B B A B B B. Their A-gap multisets are {1, 2, 5} and {1, 3, 4}; both contain three different gaps and so are distinguishing. Dihedral motions preserve the gap multiset, so the two patterns cannot match each other. Separate tracing copies are essential. A mere rotation, reflection, or shifted drawing of the first pattern is not a second answer. Swapping kinds (B B A B A A A A) or using another pair of kinds also cannot match under the fixed-kind rule; accept it, then ask for a second arrangement with the same kinds and counts.
 
 **Optional hints, one at a time:** “Show me one place where the copy fails.” “Which counter kind is easiest to track?” “Can a flip keep that spot fixed?” For a child ready for the eight-ring distinction: “How far apart are the three A spots as you go around?” Do not give the 0, 1, 3 construction before exploration has a chance to work.
 
@@ -98,7 +96,7 @@ Print the selected student mats at actual size. Each pair needs tracing paper la
 
 **Problem 4:** A A B A B B on six spots; use the distinct-gap argument or a complete overlay test. Do not require a written algebraic proof from a child whose geometric explanation is complete.
 
-**Problem 5:** For every n ≥ 6, place A at spots 0, 1, 3 and B elsewhere. On the printed eight-ring this is A A B A B B B B. The cyclic gaps 1, 2, n - 3 are all different. Page 5 proves that this excludes every nonidentity dihedral motion; trying sizes 6, 7 and 8 alone is only evidence for the conjecture.
+**Problem 5:** For every n ≥ 6, place A at spots 0, 1, 3 and B elsewhere. On the printed eight-ring this is A A B A B B B B. The cyclic gaps 1, 2, n - 3 are all different. The extra page's rings give A A B A B B B (gaps 1, 2, 4) and A A B A B B B B B (gaps 1, 2, 6); on odd rings every flip axis passes through exactly one spot, so they test the idea against a different kind of flip. Page 5 proves that the rule excludes every nonidentity dihedral motion; trying sizes 6 through 9 alone is only evidence for the conjecture.
 
 ## Prompts for explanation
 
@@ -120,7 +118,7 @@ Ask a child to point to the feature a hypothetical matching motion must preserve
 
 A fresh finite check enumerates all binary rings of sizes 3 through 10 under the exact maps i → i + k and i → k - i. Counts of distinguishing binary words in fixed indexed positions are 0, 0, 0, 12, 28, 96, 252 and 600. These are counts of labeled-position words, not counts up to rotation/reflection. It also checks every printed witness and both one-counter edit outcomes. The accompanying editable source includes the verification script and its results.
 
-**What to record after use:** whether overlay flips were understood, whether kind direction or a hidden home mark affected testing, which patterns children invented, and whether the six-ring search remained engaging. Mathematical verification does not establish developmental suitability or timing.
+**What to record after use:** whether children could make, lift and flip a coloured copy without disturbing the counters, whether overlay flips were understood, whether kind direction or a hidden home mark affected testing, which patterns children invented, and whether the six-ring search remained engaging. Mathematical verification does not establish developmental suitability or timing.
 
 ## Sources
 

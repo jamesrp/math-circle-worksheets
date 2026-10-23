@@ -75,10 +75,17 @@ def line(y):  # a gray answer line across the page
 
 # ---------------------------------------------------------------- pictures
 
-def demo(start, match, nomatch):  # the rules' example on an alternating four-ring; the captions come from the problem file
+def caption(x, y, body, w=4.4, size=12):  # a centred caption under a picture
+    return '\n' + r'\node[anchor=north,inner sep=0,align=center,text width=' + str(w) + r'cm,font=\sffamily\fontsize{' + str(size) + '}{' + str(size*1.25) + r'}\selectfont] at (' + str(x) + ',' + str(y) + ') {' + body + '};'
+
+
+def demo(start, turn1, turn2, flip):  # the rules' example on an alternating four-ring: each move starts from the same original; captions from the problem file
+    y = 4.9
     s = ''
-    for x, v, label in [(2.7, [0, 1, 0, 1], start), (9.1, [0, 1, 0, 1], match), (15.5, [1, 0, 1, 0], nomatch)]:
-        s += ring(x, 3.9, 4, 1, .37, v) + page_text(x-2.5, 5.4, label, 5, 12)
-    for x in [4.25, 10.6]:
-        s += '\n' + f'\\draw[-{{Stealth}},line width=1pt] ({x},3.9) -- ({x+2.8},3.9);'
+    for x, v, label in [(1.9, [0, 1, 0, 1], start), (6.7, [1, 0, 1, 0], turn1), (11.5, [0, 1, 0, 1], turn2), (16.3, [0, 1, 0, 1], flip)]:
+        s += ring(x, y, 4, 1, .37, v) + caption(x, 6.45, label)
+    s += '\n' + f'\\draw[dashed,line width=.8pt] (16.3,{y-1.75}) -- (16.3,{y+1.75});'   # the flip's axis, through the top and bottom spots
+    s += '\n' + f'\\draw[-{{Stealth}},line width=1pt] (3.45,{y}) -- (5.15,{y});'
+    for x1, c in [(10.78, 2.6), (15.58, 2.2)]:   # the other two moves also start from the original, over the rings between
+        s += '\n' + f'\\draw[-{{Stealth}},line width=1pt] (2.62,3.64) .. controls (4.5,{c}) and ({x1-1.9},{c}) .. ({x1},3.64);'
     return s
