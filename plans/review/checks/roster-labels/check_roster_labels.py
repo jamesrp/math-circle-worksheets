@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Check the October 23, 2026 roster-label fix in the main adult guides of Weeks 27, 53, 54, 55, 57, 58, 60, 62 and 63.
-Also the return-visit adult guides of Weeks 6, 7 and 11-17 (RV6-FAC-v2, RV7-FAC-v2, RV-11-FAC-v2 ... RV-17-FAC-v2).
+Also the return-visit adult guides of Weeks 6-8 and 10-17 (RV6-FAC-v2, RV7-FAC-v2, RV8-FAC-v3, RV10-FAC-v3,
+RV-11-FAC-v2 ... RV-17-FAC-v2).
 
 Usage: python3 plans/review/checks/roster-labels/check_roster_labels.py   (from the repository root)
 
@@ -25,7 +26,7 @@ import pymupdf
 ROOT = Path(__file__).resolve().parents[4]
 Y = ROOT / 'lowell-math-circle-year-2'
 WEEKS = [27, 53, 54, 55, 57, 58, 60, 62, 63]
-RV_WEEKS = [6, 7, 11, 12, 13, 14, 15, 16, 17]
+RV_WEEKS = [6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17]
 # A guide revised again after this fix is checked through the copy archived before that revision.
 LATER = {57: 'archive-before-critic-j-fixes-2026-10-23'}   # W57-FAC-v3; v4 changed p. 1's K-1 route reference
 CODE = re.compile(r'KK11|\b3333\b|\b445\b')
@@ -83,7 +84,7 @@ print('PASS', len(rows), 'main guides: no roster code left in any of their print
 print('\n'.join(rows))
 
 # Return-visit adult guides (added later that day). Each printed "KK11 / 3333 / 445" once, on p. 2;
-# Week 9's never had it, and Weeks 8 and 10 were left to the footer sweep that owned those files.
+# Week 9's never had it. Weeks 8 and 10 followed once the footer sweep that owned them finished.
 RVFOOT = re.compile(r'(RV-?\d+-FAC-v)(\d+)')
 rv = []
 for w in RV_WEEKS:

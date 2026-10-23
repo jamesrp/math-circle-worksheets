@@ -4,6 +4,8 @@ Prepared October 4, 2026. **Unpiloted; physical material-fit and procedure rehea
 
 October 23, 2026: one adult-guide sentence corrected from the Week 10 [math check](../../../plans/review/week-10-math.md) (item 3): the open-walk explanation now also requires every other island to balance. The student PDF is unchanged; the previous adult PDF and source ZIP are in `week-10/archive-before-card-fixes-2026-10-23/` and `source/archive-before-card-fixes-2026-10-23/`. The adult footer id was bumped from RV10-FAC-v1 to RV10-FAC-v2 for these October 23 changes; nothing else changed in that bump.
 
+**Roster labels, October 23, 2026 (RV10-FAC-v3).** The adult guide printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5) on page 2, where readers expect band labels; it now prints "K–1 / 2–3 / 4–5". Nothing else changed. The previous guide and ZIP are in the `archive-before-roster-label-fix-2026-10-23/` folders beside the current copies. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`. Unpiloted.
+
 - Current student PDF: [week-10-return-visit.pdf](../../week-10/week-10-return-visit.pdf).
 - Adult PDF: [week-10-return-visit-facilitator.pdf](../../week-10/week-10-return-visit-facilitator.pdf).
 - Inventory, novelty and verification: [range inventory](../../../plans/bonus-weeks-06-10.md).

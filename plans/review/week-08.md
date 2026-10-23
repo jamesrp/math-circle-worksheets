@@ -48,6 +48,8 @@ October 23, 2026: fix 1 is done as `week-08-materials.pdf` (four sheets: 8-by-8,
 
 October 23, 2026, later: after the problem-file conversion, K–1 Problem 7 reads "Play on the separate 8-by-8 board, with the token where the dot is. Your partner goes first." (F08-K-v5), which completes fix 6.
 
+**Roster labels, October 23, 2026.** The return-visit adult guide (p. 2) printed the roster code "KK11 / 3333 / 445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1 / 2–3 / 4–5" (RV8-FAC-v3; RV8-FAC-v2 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
+
 ## Overlaps
 
 Week 7 shares two-pile copying; its card gives Week 7 one pile with a menu and Week 8 free takes, stacks and the queen. Week 30 (base three) and Week 60 (backward induction) share less. The return visit continues this theme. No merge.
