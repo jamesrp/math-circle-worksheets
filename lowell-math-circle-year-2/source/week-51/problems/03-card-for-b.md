@@ -24,5 +24,8 @@ B:
 ## figure [2-3, 4-5]
 target_card()
 
+## text @12,222 size=11 [K-1]
+Fitting within 9 includes ending at 9.
+
 ## key
 Choose \textbf{B from 4 to 5}. With A from 3 to 4, all sums then lie in [7,9]. K-1's 3-4 card fails at 3+3=6; its 5-6 card fails at 4+6=10. In the older task, B's lower endpoint must be at least 4, because A might be 3; B's upper endpoint must be at most 5, because A might be 4. Hence [4,5] is the unique widest interval.

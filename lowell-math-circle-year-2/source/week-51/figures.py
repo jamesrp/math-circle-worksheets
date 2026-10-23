@@ -1,5 +1,6 @@
-"""Week 51 figures, carried over unchanged from the old builder
-(archive-before-problem-files-2026-10-23/make.py and draw.py).
+"""Week 51 figures, carried over from the old builder
+(archive-before-problem-files-2026-10-23/make.py and draw.py); the October 23 card
+fixes changed launch() and nine_boards().
 
 Coordinates are millimetres on the house 185 x 235 mm page canvas, y downward, so the
 default page template in problem-files/canvas.py is the old builder's page. Problem
@@ -48,11 +49,10 @@ def comparison(y, same=True):
 
 # ---------------------------------------------------------------- problem figures, by file
 
-def launch():  # 00: A 2-3 and B 1-2 join to 3-5; the shortest and longest joins
+def launch():  # 00: A 2-3 and B 1-2 join to 3-5; one join from the ruler's 0, A 2 and B 2, ending at 4
     s = band(6, 37, 2, 3, 'A', 7, 10, 10)+band(6, 78, 1, 2, 'B', 7, 10, 10)
     s += line(81, 61, 96, 61, '-{Stealth[length=2mm]}')+band(104, 45, 3, 5, 'A + B', 7, 10, 10)
-    s += joins(106, 80, 2, 1)+label(149, 84.5, '3', 10)
-    s += joins(106, 97, 3, 2)+label(169, 101.5, '5', 10)
+    s += joins(104, 80, 2, 2)+label(157, 84.5, '4', 10)
     return s
 
 
@@ -74,8 +74,8 @@ def target_card():  # 03, grades 2-3 and 4-5: an empty ruler for B's card and th
     return ruler(12, 114)+rect(12, 145, 90, 14)+rect(82, 145, 20, 14, 'fill=gray!25')+label(12, 165, '0', 10)+label(82, 165, '7', 10)+label(102, 165, '9', 10)
 
 
-def nine_boards():  # 09: three 9-unit boards
+def nine_boards():  # 09: four 9-unit boards for the three pairs, so the count is the child's to settle
     s = ''
-    for y in [135, 170, 205]:
+    for y in [116, 146, 176, 206]:
         s += rect(12, y, 90, 13)+ruler(12, y+18, 9)
     return s
