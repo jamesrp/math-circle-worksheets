@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
+# Write the band LaTeX from the problem files (regenerate.py), run the finite checks, then
+# compile each packet twice into ../build, copy it to the package root and render it.
 set -euo pipefail
 cd "$(dirname "$0")"
 export SOURCE_DATE_EPOCH="${SOURCE_DATE_EPOCH:-1791061200}"
 export FORCE_SOURCE_DATE=1
-python3 build_packets.py
+python3 regenerate.py
+python3 check_distinguishing.py
 python3 check_revised_cases.py
 mkdir -p ../build ../render
 for name in k-1 grades-2-3 grades-4-5; do

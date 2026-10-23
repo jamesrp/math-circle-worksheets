@@ -1,5 +1,21 @@
 # Week 34 Hidden turns editable source — current editable source
 
+**Problem files, October 23, 2026.** The student packets are stored as [problem files](../problem-files/README.md): `week.toml`, `figures.py` (the old builder's drawing code and page template, unchanged) and one file per problem in `problems/`, with each band's wording inside it. The conversion changed no wording or figure: the rebuilt LaTeX is byte-identical to the previous builder's, and `compare.py` finds the same text and no differing pixel at 100 dpi against the print copies. The previous builder (`build_packets.py`) and the October 4 source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md); its finite checks run unchanged as `editable/src/check_distinguishing.py`.
+
+- **Student pages:** edit `problems/*.md` (figures in `figures.py`), then build and compare:
+
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-34 --out tmp/week-34-views --tex
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-34-views lowell-math-circle-year-2/week-34 week-34
+  ```
+
+- **Adult guide:** its source is still `editable/facilitator-src/guide.md` with `route-note.json`, built by the package. The problem files carry each problem's one-sentence idea (`kernel`), not its answers.
+- **Portable package:** `editable/` is the package; `editable/src/regenerate.py` writes the student LaTeX from the problem files, and the package build runs it before compiling. The portable source ZIP holds the package plus the problem files and tools in `problem-files/`, written by `package.py`:
+
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-34 --zip symmetry-breaking-week34-editable-source.zip --top symmetry-breaking-week34-source
+  ```
+
 The [portable base source ZIP](symmetry-breaking-week34-editable-source.zip) and [complete extracted package](editable/README.md) contain the current **October 4, 2026 fresh-review revision**. Current print copies are in [../../week-34/](../../week-34/). References are exact duplicates of those print PDFs.
 
 Read `editable/README.md` for dependencies and commands. Copy the complete package to a fresh folder under the project's `tmp/` before rebuilding; keep intermediates out of current print/source folders. `verify_revision.py` checks current pages and permits only specifically audited full-page alternate hashes for pre-existing font/hyphenation differences in unchanged student packets; the original strict verifier remains available. Every changed packet and guide reproduces exact 100-dpi pixels from the extracted ZIP.

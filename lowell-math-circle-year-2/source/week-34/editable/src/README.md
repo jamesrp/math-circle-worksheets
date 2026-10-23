@@ -1,6 +1,6 @@
 # Week 34 revised student packet
 
-Student PDFs only. Draft, unpiloted. Run `bash build.sh` with Python 3, pdfLaTeX with TikZ, and Poppler installed. The builder creates the three `.tex` sources and verifies the cycle distinguishing numbers for 3 through 10 positions. No machine-specific TeX paths are needed by these sources.
+Student PDFs only. Draft, unpiloted. Since October 23, 2026 the packets are stored as problem files (in the repository `../../week.toml`, `../../figures.py` and `../../problems/`; in the ZIP `../problem-files/`). Run `bash build.sh` with Python 3.11+, pdfLaTeX with TikZ, and Poppler installed: `regenerate.py` writes the three `.tex` sources from the problem files (edit those, not the `.tex`), and `check_distinguishing.py` verifies the cycle distinguishing numbers for 3 through 10 positions. The previous builder (`build_packets.py`) is archived beside the problem files. No machine-specific TeX paths are needed by these sources.
 
 Each packet has five pages. Print US Letter at 100 percent. Position circles are 28 mm in diameter, on a 140 mm centerline ring. Each child needs counters in three fixed kinds and transparent or tracing-paper duplicates. Do not put a permanent home mark on a mat or overlay. Counter matching ignores glyph orientation; the introductory example uses filled and hollow circles. All spots must coincide after a legal test. The little worked motion is on an alternating four-ring and gives both a match and a mismatch; no successful asymmetric six-ring is printed.
 
