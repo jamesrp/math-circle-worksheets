@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
-"""Standalone TeX build; no repository, network or absolute project paths required."""
-import argparse,json,shutil,subprocess,tempfile
+"""Standalone TeX build; no repository, network or absolute project paths required.
+
+The student packet's LaTeX is written from the problem files (week.toml, figures.py,
+problems/) by student/regenerate.py before it is compiled."""
+import argparse,json,shutil,subprocess,sys,tempfile
 from pathlib import Path
 
 BASE=Path(__file__).resolve().parent
@@ -13,6 +16,8 @@ def main():
  with tempfile.TemporaryDirectory(prefix='math-circle-rebuild-') as task_dir:
   for item in manifest['documents']:
    src=BASE/item['source_directory'];work=Path(task_dir)/item['kind'];shutil.copytree(src,work)
+   if item['kind']=='student':  # the student pages' source is the problem files: week.toml, figures.py, problems/
+    subprocess.run([sys.executable,str(BASE/'student'/'regenerate.py'),'--out',str(work/item['tex_file'])],check=True,stdout=subprocess.DEVNULL)
    tex=Path(item['tex_file'])
    for _ in range(2):
     r=subprocess.run(['pdflatex','-interaction=nonstopmode','-halt-on-error',str(tex)],cwd=work,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True)

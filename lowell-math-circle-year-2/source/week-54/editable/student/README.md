@@ -1,5 +1,7 @@
 # Week 54 revised student source
 
+Since October 23, 2026 `students.tex` is written from the problem files by `regenerate.py` (`python3 regenerate.py --check` confirms it is current); edit the problem files, not `students.tex`. `sh build.sh` still compiles the written file.
+
 This is the unpiloted revised student packet, not an approved release or facilitator guide.
 
 Build one nine-page US Letter combined packet:
