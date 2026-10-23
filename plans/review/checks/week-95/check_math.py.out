@@ -1,0 +1,86 @@
+== Overview: overlap support and lower bound (direct enumeration) ==
+PASS for every N<=10, M,n<=N: realisable overlaps = max(0,M+n-N)..min(M,n)
+PASS a record (M,n,R) fits exactly the bags N >= M+n-R (checked N<20, M,n<8)
+PASS fixing the first catch gives the same overlap distribution as random first catch (N<8)
+PASS exact mean overlap equals M*n/N for every N<=12 (enumerated, not assumed)
+PASS one object lies in C(N-1,n-1) of the C(N,n) second catches, fraction n/N
+
+== Grades 2-3 ==
+PASS G23 P1: for every N in 8..20 with catches 4,4 every overlap 0..4 is possible
+PASS G23 P1: guide's mean overlap 16/N
+PASS G23 P2: shared objects are B, D, E
+PASS G23 P2: seven different objects seen, so smallest bag 7
+PASS G23 P2: of 6,7,8,12,20 the possible totals are [7, 8, 12, 20]
+PASS G23 P3: disjoint catches, smallest bag 10; any N>=10 also fits (unseen objects)
+  P(R|N=8)  = {0: '1/70', 1: '8/35', 2: '18/35', 3: '8/35', 4: '1/70'}
+  P(R|N=16) = {0: '99/364', 1: '44/91', 2: '99/455', 3: '12/455', 4: '1/1820'}
+PASS G23 P4: every printed overlap is possible for both 8 and 16
+  per-round likelihood choice: [8, 16, 8, 16, 8, 16]
+PASS G23 P4: guide's per-round choices 8,16,8,16,8,16
+  fraction-matching guesses 16/R: ['8', '16', '16/3', '16', '8', 'none']
+  L(16)/L(8) = 543547125/308915776 = 1.7595
+PASS G23 P4: guide's 'likelihood about 1.76 times that at 8' for 16
+PASS G23 P4: mean overlap 1.5; model means 16/8=2, 16/16=1
+  note: pooled fraction matching 16/1.5 = 10.667 (nearer 8); votes per round 3 for 8, 3 for 16 -- the printed data are deliberately balanced
+PASS G23 P5: N=8: first {A..D}, second {E..H} gives 0; {A,B,C,E} gives 3
+PASS G23 P5: N=16: first {A..D}, second {E..H} gives 0; {A,B,C,E} gives 3
+PASS G23 P5: random zero overlap at N=8 has chance 1/70
+PASS G23 P6/P7: N=6, catches 5 and 4: possible overlaps [3, 4]
+PASS G23 P6/P7: N=7, catches 5 and 4: possible overlaps [2, 3, 4]
+PASS G23 P6/P7: N=8, catches 5 and 4: possible overlaps [1, 2, 3, 4]
+PASS G23 P6/P7: N=12, catches 5 and 4: possible overlaps [0, 1, 2, 3, 4]
+PASS G23 P7: 'overlap 4 possible, 0 impossible' works for bags 6, 7 and 8
+PASS G23 P7 guide: smallest overlap 9-N until 0: [4, 3, 2, 1, 0, 0, 0, 0]
+
+== Grades 4-5 ==
+PASS G45 P1: every overlap 0..6 is possible for every N in 12..24
+PASS G45 P1: expected overlap 36/N runs from 3 (N=12) to 1.5 (N=24)
+PASS G45 P2: record A (6,6,2): smallest bag 10
+PASS G45 P2: record B (6,6,0): smallest bag 12
+PASS G45 P2: guide construction first 1-6, second 1,2,7-10
+PASS G45 P3 example: 2 marked, sample 1 of 3 -> rule's guess 6 (2/6 = 1/3)
+PASS G45 P3: record A rule's guess 18 (6/18 = 2/6)
+PASS G45 P3: a 10-object bag also gives record A, so 18 is not forced
+PASS G45 P3 guide: sample fraction 1/3 differs from population fraction 6/10
+  P(R=2 | N=10, 6, 6) = 1/14
+PASS G45 P4: printed rule's guesses 36, 18, 12, 18, no matching total
+PASS G45 P4: an 18-object bag can produce every record
+PASS G45 P4: smallest bag fitting all five records is 12; every N>=12 fits
+PASS G45 P4 guide construction: second = 1..r plus 7..12-r has 6 objects and overlap r
+PASS G45 P4 guide: mean overlap 8/5, matched guess 22.5
+PASS G45 P4 guide: average of the four finite guesses 21
+PASS G45 P5: bags 12 and 18 both give overlap 0
+PASS G45 P5 guide: with N fixed and other catch positive, enlarging a catch raises the mean
+PASS subset-counting DP equals brute-force enumeration for every N<=12
+  best splits: {12: [(6, 6)], 13: [(6, 7), (7, 6)], 20: [(10, 10)]}
+PASS G45 P6: budget 12, the unique best split is 6+6
+PASS G45 P6: its average overlap 36/24 = 3/2
+PASS G45 P6 guide: products 11,20,27,32,35,36
+PASS G45 P6 guide: those products are 24 x the exact average overlaps
+PASS G45 P7: budget 13 -> 6+7 or 7+6, 7/4
+PASS G45 P7: budget 20 -> 10+10, 25/6
+PASS G45 P7: for every budget 2..24 the best splits are floor/ceil of s/2
+PASS G45 P6: supplied formula first*second/total is exact for every pair of catch sizes, N=24
+PASS mean overlap is symmetric in the two catch sizes (N<=10)
+PASS Overview design theorem: balanced split maximises exact mean overlap (all N<=24, s<=N)
+PASS Overview: moving one unit from n to M changes Mn by n-M-1
+PASS Guide p5: Mn = (s^2 - (M-n)^2)/4
+PASS G45 P8 guide: lost marks never raise detected overlap; positive ratio guess can only rise
+PASS Guide limits: N=M=n=6 with all dots lost shows R=0 -> false bound 12 > 6
+PASS Guide limits: N=6,M=4,n=3 overlaps 1,2,3 w.p. 1/5,3/5,1/5
+PASS Guide limits: mean ratio guess = 34/5 (not 6)
+
+== Live games (P1 both bands) with permanent letters A-X on the objects ==
+If the keeper's hidden bag is letters A.. in order, the highest letter ever caught is a
+lower bound that equals N whenever the last object turns up in any of the six catches.
+  G23 N= 8: P(last letter caught in 3 rounds) = 0.984; expected distinct letters seen = 7.88
+  G23 N=12: P(last letter caught in 3 rounds) = 0.912; expected distinct letters seen = 10.95
+  G23 N=16: P(last letter caught in 3 rounds) = 0.822; expected distinct letters seen = 13.15
+  G23 N=20: P(last letter caught in 3 rounds) = 0.738; expected distinct letters seen = 14.76
+  G45 N=12: P(last letter caught in 3 rounds) = 0.984; expected distinct letters seen = 11.81
+  G45 N=16: P(last letter caught in 3 rounds) = 0.940; expected distinct letters seen = 15.05
+  G45 N=20: P(last letter caught in 3 rounds) = 0.882; expected distinct letters seen = 17.65
+  G45 N=24: P(last letter caught in 3 rounds) = 0.822; expected distinct letters seen = 19.73
+  (exact: P(an object misses one uniform k-catch) by enumeration, raised to the 6 independent catches)
+
+0 failures

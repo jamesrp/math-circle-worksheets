@@ -1,0 +1,52 @@
+PASS grades-2-3 p1: header
+PASS grades-2-3 p1: footer
+PASS grades-2-3 p2: header
+PASS grades-2-3 p2: footer
+PASS grades-2-3 p3: header
+PASS grades-2-3 p3: footer
+PASS grades-2-3 p4: header
+PASS grades-2-3 p4: footer
+PASS grades-2-3: problems numbered consecutively [1, 2, 3, 4, 5, 6, 7]
+PASS grades-4-5 p1: header
+PASS grades-4-5 p1: footer
+PASS grades-4-5 p2: header
+PASS grades-4-5 p2: footer
+PASS grades-4-5 p3: header
+PASS grades-4-5 p3: footer
+PASS grades-4-5 p4: header
+PASS grades-4-5 p4: footer
+PASS grades-4-5: problems numbered consecutively [1, 2, 3, 4, 5, 6, 7, 8]
+grades-2-3 demo: start ['A', 'B', 'C', 'D', 'E', 'F']; bag after 1st ['B', 'D', 'E', 'F']; 1st catch ['A', 'C', 'A*', 'C*']; mixed ['D', 'A*', 'F', 'C*', 'E', 'B']; bag after 2nd ['A*', 'B', 'E']; 2nd catch ['C*', 'D', 'F']
+PASS grades-2-3 demo: start shows six unmarked A-F
+PASS grades-2-3 demo: bag after first catch B,D,E,F unmarked (matches 'Bag: B, D, E, F')
+PASS grades-2-3 demo: first catch A,C then the same A,C marked
+PASS grades-2-3 demo: returned bag = same six, A and C marked
+PASS grades-2-3 demo: bag after second catch A*,B,E (matches 'Bag: A, B, E')
+PASS grades-2-3 demo: second catch C*,D,F; one overlap
+PASS grades-2-3 demo: overlap ring is around C
+NOTE grades-2-3 demo: the arrow into 'First catch: A, C' is labelled 'catch 2' (means 'catch two objects'; reads like 'catch #2' beside 'Second catch')
+grades-4-5 demo: start ['A', 'B', 'C', 'D', 'E', 'F']; bag after 1st ['B', 'D', 'E', 'F']; 1st catch ['A', 'C', 'A*', 'C*']; mixed ['D', 'A*', 'F', 'C*', 'E', 'B']; bag after 2nd ['A*', 'B', 'E']; 2nd catch ['C*', 'D', 'F']
+PASS grades-4-5 demo: start shows six unmarked A-F
+PASS grades-4-5 demo: bag after first catch B,D,E,F unmarked (matches 'Bag: B, D, E, F')
+PASS grades-4-5 demo: first catch A,C then the same A,C marked
+PASS grades-4-5 demo: returned bag = same six, A and C marked
+PASS grades-4-5 demo: bag after second catch A*,B,E (matches 'Bag: A, B, E')
+PASS grades-4-5 demo: second catch C*,D,F; one overlap
+PASS grades-4-5 demo: overlap ring is around C
+NOTE grades-4-5 demo: the arrow into 'First catch: A, C' is labelled 'catch 2' (means 'catch two objects'; reads like 'catch #2' beside 'Second catch')
+grades-2-3 p2 card rows at y = [104, 127, 346, 368]
+PASS G23 P2 record: first ['A', 'B', 'C', 'D', 'E'], second ['B*', 'D*', 'E*', 'F', 'G'] (dots exactly on repeated B, D, E)
+PASS G23 P3 record: first ['A', 'B', 'C', 'D', 'E'], second ['F', 'G', 'H', 'I', 'J'], no dots
+PASS G23 P4 table rounds/overlaps ['1', '2', '2', '1', '3', '3', '4', '1', '5', '2', '6', '0']
+PASS G23 P6 table rows 6, 8, 12
+G45 P4 table tokens: ['Rule’s', 'guess', '1', '1', '36', '2', '2', '18', '3', '3', '12', '4', '2', '18', '5', '0', 'No', 'matching', 'total']
+PASS G45 P4 table matches 36/R
+PASS G45 P2 table records A:2, B:0 ['A', '2', 'B', '0']
+PASS G45 P3 example sample ['A*', 'B', 'C']: 1 marked out of 3
+PASS G45 P3 model groups ['A*', 'B', 'C', 'D*', 'E', 'F']: 1 of 3 in each, 2 of 6
+PASS G45 P3 example text: 2 marked, guess 6
+PASS G45 P3 'Whole bag after marking': 6 circles, all marked
+PASS G45 P3 'Second catch': 6 circles, 2 marked
+PASS G45 P3 circles drawn with equal x/y scaling
+
+0 failures
