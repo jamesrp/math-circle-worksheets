@@ -13,6 +13,8 @@ Sources read: `source/week-79/student/students.tex`, `guide/facilitator.tex`, `b
 
 **Update October 17, 2026:** item 1 is resolved in the current guide; its hint is scoped to Problem 4's smallest-card rule and a correct Problem 3 card-1 contrast is added. Item 2 is unchanged and deferred. The historical findings below are retained. [Correction checks](../infinity-prototypes-79-84/reviews/week-79/hint-correction-2026-10-17.md).
 
+**Update October 23, 2026:** item 2 is resolved: the guide now answers Problem 4's (now Problem 5's) finite-day question for the changed rule with the sentence proposed below. The student packet is revised (v2, 6 pages); the findings below refer to the archived v1 PDFs. [Revision checks](../infinity-prototypes-79-84/reviews/week-79/card-shoulds-2026-10-23.md).
+
 ## How it was checked
 
 - **`check_math.py`** (output `check_math.py.out`, 0 failures):

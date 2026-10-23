@@ -111,7 +111,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 76 | Substitution strips (Thue–Morse) | keep | [card](week-76.md), [math check](week-76-math.md) |
 | 77 | Persistent holes | keep | [card](week-77.md), [math check](week-77-math.md) |
 | 78 | Three-armed lines (tropical lines) | keep | [card](week-78.md), [math check](week-78-math.md) |
-| 79 | Numbered-ball detectives (the Ross–Littlewood paradox) | original verdict revise; sole must (guide hint scope) fixed October 17; remaining proposals deferred, student packet unchanged | [card](week-79.md), [math check](week-79-math.md) |
+| 79 | Numbered-ball detectives (the Ross–Littlewood paradox) | original verdict revise; sole must (guide hint scope) fixed October 17; converted to problem files and shoulds 2–6 and coulds 7–11 done October 23 (v2, 6 pp., new chosen-moves Problem 4), after the organizer's approval; approved PDFs archived | [card](week-79.md), [math check](week-79-math.md) |
 | 80 | Midnight laboratory (the Thomson lamp) | keep | [card](week-80.md), [math check](week-80-math.md) |
 | 81 | Buckets of Fish (Hamkins's remove-and-refill game) | keep | [card](week-81.md), [math check](week-81-math.md) |
 | 82 | Endless class lines (ordinal addition) | keep | [card](week-82.md), [math check](week-82-math.md) |

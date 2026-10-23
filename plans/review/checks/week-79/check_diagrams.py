@@ -36,7 +36,10 @@ def find_repo(here):
 
 
 REPO = find_repo(HERE)
-WEEK = REPO / 'lowell-math-circle-year-2' / 'week-79'
+# The reviewed v1 PDFs (organizer-approved October 15, guide corrected October 17) are
+# archived since the October 23 revision (v2); this review checks them. The stored .out
+# predates the October 17 correction, after which the quoted "Problems 3-4" hint reads FAIL.
+WEEK = REPO / 'lowell-math-circle-year-2' / 'week-79' / 'archive-organizer-approved-2026-10-15'
 STU = WEEK / 'week-79-students.pdf'
 GUI = WEEK / 'week-79-facilitator.pdf'
 PT_MM = 25.4 / 72

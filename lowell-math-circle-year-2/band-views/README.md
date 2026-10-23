@@ -35,7 +35,7 @@ The packets and these views are unpiloted, as their weeks are.
 | 76 | Substitution strips | [4 pages](../week-76/week-76-students.pdf) | — | whole packet | whole packet | [menu](week-76/week-76-menu.pdf) |
 | 77 | Persistent holes | [6 pages](../week-77/week-77-students.pdf) | — | — | whole packet | [menu](week-77/week-77-menu.pdf) |
 | 78 | Three-armed lines | [5 pages](../week-78/week-78-students.pdf) | — | — | whole packet | [menu](week-78/week-78-menu.pdf) |
-| 79 | Numbered-ball detectives | [5 pages](../week-79/week-79-students.pdf) | — | [4 of 5](week-79/week-79-grades-2-3.pdf): pp. 1–2, 4–5 | whole packet | [menu](week-79/week-79-menu.pdf) |
+| 79 | Numbered-ball detectives | [6 pages](../week-79/week-79-students.pdf) | — | [5 of 6](week-79/week-79-grades-2-3.pdf): pp. 1–3, 5–6 | whole packet | [menu](week-79/week-79-menu.pdf) |
 | 80 | Midnight laboratory | [5 pages](../week-80/week-80-students.pdf) | — | [3 of 5](week-80/week-80-grades-2-3.pdf): pp. 1–2, 5 | whole packet | [menu](week-80/week-80-menu.pdf) |
 | 81 | Buckets of Fish | [5 pages](../week-81/week-81-students.pdf) | — | [4 of 5](week-81/week-81-grades-2-3.pdf): pp. 1–4 | whole packet | [menu](week-81/week-81-menu.pdf) |
 | 82 | Endless class lines | [6 pages](../week-82/week-82-students.pdf) | — | whole packet | whole packet | [menu](week-82/week-82-menu.pdf) |

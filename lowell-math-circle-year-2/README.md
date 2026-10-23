@@ -68,7 +68,7 @@ Downloaded originals belong in [external-resources](../external-resources/README
 
 ## Infinity, ordinal, surreal and knowledge drafts 79–84
 
-The [six-family mobile review index](WEEKS-79-84-DRAFT.md) links every student/material PDF and theorem-first facilitator guide individually, plus editable sources and portable ZIPs. Week 79 was promoted after organizer review on October 15, 2026, and Weeks 80–81 on October 17; Week 82 is also organizer-approved and promoted; Weeks 83–84 remain under review. All six selected-band activities remain unpiloted; physical fit and procedure rehearsal are untested. They are library options, not an adopted meeting schedule, and are not added to the older combined sets.
+The [six-family mobile review index](WEEKS-79-84-DRAFT.md) links every student/material PDF and theorem-first facilitator guide individually, plus editable sources and portable ZIPs. Week 79 was promoted after organizer review on October 15, 2026 (and revised from its review card on October 23, after that approval; the approved PDFs are archived), and Weeks 80–81 on October 17; Week 82 is also organizer-approved and promoted; Weeks 83–84 remain under review. All six selected-band activities remain unpiloted; physical fit and procedure rehearsal are untested. They are library options, not an adopted meeting schedule, and are not added to the older combined sets.
 
 ## Final breadth investigations 98–100
 

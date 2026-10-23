@@ -13,7 +13,7 @@
 \renewcommand{\footrulewidth}{0pt}
 \newcommand{\level}{Grades 2--5}
 \fancyhead[L]{\fontsize{10.5}{12}\selectfont Week 79 / Numbered-ball detectives / \level}
-\fancyfoot[L]{\fontsize{9}{11}\selectfont Bellingham Math Circle / Week 79 / 79-ST-v1}
+\fancyfoot[L]{\fontsize{9}{11}\selectfont Bellingham Math Circle / Week 79 / 79-ST-v2}
 \fancyfoot[R]{\fontsize{9}{11}\selectfont \thepage}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{9pt}
@@ -55,15 +55,17 @@ Both bowls start empty. Each day, put the next two numbered cards in A, then mov
 
 \newpage
 
-\problem{2}{Restart. Find a rule for the day any numbered card moves to B. Test your rule on cards 3, 6, and 10, and predict the day for card 20 without running twenty days.}
+\problem{2}{Restart. Find rules for the day any numbered card enters A and the day it moves to B. Test your rules on cards 3, 6, and 10, and predict both days for card 20 without running twenty days.}
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm]
   \foreach \x/\v in {2.3/3,6.8/6,11.3/10,15.8/20} {
     \draw[line width=0.8pt,rounded corners=2pt] (\x-0.85,1.1) rectangle (\x+0.85,2.8);
     \node[font=\fontsize{25}{28}\selectfont] at (\x,1.95){\v};
-    \node[font=\normalsize,anchor=west] at (\x-1.1,0.25){Day};
-    \draw[line width=0.5pt] (\x-0.15,-0.05)--(\x+1.3,-0.05);
+    \node[font=\normalsize,anchor=west] at (\x-1.75,0.25){Enters day};
+    \draw[line width=0.5pt] (\x+0.55,-0.05)--(\x+1.85,-0.05);
+    \node[font=\normalsize,anchor=west] at (\x-1.75,-0.75){Moves day};
+    \draw[line width=0.5pt] (\x+0.55,-1.05)--(\x+1.85,-1.05);
   }
 \end{tikzpicture}
 \end{center}
@@ -80,9 +82,25 @@ Both bowls start empty. Each day, put the next two numbered cards in A, then mov
 
 \newpage
 
+\problem{4}{Start again, but now you choose which card in A moves to B each day. After six days, can B hold the six cards in each row?}
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \foreach \row/\cards in {0/{1,3,5,7,9,11},1/{2,3,5,7,8,11},2/{1,4,6,9,11,12}} {
+    \foreach \v [count=\i] in \cards {
+      \draw[line width=0.7pt,rounded corners=2pt] (1.95*\i-1.95,-7.3*\row) rectangle (1.95*\i-0.45,-7.3*\row+1.5);
+      \node[font=\fontsize{20}{24}\selectfont] at (1.95*\i-1.2,-7.3*\row+0.75){\v};
+    }
+    \draw[gray!55,line width=0.5pt] (0,-7.3*\row-0.5) rectangle (18.4,-7.3*\row-5.5);
+  }
+\end{tikzpicture}
+\end{center}
+
+\newpage
+
 \renewcommand{\level}{Grades 4--5}
 
-\problem{4}{Imagine the numbered cards continuing forever, with two new cards each day. Call a label settled in a bowl if, after some day, it stays in that bowl forever. For each rule, decide where all the labels settle. Can that arrangement happen on a finite day?}
+\problem{5}{Imagine the numbered cards continuing forever, with two new cards each day. Call a card settled in a bowl if, after some day, it stays in that bowl forever. For each rule, decide where all the cards settle. Can that arrangement happen on a finite day?}
 
 \vspace{0.7cm}
 \begin{center}

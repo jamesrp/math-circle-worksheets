@@ -4,14 +4,14 @@ title = "Where the cards settle, and whether a finite day shows it"
 grades = ["2-5"]
 route = "return"
 page = "new"
-kernel = "Under the smallest-card rule every label settles in B, yet card N+1 is in A on every day N: each label by some day is not all labels by one day."
+kernel = "Under the smallest-card rule every card settles in B, yet card N+1 is in A on every day N: each card by some day is not all cards by one day."
 +++
 
 ## text
 \renewcommand{\level}{Grades 4--5}
 
 ## prompt
-Imagine the numbered cards continuing forever, with two new cards each day. Call a label settled in a bowl if, after some day, it stays in that bowl forever. For each rule, decide where all the labels settle. Can that arrangement happen on a finite day?
+Imagine the numbered cards continuing forever, with two new cards each day. Call a card settled in a bowl if, after some day, it stays in that bowl forever. For each rule, decide where all the cards settle. Can that arrangement happen on a finite day?
 
 ## text
 \vspace{0.7cm}
