@@ -1,3 +1,3 @@
-# Week 33 revised student packets
+# Week 33 student packets
 
-Unpiloted. Rebuild with `bash build.sh` using Python 3, pdfLaTeX with TikZ and Helvetica, and Poppler (`pdftoppm`). The build runs two TeX passes and writes PDFs and QA renders to the parent directory. All source paths are relative.
+Unpiloted. Since October 23, 2026 the packets are stored as problem files (in the repository `../../week.toml`, `../../figures.py` and `../../problems/`; in the ZIP `../problem-files/`). `regenerate.py` writes `k-1.tex`, `grades-2-3.tex` and `grades-4-5.tex` from them; edit the problem files, not the `.tex` files. Rebuild with `bash build.sh` using Python 3.11+, pdfLaTeX with TikZ and Helvetica, and Poppler (`pdftoppm`). The build runs two TeX passes and writes PDFs to the parent directory and QA renders to `../qa`. The previous builder (`make_packets.py`, `draw.py`) is archived beside the problem files.
