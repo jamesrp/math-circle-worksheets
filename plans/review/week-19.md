@@ -47,6 +47,8 @@ Cards are the subsets of up to four symbols; "fits inside" is containment, so a 
 
 October 23, 2026: shoulds 1–4 and coulds 5 and 7–10 done in the new problem files and guide (F19-v3, card sheet week-19-materials.pdf). The launch builds BC and BD, rejects B and adds ACD instead of AB/AC/BC, which answers tasks (K–1 P1's third group; a largest eight-card collection). Could 6 deferred: it changes 2–3 P1's task. See `source/week-19/editable/review/card-fixes-2026-10-23.md`.
 
+**Critic follow-up, October 23, 2026 (guide only):** an independent critic found revision history in the guide's key for Grades 2–3 Problem 6 (p. 8), "the problem no longer asks why it is best", the kind of residue could 9 removed. It now reads "Problem 8 asks why, and Problems 7 and 8 supply the universal argument." The student packets are unchanged (F19-v3). Check: `plans/review/checks/week-19/check_critic_fixes.py`. The critic's other could (the top mark on some printed decks and not others) is a figure change across bands and is left.
+
 I agree with the math check, which did not cover materials or the launch.
 
 ## Overlaps
