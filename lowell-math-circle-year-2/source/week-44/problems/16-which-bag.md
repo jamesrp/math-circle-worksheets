@@ -7,7 +7,7 @@ kernel = "After four copying draws, five red and one blue and three red and thre
 +++
 
 ## prompt @0
-After four copying draws, which bag is more likely: five red and one blue, or three red and three blue?
+After four copying draws, which bag is more likely, if either: five red and one blue, or three red and three blue?
 
 ## figure
 which_bag()

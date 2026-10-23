@@ -102,7 +102,7 @@ check('two different color stories?' in text['01-k1-two-draw-bags.md'], 'K-1 P1 
 check('Which of these bags can you make after three draws?' in text['02-k1-three-draw-bags.md'], 'K-1 P2 asks "Which of these bags"')
 check('Each counter in the bag has the same chance of being drawn.' not in everything, '2-3 P2 drops its repeat of the random-play rule')
 check('Find every color story for each final bag below.' in text['15-four-draw-bags.md'], '2-3 P5 asks for every color story')
-check('which bag is more likely: five red and one blue, or three red and three blue?' in text['16-which-bag.md']
+check('which bag is more likely, if either: five red and one blue, or three red and three blue?' in text['16-which-bag.md']  # 'if either' since the critic follow-up
       and 'vanish' not in everything, '2-3 P6 is the new four-draw comparison')
 check('further question' not in everything, '4-5 P6 drops "an exact argument for every length is a further question"')
 check('marked stories' not in student(''.join(v for k, v in text.items() if k.startswith('2'))) and 'if any' in text['21-marked-stories.md'],
@@ -120,7 +120,8 @@ else:
     MM = 25.4 / 72
     docs = {b: pymupdf.open(folder / f'{b}.pdf') for b in ('k-1', 'grades-2-3', 'grades-4-5')}
     for b, d in docs.items():
-        check(all(f'W44-{b}-v3' in p.get_text() for p in d), f'{b}: every page carries W44-{b}-v3')
+        v = 'v4' if b == 'grades-2-3' else 'v3'  # Grades 2-3 became v4 in the critic follow-up
+        check(all(f'W44-{b}-{v}' in p.get_text() for p in d), f'{b}: every page carries W44-{b}-{v}')
 
     def boxes(page, w, h, tol=.05):
         return sorted({(round(dr['rect'].x0 * MM / 10, 1), round(dr['rect'].y0 * MM / 10, 1)) for dr in page.get_drawings()

@@ -52,6 +52,8 @@ The math check's four items are fixes 9, 1, 2 and 4, each a should.
 
 Fixed October 23, 2026, after converting the week to problem files: shoulds 1–9 and coulds 11–13 and 16 (v3 packets; Grades 2–3 is five pages; bonus guide W44-BONUS-FAC-v2; checked in `source/week-44/editable/review/verify_card_shoulds_2026_10_23.py`). Deferred: coulds 10, 14 and 15.
 
+**Critic follow-up, October 23, 2026 (W44-grades-2-3-v4):** an independent critic's two coulds. Grades 2–3 Problem 6 asks "which bag is more likely, if either", since the answer is neither (1/5 each). Guide page 2's timeline gives the random games about 15 minutes, and the page 6 route note adds that a pooled chart of 20 games of each kind shows fewer two-red, two-blue bags for copying than for returning only about four times in five. Checked in `plans/review/checks/week-44/check_critic_fixes.py`. Unpiloted.
+
 ## Overlaps
 
 Weeks 42, 43 and 45 also label look-alikes to get equally likely cases, and 42's unchanged bag is this week's return-only contrast. None has a reinforcing bag or the uniform law. No merge.
