@@ -21,6 +21,8 @@ def main():
     check=subprocess.run([sys.executable,str(ROOT/'check_math.py')],cwd=work,env=env,text=True,capture_output=True)
     (work/f'week-{WEEK}-math.txt').write_text(check.stdout+check.stderr)
     if check.returncode:raise SystemExit(check.stdout+check.stderr)
+    regen=subprocess.run([sys.executable,'-B',str(ROOT/'student/regenerate.py')],text=True,capture_output=True)
+    if regen.returncode:raise SystemExit(regen.stdout+regen.stderr)
     targets=json.loads((ROOT/'build-targets.json').read_text())
     with tempfile.TemporaryDirectory(prefix=f'week-{WEEK}-',dir=work) as temp:
         for ix,target in enumerate(targets):

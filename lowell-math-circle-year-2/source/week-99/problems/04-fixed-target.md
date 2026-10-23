@@ -1,0 +1,134 @@
++++
+id = "w99.fixed-target"
+title = "Starts with least work 4 and 7 to a fixed target"
+grades = ["2-3"]
+route = "return"
+page = "new"
+kernel = "With every counter going to bin 2, the least work is the sum of distances to 2."
++++
+
+## text
+\portraitpage
+\promptstyle{10.0}{7.2in}{13}{16.12}
+
+## prompt
+Use four counters and keep this target fixed. Find different starts whose least work is 4. Then find starts whose least work is 7.
+
+## text
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,8.729999999999999) {target\\picture};
+\draw[black!45,line width=.45pt,] (1.96,8.61) -- (2.24,8.61);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,8.61) -- (3.34,8.61);
+\draw[black!45,line width=.45pt,] (4.16,8.61) -- (4.44,8.61);
+\draw[black!45,line width=.45pt,] (5.260000000000001,8.61) -- (5.54,8.61);
+\draw[black!45,line width=.45pt,] (6.36,8.61) -- (6.64,8.61);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,8.325) rectangle (1.96,8.895);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,8.254999999999999) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,8.325) rectangle (3.0600000000000005,8.895);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,8.254999999999999) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,8.325) rectangle (4.16,8.895);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,8.254999999999999) {2};
+\draw[line width=.7pt,fill=white] (3.63,8.719999999999999) circle (0.065);
+\draw[line width=.7pt,fill=white] (3.87,8.719999999999999) circle (0.065);
+\draw[line width=.7pt,fill=white] (3.63,8.5) circle (0.065);
+\draw[line width=.7pt,fill=white] (3.87,8.5) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (4.44,8.325) rectangle (5.260000000000001,8.895);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,8.254999999999999) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,8.325) rectangle (6.36,8.895);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,8.254999999999999) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,8.325) rectangle (7.46,8.895);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,8.254999999999999) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,7.24) {start};
+\draw[black!45,line width=.45pt,] (1.96,7.12) -- (2.24,7.12);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,7.12) -- (3.34,7.12);
+\draw[black!45,line width=.45pt,] (4.16,7.12) -- (4.44,7.12);
+\draw[black!45,line width=.45pt,] (5.260000000000001,7.12) -- (5.54,7.12);
+\draw[black!45,line width=.45pt,] (6.36,7.12) -- (6.64,7.12);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,6.835) rectangle (1.96,7.405);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,6.765) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,6.835) rectangle (3.0600000000000005,7.405);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,6.765) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,6.835) rectangle (4.16,7.405);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,6.765) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,6.835) rectangle (5.260000000000001,7.405);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,6.765) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,6.835) rectangle (6.36,7.405);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,6.765) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,6.835) rectangle (7.46,7.405);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,6.765) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.15,6.57) {least work: \rule{.4in}{.4pt}};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,5.95) {start};
+\draw[black!45,line width=.45pt,] (1.96,5.83) -- (2.24,5.83);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,5.83) -- (3.34,5.83);
+\draw[black!45,line width=.45pt,] (4.16,5.83) -- (4.44,5.83);
+\draw[black!45,line width=.45pt,] (5.260000000000001,5.83) -- (5.54,5.83);
+\draw[black!45,line width=.45pt,] (6.36,5.83) -- (6.64,5.83);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,5.545) rectangle (1.96,6.115);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,5.475) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,5.545) rectangle (3.0600000000000005,6.115);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,5.475) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,5.545) rectangle (4.16,6.115);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,5.475) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,5.545) rectangle (5.260000000000001,6.115);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,5.475) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,5.545) rectangle (6.36,6.115);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,5.475) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,5.545) rectangle (7.46,6.115);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,5.475) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.15,5.28) {least work: \rule{.4in}{.4pt}};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,4.66) {start};
+\draw[black!45,line width=.45pt,] (1.96,4.54) -- (2.24,4.54);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,4.54) -- (3.34,4.54);
+\draw[black!45,line width=.45pt,] (4.16,4.54) -- (4.44,4.54);
+\draw[black!45,line width=.45pt,] (5.260000000000001,4.54) -- (5.54,4.54);
+\draw[black!45,line width=.45pt,] (6.36,4.54) -- (6.64,4.54);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,4.255) rectangle (1.96,4.825);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,4.185) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,4.255) rectangle (3.0600000000000005,4.825);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,4.185) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,4.255) rectangle (4.16,4.825);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,4.185) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,4.255) rectangle (5.260000000000001,4.825);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,4.185) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,4.255) rectangle (6.36,4.825);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,4.185) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,4.255) rectangle (7.46,4.825);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,4.185) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.15,3.99) {least work: \rule{.4in}{.4pt}};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,3.37) {start};
+\draw[black!45,line width=.45pt,] (1.96,3.25) -- (2.24,3.25);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,3.25) -- (3.34,3.25);
+\draw[black!45,line width=.45pt,] (4.16,3.25) -- (4.44,3.25);
+\draw[black!45,line width=.45pt,] (5.260000000000001,3.25) -- (5.54,3.25);
+\draw[black!45,line width=.45pt,] (6.36,3.25) -- (6.64,3.25);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,2.965) rectangle (1.96,3.535);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,2.895) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,2.965) rectangle (3.0600000000000005,3.535);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,2.895) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,2.965) rectangle (4.16,3.535);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,2.895) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,2.965) rectangle (5.260000000000001,3.535);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,2.895) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,2.965) rectangle (6.36,3.535);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,2.895) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,2.965) rectangle (7.46,3.535);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,2.895) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.15,2.7) {least work: \rule{.4in}{.4pt}};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,2.08) {start};
+\draw[black!45,line width=.45pt,] (1.96,1.96) -- (2.24,1.96);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,1.96) -- (3.34,1.96);
+\draw[black!45,line width=.45pt,] (4.16,1.96) -- (4.44,1.96);
+\draw[black!45,line width=.45pt,] (5.260000000000001,1.96) -- (5.54,1.96);
+\draw[black!45,line width=.45pt,] (6.36,1.96) -- (6.64,1.96);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,1.675) rectangle (1.96,2.245);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,1.605) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,1.675) rectangle (3.0600000000000005,2.245);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,1.605) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,1.675) rectangle (4.16,2.245);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,1.605) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,1.675) rectangle (5.260000000000001,2.245);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,1.605) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,1.675) rectangle (6.36,2.245);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,1.605) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,1.675) rectangle (7.46,2.245);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,1.605) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.15,1.41) {least work: \rule{.4in}{.4pt}};

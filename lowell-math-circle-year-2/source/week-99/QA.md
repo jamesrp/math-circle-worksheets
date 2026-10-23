@@ -12,7 +12,7 @@ A fresh writer, adversarial critic, mathematical reviewer and reviser completed 
 
 Specified committed whole deliveries and equal counter totals; clarified that both first-task records must be optimal and different move orders count; added a non-task position-total example and more record space. The guide supplies a full-size reusable mat from the beginning and preparation of the catalog cards.
 
-Detailed review reports are retained separately and are not included in this public release. Canonical editable inputs are the static TeX files, avoiding a stale parallel generator. Integration changes to the student TeX are only reproducibility metadata.
+Detailed review reports are retained separately and are not included in this public release. Since October 23, 2026 the student pages' source is the problem files (`week.toml`, `template.tex`, `problems/`); `student/regenerate.py` writes one band TeX per packet from them, and the conversion changed no page (same text and 100-dpi pixels). The guide's source is still `guide/*.tex`.
 
 ## Mathematics
 

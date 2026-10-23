@@ -1,0 +1,656 @@
+\documentclass{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[paperwidth=8.5in,paperheight=11in,margin=0in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{tikz}
+\pdfmapfile{+lm.map}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\hyphenpenalty=10000\exhyphenpenalty=10000
+% Each page is one overlay picture in inches, y up from the bottom left corner.
+% A page's first problem file opens it with \portraitpage or \landscapepage, which
+% set the paper size and draw the header, rule, footer and page number; \pageclose
+% (the page break, and the end of the document) closes the picture.
+% \promptstyle{y}{text width}{font size}{leading} places the next prompt at (0.65, y).
+\newcommand{\pagestart}{\null\begin{tikzpicture}[remember picture,overlay,x=1in,y=1in]\begin{scope}[shift={(current page.south west)}]}
+\newcommand{\portraitpage}{\pdfpagewidth=8.5in\pdfpageheight=11in\paperwidth=8.5in\paperheight=11in\pagestart%
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.4in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (0.55,10.63) {Week 99 / Moving piles / Grades 2--3};%
+\draw[black!45,line width=.45pt,] (0.55,10.35) -- (7.95,10.35);%
+\node[anchor=north west,inner sep=0pt,align=left,text width=6.7in,font=\sffamily\fontsize{9}{11.16}\selectfont] at (0.55,0.38) {Bellingham Math Circle / Week 99 / W99-23-v1};%
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.3in,font=\sffamily\fontsize{9}{11.16}\selectfont] at (7.65,0.38) {\thepage};}
+\newcommand{\landscapepage}{\pdfpagewidth=11in\pdfpageheight=8.5in\paperwidth=11in\paperheight=8.5in\pagestart%
+\node[anchor=north west,inner sep=0pt,align=left,text width=9.9in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (0.55,8.13) {Week 99 / Moving piles / Grades 2--3};%
+\draw[black!45,line width=.45pt,] (0.55,7.85) -- (10.45,7.85);%
+\node[anchor=north west,inner sep=0pt,align=left,text width=9.2in,font=\sffamily\fontsize{9}{11.16}\selectfont] at (0.55,0.38) {Bellingham Math Circle / Week 99 / W99-23-v1};%
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.3in,font=\sffamily\fontsize{9}{11.16}\selectfont] at (10.15,0.38) {\thepage};}
+\newcommand{\pageclose}{\end{scope}\end{tikzpicture}}
+\newcommand{\promptstyle}[4]{\def\prompty{#1}\def\promptw{#2}\def\prompts{#3}\def\promptl{#4}}
+\newcommand{\problem}[2]{\node[anchor=north west,inner sep=0pt,align=left,text width=\promptw,font=\sffamily\fontsize{\prompts}{\promptl}\selectfont] at (0.65,\prompty) {\textbf{Problem #1:} #2};}
+\begin{document}
+\portraitpage
+\node[anchor=north west,inner sep=0pt,align=left,text width=7.2in,font=\sffamily\fontsize{12}{14.88}\selectfont] at (0.65,10.0) {Move one counter at a time to a neighboring bin. Each crossing costs 1. Bins hold any number of counters, and counters may pass through occupied bins. Any counter may fill any target place. Only start counters move; the target picture stays fixed. Keep one record of your moves at a time so you can count the work afterward.};
+\draw[black!35,line width=.45pt,] (1.27,8.53) -- (1.3900000000000001,8.53);
+\draw[line width=.6pt,rounded corners=2pt] (0.8500000000000001,8.34) rectangle (1.27,8.719999999999999);
+\fill[black!80] (1.06,8.53) circle (.065);
+\draw[black!35,line width=.45pt,] (1.81,8.53) -- (1.9300000000000002,8.53);
+\draw[line width=.6pt,rounded corners=2pt] (1.3900000000000001,8.34) rectangle (1.81,8.719999999999999);
+\draw[line width=.6pt,rounded corners=2pt] (1.9300000000000002,8.34) rectangle (2.35,8.719999999999999);
+\node[anchor=north west,inner sep=0pt,align=center,text width=1.7in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.76,8.25) {start};
+\draw[->,line width=.65pt] (2.49,8.53) -- (3.09,8.53);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.95in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.31,8.889999999999999) {cost 1};
+\draw[black!35,line width=.45pt,] (3.82,8.53) -- (3.9400000000000004,8.53);
+\draw[line width=.6pt,rounded corners=2pt] (3.4,8.34) rectangle (3.82,8.719999999999999);
+\draw[black!35,line width=.45pt,] (4.36,8.53) -- (4.48,8.53);
+\draw[line width=.6pt,rounded corners=2pt] (3.9400000000000004,8.34) rectangle (4.36,8.719999999999999);
+\fill[black!80] (4.15,8.53) circle (.065);
+\draw[line width=.6pt,rounded corners=2pt] (4.4799999999999995,8.34) rectangle (4.8999999999999995,8.719999999999999);
+\node[anchor=north west,inner sep=0pt,align=center,text width=1.7in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.31,8.25) {middle};
+\draw[->,line width=.65pt] (5.04,8.53) -- (5.64,8.53);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.95in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.859999999999999,8.889999999999999) {cost 1};
+\draw[black!35,line width=.45pt,] (6.37,8.53) -- (6.49,8.53);
+\draw[line width=.6pt,rounded corners=2pt] (5.95,8.34) rectangle (6.37,8.719999999999999);
+\draw[black!35,line width=.45pt,] (6.91,8.53) -- (7.03,8.53);
+\draw[line width=.6pt,rounded corners=2pt] (6.49,8.34) rectangle (6.91,8.719999999999999);
+\draw[line width=.6pt,rounded corners=2pt] (7.03,8.34) rectangle (7.45,8.719999999999999);
+\fill[black!80] (7.24,8.53) circle (.065);
+\node[anchor=north west,inner sep=0pt,align=center,text width=1.7in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.86,8.25) {target};
+
+\promptstyle{7.56}{7.2in}{13}{16.12}
+
+\problem{1}{Match each target using the least work you can. Find two best move records for each pair. Changing the order of moves counts as different.}
+
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,6.6000000000000005) {start};
+\draw[black!45,line width=.45pt,] (1.96,6.48) -- (2.24,6.48);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,6.48) -- (3.34,6.48);
+\draw[black!45,line width=.45pt,] (4.16,6.48) -- (4.44,6.48);
+\draw[black!45,line width=.45pt,] (5.260000000000001,6.48) -- (5.54,6.48);
+\draw[black!45,line width=.45pt,] (6.36,6.48) -- (6.64,6.48);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,6.195) rectangle (1.96,6.765000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,6.125) {0};
+\draw[line width=.7pt,fill=black!80] (1.4300000000000002,6.48) circle (0.065);
+\draw[line width=.7pt,fill=black!80] (1.67,6.48) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (2.24,6.195) rectangle (3.0600000000000005,6.765000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,6.125) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,6.195) rectangle (4.16,6.765000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,6.125) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,6.195) rectangle (5.260000000000001,6.765000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,6.125) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,6.195) rectangle (6.36,6.765000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,6.125) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,6.195) rectangle (7.46,6.765000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,6.125) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,5.670000000000001) {target\\picture};
+\draw[black!45,line width=.45pt,] (1.96,5.550000000000001) -- (2.24,5.550000000000001);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,5.550000000000001) -- (3.34,5.550000000000001);
+\draw[black!45,line width=.45pt,] (4.16,5.550000000000001) -- (4.44,5.550000000000001);
+\draw[black!45,line width=.45pt,] (5.260000000000001,5.550000000000001) -- (5.54,5.550000000000001);
+\draw[black!45,line width=.45pt,] (6.36,5.550000000000001) -- (6.64,5.550000000000001);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,5.265000000000001) rectangle (1.96,5.835000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,5.195) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,5.265000000000001) rectangle (3.0600000000000005,5.835000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,5.195) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,5.265000000000001) rectangle (4.16,5.835000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,5.195) {2};
+\draw[line width=.7pt,fill=white] (3.75,5.550000000000001) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (4.44,5.265000000000001) rectangle (5.260000000000001,5.835000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,5.195) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,5.265000000000001) rectangle (6.36,5.835000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,5.195) {4};
+\draw[line width=.7pt,fill=white] (5.95,5.550000000000001) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (6.64,5.265000000000001) rectangle (7.46,5.835000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,5.195) {5};
+\draw[black!35,line width=.45pt,] (0.75,4.880000000000001) -- (7.65,4.880000000000001);
+\draw[black!35,line width=.45pt,] (0.75,4.49) -- (7.65,4.49);
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,3.94) {start};
+\draw[black!45,line width=.45pt,] (1.96,3.82) -- (2.24,3.82);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,3.82) -- (3.34,3.82);
+\draw[black!45,line width=.45pt,] (4.16,3.82) -- (4.44,3.82);
+\draw[black!45,line width=.45pt,] (5.260000000000001,3.82) -- (5.54,3.82);
+\draw[black!45,line width=.45pt,] (6.36,3.82) -- (6.64,3.82);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,3.5349999999999997) rectangle (1.96,4.1049999999999995);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,3.465) {0};
+\draw[line width=.7pt,fill=black!80] (1.55,3.82) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (2.24,3.5349999999999997) rectangle (3.0600000000000005,4.1049999999999995);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,3.465) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,3.5349999999999997) rectangle (4.16,4.1049999999999995);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,3.465) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,3.5349999999999997) rectangle (5.260000000000001,4.1049999999999995);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,3.465) {3};
+\draw[line width=.7pt,fill=black!80] (4.8500000000000005,3.82) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (5.54,3.5349999999999997) rectangle (6.36,4.1049999999999995);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,3.465) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,3.5349999999999997) rectangle (7.46,4.1049999999999995);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,3.465) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,3.01) {target\\picture};
+\draw[black!45,line width=.45pt,] (1.96,2.8899999999999997) -- (2.24,2.8899999999999997);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,2.8899999999999997) -- (3.34,2.8899999999999997);
+\draw[black!45,line width=.45pt,] (4.16,2.8899999999999997) -- (4.44,2.8899999999999997);
+\draw[black!45,line width=.45pt,] (5.260000000000001,2.8899999999999997) -- (5.54,2.8899999999999997);
+\draw[black!45,line width=.45pt,] (6.36,2.8899999999999997) -- (6.64,2.8899999999999997);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,2.6049999999999995) rectangle (1.96,3.175);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,2.5349999999999997) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,2.6049999999999995) rectangle (3.0600000000000005,3.175);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,2.5349999999999997) {1};
+\draw[line width=.7pt,fill=white] (2.6500000000000004,2.8899999999999997) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (3.34,2.6049999999999995) rectangle (4.16,3.175);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,2.5349999999999997) {2};
+\draw[line width=.7pt,fill=white] (3.75,2.8899999999999997) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (4.44,2.6049999999999995) rectangle (5.260000000000001,3.175);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,2.5349999999999997) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,2.6049999999999995) rectangle (6.36,3.175);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,2.5349999999999997) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,2.6049999999999995) rectangle (7.46,3.175);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,2.5349999999999997) {5};
+\draw[black!35,line width=.45pt,] (0.75,2.2199999999999998) -- (7.65,2.2199999999999998);
+\draw[black!35,line width=.45pt,] (0.75,1.8299999999999998) -- (7.65,1.8299999999999998);
+
+\pageclose\newpage
+
+\portraitpage
+\promptstyle{10.0}{7.2in}{13}{16.12}
+
+\problem{2}{Make each start match its target. How little work can you use?}
+
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,9.059999999999999) {start};
+\draw[black!45,line width=.45pt,] (1.96,8.94) -- (2.24,8.94);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,8.94) -- (3.34,8.94);
+\draw[black!45,line width=.45pt,] (4.16,8.94) -- (4.44,8.94);
+\draw[black!45,line width=.45pt,] (5.260000000000001,8.94) -- (5.54,8.94);
+\draw[black!45,line width=.45pt,] (6.36,8.94) -- (6.64,8.94);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,8.655) rectangle (1.96,9.225);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,8.584999999999999) {0};
+\draw[line width=.7pt,fill=black!80] (1.4300000000000002,9.049999999999999) circle (0.065);
+\draw[line width=.7pt,fill=black!80] (1.67,9.049999999999999) circle (0.065);
+\draw[line width=.7pt,fill=black!80] (1.55,8.83) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (2.24,8.655) rectangle (3.0600000000000005,9.225);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,8.584999999999999) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,8.655) rectangle (4.16,9.225);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,8.584999999999999) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,8.655) rectangle (5.260000000000001,9.225);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,8.584999999999999) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,8.655) rectangle (6.36,9.225);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,8.584999999999999) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,8.655) rectangle (7.46,9.225);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,8.584999999999999) {5};
+\draw[line width=.7pt,fill=black!80] (7.05,8.94) circle (0.065);
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,8.129999999999999) {target\\picture};
+\draw[black!45,line width=.45pt,] (1.96,8.01) -- (2.24,8.01);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,8.01) -- (3.34,8.01);
+\draw[black!45,line width=.45pt,] (4.16,8.01) -- (4.44,8.01);
+\draw[black!45,line width=.45pt,] (5.260000000000001,8.01) -- (5.54,8.01);
+\draw[black!45,line width=.45pt,] (6.36,8.01) -- (6.64,8.01);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,7.725) rectangle (1.96,8.295);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,7.654999999999999) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,7.725) rectangle (3.0600000000000005,8.295);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,7.654999999999999) {1};
+\draw[line width=.7pt,fill=white] (2.6500000000000004,8.01) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (3.34,7.725) rectangle (4.16,8.295);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,7.654999999999999) {2};
+\draw[line width=.7pt,fill=white] (3.75,8.01) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (4.44,7.725) rectangle (5.260000000000001,8.295);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,7.654999999999999) {3};
+\draw[line width=.7pt,fill=white] (4.8500000000000005,8.01) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (5.54,7.725) rectangle (6.36,8.295);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,7.654999999999999) {4};
+\draw[line width=.7pt,fill=white] (5.95,8.01) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (6.64,7.725) rectangle (7.46,8.295);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,7.654999999999999) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.4in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (0.73,7.39) {work: \rule{.6in}{.4pt}};
+\draw[black!35,line width=.45pt,] (2.3,7.279999999999999) -- (7.65,7.279999999999999);
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,6.46) {start};
+\draw[black!45,line width=.45pt,] (1.96,6.34) -- (2.24,6.34);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,6.34) -- (3.34,6.34);
+\draw[black!45,line width=.45pt,] (4.16,6.34) -- (4.44,6.34);
+\draw[black!45,line width=.45pt,] (5.260000000000001,6.34) -- (5.54,6.34);
+\draw[black!45,line width=.45pt,] (6.36,6.34) -- (6.64,6.34);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,6.055) rectangle (1.96,6.625);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,5.984999999999999) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,6.055) rectangle (3.0600000000000005,6.625);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,5.984999999999999) {1};
+\draw[line width=.7pt,fill=black!80] (2.5300000000000002,6.34) circle (0.065);
+\draw[line width=.7pt,fill=black!80] (2.7700000000000005,6.34) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (3.34,6.055) rectangle (4.16,6.625);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,5.984999999999999) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,6.055) rectangle (5.260000000000001,6.625);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,5.984999999999999) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,6.055) rectangle (6.36,6.625);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,5.984999999999999) {4};
+\draw[line width=.7pt,fill=black!80] (5.83,6.34) circle (0.065);
+\draw[line width=.7pt,fill=black!80] (6.07,6.34) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (6.64,6.055) rectangle (7.46,6.625);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,5.984999999999999) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,5.53) {target\\picture};
+\draw[black!45,line width=.45pt,] (1.96,5.41) -- (2.24,5.41);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,5.41) -- (3.34,5.41);
+\draw[black!45,line width=.45pt,] (4.16,5.41) -- (4.44,5.41);
+\draw[black!45,line width=.45pt,] (5.260000000000001,5.41) -- (5.54,5.41);
+\draw[black!45,line width=.45pt,] (6.36,5.41) -- (6.64,5.41);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,5.125) rectangle (1.96,5.695);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,5.055) {0};
+\draw[line width=.7pt,fill=white] (1.55,5.41) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (2.24,5.125) rectangle (3.0600000000000005,5.695);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,5.055) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,5.125) rectangle (4.16,5.695);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,5.055) {2};
+\draw[line width=.7pt,fill=white] (3.63,5.41) circle (0.065);
+\draw[line width=.7pt,fill=white] (3.87,5.41) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (4.44,5.125) rectangle (5.260000000000001,5.695);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,5.055) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,5.125) rectangle (6.36,5.695);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,5.055) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,5.125) rectangle (7.46,5.695);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,5.055) {5};
+\draw[line width=.7pt,fill=white] (7.05,5.41) circle (0.065);
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.4in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (0.73,4.79) {work: \rule{.6in}{.4pt}};
+\draw[black!35,line width=.45pt,] (2.3,4.68) -- (7.65,4.68);
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,3.8600000000000003) {start};
+\draw[black!45,line width=.45pt,] (1.96,3.74) -- (2.24,3.74);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,3.74) -- (3.34,3.74);
+\draw[black!45,line width=.45pt,] (4.16,3.74) -- (4.44,3.74);
+\draw[black!45,line width=.45pt,] (5.260000000000001,3.74) -- (5.54,3.74);
+\draw[black!45,line width=.45pt,] (6.36,3.74) -- (6.64,3.74);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,3.455) rectangle (1.96,4.025);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,3.3850000000000002) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,3.455) rectangle (3.0600000000000005,4.025);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,3.3850000000000002) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,3.455) rectangle (4.16,4.025);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,3.3850000000000002) {2};
+\draw[line width=.7pt,fill=black!80] (3.63,3.85) circle (0.065);
+\draw[line width=.7pt,fill=black!80] (3.87,3.85) circle (0.065);
+\draw[line width=.7pt,fill=black!80] (3.63,3.6300000000000003) circle (0.065);
+\draw[line width=.7pt,fill=black!80] (3.87,3.6300000000000003) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (4.44,3.455) rectangle (5.260000000000001,4.025);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,3.3850000000000002) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,3.455) rectangle (6.36,4.025);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,3.3850000000000002) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,3.455) rectangle (7.46,4.025);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,3.3850000000000002) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,2.93) {target\\picture};
+\draw[black!45,line width=.45pt,] (1.96,2.81) -- (2.24,2.81);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,2.81) -- (3.34,2.81);
+\draw[black!45,line width=.45pt,] (4.16,2.81) -- (4.44,2.81);
+\draw[black!45,line width=.45pt,] (5.260000000000001,2.81) -- (5.54,2.81);
+\draw[black!45,line width=.45pt,] (6.36,2.81) -- (6.64,2.81);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,2.525) rectangle (1.96,3.095);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,2.455) {0};
+\draw[line width=.7pt,fill=white] (1.55,2.81) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (2.24,2.525) rectangle (3.0600000000000005,3.095);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,2.455) {1};
+\draw[line width=.7pt,fill=white] (2.6500000000000004,2.81) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (3.34,2.525) rectangle (4.16,3.095);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,2.455) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,2.525) rectangle (5.260000000000001,3.095);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,2.455) {3};
+\draw[line width=.7pt,fill=white] (4.8500000000000005,2.81) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (5.54,2.525) rectangle (6.36,3.095);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,2.455) {4};
+\draw[line width=.7pt,fill=white] (5.95,2.81) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (6.64,2.525) rectangle (7.46,3.095);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,2.455) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.4in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (0.73,2.1900000000000004) {work: \rule{.6in}{.4pt}};
+\draw[black!35,line width=.45pt,] (2.3,2.08) -- (7.65,2.08);
+
+\pageclose\newpage
+
+\portraitpage
+\promptstyle{10.0}{7.2in}{12.8}{15.87}
+
+\problem{3}{A delivery takes one counter that has not yet been delivered all the way to one target place that has not yet been filled. Once delivered, that counter stays there. Try this rule: always make the shortest remaining delivery. If deliveries tie, choose either. For each pair, can another plan use less work?}
+
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,8.06) {start};
+\draw[black!45,line width=.45pt,] (1.96,7.94) -- (2.24,7.94);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,7.94) -- (3.34,7.94);
+\draw[black!45,line width=.45pt,] (4.16,7.94) -- (4.44,7.94);
+\draw[black!45,line width=.45pt,] (5.260000000000001,7.94) -- (5.54,7.94);
+\draw[black!45,line width=.45pt,] (6.36,7.94) -- (6.64,7.94);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,7.655) rectangle (1.96,8.225);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,7.585) {0};
+\draw[line width=.7pt,fill=black!80] (1.55,7.94) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (2.24,7.655) rectangle (3.0600000000000005,8.225);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,7.585) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,7.655) rectangle (4.16,8.225);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,7.585) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,7.655) rectangle (5.260000000000001,8.225);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,7.585) {3};
+\draw[line width=.7pt,fill=black!80] (4.8500000000000005,7.94) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (5.54,7.655) rectangle (6.36,8.225);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,7.585) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,7.655) rectangle (7.46,8.225);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,7.585) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,7.130000000000001) {target\\picture};
+\draw[black!45,line width=.45pt,] (1.96,7.010000000000001) -- (2.24,7.010000000000001);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,7.010000000000001) -- (3.34,7.010000000000001);
+\draw[black!45,line width=.45pt,] (4.16,7.010000000000001) -- (4.44,7.010000000000001);
+\draw[black!45,line width=.45pt,] (5.260000000000001,7.010000000000001) -- (5.54,7.010000000000001);
+\draw[black!45,line width=.45pt,] (6.36,7.010000000000001) -- (6.64,7.010000000000001);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,6.7250000000000005) rectangle (1.96,7.295000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,6.655) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,6.7250000000000005) rectangle (3.0600000000000005,7.295000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,6.655) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,6.7250000000000005) rectangle (4.16,7.295000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,6.655) {2};
+\draw[line width=.7pt,fill=white] (3.75,7.010000000000001) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (4.44,6.7250000000000005) rectangle (5.260000000000001,7.295000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,6.655) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,6.7250000000000005) rectangle (6.36,7.295000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,6.655) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,6.7250000000000005) rectangle (7.46,7.295000000000001);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,6.655) {5};
+\draw[line width=.7pt,fill=white] (7.05,7.010000000000001) circle (0.065);
+\draw[black!35,line width=.45pt,] (0.75,6.34) -- (7.65,6.34);
+\draw[black!35,line width=.45pt,] (0.75,5.95) -- (7.65,5.95);
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,4.82) {start};
+\draw[black!45,line width=.45pt,] (1.96,4.7) -- (2.24,4.7);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,4.7) -- (3.34,4.7);
+\draw[black!45,line width=.45pt,] (4.16,4.7) -- (4.44,4.7);
+\draw[black!45,line width=.45pt,] (5.260000000000001,4.7) -- (5.54,4.7);
+\draw[black!45,line width=.45pt,] (6.36,4.7) -- (6.64,4.7);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,4.415) rectangle (1.96,4.985);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,4.345) {0};
+\draw[line width=.7pt,fill=black!80] (1.55,4.7) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (2.24,4.415) rectangle (3.0600000000000005,4.985);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,4.345) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,4.415) rectangle (4.16,4.985);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,4.345) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,4.415) rectangle (5.260000000000001,4.985);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,4.345) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,4.415) rectangle (6.36,4.985);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,4.345) {4};
+\draw[line width=.7pt,fill=black!80] (5.95,4.7) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (6.64,4.415) rectangle (7.46,4.985);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,4.345) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,3.89) {target\\picture};
+\draw[black!45,line width=.45pt,] (1.96,3.77) -- (2.24,3.77);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,3.77) -- (3.34,3.77);
+\draw[black!45,line width=.45pt,] (4.16,3.77) -- (4.44,3.77);
+\draw[black!45,line width=.45pt,] (5.260000000000001,3.77) -- (5.54,3.77);
+\draw[black!45,line width=.45pt,] (6.36,3.77) -- (6.64,3.77);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,3.485) rectangle (1.96,4.055);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,3.415) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,3.485) rectangle (3.0600000000000005,4.055);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,3.415) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,3.485) rectangle (4.16,4.055);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,3.415) {2};
+\draw[line width=.7pt,fill=white] (3.75,3.77) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (4.44,3.485) rectangle (5.260000000000001,4.055);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,3.415) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,3.485) rectangle (6.36,4.055);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,3.415) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,3.485) rectangle (7.46,4.055);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,3.415) {5};
+\draw[line width=.7pt,fill=white] (7.05,3.77) circle (0.065);
+\draw[black!35,line width=.45pt,] (0.75,3.1) -- (7.65,3.1);
+\draw[black!35,line width=.45pt,] (0.75,2.71) -- (7.65,2.71);
+\draw[black!35,line width=.45pt,] (0.75,1.98) -- (7.65,1.98);
+\draw[black!35,line width=.45pt,] (0.75,1.46) -- (7.65,1.46);
+
+\pageclose\newpage
+
+\portraitpage
+\promptstyle{10.0}{7.2in}{13}{16.12}
+
+\problem{4}{Use four counters and keep this target fixed. Find different starts whose least work is 4. Then find starts whose least work is 7.}
+
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,8.729999999999999) {target\\picture};
+\draw[black!45,line width=.45pt,] (1.96,8.61) -- (2.24,8.61);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,8.61) -- (3.34,8.61);
+\draw[black!45,line width=.45pt,] (4.16,8.61) -- (4.44,8.61);
+\draw[black!45,line width=.45pt,] (5.260000000000001,8.61) -- (5.54,8.61);
+\draw[black!45,line width=.45pt,] (6.36,8.61) -- (6.64,8.61);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,8.325) rectangle (1.96,8.895);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,8.254999999999999) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,8.325) rectangle (3.0600000000000005,8.895);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,8.254999999999999) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,8.325) rectangle (4.16,8.895);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,8.254999999999999) {2};
+\draw[line width=.7pt,fill=white] (3.63,8.719999999999999) circle (0.065);
+\draw[line width=.7pt,fill=white] (3.87,8.719999999999999) circle (0.065);
+\draw[line width=.7pt,fill=white] (3.63,8.5) circle (0.065);
+\draw[line width=.7pt,fill=white] (3.87,8.5) circle (0.065);
+\draw[line width=.65pt,rounded corners=3pt] (4.44,8.325) rectangle (5.260000000000001,8.895);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,8.254999999999999) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,8.325) rectangle (6.36,8.895);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,8.254999999999999) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,8.325) rectangle (7.46,8.895);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,8.254999999999999) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,7.24) {start};
+\draw[black!45,line width=.45pt,] (1.96,7.12) -- (2.24,7.12);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,7.12) -- (3.34,7.12);
+\draw[black!45,line width=.45pt,] (4.16,7.12) -- (4.44,7.12);
+\draw[black!45,line width=.45pt,] (5.260000000000001,7.12) -- (5.54,7.12);
+\draw[black!45,line width=.45pt,] (6.36,7.12) -- (6.64,7.12);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,6.835) rectangle (1.96,7.405);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,6.765) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,6.835) rectangle (3.0600000000000005,7.405);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,6.765) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,6.835) rectangle (4.16,7.405);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,6.765) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,6.835) rectangle (5.260000000000001,7.405);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,6.765) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,6.835) rectangle (6.36,7.405);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,6.765) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,6.835) rectangle (7.46,7.405);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,6.765) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.15,6.57) {least work: \rule{.4in}{.4pt}};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,5.95) {start};
+\draw[black!45,line width=.45pt,] (1.96,5.83) -- (2.24,5.83);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,5.83) -- (3.34,5.83);
+\draw[black!45,line width=.45pt,] (4.16,5.83) -- (4.44,5.83);
+\draw[black!45,line width=.45pt,] (5.260000000000001,5.83) -- (5.54,5.83);
+\draw[black!45,line width=.45pt,] (6.36,5.83) -- (6.64,5.83);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,5.545) rectangle (1.96,6.115);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,5.475) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,5.545) rectangle (3.0600000000000005,6.115);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,5.475) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,5.545) rectangle (4.16,6.115);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,5.475) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,5.545) rectangle (5.260000000000001,6.115);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,5.475) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,5.545) rectangle (6.36,6.115);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,5.475) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,5.545) rectangle (7.46,6.115);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,5.475) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.15,5.28) {least work: \rule{.4in}{.4pt}};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,4.66) {start};
+\draw[black!45,line width=.45pt,] (1.96,4.54) -- (2.24,4.54);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,4.54) -- (3.34,4.54);
+\draw[black!45,line width=.45pt,] (4.16,4.54) -- (4.44,4.54);
+\draw[black!45,line width=.45pt,] (5.260000000000001,4.54) -- (5.54,4.54);
+\draw[black!45,line width=.45pt,] (6.36,4.54) -- (6.64,4.54);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,4.255) rectangle (1.96,4.825);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,4.185) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,4.255) rectangle (3.0600000000000005,4.825);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,4.185) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,4.255) rectangle (4.16,4.825);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,4.185) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,4.255) rectangle (5.260000000000001,4.825);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,4.185) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,4.255) rectangle (6.36,4.825);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,4.185) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,4.255) rectangle (7.46,4.825);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,4.185) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.15,3.99) {least work: \rule{.4in}{.4pt}};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,3.37) {start};
+\draw[black!45,line width=.45pt,] (1.96,3.25) -- (2.24,3.25);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,3.25) -- (3.34,3.25);
+\draw[black!45,line width=.45pt,] (4.16,3.25) -- (4.44,3.25);
+\draw[black!45,line width=.45pt,] (5.260000000000001,3.25) -- (5.54,3.25);
+\draw[black!45,line width=.45pt,] (6.36,3.25) -- (6.64,3.25);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,2.965) rectangle (1.96,3.535);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,2.895) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,2.965) rectangle (3.0600000000000005,3.535);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,2.895) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,2.965) rectangle (4.16,3.535);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,2.895) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,2.965) rectangle (5.260000000000001,3.535);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,2.895) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,2.965) rectangle (6.36,3.535);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,2.895) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,2.965) rectangle (7.46,3.535);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,2.895) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.15,2.7) {least work: \rule{.4in}{.4pt}};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,2.08) {start};
+\draw[black!45,line width=.45pt,] (1.96,1.96) -- (2.24,1.96);
+\draw[black!45,line width=.45pt,] (3.0600000000000005,1.96) -- (3.34,1.96);
+\draw[black!45,line width=.45pt,] (4.16,1.96) -- (4.44,1.96);
+\draw[black!45,line width=.45pt,] (5.260000000000001,1.96) -- (5.54,1.96);
+\draw[black!45,line width=.45pt,] (6.36,1.96) -- (6.64,1.96);
+\draw[line width=.65pt,rounded corners=3pt] (1.1400000000000001,1.675) rectangle (1.96,2.245);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.3900000000000001,1.605) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.24,1.675) rectangle (3.0600000000000005,2.245);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.49,1.605) {1};
+\draw[line width=.65pt,rounded corners=3pt] (3.34,1.675) rectangle (4.16,2.245);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.59,1.605) {2};
+\draw[line width=.65pt,rounded corners=3pt] (4.44,1.675) rectangle (5.260000000000001,2.245);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.69,1.605) {3};
+\draw[line width=.65pt,rounded corners=3pt] (5.54,1.675) rectangle (6.36,2.245);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.79,1.605) {4};
+\draw[line width=.65pt,rounded corners=3pt] (6.64,1.675) rectangle (7.46,2.245);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.89,1.605) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.15,1.41) {least work: \rule{.4in}{.4pt}};
+
+\pageclose\newpage
+
+\portraitpage
+\promptstyle{10.0}{7.2in}{12.5}{15.5}
+
+\problem{5}{Move counters along the roads to match each target. One counter crossing one road costs 1. Find the least work for each pair. Then draw a new start and target with three counters each whose least work is 6.}
+
+\node[anchor=north west,inner sep=0pt,align=center,text width=2.5in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (1.0,8.79) {start};
+\node[anchor=north west,inner sep=0pt,align=center,text width=2.5in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (4.9,8.79) {target picture};
+\draw[black!50,line width=.45pt,] (2.25,7.85) -- (1.3900000000000001,8.299999999999999);
+\draw[black!50,line width=.45pt,] (2.25,7.85) -- (3.11,8.299999999999999);
+\draw[black!50,line width=.45pt,] (2.25,7.85) -- (2.25,7.069999999999999);
+\draw[fill=white,line width=.65pt] (1.3900000000000001,8.299999999999999) circle (.31);
+\draw[line width=.7pt,fill=black!80] (1.27,8.299999999999999) circle (0.055);
+\draw[line width=.7pt,fill=black!80] (1.5100000000000002,8.299999999999999) circle (0.055);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.06,8.69) {A};
+\draw[fill=white,line width=.65pt] (3.11,8.299999999999999) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.2199999999999998,8.69) {B};
+\draw[fill=white,line width=.65pt] (2.25,7.069999999999999) circle (.31);
+\draw[line width=.7pt,fill=black!80] (2.25,7.069999999999999) circle (0.055);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.13,6.68) {C};
+\draw[fill=white,line width=.65pt] (2.25,7.85) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.59,7.77) {O};
+\draw[black!50,line width=.45pt,] (6.15,7.85) -- (5.29,8.299999999999999);
+\draw[black!50,line width=.45pt,] (6.15,7.85) -- (7.010000000000001,8.299999999999999);
+\draw[black!50,line width=.45pt,] (6.15,7.85) -- (6.15,7.069999999999999);
+\draw[fill=white,line width=.65pt] (5.29,8.299999999999999) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.96,8.69) {A};
+\draw[fill=white,line width=.65pt] (7.010000000000001,8.299999999999999) circle (.31);
+\draw[line width=.7pt,fill=white] (6.890000000000001,8.299999999999999) circle (0.055);
+\draw[line width=.7pt,fill=white] (7.130000000000001,8.299999999999999) circle (0.055);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (7.120000000000001,8.69) {B};
+\draw[fill=white,line width=.65pt] (6.15,7.069999999999999) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.03,6.68) {C};
+\draw[fill=white,line width=.65pt] (6.15,7.85) circle (.31);
+\draw[line width=.7pt,fill=white] (6.15,7.85) circle (0.055);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.49,7.77) {O};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (0.75,6.44) {work: \rule{.6in}{.4pt}};
+\draw[black!35,line width=.45pt,] (2.3,6.34) -- (7.65,6.34);
+\node[anchor=north west,inner sep=0pt,align=center,text width=2.5in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (1.0,6.0) {start};
+\node[anchor=north west,inner sep=0pt,align=center,text width=2.5in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (4.9,6.0) {target picture};
+\draw[black!50,line width=.45pt,] (2.25,5.06) -- (1.3900000000000001,5.51);
+\draw[black!50,line width=.45pt,] (2.25,5.06) -- (3.11,5.51);
+\draw[black!50,line width=.45pt,] (2.25,5.06) -- (2.25,4.279999999999999);
+\draw[fill=white,line width=.65pt] (1.3900000000000001,5.51) circle (.31);
+\draw[line width=.7pt,fill=black!80] (1.27,5.51) circle (0.055);
+\draw[line width=.7pt,fill=black!80] (1.5100000000000002,5.51) circle (0.055);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.06,5.8999999999999995) {A};
+\draw[fill=white,line width=.65pt] (3.11,5.51) circle (.31);
+\draw[line width=.7pt,fill=black!80] (3.11,5.51) circle (0.055);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.2199999999999998,5.8999999999999995) {B};
+\draw[fill=white,line width=.65pt] (2.25,4.279999999999999) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.13,3.8899999999999992) {C};
+\draw[fill=white,line width=.65pt] (2.25,5.06) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.59,4.9799999999999995) {O};
+\draw[black!50,line width=.45pt,] (6.15,5.06) -- (5.29,5.51);
+\draw[black!50,line width=.45pt,] (6.15,5.06) -- (7.010000000000001,5.51);
+\draw[black!50,line width=.45pt,] (6.15,5.06) -- (6.15,4.279999999999999);
+\draw[fill=white,line width=.65pt] (5.29,5.51) circle (.31);
+\draw[line width=.7pt,fill=white] (5.29,5.51) circle (0.055);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.96,5.8999999999999995) {A};
+\draw[fill=white,line width=.65pt] (7.010000000000001,5.51) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (7.120000000000001,5.8999999999999995) {B};
+\draw[fill=white,line width=.65pt] (6.15,4.279999999999999) circle (.31);
+\draw[line width=.7pt,fill=white] (6.03,4.279999999999999) circle (0.055);
+\draw[line width=.7pt,fill=white] (6.2700000000000005,4.279999999999999) circle (0.055);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.03,3.8899999999999992) {C};
+\draw[fill=white,line width=.65pt] (6.15,5.06) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.49,4.9799999999999995) {O};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (0.75,3.66) {work: \rule{.6in}{.4pt}};
+\draw[black!35,line width=.45pt,] (2.3,3.56) -- (7.65,3.56);
+\node[anchor=north west,inner sep=0pt,align=center,text width=2.5in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (1.0,3.1999999999999997) {start};
+\node[anchor=north west,inner sep=0pt,align=center,text width=2.5in,font=\sffamily\fontsize{11}{13.64}\selectfont] at (4.9,3.1999999999999997) {target picture};
+\draw[black!50,line width=.45pt,] (2.25,2.26) -- (1.3900000000000001,2.71);
+\draw[black!50,line width=.45pt,] (2.25,2.26) -- (3.11,2.71);
+\draw[black!50,line width=.45pt,] (2.25,2.26) -- (2.25,1.4799999999999998);
+\draw[fill=white,line width=.65pt] (1.3900000000000001,2.71) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.06,3.1) {A};
+\draw[fill=white,line width=.65pt] (3.11,2.71) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.2199999999999998,3.1) {B};
+\draw[fill=white,line width=.65pt] (2.25,1.4799999999999998) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.13,1.0899999999999999) {C};
+\draw[fill=white,line width=.65pt] (2.25,2.26) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (2.59,2.1799999999999997) {O};
+\draw[black!50,line width=.45pt,] (6.15,2.26) -- (5.29,2.71);
+\draw[black!50,line width=.45pt,] (6.15,2.26) -- (7.010000000000001,2.71);
+\draw[black!50,line width=.45pt,] (6.15,2.26) -- (6.15,1.4799999999999998);
+\draw[fill=white,line width=.65pt] (5.29,2.71) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.96,3.1) {A};
+\draw[fill=white,line width=.65pt] (7.010000000000001,2.71) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (7.120000000000001,3.1) {B};
+\draw[fill=white,line width=.65pt] (6.15,1.4799999999999998) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.03,1.0899999999999999) {C};
+\draw[fill=white,line width=.65pt] (6.15,2.26) circle (.31);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.24in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (6.49,2.1799999999999997) {O};
+
+\pageclose\newpage
+
+\landscapepage
+\promptstyle{7.5}{9.7in}{14}{17.36}
+
+\problem{6}{One player draws a target with four counters. The other puts four counters on the start row so the least work is exactly 5. Check it, then swap. Can a target make this impossible?}
+
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,5.72) {start};
+\draw[black!45,line width=.45pt,] (2.38,5.6) -- (2.6979527559055114,5.6);
+\draw[black!45,line width=.45pt,] (3.757952755905512,5.6) -- (4.0759055118110235,5.6);
+\draw[black!45,line width=.45pt,] (5.135905511811024,5.6) -- (5.453858267716535,5.6);
+\draw[black!45,line width=.45pt,] (6.513858267716535,5.6) -- (6.8318110236220475,5.6);
+\draw[black!45,line width=.45pt,] (7.891811023622048,5.6) -- (8.20976377952756,5.6);
+\draw[line width=.65pt,rounded corners=3pt] (1.32,5.125) rectangle (2.38,6.074999999999999);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.6900000000000002,5.055) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.6979527559055114,5.125) rectangle (3.757952755905512,6.074999999999999);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.0679527559055115,5.055) {1};
+\draw[line width=.65pt,rounded corners=3pt] (4.0759055118110235,5.125) rectangle (5.135905511811024,6.074999999999999);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.445905511811024,5.055) {2};
+\draw[line width=.65pt,rounded corners=3pt] (5.453858267716535,5.125) rectangle (6.513858267716535,6.074999999999999);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.823858267716535,5.055) {3};
+\draw[line width=.65pt,rounded corners=3pt] (6.8318110236220475,5.125) rectangle (7.891811023622048,6.074999999999999);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (7.201811023622048,5.055) {4};
+\draw[line width=.65pt,rounded corners=3pt] (8.20976377952756,5.125) rectangle (9.269763779527558,6.074999999999999);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (8.579763779527559,5.055) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=0.8in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (0.65,3.77) {target\\picture};
+\draw[black!45,line width=.45pt,] (2.38,3.65) -- (2.6979527559055114,3.65);
+\draw[black!45,line width=.45pt,] (3.757952755905512,3.65) -- (4.0759055118110235,3.65);
+\draw[black!45,line width=.45pt,] (5.135905511811024,3.65) -- (5.453858267716535,3.65);
+\draw[black!45,line width=.45pt,] (6.513858267716535,3.65) -- (6.8318110236220475,3.65);
+\draw[black!45,line width=.45pt,] (7.891811023622048,3.65) -- (8.20976377952756,3.65);
+\draw[line width=.65pt,rounded corners=3pt] (1.32,3.175) rectangle (2.38,4.125);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (1.6900000000000002,3.105) {0};
+\draw[line width=.65pt,rounded corners=3pt] (2.6979527559055114,3.175) rectangle (3.757952755905512,4.125);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (3.0679527559055115,3.105) {1};
+\draw[line width=.65pt,rounded corners=3pt] (4.0759055118110235,3.175) rectangle (5.135905511811024,4.125);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (4.445905511811024,3.105) {2};
+\draw[line width=.65pt,rounded corners=3pt] (5.453858267716535,3.175) rectangle (6.513858267716535,4.125);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (5.823858267716535,3.105) {3};
+\draw[line width=.65pt,rounded corners=3pt] (6.8318110236220475,3.175) rectangle (7.891811023622048,4.125);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (7.201811023622048,3.105) {4};
+\draw[line width=.65pt,rounded corners=3pt] (8.20976377952756,3.175) rectangle (9.269763779527558,4.125);
+\node[anchor=north west,inner sep=0pt,align=center,text width=0.32in,font=\sffamily\fontsize{10}{12.4}\selectfont] at (8.579763779527559,3.105) {5};
+\node[anchor=north west,inner sep=0pt,align=left,text width=1.5in,font=\sffamily\fontsize{12}{14.88}\selectfont] at (0.75,2.1) {work: \rule{.65in}{.4pt}};
+\draw[black!35,line width=.45pt,] (2.3,2.0) -- (10.25,2.0);
+\draw[black!35,line width=.45pt,] (0.75,1.35) -- (10.25,1.35);
+\pageclose
+\end{document}
