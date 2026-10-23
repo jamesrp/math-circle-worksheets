@@ -1,0 +1,153 @@
+== printed data
+2-3 P1 cards [12, 18, 24, 36] | 4-5 P1 cards [36, 48, 60]
+ok    2-3 P2: bag [2, 2, 3] is all primes and its printed value 12 = product
+ok    2-3 P2: bag [2, 3, 3] is all primes and its printed value 18 = product
+ok    2-3 P3: bag [2, 2, 2, 3] is all primes and its printed value 24 = product
+ok    2-3 P3: bag [2, 3, 5] is all primes and its printed value 30 = product
+ok    4-5 P2: bag [2, 2, 2, 3] is all primes and its printed value 24 = product
+ok    4-5 P2: bag [2, 3, 5] is all primes and its printed value 30 = product
+ok    4-5 P3: bag [2, 2, 3, 3] is all primes and its printed value 36 = product
+ok    4-5 P3: bag [2, 2, 3, 5] is all primes and its printed value 60 = product
+ok    4-5 P3: bag [2, 2, 2, 3, 3] is all primes and its printed value 72 = product
+ok    4-5 P1 text names the drawn cards 36, 48, 60
+ok    2-3 PDF shows "value 12"
+ok    2-3 PDF shows "value 18"
+ok    2-3 PDF shows "value 24"
+ok    2-3 PDF shows "value 30"
+ok    4-5 PDF shows "value 24"
+ok    4-5 PDF shows "value 30"
+ok    4-5 PDF shows "value 36"
+ok    4-5 PDF shows "value 60"
+ok    4-5 PDF shows "value 72"
+ok    4-5 PDF shows "seven 2 tokens and four 3 tokens"
+ok    4-5 PDF shows "exactly 6, 8, 9, 10 and 12 divisors"
+
+== splitting routes (all legal routes, every step splits one composite card into a*b, a,b>=2)
+ok    12: every route ends in the same bag [2, 2, 3]; 2 split sequences; 2 distinct first splits [(2, 6), (3, 4)]
+ok    12: at least two genuinely different first splits exist
+ok    18: every route ends in the same bag [2, 3, 3]; 2 split sequences; 2 distinct first splits [(2, 9), (3, 6)]
+ok    18: at least two genuinely different first splits exist
+ok    20: every route ends in the same bag [2, 2, 5]; 2 split sequences; 2 distinct first splits [(2, 10), (4, 5)]
+ok    20: at least two genuinely different first splits exist
+ok    24: every route ends in the same bag [2, 2, 2, 3]; 5 split sequences; 3 distinct first splits [(2, 12), (3, 8), (4, 6)]
+ok    24: at least two genuinely different first splits exist
+ok    36: every route ends in the same bag [2, 2, 3, 3]; 8 split sequences; 4 distinct first splits [(2, 18), (3, 12), (4, 9), (6, 6)]
+ok    36: at least two genuinely different first splits exist
+ok    48: every route ends in the same bag [2, 2, 2, 2, 3]; 17 split sequences; 4 distinct first splits [(2, 24), (3, 16), (4, 12), (6, 8)]
+ok    48: at least two genuinely different first splits exist
+ok    60: every route ends in the same bag [2, 2, 3, 5]; 11 split sequences; 5 distinct first splits [(2, 30), (3, 20), (4, 15), (5, 12), (6, 10)]
+ok    60: at least two genuinely different first splits exist
+
+== guide routes
+ok    found all 12 guide routes (12)
+ok    guide route 12 -> 2*6 -> 2*2*3: one split per arrow, ends at primes
+ok    guide route 12 -> 3*4 -> 3*2*2: one split per arrow, ends at primes
+ok    guide route 18 -> 2*9 -> 2*3*3: one split per arrow, ends at primes
+ok    guide route 18 -> 3*6 -> 3*2*3: one split per arrow, ends at primes
+ok    guide route 24 -> 2*12 -> 2*3*4 -> 2*3*2*2: one split per arrow, ends at primes
+ok    guide route 24 -> 4*6 -> 2*2*6 -> 2*2*2*3: one split per arrow, ends at primes
+ok    guide route 36 -> 4*9 -> 2*2*9 -> 2*2*3*3: one split per arrow, ends at primes
+ok    guide route 36 -> 6*6 -> 2*3*6 -> 2*3*2*3: one split per arrow, ends at primes
+ok    guide route 48 -> 6*8 -> 2*3*8 -> 2*3*2*4 -> 2*3*2*2*2: one split per arrow, ends at primes
+ok    guide route 48 -> 4*12 -> 4*4*3 -> 2*2*4*3 -> 2*2*2*2*3: one split per arrow, ends at primes
+ok    guide route 60 -> 6*10 -> 2*3*10 -> 2*3*2*5: one split per arrow, ends at primes
+ok    guide route 60 -> 4*15 -> 2*2*15 -> 2*2*3*5: one split per arrow, ends at primes
+
+== sub-bag values (choose any subset of token positions)
+ok    2-3 P2 bag [2, 2, 3]: values [1, 2, 3, 4, 6, 12] = divisors of 12 (6 values from 8 labelled selections)
+ok    guide list for 12 matches
+ok    2-3 P2 bag [2, 3, 3]: values [1, 2, 3, 6, 9, 18] = divisors of 18 (6 values from 8 labelled selections)
+ok    guide list for 18 matches
+ok    2-3 P3 bag [2, 2, 2, 3]: values [1, 2, 3, 4, 6, 8, 12, 24] = divisors of 24 (8 values from 16 labelled selections)
+ok    guide list for 24 matches
+ok    2-3 P3 bag [2, 3, 5]: values [1, 2, 3, 5, 6, 10, 15, 30] = divisors of 30 (8 values from 8 labelled selections)
+ok    guide list for 30 matches
+ok    4-5 P2 bag [2, 2, 2, 3]: values [1, 2, 3, 4, 6, 8, 12, 24] = divisors of 24 (8 values from 16 labelled selections)
+ok    guide list for 24 matches
+ok    4-5 P2 bag [2, 3, 5]: values [1, 2, 3, 5, 6, 10, 15, 30] = divisors of 30 (8 values from 8 labelled selections)
+ok    guide list for 30 matches
+ok    4-5 P3 bag [2, 2, 3, 3]: values [1, 2, 3, 4, 6, 9, 12, 18, 36] = divisors of 36 (9 values from 16 labelled selections)
+ok    guide list for 36 matches
+ok    4-5 P3 bag [2, 2, 3, 5]: values [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60] = divisors of 60 (12 values from 16 labelled selections)
+ok    guide list for 60 matches
+ok    4-5 P3 bag [2, 2, 2, 3, 3]: values [1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72] = divisors of 72 (12 values from 32 labelled selections)
+ok    guide list for 72 matches
+ok    example: shaded 2,5 -> 10, unshaded 2 = 20/10
+2-3 P3: 24 bag (4 tokens) makes 8; 30 bag (3 tokens) makes 8; strictly more for one bag? False
+ok    guide: both P3 bags make eight values (a tie)
+ok    guide 4-5 P3: 36 -> 3*3 = 9
+ok    guide 4-5 P3: 60 -> 3*2*2 = 12
+ok    guide 4-5 P3: 72 -> 4*3 = 12
+ok    guide 2-3 P2: 12 and 18 organized as 2 x 3 = 6
+
+== 4-5 P4
+ok    2^7 * 3^4 = 10,368
+ok    tau(10368) = 40 = 8*5 by trial division
+ok    guide check: five 2s give six divisors (not 5, not 32)
+
+== count patterns
+ok    D=4: patterns [(3,), (1, 1)] complete; all realizable with 2,3,5
+ok    D=4: least number with pattern (1, 1) is 6
+ok    D=4: least number with pattern (3,) is 8
+ok    D=6: patterns [(5,), (2, 1)] complete; all realizable with 2,3,5
+ok    D=6: least number with pattern (2, 1) is 12
+ok    D=6: least number with pattern (5,) is 32
+ok    D=8: patterns [(7,), (3, 1), (1, 1, 1)] complete; all realizable with 2,3,5
+ok    D=8: least number with pattern (1, 1, 1) is 30
+ok    D=8: least number with pattern (3, 1) is 24
+ok    D=8: least number with pattern (7,) is 128
+ok    D=9: patterns [(8,), (2, 2)] complete; all realizable with 2,3,5
+ok    D=9: least number with pattern (2, 2) is 36
+ok    D=9: least number with pattern (8,) is 256
+ok    D=10: patterns [(9,), (4, 1)] complete; all realizable with 2,3,5
+ok    D=10: least number with pattern (4, 1) is 48
+ok    D=10: least number with pattern (9,) is 512
+ok    D=12: patterns [(11,), (3, 2), (5, 1), (2, 1, 1)] complete; all realizable with 2,3,5
+ok    D=12: least number with pattern (2, 1, 1) is 60
+ok    D=12: least number with pattern (3, 2) is 72
+ok    D=12: least number with pattern (5, 1) is 96
+ok    D=12: least number with pattern (11,) is 2048
+ok    four distinct primes force at least 16 divisors, above every target
+
+== least number with each divisor count
+ok    D=4: least any-prime 6, least with labels 2,3,5 6, guide 6
+ok    D=6: least any-prime 12, least with labels 2,3,5 12, guide 12
+ok    D=8: least any-prime 24, least with labels 2,3,5 24, guide 24
+ok    D=9: least any-prime 36, least with labels 2,3,5 36, guide 36
+ok    D=10: least any-prime 48, least with labels 2,3,5 48, guide 48
+ok    D=12: least any-prime 60, least with labels 2,3,5 60, guide 60
+ok    guide: three 2s and one 3 = 24; one 2 and three 3s = 54
+
+== gcd and lcm
+ok    largest bag inside both 24 and 36 is 2^2*3 = 12
+ok    smallest bag holding both is 2^3*3^2 = 72
+ok    12*72 = 24*36
+
+== token kit (eight 2s, six 3s, four 5s, two 7s): bags shown together on one page
+ok    2-3 P1: all its bags at once need {2: 8, 3: 6}
+ok    2-3 P2: all its bags at once need {2: 3, 3: 3}
+ok    2-3 P3: all its bags at once need {2: 4, 3: 2, 5: 1}
+ok    4-5 P1: all its bags at once need {2: 8, 3: 4, 5: 1}
+ok    4-5 P2: all its bags at once need {2: 4, 3: 2, 5: 1}
+ok    4-5 P3: all its bags at once need {2: 7, 3: 5, 5: 1}
+ok    4-5 P4 bag (seven 2s, four 3s) fits the kit
+patterns needing more than eight copies of one prime (must be drawn): [(9,), (11,)]
+
+== page references in the guide
+ok    guide: 2-3 Problem 1 is on student page 1 (actual 1)
+ok    guide: 2-3 Problem 2 is on student page 2 (actual 2)
+ok    guide: 2-3 Problem 3 is on student page 3 (actual 3)
+ok    guide: 2-3 Problem 4 is on student page 4 (actual 4)
+ok    guide: 4-5 Problem 1 is on student page 1 (actual 1)
+ok    guide: 4-5 Problem 2 is on student page 2 (actual 2)
+ok    guide: 4-5 Problem 3 is on student page 3 (actual 3)
+ok    guide: 4-5 Problem 4 is on student page 3 (actual 3)
+ok    guide: 4-5 Problem 5 is on student page 4 (actual 4)
+ok    guide: 4-5 Problem 6 is on student page 5 (actual 5)
+ok    guide page 6 holds "Why prime splitting is unique" (actual 6)
+ok    guide page 5 holds "Problem 5, page 4: complete token-count patterns" (actual 5)
+ok    guide page 3 holds "Problem 1, page 1: different splitting routes" (actual 3)
+ok    2-3: problems numbered consecutively [1, 2, 3, 4]
+ok    4-5: problems numbered consecutively [1, 2, 3, 4, 5, 6]
+
+FAILURES: 0

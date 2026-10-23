@@ -1,0 +1,78 @@
+repository: /home/claude/wt/reviews
+
+== Problem 1: rectangles from 24 tiles ==
+all-24-tile rectangles (rotations identified): [(1, 24), (2, 12), (3, 8), (4, 6)]
+PASS exactly four rectangles
+PASS 4x6 closest to square by difference, ratio and perimeter
+PASS smaller side >= 5 needs >= 25 tiles (guide's completeness argument)
+PASS guide: square of area 24 has side between 4 and 6
+PASS all four fit on the 24-by-20 grid (long sides horizontal, heights 1+2+3+4=10)
+other reading (at most 24 tiles): 44 rectangles, squares among them: [(1, 1), (2, 2), (3, 3), (4, 4)]
+
+== Problem 2: fit each rectangle's pieces into the average-side square ==
+PASS A: square side 4 is the average of 6 and 2
+PASS A: uncovered area 4 forces a square of side 2 = (long-short)/2
+PASS A: 16 grid placements with one straight cut leave one square hole, always side 2; cuts used [((2, 2), (4, 2)), ((4, 2), (2, 2))]
+PASS A: impossible without cutting (rectangle longer than square)
+   A: under the 'one grid square' reading, uncovered unit cells = 4
+PASS B: square side 3 is the average of 4 and 2
+PASS B: uncovered area 1 forces a square of side 1 = (long-short)/2
+PASS B: 16 grid placements with one straight cut leave one square hole, always side 1; cuts used [((1, 2), (3, 2)), ((3, 2), (1, 2))]
+PASS B: impossible without cutting (rectangle longer than square)
+   B: under the 'one grid square' reading, uncovered unit cells = 1
+PASS guide A dissection leaves the 2x2 corner
+PASS guide B dissection leaves a 1x1 square
+
+== Page 3 worked example ==
+PASS 1x3 -> average 2 -> 3/2; output 2 x 3/2 has area 3
+PASS 20/6 = 10/3 (this is the h of Problem 3's third case)
+
+== Problem 3 ==
+PASS 2 by 6 has printed area 12
+PASS 2x6: new sides 3, 4; tightest bracketing pair among ['2', '3', '4', '6'] is (3, 4)
+PASS    strict: 3^2=9 < 12 < 16=4^2
+PASS    all four lengths lie on the printed 0..10 number line
+PASS 3 by 6 has printed area 18
+PASS 3x6: new sides 4, 9/2; tightest bracketing pair among ['3', '4', '9/2', '6'] is (4, 9/2)
+PASS    strict: 4^2=16 < 18 < 81/4=9/2^2
+PASS    all four lengths lie on the printed 0..10 number line
+PASS 2 by 10 has printed area 20
+PASS 2x10: new sides 10/3, 6; tightest bracketing pair among ['2', '10/3', '6', '10'] is (10/3, 6)
+PASS    strict: 10/3^2=100/9 < 20 < 36=6^2
+PASS    all four lengths lie on the printed 0..10 number line
+
+== Problem 4 ==
+PASS every card has area 12
+PASS every card lists the shorter side first
+PASS unique valid order: ['BDAC']
+PASS only follow relations: [('A', 'C'), ('B', 'D'), ('D', 'A')]
+   widths: {'A': '1/14', 'B': '4', 'C': '1/2716', 'D': '1'}
+PASS widths 4, 1, 1/14, 1/2716 (guide)
+PASS card C is tightest
+PASS C brackets sqrt(12): (336/97)^2 < 12 < (97/28)^2
+PASS guide's width computation (9409-9408)/2716
+PASS guide: means 4, 7/2, 97/28
+
+== Problem 5 ==
+PASS 3.46^2=11.9716 < 12 < 12.0409=3.47^2
+PASS on the hundredth grid the only trapping pair is 3.46, 3.47
+PASS guide's alternative 3.455, 3.465 also traps (finer decimals allowed)
+PASS no decimal with <= 39 places squares to 12 (and in general 12*100^k has an odd power of 3)
+PASS card C's range lies inside (3.46, 3.47)
+
+== Problem 6: average-side square vs rectangle, dissection ==
+PASS guide's two-piece dissection valid for 2030 rational a<b; extra area = ((b-a)/2)^2
+PASS square case: equality, square unchanged
+
+== Problem 7 and the guide overview ==
+PASS 1104 rational starts x 5 exact moves: area kept, strict nesting a<h<s<m<b, gap formula, gap < old/2, width < d/2^n, ratio decreases, never equal
+PASS 2x6 reaches width < 10^-12 after 5 exact moves, sides still unequal
+PASS guide: 4x9 -> 72/13, 13/2
+PASS 4x9: six exact moves, 6 strictly inside every bracket, never a square
+   10-digit calculator display from 2x6: sides look equal after 5 moves (3.46410162, 3.46410162), while exact sides never coincide
+PASS x_next=(x+A/x)/2 equals the new long side m (x=6)
+PASS x_next=(x+A/x)/2 equals the new long side m (x=9)
+PASS x_next=(x+A/x)/2 equals the new long side m (x=7/2)
+PASS return-visit question: for equal area, smaller side difference <=> smaller ratio <=> tighter next bracket (1071 adjacent comparisons)
+
+FAILURES: 0

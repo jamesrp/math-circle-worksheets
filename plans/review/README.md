@@ -117,12 +117,15 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 82 | Endless class lines (ordinal addition) | keep | [card](week-82.md), [math check](week-82-math.md) |
 | 83 | Hackenbush balances | keep | [card](week-83.md), [math check](week-83-math.md) |
 | 84 | Public knowledge | revise: Problem 3's "the same three replies" can also be read as which replies appear, under which the right answer is no, and the guide's key gives only yes | [card](week-84.md), [math check](week-84-math.md) |
+| 85 | Drawing machines (pantographs) | revise: the whole hour runs on a hand-built pantograph, and nothing names what to build it from (strips, pivots, anchor pin, pencil mounts); both card runs agree | [card](week-85.md), [math check](week-85-math.md) |
 | 87 | Voting and agendas | keep | [card](week-87.md), [math check](week-87-math.md) |
 | 88 | Packing and kissing circles | keep | [card](week-88.md), [math check](week-88-math.md) |
 | 89 | Growing shapes and totals | keep | [card](week-89.md), [math check](week-89-math.md) |
 | 90 | Sliding number arrays (jeu de taquin) | keep | [card](week-90.md), [math check](week-90-math.md) |
 | 91 | Rotor-router machines | keep | [card](week-91.md), [math check](week-91-math.md) |
 | 92 | Fold-and-stretch predictions | keep | [card](week-92.md), [math check](week-92-math.md) |
+| 93 | Squaring a rectangle | keep | [card](week-93.md), [math check](week-93-math.md) |
+| 96 | Prime bags and divisor builders | keep | [card](week-96.md), [math check](week-96-math.md) |
 
 ## Calibration
 

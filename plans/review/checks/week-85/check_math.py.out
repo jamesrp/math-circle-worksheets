@@ -1,0 +1,84 @@
+1. Linkage from first principles (circle intersections, L = 80 mm)
+  ok   open frame: every one of 40000 poses (2 mirror poses for each of 20000 random T with 1<|OT|<159) is a parallelogram with P = 2T - O
+  ok   the only other poses for such T (40000) have Y = X and P on O (long bars folded together): O, T, P still on one line
+  ok   long-bar parameterisation: open branch T = X + Y - Q always gives P = 2T - O
+  ok   fold branch T = Q breaks collinearity in 20000/20000 random poses, but always has |OT| = 160 exactly
+     Branches meet only where T = Q = X + Y - Q (Q the midpoint of OP: full extension, |OT| = 160)
+     or X = Y (P on O). So with |OT| < 160 and P off O, no pose breaks O, T, P collinearity.
+
+2. Task coordinates (read from generate.py as data)
+     input A: [(115, 125), (150, 125), (150, 145)]
+     input B: [(120, 120), (150, 120), (140, 150), (120, 120)]
+     input C: [(115, 135), (125, 135), (125, 150), (145, 150), (145, 125), (155, 125)]
+     input G: [(120, 125), (140, 125), (140, 145), (120, 145), (120, 125)]
+     input H: [(120, 125), (150, 125), (150, 135), (130, 135), (130, 145), (120, 145), (120, 125)]
+     input I: [(120, 125), (150, 125), (120, 155), (120, 125)]
+     input M: [(130, 125), (150, 125), (140, 150), (130, 125)]
+     output E: [(200, 110), (260, 110), (260, 150), (230, 175), (200, 150), (200, 110)]
+     output J: [(200, 110), (260, 110), (260, 150), (200, 150), (200, 110)]
+     output K: [(190, 135), (240, 135), (240, 125), (270, 145), (240, 165), (240, 155), (190, 155), (190, 135)]
+     D dots: [(190, 110), (220, 180), (270, 160), (260, 100), (210, 140)]
+  ok   every input vertex A, B, C, G, H, I, M is inside the T zone 110..160 x 115..165
+  ok   every output vertex E, J, K and every D dot is inside the 110 x 100 output target
+  ok   the T zone doubled about O is (180, 90, 280, 190), inside the output target (180, 90, 290, 190)
+
+3. Shared packet
+   Problem 1 (A, B, C traced by T; P draws)
+  ok   A copy [(190, 110), (260, 110), (260, 150)] lies inside the output zone
+  ok   A segment lengths [35.0, 20.0] -> [70.0, 40.0] (x2)
+  ok   B copy [(200, 100), (260, 100), (240, 160), (200, 100)] lies inside the output zone
+  ok   B segment lengths [30.0, 31.62, 36.06] -> [60.0, 63.25, 72.11] (x2)
+  ok   C copy [(190, 130), (210, 130), (210, 160), (250, 160), (250, 110), (270, 110)] lies inside the output zone
+  ok   C segment lengths [10.0, 15.0, 20.0, 25.0, 10.0] -> [20.0, 30.0, 40.0, 50.0, 20.0] (x2)
+  ok   guide: 'In A, 35 mm then 20 mm becomes 70 mm then 40 mm'
+  ok   guide: C segments 10,15,20,25,10 mm become 20,30,40,50,20
+  ok   B: copy keeps orientation (signed area same sign, x4)
+   Problem 2 (D dots and E house, inverse control)
+  ok   D tracer positions [(115.0, 125.0), (130.0, 160.0), (155.0, 150.0), (150.0, 120.0), (125.0, 140.0)] match the guide list in order
+  ok   all five D tracer positions are inside the T zone
+  ok   E tracer vertices [(120.0, 125.0), (150.0, 125.0), (150.0, 145.0), (135.0, 157.5), (120.0, 145.0), (120.0, 125.0)] match the guide
+  ok   E tracer outline inside the T zone
+   Problem 3 (rule for poses): see section 1; OT = TP and OP = 2 OT on the open branch
+  ok   OT = TP and collinear at the T-zone corners and centre (both mirror poses)
+   Problem 4 (stay inside F)
+  ok   F (40 x 30) pulls back to the 20 x 15 tracer rectangle [(130.0, 132.5), (150.0, 147.5)]
+  ok   that tracer rectangle is inside the T zone
+  ok   random tracer points: copy inside F exactly when T is inside the 20 x 15 rectangle
+
+4. Upper packet
+   Problem 1: the six equal lengths and joined bars force P = 2T - O on the open branch (section 1);
+   with equal lengths alone, the fold pose T = Q (|OT| = 160) is the exception the page excludes by "open and uncrossed".
+   Problem 2 (areas of G, H, I and copies)
+  ok   G: area 4 units, copy 16 units (guide: 4 and 16)
+  ok   G: exact covering by 10 mm squares and half-squares: original (4, 0), copy (16, 0) (whole, halves)
+  ok   G copy lies inside the output zone
+  ok   H: area 4 units, copy 16 units (guide: 4 and 16)
+  ok   H: exact covering by 10 mm squares and half-squares: original (4, 0), copy (16, 0) (whole, halves)
+  ok   H copy lies inside the output zone
+  ok   I: area 9/2 units, copy 18 units (guide: 9/2 and 18)
+  ok   I: exact covering by 10 mm squares and half-squares: original (3, 3), copy (15, 6) (whole, halves)
+  ok   I copy lies inside the output zone
+  ok   kit of 48 squares and 16 triangles covers one original and its copy at a time: needs {'G': (20, 0), 'H': (20, 0), 'I': (18, 9)}
+   Problem 3 (reverse: P moves, T draws)
+  ok   J halved copy [(120.0, 125.0), (150.0, 125.0), (150.0, 145.0), (120.0, 145.0), (120.0, 125.0)] inside the T zone
+  ok   J lengths halve: [60.0, 40.0, 60.0, 40.0] -> [30.0, 20.0, 30.0, 20.0]
+  ok   K halved copy [(115.0, 137.5), (140.0, 137.5), (140.0, 132.5), (155.0, 142.5), (140.0, 152.5), (140.0, 147.5), (115.0, 147.5), (115.0, 137.5)] inside the T zone
+  ok   K lengths halve: [50.0, 10.0, 36.06, 36.06, 10.0, 50.0, 20.0] -> [25.0, 5.0, 18.03, 18.03, 5.0, 25.0, 10.0]
+  ok   guide: J's 60 x 40 rectangle becomes 30 x 20 (at 120..150 x 125..145)
+  ok   L (30 x 20 at (125, 130, 155, 150)) needs P on the 60 x 40 rectangle ((210, 120), (270, 160))
+  ok   that P rectangle is inside the output zone
+  ok   J itself (200..260 x 110..150) is not the answer: same size, 10 mm off in x and y
+   Problem 4 (anchor O -> O')
+  ok   keeping M fixed, copy moves from [(220, 110), (260, 110), (240, 160), (220, 110)] to [(200, 110), (240, 110), (220, 160), (200, 110)]: 20 mm left
+  ok   moving M 10 mm right puts the second copy exactly on the first
+  ok   the compensating shift is unique: half the anchor shift, same direction
+  ok   moved M [(140, 125), (160, 125), (150, 150), (140, 125)] stays inside the T zone (touches x = 160)
+  ok   both copies inside the output zone
+
+5. Reach and support (ideal geometry; not a hardware test)
+  ok   every needed tracer position has 71.6 <= |OT| <= 122.6 mm (singular at 0 and 160)
+  ok   rhombus angle at Q stays between 53 and 100 degrees (flat would be 0 or 180)
+  ok   joint centres of both mirror poses span x 40..280, y -18..298; with 20 mm bar ends they stay on the board (-9.1, -60.3, 440.9, 339.7)
+     (the mat is y 0..279.4: Q leaves the paper in some poses, as the guide warns, but stays on the board)
+
+0 failures
