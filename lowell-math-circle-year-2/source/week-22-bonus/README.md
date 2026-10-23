@@ -1,5 +1,7 @@
 # Week 22 bonus companion - portable editable release
 
+**Guide v3, October 23, 2026.** The adult guide printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5); it now prints the band labels "K–1 / 2–3 / 4–5", and a lone "KK11", "3333" or "445" as the table it names. Footer W22-BON-FAC-v3; the student companion is unchanged. The previous guide and source ZIP are in the `archive-before-bonus-label-fix-2026-10-23/` folders beside the print copies and the ZIPs.
+
 Three distinct theme-matched encore investigations, in one shared selected-band student companion and a separate adult guide. **Unpiloted.** These are new week-local companion files; the base student packet and base guide are separate. Physical fit, procedures and classroom pacing have not been rehearsed.
 
 Print selected pages single-sided on US Letter at 100% scale. Choose an investigation and an entry route from the guide; the theme may support multiple visits. Finishing every page is not the goal. Readiness is based on reading, arithmetic, representation and reasoning prerequisites.
@@ -32,6 +34,6 @@ Fresh writer, critic, independent math critic and reviser stages produced the st
 
 Source/body attribution and mathematical assumptions are in the guide and outline. Original task constructions, prose, drawings and code are editable local project material; third-party references retain their rights. No source books, fonts, caches, generated build files or external downloads are included.
 
-Current print copies: ../../week-22/week-22-bonus.pdf (W22-BON-v2) and week-22-bonus-facilitator.pdf (W22-BON-FAC-v2). On October 23, 2026 the base week's review card moved T in Problem 1 away from segment BE; see review/card-fixes-2026-10-23.md and run `python3 review/verify_card_fix_2026_10_23.py build`. This release is local only; no Drive upload or publication is claimed. The source ZIP in the parent source/ folder is a portable copy of this directory.
+Current print copies: ../../week-22/week-22-bonus.pdf (W22-BON-v2) and week-22-bonus-facilitator.pdf (W22-BON-FAC-v3, the v2 guide with its band labels fixed later on October 23). On October 23, 2026 the base week's review card moved T in Problem 1 away from segment BE; see review/card-fixes-2026-10-23.md and run `python3 review/verify_card_fix_2026_10_23.py build`. This release is local only; no Drive upload or publication is claimed. The source ZIP in the parent source/ folder is a portable copy of this directory.
 
 A separate independent adult-extension checker is also included. Run `python3 guide-src/guide-independent-check.py`; it recomputes the extra finite claims and writes guide-src/guide-checks.json. Its file references were adapted to package-relative locations, with mathematical logic unchanged. The saved historical audit remains in review/.

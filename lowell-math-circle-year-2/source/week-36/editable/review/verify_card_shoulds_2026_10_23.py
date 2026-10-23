@@ -138,8 +138,8 @@ check((len(sets9), reps) == (2106, 1944), f'bonus: {len(sets9)} nine-card sets h
 if BONUS:
     with pdfplumber.open(BONUS) as pdf:
         b = ' '.join(' '.join((p.extract_text() or '').split()) for p in pdf.pages)
-    check('cross-layer' not in b and 'Two copies of a tile are completed only by its third copy.' in b and b.count('W36-BONUS-FAC-v2') == 3,
-          'bonus guide: the Problem 3 extension is replaced, footer v2')
+    check('cross-layer' not in b and 'Two copies of a tile are completed only by its third copy.' in b and (b.count('W36-BONUS-FAC-v2') == 3 or b.count('W36-BONUS-FAC-v3') == 3),
+          'bonus guide: the Problem 3 extension is replaced, footer v2 (v3 after the band-label fix)')
 
 print(f'{len(FAIL)} failure(s)')
 sys.exit(1 if FAIL else 0)

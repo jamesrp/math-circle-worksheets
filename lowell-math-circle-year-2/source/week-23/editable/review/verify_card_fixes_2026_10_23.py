@@ -148,6 +148,6 @@ if bonus:
     ok('sends the smaller value to the upper lane.' in b[0] and 'lower-numbered' not in ' '.join(b), 'bonus rule')
     ok(all('W23-BON-v2' in x for x in b), 'bonus footers v2')
     bg = text(bonus / 'week-23-bonus-facilitator.pdf')
-    ok('send the smaller value to the upper lane.' in ' '.join(bg) and all('W23-BON-FAC-v2' in x for x in bg), 'bonus guide')
+    ok('send the smaller value to the upper lane.' in ' '.join(bg) and all(('W23-BON-FAC-v2' in x) or ('W23-BON-FAC-v3' in x) for x in bg), 'bonus guide (v3 after the band-label fix)')
 
 print(f'PASS: {checks} checks of the October 23 card fixes' + (' (with the bonus)' if bonus else ''))

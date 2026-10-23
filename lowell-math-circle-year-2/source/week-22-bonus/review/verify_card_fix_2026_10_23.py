@@ -69,7 +69,7 @@ S = [p.get_text() for p in pymupdf.open(OUT / 'week-22-bonus.pdf')]
 G = [p.get_text() for p in pymupdf.open(OUT / 'week-22-bonus-facilitator.pdf')]
 g = ' '.join(' '.join(G).split())
 check(len(S) == 5 and all('W22-BON-v2' in p for p in S), 'student: five pages, every footer W22-BON-v2')
-check(len(G) == 5 and all('W22-BON-FAC-v2' in p for p in G), 'guide: five pages, every footer W22-BON-FAC-v2')
+check(len(G) == 5 and all(('W22-BON-FAC-v2' in p) or ('W22-BON-FAC-v3' in p) for p in G), 'guide: five pages, every footer W22-BON-FAC-v2 (v3 after the band-label fix)')
 check('T=(16/5,17/5)' in g and 'BEF contains T: T=(2/5)B+(2/5)E+(1/5)F' in g and 'T=(4,16/5)' not in g and 'CEF contains T' not in g,
       'guide P1: new coordinates and containing triangle')
 print(json.dumps({'checks_failed': len(fails)}))

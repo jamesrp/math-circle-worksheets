@@ -1,5 +1,7 @@
 # Week 43 bonus: Shuffling picture cards
 
+**Guide v2, October 23, 2026.** The adult guide printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5); it now prints the band labels "K–1 / 2–3 / 4–5", and a lone "KK11", "3333" or "445" as the table it names. Footer W43-BONUS-FAC-v2; the student companion is unchanged. The previous guide and source ZIP are in the `archive-before-bonus-label-fix-2026-10-23/` folders beside the print copies and the ZIPs.
+
 Local v1, October 4, 2026. **Unpiloted. Physical fit and procedures untested.**
 
 Three or more distinct investigations use selected bands by prerequisites. They complement, rather than replace, the base Week 43 packet. The student companion and adult mathematical guide are separate. Suitable routes, materials, launch, hints, precise solutions and extensions are in `guide.md`; investigation metadata is in `investigations.json`.

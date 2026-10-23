@@ -1,0 +1,3 @@
+# Bonus source ZIPs before the band-label fix (October 23, 2026)
+
+These are the source ZIPs of the bonus companions for Weeks 18–29, 35–37 and 39–51 as they were before their adult guides stopped printing the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5) and printed the band labels "K–1 / 2–3 / 4–5" instead. The current ZIPs are in `../`. In each current ZIP only the guide source, its builder's footer id, the reference guide PDF, the README (and, for Weeks 18–29, `release-validation.json`; for Week 22, a review script that accepts the new footer) changed. `plans/review/checks/bonus-labels/check_bonus_labels.py` compares each current print guide with the archived one.

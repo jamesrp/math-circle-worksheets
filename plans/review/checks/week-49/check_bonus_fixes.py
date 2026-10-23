@@ -30,8 +30,8 @@ student = pymupdf.open(PRINT / 'week-49-bonus.pdf')
 guide = pymupdf.open(PRINT / 'week-49-bonus-facilitator.pdf')
 s, g = text(student), text(guide)
 assert len(student) == 3 and all('Bellingham Math Circle / Week 49 / F49B-S-v2' in p.get_text() for p in student)
-assert all('W49-BONUS-FAC-v2' in p.get_text() for p in guide)
-print('PASS footers F49B-S-v2 on all 3 student pages and W49-BONUS-FAC-v2 on the guide')
+assert all(('W49-BONUS-FAC-v2' in p.get_text()) or ('W49-BONUS-FAC-v3' in p.get_text()) for p in guide)  # v3: band-label fix
+print('PASS footers F49B-S-v2 on all 3 student pages and W49-BONUS-FAC-v2 (v3 after the band-label fix) on the guide')
 
 
 def run(v, rounds):

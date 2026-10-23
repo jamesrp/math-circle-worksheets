@@ -1,5 +1,7 @@
 # Week 28 bonus companion - portable editable release
 
+**Guide v2, October 23, 2026.** The adult guide printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5); it now prints the band labels "K–1 / 2–3 / 4–5", and a lone "KK11", "3333" or "445" as the table it names. Footer W28-BON-FAC-v2; the student companion is unchanged. The previous guide and source ZIP are in the `archive-before-bonus-label-fix-2026-10-23/` folders beside the print copies and the ZIPs.
+
 Three distinct theme-matched encore investigations, in one shared selected-band student companion and a separate adult guide. **Unpiloted.** These are new week-local companion files; the base student packet and base guide are separate. Physical fit, procedures and classroom pacing have not been rehearsed.
 
 Print selected pages single-sided on US Letter at 100% scale. Choose an investigation and an entry route from the guide; the theme may support multiple visits. Finishing every page is not the goal. Readiness is based on reading, arithmetic, representation and reasoning prerequisites.

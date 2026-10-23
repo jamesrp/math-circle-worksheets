@@ -1,5 +1,7 @@
 # Week 42 bonus: Fair results from a bag
 
+**Guide v2, October 23, 2026.** The adult guide printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5); it now prints the band labels "K–1 / 2–3 / 4–5", and a lone "KK11", "3333" or "445" as the table it names. Footer W42-BONUS-FAC-v2; the student companion is unchanged. The previous guide and source ZIP are in the `archive-before-bonus-label-fix-2026-10-23/` folders beside the print copies and the ZIPs.
+
 ## Introduction-audit follow-up
 
 Student v2 replaces “whole pair fair” with an explicit question about equal chances for all four pairs. The guide is unchanged. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.

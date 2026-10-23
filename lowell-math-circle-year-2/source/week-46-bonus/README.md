@@ -1,5 +1,7 @@
 # Week 46 bonus: Boards that forget
 
+**Guide v2, October 23, 2026.** The adult guide printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5); it now prints the band labels "K–1 / 2–3 / 4–5", and a lone "KK11", "3333" or "445" as the table it names. Footer W46-BONUS-FAC-v2; the student companion is unchanged. The previous guide and source ZIP are in the `archive-before-bonus-label-fix-2026-10-23/` folders beside the print copies and the ZIPs.
+
 ## Card fix, October 23, 2026
 
 The guide's Problem 1 solution now says that any two starts differing in every slot, the pictured RBR and BRB included, can never be made alike by copies, and that other pairs can. Only guide page 2 changed; the student companion is unchanged. The replaced guide PDF is in `../../week-46/archive-before-card-fixes-2026-10-23/` and the replaced ZIP in `../archive-before-card-fixes-2026-10-23/`.

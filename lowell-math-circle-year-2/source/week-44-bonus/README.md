@@ -1,5 +1,7 @@
 # Week 44 bonus: The bag that copies
 
+**Guide v3, October 23, 2026.** The adult guide printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5); it now prints the band labels "K–1 / 2–3 / 4–5", and a lone "KK11", "3333" or "445" as the table it names. Footer W44-BONUS-FAC-v3; the student companion is unchanged. The previous guide and source ZIP are in the `archive-before-bonus-label-fix-2026-10-23/` folders beside the print copies and the ZIPs.
+
 Local v1, October 4, 2026; guide v2, October 23, 2026, from the Week 44 review card: the adult guide's products on page 3 print × where asterisks had been lost to italics (footer W44-BONUS-FAC-v2); the student pages are unchanged (W44-BONUS-v1). **Unpiloted. Physical fit and procedures untested.**
 
 Three or more distinct investigations use selected bands by prerequisites. They complement, rather than replace, the base Week 44 packet. The student companion and adult mathematical guide are separate. Suitable routes, materials, launch, hints, precise solutions and extensions are in `guide.md`; investigation metadata is in `investigations.json`.

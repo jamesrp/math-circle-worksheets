@@ -31,8 +31,8 @@ student = pymupdf.open(PRINT / 'week-48-bonus.pdf')
 guide = pymupdf.open(PRINT / 'week-48-bonus-facilitator.pdf')
 s, g = text(student), text(guide)
 assert len(student) == 3 and all('Bellingham Math Circle / Week 48 / F48B-S-v2' in p.get_text() for p in student)
-assert all('W48-BONUS-FAC-v2' in p.get_text() for p in guide)
-print('PASS footers F48B-S-v2 on all 3 student pages and W48-BONUS-FAC-v2 on the guide')
+assert all(('W48-BONUS-FAC-v2' in p.get_text()) or ('W48-BONUS-FAC-v3' in p.get_text()) for p in guide)  # v3: band-label fix
+print('PASS footers F48B-S-v2 on all 3 student pages and W48-BONUS-FAC-v2 (v3 after the band-label fix) on the guide')
 
 p2 = student[1]
 assert 'First pair' not in s and 'Third pair' not in s

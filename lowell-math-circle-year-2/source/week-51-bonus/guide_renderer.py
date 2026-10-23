@@ -72,7 +72,7 @@ def render(source, output, week, topic):
         c.drawString(48,762,f'Week {week} / {topic} / Bonus facilitator')
         c.setStrokeColor(colors.HexColor('#aaaaaa'));c.line(48,751,564,751)
         c.setFont(font,8)
-        c.drawString(48,27,f'Bellingham Math Circle / Week {week} / W{week:02}-BONUS-FAC-v1 / Unpiloted')
+        c.drawString(48,27,f'Bellingham Math Circle / Week {week} / W{week:02}-BONUS-FAC-v2 / Unpiloted')
         c.drawRightString(564,27,str(doc.page));c.restoreState()
     class DeterministicCanvas(canvas.Canvas):
         def __init__(self,*a,**kw):kw['invariant']=1;super().__init__(*a,**kw)

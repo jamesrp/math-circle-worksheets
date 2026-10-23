@@ -1,5 +1,7 @@
 # Week 45 bonus: The visible side
 
+**Guide v3, October 23, 2026.** The adult guide printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5); it now prints the band labels "K–1 / 2–3 / 4–5", and a lone "KK11", "3333" or "445" as the table it names. Footer W45-BONUS-FAC-v3; the student companion is unchanged. The previous guide and source ZIP are in the `archive-before-bonus-label-fix-2026-10-23/` folders beside the print copies and the ZIPs.
+
 ## Card fix, October 23, 2026
 
 The guide's overview printed "322=12" because the Markdown read `3*2*2` as emphasis; it now prints 3 × 2 × 2 = 12, and the reporter page's `b*h=r*f` prints b × h = r × f. Only guide pages 1 and 3 changed; the student companion is unchanged. The replaced guide PDF is in `../../week-45/archive-before-card-fixes-2026-10-23/` and the replaced ZIP in `../archive-before-card-fixes-2026-10-23/`.

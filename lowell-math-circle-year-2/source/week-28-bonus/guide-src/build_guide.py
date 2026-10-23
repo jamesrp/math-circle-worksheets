@@ -38,7 +38,7 @@ story+=section('Status','Draft bonus companion. Unpiloted. Digital and mathemati
 def page(c,doc):
  c.saveState();c.setFillColor(colors.black);c.setFont('Helvetica',9)
  c.drawString(36,755,f"Week {week} / {g['topic']} encore / Adult bonus guide")
- c.drawString(36,29,f"Bellingham Math Circle / Week {week} / W{week:02}-BON-FAC-v1")
+ c.drawString(36,29,f"Bellingham Math Circle / Week {week} / W{week:02}-BON-FAC-v2")
  c.drawRightString(576,29,str(doc.page));c.restoreState()
 doc=SimpleDocTemplate(str(dest),pagesize=(612,792),leftMargin=36,rightMargin=36,topMargin=60,bottomMargin=52,title=f"Week {week} bonus facilitator guide",author='Bellingham Math Circle',pageCompression=1)
 doc.build(story,onFirstPage=page,onLaterPages=page)

@@ -34,8 +34,8 @@ student = pymupdf.open(PRINT / 'week-47-bonus.pdf')
 guide = pymupdf.open(PRINT / 'week-47-bonus-facilitator.pdf')
 s, g = text(student), text(guide)
 assert len(student) == 3 and all('Bellingham Math Circle / Week 47 / F47B-S-v2' in p.get_text() for p in student)
-assert all('W47-BONUS-FAC-v2' in p.get_text() for p in guide)
-print('PASS footers F47B-S-v2 on all 3 student pages and W47-BONUS-FAC-v2 on both guide pages')
+assert all(('W47-BONUS-FAC-v2' in p.get_text()) or ('W47-BONUS-FAC-v3' in p.get_text()) for p in guide)  # v3: band-label fix
+print('PASS footers F47B-S-v2 on all 3 student pages and W47-BONUS-FAC-v2 (v3 after the band-label fix) on both guide pages')
 
 # Item 2: the six-site ring A..F, gray A = D = 1.
 assert 'Gray towers stay at 1 cube each and count in the total; neighboring towers differ by at most 1.' in s

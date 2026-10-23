@@ -1,5 +1,7 @@
 # Week 48 bonus: Inside and outside covers
 
+**Guide v3, October 23, 2026.** The adult guide printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5); it now prints the band labels "K–1 / 2–3 / 4–5", and a lone "KK11", "3333" or "445" as the table it names. Footer W48-BONUS-FAC-v3; the student companion is unchanged. The previous guide and source ZIP are in the `archive-before-bonus-label-fix-2026-10-23/` folders beside the print copies and the ZIPs.
+
 Local v1, October 4, 2026; v2, October 23, 2026, from the Week 48 review card's should 11: page 2's card pairs are numbered 1-3 and its witness grids are captioned "Pair: ____" instead of "First pair" and "Third pair", which answered "Which pair cannot be true?"; the adult guide says so (footers F48B-S-v2, W48-BONUS-FAC-v2). **Unpiloted. Physical fit and procedures untested.**
 
 Three or more distinct investigations use selected bands by prerequisites. They complement, rather than replace, the base Week 48 packet. The student companion and adult mathematical guide are separate. Suitable routes, materials, launch, hints, precise solutions and extensions are in `guide.md`; investigation metadata is in `investigations.json`.
