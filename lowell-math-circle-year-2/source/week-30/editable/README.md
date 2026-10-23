@@ -4,6 +4,8 @@
 
 **Card fixes, October 23, 2026.** Every should and could of the review card was done after the conversion below: student packets F30-K-v3, F30-23-v3 and F30-45-v3 and guide pages 1, 2 and 4 (materials now cube sticks that balance by length; a 35–40 minute plan; the reason no three-weight kit balances more than 13). See `review/card-fixes-2026-10-23.md`; `python3 review/verify_card_fixes_2026_10_23.py` checks each fix against the built PDFs. The release before it was the October 4, 2026 fresh-review revision.
 
+**Critic follow-up, October 23, 2026 (F30-45-v4).** Grades 4–5 Problem 5 asks for "the largest number of different positive targets any three-weight kit can balance, even with gaps", since "the most any three-weight kit can balance" could be read as the largest target. The guide's materials say "5, 6, 11 or another weight" (7 is in the kit). K–1 and Grades 2–3 stay v3. `review/verify_card_fixes_2026_10_23.py` checks the new wording and the v4 footer.
+
 **Problem files, October 23, 2026.** The student pages are now stored as problem files in `problem-files/` (in the repository: `lowell-math-circle-year-2/source/week-30/`), one file per problem with its band differences inside it. The conversion changed no wording or figure; the PDFs are unchanged. `student-src/regenerate.py` writes the student LaTeX from them and compiles it, and `problem-files/tools/build.py` also builds first-route and return packets, a one-page problem menu and a key arranged by problem.
 
 The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.

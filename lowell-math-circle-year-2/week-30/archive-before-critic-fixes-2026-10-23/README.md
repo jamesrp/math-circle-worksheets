@@ -1,0 +1,3 @@
+# Week 30 print copies before the October 23, 2026 critic follow-up
+
+The Grades 4–5 packet F30-45-v3 and the adult guide, replaced the same day by F30-45-v4 and a guide with one word fewer. An independent critic noted that Grades 4–5 Problem 5's "What is the most any three-weight kit can balance, even with gaps?" can be read as asking for the largest target, which has no limit; v4 asks for "the largest number of different positive targets any three-weight kit can balance, even with gaps". The guide's materials no longer list 7 among the sticks to snap, since 7 is already in the kit. The K–1 and Grades 2–3 packets (v3) did not change. The current copies are in [../](../). Kept for reference; do not print them.

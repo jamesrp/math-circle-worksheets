@@ -60,7 +60,7 @@ def check(ok, what):
 
 K, M, U = pages('k-1.pdf'), pages('grades-2-3.pdf'), pages('grades-4-5.pdf')
 G = '\n'.join(pages('facilitator-guide.pdf'))
-for name, pp, tag in (('K-1', K, 'F30-K-v3'), ('2-3', M, 'F30-23-v3'), ('4-5', U, 'F30-45-v3')):
+for name, pp, tag in (('K-1', K, 'F30-K-v3'), ('2-3', M, 'F30-23-v3'), ('4-5', U, 'F30-45-v4')):  # 4-5 v4 since the critic follow-up
     check(len(pp) == 5 and all(tag in p for p in pp), f'{name}: five pages, every footer {tag}')
 
 # Could 9: the launch example is target 5 with weights 2 and 7, which no task uses.
@@ -108,7 +108,7 @@ check((n38, n39) == (2, 1) and max(n38, n39) < 3, f'2-3 P4: 4 balances {n38} and
 
 # Should 2: Grades 4-5 Problem 5 asks for the most any three-weight kit can balance.
 u4 = ' '.join(U[3].split())
-check('What is the most any three-weight kit can balance, even with gaps? Explain why none can do better.' in u4, '4-5 P5: new question')
+check('What is the largest number of different positive targets any three-weight kit can balance, even with gaps? Explain why none can do better.' in u4, '4-5 P5: new question (critic follow-up wording)')
 best = max(len(positives((a, b, c))) for a in range(1, 41) for b in range(a + 1, 41) for c in range(b + 1, 41))
 check(best == 13 and len(positives((1, 3, 9))) == 13 and (3 ** 3 - 1) // 2 == 13, '4-5 P5: at most 13 (search to 40), reached by 1, 3, 9')
 check('Why none can do better' in G and 'at most 13 are positive' in G, 'guide: 4-5 P5 key gives the reason')

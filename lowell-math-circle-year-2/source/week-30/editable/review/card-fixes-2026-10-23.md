@@ -33,3 +33,7 @@ Nothing on the card is deferred. The cube-stick kit and its fit on the mat are u
 - The replaced v2 packets and guides are archived in the project in `week-30/archive-before-card-fixes-2026-10-23/`, and the conversion's ZIP and the previous bonus ZIP in `source/week-30/archive-before-card-fixes-2026-10-23/`.
 
 The theme remains unpiloted; the cube-stick kit, the mat and the timing are unrehearsed.
+
+## Critic follow-up, the same day (F30-45-v4)
+
+An independent critic read Should 2's wording, "What is the most any three-weight kit can balance", as open to "the largest target", which is unbounded. Grades 4–5 Problem 5 now asks "What is the largest number of different positive targets any three-weight kit can balance, even with gaps?" The guide's materials say "5, 6, 11 or another weight", since 7 is already in the kit. Only the Grades 4–5 packet changed (v4).

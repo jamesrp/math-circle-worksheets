@@ -43,6 +43,8 @@ The four-sentence rules and the launch example. K–1 P2's boards for the imposs
 
 October 23, 2026: all twelve done after a problem-file conversion with no wording change (v3 packets F30-K-v3, F30-23-v3, F30-45-v3; guide pp. 1, 2, 4; bonus guide W30-BON-FAC-v2). Fix 5's sticks are 1, 2, 3, 4, 7, 8, 9 and 10 (7 for the launch's 2 and 7) and are unrehearsed. See `lowell-math-circle-year-2/source/week-30/editable/review/card-fixes-2026-10-23.md`.
 
+**Critic follow-up, October 23, 2026 (F30-45-v4):** an independent critic noted that fix 2's "What is the most any three-weight kit can balance, even with gaps?" can be read as the largest target, which is unbounded (100, 200, 400 balance 700). Grades 4–5 Problem 5 now asks for "the largest number of different positive targets any three-weight kit can balance, even with gaps" (13); K–1 and Grades 2–3 stay v3. The guide's materials snap "5, 6, 11 or another weight", since 7 is in the kit. Check: `checks/week-30/check_critic_fixes.py`.
+
 ## Overlaps
 
 Week 29 (two-length builders) also builds targets from a kit, but with unlimited copies and addition only; its theorem is the Frobenius gap, and its rods could supply this week's weights. Week 6 (code breaking) uses the same counting move (k answers separate at most 2^k), which the bonus's search problems repeat. None reaches balanced ternary; no merge.
