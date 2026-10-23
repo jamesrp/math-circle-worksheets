@@ -1,0 +1,3 @@
+# Week 9 before problem files
+
+The student packets' builder (`gen.py`, which wrote and compiled `k-1.tex`, `grades-2-3.tex` and `grades-4-5.tex`), those generated files, and the week's `build.sh`, as they were until October 23, 2026, when the week was converted to [problem files](../week.toml). `../figures.py` carries over the builder's drawing code unchanged (simulation, tables, grids, sheets, chart, row and stack layouts), and `../src/check.py` runs its checks of the simulation, the unfolding sheets and the printed targets. The conversion changed no wording: the rebuilt packets match these files' PDFs in pages, extracted text and 100-dpi pixels. Kept for reference; they are not built.
