@@ -38,3 +38,12 @@ Not done: the guide-only coulds 4–6 (group size on p. 1, materials wording, th
 - The replaced Grades 2–3, Grades 4–5 and guide PDFs are archived in the project in `week-26/archive-before-card-fixes-2026-10-23/` (the guide as `week-26-facilitator-before-student-fixes.pdf`), and the ZIP from the conversion in `source/week-26/archive-before-card-fixes-2026-10-23/`.
 
 The theme remains unpiloted.
+
+## Part 3: guide-only coulds 4–6
+
+- **Could 4, p. 1.** The group is four younger, four middle and three older children (`worksheet-workflow/context.md`), not three younger.
+- **Could 5, p. 1.** The materials no longer name a matching grid, a tile mat or "short edge markers/counters" that no file supplies. The table is the board; about 20 mm tiles or 1-inch colour tiles serve; an edge marker is any small counter set beside one exposed side (dried beans, buttons, plastic counters). A 12-tile row is 24 cm with 20 mm tiles and about 30 cm with 1-inch tiles, wider than a US Letter sheet.
+- **Could 6, pp. 10 and 14.** P. 10 suggests testing the Grades 2–3 Problem 3 rule on Problem 1's eight-tile records (7 shared sides give 32 − 14 = 18; 10 give 32 − 20 = 12), since all five Problem 3 cases have ten tiles. P. 14's prerequisites accept "each added tile adds at most 2" (a tile joining k ≥ 1 old tiles changes the boundary by 4 − 2k) as well as the shared-side formula.
+
+Verification: `facilitator-src/check_math.py` and `check_pdf.py` pass and `problem-files/check_guide_copy.py` still finds every key sentence in the guide source. The rebuilt guide differs from the previous one only on PDF pages 2, 11 and 15 (printed pp. 1, 10, 14), each rendered and inspected; the other 17 pages are pixel-identical at 60 dpi with identical text. The student packets and band views did not change. The replaced guide is archived as `week-26/archive-before-card-fixes-2026-10-23/week-26-facilitator-before-guide-coulds.pdf`; the ZIP it replaced is in Git history (commit aa34b9b). A clean rebuild from the new ZIP passes `verify_revision.py`.
+

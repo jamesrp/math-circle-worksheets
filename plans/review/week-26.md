@@ -47,6 +47,8 @@ A shape is n unit squares joined along whole sides; its boundary counts exposed 
 
 **Fixed later October 23, 2026 (student pages, after the problem-file conversion):** fix 1's student part (4–5 P2 states that two tiles touching at a corner leave no gap; the guide's overview and pp. 3, 14, 18 now answer under that rule), fix 3 (4–5 P3's third shape and guide p. 15) and coulds 7–10; coulds 4–6 (guide) not done. Same record.
 
+**Guide coulds 4–6 done later October 23, 2026:** p. 1 group size and materials (the table is the board; 1-inch tiles serve; any small counters mark edges), p. 10 a test on the eight-tile records, p. 14 accepts "each added tile adds at most 2". Same record.
+
 ## Overlaps
 
 Week 25 also counts rows and columns, for Ryser's switches rather than boundary; Week 50 (staircases) totals horizontal and vertical pieces, the idea behind P ≥ 2(r + c). Weeks 52 and 53 reach spanning trees, which are this week's longest shapes; cross-reference them. Week 1 fills a given region, where here children choose it; Weeks 48 and 57 relate area and boundary with other objects and theorems; the bonus's corner rule touches Week 56 (Euler). No merge.
