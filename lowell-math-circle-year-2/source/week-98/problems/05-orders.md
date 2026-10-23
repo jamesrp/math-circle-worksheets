@@ -8,7 +8,7 @@ kernel = "Every complete run from the same seeds ends with the same filled squar
 +++
 
 ## prompt
-On each pair of boards, use the same three seeds and grow them in different orders when possible. Can the two finished boards have different filled squares? Test several starts.
+On each pair of boards, use the same three seeds and grow them in different orders when possible. Number the added squares in the order you add them. Can the two finished boards have different filled squares? Test several starts.
 
 ## text
 \node[anchor=center,inner sep=0pt,font=\sffamily\fontsize{11.5}{13.5}\selectfont] at (60,57) {First finish};

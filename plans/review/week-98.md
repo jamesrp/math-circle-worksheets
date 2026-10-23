@@ -44,6 +44,8 @@ An empty square fills when two side-neighbours are filled. Every complete run fr
 11. **could**, 4–5 P3: one 7 mm 10 × 10 board, so a failed pencil try must be erased; add a spare.
 12. **could**, guide p. 5: cut release residue ("The paper's historical open questions are not represented as current.").
 
+Fixed October 23, 2026: shoulds 1–6 and coulds 7, 10, 12, in the problem files and guide (W98-23-v2, W98-45-v2, W98-FAC-v2); coulds 8, 9, 11 deferred.
+
 ## Overlaps
 
 Week 26 counts exposed sides of tile shapes; here they certify a process. Week 11's chip firing has an order-independent finish. Week 19 separates "no card can be added" from "largest", as "no seed can be removed" differs from "fewest" here. None has threshold growth or the seed bound. No merge.

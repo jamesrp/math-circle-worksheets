@@ -130,7 +130,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 95 | Count the unseen | keep | [card](week-95.md), [math check](week-95-math.md) |
 | 96 | Prime bags and divisor builders | keep | [card](week-96.md), [math check](week-96-math.md) |
 | 97 | Square remainders | keep | [card](week-97.md), [math check](week-97-math.md) |
-| 98 | Growing from a few seeds | keep | [card](week-98.md), [math check](week-98-math.md) |
+| 98 | Growing from a few seeds | original verdict keep; shoulds 1–6 (a K–1 route in the guide, the order question for Grades 4–5 and a child's explanation for 2–3, numbered orders in 2–3 Problem 4, the other-totals question in 2–3 Problem 3, the printed boards as workboards, the guide's two wording slips) and coulds 7, 10 and 12 fixed October 23 in the new problem files (v2 packets and guide); coulds 8, 9 and 11 (larger or extra boards) deferred | [card](week-98.md), [math check](week-98-math.md) |
 | 99 | Moving piles | keep | [card](week-99.md), [math check](week-99-math.md) |
 | 100 | Distance in nested worlds | keep | [card](week-100.md), [math check](week-100-math.md) |
 

@@ -7,7 +7,7 @@ route = ["first", "return"]
 +++
 
 ## text
-\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{11.5}{14.6}\selectfont] at (15,27) {Seeds are the squares filled at the start. Put counters on them. Add a counter to an empty square when at least two squares sharing its sides are filled. Your partner points to two filled neighbors before each addition. Counters stay put. Stop when no more can be added. Diagonal touches do not count. Opposite edges do not meet; there are no squares outside the board.};
+\node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{11.5}{14.6}\selectfont] at (15,27) {Seeds are the squares filled at the start. Put counters on them. Add a counter to an empty square when at least two squares sharing its sides are filled. Your partner points to two filled neighbors before each addition. Counters stay put. Stop when no more can be added. Diagonal touches do not count. There are no squares outside the board.};
 \node[anchor=north west,inner sep=0pt,text width=186mm,align=left,font=\sffamily\fontsize{11.5}{14}\selectfont] at (15,62) {Mark seeds with $\bullet$ and added squares with $+$.};
 \fill[black!11] (24,86) rectangle ++(10,10);
 \fill[black!11] (34,86) rectangle ++(10,10);

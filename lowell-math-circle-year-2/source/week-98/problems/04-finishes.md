@@ -8,7 +8,7 @@ kernel = "Where three seeds sit decides the size of the finish."
 +++
 
 ## prompt
-Choose exactly three seeds on each board. Make the finishes have 3, 4, 6 and 9 filled squares.
+Choose exactly three seeds on each board. Make the finishes have 3, 4, 6 and 9 filled squares. Can three seeds finish with any other number of filled squares?
 
 ## text
 \node[anchor=center,inner sep=0pt,font=\sffamily\fontsize{11.5}{13.5}\selectfont] at (60,57) {3 filled squares};

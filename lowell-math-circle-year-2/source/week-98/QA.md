@@ -2,6 +2,8 @@
 
 Release date: October 17, 2026. **Prepared for organizer review; unpiloted.** Topic approval authorized production, not approval of the final worksheet or evidence of classroom use. Physical printing, preparation, handling, staffing and timing have not been rehearsed.
 
+**October 23, 2026.** The review card's fixes made the v2 packets and guide (see README.md); `checks/card_fixes_2026_10_23.py` checks the new claims and wording. Still unpiloted and physically unrehearsed.
+
 ## Exact coverage
 
 5 pages for Grades 2–3; 6 pages for Grades 4–5; 5-page facilitator guide. Each output has a matching current reference copy. Grade labels are approximate prerequisites; no K–1 packet is claimed. Read the guide's entry requirements and first-visit route before choosing pages.

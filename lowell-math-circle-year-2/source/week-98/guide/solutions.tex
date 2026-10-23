@@ -6,7 +6,7 @@ Coordinates below are $(\text{row},\text{column})$, counted from 1 at the top le
 A main diagonal $(1,1),(2,2),(3,3)$ fills all nine cells. A full top row $(1,1),(1,2),(1,3)$ stops immediately: every empty cell has at most one filled side-neighbor. Many other choices work. Require the original three seeds to stay marked, and distinguish ``I stopped'' from ``no legal addition remains.'' A counterexample to filling is a finished legal run, not simply a picture with empty squares.
 
 \sub{Problem 2, page 2: fewest on $4\times4$}
-Four seeds suffice and three never suffice. The lower-bound proof is on page 1 and developed below; the middle-table first success can be a convincing construction without immediately completing the proof. Three different four-seed starts are the main diagonal, the antidiagonal, and
+Four seeds suffice and three never suffice. The lower-bound proof is in the mathematical overview and developed below; the middle-table first success can be a convincing construction without immediately completing the proof. Three different four-seed starts are the main diagonal, the antidiagonal, and
 \[
 \{(1,1),(1,3),(2,4),(4,1)\}.
 \]
@@ -22,21 +22,22 @@ Filled cells & Seeds & Terminal shape\\\midrule
 6 & $(1,1),(1,2),(2,3)$ & top two rows\\
 9 & $(1,1),(2,2),(3,3)$ & the full square
 \end{tabular}\end{center}
-Children can keep one seed sketch beside one physical board instead of building all four at once. The requested outputs contrast a stable line, a filled small square, a rectangle and the full board. They are not four copies of one calculation.
+No other total occurs: the 84 three-seed starts finish with 3, 4, 6 or 9 filled squares only (14, 16, 40 and 14 starts). The classification under Grades 4--5 Problem 1 explains why. Children can keep one seed sketch beside one physical board instead of building all four at once. The requested outputs contrast a stable line, a filled small square, a rectangle and the full board. They are not four copies of one calculation.
 
 \sub{Problem 4, page 4: different legal orders}
-No completed runs from the same seeds finish differently. The least-closed-superset proof on page 1 explains why. For the three diagonal seeds, there are four legal first additions; partners can deliberately choose different ones. Both runs ultimately fill all nine cells. Starts that stop early also have the same final set in every complete order. If a pair claims a counterexample, compare the seed sketches and look for an unfinished legal addition before correcting their conclusion.
+No completed runs from the same seeds finish differently. The least-closed-superset proof in the mathematical overview explains why. An explanation a child can follow: suppose run A added a square that run B never added, and take the first such square in A's order. When A added it, two of its neighbors were already filled, by seeds or by earlier additions of A, and B has all of those too. So that square still has two filled neighbors when B stops, and B was not finished. Every square one complete run adds, the other adds too. The numbers children write show the orders differ while the finishes agree. For the three diagonal seeds, there are four legal first additions; partners can deliberately choose different ones. Both runs ultimately fill all nine cells. Starts that stop early also have the same final set in every complete order. If a pair claims a counterexample, compare the seed sketches and look for an unfinished legal addition before correcting their conclusion.
 
 \sub{Problem 5, page 5: every seed needed, yet too many}
 The seeds are $(1,1)$, $(1,2)$, $(2,3)$ and $(3,3)$. One legal growth sequence adds $(1,3)$ and $(2,2)$, then $(2,1)$ and $(3,2)$, then $(3,1)$. Each listed layer may be filled in either order because its supports are already present. These are adult verification layers, not a required simultaneous-round record.
 
 Removing the four seeds in that order leaves terminal counts $6,3,3,6$. Thus every seed is indispensable in this particular start. Four is nevertheless not the fewest: the three-seed diagonal fills. Let children share the four removal trials and pool their reset pictures. The labels \emph{inclusion-minimal} and \emph{minimum} can follow their discovery; no vocabulary quiz is needed.
-\newpage
 \head{Grades 4--5: constructions and an impossibility certificate}
 \sub{Problem 1, page 1: all finish sizes from three seeds}
+Before Problem 1, ask Grades 2--3 Problem 4's question aloud: partners place the three diagonal seeds, grow them in two different orders, and compare the finished boards. Problem 1's ``final numbers'' assume each start has one finish; this settles it by experiment, and the overview's proof explains it.
+
 Exactly four totals occur: $3,4,6,9$. The preceding page supplies witnesses. The checker examines all $\binom93=84$ three-seed placements, including rotations and reflections, and finds no other totals. This finite check supports the adult answer; children need not list 84 cases individually.
 
-A short geometric explanation can replace exhaustive listing. If there is no legal addition, the total is 3. Otherwise two seeds support a first addition. If those two seeds are diagonally opposite corners of a unit square, their closure is that $2\times2$ square. The third seed is inside it (finish 4), in an extra row or column next to it (finish 6), or diagonally beyond it (finish 9). If the supporting seeds are opposite across the new cell, their closure is a full row or column of the $3\times3$ board. A third seed on that line gives 3; one in the next parallel line expands to a $2\times3$ rectangle, giving 6; one two lines away first creates a full perpendicular line and then fills the square, giving 9. These descriptions include reflected and rotated cases. If children are still searching, keep this classification with the adult.
+A short geometric explanation can replace exhaustive listing. If there is no legal addition, the total is 3. Otherwise two seeds support a first addition. If those two seeds are diagonal neighbors, their closure is the $2\times2$ square they span. The third seed is inside it (finish 4), in an extra row or column next to it (finish 6), or diagonally beyond it (finish 9). If the supporting seeds are opposite across the new cell, their closure is a full row or column of the $3\times3$ board. A third seed in the next parallel line expands to a $2\times3$ rectangle, giving 6; one two lines away first creates a full perpendicular line and then fills the square, giving 9. These descriptions include reflected and rotated cases. If children are still searching, keep this classification with the adult.
 
 \sub{Problems 2--3, pages 2--3: $4\times4$, $5\times5$ and $10\times10$}
 The minima are 4, 5 and 10 respectively. Main or opposite diagonals attain them. Problem 3 now asks for the fewest seeds on both larger boards, using drawn marks rather than counters. A successful construction establishes an upper bound; the perimeter argument supplies the matching lower bound. A larger successful start is useful experimental evidence but does not yet answer the minimum question.
@@ -68,7 +69,7 @@ After the core work, ask how the minimum changes on an open $a\times b$ rectangl
 \sub{Connections and source boundaries}
 Atlas AD-07 already uses monotone closure and order-independent completion. Week 26 already counts exposed sides. Here they support economical generation and the gap between a locally indispensable and globally smallest start. The model is not chip conservation, rotor routing or prescribed layer growth.
 
-Robert Morris, \emph{Minimal percolating sets in bootstrap percolation}, introduction pp. 1--2 and Theorem 1 p. 3, supplies the research context and distinction between minimum and inclusion-minimal sets. Our elementary proofs, chosen examples and activity sequence are independently presented. The paper's historical open questions are not represented as current. Full references and overlap boundaries are in \texttt{SOURCES.md}.
+Robert Morris, \emph{Minimal percolating sets in bootstrap percolation}, introduction pp. 1--2 and Theorem 1 p. 3, supplies the research context and distinction between minimum and inclusion-minimal sets. Our elementary proofs, chosen examples and activity sequence are independently presented. Full references and overlap boundaries are in \texttt{SOURCES.md}.
 
 \sub{Use and evidence}
 Independent finite checks verify the printed starts and deletion tests. The arguments in this guide establish the universal statements. The source package includes reproducible checks and a build script; its QA record distinguishes page review and extracted-archive reconstruction from physical rehearsal. These materials are unpiloted. Record actual preparation time, whether partners enforce side-neighbors reliably, where children need adult decisions, and which questions they choose to continue.
