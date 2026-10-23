@@ -8,7 +8,7 @@ kernel = "Composites break the pairing: with 8, output 1 hides four inputs; with
 +++
 
 ## prompt
-For bundles of 7 use inputs 0--6; for bundles of 8 use 0--7; for bundles of 9 use 0--8. For each bundle size, find all outputs that hide the most possible inputs. Which bundle size lets a secret input hide among the most possibilities? Can output 0 ever hide more than one input?
+Use bundles of 7, 8 and 9, each with inputs from 0 to one less than the bundle size. For each bundle size, find all outputs that hide the most possible inputs. Which bundle size has an output that hides the most inputs?
 
 ## text
 \begin{center}

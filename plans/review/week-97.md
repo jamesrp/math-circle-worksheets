@@ -43,6 +43,8 @@ Squaring a side n and removing bundles of m leaves a remainder that depends only
 9. **could**, guide p. 2: say to print pp. 5–6 together. math.md notes p. 6 lacks 11² to 14² for the size-15 check, but p. 5 prints them and the guide pairs P5 with P6.
 10. **could**, guide p. 1, "Discovery and readiness": name what children find: two inputs per nonzero output at 3, 5, 7 and 11, three or four at 8, 9 and 15, nothing new past m − 1.
 
+Fixed October 23, 2026, after converting the week to problem files: shoulds 1–3 and coulds 4–7, 9 and 10 (checked in `source/week-97/checks/card_fixes_2026_10_23.py`, including the counters picture's dots); could 8 deferred.
+
 ## Overlaps
 
 Week 4 adds around a ring rather than squaring; Week 33 contrasts prime and composite lengths through Fermat. Week 96 proves the lemma P6 needs, so this week sits best after it. Weeks 6 and 94 identify unknowns from answers. No other theme takes squares modulo m. No merge.

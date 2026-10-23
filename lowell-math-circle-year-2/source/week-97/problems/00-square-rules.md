@@ -7,7 +7,7 @@ route = ["first", "return"]
 +++
 
 ## text
-An input of 3 means a $3\times3$ square of counters. Input 0 uses no counters. Remove complete bundles of the given size until fewer than one bundle's worth remain. The number left is the output; it can be 0. We compare outputs to find which square inputs they can hide.
+An input of 3 means a $3\times3$ square of counters. Input 0 uses no counters. Remove complete bundles of the given size until fewer than one bundle's worth remain. The number left is the output; it can be 0.
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm,>=Stealth]

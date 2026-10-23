@@ -24,3 +24,7 @@ The independent standard-library checker constructs squares by repeated addition
 Build with Python 3 and pdfLaTeX. The builder rejects TeX errors and overfull boxes. The release check extracts the source ZIP into a fresh directory, rebuilds every PDF using only extracted files, and compares its SHA-256 with the current output and packaged reference PDF. The resulting record is in `plans/new-families-92-97/week-97/release-check.json`. No downloaded reference or workflow prompt is required to rebuild.
 
 These are digital checks, not a classroom pilot or physical rehearsal.
+
+## October 23, 2026 card fixes
+
+The packet was converted to problem files (byte-identical to the previous builder in the same TeX installation), then revised from the review card. Every changed page (students 1, 3, 5; guide 1, 2, 3, 5) was rendered and inspected; in the same TeX installation the other pages are pixel-identical to the conversion build. `checks/card_fixes_2026_10_23.py` checks the K–1 route's remainders, the counters picture (expanded from its TikZ source: 15 black, 6 gray and 4 open dots in the square; three loops of 7 in the rectangle), the prime pairing for 3, 5, 7 and 11, Problem 3's answer under the new wording and the page 1 claims. A clean rebuild from the extracted ZIP reproduces the print and reference PDFs. The earlier `release-check.json` record describes the October 17 release.

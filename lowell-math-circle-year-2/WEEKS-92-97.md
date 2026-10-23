@@ -51,6 +51,7 @@ Only Week 94 claims a K–1 packet. A shared launch in another week is not a sub
 - **96, October 23, 2026:** the student packets are stored as problem files ([source/week-96/](source/week-96/README.md)); the conversion changed no wording or figure. Route packets, menu and key are in [band-views/week-96/](band-views/README.md#weeks-stored-as-problem-files).
 - **96, October 23, 2026:** card fixes: Grades 2–3 Problem 3 asks whether the bag with more tokens makes more values (both make 8), plainer prime and same-token wording, a larger Grades 4–5 Problem 4 box, and an adult-led K–1 route in the guide; previous PDFs archived in [week-96/archive-before-card-fixes-2026-10-23/](week-96/archive-before-card-fixes-2026-10-23/README.md).
 - **97, October 23, 2026:** the student packet is stored as problem files ([source/week-97/](source/week-97/README.md)); the conversion changed no wording or figure.
+- **97, October 23, 2026:** card fixes: Problem 3 asks which bundle size has an output that hides the most inputs, the rules and Problem 5 lose narrating phrases, and the guide adds an adult-led K–1 route and a counters picture for the prime pairing; previous PDFs archived in [week-97/archive-before-card-fixes-2026-10-23/](week-97/archive-before-card-fixes-2026-10-23/README.md).
 
 ## Verification and use history
 

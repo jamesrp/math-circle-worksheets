@@ -8,7 +8,7 @@ kernel = "The output depends only on the input's remainder, since cutting $m$-wi
 +++
 
 ## prompt
-Use bundles of 7. Could an input bigger than 6 produce an output that none of the inputs 0--6 produced? Try larger squares, then settle the question for every whole-number input. Give an explanation that also works for squares too big to build.
+Use bundles of 7. Could an input bigger than 6 produce an output that none of the inputs 0--6 produced? Settle the question for every whole-number input. Give an explanation that also works for squares too big to build.
 
 ## text
 \begin{center}
