@@ -7,7 +7,7 @@ page = "new"
 +++
 
 ## prompt
-On the ring marked \texttimes2, draw a line from each dot to the dot with twice its number, counting on around the ring past 23 when you need to, so that dot 13 joins dot 2. On the ring marked \texttimes3, draw a line from each dot to the dot with three times its number. A dot that lands on itself gets no line.
+On the ring marked \texttimes2, draw a line from each dot to the dot with twice its number, counting on around the ring past 23 when you need to, so that dot 13 joins dot 2. On the ring marked \texttimes3, draw a line from each dot to the dot with three times its number. A dot that lands on itself draws no line of its own.
 
 ## figure
 times_rings()

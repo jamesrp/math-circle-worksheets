@@ -673,6 +673,28 @@ def check_prose():
         'materials: counters 20+20+20+1 = 61': 20 + 20 + 20 + 1 == 61,
         'materials: fasteners 4+3+3 = 10, pencils 5+5+4 = 14, rulers 2+4+3 = 9': (4 + 3 + 3, 5 + 5 + 4, 2 + 4 + 3) == (10, 14, 9),
     }
+    # review card of October 5, 2026: the page items made after the problem-file conversion
+    m_tex = open(os.path.join(SRC, 'grades-2-3.tex')).read()
+    u_tex = open(os.path.join(SRC, 'grades-4-5.tex')).read()
+    guide = open(os.path.join(HERE, 'facilitator.tex')).read()
+    idea = guide.split('\\section{The idea of the week}')[1].split('\\section{')[0]
+    facts.update({
+        'card 4: 2-3 Problem 5 asks for two or three words, as the guide entry does':
+            'a message of two or three words' in m_tex and 'five words' not in m_tex
+            and 'message of two or three words in code' in guide and 'five or more words in code' not in guide,
+        'card 6: 4-5 Problem 12 says a dot that lands on itself draws no line of its own':
+            'draws no line of its own' in u_tex and 'gets no line' not in u_tex,
+        'card 8: hop k and hop n-k draw the same lines on every ring from 3 to 36 dots':
+            all(chords(n, k) == chords(n, n - k) for n in range(3, 37) for k in range(1, n)),
+        'card 8: section 1 pairs hop k with hop n-k (hop 8 on 12 is hop 4) and names 4-5 Problem 12':
+            'hop $n-k$' in idea and 'hop 8 is hop 4 backwards' in idea and 'Problem 12' in idea
+            and r'$\times2$' in idea and r'$\times3$' in idea and '\t' not in idea
+            and shape(12, 8) == shape(12, 4),
+        'card 8: the curves touch the circle where m lands on itself: x2 at 0, x3 at 0 and 12':
+            [m for m in range(24) if 2 * m % 24 == m] == [0] and [m for m in range(24) if 3 * m % 24 == m] == [0, 12],
+        'IDs: F04-M-v5 and F04-U-v5 on the pages, F04-FAC-v5 on the guide':
+            'F04-M-v5' in m_tex and 'F04-U-v5' in u_tex and 'F04-FAC-v5' in guide and 'F04-FAC-v4' not in guide,
+    })
     for k, v in facts.items():
         print(f"{'ok ' if v else 'BAD'} {k}")
         if not v:

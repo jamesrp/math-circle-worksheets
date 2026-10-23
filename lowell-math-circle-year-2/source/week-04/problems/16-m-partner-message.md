@@ -6,7 +6,7 @@ route = "first"
 +++
 
 ## prompt
-Write a message of at least five words for your partner, and put it into code with a setting you choose. Swap codes and settings with your partner, and find your partner's message.
+Write a message of two or three words for your partner, and put it into code with a setting you choose. Swap codes and settings with your partner, and find your partner's message.
 
 ## figure
 lines(5)

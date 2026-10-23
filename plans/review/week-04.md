@@ -44,7 +44,7 @@ Hop k around n evenly spaced dots, restarting at a bare dot until every dot has 
 
 Against the math check: its item 2 is a should fixed in the guide; items 3 and 4 are coulds.
 
-October 23, 2026: fixes 1, 2, 3, 5, 6 and 7, the guide part of 4 and the README link of 9 are done in the guide and source README; the student wording of 4, fix 8 and the redesign note of 9 are deferred.
+October 23, 2026: fixes 1, 2, 3, 5, 6 and 7, the guide part of 4 and the README link of 9 are done in the guide and source README; later that day, after the conversion to problem files, the student wording of 4, the page wording of 6 and fix 8 (F04-M-v5, F04-U-v5, F04-FAC-v5); the redesign note of 9 is left to the organizer.
 
 ## Overlaps
 
