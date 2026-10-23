@@ -297,7 +297,8 @@ def barcode(board, sched):
 
 def main():
     log("Week 77 independent math check; repository:", REPO)
-    tex = (REPO / "lowell-math-circle-year-2/source/week-77/student/students.tex").read_text()
+    # Re-pointed on 2026-10-23 (see check_diagrams.py): the reviewed students.tex kept before the conversion.
+    tex = (REPO / "lowell-math-circle-year-2/source/week-77/archive-before-problem-files-2026-10-23/students.tex").read_text()
     check("(B) at (6.2,0)" in tex and "(C) at (6.2,6.2)" in tex and "(D) at (0,6.2)" in tex,
           "square coordinates present in students.tex")
     check("(11.6,5.8)" in tex and "(5.8,2.9)" in tex, "joined-board coordinates present in students.tex")
@@ -518,7 +519,7 @@ def main():
     log("\n== Delivered guide tables (pdftotext) ==")
     import re
     import subprocess
-    txt = subprocess.run(["pdftotext", "-layout", str(REPO / "lowell-math-circle-year-2/week-77/week-77-facilitator.pdf"), "-"],
+    txt = subprocess.run(["pdftotext", "-layout", str(REPO / "lowell-math-circle-year-2/week-77/archive-before-card-fixes-2026-10-23/week-77-facilitator.pdf"), "-"],
                          capture_output=True, text=True, check=True).stdout
     names = {P: "P", R: "R"}
     rows2 = re.findall(r"^\s*(DA|AC)\s+(AC|DA)\s+(ABC|ACD)\s+(ABC|ACD)\s+([PR])\s+(\d)\s+(yes|no)\s*$", txt, re.M)

@@ -44,6 +44,9 @@ def find_repo():
 
 REPO = find_repo()
 W = REPO / 'lowell-math-circle-year-2' / 'week-91'
+# Re-pointed on 2026-10-23: the card's should fixes (c619ef2) and the footer ids (dfbc5e4) changed the packets, so
+# this review check reads the copies as reviewed, in week-91/archive-before-card-fixes-2026-10-23/.
+W = W / 'archive-before-card-fixes-2026-10-23'
 OUT, FAIL = [], []
 
 

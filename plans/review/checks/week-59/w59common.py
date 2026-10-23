@@ -48,6 +48,13 @@ SRC = REPO / "lowell-math-circle-year-2" / "source" / "week-59"
 STUDENT_PDF = WEEK / "week-59-students.pdf"
 MATERIALS_PDF = WEEK / "week-59-materials.pdf"
 GUIDE_PDF = WEEK / "week-59-facilitator.pdf"
+# Re-pointed on 2026-10-23.  The card's shoulds and coulds (226e7eb) and the critic follow-up (94ea196) reshaped the
+# student packet and guide, so the review checks read the copies as reviewed, in
+# week-59/archive-before-card-fixes-2026-10-23/; the materials are unchanged since the review.  DELIVERED keeps the
+# current print copies, which check_critic_fixes.py and the package's own card-fix verifier check.
+DELIVERED = {"students": STUDENT_PDF, "materials": MATERIALS_PDF, "guide": GUIDE_PDF}
+STUDENT_PDF = WEEK / "archive-before-card-fixes-2026-10-23" / "week-59-students.pdf"
+GUIDE_PDF = WEEK / "archive-before-card-fixes-2026-10-23" / "week-59-facilitator.pdf"
 
 
 class Log:

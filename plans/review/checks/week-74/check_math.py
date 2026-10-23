@@ -22,6 +22,11 @@ REPO = HERE.parents[3]
 WEEK = REPO / 'lowell-math-circle-year-2' / 'week-74'
 STUDENT = WEEK / 'week-74-students.pdf'
 GUIDE = WEEK / 'week-74-facilitator.pdf'
+# Re-pointed on 2026-10-23: the card's shoulds and coulds (b49dd73, printed stride strips) and the critic follow-up
+# (dd839c9) reshaped the packet, so this review check reads the copies as reviewed, in
+# week-74/archive-before-card-fixes-2026-10-23/.  The current packet is checked by
+# lowell-math-circle-year-2/source/week-74/editable/review/verify_card_fixes_2026_10_23.py.
+STUDENT, GUIDE = (WEEK / 'archive-before-card-fixes-2026-10-23' / f.name for f in (STUDENT, GUIDE))
 
 OUT, FAIL = [], []
 

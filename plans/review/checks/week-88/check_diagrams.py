@@ -38,6 +38,11 @@ REPO = find_repo(HERE)
 WEEK = REPO / "lowell-math-circle-year-2" / "week-88"
 STU = WEEK / "week-88-students.pdf"
 FAC = WEEK / "week-88-facilitator.pdf"
+# Re-pointed on 2026-10-23: the problem-file conversion (5180cb7), the card's shoulds and small coulds (7cd6bda) and
+# the footer and Critic M fixes (dfbc5e4) changed and moved the sources and PDFs, so the review checks read the
+# copies as reviewed: week-88/archive-before-card-fixes-2026-10-23/ and the reviewed TeX in
+# source/week-88/archive-before-problem-files-2026-10-23/week-88-source.zip (identical to the reviewed files).
+STU, FAC = (WEEK / "archive-before-card-fixes-2026-10-23" / f.name for f in (STU, FAC))
 MM = 25.4 / 72
 OUT, FAILS = [], []
 

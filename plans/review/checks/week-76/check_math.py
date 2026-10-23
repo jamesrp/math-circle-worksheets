@@ -15,6 +15,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, '..', '..', '..', '..'))
 SRC = os.path.join(REPO, 'lowell-math-circle-year-2', 'source', 'week-76')
 PDF = os.path.join(REPO, 'lowell-math-circle-year-2', 'week-76')
+# Re-pointed on 2026-10-23: the problem-file conversion (c06e3cc) removed student/students.tex, and the card's
+# shoulds (5629111, printed letter tiles) and the critic follow-up (42f72b9) changed the packet and guide.  This check
+# reads the copies as reviewed, week-76/archive-before-card-fixes-2026-10-23/, and the reviewed students.tex kept in
+# source/week-76/archive-before-problem-files-2026-10-23/ (identical to the reviewed file).
+PDF = os.path.join(PDF, 'archive-before-card-fixes-2026-10-23')
 OUT, FAIL = [], []
 
 
@@ -111,7 +116,7 @@ def realised_alignments(w):
 
 
 # ---------------------------------------------------------------- printed strips
-tex = open(os.path.join(SRC, 'student', 'students.tex')).read()
+tex = open(os.path.join(SRC, 'archive-before-problem-files-2026-10-23', 'students.tex')).read()
 pages = tex.split('\\newpage')
 strips = [[s.replace(',', '') for s in re.findall(r'\\Strip\{[^}]*\}\{[^}]*\}\{([AB,]+)\}', pg)]
           for pg in pages]

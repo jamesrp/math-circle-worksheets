@@ -11,6 +11,7 @@ Run: python3 check_rebuild.py   (writes check_rebuild.py.out beside itself)
 from pathlib import Path
 import os
 import shutil
+import zipfile
 import subprocess
 import tempfile
 
@@ -37,6 +38,12 @@ def find_repo(here):
 REPO = find_repo(HERE)
 SRC = REPO / 'lowell-math-circle-year-2/source/week-83'
 DEL = REPO / 'lowell-math-circle-year-2/week-83'
+# Re-pointed on 2026-10-23: the problem-file conversion (8e59b53) and the card's shoulds and coulds (ff74daa)
+# changed and moved the packet sources, so the review checks read the copies as reviewed:
+# week-83/archive-before-card-fixes-2026-10-23/ and the reviewed TeX in
+# source/week-83/archive-before-problem-files-2026-10-23/week-83-source.zip (identical to the reviewed files).
+DEL = DEL / 'archive-before-card-fixes-2026-10-23'
+REV_ZIP = SRC / 'archive-before-problem-files-2026-10-23' / 'week-83-source.zip'
 OUT, FAIL = [], []
 
 
@@ -50,7 +57,7 @@ env = dict(os.environ, SOURCE_DATE_EPOCH='1791504000', FORCE_SOURCE_DATE='1')
 with tempfile.TemporaryDirectory() as t:
     t = Path(t)
     for kind, name in [('student', 'students'), ('guide', 'facilitator')]:
-        shutil.copy2(SRC / kind / f'{name}.tex', t / f'{name}.tex')
+        (t / f'{name}.tex').write_bytes(zipfile.ZipFile(REV_ZIP).read(f'week-83/{kind}/{name}.tex'))
         for _ in range(2):
             r = subprocess.run(['pdflatex', '-interaction=nonstopmode', '-halt-on-error', f'{name}.tex'], cwd=t, env=env,
                                capture_output=True, text=True)

@@ -198,7 +198,8 @@ u4 = 0.6 * 72
 R = sorted(rects(page), key=lambda r: (r[1] > 300, r[0]))
 dims = [(round((r[2] - r[0]) / u4, 3), round((r[3] - r[1]) / u4, 3)) for r in R]
 print('   rectangles in units of 0.6 in:', dims)
-ok(dims == [(4, 1), (6, 2), (4, 1), (2, 3)], 'p.4 pairs: 4x1 -> 6x2 and 4x1 -> 2x3 at one shared scale')
+# Card should 2 (a21e008) replaced the 2-by-3 target with 8 by 1, drawn under its 4 by 1 at the same scale.
+ok(dims == [(4, 1), (6, 2), (4, 1), (8, 1)], 'p.4 pairs: 4x1 -> 6x2 and 4x1 -> 8x1 at one shared scale')
 for (t, bb, dr) in labels(page):
     if t == 'left':
         y = (bb[1] + bb[3]) / 2

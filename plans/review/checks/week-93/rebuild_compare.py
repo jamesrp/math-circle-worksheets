@@ -11,11 +11,17 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from repo_path import SRC, WEEK  # noqa: E402
+from repo_path import REVIEWED_WEEK as WEEK, REVIEWED_ZIP  # noqa: E402
+import zipfile  # noqa: E402
+
+# Re-pointed on 2026-10-23 (see repo_path.py): rebuild the reviewed sources from the archived source ZIP and compare
+# with the archived reviewed PDFs.
 
 fail = 0
 with tempfile.TemporaryDirectory() as tmp:
     tmp = Path(tmp)
+    zipfile.ZipFile(REVIEWED_ZIP).extractall(tmp / "src")
+    SRC = tmp / "src" / "week-93"
     r = subprocess.run([sys.executable, str(SRC / "build.py"), "--out", str(tmp / "out"), "--work", str(tmp / "work")],
                        capture_output=True, text=True)
     print("build exit", r.returncode, r.stdout.strip().splitlines()[-1] if r.stdout.strip() else r.stderr[-500:])

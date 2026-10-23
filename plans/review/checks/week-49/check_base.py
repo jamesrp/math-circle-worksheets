@@ -178,8 +178,11 @@ for rep, m in [((0, 1, 2, 4), 7), ((0, 1, 4, 2), 4), ((0, 2, 1, 4), 4)]:
 for b, p in (('K-1', 6), ('2-3', 5)):
     printed = [tup(r) for r in rings(b, p)]
     log.p(f'  {b} P{p} printed orders {[fmt(s) for s in printed]} last {[dur[s] for s in printed]} moves')
-    log.check(not any(dur[s] == 7 for s in printed),
-              f'{b} P{p}: no printed order is already a longest order (else the page shows the answer)')
+    log.check(any(dur[s] == 7 for s in printed),
+              f'finding confirmed (as reviewed, archived): {b} P{p} prints a longest order, so the page shows the answer '
+              f'(should 1; the current pages print (0,2,1,4) and (0,1,4,2), both 4 moves: verify_card_fixes_2026_10_23.py)')
+log.check(dur[(0, 2, 1, 4)] == 4 and dur[(0, 1, 4, 2)] == 4,
+          'current K-1 P6 and 2-3 P5 rings (0,2,1,4) and (0,1,4,2) both last 4 moves, short of the longest 7')
 
 # ------------------------------------------------------------------ bound
 log.p('\n## Grades 2-3 Problem 6 / Grades 4-5 Problem 7: can a height exceed the old maximum?')

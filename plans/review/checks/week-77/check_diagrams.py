@@ -126,14 +126,17 @@ def board(page, letters, region):
 def main():
     doc = pymupdf.open(PDF)
     log("PDF:", PDF.relative_to(REPO), "pages", doc.page_count)
-    check(doc.page_count == 5, "student packet has 5 pages")
+    # Updated on 2026-10-23.  This check was written for F77-45-v1 (5 pages), which the repository never held; since
+    # the introduction follow-up the packet opens with a rules-and-launch page, so every board sits one page later:
+    # P1 square p.2, P2 square p.3, joined board p.4, P4 square p.5, fan p.6, launch triangle p.1 (current F77-45-v4).
+    check(doc.page_count == 6, "student packet has 6 pages")
     for p in doc:
         check(abs(p.rect.width - 612) < 1 and abs(p.rect.height - 792) < 1, f"page {p.number+1} is US Letter")
 
-    sq_present = {1: set(), 2: {"AB", "BC", "CD"}, 4: {"AB", "BC", "CD"}}
+    sq_present = {2: set(), 3: {"AB", "BC", "CD"}, 5: {"AB", "BC", "CD"}}
     for pn, solid in sq_present.items():
         page = doc[pn - 1]
-        pos, edges, dist = board(page, {"A", "B", "C", "D"}, (0, 300 if pn == 1 else 0, 612, 792))
+        pos, edges, dist = board(page, {"A", "B", "C", "D"}, (0, 0, 612, 792))
         log(f"p{pn} square dots {({k: (round(v[0], 1), round(v[1], 1)) for k, v in pos.items()})} edges {edges}")
         check(set(pos) == {"A", "B", "C", "D"} and max(dist.values()) < 16, f"p{pn}: four dots labelled A-D next to their dots")
         want = {e: ("solid" if e in solid else "dashed") for e in ["AB", "BC", "CD", "AD", "AC"]}
@@ -143,44 +146,48 @@ def main():
         check(abs(math.dist(pos["A"], pos["C"]) / CM - 6.2 * math.sqrt(2)) < 0.03, f"p{pn}: diagonal AC {math.dist(pos['A'], pos['C'])/CM:.2f} cm")
         check(pos["A"][1] < pos["D"][1] and pos["A"][0] < pos["B"][0], f"p{pn}: A top-left, B top-right, C bottom-right, D bottom-left")
 
-    page = doc[2]
+    page = doc[3]
     pos, edges, dist = board(page, {"A", "B", "C", "D", "E"}, (0, 0, 612, 792))
-    log(f"p3 joined dots {({k: (round(v[0], 1), round(v[1], 1)) for k, v in pos.items()})} edges {edges}")
-    check(set(pos) == set("ABCDE") and max(dist.values()) < 16, "p3: five dots labelled A-E")
+    log(f"p4 joined dots {({k: (round(v[0], 1), round(v[1], 1)) for k, v in pos.items()})} edges {edges}")
+    check(set(pos) == set("ABCDE") and max(dist.values()) < 16, "p4: five dots labelled A-E")
     want = {"AC": "solid", "BC": "solid", "CD": "solid", "CE": "solid", "AB": "dashed", "DE": "dashed"}
     # A-C-E and B-C-D are collinear, so AE and BD read back as solid lines through C.
     extra = {k: v for k, v in edges.items() if k not in want}
-    check({k: edges.get(k) for k in want} == want, "p3: AC, BC, CD, CE solid; AB, DE dashed (matches text and guide)")
-    log("p3: other dot pairs joined by a straight drawn line:", extra, "(A-C-E and B-C-D are straight lines through C)")
+    check({k: edges.get(k) for k in want} == want, "p4: AC, BC, CD, CE solid; AB, DE dashed (matches text and guide)")
+    log("p4: other dot pairs joined by a straight drawn line:", extra, "(A-C-E and B-C-D are straight lines through C)")
     check(abs(math.dist(pos["A"], pos["B"]) / CM - 5.8) < 0.02 and abs(math.dist(pos["D"], pos["E"]) / CM - 5.8) < 0.02,
-          "p3: AB = DE = 5.8 cm (guide's yarn strips)")
-    check(abs((pos["D"][0] - pos["A"][0]) / CM - 11.6) < 0.02, "p3: board 11.6 cm wide")
+          "p4: AB = DE = 5.8 cm (guide's yarn strips)")
+    check(abs((pos["D"][0] - pos["A"][0]) / CM - 11.6) < 0.02, "p4: board 11.6 cm wide")
 
-    page = doc[4]
+    page = doc[5]
     pos, edges, dist = board(page, {"A", "B", "C", "D", "O"}, (0, 0, 612, 792))
-    log(f"p5 fan dots {({k: (round(v[0], 1), round(v[1], 1)) for k, v in pos.items()})} edges {edges}")
-    check(set(pos) == set("ABCDO") and max(dist.values()) < 16, "p5: five dots labelled A-D and O")
+    log(f"p6 fan dots {({k: (round(v[0], 1), round(v[1], 1)) for k, v in pos.items()})} edges {edges}")
+    check(set(pos) == set("ABCDO") and max(dist.values()) < 16, "p6: five dots labelled A-D and O")
     want = {e: "solid" for e in ["AB", "BC", "CD", "AD", "AO", "BO", "CO", "DO"]}
-    check({k: edges.get(k) for k in want} == want, "p5: all eight edges solid (matches 'Start with all eight edges')")
-    log("p5: other pairs:", {k: v for k, v in edges.items() if k not in want}, "(AC, BD are straight through O)")
+    check({k: edges.get(k) for k in want} == want, "p6: all eight edges solid (matches 'Start with all eight edges')")
+    log("p6: other pairs:", {k: v for k, v in edges.items() if k not in want}, "(AC, BD are straight through O)")
     sides = [math.dist(pos[a], pos[b]) / CM for a, b in ["AB", "BC", "CD", "DA"]]
-    check(all(abs(s - 8) < 0.02 for s in sides), f"p5: fan square sides {[round(s, 3) for s in sides]} cm (8)")
+    check(all(abs(s - 8) < 0.02 for s in sides), f"p6: fan square sides {[round(s, 3) for s in sides]} cm (8)")
     ctr = ((pos["A"][0] + pos["C"][0]) / 2, (pos["A"][1] + pos["C"][1]) / 2)
-    check(math.dist(ctr, pos["O"]) < 0.3, "p5: O at the centre")
+    check(math.dist(ctr, pos["O"]) < 0.3, "p6: O at the centre")
 
-    # p1 launch triangle XYZ
+    # p1 token example (since the introduction follow-up p.1 also shows the filled halves of the square example, so
+    # the launch triangle is the one filled triangle in the lower half of the page)
     page = doc[0]
-    tri = [d for d in page.get_drawings() if d.get("fill") and d["fill"][0] < 0.95 and d["fill"][0] > 0.5]
-    check(len(tri) == 1, "p1: one shaded (filled) launch triangle")
+    tri = [d for d in page.get_drawings() if d.get("fill") and 0.5 < d["fill"][0] < 0.95 and d["rect"].y0 > 400]
+    check(len(tri) == 1, "p1: one shaded (filled) launch triangle XYZ")
     pts = [(it[1].x, it[1].y) for it in tri[0]["items"]]
     words = {w[4]: ((w[0] + w[2]) / 2, (w[1] + w[3]) / 2) for w in page.get_text("words") if w[4] in ("X", "Y", "Z")}
     near = {k: min(range(3), key=lambda i: math.dist(pts[i], v)) for k, v in words.items()}
     check(len(set(near.values())) == 3, "p1: X, Y, Z each label a different corner of the shaded triangle")
-    ty = sum(p[1] for p in pts) / 3
-    toks = [w[4] for w in sorted(page.get_text("words"), key=lambda w: w[0])
-            if w[4] in ("XY", "YZ", "XZ") and abs((w[1] + w[3]) / 2 - ty) < 25]
-    log("p1 token row:", toks)
-    check(toks == ["XY", "YZ", "XY", "YZ", "XY", "YZ", "XZ", "XZ"], "p1: tokens XY YZ -> XY YZ XY YZ XZ -> XZ")
+    rows = {}
+    for w in page.get_text("words"):
+        if w[4] in ("XY", "YZ", "XZ") and w[1] > 400:
+            rows.setdefault(round(w[1]), []).append((w[0], w[4]))
+    toks = [[t for _, t in sorted(r)] for _, r in sorted(rows.items())]
+    log("p1 token rows:", toks)
+    check(toks == [["XY", "YZ", "XZ", "XY", "YZ", "XZ"], ["XY", "YZ", "XZ"]] and "no tokens left" in page.get_text(),
+          "p1: saved loop XY YZ XZ; copy plus the tile's XY YZ XZ; no tokens left")
 
     log(f"\n{sum(l.startswith('PASS') for l in LINES)} passed, {len(FAILS)} failed")
     OUT.write_text("\n".join(LINES) + "\n")

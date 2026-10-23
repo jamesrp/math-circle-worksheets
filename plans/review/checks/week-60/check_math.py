@@ -243,9 +243,15 @@ for t in found:
 check(found == [("p2 practice 1,3,5", 2, 2, 3), ("P7 0,3,6", 2, 2, 3)],
       "ties occur exactly at 0,3,6 first 3 and at the page-2 practice bag 1,3,5 first 3")
 claim = "only the two-offer 0, 3, 6 middle choice is tied among the student positions"
-check(claim in G and len(found) == 1,
-      "guide p8: '" + claim + "' -- FALSE as printed: the page-2 practice card (bag 1,3,5, first offer 3, "
-      "two offers) is also a tie, and its printed rule is one of the two optimal rules for that bag")
+check(claim in G and len(found) == 2,
+      "finding confirmed (as reviewed, archived): guide p8: '" + claim + "' -- FALSE as printed: the page-2 practice "
+      "card (bag 1,3,5, first offer 3, two offers) is also a tie, and its printed rule is one of the two optimal rules "
+      "for that bag")
+# Paired on 2026-10-23: the same statements in the current guide (w60common.DELIVERED).
+from w60common import DELIVERED  # noqa: E402
+G_NOW = " ".join(" ".join(p.get_text() for p in pymupdf.open(str(DELIVERED["guide"]))).split())
+check(claim not in G_NOW and "For 0, 3, 6 with two offers, taking or passing 3 ties" in G_NOW,
+      "current guide: no 'only ... tied' claim; it states the 0, 3, 6 tie without excluding others")
 
 # ------------------------------------------------------------ other guide facts
 say("")
@@ -263,7 +269,9 @@ if m:
     check((5 * b, 5 * g, 5 * p) == (30, 60, 15), f"KK11 block counts = 5 x Week-1 K-1 kit ({b}, {g}, {p})")
 check("purple chevrons" in w1 and "purple trapezoid" not in w1,
       "Week 1 names its purple pieces 'purple chevrons' (four triangle spaces), never trapezoids")
-check("15 purple trapezoids" not in G,
-      "guide p2 names the Week 1 purple pieces correctly -- FAILS: it says '15 purple trapezoids'")
+check("15 purple trapezoids" in G,
+      "finding confirmed (as reviewed, archived): guide p2 misnames the Week 1 purple pieces: it says "
+      "'15 purple trapezoids'")
+check("trapezoid" not in G_NOW, "current guide: no purple trapezoids (the K-1 tiling fallback now points to Week 1's own pages)")
 
 L.write(HERE / "out_check_math.txt")

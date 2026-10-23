@@ -68,7 +68,8 @@ def check(cond, msg):
 
 # ---------------------------------------------------------------- data
 def literal(name):
-    tree = ast.parse((SRC / 'student' / 'generate.py').read_text())
+    # Re-pointed on 2026-10-23 (see check_diagrams.py): the reviewed generator kept before the conversion.
+    tree = ast.parse((SRC / 'archive-before-problem-files-2026-10-23' / 'generate.py').read_text())
     for node in tree.body:
         if isinstance(node, ast.Assign) and any(getattr(t, 'id', None) == name for t in node.targets):
             return ast.literal_eval(node.value)

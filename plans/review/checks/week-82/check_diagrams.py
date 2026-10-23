@@ -44,6 +44,10 @@ REPO = find_repo(HERE)
 WEEK = REPO / 'lowell-math-circle-year-2' / 'week-82'
 STU = WEEK / 'week-82-students.pdf'
 GUI = WEEK / 'week-82-facilitator.pdf'
+# Re-pointed on 2026-10-23: the card's shoulds and coulds (e8ee578) and the critic follow-up (abf6c2f) changed the
+# packet and guide, so this review check reads the copies as reviewed (W82-Q-draft-v1, after da1f30b), in
+# week-82/archive-before-card-fixes-2026-10-23/.
+STU, GUI = (WEEK / 'archive-before-card-fixes-2026-10-23' / f.name for f in (STU, GUI))
 OUT, FAIL = [], []
 RED = (0.64706, 0.17647, 0.17256)
 BLUE = (0.13333, 0.32549, 0.59216)

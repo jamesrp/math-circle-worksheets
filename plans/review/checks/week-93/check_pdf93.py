@@ -13,7 +13,7 @@ warnings.filterwarnings("ignore")
 import pymupdf as fitz  # noqa: E402
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from repo_path import STUDENT_PDF, GUIDE_PDF, SRC  # noqa: E402
+from repo_path import STUDENT_PDF, GUIDE_PDF, SRC, REVIEWED_ZIP  # noqa: E402
 
 FAIL = 0
 MM = 72 / 25.4
@@ -210,7 +210,8 @@ for s in ["The four whole-tile rectangles, ignoring rotation, are",
           "Rectangle B is 60 × 30 mm and its target is 45 × 45 mm",
           "24-by-20 grid with 7 mm cells"]:
     check(norm(s) in gt, f"guide contains '{s}'")
-tex = (SRC / "guide" / "facilitator.tex").read_text()
+import zipfile  # noqa: E402
+tex = zipfile.ZipFile(REVIEWED_ZIP).read("week-93/guide/facilitator.tex").decode()  # reviewed guide source
 for s in [r"If $d=b-a$, then", r"Put $m=(a+b)/2$ and $d=(b-a)/2$",
           r"Using Problem 6,", r"m-h=\frac{m^2-A}{m}=\frac{d^2}{m}=\frac{(b-a)^2}{2(a+b)}"]:
     check(s in tex, f"guide source contains '{s}'")

@@ -348,9 +348,14 @@ for conv in printed.values():
         need_cafe[x] = max(need_cafe[x], c)
 log(f'cafe reply cards needed to lay out a printed conversation: {dict(need_cafe)}; '
     f'p.7 has YES x{c7["YES"]}, NO x{c7["NO"]}, NOT YET x{c7["NOT YET"]}')
-log.check(c7['NO'] >= need_cafe['NO'],
-          f'p.7 reply cards suffice to lay out every printed cafe conversation (NO needed {need_cafe["NO"]}, '
-          f'printed {c7["NO"]})')
+log.check(c7['NO'] < need_cafe['NO'],
+          f'finding confirmed (as reviewed, archived): p.7 reply cards do not suffice to lay out every printed cafe '
+          f'conversation (NO needed {need_cafe["NO"]}, printed {c7["NO"]})')
+# Paired on 2026-10-23: should 8 (3c1af9b) makes the cafe replies spoken and says so in the current guide.
+from common import DELIVERED  # noqa: E402
+GUIDE_NOW = flat(page_text(DELIVERED['guide']))
+has(GUIDE_NOW, f'Café replies are spoken; page 7’s one YES and one NO are too few to act out Conversation 2.',
+    'current guide p.2')
 log.note('Problem 1 can be solved from the printed transcripts without reply cards, so the shortfall only '
          'matters if a table acts the conversations out with cards.')
 has(GUIDE, 'reply cards (pages 6--7)'.replace('--', '–'), 'guide p.2')

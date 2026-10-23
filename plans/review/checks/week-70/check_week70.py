@@ -68,7 +68,12 @@ def say(*a):
 
 
 # ---------- diagram data read from the student source ----------
-tex = (SRC / "student/students.tex").read_text()
+# Re-pointed on 2026-10-23: the problem-file conversion (e8e24b1) removed student/students.tex and the keep card
+# (5ee7a5a) changed the pages, so this check reads the TeX as reviewed from the source ZIP archived before the
+# conversion (identical to the reviewed file).  The current packet is checked by check_critic_fixes.py.
+import zipfile  # noqa: E402
+tex = zipfile.ZipFile(SRC / "archive-before-problem-files-2026-10-23" / "week-70-source.zip").read(
+    "week-70/student/students.tex").decode()
 room_T = re.search(r"\\fill\[white\]\((\d+),(\d+)\)circle", tex).groups()
 say("Room T drawn at", room_T, "(expect (2,2) in a 0..4 square)")
 assert room_T == ("2", "2") and "(0,0) grid (4,4)" in tex and "rectangle (4,4)" in tex

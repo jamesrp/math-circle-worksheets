@@ -28,7 +28,11 @@ sys.dont_write_bytecode = True  # keep the check folder free of __pycache__
 from common56 import HERE, SRC, STUDENT_PDF, MATERIALS_PDF, Report, pdftext, convex_hull, solid
 
 R = Report(os.path.join(HERE, 'out_check_diagrams.txt'))
-TEX = open(os.path.join(SRC, 'student', 'students.tex')).read()
+# Since the problem-file conversion (2026-10-23) students.tex is generated from the problem files and the
+# materials and net sources live in editable/student/.
+sys.path.insert(0, os.path.dirname(HERE))
+from problem_tex import band_tex  # noqa: E402
+TEX = band_tex('week-56', 'students.tex', subdir='student')
 NUM = r'-?\d*\.?\d+'
 
 # ---------------------------------------------------------------- structure
@@ -38,8 +42,11 @@ pages = [p for p in pages if p.strip()]
 R.check(len(pages) == 9, f'{len(pages)} student pages')
 probs = []
 for i, p in enumerate(pages, 1):
-    head = 'Week 56 / Corners of a solid / ' + ('Grades 2–5' if i <= 6 else 'Grades 4–5')
-    R.check(head in p and 'Bellingham Math Circle / Week 56 / N56-S-v2' in p, f'p.{i}: header "{head}" and footer')
+    # 84e3253 (K-1 route through Problems 1 and 3-5) labels pages 1 and 3-5 Grades K-5; 7e78880 (critic
+    # follow-up) set the footer to N56-S-v4.
+    head = 'Week 56 / Corners of a solid / ' + ('Grades K–5' if i in (1, 3, 4, 5) else
+                                                 'Grades 2–5' if i <= 6 else 'Grades 4–5')
+    R.check(head in p and 'Bellingham Math Circle / Week 56 / N56-S-v4' in p, f'p.{i}: header "{head}" and footer')
     probs += [(int(n), i) for n in re.findall(r'Problem (\d+):', p)]
 R.check([n for n, _ in probs] == list(range(1, 10)), f'problems numbered consecutively: {probs}')
 
@@ -232,7 +239,7 @@ R.check(TEX.count('{(0,0),(4.5,0),(4.5,4.5),(0,4.5),(1.4,1.4),(3.1,1.4),(3.1,3.1
 # ---------------------------------------------------------------- materials fan pieces (source)
 R.out('')
 R.out('== Materials pp.3-4 fan pieces (source materials.tex) ==')
-MT = open(os.path.join(SRC, 'student', 'materials.tex')).read()
+MT = open(os.path.join(SRC, 'editable', 'student', 'materials.tex')).read()
 R.check('(\\x,\\y)--++(30,0)--++(-15,25.980762)--cycle' in MT and abs(math.hypot(15, 25.980762) - 30) < 1e-5,
         'fan triangles: 30 mm equilateral (sides 30, 30, %.5f)' % math.hypot(15, 25.980762))
 R.check('\\foreach \\x in {0,39,78,117}{\\foreach \\y in {0,37}' in MT and 37 > 25.980762 and 39 > 30,

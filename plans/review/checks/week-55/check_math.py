@@ -71,7 +71,11 @@ def norm(t):
 
 
 # ---------------------------------------------------------------- source data
-tex = open(TEX).read()
+# Week 55 is stored as problem files since 2026-10-23 (no committed students.tex): problem_tex generates the
+# packet's LaTeX from them.
+sys.path.insert(0, os.path.dirname(HERE))
+from problem_tex import band_tex  # noqa: E402
+tex = band_tex('week-55', 'students.tex', subdir='student')
 body = tex.split('\\begin{document}')[1]
 pages = body.split('\\newpage')
 say('student source pages:', len(pages))
@@ -386,7 +390,11 @@ check('whole-number' in t10, 'P10 restricts to whole numbers')
 # --------------------------------- other reading of "Each input has different numbers"
 say('\n== Other reading: A and B share no number (page-1 rule read as "the inputs differ")')
 t1 = student_pdf_pages[0]
-check('Each input has different numbers' in t1, 'page-1 rule text "Each input has different numbers."')
+REVIEWED_STUDENT_PDF = os.path.join(WEEK, 'archive-before-card-fixes-2026-10-23', 'week-55-students.pdf')
+check('Each input has different numbers' in norm(pdftext(REVIEWED_STUDENT_PDF, 1)),
+      'finding confirmed (as reviewed, archived): page-1 rule text "Each input has different numbers."')
+check('No number repeats within an input; A and B may share numbers.' in t1,
+      'current page-1 rule (79172d1) settles the reading: "No number repeats within an input; A and B may share numbers."')
 shared = [(pg + 1, A, B) for pg in range(10) for A, B in pairs_on(pg) if set(A) & set(B)]
 say('  printed trials whose A and B share a number:', shared)
 d3 = [len(sumset(A, B)) for A in subsets(3) for B in subsets(3) if not set(A) & set(B)]
@@ -423,8 +431,9 @@ check('The complete example has {1, 4, 7}' in g, 'guide launch complete example'
 check('Pages 7-8 give the complete argument' in g, 'guide overview cites its pages 7-8 for the proof')
 gp = [norm(pdftext(GUIDE_PDF, i)) for i in (7, 8)]
 check('Lower bound' in gp[0] and 'Necessity' in gp[1], 'guide pages 7-8 hold the lower bound and the inverse proof')
-check('separate prior tiling option is specified on page 2' in g and 'K-1 option' in norm(pdftext(GUIDE_PDF, 2)),
-      'guide K-1 tiling option is on its page 2')
+# 79172d1 replaced the separate K-1 tiling option with an adult-led dot-card route on student pages 1-3 (guide p. 2).
+check('supplying addition facts (page 2)' in g and 'route, adult-led, on student pages 1' in norm(pdftext(GUIDE_PDF, 2)),
+      'guide K-1 adult-led route is on its page 2, as page 1 says')
 
 say('\nSUMMARY:', 'all checks passed' if not FAIL else f'{len(FAIL)} FAIL(s)')
 for f in FAIL:

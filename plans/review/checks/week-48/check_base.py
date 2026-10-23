@@ -16,7 +16,7 @@ from fractions import Fraction as F
 from itertools import combinations
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import (HERE, PDFS, Log, area, bounds, classify, fmt, grid_status,  # noqa: E402
+from common import (DELIVERED, HERE, PDFS, Log, area, bounds, classify, fmt, grid_status,  # noqa: E402
                     is_simple, page_text)
 
 log = Log('Week 48 base packets: independent exact checks')
@@ -337,10 +337,21 @@ log.check(sorted(named) == sorted(topbot), 'guide (2,1),(3,1),(2,4),(3,4) as (co
 log.check('at least 8 paper 15 mm squares' in GUIDE, 'guide preparation lists "at least 8 paper 15 mm squares"')
 need_k1 = 2 * 4
 need_45 = 3 * 4
-log.check(need_45 <= 8, f'paper small tiles needed: K-1 P2 two splits = {need_k1}; 4-5 P5 three splits = {need_45} '
-          f'(the guide\'s "at least 8" covers K-1 P2 but not a paper version of 4-5 P5)')
+# Review findings (PDFS = the copies as reviewed); each is followed by its check on the current guide (DELIVERED).
+log.check(need_45 > 8, f'finding confirmed (as reviewed, archived): paper small tiles needed: K-1 P2 two splits = {need_k1}; '
+          f'4-5 P5 three splits = {need_45} (the guide\'s "at least 8" covers K-1 P2 but not a paper version of 4-5 P5)')
+GUIDE_NOW = re.sub(r'\s+', ' ', page_text(DELIVERED['guide']))
+m = re.search(r'16 big 30 mm and (\d+) small 15 mm squares', GUIDE_NOW)
+log.check(bool(m) and int(m.group(1)) >= max(need_45, 36),
+          f'current guide: each pair\'s tile sheet has {m.group(1) if m else "?"} small 15 mm squares, enough for 4-5 P5 '
+          f'({need_45}) and the 36-cell fine cover of the triangle')
 present = 'Exactly four previously outside small cells can become partial' in GUIDE
-log.check(present and len(in_partial_big) == 4,
-          f'guide K-1 P4: "Exactly four previously outside small cells can become partial" read as a limit: '
-          f'the most that can change with every big status kept is {len(in_partial_big)} (the 8-bulge shape above), not four')
+log.check(present and len(in_partial_big) == 8,
+          f'finding confirmed (as reviewed, archived): guide K-1 P4: "Exactly four previously outside small cells can become '
+          f'partial" read as a limit: the most that can change with every big status kept is {len(in_partial_big)} '
+          f'(the 8-bulge shape above), not four')
+now = ('This makes exactly four previously outside small cells partial while every big-cell status stays unchanged. '
+       'Up to eight could change this way, one in each partial big cell.')
+log.check(now in GUIDE_NOW and len(in_partial_big) == 8,
+          f'current guide K-1 P4: "{now}" (verified above: {len(in_partial_big)})')
 log.write('check_base.out')

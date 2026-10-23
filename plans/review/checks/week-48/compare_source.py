@@ -16,7 +16,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import BONUS_SRC, HERE, PDFS, PT_MM, REFS, TEX, Log, page_text  # noqa: E402
+from common import BONUS_SRC, HERE, PDFS, DELIVERED, PT_MM, REFS, TEX, Log, page_text, read_tex  # noqa: E402
 
 log = Log('Week 48: sources against delivered PDFs')
 G = json.load(open(os.path.join(HERE, 'pdf_geometry.json')))
@@ -28,7 +28,7 @@ def md5(p):
 
 log.head('Delivered PDFs are byte-identical to the reference copies')
 for k in PDFS:
-    log.check(md5(PDFS[k]) == md5(REFS[k]), f'{k}: {os.path.basename(PDFS[k])} == {os.path.relpath(REFS[k], os.path.dirname(PDFS[k]))}')
+    log.check(md5(DELIVERED[k]) == md5(REFS[k]), f'{k}: {os.path.basename(DELIVERED[k])} == {os.path.relpath(REFS[k], os.path.dirname(DELIVERED[k]))}')
 
 
 def norm(s):
@@ -40,7 +40,7 @@ def norm(s):
 
 
 def tex_pages(path):
-    body = open(path).read()
+    body = read_tex(path)
     pages = body.split('\\newpage')
     res = []
     for p in pages:

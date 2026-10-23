@@ -267,8 +267,13 @@ def analyse(pageno, page, out):
 
 
 def main():
-    pages = pdfgeom.read(pdfgeom.STUDENT_PDF)
-    out = ['Delivered PDF: %s (%d pages)' % (_os.path.relpath(pdfgeom.STUDENT_PDF, pdfgeom.ROOT), len(pages))]
+    # Re-pointed on 2026-10-23: the card's musts and shoulds (c1f3431) and the problem-file conversion (684b454)
+    # changed the student packet and removed student/networks.json, so this transcription check reads the copy as
+    # reviewed (week-53/archive-before-card-fixes-2026-10-23/) and the reviewed networks.json from the source ZIP
+    # archived before the conversion.  The current packet is checked by check_card_fixes.py and check_label_fix.py.
+    reviewed_pdf = _os.path.join(pdfgeom.WEEK, 'archive-before-card-fixes-2026-10-23', 'week-53-students.pdf')
+    pages = pdfgeom.read(reviewed_pdf)
+    out = ['Reviewed PDF (archived): %s (%d pages)' % (_os.path.relpath(reviewed_pdf, pdfgeom.ROOT), len(pages))]
     allp = []
     for n, page in enumerate(pages, 1):
         out.append('--- page %d ---' % n)
@@ -279,8 +284,10 @@ def main():
         allp += ['page %d: %s' % (n, x) for x in p]
     # Source data consistency: networks.json (writer's editable source) vs. this transcription
     import json
-    src = json.load(open(_os.path.join(pdfgeom.ROOT, 'lowell-math-circle-year-2', 'source', 'week-53',
-                                       'student', 'networks.json')))
+    import zipfile
+    src = json.loads(zipfile.ZipFile(_os.path.join(
+        pdfgeom.ROOT, 'lowell-math-circle-year-2', 'source', 'week-53', 'archive-before-problem-files-2026-10-23',
+        'week-53-source.zip')).read('week-53/student/networks.json'))
     pairs = {'convention': 'convention available', 'triangle_one': 'P1 left', 'triangle_two': 'P1 right',
              'four_ties': 'P2', 'four_trap': 'P3', 'five_ties': 'P4', 'swap_demo': 'P5 demo before',
              'swaps': 'P5 left', 'six_cert': 'P6', 'price_design': 'P7 left', 'distinct': 'P9'}

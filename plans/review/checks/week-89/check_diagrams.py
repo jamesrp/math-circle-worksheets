@@ -37,9 +37,14 @@ def note(msg):
     print('NOTE ' + msg)
 
 
-stu = fitz.open(WEEK / 'week-89-students.pdf')
+# Re-pointed on 2026-10-23: the card's should fixes (37507d4) and the footer ids (dfbc5e4) changed the student pages
+# and guide, so this review check reads the copies as reviewed, in week-89/archive-before-card-fixes-2026-10-23/;
+# the materials are unchanged since the review.  The cube-pile checks below still read the current students.tex, in
+# which should 1 (draw (1, 0, 0) after the corner column) fixes the review's two "painted by a box behind another" findings.
+REVIEWED = WEEK / 'archive-before-card-fixes-2026-10-23'
+stu = fitz.open(REVIEWED / 'week-89-students.pdf')
 mat = fitz.open(WEEK / 'week-89-materials.pdf')
-fac = fitz.open(WEEK / 'week-89-facilitator.pdf')
+fac = fitz.open(REVIEWED / 'week-89-facilitator.pdf')
 
 print('== Pages, headers, footers, problem numbers ==')
 nums = []

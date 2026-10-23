@@ -14,6 +14,13 @@ import pymupdf
 REPO = Path(__file__).resolve().parents[4]
 STUDENT = REPO / "lowell-math-circle-year-2/week-67/week-67-students.pdf"
 GUIDE = REPO / "lowell-math-circle-year-2/week-67/week-67-facilitator.pdf"
+# Re-pointed on 2026-10-23: the keep card's shoulds and coulds (f877598) and the critic coulds (04f2054) reshaped
+# the student packet and guide, so the review check reads the copies as reviewed, in
+# week-67/archive-before-card-fixes-2026-10-23/.  DELIVERED keeps the current print copies, which
+# check_critic_fixes.py and the package's own card-fix verifier check.
+DELIVERED = {"students": STUDENT, "guide": GUIDE}
+STUDENT = STUDENT.parent / "archive-before-card-fixes-2026-10-23" / STUDENT.name
+GUIDE = GUIDE.parent / "archive-before-card-fixes-2026-10-23" / GUIDE.name
 
 TOL = 0.6  # points
 

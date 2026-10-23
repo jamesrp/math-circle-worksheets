@@ -135,7 +135,11 @@ def name(s):
 
 
 # ------------------------------------------------------- printed data (tex)
-tex = (SRC / 'student' / 'students.tex').read_text()
+# Re-pointed on 2026-10-23: the problem-file conversion (dddd8f3), the card's shoulds and coulds (810b365) and the
+# critic follow-up (49c93a9) changed the packet and guide, so the review checks read the copies as reviewed:
+# week-81/archive-before-card-fixes-2026-10-23/ and the reviewed students.tex kept in
+# source/week-81/archive-before-problem-files-2026-10-23/.
+tex = (SRC / 'archive-before-problem-files-2026-10-23' / 'students.tex').read_text()
 smallstarts = [tuple(map(int, m)) for m in re.findall(r'\\smallstart\{(\d+)\}\{(\d+)\}\{(\d+)\}', tex)]
 paircards = [tuple(map(int, m)) for m in re.findall(r'\\paircard\{(\d+)\}\{(\d+)\}', tex)]
 P1 = smallstarts[0:4]

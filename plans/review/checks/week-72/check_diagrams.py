@@ -170,8 +170,9 @@ board(p, g, 'P2 board', cols=[-2, -1, 0, 1, 2], rows=[-2, -1, 0, 1, 2], origin=(
 # ---------------- page 3 ----------------
 p = doc[2]
 gs = sorted(grids(p), key=lambda g: (round(g['rect'].y0), g['rect'].x0))
-check(len(gs) == 4, 'p3: four P3 boards')
-expect3 = [([0, 1, 2, 3], 2), ([2, 3, 4, 5], 2), ([-3, -2, -1, 0], 2), ([0, 1, 2, 3], 3)]
+# Card should 1 (f21adb9) adds a fifth board, a 2-by-2 square (memory 4), against the L's 3.
+check(len(gs) == 5, 'p3: five P3 boards (the 2-by-2 square added by f21adb9)')
+expect3 = [([0, 1, 2, 3], 2), ([2, 3, 4, 5], 2), ([-3, -2, -1, 0], 2), ([0, 1, 2, 3], 3), ([0, 1, 2, 3], 4)]
 for k, (g, (cols, area)) in enumerate(zip(gs, expect3), 1):
     ux, ex = spacing(g['xs']); uy, ey = spacing(g['ys'])
     check(abs(ux - uy) < .2, f'P3 board {k}: square cells ({ux:.1f} x {uy:.1f})')
@@ -203,6 +204,9 @@ for k, (g, (cols, area)) in enumerate(zip(gs, expect3), 1):
     if k <= 3:
         xs = sorted({c[0] for c in ccw}); ys = sorted({c[1] for c in ccw})
         check(xs[-1] - xs[0] == 2 and ys[-1] - ys[0] == 1 and len(ccw) == 4, f'P3 board {k}: a 2-by-1 rectangle, left column {xs[0]}')
+    if k == 5:
+        xs = sorted({c[0] for c in ccw}); ys = sorted({c[1] for c in ccw})
+        check(xs[-1] - xs[0] == 2 and ys[-1] - ys[0] == 2 and len(ccw) == 4, f'P3 board {k}: a 2-by-2 square')
 
 # ---------------- page 4 ----------------
 p = doc[3]

@@ -12,6 +12,10 @@ import pymupdf
 
 REPO = Path(__file__).resolve().parents[4]
 PDF = REPO / 'lowell-math-circle-year-2/week-66/week-66-students.pdf'
+# Re-pointed on 2026-10-23: the keep card's shoulds and coulds (1b39eff) rebuilt the student packet (now five pages),
+# so this check reads the copy as reviewed, in week-66/archive-before-card-fixes-2026-10-23/.  The current packet
+# is checked by lowell-math-circle-year-2/source/week-66/checks/verify_card_fixes_2026_10_23.py.
+PDF = PDF.parent / 'archive-before-card-fixes-2026-10-23' / PDF.name
 PT_MM = 25.4 / 72
 fails = checks = 0
 

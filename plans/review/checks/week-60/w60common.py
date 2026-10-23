@@ -34,6 +34,13 @@ REPO = find_repo()
 WEEK = REPO / "lowell-math-circle-year-2" / "week-60"
 STUDENT_PDF = WEEK / "week-60-students.pdf"
 GUIDE_PDF = WEEK / "week-60-facilitator.pdf"
+# Re-pointed on 2026-10-23.  The card's shoulds and coulds (c27d1c5) and the critic follow-up (daea5a2) reshaped the
+# student packet and guide, so the review checks read the copies as reviewed, in
+# week-60/archive-before-card-fixes-2026-10-23/.  DELIVERED keeps the current print copies, which
+# check_critic_fixes.py and the package's own card-fix verifier check.
+DELIVERED = {"students": STUDENT_PDF, "guide": GUIDE_PDF}
+STUDENT_PDF = WEEK / "archive-before-card-fixes-2026-10-23" / "week-60-students.pdf"
+GUIDE_PDF = WEEK / "archive-before-card-fixes-2026-10-23" / "week-60-facilitator.pdf"
 WEEK1_GUIDE_PDF = REPO / "lowell-math-circle-year-2" / "week-01" / "week-01-facilitator.pdf"
 
 

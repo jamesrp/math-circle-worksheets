@@ -33,21 +33,26 @@ def check(cond, msg):
 
 
 # Expected boards per page, in reading order: list of {label: (x,y)} with kind
+# Updated on 2026-10-23.  This check was written for F78-S-v1 (4 pp.), which the repository never held; since the
+# introduction follow-up page 1 is a launch page and every board sits one page later.  The card's coulds (d9f7472,
+# F78-S-v3) moved P2 a's A and P4 left's P from (2,5) to (2,6) (could 5) and added a blank board for Problem 3
+# (could 6).
 EXPECT = {
-    1: [('P1 top-left', {'A': (4, 4)}, 'J'), ('P1 top-right', {'A': (4, 4)}, 'J'),
+    2: [('P1 top-left', {'A': (4, 4)}, 'J'), ('P1 top-right', {'A': (4, 4)}, 'J'),
         ('P1 bottom-left', {'A': (2, 2), 'B': (6, 5)}, 'J'),
         ('P1 bottom-right', {'A': (2, 2), 'B': (5, 6)}, 'J')],
-    2: [('P2 a', {'A': (2, 5), 'B': (6, 2)}, 'J'), ('P2 b', {'A': (3, 2), 'B': (3, 6)}, 'J'),
-        ('P2 c', {'A': (2, 4), 'B': (6, 4)}, 'J'), ('P2 d', {'A': (2, 2), 'B': (6, 6)}, 'J')],
-    3: [('P4 left', {'P': (2, 5), 'Q': (6, 2)}, 'T'), ('P4 right', {'P': (2, 2), 'Q': (6, 5)}, 'T'),
+    3: [('P2 a', {'A': (2, 6), 'B': (6, 2)}, 'J'), ('P2 b', {'A': (3, 2), 'B': (3, 6)}, 'J'),
+        ('P2 c', {'A': (2, 4), 'B': (6, 4)}, 'J'), ('P2 d', {'A': (2, 2), 'B': (6, 6)}, 'J'),
+        ('P3 blank', {}, 'J')],
+    4: [('P4 left', {'P': (2, 6), 'Q': (6, 2)}, 'T'), ('P4 right', {'P': (2, 2), 'Q': (6, 5)}, 'T'),
         ('P5 left', {'P': (2, 4), 'Q': (6, 4)}, 'T'), ('P5 middle', {'P': (3, 2), 'Q': (3, 6)}, 'T'),
         ('P5 right', {'P': (2, 2), 'Q': (5, 5)}, 'T')],
-    4: [('P6', {'A': (2, 7)}, 'J'), ('P7', {}, 'J')],
+    5: [('P6', {'A': (2, 7)}, 'J'), ('P7', {}, 'J')],
 }
 
 doc = pymupdf.open(STU)
-check(doc.page_count == 4, f'student PDF has {doc.page_count} pages (expected 4)')
-for pno in range(4):
+check(doc.page_count == 5, f'student PDF has {doc.page_count} pages (expected 5)')
+for pno in range(1, 5):
     page = doc[pno]
     dr = page.get_drawings()
     frames = [d for d in dr if d['type'] == 's' and len(d['items']) == 4
@@ -101,6 +106,9 @@ x0, y0 = xs[0], ys[-1]
 to = lambda p: (round((p.x - x0) / u, 2), round((y0 - p.y) / u, 2))
 arms = [d for d in dr if d['type'] == 's' and len(d['items']) == 1 and d['items'][0][0] == 'l' and d['width'] and d['width'] > 1]
 segs = sorted((to(d['items'][0][1]), to(d['items'][0][2])) for d in arms)
+# Since the introduction follow-up p. 1 also shows two completed example lines below the opening grid; keep the
+# opening grid's own arms.
+segs = [sg for sg in segs if all(-1 <= v <= 6 for v in sg[0])]
 say('     arm segments (grid units):', segs)
 dirs = set()
 for a, b in segs:
@@ -115,17 +123,24 @@ for d in dr:
         X, Y = to(pymupdf.Point((c.x0 + c.x1) / 2, (c.y0 + c.y1) / 2))
         if -1 <= X <= 6 and -1 <= Y <= 6 and c.y1 < 250:
             marks.append((X, Y, d['type']))
-check(sorted(marks) == [(2.0, 2.0, 'f'), (4.0, 2.0, 'f'), (4.0, 4.0, 'fs')],
-      f'opening marks: junction (2,2) filled, P (4,2) filled, Q (4,4) open: {sorted(marks)}')
+# The opening's off-line point Q is now marked with a cross instead of an open circle.
+for d in dr:
+    if d['type'] == 's' and ''.join(i[0] for i in d['items']) == 'll' and d['rect'].width < 8 and d['rect'].height < 8:
+        c = d['rect']
+        X, Y = to(pymupdf.Point((c.x0 + c.x1) / 2, (c.y0 + c.y1) / 2))
+        if -1 <= X <= 6 and -1 <= Y <= 6 and c.y1 < 250:
+            marks.append((X, Y, 'x'))
+check(sorted(marks) == [(2.0, 2.0, 'f'), (4.0, 2.0, 'f'), (4.0, 4.0, 'x')],
+      f'opening marks: junction (2,2) filled, P (4,2) filled, Q (4,4) crossed: {sorted(marks)}')
 
 say('\n== Guide text (pdftotext)')
 gt = subprocess.run(['pdftotext', '-layout', GUI, '-'], capture_output=True, text=True).stdout
 flat = re.sub(r'\s+', ' ', gt)
 for s in ['Single point (5,4)', 'East ray from (6,4); north ray from (4,6)', 'Southwest ray from (4,4)',
           '(2,2) and (6,5) meet only at (3,2)', '(2,2) and (5,6) meet only at (2,3)',
-          'One point, (6,5)', '(3,y) for every y≥6', '(x,4) for every x≥6', '(2−t,2−t) for every t≥0',
+          'One point, (6,6)', '(3,y) for every y≥6', '(x,4) for every x≥6', '(2−t,2−t) for every t≥0',
           'force junction (2,2)', 'force junction (5,5)', '(2−t,4), t≥0', '(3,2−t), t≥0', '(5+t,5+t), t≥0',
-          'meet only at (10,7)', 'same row, column or diagonal']:
+          'meet only at (10,7)', 'same row, column or rising diagonal']:  # P2 a and should 1, d9f7472
     check(s.replace(' ', '') in flat.replace(' ', ''), f'guide prints: "{s}"')
 say(f"\n{len(FAIL)} failures")
 with open(os.path.join(HERE, 'check_diagrams.py.out'), 'w') as f:

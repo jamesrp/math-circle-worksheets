@@ -8,6 +8,7 @@ from fractions import Fraction as F
 from pathlib import Path
 from math import gcd, sqrt, atan2, degrees, hypot
 import itertools, random
+import sys
 
 REPO = Path(__file__).resolve().parents[4]
 WEEK = REPO / 'lowell-math-circle-year-2' / 'week-71'
@@ -267,7 +268,11 @@ for j in (0, 3, 0):
 say('  unfolded faces:', [[(repr(x), repr(y)) for x, y in f] for f in faces])
 # compare with windows.tex coordinates
 import re
-tex = (SRC / 'student' / 'windows.tex').read_text()
+# Since the problem-file conversion (b882c12) the window macros are written by figures.windows() into the
+# generated packet LaTeX (problem_tex), not read from student/windows.tex.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from problem_tex import band_tex  # noqa: E402
+tex = band_tex('week-71', 'students.tex', subdir='student')
 rh_block = tex[tex.index('rhombusABA'):]
 fills = re.findall(r'\\fill\[gray!\d+\] (.*?)--cycle;', rh_block)[:4]
 for f, face in zip(fills, faces):

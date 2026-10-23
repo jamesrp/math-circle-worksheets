@@ -34,6 +34,11 @@ PDFS = {
     'students': os.path.join(WEEK, 'week-84-students.pdf'),
     'guide': os.path.join(WEEK, 'week-84-facilitator.pdf'),
 }
+# Re-pointed on 2026-10-23: the card's shoulds (3c1af9b) and the critic coulds (f9d1bc1) changed the packet and
+# guide, so the review checks read the copies as reviewed, in week-84/archive-before-card-fixes-2026-10-23/.
+# DELIVERED keeps the current print copies.
+DELIVERED = dict(PDFS)
+PDFS = {k: os.path.join(WEEK, 'archive-before-card-fixes-2026-10-23', os.path.basename(v)) for k, v in DELIVERED.items()}
 
 BLUE = (40 / 255, 98 / 255, 171 / 255)
 RED = (193 / 255, 70 / 255, 67 / 255)

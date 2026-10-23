@@ -46,8 +46,14 @@ def find_repo(start):
 
 REPO = find_repo(HERE)
 SRC = REPO / "lowell-math-circle-year-2" / "source" / "week-88"
-GUIDE = re.sub(r"\s+", " ", (SRC / "guide" / "facilitator.tex").read_text())
-STUDENT = (SRC / "student" / "students.tex").read_text()
+# Re-pointed on 2026-10-23: the problem-file conversion (5180cb7), the card's shoulds and small coulds (7cd6bda) and
+# the footer and Critic M fixes (dfbc5e4) changed and moved the sources and PDFs, so the review checks read the
+# copies as reviewed: week-88/archive-before-card-fixes-2026-10-23/ and the reviewed TeX in
+# source/week-88/archive-before-problem-files-2026-10-23/week-88-source.zip (identical to the reviewed files).
+import zipfile  # noqa: E402
+_Z = zipfile.ZipFile(SRC / "archive-before-problem-files-2026-10-23" / "week-88-source.zip")
+GUIDE = re.sub(r"\s+", " ", _Z.read("week-88/guide/facilitator.tex").decode())
+STUDENT = _Z.read("week-88/student/students.tex").decode()
 OUT = []
 FAILS = []
 

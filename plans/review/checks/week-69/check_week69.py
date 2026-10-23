@@ -12,8 +12,14 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[4]
 SRC = REPO / "lowell-math-circle-year-2/source/week-69"
-TEX = (SRC / "student/students.tex").read_text()
-GUIDE = (SRC / "guide/facilitator.tex").read_text()
+# Re-pointed on 2026-10-23.  The October 16 introduction follow-up (aa01c74), the problem-file conversion (f138ec4),
+# the keep card (2a5b07a) and the critic follow-up (8648020) changed and moved these sources, so this check reads
+# the TeX as reviewed from source/archive-before-intro-followup/week-69-source.zip (identical to the reviewed files).
+# The current packet is checked by check_critic_fixes.py and check_pdf_diagrams.py here.
+import zipfile  # noqa: E402
+_Z = zipfile.ZipFile(REPO / "lowell-math-circle-year-2/source/archive-before-intro-followup/week-69-source.zip")
+TEX = _Z.read("week-69/student/students.tex").decode()
+GUIDE = _Z.read("week-69/guide/facilitator.tex").decode()
 
 def bfs(adj, sources):
     d = {s: 0 for s in sources}; q = deque(sources)

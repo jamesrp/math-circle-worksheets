@@ -51,10 +51,10 @@ def words(page):
 tmp = tempfile.mkdtemp()
 
 
-def render(page):
-    base = os.path.join(tmp, f'p{page}')
-    subprocess.run(['pdftoppm', '-r', str(DPI), '-gray', '-f', str(page), '-l', str(page), PDF, base], check=True)
-    f = [n for n in os.listdir(tmp) if n.startswith(f'p{page}-')][0]
+def render(page, pdf=PDF, tag='p'):
+    base = os.path.join(tmp, f'{tag}{page}')
+    subprocess.run(['pdftoppm', '-r', str(DPI), '-gray', '-f', str(page), '-l', str(page), pdf, base], check=True)
+    f = [n for n in os.listdir(tmp) if n.startswith(f'{tag}{page}-')][0]
     return Image.open(os.path.join(tmp, f)).convert('L')
 
 
@@ -215,8 +215,15 @@ for a, b in [(one, five), (seven_bottom, eleven), (five, seven_top), (three, sev
     check(thick_between(a, b) < 0.2, f'no bold arrow between {a["v"]} and {b["v"]} (grey grid line only)')
 
 # draw order: grey grid line visible inside a dot?
-say('\n== Page 8 draw order: grey grid lines inside the dot circles')
+# Paired on 2026-10-23: could 3 (79172d1) now draws all segments before the dots.  The review's draw-order reading is
+# confirmed on the copy as reviewed (week-55/archive-before-card-fixes-2026-10-23/, same dot positions), and the
+# current page is checked for clean dots.
+REVIEWED_PDF = os.path.join(os.path.dirname(PDF), 'archive-before-card-fixes-2026-10-23', 'week-55-students.pdf')
+im8_now = im8
+im8 = render(8, REVIEWED_PDF, 'r')
+say('\n== Page 8 draw order: grey grid lines inside the dot circles (finding confirmed on the reviewed, archived copy)')
 exposed = []
+clean_now = []
 for name, gd in grids.items():
     cols = sorted({round(d['x'], 0) for d in gd})
     rows_td = sorted({round(d['y'], 0) for d in gd})
@@ -233,9 +240,13 @@ for name, gd in grids.items():
         check(show_up == has_up and show_right == has_right,
               f'{name} dot {d["v"]}: line inside circle above={show_up} (grey {up}), right={show_right} (grey {right}); '
               f'predicted by draw order: above={has_up}, right={has_right}')
+        now_up = min(px(im8_now, d['x'] + k / 10, d['y'] - 3.4) for k in range(-3, 4))
+        now_right = min(px(im8_now, d['x'] + 3.4, d['y'] + k / 10) for k in range(-3, 4))
+        clean_now.append(now_up >= 235 and now_right >= 235)
 say(f'  dots with a grey line drawn through the numeral area: {len(exposed)} of {len(dots)}')
 say('  (the grid lines are drawn after the earlier dots, so each dot shows the segments to its')
 say('   upper and right neighbours; only the top-right dot of each grid is clean)')
+check(clean_now and all(clean_now), f'current page 8 (could 3 fixed): no grey line inside any of the {len(clean_now)} dots')
 
 say('\nSUMMARY:', 'all checks passed' if not FAIL else f'{len(FAIL)} FAIL(s)')
 for f in FAIL:

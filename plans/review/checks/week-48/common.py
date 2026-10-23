@@ -61,6 +61,26 @@ TEX = {
     'grades-4-5': os.path.join(SRC, 'editable', 'src', 'grades-4-5.tex'),
 }
 
+# Re-pointed on 2026-10-23.  The card's shoulds (e5f2c4e), the bonus should 11 (bd1f0c1) and the critic follow-up
+# (bf89c89) reshaped every PDF this review read, so PDFS now names the copies as reviewed, all in
+# week-48/archive-before-card-fixes-2026-10-23/, and TEX the reviewed sources, read from the source ZIP archived
+# before the problem-file conversion (identical to the reviewed src/*.tex).  DELIVERED keeps the current print
+# copies, which compare_source.py still compares with the source reference copies.  The current pages are checked
+# by check_bonus_fixes.py and check_critic_fixes.py here and the package's own card-fix verifier.
+DELIVERED = dict(PDFS)
+PDFS = {k: os.path.join(WEEK, 'archive-before-card-fixes-2026-10-23', os.path.basename(v)) for k, v in DELIVERED.items()}
+REVIEWED_TEX_ZIP = os.path.join(SRC, 'archive-before-problem-files-2026-10-23', 'inside-outside-covers-week48-editable-source.zip')
+TEX = {b: 'zip:inside-outside-covers-week48-source/src/%s.tex' % b for b in TEX}
+
+
+def read_tex(path):
+    """Read a TeX path, or a 'zip:' member of the archived source ZIP."""
+    if path.startswith('zip:'):
+        import zipfile
+        return zipfile.ZipFile(REVIEWED_TEX_ZIP).read(path[4:]).decode()
+    return open(path).read()
+
+
 PT_MM = 25.4 / 72.0
 
 

@@ -368,13 +368,13 @@ gt = ' '.join(' '.join(pg_.get_text().split()) for pg_ in g)
 gz = ''.join(gt.split())
 check('guide PDF has 7 pages', len(g) == 7)
 for frag in ['A, B, C, D, E, F, G, H, A', 'A, H, G, F, E, D, C, B, A', '16 − 4 = 12', '8 + 8 − 2 = 14', '8 × 7 = 56', '56 − 8 = 48',
-             '40 reached once and eight reached twice', 'layers 1, 4, 8', '17.9 mm', 'five packets, 30 sheets']:
+             '40 reached once and eight reached twice', 'layers 1, 4, 8', '17.9 mm', 'five packets, %d sheets' % (5 * len(doc))]:  # 43a1008: 7 student pages, so 35 sheets
     check(f'guide text contains "{frag}"', ''.join(frag.split()) in gz)
 
 # ================= all pages: header/footer sanity =================
 for i, page in enumerate(doc):
     txt = page.get_text()
-    check(f'page {i+1}: header and footer present', 'Week 65 / Hyperbolic octagon streets / Grades 3' in txt and 'Bellingham Math Circle / Week 65 / W65-S-v2' in txt)
+    check(f'page {i+1}: header and footer present', 'Week 65 / Hyperbolic octagon streets / Grades 3' in txt and 'Bellingham Math Circle / Week 65 / W65-S-v4' in txt)  # v4 since 385be6b
 
 log('')
 log(f'{len([l for l in OUT if l.startswith(("PASS","FAIL"))])} checks, {len(FAIL)} failures')

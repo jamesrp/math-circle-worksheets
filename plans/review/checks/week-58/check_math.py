@@ -47,6 +47,22 @@ GUIDE_PDF = os.path.join(WEEK, 'week-58-facilitator.pdf')
 STU_TEX = os.path.join(SRC, 'student', 'students.tex')
 COMMON_TEX = os.path.join(SRC, 'student', 'common.tex')
 MAT_TEX = os.path.join(SRC, 'student', 'materials.tex')
+# Re-pointed on 2026-10-23.  The card's shoulds (6ea89c0) rebuilt the strips (240 mm, cuts at 80 and 160 mm) and the
+# critic follow-up (21d87ed) changed the guide, and the problem-file conversion (c92e939) removed student/*.tex.
+# This check therefore reads the PDFs as reviewed (week-58/archive-before-card-fixes-2026-10-23/) and the reviewed
+# sources from the source ZIP archived before the conversion (identical to the reviewed files).  The current packet
+# is checked by check_critic_fixes.py here and the package's own card-fix verifier.
+REVIEWED = os.path.join(WEEK, 'archive-before-card-fixes-2026-10-23')
+STU_PDF, MAT_PDF, GUIDE_PDF = (os.path.join(REVIEWED, os.path.basename(p)) for p in (STU_PDF, MAT_PDF, GUIDE_PDF))
+REVIEWED_ZIP = os.path.join(SRC, 'archive-before-problem-files-2026-10-23', 'week-58-source.zip')
+STU_TEX, COMMON_TEX, MAT_TEX = ('zip:week-58/student/%s.tex' % n for n in ('students', 'common', 'materials'))
+
+
+def read_src(path):
+    if path.startswith('zip:'):
+        import zipfile
+        return zipfile.ZipFile(REVIEWED_ZIP).read(path[4:]).decode()
+    return open(path).read()
 
 OUT, FAIL = [], []
 
@@ -78,9 +94,9 @@ def norm(s):
 # 1. Printed inputs
 # --------------------------------------------------------------------------
 say('== Printed inputs (source vs delivered PDFs)')
-stu = open(STU_TEX).read()
-common = open(COMMON_TEX).read()
-mat = open(MAT_TEX).read()
+stu = read_src(STU_TEX)
+common = read_src(COMMON_TEX)
+mat = read_src(MAT_TEX)
 stu_pages = pdftext(STU_PDF, layout=True).split('\f')
 mat_pages = pdftext(MAT_PDF, layout=True).split('\f')
 
@@ -494,9 +510,14 @@ check(okerr and '2 + e/50' in g, "guide 'cutting error' values (2+e/50, 2-e/50) 
 # Visit A: which partition has the tie
 m = re.search(r'The two-red / red-plus-blue partition from Problem 1 leads to a separate question about '
               r'which divider/chooser roles make success certain and why a tie matters', g)
-check(m is None,
-      "guide Visit A ties 'why a tie matters' to the two-red / red-plus-blue partition, "
-      "but that partition has strict choices for both dividers; the tie is in the all-red / blue partition")
+check(m is not None,
+      "finding confirmed (as reviewed, archived): guide Visit A ties 'why a tie matters' to the two-red / "
+      "red-plus-blue partition, but that partition has strict choices for both dividers; the tie is in the "
+      "all-red / blue partition")
+g_now = norm(pdftext(os.path.join(WEEK, 'week-58-facilitator.pdf')))
+check('The all-red / blue partition from Problem 1 leads to a separate question about which divider/chooser roles '
+      'make success certain and why a tie matters' in g_now,
+      'current guide Visit A ties the tie question to the all-red / blue partition, where the tie is')
 # overview example "above one third"
 m = re.search(r'being above one third of the total need not make the own bundle largest\. Problem 6 supplies '
               r'a complete example with own value 4', g)

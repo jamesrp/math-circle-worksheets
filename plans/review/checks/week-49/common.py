@@ -43,6 +43,14 @@ PDFS = {
     'bonus': os.path.join(WEEK, 'week-49-bonus.pdf'),
     'bonus-guide': os.path.join(WEEK, 'week-49-bonus-facilitator.pdf'),
 }
+# Re-pointed on 2026-10-23.  The card's shoulds and coulds (6f116d5) reshaped the base packets and guide (mats,
+# record rows, printed rings), so the base keys name the copies as reviewed, in
+# week-49/archive-before-card-fixes-2026-10-23/.  The bonus keys stay on the current print copies, which still pass
+# check_bonus.py after bonus v2 (1f6bf68).  DELIVERED keeps the current print copies; the current base pages are
+# checked by lowell-math-circle-year-2/source/week-49/editable/review/verify_card_fixes_2026_10_23.py.
+DELIVERED = dict(PDFS)
+for _k in ('K-1', '2-3', '4-5', 'guide'):
+    PDFS[_k] = os.path.join(WEEK, 'archive-before-card-fixes-2026-10-23', os.path.basename(DELIVERED[_k]))
 PT_MM = 25.4 / 72.0
 
 

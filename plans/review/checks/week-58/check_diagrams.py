@@ -39,6 +39,10 @@ ROOT = find_root()
 WEEK = os.path.join(ROOT, 'lowell-math-circle-year-2', 'week-58')
 STU = os.path.join(WEEK, 'week-58-students.pdf')
 MAT = os.path.join(WEEK, 'week-58-materials.pdf')
+# Re-pointed on 2026-10-23: the card's shoulds (6ea89c0) rebuilt the strips and the materials pages, so this check
+# reads the copies as reviewed, in week-58/archive-before-card-fixes-2026-10-23/.  The current packet is checked by
+# check_critic_fixes.py here and the package's own card-fix verifier.
+STU, MAT = (os.path.join(WEEK, 'archive-before-card-fixes-2026-10-23', os.path.basename(p)) for p in (STU, MAT))
 DPI = 254
 PX = DPI / 25.4          # px per mm (10)
 PTPX = DPI / 72.0        # px per pt

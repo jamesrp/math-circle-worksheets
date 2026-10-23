@@ -39,6 +39,11 @@ REPO = find_repo(HERE)
 WEEK = REPO / 'lowell-math-circle-year-2' / 'week-80'
 STU = WEEK / 'week-80-students.pdf'
 GUI = WEEK / 'week-80-facilitator.pdf'
+# Re-pointed on 2026-10-23: the problem-file conversions of Weeks 80 and 79 (a7cb913) removed student/students.tex,
+# and the card's shoulds and coulds (bad980d) and the critic follow-up (65fb9bc) changed the packet and guide.  The
+# review checks read the copies as reviewed: week-80/archive-before-card-fixes-2026-10-23/ and the reviewed
+# students.tex files kept in source/week-NN/archive-before-problem-files-2026-10-23/.
+STU, GUI = (WEEK / 'archive-before-card-fixes-2026-10-23' / f.name for f in (STU, GUI))
 PT_MM = 25.4 / 72
 OUT, FAIL = [], []
 TOL = 0.05  # mm

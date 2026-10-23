@@ -136,7 +136,7 @@ for fname, solid_name, page in NETS:
     R.out('')
     R.out('=' * 70)
     R.out(f'{fname}  ->  {solid_name}  (materials p.{page})')
-    faces, tabs, dashed, solids, letters, facenums, corners = parse(os.path.join(SRC, 'student', fname))
+    faces, tabs, dashed, solids, letters, facenums, corners = parse(os.path.join(SRC, 'editable', 'student', fname))  # moved into editable/ by the problem-file conversion
     F = len(faces)
 
     # 1. regular faces, 30 mm

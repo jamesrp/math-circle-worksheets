@@ -78,7 +78,10 @@ EXPECTED = {
     ('grades-4-5', 4): [('backward', N), ('backward', N)],
     ('grades-4-5', 5): [('backward', N)],
     ('grades-4-5', 6): [('staircase', RS), ('staircase', N)],
-    ('grades-4-5', 7): [('bottleneck', RB)],
+    # b696120 (critic follow-up): the Problem 1 boards are reprinted as extra workspace for Problem 5 on page 7,
+    # so the reviewed page 7 (bottleneck) is page 8.
+    ('grades-4-5', 7): [('greedy', R1), ('doubletrap', RD)],
+    ('grades-4-5', 8): [('bottleneck', RB)],
     # facilitator guide figures (ReportLab)
     ('facilitator', 3): [('diamond', N), ('greedy', N)],
     ('facilitator', 4): [('bowtie', N), ('funnel', N)],

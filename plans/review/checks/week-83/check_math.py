@@ -224,7 +224,11 @@ check(bool(wit), f'encore: BR and BRR are told apart by a test stalk, e.g. addin
 # ------------------------------------------------------------ printed boards
 say('')
 say('== Printed boards (parsed from student/students.tex) ==')
-tex = (SRC / 'student/students.tex').read_text()
+# Re-pointed on 2026-10-23: the problem-file conversion (8e59b53) and the card's shoulds and coulds (ff74daa)
+# changed and moved the packet sources, so the review checks read the copies as reviewed:
+# week-83/archive-before-card-fixes-2026-10-23/ and the reviewed TeX in
+# source/week-83/archive-before-problem-files-2026-10-23/week-83-source.zip (identical to the reviewed files).
+tex = (SRC / 'archive-before-problem-files-2026-10-23' / 'students.tex').read_text()
 body = tex.split('\\begin{document}')[1]
 sheets = re.findall(r'\\begin\{sheet\}(.*?)\\end\{sheet\}', body, re.S)
 check(len(sheets) == 7, f'7 sheets in source (found {len(sheets)})')

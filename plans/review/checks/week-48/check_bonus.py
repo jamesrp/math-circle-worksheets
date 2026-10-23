@@ -14,7 +14,7 @@ import sys
 from fractions import Fraction as F
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import (HERE, PDFS, PT_MM, Log, area, bounds, fmt, grid_status,  # noqa: E402
+from common import (DELIVERED, HERE, PDFS, PT_MM, Log, area, bounds, fmt, grid_status,  # noqa: E402
                     is_simple, page_text)
 
 log = Log('Week 48 bonus: independent exact checks')
@@ -86,9 +86,14 @@ log.check(4 <= 4 <= 8 and 4 == 4 and 4 <= 6 <= 8 and 2 <= 6 and 3 <= 4,
 # the labels give the impossible pair away
 possible = [i + 1 for i, v in enumerate(inter) if v is not None]
 named = [{'First': 1, 'Second': 2, 'Third': 3}[g['label'].split()[0]] for g in grids]
-log.check(named != possible,
-          f'witness grids are labelled for pairs {named}, which are exactly the possible pairs {possible}: '
-          'the labels answer "Which pair cannot be true?" before the child reasons')
+log.check(named == possible,
+          f'finding confirmed (as reviewed, archived): witness grids are labelled for pairs {named}, which are exactly the '
+          f'possible pairs {possible}: the labels answer "Which pair cannot be true?" before the child reasons')
+# Bonus v2 (bd1f0c1) leaves the pair blank on each witness grid.
+NOW = re.sub(r'\s+', ' ', page_text(DELIVERED['bonus']))
+p2now = NOW[NOW.index('Problem 2'):]
+log.check(p2now.count('Pair:') == 2 and not re.search(r'(First|Second|Third) pair', p2now),
+          'current bonus Problem 2: both witness grids are captioned "Pair:" with a blank, so no possible pair is named')
 
 # ------------------------------------------------------------------ Problem 3
 log.head('Problem 3: the L mask on a 2x2 board')

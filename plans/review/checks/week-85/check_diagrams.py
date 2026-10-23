@@ -33,6 +33,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import zipfile
 from pathlib import Path
 
 import fitz  # PyMuPDF
@@ -53,6 +54,14 @@ def find_repo(here):
 REPO = find_repo(HERE)
 WEEK = REPO / 'lowell-math-circle-year-2' / 'week-85'
 SRC = REPO / 'lowell-math-circle-year-2' / 'source' / 'week-85'
+# Re-pointed on 2026-10-23: the problem-file conversion (2d9c473), the card's must and shoulds (48976ba) and the
+# critic follow-up (bc8c507) replaced student/generate.py and changed every print PDF, so this review check reads
+# the copies as reviewed: week-85/archive-before-card-fixes-2026-10-23/ and the reviewed generator and TeX in
+# source/week-85/archive-before-problem-files-2026-10-23/ (identical to the reviewed files).  DELIVERED_WEEK keeps the
+# current print copies for the reference-copy comparison; check_critic_fixes.py checks the current pages.
+DELIVERED_WEEK = WEEK
+WEEK = WEEK / 'archive-before-card-fixes-2026-10-23'
+REV = SRC / 'archive-before-problem-files-2026-10-23'
 OUT, FAIL = [], []
 MM = 25.4 / 72
 H_PT = 792
@@ -69,7 +78,7 @@ def check(cond, msg):
 
 
 def literal(name):
-    tree = ast.parse((SRC / 'student' / 'generate.py').read_text())
+    tree = ast.parse((REV / 'generate.py').read_text())
     for node in tree.body:
         if isinstance(node, ast.Assign) and any(getattr(t, 'id', None) == name for t in node.targets):
             return ast.literal_eval(node.value)
@@ -527,14 +536,16 @@ for s in ['(115, 125), (130, 160), (155, 150), (150, 120), (125, 140)', 'G has a
 say('')
 say('Sources')
 with tempfile.TemporaryDirectory() as td:
-    shutil.copy2(SRC / 'student' / 'generate.py', Path(td) / 'generate.py')
+    shutil.copy2(REV / 'generate.py', Path(td) / 'generate.py')
     subprocess.run([sys.executable, '-I', str(Path(td) / 'generate.py')], check=True, cwd=td)
-    same = all((Path(td) / f'{n}.tex').read_text() == (SRC / 'student' / f'{n}.tex').read_text() for n in ('shared', 'upper', 'materials'))
-check(same, 'shared.tex, upper.tex and materials.tex equal a fresh run of generate.py')
+    rz = zipfile.ZipFile(REV / 'week-85-source.zip')
+    same = all((Path(td) / f'{n}.tex').read_text() == rz.read(f'week-85/student/{n}.tex').decode()
+               for n in ('shared', 'upper', 'materials'))
+check(same, 'reviewed shared.tex, upper.tex and materials.tex equal a fresh run of the reviewed generate.py')
 for n in ('shared', 'upper', 'materials', 'facilitator'):
-    a = (WEEK / f'week-85-{n}.pdf').read_bytes()
-    b = (SRC / 'reference-pdfs' / f'week-85-{n}.pdf').read_bytes()
-    check(a == b, f'week-85-{n}.pdf equals source/week-85/reference-pdfs copy')
+    a = (DELIVERED_WEEK / f'week-85-{n}.pdf').read_bytes()
+    b = (SRC / 'editable' / 'reference-pdfs' / f'week-85-{n}.pdf').read_bytes()
+    check(a == b, f'current week-85-{n}.pdf equals source/week-85/editable/reference-pdfs copy')
 
 say('')
 say(f'{len(FAIL)} failures')

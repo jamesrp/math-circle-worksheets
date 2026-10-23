@@ -42,6 +42,12 @@ def find_repo(here):
 REPO = find_repo(HERE)
 STU_TEX = REPO / 'lowell-math-circle-year-2' / 'source' / 'week-80' / 'student' / 'students.tex'
 W79_TEX = REPO / 'lowell-math-circle-year-2' / 'source' / 'week-79' / 'student' / 'students.tex'
+# Re-pointed on 2026-10-23: the problem-file conversions of Weeks 80 and 79 (a7cb913) removed student/students.tex,
+# and the card's shoulds and coulds (bad980d) and the critic follow-up (65fb9bc) changed the packet and guide.  The
+# review checks read the copies as reviewed: week-80/archive-before-card-fixes-2026-10-23/ and the reviewed
+# students.tex files kept in source/week-NN/archive-before-problem-files-2026-10-23/.
+STU_TEX, W79_TEX = (REPO / 'lowell-math-circle-year-2' / 'source' / w / 'archive-before-problem-files-2026-10-23' /
+                    'students.tex' for w in ('week-80', 'week-79'))
 OUT, FAIL = [], []
 N = 200          # switches replayed exactly
 LINE_MM = 180    # endpoint ticks are 180 mm apart (confirmed from the PDF in check_diagrams.py)

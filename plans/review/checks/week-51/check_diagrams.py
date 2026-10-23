@@ -187,8 +187,15 @@ def comparisons(page, rulers):
     return pics
 
 
+# Re-pointed on 2026-10-23: the card fixes reshaped the base packets (the strip problems moved between pages), so
+# the base checks read the copies as reviewed, in week-51/archive-before-card-fixes-2026-10-23/.  The bonus pages are
+# unchanged since the review and stay current; hashes() still compares the current print copies with the source
+# reference copies.  The current base pages are checked by the week's own card-fix verifier.
+REVIEWED = g.WEEK / 'archive-before-card-fixes-2026-10-23'
+
+
 def check_base(name):
-    pdf = g.WEEK / ('week-51-%s.pdf' % name)
+    pdf = REVIEWED / ('week-51-%s.pdf' % name)
     pages = g.read_pdf(pdf)
     say('=' * 78)
     say('%s  (%d pages)' % (pdf.relative_to(g.ROOT), len(pages)))

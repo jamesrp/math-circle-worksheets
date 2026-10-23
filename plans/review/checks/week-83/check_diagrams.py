@@ -44,6 +44,11 @@ def find_repo(here):
 REPO = find_repo(HERE)
 PDF = REPO / 'lowell-math-circle-year-2/week-83/week-83-students.pdf'
 GUIDE = REPO / 'lowell-math-circle-year-2/week-83/week-83-facilitator.pdf'
+# Re-pointed on 2026-10-23: the problem-file conversion (8e59b53) and the card's shoulds and coulds (ff74daa)
+# changed and moved the packet sources, so the review checks read the copies as reviewed:
+# week-83/archive-before-card-fixes-2026-10-23/ and the reviewed TeX in
+# source/week-83/archive-before-problem-files-2026-10-23/week-83-source.zip (identical to the reviewed files).
+PDF, GUIDE = (p.parent / 'archive-before-card-fixes-2026-10-23' / p.name for p in (PDF, GUIDE))
 OUT, FAIL = [], []
 
 

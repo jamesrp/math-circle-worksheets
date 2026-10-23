@@ -52,7 +52,8 @@ STUDENT = {
         ('P11B', 3, 3, {(1, 1), (1, 2), (2, 2), (3, 3)}, True)],
     10: [('P12', 4, 5, set(), True)],
     11: [('P13 left', 3, 3, set(), True), ('P13 right', 3, 3, set(), True)],
-    12: [('P14', 4, 4, set(), True)],
+    # c1f3431 (card should): Problem 14 now prints two blank 4-by-4 boards.
+    12: [('P14 board %d' % k, 4, 4, set(), True) for k in (1, 2)],
 }
 STUDENT_LINKS = {
     6: [('example links', 1, 3, {(1, 2)}), ('P7A blank', 2, 3, set()), ('P7B blank', 2, 3, set())],

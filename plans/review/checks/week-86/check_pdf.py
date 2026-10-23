@@ -47,6 +47,10 @@ def find_repo():
 
 REPO = find_repo()
 WEEK = REPO / 'lowell-math-circle-year-2' / 'week-86'
+# Re-pointed on 2026-10-23: the card's shoulds and coulds (69e8099) and the footer and Critic M fixes (dfbc5e4)
+# changed the packets, so this review check reads the copies as reviewed, in
+# week-86/archive-before-card-fixes-2026-10-23/.
+WEEK = WEEK / 'archive-before-card-fixes-2026-10-23'
 MM = 72 / 25.4
 OUT = []
 FAILS = []

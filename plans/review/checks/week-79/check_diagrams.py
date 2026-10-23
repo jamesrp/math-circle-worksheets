@@ -38,7 +38,7 @@ def find_repo(here):
 REPO = find_repo(HERE)
 # The reviewed v1 PDFs (organizer-approved October 15, guide corrected October 17) are
 # archived since the October 23 revision (v2); this review checks them. The stored .out
-# predates the October 17 correction, after which the quoted "Problems 3-4" hint reads FAIL.
+# predates the October 17 correction; the hint check now quotes the corrected wording (see the guide section).
 WEEK = REPO / 'lowell-math-circle-year-2' / 'week-79' / 'archive-organizer-approved-2026-10-15'
 STU = WEEK / 'week-79-students.pdf'
 GUI = WEEK / 'week-79-facilitator.pdf'
@@ -199,7 +199,10 @@ for name, b in zip('AB', mats):
 say('== Guide (delivered PDF) sentences checked in math.md / check_math.py')
 g = re.sub(r'\s+', ' ', subprocess.run(['pdftotext', str(GUI), '-'], capture_output=True, text=True, check=True).stdout)
 for phrase in [
-    'Problems 3–4: inspect a named finite list of labels',
+    # The review's must 1 quoted "Problems 3–4: inspect a named finite list of labels"; the October 17 correction
+    # (b29e64f) gave this archived copy "Problem 4, smallest-card rule:" (the pre-correction guide is only in git
+    # history).  The current v2 guide, with one more problem, says "Problem 5, smallest-card rule:" (checked below).
+    'Problem 4, smallest-card rule: inspect a named finite list of labels',
     'Any fixed finite list eventually has all its labels in B.',
     'At every positive finite day N , label N + 1 is still in A.',
     'For the changed rule, the larger new card is 2n, so it moves immediately to B.',
@@ -213,6 +216,10 @@ for phrase in [
     'Grades 4–5 can formulate the uniform-day obstruction and changed-rule comparison',
 ]:
     check(phrase in g, f'guide prints: "{phrase}"')
+g_now = re.sub(r'\s+', ' ', subprocess.run(['pdftotext', str(WEEK.parent / 'week-79-facilitator.pdf'), '-'],
+                                           capture_output=True, text=True, check=True).stdout)
+check('Problem 5, smallest-card rule: inspect a named finite list of labels' in g_now,
+      'current guide (v2) prints: "Problem 5, smallest-card rule: inspect a named finite list of labels"')
 check('Day 12' not in g and '13, . . . , 24' not in g, 'guide gives no day-12 state (the page\'s printed continuation)')
 check(not re.search(r'odd labels? (settle|end|are) in A|odds? in A', g),
       'guide never states the changed rule\'s settled arrangement or its finite-day answer for Problem 4')

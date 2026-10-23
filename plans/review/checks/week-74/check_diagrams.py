@@ -18,6 +18,11 @@ import pymupdf
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[3]
 STUDENT = REPO / 'lowell-math-circle-year-2' / 'week-74' / 'week-74-students.pdf'
+# Re-pointed on 2026-10-23: the card's shoulds and coulds (b49dd73, printed stride strips) and the critic follow-up
+# (dd839c9) reshaped the packet, so this review check reads the copies as reviewed, in
+# week-74/archive-before-card-fixes-2026-10-23/.  The current packet is checked by
+# lowell-math-circle-year-2/source/week-74/editable/review/verify_card_fixes_2026_10_23.py.
+STUDENT = STUDENT.parent / 'archive-before-card-fixes-2026-10-23' / STUDENT.name
 
 OUT, FAIL = [], []
 
