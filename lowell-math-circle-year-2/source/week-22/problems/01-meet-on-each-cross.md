@@ -8,10 +8,10 @@ kernel = "For every position of D some split works (Radon): D inside triangle AB
 +++
 
 ## prompt [K-1]
-Put D on each cross. Each time, make two regions that meet and mark a point they share.
+Put D on each cross. Each time, find a split whose regions meet.
 
 ## prompt
-Put D on each cross. For each position, split A, B, C, and D so their two regions meet, and mark a shared point.
+Put D on each cross. For each position, find a split of A, B, C, and D whose two regions meet.
 
 ## figure [K-1]
 board(k_tri,[(9,9),(4.3,4.7),(0.8,7.2)])
@@ -26,10 +26,10 @@ board(u_tri,[(9.8,9),(5,5),(6.25,2.5),(1,6)])
 \newpage
 
 ## prompt [K-1]
-For each place of D, make two regions that meet and mark a point they share.
+For each place of D, draw the two regions you found and mark a point they share.
 
 ## prompt
-For each position of D, split A, B, C, and D so their two regions meet, and mark a shared point.
+For each position of D, draw the two regions of your split and mark a shared point.
 
 ## figure [K-1]
 recording_boards([k_tri+[('D',x,y,'above right=5pt')] for x,y in [(9,9),(4.3,4.7),(0.8,7.2)]],columns=3,size=5.35)

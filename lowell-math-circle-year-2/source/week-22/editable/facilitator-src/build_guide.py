@@ -62,7 +62,7 @@ def start(title,kicker):
  C.setFillColor(BLACK);C.setFont(FB,19);C.drawString(LEFT,720,title)
  C.setFillColor(GRAY);C.setFont(F,8.7);C.drawString(LEFT,701,kicker)
  y=680
- C.setFillColor(GRAY);C.setFont(F,8);C.drawString(LEFT,29,'Draft and unpiloted  |  Unscheduled library week  |  Current v5 student packets')
+ C.setFillColor(GRAY);C.setFont(F,8);C.drawString(LEFT,29,'Draft and unpiloted  |  Unscheduled library week  |  Current v6 student packets')
  C.drawRightString(560,29,str(page))
 
 def note(label,text):p(f'<b>{label}</b> {text}')
@@ -169,14 +169,14 @@ def truth_table(keys,names):
 
 start('Meeting regions facilitator guide','Week 22  |  Planar convex partitions  |  Prepared 3 October 2026, revised 23 October 2026')
 p('Help children make two filled stretched-band regions from four labeled points, then ask whether every placement can be split successfully. The answer is yes. Three points do not give the same guarantee.','lead')
-note('Status and scope.','This is a separate adult-guide draft for the current student v5 packets. It is unpiloted and belongs to an unscheduled activity-library slot. Opening student pages include the E-J region key and a complete K-L-M-N split. Timings below are planning choices, not classroom evidence.')
+note('Status and scope.','This is a separate adult-guide draft for the current student v6 packets. It is unpiloted and belongs to an unscheduled activity-library slot. Opening student pages include the E-J region key and a complete K-L-M-N split. Timings below are planning choices, not classroom evidence.')
 h('Use this guide at the table')
 p('Begin with materials and a short shared demonstration (guide pp. 2-3). Offer a few pages at a time. Keep the answer galleries, seven-split checklist, and proof cases with the adult until children need them. A child may enter another band by readiness.')
 p('<b>Notation:</b> AB | CD means one group contains A and B, and the other contains C and D. Each label occurs once. Reversing the two groups gives the same split. In the diagrams, the first group is solid blue and the second dashed rust; pale fill shows a triangle. A colored ring shows a singleton; an additional black ring marks a shared point. Gold marks a shared segment. Color is optional: solid/dashed and labels carry the meaning.')
 h('Student packet and guide finder')
-p('<b>K-1: 9 student pages, F22-K-v5.</b><br/>P1 on student pp. 1-2 -> guide p. 5; P2 on pp. 3-4 -> p. 6; P3 on pp. 5-6 -> p. 7; P4 on p. 7 and P6 on p. 9 -> p. 8; P5 on p. 8 -> p. 9.')
-p('<b>Grades 2-3: 9 student pages, F22-23-v5.</b><br/>P1 on student pp. 1-2 -> guide p. 10; P2 on pp. 3-4 -> p. 11; P3 on p. 5 and P4 on pp. 6-7 -> p. 12; P5 on p. 8 and P6 on p. 9 -> p. 13.')
-p('<b>Grades 4-5: 12 student pages, F22-45-v5.</b><br/>P1 on student pp. 1-2 -> guide p. 14; P2 on pp. 3-4 and P3 on p. 5 -> p. 15; P4 on pp. 6-7 -> p. 16; P5 on pp. 8-10 -> p. 17; P6 on p. 11 -> p. 18; P7 on p. 12 -> p. 19.')
+p('<b>K-1: 9 student pages, F22-K-v6.</b><br/>P1 on student pp. 1-2 -> guide p. 5; P2 on pp. 3-4 -> p. 6; P3 on pp. 5-6 -> p. 7; P4 on p. 7 and P6 on p. 9 -> p. 8; P5 on p. 8 -> p. 9.')
+p('<b>Grades 2-3: 9 student pages, F22-23-v6.</b><br/>P1 on student pp. 1-2 -> guide p. 10; P2 on pp. 3-4 -> p. 11; P3 on p. 5 and P4 on pp. 6-7 -> p. 12; P5 on p. 8 and P6 on p. 9 -> p. 13.')
+p('<b>Grades 4-5: 12 student pages, F22-45-v6.</b><br/>P1 on student pp. 1-2 -> guide p. 14; P2 on pp. 3-4 and P3 on p. 5 -> p. 15; P4 on pp. 6-7 -> p. 16; P5 on pp. 8-10 -> p. 17; P6 on p. 11 -> p. 18; P7 on p. 12 -> p. 19.')
 p('Common mathematical tools are on p. 4. Extensions, fidelity limits, and pilot notes are on p. 20. Source verification and reproducibility notes are on p. 21.','small')
 
 start('Preparation and a concrete launch','Allow about 15 minutes of adult preparation before the session')
@@ -403,7 +403,7 @@ p('Natasha Rozhkovskaya, <i>Math Circles for Elementary School Students</i>, "In
 p('Repository AGENTS.md, README.md, the Week 22 activity prompt, the general and mathematics reviews, and the final v3 sources and PDFs were read. These supply the actual group, student-page conventions, materials, and revision history. The proposed timing, held hints, route choices, and stopping points are facilitator design suggestions, not claims extracted from the source book.')
 h('What was checked independently')
 p('A separate exact-rational checker examines every unordered split of all 27 fixed, three-point, and construction configurations. It uses direct point-on-segment, point-in-triangle, and segment-intersection predicates rather than importing the student hull checker. It records exact shared-point or shared-segment endpoints. It also checks 6,561 labeled placements on a 3 by 3 test grid, including coincident points, as a stress test.')
-p('The new inside-triangle and square witnesses each have one successful split and those splits differ. All three collinear boards have four successes with their own label orders. The final student page counts are 9, 9, and 12 (v5, with the P1 record page). The universal existence claim rests on the complete proof on guide p. 18, not on the finite tests.')
+p('The new inside-triangle and square witnesses each have one successful split and those splits differ. All three collinear boards have four successes with their own label orders. The final student page counts are 9, 9, and 12 (v6, with the P1 record page). The universal existence claim rests on the complete proof on guide p. 18, not on the finite tests.')
 h('Editable source and rebuild')
 p('The companion facilitator-src folder contains build_guide.py (editable text and drawing source), check_math.py, geometry-results.json, student-input-manifest.json, checks.txt, README.md, and build.sh. Run ./build.sh from that folder with Python 3, ReportLab, pypdf, and Poppler installed. It writes the guide one level above and renders review images locally.')
 p('The final guide was rendered and every page visually inspected. The student PDFs were read and rendered for matching only; no student page or source was changed by this separate guide step. On 23 October 2026 the review card\'s fixes made the v5 packets (P1 record pages, the key\'s dot, upper P6 wording) and this guide was updated to match. SHA-256 hashes in the input manifest identify the exact matched student PDFs.','small')

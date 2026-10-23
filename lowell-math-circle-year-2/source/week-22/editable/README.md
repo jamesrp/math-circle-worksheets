@@ -2,9 +2,11 @@
 
 ## Introduction-audit follow-up
 
-All three student bands were v4 (now v5). The region key now includes one complete two-group split and its shared point. The guide launch uses the same labels. Existing 12.6 cm work boards and page counts remain. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
+All three student bands were v4 (now v6). The region key now includes one complete two-group split and its shared point. The guide launch uses the same labels. Existing 12.6 cm work boards and page counts remain. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
 
 ## Current release: October 23, 2026 card-fix revision
+
+**Critic follow-up, October 23, 2026 (v6).** Problem 1's page 1 now asks only for the search with the D marker; the drawing request is on the record page (page 2) alone. Packets F22-K-v6, F22-23-v6, F22-45-v6; the guide names them. `review/verify_card_fixes_2026_10_23.py` checks the v6 build.
 
 **Card fixes, October 23, 2026.** The review card's shoulds and coulds 5 and 7–10 were done after the problem-file conversion below: student packets F22-K-v5, F22-23-v5 and F22-45-v5 (a Problem 1 record page with D printed on one board per cross, a dot instead of a cross in the key, Grades 4–5 Problem 6 shortened), and guide pages 1–2, 5–19, 21 and the route page. See `review/card-fixes-2026-10-23.md`; `python3 review/verify_card_fixes_2026_10_23.py` checks each fix against the built PDFs. The release before it was the October 4, 2026 fresh-review revision.
 

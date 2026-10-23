@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the October 23, 2026 card fixes of Week 22 (v5 packets) against the built PDFs.
+"""Check the October 23, 2026 card fixes of Week 22 (made in v5, current in v6) against the built PDFs.
 
 Run from the package folder after `bash build.sh`, or pass the folder holding
 k-1.pdf, grades-2-3.pdf, grades-4-5.pdf and facilitator-guide.pdf:
@@ -88,8 +88,8 @@ def exact(v):
 # ---------- the built PDFs
 docs = {n: pymupdf.open(OUT / f'{n}.pdf') for n in ('k-1', 'grades-2-3', 'grades-4-5', 'facilitator-guide')}
 text = {n: [pg.get_text() for pg in d] for n, d in docs.items()}
-bands = (('k-1', 'K-1', 'F22-K-v5', 9, 'k_tri', 3), ('grades-2-3', '2-3', 'F22-23-v5', 9, 'm_tri', 4),
-         ('grades-4-5', '4-5', 'F22-45-v5', 12, 'u_tri', 4))
+bands = (('k-1', 'K-1', 'F22-K-v6', 9, 'k_tri', 3), ('grades-2-3', '2-3', 'F22-23-v6', 9, 'm_tri', 4),
+         ('grades-4-5', '4-5', 'F22-45-v6', 12, 'u_tri', 4))
 for name, band, tag, n, _, _ in bands:
     check(len(text[name]) == n and all(tag in p for p in text[name]), f'{band}: {n} pages, every footer {tag}')
 
@@ -154,11 +154,11 @@ check(len(u6) == 1 and 'Can every arrangement of A, B, C, and D be split into tw
 # ---------- the guide
 G = text['facilitator-guide']
 g = flat('\n'.join(G))
-check(all('Current v5 student packets' in p for p in G[1:-1]), 'guide: every numbered page names the v5 packets')
+check(all('Current v6 student packets' in p for p in G[1:-1]), 'guide: every numbered page names the v6 packets')
 pages = {band: len(text[name]) for name, band, *_ in bands}
 check(all(f'{band}: {pages[band]} student pages, {tag}.' in g.replace('Grades 2-3', '2-3').replace('Grades 4-5', '4-5')
-          for name, band, tag, *_ in bands), 'guide: page map 9, 9, 12 with v5 packet ids')
-check('counts are 9, 9, and 12 (v5, with the P1 record page)' in g, 'guide: verification page gives 9, 9 and 12 pages')
+          for name, band, tag, *_ in bands), 'guide: page map 9, 9, 12 with v6 packet ids')
+check('counts are 9, 9, and 12 (v6, with the P1 record page)' in g, 'guide: verification page gives 9, 9 and 12 pages')
 # should 3
 check('On a line, draw one group just above the dots and the other just below.' in g, 'guide: "Say explicitly" adds above/below for groups on a line')
 check('two colors of pencil or crayon for each pair' in g and 'Give each pair two colors, one per group' in g,
@@ -188,7 +188,7 @@ check('Taking turns means one child places all four markers and the partner spli
 # could 7: route note
 route = flat(G[-1])
 last_no = [w for w in G[-1].split() if w.isdigit()]
-p3 = [flat(p) for p in G if re.search(r'\|\s*Current v5 student packets\s*\n3\n', p)]
+p3 = [flat(p) for p in G if re.search(r'\|\s*Current v6 student packets\s*\n3\n', p)]
 check('already marked on guide p. 3' in route and '22' in last_no and 'guide p4' not in route,
       'route page: "guide p. 3", numbered 22')
 check(len(p3) == 1 and 'P5 and P6 can continue another day' in p3[0], 'guide p. 3 marks the middle return route P5-6')
