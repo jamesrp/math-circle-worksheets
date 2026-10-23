@@ -46,6 +46,8 @@ The board is a graph on (x, h) with h ≥ 0. At level h a stride moves 2^h, and 
 
 October 23, 2026: shoulds 1–3 and coulds 4–8 fixed, after storing the week as problem files (student GGT74-S-v2, guide GGT74-FAC-v2, new stride-strip page GGT74-M-v1); the K–1 and 2–3 routes are guide-only. Checked by `source/week-74/editable/review/verify_card_fixes_2026_10_23.py`.
 
+**Critic follow-up, October 23, 2026 (GGT74-FAC-v3):** an independent critic (no musts or shoulds) found that the band-view menu said "K–1: no pages · Grades 2–3: no pages" and the guide's Materials counted copies only for the 4–5 table, though the guide routes both younger tables through pages 1–2. Materials now names the younger tables' copies, and the page index's `guide_routes` gives the menu and slices those pages (Grades 2–3 pp. 1–2, K–1 p. 1). Unpiloted.
+
 ## Overlaps
 
 Week 66 (Lamplighter streets) is the nearest sibling. It also asks for shortest move words with lower bounds from unavoidable moves, but its group and theorem differ (dead ends, a decomposition). Keep both, and consider sharing a move-word board in the app. Week 30's signed-digit weights echo the 23 = 24 − 1 saving on a different object. No merge.

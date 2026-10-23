@@ -20,6 +20,11 @@ A slice holds the pages whose range includes the band, plus any earlier page
 whose opening rules the index lists for that band (`rules_for`). Pages are
 copied unchanged, so printed problem and page numbers match the full packet
 and its guide. A slice is written only when it is shorter than the packet.
+
+An index may also list `guide_routes`, for example `guide_routes = { "K-1" = [1, 6] }`:
+the pages an adult-led route in the week's guide uses for a band whose pages are
+headed for older children. Those pages join that band's slice, and the menu and
+README say the route is the guide's.
 """
 import re
 import shutil
@@ -69,10 +74,16 @@ def span(label):
 def slice_pages(index, band):
     want = span(band)
     pages = [p['page'] for p in index['page'] if span(p['grades']) & want]
+    routed = guide_route(index, band)
     if not pages:
-        return []
+        return sorted(routed)
     rules = [p['page'] for p in index['page'] if band in p.get('rules_for', []) and p['page'] < pages[-1]]
-    return sorted(set(pages) | set(rules))
+    return sorted(set(pages) | set(rules) | set(routed))
+
+
+def guide_route(index, band):
+    """Pages an adult-led route in the guide uses for this band (index key guide_routes)."""
+    return index.get('guide_routes', {}).get(band, [])
 
 
 def ranges(pages):
@@ -148,11 +159,15 @@ def menu(index, pdf, slices, out):
             summary.append(f'{name}: whole packet')
         else:
             summary.append(f'{name}: pp.~{ranges(pages)} ({len(pages)} of {total})')
+        if guide_route(index, band):
+            summary[-1] += r", the guide's adult-led route"
     cells = []
     for p in index['page']:
         probs = p['problems']
         plabel = ('P' + (str(probs[0]) if len(probs) == 1 else f'{probs[0]}–{probs[-1]}')) if probs else 'no numbered problem'
         extra = (r'\\rules for ' + ', '.join(BANDS[b][1] for b in p['rules_for'])) if p.get('rules_for') else ''
+        routed = [BANDS[b][1] for b in BANDS if p['page'] in guide_route(index, b)]
+        extra += (r'\\guide route for ' + ', '.join(routed)) if routed else ''
         grades = p['grades'].replace('-', '–')
         cells.append(rf'''\begin{{minipage}}[t]{{43mm}}\centering
 \fbox{{\includegraphics[page={p['page']},width=42mm]{{packet.pdf}}}}\\[1pt]
@@ -241,7 +256,8 @@ def build(write=True):
                         w.add_page(reader.pages[n - 1])
                     w.add_metadata({'/Title': f'Week {index["week"]} {index["topic"]}, {name} pages'})
                     w.write(out)
-                cells.append(f'[{len(pages)} of {total}]({week}/{out.name}): pp. {ranges(pages)}')
+                cells.append(f'[{len(pages)} of {total}]({week}/{out.name}): pp. {ranges(pages)}'
+                             + (", the guide's adult-led route" if guide_route(index, band) else ''))
         if write:
             menu(index, pdf, slices, folder / f'{week}-menu.pdf')
         table.append(f'| {index["week"]} | {index["topic"]} | [{total} pages](../{index["source"]}) | '

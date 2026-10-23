@@ -35,7 +35,7 @@ check(len(S) == 4 and len(G) == 3 and len(M) == 1, f'page counts 4/3/1: {len(S)}
 for i, p in enumerate(S):
     check('Week 74 / GGT74-S-v2' in flat(p), f'student p.{i+1} footer GGT74-S-v2')
 for i, p in enumerate(G):
-    check('Week 74 / GGT74-FAC-v2' in flat(p), f'guide p.{i+1} footer GGT74-FAC-v2')
+    check('Week 74 / GGT74-FAC-v3' in flat(p), f'guide p.{i+1} footer GGT74-FAC-v3 (v2 until the October 23 critic follow-up)')
 check('Week 74 / GGT74-M-v1' in flat(M[0]), 'materials footer GGT74-M-v1')
 
 # Coulds 6 and 7: "marker", and no restated start in Problem 3.

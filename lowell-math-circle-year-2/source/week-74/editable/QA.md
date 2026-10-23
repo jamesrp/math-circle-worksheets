@@ -1,6 +1,6 @@
 # Week 74: release verification scope
 
-Prepared October 6, 2026 for review. Current IDs: GGT74-S-v2, GGT74-FAC-v2 and GGT74-M-v1 (revised October 23, 2026 from the review card; `review/verify_card_fixes_2026_10_23.py` checks the changes in the rendered PDFs). 4 student pages; 3 adult-guide pages; 1 stride-strip materials page.
+Prepared October 6, 2026 for review. Current IDs: GGT74-S-v2, GGT74-FAC-v3 (a critic follow-up the same day added the younger tables' copies to Materials) and GGT74-M-v1 (revised October 23, 2026 from the review card; `review/verify_card_fixes_2026_10_23.py` checks the changes in the rendered PDFs). 4 student pages; 3 adult-guide pages; 1 stride-strip materials page.
 
 The student packet passed an independent adversarial review followed by a fresh revision. Each final student page was rendered and visually inspected after changes; its standalone builder and mathematical checks were rerun. The adult guide is a separate stage: its author checked the exact final student questions, independently verified its answers, and rendered and inspected every guide page. Reviewer findings and revision decisions are kept with the repository's per-week review record.
 
