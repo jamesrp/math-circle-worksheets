@@ -47,6 +47,8 @@ Fixed October 23, 2026, after converting the week to problem files: shoulds 1–
 
 **Critic M coulds, October 23, 2026.** From an independent critic's review: the K–1 route on guide p. 2 gets a continuation of about 15 minutes with 10 more counters: which number up to 30 makes the most different rectangles (24 and 30, three each; W96-FAC-v2). The replaced PDFs and ZIP are in the `archive-before-critic-m-fixes-2026-10-23/` folders; checked by `plans/review/checks/critic-m/check_critic_m.py`. Unpiloted.
 
+**October 23, 2026, later the same day:** could 8 made. The problems' bag tokens are drawn at 0.73 cm, 0.85 cm apart, as in the page 1 examples (W96-23-v3, W96-45-v3; wording and page counts unchanged; the guide is unchanged). Could 10 stays deferred. Unpiloted.
+
 ## Overlaps
 
 Week 19's subset cards are the sub-bags of a number with distinct primes; its antichain theorem is absent here. Weeks 4, 9, 29, 31 and 32 reach gcd or lcm by other routes, which the return visit only touches. Week 97 builds on this guide's Euclid's lemma. The year-1 door-toggle puzzle (Handouts 9, Problem 9.1) is divisor parity, deliberately not repeated. No other theme has unique factorization or the divisor count. No merge.

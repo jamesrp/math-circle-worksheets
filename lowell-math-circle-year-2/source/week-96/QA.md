@@ -27,3 +27,7 @@ The independent standard-library checker exhaustively traverses legal factor spl
 Build with Python 3 and pdfLaTeX. The builder rejects TeX errors and overfull boxes. The release check extracts the source ZIP into a fresh directory, rebuilds every PDF using only extracted package files, and compares SHA-256 with current outputs and packaged reference PDFs. See `plans/new-families-92-97/week-96/release-check.json` for the resulting hashes. No downloaded reference or workflow prompt is required to rebuild.
 
 These are digital checks, not a classroom pilot or physical rehearsal.
+
+## Small could 8, October 23, 2026
+
+The problems' bag tokens are drawn at 0.73 cm, matching the page 1 examples (measured in the rendered PDFs: every token circle on Grades 2–3 page 2 is now 0.73 cm wide, where the problem bags had been 0.52 cm). Both packets keep their page counts (4 and 5) and their wording; footers W96-23-v3 and W96-45-v3. A clean rebuild from the extracted ZIP reproduces all three PDFs, and `checks/card_fixes_2026_10_23.py` still passes. Unpiloted.
