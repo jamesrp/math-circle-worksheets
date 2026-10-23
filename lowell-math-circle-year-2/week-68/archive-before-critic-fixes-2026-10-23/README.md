@@ -1,0 +1,3 @@
+# Week 68 adult guide before the October 23, 2026 critic follow-up
+
+GGT68-FAC-v2, replaced the same day by GGT68-FAC-v3. An independent critic noted that the guide's K–1 table had no blocker set or pages in the preparation ("Prepare three sets…") and that its "one shared page" was really pages 1 and 4. The guide now prepares four sets, the fourth with one copy each of pages 1 and 4 for the K–1 table, says "one shared copy of pages 1 and 4", and adds a Problem 3 follow-up, "Can you split it with two dots that are not on the same rung?" The student packet (GGT68-S-v2) did not change. The current copies are in [../](../). Kept for reference; do not print it.

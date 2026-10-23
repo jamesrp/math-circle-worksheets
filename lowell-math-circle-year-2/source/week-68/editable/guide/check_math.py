@@ -109,7 +109,13 @@ import pathlib
 here=pathlib.Path(__file__).resolve().parent
 guide=(here/'facilitator.tex').read_text()
 student=(here.parent/'student'/'students.tex').read_text()
-for phrase in ['GGT68-FAC-v2','\\textbf{4 up, 4 right, 4 down}','\\textbf{12 steps}','seven-X wall','diagonal pair',
+# Critic follow-up, October 23, 2026 (GGT68-FAC-v3): the K-1 table's set and pages, P3's off-rung follow-up
+for phrase in ['Prepare four sets','a fourth, with one copy each of pages 1 and 4, for the K--1 table',
+               'one shared copy of pages 1 and 4','two dots that are not on the same rung']:
+    assert phrase in guide, phrase
+assert 'one shared page' not in guide and 'Prepare three sets' not in guide
+assert len(diag)>0  # the off-rung follow-up has answers: the 16 diagonal pairs
+for phrase in ['GGT68-FAC-v3','\\textbf{4 up, 4 right, 4 down}','\\textbf{12 steps}','seven-X wall','diagonal pair',
                '25 two-dot placements split it: 9 rungs and 16 diagonal pairs','not on the window\'s edge',
                'a finite wall stops somewhere','A K--1 table','cover its third dot','12 mm at 100',
                '12-step wall route']:

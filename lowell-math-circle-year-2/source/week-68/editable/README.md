@@ -15,7 +15,7 @@ The student pages are stored as problem files (since October 23, 2026): one file
 
 ## Readiness and use
 
-Print single-sided US Letter at 100% / Actual Size. The grade band is approximate and not a readiness guarantee. Read `student/README.md` for the particular reading, arithmetic, spatial and representational prerequisites, and the adult guide for materials, preparation, a manageable first route, hints and stopping points. No K–1 route is implied. Page completion is not the goal.
+Print single-sided US Letter at 100% / Actual Size. The grade band is approximate and not a readiness guarantee. Read `student/README.md` for the particular reading, arithmetic, spatial and representational prerequisites, and the adult guide for materials, preparation, a manageable first route, hints and stopping points. There is no K–1 packet; the guide's K–1 table is an adult-led route on one shared copy of pages 1 and 4. Page completion is not the goal.
 
 The mathematical destination is distinct from the familiar props: Ends describe components continuing infinitely far after deleting a finite region, as larger finite deletions are considered.
 
