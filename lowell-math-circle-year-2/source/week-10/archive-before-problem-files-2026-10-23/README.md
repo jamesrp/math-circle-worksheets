@@ -1,0 +1,3 @@
+# Week 10 before problem files
+
+The student packets' builders (`build_k1.py`, `build_23.py`, `build_45.py` and `common.py`, which wrote and compiled `k-1.tex`, `grades-2-3.tex` and `grades-4-5.tex`, drawing with the modules still in `../src/`), those generated files, and the week's `build.sh` as they were until October 23, 2026, when the week was converted to [problem files](../week.toml). `../figures.py` carries over the builders' town and picture helpers and `common.Packet.problem`'s layout unchanged, and `../src/check.py` now reads the towns from the problem files (its output is unchanged). The conversion changed no wording: the rebuilt packets match these files' PDFs in pages, extracted text and 100-dpi pixels. Kept for reference; they are not built.

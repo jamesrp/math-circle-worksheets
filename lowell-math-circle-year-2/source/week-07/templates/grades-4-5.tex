@@ -1,0 +1,42 @@
+\documentclass[12pt]{extarticle}
+\newcommand{\level}{<<header>>}
+\newcommand{\packetid}{<<footer>>}
+\input{common}
+\renewcommand{\tracknum}{\sffamily\Large}
+\linespread{1.08}
+
+\newcommand{\gap}{\par\vspace{0.3in}}
+\newcommand{\rulelabel}[1]{\par\vspace{0.14in}#1\par\vspace{0.08in}}
+
+% One row per pile: "first" and "second" to circle, and a blank for the
+% number of counters taken on the first turn.
+\newcommand{\pilerecord}[1]{%
+  \begin{tikzpicture}[x=1in,y=1in]
+    \foreach \n [count=\i] in {#1}{%
+      \pgfmathsetmacro{\y}{-(\i-1)*0.58}
+      \node[anchor=base west,font=\Large] at (0.1,\y) {Pile of \n};
+      \node[anchor=base,font=\Large] at (2.9,\y) {first};
+      \node[anchor=base,font=\Large] at (4.2,\y) {second};
+      \node[anchor=base west,font=\Large] at (5.2,\y) {take};
+      \draw[line width=0.6pt] (5.85,\y-0.04) -- (6.9,\y-0.04);
+    }
+  \end{tikzpicture}}
+
+% Chart for two piles: rows are the first pile, columns the second pile.
+\newcommand{\pilechart}[1]{%
+  \begin{tikzpicture}[x=0.39in,y=0.39in]
+    \foreach \a in {0,...,#1}{%
+      \foreach \b in {0,...,#1}{\draw[line width=0.9pt] (\b,-\a) rectangle ++(1,-1);}
+      \node[font=\sffamily\large,inner sep=0pt,text height=1.6ex,text depth=0pt] at (-0.45,-\a-0.5) {\a};
+      \node[font=\sffamily\large,inner sep=0pt,text height=1.6ex,text depth=0pt] at (\a+0.5,0.4) {\a};
+    }
+    \pgfmathsetmacro{\mid}{(#1+1)/2}
+    \node[font=\large] at (\mid,1.1) {second pile};
+    \node[font=\large,rotate=90] at (-1.2,-\mid) {first pile};
+  \end{tikzpicture}}
+
+\begin{document}
+
+<<body>>
+
+\end{document}

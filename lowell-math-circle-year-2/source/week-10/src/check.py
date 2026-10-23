@@ -1,12 +1,10 @@
 """Check the mathematics behind every problem and print answers.
-Run after the three build scripts (it imports their town lists)."""
+Reads the towns and pictures the problem files draw (problem_figures.py)."""
 
 import itertools
 from collections import Counter
-import build_k1
-import build_23
-import build_45
 import koenigsberg
+from problem_figures import towns_and_pictures
 
 
 ok = True
@@ -104,15 +102,9 @@ def degree_set(towns):
     return sorted(out)
 
 
-for mod in (build_k1, build_23, build_45):
-    mod.T.clear()
-    mod.PICS.clear()
-build_k1.build()
-build_23.build()
-build_45.build()
+(K, K_PICS), (M, M_PICS), (U, U_PICS) = (towns_and_pictures(b) for b in ("K-1", "2-3", "4-5"))
 
 # =============================================================== K-1
-K = build_k1.T
 print("K-1")
 print(" P1 (all should be possible)")
 for t in K[1]:
@@ -132,7 +124,7 @@ for t, e in zip(K[4], exp4):
     show(t, "CHECK" if len(t.odd()) == 0 else "X")
     claim((len(t.odd()) == 0) == e, f"{t.name} P4 expectation")
 print(" P5 pictures (possible iff 0 or 2 odd points)")
-pictures(build_k1.PICS[5], [True, True, False, True, False, True])
+pictures(K_PICS[5], [True, True, False, True, False, True])
 print(" P6 (impossible; one new bridge between which islands works?)")
 for t in K[6]:
     show(t)
@@ -144,7 +136,6 @@ for t in K[8]:
     print("   bridges that work:", doubles(t), f"of {len(t.br)}")
 
 # =============================================================== 2-3
-M = build_23.T
 print("\nGrades 2-3")
 print(" degrees present in P1-P2:", degree_set(M[1] + M[2]))
 for key in (1, 2, 3):
@@ -164,7 +155,7 @@ print(" P5 (fewest new bridges for closed walk = odd/2, parallel bridges allowed
 for t in M[5]:
     show(t, f"-> {len(t.odd()) // 2} new bridges")
 print(" P7 pictures")
-pictures(build_23.PICS[7], [True, False, True, False, True, True])
+pictures(M_PICS[7], [True, False, True, False, True, True])
 print(" P8 specs (at most two bridges between two islands, so each can be built with craft sticks)")
 ex1 = exists(4, 6, lambda odd, c: len(odd) == 0)
 ex2 = exists(5, 5, lambda odd, c: len(odd) > 2)
@@ -182,7 +173,6 @@ for t in M[10]:
     show(t, f"postman(closed, open) = {t.postman()}")
 
 # =============================================================== 4-5
-U = build_45.T
 print("\nGrades 4-5")
 print(" degrees present in P1-P3:", degree_set(U[1] + U[2] + U[3]))
 for key in (1, 2, 3):
@@ -196,7 +186,7 @@ print("  degrees", dict(d), "odd", kt.odd(), "postman(closed, open) =", kt.postm
 claim(sorted(d.values()) == [3, 3, 3, 5], "Koenigsberg degrees")
 print("  one new bridge works between:", additions(kt))
 print(" P7 pictures (fewest strokes = max(1, odd/2))")
-pictures(build_45.PICS[7])
+pictures(U_PICS[7])
 print(" P8 Lee")
 t = U[8][0]
 show(t)

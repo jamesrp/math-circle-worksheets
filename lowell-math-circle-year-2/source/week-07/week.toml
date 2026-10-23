@@ -1,0 +1,35 @@
+# Week 7 (Take-away games) as problem files, the source of the print packets since
+# October 23, 2026. Problems are the files in problems/, in packet order; each band's
+# problems are its own files. Each band keeps its own document head in templates/,
+# which reads the shared src/common.tex. The adult guide is not built from these
+# files: its source is guide-src/.
+week = 7
+topic = "Take-away games"
+packet = "F07"              # footer ids F07-K-v4, F07-M-v4, F07-U-v4
+version = "v4"
+layout = "flow"
+inputs = ["src"]            # common.tex
+# The problem environment numbers itself with a counter and holds the problem's
+# pictures, so the prompt opens it and the problem's last text section closes it.
+# Setting the counter first keeps the packet's numbers in route packets.
+prompt = '''\setcounter{prob}{<<n>>}\addtocounter{prob}{-1}\begin{problem}
+<<body>>'''
+status = "Unpiloted."
+
+[bands."K-1"]
+header = "K--1"
+tag = "K"
+template = "templates/k-1.tex"
+
+[bands."2-3"]
+header = "Grades 2--3"
+tag = "M"
+template = "templates/grades-2-3.tex"
+
+[bands."4-5"]
+header = "Grades 4--5"
+tag = "U"
+template = "templates/grades-4-5.tex"
+
+[guide]
+note = "The answers, hints and routes are in the adult guide, week-07-facilitator.pdf, whose source is guide-src/facilitator.tex. First route = the guide's core problems."

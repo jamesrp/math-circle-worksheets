@@ -31,6 +31,7 @@ import atoms
 from atoms import ProblemFileError
 
 BAND_NAMES = {'K-1': 'K--1', '2-3': 'Grades 2--3', '4-5': 'Grades 4--5'}
+ENGINES = ('pdflatex', 'xelatex')   # week.toml `engine` compiles the student packets; the menu and key use pdflatex
 FILE_NAMES = {'K-1': 'k-1', '2-3': 'grades-2-3', '4-5': 'grades-4-5'}
 
 
@@ -55,12 +56,15 @@ def latex_errors(log: str) -> str:
     return '\n'.join(out[:6]) or log[-1500:]
 
 
-def pdflatex(tex: str, out: Path, extra=(), inputs=(), week=None):
+def pdflatex(tex: str, out: Path, extra=(), inputs=(), week=None, engine='pdflatex'):
     """Compile twice in a scratch folder. The `inputs` folders (the week folder and
     week.toml's inputs) are searched for files the LaTeX inputs, such as a shared
-    preamble or figure files."""
+    preamble or figure files. `engine` is pdflatex unless week.toml sets
+    engine = "xelatex" for a week whose template loads fontspec."""
     env = os.environ.copy()
     env.setdefault('SOURCE_DATE_EPOCH', '1767225600')   # 2026-01-01: the same files give the same PDF
+    if engine == 'xelatex':
+        env.setdefault('FORCE_SOURCE_DATE', '1')        # XeTeX also stamps the time in its output unless forced
     if inputs:
         env['TEXINPUTS'] = os.pathsep.join(map(str, inputs)) + os.pathsep + env.get('TEXINPUTS', '')
     with tempfile.TemporaryDirectory() as tmp:
@@ -69,7 +73,7 @@ def pdflatex(tex: str, out: Path, extra=(), inputs=(), week=None):
         for f in extra:
             shutil.copy(f, tmp / Path(f).name)
         for _ in range(2):
-            r = subprocess.run(['pdflatex', '-interaction=nonstopmode', '-halt-on-error', 'doc.tex'],
+            r = subprocess.run([engine, '-interaction=nonstopmode', '-halt-on-error', 'doc.tex'],
                                cwd=tmp, capture_output=True, text=True, env=env)
             if r.returncode:
                 out.with_suffix('.log').write_text(r.stdout)
@@ -78,7 +82,7 @@ def pdflatex(tex: str, out: Path, extra=(), inputs=(), week=None):
                 m = re.search(r'^l\.(\d+)', r.stdout, re.M)
                 if m and week is not None:
                     hint = source_of_line(week, tex, int(m.group(1)))
-                raise ProblemFileError(f'pdflatex failed for {out.name}:\n{latex_errors(r.stdout)}\n{hint}'
+                raise ProblemFileError(f'{engine} failed for {out.name}:\n{latex_errors(r.stdout)}\n{hint}'
                                        f'Full log: {out.with_suffix(".log")}; LaTeX: {out.with_suffix(".failed.tex")}')
         shutil.copy(tmp / 'doc.pdf', out)
     return out
@@ -243,16 +247,20 @@ def build(args):
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     compile_ = lambda tex, path, extra=(): pdflatex(tex, path, extra, week.inputs, week)
+    engine = week.meta.get('engine', 'pdflatex')
+    if engine not in ENGINES:
+        raise ProblemFileError(f'week.toml: engine = {engine!r}; use one of {", ".join(map(repr, ENGINES))}')
+    student = lambda tex, path: pdflatex(tex, path, (), week.inputs, week, engine)
     built = {}
     for band in week.bands:
         name = file_name(week, band)
         tex = atoms.student_tex(week, band)
         if args.tex:
             (out / f'{name}.tex').write_text(tex)
-        built[band] = compile_(tex, out / f'{name}.pdf')
+        built[band] = student(tex, out / f'{name}.pdf')
         for route in ('first', 'return'):
             if atoms.compose(week, band, route):
-                compile_(atoms.student_tex(week, band, route, f'-{route}'), out / f'{name}-{route}.pdf')
+                student(atoms.student_tex(week, band, route, f'-{route}'), out / f'{name}-{route}.pdf')
     compile_(guide_tex(week), out / 'guide-keys.pdf')
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)

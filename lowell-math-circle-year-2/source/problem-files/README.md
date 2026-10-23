@@ -1,6 +1,6 @@
 # Problem files
 
-Organizer decision, October 22, 2026: store a week as problem files when it is next revised, and store approved new weeks the same way. Finished weeks that nobody is changing stay as they are. The pilot and its results are in [experiments/atomic-problems-pilot/](../../../experiments/atomic-problems-pilot/README.md). Worked examples: its Week 50 folder (canvas layout), its Week 3 folder (flow layout), and two weeks converted for revision, both canvas with their own page template and an editable package: [source/week-43/](../week-43/README.md) and [source/week-39/](../week-39/README.md), whose pages draw their own header, footer and page number.
+Organizer decision, October 22, 2026: store a week as problem files when it is next revised, and store approved new weeks the same way. Finished weeks that nobody is changing stay as they are. The pilot and its results are in [experiments/atomic-problems-pilot/](../../../experiments/atomic-problems-pilot/README.md). Worked examples: its Week 50 folder (canvas layout); two weeks converted for revision, both canvas with their own page template and an editable package: [source/week-43/](../week-43/README.md) and [source/week-39/](../week-39/README.md), whose pages draw their own header, footer and page number; and the fall weeks converted on October 23 in the flow layout: [source/week-03/](../week-03/README.md) (first made as the pilot's flow example), [source/week-07/](../week-07/README.md) (a template per band, and a problem environment the prompt opens), [source/week-08/](../week-08/README.md) (figures drawn in `figures.py`, compiled with XeLaTeX) and [source/week-10/](../week-10/README.md) (figures drawn in `figures.py`, each problem a minipage the prompt opens).
 
 One file per problem holds everything about that problem for every band. A week's packets are views built from the files: the K–1, 2–3 and 4–5 packets, first-route and return packets, a one-page problem menu, an adult key with one entry per problem, and a session pack.
 
@@ -94,7 +94,8 @@ layout = "flow"
 template = "template.tex"        # the whole document, with <<body>> where the problems go
 prompt = '\textbf{Problem <<n>>:} <<body>>'   # how a numbered prompt is written (this is the default)
 page_break = '\newpage'          # what page = "new" inserts (this is the default)
-inputs = ["../week-03/src"]      # optional: other folders searched for \input files and graphics
+inputs = ["src"]                 # optional: other folders searched for \input files and graphics
+# engine = "xelatex"            # optional: compile the band packets with XeLaTeX (a template that loads fontspec)
 
 [bands."K-1"]
 header = "K–1"
@@ -152,7 +153,9 @@ Put each block under its picture and run each machine. For each block, find the 
 \fig[18pt]{m-p1b}
 ```
 
-**Carrying a flowing week over.** Make `template.tex` from the head and tail of a band file. Cut each band file's body at its problems: the material before the first problem is a setup file, each problem's statement is its `prompt`, and everything after it up to the next problem is its `text`, copied verbatim. Remove the `\newpage` that preceded a problem and give that file `page = "new"`; a `\newpage` inside a problem's material stays in its text. Since every section starts a new paragraph, keep material that has no blank line before it in the same section as what precedes it. If the week's problem macro numbers itself with a counter, set the counter in the prompt pattern, so route packets keep the packet's numbers: `prompt = '\setcounter{prob}{<<n>>}\addtocounter{prob}{-1}\problem{<<body>>}'`. Merge files across bands where the bands do the same problem, with band-tagged sections for the differences; the file order must suit every band. Then compare (below). The [Week 3 example](../../../experiments/atomic-problems-pilot/week-03/) rebuilds all three band packets with no differing pixel; `build.py --tex` writes the LaTeX for a line-by-line diff against the old files.
+**Carrying a flowing week over.** Make `template.tex` from the head and tail of a band file. Cut each band file's body at its problems: the material before the first problem is a setup file, each problem's statement is its `prompt`, and everything after it up to the next problem is its `text`, copied verbatim. Remove the `\newpage` that preceded a problem and give that file `page = "new"`; a `\newpage` inside a problem's material stays in its text. Since every section starts a new paragraph, keep material that has no blank line before it in the same section as what precedes it. If the week's problem macro numbers itself with a counter, set the counter in the prompt pattern, so route packets keep the packet's numbers: `prompt = '\setcounter{prob}{<<n>>}\addtocounter{prob}{-1}\problem{<<body>>}'`. Merge files across bands where the bands do the same problem, with band-tagged sections for the differences; the file order must suit every band. Then compare (below). The [Week 3 example](../week-03/) rebuilds all three band packets with no differing pixel; `build.py --tex` writes the LaTeX for a line-by-line diff against the old files.
+
+A week whose old builder wrote its LaTeX from Python keeps that drawing code: `figures.py` imports it, and each `## figure` section calls it, so the figure code stays editable (Weeks 8 and 10). Two sections of one kind next to each other are alternatives, so join neighbouring figures into one expression. A prompt pattern may open an environment or minipage that holds the problem's pictures, closed by the problem's last section (Week 7's `problem` environment, Week 10's minipage), and a band whose document head differs may name its own `template` (Week 7). A guide script that read the old band LaTeX can read `build.py --tex`'s instead (the four fall weeks' `build.sh`).
 
 ## Views
 
@@ -212,11 +215,11 @@ The tools stop at the first problem with the file, the line and what to change, 
 
 ```
 error: source/week-43/problems/07-k1-two-starts.md, line 13 "## figure": the figure expression failed: NameError: name 'k1_two_start' is not defined
-error: experiments/atomic-problems-pilot/week-03/template.tex, line 5: <<extras>> is not defined. Defined here: <<band>>, <<body>>, <<extra>>, ... Set other values in the band's table in week.toml
+error: lowell-math-circle-year-2/source/week-03/template.tex, line 5: <<extras>> is not defined. Defined here: <<band>>, <<body>>, <<extra>>, ... Set other values in the band's table in week.toml
 error: pdflatex failed for k-1.pdf:
 ! Undefined control sequence.
 l.16 \fgi
-That line comes from experiments/atomic-problems-pilot/week-03/problems/01-run-machines.md, line 14 "## text [K-1]".
+That line comes from lowell-math-circle-year-2/source/week-03/problems/01-run-machines.md, line 14 "## text [K-1]".
 ```
 
 Unknown front-matter keys, section kinds, routes and page values; band tags outside `grades`; a band with no prompt; duplicate ids; positions in a flowing week; and a template without `<<body>>` are all reported this way. A failed LaTeX run leaves `<view>.log` and `<view>.failed.tex` in the output folder.
@@ -232,4 +235,4 @@ Unknown front-matter keys, section kinds, routes and page values; band tags outs
 | `compare.py` | Checks rebuilt band packets against the current print PDFs: pages, extracted text, 100-dpi pixels. It compares k-1, grades-2-3 and grades-4-5 and any other band packet a week builds (such as grades-3-5), and skips a band neither side has |
 | `package.py` | Writes the portable source ZIP of a week that has an `editable/` package, or, with `--flat`, of a week whose folder is itself the package |
 
-Requirements: Python 3.11+ (for `tomllib`), `pypdf`, Pillow, Poppler `pdftotext`/`pdftoppm`, and pdfLaTeX with TikZ, `fancyhdr`, `amsmath`, `booktabs`, `graphicx` and `helvet`, plus whatever a week's own template loads.
+Requirements: Python 3.11+ (for `tomllib`), `pypdf`, Pillow, Poppler `pdftotext`/`pdftoppm`, and pdfLaTeX with TikZ, `fancyhdr`, `amsmath`, `booktabs`, `graphicx` and `helvet`, plus whatever a week's own template loads (and XeLaTeX for a week that sets `engine = "xelatex"`).
