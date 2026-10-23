@@ -1,11 +1,11 @@
 \documentclass[11pt,letterpaper]{article}
 \usepackage[margin=0.62in,top=0.69in,bottom=0.66in,headheight=15pt,headsep=13pt,footskip=24pt]{geometry}
 \usepackage{tikz,amsmath,amssymb,fancyhdr,array}
-\usetikzlibrary{arrows.meta}
+\usetikzlibrary{arrows.meta,bending}
 \usepackage[T1]{fontenc}\usepackage{lmodern}
 \renewcommand{\familydefault}{\sfdefault}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Week 72 / A robot that remembers / Grades 4--5}
-\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 72 / GGT72-S-v1}\fancyfoot[R]{\scriptsize\thepage}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 72 / GGT72-S-v2}\fancyfoot[R]{\scriptsize\thepage}
 \renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0pt}
 \setlength{\parindent}{0pt}\setlength{\parskip}{8pt}
 \newcommand{\problem}[2]{\textbf{Problem #1:} #2\par}
@@ -17,11 +17,13 @@
  \fill (0,0) circle (2.4pt); \node[above right,font=\small] at (0,0){O};
  \node[below,font=\small] at ({(#1+#2)/2},{#3-.48}) {column number};
  \end{tikzpicture}}
+\newcommand{\turnarrow}[2]{\tikz[baseline=-.6ex]\draw[-{Stealth[length=3.2pt,bend]},line width=.8pt](#1:.21)arc(#1:#2:.21);}% counterclockwise 0 to 300, clockwise 180 to -120
+\newcommand{\memories}{\turnarrow{0}{300}\,\rule{.65in}{.3pt}\quad\turnarrow{180}{-120}\,\rule{.65in}{.3pt}}
 \newcommand{\lines}[1]{\foreach \n in {1,...,#1}{\noindent\rule{\linewidth}{0.2pt}\par\vspace{.24in}}}
 \newcommand{\examplepanel}[3]{\begin{tikzpicture}[scale=.48]
  \draw[gray!30,step=1] (0,0) grid (3,1);
  \foreach \x in {0,1,2,3}{\node[below,font=\scriptsize] at (\x,0){\x};}
- \draw[-{Stealth[length=3pt]},line width=.8pt] #1;
+ \if\relax\detokenize{#1}\relax\else\draw[-{Stealth[length=3pt]},line width=.8pt] #1;\fi % an empty path draws no arrow
  \fill #2 circle (3pt);
  \node[font=\small,anchor=north] at (1.5,-.8){#3};
  \end{tikzpicture}}
@@ -31,11 +33,11 @@ Move one grid edge per card: E $\rightarrow$, W $\leftarrow$, N $\uparrow$, S $\
 For N, add the column number to the memory. For S, subtract it.
 E and W leave the memory unchanged.
 
-One partner moves the robot; the other changes its memory marker and checks each move. Use the loose memory strip from page 5 for every problem. Keep the cards in order, or write a longer route as letters, so you can replay it. Swap jobs for the next route. Each trial starts at the marked dot with memory 0.
+One partner moves the robot; the other changes its memory marker and checks each move. Use the loose memory strip from page 5 for every problem. Keep the cards in order, or write a longer route as letters. Each trial starts at the marked dot with memory 0.
 
 \begin{center}
 \begin{tabular}{c@{\quad}c@{\quad}c@{\quad}c}
-\examplepanel{(0,0)--(0,0)}{(0,0)}{start: memory 0}&
+\examplepanel{}{(0,0)}{start: memory 0}&
 \examplepanel{(0,0)--(2,0)}{(2,0)}{EE: memory 0}&
 \examplepanel{(0,0)--(2,0)--(2,1)}{(2,1)}{EEN: memory 2}&
 \examplepanel{(0,0)--(2,0)--(2,1)--(3,1)}{(3,1)}{EENE: memory 2}
@@ -68,16 +70,16 @@ route\hfill final memory\par\vspace{.10in}
 \vspace{.1in}
 
 \vspace{.1in}
-route\hfill final memory\par\lines{3}
+route\hfill final memory\par\lines{6}
 \vfill
 
 \newpage
 
-\problem{3}{Start at each dot with memory 0. Walk once around its outline in each direction. Write each memory beside an arrow showing your direction. How does moving the same rectangle to a new place affect its final memory? What connects a loop's shape, direction and final memory?}
+\problem{3}{Start at each dot with memory 0. Walk once around its outline in each direction. How does moving the same rectangle to a new place affect its final memory? What connects a loop's shape, direction and final memory?}
 
 \vspace{.1in}
 \begin{center}
-\begin{tabular}{c@{\hspace{.40in}}c}
+\begin{tabular}{c@{\hspace{.30in}}c@{\hspace{.30in}}c}
 \begin{tikzpicture}[scale=1.50]
 \draw[gray!30,step=1] (0,0) grid (3,3);\foreach\x in{0,...,3}{\node[below]at(\x,0){\x};}
 \draw[very thick](0,0)--(2,0)--(2,1)--(0,1)--cycle;\fill(0,0)circle(3pt);
@@ -85,17 +87,23 @@ route\hfill final memory\par\lines{3}
 \begin{tikzpicture}[scale=1.50]
 \draw[gray!30,step=1] (2,0) grid (5,3);\foreach\x in{2,...,5}{\node[below]at(\x,0){\x};}
 \draw[very thick](2,0)--(4,0)--(4,1)--(2,1)--cycle;\fill(2,0)circle(3pt);
-\end{tikzpicture}\\[5pt]
-memories: \rule{.65in}{.3pt}, \rule{.65in}{.3pt}&memories: \rule{.65in}{.3pt}, \rule{.65in}{.3pt}\\[24pt]
+\end{tikzpicture}&
 \begin{tikzpicture}[scale=1.50]
 \draw[gray!30,step=1] (-3,0) grid (0,3);\foreach\x in{-3,...,0}{\node[below]at(\x,0){\x};}
 \draw[very thick](-3,0)--(-1,0)--(-1,1)--(-3,1)--cycle;\fill(-3,0)circle(3pt);
-\end{tikzpicture}&
+\end{tikzpicture}\\[5pt]
+\memories&\memories&\memories
+\end{tabular}\par\vspace{.24in}
+\begin{tabular}{c@{\hspace{.30in}}c}
 \begin{tikzpicture}[scale=1.50]
 \draw[gray!30,step=1] (0,0) grid (3,3);\foreach\x in{0,...,3}{\node[below]at(\x,0){\x};}
 \draw[very thick](0,0)--(2,0)--(2,1)--(1,1)--(1,2)--(0,2)--cycle;\fill(0,0)circle(3pt);
+\end{tikzpicture}&
+\begin{tikzpicture}[scale=1.50]
+\draw[gray!30,step=1] (0,0) grid (3,3);\foreach\x in{0,...,3}{\node[below]at(\x,0){\x};}
+\draw[very thick](0,0)--(2,0)--(2,2)--(0,2)--cycle;\fill(0,0)circle(3pt);
 \end{tikzpicture}\\[5pt]
-memories: \rule{.65in}{.3pt}, \rule{.65in}{.3pt}&memories: \rule{.65in}{.3pt}, \rule{.65in}{.3pt}
+\memories&\memories
 \end{tabular}\end{center}
 \vspace{.12in}\lines{3}
 
@@ -118,7 +126,7 @@ route to memory $-3$: \hrulefill\par\vspace{.17in}
 
 \newpage
 
-Extra workspace for every problem. Cut out the memory strip and keep it beside your working page. If you need more numbers, tape on an extension, overlapping one tick, and continue numbering. Make more extensions with the same tick spacing when needed.
+Cut out the memory strip and keep it beside your working page. If you need more numbers, tape on an extension, overlapping one tick, and continue numbering. Make more extensions with the same tick spacing when needed.
 \vspace{.10in}
 \begin{center}
 \begin{tikzpicture}[x=.72cm,y=1cm]

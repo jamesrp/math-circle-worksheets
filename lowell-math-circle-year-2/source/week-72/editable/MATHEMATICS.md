@@ -6,7 +6,7 @@ Use the state law `(x,y,z)(a,b,c)=(x+a,y+b,z+c+x*b)`. It is ordinary multiplicat
 
 For any axis-aligned path, the counter increment is the signed sum `sum x*delta_y`, or the line integral of `x dy`. For a closed simple lattice loop, vertical boundary pieces contribute one signed unit per enclosed unit square; interior contributions cancel. The result is signed area, positive counterclockwise and negative clockwise. More generally self-crossing or retraced loops record algebraic area with multiplicity; they do not record the unsigned area of a union of regions. Translating a closed loop by `a` horizontally adds `a*sum delta_y=0`, so its memory is unchanged.
 
-`ENWS` leaves `(0,0,1)` while its reverse traversal `NESW` leaves `(0,0,-1)`. This extra coordinate makes motion noncommutative. The six two-E/two-N words have counters `4,3,2,2,1,0` in the order in `topics.json`.
+`ENWS` leaves `(0,0,1)` while its reverse traversal `NESW` leaves `(0,0,-1)`. This extra coordinate makes motion noncommutative. The six two-E/two-N words have counters `4,3,2,2,1,0` in the order EENN, ENEN, ENNE, NEEN, NENE, NNEE.
 
 For an **open** path from the origin to `(x,y)`, `z` is not in general its signed area relative to the straight closing chord. That area is `z−xy/2`. The Duchin–Mooney source uses this exponential/symmetric height, whereas the worksheet uses the upper-right matrix entry. For example `EENN` has worksheet memory 4 and symmetric height 2. The distinction disappears on loops. Never import the source's height formula unchanged into this worksheet.
 

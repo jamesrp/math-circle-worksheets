@@ -15,5 +15,5 @@ Use E, N, W and S once each. Which memories can you leave when you return to O? 
 \vspace{.1in}
 
 \vspace{.1in}
-route\hfill final memory\par\lines{3}
+route\hfill final memory\par\lines{6}
 \vfill

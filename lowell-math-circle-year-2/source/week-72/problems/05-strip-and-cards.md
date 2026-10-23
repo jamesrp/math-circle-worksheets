@@ -8,7 +8,7 @@ page = "new"
 +++
 
 ## text
-Extra workspace for every problem. Cut out the memory strip and keep it beside your working page. If you need more numbers, tape on an extension, overlapping one tick, and continue numbering. Make more extensions with the same tick spacing when needed.
+Cut out the memory strip and keep it beside your working page. If you need more numbers, tape on an extension, overlapping one tick, and continue numbering. Make more extensions with the same tick spacing when needed.
 \vspace{.10in}
 \begin{center}
 \begin{tikzpicture}[x=.72cm,y=1cm]

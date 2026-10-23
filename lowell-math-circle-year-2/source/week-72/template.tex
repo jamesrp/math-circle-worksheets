@@ -1,7 +1,7 @@
 \documentclass[11pt,letterpaper]{article}
 \usepackage[margin=0.62in,top=0.69in,bottom=0.66in,headheight=15pt,headsep=13pt,footskip=24pt]{geometry}
 \usepackage{tikz,amsmath,amssymb,fancyhdr,array}
-\usetikzlibrary{arrows.meta}
+\usetikzlibrary{arrows.meta,bending}
 \usepackage[T1]{fontenc}\usepackage{lmodern}
 \renewcommand{\familydefault}{\sfdefault}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Week <<week>> / <<topic>> / <<header>>}
@@ -17,11 +17,13 @@
  \fill (0,0) circle (2.4pt); \node[above right,font=\small] at (0,0){O};
  \node[below,font=\small] at ({(#1+#2)/2},{#3-.48}) {column number};
  \end{tikzpicture}}
+\newcommand{\turnarrow}[2]{\tikz[baseline=-.6ex]\draw[-{Stealth[length=3.2pt,bend]},line width=.8pt](#1:.21)arc(#1:#2:.21);}% counterclockwise 0 to 300, clockwise 180 to -120
+\newcommand{\memories}{\turnarrow{0}{300}\,\rule{.65in}{.3pt}\quad\turnarrow{180}{-120}\,\rule{.65in}{.3pt}}
 \newcommand{\lines}[1]{\foreach \n in {1,...,#1}{\noindent\rule{\linewidth}{0.2pt}\par\vspace{.24in}}}
 \newcommand{\examplepanel}[3]{\begin{tikzpicture}[scale=.48]
  \draw[gray!30,step=1] (0,0) grid (3,1);
  \foreach \x in {0,1,2,3}{\node[below,font=\scriptsize] at (\x,0){\x};}
- \draw[-{Stealth[length=3pt]},line width=.8pt] #1;
+ \if\relax\detokenize{#1}\relax\else\draw[-{Stealth[length=3pt]},line width=.8pt] #1;\fi % an empty path draws no arrow
  \fill #2 circle (3pt);
  \node[font=\small,anchor=north] at (1.5,-.8){#3};
  \end{tikzpicture}}

@@ -43,6 +43,8 @@ A robot walks the integer grid; a north step adds its column to a memory and a s
 9. **could**, a fifth problem for the quickest: return to O with memory 6 in the fewest moves (10; eight moves remember at most 4).
 10. **could**, source MATHEMATICS.md cites "the order in `topics.json`", which the package lacks (math check).
 
+**Fixed October 23, 2026, after the problem-file conversion:** shoulds 1–4 and coulds 5–8 and 10 (GGT72-S-v2; guide GGT72-FAC-v2, still 3 pages); could 9, a new fifth problem, left as the organizer's call. Check: `checks/week-72/check_card_fixes.py`.
+
 ## Overlaps
 
 Week 57 (Pick's theorem) shares lattice loops; fix 1 is where they touch. Week 26's minimum perimeter, 2⌈2√n⌉, is the fewest moves for a loop that remembers n. Week 66 (lamplighter) is the sibling walker whose state is position plus memory, with a different group and questions. None should absorb another.
