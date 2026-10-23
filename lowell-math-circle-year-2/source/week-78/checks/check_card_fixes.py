@@ -89,5 +89,5 @@ ok(not on_line((4, 4), (2, 2)) and on_line((4, 2), (2, 2)), 'Q = (4,4) is off th
 
 # Versions.
 toml = (ROOT / 'week.toml').read_text()
-ok('version = "v3"' in toml and 'F78-FAC-v3' in guide, 'student packet F78-S-v3 and guide F78-FAC-v3')
+ok('version = "v3"' in toml and 'F78-FAC-v4' in guide, 'student packet F78-S-v3 and guide F78-FAC-v4 (v3 until the October 23 critic follow-up)')
 print('\n'.join(out))

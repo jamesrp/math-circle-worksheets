@@ -5,6 +5,10 @@
 The review card's shoulds and coulds 5, 6 and 9 were made after the organizer's October 17 approval: see README.md. `checks/check_card_fixes.py` recomputes every changed claim with exact fractions over a quarter grid. The claims are: the falling-diagonal pair meets only at (6,6); Problem 4's junction is still (2,2); one dot allows many junctions; Problem 5's same-row pair allows exactly the row to the left of P; Q is off the line; and a 12 cm arm crosses every printed board. All checks in build-manifest.json pass. The packet was rebuilt from the extracted ZIP. Changed pages were rendered at 80 dpi and inspected: students pp. 1, 3 and 4, and guide pp. 1–3; the other pages changed only in the footer id. The traced shape and the younger entry are unrehearsed; the week is unpiloted.
 
 
+## October 23, 2026 critic follow-up (F78-FAC-v4)
+
+The guide's younger entry names its copies (student page 4 and a traced shape per pair). `checks/check_card_fixes.py` expects F78-FAC-v4. A clean build from the extracted ZIP matches the print copies. The hashes below are the October 15 release's.
+
 ## October 15, 2026 introduction revision
 
 This is a user-directed revision of an existing reviewed packet, not a new worksheet-generation run. Student p1 retains the minimum-tie definition and adds U=(1,4), V=(4,2), whose unique crossing is (4,4). Blue solid and orange dashed lines remain distinguishable in monochrome. Student p2 explicitly asks for one single-point meeting and one whole-stretch overlap. Problems 1–7 remain on pp2–5. Guide launch, student-page references and 15-sheet allocation are synchronized. Independent review caught an orphan phrase creating a fifth guide page; shortening only the launch restored the four-page guide and its proof references.

@@ -1,6 +1,10 @@
 # Week 78: Three-armed lines
 
-One shared Grades 4–5 prototype: 5 student pages and a separate 4-page theorem-first adult guide. Independently reviewed and digitally checked; organizer-approved and promoted October 17, 2026 (v2), and revised from its review card on October 23 (v3), after that approval. The week number is a library identifier, not an adopted schedule. Physical preparation/handling and classroom piloting remain unperformed.
+One shared Grades 4–5 prototype: 5 student pages and a separate 4-page theorem-first adult guide (F78-FAC-v4). Independently reviewed and digitally checked; organizer-approved and promoted October 17, 2026 (v2), and revised from its review card on October 23 (v3), after that approval. The week number is a library identifier, not an adopted schedule. Physical preparation/handling and classroom piloting remain unperformed.
+
+## Critic follow-up, October 23, 2026 (F78-FAC-v4)
+
+An independent critic found that the catalog note did not say v3 post-dates the October 17 approval, and that the guide's table totals gave the younger entry no copies. The younger entry now asks for one copy of student page 4 and one traced shape per pair, added to the totals; the catalog note says v3 has not been re-approved; and the page index's `guide_routes` gives the band-view menu and K–1 and Grades 2–3 slices page 4. Nothing else changed; the student packet did not. The previous guide is in `../../week-78/archive-before-critic-fixes-2026-10-23/` and the previous ZIP in [archive-before-critic-fixes-2026-10-23/](archive-before-critic-fixes-2026-10-23/README.md). Unpiloted.
 
 ## Review-card fixes, October 23, 2026
 
