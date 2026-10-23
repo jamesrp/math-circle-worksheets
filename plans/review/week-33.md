@@ -45,6 +45,8 @@ A ring of n beads gives a readout from each start; turning identifies them. The 
 
 **Fixed October 23, 2026, after the problem-file conversion:** shoulds 1–5 and coulds 6–10 (v3 packets; Grades 2–3 and 4–5 now 6 pages, with Grades 4–5 Problems 6–7 renumbered from 5–6), with the guide to match; could 10 in the bonus guide only. Check: `checks/week-33/check_card_fixes.py`.
 
+**Critic follow-up, October 23, 2026 (v4):** an independent critic found the fixed Problem 1 still printed four boards for exactly four rings; it now prints six in every band. The guide's Grades 4–5 Problem 5 key uses AAAAABBBB, which a six-A, six-B kit can build, in place of AAAAAAAAB. Check: `checks/week-33/check_critic_fixes.py`.
+
 ## Overlaps
 
 Week 4's star hops show every hop reaches every dot on a prime ring, the lemma behind 4–5 P5; the guide names Week 4 as the earlier visit. Week 34 uses the same rings with flips, as this week's bonus P1 does; bonus P2–P3 colour neighbours apart, like Week 62. No other theme counts rotation families or reaches Fermat. No merge.

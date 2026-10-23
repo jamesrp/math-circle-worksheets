@@ -1,6 +1,10 @@
 # Week 33 Prime-length necklaces editable source
 
-## Current release: October 23, 2026 card fixes (v3)
+## Current release: October 23, 2026 critic follow-up (v4)
+
+An independent critic's follow-up to the card fixes: Problem 1 in every band prints six three-bead boards (radius 1.75 cm, three recording lines beside each) instead of four, so the number of boards no longer matches the four rings; the guide's Grades 4–5 Problem 5 key gives AAAAABBBB for nine readouts on nine beads, which a six-A, six-B kit can build. The guide's Problem 1 key is unchanged. Footers F33-K-v4, F33-23-v4, F33-45-v4; the v3 files are archived in the project.
+
+## Earlier release: October 23, 2026 card fixes (v3)
 
 The review card's five shoulds and the clear coulds (`plans/review/week-33.md` in the project): four smaller three-bead boards for Problem 1 in every band, with recording lines beside each; a Grades 4–5 Problem 5 on six, seven and nine beads before the prime rule (now Problems 6–7); K–1's six-bead problem added as Grades 2–3 Problem 7; Grades 4–5 Problems 2 and 4 reworded; two lines under the older Problem 3 boards; the example's moved start labels placed under their own beads; and guide materials, launch, timing, hints and keys. Footers F33-K-v3, F33-23-v3, F33-45-v3.
 

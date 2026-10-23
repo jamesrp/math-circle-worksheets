@@ -1,5 +1,6 @@
 """Week 33 figures and canvas page template, carried over unchanged from the old builder
-(archive-before-problem-files-2026-10-23/draw.py and make_packets.py).
+(archive-before-problem-files-2026-10-23/draw.py and make_packets.py). Added later:
+six_boards() (October 23, 2026), Problem 1's six boards in place of four_boards().
 
 Coordinates are centimetres, y down from the top-left of the content area: each page is
 a TikZ overlay on the whole sheet that draws its own header, footer and page number, then
@@ -148,6 +149,14 @@ def four_boards(n):  # four smaller n-bead boards, 2 by 2, each with three recor
     for y in (13.4, 20.3):
         s += ring(3.3, y, n, None, 2.3, 0, .42) + short_lines(6.3, y-.9, 9.6)
         s += ring(12.9, y, n, None, 2.3, 0, .42) + short_lines(15.9, y-.9, 18.5)
+    return s
+
+
+def six_boards(n, r=1.75):  # six n-bead boards, 3 rows by 2 columns, each with three recording lines beside it
+    s = ''
+    for y in (12.35, 17.45, 22.55):
+        s += ring(2.7, y, n, None, r, 0, .42) + short_lines(5.3, y-1.15, 9.0, 3, 1.15)
+        s += ring(12.0, y, n, None, r, 0, .42) + short_lines(14.6, y-1.15, 18.5, 3, 1.15)
     return s
 
 
