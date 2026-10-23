@@ -46,6 +46,8 @@ Cards sit in nested loops whose labels grow outward, and two cards' distance is 
 10. **could**, P8: restore the plan's "Find a pair far apart on the number line but close here"; the 0-and-4 surprise is only in the guide.
 11. **could**, guide, P7: suggest hunting for partly overlapping balls in the P4 world before arguing in general.
 
+Fixed October 23, 2026: shoulds 1–3 and coulds 4, 5, 9, 11, in the problem files and guide (W100-G35-v2, W100-FAC-v2); coulds 6, 7, 8, 10 deferred.
+
 ## Overlaps
 
 Weeks 67 and 69 use road length on trees, an ordinary metric that breaks this rule (1, 1, 2). Week 6's yes/no tree on 0–7 is P8's parity loops. Week 19 nests sets, with no distance. No merge.

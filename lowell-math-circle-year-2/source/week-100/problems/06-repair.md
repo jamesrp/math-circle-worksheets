@@ -17,4 +17,4 @@ Start with the clues from Problem 4. Change only A--C from 4 to 2. Can any world
 ## text
 \draw[dashed,black!60,line width=.55pt] (204,1) rectangle (250,22);
 \node[font=\fontsize{17}{19}\selectfont] at (227,11.5) {A--C = 2};
-\txt{0}{29}{250}{Change exactly one of the ten clues to a different value chosen from 2, 4, 8, so that a world is possible. Find every repair. For each repair, draw a world fitting all ten clues. Explain why your list is complete.}
+\txt{0}{29}{250}{Change exactly one of these ten clues, with A--C = 2, to a different value chosen from 2, 4, 8, so that a world is possible. Find every repair. For each repair, draw a world fitting all ten clues. Explain why your list is complete.}
