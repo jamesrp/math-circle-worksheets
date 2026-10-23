@@ -7,7 +7,7 @@ Scope: `lowell-math-circle-year-2/week-62/week-62-students.pdf` (W62-S-v1, 9 pp.
 ## How it was checked
 
 - `extract.py` reads the delivered student PDF itself, not the source. It takes the vector circles, line segments and letters, and rebuilds all 18 task networks and the four worked figures (output `extracted.json` and `out_extract.txt`). The 18 networks match the guide's count.
-- `compare_source.py` confirms that `source/week-62/student/graphs.json` gives the same vertices, edges and relative positions as the PDF, within 0.01 pt, for all 18 networks (`out_compare_source.txt`).
+- `compare_source.py` confirms that `source/week-62/editable/student/graphs.json` gives the same vertices, edges and relative positions as the PDF, within 0.01 pt, for all 18 networks (`out_compare_source.txt`).
 - `check.py` uses my own brute-force code and the standard library only (`out_check.txt`). For every network it computes:
   - the chromatic number by exhausting colourings, and the clique number;
   - every simple cycle and which cycles are odd;

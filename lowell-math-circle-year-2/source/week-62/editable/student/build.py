@@ -8,6 +8,6 @@ a=p.parse_args()
 src=Path(__file__).resolve().parent
 out=a.out.resolve()
 out.mkdir(parents=True,exist_ok=True)
-subprocess.run([sys.executable,str(src/"make_source.py"),"--out",str(out)],check=True)
+subprocess.run([sys.executable,str(src/"regenerate.py"),"--out",str(out/"students.tex")],check=True)
 subprocess.run(["pdflatex","-interaction=nonstopmode","-halt-on-error",f"-output-directory={out}",str(out/"students.tex")],check=True,cwd=out,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
 print(out/"students.pdf")

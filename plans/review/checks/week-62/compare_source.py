@@ -22,7 +22,7 @@ def find_repo():
 
 
 REPO = find_repo()
-SRC = json.loads((REPO / "lowell-math-circle-year-2/source/week-62/student/graphs.json").read_text())
+SRC = json.loads((REPO / "lowell-math-circle-year-2/source/week-62/editable/student/graphs.json").read_text())
 PDF = json.loads((HERE / "extracted.json").read_text())
 PT_PER_CM = 72 / 2.54
 
