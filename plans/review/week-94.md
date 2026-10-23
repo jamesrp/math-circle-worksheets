@@ -46,6 +46,8 @@ Every report is a length plus one shared extra. Raising the lengths by t and low
 
 Fixed October 23, 2026 (v2): fix 1 with K–1 Problems 4–6 on two new pages (the tower machine, every pair for outputs 4 and 6, a known tower picking the pair) and their guide route, answers, timing and materials; fixes 2–9 as proposed; 10–12 deferred. An independent critic then reviewed the new K–1 pages, and its four shoulds were fixed in K–1 v3 ([checks/week-94/k1-critic-2026-10-23/](checks/week-94/k1-critic-2026-10-23/README.md)).
 
+October 23, 2026, later the same day: could 10 made. K–1 Problem 2 gives each strip two rulers, D included, so the page does not show which strips have two places (W94-K-v4; the other pages changed only in the footer; the guide and the older packets are unchanged). Coulds 11 and 12 stay deferred. Unpiloted.
+
 ## Overlaps
 
 Week 51 has the same cancellation (A + 4 against A + 1 is 3) and the interval arithmetic of 4–5 P6–P7, but it asks for guaranteed ranges, not which experiment identifies an instrument. Week 6's separating questions return in 4–5 P1–P2, and Week 84's rule that a fact is known when every possible world agrees on it is 2–3 P3. No merge, because none of them has a hidden instrument or a choice of standards.

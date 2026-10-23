@@ -25,3 +25,7 @@ No unverified remote upload or main integration is claimed here.
 
 - A fresh critic agent reviewed K–1 Problems 4–6 and the guide's K–1 page with `worksheet-workflow/stages/critic.md` (the repository's `plans/review/checks/week-94/k1-critic-2026-10-23/`). It found no must and four shoulds, all fixed: the rule says a machine always adds the same extra and P5 says P and Q went into the same machine (read with separate extras, outputs 4 and 6 fit 9 pairs); the keeper's extra waits behind the cover as a cube stick and P4 ends by lifting the cover; the P4 table asks only for towers given and the extra found; the guide says children "may" ask for several towers. One-line coulds were also taken; drawn outputs in the P6 panels and larger cells are deferred.
 - Footers are now W94-K-v3 and W94-F-v3; the Grades 2–3 and 4–5 packets are byte-identical to v2. K–1 pp. 1–2 and guide pp. 1 and 4–6 are unchanged above the footer; K–1 pp. 3–4 and guide pp. 2–3 were rendered at 80 dpi and inspected. `check_math.py` adds the 9-pair count for separate extras, and the critic's own check passes on v3.
+
+## October 23, 2026: small could 10 (K–1 v4)
+
+- K–1 Problem 2 gives each strip two rulers (eight in all) instead of one; the wording is unchanged. Footer W94-K-v4; K–1 pp. 1, 3 and 4 differ from v3 only in the footer, and the Grades 2–3, Grades 4–5 and guide PDFs are byte-identical. A clean rebuild from the extracted ZIP reproduces all four PDFs, and the independent K–1 Problems 4–6 check still passes. Unpiloted.

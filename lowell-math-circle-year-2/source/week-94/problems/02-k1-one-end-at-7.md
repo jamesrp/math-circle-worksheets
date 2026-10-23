@@ -12,9 +12,13 @@ Find every place each strip can go with one end at 7. Draw its two ends on a rul
 
 ## text
 \begin{center}
-A\quad\ruler{2}\par\vspace{9mm}
-B\quad\ruler{2}\par\vspace{9mm}
-C\quad\ruler{2}\par\vspace{9mm}
+A\quad\ruler{2}\par\vspace{3mm}
+A\quad\ruler{2}\par\vspace{8mm}
+B\quad\ruler{2}\par\vspace{3mm}
+B\quad\ruler{2}\par\vspace{8mm}
+C\quad\ruler{2}\par\vspace{3mm}
+C\quad\ruler{2}\par\vspace{8mm}
+D\quad\ruler{2}\par\vspace{3mm}
 D\quad\ruler{2}
 \end{center}
 \vspace{8mm}
