@@ -18,7 +18,7 @@ class Packet:
   if band.startswith('K'):band='Grades '+band
   self.page+=1;c=self.c;c.setFillColor(black);c.setStrokeColor(black);c.setLineWidth(1);c.setFont('Helvetica',11)
   c.drawString(36,755,f'Week {self.week} / {self.topic} / {band}')
-  c.setFont('Helvetica',10);c.drawString(36,28,f'Bellingham Math Circle / Week {self.week} / W{self.week}-BONUS-v1');c.drawRightString(576,28,str(self.page))
+  c.setFont('Helvetica',10);c.drawString(36,28,f'Bellingham Math Circle / Week {self.week} / W{self.week}-BONUS-v2');c.drawRightString(576,28,str(self.page))
  def end(self):self.c.showPage()
  def save(self):self.c.save()
 def para(c,text,y=715,x=36,width=540,small=False):

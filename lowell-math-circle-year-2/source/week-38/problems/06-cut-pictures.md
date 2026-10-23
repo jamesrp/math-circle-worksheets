@@ -7,7 +7,7 @@ kernel = "After the cuts A gives four boundary circles and B two, so A's pieces 
 +++
 
 ## prompt @27
-Use all the cut pieces from A together, then all those from B. Which four-dot pictures from Problem 3 can you now make?
+Use all the cut pieces from A together, then all those from B. Which four-dot pictures from Problem 3 can you now make? Write yes or no in each blank.
 
 ## figure
 choices(88)

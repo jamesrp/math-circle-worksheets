@@ -6,8 +6,11 @@ grades = ["K-1", "2-3", "4-5"]
 route = ["first", "return"]
 +++
 
-## text @16,25 w=180 size=11.5
+## text @16,25 w=180 size=11.5 [4-5]
 Keep the bands on the table. An adult makes every cut. The rectangles are joining recipes.
+
+## text @16,25 w=180 size=11.5
+Keep the bands on the table. An adult makes every cut.
 
 ## figure
 seam_example(47)

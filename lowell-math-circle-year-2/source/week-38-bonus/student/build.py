@@ -26,8 +26,8 @@ problem(c,1,'Make all four bands. Predict how many connected pieces the dotted c
 for y,n,r in [(480,3,False),(350,3,True),(220,4,False),(90,4,True)]:recipe(70,y,470,74,n,r,f'{n} lanes / '+('R' if r else 'M'))
 p.end()
 p.start('Grades 2-5')
-para(c,'Keep each mark attached to its corner. Join short ends.',715,small=True)
-label(c,'before joining',112,682,10);label(c,'align the same marks',304,682,10);label(c,'seam record',494,682,10)
+para(c,'Join short ends; keep each mark on its corner. M joins dot to dot; R half-turns strip 2, then joins dot to square.',715,small=True)
+label(c,'before joining',112,682,10);label(c,'align the ends',304,682,10);label(c,'seam record',494,682,10)
 def endmark(x,y,dot):
  if dot:circle(c,x,y,3,black)
  else:
@@ -38,8 +38,8 @@ for yy,k in [(650,'M'),(596,'R')]:
  for xx in [95,116]:endmark(xx,yy+14,True);endmark(xx,yy-14,False)
  arrow(c,180,yy,225,yy)
  for side in [0,1]:
-  y1=yy+(12 if side==0 else -12);y2=yy+(12 if (side==0)^(k=='R') else -12)
-  line(c,260,y1,344,y2,.8,GRAY);endmark(260,y1,side==0);endmark(344,y2,side==0)
+  y1=yy+(12 if side==0 else -12);y2=y1
+  line(c,260,y1,344,y2,.8,GRAY);endmark(260,y1,side==0);endmark(344,y2,(side==0)^(k=='R'))
  label(c,k,302,yy-29,10)
  arrow(c,367,yy,410,yy)
  for x,num in [(424,1),(522,2)]:

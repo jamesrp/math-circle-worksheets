@@ -91,10 +91,10 @@ def dot_groups(x,y,parts):
         cursor+=w+4
     return s
 
-def choices(y,left='A',right='B'):
+def choices(y,left='A',right='B',gap=29):
     s=''
     for i,parts in enumerate([(4,),(3,1),(2,2),(2,1,1),(1,1,1,1)]):
-        yy=y+i*29
+        yy=y+i*gap
         s+=dot_groups(23,yy,parts)+lab(153,yy,left+': ___',11)+lab(184,yy,right+': ___',11)
     return s
 
@@ -124,4 +124,30 @@ def washer_example():
         s+=fr'\fill ({x},{y}) circle (1.5);'+'\n'+lab(x,y-6,ch,11)
     s+=line(27,164,44,164,'line width=1.2pt')+lab(57,164,'outer trip',10)
     s+=line(94,164,111,164,'dashed,line width=1.2pt')+lab(124,164,'inner trip',10)
+    return s
+
+
+# ---------------------------------------------------------------- added October 23, 2026 (v4)
+
+def shifted(dy, tikz):
+    """Draw the TikZ of a figure dy mm lower on the page (negative: higher)."""
+    return r'\begin{scope}[shift={(0,'+str(dy)+r')}]'+'\n'+tikz+r'\end{scope}'+'\n'
+
+def choices_one(y,label,gap=29):
+    """The five four-dot pictures with one blank each."""
+    s=''
+    for i,parts in enumerate([(4,),(3,1),(2,2),(2,1,1),(1,1,1,1)]):
+        yy=y+i*gap
+        s+=dot_groups(23,yy,parts)+lab(168,yy,label+': ___',11)
+    return s
+
+def strip_thirds(x,y,w,h,name=None):
+    """A B recipe (reversed right end) with the two one-third lines dotted instead of the middle line."""
+    s=rf'\draw[line width=1pt] ({x},{y}) rectangle ++({w},{h});'+'\n'
+    s+=line(x+3,y+h/3,x+w-3,y+h/3,'dotted,line width=1pt')+line(x+3,y+2*h/3,x+w-3,y+2*h/3,'dotted,line width=1pt')
+    for xx,r in [(x+4,False),(x+w-4,True)]:
+        s+=mark(xx,y+(h-5 if r else 5),'dot')+mark(xx,y+(5 if r else h-5),'sq')
+        ax=xx+(5 if xx==x+4 else -5)
+        s+=line(ax,y+(7 if r else h-7),ax,y+(h-7 if r else 7),'-{Stealth[length=2mm]},line width=.7pt')
+    if name:s+=lab(x-6,y+h/2,name,13)
     return s

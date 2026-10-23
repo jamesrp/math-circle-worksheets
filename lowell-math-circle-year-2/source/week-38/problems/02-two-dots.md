@@ -15,11 +15,5 @@ On A and B, find two edge dots that one edge trip can visit together, and two th
 ## prompt @27 [4-5]
 One separate closed edge is a boundary component. Explain the number of boundary components of A and B from their seam recipes.
 
-## text @16,60 w=180 size=14
-Dots on one edge go in one ring.
-
 ## figure
-washer_example()
-
-## text @16,181 w=180 size=12
-The rings record which dots share an edge.
+blank(16,58,180,110)

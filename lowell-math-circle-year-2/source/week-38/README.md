@@ -2,6 +2,8 @@
 
 **Problem files, October 23, 2026.** The student packets are stored as [problem files](../problem-files/README.md): `week.toml`, `figures.py` (the old builder's drawing code and page template, unchanged) and one file per problem in `problems/`, with each band's wording inside it. The conversion changed no wording or figure: the rebuilt LaTeX is byte-identical to the previous builder's, and the rebuilt PDFs match its output in pages, text and 100-dpi pixels. The previous builder (`make_packets.py`, `examples.py`) and source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 
+**Card fixes, October 23, 2026 (v4).** Made in the problem files after the conversion, from the keep card's shoulds and coulds ([plans/review/week-38.md](../../../plans/review/week-38.md)): the ring sentence and the flat washer now sit above Problem 3, Problem 2 has an answer box, Problems 3 and 6 ask for yes or no in each blank, K–1 and grades 2–3 Problem 7 is a new one-third cut of B, and grades 4–5 Problem 7 has its own page; each packet is seven pages. A printable strips sheet (`editable/materials-src/`, `week-38-materials.pdf`: A, B and spares at 260 × 45 mm, and the one-third B) replaces hand-marked strips, and the guide and the bonus follow (bonus p. 2: R joins dot to square). [editable/review/card-shoulds-2026-10-23.md](editable/review/card-shoulds-2026-10-23.md) lists what changed and how it was checked. The replaced print PDFs are in [../../week-38/archive-before-card-fixes-2026-10-23/](../../week-38/archive-before-card-fixes-2026-10-23/README.md) and the conversion's ZIPs in [archive-before-card-fixes-2026-10-23/](archive-before-card-fixes-2026-10-23/README.md).
+
 - **Student pages:** edit `problems/*.md` (figures in `figures.py`), then build and compare:
 
   ```sh
@@ -17,7 +19,7 @@
 
   Rebuild it after any change and check a clean rebuild from the extracted ZIP (`python3 build.py` in the extracted folder, then `python3 verify_revision.py`).
 
-The [portable base source ZIP](seams-and-cuts-week38-editable-source.zip) and [complete extracted package](editable/README.md) contain the current **October 4, 2026 fresh-review revision**. Current print copies are in [../../week-38/](../../week-38/). References are exact duplicates of those print PDFs.
+The [portable base source ZIP](seams-and-cuts-week38-editable-source.zip) and [complete extracted package](editable/README.md) contain the current **October 23, 2026 card-fix revision (v4)**, built on the October 4, 2026 fresh-review revision. Current print copies are in [../../week-38/](../../week-38/). References are exact duplicates of those print PDFs.
 
 Read `editable/README.md` for dependencies and commands. Copy the complete package to a fresh folder under the project's `tmp/` before rebuilding; keep intermediates out of current print/source folders. `verify_revision.py` checks current pages and permits only specifically audited full-page alternate hashes for pre-existing font/hyphenation differences in unchanged student packets; the original strict verifier remains available. Every changed packet and guide reproduces exact 100-dpi pixels from the extracted ZIP.
 

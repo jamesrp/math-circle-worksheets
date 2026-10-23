@@ -1,6 +1,6 @@
 # Week 38 bonus: Seams and cuts
 
-Local v1, October 4, 2026. **Unpiloted. Physical fit and procedures untested.**
+Local v1, October 4, 2026; v2, October 23, 2026, from the Week 38 review card: page 2's R row now joins dot to square after a half-turn (it had joined dot to dot, which is M), under the column "align the ends" and a line saying how M and R join; the adult guide says the same and names the bands K–1 / 2–3 / 4–5 (footers W38-BONUS-v2, W38-BONUS-FAC-v2). **Unpiloted. Physical fit and procedures untested.**
 
 Three or more distinct investigations use selected bands by prerequisites. They complement, rather than replace, the base Week 38 packet. The student companion and adult mathematical guide are separate. Suitable routes, materials, launch, hints, precise solutions and extensions are in `guide.md`; investigation metadata is in `investigations.json`.
 

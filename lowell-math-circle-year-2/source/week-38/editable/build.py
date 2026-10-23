@@ -26,3 +26,6 @@ builder='build.py' if (guide/'build.py').exists() else 'build_guide.py'
 subprocess.run([sys.executable,builder],cwd=guide,env=env,check=True)
 
 subprocess.run([sys.executable, str(ROOT/'facilitator-src/add_route_note.py')], cwd=ROOT, env=env, check=True)
+# The print-and-cut strips (materials.pdf), checked from the finished PDF.
+subprocess.run([sys.executable, str(ROOT/'materials-src/build_materials.py')], cwd=ROOT, env=env, check=True)
+subprocess.run([sys.executable, str(ROOT/'materials-src/check_materials.py')], cwd=ROOT, env=env, check=True)

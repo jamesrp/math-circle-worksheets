@@ -3,7 +3,7 @@
 
 The problem files are the student pages' source. In the portable ZIP they are in
 ../problem-files/ with the tools in ../problem-files/tools/; in the repository they
-are in lowell-math-circle-year-2/source/week-37/ with the tools in
+are in lowell-math-circle-year-2/source/week-38/ with the tools in
 lowell-math-circle-year-2/source/problem-files/.
 """
 import sys

@@ -29,7 +29,11 @@ def find_repo():
 
 
 REPO = find_repo()
-WEEK = REPO / "lowell-math-circle-year-2" / "week-38"
+# These checks describe the v3 snapshot reviewed October 10, 2026. Since the October 23 v4
+# revision (the card's fixes) those PDFs, bonus included, are in
+# week-38/archive-before-card-fixes-2026-10-23/, so WEEK points there and a rerun reproduces
+# the stored out_*.txt results. The current v4 PDFs are in week-38/.
+WEEK = REPO / "lowell-math-circle-year-2" / "week-38" / "archive-before-card-fixes-2026-10-23"
 SRC = REPO / "lowell-math-circle-year-2" / "source" / "week-38" / "editable" / "src"
 BONUS_SRC = REPO / "lowell-math-circle-year-2" / "source" / "week-38-bonus"
 BANDS = {"k-1": "week-38-k-1.pdf", "grades-2-3": "week-38-grades-2-3.pdf",

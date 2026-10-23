@@ -45,6 +45,8 @@ A strip joined matching (A) is an annulus with two boundary circles; joined reve
 10. **could**, guide p. 7: name bonus P1 as the continuation for quick 2–3 and 4–5 children.
 11. **could**, bonus guide p. 1: "KK11 / 3333 / 445" → "K–1 / 2–3 / 4–5" (math check 3).
 
+**Fixed October 23, 2026 (v4).** After a no-wording-change conversion to problem files, shoulds 1–6 and coulds 7–11 were made as proposed (fix 2 as a two-sheet strips PDF with print counts; fix 5's box given to every band's Problem 2); nothing deferred. Checked by `editable/review/verify_card_shoulds_2026_10_23.py` and `editable/materials-src/check_materials.py`; record in `source/week-38/editable/review/card-shoulds-2026-10-23.md`; v3 PDFs in `week-38/archive-before-card-fixes-2026-10-23/`. Unpiloted; the strips are physically unrehearsed.
+
 ## Overlaps
 
 Week 75's cylinder is band A, studied for windings. Weeks 41, 64 and 70 glue sides by translation only (Week 41: "There is no edge reversal"). Week 37 shares reversal with 4–5 P6; Weeks 56 and 77 count faces and holes. None has a one-sided band or its cut. No merge.
