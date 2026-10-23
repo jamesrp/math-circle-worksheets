@@ -1,6 +1,8 @@
 # Nontransitive dice and decks: Week 24 editable release
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 23, 2026 card-fix revision
+
+**Card fixes, October 23, 2026.** Every should and could of the review card was done after the problem-file conversion below: student packets F24-K-v3 (K–1 Problems 1–4 and 6 reworded) and F24-45-v3 (Problem 1's decks lowered), Grades 2–3 unchanged at F24-23-v2, and guide pages 1–4, 7, 10, 13, the overview and the route page. See `review/card-fixes-2026-10-23.md`; `python3 review/verify_card_fixes_2026_10_23.py` checks each fix against the built PDFs. The release before it was the October 4, 2026 fresh-review revision.
 
 **Problem files, October 23, 2026.** The student pages are now stored as problem files, one per problem, in `problem-files/` (in the repository: `lowell-math-circle-year-2/source/week-24/`). The conversion changed no wording or figure. `src/regenerate.py` writes the student LaTeX from them, `src/check_answers.py` still checks the answers, and `problem-files/tools/build.py` also builds first-route and return packets, a one-page problem menu and a key arranged by problem.
 
@@ -22,7 +24,7 @@ The current verifier compares paper geometry and every 100-dpi rendered page aga
 
 Edit student problems in `problem-files/problems/*.md` (figures and the page template in `problem-files/figures.py`); `build.sh` regenerates `src/*.tex` from them before compiling, so do not edit the TeX by hand. To build every view: `python3 problem-files/tools/build.py problem-files --out views`. Edit the existing guide source under `facilitator-src/`. Where present, `facilitator-src/route-note.json` holds the concise starting/return update; the root build regenerates the guide before appending it exactly once. Do not run the appender alone against an already appended guide. Build intermediates belong in a separate working copy; inspect changed pages before updating references.
 
-The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/fresh-review-2026-10-04.md`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
+The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/card-fixes-2026-10-23.md` (and, for the October 4 release, `review/fresh-review-2026-10-04.md`). Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
 
 ## Use and rights
 

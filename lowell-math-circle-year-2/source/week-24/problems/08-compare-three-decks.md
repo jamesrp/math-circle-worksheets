@@ -17,4 +17,4 @@ For each pair of decks, find how many of the possible card pairs each deck wins.
 art(decks(ABC,7.3))
 
 ## figure [4-5]
-art(decks(ABC,7.15))
+art(decks(ABC,6.9))

@@ -7,7 +7,7 @@ kernel = "Exactly the five swaps in which A gives away a card bigger than the on
 +++
 
 ## prompt
-Swap one A card with one B card. Find every swap that makes B win more card pairs than A.
+Swap one A card with one B card. Find every swap that makes B win more card pairs than A. Start each swap from these decks.
 
 ## figure
 art(kdeck('A',[2,4,9],7.9), kdeck('B',[1,6,8],6.45))

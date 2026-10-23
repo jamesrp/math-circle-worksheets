@@ -45,7 +45,7 @@ def para(text,style,after=7):
  p=Paragraph(text,styles[style]);w,h=p.wrap(528,720)
  p.drawOn(c,42,y-h);y-=h+after
 para(D['title'],'title',8)
-para('Mathematical overview | Draft and unpiloted | 3 October 2026','sub',16)
+para('Mathematical overview | Draft and unpiloted | 23 October 2026','sub',16)
 for heading,paragraphs in D['sections']:
  para(heading,'head',7)
  for text in paragraphs:para(text,'body',7)
