@@ -6,6 +6,9 @@ route = "return"
 kernel = '$[0,q]$ stays in $[0,2]$ through $n$ moves exactly when $q\le 2/2^n$: $1/4$, $1/8$ and $1/32$ for 3, 4 and 6 moves.'
 +++
 
+## figure
+band('Grades 4--5')
+
 ## prompt @0
 A marker starts somewhere in a band with one end at 0. Make the widest starting band you can that keeps every possible position between 0 and 2 through the first 3 moves. Then try 4 moves and 6 moves.
 

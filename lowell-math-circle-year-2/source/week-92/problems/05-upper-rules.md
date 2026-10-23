@@ -7,7 +7,7 @@ kind = "setup"
 +++
 
 ## figure
-band('Grades 4--5')
+band('Grades 2--5')
 
 ## text @0
 Use the move and band rules on pages 1--2.

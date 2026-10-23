@@ -67,9 +67,29 @@ for n in range(1,10):
 assert T(Q(32,3))==Q(32,3)
 assert all(orbit(Q(k),Q(k),5)[-1]==(0,0) for k in range(17))
 
+# October 23 revision: Problem 3 prints six after-tracks per band; both bands first
+# fill the track on move 4 and stay full through move 6.
+for start in [(1,2),(7,9)]:
+    hist=orbit(*start,6)
+    assert [h==(0,16) for h in hist]==[False]*4+[True]*3
+# Guide, Problem 1: starts 0 and 1 move apart for four moves (gaps 1, 2, 4, 8, 16), then meet.
+gaps=[]
+x,y=0,1
+for _ in range(6):
+    gaps.append(y-x); x,y=T(x),T(y)
+assert gaps==[1,2,4,8,16,0]
+# Guide, K-1 route: every whole-number start reaches 0; the odd starts take the most moves, five.
+def moves_to_zero(k):
+    n=0
+    while k:
+        k=T(k); n+=1
+    return n
+steps={k:moves_to_zero(k) for k in range(17)}
+assert max(steps.values())==5 and [k for k in steps if steps[k]==5]==list(range(1,17,2))
+
 print(json.dumps({
     'status':'pass','whole_number_merging_pairs':pairs,
     'interval_width_cases':width_tests,'dyadic_cells':dyadic_tests,
-    'precision_endpoints':{'3':'1/4','4':'1/8','6':'1/32'},
+    'precision_endpoints':{'3':'1/4','4':'1/8','6':'1/32'},'moves_to_zero':steps,
     'limitations':'Finite checks support printed examples; general interval statements require the supplied proofs. Physical rehearsal and classroom use untested.'
 },indent=2))

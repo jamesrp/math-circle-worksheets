@@ -19,7 +19,7 @@ PREAMBLE = r'''\documentclass[11pt]{article}
 \fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 92 / <<footer>>}
 \fancyfoot[R]{\scriptsize\thepage}
 \setlength{\parindent}{0pt}\setlength{\parskip}{0pt}
-\pdfinfo{/Title (Week 92 - Fold-and-stretch predictions) /Author (Bellingham Math Circle) /CreationDate (D:20261017000000Z) /ModDate (D:20261017000000Z)}
+\pdfinfo{/Title (Week 92 - Fold-and-stretch predictions) /Author (Bellingham Math Circle) /CreationDate (D:20261023000000Z) /ModDate (D:20261023000000Z)}
 \pdftrailerid{<92A113BA84D2123FF010701001010101><92A113BA84D2123FF010701001010101>}
 \definecolor{ink}{HTML}{203642}\definecolor{bandfill}{HTML}{B8D9E6}
 \tikzset{every node/.style={font=\sffamily\small,text=ink},arr/.style={-{Stealth[length=2mm]},thick,draw=ink}}

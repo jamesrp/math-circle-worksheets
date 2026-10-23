@@ -7,8 +7,9 @@ page = "same"
 kernel = 'A band across 8 maps to twice its longer half, at least its width, with equality only when symmetric.'
 +++
 
-## prompt @-175
+## prompt @-138
 Find a starting band that becomes wider after one move and a band that keeps the same width. Could any band become narrower? Explain with a drawing.
 
 ## figure
-r'''\draw[gray!35] (8,-223)--(168,-223);'''
+r'''\track{-163}{Start}\track{-178}{After one move}
+\track{-197}{Start}\track{-212}{After one move}'''

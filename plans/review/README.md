@@ -124,7 +124,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 89 | Growing shapes and totals | original verdict keep; shoulds 1–6 (Problem 19's cubes in depth order, Problem 18's worked turn off the task path, a non-task opening example, Problem 2 peeling layers, Problem 20's wording, a K–1 return route in the guide) and coulds 7, 8, 10–12 (tray rules before Problems 7 and 11, the label nudge, a row per turn in Problem 18's table, guide tile fit and board size) fixed October 23 in the new problem files and the guide; could 9 deferred, materials unchanged | [card](week-89.md), [math check](week-89-math.md) |
 | 90 | Sliding number arrays (jeu de taquin) | keep | [card](week-90.md), [math check](week-90-math.md) |
 | 91 | Rotor-router machines | keep | [card](week-91.md), [math check](week-91-math.md) |
-| 92 | Fold-and-stretch predictions | keep | [card](week-92.md), [math check](week-92-math.md) |
+| 92 | Fold-and-stretch predictions | original verdict keep; shoulds (K–1 route in the guide, six after-tracks per band in Problem 3, Grades 2–5 headers with page 4 in the Grades 2–3 slice) and coulds 4–10 fixed October 23 in W92-S-v3; unpiloted | [card](week-92.md), [math check](week-92-math.md) |
 | 93 | Squaring a rectangle | keep | [card](week-93.md), [math check](week-93-math.md) |
 | 94 | Calibration lab | revise: the K–1 packet is three quick problems on two pages and never uses a known strip to find the machine's hidden extra; both card runs agree | [card](week-94.md), [math check](week-94-math.md) |
 | 95 | Count the unseen | keep | [card](week-95.md), [math check](week-95-math.md) |

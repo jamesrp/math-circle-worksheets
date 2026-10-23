@@ -6,6 +6,9 @@ route = "first"
 kind = "setup"
 +++
 
+## figure
+band('Grades 2--5')
+
 ## text @0
 One move: find the nearer-end distance in track units, then double it. On the map, go up from your input to the sloping line, then across to read the distance and output. Put the marker at the output on the 0--16 track. Points between ticks are allowed.
 

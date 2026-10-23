@@ -6,6 +6,9 @@ route = "return"
 kernel = 'Every band of positive width contains a dyadic piece, so it eventually fills the track; single points need not.'
 +++
 
+## figure
+band('Grades 4--5')
+
 ## prompt @0
 Will every starting band with some width eventually make the whole track possible? Include bands whose ends lie between ticks in your explanation.
 

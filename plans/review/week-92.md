@@ -42,6 +42,8 @@ A marker on the continuous track [0, 16] moves to twice its distance from the ne
 9. **could**, week-92/README.md "Use the guide's exact duplicate-sheet instructions" and the source README's "duplicated cutting/card sheets": none exist; delete.
 10. **could**, guide p. 2: the first route times only P1–P3; give the upper table's hour (P1 briefly, P2's crossing bands, P4–P5, P6 if ready).
 
+Fixed October 23, 2026 (W92-S-v3, after the problem-file conversion): shoulds 1–3 and coulds 4–10, with Problem 4's tracks moved up to make room for Problem 5's two track pairs; see `source/week-92/README.md`.
+
 ## Overlaps
 
 Atlas GA-10 (Geometry and Analysis pp. 33–36) uses the same tent map for periodic programs and cycle counts: same object, different theorems (guide p. 5). Week 51's ranges are the prerequisite; Weeks 93 and 46 contrast; Weeks 80 and 81 share the "every n, not forever" swap. None iterates interval images. No merge.

@@ -6,8 +6,11 @@ route = "first"
 kind = "setup"
 +++
 
+## figure
+band('Grades 2--5')
+
 ## text @0
-A band includes every position between its ends, including the ends. Move all of them through the map. One marker follows the rule from its unknown start; it is never placed at a fresh start.
+A band includes every position between its ends, including the ends. Move all of them through the map.
 
 ## figure
 r'''\movemap{-83}{3}

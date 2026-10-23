@@ -1,6 +1,6 @@
 # Week 92: Fold-and-stretch predictions
 
-Unpiloted; physical rehearsal untested. Grades 2-3 concrete points and bands; Grades 4-5 interval certificates and readiness-dependent proof continuation. No K-1 packet.
+Unpiloted; physical rehearsal untested. Grades 2-3 concrete points and bands (pages 1-4); Grades 4-5 interval certificates and readiness-dependent proof continuation. No K-1 packet; the guide gives an adult-led K-1 route. Current packet W92-S-v3, revised October 23, 2026 from the review card.
 
 New uncertainty/prediction investigation within the existing atlas GA-10 tent-map theme.
 
@@ -8,7 +8,7 @@ New uncertainty/prediction investigation within the existing atlas GA-10 tent-ma
 
 ## Print and rebuild
 
-The current owned PDFs are preserved in [reference-pdfs/week-92-students.pdf](reference-pdfs/week-92-students.pdf) and [reference-pdfs/week-92-facilitator.pdf](reference-pdfs/week-92-facilitator.pdf). Print US Letter at Actual Size for measured or cutting diagrams. Follow the facilitator preparation notes for duplicated cutting/card sheets and optional later pages.
+The current owned PDFs are preserved in [reference-pdfs/week-92-students.pdf](reference-pdfs/week-92-students.pdf) and [reference-pdfs/week-92-facilitator.pdf](reference-pdfs/week-92-facilitator.pdf). Print US Letter at Actual Size for measured or cutting diagrams. Follow the facilitator preparation notes for optional later pages.
 
 Requirements: Python 3.11 or later and pdfLaTeX with TikZ, geometry, fancyhdr, Latin Modern, amsmath, amssymb and hyperref (TeX Live/MacTeX). The checker uses only Python's standard library. No downloaded books, network access, files outside the extracted ZIP, or proprietary fonts are required.
 

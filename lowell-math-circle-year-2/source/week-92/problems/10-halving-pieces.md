@@ -6,6 +6,9 @@ route = "return"
 kernel = 'Each piece of width $16/2^n$ fills the whole track after exactly $n$ moves, by induction on $n$.'
 +++
 
+## figure
+band('Grades 4--5')
+
 ## prompt @0
 Move each labelled piece separately. Shade its possible places after the stated number of moves on the matching track. Does the pattern continue if you keep cutting every piece in half? Explain.
 
