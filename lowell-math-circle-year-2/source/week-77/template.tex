@@ -1,0 +1,42 @@
+\pdfmapfile{+cm.map}
+\pdfmapfile{+cmextra.map}
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=0.65in,headheight=15pt,headsep=16pt,footskip=24pt]{geometry}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usetikzlibrary{arrows.meta}
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\fontsize{11}{13}\selectfont Week <<week>> / <<topic>> / <<header>>}
+\fancyfoot[L]{\fontsize{9}{11}\selectfont Bellingham Math Circle / Week <<week>> / <<footer>>}
+\fancyfoot[R]{\fontsize{9}{11}\selectfont\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\newcommand{\textat}[4]{\node[anchor=north west,inner sep=0pt,text width=#3cm,align=left,font=\fontsize{12}{16}\selectfont] at (#1,#2) {#4};}
+\newcommand{\smallat}[4]{\node[anchor=north west,inner sep=0pt,text width=#3cm,align=left,font=\fontsize{11}{14}\selectfont] at (#1,#2) {#4};}
+\newcommand{\lineat}[3]{\draw[black!28,line width=.4pt] (#1,#2)--(#3,#2);}
+\newcommand{\token}[4]{\node[draw=black!60,rounded corners=1pt,minimum width=.83cm,minimum height=.5cm,inner sep=1pt,font=\fontsize{10}{12}\selectfont] (#4) at (#1,#2) {#3};}
+\newcommand{\squareboard}[3]{%
+ \begin{scope}[shift={(#1,#2)}]
+ \coordinate (A) at (0,0); \coordinate (B) at (6.2,0); \coordinate (C) at (6.2,6.2); \coordinate (D) at (0,6.2);
+ \draw[black!50,dash pattern=on 4pt off 4pt,line width=.9pt] (A)--(B)--(C)--(D)--cycle (A)--(C);
+ \ifnum#3=1 \draw[line width=1.5pt] (A)--(B)--(C)--(D); \fi
+ \foreach \v/\pos in {A/above left,B/above right,C/below right,D/below left}{\fill (\v) circle(2.2pt);\node[\pos,inner sep=4pt,font=\large] at (\v) {\v};}
+ \end{scope}}
+\newcommand{\pagebegin}{\begin{tikzpicture}[x=1cm,y=-1cm]\path[use as bounding box] (0,0) rectangle (18.2,22.15);}
+\newcommand{\pageend}{\end{tikzpicture}}
+% A problem file sets its prompt's height with \promptat{y} (centimetres from the top of the
+% page's canvas); the prompt pattern in week.toml places the numbered prompt there.
+\newcommand{\promptat}[1]{\def\prompty{#1}}\promptat{0}
+\begin{document}
+\pagebegin
+
+<<body>>
+
+\pageend
+\end{document}

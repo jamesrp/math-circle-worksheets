@@ -1,24 +1,24 @@
-# Week 77: Persistent holes
+# Week 77: Persistent holes — current editable source
 
-One shared Grades 4–5 prototype: 6 student pages and a separate 4-page theorem-first adult guide. Independently reviewed and digitally checked, awaiting organizer review. The week number is a library identifier, not an adopted schedule. Physical preparation/handling and classroom piloting remain unperformed.
+One shared Grades 4–5 packet (6 student pages, F77-45-v2) and a 4-page theorem-first adult guide (F77-FAC-v2). A prototype awaiting organizer review; unpiloted, and tile, token and edge-strip handling has not been rehearsed. The print PDFs are in [../../week-77/](../../week-77/). The October 15 revision added the introductory page (`editable/README.md`).
 
-## Rebuild from this package
+**Problem files, October 23, 2026.** The student packet is stored as [problem files](../problem-files/README.md): `week.toml`, `template.tex` (the old `students.tex` preamble) and one file per problem in `problems/`. Each page is still one TikZ canvas: a problem's `text` sections are its drawing code and `\promptat{y}` places its numbered prompt. The conversion changed no wording or figure, and the rebuilt packet matches the print PDF in pages, extracted text and 100-dpi pixels. The hand-written `students.tex` and the previous source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 
-Use Python 3 and normal TeX Live/MacTeX with pdfLaTeX, TikZ/PGF, Computer Modern/Latin Modern, geometry, fancyhdr, AMS packages and the small standard packages listed in the student/guide READMEs. No network, repository files, private reference, external artwork or custom Python library is required.
+- **Student pages:** edit `problems/*.md`, then build and compare:
 
-    python3 build.py --out output
-    python3 build.py --verify-only
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-77 --out tmp/week-77-views --tex
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-77-views lowell-math-circle-year-2/week-77 week-77
+  ```
 
-The first command reconstructs both named PDFs in the chosen output directory; the second runs independent, student and guide checks without TeX. Build intermediates are isolated. Edit student/students.tex and guide/facilitator.tex; when a diagram is generated, edit its included data/generator and rebuild. All required authored inputs are packaged.
+  Week 77 is a shared-packet week, so its one-page menu in [band-views/week-77/](../../band-views/README.md) is built from the page index `../band-views/indexes/week-77.toml` by `band_views.py build`; update the index when a problem moves to another page. The package's `checks/independent_check.py` also reads the regenerated `students.tex` and asserts its task wording and diagram coordinates, so change it with any student-page change.
+- **Adult guide:** `editable/guide/facilitator.tex`, built by the package. The problem files carry each problem's one-sentence idea (`kernel`), not its answers.
+- **Portable package:** `editable/` is the package (`editable/README.md`); `editable/student/regenerate.py` writes `students.tex` from the problem files and the package build runs it first. The [portable source ZIP](../week-77-source.zip) holds the package plus the problem files and tools in `problem-files/`. Rebuild it with
 
-## Readiness and use
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-77 --zip ../week-77-source.zip --top week-77
+  ```
 
-Print single-sided US Letter at 100% / Actual Size. Read student/README.md for reading, arithmetic, spatial and recording prerequisites, and the adult guide for exact materials, a short shared launch, hints, solutions and sensible stopping points. The approximate grade range is not a classroom-readiness guarantee. No K–1 edition is implied, and completing every page is not the goal.
+  and check a clean rebuild from the extracted ZIP with `python3 build.py --out output` in its `week-77/` folder. The print copies in `../../week-77/` and `editable/reference-pdfs/` come from that package build.
 
-MATHEMATICS.md records precise hypotheses and general arguments. SOURCES.md separates mathematical lineage from independently authored examples. The repository's plans/frontier-prototypes-76-78/week-77/ record preserves reviews, revision decisions, final checks and the actual extracted-ZIP reconstruction result. Different TeX/font versions can affect appearance.
-
-The portable ZIP excludes stage prompts, borrowed style examples, downloaded books/papers, external fonts, runtime format files, caches, render images, logs, superseded drafts and private classroom information.
-
-## October 15 introduction revision
-
-Added a full introductory page: square rim, diagonal, one filled half, both halves, then a complete-loop token example. All six investigations remain; student task pages are now 2–6. “Gone” means a boundary of filled tiles, with all board edges retained. This organizer-directed revision is unpiloted.
+The review and research record is in [plans/frontier-prototypes-76-78/week-77/](../../../plans/frontier-prototypes-76-78/week-77/) and the review card in [plans/review/week-77.md](../../../plans/review/week-77.md).

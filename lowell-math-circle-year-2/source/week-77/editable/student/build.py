@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Build the Week 77 student packet with a local TeX installation."""
+"""Build the Week 77 student packet with a local TeX installation.
+
+students.tex is written from the problem files by regenerate.py, which this script
+runs first unless --no-regenerate is given (the package's root build.py regenerates
+in place, then builds a copy)."""
 import argparse
 import os
 from pathlib import Path
@@ -12,8 +16,11 @@ import tempfile
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--no-regenerate', action='store_true', help='compile students.tex as it is')
     args = parser.parse_args()
     root = Path(__file__).resolve().parent
+    if not args.no_regenerate:
+        subprocess.run([sys.executable, str(root / 'regenerate.py')], check=True)
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=True)
     subprocess.run([sys.executable, str(root / 'check_math.py')], check=True)

@@ -4,14 +4,14 @@ A six-page shared Grades 4-5 prototype, F77-45-v2. Grade labels are approximate.
 
 ## Build
 
-Requires Python 3 (standard library only) and a working TeX Live installation with `pdflatex`, TikZ/PGF, geometry, fancyhdr, and Computer Modern fonts. No network access or downloaded reference is used during building.
+Requires Python 3.11+ (standard library only) and a working TeX Live installation with `pdflatex`, TikZ/PGF, geometry, fancyhdr, and Computer Modern fonts. No network access or downloaded reference is used during building.
 
 ```sh
 python3 check_math.py
 python3 build.py --out /path/to/output
 ```
 
-The builder runs the finite checks and creates `students.pdf` and a diagnostic `build.log` in the requested directory. It fails on TeX errors or overfull boxes. It uses a temporary build directory inside `--out`, then removes that directory. On minimal TeX images lacking an initialized format, it discovers installed package trees read-only and builds a private format inside that temporary directory; it does not modify the system or home TeX cache. Poppler's `pdftoppm` and `pdfinfo` are useful for independent output inspection but are not build dependencies.
+The source is the problem files (`../problem-files/` in the portable ZIP, `lowell-math-circle-year-2/source/week-77/` in the repository); `build.py` first runs `regenerate.py`, which writes `students.tex` from them. Edit the problem files, not `students.tex`. The builder runs the finite checks and creates `students.pdf` and a diagnostic `build.log` in the requested directory. It fails on TeX errors or overfull boxes. It uses a temporary build directory inside `--out`, then removes that directory. On minimal TeX images lacking an initialized format, it discovers installed package trees read-only and builds a private format inside that temporary directory; it does not modify the system or home TeX cache. Poppler's `pdftoppm` and `pdfinfo` are useful for independent output inspection but are not build dependencies.
 
 ## Print and materials
 
@@ -23,7 +23,8 @@ Only student pages are included. This is a revised prototype, not an approved cl
 
 ## Contents and provenance
 
-- `students.tex`: original LaTeX/TikZ student pages and diagrams.
+- `students.tex`: the LaTeX/TikZ student pages and diagrams, written by `regenerate.py` from the problem files.
+- `regenerate.py`: writes `students.tex` from the problem files.
 - `build.py`: portable standard-library builder.
 - `check_math.py`: exhaustive cycle/boundary tests, all stated finite schedules, independent inclusion-map rank checks, and all 24 filling orders on the final four-triangle board. The final board also has a separate integer-bitmask verification that uses its eight explicitly listed edge positions rather than the earlier chain routines.
 - `README.md`: dependencies, prerequisites, and limits.

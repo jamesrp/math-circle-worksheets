@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Rebuild both owned PDFs, without repository or network inputs."""
+"""Rebuild both owned PDFs, without repository or network inputs.
+
+The student LaTeX is first written from the problem files (student/regenerate.py);
+the builders then run on a copy in a temporary folder."""
 import argparse,json,shutil,subprocess,tempfile
 from pathlib import Path
 BASE=Path(__file__).resolve().parent
@@ -17,6 +20,8 @@ def main():
     p.add_argument('--verify-only',action='store_true')
     a=p.parse_args();out=Path(a.out).resolve()
     manifest=json.loads((BASE/'build-manifest.json').read_text())
+    if not a.verify_only:
+        print(run(['python3','regenerate.py'],BASE/'student').strip())
     with tempfile.TemporaryDirectory(prefix=f"week-{manifest['week']}-source-build-") as tmp:
         work=Path(tmp)
         for name in ['student','guide','checks']:
@@ -29,7 +34,7 @@ def main():
         out.mkdir(parents=True,exist_ok=True)
         for document in manifest['documents']:
             built=work/(document['kind']+'-output')
-            print(run(['python3','build.py','--out',str(built)],work/document['source_directory']).strip())
+            print(run(['python3','build.py','--out',str(built),*document.get('args',[])],work/document['source_directory']).strip())
             source=built/document['built_name']
             if not source.is_file():raise SystemExit(f'Builder did not produce {source.name}')
             shutil.copy2(source,out/document['output_file'])
