@@ -17,8 +17,10 @@ checks={}
 checks['k_decode']={s:[m for m,c in [('triangle','000'),('square','111')] if s in ball(c)] for s in strings(3)}
 checks['two_counter_ambiguity']={s:[c for c in ['00','11'] if s in ball(c)] for s in strings(2)}
 checks['ordered_three_counter_keys']=[(a,b) for a in strings(3) for b in strings(3) if reliable([a,b])]
-checks['mixed_four_counter_completions']={a:[b for b in strings(4) if '0' in b and '1' in b and reliable([a,b])] for a in ['0011','0100']}
-assert [len(v) for v in checks['mixed_four_counter_completions'].values()]==[5,4]
+# K-1 P5 (October 23, 2026): no longer restricted to rows using both kinds of counter.
+checks['four_counter_completions']={a:[b for b in strings(4) if reliable([a,b])] for a in ['0011','0100']}
+assert [len(v) for v in checks['four_counter_completions'].values()]==[5,5]
+assert '1111' in checks['four_counter_completions']['0100']
 assert len(checks['ordered_three_counter_keys'])==8
 checks['weight_two_ordered_keys']=[(a,b) for a in strings(4) for b in strings(4) if a.count('1')==b.count('1')==2 and reliable([a,b])]
 assert len(checks['weight_two_ordered_keys'])==6

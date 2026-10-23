@@ -39,6 +39,8 @@ def safe(code,r=1):return all(not outcomes(a,r)&outcomes(b,r) for a,b in it.comb
 c18={}
 c18['ordered_three_keys']=[(a,b) for a in words(3,'01') for b in words(3,'01') if safe((a,b))]
 c18['mixed_four_completions']={a:[b for b in words(4,'01') if len(set(b))==2 and safe((a,b))] for a in ['0011','0100']}
+c18['four_completions']={a:[b for b in words(4,'01') if safe((a,b))] for a in ['0011','0100']}  # K-1 P5 from October 23, 2026
+assert [len(v) for v in c18['four_completions'].values()]==[5,5]
 c18['ordered_weight2_keys']=[(a,b) for a in words(4,'01') for b in words(4,'01') if a.count('1')==b.count('1')==2 and safe((a,b))]
 c18['upper_p1_outcomes']={w:sorted(outcomes(w)) for w in ['00','11','000','111','0010','0100']}
 c18['upper_p4_outcomes']={w:sorted(outcomes(w)) for w in ['010','0110','00111']}

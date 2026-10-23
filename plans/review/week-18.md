@@ -45,6 +45,8 @@ A key gives each picture a row of filled and empty counters. A changer flips at 
 10. **could**, 2–3 P5 and 4–5 P2 restate the one-change rule.
 11. **could**, Problem 1 starts 1.2–1.4 in lower than Problems 2–6 in every band.
 
+Fixed October 23, 2026: shoulds 1–4 and coulds 5–7, 10 and 11, in the problem files and the guide (W18-K-v4, W18-23-v4, W18-45-v4). Coulds 8 and 9 restructure problems and are left for the organizer.
+
 ## Overlaps
 
 Week 6 (code breaking) uses the same rows to ask how many tests find a secret. Week 46 counts differing places as instructions. The bonus takes this object to erasures and parity. Only Week 18 has the correction criterion and the packing bound: no merge.

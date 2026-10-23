@@ -16,7 +16,8 @@ def transmission():
  assert sum(a!=b for a,b in zip(start,start))==0
  for band in ('k-1','grades-2-3','grades-4-5'):
   tex=(S/(band+'.tex')).read_text().split('\\newpage')[0]
-  assert 'Start row' in tex and 'Final row' in tex and 'only this row' in tex
+  assert 'Start row' in tex and 'Final row' in tex and 'In the game, the start row' in tex
+  assert not any(t in tex for t in ('only this row', 'practice row', 'leave the row as it is'))  # cut October 23, 2026
   assert tex.count('(11,6) -- (11,16)')==1
   assert tex.count('(9,12.25) -- (11.8,12.25)')==1
   if band=='grades-4-5':
@@ -25,7 +26,7 @@ def transmission():
   else:
    fills=re.findall(r'\\draw\[line width=\.9pt,fill=(black|white)\]',tex)
    assert fills==['black' if b=='1' else 'white' for b in '010101110111'],fills
- return '0101 -> 0111 changes only position 3; no-change is legal; receiver row alone crosses folder.'
+ return '0101 -> 0111 changes only position 3; no-change is legal; receiver row alone crosses folder; no heading or narrating sentences.'
 
 result=transmission()
 print(f"PASS Week {WEEK}: {result}")

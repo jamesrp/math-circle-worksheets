@@ -1,6 +1,10 @@
 # Error-correcting codebooks: Week 18 editable release
 
-## Current release: October 4, 2026 fresh-review revision
+## Current release: October 23, 2026 card fixes
+
+**Card fixes, October 23, 2026 (v4).** From the review card (plans/review/week-18.md in the project). Student pages: page 1 of every band drops the "Example: a practice row" heading and the sentences "The receiver sees only this row." and "The changer may also leave the row as it is.", keeping the practice row and the folder sentence; K–1 page 1 defines a key as Grades 2–3 does; Problem 1 starts at the top of its page like Problems 2–6; K–1 Problem 5 reads "For each triangle row, find every square row that always works. Use more paper if needed." with two square strips under each triangle row (so 0100 now has five partners, 1111 among them); Grades 2–3 Problem 5 and Grades 4–5 Problem 2 no longer restate the one-change rule. Guide: the launch shows a send with and without a change, reveals the picture only after the receiver answers and gives pair roles; 1-inch counters and cells, with the filled color named; an hour with a 5-minute run and 38 minutes at the tables; the K–1 Problem 5 lists and extension; the route note's wording from the math check; no leftover process notes. `src/check_math.py`, `src/check_examples.py` and `facilitator-src/independent_checks.py` check the new K–1 Problem 5 rule and page 1, and `review/verify_card_fixes_2026_10_23.py` checks the changed claims from the built PDFs and the guide source. The previous PDFs and ZIP are archived in the project. Unpiloted; counter fit is physically untested.
+
+### October 4, 2026 fresh-review revision
 
 **Problem files.** The student pages are now stored as problem files, one per problem, in `problem-files/` (in the repository: `lowell-math-circle-year-2/source/week-18/`). The conversion changed no wording or figure: the student LaTeX is byte-identical to the old builder's. `src/regenerate.py` writes it from the problem files, `src/check_math.py` keeps the old builder's finite checks, and `problem-files/tools/build.py` also builds first-route and return packets, a one-page problem menu and a key view.
 
@@ -17,6 +21,7 @@ Extract the complete ZIP. Install Python 3 with `requirements.txt`, a normal TeX
     python3 -m pip install -r requirements.txt
     bash build.sh
     python3 verify_revision.py
+    python3 review/verify_card_fixes_2026_10_23.py
 
 The current verifier compares paper geometry and every 100-dpi rendered page against `reference-pdfs/`; timestamps may differ. It permits only specifically audited full-page font/hyphenation alternatives for unchanged student PDFs. See `review/fresh-review-rebuild.md` for actual results. The original strict verifier (`verify_rebuild.py` or `verify.py`) is retained and rejects those alternatives. The corpus report explicitly records any pre-existing small TeX font-metric differences for unchanged student bands; their current print/reference PDFs stay byte-identical. For Weeks 24 and 35, the detailed student-stage record is `review/student-reviser-fresh-review.md`. The corpus release report records those differences explicitly rather than calling them pixel-identical.
 

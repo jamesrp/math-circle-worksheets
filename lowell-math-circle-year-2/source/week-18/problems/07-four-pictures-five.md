@@ -7,10 +7,10 @@ kernel = "Four rows of length five can differ pairwise in at least three places,
 +++
 
 ## prompt [2-3]
-Make a key for all four pictures with five counters in each row. The receiver must always know the picture after zero or one change. Explain how you know your key works.
+Make a key for all four pictures, with five counters in each row, that always lets the receiver know the picture. Explain how you know your key works.
 
 ## prompt [4-5]
-Make a key for all four pictures with five entries in each row. The receiver must always recover the picture after zero or one change. Explain why your key works.
+Make a key for all four pictures, with five entries in each row, that always lets the receiver recover the picture. Explain why your key works.
 
 ## figure [2-3]
 ''.join(keyed(1.4,y,s,'-----',2,small=True) for y,s in zip([3.8,7,10.2,13.4],['triangle','square','star','diamond']))
