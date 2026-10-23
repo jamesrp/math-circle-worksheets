@@ -1,7 +1,7 @@
 \documentclass[11pt]{article}
 \input{common.tex}
 \renewcommand{\band}{Materials}
-\renewcommand{\packetid}{W63-M-v2}
+\renewcommand{\packetid}{W63-M-v3}
 \newcommand{\card}[3]{%
   \begin{scope}[shift={(#1,#2)}]
     \draw[thin] (0,0) rectangle (30,40);
@@ -15,11 +15,38 @@
     \end{scope}
   \end{scope}
 }
+% The card's picture, #4 mm tall and centred at (#2,#3), so that children who do not
+% read letters yet can see a home match. Same shapes as \card, scaled to one height.
+\newcommand{\mini}[4]{%
+  \if A#1\begin{scope}[shift={(#2,#3)},scale=#4/12]\draw[fill=black!12] (0,0) circle (6);\end{scope}\fi
+  \if B#1\begin{scope}[shift={(#2,#3)},scale=#4/10.3923048454]\draw[fill=black!12] (0,5.1961524227)--(-6,-5.1961524227)--(6,-5.1961524227)--cycle;\end{scope}\fi
+  \if C#1\begin{scope}[shift={(#2,#3)},scale=#4/12]\draw[fill=black!12] (-6,-6) rectangle (6,6);\end{scope}\fi
+  \if D#1\begin{scope}[shift={(#2,#3)},scale=#4/16.9705627485]\draw[fill=black!12] (0,8.4852813742)--(8.4852813742,0)--(0,-8.4852813742)--(-8.4852813742,0)--cycle;\end{scope}\fi
+  \if E#1\begin{scope}[shift={(#2,#3)},scale=#4/14.4721359550]\begin{scope}[shift={(0,-0.7639320225)}]\draw[fill=black!12] (90:8)\foreach \a/\r in {54/3.5,18/8,-18/3.5,-54/8,-90/3.5,-126/8,-162/3.5,-198/8,-234/3.5}{--(\a:\r)}--cycle;\end{scope}\end{scope}\fi
+}
 \newcommand{\homes}[1]{%
   \foreach \h [count=\i from 0] in {A,B,C,D,E}{%
     \draw[thin] (\i*35,#1) rectangle ++(35,45);
-    \node[font=\small\bfseries] at ({\i*35+17.5},{#1+42.5}) {\h};
+    \node[font=\small\bfseries] at ({\i*35+13.5},{#1+42.5}) {\h};
+    \mini{\h}{\i*35+21.5}{#1+42.5}{4.2}
   }
+}
+% Three-card outcome with each card's picture beside its letter: cells 14 x 10 mm.
+\newcommand{\outcomepics}[4]{%
+  % x, y, comma-separated cards in homes A, B, C, row identifier.
+  \begin{scope}[shift={(#1,#2)}]
+    \draw[thin] (0,0) rectangle (56,27);
+    \foreach \h [count=\i from 0] in {A,B,C}{%
+      \node[font=\scriptsize] at ({7+\i*14+5},21) {\h};
+      \mini{\h}{7+\i*14+9}{21}{3}
+      \draw[thin] ({7+\i*14},7) rectangle ++(14,10);
+    }
+    \foreach \placed [count=\i from 0] in {#3}{%
+      \node[font=\normalsize\bfseries] at ({7+\i*14+4.5},12) {\placed};
+      \mini{\placed}{7+\i*14+9.6}{12}{4.4}
+    }
+    \node[font=\scriptsize] at (28,3) {#4};
+  \end{scope}
 }
 \newcommand{\outcome}[6]{%
   % x, y, homes, cards, number of homes, persistent complete-row identifier.
@@ -54,7 +81,7 @@ Cut out the six A--C outcomes and the group labels. Each outcome card is one com
   \foreach \a/\b/\c [count=\i from 0] in {A/B/C,A/C/B,B/A/C,B/C/A,C/A/B,C/B/A}{%
     \pgfmathtruncatemacro{\col}{mod(\i,3)}
     \pgfmathtruncatemacro{\r}{floor(\i/3)}
-    \outcome{\col*58}{188-\r*29}{A,B,C}{\a,\b,\c}{3}{\a\b\c}
+    \outcomepics{\col*58}{188-\r*29}{\a,\b,\c}{\a\b\c}
   }
   \foreach \i in {0,...,11}{%
     \pgfmathtruncatemacro{\col}{mod(\i,3)}
@@ -63,7 +90,8 @@ Cut out the six A--C outcomes and the group labels. Each outcome card is one com
   }
   \foreach \h [count=\i from 0] in {A,B,C,D,E}{%
     \draw[thin] (\i*35,126) rectangle ++(34,16);
-    \node[font=\small] at ({\i*35+17},134) {\h\ in home \h};
+    \node[font=\small] at ({\i*35+19.5},134) {\h\ in home \h};
+    \mini{\h}{\i*35+5.5}{134}{4.5}
   }
 \end{tikzpicture}\end{center}
 

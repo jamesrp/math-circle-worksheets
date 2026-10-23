@@ -7,7 +7,8 @@ route = ["first", "return"]
 +++
 
 ## text
-Use a card set and the home strip with the same letters. Use each card once, with one card in every home. Keep the home labels fixed. A \emph{home match} means the card and its home have the same letter. Check a complete row before moving any card. Record the cards from left to right; different rows count separately. A row with no home matches is \emph{home-free}.
+\renewcommand{\band}{Grades K--5}
+Use a card set and the home strip with the same letters. Use each card once, with one card in every home. Keep the home labels fixed. A \emph{home match} means the card and its home have the same letter. Check a complete row before moving any card. Record the cards from left to right. A row with no home matches is \emph{home-free}.
 
 \begin{center}
 \begin{tikzpicture}[x=1mm,y=1mm]

@@ -8,7 +8,7 @@ kernel = 'Four cards have nine home-free rows, three for each card in home A.'
 +++
 
 ## text
-\renewcommand{\band}{Grades 3--5}
+\renewcommand{\band}{Grades K--5}
 
 ## prompt
 Find every A--D row with no home matches. Make a catalog your table can check for repeated or missing rows.

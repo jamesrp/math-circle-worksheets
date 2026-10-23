@@ -169,30 +169,31 @@ def math_audit():
 def pdf_audit(path):
     import pymupdf as fitz
     doc = fitz.open(path)
-    assert len(doc)==10, f'Expected 10 guide pages, got {len(doc)}'
+    assert len(doc)==11, f'Expected 11 guide pages, got {len(doc)}'
     result = {'sha256':hashlib.sha256(path.read_bytes()).hexdigest(), 'pages':[]}
     for i,p in enumerate(doc):
         assert tuple(p.rect)==(0,0,612,792)
         text = p.get_text()
         assert 'Week 63 / Cards away from home / Facilitator' in text
-        assert 'W63-G-v1' in text
+        assert 'W63-G-v2' in text
         words=p.get_text('words')
         assert all(w[0]>=0 and w[1]>=0 and w[2]<=612 and w[3]<=792 for w in words)
         result['pages'].append({'page':i+1,'size':[612,792],
                                'text_sha256':hashlib.sha256(text.encode()).hexdigest(),
                                'pixel_sha256_144dpi':hashlib.sha256(p.get_pixmap(matrix=fitz.Matrix(2,2)).samples).hexdigest()})
     expected_page_words = {
-        4: CAT3+CAT4+'ABC ACB BAC CBA'.split(), 5: PARTIAL4,
-        7: 'DCBA DABC DCAB CB CAB BCA QRSTP UTQRSP TQRS UPQRST TPQRS'.split(),
-        8: list(REDUCTIONS5_A)+[t[2] for t in REDUCTIONS5_A.values()],
-        9: [r for rs in BRANCHES5.values() for r in rs],
+        3: CAT3+CAT4+'ABC ACB CBA BAC'.split(),  # the K-1 route's plain-words key
+        5: CAT3+CAT4+'ABC ACB BAC CBA'.split(), 6: PARTIAL4,
+        8: 'DCBA DABC DCAB CB CAB BCA QRSTP UTQRSP TQRS UPQRST TPQRS'.split(),
+        9: list(REDUCTIONS5_A)+[t[2] for t in REDUCTIONS5_A.values()],
+        10: [r for rs in BRANCHES5.values() for r in rs],
     }
     for page, rows in expected_page_words.items():
         found=re.findall(r'\b[A-Z]{2,6}\b',doc[page-1].get_text())
         for row in rows: assert row in found, (page,row)
     # Bind each printed reduction to its own table row, rather than merely
     # asserting that the labels occur somewhere on the page.
-    words8=doc[7].get_text('words')
+    words8=doc[8].get_text('words')
     for full, (family, keep, smaller) in REDUCTIONS5_A.items():
         anchors=[w for w in words8 if w[4]==full and w[0]<180]
         assert len(anchors)==1,(full,anchors)
@@ -200,8 +201,13 @@ def pdf_audit(path):
         line_text=' '.join(w[4] for w in line)
         assert family in line_text and smaller in line_text, (full,line_text)
         assert '/'.join(keep) in line_text, (full,keep,line_text)
-    assert 'UNPERFORMED' in doc[2].get_text()
-    assert 'AECDB' in doc[5].get_text()
+    assert 'UNPERFORMED' in doc[3].get_text()
+    assert 'AECDB' in doc[6].get_text()
+    k1=' '.join(doc[2].get_text().split())
+    assert 'The K–1 route at the parent' in k1 and 'Can exactly three of A, B, C, D be home?' in k1
+    assert 'Held hint for P8' in doc[7].get_text()
+    p9=' '.join(doc[9].get_text().split())
+    assert 'For three or more distinct cards' in p9 and 'For two or more' not in p9
     assert 'Mathematical overview' in doc[0].get_text()
     return result
 

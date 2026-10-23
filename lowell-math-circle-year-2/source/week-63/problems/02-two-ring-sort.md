@@ -8,8 +8,8 @@ kernel = 'The A-home and B-home groups share ABC, so the rows outside both numbe
 +++
 
 ## text
-\renewcommand{\band}{Grades 2--5}
-One outcome card is one whole placement. It can belong to several groups at once. Group the outcome cards on the table.
+\renewcommand{\band}{Grades K--5}
+One outcome card is one whole placement.
 
 \begin{center}\begin{tikzpicture}[x=1mm,y=1mm]
   \node[font=\small] at (28,35) {Whole outcome card};

@@ -11,7 +11,7 @@ kernel = 'Pooling the four homes of E gives $4\times11=44$, and the two families
 \renewcommand{\band}{Grades 4--5}
 
 ## prompt
-Choose one of homes A, B, C, D for E. Make a complete catalog of home-free A--E rows with E there. Pool the four catalogs to count all home-free A--E rows. Use the two families to give a counting rule for two or more distinct cards, and explain why each row is counted once.
+Choose one of homes B, C, D for E. Make a complete catalog of home-free A--E rows with E there. Pool the four catalogs, including Problem 8's, to count all home-free A--E rows. Use the two families to give a counting rule for three or more distinct cards, and explain why each row is counted once.
 
 ## text
 \blankrows{8}{A,B,C,D,E}{5}

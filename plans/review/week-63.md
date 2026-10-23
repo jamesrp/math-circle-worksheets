@@ -49,6 +49,8 @@ Children place lettered cards in lettered homes and hunt for rows with no card a
 9. **could**, guide p. 3: name the "small lettered markers" (lettered sticky dots), or let children circle matches on the outcome card. Guide p. 2's launch also needs a VUWX outcome card and W/X markers that no material supplies; point to the printed p. 2 example.
 10. **could**, guide p. 2: the first route runs 43–53 minutes after a 6–8 minute launch; context.md allows thirty-five to forty minutes at the tables.
 11. **could**, guide p. 2 launch: "Put one card in each matching set of homes" reads oddly; "Put each card on the strip with the same letters."
+
+**October 23, 2026:** fixed the must (pages 1–3 headed Grades K–5, card pictures on materials pp. 1–2, a K–1 route page in the guide), should 2 by its first option, shoulds 3 and 4 and coulds 5–9 and 11 (W63-S-v3, W63-M-v3, W63-G-v2); could 10 deferred.
 12. **could**, guide pp. 2 and 10: cut residue ("superseding the older ten-child snapshot in the root README"; "not a claim of publication, remote upload or classroom success").
 
 ## Overlaps

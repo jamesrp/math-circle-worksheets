@@ -12,13 +12,25 @@
 \renewcommand{\arraystretch}{1.18}
 \pagestyle{fancy}\fancyhf{}
 \fancyhead[L]{\small Week 63 / Cards away from home / Facilitator}
-\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 63 / W63-G-v1}
+\fancyfoot[L]{\footnotesize Bellingham Math Circle / Week 63 / W63-G-v2}
 \fancyfoot[R]{\footnotesize\thepage}
 \renewcommand{\headrulewidth}{0.35pt}
 \newcommand{\heading}[1]{\par\textbf{\large #1}\par}
 \newcommand{\subhead}[1]{\par\textbf{#1}\par}
 \newcommand{\row}[1]{\texttt{#1}}
 \newcommand{\guidepage}{\newpage}
+\newcommand{\cyclefive}[2]{%
+  \foreach \v [count=\i from 0] in {#1}{%
+    \node[circle,draw,fill=white,minimum size=6mm,inner sep=0pt,font=\small] (v\i) at ({90-72*\i}:#2) {\v};}
+  \foreach \i/\j in {0/1,1/2,2/3,3/4,4/0}{\draw[-{Stealth[length=2mm]},thin] (v\i)--(v\j);}}
+\newcommand{\cyclesix}[2]{%
+  \foreach \v [count=\i from 0] in {#1}{%
+    \node[circle,draw,fill=white,minimum size=5.8mm,inner sep=0pt,font=\small] (v\i) at ({90-60*\i}:#2) {\v};}
+  \foreach \i/\j in {0/1,1/2,2/3,3/4,4/5,5/0}{\draw[-{Stealth[length=1.8mm]},thin] (v\i)--(v\j);}}
+\newcommand{\cyclefour}[2]{%
+  \foreach \v [count=\i from 0] in {#1}{%
+    \node[circle,draw,fill=white,minimum size=6mm,inner sep=0pt,font=\small] (v\i) at ({90-90*\i}:#2) {\v};}
+  \foreach \i/\j in {0/1,1/2,2/3,3/0}{\draw[-{Stealth[length=1.8mm]},thin] (v\i)--(v\j);}}
 \ifdefined\pdfinfoomitdate\pdfinfoomitdate=1\fi
 \ifdefined\pdftrailerid\pdftrailerid{}\fi
 \ifdefined\pdfsuppressptexinfo\pdfsuppressptexinfo=15\fi
@@ -41,7 +53,7 @@ This is a per-outcome proof for every $n$, rather than an extrapolation from a f
 \]
 The empty bijection is unique; one card cannot avoid home. The recurrence does not apply at $n=1$. It assumes precisely these own-home prohibitions, not an arbitrary forbidden-place board.
 
-\textbf{Destinations for children.} Grades 2--5 entry: retain fixed homes and notice one whole outcome in two groups (P1--2). Grades 3--5: make a checkable four-card catalog and repair overlap counts (P3--5). Grades 4--5: explain cancellation and reversible families (P6--9). Small counts are $D_2=1,D_3=2,D_4=9,D_5=44$; avoiding only A-home and B-home gives 3 of 6 or 14 of 24. Physical attempts are experiments; a complete catalog establishes a small count; the cancellation and inverse arguments establish the general facts. These are different levels of evidence.
+\textbf{Destinations for children.} K--1 entry: place and check by letter and picture, sort the six A--C outcomes, and pool a nine-row catalog with an adult reading and writing (P1--3). Grades 2--5 entry: retain fixed homes and notice one whole outcome in two groups (P1--2). Grades 3--5: make a checkable four-card catalog and repair overlap counts (P3--5). Grades 4--5: explain cancellation and reversible families (P6--9). Small counts are $D_2=1,D_3=2,D_4=9,D_5=44$; avoiding only A-home and B-home gives 3 of 6 or 14 of 24. Physical attempts are experiments; a complete catalog establishes a small count; the cancellation and inverse arguments establish the general facts. These are different levels of evidence.
 
 \guidepage
 \heading{Run a first hour; keep deeper routes available}
@@ -51,30 +63,51 @@ The empty bijection is unique; one card cannot avoid home. The recurrence does n
 \subhead{Prerequisite gates, not age promises}
 \begin{tabularx}{\linewidth}{@{}p{24mm}X@{}}\toprule
 Pages / band & What children need; adult support that leaves the mathematics with them\\\midrule
+1--3 / K--1 & Match a card's letter or picture to its home's, use each card once, count to nine. The adult reads and writes; children place, check and sort. Route on p.~3.\\
 1--2 / 2--5 & Recognize A--C, use each once, keep homes fixed, count to six, and recognize one whole row with two memberships. Read the shared rules aloud; an adult may record a child's chosen row.\\
 3--5 / 3--5 & Retain four labels, compare whole rows, organize completeness and overlap. Totals reach 24; repeated subtraction/addition can be written by the adult. P5 needs sustained simultaneous-property reasoning.\\
 6--9 / 4--5 & Track chosen subsets, use card-to-home arrows, reverse constructions and explain disjoint exhaustive cases. Totals reach 120. Factorial notation is optional; successful placement alone does not establish readiness for P6 or P9.\\\bottomrule
 \end{tabularx}
 
 \subhead{Whole-group launch: about 6--8 minutes}
-Let children handle the cards and strips for 2--3 minutes. Ask: ``Put one card in each matching set of homes. Make a placement, then freeze it. Which cards have their own home?'' Keep all home labels visible and unchanged. Show how one complete row is recorded left to right. Use the student's non-task \row{VUWX} example in U/V/W/X homes: no, no, yes, yes. Then point to \emph{one} whole-outcome card, the same \row{VUWX}, and attach W-home and X-home markers to it. Both checks describe that same frozen object. Do not move a letter-card between checks or turn two memberships into two outcomes. This demonstrates the convention without revealing the A--C solution.
+Let children handle the cards and strips for 2--3 minutes. Ask: ``Put each card on the strip with the same letters. Make a placement, then freeze it. Which cards have their own home?'' Keep all home labels visible and unchanged. Show how one complete row is recorded left to right. Use the student's non-task \row{VUWX} example in U/V/W/X homes: no, no, yes, yes. Then point to \emph{one} whole-outcome card, the \row{VUWX} printed on student p.~2, and put a W and an X sticky dot on it. Both checks describe that same frozen object. Do not move a letter-card between checks or turn two memberships into two outcomes. This demonstrates the convention without revealing the A--C solution.
 
 \subhead{A feasible first route}
 Spend about 15--20 minutes exploring P1 or P3; then allow 15--20 minutes for P2 or P4 when children retain the convention. Pause around minute 30 for a 3-minute stand/stretch: point to fixed home labels and let a child describe a frozen row; do not add a new rule. Use the final 10 minutes to compare one shared record and hear a child's explanation. Leave time to pack the kits. These are untested forecasts, not deadlines or a requirement to finish the packet.
 
-The youngest have \textbf{no independent K--1 packet}. Offer an oral two-card, then three-card home-free trial only while they own the placement choices and retain the rule. If an adult must perform every match check, return to free arranging or an already familiar concrete activity. An adult can scribe; do not present adult-operated sorting as independent K--1 work. The middle table can stay with P3--4. Upper children may start P3--4 or P7 if ready; offer one page at a time. On a return visit choose either P5--6 overlap correction or P7--9 reversible constructions, then compare the two counts later. General proofs need not fit one hour.
+The middle table can stay with P3--4. Upper children may start P3--4 or P7 if ready; offer one page at a time. On a return visit choose either P5--6 overlap correction or P7--9 reversible constructions, then compare the two counts later. General proofs need not fit one hour.
+
+
+
+\guidepage
+\heading{The K--1 route at the parent's table}
+Four children in two pairs, one adult. This page can be printed on its own for the parent. Pages 1--3 are headed Grades K--5; the cards carry pictures beside the letters, so a child who does not read letters yet can still check a match.
+
+\textbf{Rules, read aloud as two sentences:} ``Put one card under each home. A card is home when its letter and picture are the same as the home's.'' Cover homes D and E for three cards and E for four. The adult writes the rows; children place, check and sort.
+
+\textbf{Materials:} the two kits from materials p.~1, the six A--C outcome cards and the A and B group labels from materials p.~2, two open rings, a pencil.
+
+\begin{center}\begin{tabularx}{\linewidth}{@{}p{30mm}X@{}}\toprule
+Step & What the children do, and the key in plain words\\\midrule
+1. P1, after the launch & Find every row of A, B, C with no card at home, then: ``Can exactly two cards be home?'' \emph{Key:} two rows, B~C~A and C~A~B. Two cards home is impossible: the last card has only its own home left.\\
+2. P2, two rings & Put the six outcome cards in an A-home ring and a B-home ring that overlap. Stop at ``How many rows are outside both groups?''; the student's count $6-2-2$ is optional. \emph{Key:} A-home holds ABC and ACB; B-home holds ABC and CBA; ABC sits in both rings. Outside both: BAC, BCA and CAB, three cards.\\
+3. P3, split by home A & One pair puts B in home A, the other C; the table does D together. Each finds three rows; pool them to nine. \emph{Key:} B in home A gives BADC, BCDA, BDAC; C gives CADB, CDAB, CDBA; D gives DABC, DCAB, DCBA.\\
+4. Aloud & ``Can exactly three of A, B, C, D be home?'' \emph{Key:} no, for the same reason as in P1: the fourth card has only its own home left.\\\bottomrule
+\end{tabularx}\end{center}
+
+If the adult is choosing every placement or doing every check, stop and let the children arrange freely; a child who has had enough can make rows for a partner to check. This route is untested with K--1 children.
 
 \guidepage
 \heading{Preparation from the actual three material pages}
 
 \begin{tabularx}{\linewidth}{@{}p{27mm}p{19mm}X@{}}\toprule
 Print at 100\% & Copies & Supplied pieces and use\\\midrule
-Materials p. 1 & 5 & Per copy: two A--E decks, ten cards $30\times40$ mm; two whole strips with five $35\times45$ mm homes. Total 50 working cards and 10 strips, one two-deck kit per pair/table.\\
-Materials p. 2 & 5 & Per copy: six A--C whole outcomes, five home-group labels, twelve blank A--E outcome records. Total 30 three-card outcomes, 25 labels, 60 blank records. Reserve four sets of 12 blanks for the pooled upper catalog if taking P8--9.\\
+Materials p. 1 & 5 & Per copy: two A--E decks, ten cards $30\times40$ mm; two whole strips with five $35\times45$ mm homes, each with its card's picture beside the letter. Total 50 working cards and 10 strips, one two-deck kit per pair/table.\\
+Materials p. 2 & 5 & Per copy: six A--C whole outcomes with pictures beside the letters, five home-group labels, twelve blank A--E outcome records. Total 30 three-card outcomes, 25 labels, 60 blank records. Reserve four sets of 12 blanks for the pooled upper catalog if taking P8--9.\\
 Materials p. 3 & 2 & Per copy: all 24 A--D whole outcomes. Share one deck at the middle table and one at the upper table; pairs can pool the table collection. Total 48 outcomes.\\\bottomrule
 \end{tabularx}
 
-This reusable full-route preparation is 12 printed sheets and 223 cut pieces, counting a whole home strip as one piece. Unneeded outcome pages can wait until a return visit. Add five folders/trays, pencils or dry-erase recording sheets, cover slips for unused homes, and two large open paper/cord/tape rings at each table doing a two-group overlap (up to six rings). For four/five groups, use the supplied labeled properties plus small \emph{lettered} markers beside a whole outcome; colors alone need not carry the rule. Keep one persistent row ID. Two physical copies with the same ID still represent one outcome and must be reconciled before counting.
+This reusable full-route preparation is 12 printed sheets and 223 cut pieces, counting a whole home strip as one piece. Unneeded outcome pages can wait until a return visit. Add five folders/trays, pencils or dry-erase recording sheets, cover slips for unused homes, and two large open paper/cord/tape rings at each table doing a two-group overlap (up to six rings). For four/five groups, use the supplied labeled properties plus lettered sticky dots on a whole outcome; colors alone need not carry the rule. Keep one persistent row ID. Two physical copies with the same ID still represent one outcome and must be reconciled before counting.
 
 \textbf{Placement:} keep the home strips whole. Align working cards with the lower cell edge; the top 5 mm leaves the home letter visible. Cover D/E for A--C and E for A--D. For smaller mixed subsets, retain the original lettered cards and homes; cover removed homes without compressing or relabeling the survivors. The pictures support recognition, but persistent letters decide identity.
 
@@ -88,7 +121,7 @@ Cut one real kit at actual size. Check bottom-edge alignment and visible home le
 \guidepage
 \heading{Problems 1--3: concrete catalogs and the first overlap}
 
-\subhead{P1 / student p. 1 / Grades 2--5}
+\subhead{P1 / student p. 1 / Grades K--5}
 The complete home-free A/B/C catalog is \row{BCA}, \row{CAB}: \textbf{two rows}. A row cannot have exactly two matches. Once two specified cards occupy their own homes, the remaining card and remaining home have the same label, so the third also matches. All six rows provide this adult check:
 
 \begin{center}\begin{tabular}{@{}lll@{}}\toprule
@@ -103,12 +136,12 @@ Row & Home-match set & Match count\\\midrule
 
 If stuck, ask which card can occupy home A and let children finish each choice. For the impossibility question, physically hold the two matched cards in place. Several successful trials suggest possibilities; checking both possible first cards and all legal completions proves the catalog complete. The two home-free rows already occur in Week 43 upper p. 3, P5, from a particular swap procedure. Here they establish the fixed-home convention; new substance comes with four/five cards and overlaps.
 
-\subhead{P2 / student p. 2 / Grades 2--5}
+\subhead{P2 / student p. 2 / Grades K--5}
 The A-home group is $\{\row{ABC},\row{ACB}\}$; the B-home group is $\{\row{ABC},\row{CBA}\}$. Their intersection is the \emph{single outcome} \row{ABC}. Outside both are \row{BAC}, \row{BCA}, \row{CAB}. Thus $6-2-2+1=\boxed{3}$. The subtract-only count removes \row{ABC} twice; adding the intersection once removes it only once overall. \row{BAC} belongs here: C may remain home. It does not belong to P1's catalog.
 
 Ask a child to hold one complete outcome while checking both named homes without moving its entries. If the groups are made disjoint, return to the \row{VUWX} convention: one row may carry two true properties. An optional prompt is ``What happened to the outcome in both groups when we subtracted?'' Use the physical shared object before arithmetic. The goal is repairing the child's count; provide the add-back only as a hint after attempts.
 
-\subhead{P3 / student p. 3 / Grades 3--5}
+\subhead{P3 / student p. 3 / Grades K--5}
 All \textbf{nine} home-free rows, grouped by the card in home A:
 \begin{center}\begin{tabular}{@{}cl@{}}\toprule
 Home A contains & Complete branch\\\midrule
@@ -180,7 +213,7 @@ For instance AB contains all six ways to put C/D/E in C/D/E homes, including ide
 The catalog on guide p. 9 is a second finite check. Children need not list all 120 rows or independently reproduce all 44 valid ones.
 
 \subhead{The requested explanation: check a single row's weight}
-Let $m$ be the number of its matches. The number of intersections of size $k$ containing that row is $\binom mk$. Its alternating weight is the sum along the appropriate line:
+Let $m$ be the number of its matches. The number of intersections of $k$ named home-groups ($k$ required matches) containing that row is $\binom mk$. Its alternating weight is the sum along the appropriate line:
 \begin{center}\begin{tabular}{@{}cll@{}}\toprule
 $m$ & Per-row contribution & Weight\\\midrule
 0 & $1$ &1\\
@@ -217,17 +250,32 @@ For \row{DCBA}, A is in home D. Remove cards and homes A,D together, retaining B
 
 The inverses check completeness: reinsert A/D as a reciprocal pair into \row{CB}; or take each of the two A/B/C derangements, find the card in home A, move it to home D and place D at A. Each gives exactly one original row. The families do not overlap and exhaust whether A occupies home D. Thus $1+2=3$. Distinguishing D's three possible destinations A,B,C gives three disjoint branches of size three, agreeing with P3's nine.
 
-\subhead{Check the non-task removal examples / student p. 8}
-The top input has $P\leftrightarrow U$ and $Q\to R\to S\to T\to Q$. In P/Q/R/S/T/U homes its row is \row{UTQRSP}. Removing \emph{both} P,U cards and homes leaves Q/R/S/T homes containing \row{TQRS}; restoring that same reciprocal pair is unique.
-
-The bottom input is $P\to Q\to R\to S\to T\to U\to P$, row \row{UPQRST}. Deleting only U redirects $T\to U\to P$ to $T\to P$, leaving P/Q/R/S/T homes containing \row{TPQRS}. Its inverse moves the card T from home P to home U and puts U at P. No survivor is renamed. These examples teach the remove/restore action without giving the A--E catalog.
+\subhead{Held hint for P8: two removals on non-task letters}
+These two pictures are P8's two constructions on letters P--U. Show them only after a pair has sorted its E-at-A rows into the two families and tried to make smaller rows.
+\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,scale=.9,every node/.style={transform shape}]
+  \begin{scope}[shift={(14,0)}]
+    \node[circle,draw,minimum size=6mm,inner sep=0pt,font=\small] (p) at (-10,16) {P};
+    \node[circle,draw,minimum size=6mm,inner sep=0pt,font=\small] (u) at (10,16) {U};
+    \draw[-{Stealth[length=1.8mm]}] (p) to[bend left=18] (u);
+    \draw[-{Stealth[length=1.8mm]}] (u) to[bend left=18] (p);
+    \begin{scope}[shift={(0,-6)}]\cyclefour{Q,R,S,T}{11}\end{scope}
+  \end{scope}
+  \draw[-{Stealth[length=2mm]}] (31,0)--(41,0);
+  \begin{scope}[shift={(57,0)}]\cyclefour{Q,R,S,T}{12}\end{scope}
+  \node[font=\small,align=center] at (36,-25) {P and U point to each other: remove both.};
+  \begin{scope}[shift={(110,0)}]\cyclesix{P,Q,R,S,T,U}{15}\end{scope}
+  \draw[-{Stealth[length=2mm]}] (130,0)--(140,0);
+  \begin{scope}[shift={(158,0)}]\cyclefive{P,Q,R,S,T}{14}\end{scope}
+  \node[font=\small,align=center] at (134,-25) {T $\to$ U $\to$ P becomes T $\to$ P.};
+\end{tikzpicture}\end{center}
+Left: row \row{UTQRSP} in P--U homes; removing both P and U leaves \row{TQRS} in Q/R/S/T homes, and restoring that reciprocal pair is unique. Right: row \row{UPQRST}; deleting only U leaves \row{TPQRS} in P--T homes, and the inverse moves card T from home P to home U and puts U at P. No survivor is renamed. These are the constructions, not the A--E catalog.
 
 If needed, retain the large reference row on the second strip while rebuilding the smaller row. An adult can draw the child's arrows, but let the child locate each card and decide which family it belongs to. Ask whether restoring returns \emph{the exact same row}, not merely some home-free row.
 
 \guidepage
 \heading{Problem 8: the shared E-at-A branch}
 \subhead{P8 / student p. 8 / Grades 4--5}
-E stays in home A. There are \textbf{two reciprocal and nine longer-loop outcomes}, eleven total. Here is the complete reversible key; the smaller home's labels are explicitly retained.
+E stays in home A. The pair records on the 12 A--E boards on student p.~8; keep them as P9's A branch. There are \textbf{two reciprocal and nine longer-loop outcomes}, eleven total. Here is the complete reversible key; the smaller home's labels are explicitly retained.
 
 \begin{center}\begin{tabular}{@{}lll@{}}\toprule
 Full A/B/C/D/E-home row & Family & Smaller homes / row\\\midrule
@@ -255,7 +303,7 @@ The alternatives A at E / A away from E are disjoint and exhaustive; each smalle
 \guidepage
 \heading{Problem 9: pooled complete 44-row adult catalog}
 \subhead{P9 / student p. 9 / Grades 4--5}
-Preserve the shared E-at-A branch from P8. The three upper children may each own B, C or D, rotating arranger/checker/recorder and contributing to one recoverable catalog. Four page-2 blank-record sets provide 48 movable records for 44 outcomes. One P9 sheet has 16 writing rows, enough for one 11-row branch. Children need not list 120 permutations, and each child need not reconstruct every branch.
+Preserve the shared E-at-A branch from P8. The three upper children may each own B, C or D (the printed problem offers only these), rotating arranger/checker/recorder and contributing to one recoverable catalog. Four page-2 blank-record sets provide 48 movable records for 44 outcomes. One P9 sheet has 16 writing rows, enough for one 11-row branch. Children need not list 120 permutations, and each child need not reconstruct every branch.
 
 \begin{center}\begin{tabularx}{\linewidth}{@{}p{19mm}>{\raggedright\arraybackslash}p{35mm}X@{}}\toprule
 E's home & Reciprocal: two rows & Longer: nine rows\\\midrule
@@ -270,7 +318,7 @@ Every row here is recorded in the original A/B/C/D/E home order. For a branch wi
 \textbf{Pooling check.} Each branch has $D_3+D_4=2+9=11$. E must occupy exactly one of A,B,C,D in any home-free row. The branches are disjoint by E's destination and cover every valid row. The pooled total is $4\cdot11=\boxed{44}$. Deduplicate by the full row ID; different drawings of the same arrows are still the same placement.
 
 \subhead{The requested general counting rule}
-For two or more distinct cards, each of $n-1$ destinations of the distinguished card has $D_{n-2}$ reciprocal and $D_{n-1}$ longer outcomes, giving $D_n=(n-1)(D_{n-2}+D_{n-1})$. Readiness-dependent explanation belongs after children can reverse both cases. The general proof and base cases are on the next page. An arithmetic pattern alone is a conjecture; the disjoint exhaustive reversible cases explain why it persists.
+For three or more distinct cards, starting from $D_1=0$ and $D_2=1$, each of $n-1$ destinations of the distinguished card has $D_{n-2}$ reciprocal and $D_{n-1}$ longer outcomes, giving $D_n=(n-1)(D_{n-2}+D_{n-1})$. The rule for two cards needs $D_0=1$ (next page); do not ask for it. Readiness-dependent explanation belongs after children can reverse both cases. The general proof and base cases are on the next page. An arithmetic pattern alone is a conjecture; the disjoint exhaustive reversible cases explain why it persists.
 
 \subhead{Adult follow-ups and later visits}
 Ask how the catalog checks against P6's overlap count; compare explanations rather than just equal answers. If a child lists only long loops, use one reciprocal-pair example as a counterexample. Later, distinguish forbidding one/two/three own homes from forbidding all of them; P5's intersections support the counts 18,14,11,9 for four cards. An arbitrary new forbidden-place board is a different problem needing fresh enumeration and proof; this recurrence does not automatically transfer.

@@ -160,8 +160,11 @@ def pdf_checks(folder):
     assert membership_text.index("VUWX") < membership_text.index("Problem 2:")
     assert len(rectangles(membership,56,27)) == 1
     assert len(rectangles(membership,48,10)) == 2
-    assert "two or more distinct cards" in docs["students"][8].get_text()
-    assert "any number of distinct cards" not in docs["students"][8].get_text()
+    p9 = " ".join(docs["students"][8].get_text().split())
+    assert "three or more distinct cards" in p9 and "two or more" not in p9
+    assert "Choose one of homes B, C, D for E" in p9
+    assert "These examples remove U" not in docs["students"][7].get_text()
+    assert len(rectangles(docs["students"][7],12,10)) == 12*5  # twelve A-E boards on p. 8
     evidence = {}
     for stem, doc in docs.items():
         all_text = ""
@@ -171,7 +174,7 @@ def pdf_checks(folder):
             assert "Week 63 / Cards away from home /" in text
             assert "Bellingham Math Circle / Week 63 /" in text
             if stem == "students":
-                band = "Grades 2–5" if i <= 2 else "Grades 3–5" if i <= 5 else "Grades 4–5"
+                band = "Grades K–5" if i <= 3 else "Grades 3–5" if i <= 5 else "Grades 4–5"
                 assert band in text
                 assert re.findall(r"Problem (\d+):", text) == [str(i)]
             for span in [s for b in page.get_text("dict")["blocks"] if "lines" in b
@@ -216,8 +219,9 @@ def pdf_checks(folder):
                            for j,p in enumerate(points)]
                 assert max(lengths)-min(lengths)<0.02, lengths
                 polygons.append({"sides":len(points), "side_lengths_mm":[x/mm for x in lengths]})
-    assert sum(p["sides"]==3 for p in polygons)==2
-    assert sum(p["sides"]==4 for p in polygons)==4
+    # Card pictures (12 mm) plus the small copies beside each home letter (W63-M-v3).
+    assert sum(p["sides"]==3 for p in polygons)==4
+    assert sum(p["sides"]==4 for p in polygons)==8
     # Verify square icons from actual rectangle objects separately.
     assert len(rectangles(page,12,12)) == 2
     rendered_outcomes = {}
