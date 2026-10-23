@@ -4,6 +4,8 @@
 
 **Critic follow-up, October 23, 2026 (W42-grades-4-5-v4).** The Grades 4–5 Problem 2 grid outlines the R2-row, B-column cell beside the caption "R2 then B is one labeled pair. Its cell is outlined.", so it shows which head is the first draw. K–1, Grades 2–3 and the guide are unchanged. `review/verify_card_shoulds_2026_10_23.py` checks the v4 build.
 
+**Guide timeline, October 23, 2026.** Later the same day the guide's flexible hour (page 2) was retimed to the group's usual pattern: about 5 minutes of running around, a launch by minute 10, the tables at work until minute 47, then sharing and reset. No other page changed.
+
 The guide gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
 
 **Card shoulds, October 23, 2026.** The student pages are stored as problem files (see `src/README.md`). The review card's nine student-page and guide shoulds and four coulds were made there and in the guide: K–1 page 1 says to put each counter back after every draw and captions its bags; K–1 page 4 pictures all 16 marked pairs of the one-red and two-red bags, Problem 5 (now on page 5) starts "Keep your rule." and Problem 6 asks whether six random pairs always give a shape; Grades 2–3 Problems 3 and 5 have blank 4 × 4 grids, Problem 6 ends at "within six pairs?" and page 2 drops a narrating sentence; Grades 4–5 Problem 2 asks "Do the shape chances match? Explain." above a grid headed R1, R2, R3, B; "independently" and some bag captions are cut; the guide's materials, launch, overview and keys follow. All three packets are now v3. `review/card-shoulds-2026-10-23.md` lists the changes; `review/verify_card_shoulds_2026_10_23.py` checks them.

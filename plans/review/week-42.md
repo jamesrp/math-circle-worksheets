@@ -50,6 +50,8 @@ Fixed October 23, 2026, after converting the week to problem files: shoulds 1–
 
 **Critic follow-up, October 23, 2026 (W42-grades-4-5-v4; K–1, 2–3 and the guide unchanged):** an independent critic noted that the Grades 4–5 Problem 2 grid has the same heads on both axes and, unlike Grades 2–3, never says which axis is the first draw, though RB and BR are the cells the question compares. The grid now outlines the R2-row, B-column cell, as Grades 2–3 does, and the example's caption adds "Its cell is outlined." Check: `plans/review/checks/week-42/check_critic_fixes.py`. The critic's other could (the K–1 p. 4 captions) is a layout change and is left.
 
+**October 23, 2026, later the same day:** could 14's timeline made, guide page 2 only. The flexible hour starts with about 5 minutes of running around, launches by minute 10, and keeps the tables at work from minute 10 to 47 (a 2-minute movement break at 33), then each table shows the group a reason that works beyond its trials and the materials are reset by minute 56. The student packets, key and route packets are unchanged. Unpiloted.
+
 ## Overlaps
 
 Week 43 (shuffling picture cards) has the same obstruction: 27 equally likely stories cannot split evenly among six orders. Week 44 (the bag that copies) reaches exchangeability, where 4–5 P6 leads; the guides could cross-refer. Week 24's two-deck pairs resemble the cross-bag cases; Week 45's fair ticket cups are near the bonus P3. None has unbiasing, the skip minimum or p = q. No merge.
