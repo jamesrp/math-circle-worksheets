@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Rebuild the Week65 release in isolation using only this extracted package."""
+"""Rebuild the Week65 release in isolation using only this extracted package.
+
+student/regenerate.py first writes student/students.tex from the problem files beside
+this script; the builders then run on a copy in a temporary folder."""
 import argparse,json,shutil,subprocess,tempfile
 from pathlib import Path
 BASE=Path(__file__).resolve().parent
@@ -15,6 +18,8 @@ def main():
  dest=Path(a.out).resolve()
  if not a.verify_only and not shutil.which('pdflatex'):raise SystemExit('Install TeX Live or MacTeX with pdfLaTeX, TikZ, amssymb, geometry, enumitem, fancyhdr, hyperref and Helvetica, then rerun.')
  manifest=json.loads((BASE/'build-manifest.json').read_text())
+ # The student LaTeX is written from the problem files (week.toml, figures.py, problems/) in place.
+ if not a.verify_only:print(run(['python3','regenerate.py'],BASE/'student').strip())
  with tempfile.TemporaryDirectory(prefix='week65-release-') as temp:
   work=Path(temp)
   for directory in ['student','guide']:shutil.copytree(BASE/directory,work/directory)
@@ -25,7 +30,8 @@ def main():
   dest.mkdir(parents=True,exist_ok=True)
   for document in manifest['documents']:
    out=dest/document['output_file']
-   print(run(['python3','build.py','--output',str(out)],work/document['source_directory']).strip())
+   extra=['--no-regenerate'] if document['kind']=='student' else []
+   print(run(['python3','build.py','--output',str(out)]+extra,work/document['source_directory']).strip())
    if document['kind']=='student':print(run(['python3','independent_check.py'],work/'student'))
  print('Both PDFs rebuilt from the portable source package. Physical rehearsal and classroom piloting remain unperformed.')
 if __name__=='__main__':main()

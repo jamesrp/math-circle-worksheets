@@ -5,7 +5,7 @@ The organizer authorized main-branch integration of these prepared investigation
 | Week | Investigation | Entry and continuation | PDFs | Editable source |
 | --- | --- | --- | --- | --- |
 | 64 | Straight paths on strange surfaces | Grades 3–5; later Grades 4–5 continuations | [Students: 9 pages](week-64/week-64-students.pdf) · [Facilitator: 12 pages](week-64/week-64-facilitator.pdf) | [Build and preparation](source/week-64/README.md) · [Portable ZIP](source/week-64-source.zip) |
-| 65 | Hyperbolic octagon streets | Shared Grades 3–5, with readiness-based return routes | [Students: 6 pages](week-65/week-65-students.pdf) · [Facilitator: 7 pages](week-65/week-65-facilitator.pdf) | [Build and preparation](source/week-65/README.md) · [Portable ZIP](source/week-65-source.zip) |
+| 65 | Hyperbolic octagon streets | Shared Grades 3–5, with readiness-based return routes | [Students: 6 pages](week-65/week-65-students.pdf) · [Facilitator: 7 pages](week-65/week-65-facilitator.pdf) | [Build and preparation](source/week-65/README.md) (problem files) · [Portable ZIP](source/week-65-source.zip) |
 
 ## Week 64 routes
 

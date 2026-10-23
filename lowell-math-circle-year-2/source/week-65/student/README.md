@@ -13,8 +13,12 @@ machine paths are needed. From any directory:
     python3 /path/to/src/build.py
     python3 /path/to/src/independent_check.py
 
-The first command writes `../students.pdf`, regenerates `students.tex`, and
-writes `checks.json`. Use `--output PATH` to choose another PDF location.
+The first command checks the geometry and writes `checks.json`, runs
+`regenerate.py` (which writes `students.tex` from the problem files one folder
+up: `week.toml`, `figures.py`, `problems/`), and writes `../students.pdf`.
+Since October 23, 2026 the drawing code is in `../figures.py` and the {8,4}
+construction in `geometry.py`; the old single-file builder is archived in
+`../archive-before-problem-files-2026-10-23/build.py`. Use `--output PATH` to choose another PDF location.
 `--verify-only` generates the TeX/checks without compiling. Generated TeX can
 also be compiled directly with ordinary `pdflatex` (two runs). `build.log` is
 a disposable compilation log. The separate mathematical audit writes
