@@ -10,14 +10,14 @@ For each pair, provide 32 reusable A/B counters or cards and two separate table 
 
 ## Build
 
-Requires Python 3 (standard library only) and a normal TeX Live installation with pdfLaTeX, TikZ/PGF, geometry, fancyhdr and Latin Modern fonts.
+Requires Python 3.11+ (standard library only) and a normal TeX Live installation with pdfLaTeX, TikZ/PGF, geometry, fancyhdr and Latin Modern fonts.
 
 From this directory:
 
     python3 check_math.py
     python3 build.py --out /path/to/output
 
-The builder creates students.pdf in the requested directory, checks the finite examples and rejects overfull TeX boxes. It creates and removes temporary build files inside the output directory. On failure it leaves build-error.log. The source folder is portable and contains no external images, borrowed text, workflow prompts or downloaded resources.
+The source is the problem files (`../problem-files/` in the portable ZIP, `lowell-math-circle-year-2/source/week-76/` in the repository); `build.py` first runs `regenerate.py`, which writes `students.tex` from them. Edit the problem files, not `students.tex`. The builder creates students.pdf in the requested directory, checks the finite examples and rejects overfull TeX boxes. It creates and removes temporary build files inside the output directory. On failure it leaves build-error.log. The source folder is portable and contains no external images, borrowed text, workflow prompts or downloaded resources.
 
 ## Checks and limits
 

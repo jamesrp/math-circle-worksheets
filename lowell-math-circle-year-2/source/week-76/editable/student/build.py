@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Build the student packet with Python's standard library and pdfLaTeX."""
+"""Build the student packet with Python's standard library and pdfLaTeX.
+
+students.tex is written from the problem files by regenerate.py, which this script
+runs first unless --no-regenerate is given (the package's root build.py regenerates
+in place, then builds a copy)."""
 import argparse
 from pathlib import Path
 import shutil
@@ -11,8 +15,11 @@ import tempfile
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", required=True, type=Path, help="Directory for students.pdf")
+    parser.add_argument("--no-regenerate", action="store_true", help="compile students.tex as it is")
     args = parser.parse_args()
     source = Path(__file__).resolve().parent
+    if not args.no_regenerate:
+        subprocess.run([sys.executable, str(source / "regenerate.py")], check=True)
     output = args.out.resolve()
     output.mkdir(parents=True, exist_ok=True)
     subprocess.run([sys.executable, str(source / "check_math.py")], check=True)

@@ -1,20 +1,24 @@
-# Week 76: Substitution strips
+# Week 76: Substitution strips — current editable source
 
-One shared Grades 3–5 prototype: 4 student pages and a separate 4-page theorem-first adult guide. Independently reviewed and digitally checked. **Promoted after organizer review on October 15, 2026.** The week number is a library identifier, not an adopted schedule. Physical preparation/handling and classroom piloting remain unperformed.
+One shared Grades 3–5 packet (4 student pages, F76-35-v1) and a 4-page theorem-first adult guide (F76-FAC-v1). Promoted after organizer review on October 15, 2026. Unpiloted; tile handling has not been rehearsed. The print PDFs are in [../../week-76/](../../week-76/).
 
-## Rebuild from this package
+**Problem files, October 23, 2026.** The student packet is stored as [problem files](../problem-files/README.md): `week.toml`, `template.tex` (the old `students.tex` preamble) and one file per problem in `problems/`. Each page is still one TikZ canvas: a problem's `text` sections are its drawing code and `\promptat{y}` places its numbered prompt. The conversion changed no wording or figure, and the rebuilt packet matches the print PDF in pages, extracted text and 100-dpi pixels. The hand-written `students.tex` and the previous source ZIP are in [archive-before-problem-files-2026-10-23/](archive-before-problem-files-2026-10-23/README.md).
 
-Use Python 3 and normal TeX Live/MacTeX with pdfLaTeX, TikZ/PGF, Computer Modern/Latin Modern, geometry, fancyhdr, AMS packages and the small standard packages listed in the student/guide READMEs. No network, repository files, private reference, external artwork or custom Python library is required.
+- **Student pages:** edit `problems/*.md`, then build and compare:
 
-    python3 build.py --out output
-    python3 build.py --verify-only
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/build.py lowell-math-circle-year-2/source/week-76 --out tmp/week-76-views --tex
+  python3 lowell-math-circle-year-2/source/problem-files/compare.py tmp/week-76-views lowell-math-circle-year-2/week-76 week-76
+  ```
 
-The first command reconstructs both named PDFs in the chosen output directory; the second runs independent, student and guide checks without TeX. Build intermediates are isolated. Edit student/students.tex and guide/facilitator.tex; when a diagram is generated, edit its included data/generator and rebuild. All required authored inputs are packaged.
+  Week 76 is a shared-packet week, so its one-page menu in [band-views/week-76/](../../band-views/README.md) is built from the page index `../band-views/indexes/week-76.toml` by `band_views.py build`; update the index when a problem moves to another page.
+- **Adult guide:** `editable/guide/facilitator.tex`, built by the package. The problem files carry each problem's one-sentence idea (`kernel`), not its answers.
+- **Portable package:** `editable/` is the package (`editable/README.md`); `editable/student/regenerate.py` writes `students.tex` from the problem files and the package build runs it first. The [portable source ZIP](../week-76-source.zip) holds the package plus the problem files and tools in `problem-files/`. Rebuild it with
 
-## Readiness and use
+  ```sh
+  python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-76 --zip ../week-76-source.zip --top week-76
+  ```
 
-Print single-sided US Letter at 100% / Actual Size. Read student/README.md for reading, arithmetic, spatial and recording prerequisites, and the adult guide for exact materials, a short shared launch, hints, solutions and sensible stopping points. The approximate grade range is not a classroom-readiness guarantee. No K–1 edition is implied, and completing every page is not the goal.
+  and check a clean rebuild from the extracted ZIP with `python3 build.py --out output` in its `week-76/` folder. The print copies in `../../week-76/` and `editable/reference-pdfs/` come from that package build.
 
-MATHEMATICS.md records precise hypotheses and general arguments. SOURCES.md separates mathematical lineage from independently authored examples. The repository's plans/frontier-prototypes-76-78/week-76/ record preserves reviews, revision decisions, final checks and the actual extracted-ZIP reconstruction result. Different TeX/font versions can affect appearance.
-
-The portable ZIP excludes stage prompts, borrowed style examples, downloaded books/papers, external fonts, runtime format files, caches, render images, logs, superseded drafts and private classroom information.
+The review and research record is in [plans/frontier-prototypes-76-78/week-76/](../../../plans/frontier-prototypes-76-78/week-76/) and the review card in [plans/review/week-76.md](../../../plans/review/week-76.md).
