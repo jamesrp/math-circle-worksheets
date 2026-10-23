@@ -1,10 +1,12 @@
 # Polyomino perimeter and shared edges: Week 26 editable release
 
-## Current release: October 23, 2026 guide corrections
+## Current release: October 23, 2026 card fixes
 
-The adult guide carries the corrections from its review card: the Grades 4–5 Problem 2 hole question is accepted either way with its corner convention (overview, pp. 3, 14 and 18), and the K–1 Problem 1 extension names the L, T and zigzag (p. 4). See `review/card-fixes-2026-10-23.md`. The student pages are unchanged from the October 4, 2026 fresh-review revision.
+**Guide corrections.** The K–1 Problem 1 extension names the L, T and zigzag (guide p. 4), and the Grades 4–5 Problem 2 hole answer was first made to accept both corner conventions.
 
-**Problem files, October 23, 2026.** The student pages are now stored as problem files, one per problem, in `problem-files/` (in the repository: `lowell-math-circle-year-2/source/week-26/`). The conversion changed no wording or figure; the PDFs are unchanged. `src/regenerate.py` writes the student LaTeX from them, `src/check_shapes.py` checks the shapes they print, and `problem-files/tools/build.py` also builds first-route and return packets, a one-page problem menu and a key arranged by problem.
+**Problem files.** The student pages are now stored as problem files, one per problem, in `problem-files/` (in the repository: `lowell-math-circle-year-2/source/week-26/`). The conversion changed no wording or figure. `src/regenerate.py` writes the student LaTeX from them, `src/check_shapes.py` checks the shapes they print, and `problem-files/tools/build.py` also builds first-route and return packets, a one-page problem menu and a key arranged by problem.
+
+**Student-page fixes.** After the conversion: Grades 4–5 Problem 2 states that two tiles touching at a corner leave no gap, and the guide answers the hole question under that rule (overview, pp. 3, 14 and 18); Problem 3's third shape now has a gap in its second row (boundary 20, guide p. 15); Problem 6 says tiles. Grades 2–3 Problem 2 has three recording boxes per start (guide p. 9), Problems 1 and 3 no longer repeat what their labelled grids ask, and Problem 4's wording is simpler. Only Grades 2–3 pages 1–4, Grades 4–5 pages 2, 3 and 6 and guide pages 3, 9, 14, 15, 17, 18 and the overview changed; the K–1 packet is unchanged. See `review/card-fixes-2026-10-23.md`, checked by `review/verify_card_fixes_2026_10_23.py` and `review/verify_student_fixes_2026_10_23.py`.
 
 The October 4 revision gave the guide first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained.
 
@@ -19,12 +21,13 @@ Extract the complete ZIP. Install Python 3.11 or later with `requirements.txt`, 
     python3 -m pip install -r requirements.txt
     bash build.sh
     python3 verify_revision.py
+    python3 review/verify_student_fixes_2026_10_23.py
 
 The current verifier compares paper geometry and every 100-dpi rendered page against `reference-pdfs/`; timestamps may differ. It permits only specifically audited full-page font/hyphenation alternatives for unchanged student PDFs. See `review/fresh-review-rebuild.md` for actual results. The original strict verifier (`verify_rebuild.py` or `verify.py`) is retained and rejects those alternatives. The corpus report explicitly records any pre-existing small TeX font-metric differences for unchanged student bands; their current print/reference PDFs stay byte-identical. For Weeks 24 and 35, the detailed student-stage record is `review/student-reviser-fresh-review.md`. The corpus release report records those differences explicitly rather than calling them pixel-identical.
 
 Edit student problems in `problem-files/problems/*.md` (figures and the page template in `problem-files/figures.py`); `build.sh` regenerates `src/*.tex` from them and reruns `src/check_shapes.py` before compiling, so do not edit the TeX by hand. To build every view: `python3 problem-files/tools/build.py problem-files --out views`. Each problem file's key repeats the main answer from the guide, and `problem-files/guide/overview.tex` repeats the guide's overview; `python3 problem-files/check_guide_copy.py` confirms every copied sentence is still in `facilitator-src/build_guide.py` or `overview-content.json`. Edit the existing guide source under `facilitator-src/`. Where present, `facilitator-src/route-note.json` holds the concise starting/return update; the root build regenerates the guide before appending it exactly once. Do not run the appender alone against an already appended guide. Build intermediates belong in a separate working copy; inspect changed pages before updating references.
 
-The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/fresh-review-2026-10-04.md` and, for the October 23 guide corrections, `review/card-fixes-2026-10-23.md` with its check `review/verify_card_fixes_2026_10_23.py`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
+The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/fresh-review-2026-10-04.md` and, for the October 23 card fixes, `review/card-fixes-2026-10-23.md` with its checks `review/verify_card_fixes_2026_10_23.py` and `review/verify_student_fixes_2026_10_23.py`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
 
 ## Use and rights
 

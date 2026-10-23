@@ -6,10 +6,14 @@ is one overlay picture anchored at the page's north-west corner, as the old buil
 drew it. The header, footer and page number are drawn inside that picture. The old
 builder wrote the header and footer text into every page; here the preamble defines
 them once per band (\\weekheader, \\weekfooter) and the page number is \\thepage, which
-equals the problem number in the full packets. The printed pages are unchanged.
+equals the problem number in the full packets. The conversion left the printed pages unchanged.
 
 Problem files call the functions below by name in their `figure` sections; the rule
 and prompt wording lives in the problem files.
+
+October 23, 2026 card fixes: Grades 2-3 Problem 2 has a third recording box per start,
+the third Grades 4-5 Problem 3 shape has a gap in its second row (boundary 20), and
+Grades 4-5 Problem 6 labels say tiles.
 """
 
 
@@ -81,7 +85,7 @@ starts=[[(i,0) for i in range(6)],[(i,0) for i in range(4)]+[(0,1),(2,1)],[(i,0)
 start2=[[(i,0) for i in range(5)],[(0,0),(1,0),(1,1),(2,1),(2,2)],[(0,0),(1,0),(2,0),(0,1),(2,1)],[(i,j) for i in range(3) for j in range(3) if (i,j)!=(1,1)]]
 branch=[(i,1) for i in range(5)]+[(0,0),(2,2),(4,0)]
 shapes5=[[(i,0) for i in range(8)],branch,[(i,j) for i in range(4) for j in range(2)],start2[-1]]
-shape3=[[(i,j) for i in range(6) for j in range(2)],[(i,j) for i in range(4) for j in range(3)],[(i,j) for j,k in enumerate([5,3,2,2]) for i in range(k)]]
+shape3=[[(i,j) for i in range(6) for j in range(2)],[(i,j) for i in range(4) for j in range(3)],[(i,j) for j,k in enumerate([5,3,2,1]) for i in range(k)]+[(4,1)]]
 
 
 # ---------------------------------------------------------------- K-1 figures, by problem file
@@ -134,7 +138,7 @@ def m_add_one_tile():  # 08
     for y,cells in zip([63,112,161,210],start2):
         b+=shape(15,y+2,cells,8)
         b+=node(15,y+32,r'Before: \rule{12mm}{.3pt}',11)
-        for x in [105,153]:
+        for x in [64,108,152]:
             b+=grid(x,y,6,4,6.5)+node(x,y+31,r'After: \rule{12mm}{.3pt}',11)
             b+=node(x,y+37,r'Change: \rule{10mm}{.3pt}',11)
     return b
@@ -220,6 +224,6 @@ def u_shortest_five_grids():  # 17
 def u_rule_grids():  # 18
     b=''
     for n,(x,y) in zip([37,50,73],[(24,92),(123,92),(24,181)]):
-        b+=grid(x,y,11,10,6)+node(x,y+63,f'{n} squares; boundary: '+r'\rule{10mm}{.3pt}',11)
+        b+=grid(x,y,11,10,6)+node(x,y+63,f'{n} tiles; boundary: '+r'\rule{10mm}{.3pt}',11)
     for y in [186,202,218,234,250]: b+=line(113,y,80)
     return b

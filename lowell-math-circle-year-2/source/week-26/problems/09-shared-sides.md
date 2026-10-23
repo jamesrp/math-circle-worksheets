@@ -7,7 +7,7 @@ kernel = 'Each shared side hides two tile edges, so the boundary is $4n - 2e$: t
 +++
 
 ## prompt
-A shared side is where two tiles meet. Use ten tiles to make shapes with 9, 10, 11, 12, and 13 shared sides. Record each boundary length. Find a rule that gives the boundary length from the number of tiles and the number of shared sides.
+A shared side is where two tiles meet. Use ten tiles to make shapes with 9, 10, 11, 12, and 13 shared sides. Find a rule that gives the boundary length from the number of tiles and the number of shared sides.
 
 ## figure
 m_shared_side_grids()

@@ -7,7 +7,7 @@ kernel = 'A connected shape of $n$ tiles has at least $n - 1$ shared sides, so i
 +++
 
 ## prompt
-Find the longest possible boundary with 4, 7, 10, and 12 tiles. Explain why no shape using each number of tiles can have a longer boundary.
+Find the longest possible boundary with 4, 7, 10, and 12 tiles. Explain why no shape with that many tiles can have a longer boundary.
 
 ## figure
 m_longest_grids()

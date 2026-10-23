@@ -13,7 +13,7 @@ Add one tile to each shape. Find every different change you can make to its boun
 m_add_one_tile()
 
 ## key
-\emph{Print guide, p. 9.} For +2 in every start, attach a tile beyond the left end of the top row. The resulting boundaries are 14, 14, 14 and 18 in reading order. A row has only one possible change; its spare recording box may remain blank.
+\emph{Print guide, p. 9.} For +2 in every start, attach a tile beyond the left end of the top row. The resulting boundaries are 14, 14, 14 and 18 in reading order. Each start allows at most two changes and the row only one, so at least one recording box per start stays blank.
 
 An addition touching $k$ old neighbors changes $P$ by $4 - 2k$. The row has no empty position touching two of its cells. The stair has empty positions touching one or two cells, but none touching three. In the U, its central gap touches three; all other available positions touch only one (there is no two-neighbor position). In the frame, the center touches four and every exterior position touches one. This accounts for every empty side-neighbor position, so the complete change sets are \{+2\}, \{0,+2\}, \{$-2$,+2\}, \{$-4$,+2\}.
 

@@ -41,7 +41,7 @@ for q in starts+start2+shapes5+shape3:
 assert [len(q) for q in starts]==[6]*3
 assert [len(q) for q in shapes5]==[8]*4
 assert [per(q) for q in shapes5]==[18,18,12,16]
-assert [per(q) for q in shape3]==[16,14,18]
+assert [per(q) for q in shape3]==[16,14,20]
 
 # Enumerate fixed polyominoes through eight cells, enough for K tasks and change minima.
 def norm(c):

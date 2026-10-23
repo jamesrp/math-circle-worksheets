@@ -1,13 +1,13 @@
 +++
 id = "w26.area-rule"
-title = "A rule for the greatest area, and 37, 50 and 73 squares"
+title = "A rule for the greatest area, and 37, 50 and 73 tiles"
 grades = ["4-5"]
 route = "return"
 kernel = 'The greatest area inside boundary $2s$ is $\lfloor s/2\rfloor\lceil s/2\rceil$, so the least boundary for $n$ tiles is $2\lceil 2\sqrt{n}\,\rceil$: 26, 30 and 36 for 37, 50 and 73.'
 +++
 
 ## prompt
-Give a rule for the greatest number of squares in a shape with any even boundary length of at least 4. Explain why your rule works. Use it to find the shortest possible boundaries for shapes with 37, 50, and 73 squares, and draw shapes that reach them.
+Give a rule for the greatest number of tiles in a shape with any even boundary length of at least 4. Explain why your rule works. Use it to find the shortest possible boundaries for shapes with 37, 50, and 73 tiles, and draw shapes that reach them.
 
 ## figure
 u_rule_grids()

@@ -45,6 +45,8 @@ A shape is n unit squares joined along whole sides; its boundary counts exposed 
 
 **Fixed October 23, 2026 (guide only):** fix 1's guide part (overview, pp. 3, 14 and 18 accept both hole answers with their corner conventions) and fix 2 (K–1 extension); fix 1's student wording and fix 3 wait for a problem-file conversion. Record: `lowell-math-circle-year-2/source/week-26/editable/review/card-fixes-2026-10-23.md`.
 
+**Fixed later October 23, 2026 (student pages, after the problem-file conversion):** fix 1's student part (4–5 P2 states that two tiles touching at a corner leave no gap; the guide's overview and pp. 3, 14, 18 now answer under that rule), fix 3 (4–5 P3's third shape and guide p. 15) and coulds 7–10; coulds 4–6 (guide) not done. Same record.
+
 ## Overlaps
 
 Week 25 also counts rows and columns, for Ryser's switches rather than boundary; Week 50 (staircases) totals horizontal and vertical pieces, the idea behind P ≥ 2(r + c). Weeks 52 and 53 reach spanning trees, which are this week's longest shapes; cross-reference them. Week 1 fills a given region, where here children choose it; Weeks 48 and 57 relate area and boundary with other objects and theorems; the bonus's corner rule touches Week 56 (Euler). No merge.

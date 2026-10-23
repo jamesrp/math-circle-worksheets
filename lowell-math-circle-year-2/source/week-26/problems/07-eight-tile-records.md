@@ -8,7 +8,7 @@ kernel = 'Eight tiles have shortest boundary 12 (the 2-by-4 rectangle or the 3-b
 +++
 
 ## prompt @66
-Use eight tiles to make a shape with the shortest boundary you can and one with the longest boundary you can. Find a different shape reaching each of those lengths. Draw all four shapes and record their boundary lengths.
+Use eight tiles to make a shape with the shortest boundary you can and one with the longest boundary you can. Find a different shape reaching each of those lengths.
 
 ## figure
 m_eight_tile_grids()

@@ -19,7 +19,7 @@ Make two twelve-tile shapes that each occupy 4 rows and 5 columns but have diffe
 u_span_grids()
 
 ## key
-\emph{Print guide, p. 15.} All three supplied shapes have twelve tiles. Their exact (rows, columns, boundary) triples, left to right, are \textbf{(2,6,16), (3,4,14), (4,5,18)}. The third has left-aligned row lengths 5, 3, 2, 2.
+\emph{Print guide, p. 15.} All three supplied shapes have twelve tiles. Their exact (rows, columns, boundary) triples, left to right, are \textbf{(2,6,16), (3,4,14), (4,5,20)}. The third is the second construction below, so a child may copy it as one of the two shapes the next question asks for.
 
 For the second construction, move the right tile from the bottom row of the first construction to the far right of the second row. Its rows become 5; 3 plus a separated tile; 2; 1. It remains connected through the full top row. Both examples use twelve tiles and exactly four rows and five columns.
 
