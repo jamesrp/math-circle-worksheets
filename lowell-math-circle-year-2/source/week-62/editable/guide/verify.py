@@ -201,7 +201,15 @@ def check_all():
     assert sum(1 for _ in assignments(GRAPHS['p5-disconnected'], 2)) == 8
     # Numeric preparation statements.
     assert 6*8+8 == 56 and 6*4+4 == 28 and 6*32+32 == 224
-    assert 3*3 + 6 + 2 + 9 == 26 and 3*10 == 30
+    assert 3*3 + 2*2 + 6 + 2*2 + 9 == 32 and 3*10 == 30
+    # p. 9 worked example: one conflicting pair X-Y with slots 1-3 has 6 schedules;
+    # the three printed (X1 Y2, X2 Y1, X1 Y3) are legal and different.
+    xy = graph('XY', 'XY')
+    assert sum(1 for _ in assignments(xy, 3)) == 6
+    printed = [{'X': 1, 'Y': 2}, {'X': 2, 'Y': 1}, {'X': 1, 'Y': 3}]
+    assert all(proper(xy, a) for a in printed) and len({tuple(sorted(a.items())) for a in printed}) == 3
+    # Materials: three printed sheets of three kits cover the six working kits and a spare.
+    assert 3*3 >= 6 + 1
     data['guide_pages_expected'] = 10
     return data
 

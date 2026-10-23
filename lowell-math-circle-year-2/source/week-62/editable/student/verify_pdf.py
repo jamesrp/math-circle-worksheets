@@ -170,8 +170,8 @@ for pi,page in enumerate(doc,1):
  text=page.get_text()
  assert f"Problem {pi}:" in text,(pi,text)
  assert "Week 62 / Conflict networks / Grades" in text
- assert "Grades 2–5" in text if pi<=3 else "Grades 4–5" in text
- assert "Bellingham Math Circle / Week 62 / W62-S-v1" in text
+ assert "Grades 2–5" in text if pi<=3 else ("Grades 3–5" in text if pi in (6,7) else "Grades 4–5" in text)
+ assert "Bellingham Math Circle / Week 62 / W62-S-v2" in text
  if pi==4:
   assert "at least three different circles" in text and "Only the" in text and "start repeats, at the end." in text
  if pi==7:

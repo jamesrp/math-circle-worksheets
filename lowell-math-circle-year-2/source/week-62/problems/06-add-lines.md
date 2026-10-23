@@ -8,7 +8,7 @@ kernel = 'The tree needs one added line (closing an odd cycle); the six cards wi
 +++
 
 ## text
-\gdef\band{Grades 4--5}
+\gdef\band{Grades 3--5}
 
 ## prompt
 Add the fewest conflict lines you can so each network can no longer fit in two slots. Join only different circles that have no line yet. Show why fewer added lines cannot work.

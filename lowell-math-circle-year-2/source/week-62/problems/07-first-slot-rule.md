@@ -8,7 +8,7 @@ page = "new"
 +++
 
 ## text
-\gdef\band{Grades 4--5}
+\gdef\band{Grades 3--5}
 For Problems 7--8, choose an order for the cards. Place each card in the first numbered slot where it conflicts with no card already there. During the order, do not move a placed card.
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm,font=\small,card/.style={draw,minimum width=0.55cm,minimum height=0.7cm,fill=white},>=Stealth]

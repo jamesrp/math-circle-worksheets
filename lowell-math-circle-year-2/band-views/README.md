@@ -18,7 +18,7 @@ The packets and these views are unpiloted, as their weeks are.
 | 59 | Constant width | [6 pages](../week-59/week-59-students.pdf) | — | [5 of 6](week-59/week-59-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-59/week-59-menu.pdf) |
 | 60 | Take it or pass | [7 pages](../week-60/week-60-students.pdf) | — | [4 of 7](week-60/week-60-grades-2-3.pdf): pp. 1–3, 6 | whole packet | [menu](week-60/week-60-menu.pdf) |
 | 61 | Triangles on a ball | [7 pages](../week-61/week-61-students.pdf) | — | [4 of 7](week-61/week-61-grades-2-3.pdf): pp. 1–4 | whole packet | [menu](week-61/week-61-menu.pdf) |
-| 62 | Conflict networks | [9 pages](../week-62/week-62-students.pdf) | — | [3 of 9](week-62/week-62-grades-2-3.pdf): pp. 1–3 | whole packet | [menu](week-62/week-62-menu.pdf) |
+| 62 | Conflict networks | [9 pages](../week-62/week-62-students.pdf) | — | [5 of 9](week-62/week-62-grades-2-3.pdf): pp. 1–3, 6–7 | whole packet | [menu](week-62/week-62-menu.pdf) |
 | 63 | Cards away from home | [9 pages](../week-63/week-63-students.pdf) | [3 of 9](week-63/week-63-k-1.pdf): pp. 1–3 | [5 of 9](week-63/week-63-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-63/week-63-menu.pdf) |
 | 64 | Straight paths on strange surfaces | [9 pages](../week-64/week-64-students.pdf) | — | [6 of 9](week-64/week-64-grades-2-3.pdf): pp. 1–6 | whole packet | [menu](week-64/week-64-menu.pdf) |
 | 65 | Hyperbolic octagon streets | [7 pages](../week-65/week-65-students.pdf) | — | whole packet | whole packet | [menu](week-65/week-65-menu.pdf) |

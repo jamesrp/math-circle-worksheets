@@ -7,7 +7,7 @@ route = ["first", "return"]
 +++
 
 ## text
-Each circle is one activity card. A line means its two cards cannot share a slot. Put every card in one slot. A slot can hold any number of cards if none of them conflict. Only marked circles are activities; line crossings add none. Write a card's slot number in its circle.
+Each circle is one activity card. A line means its two cards cannot share a slot. Put each card in exactly one slot. A slot can hold any number of cards if none of them conflict. Only marked circles are activities; line crossings add none. Write a card's slot number in its circle.
 
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm,font=\small,card/.style={draw,minimum width=0.55cm,minimum height=0.7cm,fill=white},>=Stealth]

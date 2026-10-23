@@ -24,7 +24,7 @@ for i, page in enumerate(d):
     assert (page.rect.width, page.rect.height) == (612, 792)
     text = page.get_text()
     assert 'Week 62 / Conflict networks / Adult guide' in text
-    assert 'Bellingham Math Circle / Week 62 / W62-FAC-v1' in text
+    assert 'Bellingham Math Circle / Week 62 / W62-FAC-v2' in text
     assert '\ufffd' not in text
     spans = [s for b in page.get_text('dict')['blocks'] if b['type'] == 0
              for ln in b['lines'] for s in ln['spans'] if s['text'].strip()]

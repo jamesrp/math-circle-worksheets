@@ -55,4 +55,6 @@ TREE8e = ["HA","HB","BC","HD","DE","DF","FG"]
 
 def center(x): return "\\begin{center}\n"+x+"\n\\end{center}\n"
 def minimum_line(): return r"\begin{center}Fewest slots: \rule{1.1in}{0.4pt}\end{center}"
+def group_line(): return r"\begin{center}Fewest slots: \rule{1.1in}{0.4pt}\qquad Largest group: \rule{1.1in}{0.4pt}\end{center}"
+def answer_lines(): return r"\vspace{0.5cm}\hrule\vspace{0.9cm}\hrule"+"\n"
 def notespace(height): return rf"\vspace{{{height}cm}}"+"\n"

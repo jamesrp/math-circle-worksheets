@@ -1,6 +1,6 @@
 # Week 62 revised student source
 
-**October 23, 2026.** `make_source.py` was replaced by the problem files (`../../week.toml`, `../../template.tex`, `../../figures.py`, `../../problems/` in the repository; `../problem-files/` in the ZIP). `regenerate.py` writes `students.tex` and `graphs.json` from them, and `build.py` calls it. Where this README says `make_source.py` below, read `regenerate.py`.
+**October 23, 2026.** `make_source.py` was replaced by the problem files (`../../week.toml`, `../../template.tex`, `../../figures.py`, `../../problems/` in the repository; `../problem-files/` in the ZIP). `regenerate.py` writes `students.tex` and `graphs.json` from them, and `build.py` calls it. Where this README says `make_source.py` below, read `regenerate.py`. `materials.tex` (added the same day) is the printable sheet of activity cards A–H and slot headers 1–4, three kits per page; the guide's preparation page says how to cut and colour-key them.
 
 Original student wording and TikZ figures around conflict-graph mathematics; precedents and local references are recorded in `plans/new-themes-52-63/week-62/source-notes.md`. No source figures or exemplar problems are reproduced. This is the revision-stage student packet, not a facilitator guide or classroom-tested release. The nine investigations preserve the draft's mathematical scope.
 

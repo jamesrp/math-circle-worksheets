@@ -15,7 +15,7 @@ Find the fewest slots for each network. Also find the largest group of cards in 
 
 ## figure
 center(graph("p3-five-branch",C5,C5e))
-+minimum_line()
++group_line()
 +center(graph("p3-six-branches",C6B,C6Be))
-+minimum_line()
-+notespace(1)
++group_line()
++answer_lines()

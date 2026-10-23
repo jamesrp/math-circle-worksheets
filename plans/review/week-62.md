@@ -42,6 +42,8 @@ A schedule is a proper colouring of the conflict network. A group where every pa
 8. **could**, P7 says "the rule" and P8 "the first-slot rule". Use one name.
 9. **could**, P3: add "Largest group:" beside each "Fewest slots:", and room for the yes-or-no answer.
 
+**October 23, 2026:** converted to problem files with no wording change, then fixed shoulds 1–5 and coulds 6–9 (W62-S-v2, W62-FAC-v2, new W62-M-v1). Fix 1 kept the counters: each slot has a colour, a key counter sits on its header, and a placed card's circle gets that colour, in the launch and the checker's role. Fix 2 shows X 1, Y 2 as cards with slots 1, 2, 3 (slot 3 empty) beside X 2, Y 1 and X 1, Y 3, captioned "different schedules". Fix 3 is a guide route on pp. 1–2 with counters alone, not new pages. Fix 4 also heads pp. 6–7 Grades 3–5. Fix 5 prints cards 31 by 38 mm, three kits per sheet, and forecasts 20–25 minutes, untimed. Check: `checks/week-62/check_card_fixes.py`. Nothing deferred.
+
 ## Overlaps
 
 The Week 33 bonus (P2–P3) and Week 35 bonus (P3) colour rings; the Week 14 return visit (P2) three-colours triangulation corners. Week 62 adds arbitrary networks, the clique gap, first-fit and added lines. Weeks 16 and 40 use other colouring rules. No merge.

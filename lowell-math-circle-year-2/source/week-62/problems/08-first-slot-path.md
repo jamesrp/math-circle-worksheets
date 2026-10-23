@@ -7,7 +7,7 @@ kernel = 'On the 4-path the first-slot rule uses 2 or 3 slots depending on the o
 +++
 
 ## prompt
-Find orders that make the rule use as few slots and as many slots as possible on this network. After an order is finished, you may move cards. Can you use fewer slots?
+Find orders that make the first-slot rule use as few slots and as many slots as possible on this network. After an order is finished, you may move cards. Can you use fewer slots?
 
 ## figure
 center(graph("p7-path",P4,P4e))

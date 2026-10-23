@@ -18,7 +18,7 @@ Each row counts one theme. The routes can support several investigations and ret
 | 59 | Constant-width shapes | 2–5, 3–5, 4–5 | [Students](week-59/week-59-students.pdf) · [Guide](week-59/week-59-facilitator.pdf) · [Materials](week-59/week-59-materials.pdf) | [Source](source/week-59/README.md) · [ZIP](source/week-59-source.zip) |
 | 60 | Finite-horizon optimal stopping | 3–5, 4–5 | [Students](week-60/week-60-students.pdf) · [Guide](week-60/week-60-facilitator.pdf) | [Source](source/week-60/README.md) · [ZIP](source/week-60-source.zip) |
 | 61 | Geometry on a sphere | 2–5, 3–5, 4–5 | [Students](week-61/week-61-students.pdf) · [Guide](week-61/week-61-facilitator.pdf) | [Source](source/week-61/README.md) · [ZIP](source/week-61-source.zip) |
-| 62 | Conflict networks and scheduling | 2–5, 4–5 | [Students](week-62/week-62-students.pdf) · [Guide](week-62/week-62-facilitator.pdf) | [Source](source/week-62/README.md) · [ZIP](source/week-62-source.zip) |
+| 62 | Conflict networks and scheduling | 2–5, 3–5, 4–5 | [Students](week-62/week-62-students.pdf) · [Materials](week-62/week-62-materials.pdf) · [Guide](week-62/week-62-facilitator.pdf) | [Source](source/week-62/README.md) · [ZIP](source/week-62-source.zip) |
 | 63 | Overlap counting and derangements | K–5, 3–5, 4–5 | [Students](week-63/week-63-students.pdf) · [Guide](week-63/week-63-facilitator.pdf) · [Materials](week-63/week-63-materials.pdf) | [Source](source/week-63/README.md) · [ZIP](source/week-63-source.zip) |
 
 ## Routes and relationships
@@ -33,7 +33,7 @@ Each row counts one theme. The routes can support several investigations and ret
 - **Week 59:** Measure while turning between parallel supports → noncircular constant width → explain the support geometry.
 - **Week 60:** Irreversible take/pass play → complete equally weighted cases → continuation values, changing thresholds and optimality.
 - **Week 61:** Surface routes and corners → great circles and shortest arcs → spherical triangles, lunes and excess area. Since October 23, K–1 has an adult-led route with string and straws on guide p. 3, and the packet is W61-S-v4.
-- **Week 62:** Minimum slots → odd cycles → first-fit order and repair → counts with named slots.
+- **Week 62:** Minimum slots → odd cycles → first-fit order and repair → counts with named slots. Since October 23, counters mark slots by colour, K–1 has an adult-led counter route on pp. 1–2 (guide p. 4), cards and headers print from a materials sheet, and the packet is W62-S-v2.
 - **Week 63:** Card-to-home assignments → overlapping forbidden events → complete derangement counts and reversible recurrence cases. Since October 23, K–1 has a route through Problems 1–3 on guide p. 3, and the cards' pictures sit beside the home letters.
 
 The [novelty audit](../plans/new-themes-52-63/NOVELTY-AUDIT.md) records nearby base and bonus material and the distinct mathematical destination of each theme. Related prior themes and source page references are retained in the bundles’ provenance notes. The earlier atlas is a source of leads, not evidence of classroom validation.
