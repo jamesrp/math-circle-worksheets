@@ -3,7 +3,8 @@
 A canvas page is one TikZ picture, 185 x 235 mm, with y pointing down.
 A week whose old builder used other units or margins replaces the template by
 defining any of page_preamble, PAGE_OPEN, PAGE_CLOSE, page_prompt and page_text
-in its figures.py (README.md, "Canvas").
+in its figures.py, or page_open(page) and page_close(page) when each page draws
+its own header, footer or number (README.md, "Canvas").
 """
 BS = chr(92)
 

@@ -1,6 +1,8 @@
 # Week 39 revised student source
 
-Revised and unpiloted. Run `bash build.sh` using Python 3, pdfLaTeX, TikZ, Latin Modern, AMS fonts, and Poppler. Portable build scripts use the caller's environment. Output is a six-page K–1 student PDF and two four-page older-band student PDFs, with QA images one directory above this folder.
+The student pages' source is the Week 39 problem files: `week.toml`, `figures.py` and `problems/*.md`, in `../problem-files/` inside the portable ZIP and in `lowell-math-circle-year-2/source/week-39/` in the repository. Edit a problem there, not here. `regenerate.py` writes `k-1.tex`, `grades-2-3.tex` and `grades-4-5.tex` from them; the builder they replaced, `make_packets.py` with `common.py`, is archived in the repository's `source/week-39/archive-before-problem-files-2026-10-23/`.
+
+Revised and unpiloted. Run `bash build.sh` using Python 3.11+, pdfLaTeX, TikZ, Latin Modern, AMS fonts, and Poppler; it runs `regenerate.py` and `check_math.py`, then compiles each packet twice. Portable build scripts use the caller's environment. Output is a six-page K–1 student PDF and two four-page older-band student PDFs, with QA images one directory above this folder.
 
 The fixed road map is never erased. Use a pawn and ordered road-step records; an adult may record, and the youngest children replay rather than transcribe letter strings. The visual example shows four directed mini-map step tiles, removal of the adjacent B→C→B pair, and replay of the two surviving steps. A real tabletop trial of large physical tiles or adult recording with the exact child group remains unperformed. All recording needs to preserve the actual edge and its direction, including on hypothetical parallel-road maps. Staying at the initial vertex is the empty journey.
 

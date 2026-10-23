@@ -385,10 +385,51 @@ def compose(week: Week, band: str, route: str | None = None) -> list[Placed]:
     return placed
 
 
+@dataclass
+class Page:
+    """What a canvas week's page_open(page) and page_close(page) are told."""
+    number: int     # 1, 2, ... within the view being built
+    count: int      # pages in that view
+    band: str
+    header: str     # the band's header from week.toml
+    footer: str     # packet-tag-version, plus -first or -return in a route packet
+    week: int
+    topic: str
+
+
 def canvas_hooks(week: Week) -> dict:
-    """The canvas page template: the week's figures.py may replace any default."""
-    names = ('page_preamble', 'PAGE_OPEN', 'PAGE_CLOSE', 'page_prompt', 'page_text')
-    return {n: week.figures.get(n, getattr(canvas, n)) for n in names}
+    """The canvas page template: the week's figures.py may replace any default.
+
+    Each page is page_open(page) + the page's sections + page_close(page). A week
+    whose pages draw their own header, footer or page number defines those two
+    functions; otherwise the PAGE_OPEN and PAGE_CLOSE strings are used."""
+    names = ('page_preamble', 'page_prompt', 'page_text')
+    hooks = {n: week.figures.get(n, getattr(canvas, n)) for n in names}
+    for fn, const in (('page_open', 'PAGE_OPEN'), ('page_close', 'PAGE_CLOSE')):
+        if fn in week.figures:
+            hooks[fn] = _page_hook(week, fn, week.figures[fn])
+        else:
+            text = week.figures.get(const, getattr(canvas, const))
+            hooks[fn] = lambda page, text=text: text
+    return hooks
+
+
+def _page_hook(week: Week, name: str, fn):
+    where = _rel(week.folder / 'figures.py')
+    if not callable(fn):
+        raise ProblemFileError(f'{where}: {name} must be a function of one Page (number, count, band, header, '
+                               f'footer, week, topic); for a fixed string use {name.upper()} instead')
+
+    def call(page):
+        try:
+            out = fn(page)
+        except Exception as e:
+            raise ProblemFileError(f'{where}: {name}(page) failed on page {page.number} of {page.band}: '
+                                   f'{type(e).__name__}: {e}')
+        if not isinstance(out, str):
+            raise ProblemFileError(f'{where}: {name}(page) returned {type(out).__name__}, not LaTeX text')
+        return out
+    return call
 
 
 def render_canvas_atom(week: Week, band: str, p: Placed, hooks: dict) -> str:
@@ -415,10 +456,12 @@ def student_tex(week: Week, band: str, route: str | None = None, footer_suffix: 
     pages = {}
     for p in placed:
         pages.setdefault(p.page, []).append(render_canvas_atom(week, band, p, hooks))
-    for i, (n, parts) in enumerate(sorted(pages.items())):
+    ordered = sorted(pages.items())
+    for i, (n, parts) in enumerate(ordered):
         if i:
             tex += '\\newpage\n'
-        tex += hooks['PAGE_OPEN'] + ''.join(parts) + hooks['PAGE_CLOSE']
+        page = Page(i + 1, len(ordered), band, week.bands[band]['header'], footer, week.meta['week'], week.meta['topic'])
+        tex += hooks['page_open'](page) + ''.join(parts) + hooks['page_close'](page)
     return tex + '\\end{document}\n'
 
 

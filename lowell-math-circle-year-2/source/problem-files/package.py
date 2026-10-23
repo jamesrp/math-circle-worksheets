@@ -11,7 +11,7 @@ The ZIP is written beside week.toml and holds:
                          week's own scripts: the student pages' source
   <top>/problem-files/tools/   these tools (atoms.py, canvas.py, flow.py, build.py, compare.py)
 
-Build intermediates (build/, build-state/, render/, __pycache__/, verification
+Build intermediates (build/, build-state/, render/, qa/, __pycache__/, verification
 results and built PDFs outside reference-pdfs/) are left out. Entries are sorted and
 dated 2026-01-01 so the same files give the same ZIP.
 """
@@ -22,7 +22,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 TOOL_FILES = ('README.md', 'atoms.py', 'canvas.py', 'flow.py', 'build.py', 'compare.py')
-SKIP_DIRS = {'build', 'build-state', 'render', '__pycache__'}
+SKIP_DIRS = {'build', 'build-state', 'render', 'qa', '__pycache__'}
 SKIP_FILES = {'verification-result.json', 'verification-revision-result.json'}
 WEEK_SKIP = {'editable', '__pycache__'}
 

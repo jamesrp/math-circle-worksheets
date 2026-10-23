@@ -1,6 +1,6 @@
 # Problem files
 
-Organizer decision, October 22, 2026: store a week as problem files when it is next revised, and store approved new weeks the same way. Finished weeks that nobody is changing stay as they are. The pilot and its results are in [experiments/atomic-problems-pilot/](../../../experiments/atomic-problems-pilot/README.md). Worked examples: its Week 50 folder (canvas layout), its Week 3 folder (flow layout), and [source/week-43/](../week-43/README.md), the first week converted for revision (canvas, with its own page template and an editable package).
+Organizer decision, October 22, 2026: store a week as problem files when it is next revised, and store approved new weeks the same way. Finished weeks that nobody is changing stay as they are. The pilot and its results are in [experiments/atomic-problems-pilot/](../../../experiments/atomic-problems-pilot/README.md). Worked examples: its Week 50 folder (canvas layout), its Week 3 folder (flow layout), and two weeks converted for revision, both canvas with their own page template and an editable package: [source/week-43/](../week-43/README.md) and [source/week-39/](../week-39/README.md), whose pages draw their own header, footer and page number.
 
 One file per problem holds everything about that problem for every band. A week's packets are views built from the files: the K–1, 2–3 and 4–5 packets, first-route and return packets, a one-page problem menu, an adult key with one entry per problem, and a session pack.
 
@@ -71,10 +71,11 @@ The default page template is the house template in `canvas.py` (Week 50's: 185 �
 |---|---|
 | `page_preamble(week, topic, header, footer)` | LaTeX from `\documentclass` to `\begin{document}` |
 | `PAGE_OPEN`, `PAGE_CLOSE` | the LaTeX that opens and closes each page's picture |
+| `page_open(page)`, `page_close(page)` | the same, as functions, for pages that draw their own header, footer or number; `page` has `number` and `count` (within the view being built), `band`, `header`, `footer`, `week` and `topic`. They take precedence over the strings |
 | `page_prompt(n, body, x, y, size)` | a numbered prompt, from a `prompt` section |
 | `page_text(x, y, body, w, size)` | a `text` section |
 
-Unset `x`, `y`, `w` and `size` arrive as `None`; a band's `prompt_size` and `text_size` in `week.toml` fill `size` when a heading has none. [Week 43's figures.py](../week-43/figures.py) is the example: centimetres, y negated, Latin Modern, carried over from its old builder so the rebuilt LaTeX is byte-identical.
+Unset `x`, `y`, `w` and `size` arrive as `None`; a band's `prompt_size` and `text_size` in `week.toml` fill `size` when a heading has none. [Week 43's figures.py](../week-43/figures.py) is the example of the strings: centimetres, y negated, Latin Modern, carried over from its old builder so the rebuilt LaTeX is byte-identical. [Week 39's figures.py](../week-39/figures.py) is the example of the functions: each page is an overlay on the whole sheet that draws its own header, rule, footer (from `page.footer`, so a route packet's footer reads `F39-K-v2-first`) and page number.
 
 ### Flow
 
@@ -182,11 +183,11 @@ The adult guide and any materials pages are not stored in problem files, so a co
 
 ### A week with an editable package
 
-Weeks 11–51 ship a portable `editable/` package and source ZIP whose root `build.py` builds the student packets and the adult guide. After conversion (Week 43 is the pattern):
+Weeks 11–51 ship a portable `editable/` package and source ZIP whose root `build.py` builds the student packets and the adult guide. After conversion (Weeks 43 and 39 are the pattern):
 
 - The problem files are the student pages' only source. The old student generator is archived; `editable/src/regenerate.py` writes the band LaTeX from the problem files, and the package's `src/build.sh` runs it before compiling, so the package build and `build.py` give the same PDFs.
 - The adult guide keeps its own source in `editable/` (for Week 43, `facilitator-src/guide.json`). If the problem files repeat its answer keys for the key view, a check script beside `week.toml` compares the two (Week 43's `check_guide_copy.py`); change both together.
-- `package.py` writes the ZIP: the `editable/` package, plus the problem files in `problem-files/` and these tools in `problem-files/tools/`, so the ZIP alone can rebuild and edit everything. Check a clean rebuild from the extracted ZIP with the package's own `build.py` and verifier.
+- `package.py` writes the ZIP: the `editable/` package, plus the problem files in `problem-files/` and these tools in `problem-files/tools/`, so the ZIP alone can rebuild and edit everything. Its tools are a copy from the day it was packaged, which rebuild that week; repackage when the week changes, not after every change to the tools. Check a clean rebuild from the extracted ZIP with the package's own `build.py` and verifier.
 
   ```sh
   python3 lowell-math-circle-year-2/source/problem-files/package.py lowell-math-circle-year-2/source/week-43 \
