@@ -1,4 +1,4 @@
-"""Check the October 23, 2026 card fixes to Week 53 (W53-networks-v2, W53-guide-v2).
+"""Check the October 23, 2026 card fixes to Week 53 (W53-networks-v2, W53-guide-v2; the guide is v3 since the same day's coulds 7-8).
 
 Reads the delivered student PDF with this folder's pdfgeom.py and the label
 analysis of check_diagrams.py (no writer code imported), with the transcription
@@ -183,7 +183,7 @@ def main():
 
     say('\n[guide] ' + _os.path.relpath(guide, pdfgeom.ROOT))
     g = ' '.join(' '.join(p.get_text().split()) for p in pymupdf.open(guide))
-    for phrase in ('W53-guide-v2', 'Student pp. 1–4 are headed Grades K–5', 'Young pairs work pp. 1–4',
+    for phrase in ('W53-guide-v3', 'Student pp. 1–4 are headed Grades K–5', 'Young pairs work pp. 1–4',
                    'pp. 1–4 twice for young pairs', '(17 sheets)'):
         check(phrase in g, 'guide says "%s"' % phrase)
     check('possibly p. 2' not in g and 'accepted prior concrete activity' not in g, 'the one-page K-1 route is gone')

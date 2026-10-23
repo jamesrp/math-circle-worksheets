@@ -24,7 +24,7 @@ def inspect(file):
         text = page.get_text()
         assert EXPECTED[i] in text, (i+1,EXPECTED[i])
         assert 'Week 53 / Connecting networks / Facilitator' in text
-        assert 'W53-guide-v2' in text
+        assert 'W53-guide-v3' in text
         assert tuple(page.rect) == (0.,0.,612.,792.), page.rect
         spans = [s for b in page.get_text('dict')['blocks'] if b['type']==0
                  for l in b['lines'] for s in l['spans']]
@@ -34,9 +34,10 @@ def inspect(file):
         pages.append({'page':i+1,'size':list(page.rect),
                       'text':text,'pixel_sha256':hashlib.sha256(pix.samples).hexdigest()})
     alltext = '\n'.join(p['text'] for p in pages)
-    for needle in ['1956','2140','4096','no bridges','37.5 mm','51.0 mm',
+    # The spacing figures moved to SOURCE-NOTES.md with W53-guide-v3 (card could 7).
+    for needle in ['1956','2140','4096','no bridges','4 cm apart','removable tape',
                    'unperformed','Exercise 15','Creative Problem 33']:
-        assert needle in alltext, needle
+        assert needle in ' '.join(alltext.split()), needle  # line breaks count as spaces
     return pages
 
 def main():
