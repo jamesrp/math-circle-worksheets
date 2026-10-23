@@ -97,7 +97,7 @@ Claude Code runs each stage as a subagent; Codex runs each as a separate `codex 
 | 62 | Conflict networks and scheduling | keep | [card](week-62.md), [math check](week-62-math.md) |
 | 63 | Cards away from home (derangements) | original verdict revise; the must (a K–1 route on guide p. 3; pp. 1–3 headed K–5; card pictures on the home cells and A–C outcome cards) fixed October 23, with shoulds 2–4 and coulds 5–9 and 11; could 10 (timing) deferred | [card](week-63.md), [math check](week-63-math.md) |
 | 64 | Straight paths on strange surfaces (a glued octagon, square-tiled surfaces) | keep | [card](week-64.md), [math check](week-64-math.md) |
-| 65 | Hyperbolic octagon streets | keep | [card](week-65.md), [math check](week-65-math.md) |
+| 65 | Hyperbolic octagon streets | original verdict keep; converted to problem files and shoulds 1–4 (the 4 + 4n turning rule in the guide with ready-pair traces and the P2 fewer-than-8 question, an adult-led K–1 route with a plain-words key, "Mark dots where you go straight." cut, a new Problem 6 on rooms two crossings from Home, 48 against 8) and coulds 5–9 (R label, "facing the same way", a larger ⋆, "Problem 5 (continued)", an index-card corner check) fixed October 23 (W65-S-v3, 7 pp.; W65-FAC-v3); could 6 keeps "ordinary" | [card](week-65.md), [math check](week-65-math.md) |
 | 66 | Lamplighter streets (the lamplighter group) | keep | [card](week-66.md), [math check](week-66-math.md) |
 | 67 | Meeting on shortest roads (medians) | keep | [card](week-67.md), [math check](week-67-math.md) |
 | 68 | How many ways out (ends of graphs) | keep | [card](week-68.md), [math check](week-68-math.md) |

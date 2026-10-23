@@ -5,7 +5,7 @@ The organizer authorized main-branch integration of these prepared investigation
 | Week | Investigation | Entry and continuation | PDFs | Editable source |
 | --- | --- | --- | --- | --- |
 | 64 | Straight paths on strange surfaces | Grades 3–5; later Grades 4–5 continuations | [Students: 9 pages](week-64/week-64-students.pdf) · [Facilitator: 12 pages](week-64/week-64-facilitator.pdf) | [Build and preparation](source/week-64/README.md) · [Portable ZIP](source/week-64-source.zip) |
-| 65 | Hyperbolic octagon streets | Shared Grades 3–5, with readiness-based return routes | [Students: 6 pages](week-65/week-65-students.pdf) · [Facilitator: 7 pages](week-65/week-65-facilitator.pdf) | [Build and preparation](source/week-65/README.md) (problem files) · [Portable ZIP](source/week-65-source.zip) |
+| 65 | Hyperbolic octagon streets | Shared Grades 3–5, with readiness-based return routes | [Students: 7 pages](week-65/week-65-students.pdf) · [Facilitator: 7 pages](week-65/week-65-facilitator.pdf) | [Build and preparation](source/week-65/README.md) (problem files) · [Portable ZIP](source/week-65-source.zip) |
 
 ## Week 64 routes
 
@@ -17,12 +17,12 @@ Print single-sided on US Letter at 100% / Actual Size. Essential corner cutouts 
 
 ## Week 65 routes
 
-The hyperbolic {8,4} tiling has four right-angled octagons at each junction. Walk one-room and two-room boundaries, compare local turns with ordinary squares, investigate complete roads that never meet, then find room-crossing routes with a shared destination. The loose record sheet can remain beside the room board.
+The hyperbolic {8,4} tiling has four right-angled octagons at each junction. Walk one-room and two-room boundaries, compare local turns with ordinary squares, investigate complete roads that never meet, then find room-crossing routes with a shared destination and count the rooms two crossings from Home (48 on octagons, 8 on squares). The loose record sheet can remain beside the room board. Younger children can take an adult-led K–1 route through the same pages, described in the guide.
 
 Use a slim arrow counter about 10 mm wide, another counter and pencils. Print at Actual Size and rehearse the actual arrow on the diagrams before use. Digital clearance checks do not replace a physical rehearsal.
 
 ## Recovery and review status
 
-The current PDFs were regenerated on October 6 from restored source. Retained original hashes authenticate all 19 Week 64 package files and all 16 Week 65 package files, with the latter's documented one-space source cleanup accounted for. Original PDF/ZIP bytes and the earlier local Git commit were not recovered. The [recovery and verification record](../plans/octagon-recovery-2026-10-06/README.md) distinguishes source identity, fresh PDF checks and remaining limits.
+The Week 65 PDFs were revised on October 23, 2026 (v3) for the review card's fixes; the October 6 versions are archived. The October 6 PDFs were regenerated from restored source. Retained original hashes authenticate all 19 Week 64 package files and all 16 Week 65 package files, with the latter's documented one-space source cleanup accounted for. Original PDF/ZIP bytes and the earlier local Git commit were not recovered. The [recovery and verification record](../plans/octagon-recovery-2026-10-06/README.md) distinguishes source identity, fresh PDF checks and remaining limits.
 
 New wording, diagrams and exercises use established mathematics; novel theorems are not claimed. The sources contain no downloaded books, reproduced source pages or borrowed style examples. Week 64 identifies edges of flat polygons; Week 65 investigates a hyperbolic plane tiling without edge-identification rules.

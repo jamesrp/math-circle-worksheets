@@ -1,8 +1,10 @@
-# Week 65: Hyperbolic octagon streets, student version 2
+# Week 65: Hyperbolic octagon streets, student version 3
 
 Original student text and vector diagrams. One shared Grades 3-5 packet:
-six US Letter pages, five consecutively numbered problems, plus a loose
-recording sheet. Digitally reviewed; not physically rehearsed or classroom piloted.
+seven US Letter pages, six consecutively numbered problems; Problem 5's
+recording sheet is its own page. Version 3 (October 23, 2026) has the review
+card's fixes, including the new Problem 6. Digitally reviewed; not physically
+rehearsed or classroom piloted.
 
 ## Portable build
 
@@ -41,10 +43,13 @@ for this v2 source package.
    involving ordinary lines extending forever in both directions.
 5. Problem 5: two- and four-door routes among four rooms in another view of
    the same geometry. The coin board retains its original scale.
-6. Extra workspace for Problem 5. Keep this loose sheet beside page 5.
+6. Problem 5 (continued): the route sheet, kept loose beside page 5.
    Three short-route rows and ten long-route rows provide surplus space,
    rather than preprinting the number of solutions. Long-route rows are
    6.9 inches wide and 0.55 inches apart.
+7. Problem 6: rooms reached from Home in 2 door crossings but not fewer,
+   on the octagon floor (reasoned, 48) and on a printed 5 x 5 square floor
+   (8). `checks.json` records both counts.
 
 ## Construction and checks
 

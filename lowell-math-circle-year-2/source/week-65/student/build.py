@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the Week 65 geometry and compile the student packet (v2) with pdfLaTeX/TikZ.
+"""Check the Week 65 geometry and compile the student packet (v3) with pdfLaTeX/TikZ.
 
 students.tex is written from the problem files by regenerate.py, which this script runs
 first unless --no-regenerate is given (the package's root build.py regenerates in place,
@@ -89,7 +89,13 @@ def verify():
     # The three-state curved visual uses these actual tangents.
     departure=tangent(V[0],V[1]);arrival=-tangent(V[1],V[0]);turned=tangent(V[1],V[2])
     assert abs(cmath.phase(turned/arrival)*180/pi-90)<1e-8
-    return {'version':'W65-S-v2','student_pages':6,'problems':[1,2,3,4,5],
+    # Problem 6 (v3): rooms first reached in exactly 2 door crossings.
+    # Octagon floor: the 48 rooms of layer 2 (56 rooms within 2 crossings, minus Home and 8).
+    # Square floor: the cells at grid distance exactly 2 from Home, 12 - 4 = 8.
+    squares2=sum(1 for x in range(-3,4) for y in range(-3,4) if abs(x)+abs(y)==2)
+    assert squares2==8 and Counter(d for _,_,d in TILES)[2]==48
+    return {'version':'W65-S-v3','student_pages':7,'problems':[1,2,3,4,5,6],
+            'two_crossing_rooms':{'octagon_floor':48,'square_floor':squares2},
             'geometry':'regular hyperbolic {8,4}', 'corner_degrees':angles,
             'layer_counts':[1,8,48], 'two_step_multiplicities':{'once':40,'twice':8},
             'whole_circle_disjointness_gaps':disjoint,
@@ -148,6 +154,6 @@ def main():
                 print(run.stdout);raise SystemExit(run.returncode)
         shutil.copy(dest/'students.pdf',output)
         (ROOT/'build.log').write_text((dest/'students.log').read_text())
-    print(f'Built {output} (six student pages, v2). Geometry and route checks passed.')
+    print(f'Built {output} (seven student pages, v3). Geometry and route checks passed.')
 
 if __name__=='__main__':main()

@@ -42,6 +42,8 @@ The {8,4} tiling: right-angled octagons, four at each corner, in the Poincaré d
 8. **could**, pp. 5–6: the two "beside" sentences repeat; p. 6 is P5's only answer space, not "Extra workspace".
 9. **could**, guide p. 3: let a child fit a card corner into a drawn corner, so right angles are checked, not told.
 
+**Done October 23, 2026:** shoulds 1–4 and coulds 5–9 made in the problem files and guide (W65-S-v3, seven pages with the new Problem 6; W65-FAC-v3); could 6 keeps "ordinary" in P4, which contrasts ordinary lines with the map's streets. Checked by `source/week-65/review/verify_card_fixes_2026_10_23.py`; unpiloted.
+
 ## Overlaps
 
 Week 64 walks straight paths on a flat glued octagon; both guides keep them apart. Weeks 56 (720° defect) and 61 (spherical excess) are the same theorem with positive curvature; this is the only negative-curvature theme. Cross-reference the three; no merge.

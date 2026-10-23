@@ -16,7 +16,7 @@ door_example(r'$C\ \rightarrow\ D\ \rightarrow\ E$\\[5pt]Two door crossings')
 This is another view of the same geometry, showing four rooms around one corner. Find every room route from Home to $\star$ using exactly 2 door crossings. Then find every route using exactly 4 door crossings. Stay in these four rooms. You may visit a room or use a door more than once.
 
 ## figure
-four_rooms()
+four_rooms(star_scale=2.2)   # a larger star (card could 7)
 
 ## text @.65,.92 size=10.5
 Keep the route sheet beside this board.

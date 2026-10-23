@@ -24,7 +24,7 @@ The [six connected investigations, Weeks 92–97](WEEKS-92-97.md), add analysis/
 
 The additional [generated activity library, Weeks 11–51](WEEKS-11-51.md), has three student bands and an adult guide per activity, with complete portable source packages. These numbers are library identifiers, not an adopted meeting schedule. Its October 4 worked-example revisions and the October 23 guide corrections for Weeks 12, 25, 26, 29 and 31, the moves of Weeks 43 and 39 to problem files with their K–1 card fixes, the moves of Weeks 51, 12 and 25 to problem files with their student-page card fixes, and the October 23 printable kits are recorded in that index; all sets remain unpiloted and the kits physically unrehearsed.
 
-The [octagon investigations, Weeks 64–65](WEEKS-64-65-DRAFT.md), contain restored sources and regenerated PDFs, with main-branch integration authorized by the organizer on October 6. Both remain unpiloted; physical rehearsal and classroom testing have not been performed.
+The [octagon investigations, Weeks 64–65](WEEKS-64-65-DRAFT.md), contain restored sources and regenerated PDFs, with main-branch integration authorized by the organizer on October 6; Week 65 was revised for its review card on October 23 (v3, with a new Problem 6). Both remain unpiloted; physical rehearsal and classroom testing have not been performed.
 
 The [ten geometric group theory prototypes, Weeks 66–75](WEEKS-66-75-PROTOTYPES.md), offer focused student investigations and separate theorem-first adult guides, with portable sources and independent digital checks. They are prepared for organizer review and remain unpiloted.
 

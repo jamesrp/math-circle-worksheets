@@ -21,7 +21,7 @@ The packets and these views are unpiloted, as their weeks are.
 | 62 | Conflict networks | [9 pages](../week-62/week-62-students.pdf) | — | [3 of 9](week-62/week-62-grades-2-3.pdf): pp. 1–3 | whole packet | [menu](week-62/week-62-menu.pdf) |
 | 63 | Cards away from home | [9 pages](../week-63/week-63-students.pdf) | [3 of 9](week-63/week-63-k-1.pdf): pp. 1–3 | [5 of 9](week-63/week-63-grades-2-3.pdf): pp. 1–5 | whole packet | [menu](week-63/week-63-menu.pdf) |
 | 64 | Straight paths on strange surfaces | [9 pages](../week-64/week-64-students.pdf) | — | [6 of 9](week-64/week-64-grades-2-3.pdf): pp. 1–6 | whole packet | [menu](week-64/week-64-menu.pdf) |
-| 65 | Hyperbolic octagon streets | [6 pages](../week-65/week-65-students.pdf) | — | whole packet | whole packet | [menu](week-65/week-65-menu.pdf) |
+| 65 | Hyperbolic octagon streets | [7 pages](../week-65/week-65-students.pdf) | — | whole packet | whole packet | [menu](week-65/week-65-menu.pdf) |
 | 66 | Lamplighter streets | [4 pages](../week-66/week-66-students.pdf) | — | whole packet | whole packet | [menu](week-66/week-66-menu.pdf) |
 | 67 | Meeting on shortest roads | [4 pages](../week-67/week-67-students.pdf) | — | whole packet | whole packet | [menu](week-67/week-67-menu.pdf) |
 | 68 | How many ways out | [4 pages](../week-68/week-68-students.pdf) | — | whole packet | whole packet | [menu](week-68/week-68-menu.pdf) |

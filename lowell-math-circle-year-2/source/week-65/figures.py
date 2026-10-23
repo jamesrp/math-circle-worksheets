@@ -208,7 +208,7 @@ def door_example(caption):  # 06: C -> D -> E, two door crossings
     return out
 
 
-def four_rooms(star_font='\\Large'):  # 06: Home, A, B and the star around one corner, recentred
+def four_rooms(star_scale=None):  # 06: Home, A, B and the star around one corner, recentred
     out = scope(4.25, 3.72, 2.82)
     # Lightly differentiated printable fills support the four readable regions.
     for i in FOUR:
@@ -222,8 +222,8 @@ def four_rooms(star_font='\\Large'):  # 06: Home, A, B and the star around one c
             if ek in seen: continue
             seen.add(ek); out += edge(p, q, 'black,line width=.9pt')
         c = corner_view(TILES[i][0])*.88
-        font = star_font if NAMES[i] == r'$\star$' else '\\Large'
-        out += f'\\node[font=\\sffamily\\bfseries{font},inner sep=3pt] at {n(c)} {{{NAMES[i]}}};\n'
+        grow = f',scale={star_scale}' if star_scale and NAMES[i] == r'$\star$' else ''
+        out += f'\\node[font=\\sffamily\\bfseries\\Large,inner sep=3pt{grow}] at {n(c)} {{{NAMES[i]}}};\n'
     out += point(0j, rad='2pt')
     out += '\\end{scope}\n'
     return out
@@ -239,4 +239,18 @@ def route_rows(short_heading, long_heading):  # 07: 3 rows for 2-crossing routes
     for j in range(10):
         y = 6.45 - j*.55
         out += f'\\draw[black!55,line width=.4pt] (.80,{y:.2f}) -- (7.70,{y:.2f});\n'
+    return out
+
+
+# ---------------------------------------------------------------- page 7 (October 23, 2026: card should 4)
+
+def square_floor(cells=5, size=.7, center=(4.25, 6.45)):  # 08: a floor of square rooms with Home in the middle
+    half = cells*size/2
+    x0, y0 = center[0] - half, center[1] - half
+    out = ''
+    for k in range(cells + 1):
+        out += f'\\draw[black,line width=.8pt] ({x0+k*size:.3f},{y0:.3f}) -- ({x0+k*size:.3f},{y0+2*half:.3f});\n'
+        out += f'\\draw[black,line width=.8pt] ({x0:.3f},{y0+k*size:.3f}) -- ({x0+2*half:.3f},{y0+k*size:.3f});\n'
+    out += f'\\fill[black!5] ({center[0]-size/2+.02:.3f},{center[1]-size/2+.02:.3f}) rectangle ({center[0]+size/2-.02:.3f},{center[1]+size/2-.02:.3f});\n'
+    out += f'\\node[font=\\sffamily\\bfseries\\normalsize] at ({center[0]},{center[1]}) {{Home}};\n'
     return out

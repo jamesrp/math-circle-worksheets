@@ -7,7 +7,7 @@ kernel = "Around two side-sharing octagons the outside walk turns left 12 times,
 +++
 
 ## prompt @.65,10.13
-Walk once around the outside of both rooms, starting at A along the arrow. Keep both rooms on your left. Count only the turns at dots. Mark dots where you go straight. Compare the two octagons with the two squares.
+Walk once around the outside of both rooms, starting at A along the arrow. Keep both rooms on your left. Count only the turns at dots. Compare the two octagons with the two squares.
 
 ## figure
 octagon_pair()
