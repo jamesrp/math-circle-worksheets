@@ -47,6 +47,8 @@ October 23, 2026: musts 1–2 and shoulds 3–4 fixed in W53-networks-v2 and W53
 
 October 23, 2026, later the same day: coulds 7–8 made in W53-guide-v3. The kit's bought-link markers are named as strips of removable tape about 5 by 20 mm, and the p. 2 spacing figures and the p. 8 authorship and verification paragraph moved to `editable/guide/SOURCE-NOTES.md`, leaving one sentence on the tight pages 7–8 and one on how the keys were checked. Coulds 5–6 (new Problem 4 prices, a separate final problem) stay with the organizer. The student packet is unchanged; the tape markers are physically unrehearsed.
 
+**Roster labels, October 23, 2026.** The guide (pp. 2 and 8) printed the roster code "KK11 / 3333 / 445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1 / 2–3 / 4–5" (W53-guide-v4; W53-guide-v3 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
+
 ## Overlaps
 
 Week 52 (bracing) also reaches "a minimum connected set is a tree with n − 1 links", without prices. Week 13 uses cuts for max-flow; Weeks 21 and 50 minimize one trip. None has prices, ties, exchanges or cut/cycle certificates. Keep 52 and 53 separate; they can share the app's graph editor.

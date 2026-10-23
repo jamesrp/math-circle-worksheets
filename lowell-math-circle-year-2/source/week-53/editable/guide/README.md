@@ -1,6 +1,6 @@
 # Week 53 standalone facilitator source
 
-This separately authored eight-page guide accompanies the actual final nine-page
+This separately authored eight-page guide accompanies the actual final nine-page Later on October 23 the guide became W53-guide-v4: it names the fixed tables "K–1 / 2–3 / 4–5" where it printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5); W53-guide-v3 is in `archive-before-roster-label-fix-2026-10-23/` beside the print copy.
 Week 53 student packet (Grades K–5 on pp. 1–4; Grades 4–5 on pp. 5–9; W53-networks-v2 since the October 23, 2026 card fixes, which added the K–1 route through pp. 1–4; W53-guide-v3 since the same day's coulds 7–8, which named the bought-link markers and moved the spacing figures and the authorship paragraph to `SOURCE-NOTES.md`). All nine
 keys, complete optimum catalogs, all specified cheaper swaps, inverse witnesses,
 full inverse distribution and general proofs are included. Source contents:

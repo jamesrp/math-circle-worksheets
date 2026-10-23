@@ -1,6 +1,6 @@
 # Week 63 separate facilitator guide
 
-**Later on October 23, 2026:** version W63-G-v3 retimes p. 2's first route to about 35–40 minutes at the tables after a 5-minute launch (review card could 10); nothing else changed.
+**Later on October 23, 2026:** version W63-G-v3 retimes p. 2's first route to about 35–40 minutes at the tables after a 5-minute launch (review card could 10); nothing else changed. Later on October 23 the guide became W63-G-v4: it names the fixed tables "K–1 / 2–3 / 4–5" where it printed the roster code "KK11 / 3333 / 445" (K, K, 1, 1 / four third graders / 4, 4, 5); W63-G-v3 is in `archive-before-roster-label-fix-2026-10-23/` beside the print copy.
 
 **October 23, 2026:** version W63-G-v2, eleven pages, for W63-S-v3 and W63-M-v3 (and unchanged for W63-S-v4, whose only change moved P8's letters sentence into the problem). It adds a K–1 route page (p. 3) with a plain-words key and a K–1 gates row, moves the two worked removals from student p. 8 to a held hint on p. 8, states the P9 rule for three or more cards from D1 = 0 and D2 = 1, names lettered sticky dots, and fixes the p. 7 wording about intersections of k named home-groups. `verify.py` checks the eleven pages. The paragraph below describes the October 4 guide.
 

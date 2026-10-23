@@ -59,6 +59,8 @@ Children place lettered cards in lettered homes and hunt for rows with no card a
 The same day `checks/week-63/check_math.py` and `check_diagrams.py`, broken by the card fix, were repaired for the current packet with their checks kept: the math check finds guide pages by heading (the K–1 route became p. 3), the removal diagrams are read from the guide's held hint, student p. 8 is checked for its twelve blank A–E boards, and the A–C outcome cards' cells may be 14 mm wide (pictures beside the letters). Both pass.
 12. **could**, guide pp. 2 and 10: cut residue ("superseding the older ten-child snapshot in the root README"; "not a claim of publication, remote upload or classroom success").
 
+**Roster labels, October 23, 2026.** The guide (p. 2) printed the roster code "KK11 / 3333 / 445" for the fixed tables (K, K, 1, 1 / four third graders / 4, 4, 5), which reads as garbled band labels; it now prints "K–1 / 2–3 / 4–5" (W63-G-v4; W63-G-v3 archived). Nothing else changed. Checked by `plans/review/checks/roster-labels/check_roster_labels.py`.
+
 ## Overlaps
 
 - Week 43 obtains BCA and CAB from a no-self-swap shuffle (Grades 4–5 p. 3, P5); guide p. 4 credits it.

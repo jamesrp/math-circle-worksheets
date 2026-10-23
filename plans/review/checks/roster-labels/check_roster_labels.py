@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the October 23, 2026 roster-label fix in the main adult guides of Weeks 27, 54, 55, 57 and 62.
+"""Check the October 23, 2026 roster-label fix in the main adult guides of Weeks 27, 53, 54, 55, 57, 62 and 63.
 
 Usage: python3 plans/review/checks/roster-labels/check_roster_labels.py   (from the repository root)
 
@@ -17,7 +17,7 @@ import pymupdf
 
 ROOT = Path(__file__).resolve().parents[4]
 Y = ROOT / 'lowell-math-circle-year-2'
-WEEKS = [27, 54, 55, 57, 62]
+WEEKS = [27, 53, 54, 55, 57, 62, 63]
 CODE = re.compile(r'KK11|\b3333\b|\b445\b')
 FOOT = re.compile(r'Bellingham Math Circle / Week \d+ / (\S+-v)(\d+)')
 
