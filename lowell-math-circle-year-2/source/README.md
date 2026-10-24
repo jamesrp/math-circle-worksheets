@@ -6,7 +6,7 @@ The additional [octagon investigations, Weeks 64–65](../WEEKS-64-65-DRAFT.md),
 
 Each `week-NN/` source folder corresponds to the PDF folder `../week-NN/`. The `fall-weeks-02-10/` builder assembles the nine weeks into `../combined/`. Supporting plans and mathematical data stay in the project's top-level `plans/`; build and rendering files go in top-level `tmp/`.
 
-**October 3, 2026 concrete revision.** Weeks 3–10 and the new [Week 1 encore](week-01-encore/README.md) each have `src/` (student pages), `guide-src/` (adult guide and answer checks) and a `build.sh` that builds in `tmp/pdfs/week-NN-build/` and writes four PDFs to `../week-NN/`. Run, for example, `sh lowell-math-circle-year-2/source/week-07/build.sh`. Each week's previous sources are in `week-NN/archive/`, whose patched `build.sh` writes only to `../week-NN/archive/`. The combined Weeks 2–10 sets were not rebuilt; the September sets are in `combined/archive-before-concrete-2026-10-03/`.
+**October 3, 2026 concrete revision.** Weeks 3–10 and the new [Week 1 encore](week-01-encore/README.md) each have `src/` (student pages), `guide-src/` (adult guide and answer checks) and a `build.sh` that builds in `tmp/pdfs/week-NN-build/` and writes four PDFs to `../week-NN/`. Run, for example, `sh lowell-math-circle-year-2/source/week-07/build.sh`. Each week's previous sources are in `week-NN/archive/`, whose patched `build.sh` writes only to `../week-NN/archive/`. The combined Weeks 2–10 sets were not rebuilt; the September sets are in `combined/archive-before-concrete-2026-10-03/`. Two of these weeks also have a portable source ZIP that rebuilds their PDFs outside the repository: [week-01-encore-source.zip](week-01-encore-source.zip) (`python3 build.py --out output`) and [week-06-source.zip](week-06-source.zip) (the folder with the problem-file tools).
 
 Run these commands from the project root:
 
@@ -66,3 +66,7 @@ The [print and source index](../WEEKS-92-97.md) links all six standalone source 
 ## Final breadth investigations 98–100
 
 The [print and portable-source index](../WEEKS-98-100.md) links bootstrap percolation, optimal transport and ultrametric geometry: eight PDFs (47 pages), separate theorem-first guides and three clean-rebuilt source ZIPs. Choose by prerequisites: Grades 2–3 and 4–5 for Weeks 98–99; Grades 3–5 for Week 100. No K–1 packet is claimed. All remain unpiloted and physically unrehearsed. Breadth closes at 100; older combined sets are unchanged.
+
+## Checking every source ZIP
+
+[`zip-sweep/zip_sweep.py`](zip-sweep/zip_sweep.py) checks all current portable source ZIPs at once: whether each member matches the file it packages now, a clean rebuild of each extracted ZIP with its own build command, offline and with the checkout hidden, compared with the print PDFs (pages, text, renders), and the index links to the ZIPs. Run `contents`, `build --jobs 2`, `links`, `coverage` and `report` from the project root; results go to `tmp/zip-sweep/`. The October 24 results are in [plans/review/checks/ZIP-SWEEP.md](../../plans/review/checks/ZIP-SWEEP.md).
