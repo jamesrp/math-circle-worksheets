@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+\usepackage{bmc}
+\newcommand{\bandname}{Grades 2--3}
+\newcommand{\packetid}{NN-23-v1}
+\newcommand{\barlabelb}[3]{\begin{tabular}[b]{@{}c@{}}\chocbar{#1}{#2}{#3}\\[2mm] #1 by #2\end{tabular}}
+\newcommand{\barlabel}[3]{\begin{tabular}{@{}c@{}}\chocbar{#1}{#2}{#3}\\[2mm] #1 by #2\end{tabular}}
+\newcommand{\recstack}{\begin{tabular}{@{}l@{}}\movesrec\\[1.5mm] \winrec\end{tabular}}
+\newcommand{\predrow}{\begin{tabular}{@{}l@{}}\predrec\\[1.5mm] \movesrec\qquad\winrec\end{tabular}}
+\begin{document}
+\fontsize{12.5}{16.5}\selectfont
+
+% ---------------- page 1 ----------------
+A break splits one piece into two pieces along a straight line between squares. Break one piece at a time, and never stack pieces. In the game ``last break wins,'' two players take turns making one break, and whoever makes the last break wins.
+\gap[3mm]
+\begin{center}\breakpicture[6]\end{center}
+\gap[5mm]
+
+\prob Play ``last break wins'' on the 3 by 3 bar and the 2 by 4 bar. Play each bar twice, switching who goes first, and circle whether the 1st or 2nd player won. Can the losing player ever win by breaking in a different way?
+\gap[4mm]
+\begin{center}
+\renewcommand{\arraystretch}{1}
+\begin{tabular}{@{}m{38mm}@{\hspace{6mm}}m{52mm}@{\hspace{6mm}}m{52mm}@{}}
+\barlabel{3}{3}{7} & Game 1:\enspace 1st\qquad 2nd & Game 2:\enspace 1st\qquad 2nd\\
+\noalign{\vspace{6mm}}
+\barlabel{2}{4}{7} & Game 1:\enspace 1st\qquad 2nd & Game 2:\enspace 1st\qquad 2nd
+\end{tabular}
+\end{center}
+\writelines{3}
+\gap[8mm]
+
+\prob Find the fewest breaks that split the 3 by 4 bar into single squares. Then find the fewest for the 1 by 6 bar and the 2 by 2 bar.
+\gap[5mm]
+\begin{center}
+\barlabel{3}{4}{7}\hspace{3mm}\numbox[12mm]\hfill
+\barlabel{1}{6}{7}\hspace{3mm}\numbox[12mm]\hfill
+\barlabel{2}{2}{7}\hspace{3mm}\numbox[12mm]
+\end{center}
+
+\newpage
+% ---------------- page 2 ----------------
+\prob Decide who would win ``last break wins'' on each of these bars without breaking them, and explain how you know.
+\gap[6mm]
+\begin{center}
+\begin{tabular}{@{}c@{\hspace{14mm}}c@{\hspace{14mm}}c@{}}
+\barlabelb{4}{5}{6} & \barlabelb{3}{5}{6} & \barlabelb{5}{5}{6}\\[2mm]
+1st\qquad 2nd & 1st\qquad 2nd & 1st\qquad 2nd
+\end{tabular}
+\\[9mm]
+\begin{tabular}{@{}c@{\hspace{18mm}}c@{}}
+\barlabelb{1}{9}{6} & \barlabelb{6}{6}{6}\\[2mm]
+1st\qquad 2nd & 1st\qquad 2nd
+\end{tabular}
+\end{center}
+\gap[2mm]
+\writelines{10}
+
+\newpage
+% ---------------- page 3 ----------------
+In 2-Sprigs, each dot starts with two tokens beside it. Players take turns drawing a line from a dot to another dot or back to the same dot. A line may bend, but it may not cross itself or another line, or touch any other dot. Each end of a line uses up one token at its dot, so a loop needs a dot with two tokens. After each line, the other player takes away the tokens it used. Whoever draws the last line wins.
+\gap[3mm]
+\begin{center}\sprigsrules\end{center}
+\gap[4mm]
+
+\prob Play 2-Sprigs on these boards. Write how many moves each game lasted, and circle who won.
+\gap[3mm]
+\begin{center}
+\recboard{\board{88}{66}{\Lthree}}{\movesrec\qquad\winrec}\hfill
+\recboard{\board{88}{66}{\Lthree}}{\movesrec\qquad\winrec}
+\\[4mm]
+\recboard{\board{88}{72}{\Lfour}}{\movesrec\qquad\winrec}\hfill
+\recboard{\board{88}{72}{\Lfour}}{\movesrec\qquad\winrec}
+\end{center}
+
+\newpage
+% ---------------- page 4 ----------------
+\prob Before you play 2-Sprigs on each board, decide who will win. Then play to check. Who would win 2-Sprigs with 10 dots? With 25 dots? Explain how you know.
+\gap[4mm]
+\begin{center}
+\begin{tabular}{@{}c@{\hspace{12mm}}c@{}}
+\board{90}{90}{\Lfive} & \board{80}{106}{\Lsixtall}\\[2mm]
+\predrow & \predrow
+\end{tabular}
+\end{center}
+\gap[2mm]
+\writelines{8}
+
+\newpage
+% ---------------- page 5 ----------------
+In Sprouts, each spot starts with three tokens. Players take turns drawing a line from a spot to another spot or back to the same spot. A line may bend, but it may not cross itself or another line, or touch any other spot. Each end of a line uses up one token at its spot, so a loop needs a spot with two tokens. After each line, the other player takes away the tokens it used, and the player who drew it adds a new spot on the line and gives it one token. Whoever makes the last move wins.
+\gap[3mm]
+\begin{center}\sproutsrules\end{center}
+\gap[4mm]
+
+\prob Play Sprouts starting with 1 spot, and then starting with 2 spots. Write how many moves each game lasted, and circle who won.
+\gap[3mm]
+\begin{center}
+\recboard{\board{62}{110}{\Lone}}{\recstack}\hfill
+\recboard{\board{120}{110}{\Ltwospotwide}}{\recstack}
+\end{center}
+
+\newpage
+% ---------------- page 6 ----------------
+\prob Work together to make one 2-spot game of Sprouts last as many moves as you can, and another end after as few moves as you can. Can the players' choices change who wins Sprouts? Explain how you know.
+\gap[4mm]
+\begin{center}
+\recboard{\board{186}{78}{\Ltwospotwide}}{\movesrec}
+\\[4mm]
+\recboard{\board{186}{78}{\Ltwospotwide}}{\movesrec}
+\end{center}
+\writelines{3}
+
+\newpage
+% ---------------- page 7 ----------------
+\prob What is the largest number of moves a game of Sprouts that starts with 3 spots can last? Explain how you know.
+\gap[4mm]
+\begin{center}
+\board{186}{128}{\Lthreespotbig}
+\end{center}
+\gap[2mm]
+\writelines{8}
+
+\end{document}

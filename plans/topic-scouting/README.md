@@ -39,6 +39,8 @@ Areas follow `catalog/concepts.toml`. "RV" is a week's return visit.
 3. **Poisoned cookie (Chomp).** A classic children love with a deep idea new to the library: strategy stealing proves a win exists without finding it. The bite card enforces the rule physically, and the square trick and two-row rule give every table something to find.
 4. **Who beat whom.** A networks theme with a natural K–1 action (lay arrows, line up the animals) and a sequence of theorems (Rédei's line-up, kings, Landau's win counts) that grows to grades 4–5. It revisits Week 87's cycles and Week 24's circles as directed networks.
 
+Student-page drafts of all four, each written, reviewed, math-checked and revised through the worksheet workflow on October 24, are in [drafts/](drafts/README.md) for the organizer's review.
+
 Hidden armies is a close fifth and the best choice if the organizer wants a simultaneous game instead of a fourth game of perfect information.
 
 ## Set aside

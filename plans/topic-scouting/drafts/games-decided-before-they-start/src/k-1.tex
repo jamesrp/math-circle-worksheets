@@ -1,0 +1,136 @@
+\documentclass[12pt]{article}
+\usepackage{bmc}
+\newcommand{\bandname}{Grades K--1}
+\newcommand{\packetid}{NN-K-v1}
+\renewcommand{\winrec}{{\large 1st\qquad\quad 2nd}}
+\begin{document}
+\fontsize{13.5}{18}\selectfont
+
+% ---------------- page 1 ----------------
+A break splits one piece into two pieces along a straight line between squares. Break one piece at a time, and never stack pieces.
+\gap[3mm]
+\begin{center}\breakpicture[7]\end{center}
+\gap[6mm]
+
+\prob Break each bar into single squares. Drop a counter in the cup for each break, then write how many counters you used.
+\gap[10mm]
+\begin{center}
+\begin{tabular}{@{}c@{\hspace{16mm}}c@{}}
+\chocbar{2}{2}{12} \hspace{6mm} \numbox[16mm] &
+\chocbar{2}{3}{12} \hspace{6mm} \numbox[16mm]
+\end{tabular}
+\\[14mm]
+\chocbar{1}{6}{12} \hspace{6mm} \numbox[16mm]
+\end{center}
+
+\newpage
+% ---------------- page 2 ----------------
+\prob Break this bar into single squares using as few breaks as you can. Can anyone at your table do it with fewer breaks?
+\gap[6mm]
+\begin{center}
+\chocbar{3}{4}{12} \hspace{10mm} \numbox[16mm]
+\end{center}
+\gap[12mm]
+
+\prob Play ``last break wins'' with a partner: take turns making one break, and whoever makes the last break wins. Play two games on each bar, with a different player going first in each game, and circle whether the 1st or 2nd player won.
+\gap[8mm]
+\begin{center}
+\begin{tabular}{@{}c@{\hspace{22mm}}c@{}}
+\raisebox{\depth}{\chocbar{3}{3}{12}} & \raisebox{\depth}{\chocbar{2}{4}{12}} \\[9mm]
+\begin{tabular}{@{}r@{\quad}l@{}}
+\normalsize Game 1 & \winrec\\[5mm]
+\normalsize Game 2 & \winrec
+\end{tabular}
+&
+\begin{tabular}{@{}r@{\quad}l@{}}
+\normalsize Game 1 & \winrec\\[5mm]
+\normalsize Game 2 & \winrec
+\end{tabular}
+\end{tabular}
+\end{center}
+
+\newpage
+% ---------------- page 3 ----------------
+In 2-Sprigs, each dot starts with two tokens beside it. Players take turns drawing a line from a dot to another dot or back to the same dot. A line may not cross itself or another line, or touch any other dot. Each end of a line uses up one token at its dot, so a loop needs two tokens. Your partner takes away the used tokens. Whoever draws the last line wins.
+\gap[4mm]
+\begin{center}\sprigsrules\end{center}
+\gap[4mm]
+
+\prob Play 2-Sprigs on these boards, and circle whether the 1st or 2nd player won each game.
+\gap[4mm]
+\begin{center}
+\recboard{\board{88}{52}{\Ltwo}}{\winrec}\hfill
+\recboard{\board{88}{52}{\Ltwo}}{\winrec}
+\\[5mm]
+\recboard{\board{88}{76}{\Lthree}}{\winrec}\hfill
+\recboard{\board{88}{76}{\Lthree}}{\winrec}
+\end{center}
+
+\newpage
+% ---------------- page 4 ----------------
+\prob Play 2-Sprigs on these boards. When a game is over, count its lines and circle who won.
+\gap[5mm]
+\begin{center}
+\recboard{\board{88}{88}{\Lfour}}{\normalsize lines \numbox[10mm]\qquad \winrec}\hfill
+\recboard{\board{88}{88}{\Lfour}}{\normalsize lines \numbox[10mm]\qquad \winrec}
+\\[8mm]
+\recboard{\board{88}{88}{\Lfour}}{\normalsize lines \numbox[10mm]\qquad \winrec}\hfill
+\recboard{\board{88}{88}{\Lfour}}{\normalsize lines \numbox[10mm]\qquad \winrec}
+\end{center}
+
+\newpage
+% ---------------- page 5 ----------------
+\prob Can the 2nd player win 2-Sprigs on a board with 5 dots? Play to find out.
+\gap[5mm]
+\begin{center}
+\recboard{\board{90}{90}{\Lfive}}{\winrec}\hfill
+\recboard{\board{90}{90}{\Lfive}}{\winrec}
+\\[8mm]
+\recboard{\board{90}{90}{\Lfive}}{\winrec}\hfill
+\recboard{\board{90}{90}{\Lfive}}{\winrec}
+\end{center}
+
+\newpage
+% ---------------- page 6 ----------------
+\prob Before you play on each board, guess whether the 1st or 2nd player will win. Then play and see.
+\gap[5mm]
+\begin{center}
+\board{140}{82}{\Lsixwide}\\[3mm]
+{\normalsize guess}\enspace\winrec\qquad\qquad{\normalsize winner}\enspace\winrec
+\\[10mm]
+\board{140}{82}{\Lsixwide}\\[3mm]
+{\normalsize guess}\enspace\winrec\qquad\qquad{\normalsize winner}\enspace\winrec
+\end{center}
+
+\newpage
+% ---------------- page 7 ----------------
+\prob Each group of pieces was broken from one bar. How many breaks did each group take?
+\gap[8mm]
+\newcommand{\piece}[4]{% rows cols x y (in squares)
+  \begin{scope}[shift={(#3,#4)}]
+    \fill[black!10] (0,0) rectangle (#2,#1);
+    \draw[step=1,black!65,line width=0.5pt] (0,0) grid (#2,#1);
+    \draw[line width=1.1pt] (0,0) rectangle (#2,#1);
+  \end{scope}}
+\begin{center}
+% from a 2 by 3 bar: 2x2, 1x1, 1x1
+\begin{tikzpicture}[x=12mm,y=12mm,baseline=(current bounding box.center)]
+  \piece{2}{2}{0}{0} \piece{1}{1}{2.6}{0} \piece{1}{1}{4.2}{0}
+\end{tikzpicture}
+\hspace{16mm}\numbox[16mm]
+\\[14mm]
+% from a 3 by 3 bar: 3x1, 1x2, 2x1, 1x1, 1x1
+\begin{tikzpicture}[x=12mm,y=12mm,baseline=(current bounding box.center)]
+  \piece{3}{1}{0}{0} \piece{1}{2}{1.6}{0} \piece{2}{1}{4.2}{0} \piece{1}{1}{5.8}{0} \piece{1}{1}{7.4}{0}
+\end{tikzpicture}
+\hspace{12mm}\numbox[16mm]
+\\[14mm]
+% from a 3 by 4 bar: 1x4, 2x1, 1x2, 1x1, 1x1, 1x1, 1x1
+\begin{tikzpicture}[x=12mm,y=12mm,baseline=(current bounding box.center)]
+  \piece{1}{4}{0}{1.6} \piece{2}{1}{4.6}{1.6} \piece{1}{2}{6.2}{1.6}
+  \piece{1}{1}{0.6}{0} \piece{1}{1}{2.2}{0} \piece{1}{1}{3.8}{0} \piece{1}{1}{5.4}{0}
+\end{tikzpicture}
+\hspace{12mm}\numbox[16mm]
+\end{center}
+
+\end{document}
