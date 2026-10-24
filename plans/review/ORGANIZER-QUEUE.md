@@ -84,6 +84,8 @@ These would change a problem, its order, a printed answer or an approved format.
 
 Each would add a problem, a question, a case or a printed material.
 
+- **Four new themes (October 24):** first review of the student-page drafts of Towers from either end, Breaking and drawing games, Poisoned cookie and Who beat whom, from the [scouting list](../topic-scouting/README.md) for areas where the [six-year path](../six-year-path.md) has no reserves. Each went through the worksheet workflow's writer, review, math check and revision; none has a week number or a guide yet. [drafts](../topic-scouting/drafts/README.md)
+
 - **Week 11, could 10:** should 2–3 P4's third order question become the extra-line capacity question (at most 5 chips)? [card](week-11.md)
 - **Week 13, could 13:** should K–1 P6 and 2–3 P6 get K–1 P3's three-branch board? It is a second-player win and would change the game. [card](week-13.md)
 - **Week 25, could 14:** should Grades 4–5 get a reserve problem with guide p. 17's three-row pair, two pictures with the same top row that are one switch apart, where the two-row rule would say zero? It is now only in the guide. [card](week-25.md)
