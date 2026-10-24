@@ -2,14 +2,16 @@
 
 One record per theme (Weeks 1–100 and the Week 1 encore), one per atlas investigation family, a concept map, and a builder that turns them into a browsable explorer and the [catalog page](../CATALOG.md). The records describe the activities; the PDFs, guides and review cards stay where they are, and the builder finds each week's current print files itself.
 
-The explorer is one self-contained page, `explorer/index.html`: download it and open it in a browser. The organizer's published copy is the [Math Circle Explorer](https://claude.ai/artifact/DarUYkLh2qfEBBDGF4cZm1) (private to the owner unless shared). It has four views: an activity list with filters (band, area, reasoning move, concept, status, review verdict, materials, app) and a detail panel with print links and connected themes; the concept map in area lanes; the network of links between themes; and strands, one per area, ordered by prerequisites for planning return visits. Marks for themes used with a group stay in the viewer's browser.
+The explorer is one self-contained page, `explorer/index.html`: download it and open it in a browser. The organizer's published copy is the [Math Circle Explorer](https://claude.ai/artifact/DarUYkLh2qfEBBDGF4cZm1) (private to the owner unless shared). It has five views: an activity list with filters (band, area, reasoning move, concept, status, review verdict, materials, app) and a detail panel with print links and connected themes; the concept map in area lanes; the network of links between themes; strands, one per area, ordered by prerequisites for planning return visits; and the path, the [proposed six-year path](../plans/six-year-path.md) as six year columns of session cards, with links back to the sessions each one returns to and a selector that follows a child from a chosen starting grade. The published copy has not been updated with the path view yet. Marks for themes used with a group stay in the viewer's browser.
 
 ```
 catalog/
   concepts.toml       areas, reasoning mechanisms and the concept map (each concept names the concepts it requires)
   weeks/week-NN.toml  one record per theme; week-01e.toml is the encore
   atlas/XX-NN.toml    one record per atlas investigation family (AD, GA, AP)
-  build.py            checks every record and writes explorer/index.html and CATALOG.md
+  path.toml           the proposed six-year path: 120 sessions by year, as week, return-visit and atlas ids
+  check_path.py       checks path.toml against the records; build.py runs it, and --tables prints the plan's year tables
+  build.py            checks every record and the path, and writes explorer/index.html and CATALOG.md
 ```
 
 Rebuild after changing a record, a concept or a week's PDFs:
@@ -18,7 +20,7 @@ Rebuild after changing a record, a concept or a week's PDFs:
 python3 catalog/build.py
 ```
 
-The build stops on an unknown concept, mechanism, area or week, a cycle in the concept map, or a missing required field.
+The build stops on an unknown concept, mechanism, area or week, a cycle in the concept map, or a missing required field. It also stops when the six-year path breaks one of its rules: an unknown id, a concept before one it requires, the same theme twice in a year, three sessions in a row from one area, a year with fewer than five areas, a revisit closer than a year or without a catalog link behind it, three heavy kits in a row, or a session without a K–1 or Grades 2–3 entry. Run `python3 catalog/check_path.py` to check the path alone and print its summary. When a record change breaks the path, change [path.toml](path.toml) and the [plan](../plans/six-year-path.md) together.
 
 ## A week record
 

@@ -245,6 +245,75 @@ svg text { font-family: var(--body); fill: var(--ink); }
 .also.at { margin-top: 2px; }
 .alsob { border: 0; background: none; padding: 0; font-family: var(--mono); font-size: .76rem; color: var(--accent); cursor: pointer; text-decoration: underline; }
 
+/* Path: six year columns of session cards, slot k aligned across years */
+.path-follow { color: var(--ink-2); font-size: .9rem; margin: 0 0 12px; min-height: 1.5em; }
+.path-follow b { color: var(--ink); }
+.path-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; align-items: start; }
+.pyear { min-width: 0; transition: opacity .15s; }
+.pyear.gone { opacity: .32; }
+.pyear-head { height: 80px; overflow: hidden; margin-bottom: 6px; }
+.pyear-head h2 { font-family: var(--display); font-size: 1.05rem; margin: 0; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.pyear-head .plabel { font-family: var(--mono); font-size: .74rem; color: var(--ink-3); font-weight: 500; }
+.pyear-head p { margin: 2px 0 0; font-size: .78rem; color: var(--ink-2); line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.pyear-head p.on { color: var(--ink); font-weight: 700; font-size: .84rem; }
+.path-grid.following .pyear-head p:not(.on) { -webkit-line-clamp: 2; }
+.pcol { display: grid; grid-template-rows: repeat(10, 74px) 20px repeat(10, 74px); gap: 6px; }
+.pdiv { grid-row: 11; font-family: var(--mono); font-size: .66rem; color: var(--ink-3); border-top: 1px dashed var(--line); padding-top: 2px; white-space: nowrap; overflow: hidden; }
+.pcard { grid-row: var(--r) / span var(--h); position: relative; min-width: 0; overflow: hidden; display: flex; flex-direction: column; gap: 2px;
+  background: var(--surface); background: color-mix(in srgb, var(--area) 7%, var(--surface));
+  border: 1px solid var(--line); border-left: 4px solid var(--area); border-radius: 6px; padding: 4px 6px 4px 7px; }
+.pcard:hover { border-color: var(--ink-3); border-left-color: var(--area); }
+.pcard[aria-current="true"] { box-shadow: 0 0 0 2px var(--accent); }
+.pcard.flash { box-shadow: 0 0 0 3px var(--accent); background: var(--accent-soft); }
+.pcard.dim { opacity: .38; }
+.pmain { all: unset; cursor: pointer; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.pmain::after { content: ""; position: absolute; inset: 0; }
+.pcard:has(.pmain:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+.pmeta { display: flex; gap: 6px; align-items: baseline; font-family: var(--mono); font-size: .66rem; color: var(--ink-3); white-space: nowrap; overflow: hidden; }
+.pmeta .ppos { color: var(--ink-2); font-weight: 500; }
+.pmeta .heavy { color: var(--warn); }
+.pmeta .ok { color: var(--good); }
+.ptitle { font-size: .8rem; font-weight: 700; line-height: 1.22; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.pcard.two .ptitle { -webkit-line-clamp: 5; }
+.pfoot { display: flex; gap: 3px 4px; align-items: center; flex-wrap: wrap; margin-top: auto; position: relative; z-index: 1; font-size: .66rem; }
+.pfoot .arr { color: var(--ink-3); font-family: var(--mono); }
+.prev { border: 0; background: var(--surface-2); color: var(--ink-2); font-family: var(--mono); font-size: .66rem; padding: 0 4px; border-radius: 4px; cursor: pointer; line-height: 1.55; }
+.prev:hover { color: var(--accent); }
+.prev.met { background: var(--accent-soft); color: var(--ink); }
+.pband { margin-left: auto; font-family: var(--mono); font-size: .64rem; color: var(--ink); background: var(--hi); padding: 0 4px; border-radius: 4px; line-height: 1.55; white-space: nowrap; }
+.pband.weak { background: var(--surface-2); color: var(--ink-2); }
+.pdrawer { position: fixed; inset: 0 0 0 auto; width: min(460px, 100%); max-height: none; top: 0; border-radius: 0; z-index: 40;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); padding-right: env(safe-area-inset-right, 0px); }
+.ppath { background: var(--surface-2); border-radius: var(--r); padding: 10px 12px 12px !important; margin-top: 14px; }
+.ppath .kv { font-size: .86rem; }
+.ppath .golist { display: grid; gap: 4px; }
+.ppath .golist button { border: 0; background: none; color: var(--accent); text-align: left; padding: 0; cursor: pointer; font-size: .86rem; }
+.ppath .golist .wn { font-family: var(--mono); color: var(--ink-3); margin-right: 6px; }
+.rvlist { margin: 4px 0 8px; padding-left: 18px; font-size: .9rem; }
+.rvlist li { margin-bottom: 3px; }
+.rvlist .rb { color: var(--ink-3); font-size: .8rem; }
+.pkey { display: inline-flex; align-items: center; gap: 6px; font-size: .84rem; color: var(--ink-2); }
+.pkey .sw { width: 11px; height: 11px; border-radius: 3px; }
+.pkey .mono { font-family: var(--mono); font-size: .74rem; }
+.pleft { margin-top: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 10px 14px; }
+.pleft summary { cursor: pointer; font-family: var(--display); font-weight: 600; font-size: 1rem; }
+.pleft-g { padding-top: 10px; }
+.pleft-g h4 { margin: 0 0 2px; font-size: .9rem; }
+.pleft-g p { margin: 0 0 3px; font-size: .86rem; }
+.pleft-g .muted { color: var(--ink-2); }
+@media (max-width: 1180px) {
+  .path-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 28px; }
+}
+@media (max-width: 760px) {
+  .path-grid { display: block; }
+  .pyear { margin-bottom: 26px; }
+  .pyear-head { height: auto; }
+  .pyear-head p, .path-grid.following .pyear-head p:not(.on) { -webkit-line-clamp: unset; }
+  .pcol { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; grid-auto-rows: auto; }
+  .pcard { grid-row: auto; min-height: 74px; }
+  .pdiv { grid-row: auto; grid-column: 1 / -1; }
+}
+
 footer.foot { color: var(--ink-3); font-size: .82rem; padding-block: 24px; max-width: 1500px; margin: 0 auto; border-top: 1px solid var(--line); }
 
 /* Phone and narrow layouts */
@@ -265,6 +334,10 @@ footer.foot { color: var(--ink-3); font-size: .82rem; padding-block: 24px; max-w
   .brand h1 { font-size: 1.25rem; }
   .canvas { height: 62vh; }
 }
+@media (max-width: 420px) {
+  nav.tabs { gap: 0; }
+  nav.tabs button { padding: 8px 5px 9px; font-size: .8rem; }
+}
 @media (prefers-reduced-motion: no-preference) {
   .canvas svg { transition: transform .15s ease-out; }
 }
@@ -281,6 +354,7 @@ footer.foot { color: var(--ink-3); font-size: .82rem; padding-block: 24px; max-w
       <button role="tab" id="tab-map" data-view="map" aria-selected="false">Concept map</button>
       <button role="tab" id="tab-links" data-view="links" aria-selected="false">Connections</button>
       <button role="tab" id="tab-strands" data-view="strands" aria-selected="false">Strands</button>
+      <button role="tab" id="tab-path" data-view="path" aria-selected="false">Path</button>
     </nav>
   </div>
 </header>
@@ -347,6 +421,21 @@ footer.foot { color: var(--ink-3); font-size: .82rem; padding-block: 24px; max-w
       <label class="kind-key" for="strand-atlas"><input type="checkbox" id="strand-atlas"> atlas investigations too</label>
     </div>
     <div id="strand-list"></div>
+  </section>
+
+  <section class="view" id="view-path" aria-labelledby="tab-path" hidden>
+    <div class="map-bar">
+      <p class="hint" id="path-hint"></p>
+      <label class="kind-key" for="path-start">Follow a child who starts in 2026–27 in
+        <select class="sel" id="path-start" style="width:auto">
+          <option value="">no one: show every session</option><option value="0">kindergarten</option><option value="1">grade 1</option><option value="2">grade 2</option><option value="3">grade 3</option><option value="4">grade 4</option><option value="5">grade 5</option>
+        </select>
+      </label>
+    </div>
+    <div class="legend" id="path-legend"></div>
+    <p class="path-follow" id="path-follow" aria-live="polite"></p>
+    <div class="path-grid" id="path-grid"></div>
+    <aside class="detail pdrawer" id="pdetail" hidden aria-live="polite"></aside>
   </section>
 </main>
 <footer class="foot wrap" id="foot"></footer>
@@ -613,13 +702,14 @@ const DATA = /*__DATA__*/null;
     if (opts.focus !== false) $(".close", d)?.focus({ preventScroll: true });
   }
   function closeDetail() {
+    if (pathCurrent) { closePathDetail(); return; }
     current = null;
     $("#acts").classList.remove("has-detail");
     $("#detail").hidden = true;
     for (const el of document.querySelectorAll(".item")) el.setAttribute("aria-current", "false");
     setHash("activities");
   }
-  document.addEventListener("keydown", e => { if (e.key === "Escape" && current) closeDetail(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && (current || pathCurrent)) closeDetail(); });
 
   function detailEl(w) {
     const frag = document.createDocumentFragment();
@@ -756,9 +846,17 @@ const DATA = /*__DATA__*/null;
   function showView(v, updateHash = true) {
     for (const b of document.querySelectorAll("nav.tabs button")) b.setAttribute("aria-selected", b.dataset.view === v ? "true" : "false");
     for (const sec of document.querySelectorAll(".view")) sec.hidden = sec.id !== "view-" + v;
+    const nav = $("nav.tabs"), tab = $(`nav.tabs button[data-view="${v}"]`);
+    if (nav && tab && nav.scrollWidth > nav.clientWidth) {
+      const nr = nav.getBoundingClientRect(), tr = tab.getBoundingClientRect();
+      if (tr.right > nr.right) nav.scrollLeft += tr.right - nr.right;
+      else if (tr.left < nr.left) nav.scrollLeft -= nr.left - tr.left;
+    }
     if (v === "map" && !built.map) { buildConceptMap(); built.map = true; }
     if (v === "links" && !built.links) { buildWeekMap(); built.links = true; }
     if (v === "strands" && !built.strands) { renderStrands(); built.strands = true; }
+    if (v === "path" && !built.path) { buildPath(); built.path = true; }
+    if (v !== "path" && pathCurrent) closePathDetail(false);
     if (updateHash) setHash(v === "activities" && current ? "w" + current : v);
   }
   for (const b of document.querySelectorAll("nav.tabs button")) b.addEventListener("click", () => showView(b.dataset.view));
@@ -1011,6 +1109,227 @@ const DATA = /*__DATA__*/null;
   $("#strand-atlas").addEventListener("change", renderStrands);
   if (!DATA.atlas.length) $("#strand-atlas").parentElement.hidden = true;
 
+  // ---------------------------------------------------------------- path
+  const P = DATA.path;
+  const PS = new Map((P ? P.sessions : []).map(x => [x.id, x]));
+  let pathCurrent = null;
+  const HALF = P ? P.perYear / 2 : 10;
+  const tableOf = g => g <= 1 ? "K-1" : g <= 3 ? "2-3" : g <= 5 ? "4-5" : null;
+  const gradeName = g => g === 0 ? "kindergarten" : "grade " + g;
+  const slotLabel = x => x.hours > 1 ? `${x.pos}–${x.pos + x.hours - 1}` : String(x.pos);
+  const pTitle = x => x.kind === "rv" ? x.rv.theme : x.title;
+  const pKind = x => x.kind === "rv" ? `Week ${x.theme} return` : x.kind === "atlas" ? `Atlas ${x.id}` : /e$/.test(x.id) ? `Week ${x.id} encore` : `Week ${x.id}`;
+  const pWhere = x => `Y${x.year}·${slotLabel(x)}`;
+  const tableEntry = (x, b) => {
+    const v = x.bands[b];
+    if (v === "route") return { text: "K–1 adult-led", weak: true, about: x.k1 || "An adult-led K–1 route in the guide." };
+    if (v === "base") return { text: "K–1 base pack", weak: true, about: x.k1 || "The base week's K–1 packet." };
+    if (v === "rv") return { text: bandLabel(b), weak: false, about: `The return visit's ${bandLabel(b)} entry.` };
+    if (v === "pages") return { text: bandLabel(b), weak: false, about: `${bandLabel(b)} pages.` };
+    return { text: "no " + bandLabel(b), weak: true, about: `No ${bandLabel(b)} entry.` };
+  };
+
+  function pathCard(x, table, met) {
+    const two = x.hours > 1;
+    const crosses = x.pos <= HALF && x.pos + x.hours - 1 > HALF;
+    const card = h("div", { class: "pcard" + (two ? " two" : ""), id: "ps-" + x.id, "data-id": x.id,
+      style: `--area:${areaColor(x.area)};--r:${x.pos <= HALF ? x.pos : x.pos + 1};--h:${x.hours + (crosses ? 1 : 0)}`,
+      "aria-current": pathCurrent === x.id ? "true" : "false" });
+    card.append(h("button", { class: "pmain", onclick: () => openPathDetail(x.id),
+      "aria-label": `Year ${x.year}, session ${slotLabel(x)}: ${pTitle(x)}, ${pKind(x)}, ${AREAS[x.area]}` },
+      h("span", { class: "pmeta" },
+        h("span", { class: "ppos", text: slotLabel(x) }),
+        h("span", { text: pKind(x) }),
+        x.kit === "heavy" ? h("span", { class: "heavy", text: "heavy kit" }) : null,
+        x.status === "piloted" ? h("span", { class: "ok", text: "piloted" }) : null),
+      h("span", { class: "ptitle", text: pTitle(x) })));
+    const backs = x.revisits.filter(id => PS.has(id)).map(id => {
+      const t = PS.get(id);
+      const label = `Returns to ${pTitle(t)}, Year ${t.year} session ${slotLabel(t)}`;
+      return h("button", { class: "prev" + (met && met.has(id) ? " met" : ""), title: label, "aria-label": label, onclick: () => jumpTo(id) }, "↩ " + pWhere(t));
+    });
+    const chip = table ? tableEntry(x, table) : null;
+    if (backs.length || chip) card.append(h("span", { class: "pfoot" }, backs,
+      chip ? h("span", { class: "pband" + (chip.weak ? " weak" : ""), title: chip.about, text: chip.text }) : null));
+    return card;
+  }
+
+  function renderPath() {
+    const grid = $("#path-grid");
+    if (!grid || !P) return;
+    const sel = $("#path-start").value;
+    const g0 = sel === "" ? null : +sel;
+    grid.classList.toggle("following", g0 != null);
+    grid.replaceChildren();
+    const met = new Set();
+    const tally = { slots: 0, years: 0, "K-1": 0, "2-3": 0, "4-5": 0, adult: 0, returns: 0 };
+    for (const yr of P.years) {
+      const grade = g0 == null ? null : g0 + yr.year - 1;
+      const table = grade == null ? null : tableOf(grade);
+      const col = h("div", { class: "pcol" });
+      const div = h("div", { class: "pdiv", text: "second half of the year" });
+      let divided = false;
+      const seen = new Set();
+      for (const x of P.sessions.filter(s => s.year === yr.year).sort((a, b) => a.pos - b.pos)) {
+        if (!divided && x.pos > HALF) { col.append(div); divided = true; }
+        col.append(pathCard(x, table, met));
+        if (table) {
+          tally.slots += x.hours; tally[table] += x.hours;
+          if (table === "K-1" && (x.bands["K-1"] === "route" || x.bands["K-1"] === "base")) tally.adult += x.hours;
+          if (x.revisits.some(id => met.has(id))) tally.returns += 1;
+          seen.add(x.id);
+        }
+      }
+      if (!divided) col.append(div);
+      for (const id of seen) met.add(id);
+      if (table) tally.years += 1;
+      grid.append(h("div", { class: "pyear" + (g0 != null && !table ? " gone" : "") },
+        h("div", { class: "pyear-head" },
+          h("h2", {}, `Year ${yr.year}`, h("span", { class: "plabel", text: yr.label })),
+          g0 != null ? h("p", { class: "on", text: table ? `${grade === 0 ? "Kindergarten" : "Grade " + grade} · ${bandLabel(table)} table` : "After grade 5" }) : null,
+          h("p", { text: yr.note })),
+        col));
+    }
+    const f = $("#path-follow");
+    if (g0 == null) {
+      const n = k => P.sessions.filter(x => x.kind === k).length;
+      const slots = P.sessions.reduce((a, x) => a + x.hours, 0);
+      f.replaceChildren(`${slots} sessions in ${P.sessions.length} entries: ${n("week")} weekly themes, ${n("rv")} return visits, ${n("atlas")} atlas investigations. Choose a starting grade to follow one child.`);
+    } else {
+      const parts = ["K-1", "2-3", "4-5"].filter(b => tally[b]).map(b => `${tally[b]} at the ${bandLabel(b)} table` + (b === "K-1" && tally.adult ? ` (${tally.adult} by an adult-led route or the base pack)` : ""));
+      f.replaceChildren("A child who starts in ", h("b", { text: gradeName(g0) }), ` meets ${tally.slots} sessions over ${tally.years} year${tally.years > 1 ? "s" : ""}: ${parts.join(", ")}. `,
+        tally.returns ? `${tally.returns} of them return to a theme the child met in an earlier year (marked ↩ in blue).` : "None of them returns to a theme the child met earlier.");
+    }
+  }
+
+  function jumpTo(id, focus = true) {
+    const el = document.getElementById("ps-" + id);
+    if (!el) return;
+    const smooth = !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+    el.scrollIntoView({ block: "center", inline: "nearest", behavior: smooth ? "smooth" : "auto" });
+    el.classList.add("flash");
+    setTimeout(() => el.classList.remove("flash"), 1600);
+    if (focus) $(".pmain", el)?.focus({ preventScroll: true });
+  }
+
+  function pathSection(x) {
+    const yr = P.years.find(y => y.year === x.year);
+    const k1 = x.bands["K-1"];
+    const k1Text = x.k1 || (k1 === "pages" ? "K–1 pages in the packet." : k1 === "rv" ? "The return visit has a K–1 entry." : k1 === "base" ? "The base week's K–1 packet." : "None.");
+    const go = ids => h("div", { class: "golist" }, ids.filter(id => PS.has(id)).map(id => {
+      const t = PS.get(id);
+      return h("button", { onclick: () => { openPathDetail(id); jumpTo(id, false); } },
+        h("span", { class: "wn", text: pWhere(t) }), pTitle(t) + (t.kind === "rv" ? " (return visit)" : ""));
+    }));
+    return h("section", { class: "ppath" },
+      h("h3", { text: "On the path" }),
+      h("dl", { class: "kv" },
+        h("dt", { text: "When" }), h("dd", { text: `Year ${x.year} (${yr ? yr.label : ""}), session ${slotLabel(x)}` + (x.hours > 1 ? ", two hours" : "") }),
+        h("dt", { text: "Main move" }), h("dd", { text: P.moveShort[x.move] || x.move }),
+        h("dt", { text: "K–1 table" }), h("dd", { text: k1Text }),
+        h("dt", { text: "Kit" }), h("dd", { text: `${x.kit[0].toUpperCase() + x.kit.slice(1)}. ${x.kitNote}` }),
+        x.note ? h("dt", { text: "Why here" }) : null, x.note ? h("dd", { text: x.note }) : null),
+      x.revisits.length ? [h("h3", { text: "Returns to", style: "margin-top:10px" }), go(x.revisits)] : null,
+      x.revisitedBy.length ? [h("h3", { text: "Comes back in", style: "margin-top:10px" }), go(x.revisitedBy)] : null);
+  }
+
+  function rvDetailEl(x) {
+    const w = W.get(x.theme);
+    const frag = document.createDocumentFragment();
+    frag.append(h("div", { class: "d-head" },
+      h("div", { class: "kicker" }, h("span", { text: `Return visit · Week ${x.theme}` }), w ? h("span", { text: w.series }) : null),
+      h("button", { class: "close", "aria-label": "Close", onclick: closeDetail }, "×"),
+      h("h2", { text: `${x.rv.theme}: return visit` }),
+      h("div", { class: "tags" },
+        h("span", { class: "area-name" }, h("span", { class: "sw", style: `background:${areaColor(x.area)}` }), AREAS[x.area]),
+        DATA.bands.map(b => h("span", { class: "band" + (x.bands[b] ? "" : " off"), text: bandLabel(b) })),
+        h("span", { class: "pill", style: "color:var(--ink-3)", text: x.status === "piloted" ? "piloted" : "unpiloted" }))));
+    const body = h("div", { class: "d-body" });
+    if (x.rv.investigations.length) body.append(h("section", {}, h("h3", { text: "Investigations" }),
+      h("ul", { class: "rvlist" }, x.rv.investigations.map(i => h("li", {}, i.title, i.bands ? [" ", h("span", { class: "rb", text: `(${i.bands})` })] : null)))));
+    const files = [["Student pages", x.rv.student, "PDF"], ["Facilitator guide", x.rv.guide, "PDF"], ["Source notes", x.rv.source, ""]].filter(f => f[1]);
+    if (files.length) body.append(h("section", {}, h("h3", { text: "Print and read" }),
+      h("ul", { class: "files" }, files.map(([role, path, ext]) => h("li", {},
+        h("a", { href: fileUrl(path), target: "_blank", rel: "noopener" }, role), ext ? h("span", { class: "ext", text: ext }) : null)))));
+    if (w) body.append(h("section", {}, h("h3", { text: "The theme it returns to" }),
+      h("div", { class: "rel-item" },
+        h("button", { onclick: () => PS.has(w.id) ? (openPathDetail(w.id), jumpTo(w.id, false)) : openDetail(w.id), "aria-label": `Open week ${w.id}` }, w.id),
+        h("span", { class: "rt", text: w.title }),
+        h("span", { class: "rn", text: w.hook }))));
+    frag.append(body);
+    return frag;
+  }
+
+  function openPathDetail(id, opts = {}) {
+    const x = PS.get(id);
+    if (!x) return;
+    pathCurrent = id;
+    const rec = x.kind === "rv" ? null : I.get(x.theme);
+    const frag = x.kind === "rv" ? rvDetailEl(x) : rec.kind === "atlas" ? atlasDetailEl(rec) : detailEl(rec);
+    const body = frag.querySelector(".d-body");
+    if (x.kind === "rv") body.prepend(pathSection(x)); else body.firstElementChild.after(pathSection(x));
+    const box = frag.querySelector(".usedbox input");
+    if (box) { box.id = "p" + box.id; box.parentElement.setAttribute("for", box.id); }
+    const d = $("#pdetail");
+    d.replaceChildren(frag);
+    d.hidden = false;
+    d.scrollTop = 0;
+    for (const el of document.querySelectorAll(".pcard")) el.setAttribute("aria-current", el.dataset.id === id ? "true" : "false");
+    setHash("p-" + id);
+    if (opts.focus !== false) $(".close", d)?.focus({ preventScroll: true });
+  }
+  function closePathDetail(updateHash = true) {
+    const was = pathCurrent;
+    pathCurrent = null;
+    const d = $("#pdetail");
+    d.hidden = true;
+    d.replaceChildren();
+    for (const el of document.querySelectorAll(".pcard[aria-current='true']")) el.setAttribute("aria-current", "false");
+    if (updateHash) {
+      setHash("path");
+      const el = was && document.getElementById("ps-" + was);
+      if (el) $(".pmain", el)?.focus({ preventScroll: true });
+    }
+  }
+
+  function pathLegend() {
+    const inUse = new Set(P.sessions.map(x => x.area));
+    $("#path-legend").replaceChildren(
+      ...Object.keys(AREAS).filter(a => inUse.has(a)).map(a => h("span", { class: "pkey" }, h("span", { class: "sw", style: `background:${areaColor(a)}` }), P.areaShort[a] || AREAS[a])),
+      h("span", { class: "pkey" }, h("span", { class: "prev", text: "↩ Y1·3" }), "returns to that session"),
+      h("span", { class: "pkey" }, h("span", { class: "mono", text: "12–13" }), "two hours"),
+      h("span", { class: "pkey" }, h("span", { class: "mono", style: "color:var(--warn)", text: "heavy kit" }), "most preparation"));
+  }
+  function pathHint() {
+    $("#path-hint").replaceChildren(
+      "One proposed route through the library for a child who comes back every year: twenty one-hour sessions a year for six years, starting with this year's Weeks 1–10. Each card is a session coloured by the area of its central idea. ",
+      P.status + " Reasons and journeys: ",
+      h("a", { href: fileUrl("plans/six-year-path.md"), target: "_blank", rel: "noopener" }, "plans/six-year-path.md"), ".");
+  }
+  function pathLeftOut() {
+    const ids = P.leftOut.flatMap(g => g.ids);
+    const nW = ids.filter(id => W.has(id)).length, nA = ids.filter(id => AT.has(id)).length;
+    const idList = list => list.map((id, i) => [i ? ", " : "", h("button", { class: "alsob", title: I.get(id)?.title || "", onclick: () => openDetail(id) }, id)]);
+    const box = h("details", { class: "pleft" },
+      h("summary", { text: `Not on the path: ${nW} weekly themes, ${nA} atlas investigations, ${P.unusedReturnVisits.length} return visits` }),
+      P.leftOut.map(g => h("div", { class: "pleft-g" }, h("h4", { text: g.group }), h("p", {}, idList(g.ids)), h("p", { class: "muted", text: g.reason }))),
+      P.unusedReturnVisits.length ? h("div", { class: "pleft-g" }, h("h4", { text: "Return visits not used" }),
+        h("p", {}, "To weeks ", idList(P.unusedReturnVisits.map(r => r.replace(/^rv-/, "")))),
+        h("p", { class: "muted", text: "Each adds three new investigations to its theme; any can replace a session, or follow its theme for a group that wants more." })) : null);
+    $("#path-grid").after(box);
+  }
+  function buildPath() {
+    if (!P) return;
+    const saved = String(store.get("mce-path-start", ""));
+    if ([...$("#path-start").options].some(o => o.value === saved)) $("#path-start").value = saved;
+    pathHint();
+    pathLegend();
+    renderPath();
+    pathLeftOut();
+  }
+  $("#path-start").addEventListener("change", e => { store.set("mce-path-start", e.target.value); renderPath(); });
+  if (!P) $("#tab-path").hidden = true;
+
   // ---------------------------------------------------------------- start
   renderFilters();
   renderList();
@@ -1019,7 +1338,8 @@ const DATA = /*__DATA__*/null;
     suppressHash = true;
     if (/^w\d+e?$/.test(tok) && W.has(tok.slice(1))) openDetail(tok.slice(1), { focus: false });
     else if (AT.has(tok)) openDetail(tok, { focus: false });
-    else if (["map", "links", "strands", "activities"].includes(tok)) showView(tok, false);
+    else if (["map", "links", "strands", "activities", "path"].includes(tok)) showView(tok, false);
+    else if (tok.startsWith("p-") && PS.has(decodeURIComponent(tok.slice(2)))) { showView("path", false); openPathDetail(decodeURIComponent(tok.slice(2)), { focus: false }); }
     suppressHash = false;
   }
   fromHash();

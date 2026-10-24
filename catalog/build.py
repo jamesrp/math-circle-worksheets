@@ -2,7 +2,8 @@
 """Check the activity catalog and build the explorer and the catalog page.
 
 Reads catalog/concepts.toml and catalog/weeks/*.toml, finds each week's current
-print files, and writes explorer/index.html and CATALOG.md.
+print files, checks the six-year path in catalog/path.toml (catalog/check_path.py),
+and writes explorer/index.html and CATALOG.md.
 
     python3 catalog/build.py            # check and build
     python3 catalog/build.py --check    # check only
@@ -18,6 +19,8 @@ import sys
 import tomllib
 from collections import defaultdict
 from pathlib import Path
+
+import check_path
 
 ROOT = Path(__file__).resolve().parent.parent
 CAT = ROOT / "catalog"
@@ -702,9 +705,15 @@ def main():
         print("The catalog has problems:\n" + str(exc), file=sys.stderr)
         sys.exit(1)
     print(f"{len(weeks)} week records, {len(atlas)} atlas records, {len(concepts)} concepts: all checks pass")
+    path, path_errors, path_summary, _ = check_path.check(areas, mechanisms, concepts, weeks, atlas)
+    if path_errors:
+        print("The six-year path has problems:\n" + "\n".join(path_errors), file=sys.stderr)
+        sys.exit(1)
+    print("\n".join(path_summary))
     if args.check:
         return
     data = build_data(areas, mechanisms, concepts, weeks, atlas)
+    data["path"] = path
     write_explorer(data, ROOT / "explorer" / "index.html", args.fragment)
     write_catalog_md(data, ROOT / "CATALOG.md")
     print("Wrote explorer/index.html and CATALOG.md")

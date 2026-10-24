@@ -13,6 +13,7 @@
 - [Mathematics atlas](atlas/README.md): the broad research map, 90 prerequisite-based investigation plans, sources, reviews and remaining frontier.
 - [Remaining eighty worksheet investigations](atlas/worksheet-expansion/README.md): the continuation of the approved ten-entry trial, with staged student problems, complete keys, independent reviews and an [exact page finder](atlas/worksheet-expansion/INDEX.md).
 
+- [Six-year path for returning children](six-year-path.md): a proposed 120 sessions over six years for the mixed K–5 room, starting with this fall's Weeks 1–10; checked by `catalog/check_path.py` and shown in the explorer's Path view. A proposal, unpiloted.
 - [Fall K–5 plan](fall-k-5-year-a.md): ten themes, group arrangements, and the shared hour.
 - [Activity guide](fall-k-5-year-a-activities.md): entry activities and links to complete weekly plans.
 - [Week 2 shared collection](week-02-shared-collection.md): the current 42-page, 50-problem menu, common launch, prerequisite-based routes, and three-adult coverage.
