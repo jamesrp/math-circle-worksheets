@@ -4,6 +4,8 @@ One card per theme says whether the theme is good enough to keep as it is, and w
 
 Every decision the October 23 revisions left for the organizer (re-approvals, substance changes, new content and untouched weeks) is on one page: [ORGANIZER-QUEUE.md](ORGANIZER-QUEUE.md).
 
+Two sweeps check the whole collection: [checks/HEALTH.md](checks/HEALTH.md) reran every review check script on October 23, and [checks/ZIP-SWEEP.md](checks/ZIP-SWEEP.md) rebuilt every portable source ZIP from a clean extraction on October 24.
+
 ## What a card says
 
 A card follows [TEMPLATE.md](TEMPLATE.md): a verdict, the mathematics in a few sentences, nine ratings with evidence, what to keep, a located fix list, overlaps with other themes, the app fit, and what children actually did.
