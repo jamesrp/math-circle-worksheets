@@ -132,6 +132,22 @@ select.sel { width: 100%; padding: 7px 10px; border: 1px solid var(--line); bord
 .pill.revise { color: var(--warn); }
 .pill.used { color: var(--ink-2); background: var(--surface-2); border-color: transparent; }
 .pill.atlas { color: var(--ink-2); border-style: dashed; }
+/* Drafts awaiting review: a dashed outline on a highlighter-yellow ground, wherever they appear. */
+.pill.draft { color: var(--ink); background: var(--hi); border: 1px dashed var(--warn); }
+.pill.pending { color: var(--warn); border-style: dashed; }
+.pill.mini { font-size: .66rem; padding: 0 5px; margin-left: 6px; font-weight: 400; vertical-align: 1px; }
+.item.draft { border-style: dashed; border-color: var(--ink-3); }
+.item.draft[aria-current="true"] { border-color: var(--accent); }
+.item .num.dnum { font-size: .92rem; padding-top: 2px; border-right-style: dashed; }
+.chip.dchip { border-style: dashed; }
+.draftbox { border: 1px dashed var(--warn); border-radius: var(--r); padding: 10px 12px; font-size: .9rem;
+  background: var(--surface-2); background: color-mix(in srgb, var(--hi) 40%, var(--surface)); }
+.draftbox + .draftbox { margin-top: 8px; }
+.draftbox p { margin: 0 0 6px; }
+.draftbox .files { margin-bottom: 6px; }
+.draftbox .dmuted { color: var(--ink-2); font-size: .82rem; margin: 0; }
+.rel-item.draft button { border-style: dashed; border-color: var(--warn); background: var(--hi); }
+.side .dlist li button .wn { color: var(--warn); }
 .gates { display: grid; gap: 6px; font-size: .9rem; }
 .gates .g { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 8px; }
 .gates .gk { color: var(--ink-3); }
@@ -217,7 +233,17 @@ svg text { font-family: var(--body); fill: var(--ink); }
 .wedge.k-same-theorem { stroke-width: 2.4; }
 .wedge.k-same-object { stroke-dasharray: 1.5 3; stroke-linecap: round; stroke-width: 1.8; }
 .wedge.k-contrast { stroke-dasharray: 8 3 1 3; }
+.wedge.dedge { stroke: var(--warn); stroke-opacity: .45; }
 .wedge.on { stroke: var(--accent); stroke-opacity: .85; }
+.wnode.draft circle { fill: var(--hi); stroke-dasharray: 4.5 3; }
+.wnode.on.sel.draft circle { fill: var(--accent-soft); }
+.wnode circle.pend, .wnode.on.sel circle.pend { fill: var(--warn); stroke: var(--surface); stroke-width: 1.5; stroke-dasharray: none; }
+.cnode .dbadge { fill: var(--hi); stroke: var(--warn); stroke-dasharray: 2 2; }
+.cnode .dcnt { font-family: var(--mono); font-size: 10px; fill: var(--ink); }
+.cnode.draftonly rect.box { stroke: var(--warn); stroke-dasharray: 4 3; }
+.no-drafts .dr { display: none; }
+.dkey { display: inline-flex; align-items: center; gap: 6px; font-size: .84rem; color: var(--ink-2); }
+.dkey svg { flex: none; }
 .kind-key { display: inline-flex; align-items: center; gap: 6px; font-size: .84rem; color: var(--ink-2); }
 .kind-key svg { width: 34px; height: 10px; }
 .kind-key line { stroke: var(--ink-2); }
@@ -385,6 +411,7 @@ footer.foot { color: var(--ink-3); font-size: .82rem; padding-block: 24px; max-w
   <section class="view" id="view-map" aria-labelledby="tab-map" hidden>
     <div class="map-bar">
       <p class="hint">Each box is a concept; arrows run from what children usually meet first to what builds on it. Choose a concept to light up its prerequisites and what it leads to, and the activities about it.</p>
+      <label class="kind-key" for="cmap-drafts"><input type="checkbox" class="show-drafts" id="cmap-drafts" checked> drafts awaiting review</label>
       <div class="zoom" aria-label="Zoom">
         <button id="cz-out" aria-label="Zoom out">−</button><button id="cz-in" aria-label="Zoom in">+</button><button id="cz-reset" aria-label="Reset zoom">↺</button>
       </div>
@@ -399,6 +426,7 @@ footer.foot { color: var(--ink-3); font-size: .82rem; padding-block: 24px; max-w
   <section class="view" id="view-links" aria-labelledby="tab-links" hidden>
     <div class="map-bar">
       <p class="hint">Each dot is a theme, coloured by the area of its central idea; lines are the links written in the catalog. Choose a theme to see its neighbours.</p>
+      <label class="kind-key" for="wmap-drafts"><input type="checkbox" class="show-drafts" id="wmap-drafts" checked> drafts awaiting review</label>
       <div class="zoom" aria-label="Zoom">
         <button id="wz-out" aria-label="Zoom out">−</button><button id="wz-in" aria-label="Zoom in">+</button><button id="wz-reset" aria-label="Reset zoom">↺</button>
       </div>
@@ -458,6 +486,8 @@ const DATA = /*__DATA__*/null;
     for (const kid of kids.flat(Infinity)) if (kid != null && kid !== false) el.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
     return el;
   }
+  // Replace an element's children, skipping empty parts and flattening lists, as h() does.
+  const put = (el, ...kids) => el.replaceChildren(...kids.flat(Infinity).filter(k => k != null && k !== false));
   const SVGNS = "http://www.w3.org/2000/svg";
   function s(tag, attrs, ...kids) {
     const el = document.createElementNS(SVGNS, tag);
@@ -471,19 +501,45 @@ const DATA = /*__DATA__*/null;
     return el;
   }
 
-  for (const w of DATA.weeks) w.kind = "week";
+  DATA.drafts = DATA.drafts || [];
+  DATA.draftEdges = DATA.draftEdges || [];
+  for (const w of DATA.weeks) { w.kind = "week"; w.drafts = w.drafts || []; }
   for (const a of DATA.atlas) a.kind = "atlas";
+  for (const d of DATA.drafts) d.kind = "draft";
   const W = new Map(DATA.weeks.map(w => [w.id, w]));
   const AT = new Map(DATA.atlas.map(a => [a.id, a]));
-  const I = new Map([...W, ...AT]);
-  const ITEMS = [...DATA.weeks, ...DATA.atlas];
+  const DR = new Map(DATA.drafts.map(d => [d.id, d]));
+  const I = new Map([...W, ...AT, ...DR]);
+  const ITEMS = [...DATA.weeks, ...DATA.drafts, ...DATA.atlas];
+  const PENDING = DATA.weeks.filter(w => w.drafts.length);
   const C = new Map(DATA.concepts.map(c => [c.id, c]));
   const AREAS = DATA.areas;
   const areaColor = a => `var(--a-${a})`;
   const bandLabel = b => b.replace("-", "–");
   const fileUrl = p => DATA.repo + p.split("/").map(encodeURIComponent).join("/");
+  const dirUrl = p => (DATA.tree || DATA.repo) + p.replace(/\/$/, "").split("/").map(encodeURIComponent).join("/");
+  const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const fmtDate = iso => { const [y, m, d] = iso.split("-").map(Number); return `${MONTHS[m - 1]} ${d}, ${y}`; };
   const sortWeeks = ids => ids.slice().sort((a, b) => parseInt(a) - parseInt(b) || a.localeCompare(b));
-  const itemOrder = (a, b) => (a.kind === b.kind ? 0 : a.kind === "week" ? -1 : 1) || (a.kind === "week" ? parseInt(a.id) - parseInt(b.id) : 0) || a.id.localeCompare(b.id);
+  const KIND_ORDER = { week: 0, draft: 1, atlas: 2 };
+  const itemOrder = (a, b) => KIND_ORDER[a.kind] - KIND_ORDER[b.kind] || (a.kind === "week" ? parseInt(a.id) - parseInt(b.id) : a.kind === "draft" ? a.rank - b.rank : 0) || a.id.localeCompare(b.id);
+  const idOf = x => x.kind === "draft" ? x.short : x.id;
+  const hashFor = id => { const x = I.get(id); return !x ? "activities" : x.kind === "atlas" ? id : x.kind === "draft" ? "d-" + id : "w" + id; };
+  const pendingName = d => d.kind === "return visit" ? "Return-visit draft" : d.kind.replace("K-1", "K–1") + " draft";
+  const pendingPill = d => d.kind === "return visit" ? "return-visit draft" : d.kind === "K-1 pages" ? "K–1 draft pages" : d.kind + " draft";
+  const DRAFT_NOTE = "Awaiting the organizer's review: unpiloted, not approved and not on the path.";
+
+  // Draft themes' links to weekly themes, both directions. A draft's leads-to reads as prepared-by from the week.
+  const DREL = new Map();
+  for (const e of DATA.draftEdges) {
+    if (!DREL.has(e.week)) DREL.set(e.week, []);
+    if (!DREL.has(e.draft)) DREL.set(e.draft, []);
+    DREL.get(e.draft).push({ other: e.week, kind: e.kind, note: e.note });
+    DREL.get(e.week).push({ other: e.draft, kind: e.kind === "leads-to" ? "prepared-by" : e.kind, note: e.note });
+  }
+
+  // Whether the maps show drafts awaiting review (one switch for both maps, kept in this browser).
+  let showDrafts = true;
 
   // Atlas links to weekly themes, both directions.
   const AREL = new Map();
@@ -517,27 +573,31 @@ const DATA = /*__DATA__*/null;
     set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (_) {} }
   };
   let used = new Set(store.get("mce-used", []));
+  showDrafts = store.get("mce-show-drafts", true) !== false;
   function setUsed(id, on) { on ? used.add(id) : used.delete(id); store.set("mce-used", [...used]); renderList(); renderStrands(); }
   function readyIds() {
     const met = new Set();
     for (const id of used) for (const c of I.get(id)?.concepts || []) met.add(c);
     const out = new Set();
     for (const w of ITEMS) {
-      if (used.has(w.id)) continue;
+      if (used.has(w.id) || w.kind === "draft") continue;
       if (w.uses.every(c => met.has(c) || C.get(c).depth === 0)) out.add(w.id);
     }
     return out;
   }
 
-  $("#subline").textContent = `${DATA.weeks.length} themes` + (DATA.atlas.length ? ` · ${DATA.atlas.length} atlas investigations` : "") + ` · ${DATA.concepts.length} concepts · K–5`;
+  $("#subline").textContent = `${DATA.weeks.length} themes` + (DATA.drafts.length ? ` · ${DATA.drafts.length} draft themes` : "") + (DATA.atlas.length ? ` · ${DATA.atlas.length} atlas investigations` : "") + ` · ${DATA.concepts.filter(c => !c.draftOnly).length} concepts · K–5`;
   $("#foot").append(
     "Built from the catalog records in ",
     h("a", { href: DATA.repo + "catalog/README.md", target: "_blank", rel: "noopener" }, "math-circle-worksheets/catalog"),
-    ". Print files open on GitHub. Atlas investigations come from the mathematics atlas books; their bands name where a K–5 child can genuinely enter. Bands are entry points by prerequisites, not age limits. Unless a theme says piloted, no child has used it yet. Marks for themes you have used stay in this browser only."
+    ". Print files open on GitHub. Atlas investigations come from the mathematics atlas books; their bands name where a K–5 child can genuinely enter. Bands are entry points by prerequisites, not age limits. Unless a theme says piloted, no child has used it yet. ",
+    DATA.drafts.length || PENDING.length ? "Dashed outlines on yellow mark drafts awaiting the organizer's review: new themes with no week number yet, and new pages for existing weeks. None is approved, piloted or on the path. " : "",
+    "Marks for themes you have used stay in this browser only."
   );
 
   // ---------------------------------------------------------------- filters
-  const F = { lib: new Set(["week"]), q: "", bands: new Set(), areas: new Set(), mech: "", concept: "", status: new Set(), verdict: "", paper: false, app: "", used: "", sort: "week" };
+  const LIB0 = () => new Set(DATA.drafts.length ? ["week", "draft"] : ["week"]);
+  const F = { lib: LIB0(), review: "", q: "", bands: new Set(), areas: new Set(), mech: "", concept: "", status: new Set(), verdict: "", paper: false, app: "", used: "", sort: "week" };
   const inLib = () => ITEMS.filter(x => F.lib.has(x.kind));
 
   function chipToggle(label, pressed, onclick, sw) {
@@ -550,11 +610,35 @@ const DATA = /*__DATA__*/null;
     const mechCount = {};
     for (const x of pool) for (const m of x.mechanisms) mechCount[m] = (mechCount[m] || 0) + 1;
     const conceptCount = c => pool.filter(x => x.concepts.includes(c)).length;
+    const libs = [["week", `weekly themes (${DATA.weeks.length})`], ["draft", `draft themes (${DATA.drafts.length})`], ["atlas", `atlas (${DATA.atlas.length})`]]
+      .filter(([v]) => v === "week" || (v === "draft" ? DATA.drafts.length : DATA.atlas.length));
+    const libChip = ([v, l]) => {
+      const b = chipToggle(l, F.lib.has(v), () => {
+        toggle(F.lib, v);
+        if (!F.lib.size) F.lib.add(v === "week" ? (DATA.drafts.length ? "draft" : "atlas") : "week");
+        if ((F.review === "weeks" && !F.lib.has("week")) || (F.review === "themes" && !F.lib.has("draft"))) F.review = "";
+        renderFilters(); renderList();
+      });
+      if (v === "draft") b.classList.add("dchip");
+      return b;
+    };
+    const reviewChip = (v, l) => {
+      const b = chipToggle(l, F.review === v, () => {
+        F.review = F.review === v ? "" : v;
+        if (F.review === "weeks") F.lib.add("week");
+        if (F.review === "themes") F.lib.add("draft");
+        renderFilters(); renderList();
+      });
+      b.classList.add("dchip");
+      return b;
+    };
     el.append(
-      DATA.atlas.length ? h("h2", { text: "Library" }) : null,
-      DATA.atlas.length ? h("div", { class: "chips" },
-        [["week", `weekly themes (${DATA.weeks.length})`], ["atlas", `atlas (${DATA.atlas.length})`]].map(([v, l]) =>
-          chipToggle(l, F.lib.has(v), () => { toggle(F.lib, v); if (!F.lib.size) F.lib.add(v === "week" ? "atlas" : "week"); renderFilters(); renderList(); }))) : null,
+      libs.length > 1 ? h("h2", { text: "Library" }) : null,
+      libs.length > 1 ? h("div", { class: "chips" }, libs.map(libChip)) : null,
+      DATA.drafts.length || PENDING.length ? h("h2", { text: "Awaiting review" }) : null,
+      DATA.drafts.length || PENDING.length ? h("div", { class: "chips" },
+        DATA.drafts.length ? reviewChip("themes", `draft themes only (${DATA.drafts.length})`) : null,
+        PENDING.length ? reviewChip("weeks", `weeks with drafts awaiting review (${PENDING.length})`) : null) : null,
       h("h2", { text: "Search" }),
       h("input", { class: "search", id: "q", type: "search", placeholder: "Title, idea, material…", value: F.q, "aria-label": "Search themes",
         oninput: e => { F.q = e.target.value; renderList(); } }),
@@ -576,7 +660,7 @@ const DATA = /*__DATA__*/null;
       h("select", { class: "sel", id: "concept", "aria-label": "Concept", onchange: e => { F.concept = e.target.value; renderList(); } },
         h("option", { value: "" }, "any"),
         Object.entries(AREAS).map(([a, name]) => h("optgroup", { label: name },
-          DATA.concepts.filter(c => c.area === a && (c.weeks.length || c.usedBy.length || c.atlas.length)).sort((x, y) => x.name.localeCompare(y.name))
+          DATA.concepts.filter(c => c.area === a && (c.weeks.length || c.usedBy.length || c.atlas.length || c.drafts.length || c.draftUses.length)).sort((x, y) => x.name.localeCompare(y.name))
             .map(c => h("option", { value: c.id, selected: F.concept === c.id }, `${c.name} (${conceptCount(c.id)})`))))),
       h("h2", { text: "Status" }),
       h("div", { class: "chips" },
@@ -603,8 +687,8 @@ const DATA = /*__DATA__*/null;
   }
   function toggle(set, v) { set.has(v) ? set.delete(v) : set.add(v); }
   function resetFilters() {
-    F.lib = new Set(["week"]);
-    Object.assign(F, { q: "", mech: "", concept: "", verdict: "", paper: false, app: "", used: "" });
+    F.lib = LIB0();
+    Object.assign(F, { review: "", q: "", mech: "", concept: "", verdict: "", paper: false, app: "", used: "" });
     F.bands.clear(); F.areas.clear(); F.status.clear();
     renderFilters(); renderList();
   }
@@ -615,11 +699,14 @@ const DATA = /*__DATA__*/null;
 
   function matches(w, ready) {
     if (!F.lib.has(w.kind)) return false;
-    const atlas = w.kind === "atlas";
+    const atlas = w.kind === "atlas", draft = w.kind === "draft";
+    if (F.review === "weeks" && !(w.kind === "week" && w.drafts.length)) return false;
+    if (F.review === "themes" && !draft) return false;
     if (F.q) {
       const q = F.q.toLowerCase();
       const hay = [w.id, w.title, w.hook, w.math, w.discover, w.gem, w.app, w.question, w.book,
         atlas ? w.materials : w.materials.join(" "),
+        draft ? `${w.short} draft awaiting review` : "", ...(w.kind === "week" ? w.drafts.map(d => `${d.kind} draft ${d.note}`) : []),
         ...w.concepts.map(c => C.get(c).name), ...w.mechanisms.map(m => DATA.mechanisms[m])].join(" ").toLowerCase();
       if (!q.split(/\s+/).every(t => hay.includes(t))) return false;
     }
@@ -627,10 +714,10 @@ const DATA = /*__DATA__*/null;
     if (F.areas.size && !F.areas.has(w.area)) return false;
     if (F.mech && !w.mechanisms.includes(F.mech)) return false;
     if (F.concept && !w.concepts.includes(F.concept) && !w.uses.includes(F.concept)) return false;
-    if (F.status.size && !F.status.has(atlas ? "unpiloted" : w.status)) return false;
-    if (F.verdict && (atlas ? "none" : w.verdict) !== F.verdict) return false;
+    if (F.status.size && !F.status.has(atlas || draft ? "unpiloted" : w.status)) return false;
+    if (F.verdict && (atlas || draft ? "none" : w.verdict) !== F.verdict) return false;
     if (F.paper && (atlas || w.materials.length)) return false;
-    if (F.app && (atlas || w.appDecision !== F.app)) return false;
+    if (F.app && (atlas || draft || w.appDecision !== F.app)) return false;
     if (F.used === "hide" && used.has(w.id)) return false;
     if (F.used === "ready" && !ready.has(w.id)) return false;
     return true;
@@ -644,8 +731,11 @@ const DATA = /*__DATA__*/null;
     if (F.sort === "depth") ws.sort((a, b) => a.depth - b.depth || itemOrder(a, b));
     else if (F.sort === "area") ws.sort((a, b) => areaIdx.indexOf(a.area) - areaIdx.indexOf(b.area) || itemOrder(a, b));
     const total = inLib().length;
-    const noun = F.lib.size > 1 ? "entries" : F.lib.has("atlas") ? "atlas investigations" : "themes";
-    $("#count").textContent = ws.length === total ? `All ${ws.length} ${noun}` : `${ws.length} of ${total} ${noun}`;
+    const noun = F.lib.size > 1 ? "entries" : F.lib.has("atlas") ? "atlas investigations" : F.lib.has("draft") ? "draft themes" : "themes";
+    const parts = [["week", "themes"], ["draft", "drafts"], ["atlas", "atlas"]].map(([k, l]) => [ws.filter(x => x.kind === k).length, l]).filter(([n]) => n);
+    $("#count").textContent = F.review === "weeks" ? `${ws.length} week${ws.length === 1 ? "" : "s"} with drafts awaiting review`
+      : F.review === "themes" ? `${ws.length} draft theme${ws.length === 1 ? "" : "s"} awaiting review`
+      : (ws.length === total ? `All ${ws.length} ${noun}` : `${ws.length} of ${total} ${noun}`) + (parts.length > 1 ? ` (${parts.map(([n, l]) => `${n} ${l}`).join(", ")})` : "");
     const act = [];
     if (F.q) act.push(`“${F.q}”`);
     if (F.bands.size) act.push([...F.bands].map(bandLabel).join(", "));
@@ -671,18 +761,20 @@ const DATA = /*__DATA__*/null;
     return h("span", {}, DATA.bands.map(b => h("span", { class: "band" + (w.bands.includes(b) ? "" : " off"), text: bandLabel(b), style: "margin-right:3px" })));
   }
   function itemEl(w) {
-    const atlas = w.kind === "atlas";
-    return h("button", { class: "item", style: `--area:${areaColor(w.area)}`, "aria-current": current === w.id ? "true" : "false",
+    const atlas = w.kind === "atlas", draft = w.kind === "draft";
+    return h("button", { class: "item" + (draft ? " draft" : ""), style: `--area:${areaColor(w.area)}`, "aria-current": current === w.id ? "true" : "false",
       onclick: () => openDetail(w.id), "data-id": w.id },
-      h("span", { class: "num" + (atlas ? " aid" : ""), text: w.id }),
+      h("span", { class: "num" + (atlas ? " aid" : draft ? " dnum" : ""), text: idOf(w), title: draft ? `Draft theme ${w.short}: scouting rank ${w.rank}` : null }),
       h("span", { style: "min-width:0" },
         h("div", { class: "t", text: w.title }),
         h("div", { class: "hook", text: w.hook }),
         h("div", { class: "meta" },
           h("span", { class: "area-name" }, h("span", { class: "sw", style: `background:${areaColor(w.area)}` }), AREAS[w.area]),
           bandsEl(w),
-          atlas ? h("span", { class: "pill atlas", text: "atlas · " + w.book.toLowerCase() }) : statusPill(w),
+          atlas ? h("span", { class: "pill atlas", text: "atlas · " + w.book.toLowerCase() })
+            : draft ? h("span", { class: "pill draft", text: "draft · awaiting review", title: DRAFT_NOTE }) : statusPill(w),
           w.verdict === "revise" ? h("span", { class: "pill revise", text: "card: fixes due" }) : null,
+          w.kind === "week" ? w.drafts.map(d => h("span", { class: "pill pending", text: pendingPill(d), title: DRAFT_NOTE })) : null,
           used.has(w.id) ? h("span", { class: "pill used", text: "used" }) : null)));
   }
 
@@ -695,10 +787,10 @@ const DATA = /*__DATA__*/null;
     $("#acts").classList.add("has-detail");
     const d = $("#detail");
     d.hidden = false;
-    d.replaceChildren(w.kind === "atlas" ? atlasDetailEl(w) : detailEl(w));
+    d.replaceChildren(w.kind === "atlas" ? atlasDetailEl(w) : w.kind === "draft" ? draftDetailEl(w) : detailEl(w));
     d.scrollTop = 0;
     for (const el of document.querySelectorAll(".item")) el.setAttribute("aria-current", el.dataset.id === id ? "true" : "false");
-    setHash(w.kind === "atlas" ? id : "w" + id);
+    setHash(hashFor(id));
     if (opts.focus !== false) $(".close", d)?.focus({ preventScroll: true });
   }
   function closeDetail() {
@@ -744,11 +836,13 @@ const DATA = /*__DATA__*/null;
           files.map(f => h("li", {}, h("a", { href: fileUrl(f.path), target: "_blank", rel: "noopener" }, f.role), h("span", { class: "ext", text: "PDF" }))),
           w.links.map(f => h("li", {}, h("a", { href: fileUrl(f.path), target: "_blank", rel: "noopener" }, f.role))))));
     }
+    if (w.drafts.length) body.append(h("section", {}, h("h3", { text: "Drafts awaiting review" }), w.drafts.map(pendingEl)));
     const rels = REL.get(w.id) || [];
     const groups = {};
     for (const r of rels) (groups[r.kind] = groups[r.kind] || []).push(r);
     const builders = sortWeeks(DATA.weeks.filter(o => o.id !== w.id && o.concepts.some(c => w.uses.includes(c)) && !rels.some(r => r.other === o.id)).map(o => o.id));
-    if (rels.length || builders.length || (AREL.get(w.id) || []).length) {
+    const dr = DREL.get(w.id) || [];
+    if (rels.length || builders.length || (AREL.get(w.id) || []).length || dr.length) {
       const relEl = h("div", { class: "rel" });
       for (const kind of ["prepared-by", "leads-to", "revisits", "same-theorem", "same-object", "contrast"]) {
         if (!groups[kind]) continue;
@@ -758,6 +852,9 @@ const DATA = /*__DATA__*/null;
       const ar = AREL.get(w.id) || [];
       if (ar.length) relEl.append(h("div", { class: "rel-group" }, h("h4", { text: "Atlas investigations" }),
         h("div", { style: "display:grid;gap:6px" }, ar.sort((a, b) => a.other.localeCompare(b.other)).map(r => relItem(r.other, r.note)))));
+      if (dr.length) relEl.append(h("div", { class: "rel-group" }, h("h4", { text: "Draft themes awaiting review" }),
+        h("div", { style: "display:grid;gap:6px" }, dr.slice().sort((a, b) => DR.get(a.other).rank - DR.get(b.other).rank)
+          .map(r => relItem(r.other, `${KIND_TITLE[r.kind]}. ${r.note}`)))));
       if (builders.length) relEl.append(h("div", { class: "rel-group" }, h("h4", { text: "Introduce what this builds on" }),
         h("div", { class: "chips" }, builders.slice(0, 12).map(id => h("button", { class: "cchip", onclick: () => openDetail(id) },
           h("span", { style: "font-family:var(--mono);font-size:.78rem;color:var(--ink-3)", text: id }), W.get(id).title)))));
@@ -823,11 +920,80 @@ const DATA = /*__DATA__*/null;
     frag.append(body);
     return frag;
   }
+  function fileItem(f) {
+    return h("li", {}, h("a", { href: fileUrl(f.path), target: "_blank", rel: "noopener" }, f.role), f.pdf ? h("span", { class: "ext", text: "PDF" }) : null);
+  }
+  function folderItem(path, label) {
+    return h("li", {}, h("a", { href: dirUrl(path), target: "_blank", rel: "noopener" }, label), h("span", { class: "ext", text: "folder" }));
+  }
+  // New pages for an existing week, waiting for the organizer's review.
+  function pendingEl(d) {
+    return h("div", { class: "draftbox" },
+      h("p", {}, h("b", { text: pendingName(d) }), ` · ${fmtDate(d.date)}`, d.note ? h("br") : null, d.note || null),
+      h("ul", { class: "files" }, d.files.map(fileItem), folderItem(d.path, "Draft folder and sources"),
+        d.index ? h("li", {}, h("a", { href: fileUrl(d.index), target: "_blank", rel: "noopener" }, "Drafts index: what the reviews changed")) : null),
+      h("p", { class: "dmuted", text: "Unpiloted and not adopted yet: the bands, print files and status above do not include these pages." }));
+  }
+  function draftDetailEl(x) {
+    const frag = document.createDocumentFragment();
+    const nRanked = DATA.drafts.filter(d => d.rank).length;
+    frag.append(h("div", { class: "d-head" },
+      h("div", { class: "kicker" }, h("span", { text: `Draft theme ${x.short}` }),
+        x.rank ? h("span", { text: `scouting rank ${x.rank} of ${nRanked}` }) : null, h("span", { text: `drafted ${fmtDate(x.date)}` })),
+      h("button", { class: "close", "aria-label": "Close", onclick: closeDetail }, "×"),
+      h("h2", { text: x.title }),
+      h("div", { class: "tags" },
+        h("span", { class: "area-name" }, h("span", { class: "sw", style: `background:${areaColor(x.area)}` }), AREAS[x.area]),
+        DATA.bands.map(b => h("span", { class: "band" + (x.bands.includes(b) ? "" : " off"), text: bandLabel(b) })),
+        h("span", { class: "pill draft", text: "draft · awaiting review" }),
+        h("span", { class: "pill", style: "color:var(--ink-3)", text: "unpiloted" }))));
+    const body = h("div", { class: "d-body" });
+    body.append(h("section", {}, h("p", { class: "draftbox", text: "Student-page drafts awaiting the organizer's review. Not approved, piloted or on the path; no week number or facilitator guide yet, and no kit tried with real materials." })));
+    body.append(h("section", {}, h("p", { class: "d-hook", text: x.hook })));
+    body.append(h("section", {}, h("h3", { text: "The mathematics" }), h("p", { text: x.math })));
+    if (x.discover) body.append(h("section", {}, h("h3", { text: "What children can find" }), h("p", { text: x.discover })));
+    if (x.gem) body.append(h("section", {}, h("h3", { text: "Why a mathematician enjoys it" }), h("p", { class: "d-gem", text: x.gem })));
+    body.append(h("section", {}, h("h3", { text: "Concepts" }),
+      h("div", { class: "chips" }, x.concepts.map(c => conceptChip(c))),
+      x.uses.length ? h("p", { style: "margin-top:8px;font-size:.9rem;color:var(--ink-2)" }, "Builds on: ") : null,
+      x.uses.length ? h("div", { class: "chips" }, x.uses.map(c => conceptChip(c))) : null,
+      h("p", { style: "margin-top:8px;font-size:.9rem;color:var(--ink-2)" }, "Reasoning: " + x.mechanisms.map(m => DATA.mechanisms[m].toLowerCase()).join("; ") + ".")));
+    body.append(h("section", {}, h("h3", { text: "Before you start" }),
+      h("dl", { class: "kv" },
+        h("dt", { text: "Reading" }), h("dd", { text: x.reading }),
+        h("dt", { text: "Arithmetic" }), h("dd", { text: x.arithmetic }),
+        h("dt", { text: "Materials" }), h("dd", { text: x.materials.length ? x.materials.join("; ") : "Paper and pencils" }),
+        x.prep ? h("dt", { text: "Preparation" }) : null, x.prep ? h("dd", { text: x.prep }) : null,
+        x.untried ? h("dt", { text: "Not yet tried" }) : null, x.untried ? h("dd", { text: x.untried }) : null)));
+    body.append(h("section", {}, h("h3", { text: "Draft pages and reviews" }),
+      h("ul", { class: "files" }, x.files.map(fileItem), folderItem(x.folder, "Draft folder and sources"),
+        x.links.map(f => h("li", {}, h("a", { href: fileUrl(f.path), target: "_blank", rel: "noopener" }, f.role))))));
+    const rels = DREL.get(x.id) || [];
+    const groups = {};
+    for (const r of rels) (groups[r.kind] = groups[r.kind] || []).push(r);
+    const relEl = h("div", { class: "rel" });
+    for (const kind of ["leads-to", "revisits", "same-theorem", "same-object", "contrast"]) {
+      if (!groups[kind]) continue;
+      relEl.append(h("div", { class: "rel-group" }, h("h4", { text: KIND_TITLE[kind] }),
+        h("div", { style: "display:grid;gap:6px" }, groups[kind].sort((a, b) => parseInt(a.other) - parseInt(b.other)).map(r => relItem(r.other, r.note)))));
+    }
+    // Weeks that share its concepts without a written link: where the theme would sit in the library.
+    const near = DATA.weeks.filter(o => !rels.some(r => r.other === o.id))
+      .map(o => [o, o.concepts.filter(c => x.concepts.includes(c)).length]).filter(([, n]) => n)
+      .sort((a, b) => b[1] - a[1] || parseInt(a[0].id) - parseInt(b[0].id) || a[0].id.localeCompare(b[0].id));
+    if (near.length) relEl.append(h("div", { class: "rel-group" }, h("h4", { text: "Other themes on the same concepts" }),
+      h("div", { class: "chips" }, near.slice(0, 12).map(([o]) => h("button", { class: "cchip", onclick: () => openDetail(o.id) },
+        h("span", { style: "font-family:var(--mono);font-size:.78rem;color:var(--ink-3)", text: o.id }), o.title)))));
+    body.append(h("section", {}, h("h3", { text: "Closest existing themes" }), relEl));
+    frag.append(body);
+    return frag;
+  }
   function relItem(id, note) {
     const o = I.get(id);
-    return h("div", { class: "rel-item" },
-      h("button", { onclick: () => openDetail(id), "aria-label": o && o.kind === "atlas" ? `Open atlas investigation ${id}` : `Open week ${id}` }, id),
-      h("span", { class: "rt", text: o ? o.title : `Week ${id}` }),
+    const draft = o && o.kind === "draft";
+    return h("div", { class: "rel-item" + (draft ? " draft" : "") },
+      h("button", { onclick: () => openDetail(id), "aria-label": draft ? `Open draft theme ${o.title}` : o && o.kind === "atlas" ? `Open atlas investigation ${id}` : `Open week ${id}` }, o ? idOf(o) : id),
+      h("span", { class: "rt" }, o ? o.title : `Week ${id}`, draft ? h("span", { class: "pill draft mini", text: "draft" }) : null),
       h("span", { class: "rn", text: note }));
   }
   function conceptChip(cid) {
@@ -857,7 +1023,7 @@ const DATA = /*__DATA__*/null;
     if (v === "strands" && !built.strands) { renderStrands(); built.strands = true; }
     if (v === "path" && !built.path) { buildPath(); built.path = true; }
     if (v !== "path" && pathCurrent) closePathDetail(false);
-    if (updateHash) setHash(v === "activities" && current ? "w" + current : v);
+    if (updateHash) setHash(v === "activities" && current ? hashFor(current) : v);
   }
   for (const b of document.querySelectorAll("nav.tabs button")) b.addEventListener("click", () => showView(b.dataset.view));
   $("#sort").addEventListener("change", e => { F.sort = e.target.value; renderList(); });
@@ -891,37 +1057,46 @@ const DATA = /*__DATA__*/null;
       gL.append(s("rect", { x: 12, y: ln.y + 9, width: 9, height: 9, rx: 2, fill: areaColor(ln.area) }),
         s("text", { class: "lane-label", x: 28, y: ln.y + 18, text: AREAS[ln.area] }));
     });
-    const nodeW = c => Math.min(196, textWidth(c.name, 11.5) + (c.weeks.length ? 18 : 0));
+    const nodeW = c => Math.min(196, textWidth(c.name, 11.5) + (c.weeks.length ? 18 : 0) + (c.drafts.length ? 22 : 0));
     const edges = [];
     for (const c of DATA.concepts) for (const r of c.requires) {
       const a = C.get(r);
       const x1 = a.x + nodeW(a), y1 = a.y, x2 = c.x, y2 = c.y;
       const mx = (x1 + x2) / 2;
-      const p = s("path", { class: "cedge", d: `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`, "data-a": r, "data-b": c.id });
+      const p = s("path", { class: "cedge" + (a.draftOnly || c.draftOnly ? " dr" : ""), d: `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`, "data-a": r, "data-b": c.id });
       gE.append(p); edges.push(p);
     }
     const nodes = new Map();
     for (const c of DATA.concepts) {
       const wdt = nodeW(c);
-      const g = s("g", { class: "cnode" + (c.weeks.length || c.atlas.length ? "" : " empty"), transform: `translate(${c.x},${c.y - 11})`, tabindex: 0, role: "button",
-        "aria-label": `${c.name}, ${c.weeks.length} themes`, onclick: () => selectConcept(c.id),
+      const nd = c.drafts.length;
+      const g = s("g", { class: "cnode" + (c.weeks.length || c.atlas.length || c.draftOnly ? "" : " empty") + (c.draftOnly ? " draftonly dr" : ""),
+        transform: `translate(${c.x},${c.y - 11})`, tabindex: 0, role: "button",
+        "aria-label": `${c.name}, ${c.weeks.length} themes` + (nd ? `, ${nd} draft theme${nd > 1 ? "s" : ""}` : ""), onclick: () => selectConcept(c.id),
         onkeydown: e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectConcept(c.id); } } });
       g.append(
         s("rect", { class: "box", x: 0, y: 0, width: wdt, height: 22, rx: 5 }),
         s("rect", { class: "bar", x: 0, y: 0, width: 5, height: 22, rx: 2, fill: areaColor(c.area) }),
         s("text", { x: 11, y: 15, text: c.name.length > 32 ? c.name.slice(0, 31) + "…" : c.name }),
-        c.weeks.length ? s("text", { class: "cnt", x: wdt - 6, y: 15, "text-anchor": "end", text: c.weeks.length }) : null,
-        s("title", { text: `${c.name}: ${c.about}` }));
+        c.weeks.length ? s("text", { class: "cnt", x: wdt - 6 - (nd ? 22 : 0), y: 15, "text-anchor": "end", text: c.weeks.length }) : null,
+        nd ? s("g", { class: "dr" }, s("rect", { class: "dbadge", x: wdt - 22, y: 4, width: 18, height: 14, rx: 7 }),
+          s("text", { class: "dcnt", x: wdt - 13, y: 14.5, "text-anchor": "middle", text: nd })) : null,
+        s("title", { text: `${c.name}: ${c.about}` + (c.draftOnly ? " (only draft themes use this concept so far)" : nd ? ` (${nd} draft theme${nd > 1 ? "s" : ""} awaiting review)` : "") }));
       gN.append(g); nodes.set(c.id, g);
     }
     const inner = h("div", { style: "position:relative" });
     inner.append(svg);
     $("#cmap").replaceChildren(inner);
     const zoom = zoomable($("#cmap"), svg, width, height, ["#cz-out", "#cz-in", "#cz-reset"]);
-    cmapState = { svg, nodes, edges, zoom };
+    cmapState = { svg, nodes, edges, zoom, sel: null };
+    svg.classList.toggle("no-drafts", !showDrafts);
     const legend = $("#map-legend");
     legend.replaceChildren(...Object.entries(AREAS).map(([a, name]) =>
-      h("button", { class: "chip", "aria-pressed": "false", onclick: e => highlightArea(a, e.currentTarget) }, h("span", { class: "sw", style: `background:${areaColor(a)}` }), name)));
+      h("button", { class: "chip", "aria-pressed": "false", onclick: e => highlightArea(a, e.currentTarget) }, h("span", { class: "sw", style: `background:${areaColor(a)}` }), name)),
+      ...(DATA.drafts.length ? [
+        h("span", { class: "dkey dr-key" }, s("svg", { viewBox: "0 0 20 16", width: 20, height: 16 }, s("rect", { x: 1, y: 1, width: 18, height: 14, rx: 7, fill: "var(--hi)", stroke: "var(--warn)", "stroke-dasharray": "2 2" })), "number of draft themes about the concept"),
+        h("span", { class: "dkey dr-key" }, s("svg", { viewBox: "0 0 30 16", width: 30, height: 16 }, s("rect", { x: 1, y: 1, width: 28, height: 14, rx: 4, fill: "var(--surface)", stroke: "var(--warn)", "stroke-dasharray": "4 3" })), "concept only drafts use so far")] : []));
+    applyDraftKeys();
     conceptSide(null);
   }
   function highlightArea(a, btn) {
@@ -933,12 +1108,16 @@ const DATA = /*__DATA__*/null;
     svg.classList.add("dim");
     for (const [id, g] of nodes) { g.classList.toggle("on", C.get(id).area === a); g.classList.remove("sel"); }
     for (const p of edges) p.classList.toggle("on", C.get(p.dataset.a).area === a && C.get(p.dataset.b).area === a);
-    const cs = DATA.concepts.filter(c => c.area === a);
+    const cs = DATA.concepts.filter(c => c.area === a && (showDrafts || !c.draftOnly));
     const ws = sortWeeks([...new Set(cs.flatMap(c => c.weeks))]);
+    const ds = showDrafts ? draftSort([...new Set(cs.flatMap(c => c.drafts))]) : [];
     const side = $("#cside");
-    side.replaceChildren(h("h2", { text: AREAS[a] }), h("p", { class: "muted", text: `${cs.length} concepts and ${ws.length} themes.` }),
-      h("h3", { text: "Themes" }), weekList(ws));
+    cmapState.sel = null;
+    put(side, h("h2", { text: AREAS[a] }), h("p", { class: "muted", text: `${cs.length} concepts and ${ws.length} themes.` }),
+      h("h3", { text: "Themes" }), weekList(ws),
+      ds.length ? [h("h3", { text: `Draft themes awaiting review (${ds.length})` }), weekList(ds)] : null);
   }
+  const draftSort = ids => ids.slice().sort((a, b) => DR.get(a).rank - DR.get(b).rank);
   function ancestors(id, acc = new Set()) { for (const r of C.get(id).requires) if (!acc.has(r)) { acc.add(r); ancestors(r, acc); } return acc; }
   const CHILDREN = new Map(DATA.concepts.map(c => [c.id, []]));
   for (const c of DATA.concepts) for (const r of c.requires) CHILDREN.get(r).push(c.id);
@@ -955,26 +1134,34 @@ const DATA = /*__DATA__*/null;
       const a = p.dataset.a, b = p.dataset.b;
       p.classList.toggle("on", (on.has(a) && on.has(b)) && ((up.has(a) || a === id) && (up.has(b) || b === id) || (down.has(b) && (down.has(a) || a === id))));
     }
+    cmapState.sel = id;
     conceptSide(id);
     const c = C.get(id);
     if (center) setTimeout(() => zoom.center(c.x + 90, c.y), 30);
     setHash("map");
   }
-  function weekList(ids) {
+  // A list of themes for a side panel; drafts and weeks with draft pages are marked while drafts are shown.
+  function weekList(ids, pick) {
     if (!ids.length) return h("p", { class: "muted", text: "None yet." });
-    return h("ul", {}, ids.map(id => { const w = I.get(id); return h("li", {}, h("button", { onclick: () => openDetail(id) }, h("span", { class: "wn", text: id }), w.title)); }));
+    const allDrafts = ids.every(id => DR.has(id));
+    return h("ul", { class: ids.some(id => DR.has(id)) ? "dlist" : null }, ids.map(id => {
+      const w = I.get(id);
+      return h("li", {}, h("button", { onclick: () => (pick || openDetail)(id) }, h("span", { class: "wn", text: idOf(w) }), w.title,
+        w.kind === "draft" && !allDrafts ? h("span", { class: "pill draft mini", text: "draft" }) : null,
+        showDrafts && w.kind === "week" && w.drafts.length ? h("span", { class: "pill pending mini", text: w.drafts.map(pendingPill).join(", "), title: DRAFT_NOTE }) : null));
+    }));
   }
   function conceptSide(id) {
     const side = $("#cside");
     if (!id) {
       const roots = DATA.concepts.filter(c => !c.requires.length && c.weeks.length).sort((a, b) => b.weeks.length - a.weeks.length);
-      side.replaceChildren(h("h2", { text: "Choose a concept" }),
+      put(side, h("h2", { text: "Choose a concept" }),
         h("p", { class: "muted", text: "The number on a box counts the themes about it. Starting points with the most themes:" }),
         h("ul", {}, roots.slice(0, 14).map(c => h("li", {}, h("button", { onclick: () => selectConcept(c.id, true) }, h("span", { class: "wn", text: c.weeks.length }), c.name)))));
       return;
     }
     const c = C.get(id);
-    side.replaceChildren(
+    put(side,
       h("p", { style: "margin:0;font-size:.8rem;color:var(--ink-3)" }, h("span", { class: "area-name" }, h("span", { class: "sw", style: `background:${areaColor(c.area)}` }), AREAS[c.area])),
       h("h2", { text: c.name }),
       h("p", { class: "muted", text: c.about }),
@@ -985,9 +1172,17 @@ const DATA = /*__DATA__*/null;
       h("h3", { text: `Themes about it (${c.weeks.length})` }), weekList(c.weeks),
       c.usedBy.length ? h("h3", { text: `Themes that build on it (${c.usedBy.length})` }) : null,
       c.usedBy.length ? weekList(c.usedBy) : null,
+      showDrafts && c.drafts.length ? [h("h3", { text: `Draft themes about it (${c.drafts.length})` }), weekList(c.drafts)] : null,
+      showDrafts && c.draftUses.length ? [h("h3", { text: `Draft themes that build on it (${c.draftUses.length})` }), weekList(c.draftUses)] : null,
       c.atlas.length ? h("h3", { text: `Atlas investigations (${c.atlas.length})` }) : null,
       c.atlas.length ? weekList(c.atlas) : null,
-      h("p", {}, h("button", { class: "linkbtn", onclick: () => { F.concept = id; if (c.atlas.length) F.lib.add("atlas"); renderFilters(); renderList(); showView("activities"); } }, "Show these in the activity list")));
+      showDrafts && c.draftOnly ? h("p", { class: "muted", text: "Only draft themes awaiting review use this concept so far." }) : null,
+      h("p", {}, h("button", { class: "linkbtn", onclick: () => {
+        F.concept = id; F.review = "";
+        if (c.atlas.length) F.lib.add("atlas");
+        if (showDrafts && (c.drafts.length || c.draftUses.length)) F.lib.add("draft");
+        renderFilters(); renderList(); showView("activities");
+      } }, "Show these in the activity list")));
   }
 
   // ---------------------------------------------------------------- week map
@@ -1011,20 +1206,41 @@ const DATA = /*__DATA__*/null;
       ln.append(s("title", { text: `${e.a} → ${e.b}: ${e.notes.join(" ")}` }));
       gE.append(ln); edges.push(ln);
     }
+    for (const e of DATA.draftEdges) {
+      const a = DR.get(e.draft), b = W.get(e.week);
+      if (!a || !b) continue;
+      let x2 = b.x, y2 = b.y;
+      if (e.kind === "leads-to") { const dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx, dy) || 1; x2 = b.x - dx / d * 15; y2 = b.y - dy / d * 15; }
+      const ln = s("line", { class: `wedge dedge dr k-${e.kind}`, x1: a.x, y1: a.y, x2, y2, "data-a": e.draft, "data-b": e.week, "data-k": e.kind,
+        "marker-end": e.kind === "leads-to" ? "url(#arrow)" : null });
+      ln.append(s("title", { text: `Draft ${a.short} (${a.title}) and Week ${e.week}: ${e.note}` }));
+      gE.append(ln); edges.push(ln);
+    }
     const nodes = new Map();
     for (const w of DATA.weeks) {
-      const g = s("g", { class: "wnode", transform: `translate(${w.x},${w.y})`, tabindex: 0, role: "button", "aria-label": `Week ${w.id}, ${w.title}`,
+      const g = s("g", { class: "wnode", transform: `translate(${w.x},${w.y})`, tabindex: 0, role: "button",
+        "aria-label": `Week ${w.id}, ${w.title}` + (w.drafts.length ? ", drafts awaiting review" : ""),
         onclick: () => selectWeek(w.id), onkeydown: e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectWeek(w.id); } } });
       g.append(s("circle", { r: 13, stroke: areaColor(w.area) }), s("text", { "text-anchor": "middle", y: 3.5, text: w.id }),
+        w.drafts.length ? s("circle", { class: "pend dr", cx: 10, cy: -10, r: 4.5 }) : null,
         s("text", { class: "lab", x: 16, y: 4, text: w.title.length > 26 ? w.title.slice(0, 25) + "…" : w.title }),
-        s("title", { text: `${w.id}. ${w.title}` }));
+        s("title", { text: `${w.id}. ${w.title}` + (w.drafts.length ? ` (${w.drafts.map(pendingPill).join(", ")} awaiting review)` : "") }));
       gN.append(g); nodes.set(w.id, g);
+    }
+    for (const d of DATA.drafts) {
+      const g = s("g", { class: "wnode draft dr", transform: `translate(${d.x},${d.y})`, tabindex: 0, role: "button", "aria-label": `Draft theme ${d.short}, ${d.title}, awaiting review`,
+        onclick: () => selectWeek(d.id), onkeydown: e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectWeek(d.id); } } });
+      g.append(s("circle", { r: 13, stroke: areaColor(d.area) }), s("text", { "text-anchor": "middle", y: 3.5, text: d.short }),
+        s("text", { class: "lab", x: 16, y: 4, text: (d.title.length > 24 ? d.title.slice(0, 23) + "…" : d.title) + " (draft)" }),
+        s("title", { text: `${d.short}. ${d.title}: draft theme awaiting review` }));
+      gN.append(g); nodes.set(d.id, g);
     }
     const inner = h("div", { style: "position:relative" });
     inner.append(svg);
     $("#wmap").replaceChildren(inner);
     const zoom = zoomable($("#wmap"), svg, width, height, ["#wz-out", "#wz-in", "#wz-reset"]);
-    wmapState = { svg, nodes, edges, zoom };
+    wmapState = { svg, nodes, edges, zoom, sel: null };
+    svg.classList.toggle("no-drafts", !showDrafts);
     const kl = $("#kind-legend");
     const label = { "leads-to": "leads to", "revisits": "returns to", "same-theorem": "same theorem", "same-object": "same object", "contrast": "contrast" };
     kl.replaceChildren(...DATA.kinds.map(k => {
@@ -1032,39 +1248,103 @@ const DATA = /*__DATA__*/null;
       const sv = s("svg", { viewBox: "0 0 34 10", width: 34, height: 10 }, s("line", { class: `wedge k-${k}`, x1: 2, y1: 5, x2: 32, y2: 5, style: "stroke-opacity:.9" }));
       b.append(sv, label[k]);
       return b;
-    }), ...Object.entries(AREAS).map(([a, name]) => h("span", { class: "kind-key" }, h("span", { class: "sw", style: `display:inline-block;width:9px;height:9px;border-radius:50%;background:${areaColor(a)}` }), name)));
+    }), ...Object.entries(AREAS).map(([a, name]) => h("span", { class: "kind-key" }, h("span", { class: "sw", style: `display:inline-block;width:9px;height:9px;border-radius:50%;background:${areaColor(a)}` }), name)),
+      ...(DATA.drafts.length || PENDING.length ? [
+        h("span", { class: "dkey dr-key" }, s("svg", { viewBox: "0 0 18 18", width: 18, height: 18 }, s("circle", { cx: 9, cy: 9, r: 7, fill: "var(--hi)", stroke: "var(--ink-3)", "stroke-width": 2, "stroke-dasharray": "3 2" })), "draft theme (D1–D12 by scouting rank)"),
+        h("span", { class: "dkey dr-key" }, s("svg", { viewBox: "0 0 34 10", width: 34, height: 10 }, s("line", { x1: 2, y1: 5, x2: 32, y2: 5, stroke: "var(--warn)", "stroke-width": 2 })), "a draft's link"),
+        h("span", { class: "dkey dr-key" }, s("svg", { viewBox: "0 0 12 12", width: 12, height: 12 }, s("circle", { cx: 6, cy: 6, r: 4.5, fill: "var(--warn)" })), "week with draft pages")] : []));
+    applyDraftKeys();
     weekSide(null);
   }
   function applyKinds() { for (const ln of wmapState.edges) ln.style.display = kindsOn.has(ln.dataset.k) ? "" : "none"; }
   function selectWeek(id) {
     const { svg, nodes, edges, zoom } = wmapState;
     const nb = new Set([id]);
-    for (const ln of edges) if (kindsOn.has(ln.dataset.k) && (ln.dataset.a === id || ln.dataset.b === id)) { nb.add(ln.dataset.a); nb.add(ln.dataset.b); }
+    const live = ln => kindsOn.has(ln.dataset.k) && (showDrafts || !ln.classList.contains("dedge"));
+    for (const ln of edges) if (live(ln) && (ln.dataset.a === id || ln.dataset.b === id)) { nb.add(ln.dataset.a); nb.add(ln.dataset.b); }
     svg.classList.add("dim");
     for (const [wid, g] of nodes) { g.classList.toggle("on", nb.has(wid)); g.classList.toggle("sel", wid === id); }
     for (const ln of edges) ln.classList.toggle("on", ln.dataset.a === id || ln.dataset.b === id);
+    wmapState.sel = id;
     weekSide(id);
   }
+  function pickOnMap(id) { selectWeek(id); const o = I.get(id); wmapState.zoom.center(o.x, o.y); }
   function weekSide(id) {
     const side = $("#wside");
     if (!id) {
       const deg = DATA.weeks.map(w => [w, (REL.get(w.id) || []).length]).sort((a, b) => b[1] - a[1]);
-      side.replaceChildren(h("h2", { text: "Choose a theme" }), h("p", { class: "muted", text: "Most connected themes:" }),
-        h("ul", {}, deg.slice(0, 12).map(([w, n]) => h("li", {}, h("button", { onclick: () => { selectWeek(w.id); wmapState.zoom.center(w.x, w.y); } }, h("span", { class: "wn", text: w.id }), `${w.title} (${n})`)))));
+      put(side, h("h2", { text: "Choose a theme" }), h("p", { class: "muted", text: "Most connected themes:" }),
+        h("ul", {}, deg.slice(0, 12).map(([w, n]) => h("li", {}, h("button", { onclick: () => pickOnMap(w.id) }, h("span", { class: "wn", text: w.id }), `${w.title} (${n})`)))),
+        showDrafts && DATA.drafts.length ? [h("h3", { text: `Draft themes awaiting review (${DATA.drafts.length})` }), weekList(DATA.drafts.map(d => d.id), pickOnMap)] : null,
+        showDrafts && PENDING.length ? [h("h3", { text: `Weeks with draft pages (${PENDING.length})` }), weekList(PENDING.map(w => w.id), pickOnMap)] : null);
+      return;
+    }
+    if (DR.has(id)) {
+      const x = DR.get(id);
+      const rels = (DREL.get(id) || []).slice().sort((a, b) => parseInt(a.other) - parseInt(b.other));
+      put(side,
+        h("p", { style: "margin:0;font-size:.8rem;color:var(--ink-3)" }, `Draft theme ${x.short} · `, h("span", { class: "area-name" }, h("span", { class: "sw", style: `background:${areaColor(x.area)}` }), AREAS[x.area])),
+        h("h2", { text: x.title }), h("p", {}, h("span", { class: "pill draft", text: "draft · awaiting review" })), h("p", { class: "muted", text: x.hook }),
+        h("p", {}, h("button", { class: "linkbtn", onclick: () => openDetail(id) }, "Open the full entry")),
+        h("h3", { text: `Closest existing themes (${rels.length})` }),
+        h("div", { style: "display:grid;gap:8px;margin-top:6px" }, rels.map(r => {
+          const el = relItem(r.other, `${KIND_TITLE[r.kind]}. ${r.note}`);
+          el.querySelector("button").onclick = () => pickOnMap(r.other);
+          return el;
+        })));
       return;
     }
     const w = W.get(id);
     const rels = REL.get(id) || [];
-    side.replaceChildren(
+    const dr = showDrafts ? (DREL.get(id) || []).slice().sort((a, b) => DR.get(a.other).rank - DR.get(b.other).rank) : [];
+    put(side,
       h("p", { style: "margin:0;font-size:.8rem;color:var(--ink-3)" }, `Week ${w.id} · `, h("span", { class: "area-name" }, h("span", { class: "sw", style: `background:${areaColor(w.area)}` }), AREAS[w.area])),
       h("h2", { text: w.title }), h("p", { class: "muted", text: w.hook }),
+      showDrafts && w.drafts.length ? h("p", {}, w.drafts.map(d => h("span", { class: "pill pending", style: "margin-right:6px", text: pendingPill(d) + " awaiting review" }))) : null,
       h("p", {}, h("button", { class: "linkbtn", onclick: () => openDetail(id) }, "Open the full entry")),
       h("h3", { text: `Connections (${rels.length})` }),
       h("div", { style: "display:grid;gap:8px;margin-top:6px" }, rels.sort((a, b) => parseInt(a.other) - parseInt(b.other)).map(r => {
         const el = relItem(r.other, `${KIND_TITLE[r.kind]}. ${r.notes.join(" ")}`);
-        el.querySelector("button").onclick = () => { selectWeek(r.other); const o = W.get(r.other); wmapState.zoom.center(o.x, o.y); };
+        el.querySelector("button").onclick = () => pickOnMap(r.other);
         return el;
-      })));
+      })),
+      dr.length ? h("h3", { text: `Draft themes linked here (${dr.length})` }) : null,
+      dr.length ? h("div", { style: "display:grid;gap:8px;margin-top:6px" }, dr.map(r => {
+        const el = relItem(r.other, `${KIND_TITLE[r.kind]}. ${r.note}`);
+        el.querySelector("button").onclick = () => pickOnMap(r.other);
+        return el;
+      })) : null);
+  }
+
+  // ---------------------------------------------------------------- the drafts switch on both maps
+  function applyDraftKeys() { for (const el of document.querySelectorAll(".dr-key")) el.hidden = !showDrafts; }
+  function setShowDrafts(on) {
+    showDrafts = on;
+    store.set("mce-show-drafts", on);
+    for (const box of document.querySelectorAll(".show-drafts")) box.checked = on;
+    applyDraftKeys();
+    if (cmapState) {
+      cmapState.svg.classList.toggle("no-drafts", !on);
+      const pressed = document.querySelector("#map-legend .chip[aria-pressed='true']");
+      if (pressed) { pressed.setAttribute("aria-pressed", "false"); pressed.click(); }
+      else conceptSide(cmapState.sel);
+    }
+    if (wmapState) {
+      wmapState.svg.classList.toggle("no-drafts", !on);
+      const sel = wmapState.sel;
+      if (sel && DR.has(sel) && !on) {
+        wmapState.sel = null; wmapState.svg.classList.remove("dim");
+        for (const g of wmapState.nodes.values()) g.classList.remove("on", "sel");
+        for (const ln of wmapState.edges) ln.classList.remove("on");
+        weekSide(null);
+      } else if (sel) selectWeek(sel);
+      else weekSide(null);
+    }
+  }
+  for (const box of document.querySelectorAll(".show-drafts")) {
+    box.checked = showDrafts;
+    box.addEventListener("change", e => setShowDrafts(e.target.checked));
+    if (!DATA.drafts.length && !PENDING.length) box.parentElement.hidden = true;
   }
 
   // ---------------------------------------------------------------- strands
@@ -1338,6 +1618,7 @@ const DATA = /*__DATA__*/null;
     suppressHash = true;
     if (/^w\d+e?$/.test(tok) && W.has(tok.slice(1))) openDetail(tok.slice(1), { focus: false });
     else if (AT.has(tok)) openDetail(tok, { focus: false });
+    else if (tok.startsWith("d-") && DR.has(tok.slice(2))) openDetail(tok.slice(2), { focus: false });
     else if (["map", "links", "strands", "activities", "path"].includes(tok)) showView(tok, false);
     else if (tok.startsWith("p-") && PS.has(decodeURIComponent(tok.slice(2)))) { showView("path", false); openPathDetail(decodeURIComponent(tok.slice(2)), { focus: false }); }
     suppressHash = false;

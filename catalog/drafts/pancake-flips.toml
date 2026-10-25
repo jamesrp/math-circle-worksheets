@@ -1,0 +1,30 @@
+id = "pancake-flips"
+title = "Pancake flips"
+status = "draft"
+rank = 7
+date = "2026-10-25"
+folder = "plans/topic-scouting/drafts/pancake-flips/"
+outline = "plans/topic-scouting/pancake-flips.md"
+hook = "Sort a stack of card pancakes, largest at the bottom, by sliding a spatula under any pancake and flipping everything above it as one block."
+math = "Any stack of n pancakes can be sorted in at most 2n − 3 flips: flip the largest unsorted pancake to the top, then down into place. A flip changes only the neighbour pair at the spatula, so it removes at most one break (neighbours whose sizes are not consecutive, plus one if the largest is not at the bottom), and a stack with k breaks needs at least k flips. The worst stacks need 1, 3, 4, 5, 7, 8 flips for 2 to 7 pancakes, and the exact worst case for large stacks is unknown."
+discover = "Two flips per pancake always work, counting breaks shows when no faster sorting exists, and a few stacks are the hardest."
+gem = "An upper bound from a method, a lower bound from a count, and a gap between them that is still open for large stacks (Gates and Papadimitriou)."
+concepts = ["algorithms", "permutations", "optimization"]
+uses = []
+mechanisms = ["construct", "certificate", "every-case"]
+bands = ["K-1", "2-3", "4-5"]
+reading = "K–1 reads nothing, with an adult reading the rules; stacks are recorded as size numbers from the top."
+arithmetic = "K–1 counts to 5 with flip tokens; Grades 2–3 compare flip counts; Grades 4–5 count breaks and prove the bounds."
+materials = ["card or foam pancakes in six sizes, each with one dark face", "a card spatula", "flip tokens"]
+prep = "Cut pancakes from printed circles (about 15 minutes for five sets in the outline)."
+untried = "The spatula under card pancakes."
+
+[[related]]
+week = "3"
+kind = "revisits"
+note = "Week 3 runs rearrangements as machines, and its return visit finds the shortest sorting by neighbour swaps; here a move reverses the top of the stack, and counting breaks bounds the number of flips."
+
+[[related]]
+week = "23"
+kind = "contrast"
+note = "Week 23 sorts with fixed comparator bars that must work on every input; here each flip is chosen after looking at the stack, and the question is the fewest flips."

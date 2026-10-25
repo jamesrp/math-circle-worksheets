@@ -440,7 +440,7 @@ def main():
     sys.path.insert(0, str(CAT))
     import build
     try:
-        areas, mechanisms, concepts, weeks, atlas = build.load()
+        areas, mechanisms, concepts, weeks, atlas, _drafts = build.load()
     except build.CatalogError as exc:
         print("The catalog has problems:\n" + str(exc), file=sys.stderr)
         sys.exit(1)

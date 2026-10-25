@@ -1,0 +1,35 @@
+id = "train-yard-sorting"
+title = "Train-yard sorting"
+status = "draft"
+rank = 8
+date = "2026-10-25"
+folder = "plans/topic-scouting/drafts/train-yard-sorting/"
+outline = "plans/topic-scouting/train-yard-sorting.md"
+hook = "Drive numbered cars along a track mat into a dead-end siding and out again so that they leave in the order 1, 2, 3."
+math = "One last-in, first-out siding sorts an arrival order exactly when no three cars arrive in the pattern middle, largest, smallest (no 2-3-1), and 'send a car out whenever it is the next one needed, otherwise bring in the next arrival' never fails when sorting is possible. Writing each entry as an up-step and each departure as a down-step makes a mountain path, so the sortable orders are counted by the Catalan numbers 1, 2, 5, 14, 42; with two sidings in a row every order of up to six cars can be sorted, and what two sidings can sort in general is hard."
+discover = "Only some arrival orders can be sorted, a 2-3-1 pattern is what blocks them, and the ones that work are counted by Week 12's numbers."
+gem = "A railway puzzle becomes pattern avoidance and a new route to the Catalan numbers (Knuth)."
+concepts = ["algorithms", "catalan", "permutations"]
+uses = []
+mechanisms = ["counterexample", "greedy", "pair-up"]
+bands = ["K-1", "2-3", "4-5"]
+reading = "K–1 reads only car numbers to 5, with an adult reading the rules; upper bands read short tasks and arrival orders."
+arithmetic = "Numbers to 5; Grades 4–5 count the sortable orders."
+materials = ["numbered cars (cubes or 25 mm squares) 1 to 5, one set per pair", "the one-page track mat (track-mat.pdf), two for the 4–5 table"]
+prep = "Number the cubes with a marker (about 10 minutes in the outline) and print the track mats at 100%."
+untried = "Cars in the mat's siding; the mat was added at revision."
+
+[[related]]
+week = "12"
+kind = "same-theorem"
+note = "Week 12 counts noncrossing pairings, mountain paths and trees by the Catalan numbers; here each sorting run through the siding is a mountain path, so the sortable orders are counted the same way."
+
+[[related]]
+week = "23"
+kind = "contrast"
+note = "Week 23's comparator bars sort every input; one siding sorts only the orders with no 2-3-1 pattern."
+
+[[related]]
+week = "3"
+kind = "same-object"
+note = "Week 3 runs orders through machines as rearrangements; here the machine is a last-in, first-out siding, and the question is which arrival orders it can sort."

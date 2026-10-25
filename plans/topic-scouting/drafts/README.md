@@ -44,4 +44,4 @@ For ranks 9–12, run inside `src/`: `sh build.sh` (counting-out circles, which 
 
 ## After approval
 
-Assign a week number. Store the week as [problem files](../../../lowell-math-circle-year-2/source/problem-files/README.md). Write a facilitator guide that opens with the theorem-first overview AGENTS.md asks for; the math reviews' answer keys are a starting point. Add a catalog record (`catalog/weeks/`) and run `python3 catalog/build.py`. Then record the week as unpiloted.
+Assign a week number. Store the week as [problem files](../../../lowell-math-circle-year-2/source/problem-files/README.md). Write a facilitator guide that opens with the theorem-first overview AGENTS.md asks for; the math reviews' answer keys are a starting point. Add a catalog record (`catalog/weeks/`), delete the theme's draft record in `catalog/drafts/`, and run `python3 catalog/build.py`. Then record the week as unpiloted.

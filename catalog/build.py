@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Check the activity catalog and build the explorer and the catalog page.
 
-Reads catalog/concepts.toml and catalog/weeks/*.toml, finds each week's current
-print files, checks the six-year path in catalog/path.toml (catalog/check_path.py),
-and writes explorer/index.html and CATALOG.md.
+Reads catalog/concepts.toml, catalog/weeks/*.toml, catalog/atlas/*.toml and the draft
+themes in catalog/drafts/*.toml, finds each week's current print files and each draft's
+pages, checks the six-year path in catalog/path.toml (catalog/check_path.py), and writes
+explorer/index.html and CATALOG.md.
 
     python3 catalog/build.py            # check and build
     python3 catalog/build.py --check    # check only
@@ -26,6 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 CAT = ROOT / "catalog"
 YEAR2 = ROOT / "lowell-math-circle-year-2"
 REPO_URL = "https://github.com/jamesrp/math-circle-worksheets/blob/main/"
+TREE_URL = "https://github.com/jamesrp/math-circle-worksheets/tree/main/"
 
 BANDS = ["K-1", "2-3", "4-5"]
 STATUSES = ["piloted", "organizer-approved", "unpiloted"]
@@ -34,9 +36,20 @@ APP_DECISIONS = ["in app", "not porting", "open"]
 KINDS = ["leads-to", "revisits", "same-theorem", "same-object", "contrast"]
 REQUIRED = ["week", "title", "hook", "math", "concepts", "mechanisms", "bands",
             "reading", "arithmetic", "materials", "status", "verdict", "app", "app_decision"]
-OPTIONAL = ["discover", "gem", "uses", "prep", "verdict_note", "related", "proposed_concepts"]
+OPTIONAL = ["discover", "gem", "uses", "prep", "verdict_note", "related", "proposed_concepts", "drafts"]
 ATLAS_FIELDS = {"id", "hook", "concepts", "uses", "mechanisms", "bands", "gem", "related", "proposed_concepts"}
 ATLAS = ROOT / "plans" / "atlas"
+
+# Drafts awaiting the organizer's review: new themes (catalog/drafts/<slug>.toml) and
+# new pages for an existing week (a week record's [[drafts]] entries).
+DRAFT_REQUIRED = ["id", "title", "hook", "math", "concepts", "mechanisms", "bands", "reading",
+                  "arithmetic", "materials", "status", "date", "folder", "outline"]
+DRAFT_OPTIONAL = ["discover", "gem", "uses", "prep", "untried", "rank", "related"]
+PENDING_KINDS = ["return visit", "K-1 pages"]
+PENDING_FIELDS = {"kind", "path", "date", "note"}
+BAND_PDF = {"K-1": "k-1.pdf", "2-3": "grades-2-3.pdf", "4-5": "grades-4-5.pdf"}
+DRAFT_ROLES = {"k-1.pdf": "K–1 pages", "grades-2-3.pdf": "Grades 2–3 pages", "grades-4-5.pdf": "Grades 4–5 pages",
+               "review.md": "Adversarial review", "review-math.md": "Math check"}
 ATLAS_BOOKS = {
     "algebra-discrete": ("Algebra and discrete mathematics", "atlas-algebra-discrete"),
     "geometry-analysis": ("Geometry and analysis", "atlas-geometry-analysis"),
@@ -215,6 +228,12 @@ def load():
                 errors.append(f"{where}: related kind {rel.get('kind')!r} is not one of {KINDS}")
             if "note" not in rel or "week" not in rel:
                 errors.append(f"{where}: each related entry needs week, kind and note")
+        pending = rec.get("drafts", [])
+        if not isinstance(pending, list):
+            errors.append(f"{where}: drafts must be a list of [[drafts]] tables")
+            pending = []
+        for i, d in enumerate(pending, 1):
+            check_pending(d, f"{where}: drafts entry {i}", errors)
         rec["id"] = wid
         weeks[wid] = rec
     for wid, rec in weeks.items():
@@ -229,9 +248,146 @@ def load():
             if other == wid:
                 errors.append(f"{week_slug(wid)}.toml: relates to itself")
     atlas = load_atlas(concepts, mechanisms, weeks, errors)
+    drafts = load_drafts(concepts, mechanisms, weeks, errors)
     if errors:
         raise CatalogError("\n".join(errors))
-    return areas, mechanisms, concepts, weeks, atlas
+    return areas, mechanisms, concepts, weeks, atlas, drafts
+
+
+def repo_path(p, where, errors, want_dir):
+    """A path inside the repository, as written in a record; None (and an error) if it is missing."""
+    if not isinstance(p, str) or not p or p.startswith("/") or ".." in Path(p).parts:
+        errors.append(f"{where}: {p!r} is not a path inside the repository")
+        return None
+    full = ROOT / p
+    if want_dir and not full.is_dir():
+        errors.append(f"{where}: folder {p} does not exist")
+        return None
+    if not want_dir and not full.is_file():
+        errors.append(f"{where}: file {p} does not exist")
+        return None
+    return full
+
+
+def check_date(d, where, errors):
+    if not (isinstance(d, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", d)):
+        errors.append(f"{where}: date must be written YYYY-MM-DD")
+
+
+def draft_files(folder):
+    """A draft folder's pages and reviews: band packets first, then other PDFs, then the reviews."""
+    rank = {name: i for i, name in enumerate(DRAFT_ROLES)}
+    files = []
+    for f in sorted(folder.iterdir()):
+        if f.is_file() and (f.suffix == ".pdf" or f.name in DRAFT_ROLES):
+            role = DRAFT_ROLES.get(f.name) or f.stem.replace("-", " ").capitalize()
+            files.append({"role": role, "path": str(f.relative_to(ROOT)), "pdf": f.suffix == ".pdf"})
+
+    def key(f):
+        name = Path(f["path"]).name
+        return (0 if f["pdf"] else 2, rank[name]) if name in rank else (1, 0)
+
+    return sorted(files, key=key)
+
+
+def check_pending(d, where, errors):
+    """One [[drafts]] entry on a week record: new pages for the week awaiting review."""
+    if not isinstance(d, dict):
+        errors.append(f"{where}: must be a table with kind, path and date")
+        return
+    for field in d:
+        if field not in PENDING_FIELDS:
+            errors.append(f"{where}: unknown field {field!r}")
+    for field in ("kind", "path", "date"):
+        if field not in d:
+            errors.append(f"{where}: missing {field}")
+    if d.get("kind") not in PENDING_KINDS:
+        errors.append(f"{where}: kind must be one of {PENDING_KINDS}")
+    check_date(d.get("date"), where, errors)
+    folder = repo_path(d.get("path"), where, errors, want_dir=True)
+    if folder and not any(f["pdf"] for f in draft_files(folder)):
+        errors.append(f"{where}: no draft PDF in {d['path']}")
+
+
+def load_drafts(concepts, mechanisms, weeks, errors):
+    """Draft themes awaiting review, one record per theme in catalog/drafts/."""
+    drafts = {}
+    folder = CAT / "drafts"
+    if not folder.is_dir():
+        return drafts
+    ranks = {}
+    for path in sorted(folder.glob("*.toml")):
+        where = f"drafts/{path.name}"
+        try:
+            rec = tomllib.loads(path.read_text())
+        except tomllib.TOMLDecodeError as exc:
+            errors.append(f"{where}: {exc}")
+            continue
+        for field in DRAFT_REQUIRED:
+            if field not in rec:
+                errors.append(f"{where}: missing {field}")
+        for field in rec:
+            if field not in DRAFT_REQUIRED and field not in DRAFT_OPTIONAL:
+                errors.append(f"{where}: unknown field {field!r}")
+        did = rec.get("id", "")
+        if did != path.stem:
+            errors.append(f"{where}: id should be {path.stem!r}, the file name")
+        if not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", str(did)):
+            errors.append(f"{where}: id must be a lower-case slug")
+            continue
+        for cid in rec.get("concepts", []) + rec.get("uses", []):
+            if cid not in concepts:
+                errors.append(f"{where}: unknown concept {cid!r}")
+        if not 1 <= len(rec.get("concepts", [])) <= 4:
+            errors.append(f"{where}: concepts should list 1 to 4 ids")
+        for mid in rec.get("mechanisms", []):
+            if mid not in mechanisms:
+                errors.append(f"{where}: unknown mechanism {mid!r}")
+        if not 1 <= len(rec.get("mechanisms", [])) <= 3:
+            errors.append(f"{where}: mechanisms should list 1 to 3 ids")
+        for b in rec.get("bands", []):
+            if b not in BANDS:
+                errors.append(f"{where}: unknown band {b!r}")
+        if rec.get("status") != "draft":
+            errors.append(f"{where}: status must be \"draft\"; a theme that is approved gets a week record instead")
+        if not isinstance(rec.get("materials", []), list):
+            errors.append(f"{where}: materials must be a list")
+        check_date(rec.get("date"), where, errors)
+        if "rank" in rec:
+            r = rec["rank"]
+            if not isinstance(r, int) or isinstance(r, bool) or r < 1:
+                errors.append(f"{where}: rank must be a whole number from 1")
+            elif r in ranks:
+                errors.append(f"{where}: rank {r} is also the rank of {ranks[r]}")
+            else:
+                ranks[r] = did
+        repo_path(rec.get("outline"), where, errors, want_dir=False)
+        pages = repo_path(rec.get("folder"), where, errors, want_dir=True)
+        files = draft_files(pages) if pages else []
+        if pages:
+            present = {b for b, name in BAND_PDF.items() if (pages / name).is_file()}
+            listed = set(rec.get("bands", [])) & set(BANDS)
+            for b in sorted(listed - present):
+                errors.append(f"{where}: band {b} is listed but {rec['folder']} has no {BAND_PDF[b]}")
+            for b in sorted(present - listed):
+                errors.append(f"{where}: {rec['folder']} has {BAND_PDF[b]} but bands does not list {b}")
+        rels = rec.get("related", [])
+        if not 2 <= len(rels) <= 6:
+            errors.append(f"{where}: give 2 to 6 related weeks")
+        for rel in rels:
+            if rel.get("kind") not in KINDS:
+                errors.append(f"{where}: related kind {rel.get('kind')!r} is not one of {KINDS}")
+            if "note" not in rel or "week" not in rel:
+                errors.append(f"{where}: each related entry needs week, kind and note")
+                continue
+            try:
+                if week_id(rel["week"]) not in weeks:
+                    errors.append(f"{where}: related week {rel['week']} has no record")
+            except CatalogError as exc:
+                errors.append(f"{where}: {exc}")
+        rec["_files"] = files
+        drafts[did] = rec
+    return drafts
 
 
 def atlas_pages():
@@ -459,7 +615,46 @@ def layout_weeks(weeks, edges, areas):
     return pos, round(width), round(height)
 
 
-def build_data(areas, mechanisms, concepts, weeks, atlas):
+def layout_drafts(drafts, wpos, width, height):
+    """Place each draft theme near the weeks it links to, without moving any week.
+
+    A draft starts at the centre of its linked weeks and is pushed out of the way of
+    every other node, so the network of weeks keeps the layout people already know.
+    """
+    ids = sorted(drafts, key=lambda d: (drafts[d].get("rank", 10 ** 6), d))
+    anchor, pos = {}, {}
+    for d in ids:
+        ws = [wpos[week_id(r["week"])] for r in drafts[d]["related"]]
+        anchor[d] = (sum(x for x, _ in ws) / len(ws), sum(y for _, y in ws) / len(ws))
+        pos[d] = list(anchor[d])
+    fixed = list(wpos.values())
+    gap = 46.0
+    for _ in range(400):
+        for d in ids:
+            fx = (anchor[d][0] - pos[d][0]) * 0.02
+            fy = (anchor[d][1] - pos[d][1]) * 0.02
+            for x, y in fixed + [pos[o] for o in ids if o != d]:
+                dx, dy = pos[d][0] - x, pos[d][1] - y
+                dist = math.hypot(dx, dy)
+                if dist < gap:
+                    if dist < 0.01:
+                        dx, dy, dist = 1.0, 0.0, 1.0
+                    fx += dx / dist * (gap - dist) * 0.5
+                    fy += dy / dist * (gap - dist) * 0.5
+            pos[d][0] = min(max(pos[d][0] + fx, 30), width - 30)
+            pos[d][1] = min(max(pos[d][1] + fy, 30), height - 30)
+    return {d: (round(pos[d][0], 1), round(pos[d][1], 1)) for d in ids}
+
+
+def pending_data(d):
+    """A week's [[drafts]] entry as the explorer shows it, with the folder's pages and its index."""
+    folder = ROOT / d["path"]
+    index = folder.parent / "README.md"
+    return {"kind": d["kind"], "date": d["date"], "note": d.get("note", ""), "path": d["path"].rstrip("/"),
+            "files": draft_files(folder), "index": str(index.relative_to(ROOT)) if index.is_file() else ""}
+
+
+def build_data(areas, mechanisms, concepts, weeks, atlas, drafts):
     depth = concept_depths(concepts)
     concept_weeks = defaultdict(list)
     concept_uses = defaultdict(list)
@@ -474,6 +669,14 @@ def build_data(areas, mechanisms, concepts, weeks, atlas):
     for aid, rec in atlas.items():
         for cid in rec["concepts"]:
             concept_atlas[cid].append(aid)
+    draft_order = sorted(drafts, key=lambda d: (drafts[d].get("rank", 10 ** 6), d))
+    concept_drafts = defaultdict(list)
+    concept_draft_uses = defaultdict(list)
+    for did in draft_order:
+        for cid in drafts[did]["concepts"]:
+            concept_drafts[cid].append(did)
+        for cid in drafts[did].get("uses", []):
+            concept_draft_uses[cid].append(did)
 
     # relations: keep leads-to directed, merge symmetric duplicates
     edges = {}
@@ -508,8 +711,13 @@ def build_data(areas, mechanisms, concepts, weeks, atlas):
     for cid in concepts:
         if concept_weeks[cid] or concept_uses[cid] or concept_atlas[cid]:
             keep(cid)
+    in_library = set(shown)
+    for cid in concepts:
+        if concept_drafts[cid] or concept_draft_uses[cid]:
+            keep(cid)
     cpos, cw, ch, lanes = layout_concepts(concepts, depth, areas, shown)
     wpos, ww, wh = layout_weeks(weeks, edge_list, areas)
+    dpos = layout_drafts(drafts, wpos, ww, wh)
 
     out_weeks = []
     for wid in sorted(weeks, key=week_key):
@@ -542,6 +750,7 @@ def build_data(areas, mechanisms, concepts, weeks, atlas):
             "files": files,
             "views": views,
             "links": links,
+            "drafts": [pending_data(d) for d in rec.get("drafts", [])],
             "x": wpos[wid][0],
             "y": wpos[wid][1],
         })
@@ -559,6 +768,9 @@ def build_data(areas, mechanisms, concepts, weeks, atlas):
             "weeks": sorted(concept_weeks[cid], key=week_key),
             "usedBy": sorted(concept_uses[cid], key=week_key),
             "atlas": sorted(concept_atlas[cid]),
+            "drafts": concept_drafts[cid],
+            "draftUses": concept_draft_uses[cid],
+            "draftOnly": cid not in in_library,
             "x": cpos[cid][0],
             "y": cpos[cid][1],
         })
@@ -592,10 +804,55 @@ def build_data(areas, mechanisms, concepts, weeks, atlas):
         })
         for rel in rec.get("related", []):
             atlas_edges.append({"atlas": aid, "week": week_id(rel["week"]), "kind": rel["kind"], "note": rel["note"]})
+    out_drafts, draft_edges = [], []
+    unranked = max([drafts[d].get("rank", 0) for d in drafts] + [0])
+    for did in draft_order:
+        rec = drafts[did]
+        if "rank" not in rec:
+            unranked += 1
+        folder = rec["folder"].rstrip("/")
+        links = [{"role": "Outline", "path": rec["outline"]}]
+        for readme, role in (((ROOT / folder).parent / "README.md", "Drafts index: status and what the reviews changed"),
+                             ((ROOT / rec["outline"]).parent / "README.md", "Scouting list: ranks, sources and closest themes")):
+            if readme.is_file() and str(readme.relative_to(ROOT)) not in [l["path"] for l in links]:
+                links.append({"role": role, "path": str(readme.relative_to(ROOT))})
+        out_drafts.append({
+            "id": did,
+            "short": f"D{rec.get('rank', unranked)}",
+            "rank": rec.get("rank", 0),
+            "title": rec["title"],
+            "hook": rec["hook"],
+            "math": rec["math"],
+            "discover": rec.get("discover", ""),
+            "gem": rec.get("gem", ""),
+            "concepts": rec["concepts"],
+            "uses": rec.get("uses", []),
+            "mechanisms": rec["mechanisms"],
+            "bands": [b for b in BANDS if b in rec["bands"]],
+            "reading": rec["reading"],
+            "arithmetic": rec["arithmetic"],
+            "materials": rec["materials"],
+            "prep": rec.get("prep", ""),
+            "untried": rec.get("untried", ""),
+            "status": rec["status"],
+            "date": rec["date"],
+            "folder": folder,
+            "files": rec["_files"],
+            "links": links,
+            "area": concepts[rec["concepts"][0]]["area"],
+            "depth": max(depth[c] for c in rec["concepts"]),
+            "x": dpos[did][0],
+            "y": dpos[did][1],
+        })
+        for rel in rec.get("related", []):
+            draft_edges.append({"draft": did, "week": week_id(rel["week"]), "kind": rel["kind"], "note": rel["note"]})
     return {
         "repo": REPO_URL,
+        "tree": TREE_URL,
         "atlas": out_atlas,
         "atlasEdges": atlas_edges,
+        "drafts": out_drafts,
+        "draftEdges": draft_edges,
         "gateCodes": GATE_CODES,
         "areas": areas,
         "mechanisms": mechanisms,
@@ -628,6 +885,9 @@ def write_catalog_md(data, path):
         "organizer-approved means the organizer reviewed and promoted it; everything else is unpiloted.",
         "",
     ]
+    if data["drafts"] or any(w["drafts"] for w in weeks):
+        lines[2] += (" Drafts awaiting the organizer's review, new themes and new pages for existing weeks, "
+                     "have [their own section](#drafts-awaiting-review) after the area tables.")
     for a, name in areas.items():
         ws = by_area.get(a, [])
         if not ws:
@@ -645,10 +905,13 @@ def write_catalog_md(data, path):
             status = w["status"]
             if w["verdict"] not in ("keep", "none"):
                 status += f"; card: {w['verdict']}"
+            if w["drafts"]:
+                status += "; [drafts awaiting review](#new-pages-for-existing-weeks)"
             hook = w["hook"].replace("|", "\\|")
             title = w["title"].replace("|", "\\|")
             lines.append(f"| {w['id']} | {title} | {hook} | {bands} | {status} | {' · '.join(prints)} |")
         lines.append("")
+    lines += drafts_md(data)
     if data["atlas"]:
         lines += ["## Atlas investigations", "",
                   "Ninety investigation families from the [mathematics atlas](plans/atlas/README.md), printed in four books. "
@@ -681,6 +944,39 @@ def write_catalog_md(data, path):
     path.write_text("\n".join(lines))
 
 
+def drafts_md(data):
+    """The catalog page's section on drafts awaiting review."""
+    pending = [w for w in data["weeks"] if w["drafts"]]
+    if not data["drafts"] and not pending:
+        return []
+    cell = lambda t: t.replace("|", "\\|")
+    lines = ["## Drafts awaiting review", "",
+             "Student-page drafts added for the organizer's review. None is approved, piloted or on the six-year path, "
+             "and none has a facilitator guide yet. Their records are in [catalog/drafts/](catalog/drafts/) and in the "
+             "`[[drafts]]` entries of week records; the explorer shows them with dashed outlines.", ""]
+    if data["drafts"]:
+        lines += ["### New themes", "",
+                  "Themes drafted with the worksheet workflow that have no week number yet. The ranks are the "
+                  "[topic scouting](plans/topic-scouting/README.md)'s.", "",
+                  "| Rank | Theme | Area | What children do | Bands | Drafted | Drafts |", "|---|---|---|---|---|---|---|"]
+        for d in data["drafts"]:
+            bands = ", ".join(b.replace("-", "–") for b in d["bands"])
+            outline = next(l["path"] for l in d["links"] if l["role"] == "Outline")
+            lines.append(f"| {d['rank'] or '—'} | {cell(d['title'])} | {data['areas'][d['area']]} | {cell(d['hook'])} | {bands} | "
+                         f"{d['date']} | [pages]({d['folder']}/) · [outline]({outline}) |")
+        lines.append("")
+    if pending:
+        lines += ["### New pages for existing weeks", "",
+                  "| Week | Theme | Draft | About | Drafted | Drafts |", "|---|---|---|---|---|---|"]
+        for w in pending:
+            for d in w["drafts"]:
+                index = f" · [index]({d['index']})" if d["index"] else ""
+                lines.append(f"| {w['id']} | {cell(w['title'])} | {d['kind'].replace('K-1', 'K–1').capitalize()} | {cell(d['note'])} | "
+                             f"{d['date']} | [pages]({d['path']}/){index} |")
+        lines.append("")
+    return lines
+
+
 def write_explorer(data, out_html, fragment_path=None):
     template = (CAT / "explorer_template.html").read_text()
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
@@ -700,11 +996,13 @@ def main():
     ap.add_argument("--fragment", help="also write the page body without the document wrapper")
     args = ap.parse_args()
     try:
-        areas, mechanisms, concepts, weeks, atlas = load()
+        areas, mechanisms, concepts, weeks, atlas, drafts = load()
     except CatalogError as exc:
         print("The catalog has problems:\n" + str(exc), file=sys.stderr)
         sys.exit(1)
-    print(f"{len(weeks)} week records, {len(atlas)} atlas records, {len(concepts)} concepts: all checks pass")
+    pending = sum(len(w.get("drafts", [])) for w in weeks.values())
+    print(f"{len(weeks)} week records, {len(atlas)} atlas records, {len(drafts)} draft themes, "
+          f"{pending} pending drafts on weeks, {len(concepts)} concepts: all checks pass")
     path, path_errors, path_summary, _ = check_path.check(areas, mechanisms, concepts, weeks, atlas)
     if path_errors:
         print("The six-year path has problems:\n" + "\n".join(path_errors), file=sys.stderr)
@@ -712,7 +1010,7 @@ def main():
     print("\n".join(path_summary))
     if args.check:
         return
-    data = build_data(areas, mechanisms, concepts, weeks, atlas)
+    data = build_data(areas, mechanisms, concepts, weeks, atlas, drafts)
     data["path"] = path
     write_explorer(data, ROOT / "explorer" / "index.html", args.fragment)
     write_catalog_md(data, ROOT / "CATALOG.md")
