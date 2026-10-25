@@ -1,6 +1,6 @@
 # New-theme drafts for the organizer's review
 
-Student pages for the four recommended themes in [the scouting list](../README.md#recommended-top-four), drafted on October 24, 2026 with the [worksheet workflow](../../../worksheet-workflow/README.md). Each one went through the full workflow, with every stage run by a fresh agent: the writer stage, an adversarial review (`review.md`), an independent math check that re-solved every printed board with its own code (`review-math.md`), and a revision that addressed both reviews.
+Student pages for themes from [the scouting list](../README.md#kept-ranked), drafted with the [worksheet workflow](../../../worksheet-workflow/README.md): the four recommended themes (ranks 1–4) on October 24, 2026, and ranks 5–8 on October 25. Each one went through the full workflow, with every stage run by a fresh agent: the writer stage, an adversarial review (`review.md`), an independent math check that re-solved every printed board with its own code (`review-math.md`), and a revision that addressed both reviews.
 
 **Status.** These are drafts awaiting the organizer's review. They are unpiloted, and no kit has been rehearsed with real materials. The pages say "Week NN" and the packet ids use NN, because a week number is assigned only on approval. As with every output of the workflow, there are no facilitator guides yet.
 
@@ -10,6 +10,10 @@ Student pages for the four recommended themes in [the scouting list](../README.m
 | [games-decided-before-they-start](games-decided-before-they-start/) | Breaking and drawing games | 7 pp. | 7 pp. | 9 pp. | card "chocolate bars", token counters, pencils | 5–8 card bars per pair (the outline said 6); counters on the dot boards |
 | [poisoned-cookie](poisoned-cookie/) | Poisoned cookie | 6 pp. | 5 pp. | 6 pp. | 25 mm counters, a 15 cm bite card | the bite card on neighbouring boards (the build checks the spacing) |
 | [who-beat-whom](who-beat-whom/) | Who beat whom | 5 pp. | 6 pp. | 8 pp. | animal cards, 10 cm arrow cards, the K–1 big board | arrow cards in the big board's lanes |
+| [hidden-armies](hidden-armies/) | Hidden armies | 6 pp. | 5 pp. | 6 pp. | 6–10 cubes per child, folders as screens, hill mats, win tokens | plans built behind folders on the hill mats |
+| [patterns-you-cannot-avoid](patterns-you-cannot-avoid/) | Patterns you cannot avoid | 6 pp. (landscape) | 6 pp. | 7 pp. | 25 mm strips, red, blue and green counters, spacing combs, number cards | the combs on the K–1 page strips; the dot boards are about 6–7 cm across, not the outline's 12 cm |
+| [pancake-flips](pancake-flips/) | Pancake flips | 4 pp. | 6 pp. | 7 pp. | card or foam pancakes in six sizes with one dark face, a card spatula, flip tokens | the spatula under card pancakes |
+| [train-yard-sorting](train-yard-sorting/) | Train-yard sorting | 5 pp. | 4 pp. | 5 pp. | numbered cars (cubes or 25 mm squares), the new one-page track mat (`track-mat.pdf`, two for the 4–5 table) | cars in the mat's siding; the mat was added at revision |
 
 What the reviews changed, in brief:
 
@@ -17,10 +21,16 @@ What the reviews changed, in brief:
 - **Breaking and drawing games** (outline: "Games decided before they start"). The header no longer announces the discovery. The token rule now says each end of a line needs its own token, so a loop needs two. Lines may not cross themselves or another line; both gaps had let game lengths vary and changed winners. Grades 2–3 now record line counts, and K–1 players swap who goes first. In grades 4–5 Problem 10, a line through a cross counts as two pieces.
 - **Poisoned cookie.** "A position where the player whose turn it is cannot make sure to win" replaces "an L position", which a child could read as an L shape. The strategy-stealing question now asks which step of the argument breaks. Square boards are "bigger than one cookie". The make-a-board problems start from a full grid, so the answers are boards that can occur in a game. Full-size boards that share a page sit far enough apart for the bite card.
 - **Who beat whom.** Every K–1 problem now says which board to use, and the big board's lanes hold the 10 cm arrow cards. Grades 2–3 Problem 3 has a recording diagram, the line-up answer gaps are wider, and grades 4–5 Problem 7 has larger diagrams and six blank pentagons for four possible answers, so the number of blanks no longer hints at the answer.
+- **Hidden armies.** K–1 Problems 2 and 4 now ask "Is there a plan…?", since with 4 or 5 cubes no plan is unbeatable. The claim "you can beat any plan" is limited to plans with 6 or more cubes, because 1-1-1 cannot be beaten with 3. Grades 2–3 Problem 7 allows a different number of cubes, not fewer, since beating 1-1-1 takes 4. "Circle the plan that won" adds "if one did", because many games tie.
+- **Patterns you cannot avoid.** The K–1 pages are landscape, so the strips print at the 25 mm size of the counters and combs. The K–1 game checks with the combs after every turn, so a missed three does not penalize the wrong player. Questions no longer say "in order", which led children into dead ends, and ask why no colouring can go further. The third colour is named (green), the 4–5 recording strips have different lengths so their count gives nothing away, and the repeated six-dot question became Sim's "would you rather go first or second?".
+- **Pancake flips.** Grades 4–5 Problem 3 now uses a stack with four breaks (3 5 2 1 4), so Problem 5's hunt for the worst stack of five is not already answered. K–1 sorts the worst stacks of four instead of proving that a stack cannot be sorted faster, and its one-flip problem has three blanks for three answers. Grades 2–3 sorts six-pancake stacks before asking for a general method. Every band gets a worked dark-side flip.
+- **Train-yard sorting.** The ✓/✗ grids were reordered, because the trains that work had all sat in one column. A printed track mat was added; none existed. Grades 4–5 make extra paper cars for longer trains and treat the siding as long enough, so the two-siding answer no longer depends on the mat's five-car wall.
 
 ## Rebuilding
 
 Each `src/` folder rebuilds its three PDFs into the draft folder with Python 3 and pdfLaTeX. The commands are `python3 gen.py` (towers), `sh build.sh` (breaking and drawing games; who beat whom, which writes into `src/`) and `python3 build.py` (poisoned cookie), each run inside `src/`. Each build also runs that draft's answer checker. On October 24 all four rebuilt from a clean copy, with text identical to the committed PDFs.
+
+For ranks 5–8, also run inside `src/`: `python3 build.py` then `python3 check_answers.py` (hidden armies); `sh build.sh`, which runs `verify.py` first (patterns); `python3 gen.py` then `python3 check.py` (pancake flips); `python3 build.py` then `python3 verify.py` (train-yard sorting, which also builds `track-mat.pdf`). Each writes its PDFs into the draft folder. On October 25 all four rebuilt from a clean copy with text identical to the committed PDFs, and every checker passed.
 
 ## After approval
 
