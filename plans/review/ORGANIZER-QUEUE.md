@@ -85,6 +85,7 @@ These would change a problem, its order, a printed answer or an approved format.
 Each would add a problem, a question, a case or a printed material.
 
 - **Four new themes (October 24):** first review of the student-page drafts of Towers from either end, Breaking and drawing games, Poisoned cookie and Who beat whom, from the [scouting list](../topic-scouting/README.md) for areas where the [six-year path](../six-year-path.md) has no reserves. Each went through the worksheet workflow's writer, review, math check and revision; none has a week number or a guide yet. [drafts](../topic-scouting/drafts/README.md)
+- **Return visits for Weeks 53, 58, 62 and 63 (October 25):** first review of student-page drafts for second visits to cheapest networks, fair division, conflict networks and cards away from home, the [six-year path](../six-year-path.md#gaps-proposals-for-future-writing)'s gap 2. Each reuses its base week's kit and went through the worksheet workflow's writer, review, math check and revision; none has a guide yet. [drafts](../return-visit-drafts/README.md)
 
 - **Week 11, could 10:** should 2–3 P4's third order question become the extra-line capacity question (at most 5 chips)? [card](week-11.md)
 - **Week 13, could 13:** should K–1 P6 and 2–3 P6 get K–1 P3's three-branch board? It is a second-player win and would change the game. [card](week-13.md)
