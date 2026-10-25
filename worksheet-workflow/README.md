@@ -19,6 +19,7 @@ The review pass gives a small improvement that is hard to see when skimming. Its
 2. Check that `context.md` matches the current group (roster, adults, shape of the hour).
 3. Generate the stage files:
    `python3 worksheet-workflow/make_prompts.py --outline worksheet-workflow/outlines/week-NN-<topic>.md --run tmp/worksheet-runs/week-NN-v1`
+   To write fewer packets, such as K–1 pages for a week whose other bands already exist, add `--bands k-1` (any comma-separated subset of `k-1`, `grades-2-3`, `grades-4-5`).
 4. Run each stage file in a fresh agent, in order: `PROMPT.md`, then `CRITIC.md` (and `CRITIC-MATH.md` if wanted), then `REVISE.md`.
    - Claude Code: start one subagent per stage, with the prompt "Your instructions are in <run>/<STAGE>.md. Read it and follow it exactly."
    - Codex: one `codex exec` call per stage with the same one-line prompt, or a new session per stage.
@@ -37,3 +38,4 @@ The review pass gives a small improvement that is hard to see when skimming. Its
 - 2026-10-01: do-not list gained one item on sentences that narrate a diagram or say what the blanks are for. This was the main slop left after a review pass.
 - 2026-10-01: paths and isolation notes generalized from the experiment's cloud setup. Each stage file now says which stage it is, so an agent that also reads AGENTS.md doesn't start the workflow again.
 - 2026-10-03: `context.md` updated for the eleven children at fixed KK11 / 3333 / 445 tables, the five-minute run, and the lesson of Weeks 1–2 (rules enforced by materials or the other player; partner play; deeper questions late). Nine outlines added (`week-01e-pattern-blocks.md`, `week-03-shuffle-machines.md` … `week-10-bridges.md`) and run with writer, critic, math check and reviser; records in `tmp/worksheet-runs/*-v1/`. Added `guide/GUIDE-TEMPLATE.md`, the untested prompt used afterwards to write each week's adult guide from the final pages; it is not part of the tested set.
+- 2026-10-25: `make_prompts.py --bands` asks for a subset of the three packets, for K–1 pages to join weeks that have none (the six-year path's gap 1). It rewrites only the sentences that list the packets, in the generated stage files; the block and stage files are unchanged, and without `--bands` the generated text is identical to before (checked on `week-07-games.md`). Single-band runs are untested.
