@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,margin=.7in,headheight=15pt,headsep=18pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,tikz}
+\usetikzlibrary{arrows.meta}\usepackage{sansmath}\usepackage{needspace}
+\renewcommand{\familydefault}{\sfdefault}\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Week NN / Pancake flips / Facilitator guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week NN / NN-FAC-v1}\fancyfoot[R]{\thepage}
+\newcommand{\head}[1]{\par\textbf{\large #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+% a pancake whose dark side faces up
+\newcommand{\up}[1]{$\overline{#1}$}
+\definecolor{cakefillc}{RGB}{248,224,170}\definecolor{cakedrawc}{RGB}{140,95,35}
+\tikzset{cakefill/.style={fill=cakefillc}, cakedraw/.style={draw=cakedrawc, line width=0.7pt},
+  platedraw/.style={draw=black!55, line width=0.5pt}, platefill/.style={fill=black!18}}
+\begin{document}\sansmath
+\head{Mathematical overview: a method sets an upper bound, breaks set a lower bound}
+\textbf{The model.} Pancakes $1,\dots,n$ (1 smallest) form a stack, written as its numbers from the top. It is sorted when it reads $1\,2\,\dots\,n$, each pancake on a bigger one. \emph{Flip $k$} slides the spatula under the $k$-th pancake from the top and turns the top $k$ over as one block, which reverses their order. Flip 1 changes nothing for plain pancakes. ``A stack needs $k$ flips'' always means the fewest flips that sort it.
+
+\textbf{Every flip undoes itself.} Doing flip $k$ twice restores the stack. So the flips that sort a stack, done in reverse order, build it from $1\,2\,\dots\,n$: a stack is as many flips from sorted as sorted is from it. Working outward from the sorted stack (one flip away, then two, and so on) lists every stack by the flips it needs; this makes each ``find all'' answer complete. For four pancakes the layers hold 1, 3, 6, 11 and 3 stacks (table, guide page~\pageref{tab:four}).
+
+\textbf{Upper bound: two flips per pancake, at most $2n-3$ flips ($n\ge2$).} Flip the biggest pancake not yet in place to the top, then flip it down into its place. A placed pancake lies below every later spatula and never moves again, so each pancake costs at most two flips, and the last two pancakes need at most one flip between them: $2(n-2)+1=2n-3$. That is 9 for six, 17 for ten and 37 for twenty. This method really uses $2n-3$ on some stacks (9 on $2\,6\,5\,1\,3\,4$; checked for $n\le7$), but it is not the fastest: it takes 8 flips on $3\,6\,1\,5\,2\,4$, which needs 6.
+
+\textbf{Lower bound: breaks.} Stand the stack on a plate numbered $n+1$. A \emph{break} is a touching pair, two pancakes or the bottom pancake and the plate, whose numbers differ by more than 1. Only a sorted stack has no breaks: reading up from the plate, each number must be one less than the one below. A flip keeps every touching pair inside the lifted block (reversed) and below it; the only new pair is at the spatula, where the old top pancake meets the pancake, or the plate, below the block. So one flip removes at most one break, and \emph{a stack with $b$ breaks needs at least $b$ flips}. The bound is often not reached: $1\,3\,2$ has 2 breaks and needs 3; $2\,1\,4\,3\,6\,5$ has 3 and needs 5; $4\,6\,2\,5\,1\,3$ has 6 and needs 7. Sharper: a $b$-flip sort must remove a break with every flip, so following only break-removing flips either sorts the stack in $b$ or proves $b$ is not enough.
+
+\textbf{The worst stacks.} The most flips any stack needs are 1, 3, 4, 5, 7, 8 for 2 to 7 pancakes (computer, every stack). The worst stacks are $1\,3\,2$ for three; $4\,2\,3\,1$, $2\,4\,1\,3$ and $3\,1\,4\,2$ for four; 20 stacks for five; $4\,6\,2\,5\,1\,3$ and $5\,3\,6\,1\,4\,2$ for six. For large stacks the exact worst case is unknown; Gates and Papadimitriou proved that $(5n+5)/3$ flips always suffice, and exact values are known only up to 19 pancakes (from the sources, not checked here).
+
+\textbf{Dark sides (burnt pancakes).} Each pancake has a dark side that must end facing down. A flip also turns each lifted pancake over, so flip 1 now matters, and flips still undo themselves. Bring the biggest pancake not in place to the top, turn it over alone if its dark side faces down, and flip it down, dark side down: at most three flips per pancake and one for the last, $3n-2$ (16 for six). The true maxima are 1, 4, 6, 8, 10, 12 for 1 to 6 pancakes (computer). With two pancakes only \up1\,\up2 needs 4 (a bar marks a dark side up); with three, exactly \up1\,\up2\,\up3 and $1$\,\up2\,\up3 need 6.
+
+\textbf{Experiments, conjectures and explanations.} Sorting a stack in $k$ flips is an experiment that proves $k$ is enough for that stack. Failing to do better is evidence for a conjecture, not a proof. ``Needs at least $k$'' is proved by counting breaks, by checking every first move (a tree), or by the outward layers. The method's count and the break argument are the explanations of the two bounds. That no stack of five needs six, that seven flips therefore always suffice for six, and the worst counts beyond six are computer facts children can only conjecture; that $4\,6\,2\,5\,1\,3$ needs seven, 4--5 children can prove (Problem 6).
+
+\textbf{Bands and prerequisites.} Children should discover that the biggest pancake can always be flipped into place, so every stack can be sorted; that some small stacks need surprisingly many flips; and (grades 4--5) that counting breaks proves a stack cannot be sorted faster. \emph{K--1} (no reading, as the adult reads; counting to about 10; writing or dictating digits) sorts stacks of three and four, finds all six stacks of three and every stack of four one flip sorts, and meets dark sides on two pancakes. \emph{Grades 2--3} (reading short problems; adding and doubling to about 20) sorts stacks of up to six, explains why $1\,3\,2$ needs three, counts a method that always works, finds all stacks of four that need four, and sorts dark-sided stacks. \emph{Grades 4--5} (spotting numbers that differ by more than 1; $2\cdot20-3$; following an argument about every possible flip) also proves both bounds, certifies the worst stacks of four and a worst stack of five, shows $4\,6\,2\,5\,1\,3$ needs seven, and extends the method to dark sides.
+\newpage
+\head{Preparation, shared launch and pacing}
+\textbf{Status.} Prepared for organizer review; unpiloted. The materials sheet's sizes are measured in its PDF, but no set has been cut or handled. Not physically rehearsed: cutting the sets and whether the heavy brown ink makes card curl, the foam backing below, a card spatula slipping under one pancake, flipping a block of four to six as one unit, seeing a stack's order, and telling which side is dark inside a stack. Times are estimates.
+
+\textbf{What to print.} The packets, one per child, single-sided US Letter at 100\%: K--1 4 pages, Grades 2--3 6 pages, Grades 4--5 7 pages. Nothing in them is cut and no page is a mat: the drawn pancakes are smaller than the real ones, so children build each stack beside its picture and rebuild from the picture when a stack gets lost. Materials page 1, ``Pancakes and spatula'': one copy per pair and one for the launch (six for the current group), single-sided on card stock at 100\%; its 100\,mm bar should measure 100\,mm.
+
+\textbf{Making the sets.} Each copy of materials page 1 is one set: pancakes 1 to 6, 4 to 9\,cm across, and a spatula. The printed face, solid brown with a white number, is the dark side; the plain back is the light side. Cut out the six pancakes and the spatula, then write each number large on the back with a marker, underlining the 6. K--1 sets need only pancakes 1--4; the launch set can go to the 4--5 referee afterwards. Better if you can get it (untested): cut off the spatula, stick the rest of the sheet onto light-coloured 2\,mm self-adhesive craft foam, and cut the pancakes through both layers. Six card pancakes stand about 2\,mm tall, too thin to see their order from the side, so children must lift pancakes to check; a foam stack stands about 14\,mm and shows its layers. Keep the spatula plain card so it slips under one pancake. Preparation: about 30 minutes beyond printing with card alone (cutting 25, numbering the backs 5); allow 15 more for foam.
+
+\textbf{Also needed.} Twelve counters per K--1 pair as flip tokens; pencils, as the older bands write their flips; a sticky-note pad for the 2--3 table (Problem 5) and the 4--5 table (Problem 4); optionally a paper plate to make the 4--5 plate concrete.
+
+\textbf{Staffing.} With the current group, one adult stays at each table. The K--1 adult reads each problem aloud and watches, with the partner, that every flip turns the whole block over; the adult never chooses where the spatula goes and does not announce the fewest flips before a child has a count (``Can you do it in fewer?'' is the follow-up). The 2--3 adult asks each child for their method's count in Problem 4 and helps the table keep the sticky-note columns in Problem 5. The 4--5 adult listens to Problems 3, 4 and 6 and records the Problem 6 tree; the third child referees the whole-block rule and the counts, rotating. With only two adults, 2--3 and 4--5 can share one. Writing down flips a child calls out is ordinary support; an adult choosing flips means the stack is too big.
+
+\textbf{Launch (whole group, about five minutes).} Hand out the sets and give a minute to handle them; ask for a tower with each pancake on a bigger one: ``That is a sorted stack. From now on the only move is a flip.'' Say that the brown sides do not matter until a page says so. On the launch set build $4\,3\,1\,2\,5$ from the top and show the rule: the spatula goes under any pancake, and everything above it turns over together. Not allowed: pulling a pancake out of the middle, flipping only the bottom part, or moving a block without turning it over. Do two flips, putting down a token for each:
+\begin{center}\input{fig-launch.tex}\end{center}
+For the older tables write \emph{$4\,3\,1\,2\,5$, flips: 4 2}: a stack is its numbers from the top, a flip the number of pancakes it turns over. End with ``Your pages give you stacks to sort with as few flips as you can.'' Flip without saying why you chose those flips. This run, like the printed example ($3\,1\,2$ in two flips), flips the biggest pancake on top down into its place, which is half of the method that 2--3 Problem 4 and 4--5 Problem 2 ask for; do not name that pattern. Do not sort a printed stack or repeat a flip (that a flip undoes itself is for children to find).
+
+\textbf{Dark sides, launched at the table.} Watch whether K--1 children assume the brown sides matter before a page says so. At a table's first dark-side problem (K--1 Problem 5, 2--3 Problem 6, 4--5 Problem 7), build the printed example, $2$\,\up1\,$3$, with the 1 brown side up, and do flip 2: the two pancakes swap and both turn over, giving $1$\,\up2\,$3$, in order but not finished. Say that the spatula under the top pancake turns just that one over. To record, shade a slot's top edge for a dark side up and its bottom edge for down, as in the pictures. Only the top face shows in a stack, so lift to check.
+
+\textbf{A first visit.} After the opening and launch, allow 35--40 minutes of work and a few minutes to share one hardest stack and one method count. First route: K--1 Problems 1--3 (Problem 4 for a quick pair); Grades 2--3 Problems 1--4; Grades 4--5 Problems 1--4, but Problem 2 alone can take 15 minutes, so if time is short go from Problem 1 to Problems 3 and 4 and open the return visit with Problem 2. Return visit: K--1 Problems 4--6; Grades 2--3 Problem 5 (pooled), then 6--8; Grades 4--5 Problems 5 and 6, then 7--9. A 2--3 child who finishes can meet breaks in 4--5 Problem 3; a confident K--1 sorter can try 2--3 Problem 2 aloud. Finishing every page is not the goal.
+
+\sub{All 24 stacks of four, by fewest flips (every band)}\label{tab:four}
+The layers named in the overview, for checking K--1 Problems 2--4, 2--3 Problem 5 and 4--5 Problem 4.
+\begin{center}\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c l}
+Fewest flips & Stacks of four (all 24, worked outward from $1\,2\,3\,4$)\\\midrule
+0 & $1\,2\,3\,4$\\
+1 & $2\,1\,3\,4$,\ $3\,2\,1\,4$,\ $4\,3\,2\,1$\\
+2 & $2\,3\,1\,4$,\ $2\,3\,4\,1$,\ $3\,1\,2\,4$,\ $3\,4\,2\,1$,\ $4\,1\,2\,3$,\ $4\,3\,1\,2$\\
+3 & $1\,2\,4\,3$,\ $1\,3\,2\,4$,\ $1\,3\,4\,2$,\ $1\,4\,2\,3$,\ $1\,4\,3\,2$,\ $2\,1\,4\,3$,\ $2\,4\,3\,1$,\ $3\,2\,4\,1$,\ $3\,4\,1\,2$,\ $4\,1\,3\,2$,\ $4\,2\,1\,3$\\
+4 & $2\,4\,1\,3$,\ $3\,1\,4\,2$,\ $4\,2\,3\,1$
+\end{tabular}\end{center}
+
+\input{solutions.tex}
+\end{document}

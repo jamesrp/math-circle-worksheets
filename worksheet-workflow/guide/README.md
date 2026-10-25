@@ -1,0 +1,14 @@
+# Guide and materials stages (untested)
+
+Prompts for the steps that follow the student pages. None of them is part of the tested worksheet workflow, and no guide or materials file they produced has been used in a session.
+
+- `GUIDE-TEMPLATE.md` (October 3): the single prompt used to write the adult guides for Weeks 1e and 3–10 from their final pages.
+- The October 25 set, used for the twelve [new-theme drafts](../../plans/topic-scouting/drafts/README.md). Each stage runs in a fresh agent with the one-line prompt "Your instructions are in <run>/<STAGE>.md. Read it and follow it exactly."
+  1. `GUIDE-WRITER.md`: writes `draft/facilitator.pdf`, opening with the theorem-first overview AGENTS.md asks for, and recomputes every printed answer with its own script.
+  2. `GUIDE-CRITIC.md`: an adversarial review by a different agent, which re-derives the answers with its own code and checks the guide against the final pages (`review-guide.md`).
+  3. `MATERIALS.md` (optional, run beside the critic): when the writer reports objects that the pages use but no packet prints, a separate agent makes `materials.pdf` at measured sizes.
+  4. `GUIDE-REVISE.md`: fixes the review's findings and writes `final/facilitator.pdf`. When a materials file was made, `GUIDE-REVISE-MATERIALS.md` is appended so the reviser rewrites the materials and preparation sections around it.
+
+The placeholders are filled by hand or by a short script: `{TOPIC}` (the header topic), `{RUN}` (the run folder), `{DRAFT}` (the folder with the final `k-1.pdf`, `grades-2-3.pdf`, `grades-4-5.pdf` and `src/`), `{OUTLINE}`, `{GUIDEID}` (the guide's footer id), `{PREFIX}` (the packet id prefix, for the materials footer `{PREFIX}-M-v1`), `{GUIDE}` (the draft guide's PDF), `{GAPS}` (what the writer reported missing), `{KIT}` (the materials run folder) and `{EXTRA}` (other files the pages rely on, such as an existing mat, or empty). The writer's prompt names the topic-scouting drafts README and Weeks 98 and 87 as model guides; change those lines for another set of pages.
+
+What the October 25 run showed: the critics found false statements that the writers' own checkers had passed in five of the twelve guides (a strategy rule, a proof sketch, a figure description, a launch that showed a page's answers), so the separate review is worth its cost. Eight themes needed a materials file. The revisers each fixed every must-fix finding; the guides run 5 to 8 pages.

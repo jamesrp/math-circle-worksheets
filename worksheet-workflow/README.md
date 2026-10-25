@@ -29,7 +29,7 @@ The review pass gives a small improvement that is hard to see when skimming. Its
 
 - **Keep the files as a set.** The prompts were tested together, and they are written in plain prose on purpose: a prompt's style carries into the pages it produces. If you change one, note the change below.
 - **`blocks/spec.md` is the writer-facing version of the student-page sections of AGENTS.md.** If one changes, change the other.
-- **No facilitator guide.** The tested workflow produced student pages only. A facilitator guide (hints, solutions, proofs) is a separate step and has not been tested.
+- **No facilitator guide.** The tested workflow produced student pages only. A facilitator guide (hints, solutions, proofs) is a separate step and has not been tested; the untested guide and materials prompts are in [guide/](guide/README.md).
 - **Outputs are unpiloted.** The AI reviewer and the experiment's judge are the same model family as the writer, and none of these packets has been used with children.
 
 ## Changes since the tested version
@@ -39,3 +39,4 @@ The review pass gives a small improvement that is hard to see when skimming. Its
 - 2026-10-01: paths and isolation notes generalized from the experiment's cloud setup. Each stage file now says which stage it is, so an agent that also reads AGENTS.md doesn't start the workflow again.
 - 2026-10-03: `context.md` updated for the eleven children at fixed KK11 / 3333 / 445 tables, the five-minute run, and the lesson of Weeks 1–2 (rules enforced by materials or the other player; partner play; deeper questions late). Nine outlines added (`week-01e-pattern-blocks.md`, `week-03-shuffle-machines.md` … `week-10-bridges.md`) and run with writer, critic, math check and reviser; records in `tmp/worksheet-runs/*-v1/`. Added `guide/GUIDE-TEMPLATE.md`, the untested prompt used afterwards to write each week's adult guide from the final pages; it is not part of the tested set.
 - 2026-10-25: `make_prompts.py --bands` asks for a subset of the three packets, for K–1 pages to join weeks that have none (the six-year path's gap 1). It rewrites only the sentences that list the packets, in the generated stage files; the block and stage files are unchanged, and without `--bands` the generated text is identical to before (checked on `week-07-games.md`). Single-band runs are untested.
+- 2026-10-25: added the untested guide and materials stages in `guide/` (`GUIDE-WRITER.md`, `GUIDE-CRITIC.md`, `MATERIALS.md`, `GUIDE-REVISE.md`, `GUIDE-REVISE-MATERIALS.md`, described in `guide/README.md`), used for the twelve new-theme drafts' facilitator guides and materials files. The tested stage files and blocks are unchanged.

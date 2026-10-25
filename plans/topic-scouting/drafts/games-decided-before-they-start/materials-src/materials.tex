@@ -1,0 +1,108 @@
+% Materials for "Breaking and drawing games" (Week NN), NN-M-v1.
+% Every coordinate is in millimetres from the top-left corner of a US Letter
+% page (215.9 x 279.4 mm), with y increasing downward. Nothing is scaled:
+% a bar square is 25 mm, as in the outline's materials list.
+% Build with ./build.sh (two pdflatex runs, for the page-anchored pictures).
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=0mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{tgheros}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{tikz}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\pdfinfoomitdate=1 \pdftrailerid{} \pdfsuppressptexinfo=15
+
+\newcommand{\weekno}{NN}
+
+% ---------- page frame: header, rule, title, footer ----------
+% \pageframe{page number}{title}{right-hand tag}
+\newcommand{\pageframe}[3]{%
+  \node[anchor=north west,inner sep=0,font=\fontsize{11}{13}\selectfont] at (15,12)
+    {Week \weekno\ / Breaking and drawing games / Materials};
+  \draw[gray,line width=0.4pt] (15,19.5) -- (200.9,19.5);
+  \node[anchor=north west,inner sep=0,font=\fontsize{16}{19}\selectfont] at (15,22.5) {#2};
+  \node[anchor=north east,inner sep=0,font=\fontsize{11}{13}\selectfont] at (200.9,24) {#3};
+  \draw[gray,line width=0.4pt] (15,259.5) -- (200.9,259.5);
+  \node[anchor=north west,inner sep=0,font=\fontsize{9}{11}\selectfont] at (15,261.5)
+    {Bellingham Math Circle / Week \weekno\ / NN-M-v1};
+  \node[anchor=north east,inner sep=0,font=\fontsize{9}{11}\selectfont] at (200.9,261.5) {#1};}
+
+\newenvironment{mpage}{%
+  \begin{tikzpicture}[remember picture,overlay,x=1mm,y=-1mm,shift={(current page.north west)}]}
+  {\end{tikzpicture}\null\newpage}
+
+% ---------- bars ----------
+% Same look as \chocbar in the packets' bmc.sty: light fill, grey grid lines
+% (where children cut), heavy 2 pt outline (where the volunteer cuts;
+% heavier than the packets' 1.1 pt so it stands out where bars share an edge).
+% \choc{x}{y}{rows}{cols}: top-left corner at (x,y); squares are 25 mm.
+\newcommand{\choc}[4]{%
+  \begin{scope}[shift={(#1,#2)}]
+    \fill[black!10] (0,0) rectangle (#4*25,#3*25);
+    \ifnum#4>1 \foreach \i in {2,...,#4} {\draw[black!65,line width=0.5pt] ({(\i-1)*25},0) -- ({(\i-1)*25},#3*25);}\fi
+    \ifnum#3>1 \foreach \j in {2,...,#3} {\draw[black!65,line width=0.5pt] (0,{(\j-1)*25}) -- (#4*25,{(\j-1)*25});}\fi
+    \draw[line width=2pt] (0,0) rectangle (#4*25,#3*25);
+  \end{scope}}
+% \barlabel{x}{y}{text}: name of a bar, turned to run along its edge, in the
+% margin or the unused space beside it (never on a square).
+\newcommand{\barlabel}[3]{%
+  \node[rotate=90,inner sep=0,font=\fontsize{10}{12}\selectfont] at (#1,#2) {#3};}
+
+% Strips are 7 squares (175 mm) wide, from x = 20.45 to 195.45, packed with
+% shared edges so that a trimmer cuts full-width strips, then bars.
+% Left labels sit at x = 15.95, right labels 4.5 mm beyond a bar's right edge.
+
+\begin{document}
+
+% ======================= page 1: Bars, sheet 1 =======================
+\begin{mpage}
+\pageframe{1}{Bars, sheet 1}{}
+% strip 1 (rows 1-3)
+\choc{20.45}{31}{3}{4}   \barlabel{15.95}{68.5}{3 by 4}
+\choc{120.45}{31}{3}{3}  \barlabel{199.95}{68.5}{3 by 3}
+% strip 2 (rows 4-6)
+\choc{20.45}{106}{3}{4}  \barlabel{15.95}{143.5}{3 by 4}
+\choc{120.45}{106}{3}{3} \barlabel{199.95}{143.5}{3 by 3}
+% strip 3 (rows 7-8)
+\choc{20.45}{181}{2}{4}  \barlabel{15.95}{206}{2 by 4}
+\choc{120.45}{181}{2}{3} \barlabel{199.95}{206}{2 by 3}
+% strip 4 (row 9)
+\choc{20.45}{231}{1}{6}  \barlabel{15.95}{243.5}{1 by 6}
+\end{mpage}
+
+% ======================= page 2: Bars, sheet 2 =======================
+\begin{mpage}
+\pageframe{2}{Bars, sheet 2}{}
+% strip 1 (rows 1-3)
+\choc{20.45}{31}{3}{4}   \barlabel{15.95}{68.5}{3 by 4}
+\choc{120.45}{31}{3}{3}  \barlabel{199.95}{68.5}{3 by 3}
+% strip 2 (rows 4-5)
+\choc{20.45}{106}{2}{4}  \barlabel{15.95}{131}{2 by 4}
+\choc{120.45}{106}{2}{3} \barlabel{199.95}{131}{2 by 3}
+% strip 3 (rows 6-7)
+\choc{20.45}{156}{2}{4}  \barlabel{15.95}{181}{2 by 4}
+\choc{120.45}{156}{2}{2} \barlabel{174.95}{181}{2 by 2}
+% strip 4 (rows 8-9)
+\choc{20.45}{206}{2}{5}  \barlabel{15.95}{231}{2 by 5}
+\choc{145.45}{206}{2}{2} \barlabel{199.95}{231}{2 by 2}
+\end{mpage}
+
+% ============ page 3: 2-spot Sprouts boards (Grades 4-5 only) ============
+% Same marks as the Grades 4-5 Problem 6 boards (two spots side by side on a
+% rounded board), enlarged so a row of three 12 mm counters fits under each
+% spot with room for new spots: boards 186 x 102 mm, spots 90 mm apart.
+\begin{mpage}
+\pageframe{3}{2-spot Sprouts boards}{Grades 4--5 Problem 6}
+\draw[black!45,line width=0.6pt,rounded corners=3mm] (14.95,33) rectangle (200.95,135);
+\fill (62.95,84) circle (1.7); \fill (152.95,84) circle (1.7);
+\draw[black!45,line width=0.6pt,rounded corners=3mm] (14.95,142) rectangle (200.95,244);
+\fill (62.95,193) circle (1.7); \fill (152.95,193) circle (1.7);
+% 100 mm scale check
+\draw[line width=0.6pt] (15,251) -- (115,251);
+\draw[line width=0.6pt] (15,249.5) -- (15,252.5);
+\draw[line width=0.6pt] (115,249.5) -- (115,252.5);
+\node[anchor=west,inner sep=0,font=\fontsize{9}{11}\selectfont] at (118,251) {100 mm};
+\end{mpage}
+
+\end{document}

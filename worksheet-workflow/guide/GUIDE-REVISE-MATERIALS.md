@@ -1,0 +1,4 @@
+
+## New since the guide draft: a printable materials file
+
+After the guide draft was written, a separate stage made a printable materials file for the objects the student pages use but no packet prints: `{KIT}/materials.pdf` (sources in `{KIT}/src/`; its maker's report, with page contents, print counts and what is still hand-made, is `{KIT}/REPORT.md`). It will be packaged beside the student pages as `materials.pdf`. Render and read it. Rewrite the guide's materials, printing and preparation sections to use it instead of the hand-made workarounds, citing its pages by number and object name, and revise the preparation time to match. Point each problem that needs a printed object to the right materials page where that helps. Do not edit the materials file; if it has a problem, say so in your report.

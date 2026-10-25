@@ -1,0 +1,206 @@
+=== Overview facts ===
+ok   21 plans with 5 cubes, 28 with 6
+ok   N=0..12: with equal armies a game ties exactly when some hill is equal; no 3-0 wins
+ok   fewest cubes that beat q = (two smaller hills) + 2, every q with 1..12 cubes
+ok   exception: 0-0-0 is beaten by 1 cube
+ok   adding a cube to a winning plan never spoils the win (checked to 9 vs 8)
+ok   N=0: unbeaten = plans with no hill above 1: 0-0-0
+ok   N=1: unbeaten = plans with no hill above 1: 1-0-0, 0-1-0, 0-0-1
+ok   N=2: unbeaten = plans with no hill above 1: 1-1-0, 1-0-1, 0-1-1
+ok   N=3: unbeaten = plans with no hill above 1: 1-1-1
+ok   N=4: unbeaten = plans with no hill above 1: none
+ok   N=5: unbeaten = plans with no hill above 1: none
+ok   N=6: unbeaten = plans with no hill above 1: none
+ok   N=7: unbeaten = plans with no hill above 1: none
+ok   N=8: unbeaten = plans with no hill above 1: none
+ok   N=9: unbeaten = plans with no hill above 1: none
+ok   N=10: unbeaten = plans with no hill above 1: none
+ok   N=11: unbeaten = plans with no hill above 1: none
+ok   N=12: unbeaten = plans with no hill above 1: none
+ok   N=13: unbeaten = plans with no hill above 1: none
+ok   N=14: unbeaten = plans with no hill above 1: none
+ok   N=15: unbeaten = plans with no hill above 1: none
+ok   counter-plan rule beats every plan, N=4..30
+ok   every 6-cube plan ties exactly 13 of the 28 (itself included)
+ok   beats + beaten-by = 15 for every 6-cube plan
+ok   type 6-0-0: 3 arrangements, each beats 0, beaten by 15
+ok   type 5-1-0: 6 arrangements, each beats 5, beaten by 10
+ok   type 4-2-0: 6 arrangements, each beats 8, beaten by 7
+ok   type 4-1-1: 3 arrangements, each beats 9, beaten by 6
+ok   type 3-3-0: 3 arrangements, each beats 9, beaten by 6
+ok   type 3-2-1: 6 arrangements, each beats 11, beaten by 4
+ok   type 2-2-2: 1 arrangements, each beats 12, beaten by 3
+ok   sum of all 28 counts = 210
+ok   counts 0,5,8,9,9,11,12
+ok   rearranging the hills of both plans never changes a result
+ok   180 circles of three plans with 6 cubes
+ok   every 6-cube plan except 6-0-0, 0-6-0, 0-0-6 lies on a circle
+ok   12 circles contain 2-2-2
+ok   in every circle through 2-2-2 the plan that beats 2-2-2 is an arrangement of 3-3-0
+ok   outline circle 0-1-5 -> 2-0-4 -> 1-2-3 -> 0-1-5
+ok   circle 0-2-4 -> 3-1-2 -> 1-5-0
+ok   circle 2-2-2 -> 4-1-1 -> 3-3-0
+ok   these two circles meet all six other types
+ok   relabelling the hills of a circle gives a circle
+ok   6-0-0 beats none and is beaten by 15
+     vs Ben (wins, losses) by type: {'6-0-0': (0, 6), '5-1-0': (0, 4), '4-2-0': (2, 2), '4-1-1': (0, 2), '3-3-0': (2, 0), '3-2-1': (1, 1), '2-2-2': (0, 0)}
+     vs Mia (wins, losses) by type: {'6-0-0': (0, 2), '5-1-0': (2, 2), '4-2-0': (1, 1), '4-1-1': (2, 2), '3-3-0': (2, 2), '3-2-1': (2, 2), '2-2-2': (0, 0)}
+ok   a plan's score against Ben or Mia depends only on its type (so 7 tests suffice)
+ok   plans that beat more of Ben's than they lose to: 3-3-0, 3-0-3, 0-3-3 (2 wins, 0 losses each)
+ok   no 6-cube plan beats more of Mia's plans than it loses to
+     types that break even against Mia: 5-1-0, 4-2-0, 4-1-1, 3-3-0, 3-2-1, 2-2-2
+ok   the game is symmetric (antisymmetric score)
+
+=== Launch (7 cubes each, so no launch plan, even rearranged, appears on any page) ===
+ok   all five 5-cube types are plans K-1 is asked to beat (so the launch avoids 5)
+ok   launch plan 5-0-2: 7 cubes, type 5-2-0 on no page
+ok   launch plan 4-3-0: 7 cubes, type 4-3-0 on no page
+ok   launch plan 2-5-0: 7 cubes, type 5-2-0 on no page
+ok   launch plan 2-0-5: 7 cubes, type 5-2-0 on no page
+ok   game 1: 5-0-2 beats 4-3-0 (A wins hills 1 and 3, B wins hill 2)
+ok   game 1 tokens: A on hills 1 and 3, B on hill 2
+ok   launch plans are not the counter-plan pattern
+ok   game 1 winner takes the loser's biggest hill, unlike the counter-plan
+ok   game 2: B's 2-0-5 would only have tied A's old 5-0-2 (it shows no way to win)
+ok   game 2: 2-5-0 vs 2-0-5 ties; hill 1 equal, A wins hill 2, B wins hill 3
+ok   2-3-2 (type 3-2-2) is on a page, so the launch does not use it
+
+=== K-1 ===
+     5 cubes, type 5-0-0: beaten by 10 of 21
+     5 cubes, type 4-1-0: beaten by 6 of 21
+     5 cubes, type 3-2-0: beaten by 4 of 21
+     5 cubes, type 3-1-1: beaten by 3 of 21
+     5 cubes, type 2-2-1: beaten by 2 of 21
+ok   2-2-1 beaten only by 3-0-2, 0-3-2
+ok   P2: no 5-cube plan is unbeatable
+     P3 5-0-0: 10 beaters: 3-1-1, 2-2-1, 2-1-2, 1-3-1, 1-2-2, 1-1-3, 0-4-1, 0-3-2, 0-2-3, 0-1-4; counter rule gives 3-1-1
+ok   P3 counter for 5-0-0
+     P3 0-4-1: 6 beaters: 3-0-2, 2-1-2, 2-0-3, 1-2-2, 1-1-3, 1-0-4; counter rule gives 1-2-2
+ok   P3 counter for 0-4-1
+     P3 0-3-2: 4 beaters: 2-0-3, 1-4-0, 1-1-3, 1-0-4; counter rule gives 1-1-3
+ok   P3 counter for 0-3-2
+     P3 2-1-2: 2 beaters: 3-2-0, 0-2-3; counter rule gives 0-2-3
+ok   P3 counter for 2-1-2
+ok   P3 counts 10, 6, 4, 2
+ok   P4 2 cubes: 1-1-0, 1-0-1, 0-1-1
+ok   P4 3 cubes: 1-1-1 only
+ok   P4 4 cubes: none
+ok   P4 2-1-1 beaten only by 0-2-2; 1-1-2 only by 2-2-0
+     4 cubes, type 4-0-0: beaten by 6 of 15
+     4 cubes, type 3-1-0: beaten by 3 of 15
+     4 cubes, type 2-2-0: beaten by 2 of 15
+     4 cubes, type 2-1-1: beaten by 1 of 15
+     P5 box 4-1-0/2-2-1/0-0-5: row winners ['2-2-1', '2-2-1', '4-1-0']
+     P5 box 0-1-4/2-0-3/1-2-2: row winners ['0-1-4', '2-0-3', '1-2-2']
+ok   P5 box 1: 2-2-1 best
+ok   P5 box 2: circle
+ok   P6 5-0-0: fewest 2; all 2-cube winners: 0-1-1
+ok   P6 1-4-0: fewest 3; all 3-cube winners: 2-0-1
+ok   P6 1-3-1: fewest 4; all 4-cube winners: 2-0-2
+ok   P6 2-2-1: fewest 5; all 5-cube winners: 3-0-2, 0-3-2
+ok   P6 1-1-1: fewest 4; all 4-cube winners: 2-2-0, 2-1-1, 2-0-2, 1-2-1, 1-1-2, 0-2-2
+ok   P7 3-1-1: exactly 3 beaters (4 boards printed): 1-2-2, 0-3-2, 0-2-3
+ok   P7 4-0-1: exactly 6 beaters (8 boards printed): 2-1-2, 1-2-2, 1-1-3, 0-3-2, 0-2-3, 0-1-4
+
+=== Grades 2-3 ===
+ok   P3 2-2-2 (6 cubes): counter 0-3-3
+ok   P3 1-4-1 (6 cubes): counter 2-2-2
+ok   P3 3-0-3 (6 cubes): counter 1-1-4
+ok   P3 0-1-5 (6 cubes): counter 1-2-3
+ok   P3 3-2-2 (7 cubes): counter 1-3-3
+ok   P3 1-1-5 (7 cubes): counter 2-2-3
+ok   P3 4-4-2 (10 cubes): counter 2-5-3
+ok   P3 2-5-3 (10 cubes): counter 3-3-4
+ok   P3 7-7-6 (20 cubes): counter 5-8-7
+ok   P4: 1-1-1; none with 4 cubes
+ok   P4: no 3-cube plan beats 1-1-1
+     P4 1-1-1 vs each 3-cube plan: {'3-0-0': 1, '2-1-0': 0, '2-0-1': 0, '1-2-0': 0, '1-1-1': 0, '1-0-2': 0, '0-3-0': 1, '0-2-1': 0, '0-1-2': 0, '0-0-3': 1}
+ok   P5 printed order top->right->left: 2-2-2 -> 4-1-1 -> 3-3-0
+ok   P5 no circle through 6-0-0
+ok   P6 beaters of 2-2-2: 3-3-0, 3-0-3, 0-3-3
+ok   P6 beaters of 6-0-0 (15): 4-1-1, 3-2-1, 3-1-2, 2-3-1, 2-2-2, 2-1-3, 1-4-1, 1-3-2, 1-2-3, 1-1-4, 0-5-1, 0-4-2, 0-3-3, 0-2-4, 0-1-5
+ok   P7 6-0-0: fewest 2
+ok   P7 4-1-1: fewest 4
+ok   P7 3-2-1: fewest 5
+ok   P7 2-2-2: fewest 6
+ok   P7 3-3-0: fewest 5
+ok   P7 1-1-1: fewest 4
+ok   P7 8-1-1: fewest 4
+ok   P7 5-3-2: fewest 7
+ok   P7 example: 0-1-1 beats 6-0-0 with 2 cubes
+ok   P7 example: 0-2-2 beats 4-1-1 with 4 cubes
+ok   P7 example: 0-3-2 beats 3-2-1 with 5 cubes
+ok   P7 example: 3-3-0 beats 2-2-2 with 6 cubes
+ok   P7 example: 4-0-1 beats 3-3-0 with 5 cubes
+ok   P7 example: 2-2-0 beats 1-1-1 with 4 cubes
+ok   P7 example: 0-2-2 beats 8-1-1 with 4 cubes
+ok   P7 example: 0-4-3 beats 5-3-2 with 7 cubes
+
+=== Grades 4-5 ===
+ok   P2 2-2-2 (6 cubes): counter 0-3-3
+ok   P2 1-4-1 (6 cubes): counter 2-2-2
+ok   P2 3-2-2 (7 cubes): counter 1-3-3
+ok   P2 1-1-5 (7 cubes): counter 2-2-3
+ok   P2 3-3-3 (9 cubes): counter 1-4-4
+ok   P2 1-8-1 (10 cubes): counter 2-6-2
+ok   P2 7-7-6 (20 cubes): counter 5-8-7
+ok   P2 34-33-33 (100 cubes): counter 32-34-34
+ok   P2 50-0-50 (100 cubes): counter 48-1-51
+ok   P2 48-1-51 and 32-34-34
+ok   P2 0-1-99 also beats 50-0-50
+ok   2-2-2 is the 6-cube plan that needs the most cubes to beat (6)
+ok   P6 6-0-0: fewest 2
+ok   P6 4-1-1: fewest 4
+ok   P6 3-2-1: fewest 5
+ok   P6 2-2-2: fewest 6
+ok   P6 1-1-1: fewest 4
+ok   P6 0-31-31 beats 40-30-30
+ok   P6 no 61-cube plan beats 40-30-30
+ok   P7 fewest for a plan no 6-cube plan beats: 8, exactly the arrangements of 3-3-2
+ok   P7 fewest for a plan beating every 6-cube plan: 9, only 3-3-3
+ok   P7 every 8-cube plan is held to a tie or loss by: smallest hill + 1, the rest on its middle hill
+ok   P7 3-3-2 also safe against partners with fewer than 6
+     P5 a circle through 5-1-0: 0-2-4 -> 5-1-0 -> 1-0-5
+     P5 a circle through 4-2-0: 0-1-5 -> 5-0-1 -> 4-2-0
+     P5 a circle through 4-1-1: 0-2-4 -> 4-1-1 -> 1-0-5
+     P5 a circle through 3-3-0: 0-1-5 -> 4-0-2 -> 3-3-0
+     P5 a circle through 3-2-1: 0-1-5 -> 4-0-2 -> 3-2-1
+     P5 a circle through 2-2-2: 0-1-5 -> 3-0-3 -> 2-2-2
+
+=== Extra facts cited in the guide ===
+ok   2-1-2 loses only to 3-2-0, 0-2-3; 1-2-2 only to 2-3-0, 2-0-3
+ok   6 cubes: 364 of 784 ordered pairings tie (46%)
+ok   168 of 378 pairs of different 6-cube plans tie
+ok   2-0-0 / 0-2-0 cannot beat 1-1-0
+ok   P7 attack (one more than the smallest hill, rest on the middle hill) stops every plan of <= 9 cubes but 3-3-3
+ok   3-3-3 beats every 6-cube plan
+ok   2-2-2 ties all of Ben's and all of Mia's plans
+ok   2-2-2 is the 6-cube plan beaten by fewest (3)
+     6-cube plans beaten by 4: 3-2-1, 3-1-2, 2-3-1, 2-1-3, 1-3-2, 1-2-3
+
+=== Added at revision (GUIDE-REVISE) ===
+ok   N=0..12: every plan ties exactly 2N+1 plans (13 of 28 for N=6); N+1-p_i plans match it on hill i; beats + beaten-by = N(N-1)/2 (15 for N=6)
+ok   180 circles counted once each (540 if counted once per starting plan)
+ok   Mia's die: average score >= 0 against every 6-cube plan
+ok   Mia's die wins on average only against 6-0-0, 0-6-0, 0-0-6 (2 wins, 0 losses in six)
+ok   3-3-0 beats two of Ben's six plans and ties four
+ok   4-5 P7: every plan of <= 9 cubes other than 3-3-3 has its two smaller hills totalling <= 5
+ok   4-5 P7: 3-3-3 is the only plan of <= 9 cubes whose two smaller hills total 6 or more
+ok   K-1 P7: no 5-cube plan that wins hill 1 of 3-1-1 beats it
+ok   K-1 P7: winning one hill of 3-1-1 and tying two costs at least 6
+ok   K-1 P7: the beaters of 3-1-1 are exactly the 5-cube plans with >= 2 on hills 2 and 3
+ok   K-1 P7: the beaters of 4-0-1 are exactly the 5-cube plans with >= 1 on hill 2 and >= 2 on hill 3
+ok   3 hills, 0..15 cubes: a plan nobody can beat exists exactly when cubes <= hills (the plans with no hill above 1); the counter-plan costs N - a + 2 and beats every plan with a hill of 2+
+ok   4 hills, 0..12 cubes: a plan nobody can beat exists exactly when cubes <= hills (the plans with no hill above 1); the counter-plan costs N - a + 2 and beats every plan with a hill of 2+
+ok   5 hills, 0..10 cubes: a plan nobody can beat exists exactly when cubes <= hills (the plans with no hill above 1); the counter-plan costs N - a + 2 and beats every plan with a hill of 2+
+ok   13 hill mats from 7 materials sheets, one mat spare
+ok   cubes: 94 for children (about 100) plus 14 for the launch
+ok   10-cube row 4-4-2: a pair builds it and 2-5-3 with 10 cubes each
+ok   10-cube row 2-5-3: a pair builds it and 3-3-4 with 10 cubes each
+ok   10-cube row 1-8-1: a pair builds it and 2-6-2 with 10 cubes each
+ok   10-cube row 8-1-1: a pair builds it and 6-2-2 with 10 cubes each
+ok   10-cube row 5-3-2: a pair builds it and 3-4-3 with 10 cubes each
+ok   4-5 P7: 3-3-3 and a 6-cube partner fit in 20 cubes
+ok   K-1 P6: the shown plan and a fewest-cubes winner fit in a pair's 12 cubes
+
+ALL OK

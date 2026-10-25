@@ -1,0 +1,164 @@
+== General facts
+n=2: max 1; distribution [(0, 1), (1, 1)]; worst count 1
+n=3: max 3; distribution [(0, 1), (1, 2), (2, 2), (3, 1)]; worst count 1
+n=4: max 4; distribution [(0, 1), (1, 3), (2, 6), (3, 11), (4, 3)]; worst count 3
+n=5: max 5; distribution [(0, 1), (1, 4), (2, 12), (3, 35), (4, 48), (5, 20)]; worst count 20
+n=6: max 7; distribution [(0, 1), (1, 5), (2, 20), (3, 79), (4, 199), (5, 281), (6, 133), (7, 2)]; worst count 2
+n=7: max 8; distribution [(0, 1), (1, 6), (2, 30), (3, 149), (4, 543), (5, 1357), (6, 1903), (7, 1016), (8, 35)]; worst count 35
+burnt max for n=1..6: [1, 4, 6, 8, 10, 12]
+every flip undoes itself (plain n<=6, dark sides n=4): ok
+one flip changes the break count by at most 1 (n<=7): ok
+0 breaks <=> sorted (n<=7): ok
+== Two-flips-per-pancake method
+n=2: method worst 1 = 2n-3; never-skip version always 2
+n=3: method worst 3 = 2n-3; never-skip version always 4
+n=4: method worst 5 = 2n-3; never-skip version always 6
+n=5: method worst 7 = 2n-3; never-skip version always 8
+n=6: method worst 9 = 2n-3; never-skip version always 10
+n=7: method worst 11 = 2n-3; never-skip version always 12
+six-stacks where the method uses 9 flips: 24 e.g. 2 6 5 1 3 4 fewest 4 method flips [2, 6, 4, 5, 2, 4, 2, 3, 2]
+formula 2n-3: six -> 9  ten -> 17  twenty -> 37
+formula 2n-2: six -> 10  ten -> 18  twenty -> 38
+== Dark-side method
+n=1: simple method worst 1 (3n-2 = 1); true worst 1
+n=2: simple method worst 4 (3n-2 = 4); true worst 4
+n=3: simple method worst 7 (3n-2 = 7); true worst 6
+n=4: simple method worst 10 (3n-2 = 10); true worst 8
+n=5: simple method worst 13 (3n-2 = 13); true worst 10
+n=6: simple method worst 16 (3n-2 = 16); true worst 12
+== Launch stack
+launch 4 3 1 2 5 in a task? False fewest 2 breaks 2 shortest [[4, 2]]
+launch run (flip 4, flip 2): 4 3 1 2 5 -> 2 1 3 4 5 -> 1 2 3 4 5
+demo of one legal flip from the launch stack: flip 3 -> 1 3 4 2 5 (task? False )
+every complete four-stack sort passes through a K-1 P3 answer: ok
+dark-side demo 2 1^ 3 flip 2 -> 1 2^ 3 (fewest from start 2 , from result 3 )
+== K-1
+P1 (all six of 1,2,3): {'1 2 3': 0, '1 3 2': 3, '2 1 3': 1, '2 3 1': 2, '3 1 2': 2, '3 2 1': 1}
+   1 3 2 shortest: [[2, 3, 2], [3, 2, 3]]
+P2 4 1 2 3 fewest 2 shortest [[4, 3]]
+P2 2 3 4 1 fewest 2 shortest [[3, 4]]
+P2 3 4 2 1 fewest 2 shortest [[2, 4]]
+P2 1 2 4 3 fewest 3 shortest [[4, 2, 4]]
+P3 one-flip stacks: ['2 1 3 4', '3 2 1 4', '4 3 2 1']
+P4 4 2 3 1 fewest 4 breaks 3 #shortest 4 [[2, 3, 2, 4], [3, 2, 3, 4], [4, 2, 3, 2], [4, 3, 2, 3]]
+P4 2 1 4 3 fewest 3 breaks 2 #shortest 1 [[3, 4, 3]]
+P4 2 4 1 3 fewest 4 breaks 4 #shortest 2 [[2, 4, 3, 2], [3, 2, 4, 3]]
+P4 3 1 4 2 fewest 4 breaks 4 #shortest 2 [[2, 3, 4, 2], [3, 4, 2, 3]]
+P5 1^ 2 fewest 1 shortest [[1]]
+P5 2^ 1^ fewest 1 shortest [[2]]
+P5 2^ 1 fewest 2 shortest [[2, 1]]
+P5 2 1 fewest 3 shortest [[1, 2, 1]]
+all dark-side stacks of 2: {'1 2': 0, '1^ 2': 1, '2^ 1^': 1, '2^ 1': 2, '2 1^': 2, '2 1': 3, '1 2^': 3, '1^ 2^': 4}
+   P6 answer 1^ 2^ shortest: [[1, 2, 1, 2], [2, 1, 2, 1]]
+== Grades 2-3
+P1 2 3 4 1 fewest 2 shortest [[3, 4]]
+P1 3 4 1 2 fewest 3 shortest [[2, 4, 2]]
+P1 5 4 3 2 1 fewest 1 shortest [[5]]
+P1 5 1 2 3 4 fewest 2 shortest [[5, 4]]
+P1 4 5 1 2 3 fewest 3 shortest [[2, 5, 3]]
+P1 1 2 3 5 4 fewest 3 shortest [[5, 2, 5]]
+P2: 1 3 2 needs 3 ; one flip from 1 3 2 gives ['3 1 2', '2 3 1'] each needing [2, 2]
+P3 6 5 4 3 2 1 fewest 1 breaks 1 #shortest 1 [[6]] method uses 1 [6]
+P3 3 6 1 5 2 4 fewest 6 breaks 6 #shortest 1 [[5, 4, 6, 3, 4, 5]] method uses 8 [2, 6, 3, 5, 3, 4, 2, 3]
+P3 1 2 3 4 6 5 fewest 3 breaks 2 #shortest 1 [[6, 2, 6]] method uses 4 [5, 6, 5, 4]
+P3 5 2 6 3 1 4 fewest 6 breaks 6 #shortest 1 [[2, 3, 6, 4, 2, 3]] method uses 8 [3, 6, 4, 5, 2, 4, 3, 2]
+P5 four-stacks needing 4: ['2 4 1 3', '3 1 4 2', '4 2 3 1']
+   four-stacks by fewest flips: [(0, 1), (1, 3), (2, 6), (3, 11), (4, 3)]
+   need 0: ['1 2 3 4']
+   need 1: ['2 1 3 4', '3 2 1 4', '4 3 2 1']
+   need 2: ['2 3 1 4', '2 3 4 1', '3 1 2 4', '3 4 2 1', '4 1 2 3', '4 3 1 2']
+   need 3: ['1 2 4 3', '1 3 2 4', '1 3 4 2', '1 4 2 3', '1 4 3 2', '2 1 4 3', '2 4 3 1', '3 2 4 1', '3 4 1 2', '4 1 3 2', '4 2 1 3']
+P6 1^ 2 fewest 1
+P6 2^ 1^ fewest 1
+P6 2^ 1 fewest 2
+P6 2 1 fewest 3
+P8 3^ 1 2 fewest 2 #shortest 1 [[3, 2]]
+P8 3 1 2 fewest 3 #shortest 1 [[1, 3, 2]]
+P8 3 2 1 fewest 5 #shortest 1 [[2, 3, 2, 3, 2]]
+P8 1^ 2^ 3^ fewest 6 #shortest 2 [[2, 3, 2, 3, 2, 3], [3, 2, 3, 2, 3, 2]]
+== Grades 4-5
+P1 5 1 2 3 4 fewest 2 breaks 2 #shortest 1 [[5, 4]]
+P1 4 5 1 2 3 fewest 3 breaks 2 #shortest 1 [[2, 5, 3]]
+P1 1 2 3 5 4 fewest 3 breaks 2 #shortest 1 [[5, 2, 5]]
+P1 3 2 1 5 4 fewest 3 breaks 2 #shortest 1 [[4, 5, 4]]
+P1 2 1 4 3 6 5 fewest 5 breaks 3 #shortest 1 [[3, 5, 6, 5, 3]]
+P3 example 2 1 5 3 4: breaks 3 fewest 3
+P3 task 3 5 2 1 4: breaks 4 fewest 4 shortest [[2, 5, 4, 3]]
+   run: 3 5 2 1 4 -> 5 3 2 1 4 -> 4 1 2 3 5 -> 3 2 1 4 5 -> 1 2 3 4 5  breaks: [4, 3, 2, 1, 0]
+P4 2 4 1 3 breaks 4 neighbours (fewest, breaks): {'4 2 1 3': (3, 3), '1 4 2 3': (3, 3), '3 1 4 2': (4, 4)}
+P4 3 1 4 2 breaks 4 neighbours (fewest, breaks): {'1 3 4 2': (3, 3), '4 1 3 2': (3, 3), '2 4 1 3': (4, 4)}
+P4 4 2 3 1 breaks 3 neighbours (fewest, breaks): {'2 4 3 1': (3, 3), '3 2 4 1': (3, 3), '1 3 2 4': (3, 2)}
+P5: max for five = 5 ; stacks needing 5: 20 by breaks [(3, 1), (4, 7), (5, 12)]
+   five-break stacks: ['1 3 5 2 4', '1 4 2 5 3', '2 4 1 5 3', '2 5 3 1 4', '3 1 5 2 4', '3 5 1 4 2', '3 5 2 4 1', '4 1 3 5 2', '4 2 5 1 3', '4 2 5 3 1', '5 2 4 1 3', '5 3 1 4 2']
+   fewer-break stacks needing 5: [('1 3 2 5 4', 3), ('1 4 3 5 2', 4), ('1 5 3 2 4', 4), ('1 5 3 4 2', 4), ('2 4 3 5 1', 4), ('2 5 1 4 3', 4), ('3 1 5 4 2', 4), ('5 1 3 2 4', 4)]
+P6 4 6 2 5 1 3 breaks 6 fewest 7
+   positions reachable by break-removing flips: 13 dead ends: 4 [('1 2 6 5 4 3', 2), ('2 1 5 6 4 3', 3), ('3 2 1 5 4 6', 2), ('3 4 5 1 2 6', 2)]
+   first flips (k, result, breaks): [(2, '6 4 2 5 1 3', 6), (3, '2 6 4 5 1 3', 5), (4, '5 2 6 4 1 3', 6), (5, '1 5 2 6 4 3', 5), (6, '3 1 5 2 6 4', 6)]
+   shortest 7: [[2, 3, 4, 2, 6, 3, 2], [2, 6, 4, 2, 5, 4, 2], [2, 6, 4, 3, 2, 5, 4]] count 22
+P7 3^ 1 2 fewest 2 #shortest 1 [[3, 2]]
+P7 1 2 3^ fewest 3 #shortest 1 [[3, 1, 3]]
+P7 3 1 2 fewest 3 #shortest 1 [[1, 3, 2]]
+P7 1^ 2^ 3 fewest 4 #shortest 2 [[1, 2, 1, 2], [2, 1, 2, 1]]
+P7 3 2 1 fewest 5 #shortest 1 [[2, 3, 2, 3, 2]]
+P8 burnt three-stacks needing 6: ['1^ 2^ 3^', '1 2^ 3^']
+   burnt three-stacks by fewest: [(0, 1), (1, 3), (2, 6), (3, 12), (4, 18), (5, 6), (6, 2)]
+P9: simple method 3n-2 for six = 16 ; true worst for six = 12
+== Extra claims
+P6 seven-flip sort: 4 6 2 5 1 3 -> 6 4 2 5 1 3 -> 2 4 6 5 1 3 -> 5 6 4 2 1 3 -> 6 5 4 2 1 3 -> 3 1 2 4 5 6 -> 2 1 3 4 5 6 -> 1 2 3 4 5 6
+   4-break worst 1 4 3 5 2 first-flip breaks [5, 4, 3, 4] 
+   4-break worst 1 5 3 2 4 first-flip breaks [4, 4, 4, 4] -> simple 1+4 argument
+   4-break worst 1 5 3 4 2 first-flip breaks [4, 5, 3, 4] 
+   4-break worst 2 4 3 5 1 first-flip breaks [4, 4, 3, 4] 
+   4-break worst 2 5 1 4 3 first-flip breaks [3, 4, 4, 4] 
+   4-break worst 3 1 5 4 2 first-flip breaks [4, 4, 3, 4] 
+   4-break worst 5 1 3 2 4 first-flip breaks [4, 5, 3, 3] 
+   1 3 2 5 4 first-flip breaks [3, 3, 4, 3]
+   layer 1: ['2 1 3 4', '3 2 1 4', '4 3 2 1']
+   layer 2: ['3 1 2 4', '4 3 1 2', '2 3 1 4', '4 1 2 3', '3 4 2 1', '2 3 4 1']
+   layer 3: ['1 3 2 4', '4 2 1 3', '3 4 1 2', '1 3 4 2', '4 1 3 2', '1 4 2 3', '2 1 4 3', '2 4 3 1', '1 2 4 3', '3 2 4 1', '1 4 3 2']
+   layer 4: ['4 2 3 1', '2 4 1 3', '3 1 4 2']
+   4 2 3 1 first flips: [(2, '2 4 3 1', 3), (3, '3 2 4 1', 3), (4, '1 3 2 4', 2)]
+   1 3 2 4 flips: [(2, '3 1 2 4', 2), (3, '2 3 1 4', 2), (4, '4 2 3 1', 3)]
+   four-stacks with 4 breaks: ['2 4 1 3', '3 1 4 2']
+   three-stacks one flip from sorted: ['2 1 3', '3 2 1']
+   dark two-stacks needing 0: ['1 2']
+   dark two-stacks needing 1: ['2^ 1^', '1^ 2']
+   dark two-stacks needing 2: ['2^ 1', '2 1^']
+   dark two-stacks needing 3: ['1 2^', '2 1']
+   dark two-stacks needing 4: ['1^ 2^']
+   improved bound for six: 2 + max five = 7 ; true max six = 7
+   improved bound for twenty using five: 35
+   launch visual: 4 3 1 2 5 -> 2 1 3 4 5 -> 1 2 3 4 5
+   method on 2 6 5 1 3 4: [2, 6, 4, 5, 2, 4, 2, 3, 2]
+   method on P3 stacks 3 6 1 5 2 4 / 5 2 6 3 1 4: 8 8
+   K-1 P4 4 2 3 1 flips [4, 2, 3, 2] : 4 2 3 1 -> 1 3 2 4 -> 3 1 2 4 -> 2 1 3 4 -> 1 2 3 4
+   K-1 P4 2 1 4 3 flips [3, 4, 3] : 2 1 4 3 -> 4 1 2 3 -> 3 2 1 4 -> 1 2 3 4
+   K-1 P4 2 4 1 3 flips [2, 4, 3, 2] : 2 4 1 3 -> 4 2 1 3 -> 3 1 2 4 -> 2 1 3 4 -> 1 2 3 4
+   K-1 P4 3 1 4 2 flips [2, 3, 4, 2] : 3 1 4 2 -> 1 3 4 2 -> 4 3 1 2 -> 2 1 3 4 -> 1 2 3 4
+   dark 1^ 2 flips [1] : 1^ 2 -> 1 2
+   dark 2^ 1^ flips [2] : 2^ 1^ -> 1 2
+   dark 2^ 1 flips [2, 1] : 2^ 1 -> 1^ 2 -> 1 2
+   dark 2 1 flips [1, 2, 1] : 2 1 -> 2^ 1 -> 1^ 2 -> 1 2
+   dark 1^ 2^ flips [1, 2, 1, 2] : 1^ 2^ -> 1 2^ -> 2 1^ -> 2^ 1^ -> 1 2
+   dark 3^ 1 2 flips [3, 2] : 3^ 1 2 -> 2^ 1^ 3 -> 1 2 3
+   dark 3 1 2 flips [1, 3, 2] : 3 1 2 -> 3^ 1 2 -> 2^ 1^ 3 -> 1 2 3
+   dark 3 2 1 flips [2, 3, 2, 3, 2] : 3 2 1 -> 2^ 3^ 1 -> 1^ 3 2 -> 3^ 1 2 -> 2^ 1^ 3 -> 1 2 3
+   dark 1^ 2^ 3^ flips [2, 3, 2, 3, 2, 3] : 1^ 2^ 3^ -> 2 1 3^ -> 3 1^ 2^ -> 1 3^ 2^ -> 2 3 1^ -> 3^ 2^ 1^ -> 1 2 3
+   dark 1 2 3^ flips [3, 1, 3] : 1 2 3^ -> 3 2^ 1^ -> 3^ 2^ 1^ -> 1 2 3
+   dark 1^ 2^ 3 flips [1, 2, 1, 2] : 1^ 2^ 3 -> 1 2^ 3 -> 2 1^ 3 -> 2^ 1^ 3 -> 1 2 3
+   dark 1 2^ 3^ flips [2, 1, 2, 3, 1, 3] : 1 2^ 3^ -> 2 1^ 3^ -> 2^ 1^ 3^ -> 1 2 3^ -> 3 2^ 1^ -> 3^ 2^ 1^ -> 1 2 3
+   P6 printed break tree matches: 14 nodes, 5 stuck ends
+EXTRA CHECKS PASSED
+== Revision checks
+   seven always suffice for six (2 + max five = 7 = true max); 4 6 2 5 1 3 needs 7: ok
+   launch 4 3 1 2 5 (flips 4 2) and printed example 3 1 2 (flips 3 2) are the method's flips: ok
+   K-1 recording demo 3 1 2: fewest 2, only by 3 2 (the printed run): ok
+   prerequisites: 2*20-3 = 37; doubling to about 20 (2*9 = 18 for ten): ok
+   sticky-note columns: [3, 6, 11] ; never made: 3 : ok
+   plate 5 for four; plate 6 miscounts exactly the six stacks with 4 at the bottom: ['1 2 3 4', '1 3 2 4', '2 1 3 4', '2 3 1 4', '3 1 2 4', '3 2 1 4'] : ok
+   2-3 P7 / K-1 P6 one answer; 4-5 P8 two answers: ok
+   six card pancakes 1.4-1.8 mm tall (about 2); foam-backed 13.4-13.8 mm (about 14)
+   5 pairs + launch = 6 copies of materials page 1; 24 K-1 counters; preparation 25 + 5 = 30 min (+15 foam): ok
+   printed four-stack table matches the layers 1, 3, 6, 11, 3 stack for stack: ok
+REVISION CHECKS PASSED
+ALL CHECKS PASSED

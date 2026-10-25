@@ -1,0 +1,208 @@
+rows used here match every row drawn in the three page sources
+even rows (2, 4 heights 1-6; 6 heights 1-4): plan collects max colour against all 2^(n/2-1) replies; never a first-player loss
+odd rows 1,3,5 (heights 1-6): blue>red => second wins; equal => first never wins
+rows of three (1-6): second wins iff middle > ends together; tie iff equal
+rows of five heights 1-4: 1024 rows, first loses 143, ties 147
+rows of five heights 1-6 with red > blue that first player loses: 258
+
+Launch row 3,1,4,2 best (7, 3) colours (7, 3)
+  demo game 4,3,1,2: first 5, second 5
+
+=== K-1 ===
+
+P1
+  5,2,1,4            best 7-5 (first), take slot 1 -> 7-5, take slot 4 -> 6-6, red 6 blue 6
+  1,5,2,3            best 8-3 (first), take slot 1 -> 4-7, take slot 4 -> 8-3, red 3 blue 8
+  2,4,3,1            best 5-5 (tie), take slot 1 -> 5-5, take slot 4 -> 5-5, red 5 blue 5
+
+P2
+  2,1,5,3            best 7-4 (first), take slot 1 -> 7-4, take slot 4 -> 5-6, red 7 blue 4
+  3,5,1,2            best 7-4 (first), take slot 1 -> 5-6, take slot 4 -> 7-4, red 4 blue 7
+  1,1,5,2            best 6-3 (first), take slot 1 -> 6-3, take slot 4 -> 3-6, red 6 blue 3
+  2,5,1,1            best 6-3 (first), take slot 1 -> 3-6, take slot 4 -> 6-3, red 3 blue 6
+  5,1,3,2            best 8-3 (first), take slot 1 -> 8-3, take slot 4 -> 5-6, red 8 blue 3
+  2,3,1,4            best 7-3 (first), take slot 1 -> 5-5, take slot 4 -> 7-3, red 3 blue 7
+  winning tower heights: [2, 2, 1, 1, 5, 4]
+
+P3
+  1,5,1              best 2-5 (second), take slot 1 -> 2-5, take slot 3 -> 2-5, red 2 blue 5
+  5,1,5              best 6-5 (first), take slot 1 -> 6-5, take slot 3 -> 6-5, red 10 blue 1
+  1,4,2              best 3-4 (second), take slot 1 -> 3-4, take slot 3 -> 3-4, red 3 blue 4
+  3,4,2              best 5-4 (first), take slot 1 -> 5-4, take slot 3 -> 5-4, red 5 blue 4
+  2,5,2              best 4-5 (second), take slot 1 -> 4-5, take slot 3 -> 4-5, red 4 blue 5
+P4 losing rows of three, heights 1-5: 10 ['1,3,1', '1,4,1', '1,4,2', '1,5,1', '1,5,2', '1,5,3', '2,4,1', '2,5,1', '2,5,2', '3,5,1']
+P5 rows of four, heights 1-5, first loses: 0
+P6 grown-up first with plan:
+  1,2,5,2: red 6 blue 4, plan colour red, start slot 1 (height 1, other end 2), plan hauls [(6, 4)], best (6, 4), taller-end grown-up vs best team (4, 6)
+  3,4,1,2: red 4 blue 6, plan colour blue, start slot 4 (height 2, other end 3), plan hauls [(6, 4)], best (6, 4), taller-end grown-up vs best team (5, 5)
+  4,1,5,2: red 9 blue 3, plan colour red, start slot 1 (height 4, other end 2), plan hauls [(9, 3)], best (9, 3), taller-end grown-up vs best team (9, 3)
+  1,4,2,3: red 3 blue 7, plan colour blue, start slot 4 (height 3, other end 1), plan hauls [(7, 3)], best (7, 3), taller-end grown-up vs best team (7, 3)
+P7 child first:
+  3,1,2,5: red 5 blue 6, plan blue, start slot 4 (height 5, other end 3), plan hauls [(6, 5)], best (7, 4), best first moves ['R'], taller-end vs best (7, 4)
+  2,4,1,1: red 3 blue 5, plan blue, start slot 4 (height 1, other end 2), plan hauls [(5, 3)], best (5, 3), best first moves ['R'], taller-end vs best (3, 5)
+  1,3,2,1,3,1: red 6 blue 5, plan red, start slot 1 (height 1, other end 1), plan hauls [(6, 5)], best (6, 5), best first moves ['L'], taller-end vs best (6, 5)
+  2,1,1,3,2,2: red 5 blue 6, plan blue, start slot 6 (height 2, other end 2), plan hauls [(6, 5)], best (6, 5), best first moves ['L', 'R'], taller-end vs best (5, 6)
+
+P8
+  2,1,2,3            best 5-3 (first), take slot 1 -> 4-4, take slot 4 -> 5-3, red 4 blue 4
+  1,3,4,2            best 5-5 (tie), take slot 1 -> 5-5, take slot 4 -> 5-5, red 5 blue 5
+  4,1,2,5            best 7-5 (first), take slot 1 -> 6-6, take slot 4 -> 7-5, red 6 blue 6
+   best first moves 2,1,2,3 ['R'] colours (4, 4)
+   best first moves 1,3,4,2 ['L', 'R'] colours (5, 5)
+   best first moves 4,1,2,5 ['R'] colours (6, 6)
+
+=== 2-3 ===
+
+P1
+  5,2,1,4            best 7-5 (first), take slot 1 -> 7-5, take slot 4 -> 6-6, red 6 blue 6
+  2,6,3,4            best 10-5 (first), take slot 1 -> 6-9, take slot 4 -> 10-5, red 5 blue 10
+  2,4,3,1            best 5-5 (tie), take slot 1 -> 5-5, take slot 4 -> 5-5, red 5 blue 5
+
+P2
+  2,1,5,3            best 7-4 (first), take slot 1 -> 7-4, take slot 4 -> 5-6, red 7 blue 4
+  3,6,1,2            best 8-4 (first), take slot 1 -> 5-7, take slot 4 -> 8-4, red 4 blue 8
+  2,3,1,5            best 8-3 (first), take slot 1 -> 5-6, take slot 4 -> 8-3, red 3 blue 8
+  1,4,6,2            best 7-6 (first), take slot 1 -> 7-6, take slot 4 -> 6-7, red 7 blue 6
+
+P3
+  1,5,1              best 2-5 (second), take slot 1 -> 2-5, take slot 3 -> 2-5, red 2 blue 5
+  5,1,5              best 6-5 (first), take slot 1 -> 6-5, take slot 3 -> 6-5, red 10 blue 1
+  2,6,3              best 5-6 (second), take slot 1 -> 5-6, take slot 3 -> 5-6, red 5 blue 6
+  3,4,2              best 5-4 (first), take slot 1 -> 5-4, take slot 3 -> 5-4, red 5 blue 4
+  2,5,3              best 5-5 (tie), take slot 1 -> 5-5, take slot 3 -> 5-5, red 5 blue 5
+  4,6,1              best 5-6 (second), take slot 1 -> 5-6, take slot 3 -> 5-6, red 5 blue 6
+P4: rows of four heights 1-6 lost by first player: 0 of 1296
+P5 plan rows:
+  1,2,5,1,3,2: red 9 blue 5, plan red, start slot 1, plan hauls [(9, 5)], best (9, 5) first moves ['L']
+  3,1,1,4,2,2: red 6 blue 7, plan blue, start slot 6, plan hauls [(7, 6)], best (8, 5) first moves ['L']
+  1,2,3,1,2,1,3,2: red 9 blue 6, plan red, start slot 1, plan hauls [(9, 6)], best (9, 6) first moves ['L']
+P6 2,4,1,1,3,2: red 6 blue 7
+    6-1-2-3-4-5 7-6
+    6-1-2-5-4-3 7-6
+    6-5-4-1-2-3 7-6
+    6-5-4-3-2-1 7-6
+   best play (7, 6) ['R']
+   total legal games on a row of six: 32
+
+P7
+  2,1,2,3            best 5-3 (first), take slot 1 -> 4-4, take slot 4 -> 5-3, red 4 blue 4
+  1,3,4,2            best 5-5 (tie), take slot 1 -> 5-5, take slot 4 -> 5-5, red 5 blue 5
+  4,1,2,5            best 7-5 (first), take slot 1 -> 6-6, take slot 4 -> 7-5, red 6 blue 6
+  2,4,5,3            best 7-7 (tie), take slot 1 -> 7-7, take slot 4 -> 7-7, red 7 blue 7
+  3,2,4,5            best 8-6 (first), take slot 1 -> 7-7, take slot 4 -> 8-6, red 7 blue 7
+   best first moves 2,1,2,3 ['R']
+   best first moves 1,3,4,2 ['L', 'R']
+   best first moves 4,1,2,5 ['R']
+   best first moves 2,4,5,3 ['L', 'R']
+   best first moves 3,2,4,5 ['R']
+
+P8
+  2,1,5,1,2          best 4-7 (second), take slot 1 -> 4-7, take slot 5 -> 4-7, red 9 blue 2
+  4,1,1,1,4          best 6-5 (first), take slot 1 -> 6-5, take slot 5 -> 6-5, red 9 blue 2
+  1,4,2,4,1          best 4-8 (second), take slot 1 -> 4-8, take slot 5 -> 4-8, red 4 blue 8
+  1,2,4,2,1          best 5-5 (tie), take slot 1 -> 5-5, take slot 5 -> 5-5, red 6 blue 4
+P9: equal-colour rows of six heights 1-6: 4332, first wins 1974
+   example 1,1,1,1,3,3 (5, 5) (5, 5) tie ['L', 'R']
+   example 3,1,1,1,1,3 (5, 5) (5, 5) tie ['L', 'R']
+   example 1,2,1,1,3,2 (5, 5) (5, 5) tie ['L', 'R']
+   example 2,1,2,3,1,1 (5, 5) (6, 4) first ['L']
+   example 1,1,2,1,2,3 (5, 5) (6, 4) first ['R']
+   example 4,1,2,5,1,1 (7, 7) (10, 4) first ['L']
+   1,1 + P7 row 1,1,2,1,2,3 (5, 5) (6, 4) first
+   1,1 + P7 row 1,1,4,1,2,5 (7, 7) (10, 4) first
+   1,1 + P7 row 1,1,3,2,4,5 (8, 8) (9, 7) first
+   heights 1-3: equal rows 141 first wins 36
+
+=== 4-5 ===
+
+P1
+  2,1,5,3            best 7-4 (first), take slot 1 -> 7-4, take slot 4 -> 5-6, red 7 blue 4
+  1,4,6,2            best 7-6 (first), take slot 1 -> 7-6, take slot 4 -> 6-7, red 7 blue 6
+  2,4,3,1            best 5-5 (tie), take slot 1 -> 5-5, take slot 4 -> 5-5, red 5 blue 5
+  6,2,1,5            best 8-6 (first), take slot 1 -> 8-6, take slot 4 -> 7-7, red 7 blue 7
+
+P2
+  1,5,1              best 2-5 (second), take slot 1 -> 2-5, take slot 3 -> 2-5, red 2 blue 5
+  5,1,5              best 6-5 (first), take slot 1 -> 6-5, take slot 3 -> 6-5, red 10 blue 1
+  2,6,3              best 5-6 (second), take slot 1 -> 5-6, take slot 3 -> 5-6, red 5 blue 6
+  3,4,2              best 5-4 (first), take slot 1 -> 5-4, take slot 3 -> 5-4, red 5 blue 4
+  2,5,3              best 5-5 (tie), take slot 1 -> 5-5, take slot 3 -> 5-5, red 5 blue 5
+  6,1,2              best 7-2 (first), take slot 1 -> 7-2, take slot 3 -> 3-6, red 8 blue 1
+P4 plan rows: as 2-3 P5
+
+P6
+  2,1,2,3            best 5-3 (first), take slot 1 -> 4-4, take slot 4 -> 5-3, red 4 blue 4
+  1,3,4,2            best 5-5 (tie), take slot 1 -> 5-5, take slot 4 -> 5-5, red 5 blue 5
+  4,1,2,5            best 7-5 (first), take slot 1 -> 6-6, take slot 4 -> 7-5, red 6 blue 6
+  2,4,5,3            best 7-7 (tie), take slot 1 -> 7-7, take slot 4 -> 7-7, red 7 blue 7
+  3,1,1,3            best 4-4 (tie), take slot 1 -> 4-4, take slot 4 -> 4-4, red 4 blue 4
+  4,2,1,3            best 6-4 (first), take slot 1 -> 6-4, take slot 4 -> 5-5, red 5 blue 5
+   best first moves 2,1,2,3 ['R'] colours (4, 4)
+   best first moves 1,3,4,2 ['L', 'R'] colours (5, 5)
+   best first moves 4,1,2,5 ['R'] colours (6, 6)
+   best first moves 2,4,5,3 ['L', 'R'] colours (7, 7)
+   best first moves 3,1,1,3 ['L', 'R'] colours (4, 4)
+   best first moves 4,2,1,3 ['L'] colours (5, 5)
+
+P7
+  1,4,2,4,1          best 4-8 (second), take slot 1 -> 4-8, take slot 5 -> 4-8, red 4 blue 8
+  2,3,1,5,2          best 5-8 (second), take slot 1 -> 5-8, take slot 5 -> 5-8, red 5 blue 8
+  3,5,2,4,1          best 6-9 (second), take slot 1 -> 6-9, take slot 5 -> 6-9, red 6 blue 9
+  1,3,3,3,1          best 5-6 (second), take slot 1 -> 5-6, take slot 5 -> 5-6, red 5 blue 6
+
+P8
+  4,1,1,1,4          best 6-5 (first), take slot 1 -> 6-5, take slot 5 -> 6-5, red 9 blue 2
+  1,2,4,2,1          best 5-5 (tie), take slot 1 -> 5-5, take slot 5 -> 5-5, red 6 blue 4
+  2,1,5,1,2          best 4-7 (second), take slot 1 -> 4-7, take slot 5 -> 4-7, red 9 blue 2
+  4,2,1,2,4          best 7-6 (first), take slot 1 -> 7-6, take slot 5 -> 7-6, red 9 blue 4
+  4,1,6,2,3          best 7-9 (second), take slot 1 -> 7-9, take slot 5 -> 6-10, red 13 blue 3
+
+P10
+  3,1,4,1,5          best 7-7 (tie), take slot 1 -> 5-9, take slot 5 -> 7-7, red 12 blue 2
+  2,1,2,5,3          best 7-6 (first), take slot 1 -> 7-6, take slot 5 -> 6-7, red 7 blue 6
+  5,2,6,1,3          best 8-9 (second), take slot 1 -> 8-9, take slot 5 -> 6-11, red 14 blue 3
+   greedy both sides: 3,1,4,1,5 7 7
+   greedy both sides: 2,1,2,5,3 6 7
+   greedy both sides: 5,2,6,1,3 8 9
+P11 triangle (length: values left to right):
+   6 [11]
+   5 [7, 9]
+   4 [8, 7, 8]
+   3 [8, 5, 7, 5]
+   2 [3, 6, 6, 2, 4]
+   1 [2, 3, 6, 2, 1, 4]
+   whole row (11, 7) colours (9, 9) first moves ['R'] take slot 1 -> (9, 9)
+
+=== extra facts ===
+K-1 P2 and 2-3 P2: every winning first tower stands on the colour with more cubes
+2-3 P6 with red plan: [('1-2-3-4-5-6', 6, 7), ('1-2-3-6-5-4', 6, 7), ('1-6-5-2-3-4', 6, 7), ('1-6-5-4-3-2', 6, 7)]
+  equal row of five 1,2,2,2,1 (4, 4) (4, 4) tie
+  equal row of five 2,2,1,2,1 (4, 4) (4, 4) tie
+rows of four heights 1-6 that tie: 106
+largest K-1 P7 row total: 11
+largest printed row total: 18
+every alternative score, plan haul and example printed in the guide re-checked
+
+=== revision checks (final guide) ===
+adult shortcut for a row of three matches best play on all 216 rows (heights 1-6)
+  2,4,3,1: partner wins both rows of three left (4,3,1 (5, 3), 2,4,3 (5, 4)), yet the row of four is 5-5; after slot 1 (5, 5), after slot 4 (5, 5)
+  6,2,1,5: partner wins both rows of three left (2,1,5 (6, 2), 6,2,1 (7, 2)), yet the row of four is 8-6; after slot 1 (8, 6), after slot 4 (7, 7)
+  rows of four (1-6) the 'row of three rule' would wrongly call first-player losses: 876
+  1,1 in front of equal-colour winning rows of four (heights 1-9): 0 fail of 168
+  2,1,1,2,1,1 (5, 3); 1,1,2,1,1,2,1,1 (5, 5)
+  K-1 P8 1,3,4,2: child takes the 2, partner takes 4 -> (5, 5), partner takes 1 -> (6, 4); child takes the 1 -> child gets [5, 5] for the two replies (a 5-5 tie)
+  no grown-up row has equal colour totals; with equal totals either colour gives exactly a tie
+  materials page 1: 'Strips of slots', portrait, strips [4, 3, 4, 3, 4, 3, 4, 3, 4, 3]
+  materials page 2: 'Strips of slots / Grades 4–5', portrait, strips [6, 5]
+  materials page 3: 'Colored strips', landscape, strips [8, 6, 5, 4]
+  strips to cut: 32 (28 if the K-1 copies of page 3 skip the 8 and 5); sheets 7
+  K-1 plain: rows of [3, 4] -> supplied
+  K-1 colored: rows of [4, 6] -> supplied
+  2-3 plain: rows of [3, 4] -> supplied
+  2-3 colored: rows of [4, 5, 6, 8] -> supplied
+  4-5 plain: rows of [3, 4, 5, 6] -> supplied
+  4-5 colored: rows of [4, 5, 6, 8] -> supplied
+  per-band strip lists and packet counts (5, 5, 4) match
+  tallest printed tower <= 6, largest row 18 cubes, K-1 copy stacks 22: 30 cubes per pair suffice
+
+all guide checks passed

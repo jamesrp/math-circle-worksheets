@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,margin=.7in,headheight=15pt,headsep=18pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,array,fancyhdr,tikz,enumitem}
+\renewcommand{\familydefault}{\sfdefault}\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Week NN / Counting-out circles / Facilitator guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week NN / CO-FAC-v1}\fancyfoot[R]{\thepage}
+\newcommand{\head}[1]{\par\textbf{\large #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+\newcommand{\say}[1]{``#1''}
+% Launch picture: an 11-person ring; #1 = sitting people (0 for none), #2 = pointer target (0 for none).
+\newcommand{\launchring}[2]{%
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \draw[gray!60, line width=.6pt] (0,0) circle (1.15);
+    \foreach \i in {1,...,11} {
+      \pgfmathsetmacro\a{90-360*(\i-1)/11}
+      \filldraw[fill=white, draw=black, line width=.7pt] (\a:1.15) circle (.19);
+      \node[font=\scriptsize] at (\a:1.58) {\i};
+    }
+    \foreach \i in {#1} {
+      \ifnum\i>0
+        \pgfmathsetmacro\a{90-360*(\i-1)/11}
+        \filldraw[fill=gray!60, draw=black, line width=.7pt] (\a:1.15) circle (.19);
+      \fi
+    }
+    \ifnum#2>0
+      \pgfmathsetmacro\b{90-360*(#2-1)/11}
+      \draw[->, line width=.8pt] (\b:.35) -- (\b:.88);
+      \node[font=\scriptsize\bfseries] at (0,-.12) {sit};
+    \fi
+  \end{tikzpicture}}
+\begin{document}
+\head{Mathematical overview: who is left standing}
+\textbf{The game and its assumptions.} People $1,\dots,n$ stand in a circle (counters on spots 1 to $n$). Starting at 1, the people still standing take turns saying a repeating chant: \say{stand, sit} (every second person sits) or \say{stand, stand, sit} (every third). Whoever gets \say{sit} sits down and is skipped from then on; empty spots are skipped too. The chant carries on past 1 without starting over. Write $J(n)$ for the last one standing when every second person sits and $J_3(n)$ when every third sits. This is the Josephus problem; everything below is proved for all $n$.
+
+\textbf{Step rule, for either chant.} For $n\ge2$, adding one person moves the answer up by the length of the chant, wrapping round: $J(n)=J(n-1)+2$ and $J_3(n)=J_3(n-1)+3$, minus $n$ whenever the sum is more than $n$. \emph{Proof.} The first person to sit is the one who gets the last word of the chant: 2, or 3 (person 1 in a circle of 2 with the three-word chant). The next standing person gets the first word, so the rest of the game is exactly a circle of $n-1$ whose \say{person 1} is old person 3 (or 4), counting round. Every number in that smaller circle is 2 (or 3) less than in the big one, so translating its answer back gives the rule.
+
+\textbf{Every second person: if $n=2^m+L$ with $0\le L<2^m$, then $J(n)=2L+1$.} \emph{Proof.} (i) In a circle of $2^m$ where the first person to count stays, that person is last: a lap round an even circle seats every second person and ends on a \say{sit}, so the next lap again starts with the same person staying, in a circle half the size. (ii) In a circle of $2^m+L$, the first $L$ people to sit are $2,4,\dots,2L$, all in the first lap since $2L<n$. Then $2^m$ people remain and the next word, a \say{stand}, goes to $2L+1$; by (i), $2L+1$ is last.
+
+\emph{Consequences.} $J(n)=1$ exactly when $n$ is a power of two, and $J(n)=n$ exactly when $n$ is one less than a power of two ($1,3,7,15,31,\dots$); between powers of two the answers climb $1,3,5,\dots$ (the step rule: up by 2, back to 1 when $J(n-1)=n-1$). No even number is ever last, because every even number sits in the first lap, while each odd number $2L+1$ is last in the circle of $2^m+L$ for every power of two $2^m>L$ (9 is last in 12, 20, 36, \dots). Doubling: $J(2k)=2J(k)-1$ and $J(2k+1)=2J(k)+1$, since after the first lap of $2k$ people $1,3,\dots,2k-1$ remain with 1 next, while in a circle of $2k+1$ the lap ends with $2k+1$ standing and 1 sitting, leaving $3,5,\dots,2k+1$ with 3 next. Binary: $n$ is a 1 followed by the digits of $L$, and $2L+1$ is the digits of $L$ followed by a 1, so the answer moves the leading 1 of $n$ to the end ($12=1100\to1001=9$; $8=1000\to0001=1$).
+
+\textbf{Every third person: a step rule, no simple formula.} For $n=1$ to 12, $J_3(n)$ is 1, 2, 2, 1, 4, 1, 4, 7, 1, 4, 7, 10; $J_3(30)=29$ and $J_3(41)=31$. The step rule gives each from the one before; there is no comparably simple formula, and the pages ask only for the step rule. Multiples of 3 are never last, since they all sit in the first lap. Where to stand to be last (K--1 Problem 7, grades 2--3 and 4--5 Problem 9) means finding $J_3(n)$.
+
+\textbf{Limits, and the one misreading that matters.} Counting starts at person 1, who stays; starting elsewhere only renames everyone. A child who restarts the chant at 1 on every lap never seats 1 and finds 1 last every time. Circles of 2, 4, 8 and 16 cannot reveal this, since every lap there really does begin at 1 with \say{stand}; the circle of 3 is the first that does (2 sits, 3 stands, 1 sits).
+
+\textbf{What children discover: experiment, conjecture, explanation.} Playing circles and filling tables are experiments. \say{1 is last at 1, 2, 4, 8, 16}, \say{up by 2, back to 1 at a power of two} and \say{add 3 and wrap} are conjectures read from tables. Explanations within reach: \say{2 always sits first} and \say{every even number sits the first time round} (all bands, with counters); the halving laps for 16 and 32 (2--3 and 4--5, on the small ring); \say{once $L$ people have sat, a power of two are left and the next person stays} (4--5, and some third graders); the renaming from 26 to 52 and 53, and the binary rule (4--5). The step rules' proof is for 4--5 children who ask why.
+
+\textbf{Band map and prerequisites.} K--1 (count and recognize numerals to 16; the adult reads) plays circles of 3 to 10 and 16 on the printed rings, guessing first; finds that 4, 8 and 16 leave 1 and which circles leave 3 and 5; and explains why 2 can never be last (on a return visit, why 3 can never be last with stand, stand, sit). Grades 2--3 (an adult reads the opening rules; problems are one or two sentences; adding 2s and 3s to 100) build the table to 16, predict 20, 25 and 32, explain the even numbers and the halving for 16 and 32, search up to 40, reach 50 and 100, and extend an every-third table to 30. Grades 4--5 (doubling; binary is introduced on the page) explain powers of two and $2L+1$ for 100 and 1000, use doubling, show that 22 is never last, extend every third to 41 and explain the binary rule.
+\newpage
+\head{Preparation, launch and pacing}
+\textbf{Status.} Prepared for organizer review; unpiloted. Not physically tried: 25 mm (1 inch) counters on the 26 mm printed spots, where neighbouring spots are as little as 2 mm apart (the K--1 rings of 9 and 10 and the 16-spot rings); the two halves of the 32-spot mat laid side by side; how long pairs keep an accurate count; the launch. All timings are estimates, and that K--1 pairs can chant and flip accurately up to the circle of 16 is a prediction; if they cannot, the adult chants while the children point and flip.
+
+\textbf{Materials and printing.} Two-colour counters 25 mm (1 inch) across and no wider, 16 per K--1 pair and 32 per older pair; one colour up means standing, and a counter is flipped when that person sits. Pencils; optionally eleven number cards for the launch. Print US Letter, single-sided, at 100\% (Actual size), so the spots stay 26 mm. Nothing is cut.
+\begin{itemize}[nosep,leftmargin=1.2em]
+\item K--1 table (two pairs): 32 counters; one 8-page packet per child (32 sheets). Every page except page 5 is a working board: counters go straight onto the printed rings, and page 4's 16-spot ring is full size.
+\item Grades 2--3 table (two pairs): 64 counters; pages 1--4 per child, and pages 5--7 (the 16-spot mat and the two halves of the 32-spot mat) once per pair (22 sheets).
+\item Grades 4--5 table (a pair and a referee): 32 counters; pages 1--5 per child, and pages 6--8 once (18 sheets).
+\end{itemize}
+Lay the 32-spot halves side by side, spot 1 at the top left and inner edges touching, with a strip of tape on the back; the joined mat is about 43 by 28 cm. Beyond printing, preparation is about 15 minutes: count counters into five bags (two of 16, three of 32) and tape three 32-spot mats. In all: 128 counters and 72 sheets. Plain 25 mm counters with a sticker on one side also work (add about 20 minutes).
+
+\textbf{Staffing.} One adult at each table, as usual. In each pair one child touches each standing counter and says its word, and the partner flips on \say{sit}; they swap every circle. The 4--5 third child referees, watching the finger and the wrap past 1, and rotates in. The adult's main job is the wrap: watch each pair's first circle that passes 1. Adults read problems aloud and may keep a pooled record; children make the guesses, predictions and explanations. If the adult is doing the counting, move to a smaller circle.
+
+\textbf{How the K--1 table runs.} A pair plays each circle once, on one child's page (take turns whose), one ring at a time: a counter on every spot of that ring, play, and move the counters to the next ring after drawing the ring round the last number. Pages 1, 3 and 6 have more spots than the 16 counters, so never fill a whole page. Both children draw the ring on their own page. In Problem 4 children point to the rings; the adult writes each circle's size (its biggest number) in the boxes, unless a child wants to, and scribes spoken reasons for Problems 5 and 8. That is routine recording; the children still make every guess and choice.
+
+\textbf{Launch, about 5 minutes after running around.} All eleven children stand in one circle and an adult numbers them 1 to 11 clockwise. Use a chant that no problem uses: walking round and touching each standing child, the adult says \say{stand, stand, stand, sit}. On \say{sit} that child sits on the floor; seated children are skipped. Pause after 9, 10 and 11 have each had \say{stand} and ask who gets the next word. The point to make: the chant does not start over at 1, so person 1 gets \say{sit}. Play on until one child is standing. Any circle of 7, 11 or 15 works (one less than a multiple of 4), because person 1 then gets \say{sit} right at the wrap; add adults to reach one, and a child can be the chanter. (The last one standing is 2 in a circle of 7 and 13 in a circle of 15.) If a picture helps, draw this on the whiteboard:
+
+\begin{center}
+\begin{tabular}{ccc}
+\launchring{0}{0} & \launchring{4,8}{1} & \launchring{4,8,1,6,11,7,3,2,5,10}{0}\\[2pt]
+\footnotesize 11 standing; count from 1 &
+\footnotesize 4 and 8 sat; after 9, 10, 11, 1 gets \say{sit} &
+\footnotesize everyone else sat; 9 is last
+\end{tabular}
+\end{center}
+
+The sitting order is 4, 8, 1, 6, 11, 7, 3, 2, 5, 10. The launch avoids every-second-person circles because each circle up to 16 is a table entry on the older pages.
+
+\textbf{At the tables: the same start on counters.} Hold up a counter: on the mats a counter is a person, one side up for standing, flipped when that person sits. Children handle the counters for a minute. Then each adult replays the start of the launch on the table's own materials, touching each standing counter and saying \say{stand, stand, stand, sit} while a child flips (about 30 seconds):
+\begin{itemize}[nosep,leftmargin=1.2em]
+\item Grades 2--3 and 4--5: put 11 counters on spots 1--11 of the 16-spot mat (2--3 page 5, 4--5 page 6). 4 sits, 8 sits, then 9, 10 and 11 stand, the chant skips the empty spots 12--16, and 1 sits. Stop and reset.
+\item K--1: on the ring of 7 (page 2), 4 sits, then 5, 6 and 7 stand, and 1 sits. Stop and reset. Use this ring rather than page 4's, because the K--1 rule is a counter on every spot.
+\end{itemize}
+Then give the table's own chant, \say{stand, sit}, and show where a result goes: a ring round the last one's number (K--1) or an entry in the Problem 1 table (2--3 and 4--5).
+
+\textbf{A first visit.} About 35--40 minutes at the tables, then a few minutes of sharing.
+\begin{itemize}[nosep,leftmargin=1.2em]
+\item K--1: Problems 1--4, with Problem 5 as the closing conversation (about 30 minutes, playing each circle once: 59 flips, 15 of them in the circle of 16). Problems 6--8 (stand, stand, sit) are a return visit, or for a pair that finishes.
+\item Grades 2--3: Problems 1 and 2 take about 15--20 minutes. Problem 1 is shared between the pairs (one plays 1 to 11, the other 12 to 16: 55 and 65 flips; results pooled in one table on a sheet or whiteboard, and each pair replays two of the other's circles); in Problem 2 each pair plays one or two of the 32-spot circles. Problems 3 and 4 fill the rest of the hour. Return: Problems 5--6, then 7--9. A pair that stalls on 5 or 6 can move to 7, which is concrete again.
+\item Grades 4--5: Problems 1 and 2, with roles rotating each circle (two play, one referees), take about 15--20 minutes: 194 flips for the one playing pair. Then Problems 3 and 4, and 5--6 if the table is quick. Return: 5--6, then 7--9. Problem 10 is the deep end and needs binary; save it for a visit when the table is fresh.
+\item Sharing: each table reports one finding, such as which circles left 1, who is last among 100, or why 22 can never be last.
+\end{itemize}
+
+\textbf{Hints only when useful.} Counting slips are the main risk, and one wrong entry hides a pattern. When an entry breaks a pattern, ask the pair to replay that circle aloud with the partner watching, rather than correcting the entry. If a child restarts the chant at 1, ask what word the person before 1 got and what word comes next. If someone gives a word to a sitting counter or an empty spot, ask whether a sitting person gets a turn.
+
+\input{solutions.tex}
+\end{document}

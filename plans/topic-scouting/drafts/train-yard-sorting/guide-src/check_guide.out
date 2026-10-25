@@ -1,0 +1,86 @@
+=== General facts
+sortable counts 1..8: [1, 2, 5, 14, 42, 132, 429, 1430]
+six-car with a 5-place siding: 131 fails only: ['6 5 4 3 2 1']
+4 ups/4 downs: 70 words, 14 mountain paths
+C5 terms [14, 5, 4, 5, 14] C6 terms [42, 14, 10, 10, 14, 42]
+=== Launch train 2 1
+drive of 2 1: ['UUDD']
+=== K-1
+P1 123:Y(h1) 132:Y(h2) 213:Y(h2) 231:x 2 3 1(h3) 312:Y(h2) 321:Y(h3)
+P2 2143:Y(h2) 3412:x 3 4 1(h3) 4321:Y(h4) 1432:Y(h3) 4231:x 2 3 1(h4) 3124:Y(h2) 4132:Y(h3) 1342:x 3 4 2(h3)
+P4 45123:x 4 5 1(h3) 21543:Y(h3) 54321:Y(h5) 51324:Y(h3) 13524:x 3 5 2(h3) 32514:x 3 5 1(h4)
+P3 x y z 1: [('2 3 4 1', 'x'), ('2 4 3 1', 'x'), ('3 2 4 1', 'x'), ('3 4 2 1', 'x'), ('4 2 3 1', 'x'), ('4 3 2 1', 'Y')]
+P6 stuck four-car trains: 10 ['1 3 4 2', '2 3 1 4', '2 3 4 1', '2 4 1 3', '2 4 3 1', '3 1 4 2', '3 2 4 1', '3 4 1 2', '3 4 2 1', '4 2 3 1']
+   by first car: {1: ['1 3 4 2'], 2: ['2 3 1 4', '2 3 4 1', '2 4 1 3', '2 4 3 1'], 3: ['3 1 4 2', '3 2 4 1', '3 4 1 2', '3 4 2 1'], 4: ['4 2 3 1']}
+   already met in P2/P3: 7  new: ['2 3 1 4', '2 4 1 3', '3 1 4 2']
+P5 game: five-car trains that leave in order: 42 of 120 ; all fit a 5-place siding: True
+   five-car ending in 1 that work: ['5 4 3 2 1']
+   five-car starting with 5 that work: 14
+=== Grades 2-3
+P3 32154:Y(h3) 41325:Y(h3) 24351:x 2 4 1(h5) 12534:Y(h2) 45321:x 4 5 3(h5) 31542:x 3 5 2(h4) 52143:Y(h3) 15342:x 3 4 2(h4)
+P5 42513:x 4 5 1(h4) 14235:Y(h2) 34521:x 3 4 2(h5) 53412:x 3 4 1(h4) 54132:Y(h4) 21534:Y(h2)
+P2: can 14 cannot 10
+   by first car (can): {1: 5, 2: 2, 3: 2, 4: 5}
+P6 2143: gaps [0, 2, 4] -> 5 2 1 4 3, 2 1 5 4 3, 2 1 4 3 5
+P6 4321: gaps [0, 4] -> 5 4 3 2 1, 4 3 2 1 5
+P6 1324: gaps [0, 1, 3, 4] -> 5 1 3 2 4, 1 5 3 2 4, 1 3 2 5 4, 1 3 2 4 5
+P6 3124: gaps [0, 3, 4] -> 5 3 1 2 4, 3 1 2 5 4, 3 1 2 4 5
+P7 gap counts: 1 2 3 4:5, 1 2 4 3:4, 1 3 2 4:4, 1 4 2 3:3, 1 4 3 2:3, 2 1 3 4:4, 2 1 4 3:3, 3 1 2 4:3, 3 2 1 4:3, 4 1 2 3:2, 4 1 3 2:2, 4 2 1 3:2, 4 3 1 2:2, 4 3 2 1:2  sum = 42
+P7 by position of car 5: [14, 5, 4, 5, 14] 42
+stuck with no three neighbours forming middle-big-small: ['2 4 3 1', '3 1 4 2']
+=== Grades 4-5
+P2 31254: Y UUDUDDUUDD h2
+P2 24153: x 2 4 1 h4
+P2 13542: x 3 5 2 h4
+P2 51423: Y UUDUUDUDDD h3
+P2 361245: x 3 6 1 h4
+P2 214635: x 4 6 3 h3
+P2 1726354: Y UDUUDUUDUUDDDD h4
+P2 3217645: Y UUUDDDUUUDUDDD h3
+P2 41328675: x 6 7 5 h4
+P2 43128576: Y UUUDUDDDUUDUUDDD h3
+   rows: ['Yx', 'xY', 'xx', 'YY', 'xY']
+P4 the 14 four-car paths:
+   1 2 3 4 UDUDUDUD
+   1 2 4 3 UDUDUUDD
+   1 3 2 4 UDUUDDUD
+   1 4 2 3 UDUUDUDD
+   1 4 3 2 UDUUUDDD
+   2 1 3 4 UUDDUDUD
+   2 1 4 3 UUDDUUDD
+   3 1 2 4 UUDUDDUD
+   3 2 1 4 UUUDDDUD
+   4 1 2 3 UUDUDUDD
+   4 1 3 2 UUDUUDDD
+   4 2 1 3 UUUDDUDD
+   4 3 1 2 UUUDUDDD
+   4 3 2 1 UUUUDDDD
+P5 UDUUUDDUDD -> 1 5 3 2 4
+P5 UUUDDUUDDD -> 5 2 1 4 3
+P5 UUDUUDDDUD -> 4 1 3 2 5
+P5 UUUUDDDUDD -> 5 3 2 1 4
+P7: five 42  six 132
+P8 two sidings:
+   231: works; a shortest drive abaaboobo; first-siding outputs with no 2-3-1: 4, e.g. 3 2 1, 3 1 2, 2 1 3
+   3412: works; a shortest drive abaaboaboobo; first-siding outputs with no 2-3-1: 11, e.g. 4 3 2 1, 4 3 1 2, 4 2 1 3
+   25341: works; a shortest drive abaaaaboobboobo; first-siding outputs with no 2-3-1: 7, e.g. 5 4 3 2 1, 5 4 3 1 2, 5 4 1 3 2
+seven-car trains failing with two long sidings: 22
+    2 4 3 5 7 6 1 / 2 4 6 3 5 7 1 / 2 5 3 6 4 7 1 / 2 5 3 7 4 6 1 / 2 5 4 7 3 6 1 / 2 6 4 7 3 5 1 / 3 2 4 6 5 7 1 / 3 2 5 4 7 6 1 / 3 2 5 7 4 6 1 / 3 2 6 4 7 5 1 / 3 5 2 4 7 6 1 / 3 5 2 7 4 6 1 / 3 5 7 2 4 6 1 / 3 6 2 4 7 5 1 / 4 2 5 3 7 6 1 / 4 2 5 7 3 6 1 / 4 2 6 3 5 7 1 / 4 2 6 3 7 5 1 / 4 2 6 5 3 7 1 / 4 6 2 5 3 7 1 / 4 6 2 7 3 5 1 / 5 2 6 3 7 4 1
+   all end in car 1: True
+failing with 5-place sidings (not the page rule): 51
+=== Extra claims in the guide
+   P8 231: first siding sends out 3 2 1; second siding sorts it: True
+   P8 3412: first siding sends out 4 3 2 1; second siding sorts it: True
+   P8 25341: first siding sends out 5 4 3 2 1; second siding sorts it: True
+extra claims checked
+=== Revision checks (final guide)
+   1 3 2 works, but after 1 in, 3 in (3 parked on 1) it is stranded: True
+   drive triples: 3412:3 4 1, 4231:2 3 1, 1342:3 4 2, 45123:4 5 1, 13524:3 5 2, 32514:2 5 1, 24351:2 4 1, 45321:4 5 1, 31542:3 5 2, 15342:3 4 2, 42513:2 5 1, 34521:3 4 1, 53412:3 4 1, 24153:2 4 1, 13542:3 5 2, 361245:3 6 1, 214635:4 6 3, 41328675:6 7 5
+   K-1 key rows: {'P1': '✓ ✓ / ✓ ✗ / ✓ ✓', 'P2': '✓ ✗ / ✓ ✓ / ✗ ✓ / ✓ ✗', 'P4': '✗ ✓ / ✓ ✓ / ✗ ✗'}
+   six cars: long siding 132  five-place mat 131  lost ['6 5 4 3 2 1']
+   insertion totals n=2..7 equal Catalan numbers: checked
+   first-car split 5: [14,5,4,5,14], 6: [42,14,10,10,14,42]; first return at step 2 x first car: checked
+   launch partway (2 in, 1 in, 1 out): siding [2] departed [1]
+   arrival track on paper: 125.2 mm; 25 mm squares: 5, 2 cm cubes: 6 (less after printer margins)
+
+ALL CHECKS PASSED

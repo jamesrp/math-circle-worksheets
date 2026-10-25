@@ -1,0 +1,52 @@
+% Hidden armies: printable materials (hill mats).
+% US Letter landscape, print single-sided at 100%. Coordinates in mm from the
+% top-left corner of the page (y grows downward). Build with build.sh.
+\documentclass[12pt]{article}
+\usepackage[letterpaper,landscape,margin=0mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{tgheros}
+\renewcommand\familydefault{\sfdefault}
+\usepackage{pifont}
+\usepackage{tikz}
+\pagestyle{empty}
+\setlength\parindent{0pt}
+\pdfinfoomitdate=1\pdftrailerid{}\pdfsuppressptexinfo=15
+% ---- layout constants (mm) ----
+% page 279.4 x 215.9; cut line across the middle at 107.95
+% hill centres 85 mm apart: 54.7, 139.7, 224.7; hills 70 mm across
+% lanes 76 mm wide, one per hill, running through both mats
+\newcommand{\cutY}{107.95}
+% one hill mat whose top edge (cut edge or lane top) is at y = #1
+\newcommand{\hillmat}[1]{%
+  \node[anchor=north west,inner sep=0,font=\fontsize{10}{12}\selectfont,text=black!70]
+    at (18.7,{#1+3}) {Hill mat};
+  \foreach \n/\x in {1/54.7,2/139.7,3/224.7}{%
+    \draw[line width=1pt,fill=white] (\x,{#1+40}) circle[radius=35mm];
+    \node[anchor=north,inner sep=0,font=\fontsize{20}{24}\selectfont\bfseries]
+      at (\x,{#1+77}) {\n};}%
+}
+\begin{document}
+\begin{tikzpicture}[remember picture,overlay,x=1mm,y=-1mm,shift={(current page.north west)}]
+% header
+\node[anchor=north west,inner sep=0,font=\fontsize{11}{14.08}\selectfont] at (15,12)
+  {Week NN / Hidden armies / Materials};
+\draw[gray] (15,19.5) -- (264.4,19.5);
+% hill lanes, continuous through both mats so that two mats line up hill by hill
+\foreach \x in {54.7,139.7,224.7}{\fill[black!7] ({\x-38},21.5) rectangle ({\x+38},194.4);}
+% the two mats
+\hillmat{21.5}
+\hillmat{\cutY}
+% cut line between the two mats
+\draw[line width=.6pt,dash pattern=on 3mm off 2mm] (22,\cutY) -- (267,\cutY);
+\node[inner sep=0,font=\fontsize{14}{14}\selectfont] at (17.5,\cutY) {\ding{34}};
+% footer, with a scale check
+\draw[gray] (15,196.4) -- (264.4,196.4);
+\node[anchor=north west,inner sep=0,font=\fontsize{9}{11.52}\selectfont] at (15,199.4)
+  {Bellingham Math Circle / Week NN / HA-M-v1};
+\draw[line width=.6pt] (105,201) -- (205,201);
+\draw[line width=.6pt] (105,199.6) -- (105,202.4);
+\draw[line width=.6pt] (205,199.6) -- (205,202.4);
+\node[anchor=west,inner sep=0,font=\fontsize{9}{11.52}\selectfont] at (208,201) {100 mm scale check};
+\node[anchor=north east,inner sep=0,font=\fontsize{9}{11.52}\selectfont] at (264.4,199.4) {1};
+\end{tikzpicture}\null
+\end{document}

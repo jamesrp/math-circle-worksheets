@@ -49,7 +49,8 @@ PENDING_KINDS = ["return visit", "K-1 pages"]
 PENDING_FIELDS = {"kind", "path", "date", "note"}
 BAND_PDF = {"K-1": "k-1.pdf", "2-3": "grades-2-3.pdf", "4-5": "grades-4-5.pdf"}
 DRAFT_ROLES = {"k-1.pdf": "K–1 pages", "grades-2-3.pdf": "Grades 2–3 pages", "grades-4-5.pdf": "Grades 4–5 pages",
-               "review.md": "Adversarial review", "review-math.md": "Math check"}
+               "facilitator.pdf": "Facilitator guide (draft)", "materials.pdf": "Materials to print",
+               "review.md": "Adversarial review", "review-math.md": "Math check", "review-guide.md": "Guide review"}
 ATLAS_BOOKS = {
     "algebra-discrete": ("Algebra and discrete mathematics", "atlas-algebra-discrete"),
     "geometry-analysis": ("Geometry and analysis", "atlas-geometry-analysis"),
@@ -951,8 +952,9 @@ def drafts_md(data):
         return []
     cell = lambda t: t.replace("|", "\\|")
     lines = ["## Drafts awaiting review", "",
-             "Student-page drafts added for the organizer's review. None is approved, piloted or on the six-year path, "
-             "and none has a facilitator guide yet. Their records are in [catalog/drafts/](catalog/drafts/) and in the "
+             "Drafts added for the organizer's review. None is approved, piloted or on the six-year path. The new themes "
+             "have draft facilitator guides from an untested stage; new pages for existing weeks rely on those weeks' guides. "
+             "Their records are in [catalog/drafts/](catalog/drafts/) and in the "
              "`[[drafts]]` entries of week records; the explorer shows them with dashed outlines.", ""]
     if data["drafts"]:
         lines += ["### New themes", "",

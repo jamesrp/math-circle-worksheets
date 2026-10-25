@@ -1,0 +1,117 @@
+% Animal faces as TikZ pics. Each face fits in a circle of radius 1 around the origin.
+\definecolor{catfill}{RGB}{247,196,140}
+\definecolor{dogfill}{RGB}{226,200,160}
+\definecolor{dogear}{RGB}{120,85,55}
+\definecolor{bearfill}{RGB}{176,128,88}
+\definecolor{bearlight}{RGB}{226,196,160}
+\definecolor{rabbitfill}{RGB}{238,238,238}
+\definecolor{pinkish}{RGB}{240,160,175}
+\definecolor{pigfill}{RGB}{248,190,200}
+\definecolor{pigsnout}{RGB}{236,150,165}
+\definecolor{frogfill}{RGB}{150,205,120}
+\tikzset{
+  face line/.style={line width=0.06em, line cap=round, line join=round},
+  cat/.pic={
+    \begin{scope}[face line]
+    \filldraw[fill=catfill] (-0.62,0.18) -- (-0.52,0.92) -- (-0.08,0.58) -- cycle;
+    \filldraw[fill=catfill] (0.62,0.18) -- (0.52,0.92) -- (0.08,0.58) -- cycle;
+    \fill[pinkish] (-0.50,0.40) -- (-0.46,0.74) -- (-0.24,0.56) -- cycle;
+    \fill[pinkish] (0.50,0.40) -- (0.46,0.74) -- (0.24,0.56) -- cycle;
+    \filldraw[fill=catfill] (0,0) ellipse (0.68 and 0.62);
+    \fill (-0.24,0.12) ellipse (0.07 and 0.11);
+    \fill (0.24,0.12) ellipse (0.07 and 0.11);
+    \filldraw[fill=pinkish] (-0.08,-0.08) -- (0.08,-0.08) -- (0,-0.17) -- cycle;
+    \draw (0,-0.17) -- (0,-0.24);
+    \draw (0,-0.24) .. controls (-0.04,-0.30) and (-0.12,-0.30) .. (-0.15,-0.24);
+    \draw (0,-0.24) .. controls (0.04,-0.30) and (0.12,-0.30) .. (0.15,-0.24);
+    \draw (-0.20,-0.12) -- (-0.84,-0.04);
+    \draw (-0.20,-0.18) -- (-0.84,-0.24);
+    \draw (0.20,-0.12) -- (0.84,-0.04);
+    \draw (0.20,-0.18) -- (0.84,-0.24);
+    \end{scope}
+  },
+  dog/.pic={
+    \begin{scope}[face line]
+    \filldraw[fill=dogfill] (0,0.02) ellipse (0.58 and 0.64);
+    \filldraw[fill=dogear, rotate around={-18:(-0.60,0.12)}] (-0.60,0.12) ellipse (0.20 and 0.46);
+    \filldraw[fill=dogear, rotate around={18:(0.60,0.12)}] (0.60,0.12) ellipse (0.20 and 0.46);
+    \fill[dogear!70] (0.24,0.20) ellipse (0.17 and 0.15);
+    \fill (-0.22,0.18) circle (0.075);
+    \fill (0.24,0.18) circle (0.075);
+    \filldraw[fill=white] (0,-0.26) ellipse (0.30 and 0.24);
+    \fill (0,-0.14) ellipse (0.12 and 0.085);
+    \draw (0,-0.20) -- (0,-0.32);
+    \draw (0,-0.32) .. controls (-0.05,-0.40) and (-0.14,-0.40) .. (-0.17,-0.33);
+    \draw (0,-0.32) .. controls (0.05,-0.40) and (0.14,-0.40) .. (0.17,-0.33);
+    \filldraw[fill=pinkish] (-0.06,-0.385) .. controls (-0.06,-0.50) and (0.06,-0.50) .. (0.06,-0.385);
+    \end{scope}
+  },
+  bear/.pic={
+    \begin{scope}[face line]
+    \filldraw[fill=bearfill] (-0.46,0.50) circle (0.24);
+    \filldraw[fill=bearfill] (0.46,0.50) circle (0.24);
+    \fill[bearlight] (-0.46,0.50) circle (0.12);
+    \fill[bearlight] (0.46,0.50) circle (0.12);
+    \filldraw[fill=bearfill] (0,0) circle (0.64);
+    \fill (-0.24,0.14) circle (0.075);
+    \fill (0.24,0.14) circle (0.075);
+    \filldraw[fill=bearlight] (0,-0.24) ellipse (0.30 and 0.24);
+    \fill (0,-0.13) ellipse (0.12 and 0.08);
+    \draw (0,-0.19) -- (0,-0.30);
+    \draw (0,-0.30) .. controls (-0.05,-0.37) and (-0.13,-0.37) .. (-0.16,-0.31);
+    \draw (0,-0.30) .. controls (0.05,-0.37) and (0.13,-0.37) .. (0.16,-0.31);
+    \end{scope}
+  },
+  rabbit/.pic={
+    \begin{scope}[face line]
+    \filldraw[fill=rabbitfill, rotate around={-8:(-0.22,0.52)}] (-0.22,0.52) ellipse (0.15 and 0.46);
+    \filldraw[fill=rabbitfill, rotate around={8:(0.22,0.52)}] (0.22,0.52) ellipse (0.15 and 0.46);
+    \fill[pinkish, rotate around={-8:(-0.22,0.56)}] (-0.22,0.56) ellipse (0.07 and 0.32);
+    \fill[pinkish, rotate around={8:(0.22,0.56)}] (0.22,0.56) ellipse (0.07 and 0.32);
+    \filldraw[fill=rabbitfill] (0,-0.22) ellipse (0.56 and 0.50);
+    \fill (-0.20,-0.10) circle (0.07);
+    \fill (0.20,-0.10) circle (0.07);
+    \filldraw[fill=pinkish] (0,-0.25) ellipse (0.07 and 0.05);
+    \draw (0,-0.30) -- (0,-0.36);
+    \draw (0,-0.36) .. controls (-0.04,-0.41) and (-0.10,-0.41) .. (-0.13,-0.36);
+    \draw (0,-0.36) .. controls (0.04,-0.41) and (0.10,-0.41) .. (0.13,-0.36);
+    \filldraw[fill=white] (-0.07,-0.40) rectangle (0.07,-0.52);
+    \draw (0,-0.40) -- (0,-0.52);
+    \draw (-0.14,-0.28) -- (-0.66,-0.22);
+    \draw (-0.14,-0.32) -- (-0.66,-0.40);
+    \draw (0.14,-0.28) -- (0.66,-0.22);
+    \draw (0.14,-0.32) -- (0.66,-0.40);
+    \end{scope}
+  },
+  pig/.pic={
+    \begin{scope}[face line]
+    \filldraw[fill=pigfill] (-0.56,0.28) -- (-0.66,0.86) -- (-0.18,0.56) -- cycle;
+    \filldraw[fill=pigfill] (0.56,0.28) -- (0.66,0.86) -- (0.18,0.56) -- cycle;
+    \filldraw[fill=pigfill] (0,0) ellipse (0.68 and 0.62);
+    \fill (-0.26,0.18) circle (0.075);
+    \fill (0.26,0.18) circle (0.075);
+    \filldraw[fill=pigsnout] (0,-0.18) ellipse (0.28 and 0.19);
+    \fill (-0.10,-0.18) ellipse (0.045 and 0.075);
+    \fill (0.10,-0.18) ellipse (0.045 and 0.075);
+    \draw (-0.14,-0.46) .. controls (-0.05,-0.52) and (0.05,-0.52) .. (0.14,-0.46);
+    \end{scope}
+  },
+  frog/.pic={
+    \begin{scope}[face line]
+    \filldraw[fill=frogfill] (-0.34,0.30) circle (0.25);
+    \filldraw[fill=frogfill] (0.34,0.30) circle (0.25);
+    \filldraw[fill=frogfill] (0,-0.12) ellipse (0.74 and 0.50);
+    \fill[frogfill] (-0.34,0.30) circle (0.235);
+    \fill[frogfill] (0.34,0.30) circle (0.235);
+    \filldraw[fill=white] (-0.34,0.32) circle (0.15);
+    \filldraw[fill=white] (0.34,0.32) circle (0.15);
+    \fill (-0.34,0.32) circle (0.07);
+    \fill (0.34,0.32) circle (0.07);
+    \fill (-0.07,-0.02) circle (0.03);
+    \fill (0.07,-0.02) circle (0.03);
+    \draw (-0.46,-0.18) .. controls (-0.20,-0.42) and (0.20,-0.42) .. (0.46,-0.18);
+    \fill[pinkish!60] (-0.50,-0.10) circle (0.07);
+    \fill[pinkish!60] (0.50,-0.10) circle (0.07);
+    \end{scope}
+  },
+}

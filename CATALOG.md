@@ -147,7 +147,7 @@ Bands are entry points by prerequisites, not age limits. Status: piloted means a
 
 ## Drafts awaiting review
 
-Student-page drafts added for the organizer's review. None is approved, piloted or on the six-year path, and none has a facilitator guide yet. Their records are in [catalog/drafts/](catalog/drafts/) and in the `[[drafts]]` entries of week records; the explorer shows them with dashed outlines.
+Drafts added for the organizer's review. None is approved, piloted or on the six-year path. The new themes have draft facilitator guides from an untested stage; new pages for existing weeks rely on those weeks' guides. Their records are in [catalog/drafts/](catalog/drafts/) and in the `[[drafts]]` entries of week records; the explorer shows them with dashed outlines.
 
 ### New themes
 

@@ -1,0 +1,160 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,margin=.7in,headheight=15pt,headsep=18pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,graphicx,tikz}
+\usepackage[hidelinks]{hyperref}
+\usetikzlibrary{shapes.geometric}
+\renewcommand{\familydefault}{\sfdefault}\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\definecolor{redtint}{RGB}{248,180,172}
+\definecolor{bluetint}{RGB}{110,150,215}
+\definecolor{redctr}{RGB}{235,95,85}
+\definecolor{bluectr}{RGB}{30,70,160}
+\definecolor{gridline}{RGB}{60,60,60}
+\definecolor{writeline}{RGB}{185,185,185}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Week NN / Hex / Facilitator guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week NN / HEX-FAC-v1}\fancyfoot[R]{\thepage}
+\newcommand{\head}[1]{\par\textbf{\large #1}\par\nopagebreak}
+\newcommand{\sub}[1]{\par\textbf{#1}\par\nopagebreak}
+\newcommand{\x}{\ensuremath{\times}}
+\begin{document}
+\head{Mathematical overview: a full Hex board always has exactly one winner}
+\textbf{The game.} An $n\x n$ board is a rhombus of hexagons; Red owns the top and bottom edges, Blue the sides. Players take turns placing a counter of their color on an empty hexagon. A \emph{chain} is a row of same-colored hexagons, each sharing a side with the next; a player wins with a chain joining their two edges. Coordinates are (row, column) from 1 at the top left, for adults only. Each row sits half a hexagon right of the one above, so a column is a \emph{slanted line} parallel to the blue edges, and the top-left and bottom-right corners are the sharp ones.
+
+\textbf{Theorem 1 (no draws).} When every hexagon holds a counter, exactly one player has a winning chain. \emph{Not both} holds on any board, full or not. Draw Red's chain as a line through its hexagons' centers from top to bottom. It separates the two blue edges, so a blue chain must cross it, and segments joining centers of touching hexagons meet only at a shared center: the crossing would be a hexagon of both colors. (The separation is the Jordan curve theorem for a polygonal path; children rightly treat it as obvious.) \emph{At least one} is Gale's boundary path. Count the colored edges as red and blue. From the top-left corner, where red meets blue, walk along sides of hexagons with red on one side and blue on the other. At every corner the path reaches, exactly one other side separates red from blue (three regions meet there, or one hexagon and an edge), so the path continues in exactly one way and never revisits a corner. The board is finite, so the path ends at another corner where red meets blue. Red stays on the same hand throughout, which rules out the bottom-right corner. At the bottom left, the red hexagons beside the path form a red chain; at the top right, the blue ones form a blue chain.
+
+\emph{Assumptions and limits.} The board must be full; a partly filled board can have no winner. Equal sides are not needed. The proof needs exactly three hexagons at a corner: on a square board a checkerboard has no winner with side contacts, and two winners if corner contacts count. Gale (1979) showed it is equivalent to Brouwer's fixed-point theorem (background only). So a game cannot be drawn.
+
+\textbf{Theorem 2 (fewest blockers).} If every hexagon without a blue counter becomes red, Red is stopped exactly when the blue counters contain a blue chain from left to right (Theorem 1). That takes at least $n$ counters: the $n$ slanted lines are straight red routes from top to bottom sharing no hexagon, and each needs its own blocker. A row of $n$ is enough. With red counters placed, red routes sharing no empty hexagon give the same bound (grades~2--3 Problem~5).
+
+\textbf{Theorem 3 (strategy stealing, attributed to Nash).} With the rules on page 1, the first player has a winning strategy on every $n\x n$ board. (a) In a finite game without draws, one player has a winning strategy (work backward from finished positions). (b) Reflecting the board in the long diagonal through the sharp corners swaps Red's edges with Blue's, so a second-player strategy works for either color. (c) An extra counter of your own never hurts: a chain stays a chain. (d) If the second player had a winning strategy, the first player could put a counter anywhere and then follow it as if moving second, playing anywhere else whenever it calls for the hexagon that holds the extra counter. Then both players would be sure to win, contradicting Theorem 1. \emph{Limits.} This proves a strategy exists without describing it. It fails with the tournament swap rule, which gives the second player the win, and on boards with unequal sides, where step (b) breaks: no reflection swaps the players' edges, and the player whose edges are closer together wins even moving second (computed for 3 rows by 4 and by 5). Background, unchecked: computers have solved only small boards, not the usual 11\x11.
+
+\textbf{Computed facts.} All full $3\x3$ (512) and $4\x4$ (65{,}536) boards, and all of 3 rows by 4 or 5, have exactly one winner. On $3\x3$, 5 of the 9 first moves win: the middle, the obtuse corners and the middles of Blue's edges (grades 2--3 Problem 8).
+
+\textbf{What children discover.} \emph{Experiments}: games, filling boards, paths on boards they color. \emph{Conjectures}: someone always wins; the path ends at one of two corners; the middle is the best start. \emph{Explanations}: chains cannot cross; the path cannot stop or reach the wrong corner; each slanted line needs a blocker; two ways to connect beat one blocker; stealing a strategy. Computer checks settle small boards; only arguments prove general statements.
+
+\textbf{Band map.} \emph{K--1}: play $3\x3$ and $4\x4$; fill so nobody or both win; compare two first moves; fewest blockers. \emph{2--3}: play $5\x5$; the same impossibility; the square-board contrast; fewest blockers with a reason; Blue-to-move positions; all winning $3\x3$ first moves. \emph{4--5}: the experiments faster; explain ``not both''; test the path and use it for ``at least one''; the extra counter; refute a second-player strategy.
+
+\newpage
+\head{Preparation, launch and pacing}
+\textbf{Status.} Unpiloted; nothing printed or handled. Untested: counter fit, printers shrinking grades 4--5 page 9 (landscape) or the launch board, game lengths, whether K--1 children see bending chains, preparation time.
+
+\textbf{Prerequisites.} Counting only. K--1 reads nothing: the adult reads; children build, trace and circle. Grades 2--3 read up to four sentences, with help; they mark answers (Problems 6--8) and write short reasons (3, 4). Grades 4--5 read up to five sentences and write explanations (5, 8--10); an adult reading aloud is routine help. Reasoning grows from tracing a bending chain to looking two moves ahead (K--1 Problem 6, 2--3 Problems 6--8, 4--5 Problems 3, 9), a long pencil path (4--5 Problem 6) and proof by contradiction (4--5 Problem 10).
+
+\textbf{Materials.} Per pair: about 25 red and 25 blue counters no wider than 20 mm, such as 19 mm (3/4 inch) bingo chips. The hexagons are 24 mm across, so the 25 mm counters of some other weeks overlap their neighbors. A pencil each; in grades 4--5 also a red and a blue colored pencil each (Problem 7). One bag per pair (two each at K--1 and 2--3, one at 4--5 with a referee) plus a launch set: about 150 counters of each color. That is enough: no page needs more than 25 of one color; a full $7\x7$ game uses at most 25 red and 24 blue.
+
+\textbf{Printing.} US Letter, single-sided, at Actual size (100\%). One packet per child: K--1 6 pages, grades 2--3 8 pages, grades 4--5 9 pages. Nothing is cut; large boards are mats for counters. The small boards (grades 2--3 page 8, grades 4--5 page 3; 13 mm hexagons) and the path boards (grades 4--5 pages 5--6; 16 mm) take pencil, not counters. Grades 4--5 page 9 is landscape; check one copy prints full size. Print the launch board (page \pageref{launchboard} of this guide) once. Spares: K--1 pages 2 and 4, grades 2--3 page 2 and grades 4--5 page 2, so a pair can keep a full board while trying another; grades 4--5 pages 5--7, with red and blue pencils, for 2--3 continuations.
+
+\textbf{Preparation time.} Order about 150 red and 150 blue 3/4-inch bingo chips well ahead. Then about 45 minutes: 10 printing, 15 counting counters into six bags, 5 putting real counters on a printed $5\x5$ and the $7\x7$ to check the fit, and 15 going through the K--1 notes with the parent volunteer. An untested estimate.
+
+\textbf{Staffing.} \emph{K--1}: the parent volunteer reads each problem aloud and checks every claimed win by tracing the chain with a finger from edge to edge; Hex chains bend and step sideways, and young children may miss them. Problems 2, 3 and 5 cannot be done. The adult checks each ``nobody won'' board carefully, never hints that a solution exists, and answers ``I can't'' with ``What happens every time?''. \emph{Grades 2--3}: the second mathematician checks positions and asks for reasons. \emph{Grades 4--5}: the organizer; the third child referees (checks chains, settles claims) and rotates in. Everywhere, children choose the moves and the boards; an adult choosing them means the board is too big, so return to a smaller one. Fill problems are not games: no turns, any mix of colors.
+
+\textbf{Launch (five minutes, after running around).} Hand out counters first and allow a minute of free handling. Gather everyone at the launch board, a $6\x6$ size no problem uses. Point to RED along the top and bottom, BLUE along the sides, and the six hexagons that share a side with one hexagon. Build the input below: Red's chain leaves the top edge and bends, and a blue counter sits below its last hexagon. Place Red's next counter beside the last one: a chain may step sideways. Then add the rest of the finished game, the picture on page 1 of every packet, and ask a child to trace Red's chain from edge to edge with a finger. Say once: one counter per turn, on any empty hexagon; counters never move. Then everyone starts Problem 1. Do not fill the launch board, say whether someone must always win, or talk about good first moves; those are the problems.
+\begin{center}\input{figs/launch-panels}\end{center}
+
+\textbf{A first visit.} Tables have 35--40 minutes. \emph{K--1}: Problem 1 (several games, swapping who starts), Problems 2--3, Problem 4, then Problem 5 if there is time. \emph{Grades 2--3}: Problems 1--4. \emph{Grades 4--5}: Problems 1--5, with Problem 11 as a game whenever a break helps. \emph{Return visit}: K--1 Problems 5--7; grades 2--3 Problems 5--8; grades 4--5 Problems 6--10. Finishing every page is not the goal. If the Poisoned cookie (Chomp) week is also used, teach it first and treat grades 4--5 Problems 9--10 as a return to strategy stealing. For the closing share, ask every table: did anyone fill a board with no winner?
+
+\textbf{Continuations by readiness.} K--1 children who trace chains easily can play the $5\x5$ board (grades 2--3 page~1). Grades 2--3 can try the boundary path (grades 4--5 Problems 6--7) or the extra counter (grades 4--5 Problem~9). Grades 4--5 can ask which first moves win on $4\x4$ (by computer, only the short diagonal joining the obtuse corners: (1,4), (2,3), (3,2), (4,1)), or play on 3 rows by 4 columns: red counters filling the bottom row of a $4\x4$ board (grades 2--3 page 2) count as Red's edge. Red then wins even moving second. Why does Maya's argument fail? (Her plan fits only Red's edges.)
+
+\textbf{Hints only when useful.} Ask, do not direct: ``Which hexagons touch this one?'' ``Can Red get through here?'' Save ``How do you know for sure?'' for after a child makes a claim.
+
+\textbf{Record.} Game lengths, whether children see bending chains without help, what they tried in the fill problems, which problems they wanted to continue, and the real preparation time.
+
+\head{K--1: answers in plain words}
+\sub{Problem 1, page 1, and Problem 4, page 3: play}
+Open play. A $3\x3$ game should last about a minute; play many and swap who starts. Trace every win. On the $3\x3$ board, starting in the middle wins with good play; keep this for Problem 6.
+
+\sub{Problems 2 and 3, page 2, and Problem 5, page 4: nobody wins? both win?}
+Nobody takes turns here: the pair fills the board together, using any number of each color. The answer is no, all three times. Every one of the 512 ways to fill the $3\x3$ board, and the 65{,}536 ways for $4\x4$, has exactly one winner. Children may notice: ``When I stop Red, the blue counters make a line across, and Blue wins.'' That is the K--1 explanation: stopping Red takes a blue wall from side to side, and such a wall is a blue chain. For ``both'': Red's chain is a road from top to bottom, and Blue's chain cannot cross it without a hexagon that is both colors. When a pair says nobody won, trace together; there is always a chain, often bending. Two or three attempts each is plenty before moving on. Hint: ``What do the blue counters that stop Red make?''
+
+\sub{Problem 6, page 5: can Red always win?}
+Top board, star in the middle: \textbf{yes}. The middle touches two hexagons in the top row and two in the bottom row. Whatever Blue covers, Red takes the other hexagon of that pair and wins. Bottom board, star in the sharp top-left corner: \textbf{no}. Blue stops Red, but only by answering in the middle, which touches two hexagons on each blue edge; Blue then uses the same trick. Weak play can give either wrong answer, so let the children play Red against you, then Blue against you, and try to beat you. Hints: ``Which hexagons let this red counter reach the top? Can Blue cover both?'' ``Blue, which hexagon touches the most others?''
+
+\sub{Problem 7, page 6: fewest blue counters}
+3 on the small board, 4 on the large one: one blue counter in each slanted line parallel to the blue edges, joined from side to side. A straight row is simplest; 8 different sets of three work, and 20 sets of four. The blue counters that stop Red always form a blue chain. Fewer never work: each slanted line is a straight red road from top to bottom, so each needs its own blue counter. Hint: ``Can Red walk straight down this slanted line?''
+
+\head{Grades 2--3: solutions and hints}
+\sub{Problem 1, page 1: play on $5\x5$}
+Open play; games should take a few minutes.
+
+\sub{Problem 2, page 2: nobody wins? both win?}
+No and no; all 65{,}536 fillings of the $4\x4$ board have exactly one winner. The expected reasons are the K--1 ones. Once a child says it cannot be done, ask ``How do you know for sure?''; an argument with the counters is a proof at this level.
+
+\sub{Problem 3, page 3: the square board}
+A checkerboard works: no two squares of one color share a side, so no chain is longer than one square. In all, 21{,}150 of the 65{,}536 fillings have no winner. Why not on hexagons: on the checkerboard the colors slip past each other at corners where four squares meet, and neither connects. Hexagons that touch always share a side, and only three meet at a corner, so at every corner one color gets through. ``Hexagons can't touch only at a corner'' is the heart of it. Hint: ``What happens where four squares meet? How many hexagons meet at a point?''
+
+\sub{Problem 4, page 4: fewest blue counters, and why}
+5. Any row works; 48 sets of five work, each a blue chain from left to right with one counter in each slanted line. Why fewer fail: the five slanted lines parallel to the blue edges are five straight red roads from top to bottom, no two sharing a hexagon, and each needs its own blue counter. Also good: Blue's chain across moves at most one slanted line per step. Hint: ``Could Red go straight down this slanted line?''
+
+\sub{Problem 5, page 5: around Red's wall}
+\vspace{-\baselineskip}\noindent\begin{minipage}[t]{0.70\textwidth}\vspace{0pt}
+6, for example (4,1), (4,2), (5,2), (5,3), (5,4), (5,5), shown at right. Blue's chain must pass Red's wall, and the only empty hexagon in the wall's slanted line is (5,3). From there the only way left is (5,2), and since (5,1) is red, the cheapest way on to the left edge is (4,2), (4,1). Every best answer contains those four; two more reach the right edge: (5,4) and (5,5), (5,4) and (4,5), (4,4) and (4,5), or (4,4) and (3,5). Why five are not enough: these six red routes share no empty hexagon, so each needs its own blue counter: the wall then (5,2); the wall then (5,3); slanted line 1 down to Red's (5,1); slanted line 2 down to (4,2) and on to Red's (5,1); slanted lines 4 and 5. Hint: ``Where can Blue get past the wall?''
+\end{minipage}\hfill
+\begin{minipage}[t]{0.26\textwidth}\vspace{0pt}\centering\input{figs/p5-answer}\end{minipage}
+
+\sub{Problems 6 and 7, pages 6--7: can Blue stop Red?}
+\begin{center}\input{figs/puzzle-answers}\end{center}
+\emph{Problem 6, top: yes, only at (4,2).} Red's chain from the top has one open way to the bottom, (4,2), so Blue must take it now. Then Blue wins by answering at (3,3), or at (4,3) if Red took (3,3). From (3,3) Blue can finish at (2,4), (3,4), or (2,3), which touches Blue's (1,4); Red's moves just before and after cannot block all three (after Red's (3,4), two remain). From (4,3) Blue finishes at (3,4) or (4,4).
+
+\emph{Problem 6, bottom: no.} Red has two different winning moves, (3,1) and (3,2); each joins Red's top group to (4,1). Blue can block only one.
+
+\emph{Problem 7, top: no.} Red's counters are joined by three separate pairs: (1,2)/(1,3) to the top, (2,3)/(3,2) between the counters, (4,2)/(4,3) to the bottom. Whatever Blue takes, Red takes its partner.
+
+\emph{Problem 7, bottom: yes, only at (3,2).} Red is linked to the top by the pairs (1,2)/(2,1) and (2,3)/(3,2), but (3,3) has only one way down, (4,2). Blue's (3,2) breaks a pair; then Blue has two ways to the left edge, (3,1)/(4,1), and two ways right: (4,2) joins Blue's (4,3), which touches (3,4); or (2,3) leads to (1,4)/(2,4). Tempting wrong moves: Blue (4,2) loses to Red (4,1), which (2,2) reaches through (3,1) or (3,2); Blue (2,3) loses to Red (3,2).
+
+To settle a disagreement, play the position out with roles swapped; the adult can play Red. Hints: ``Where could Red win on the very next move?'' ``Does Red have two ways to connect anywhere? Can one blue counter stop both?''
+
+\sub{Problem 8, page 8: winning first moves on $3\x3$}
+\vspace{-\baselineskip}\noindent\begin{minipage}[t]{0.80\textwidth}\vspace{0pt}
+Five, marked W: (1,3), (2,1), (2,2), (2,3), (3,1), the middle, the two obtuse corners and the middles of the blue edges. The sharp corners and the middles of Red's own edges lose, which may surprise children. \emph{Why the list is complete.} A half turn of the board keeps every edge's color, so (1,1) behaves like (3,3), (1,2) like (3,2), (1,3) like (3,1), and (2,1) like (2,3). That leaves five cases.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.17\textwidth}\vspace{0pt}\centering\input{figs/openings}\end{minipage}\par
+\emph{(1,1) or (1,2) loses.} Blue takes the middle, which touches two hexagons on each blue edge, (2,1)/(3,1) and (1,3)/(2,3). Red's counter is on none of them, so Blue answers in pairs. The middle is Blue's only good reply.
+
+\emph{(2,2) wins.} Two ways up, (1,2)/(1,3), and two ways down, (3,1)/(3,2).
+
+\emph{(1,3) wins.} Red next takes the middle, with two ways down, unless Blue took (2,2), (3,1) or (3,2). Against (2,2): Red (2,3), with (3,2)/(3,3) down. Against (3,1): Red (3,2), joined to (1,3) through (2,2) or (2,3). Against (3,2): Red (3,1), threatening the middle; if Blue takes it, Red (2,1) has (1,1)/(1,2) up.
+
+\emph{(2,1) wins.} Red next takes the middle, leaving at least two ways up and (3,1)/(3,2) down, unless Blue took (2,2), (3,1) or (3,2). Against (2,2) or (3,2): Red (3,1), with (1,1)/(1,2) up. Against (3,1): Red (2,3), the only winning answer; Red can then go up through (1,3) or the middle and down through (3,2) or (3,3).
+
+Children can split the nine first moves, test them as Red against a partner or the adult, and pool the results on the small board. Hint: ``If Red starts here, where should Blue answer?''
+
+\head{Grades 4--5: solutions and hints}
+\sub{Problem 1, page 1, and Problem 11, page 9: play}
+Open play. The $7\x7$ games are long enough to try two-way connections; use them as a break or to close.
+
+\sub{Problem 2, page 2: nobody wins? both win?}
+No and no (Theorem 1). Expect children to try, fail and start explaining; keep their reasons for Problems 5 and~8.
+
+\sub{Problem 3, page 3: winning first moves on $3\x3$}
+As grades 2--3 Problem 8: (1,3), (2,1), (2,2), (2,3), (3,1), with the five cases there.
+
+\sub{Problem 4, page 4: the square board, two ways}
+One checkerboard does both: with side contacts nobody wins; with corner contacts, Red's diagonal and Blue's opposite diagonal are both chains, crossing where four squares meet (21{,}150 solutions for each part). On squares the two rules break ``exactly one winner'' in opposite ways, so a reason for hexagons must use something about hexagons.
+
+\sub{Problem 5, page 4: why not both}
+Expected: Red's chain is a wall from top to bottom, Blue must cross it to get from side to side, and on hexagons a crossing needs a hexagon of both colors. With corner contacts on squares, two diagonal chains cross at a point without sharing a square; hexagons never touch only at a point. The reason holds on partly filled boards too, so a game never has two winners. Follow-up: ``Does your reason work on the square board with corners? Where does it break?''
+
+\sub{Problem 6, page 5: the boundary path}
+Board 1 ends at the bottom-left corner after 23 sides: Red wins, with the chain (1,2), (2,2), (2,3), (2,4), (3,4), (4,3), (4,2), (5,2) beside the path. Board 2 ends at the top-right corner after 26 sides: Blue wins, for example with (4,1), (4,2), (5,2), (5,3), (4,4), (3,4), (3,5). On both boards, sides 7 and 8 run along the left blue edge beside the red hexagon (3,1) before the path turns back in; that is not the end. If the rule needs showing, put a few red and blue counters near a corner of the launch board and trace the first sides there, not on a task board. Hint: ``What meets at this corner? Which side keeps red on one side and blue on the other?''
+\begin{center}\input{figs/walk-answers}\end{center}
+
+\sub{Problem 7, page 6: paths on their own boards}
+No. The path always ends at the bottom-left corner when Red has a chain and at the top-right corner when Blue has one, never at the bottom right or inside the board (all 512 colorings of $3\x3$ and 65{,}536 of $4\x4$ checked). The children's evidence is their own boards, pooled across the table; trying to make a path stop or reach the bottom right is exactly the right thing. A path that seems to fork has a slip; retrace it.
+
+\sub{Problem 8, page 6: why someone always wins}
+The path argument in children's words: at every corner the path has exactly one way on, so it never gets stuck or comes back, and on a finite board it must come out at a corner. Red stays on the same side, so not at the bottom right. At the bottom left, the red hexagons beside it join top to bottom; at the top right, the blue ones join left to right. Also good: ``If Red is blocked, the blocking blue counters make a wall across, which is a blue chain''; then ask why the blockers must be joined (Problem 6's path, along the edge of the red hexagons joined to the top, answers it). Follow-up: ``What did you use about hexagons?''
+
+\sub{Problem 9, page 7: an extra counter}
+Yes, but only by playing (2,3): Red then has two ways to the top, (1,3)/(1,4), and two ways to its counter (4,2) on the bottom row, (3,2)/(3,3). With one extra red counter on any of the 12 empty hexagons, Red still wins: play (2,3), or anywhere if the extra counter is there. An extra red counter never hurts: a red counter never blocks a red chain, and Red's old plan still works, playing anywhere else if it asks for the occupied hexagon. With Blue to move, Blue would win, at (1,3), (1,4), (2,3), (3,2) or (3,3). Hint: ``Can a red counter ever get in Red's way?''
+
+\sub{Problem 10, page 8: Maya}
+Expected, Theorem 3 in children's words: if Maya had a sure way to win moving second, the first player could put a counter anywhere, then pretend to be second and follow her plan, playing anywhere else if it asks for the hexagon already used. The extra counter never hurts (Problem 9), so the first player would win too, and both cannot win (Problem 5). If a child objects that Maya's plan is for one color, the adult can supply step (b): flipping the board over the line through the sharp corners swaps the red and blue edges. ``Going first can't hurt you'' is the main idea; the full argument is a readiness-dependent goal, and Problem 9 is the concrete core. Hints: ``What if someone used Maya's plan against her?'' ``Is an extra counter ever bad?''
+
+\head{Sources and connections}
+The outline cites Martin Gardner, ``The Game of Hex'', in \emph{Hexaflexagons and Other Mathematical Diversions} (University of Chicago Press, 1988; first published 1959 as \emph{The Scientific American Book of Mathematical Puzzles and Diversions}); David Gale, ``The Game of Hex and the Brouwer Fixed-Point Theorem'', \emph{American Mathematical Monthly} 86 (1979), 818--827; and Ryan B.\ Hayward and Bjarne Toft, \emph{Hex: The Full Story} (CRC Press, 2019). None was available locally, so none was consulted and no page references are given. Every answer and count is proved here or checked by \texttt{check\_guide.py}; the background facts (the Brouwer equivalence, the swap rule, unequal boards beyond the computed cases, what computers have solved) follow the outline or general knowledge, unchecked against a source. Library: Week 16's Sperner lemma is the discrete cousin of the Hex theorem; Week 1e is another placement game; the Poisoned cookie (Chomp) draft also uses strategy stealing.
+
+\newpage
+\newgeometry{margin=.45in,headheight=15pt,headsep=10pt,footskip=18pt}
+\head{Launch board ($6\x6$): print once at Actual size, then turn it a quarter turn clockwise}\label{launchboard}
+\begin{center}\rotatebox{90}{\input{figs/launch-board}}\end{center}
+\end{document}

@@ -1,0 +1,202 @@
+== drawn networks versus hand-typed ones ==
+  ok   k_p1_big: 3 dots, 2 links, same shape and dot numbering as drawn
+  ok   k_p2_big: 4 dots, 3 links, same shape and dot numbering as drawn
+  ok   k_p3_big: 5 dots, 4 links, same shape and dot numbering as drawn
+  ok   k_p4_big: 5 dots, 4 links, same shape and dot numbering as drawn
+  ok   k_p5_big: 4 dots, 3 links, same shape and dot numbering as drawn
+  ok   k_p6_big: 3 dots, 3 links, same shape and dot numbering as drawn
+  ok   k_p7_big: 4 dots, 4 links, same shape and dot numbering as drawn
+  ok   k_p8_big: 5 dots, 4 links, same shape and dot numbering as drawn
+  ok   path4: 4 dots, 3 links, same shape and dot numbering as drawn, caption 'cards 0 to 3'
+  ok   path4: caption matches link count
+  ok   path5: 5 dots, 4 links, same shape and dot numbering as drawn, caption 'cards 0 to 4'
+  ok   path5: caption matches link count
+  ok   path6: 6 dots, 5 links, same shape and dot numbering as drawn, caption 'cards 0 to 5'
+  ok   path6: caption matches link count
+  ok   path11: 11 dots, 10 links, same shape and dot numbering as drawn, caption 'cards 0 to 10'
+  ok   path11: caption matches link count
+  ok   tree_fork: 5 dots, 4 links, same shape and dot numbering as drawn, caption 'cards 0 to 4'
+  ok   tree_fork: caption matches link count
+  ok   tree_h: 6 dots, 5 links, same shape and dot numbering as drawn, caption 'cards 0 to 5'
+  ok   tree_h: caption matches link count
+  ok   star5: 6 dots, 5 links, same shape and dot numbering as drawn, caption 'cards 0 to 5'
+  ok   star5: caption matches link count
+  ok   loop3: 3 dots, 3 links, same shape and dot numbering as drawn, caption 'cards 0 to 3'
+  ok   loop3: caption matches link count
+  ok   loop4: 4 dots, 4 links, same shape and dot numbering as drawn, caption 'cards 0 to 4'
+  ok   loop4: caption matches link count
+  ok   loop5: 5 dots, 5 links, same shape and dot numbering as drawn, caption 'cards 0 to 5'
+  ok   loop5: caption matches link count
+  ok   loop6: 6 dots, 6 links, same shape and dot numbering as drawn, caption 'cards 0 to 6'
+  ok   loop6: caption matches link count
+  ok   loop7: 7 dots, 7 links, same shape and dot numbering as drawn, caption 'cards 0 to 7'
+  ok   loop7: caption matches link count
+  ok   loop7_track: 7 dots, 7 links, same shape and dot numbering as drawn, caption 'cards 0 to 7'
+  ok   loop7_track: caption matches link count
+  ok   loop8_track: 8 dots, 8 links, same shape and dot numbering as drawn, caption 'cards 0 to 8'
+  ok   loop8_track: caption matches link count
+  ok   k4: 4 dots, 6 links, same shape and dot numbering as drawn, caption 'cards 0 to 6'
+  ok   k4: caption matches link count
+  ok   k5: 5 dots, 10 links, same shape and dot numbering as drawn, caption 'cards 0 to 10'
+  ok   k5: caption matches link count
+  ok   tree_spider: 7 dots, 6 links, same shape and dot numbering as drawn, caption 'cards 0 to 6'
+  ok   tree_spider: caption matches link count
+  ok   tree_cat: 8 dots, 7 links, same shape and dot numbering as drawn, caption 'cards 0 to 7'
+  ok   tree_cat: caption matches link count
+  ok   launch network (triangle with a tail) is not any printed network
+
+== launch attempt on the triangle with a tail ==
+  draft attempt (top, left, right, tail) = (0, 1, 2, 4) links [1, 1, 2, 2]
+     shows: row (0, 1, 2) is a K-1 Problem 1 case (or the pages' example)
+     shows: row (1, 2, 0) is a K-1 Problem 1 case (or the pages' example)
+     shows: row (2, 0, 1) is a K-1 Problem 1 case (or the pages' example)
+     shows: triangle [0, 1, 2] is a K-1 Problem 6 case
+  ok   the draft's attempt shows page answers or cases (the review's must-fix)
+  revised attempt (top, left, right, tail) = (4, 3, 1, 0) links (top-left, left-right, top-right, tail): [1, 2, 3, 1]
+  ok   revised attempt fails: links 1, 2, 3, 1 -- two 1s and no 4
+  ok   revised attempt shows no row, triangle or star that is a page answer or case
+  ok   the measured step: the 3 is two cubes taller than the 1
+  ok   launch pieces: towers 1, 3, 4 (cards 0, 1, 3, 4)
+  28 clean failing attempts in all (of 96); revised one among them: True
+  (the network itself can be labelled: 20 labellings; not shown to children)
+
+== K-1 (printed tower rule, brute force) ==
+  P1 path of 3, towers 1,2: [(0, 2, 1), (1, 0, 2), (1, 2, 0), (2, 0, 1)]
+  ok   P1 exactly 4 ways
+  ok   P1 tower rule = graceful labellings
+  P2 path of 4, towers 1,2,3: [(0, 3, 1, 2), (1, 2, 0, 3), (2, 1, 3, 0), (3, 0, 2, 1)]
+  ok   P2 exactly 4 ways
+  P3 path of 5: 8 ways: [(0, 4, 1, 3, 2), (1, 2, 4, 0, 3), (1, 4, 0, 2, 3), (2, 1, 3, 0, 4), (2, 3, 1, 4, 0), (3, 0, 4, 2, 1), (3, 2, 0, 4, 1), (4, 0, 3, 1, 2)]
+  ok   P3 8 ways incl. 0-4-1-3-2
+  P4 fork (row of 4 = dots 0..3, dot 4 under dot 1): 12 ways: [(0, 4, 2, 3, 1), (1, 0, 4, 2, 3), (1, 3, 0, 4, 2), (1, 4, 0, 2, 3), (1, 4, 2, 3, 0), (2, 1, 4, 0, 3), (2, 3, 0, 4, 1), (3, 0, 2, 1, 4), (3, 0, 4, 2, 1), (3, 1, 4, 0, 2), (3, 4, 0, 2, 1), (4, 0, 2, 1, 3)]
+  ok   P4 12 ways incl. left 0, branch 4, then 2, 3; below 1
+  P5 star, middle 0: 6 ways
+  ok   P5 middle 0 works
+  P5 star, middle 1: 0 ways
+  ok   P5 middle 1 impossible
+  P5 star, middle 2: 0 ways
+  ok   P5 middle 2 impossible
+  P5 star, middle 3: 6 ways
+  ok   P5 middle 3 works
+  P6 triangle: 12 ways, left over [1, 2]; e.g. (0, 1, 3)
+  ok   P6 triangle circle [1, 2]
+  P7 square: 16 ways, left over [1, 3]; e.g. (0, 2, 1, 4)
+  ok   P7 square circle [1, 3]
+  P8 star of 4: middle [0, 4] (0 = empty); 48 ways
+  ok   P8 middle empty or 4-tower; 24 each
+  ok   P3 tower count = graceful count
+  ok   P4 tower count = graceful count
+  ok   P5 tower count = graceful count
+  ok   P6 tower count = graceful count
+  ok   P7 tower count = graceful count
+  ok   P8 tower count = graceful count
+
+== Grades 2-3 ==
+  ok   path4: example (0, 3, 1, 2) works; 4 labellings in all
+  ok   path5: example (0, 4, 1, 3, 2) works; 8 labellings in all
+  ok   path6: example (0, 5, 1, 4, 2, 3) works; 24 labellings in all
+  ok   path11: example (0, 10, 1, 9, 2, 8, 3, 7, 4, 6, 5) works; 648 labellings in all
+  ok   fork: example (0, 4, 2, 3, 1) works; 12 labellings in all
+  ok   H: example (0, 5, 1, 4, 2, 3) works; 48 labellings in all
+  ok   P4 star of 5: middle cards [0, 5]
+  ok   loop  3:     12 labellings; 1+...+3 = 6 (even)
+  ok   loop  4:     16 labellings; 1+...+4 = 10 (even)
+  ok   loop  5:      0 labellings; 1+...+5 = 15 (odd)
+  ok   loop  6:      0 labellings; 1+...+6 = 21 (odd)
+  ok   loop  7:    168 labellings; 1+...+7 = 28 (even)
+  ok   loop  8:    384 labellings; 1+...+8 = 36 (even)
+  ok   loop  9:      0 labellings; 1+...+9 = 45 (odd)
+  ok   loop 10:      0 labellings; 1+...+10 = 55 (odd)
+  ok   loop 11:   4576 labellings; 1+...+11 = 66 (even)
+  ok   loop 12:  11808 labellings; 1+...+12 = 78 (even)
+  ok   loop 3: (0, 1, 3) works
+  ok   loop 3: (0, 2, 3) works
+  ok   loop 4: (0, 2, 1, 4) works
+  ok   loop 4: (0, 4, 2, 3) works
+  ok   loop 7: (0, 7, 1, 6, 2, 4, 3) works
+  ok   loop 8: (0, 8, 1, 7, 2, 5, 3, 4) works
+  loop 7: 168 of 40320 card arrangements work = 1 in 240
+  loop 8: 384 of 362880 card arrangements work = 1 in 945
+  ok   loop 5: link numbers 1..5 contain 3 odd numbers
+  ok   loop 6: link numbers 1..6 contain 3 odd numbers
+  ok   P8 rulers 0..6 with 4 counters: [(0, 1, 4, 6), (0, 2, 5, 6)]
+  ok   strip example 0,2,7 -> 2,5,7
+
+== Grades 4-5 ==
+  ok   zigzag-with-one-skip labels every loop with 0 or 3 mod 4 links, 3..1000
+  ok   zigzag loop proof idea, n <= 1000: along the path part each link is one shorter than the last except once (two shorter, at the skipped label); the one length jumped over equals the last label, which the closing link to 0 supplies
+  ok   loop of 8: links 8, 7, 6, 5, 3, 2, 1, then 4 - 0 = 4
+  loop 7: [0, 7, 1, 6, 2, 4, 3]
+  loop 8: [0, 8, 1, 7, 2, 5, 3, 4]
+  loop 11: [0, 11, 1, 10, 2, 9, 3, 7, 4, 6, 5]
+  loop 12: [0, 12, 1, 11, 2, 10, 3, 8, 4, 7, 5, 6]
+  ok   loop 100 labelled (zigzag, skipping 75)
+  P6 loop 9: 1+...+9 = 45 (odd: impossible)
+  P6 loop 10: 1+...+10 = 55 (odd: impossible)
+  P6 loop 11: 1+...+11 = 66 (even: parity allows it)
+  P6 loop 12: 1+...+12 = 78 (even: parity allows it)
+  P6 loop 100: 1+...+100 = 5050 (even: parity allows it)
+  P6 loop 101: 1+...+101 = 5151 (odd: impossible)
+  ok   path rule 0, m, 1, m-1, ... works for 2..499 dots
+  ok   P7 no five-counter ruler 0..10
+  ok   P7 after 0,1,8,10 no fifth square works
+  ok   five marks: odd distances k(5-k) in {0,4,6}, never 5
+  ok   a fifth counter on 2..7 adds four distances summing to 17; 3+4+5+6 = 18
+  ok   K4: 48 labellings, label sets {0,1,4,6} or {0,2,5,6}
+  ok   K5: no labelling
+  ok   K5: pentagon-then-star walk uses each of the 10 links once and returns
+  ok   1+...+10 = 55 is odd
+  K4: 6 links, needs 3 odd differences; odd/even count allows
+  K5: 10 links, needs 5 odd differences; odd/even count rules out
+  K6: 15 links, needs 8 odd differences; odd/even count allows
+  K7: 21 links, needs 11 odd differences; odd/even count rules out
+  K8: 28 links, needs 14 odd differences; odd/even count rules out
+  spider labellings: 60  caterpillar labellings: 144
+  ok   spider example (0, 6, 1, 4, 3, 2, 5) (centre, left near, left far, right near, right far, down near, down far)
+  ok   caterpillar method works on 3000 random caterpillars
+  ok   caterpillar rule as printed (0 on the end dot of a longest path) works on 3000 more
+  ok   caterpillar example (0, 7, 3, 5, 1, 2, 6, 4) (dots in drawing order)
+  ok   spider is not a caterpillar; the printed caterpillar is one
+  ok   the spider is the only non-caterpillar with 7 or fewer dots: {2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 1}
+  ok   all 1 tree shapes with 2 dots can be labelled
+  ok   all 1 tree shapes with 3 dots can be labelled
+  ok   all 2 tree shapes with 4 dots can be labelled
+  ok   all 3 tree shapes with 5 dots can be labelled
+  ok   all 6 tree shapes with 6 dots can be labelled
+  ok   all 11 tree shapes with 7 dots can be labelled
+  ok   all 23 tree shapes with 8 dots can be labelled
+  ok   all 47 tree shapes with 9 dots can be labelled
+  ok   all 106 tree shapes with 10 dots can be labelled
+
+== piece clearance on the working boards (from the drawn coordinates) ==
+  card  loop6        largest square piece: kept square  2.55 cm, any angle  1.96 cm
+  card  loop5        largest square piece: kept square  2.41 cm, any angle  2.01 cm
+  card  loop3        largest square piece: kept square  2.72 cm, any angle  2.09 cm
+  card  path5        largest square piece: kept square  2.60 cm, any angle  2.10 cm
+  card  tree_h       largest square piece: kept square  2.50 cm, any angle  2.11 cm
+  card  loop7        largest square piece: kept square  2.44 cm, any angle  2.13 cm
+  card  star5        largest square piece: kept square  2.56 cm, any angle  2.13 cm
+  card  loop7_track  largest square piece: kept square  2.45 cm, any angle  2.16 cm
+  card  loop8_track  largest square piece: kept square  2.45 cm, any angle  2.16 cm
+  card  loop4        largest square piece: kept square  3.10 cm, any angle  2.19 cm
+  card  k4           largest square piece: kept square  2.90 cm, any angle  2.24 cm
+  card  k5           largest square piece: kept square  2.75 cm, any angle  2.30 cm
+  card  path6        largest square piece: kept square  2.60 cm, any angle  2.37 cm
+  card  path4        largest square piece: kept square  3.40 cm, any angle  2.40 cm
+  card  path11       largest square piece: kept square  3.40 cm, any angle  2.40 cm
+  card  tree_fork    largest square piece: kept square  3.40 cm, any angle  2.40 cm
+  tower k_p3_big     largest square piece: kept square  2.70 cm, any angle  2.23 cm
+  tower k_p5_big     largest square piece: kept square  2.90 cm, any angle  2.24 cm
+  tower k_p2_big     largest square piece: kept square  3.40 cm, any angle  2.40 cm
+  tower k_p4_big     largest square piece: kept square  3.40 cm, any angle  2.40 cm
+  tower k_p6_big     largest square piece: kept square  3.16 cm, any angle  2.44 cm
+  tower k_p8_big     largest square piece: kept square  2.46 cm, any angle  2.46 cm
+  tower k_p1_big     largest square piece: kept square  3.50 cm, any angle  2.47 cm
+  tower k_p7_big     largest square piece: kept square  3.60 cm, any angle  2.55 cm
+  tightest card board kept square: loop5 2.41 cm; at any angle: loop6 1.96 cm
+  ok   a 2 cm card kept square clears every box on every card board, at least 1 mm to spare each side
+  ok   turned to its worst angle, a 2 cm card overlaps a box corner by under 1 mm at most
+  boards where a 2 cm card at its worst angle can touch a box: ['loop6']
+  ok   a 2 cm snap cube clears every box on every K-1 board at any angle (tightest 2.23 cm)
+
+ALL CHECKS PASSED

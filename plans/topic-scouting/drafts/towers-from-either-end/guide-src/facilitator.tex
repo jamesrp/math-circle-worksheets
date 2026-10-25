@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,margin=.7in,headheight=15pt,headsep=18pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,needspace,hyperref,tikz,enumitem}
+\renewcommand{\familydefault}{\sfdefault}\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Week NN / Towers from either end / Facilitator guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week NN / NN-FAC-v1}\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\hypersetup{colorlinks=false,pdfborder={0 0 0}}
+\definecolor{slotred}{RGB}{248,182,182}
+\definecolor{slotblue}{RGB}{112,152,228}
+\newcommand{\head}[1]{\par\Needspace{6\baselineskip}\medskip\textbf{\large #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+\newcommand{\pr}[2]{\par\textbf{Problem #1, page #2.}\ }
+
+% launch picture helpers (x = 1mm)
+\newcommand{\slots}[2]{% #1 = x origin, #2 = number of slots
+  \foreach \i in {1,...,#2}{\draw[thick,fill=white] ({#1+(\i-1)*7},0) rectangle ++(7,4);
+    \node[font=\scriptsize] at ({#1+(\i-1)*7+3.5},2) {\i};}}
+\newcommand{\tower}[3]{% #1 = x center, #2 = base y, #3 = height
+  \foreach \k in {1,...,#3}{\draw[fill=black!14] ({#1-1.75},{#2+(\k-1)*3.5}) rectangle ++(3.5,3.5);}}
+\begin{document}
+\head{Mathematical overview: on even rows a coloring guarantees the first player a tie or better; best play needs working backward}
+\textbf{The game and its assumptions.} A row of towers stands in numbered slots. Two players alternate; a move removes one whole tower from either end of the row. When the row is empty the player with more cubes wins, and equal totals tie. The pages use heights 1 to 6 (1 to 5 in K--1); the theorems below hold for any heights. \emph{Playing as well as you can} means collecting as many cubes as you can be sure of, as the 2--3 and 4--5 pages define it. Scores are first player--second player under that assumption unless stated. Shade the slots alternately red and blue, slot 1 red; the \emph{red total} is the cubes on red slots.
+
+\textbf{Theorem 1 (even rows): the first player can take every tower of either color, so never loses.} With an even number of towers the two end slots have different colors. The first player takes the end of the chosen color. Both ends of what remains are now the other color, so the opponent must take a tower of that color, and doing so uncovers exactly one end of the first player's color. Repeating, the first player collects exactly the towers of the chosen color, whatever the opponent does, so the score is fixed by the two color totals. Choosing the larger color gives at least half the cubes, so no even row is a first-player loss (by computer, none of the 1,296 rows of four with heights 1 to 6). \emph{Limits:} this is a guarantee, not best play. On 2, 1, 2, 3 the color totals are 4 and 4, so the plan promises only a tie, yet the first player wins 5--3 by taking the 3. ``Take the taller end'' is neither: on 1, 2, 5, 2 a grown-up who always takes the taller end loses 4--6 to a careful team, while the plan wins 6--4.
+
+\textbf{Theorem 2 (odd rows): the plan now belongs to the second player.} With an odd number of towers both ends are red. After the first move the second player faces an even row in which every blue tower is still present, and by Theorem 1 can collect all of them. So if blue $>$ red the second player wins, and if blue $=$ red the first player cannot win (a tie can happen: 1, 2, 2, 2, 1 ties 4--4). If red $>$ blue the colors settle nothing: 4, 1, 1, 1, 4 is a first-player win 6--5, but 2, 1, 5, 1, 2 (red 9, blue 2) is a second-player win 4--7. \emph{Rows of three have an exact rule:} the first player loses exactly when the middle tower is taller than the two ends together, and ties when it equals them. If the middle is strictly the tallest, either first move uncovers it, the opponent takes it, and the first player gets only the two ends. Otherwise the first player takes the tallest end; the opponent takes the larger of the two left, which is no taller, and the first player also gets the last tower (heights are at least 1), so wins.
+
+\textbf{Theorem 3 (any row): best play is found by working backward.} Let $B$ of a row be the most cubes the player to move can be sure of. One tower gives its height. For a longer row, $B(\text{row}) = \text{total of the row} - \min\bigl(B(\text{row without its left end}),\,B(\text{row without its right end})\bigr)$, since after your move the opponent moves first on one of those two shorter rows. Filling in all $n(n+1)/2$ runs of consecutive towers, shortest first, solves a row of $n$: the triangle of grades 4--5 Problem 11 (interval dynamic programming, with scores in place of win/lose labels). \emph{Limits:} working backward always finds best play but needs the whole table; the sources know no shortcut for odd rows (Peterson: no one has ``worked out an optimal strategy that works for any number of coins''). Among the 1,024 rows of five with heights 1 to 4 the first player loses 143 and ties 147 (computer count).
+
+\textbf{What children discover, and how they know it.} The destination: nobody can beat the first player on a row of four, and the shading shows why; the same plan fails on rows of five; rows of three have a rule; and, for grades 4--5, best play is found by working backward. \emph{Experiments}: playing games, trying both first moves, searching for a losing row of four, playing the grown-up. Likely \emph{conjectures}: ``take the taller end'' and ``take the shorter end'' (both false; Problem 2 in K--1 and in 2--3 refutes each), ``the tall middle loses'' (3, 4, 2 forces the refinement), ``the first player never loses on four'' (true) and ``the plan works on five'' (false). \emph{Explanations}: the arguments of Theorems 1 and 2. A long failed search for a losing row of four is evidence, not proof; the color argument is the proof, and children can give it by pointing at towers on a colored strip.
+
+\textbf{Map of the bands.} \emph{K--1} (8 problems, 7 pages) plays, finds winning first moves and three-tower traps, searches for a losing row of four, then plays the grown-up and uses the color plan, comparing by stacking or counting. \emph{Grades 2--3} (9 problems, 7 pages) add totals, find the three-tower rule, test the plan against every reply with a slot record, watch it fail on rows of five, and invent an equal-color row the first player wins. \emph{Grades 4--5} (11 problems, 6 pages) find exact scores, prove the three-tower rule and the color plan, prove what colors do and do not decide on rows of five, and work backward through a full table.
+\newpage
+\head{Preparation, shared launch and pacing}
+\textbf{Status.} Draft pages and materials for organizer review; unpiloted. Untried: 2 cm cube towers standing in the printed 25 mm slots, paper strips staying put as towers are lifted off, color printing and printer scaling of the strips, an adult running the color plan at game speed, K--1 children comparing close color totals, the timings, and handing out the colored pages and strips as a second set.
+
+\textbf{What to print.} Student packets single-sided on US Letter at 100\%: 5 K--1, 5 grades 2--3 and 4 grades 4--5 (one per child at each table plus a spare). Staple each packet as two sets. The \emph{plain set} (black and white is fine): K--1 pages 1--5, grades 2--3 pages 1--3, grades 4--5 pages 1--2. The \emph{colored set}, printed in color: K--1 pages 6--7, grades 2--3 pages 4--7, grades 4--5 pages 3--6. Hand it out only when a child reaches K--1 Problem 6, grades 2--3 Problem 5 or grades 4--5 Problem 4; the shading is the discovery. The rows in the packets are pictures; children build them on the printed strips.
+
+\textbf{Strips: the materials file} (\texttt{materials.pdf}, 3 pages, 7 sheets). Print at 100\% (``actual size'') and measure the 100 mm scale check on each page. The slots are 25 mm squares numbered underneath from the left; a 2 cm cube tower stands inside one.
+\begin{itemize}[nosep,leftmargin=1.2em]
+\item \emph{Materials page 1, ``Strips of slots''}, black and white, once for the room: five rows, each a plain strip of 4 and a plain strip of 3, one row per pair. They serve every plain-set problem and the launch.
+\item \emph{Materials page 2, ``Strips of slots / Grades 4--5''}, black and white, once for the 4--5 table: a plain strip of 6 and a plain strip of 5, for grades 4--5 Problems 10 and 11.
+\item \emph{Materials page 3, ``Colored strips''}, landscape, in color, one copy per pair (5): strips of 8, 6, 5 and 4, slot 1 red as on the pages. K--1 pairs use only the 4 and the 6.
+\end{itemize}
+Cut each strip along its outer line: 32 strips, or 28 if the K--1 copies skip the 8 and the 5. Keep each pair's colored strips with its colored set, out of sight until then. Strips are reusable.
+
+\textbf{Per pair.} 30 snap cubes (2 cm) of one color, preferably not red or blue, so that ``red'' only ever means a slot; mixed colors are fine if they carry no meaning. About 150 cubes for five pairs. Pencils. No printed row needs more than 18 cubes, or 22 for a K--1 pair building copy stacks. For preparation, scissors or a paper trimmer.
+
+\textbf{Preparation time.} About 35 minutes the first time, plus about 20 minutes to read this guide: 10 to print the packets and the 7 materials sheets and staple two sets, 15 to cut 32 strips, 10 to bag cubes and strips and read the grown-up's card. This is an estimate, not a rehearsal.
+
+\textbf{Staffing.} One adult per table. Each table has one problem where the adult plays the color plan against the children as a single team (K--1 Problem 6, grades 2--3 Problem 5, grades 4--5 Problem 4); the K--1 parent needs only the card below. With two pairs at a table, play both at once on the two pairs' colored strips; the plan needs no thought, so neither pair waits long. Otherwise the adult reads problems aloud, checks that only end towers are taken, and asks held hints; the children choose moves, rows to try and what to claim. At the 4--5 table the third child keeps the record or referees, rotating; in Problem 4 all three are the team. An adult who finds themselves choosing a child's moves should switch the child to a row of three or four instead.
+
+\noindent\fbox{\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+\textbf{Grown-up's card.} Before your first move, count the cubes on red slots and on blue slots, and choose the color with more. On every turn take the end tower that stands on your color; there is always exactly one. Your haul is that color's total, whatever the children do. If the two totals are equal, take either color; the plan then promises only a tie.
+K--1 Problem 6 (page 6), on a colored strip of 4: top left 1, 2, 5, 2: red, start at slot 1 (the 1), win 6--4. Top right 3, 4, 1, 2: blue, start at slot 4 (the 2), 6--4. Bottom left 4, 1, 5, 2: red, slot 1, 9--3. Bottom right 1, 4, 2, 3: blue, slot 4, 7--3. The first two openings take the shorter end on purpose.
+\end{minipage}}
+
+\textbf{Launch together, about 5 minutes.} The organizer leads; a child volunteer plays. Give each table its cubes for a minute of snapping. On a plain strip of 4 from materials page 1, the volunteer builds 3, 1, 4, 2: the example row printed on the 2--3 and 4--5 first pages, not a problem. Play the volunteer. Before moving, ask which towers you may take, and show that a middle tower is not allowed. Take an end tower, hold it in front of you, and ask which towers are the ends now. Play to the end. Each player snaps their towers into one stack, and the stacks stand side by side: taller wins, equal is a tie. Show the records: K--1 rings who won or tie, grades 2--3 write both totals. Do not discuss which first move was better, and keep the colored strips out of sight.
+\begin{center}
+\begin{tikzpicture}[x=1mm,y=1mm,line join=round]
+  % input
+  \slots{0}{4}\tower{3.5}{4}{3}\tower{10.5}{4}{1}\tower{17.5}{4}{4}\tower{24.5}{4}{2}
+  \node[font=\footnotesize,anchor=north] at (14,-1.5) {Input: 3, 1, 4, 2};
+  \draw[->,black!60] (31,9) -- (39,9);
+  % one move
+  \slots{43}{4}\tower{46.5}{4}{3}\tower{53.5}{4}{1}\tower{60.5}{4}{4}
+  \tower{78}{0}{2}\node[font=\scriptsize] at (78,-2.5) {A};
+  \node[font=\footnotesize,anchor=north,align=center] at (60,-1.5) {A takes slot 4.\\ The ends are now slots 1 and 3.};
+  \draw[->,black!60] (85,9) -- (93,9);
+  % output
+  \tower{102}{0}{5}\node[font=\scriptsize] at (102,-2.5) {A};
+  \tower{112}{0}{5}\node[font=\scriptsize] at (112,-2.5) {B};
+  \node[font=\footnotesize,anchor=north,align=center] at (107,-5) {A: 2 and 3. B: 4 and 1.\\ Same height: a tie.};
+\end{tikzpicture}
+\end{center}
+The pictured game takes slots 4, 3, 1, 2. It is the worked record printed in grades 2--3 Problem 6, so that record will look familiar. The volunteer may choose differently; any finished game makes the point.
+
+\textbf{A first hour, by band.} About 35--40 minutes at the tables; the timings are untested guesses. Each route ends with the grown-up's game, so that a child who comes once meets the colored strip; trim the plain-strip problems to get there, and save what is trimmed for a return visit. A table absorbed in plain play can stay there instead, and the grown-up's game opens the next visit. \emph{K--1}: Problem 1 with one or two rows; the first three rows of Problem 2; Problem 3; about five minutes of Problem 5's search, so that the grown-up's game answers a question the children already have; then Problem 6 for the last 10 minutes. Return visit: Problem 4 and the rest of Problem 2, then Problems 7 and 8. \emph{Grades 2--3}: Problem 1 with one or two rows; Problems 2 and 3; about five minutes of Problem 4's search; then Problem 5 with the adult for the last 10 minutes. Return visit: Problems 6--9. \emph{Grades 4--5}: Problems 1 and 2; about five minutes of Problem 3's search; then Problem 4 for the last 10 minutes. A quick group goes on to Problem 5; otherwise it opens the next visit. Return visits: Problems 5--9 (what colors decide), then Problems 10--11 (working backward), the deep end. Finishing every page is not the goal.
+
+\input{solutions.tex}
+\end{document}

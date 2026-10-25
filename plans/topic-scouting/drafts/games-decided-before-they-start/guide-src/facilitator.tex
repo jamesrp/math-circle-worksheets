@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,margin=.7in,headheight=15pt,headsep=18pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,hyperref,tikz}
+\renewcommand{\familydefault}{\sfdefault}\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Week NN / Breaking and drawing games / Facilitator guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week NN / NN-FAC-v1}\fancyfoot[R]{\thepage}
+\hypersetup{hidelinks}
+\newcommand{\head}[1]{\par\textbf{\large #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+\newcommand{\by}{\,$\times$\,}
+\begin{document}
+\head{Mathematical overview: a count that every move changes}
+All four games use the normal rule: whoever makes the last move wins. If every game on a board lasts the same number of moves $N$, the first player wins when $N$ is odd and the second when $N$ is even, whatever anyone chooses. Three games here have that property because a count changes by the same amount every move and the game cannot stop until the count reaches a value fixed at the start: pieces of the bar (up one per break), tokens in 2-Sprigs (down two per line) and, in Brussels Sprouts, regions minus separate pieces of the drawing (up one per move). Sprouts has a count that drops by one every move, but the game can stop before it runs out.
+
+\textbf{Breaking bars: every order takes $mn-1$ breaks.} A break splits one piece along one full grid line into two pieces. Each break turns one piece into two, so the number of pieces rises by exactly one, from $1$ to $mn$. More generally, pieces with $S$ squares in all, $P$ pieces at the start, take $S-P$ breaks. So in ``last break wins'' the first player wins exactly when $mn$ is even, that is, when a side is even; the fewest and the most breaks are the same number. \emph{Limit:} one piece per break is essential. If pieces could be stacked and cut together, a 3\by4 bar would need only 4 cuts (no fewer, since a cut at most doubles the number of pieces: $1,2,4,8<12$).
+
+\textbf{2-Sprigs: $n$ dots, exactly $n$ moves.} Each dot has two tokens; each end of a line uses one, so a loop needs two; a line may not cross itself or another line, or touch another dot. \emph{At most $n$ moves:} there are $2n$ tokens and every move uses two. \emph{The game cannot stop while a token remains:} since no dot has more than two line ends, the drawing consists of closed loops, open chains and untouched dots. An untouched dot can always draw a small loop. A dot with one token is the end of a chain whose other end also has one token; a chain encloses nothing, so its two ends border the same region and can be joined. Hence every game uses every token, and the first player wins exactly when $n$ is odd. \emph{Limits:} the two clarifications in the printed rules carry the theorem. A loop at a one-token dot, or a line that crosses itself and shuts a dot in, makes lengths vary and changes winners. With three tokens per dot (3-Sprigs) the length varies: 4 dots last 5 or 6 moves.
+
+\textbf{Brussels Sprouts: $n$ crosses, exactly $5n-2$ moves} (3, 8, 13, 48 for 1, 2, 3, 10 crosses). A move joins two free arms by a line and draws a short bar across it, a new cross with one new free arm on each side. (1) The number of free arms never changes: each move uses two and makes two, so there are always $4n$. (2) Each separate piece of a region's edge always keeps a free arm pointing into that region: when a line cuts a region in two, its bar sends a new arm into each half. (3) At the end no region holds two free arms, or they could be joined. So a finished game has exactly $4n$ regions. A finished region holds only one free arm, so its edge is in one piece, and therefore the whole drawing is in one piece. (4) Regions minus separate pieces of the drawing starts at $1-n$ and rises by exactly one every move: a line between two pieces joins them into one, and a line within one piece cuts a region in two. At the end it is $4n-1$, so there are $(4n-1)-(1-n)=5n-2$ moves. This is Euler's formula built one move at a time; Grades 4--5 Problem 11 uses the formula itself. Counting crosses as dots and each piece of line from one cross to the next as a line, after $m$ moves there are $n+m$ dots and $2m$ lines, and dots $-$ lines $+$ regions $=2$ for a drawing in one piece gives $(n+m)-2m+4n=2$, so $m=5n-2$.
+
+\textbf{Sprouts: a bound, not a fixed length.} Each spot has three tokens, and each move puts a new spot with one token on its line. A move removes two tokens and adds one, so the total drops by exactly one; the newest spot always keeps its token, so $n$ spots last at most $3n-1$ moves. Cooperative play reaches this by keeping every spot with a token on the edge of one region: join two such spots that are next to each other along that edge, or loop a spot without enclosing any other spot that has a token. Merely never shutting a spot in alone is not enough: two groups of spots with tokens can be cut off from each other, and each group then keeps a token. Every game lasts at least $2n$ moves (Wikipedia), and loop-then-join play (see the Grades 4--5 Problem 7 solution) reaches $2n$. So 2 spots last 4 or 5 moves, 3 spots 6, 7 or 8, and choices decide the winner. With best play the second player wins with 1 or 2 spots and the first with 3 (our exhaustive check), 4 or 5; the second with 6 or 7 (published analyses). Applegate, Jacobson and Sleator (1991) conjectured that the first player wins exactly when $n$ leaves remainder 3, 4 or 5 on division by 6.
+
+\textbf{What children discover, and how sure they can be.} \emph{Experiments:} repeated games, recording the winner and the number of moves. \emph{Conjectures:} ``the 2nd player always wins the 3\by3 bar'', ``as many lines as dots'', ``five more moves for each cross''. \emph{Explanations:} one more piece per break; tokens used two at a time with no early stop; one free arm per region with Euler's formula; the token bound in Sprouts. Repeated games are evidence, not proof; a game that breaks a pattern refutes it only once it is checked for an illegal move.
+
+\textbf{Map of the bands.} \emph{K--1} (rules read aloud, counting to 12): count breaks with a counter in a cup and find the count never changes; play ``last break wins'' and 2-Sprigs on 2 to 6 dots and notice that the same seat (1st or 2nd) wins a given bar or board every time; Problem 8 runs the count backwards. \emph{Grades 2--3} (short rules, counting to about 40): predict winners of bars and Sprigs boards and explain with ``one more piece each break'' and ``as many lines as dots''; then Sprouts, where choices change the winner and tokens bound the length. \emph{Grades 4--5} (reads the rule paragraphs; multiplies 8\by13 and 25\by40): explain the counts and the even-side rule, prove 2-Sprigs cannot stop early, bound Sprouts (29 moves for 10 spots), predict Brussels Sprouts, and meet Euler's formula as the reason for $5n-2$.
+
+\head{Preparation, launch and pacing}
+\textbf{Status.} Prepared for organizer review; unpiloted. Not physically tried: children cutting card bars along 25\,mm lines (time, card weight and scissor skill, especially K--1, whose first route needs about 54 cuts per pair), trimming the bar sheets, cube slabs breaking cleanly along a line, counters fitting beside spots once new spots appear (tightest: the 3-spot Sprouts boards, Grades 2--3 Problem 8 and Grades 4--5 Problem 7, spots 69\,mm apart), partners removing tokens reliably, and all timings.
+
+\textbf{Materials file.} \texttt{materials.pdf} (3 pages, beside the packets) prints what no packet supplies. Page~1, \emph{Bars, sheet 1}: two 3~by~4, two 3~by~3, a 2~by~4, a 2~by~3 and a 1~by~6 bar. Page~2, \emph{Bars, sheet 2}: a 3~by~4, a 3~by~3, two 2~by~4, a 2~by~3, two 2~by~2 and the 2~by~5 launch bar. Squares are 25\,mm; the adult trims along the heavy outlines and children break along the thin grid lines. The bars drawn in the packets are smaller pictures and are not cut, and the bars children decide about without breaking (Problem 3 in Grades 2--3 and 4--5) are deliberately not supplied. Page~3, \emph{2-spot Sprouts boards}: two boards 186~by~102\,mm with spots 90\,mm apart, for Grades 4--5 Problem 6 in place of the cramped boards (spots 44\,mm apart) on that page.
+
+\textbf{Per pair.} One \emph{Bars, sheet 1} plus a 2~by~4 and a 2~by~2 from the table's \emph{Bars, sheet 2}: nine bars, 74 squares, for K--1 Problems 1--3 or Grades 2--3 Problems 1--2; the second 3~by~4 is for a second try at Problem 2. The rest of the table's sheet 2 (a 3~by~4, a 3~by~3, a 2~by~3 and the 2~by~5) is a spare pool in the middle of the table, for a recount and for checking K--1 Problem 8. The Grades 4--5 trio gets a whole sheet 1 and sheet 2, 15 bars: Problems 1--2 use five, and the spare 3~by~3 and 2~by~4 give the referee a game or, with a 2~by~3, test the last question of Problem 3 after deciding. Bars are used up when cut. \emph{Child scissors,} one per child. \emph{Fifteen counters} no wider than about 12\,mm (dried beans work) for tokens, kept in a row under each dot as in the rule pictures; K--1 also needs a cup. \emph{Pencils;} Grades 4--5 also a small whiteboard and marker (Problem 9).
+
+\textbf{Print and prepare.} The organizer prepares ahead, so the table adults need only read their band's pages and this guide. One packet per child, single-sided US Letter at 100\%: K--1 7 pages, Grades 2--3 7, Grades 4--5 9 (83 pages for the current eleven children). A pair plays on one child's boards and uses the partner's packet for further games; nothing in the packets is cut. From \texttt{materials.pdf}, single-sided at 100\% on light card stock: page~1 once per pair or trio and page~2 once per table of two pairs, so for the current tables (two K--1 pairs, two 2--3 pairs, one 4--5 trio) 5 copies of page~1 and 3 of page~2, 8 card sheets and 59 bars; page~3 once on plain paper for the 4--5 table. Trim each card sheet along the heavy outlines, full-width strips first, then bars: 11 cuts for page~1 and 12 for page~2, 91 in all. Put each pair's nine bars in an envelope with its counters, and each table's four spare bars in another. Estimate 35 minutes the first time: 10 to print, 15--20 to trim with a paper trimmer (two copies of one page can go through together; scissors take longer), 5 to fill envelopes. This estimate needs a rehearsal. For a K--1 return visit with Problem 8, print one more page~2. \emph{Lower-preparation route,} at K--1 or at every table: flat slabs of interlocking cubes instead of card bars, 12 cubes per pair (enough for one 3~by~4 slab at a time), rebuilt after each game; with no card to print or trim, preparation is about 20 minutes.
+
+\textbf{Staffing.} One adult per table. At K--1 the adult reads rules aloud and may hold a bar steady; the child chooses each break, and the partner drops a counter in the cup for each break and takes away tokens. If cutting is slow, the child points to the line and the partner or adult cuts; the child still chooses every break. If even that drags, switch the table to cube slabs. At every table the partner (at Grades 4--5 the third child as referee, rotating) checks each break or line. Adults do not announce winners before a game or name the rule. Writing down numbers a child says is ordinary support; an adult choosing breaks or lines means the bar or board is too big. Give the player who starts a spare counter to hold, so the pair remembers who went first.
+
+\textbf{Whole-group launch, five minutes.} Gather the children round one table and pass round a 2~by~5 bar (from page~2 of the materials; no problem uses it) and a few counters. Cut the bar once along a full line into a 2~by~2 and a 2~by~3, the picture at the top of each packet's page~1, and have a child drop a counter in a cup. Cut one piece once more. Show what is not allowed: stacking two pieces and cutting both, stopping partway, cutting round a corner. Stop there without finishing or counting the whole bar. Then draw seven dots on a sheet of paper (no page uses seven) and put two counters beside each. Two children play: one draws a line between two dots, and the other, as partner, takes away one counter at each end; then the second child loops a fresh dot, and the first takes away both of its counters. Show that a loop at a dot with one counter left is not allowed. Stop after two moves. Show the record: circle 1st or 2nd for the seat of the player who made the last move, not a name. The figure is the adult's reference; a whiteboard with magnets as tokens also works.
+
+\begin{center}
+\begin{tikzpicture}[x=1mm,y=1mm,font=\small]
+\newcommand{\board}[2]{% offset, state 0/1/2
+  \begin{scope}[shift={(#1,0)}]
+    \draw[black!40,rounded corners=2mm] (-3,-4) rectangle (35,17);
+    \foreach \x/\y in {0/12,10/12,20/12,30/12,5/2,15/2,25/2}{\fill (\x,\y) circle (0.8);}
+  \end{scope}}
+\newcommand{\tok}[2]{\draw[black!60,fill=black!15] (#1,#2) circle (0.9);}
+% panel 1: start
+\board{0}{0}
+\foreach \x/\y in {0/12,10/12,20/12,30/12,5/2,15/2,25/2}{\tok{\x-1.1}{\y-2.6}\tok{\x+1.1}{\y-2.6}}
+\node[anchor=base] at (16,-9) {start};
+% panel 2: after a line between two dots
+\begin{scope}[shift={(46,0)}]
+\board{0}{0}
+\draw[line width=.7pt] (0,12) .. controls (3,16) and (7,16) .. (10,12);
+\tok{0}{9.4}\tok{10}{9.4}
+\foreach \x/\y in {20/12,30/12,5/2,15/2,25/2}{\tok{\x-1.1}{\y-2.6}\tok{\x+1.1}{\y-2.6}}
+\node[anchor=base] at (16,-9) {after a line};
+\end{scope}
+% panel 3: after a loop
+\begin{scope}[shift={(92,0)}]
+\board{0}{0}
+\draw[line width=.7pt] (0,12) .. controls (3,16) and (7,16) .. (10,12);
+\draw[line width=.7pt] (25,2) .. controls (19,10) and (31,10) .. (25,2);
+\tok{0}{9.4}\tok{10}{9.4}
+\foreach \x/\y in {20/12,30/12,5/2,15/2}{\tok{\x-1.1}{\y-2.6}\tok{\x+1.1}{\y-2.6}}
+\node[anchor=base] at (16,-9) {after a loop};
+\end{scope}
+% panel 4: not allowed
+\begin{scope}[shift={(138,0)}]
+\draw[black!40,rounded corners=2mm] (-3,-4) rectangle (24,17);
+\fill (2,8) circle (0.8); \fill (14,8) circle (0.8);
+\draw[line width=.7pt] (2,8) .. controls (5,12) and (11,12) .. (14,8);
+\draw[line width=.7pt] (14,8) .. controls (9,16) and (19,16) .. (14,8);
+\tok{2}{5.4}\tok{14}{5.4}
+\draw[line width=1pt] (20,13) circle (1.8); \draw[line width=1pt] (18.7,14.3) -- (21.3,11.7);
+\node[anchor=base] at (10.5,-9) {not allowed};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\textbf{At the tables.} Before Sprouts (Grades 2--3 Problem 6, Grades 4--5 Problem 6) and Brussels Sprouts (Grades 4--5 Problem 9), the table adult plays one move with a child on a scrap board of four spots or four crosses, which no page uses: in Sprouts the drawer adds the new spot and gives it one token; in Brussels Sprouts the bar crosses the line so one new arm points to each side.
+
+\textbf{A first hour.} After five minutes of running around and the launch, tables have 35--40 minutes. \emph{K--1:} Problems 1--3 (about 25 minutes of breaking), then Problem 4. \emph{Grades 2--3:} Problems 1--4, then Problem 6, so that the first hour reaches the contrast with Sprouts, which is the theme's point; a quick table does Problem 5 before Problem 6. \emph{Grades 4--5:} Problems 1--5. In the last minutes ask each table one question to share: K--1 ``Who won on the square bar?'', Grades 2--3 ``Does Sprouts with 2 spots always last the same number of moves?'', Grades 4--5 ``Why can't 2-Sprigs stop early?''.
+
+\textbf{Return visits.} \emph{K--1:} one 2-Sprigs game to recall the tokens, then Problems 5--8. \emph{Grades 2--3:} Problem 5 if it was skipped (decide first, then 10 and 25 dots), then Sprouts again, Problems 7--8. \emph{Grades 4--5:} Problems 6--9 (Sprouts and the first Brussels games), then Problems 10--11, keeping the finished Problem 9 drawings. Readiness-dependent extensions are with each band's solutions. Finishing every page is not the goal.
+
+\input{solutions.tex}
+\end{document}

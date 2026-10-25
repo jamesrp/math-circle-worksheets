@@ -1,0 +1,102 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,margin=.7in,headheight=15pt,headsep=18pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,hyperref,tikz,pifont}
+\usetikzlibrary{calc}
+\usepackage{enumitem}\setlist[itemize]{topsep=2pt,itemsep=1pt,parsep=0pt,partopsep=0pt}
+\renewcommand{\familydefault}{\sfdefault}\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Week NN / Graceful labels / Facilitator guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week NN / FNN-FAC-v1}\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\newcommand{\head}[1]{\par\textbf{\large #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+\newcommand{\yes}{\ding{51}}\newcommand{\no}{\ding{55}}
+\hypersetup{hidelinks}
+\begin{document}
+\head{Mathematical overview: the longest link and a climbing count}
+\textbf{The rule.} A network with $m$ links is labelled (``graceful'' in the literature) when its dots carry different whole numbers from $0$ to $m$ and the differences along the links are exactly $1,\dots,m$, each once. On the K--1 pages a label is a tower's height, the one empty dot is $0$, and ``how many cubes taller'' is the difference. A tree has one more dot than links and uses every label; a loop leaves exactly one label out (the ``left over'' card or tower).
+
+\textbf{The longest link joins $0$ and $m$.} A difference of $m$ arises only as $m-0$. So every labelling uses $0$ and $m$ on two joined dots: the tallest tower stands beside the empty dot, a star's middle is $0$ or $m$, and neither is ever left over. This explains K--1 Problems 5 and 8, Grades 2--3 Problem 4, and why the tallest tower is never left over in K--1 Problems 6--7.
+
+\textbf{Flipping.} Replacing each label $x$ by $m-x$ keeps every difference, so labellings pair up: middle $0$ with middle $m$, left-over $r$ with left-over $m-r$.
+
+\textbf{Paths, stars and caterpillars always work.} Along a path, $0,m,1,m-1,2,\dots$ gives differences $m,m-1,\dots,1$: the low labels climb by one and the high ones fall by one, so each gap is one shorter than the last. A star takes $0$ in the middle. Run along the spine, the same zigzag labels every caterpillar, a tree that becomes a path when its end dots are removed (Grades 4--5 Problem 9).
+
+\textbf{Theorem (loops; Rosa 1967).} A loop with $n$ links can be labelled exactly when $n$ leaves remainder $0$ or $3$ on division by $4$: $3,4,7,8,11,12,\dots$ but not $5,6,9,10,\dots$. \emph{Why not:} walk once round the loop. Each link is a climb or a fall by its number and you end on your starting label, so climbs and falls have equal totals and $1+2+\dots+n=n(n+1)/2$ is even; for $5$ and $6$ links it is $15$ or $21$. Equivalently, each odd link switches the label between odd and even, a trip home switches an even number of times, and $1$--$5$ and $1$--$6$ each contain three odd numbers. When $1+\dots+m$ is odd, the same count rules out any network in one piece whose dots each touch an even number of links, since it has a walk using every link once and coming home (Week~10's bridges); with several pieces, walk each piece in turn. \emph{Why yes:} Rosa constructed labellings, for example the zigzag that skips one high label, $3k$ when $n=4k$ and $3k+2$ when $n=4k+3$. Each link is one shorter than the last except at the skip, where it is two shorter; the one length jumped over equals the last label, which the closing link back to $0$ supplies (loop of $8$: $0,8,1,7,2,5,3,4$ gives links $8,7,6,5,3,2,1$, then $4-0=4$; our script checked every such loop up to $1000$ links). The climbing count alone never shows that a loop \emph{can} be labelled.
+
+\textbf{Theorem (every two dots joined; rulers).} When every two dots are joined, the labels are marks on a ruler from $0$ to $m$ measuring each length $1,\dots,m$ exactly once. Four dots: $0,1,4,6$ or $0,2,5,6$ only. Five dots: impossible. \emph{Proof 1:} each dot touches four links; round the pentagon and then along the star uses all ten links and comes home, but $1+\dots+10=55$ is odd. \emph{Proof 2:} a distance is odd exactly when one mark is odd and the other even, so $k$ odd marks among five give $k(5-k)\in\{0,4,6\}$ odd distances, never the five odd numbers from $1$ to $10$. Golomb showed that no such ruler exists for six or more dots; neither proof covers six, and the pages do not ask.
+
+\textbf{Conjecture (graceful trees; Ringel and Kotzig, 1960s).} Every tree can be labelled. Gallian's survey (2013 edition) records it as open, with every tree up to 35 dots checked by computer; our script labels every tree shape up to $10$ dots. Online, do not confuse it with ``Ringel's conjecture,'' a weaker relative proved for large trees in 2020 (Montgomery, Pokrovskiy and Sudakov; Keevash and Staden). Check the current survey before telling children nobody knows.
+
+\textbf{Experiments, conjectures and explanations.} A labelling that works proves that network can be labelled; failing to find one is evidence only. Children cross out the loops of $5$ and $6$ after failing, then explain them with the climbing count. ``The tallest tower sits by the empty dot'' begins as a noticed pattern and becomes a one-sentence explanation. ``Every tree can be labelled'' stays a conjecture to test; a tree not yet labelled is not a counterexample.
+
+\textbf{Band map.} \emph{K--1} (counting and comparing towers up to $4$; an adult reads each sentence and writes numbers a child says) places towers and one empty dot on paths, a fork, two stars, a triangle and a square, finds all the ways on the two shortest paths, and decides which middles and left-over towers are possible. \emph{Grades 2--3} (subtraction within $10$; an adult can read the shared rule and scribe the reasons in Problems 4 and 7) label paths up to $11$ dots and two trees, find the middle of a $5$-link star, label or cross out loops of $3$ to $6$ links and then label one of $7$, explain the crossed-out loops as a stretch, and find the four-counter ruler. \emph{Grades 4--5} (subtraction within $12$; sums such as $1+\dots+101$, by pairing; reading alone; written explanations in Problems 2, 4 and 6) justify the path rule, prove the loop rule before the long loops of $7$ and $8$, decide which loops up to $101$ links it rules out, connect rulers to the four- and five-dot networks, and test their own trees against the conjecture.
+\head{Preparation, shared launch and pacing}
+\textbf{Status.} Prepared for organizer review; unpiloted. Nothing has been tried with real pieces: whether K--1 towers stand on the dots and can be compared there, whether cards stay clear of the link boxes, whether counters sit in the strip squares, and the timings. From the drawings, the printed $2$\,cm cards clear every link box when kept square to the page (about $2$\,mm to spare on the $5$-link loop, the tightest), though a slanted card on the $5$- and $6$-link loops can touch a box corner; a $2$\,cm snap cube clears every K--1 box at any angle.
+
+\textbf{Printing.} Everything is US Letter, single-sided, at 100\% (Actual Size); check the $50$\,mm bar on each materials page with a ruler. \emph{Packets:} one per child, nothing cut (K--1 $7$ pages, Grades 2--3 $7$, Grades 4--5 $9$). The large drawing in each problem is the working board for towers or cards; the small copies are for writing down a way that works, or a cross. \emph{Materials file} (\texttt{materials.pdf}, $3$ landscape pages; card stock helps for page~1):
+\begin{itemize}
+\item Page 1, \emph{Number cards}: five sets of $0$ to $10$, $2$\,cm square on shared cut lines; each row is one set with its own grey mark, and $6$ and $9$ are underlined. Below them, the \emph{Strip from 0 to 10} ($2.3$\,cm squares) for Grades 4--5 Problem 7. Print $1$: two sets for each of the 2--3 and 4--5 tables, one for the launch.
+\item Page 2, \emph{Launch sheet}: the launch network, blank, with $3$\,cm dots. Print $1$.
+\item Page 3, \emph{Trees}: the starter trees of Grades 4--5 Problem 9 at card size. Print $2$.
+\end{itemize}
+
+\textbf{Materials by table.} Pencils with erasers throughout.
+\begin{itemize}
+\item \emph{K--1 (two pairs), per pair:} $10$ snap cubes ($2$\,cm) snapped into towers of $1$, $2$, $3$ and $4$, matching each page's tray (pre-built towers prevent two towers of one height). Problem 1 uses the $1$ and $2$; Problems 2, 5 and 6 add the $3$; Problems 3, 4, 7 and 8 use all four.
+\item \emph{Grades 2--3 (two pairs), per pair:} one card set; four counters no wider than $2$\,cm ($\tfrac34$-inch counters or single snap cubes) for Problem 8's $0$--$6$ strip on the page ($2.5$\,cm squares); eight at the table.
+\item \emph{Grades 4--5 (a pair and a rotating checker):} one card set for the pair and a second so the checker can test a claim without disturbing the board; the materials \emph{Strip from 0 to 10} and five counters of the same kind, reused on the page's $0$--$6$ strip, for Problem 7; the two \emph{Trees} sheets for Problem 9, and blank paper for children's own trees.
+\item \emph{Launch:} the \emph{Launch sheet}; towers of $1$, $3$ and $4$ cubes ($8$ more cubes); cards $0$, $1$, $3$ and $4$ from the fifth set.
+\end{itemize}
+\textbf{Preparation (about 25 minutes with printing, untested).} Cut materials page~1 along its lines into $55$ cards and the strip (about $10$ minutes), and keep each set together by its grey mark. Snap $28$ cubes into the two K--1 tray sets and the launch towers, and count out the counters.
+
+\textbf{Staffing.} \emph{K--1 (parent volunteer):} read each problem sentence aloud while pointing to the tray. The children choose where towers go, stand two towers side by side to compare them, and decide. Writing numbers on the small boards for a child who says them is ordinary support; choosing where towers go is not, and is a signal to go back to a shorter path. Watch for two empty dots: the rule allows exactly one. \emph{Grades 2--3 (mathematician):} after the launch, the labelling problems run independently in pairs, one child placing cards and the other writing each link number. The adult is needed when children cross out a loop (``How do you know?'') and for Problem 7. \emph{Grades 4--5 (organizer):} the third child checks each link number and that none repeats, rotating. The adult joins the explanations in Problems 2, 4, 6, 7 and 8.
+
+\textbf{What to record.} Which problems each table reached; whether partners kept one empty dot and different cards; whether cards and counters fitted the boards; what children said when they crossed out a loop, and explanations in their words. Note separately where an adult chose placements.
+
+\begin{minipage}{\linewidth}
+\setlength{\parskip}{6pt}
+\textbf{Launch after the movement opening (5 minutes).} Let children hold their own table's towers or cards for a minute. On the \emph{Launch sheet} (materials page 2), a triangle with a tail, which is on no page, make the attempt below: leave the tail dot empty, put the $1$-tower on the corner joined to it, and the $3$ and $4$ on the other two corners. Stand the $3$ beside the $1$: two cubes taller, so write $2$ in that box. Let children measure the other three links: $1$, $3$ and $1$. Then say the goal once: ``There are four links, so we want the link numbers $1$, $2$, $3$ and $4$, each once. We have two 1s and no 4, so this one does not work yet.'' Swap the towers for cards $0,1,3,4$ to show the older tables the same thing with differences. Do not repair the attempt; it shows no answer from any page. Do not use the ticked example from the Grades 2--3 and 4--5 pages: it is one of K--1 Problem 1's answers.
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm,line width=0.7pt]
+\tikzset{dot/.style={draw,fill=white,circle,minimum size=0.62cm,inner sep=0pt},
+  bx/.style={draw,fill=white,minimum size=0.36cm,inner sep=0pt,font=\footnotesize},
+  cube/.style={draw,fill=blue!14,line width=0.5pt}, xcube/.style={draw,fill=blue!48,line width=0.5pt}}
+\newcommand{\paw}[9]{% shift x, labels top bl br tail, boxes tl lr tr tail
+  \begin{scope}[xshift=#1cm]
+  \coordinate (T) at (0,1.5); \coordinate (L) at (-0.85,0); \coordinate (R) at (0.85,0); \coordinate (E) at (2.35,0);
+  \draw (T)--(L)--(R)--(T) (R)--(E);
+  \node[bx] at ($(T)!0.5!(L)$) {#6}; \node[bx] at ($(L)!0.5!(R)$) {#7}; \node[bx] at ($(T)!0.5!(R)$) {#8}; \node[bx] at ($(R)!0.5!(E)$) {#9};
+  \node[dot] at (T) {#2}; \node[dot] at (L) {#3}; \node[dot] at (R) {#4}; \node[dot] at (E) {#5};
+  \end{scope}}
+% panel 1: towers placed (top 4, lower left 3, lower right 1, tail empty)
+\draw (0,1.5)--(-0.85,0)--(0.85,0)--(0,1.5) (0.85,0)--(2.35,0);
+\foreach \p in {{(-0.425,0.75)},{(0,0)},{(0.425,0.75)},{(1.6,0)}} {\node[bx] at \p {};}
+\foreach \x/\y in {0/1.5,-0.85/0,0.85/0,2.35/0} {\draw[fill=white] (\x,\y) ellipse (0.42 and 0.17);}
+\foreach \k in {0,1,2,3} {\draw[cube] (-0.11,1.5+0.22*\k) rectangle (0.11,1.72+0.22*\k);}
+\foreach \k in {0,1,2} {\draw[cube] (-0.96,0.22*\k) rectangle (-0.74,0.22+0.22*\k);}
+\foreach \k in {0} {\draw[cube] (0.74,0.22*\k) rectangle (0.96,0.22+0.22*\k);}
+\node[font=\small] at (0.75,-0.75) {Input: pieces on the dots};
+% panel 2: one link measured
+\begin{scope}[xshift=5.6cm]
+\foreach \k in {0} {\draw[cube] (-0.3,0.24*\k) rectangle (-0.06,0.24+0.24*\k);}
+\foreach \k in {0} {\draw[cube] (0.06,0.24*\k) rectangle (0.3,0.24+0.24*\k);}
+\foreach \k in {1,2} {\draw[xcube] (0.06,0.24*\k) rectangle (0.3,0.24+0.24*\k);}
+\draw[dashed,line width=0.5pt] (-0.3,0.24)--(0.3,0.24);
+\draw[->,>=stealth,line width=0.6pt] (0.5,0.5)--(1.1,0.5);
+\node[draw,fill=white,minimum size=0.36cm,inner sep=0pt,font=\footnotesize] at (1.4,0.5) {2};
+\node[font=\small,align=center] at (0.55,-0.75) {One step: the 3 is two\\cubes taller than the 1};
+\end{scope}
+% panel 3: written record
+\paw{9.4}{4}{3}{1}{0}{1}{2}{3}{1}
+\node[font=\small,align=center] at (10.15,-0.85) {Output: 1, 2, 3, 1:\\two 1s and no 4 \quad\no};
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+\textbf{A first visit.} After five minutes of running and the five-minute launch, the tables have $35$--$40$ minutes; close with each table showing one network it labelled and one it crossed out, with its reason. Finishing every page is not the goal. \emph{K--1:} Problems 1 and 2 (pages 1--2), then Problem 5 (page 4); Problem 3 if time remains. Save Problem 4 and the loops and middles of Problems 6--8 for a return visit. \emph{Grades 2--3:} Problems 1, 3, 4 and 5 (pages 1, 3--5). Continue with Problem 6 and then Problem 7 with the adult; Problem 2 suits a child who has noticed the zigzag; Problem 8 opens the ruler direction for a quick pair or a return visit. \emph{Grades 4--5:} Problems 1--4 (pages 1--4), then Problem 6. Problem 5's long loops, the rulers and complete networks of Problems 7--8 and the trees of Problem 9 make a full return visit.
+
+\textbf{Hints only when useful.} Ask questions, not steps: ``Which link numbers are missing, and which appear twice?'' When a pair is close: ``Which two pieces could swap to fix the repeated number?'' When a pair wants to cross something out, ask what they tried and whether they are sure; a reason can wait for the explanation problems. Keep ``Which two numbers must be at the ends of the longest link?'' as a last resort for a pair stuck after several tries: it hands over the overview's central fact.
+
+\input{solutions.tex}
+\end{document}
