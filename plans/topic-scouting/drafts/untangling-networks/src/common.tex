@@ -1,0 +1,49 @@
+% Shared layout for the Week NN student packets (revision of the draft).
+% Each packet defines \bandname and \packetid before \input{common}.
+\usepackage[T1]{fontenc}
+\usepackage{tgheros}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[letterpaper, left=0.7in, right=0.7in, top=0.85in, bottom=0.8in,
+            headheight=15pt, headsep=0.22in, footskip=0.4in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{array}
+\usepackage{xcolor}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\lhead{Week NN / Untangling networks / \bandname}
+\lfoot{\small Bellingham Math Circle / Week NN / \packetid}
+\rfoot{\small \thepage}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedright
+
+\newcounter{prob}
+\newcommand{\problem}{\par\vspace{10pt}\refstepcounter{prob}\noindent\textbf{Problem \theprob:}\ }
+
+% empty drawing box
+\newcommand{\answerbox}[2]{\tikz[baseline=(current bounding box.center)]
+  \draw[black!55, line width=0.6pt, rounded corners=3pt] (0,0) rectangle (#1-0.7pt,#2);}
+
+% light writing lines across a given width
+\newcommand{\writelines}[2]{% #1 number of lines, #2 width
+  \par\noindent\begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle (#2-1pt,-#1*0.95-0.15);
+  \foreach \i in {1,...,#1} {\draw[black!35, line width=0.5pt] (0,-\i*0.95) -- (#2-1pt,-\i*0.95);}
+  \end{tikzpicture}\par}
+
+% a tangled picture, its link list and a drawing box in one row
+% #1 label, #2 picture name, #3 picture column width, #4 list column width, #5 box w, #6 box h
+\newcommand{\netrow}[6]{\par\noindent
+  \if\relax\detokenize{#1}\relax\else\makebox[0.6cm][l]{\textbf{#1}}\fi
+  \begin{minipage}[c]{#3}\input{gen/pic_#2}\end{minipage}\hspace{0.35cm}%
+  \begin{minipage}[c]{#4}\input{gen/list_#2}\end{minipage}\hfill
+  \answerbox{#5}{#6}\par}
+
+% game tally table; #1 = rows (e.g. {4 dots}{5 dots}), built by the packets
+\newcommand{\tallyrow}[1]{\rule[-0.8cm]{0pt}{2.0cm}#1 & & \\ \hline}

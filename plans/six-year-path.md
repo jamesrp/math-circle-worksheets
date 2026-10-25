@@ -253,7 +253,7 @@ These are proposals, not activities. Nothing below has been written.
 2. **Return visits for Weeks 52–100.** Return visits exist only for Weeks 1–51, so themes first met in Years 3–6 come back only through related themes or not at all. The best candidates are themes from Years 2–4 that later themes build on: 62 (colouring), 53 (cheapest networks), 58 (fair division), 63 (derangements) and 56 (Euler's formula).
    [Return-visit drafts](return-visit-drafts/README.md) for 53, 58, 62 and 63 (October 25) await the organizer's review; none is on the path yet.
 3. **Games, logic, networks and counting are used up.** The path uses all 7 games themes, all 7 logic themes, all 12 networks themes and all 9 counting themes. Only shape (12 left out) and chance (4 left out) have reserves, which is why Year 6 has six shape sessions. A second cycle, or any swap in those four areas, needs new themes. Games for the younger tables matter most: only 4 of the 7 games themes have K–1 pages.
-   [Topic scouting](topic-scouting/README.md) (October 24) proposes twelve outlines for these areas, five of them games and all with K–1 entries; student-page drafts of ranks 1–8 [await the organizer's review](topic-scouting/drafts/README.md), and none is on the path yet.
+   [Topic scouting](topic-scouting/README.md) (October 24) proposes twelve outlines for these areas, five of them games and all with K–1 entries; student-page drafts of all twelve [await the organizer's review](topic-scouting/drafts/README.md), and none is on the path yet.
 4. **Classroom evidence.** The order rests on prerequisites and catalog links, not on observed children. After each term, compare the use log with the path and move what children wanted to continue.
 
 ## Left out, by group
