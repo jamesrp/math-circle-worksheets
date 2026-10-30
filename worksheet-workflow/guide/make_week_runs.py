@@ -9,6 +9,11 @@ order, each in a fresh agent, as worksheet-workflow/guide/README.md says.
 
     python3 worksheet-workflow/guide/make_week_runs.py            # all eleven
     python3 worksheet-workflow/guide/make_week_runs.py rv-53 k1-91
+    python3 worksheet-workflow/guide/make_week_runs.py --dir plans/guide-runs
+
+--dir puts the run folders somewhere other than tmp/guide-runs (relative to
+the checkout), for runs shared through a branch. The prompts hold this
+checkout's absolute paths, so each agent makes its own.
 """
 import os
 import sys
@@ -40,10 +45,10 @@ def fill(text, values):
     return text
 
 
-def make(name):
+def make(name, where):
     kind, week = name.split("-")
     topic, guide_id = RUNS[name]
-    run = os.path.join(REPO, "tmp", "guide-runs", f"{name}-v1")
+    run = os.path.join(REPO, where, f"{name}-v1")
     os.makedirs(os.path.join(run, "draft", "src"), exist_ok=True)
     if kind == "rv":
         draft = os.path.join(REPO, "plans", "return-visit-drafts", f"week-{week}")
@@ -77,5 +82,10 @@ def make(name):
 
 
 if __name__ == "__main__":
-    for name in sys.argv[1:] or RUNS:
-        make(name)
+    args, where = sys.argv[1:], os.path.join("tmp", "guide-runs")
+    if "--dir" in args:
+        i = args.index("--dir")
+        where = args[i + 1]
+        del args[i:i + 2]
+    for name in args or RUNS:
+        make(name, where)
