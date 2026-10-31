@@ -1,0 +1,87 @@
+OK   K1 P1 min/sets -> (4, [['AB', 'AC', 'CD'], ['AB', 'BC', 'CD'], ['AC', 'BC', 'CD']]) 
+OK   K1 P2 groups k=1 -> ['AB', 'C', 'D', 'EF'] 
+OK   K1 P2 groups k=2 -> ['ABC', 'DEF'] 
+OK   K1 P2 groups k=3 -> ['ABCDEF'] 
+OK   K1 P2 A-F first joins -> 3 
+OK   K1 P3 min/sets -> (9, [['AB', 'AC', 'CD', 'DE', 'EF'], ['AB', 'BC', 'CD', 'DE', 'EF']]) 
+OK   K1 P3 no network avoids 3/4 -> None 
+OK   k1_p4_star222 without -> (8, 3) 
+OK   k1_p4_star222 using -> (6, [['AS', 'BS', 'CS']]) 
+OK   k1_p5_star333 without -> (8, 3) 
+OK   k1_p5_star333 using -> (9, [['AS', 'BS', 'CS']]) 
+OK   k1_p5_star224 without -> (8, 3) 
+OK   k1_p5_star224 using -> (8, [['AC', 'AS', 'BS'], ['AS', 'BC', 'BS'], ['AS', 'BS', 'CS']]) 
+OK   star224 overall #cheapest -> (8, 6) 
+OK   K1 P6 without -> (12, 4) 
+OK   K1 P6 using -> (8, [['AX', 'BX', 'CX', 'DX']]) 
+OK   K1 P7 min -> (6, [['AS', 'BS', 'CT', 'DT', 'ST']]) 
+OK   K1 P7 no squares -> 10 
+OK   K1 P7 only S -> 9 
+OK   K1 P7 only T -> 9 
+OK   K1 P8 guide rule == brute force (prices 1..12) -> True 
+OK   K1 P8 formula min(x+y+z,x+y+4,x+8) -> True 
+OK   K1 P8 1,1,6 using S -> 6 
+OK   vmap min/sets (2-3 P1, 4-5 P2) -> (9, [['AB', 'AC', 'CD', 'CE', 'EF'], ['AB', 'AC', 'CD', 'DE', 'EF'], ['AB', 'BC', 'CD', 'CE', 'EF'], ['AB', 'BC', 'CD', 'DE', 'EF'], ['AC', 'BC', 'CD', 'CE', 'EF'], ['AC', 'BC', 'CD', 'DE', 'EF']]) 
+OK   vmap minimax A-D -> (2, True) 
+OK   vmap minimax B-D -> (2, True) 
+OK   vmap minimax D-F -> (4, True) 
+OK   vmap minimax A-F -> (4, True) 
+OK   vmap groups -> [['A', 'B', 'C', 'D', 'E', 'F'], ['ABC', 'D', 'EF'], ['ABCD', 'EF'], ['ABCD', 'EF'], ['ABCDEF']] 
+OK   vmap counts c0..c4 -> [6, 3, 2, 2, 1] 
+OK   vmap price lists -> {(1, 1, 1, 2, 4)} 
+OK   cycle4 orig network -> (3, [['AB', 'BC', 'CD']]) 
+OK   cycle4 orig A-D trip -> (3, ['ABCD']) 
+OK   cycle4 +1 network -> (6, [['AB', 'BC', 'CD']]) 
+OK   cycle4 +1 A-D trip -> (5, ['AD']) 
+OK   cycle4 +2 network -> (9, [['AB', 'BC', 'CD']]) 
+OK   cycle4 +2 A-D trip -> (6, ['AD']) 
+OK   sixmap orig network -> (8, [['AB', 'BC', 'CD', 'DE', 'EF']]) 
+OK   sixmap orig A-F trips -> (8, ['ABCDEF', 'ACDEF']) 
+      orig distances {'A': 0, 'B': 1, 'C': 3, 'D': 5, 'E': 6, 'F': 8}
+OK   sixmap +2 network -> (18, [['AB', 'BC', 'CD', 'DE', 'EF']]) 
+OK   sixmap +2 A-F trips -> (15, ['ACDF']) 
+      +2 distances {'A': 0, 'B': 3, 'C': 5, 'D': 9, 'E': 12, 'F': 15}
+OK   sixmap x2 network -> (16, [['AB', 'BC', 'CD', 'DE', 'EF']]) 
+OK   sixmap x2 A-F trips -> (16, ['ABCDEF', 'ACDEF']) 
+      x2 distances {'A': 0, 'B': 2, 'C': 6, 'D': 10, 'E': 12, 'F': 16}
+OK   sixmap sq network -> (14, [['AB', 'BC', 'CD', 'DE', 'EF']]) 
+OK   sixmap sq A-F trips -> (14, ['ABCDEF']) 
+      sq distances {'A': 0, 'B': 1, 'C': 5, 'D': 9, 'E': 10, 'F': 14}
+OK   sixmap +2 network route A-F cost -> 18 
+OK   2-3 P6 rule c=a+b+1 -> True 
+OK   2-3 P6 examples -> True 
+OK   random no-square maps: +3 never changes cheapest networks -> 0 
+OK   random no-square maps: squaring never changes cheapest networks -> 0 
+OK   random maps: doubling never changes cheapest trips -> 0 
+OK   random: cost == sum(c_k - 1) -> 0 
+OK   random: one price list -> 0 
+OK   random: every cheapest-network route is lowest-dearest -> 0 
+OK   4-5 P4 min/sets -> (6, [['AB', 'AC', 'CD', 'DE'], ['AB', 'BC', 'CD', 'DE'], ['AC', 'BC', 'CD', 'DE']]) 
+OK   4-5 P4 groups k=1,2 -> [['ABC', 'D', 'E'], ['ABCDE']] 
+OK   4-5 P4 counts -> [5, 3, 1, 1] 
+OK   4-5 P5 every tree has max 3 -> {3} 
+OK   4-5 P5 costs -> [7, 7, 7, 9] 
+OK   4-5 P5 dear tree -> [['AD', 'BC', 'CD']] 
+OK   4-5 P9 k1_p5_star333 -> (8, [['AB', 'AC'], ['AB', 'BC'], ['AC', 'BC']]) 
+OK   4-5 P9 k1_p5_star224 -> (8, [['AB', 'AC'], ['AB', 'BC'], ['AC', 'AS', 'BS'], ['AC', 'BC'], ['AS', 'BC', 'BS'], ['AS', 'BS', 'CS']]) 
+OK   4-5 P9 left: tree using S >= 9 -> 9 
+OK   4-5 P9 bottom (A,F only) -> (8, [['AB', 'BC', 'CD', 'DE', 'EF'], ['AC', 'CD', 'DE', 'EF']]) 
+OK   4-5 P6 limit: star224 price lists -> {(4, 4), (2, 2, 4)} 
+OK   4-5 P10 cheapest -> (6, [['AS', 'BS', 'CS']]) 
+OK   4-5 P10 cap 8 reaches 6 -> False 
+OK   4-5 P10 cap 8 reachable = outer pairs -> [['AB', 'AC'], ['AB', 'BC'], ['AC', 'BC']] 
+OK   4-5 P10 cap 9 reaches 6 -> False 
+OK   4-5 P10 cap 9 reachable = outer pairs -> [['AB', 'AC'], ['AB', 'BC'], ['AC', 'BC']] 
+OK   4-5 P10 cap 10 reaches 6 -> True 
+OK   4-5 P10 chain costs -> [10, 8, 6] 
+OK   4-5 P10 chain all connected -> True 
+OK   4-5 P11 min & S,T degrees -> (6, 3, 3) 
+OK   random optional maps: no optional leaf, <= r-2 optional branch places -> 0 
+OK   launch trays -> (0, 2, 5) 
+OK   launch trip XYZY -> 8 
+     sixmap with every price p -> 7-p: (15, [['AC', 'BC', 'BD', 'CE', 'DF'], ['AC', 'BD', 'CD', 'CE', 'DF'], ['AC', 'BD', 'CE', 'DF', 'EF']])
+OK   order-reversing change alters the cheapest network -> True 
+OK   P5 cost-9 network fails Lee's test at A-B (tree 3 vs map 1) -> (3, 1) 
+OK   record boards: K1 P1 4 for 3, 2-3 P1/4-5 P2 8 for 6, 4-5 P4 6 for 3 -> (1, 2, 3) 
+
+ALL OK
