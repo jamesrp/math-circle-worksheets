@@ -1,0 +1,271 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,margin=.7in,headheight=15pt,headsep=16pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,hyperref}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\hypersetup{hidelinks,pdftitle={Week 63 Cards away from home Adult return-visit guide}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 63 / Cards away from home / Adult return-visit guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 63 / W63-RV-FAC-v1}
+\fancyfoot[R]{\thepage}
+\newcommand{\head}[1]{\par\textbf{\large #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+\newcommand{\row}[1]{\texttt{#1}}
+\newcommand{\hint}[1]{\emph{If needed:} #1}
+\begin{document}
+\head{Mathematical overview}
+\textbf{Fewest swaps equals cards minus loops.} There are $n$ distinct cards in $n$ fixed, equally labeled homes. Read a row left to right in home order. A move exchanges \emph{any two distinct cards}, not only neighbors. Draw each arrow from a card's letter to the home where it sits. Include a one-card loop for every home match. If there are $c$ loops, exactly $n-c$ swaps suffice to bring the row home.
+
+A swap within one loop splits it into two; a swap between loops joins them. Thus one move changes the loop count by exactly one, while home has $n$ loops. This proves the lower bound. In a nontrivial loop, exchange a misplaced card with the card in its home; one card becomes a singleton loop. Repeat until home, attaining the bound. Consequently the hardest rows are single $n$-loops and need $n-1$ swaps. For $n\ge2$, a row can come home in exactly $m$ swaps if and only if $m\ge n-c$ and $m$ has the same parity as $n-c$: every move flips loop parity, and a repeated swap adds two moves without changing the finish.
+
+\textbf{Leaving every home needs $\lceil n/2\rceil$ swaps, for $n\ge2$.} Each move touches at most two cards. For even $n$, exchange disjoint pairs. For odd $n\ge3$, pair all but three cards, then use two swaps on those three. This proves both necessity and sufficiency. There is no home-free row when $n=1$.
+
+\textbf{A complete deck averages one home match per row.} Across all $n!$ rows, a chosen card is home in $(n-1)!$ rows. Summing by card gives $n(n-1)!=n!$ marks, for $n\ge1$. Pairs of home matches total $\binom n2(n-2)!=n!/2$, for $n\ge2$. These are totals over a complete deck, not guarantees about one row or an arbitrary sample. If $D_j$ counts home-free rows on $j$ labels, then exactly $k$ matches occur in
+\[
+\binom nk D_{n-k}\quad\hbox{rows},\qquad D_0=1,\quad D_1=0.
+\]
+Choose the matched labels; the remaining labels must all miss their own homes. Unlike the first visit's overlapping home-groups, these exact piles are disjoint. The zero-match and one-match piles differ by one: $D_n-nD_{n-1}=(-1)^n$. The first visit's recurrence proves the alternating difference; see guide page 6.
+
+\textbf{Forbidden spots can overlap in different ways.} For an arbitrary board, let $r_k$ count choices of $k$ forbidden card--home spots using distinct cards and distinct homes, with $r_0=1$. Avoiding every forbidden spot leaves
+\[
+\sum_{k=0}^{n}(-1)^k r_k(n-k)!\quad\hbox{rows}.
+\]
+Compatible required spots leave $(n-k)!$ completions; clashing spots leave none. Inclusion--exclusion cancels every row that uses a forbidden spot and retains every legal row once. Equal numbers of forbidden spots need not give equal counts. The own-home recurrence does \emph{not} apply to arbitrary boards.
+
+\textbf{What children discover.} K--1 acts out swaps, compares counters with outcomes and hunts on picture boards. Grades 2--3 adds hardest four-card rows, exact piles and changed prohibitions. Grades 4--5 explains loops and parity, predicts five-card totals and later counts forbidden overlaps. Experiments suggest a rule; a complete catalog settles a finite hunt; the arguments above establish general claims. This visit changes the questions, not merely the base week's numbers.
+\newpage
+\head{Preparation and a first hour}
+\textbf{Status.} Unpiloted and physically unrehearsed: actual-size printing, cutting, card placement under crossed-out pictures, small counters and all timings still need a real trial. Print US Letter at 100\%, single-sided. Student packets are K--1, 5 pages; Grades 2--3, 6 pages; Grades 4--5, 10 pages.
+
+\textbf{Reuse W63-M-v3, \row{week-63-materials.pdf}.} Per pair: two A--E decks (10 cards, each $30\times40$ mm), two whole strips of five $35\times45$ mm homes, cover slips, pencil and scrap paper, kept in a tray. Each copy of materials page 1 supplies that kit. Five kits serve two young pairs, two middle pairs and an upper trio rotating arranger, checker and recorder. Keep unused decks separate; a row uses one of each letter.
+
+\textbf{Per table.} Young table: one set of six A--C outcome cards from materials page 2, six counters no wider than 12 mm, and one extra uncut page 2. Middle and upper tables: one cut 24-card A--D deck \emph{and} one uncut page 3 each. Whole outcomes are $56\times27$ mm; A--C cells are $14\times10$ mm and A--D cells $9\times10$ mm. Circle in pencil on uncut sheets; sort reusable decks on the tabletop, not inside answer boxes. Stagger the middle pairs: one does swaps while the other marks, then swap; sort or check a board as a shared table task. Count each distinct row ID once, even if there are duplicate physical cards.
+
+If rebuilding the full base kit, print page 1 five times, page 2 five times and page 3 twice. Each page 2 also contains five $34\times16$ mm home-group labels and twelve blank records; neither needs cutting for this visit. The base guide forecasts 45--90 minutes for its full kit; that estimate is untested. With a retained kit, allow roughly 10--15 minutes to check pieces, print the three extra uncut sheets and gather counters. Only the six small counters are an added nonprinted object required by K--1 Problem 5; none is supplied by a base PDF.
+
+\textbf{Which surfaces are mats.} Keep material strips whole. Align cards along their lower edge, leaving the top 5 mm visible; cover D/E for three cards or E for four. K--1 pages 4--5 and upper pages 7--8 have $35\times45$ mm working homes. Middle pages 5--6 are small reference boards, \emph{not} placement mats; inspect outcome cards against them. All little row boxes and grids are pencil records. No base student packet is needed.
+
+\textbf{Launch together, about 5 minutes after movement.} Let everyone handle cards, then point to the unchanged homes. Reuse the printed non-task example, enlarged on a board; U--X cards are not in the kit, so draw these rather than make another deck. Ask a child to identify the two cards being traded. Write the card letters, not home positions.
+\begin{center}\small
+\begin{tabular}{ccc}
+Input in homes U V W X & Choose cards V and X & Output in the same homes\\[3pt]
+\row{V U W X} & trade the first and last cards & \row{X U W V}\\
+ & record \row{VX} once &
+\end{tabular}
+\end{center}
+Count the recorded swaps only after a run. Save one start or final row, not a simultaneous tally. Introduce arrows on upper page 3 and dots on upper page 9 only when those investigations begin; their non-task input--step--output visuals are already printed.
+
+\textbf{First route and staffing.} Keep one adult at each table. K--1 needs picture matching and counting to ten; the parent reads and scribes while children choose moves. Use Problems 1--2, selected rows of 4, then 5; save 3 and 6--8. Middle children need four labels and totals to 24: choose 1--4, then 5 or 7; save 8--9 and the optional 120-row prediction in 6. Upper children need five labels, totals to 120 and reversible reasoning: use 1 and selected rows of 2, then try 3 or 5 if ready. Save 4 and 6--13, with grids last. In a 60-minute meeting allow 5 minutes movement, 5 launch, 20 exploration, 2 stretch, 18 continuation, 5 sharing, 5 packing. Adults may record but should not select the cases or moves. Finishing every page is not the goal.
+\newpage
+\head{K--1 solutions and held hints}
+Rows below list cards in home order. A swap word such as \row{AB, BC} names the cards exchanged, even after they have moved. The adult can write it while the child acts.
+
+\sub{Problem 1, student page 1}
+The fewest is \textbf{2 swaps}; either \row{BCA} or \row{CAB} can result. One swap leaves the third card untouched and still home. For example, from \row{ABC}, swapping \row{AB} then \row{AC} gives \row{BCA}. These are the only two home-free three-card rows: A must occupy B or C, and the rest is forced. \hint{``Which card did that swap never touch?''} Let partners make their own two-move routes rather than copying this one.
+
+\sub{Problem 2, student page 2}
+The fewest is \textbf{2}; all possible shortest finishes are \row{BADC}, \row{CDAB}, \row{DCBA}. With only two swaps, all four cards must be touched, so the swaps must be disjoint pairs. A can partner B, C or D; the other two must pair. This proves the list complete. \hint{``Can one card take part twice if every card has to leave home?''}
+
+\sub{Problem 3, student page 2}
+\textbf{Two cannot; three can.} Two swaps touch at most four of the five cards. From \row{ABCDE}, the word \row{AB, CD, AE} gives \row{BEDCA}, with nobody home. \hint{``Is there a card that has never moved?''} Pointing to an untouched card is a complete lower-bound argument; no formula is required.
+
+\sub{Problem 4, student page 3}
+\begin{center}\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{lcl}
+Printed row & Fewest & One shortest word to home\\\midrule
+\row{CBA} & 1 & \row{AC}\\
+\row{BCA} & 2 & \row{AB, BC}\\
+\row{BADC} & 2 & \row{AB, CD}\\
+\row{BCDA} & 3 & \row{AB, BC, CD}
+\end{tabular}
+\end{center}
+The first row is one exchange; the third has two separate exchanged pairs. In \row{BCA} no two cards occupy each other's homes, so one move cannot finish. In \row{BCDA}, a first move either puts one card home, leaving a three-card loop needing two more, or makes two exchanged pairs needing two more. \hint{``Could this swap put both cards home? Which homes are they in now?''} A later extension is to give a partner a row with a chosen minimum.
+
+\sub{Problem 5, student page 4}
+\textbf{Six counters, six outcomes, two counters for each letter.} In printed outcome order \row{ABC, ACB, BAC, BCA, CAB, CBA}, the match counts are $3,1,1,0,0,1$. A is home in \row{ABC, ACB}; B in \row{ABC, CBA}; C in \row{ABC, BAC}. The same-number choice on the final page is intentional. \hint{``Can we line up one counter beside each whole outcome? Which two outcomes give A a counter?''} For fit trouble, remove a counter only after pointing out its match, and tally it beside the card; the extra uncut sheet permits pencil circles as an adult-supported alternative.
+
+\sub{Problems 6--8, student pages 4--5}
+\textbf{6:} only \row{BCA}. A cannot use A or B, so it must use C; then C must use B, leaving B in A. \textbf{7:} exactly \row{BCDA, CDAB, DCAB}. Split by home A: B gives only \row{BCDA}; C gives only \row{CDAB}; D gives only \row{DCAB}. \textbf{8:} only \row{CDAB}. Home B permits D alone, home C permits A alone; B then must use D and C must use A. These forced checks also prove completeness.
+
+\hint{For each hunt: ``Which pictures are crossed out above this home? Is there a home with only one possible card?''} Keep the child choosing and checking. Spare record boxes are not a promised answer count. If a child is guessing because the crossed-out groups are hard to read, point to one group and its home together before continuing; this print-and-handling risk remains physically untested.
+\newpage
+\head{Grades 2--3 solutions and held hints}
+\sub{Problem 1, student page 1}
+Four cards need \textbf{2 swaps}, ending in \row{BADC, CDAB} or \row{DCBA}; disjoint pairs prove completeness (guide page 3). Five cards need \textbf{3}, for example \row{AB, CD, AE} from home gives \row{BEDCA}. Two moves cannot touch all five. \hint{``Which cards have not moved?''}
+
+\sub{Problem 2, student page 2}
+\begin{center}\small\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{lcl@{\qquad}lcl}
+Row & Fewest & Word to home & Row & Fewest & Word to home\\\midrule
+\row{CBAD}&1&\row{AC}&\row{BCAD}&2&\row{AB, BC}\\
+\row{DCBA}&2&\row{AD, BC}&\row{ACDB}&2&\row{BC, CD}\\
+\row{BCDA}&3&\row{AB, BC, CD}&\row{CDBA}&3&\row{AC, BD, CD}
+\end{tabular}
+\end{center}
+The loop counts $3,2,2,2,1,1$ in reading order prove minimality. Children can use K--1 Problem 4's paired-home reasoning. \hint{``After putting one card home, what remains to be done?''}
+
+\sub{Problem 3, student page 2}
+All six hardest rows are \row{BCDA, BDAC, CADB, CDBA, DABC, DCAB}; each needs \textbf{3 swaps}, never 4. Put A home, then B, then C, skipping already-home cards; D is forced. The hardest rows are exactly single four-card loops: begin at A and order B,C,D around it in $3!=6$ ways. \hint{``Can we finish without ever disturbing a card already home?''} Distinguish \emph{needs} from wasted extra swaps.
+
+\sub{Problem 4, student page 3}
+\textbf{Yes:} \row{CDAB} (exchange \row{AC} or \row{BD}) and \row{DBCA} (\row{AD}). \textbf{No:} \row{BCDA, BCAD, DACB}. Two newly home cards must previously occupy each other's homes; conversely that exchange works. \hint{``Where is the card whose home this one occupies?''}
+
+\sub{Problems 5--6, student pages 3--4}
+\textbf{5:} 24 circles, six for each letter. Fix A at home; B,C,D have six possible orders. The same count holds for each letter, so $4\times6=24$. \textbf{6:} six A--C circles and 120 A--E circles. The analogous counts are $3\times2=6$ and $5\times24=120$, without making a 120-row list. \hint{For each: ``How many rows keep just this named letter in its home, allowing others to be home too?''} The five-card part is optional arithmetic and abstraction beyond the concrete middle route.
+
+\sub{Problem 7, student page 4}
+For 0,1,2,3,4 home letters, the piles have \textbf{9,8,6,0,1} outcomes. Exactly one: choose its letter in four ways, then the remaining three must be home-free in two ways, giving $4\times2=8$. Exactly two: choose the two home letters in six ways and swap the other pair. Exactly three is impossible, since the last is forced home. \hint{``If those are the only home letters, what must the others avoid?''} Sort whole outcomes once, not once per match.
+
+\sub{Problem 8, student page 5}
+Top to bottom the counts are \textbf{9,7,4,0}. Filter the complete 24-card deck against each frozen board. On the third board A and B must use C and D, leaving C and D to use A and B: \row{CDAB, CDBA, DCAB, DCBA}. On the fourth, A has nowhere to go. \hint{``Does each cross remove a new group of rows, or can the groups overlap?''}
+
+\sub{Problem 9, student page 6}
+The maximum is \textbf{9}, attained by crossing each card out of its own home (indeed, by any one-cross-per-card-and-home pattern). For \textbf{8}, forbid A-in-A, B-in-B, D-in-C, D-in-D. For \textbf{6}, forbid A-in-A, B-in-B, D-in-A, D-in-B. Exactly \textbf{5 is impossible}. The exhaustive check of all $\binom{16}{4}=1820$ boards gives only $0,4,6,7,8,9$; guide page 8 supplies a compact certificate. \hint{``Which rejected outcomes overlap? Can two of your crosses share a card or a home?''} Separate a successful design from an unproved maximum conjecture.
+\newpage
+\head{Grades 4--5 swaps and loops}
+\sub{Problem 1, student page 1}
+The minima for three, four and five cards are \textbf{2,2,3}. The K--1 keys give constructions and complete shortest three/four-card finish lists. For five cards \row{AB, CD, AE} from home gives \row{BEDCA}; two swaps leave a card untouched. \hint{``How many different cards can two swaps touch?''}
+
+\sub{Problems 2--3, student pages 2--3}
+Each parenthesized group below is a directed loop, with the last letter pointing back to the first. A one-letter group is a self-loop. This is card-to-home notation, not a new student recording demand.
+\begin{center}\small\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{llll}
+Printed row & Loops & Fewest & One shortest word to home\\\midrule
+\row{EBCDA}&$(AE)(B)(C)(D)$&1&\row{AE}\\
+\row{BCADE}&$(ACB)(D)(E)$&2&\row{AB, BC}\\
+\row{BADEC}&$(AB)(CED)$&3&\row{AB, CD, DE}\\
+\row{BCAED}&$(ACB)(DE)$&3&\row{AB, BC, DE}\\
+\row{BCDEA}&$(AEDCB)$&4&\row{AB, BC, CD, DE}\\
+\row{DEABC}&$(ACEBD)$&4&\row{AD, BE, CD, DE}
+\end{tabular}
+\end{center}
+\textbf{P2 hint:} ``Can a move split off a card at home?'' \textbf{P3 hint:} ``How many separate loops are there before and after that swap?'' Use the printed \row{WUVXY} visual first: W sits in U, so $W\to U$, then $U\to V\to W$, with X and Y looping to themselves. In the task \row{BCADE}, A sits in C: $A\to C$, not $A\to B$.
+
+To explain the lower bound concretely, trace the two outgoing arrows whose destinations are traded. If they belong to one loop, reconnecting makes two loops; if to different loops, reconnecting makes one. Home has five separate loops, and a move gains at most one. The displayed words achieve $5-c$ moves. Inverting every arrow happens to preserve the loop count, but is still the wrong printed convention.
+
+\sub{Problem 4, student page 4}
+The hardest rows need \textbf{4 swaps}: exactly the single loops through all five labels. Start the loop at A; its other four labels can be ordered in $4!=24$ ways, with no rotational duplication. All 24 rows, grouped in alphabetical order for adult checking, are:
+\begin{center}\ttfamily\small
+\begin{tabular}{llllll}
+BCDEA&BCEAD&BDAEC&BDECA&BEACD&BEDAC\\
+CADEB&CAEBD&CDBEA&CDEAB&CEBAD&CEDBA\\
+DABEC&DAECB&DCAEB&DCEBA&DEABC&DEBCA\\
+EABCD&EADBC&ECABD&ECDAB&EDACB&EDBAC
+\end{tabular}
+\end{center}
+Of the 44 home-free rows, the other \textbf{20 need 3 swaps}. Their loops have lengths two and three: choose the two labels in ten ways, and orient the three-loop in two ways, giving $10\times2=20$. No home-free five-card row has more than two loops. \hint{``If there are no one-card loops, which loop sizes can add to five?''} Children can count a family without copying this adult catalog.
+
+\sub{Problem 5, student page 4}
+For the requested exact lengths 2,3,4,5, \row{BACDE} gives \textbf{no, yes, no, yes}; \row{BCADE} gives \textbf{yes, no, yes, no}. Their shortest lengths are 1 and 2. Insert a repeated pair of swaps anywhere in a shortest word to add two. Loop parity rules out the other lengths, not merely a failed search. In general, for at least two cards, the possible lengths are the minimum plus $0,2,4,\ldots$. \hint{``What does doing the same exchange twice change? Can one exchange preserve loop parity?''} Detours are legal; a self-swap is not a move.
+\newpage
+\head{Grades 4--5 totals without listing}
+\sub{Problem 6, student page 5}
+The A--D sheet has \textbf{24 circles, six for each letter}. The predicted A--E deck has \textbf{120 circles}, 24 for each letter. Every outcome is counted once as an object, but can supply several marks. Fixing one card at home leaves respectively $3!=6$ or $4!=24$ arrangements. Sum over the four or five named cards. \hint{``Could we count A's circles first, without inspecting B's?''}
+
+An average of one does not mean one on every row: the home row has four or five matches, while home-free rows have none.
+
+\sub{Problem 7, student page 5}
+There are \textbf{12 pairs} on A--D and \textbf{60 pairs} on A--E. A pair is an unordered choice of two circles on \emph{one} outcome. Four circles yield six pairs, not two. There are six choices of named letter-pair on four labels, and fixing that pair home leaves two orders of the remaining cards: $6\times2=12$. On five labels there are ten named pairs and six completions for each: $10\times6=60$.
+
+For a concrete check, on \row{ABCD} point to the pairs AB, AC, AD, BC, BD, CD without removing the circles. The six exactly-two-match outcomes contribute one each; the all-home outcome contributes six, totaling 12. \hint{``How many outcomes have both A and B home, even if other letters are home too?''} Do not turn the question into pairing circles on different outcome cards. An optional later question is to count triples of matches; it is not needed for the first route.
+
+\sub{Problem 8, student page 6}
+\begin{center}\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lrrrrrr}
+Exactly this many matches & 0&1&2&3&4&5\\\midrule
+A--D outcomes &9&8&6&0&1&--\\
+A--E outcomes &44&45&20&10&0&1
+\end{tabular}
+\end{center}
+For five cards: exactly one match means five choices of its label and nine home-free arrangements of the rest, $5\times9=45$. Exactly two means ten choices of matched pair and two home-free arrangements of the other three, $10\times2=20$. Exactly three means ten choices of matched triple and one exchange of the other two, $10\times1=10$. Exactly four is impossible; all five gives the one home row. The remaining pile has $120-45-20-10-0-1=44$ rows.
+
+These subtractions need no overlap repair: each whole outcome has exactly one match count. Retain original labels and homes when considering the unmatched cards; do not compress them into a freshly relabeled task. \hint{``Which letters are exactly the home letters? What must happen to all the others?''} The first-visit facts $D_2=1,D_3=2,D_4=9$ are enough; there is no need to repeat its nine-row hunt.
+
+\sub{Problem 9, student page 6}
+The zero-match and one-match piles are \textbf{2 versus 3}, \textbf{9 versus 8}, \textbf{44 versus 45} for three, four and five cards. The difference has size one, switching which pile is larger. Trying these cases is evidence, not a proof that the pattern continues.
+
+Here is a short adult explanation using the first visit's established recurrence, not reteaching its two-family construction. Put $\Delta_n=D_n-nD_{n-1}$. For $n\ge3$,
+\[
+\begin{aligned}
+\Delta_n
+&=(n-1)(D_{n-1}+D_{n-2})-nD_{n-1}\\
+&=-\bigl(D_{n-1}-(n-1)D_{n-2}\bigr)=-\Delta_{n-1}.
+\end{aligned}
+\]
+Since $\Delta_2=D_2-2D_1=1$, the difference is $(-1)^n$. \hint{``Can the exactly-one pile be counted by first choosing its one home letter?''} Offer the recurrence only once that count is clear. If the algebra would be adult-operated, keep the observed alternation as a conjecture for later explanation.
+\newpage
+\head{Grades 4--5 new forbidden homes}
+\sub{Problem 10, student page 7}
+The strip board forbids each card's own home and the home immediately to its right; the last card has no extra home at the right edge. Cover unused homes and set aside their cards, without relabeling. With A--C, only \row{BCA} obeys. With A--D, exactly \row{BCDA, CDAB, DCAB} obey. With all five cards, all \textbf{16} rows are:
+\begin{center}\small
+\begin{tabular}{llr}
+Card in home A & Complete branch & Count\\\midrule
+B & \row{BCDEA, BDAEC, BDEAC, BEDAC} & 4\\
+C & \row{CDAEB, CDEAB, CDEBA, CEDAB, CEDBA} & 5\\
+D & \row{DCAEB, DCEAB, DCEBA, DEABC} & 4\\
+E & \row{ECDAB, ECDBA, EDABC} & 3
+\end{tabular}
+\end{center}
+These first-card branches are disjoint and exhaustive. For each branch, place the remaining cards in home order, retaining every allowed choice and rejecting repeated cards; this tests all completions. The independent checker also filters all 120 rows. Children can share branches and pool their records rather than each repeat the whole search. \hint{``Where can A still go? Which first-home cases have we not tried?''}
+
+\sub{Problem 11, student page 8}
+These boards add one prohibition: the last card cannot use home A. For four cards, remove \row{DCAB} from the preceding list, leaving exactly \row{BCDA, CDAB}. For five, remove \row{ECDAB, ECDBA, EDABC}, leaving these \textbf{13} rows:
+\begin{center}\ttfamily\small
+\begin{tabular}{lllll}
+BCDEA&BDAEC&BDEAC&BEDAC&CDAEB\\
+CDEAB&CDEBA&CEDAB&CEDBA&DCAEB\\
+DCEAB&DCEBA&DEABC&&
+\end{tabular}
+\end{center}
+Removal from a complete catalog proves completeness; it is not a new 120-row search. \hint{``Which rows of your old list fail the one new cross?''} The wraparound prohibition changes the allowed placements; it does not identify rotated or reflected rows.
+
+\sub{Problem 12, student page 9}
+The four-card grid answers, left to right, are \textbf{3 and 2}. Before counting, use the printed non-task \row{VXUW} bridge: V sits in U, so put its dot at card V, home U; the full output adds dots at X-in-V, U-in-W and W-in-X. A dot must not land on a shaded square. Let a child convert one already-built row to dots and back before asking for an overlap count. There is one dot per card-line and per home-column; axes must not be exchanged silently.
+
+\sub{Problem 13, student page 10}
+The five-card grid answers, left to right, are \textbf{16 and 13}. Use this only after the four-card count has meaning. The grids encode the same prohibitions as Problems 10--11, not additional constraints. The coefficient table below counts compatible \emph{forbidden} spots; it does not count legal full rows. Guide page 8 explains how to obtain it.
+\begin{center}\small\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{lrrrrrrl}
+Board & $r_0$&$r_1$&$r_2$&$r_3$&$r_4$&$r_5$ & Alternating count\\\midrule
+4-card strip &1&7&15&10&1&--&$24-42+30-10+1=3$\\
+4-card ring &1&8&20&16&2&--&$24-48+40-16+2=2$\\
+5-card strip &1&9&28&35&15&1&$120-216+168-70+15-1=16$\\
+5-card ring &1&10&35&50&25&2&$120-240+210-100+25-2=13$
+\end{tabular}
+\end{center}
+\hint{P12: ``Can these two shaded spots happen in the same row?'' P13: ``How could we organize compatible choices without listing full rows?''} Use the spare printed grids for chosen spots, not a new simultaneous tally. A child may finish with the physical catalog and save inclusion--exclusion for another visit.
+\newpage
+\head{Explaining the counts and source trail}
+\textbf{A workable overlap bridge for Problems 12--13.} Mark two forbidden spots sharing a card-line on a spare grid: no row can use both. Try two spots on distinct lines and columns: fixing them leaves two cards to place on a four-card board, hence two completions. Additional forbidden uses are allowed in this \emph{intersection} count. This is the new feature beyond first-visit own-home groups, where chosen matches never clash. Count compatible singletons, pairs and larger choices; use the table only after children have tried some.
+
+For a systematic adult count, order the strip's forbidden spots as
+\[
+(A,A),(A,B),(B,B),(B,C),\ldots,(E,E).
+\]
+Only neighbors in this chain clash. Let $F(L,k)$ count ways to choose $k$ nonneighboring spots from a chain of length $L$. Its last spot is either absent or present, giving
+\[
+F(L,k)=F(L-1,k)+F(L-2,k-1),\qquad F(L,0)=1.
+\]
+Impossible choices count zero; $F(0,k>0)=0$, $F(1,1)=1$. This builds every strip coefficient with $L=2n-1$. For the ring of $L=2n$ spots, distinguish one spot: not chosen leaves a chain of $L-1$; chosen removes its two neighbors and leaves a chain of $L-3$. Thus $r_k=F(L-1,k)+F(L-3,k-1)$ for $k\ge1$, with $r_0=1$. These disjoint cases explain all coefficients without listing complete permutations.
+
+The alternating signs can be justified on one frozen outcome. If it uses a forbidden spot, pair every subset of its forbidden uses that omits that spot with the subset that includes it. The two contributions have opposite signs and cancel. If it uses no forbidden spot, only the empty subset remains, counted once. This proves the formula for any finite forbidden board.
+
+\textbf{Adult certificate for middle Problem 9.} With four forbidden spots, the count is $24-4\cdot6+2r_2-r_3+r_4$. Exhausting all 1820 distinct choices of four spots gives precisely these triples and counts:
+\begin{center}\small
+\begin{tabular}{c|rrrrrrr}
+$(r_2,r_3,r_4)$ &(0,0,0)&(2,0,0)&(3,0,0)&(4,0,0)&(4,1,0)&(5,2,0)&(6,4,1)\\
+Allowed rows &0&4&6&8&7&8&9
+\end{tabular}
+\end{center}
+This finite certificate proves both the maximum and the missing five; the reproducible checker supplies exhaustive coverage. Do not present the table alone as a child's proof that no other triple occurs.
+
+\sub{Sources and consultation boundaries}
+\small
+\textbf{Consulted for this guide.} Final return-visit PDFs: K--1 pp. 1--5, P1--8; middle pp. 1--6, P1--9; upper pp. 1--10, P1--13, plus their sources, outline and both earlier reviews. Base Week 63 guide W63-G-v4, especially pp. 1--4 and 7--10, and materials W63-M-v3 pp. 1--3 establish the kit and prior mathematics. Style models: Week 8 return-visit guide pp. 1--5 and Week 98 guide, including its editable source. The final upper grids are P12 and P13, superseding the older review's P12-only numbering.
+
+Alan Frieze, CMU Discrete Mathematics, \href{https://www.math.cmu.edu/~af1p/Teaching/DM/D14.pdf}{D14 pp. 2--4} (derangement recurrence) and \href{https://www.math.cmu.edu/~af1p/Teaching/DM/D16.pdf}{D16 pp. 1--2, 4--7} (inclusion--exclusion and cancellation), were opened for this guide. The proofs and kit instances here were independently worked. The base source notes report \emph{Math Circle by the Bay}, preface printed pp. viii--x, and Rozhkovskaya, Lessons 3 item 1 and 8 item 2, for concrete attempts before records and reduced copying. Those books are unavailable in this checkout; that pedagogical evidence was consulted through the notes, not the originals. Our timing and route choices are untested adaptations.
+
+\textbf{Further references named in the outline, not directly consulted here.} Cayley, ``Note on the theory of permutations,'' \emph{Philosophical Magazine} 34 (1849), pp. 527--529 (publisher bibliography checked); Stanley, \emph{Enumerative Combinatorics} 1, 2nd ed., \S1.3 and \S2.2; Feller, \emph{An Introduction to Probability Theory and Its Applications} 1, ch. IV. The outline also names Diaconis (1988), \emph{Group Representations in Probability and Statistics}; Riordan (1958), \emph{An Introduction to Combinatorial Analysis}; Kaplansky (1943), ``Solution of the probl\`eme des m\'enages''; Kaplansky--Riordan (1946), ``The problem of the rooks and its applications''; Touchard (1934), and standard algebra texts for sign. Their exact page locators were not supplied or verified, so no page-specific consultation is claimed. No six-card kit or classroom success is claimed. Record actual fit, preparation time, rule retention and which investigations children choose to continue.
+\end{document}
