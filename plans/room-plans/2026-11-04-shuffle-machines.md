@@ -1,6 +1,6 @@
 # Room plan: shuffle machines and loop names (permutations, part 2)
 
-**Option A for Wednesday, November 4, 2026.** Week 3, [Shuffle machines](../../lowell-math-circle-year-2/week-03/): packets for [K–1](../../lowell-math-circle-year-2/week-03/week-03-k-1.pdf), [2–3](../../lowell-math-circle-year-2/week-03/week-03-grades-2-3.pdf) and [4–5](../../lowell-math-circle-year-2/week-03/week-03-grades-4-5.pdf), and the [facilitator guide](../../lowell-math-circle-year-2/week-03/week-03-facilitator.pdf), whose chair launch this plan uses. Unpiloted at the circle; tried at home.
+**The plan for Wednesday, November 4, 2026** (James confirmed shuffle machines on November 2). Week 3, [Shuffle machines](../../lowell-math-circle-year-2/week-03/): packets for [K–1](../../lowell-math-circle-year-2/week-03/week-03-k-1.pdf), [2–3](../../lowell-math-circle-year-2/week-03/week-03-grades-2-3.pdf) and [4–5](../../lowell-math-circle-year-2/week-03/week-03-grades-4-5.pdf), and the [facilitator guide](../../lowell-math-circle-year-2/week-03/week-03-facilitator.pdf), whose chair launch this plan uses. Unpiloted at the circle; tried at home.
 
 ## Why this follows October 29
 
@@ -8,9 +8,28 @@ On October 29 the children counted the orders of 3 and 4 cards and built orders 
 
 For adults: the loops are the cycles; the number of turns until every cube is home is the least common multiple of the loop lengths (loops of 2 and 3 take 6 turns on 5 slots); a loop of k slots can be built from k − 1 swaps, which links back to last week's swaps and, for older children, to even and odd.
 
+## Prep checklist for Wednesday afternoon
+
+Print single-sided, in colour, at 100% ("Actual size"), so the mat slots stay 1.2 inches. The guide's copy counts assume 4 children at K–1, 4 at 2–3 and 3 at 4–5; the counts below lean toward 2–3, since most of the room is there. Adjust at the door.
+
+- [ ] [K–1 packet](../../lowell-math-circle-year-2/week-03/week-03-k-1.pdf), 10 pages: 4 copies, plus 4 extra copies of page 10 (the blank test mat) for the other tables
+- [ ] [Grades 2–3 packet](../../lowell-math-circle-year-2/week-03/week-03-grades-2-3.pdf), 11 pages: 8 copies
+- [ ] [Grades 4–5 packet](../../lowell-math-circle-year-2/week-03/week-03-grades-4-5.pdf), 8 pages: 4 copies
+- [ ] [Facilitator guide](../../lowell-math-circle-year-2/week-03/week-03-facilitator.pdf), 11 pages: one per adult (3)
+- [ ] This room plan: one per adult (3)
+- [ ] Snap cubes from school: about 75, at least 14 each of green, blue, red, yellow and purple, plus a pink one per 2–3 child and a spare (any small pink object will do); one set per child in its own cup
+- [ ] Masking tape and five coloured sheets for the chairs (green, blue, red, yellow, purple)
+- [ ] Coloured pencils (three colours per child at 2–3), pencils, scrap paper
+- [ ] Whiteboards and markers, one per child; one big whiteboard or easel by the chairs
+- [ ] Sticky notes for the floor rounds
+- [ ] Two decks of playing cards for 4–5, with one suit A to Q in order on top (the guide explains why)
+- [ ] A timer everyone can see
+- [ ] Ten-minute check the day before or that afternoon: the guide's three tests with real cubes (cubes fit the slots; K–1 Problem 3's bottom machine takes 6 turns; the 8-card perfect shuffle)
+- [ ] At the room: set up the chairs and floor arrows before the children arrive (guide, "Set up before the children arrive")
+
 ## Before the children arrive
 
-- Five chairs and masking-tape arrows on the floor, exactly as in the guide (chairs 1 → 2 → 3 → 1, chairs 4 and 5 point to themselves).
+- Five chairs with their coloured sheets and masking-tape arrows on the floor, exactly as in the guide (chairs 1 → 2 → 3 → 1, chairs 4 and 5 point to themselves).
 - At each table: a cup of snap cubes per child (green, blue, red, yellow, purple, pink; about 75 in all), that band's packet pages face down, coloured pencils, whiteboards.
 - One timer everyone can see. A whiteboard by the chairs for loop names, and a pad of sticky notes.
 - Printed early-finisher cards: "Draw a 5-slot machine that takes as many turns as you can" (2–3 and 4–5) and "Draw a machine where only one cube moves" (K–1, from its Problem 5; it can't be done).

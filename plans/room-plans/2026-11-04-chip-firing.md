@@ -1,6 +1,6 @@
 # Room plan: chip firing with a sink
 
-**Option B for Wednesday, November 4, 2026,** for a week off permutations. Week 11, [Chip-firing with a sink](../../lowell-math-circle-year-2/week-11/): packets for [K–1](../../lowell-math-circle-year-2/week-11/week-11-k-1.pdf), [2–3](../../lowell-math-circle-year-2/week-11/week-11-grades-2-3.pdf) and [4–5](../../lowell-math-circle-year-2/week-11/week-11-grades-4-5.pdf), and the [facilitator guide](../../lowell-math-circle-year-2/week-11/week-11-facilitator.pdf). Unpiloted at the circle; chip firing was a big success at home. If the circle has already done Week 11, use option A instead.
+**Reference only: the circle already ran chip firing a few weeks before November 2, 2026, and it was a success** (James, November 2). Drafted as option B for November 4 before that was known; kept for a return visit or for other circles. Week 11, [Chip-firing with a sink](../../lowell-math-circle-year-2/week-11/): packets for [K–1](../../lowell-math-circle-year-2/week-11/week-11-k-1.pdf), [2–3](../../lowell-math-circle-year-2/week-11/week-11-grades-2-3.pdf) and [4–5](../../lowell-math-circle-year-2/week-11/week-11-grades-4-5.pdf), and the [facilitator guide](../../lowell-math-circle-year-2/week-11/week-11-facilitator.pdf). Unpiloted at the circle; chip firing was a big success at home.
 
 ## The mathematics in one paragraph, for adults
 
@@ -33,4 +33,4 @@ Circles joined by lines hold chips. A circle with at least as many chips as it h
 
 ## How it went
 
-(Add a dated line after the session.)
+- Before November 2, 2026: run at the circle without this plan; a success (James).

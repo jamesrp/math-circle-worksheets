@@ -19,5 +19,5 @@ Started November 2, 2026, after James asked for them (aim 2 in the app repositor
 
 | Date | Plan | Week | Status |
 |---|---|---|---|
-| November 4, 2026 (option A) | [Shuffle machines and loop names](2026-11-04-shuffle-machines.md) | 3 | proposed |
-| November 4, 2026 (option B, a week off permutations) | [Chip firing with a sink](2026-11-04-chip-firing.md) | 11 | proposed |
+| November 4, 2026 | [Shuffle machines and loop names](2026-11-04-shuffle-machines.md) ([printable](2026-11-04-shuffle-machines.pdf)) | 3 | chosen; unpiloted |
+| Reference | [Chip firing with a sink](2026-11-04-chip-firing.md) | 11 | the circle ran Week 11 before this plan was written; a success |
