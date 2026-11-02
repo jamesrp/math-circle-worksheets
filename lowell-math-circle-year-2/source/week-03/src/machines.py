@@ -83,32 +83,34 @@ def one_indexed(p):
 
 
 # ----------------------------------------------------------------------------------------------
-# block pictures (pattern-block colours); each shape is a polygon in a unit-ish box
+# home pictures: a small cube in each cube colour (James, November 2, 2026: the
+# children use snap cubes, so the pictures show cubes, not pattern-block shapes)
 
-SHAPES = {
-    # name: (colour, polygon)
-    "tri": ("pbgreen", [(0, 0), (1, 0), (0.5, 0.866)]),
-    "rhombus": ("pbblue", [(0, 0), (1, 0), (1.5, 0.866), (0.5, 0.866)]),
-    "trap": ("pbred", [(0, 0), (2, 0), (1.5, 0.866), (0.5, 0.866)]),
-    "hex": ("pbyellow", [(0.5, 0), (1.5, 0), (2, 0.866), (1.5, 1.732), (0.5, 1.732), (0, 0.866)]),
-    "chevron": ("pbpurple", [(0, 0), (0.8, 0.45), (1.6, 0), (1.6, 0.6), (0.8, 1.05), (0, 0.6)]),
-    "pinktri": ("pbpink", [(0, 0), (1.732, 0), (0.866, 0.5)]),
-    "kite": ("pbteal", [(0.5, 0), (0.95, 0.62), (0.5, 1.0), (0.05, 0.62)]),
-    "dart": ("pbgray", [(0.5, 0), (1.0, 1.0), (0.5, 0.62), (0.0, 1.0)]),
+CUBE_COLOURS = {
+    "green": "pbgreen", "blue": "pbblue", "red": "pbred", "yellow": "pbyellow",
+    "purple": "pbpurple", "pink": "pbpink", "teal": "pbteal", "gray": "pbgray",
 }
-BLOCK_ORDER = ["tri", "rhombus", "trap", "hex", "chevron", "pinktri", "kite", "dart"]
+BLOCK_ORDER = ["green", "blue", "red", "yellow", "purple", "pink", "teal", "gray"]
+CUBE_DEPTH = 0.38   # the receding edge, as a fraction of the front face's side
 
 
 def icon_tikz(name, cx, cy, maxw, maxh):
-    colour, poly = SHAPES[name]
-    xs = [x for x, _ in poly]
-    ys = [y for _, y in poly]
-    w, h = max(xs) - min(xs), max(ys) - min(ys)
-    k = min(maxw / w, maxh / h)
-    ox = cx - k * (min(xs) + max(xs)) / 2
-    oy = cy - k * (min(ys) + max(ys)) / 2
-    pts = " -- ".join(f"({ox + k * x:.3f},{oy + k * y:.3f})" for x, y in poly)
-    return f"\\filldraw[fill={colour}, draw=black, line width=0.6pt, line join=round] {pts} -- cycle;"
+    """A cube in the colour `name`: a front face with its top and right faces drawn in
+    perspective, scaled to fit maxw by maxh and centred on (cx, cy)."""
+    c = CUBE_COLOURS[name]
+    d = CUBE_DEPTH
+    a = min(maxw, maxh) / (1 + d * 0.8)          # front side; the box is a(1 + 0.8d) square
+    w = h = a * (1 + d * 0.8)
+    x0, y0 = cx - w / 2, cy - h / 2
+    dx, dy = a * d * 0.8, a * d * 0.8
+    f = lambda pts: " -- ".join(f"({x:.3f},{y:.3f})" for x, y in pts)
+    front = [(x0, y0), (x0 + a, y0), (x0 + a, y0 + a), (x0, y0 + a)]
+    top = [(x0, y0 + a), (x0 + a, y0 + a), (x0 + a + dx, y0 + a + dy), (x0 + dx, y0 + a + dy)]
+    side = [(x0 + a, y0), (x0 + a + dx, y0 + dy), (x0 + a + dx, y0 + a + dy), (x0 + a, y0 + a)]
+    style = "draw=black, line width=0.6pt, line join=round"
+    return (f"\\filldraw[fill={c}, {style}] {f(front)} -- cycle; "
+            f"\\filldraw[fill={c}!55!white, {style}] {f(top)} -- cycle; "
+            f"\\filldraw[fill={c}!70!black, {style}] {f(side)} -- cycle;")
 
 
 # ----------------------------------------------------------------------------------------------
