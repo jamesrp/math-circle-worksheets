@@ -46,14 +46,14 @@ The binding constraint is the room, not the writing: one circle meets about 20 t
 
 Items 1–3 package existing work; 4–6 make new content and wait for James's yes. Item 2 is done.
 
-1. **Room plans one week ahead**, for the circle collection's next sessions (proposed after Nov 4: Week 5 clue deduction, Week 7 take-away games, Week 10 bridges, then the permutations follow-up). One page each, as for Nov 4. James picks the week.
+1. **Room plans one week ahead**, for the circle collection's next sessions: Weeks 5, 7 and 10 after November 4 (agreed November 3), then a permutations follow-up. One page each, as for Nov 4. James picks each week.
 2. **Review triage of the 23 drafts**: done, [DRAFT-TRIAGE.md](review/DRAFT-TRIAGE.md). Its four "adopt now" new themes (Towers from either end, Poisoned cookie, Hidden armies, Hex) are all games, the area the circle has least of.
 3. **Use-log habit**: the Wednesday and Friday check-ins add a line after each session; a monthly pass moves taught themes up the ladder and revises from what happened.
 4. **Home plans** for the kitchen-table collection, starting with Poisoned cookie, Hex and Pancake flips as home pilots of drafts, and Weeks 7 and 8 (games).
 5. **K–1 entries** for path Years 4–6 (27 sessions lack them; 7 drafted).
 6. **The book and grades 6–8**, after the starter set has members.
 
-## Questions only James can answer
+## Decisions
 
-1. Is this the right definition of done, so that I pause new themes and grades 6–8 until about twenty sessions have been taught, and spend effort on room plans, home plans and review triage instead?
-2. Which weeks should the next room plans cover? My proposal is above (backlog item 1).
+- **November 3, 2026: pause on new content.** James agreed (a thumbs-up on the report that asked both questions) to pause new themes and grades 6–8 until about twenty sessions have been taught, and to spend the effort on room plans, home plans and his review queue. Drafts already written stay in review; nothing new is scouted or drafted until the pause lifts.
+- **November 3, 2026: next room plans.** James agreed to Week 5 (Tower cities, deduction from view clues), Week 7 (take-away games) and Week 10 (bridges) as the room plans after November 4, in that order.
