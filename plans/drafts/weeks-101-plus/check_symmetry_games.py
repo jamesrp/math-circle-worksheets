@@ -95,6 +95,16 @@ def check_week_115():
     # Crystallographic restriction: 2cos(360/k) must be an integer.
     allowed = [k for k in range(1, 25) if abs(2 * math.cos(2 * math.pi / k) - round(2 * math.cos(2 * math.pi / k))) < 1e-9]
     assert allowed == [1, 2, 3, 4, 6]
+    # Shortest-slide argument: if a k-fold spin keeps a pattern with shortest slide t, then t + R^j t and t - R^j t
+    # are slides too. For k = 5 and k >= 7 one of them is shorter than t; for k = 2, 3, 4, 6 none is.
+    def shorter_exists(k):
+        lens = []
+        for j in range(1, k):
+            z = complex(math.cos(2 * math.pi * j / k), math.sin(2 * math.pi * j / k))
+            lens += [abs(1 + z), abs(1 - z)]
+        return any(1e-9 < v < 1 - 1e-9 for v in lens)
+    assert [k for k in range(2, 13) if not shorter_exists(k)] == [2, 3, 4, 6]
+    assert abs(abs(1 + complex(math.cos(4 * math.pi / 5), math.sin(4 * math.pi / 5))) - 0.618) < 1e-3
     # Regular polygons that fit around a point: interior angle divides 360.
     fits = [n for n in range(3, 25) if (360 * n) % (180 * (n - 2)) == 0]
     assert fits == [3, 4, 6]
@@ -339,6 +349,12 @@ def check_week_118():
             col, row = pos % 3, pos // 3
             pos = 7 + row  # chosen column goes between the other two, order within column kept
         assert pos == 10  # 11th card, zero-based 10
+    # 9-card version for younger tables: two deals into three columns of 3, chosen column in the middle -> 5th card.
+    for start in range(9):
+        pos = start
+        for _ in range(2):
+            pos = 3 + pos // 3
+        assert pos == 4
     print("week 118 ok")
 
 

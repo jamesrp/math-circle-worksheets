@@ -178,6 +178,17 @@ def check_week_120():
     # Combinatorics alone allows extra patterns (e.g. octahedron with two opposite caps,
     # degrees 3,3,5,5,5,5,5,5), which equilateral faces make flat or dented.
     assert [3, 3, 5, 5, 5, 5, 5, 5] in found[8].values()
+    extra = {n: [d for d in found[n].values() if d not in known.values()] for n in found
+             if isinstance(n, int)}
+    assert {n: v for n, v in extra.items() if v} == {
+        6: [[3, 3, 4, 4, 5, 5]], 7: [[3, 4, 4, 4, 5, 5, 5]], 8: [[3, 3, 5, 5, 5, 5, 5, 5]]}
+    # Why the extras fail with equilateral faces: a regular tetrahedron's dihedral angle
+    # arccos(1/3) plus the octahedron's arccos(-1/3) is exactly 180 degrees (a cap lies flat),
+    # while a cap on the triangular dipyramid's face meets an equator edge of 2*arccos(1/3)
+    # and makes 3*arccos(1/3) > 180 degrees (a dent).
+    tet, octa = math.degrees(math.acos(1 / 3)), math.degrees(math.acos(-1 / 3))
+    assert abs(tet + octa - 180) < 1e-9
+    assert 3 * tet > 180 and round(3 * tet, 1) == 211.6
     assert counts == {4: 1, 5: 1, 6: 2, 7: 2, 8: 2, 9: 1, 10: 1, 11: 0, 12: 1}, counts
     assert sum(counts.values()) == 11   # 11 patterns on paper, 8 convex deltahedra
     check_week_120.counts = counts
@@ -286,6 +297,62 @@ def check_week_121():
                 best = img
         return best
     assert len({key(t) for t in trees}) == 11  # the same 11 nets, counted as cut trees
+    # Unfold along each cut tree: the 6 faces land on 6 different grid cells (no overlap),
+    # and every one of the 384 unfoldings is one of the 11 hexomino nets.
+    # Faces: (axis, sign). A cube edge between corners u, v (differing in bit i) lies on the
+    # two faces (j, bit j of u) for the two axes j != i.
+    def faces_of_edge(u, v):
+        i = (u ^ v).bit_length() - 1
+        return tuple((j, (u >> j) & 1) for j in range(3) if j != i)
+    net_keys = {_free_key(s) for s in nets}
+    for t in trees:
+        hinges = [faces_of_edge(a, b) for a, b in edges if (a, b) not in t]
+        assert len(hinges) == 5
+        # state: which face is down, north, east (then the rest follow)
+        opp = lambda f: (f[0], 1 - f[1])
+        start = (2, 0)                       # bottom face z = 0
+        state = {start: ((0, 0), (1, 1), (0, 1))}   # cell, north face, east face
+        q = deque([start])
+        adj = {}
+        for f, g in hinges:
+            adj.setdefault(f, []).append(g)
+            adj.setdefault(g, []).append(f)
+        while q:
+            f = q.popleft()
+            cell, north, east = state[f]
+            for g in adj.get(f, []):
+                if g in state:
+                    continue
+                # g is a side face; roll toward it
+                if g == north:
+                    nc, nn, ne = (cell[0], cell[1] + 1), opp(f), east
+                elif g == opp(north):
+                    nc, nn, ne = (cell[0], cell[1] - 1), f, east
+                elif g == east:
+                    nc, nn, ne = (cell[0] + 1, cell[1]), north, opp(f)
+                else:
+                    assert g == opp(east)
+                    nc, nn, ne = (cell[0] - 1, cell[1]), north, f
+                state[g] = (nc, nn, ne)
+                q.append(g)
+        cells = [v[0] for v in state.values()]
+        assert len(state) == 6 and len(set(cells)) == 6
+        assert _free_key(cells) in net_keys
+    # Sorting rules children may find: a 2x2 block or five in a row never folds.
+    def has_block(s):
+        ss = set(s)
+        return any({(x + 1, y), (x, y + 1), (x + 1, y + 1)} <= ss for x, y in s)
+
+    def long_row(s):
+        ss = set(s)
+        return any(all((x + i, y) in ss for i in range(5)) or all((x, y + i) in ss for i in range(5))
+                   for x, y in s)
+    non = [s for s in free if not folds_to_cube(s)]
+    assert len(non) == 24
+    assert not any(has_block(s) or long_row(s) for s in nets)
+    blocked = [s for s in non if has_block(s) or long_row(s)]
+    check_week_121.split = (len(blocked), len(non) - len(blocked))
+    assert check_week_121.split == (12, 12)   # half the failures need folding to see
     # Each net: 6 squares, 5 hinges, 14 outer sides (6*4 - 2*5).
     assert 6 * 4 - 2 * 5 == 14
 
@@ -753,6 +820,7 @@ def main():
         globals()[name]()
         print(name, 'ok')
     print('week 120 degree-<=5 sphere triangulations by vertex count:', check_week_120.counts)
+    print('week 121 non-nets with a 2x2 block or five in a row, and other non-nets:', check_week_121.split)
     print('week 122 untileable convex 16-triangle shapes, side counts:', check_week_122.untileable)
     print('week 124 mirror-line folds for regular n-gons:', check_week_124.table)
 
