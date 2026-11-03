@@ -2,10 +2,9 @@
 
 Run: python3 plans/drafts/weeks-101-plus/coverage.py
 Fields are a coarse hand mapping of each concept in catalog/concepts.toml; a theme
-counts once per field among its concepts. Weeks 101+ drafts are read from the
-"Deep-math field" line of each draft plan.
+counts once per field among its concepts.
 """
-import collections, glob, os, re, tomllib
+import collections, glob, os, tomllib
 
 ROOT = os.path.join(os.path.dirname(__file__), "..", "..", "..")
 FIELD = {
@@ -51,11 +50,6 @@ def main():
         for r in rows:
             for fld in {FIELD[c] for c in r["concepts"]}:
                 table[fld][name] += 1
-    new = collections.Counter()
-    for f in glob.glob(os.path.join(os.path.dirname(__file__), "week-1*.md")):
-        m = re.search(r"\*\*Deep-math field:\*\*\s*([^.]+)\.", open(f).read())
-        if m:
-            new[m.group(1).strip()] += 1
     print("\n| Field | Weeks 1-100 | Atlas families | Scouted drafts |")
     print("|---|---|---|---|")
     for fld in sorted(table, key=lambda k: -table[k]["weeks"]):
@@ -63,8 +57,7 @@ def main():
         print(f"| {fld} | {t['weeks']} | {t['atlas']} | {t['drafts']} |")
     used = collections.Counter(c for r in weeks for c in r["concepts"])
     print("\nConcepts no library week is about:", ", ".join(k for k in concepts if not used[k]))
-    if new:
-        print("\nWeeks 101+ drafts by stated field:", dict(new.most_common()))
+
 
 if __name__ == "__main__":
     main()

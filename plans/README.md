@@ -15,6 +15,7 @@
 
 - [Six-year path for returning children](six-year-path.md): a proposed 120 sessions over six years for the mixed K–5 room, starting with this fall's Weeks 1–10; checked by `catalog/check_path.py` and shown in the explorer's Path view. A proposal, unpiloted.
 - [Room plans](room-plans/README.md): how to run a week in the real Wednesday room, with jobs, timed rounds and floor moments. Started November 2, 2026; unpiloted.
+- [Weeks 101–142, draft plans](drafts/weeks-101-plus/README.md): 42 one-page plans toward a wider corpus, each with the deep idea, read sources, a hands-on K–5 way in and checked facts; researched November 3, 2026 after James reversed the pause on new weeks; plans only, unpiloted.
 - [Topic scouting](topic-scouting/README.md): twelve week outlines for games, logic, networks and counting, the areas the six-year path uses up, ranked with 32 set-aside candidates; outlines only, unpiloted.
 - [Fall K–5 plan](fall-k-5-year-a.md): ten themes, group arrangements, and the shared hour.
 - [Activity guide](fall-k-5-year-a-activities.md): entry activities and links to complete weekly plans.
