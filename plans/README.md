@@ -20,7 +20,8 @@
 - [Activity guide](fall-k-5-year-a-activities.md): entry activities and links to complete weekly plans.
 - [Week 2 shared collection](week-02-shared-collection.md): the current 42-page, 50-problem menu, common launch, prerequisite-based routes, and three-adult coverage.
 - [Week 2 bonus challenges](week-02-bonus.md): four optional variations after the compact or upper catalog, with a separate adult key and exhaustive checks; prepared reserve.
-- [Session use log](fall-k-5-year-a-use-log.md): record actual instances and the reasoning children reached.
+- [Use log](../catalog/use-log.toml): a public, non-identifying line for every session where a theme was used, at home or in the circle; the detailed session logs are private ([LOCAL-RESOURCES.md](../LOCAL-RESOURCES.md#private-records)). It feeds the [readiness report](readiness.md).
+- [Corpus plan](corpus-plan.md): how the worksheets are organized (library, strands, collections, readiness ladder), what done means and how far away it is, and the backlog. November 3, 2026; a proposal.
 - [Weeks 1–10 review and revision record](fall-weeks-01-10-review.md).
 - [Week 1 classroom review and adopted worksheet guidance](week-01-classroom-review.md): September 27 feedback; approved guidance adopted in AGENTS.md.
 - [Weeks 2–10 application of that guidance](fall-weeks-02-10-classroom-guidance-review.md): v3 sequences, concrete comparisons, revised student format, and unpiloted status.
