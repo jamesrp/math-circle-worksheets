@@ -1,4 +1,4 @@
-# Checks the opener puzzles in photo-line.tex (November 11, 2026): each must have exactly one answer.
+# Checks the opener puzzles in photo-line.tex (the tower cities reference plan): each must have exactly one answer.
 # "without X: n" shows how many answers remain if clue X is dropped (n > 1 means the clue is needed).
 # Places in the line are numbered 1 to 5 from the left end. Heights are in cubes:
 # Mouse 1, Cat 2, Dog 3, Horse 4, Giraffe 5. Run: python3 photo-line_check.py (stdlib only).

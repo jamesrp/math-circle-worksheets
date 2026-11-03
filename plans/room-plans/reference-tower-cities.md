@@ -2,7 +2,7 @@
 
 **Reference only: the circle already ran tower cities before this plan was written** (James, November 3, 2026). Kept for a return visit or for other circles.
 
-**The plan for Wednesday, November 11, 2026** (proposed; James has not chosen it yet). Week 5, [Tower cities](../../lowell-math-circle-year-2/week-05/): packets for [K–1](../../lowell-math-circle-year-2/week-05/week-05-k-1.pdf), [2–3](../../lowell-math-circle-year-2/week-05/week-05-grades-2-3.pdf) and [4–5](../../lowell-math-circle-year-2/week-05/week-05-grades-4-5.pdf), and the [facilitator guide](../../lowell-math-circle-year-2/week-05/week-05-facilitator.pdf), whose launch this plan moves to the floor. Unpiloted.
+**Written as the plan for Wednesday, November 11, 2026.** Week 5, [Tower cities](../../lowell-math-circle-year-2/week-05/): packets for [K–1](../../lowell-math-circle-year-2/week-05/week-05-k-1.pdf), [2–3](../../lowell-math-circle-year-2/week-05/week-05-grades-2-3.pdf) and [4–5](../../lowell-math-circle-year-2/week-05/week-05-grades-4-5.pdf), and the [facilitator guide](../../lowell-math-circle-year-2/week-05/week-05-facilitator.pdf), whose launch this plan moves to the floor. Unpiloted.
 
 ## Why this follows November 4
 
@@ -18,7 +18,7 @@ Print single-sided, US Letter, at 100% ("Actual size"), so cubes stand on the 1-
 - [ ] [Grades 2–3 packet](../../lowell-math-circle-year-2/week-05/week-05-grades-2-3.pdf), 9 pages: 7 copies, plus 4 extra of page 7 (extra grids for Problem 5)
 - [ ] [Grades 4–5 packet](../../lowell-math-circle-year-2/week-05/week-05-grades-4-5.pdf), 8 pages: 4 copies, plus 6 extra of page 2 (the only 1-inch 4-by-4 grid; puzzles are copied onto it to build)
 - [ ] [Facilitator guide](../../lowell-math-circle-year-2/week-05/week-05-facilitator.pdf), 10 pages, and this room plan: one each per adult (3)
-- [ ] [Opener sheet](2026-11-11-opener.pdf), 2 pages, cut in half: page 1 (main, two per page) 5 copies, page 2 (easier, harder) 3 copies
+- [ ] [Opener sheet](reference-tower-cities-opener.pdf), 2 pages, cut in half: page 1 (main, two per page) 5 copies, page 2 (easier, harder) 3 copies
 - [ ] Signs on paper: MOUSE, CAT, DOG, HORSE, GIRAFFE, and LEFT END
 - [ ] Snap cubes (3/4 inch), the lighter route below: about 155
 - [ ] 7 file folders as screens (2 per table, 1 for the floor); the big whiteboard laid flat as a floor base, so towers stand on carpet

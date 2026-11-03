@@ -1,7 +1,7 @@
 # Checks the opener puzzles in whose-pile.tex: each must have exactly one answer.
 # "without X: n" shows how many answers remain if clue X is dropped (n > 1 means the clue is needed).
 # Each animal has one pile, and the piles have different sizes. Run: python3 whose-pile_check.py
-# It also checks the game facts the November 18 room plan uses on the floor.
+# It also checks the game facts the November 11 room plan uses on the floor.
 from itertools import permutations
 
 

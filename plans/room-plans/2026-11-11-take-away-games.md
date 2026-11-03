@@ -1,10 +1,10 @@
 # Room plan: take-away games (last counter wins)
 
-**The plan for Wednesday, November 18, 2026** (proposed). Week 7, [Take-away games](../../lowell-math-circle-year-2/week-07/): packets for [K–1](../../lowell-math-circle-year-2/week-07/week-07-k-1.pdf), [2–3](../../lowell-math-circle-year-2/week-07/week-07-grades-2-3.pdf) and [4–5](../../lowell-math-circle-year-2/week-07/week-07-grades-4-5.pdf), and the [facilitator guide](../../lowell-math-circle-year-2/week-07/week-07-facilitator.pdf), whose launch script this plan moves to the floor. Unpiloted, at the circle and at home: the use log has no session of this week.
+**The plan for Wednesday, November 11, 2026** (proposed; James agreed to Weeks 7 and 10 next on November 3). Week 7, [Take-away games](../../lowell-math-circle-year-2/week-07/): packets for [K–1](../../lowell-math-circle-year-2/week-07/week-07-k-1.pdf), [2–3](../../lowell-math-circle-year-2/week-07/week-07-grades-2-3.pdf) and [4–5](../../lowell-math-circle-year-2/week-07/week-07-grades-4-5.pdf), and the [facilitator guide](../../lowell-math-circle-year-2/week-07/week-07-facilitator.pdf), whose launch script this plan moves to the floor. Unpiloted, at the circle and at home: the use log has no session of this week.
 
-## Why this follows November 11
+## Why this follows November 4
 
-Last week's tower cities (planned for November 11) asked which cities fit a set of clues, and whether a set of clues fits one city, several or none. This week's opener is a clue puzzle of the same kind, and the main activity asks the same question inside a game: does my way of playing work against every reply, not just the one I expect? It is also the kind of activity this room does well. The other player enforces the rule, the counters show the state, and a game of 10 takes under a minute, so children play many games before anyone asks them to explain.
+Last week's shuffle machines ran one machine again and again; this week the other side is a player who answers back. The circle's tower cities session earlier this fall asked whether a set of clues fits one city, several or none. This week's opener is a clue puzzle of that kind, and the main activity asks the same question inside a game: does my way of playing work against every reply, not just the one I expect? It is also the kind of activity this room does well. The other player enforces the rule, the counters show the state, and a game of 10 takes under a minute, so children play many games before anyone asks them to explain.
 
 For adults: with moves of 1 or 2, the piles you want to hand your opponent are the multiples of 3 (0, 3, 6, 9, ...), and you keep it that way by answering a take of 1 with 2 and a take of 2 with 1. With moves of 1, 3 or 4 the piles to hand over are those with remainder 0 or 2 on dividing by 7 (0, 2, 7, 9, 14, 16), so Goat's pile of 7 is a first-player win in the launch and a second-player win at the midpoint. In general a pile is one to hand over exactly when every move from it reaches a pile that is not; working up from 0 sorts every pile, and for any finite list of moves the pattern ends up repeating (a pigeonhole argument, 4–5 Problem 14). Two equal piles are always ones to hand over: copy your opponent in the other pile.
 
@@ -17,7 +17,7 @@ Print single-sided at 100% ("Actual size"), so the track squares stay about 0.68
 - [ ] [Grades 4–5 packet](../../lowell-math-circle-year-2/week-07/week-07-grades-4-5.pdf), 8 pages: 4 copies
 - [ ] [Facilitator guide](../../lowell-math-circle-year-2/week-07/week-07-facilitator.pdf), 10 pages: one per adult (3)
 - [ ] This room plan: one per adult (3)
-- [ ] [Opener sheet](2026-11-18-opener.pdf), 2 pages, cut in half: page 1 (the main puzzle, two per page) 5 copies, page 2 (easier on top, harder below) 3 copies
+- [ ] [Opener sheet](2026-11-11-opener.pdf), 2 pages, cut in half: page 1 (the main puzzle, two per page) 5 copies, page 2 (easier on top, harder below) 3 copies
 - [ ] Four animal signs: DUCK, FROG, GOAT, MOUSE in big letters on four sheets of paper
 - [ ] Counters of one colour, about 120: the guide's table cups (K–1 30, 2–3 30, 4–5 36; one cup per pair) and four opener cups holding 3, 5, 6 and 7. With only about 100, leave the guide's spares (6, 6 and 4) out of the table cups. A third pair at 2–3 needs another cup of 12.
 - [ ] Tokens for the tracks: 8 small ones (a counter of another colour or a snap cube; a pattern block is too big)
@@ -37,7 +37,7 @@ Print single-sided at 100% ("Actual size"), so the track squares stay about 0.68
 
 ## Opener: whose pile? (8 minutes)
 
-A soft logic puzzle on the tables as children arrive, in the spirit of year one's openers and of last week's tower clues, then acted out on the floor. The answer hands Goat's pile of 7 straight to the launch, which is the pile the guide's launch uses. An adult reads the clues aloud at any table that wants it.
+A soft logic puzzle on the tables as children arrive, in the spirit of year one's openers and of the tower cities clues, then acted out on the floor. The answer hands Goat's pile of 7 straight to the launch, which is the pile the guide's launch uses. An adult reads the clues aloud at any table that wants it.
 
 **The puzzle (most of the room).** Duck, Frog, Goat and Mouse each have a pile of counters: one pile of 3, one of 5, one of 6 and one of 7 (drawn on the sheet). Write each animal's name next to its pile.
 
