@@ -16,9 +16,14 @@ Started November 2, 2026, after James asked for them (aim 2 in the app repositor
 - **A floor finale before the last five minutes.** Colin noted engagement drops in the last five minutes, so the last activity is physical and short, and tidying up is a job.
 - **Children who've seen it before get a role, not the answers.** Jay and Rose have done some of these activities at home. Make them floor captains or checkers who may say "try again" but not why.
 
+To rebuild a plan's printable after editing it: `python3 plans/room-plans/build/build.py plans/room-plans/<plan>.md` (pandoc and LibreOffice). Opener sheets are LaTeX in `openers/`, each with a checker that every puzzle has exactly one answer.
+
 ## Plans
 
 | Date | Plan | Week | Status |
 |---|---|---|---|
 | November 4, 2026 | [Shuffle machines and loop names](2026-11-04-shuffle-machines.md) ([printable](2026-11-04-shuffle-machines.pdf), [opener sheet](2026-11-04-opener.pdf)) | 3 | chosen; unpiloted |
+| November 11, 2026 | [Tower cities](2026-11-11-tower-cities.md) ([printable](2026-11-11-tower-cities.pdf), [opener sheet](2026-11-11-opener.pdf)) | 5 | proposed (James agreed to Weeks 5, 7, 10 next); unpiloted |
+| November 18, 2026 | [Take-away games](2026-11-18-take-away-games.md) ([printable](2026-11-18-take-away-games.pdf), [opener sheet](2026-11-18-opener.pdf)) | 7 | proposed; unpiloted |
+| December 2, 2026 | [Bridges](2026-12-02-bridges.md) ([printable](2026-12-02-bridges.pdf), [opener sheet](2026-12-02-opener.pdf)) | 10 | proposed, assuming no circle on November 25; unpiloted |
 | Reference | [Chip firing with a sink](2026-11-04-chip-firing.md) | 11 | the circle ran Week 11 before this plan was written; a success |
