@@ -39,14 +39,15 @@ The binding constraint is the room, not the writing: one circle meets about 20 t
 - [catalog/use-log.toml](../catalog/use-log.toml): the seven reported sessions, with sources. Week statuses are unchanged: "piloted" still needs a classroom report.
 - [catalog/readiness.py](../catalog/readiness.py) and its output [readiness.md](readiness.md): the ladder counts by area and by path year.
 - [catalog/collections.toml](../catalog/collections.toml): the four collections above as proposals.
+- [Draft triage](review/DRAFT-TRIAGE.md) of the 23 drafts waiting on James: 8 adopt now, 10 pilot at home first, 5 hold. Only the 12 new themes can help this year; the return visits and K–1 sets belong to weeks not yet taught.
 - A Codex brief, [plans/briefs/readiness-and-collections.md](briefs/readiness-and-collections.md), and its work-board line: validate the new files in `build.py` and show rung and collection in the explorer and CATALOG.md.
 
 ## Backlog, in the order I'd do it
 
-None of these is started. Items 1–3 package existing work; 4–6 make new content and wait for James's yes.
+Items 1–3 package existing work; 4–6 make new content and wait for James's yes. Item 2 is done.
 
 1. **Room plans one week ahead**, for the circle collection's next sessions (proposed after Nov 4: Week 5 clue deduction, Week 7 take-away games, Week 10 bridges, then the permutations follow-up). One page each, as for Nov 4. James picks the week.
-2. **Review triage of the 23 drafts**: one page ranking them adopt now / pilot at home first / hold, so James spends twenty minutes, not an evening. The drafts already have critic reviews; this reads them, adds no content.
+2. **Review triage of the 23 drafts**: done, [DRAFT-TRIAGE.md](review/DRAFT-TRIAGE.md). Its four "adopt now" new themes (Towers from either end, Poisoned cookie, Hidden armies, Hex) are all games, the area the circle has least of.
 3. **Use-log habit**: the Wednesday and Friday check-ins add a line after each session; a monthly pass moves taught themes up the ladder and revises from what happened.
 4. **Home plans** for the kitchen-table collection, starting with Poisoned cookie, Hex and Pancake flips as home pilots of drafts, and Weeks 7 and 8 (games).
 5. **K–1 entries** for path Years 4–6 (27 sessions lack them; 7 drafted).
