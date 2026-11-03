@@ -6,6 +6,7 @@ Started November 2, 2026, after James asked for them (aim 2 in the app repositor
 
 ## What every plan has
 
+- **A logic opener, about eight minutes.** A soft constraint puzzle (who sat where, what order, which team) on the tables as children arrive, in three sizes, then acted out on the floor so it leads into the launch. Year one often opened this way and the children liked it (James, November 2, 2026). Puzzles and their checker live in [openers/](openers/); each has exactly one answer and every clue is needed.
 - **Launch on the floor, three minutes or less.** Children are part of the object (they sit in the chairs, hold the chips), and everyone else predicts out loud.
 - **Pairs with jobs, swapped every round.** One child moves the pieces and the other records. Nobody sits without a job.
 - **Short timed rounds.** About eight minutes, with a visible timer. A round ends with one pair showing one result, never a whole-group lecture.
@@ -19,5 +20,5 @@ Started November 2, 2026, after James asked for them (aim 2 in the app repositor
 
 | Date | Plan | Week | Status |
 |---|---|---|---|
-| November 4, 2026 | [Shuffle machines and loop names](2026-11-04-shuffle-machines.md) ([printable](2026-11-04-shuffle-machines.pdf)) | 3 | chosen; unpiloted |
+| November 4, 2026 | [Shuffle machines and loop names](2026-11-04-shuffle-machines.md) ([printable](2026-11-04-shuffle-machines.pdf), [opener sheet](2026-11-04-opener.pdf)) | 3 | chosen; unpiloted |
 | Reference | [Chip firing with a sink](2026-11-04-chip-firing.md) | 11 | the circle ran Week 11 before this plan was written; a success |
