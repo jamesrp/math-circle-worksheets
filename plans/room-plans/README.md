@@ -23,7 +23,7 @@ To rebuild a plan's printable after editing it: `python3 plans/room-plans/build/
 | Date | Plan | Week | Status |
 |---|---|---|---|
 | November 4, 2026 | [Shuffle machines and loop names](2026-11-04-shuffle-machines.md) ([printable](2026-11-04-shuffle-machines.pdf), [opener sheet](2026-11-04-opener.pdf)) | 3 | chosen; unpiloted |
-| November 11, 2026 | [Tower cities](2026-11-11-tower-cities.md) ([printable](2026-11-11-tower-cities.pdf), [opener sheet](2026-11-11-opener.pdf)) | 5 | proposed (James agreed to Weeks 5, 7, 10 next); unpiloted |
 | November 18, 2026 | [Take-away games](2026-11-18-take-away-games.md) ([printable](2026-11-18-take-away-games.pdf), [opener sheet](2026-11-18-opener.pdf)) | 7 | proposed; unpiloted |
 | December 2, 2026 | [Bridges](2026-12-02-bridges.md) ([printable](2026-12-02-bridges.pdf), [opener sheet](2026-12-02-opener.pdf)) | 10 | proposed, assuming no circle on November 25; unpiloted |
+| Reference | [Tower cities](2026-11-11-tower-cities.md) ([printable](2026-11-11-tower-cities.pdf), [opener sheet](2026-11-11-opener.pdf)) | 5 | the circle already ran Week 5 (James, November 3); kept for a return visit |
 | Reference | [Chip firing with a sink](2026-11-04-chip-firing.md) | 11 | the circle ran Week 11 before this plan was written; a success |
