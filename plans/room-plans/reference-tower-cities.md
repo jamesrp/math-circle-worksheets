@@ -1,6 +1,6 @@
 # Room plan: tower cities (how many towers can you see?)
 
-**Reference only: the circle already ran tower cities before this plan was written** (James, November 3, 2026). Kept for a return visit or for other circles.
+**Reference only: the circle already ran tower cities before this plan was written.** The K–1 table used Week 5 on October 21, 2026, skipping ahead to the partner problem (James, November 3). Kept for a return visit, for the 2–3 and 4–5 pages nobody has used yet, or for other circles.
 
 **Written as the plan for Wednesday, November 11, 2026.** Week 5, [Tower cities](../../lowell-math-circle-year-2/week-05/): packets for [K–1](../../lowell-math-circle-year-2/week-05/week-05-k-1.pdf), [2–3](../../lowell-math-circle-year-2/week-05/week-05-grades-2-3.pdf) and [4–5](../../lowell-math-circle-year-2/week-05/week-05-grades-4-5.pdf), and the [facilitator guide](../../lowell-math-circle-year-2/week-05/week-05-facilitator.pdf), whose launch this plan moves to the floor. Unpiloted.
 

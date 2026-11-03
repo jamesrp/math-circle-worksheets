@@ -10,6 +10,7 @@ Started November 2, 2026, after James asked for them (aim 2 in the app repositor
 - **Launch on the floor, three minutes or less.** Children are part of the object (they sit in the chairs, hold the chips), and everyone else predicts out loud.
 - **Pairs with jobs, swapped every round.** One child moves the pieces and the other records. Nobody sits without a job.
 - **Short timed rounds.** About eight minutes, with a visible timer. A round ends with one pair showing one result, never a whole-group lecture.
+- **Three tables by age, and children move.** The room runs a K–1, a 2–3 and a 4–5 table, one adult hosting each, and on October 21 most children moved between tables at some point (that day each table had a different week: 5, 7 and 86). Plans assume children will wander: each table has a short card with its rule and current question, so a child who walks up mid-round can start without a lecture, and the host adult hands it over. A plan may run one theme at all three tables (easier for wanderers, one floor launch) or a different theme per table (as on October 21); it says which.
 - **A planned midpoint move.** Children drift between tables anyway (Colin, October 21), so make the move part of the plan: everyone comes back to the floor once, around minute 30, then goes to a new challenge.
 - **A reset signal.** One signal for "hands off the pieces, eyes here", practised once in the launch. Suggested: the adult says "Machines off!" and everyone puts both hands on their head.
 - **Something for early finishers** at each table, already printed.
@@ -23,7 +24,8 @@ To rebuild a plan's printable after editing it: `python3 plans/room-plans/build/
 | Date | Plan | Week | Status |
 |---|---|---|---|
 | November 4, 2026 | [Shuffle machines and loop names](2026-11-04-shuffle-machines.md) ([printable](2026-11-04-shuffle-machines.pdf), [opener sheet](2026-11-04-opener.pdf)) | 3 | chosen; unpiloted |
-| November 11, 2026 | [Take-away games](2026-11-11-take-away-games.md) ([printable](2026-11-11-take-away-games.pdf), [opener sheet](2026-11-11-opener.pdf)) | 7 | proposed (James agreed to Weeks 7 and 10 next); unpiloted |
-| November 18, 2026 | [Bridges](2026-11-18-bridges.md) ([printable](2026-11-18-bridges.pdf), [opener sheet](2026-11-18-opener.pdf)) | 10 | proposed; unpiloted |
+| November 11, 2026 | [Bridges](2026-11-11-bridges.md) ([printable](2026-11-11-bridges.pdf), [opener sheet](2026-11-11-opener.pdf)) | 10 | proposed (James agreed to Week 10 on November 3; moved up a week); unpiloted |
+| November 18, 2026 | [Stars and wheels](2026-11-18-stars-and-wheels.md) ([printable](2026-11-18-stars-and-wheels.pdf), [opener sheet](2026-11-18-opener.pdf)) | 4 | proposed by Claude in place of take-away games; unpiloted |
 | Reference | [Tower cities](reference-tower-cities.md) ([printable](reference-tower-cities.pdf), [opener sheet](reference-tower-cities-opener.pdf)) | 5 | the circle already ran Week 5 (James, November 3); kept for a return visit |
+| Reference | [Take-away games](reference-take-away-games.md) ([printable](reference-take-away-games.pdf), [opener sheet](reference-take-away-games-opener.pdf)) | 7 | the 2–3 table played Week 7 on October 21; kept for a return visit or for K–1 and 4–5 |
 | Reference | [Chip firing with a sink](2026-11-04-chip-firing.md) | 11 | the circle ran Week 11 before this plan was written; a success |

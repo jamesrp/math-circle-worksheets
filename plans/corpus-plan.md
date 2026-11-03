@@ -19,13 +19,13 @@ Four layers. The first two exist; the third and fourth are new and are the propo
    - **Book, first edition**: five or six themes per strand, chosen after the starter set.
 4. **Readiness ladder.** Every theme carries its rung, counted by the report: library → signed off → circle-ready (room plan) → taught → piloted with notes. A collection's done is a rung target for its members. This makes "how far from done" a number that moves each week instead of a feeling.
 
-The [use log](../catalog/use-log.toml) is the record that feeds the ladder, the path and the future worksheet copilot. It did not exist (plans/README linked a file that was never written); it now holds the seven sessions James has reported.
+The [use log](../catalog/use-log.toml) is the record that feeds the ladder, the path and the future worksheet copilot. It did not exist (plans/README linked a file that was never written); it now holds the nine sessions James has reported.
 
 ## What done means, with the gap
 
 | Goal | Done means | Today | Gap |
 |---|---|---|---|
-| Wednesday circle this year | About 20 sessions (if it meets weekly through spring, my assumption), each circle-ready a week ahead and logged afterwards | 4 circle sessions logged, 1 room plan ahead (Nov 4) | about 18 room plans and use-log lines, one a week |
+| Wednesday circle this year | About 20 sessions (if it meets weekly through spring, my assumption), each circle-ready a week ahead and logged afterwards | 6 circle sessions logged, room plans ahead for Nov 4, 11 and 18 | about 18 room plans and use-log lines, one a week |
 | Weekend home math | 15 home-table themes with a one-page home plan, each tried once | 3 tried at home, 0 home plans | 15 one-pagers; about 12 home tries |
 | Public corpus, K–5 v1 | Starter set of 20 taught, signed-off themes; borrowed-text caveat resolved; a front door (README, explorer, starter PDF) | 0 qualify; 9 signed off; caveat open | about 20 circle sessions of evidence (a school year), plus 2 decisions |
 | Breadth, K–5 | Every path session has pages for all three tables; reserves in every strand for a second cycle | 55 of 82 path week-sessions have K–1 pages; games, logic, networks and counting have no reserves | 27 K–1 entries (7 drafted); 4 strands' reserves (12 themes drafted) |
@@ -46,7 +46,7 @@ The binding constraint is the room, not the writing: one circle meets about 20 t
 
 Items 1–3 package existing work; 4–6 make new content and wait for James's yes. Item 2 is done.
 
-1. **Room plans one week ahead**, for the circle collection's next sessions: Weeks 5, 7 and 10 after November 4 (agreed November 3), then a permutations follow-up. One page each, as for Nov 4. James picks each week.
+1. **Room plans one week ahead**, for the circle collection's next sessions: after November 4, bridges (Week 10) on November 11 and stars and wheels (Week 4) on November 18, then a permutations follow-up. Weeks 5 and 7, first agreed, turned out to be taught on October 21 and are kept as reference plans. James picks each week.
 2. **Review triage of the 23 drafts**: done, [DRAFT-TRIAGE.md](review/DRAFT-TRIAGE.md). Its four "adopt now" new themes (Towers from either end, Poisoned cookie, Hidden armies, Hex) are all games, the area the circle has least of.
 3. **Use-log habit**: the Wednesday and Friday check-ins add a line after each session; a monthly pass moves taught themes up the ladder and revises from what happened.
 4. **Home plans** for the kitchen-table collection, starting with Poisoned cookie, Hex and Pancake flips as home pilots of drafts, and Weeks 7 and 8 (games).
