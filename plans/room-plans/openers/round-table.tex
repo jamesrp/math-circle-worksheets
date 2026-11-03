@@ -1,0 +1,90 @@
+% Opener for November 18, 2026: the round table (who sat where, with seats counted clockwise)
+% Build in a scratch directory: pdflatex round-table.tex, then copy to ../2026-11-18-opener.pdf
+% Every puzzle here is checked for exactly one answer, with every clue needed, by round-table_check.py.
+% Seats are counted clockwise from the star seat, the way Week 4 hops dots: the star seat is the
+% launch board's black dot, and the answer's note passed 2 seats clockwise is the launch's hop of 2.
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[default]{sourcesanspro}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,shapes.geometric,calc}
+\usepackage{ragged2e}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\definecolor{ctable}{HTML}{C9A46A}\definecolor{cstar}{HTML}{F2C318}
+% \roundtable{n}: a round table with n seats, the star seat at the top, a clockwise arrow,
+% and a white box at each seat for a name
+\newcommand{\roundtable}[1]{\begin{tikzpicture}
+  \fill[ctable!35!white,draw=ctable!80!black,line width=1pt] (0,0) circle (1.55);
+  \draw[-{Stealth[length=3mm]},line width=1.2pt,gray!70!black] (110:1.08) arc[start angle=110,end angle=-200,radius=1.08];
+  \node[font=\small\itshape,gray!40!black] at (0,0) {clockwise};
+  \foreach \i in {1,...,#1} {
+    \pgfmathsetmacro{\a}{90-360*(\i-1)/#1}
+    \draw[fill=white,line width=0.8pt,rounded corners=3pt] ($(\a:3.0)+(-1.3,-0.45)$) rectangle ++(2.6,0.9);
+  }
+  \node[star,star points=5,star point ratio=2.3,fill=cstar,draw=cstar!60!black,minimum size=0.6cm,inner sep=0pt]
+    at ($(90:3.0)+(-1.65,0)$) {};
+  \node[font=\small\bfseries,anchor=south] at ($(90:3.0)+(0,0.47)$) {star seat};
+\end{tikzpicture}}
+\newenvironment{half}{\begin{minipage}[t][0.475\textheight][t]{\linewidth}\large\RaggedRight\hyphenpenalty=10000\exhyphenpenalty=10000}{\end{minipage}}
+\newcommand{\cutline}{\par\noindent\begin{tikzpicture}\draw[dashed,gray] (0,0)--(\linewidth,0);\end{tikzpicture}\par\vspace{0.3in}}
+\newcommand{\heading}[1]{{\LARGE\bfseries #1}\hfill {\normalsize Name:} \rule{1.8in}{0.4pt}\par\medskip}
+% \twocol{text}{picture}
+\newcommand{\twocol}[2]{\begin{minipage}[t]{0.50\linewidth}\vspace{0pt}#1\end{minipage}\hfill
+  \begin{minipage}[t]{0.47\linewidth}\vspace{0pt}\centering #2\end{minipage}}
+\newcommand{\clockrule}{Clockwise is the way the arrow goes. To go 2 seats clockwise from a seat,
+  call the next seat \emph{one} and the seat after it \emph{two}.}
+\newcommand{\mainpuzzle}{%
+  \heading{The round table}
+  Five animals sat around a round table. Write each animal's name in its seat:
+  Bear, Fox, Owl, Rabbit, Turtle. \clockrule\par
+  \medskip
+  \twocol{%
+  \begin{enumerate}\setlength{\itemsep}{6pt}
+  \item Rabbit sat in the star seat.
+  \item Fox sat 2 seats clockwise from Owl.
+  \item Bear sat 2 seats clockwise from Fox.
+  \item Owl sat right next to Turtle.
+  \end{enumerate}\par
+  \medskip
+  \textbf{Done?} Cross out clue 4. Find every answer that fits now. Write a new clue that makes it exactly one answer again.}{\roundtable{5}}}
+\begin{document}
+\begin{half}\mainpuzzle\end{half}
+\cutline
+\begin{half}\mainpuzzle\end{half}
+\newpage
+\begin{half}
+\heading{The round table (four seats)}
+Four animals sat around a round table. Write each animal's name in its seat:
+Bear, Fox, Owl, Turtle. Clockwise is the way the arrow goes.\par
+\medskip
+\twocol{%
+\begin{enumerate}\setlength{\itemsep}{6pt}
+\item Turtle sat in the star seat.
+\item Owl sat across the table from Turtle.
+\item Fox sat 1 seat clockwise from Turtle.
+\end{enumerate}\par
+\medskip
+\textbf{Done?} Turtle passes a note 2 seats clockwise. That animal passes it on 2 seats clockwise.
+Who never gets the note?}{\roundtable{4}}
+\end{half}
+\cutline
+\begin{half}
+\heading{The round table (six seats)}
+Six animals sat around a round table. Write each animal's name in its seat:
+Bear, Fox, Mouse, Owl, Rabbit, Turtle. \clockrule\par
+\medskip
+\twocol{%
+\begin{enumerate}\setlength{\itemsep}{6pt}
+\item Mouse sat in the star seat.
+\item Fox sat 2 seats clockwise from Owl.
+\item Bear sat 2 seats clockwise from Fox.
+\item Owl sat right next to the star seat.
+\item Bear sat across the table from Rabbit.
+\end{enumerate}\par
+\medskip
+\textbf{Done?} Mouse passes a note 2 seats clockwise, and each animal who gets it passes it on
+2 seats clockwise. Which animals never get the note?}{\roundtable{6}}
+\end{half}
+\end{document}
