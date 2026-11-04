@@ -49,4 +49,4 @@ Counting and arranging: a "domino diamond" family on a square grid. The child dr
 
 - Whether a printed large random tiling is needed and who makes it; generating one needs a domino-shuffling script that is not yet written.
 - Whether order 3 (12 dominoes, 64 tilings) is a fair pooled task for 2–3 or too much bookkeeping; the top-two-squares sort may need printed half-filled boards.
-- Whether this is better as a Week 1 return visit than a new theme, given the shared flip idea.
+- Decided November 4, 2026: this stays a new week rather than a Week 1 return visit. Its count (powers of 2 with triangular exponents), its complete-list argument by sorting on a boundary piece and the arctic circle are new mathematics; only the flip move is shared. Schedule it after Week 1, reuse Week 1's flip launch, and treat flip connectivity as the familiar part.

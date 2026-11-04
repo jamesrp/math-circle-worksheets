@@ -23,7 +23,7 @@ A floor or tabletop maze: a 4-by-4 grid of rooms (paper squares or a printed boa
 ## By band
 
 - **K–1:** solve printed and floor mazes by hand on the wall; build a maze and let a friend try. Find a maze where the hand rule goes round and round (a wall island).
-- **2–3:** build perfect mazes on 3-by-3 or 4-by-4 (every room reachable, one route only) and count the doorways (always one fewer than rooms) and the standing inner walls; solve an island maze with chalk or counter marks by Trémaux's rule.
+- **2–3:** build mazes that beat the hand rule and mazes it always solves, and find what the beaten ones share (a wall island); then solve an island maze with chalk or counter marks by Trémaux's rule and check that no passage gets a third mark. A perfect maze's doorway count (one fewer than rooms) is a two-minute bridge from Week 53, not a task.
 - **4–5:** Wilson's algorithm with the die and arrow cards on a 3-by-3 board: start with one room in the maze; from another room roll and step, turning that room's arrow to point the way you left (later visits overwrite it, which erases loops); when you hit the maze, follow the arrows from the start and open those doorways. Compare with knocking down walls at random: on 2-by-3 there are 15 perfect mazes, and the class can tally which come up.
 
 ## Checked facts
@@ -50,4 +50,4 @@ Maps and networks: a "maze maker" family. The child places walls on a grid; the 
 
 - Whether a die-driven Wilson walk on 3-by-3 finishes in reasonable time at a table; walks can wander, so a 2-by-3 board may be the realistic size.
 - Whether K–1 children can keep a consistent hand side when turning a token on paper; a floor maze with real walking may work better.
-- Whether to tie this to Week 91 (rotors) as a return visit rather than a new theme.
+- Decided November 4, 2026: this stays a new week, centred on solving rules and fair random mazes. "A perfect maze is a tree" is a short bridge that cites Week 53 and atlas GA-25 and AD-05, not a task of its own. Wilson's arrow cards can reuse Week 91's rotor cards, so run this after Week 91 when both are chosen.

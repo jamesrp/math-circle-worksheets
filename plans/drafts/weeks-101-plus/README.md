@@ -75,8 +75,8 @@ Close behind: [Proving without telling](week-140-proving-without-telling.md) (cu
 
 ## Overlaps and weak spots to settle in review
 
-- **107 Mazes:** "a perfect maze is a tree" repeats Week 53 and atlas GA-25 and AD-05; the new parts are the wall-follower theorem and Wilson's fair random mazes.
-- **102 Domino diamonds** shares Week 1's flip move and may fit better as a Week 1 return visit.
+- **107 Mazes (settled November 4).** Stays a new week, centred on when the hand-on-the-wall rule works (no wall islands), Trémaux's method and Wilson's fair random mazes. "A perfect maze is a tree" repeats Week 53 and atlas GA-25 and AD-05, so it is now a two-minute bridge, not a task. Run it after Week 91, whose rotor cards double as Wilson's arrow cards.
+- **102 Domino diamonds (settled November 4).** Stays a new week, not a Week 1 return visit: the count 2^(n(n+1)/2), the complete-list argument and the arctic circle are new; only the flip move is shared. Schedule it after Week 1 and reuse Week 1's flip launch.
 - **104 Sixteen-card square:** its 3×3 entry is near Week 36; a published "144 solutions" figure conflicts with the computed counts (6912 without diagonals; 1152 with, which is 144 up to the square's symmetries). The plan flags it.
 - **117 Commutator puzzles** overlaps the scouting set-aside "sliding tokens"; build one, not both.
 - **135 Trust game:** its one-round lesson repeats atlas AP-23; the repeated game and tournament are the new part.
