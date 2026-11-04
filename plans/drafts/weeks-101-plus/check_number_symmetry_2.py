@@ -341,22 +341,168 @@ def check_week_161():
     # Hexahexaflexagon: 6 faces x 6 = 36 = 18 triangles x 2; strip of 19 with the tab.
     assert 6 * 6 == 18 * 2 and 18 + 1 == 19
     # Anderson et al. (2010): with pinch flexes an order-3n flexagon has 6n - 3
-    # mathematical faces: 3 for the trihexa (n = 1), 9 for the hexahexa (n = 2).
+    # mathematical faces and its band has 3(3n - 2) half-twists.
     assert [6 * n - 3 for n in (1, 2)] == [3, 9]
-    # Tuckerman-diagram model of the hexahexaflexagon: a central triangle 1-2-3 with
-    # a triangle on each side bringing in faces 4, 5, 6.  States (top and bottom
-    # colours) are the diagram's edges, and a pinch flex moves within a triangle.
-    tris = [(1, 2, 3), (1, 2, 4), (2, 3, 5), (3, 1, 6)]
-    edges = {frozenset(e) for t in tris for e in ((t[0], t[1]), (t[1], t[2]), (t[2], t[0]))}
-    assert len(edges) == 9            # matches 6n - 3 = 9
+    assert [3 * (3 * n - 2) for n in (1, 2)] == [3, 12]   # odd: one-sided; even: two-sided
+
+    # Simulation.  A flat state is six pats around the hexagon; a pat is a leaf
+    # ("L", triangle, side facing up: "F" front or "B" back) or a stack ("P", upper, lower).
+    # Pinch flex on alternate pats k, k+2, k+4 (each must be a stack [A, B]): A turns
+    # over and stays as a pat; B is laid on the turned-over thin pat it is hinged to.
+    other = {"F": "B", "B": "F"}
+
+    def flip(t):
+        return ("L", t[1], other[t[2]]) if t[0] == "L" else ("P", flip(t[2]), flip(t[1]))
+
+    def leaves(t):
+        return [t] if t[0] == "L" else leaves(t[1]) + leaves(t[2])
+
+    def up_side(t):
+        return (t[1], t[2]) if t[0] == "L" else up_side(t[1])
+
+    def down_side(t):
+        return (t[1], other[t[2]]) if t[0] == "L" else down_side(t[2])
+
+    def faces(st):
+        return frozenset(up_side(p) for p in st), frozenset(down_side(p) for p in st)
+
+    def make_model(n, twist):
+        def hinged(a, b):
+            return (a - b) % n in (1, n - 1)
+
+        def check(st):
+            pos, ori = {}, {}
+            for k, p in enumerate(st):
+                for l in leaves(p):
+                    pos[l[1]], ori[l[1]] = k, l[2]
+            assert sorted(pos) == list(range(n))
+            for i in range(n):
+                j = (i + 1) % n
+                same = pos[i] == pos[j]
+                assert same or (pos[i] - pos[j]) % 6 in (1, 5)
+                # a folded hinge (same pat) shows opposite sides; an open one the
+                # same side, unless it is the glued join and the band is one-sided
+                assert (ori[i] == ori[j]) == ((not same) ^ (twist and j == 0))
+
+        def pinch(st, k):
+            st = st[k:] + st[:k]
+            if any(st[i][0] != "P" for i in (0, 2, 4)):
+                return None
+            dirs = set()
+            for i in (0, 2, 4):
+                ids = {l[1] for l in leaves(st[i][2])}
+                hits = [d for d in (1, 5) if any(hinged(a, l[1]) for a in ids
+                                                 for l in leaves(st[(i + d) % 6]))]
+                assert len(hits) == 1
+                dirs.add(hits[0])
+            assert len(dirs) == 1
+            if dirs == {5}:
+                st = [st[-i % 6] for i in range(6)]
+            new = []
+            for i in (0, 2, 4):
+                new += [flip(st[i][1]), ("P", st[i][2], flip(st[i + 1]))]
+            check(new)
+            return new
+
+        def turn_over(st):
+            return [flip(st[-i % 6]) for i in range(6)]
+
+        def canon(st):
+            rev = [st[-i % 6] for i in range(6)]
+            return min(repr(s[r:] + s[:r]) for s in (st, turn_over(st), rev, turn_over(rev))
+                       for r in range(6))
+
+        def explore(start):
+            check(start)
+            seen, links, todo = {canon(start): start}, set(), [start]
+            while todo:
+                s = todo.pop()
+                for m in (s, turn_over(s)):
+                    for k in (0, 1):
+                        t = pinch(m, k)
+                        if t is not None:
+                            links.add(frozenset((canon(s), canon(t))))
+                            if canon(t) not in seen:
+                                seen[canon(t)] = t
+                                todo.append(t)
+            return seen, links
+
+        return pinch, canon, explore
+
+    L = lambda i, s: ("L", i, s)
+    P = lambda a, b: ("P", a, b)
+
+    # Trihexaflexagon: strip of 9 (plus tab) glued with a half-twist.
+    _, _, explore3 = make_model(9, True)
+    tri = [L(0, "F"), P(L(1, "F"), L(2, "B")), L(3, "B"), P(L(4, "B"), L(5, "F")),
+           L(6, "F"), P(L(7, "F"), L(8, "B"))]
+    seen, links = explore3(tri)
+    assert len(seen) == 3 and len(links) == 3
+    assert len({f for s in seen.values() for f in faces(s)}) == 3
+
+    # Hexahexaflexagon, Gardner's construction: triangles 2k and 2k+1 are folded back
+    # to back (fronts outward), and the nine doubled triangles fold like a trihexa.
+    # The 18-triangle band closes with no net flip (12 half-twists).
+    pinch6, canon6, explore6 = make_model(18, False)
+    D = lambda k: (P(L(2 * k, "F"), L(2 * k + 1, "B")) if k % 3 == 0
+                   else P(L(2 * k + 1, "F"), L(2 * k, "B")))
+    hexa = [D(0), P(D(1), D(2)), D(3), P(D(4), D(5)), D(6), P(D(7), D(8))]
+    # Labels: fronts 1, 2, 3 repeating; the doubled triangle whose fronts are 1 and 2
+    # hides 5 (Gardner: from 1-and-2 a flex opens to 3 or 5), 3 and 1 hide 6, 2 and 3 hide 4.
+    def label(side):
+        i, s = side
+        return (1, 2, 3)[i % 3] if s == "F" else (5, 6, 4)[(i // 2) % 3]
+
+    def face_label(face):
+        labs = {label(x) for x in face}
+        assert len(labs) == 1     # every face is one number all over
+        return labs.pop()
+
+    def shows(st):
+        return tuple(face_label(f) for f in faces(st))
+
+    seen, links = explore6(hexa)
+    assert shows(hexa) == (1, 2)
+    assert len(seen) == 9                       # matches 6n - 3 = 9
+    assert {frozenset(shows(s)) for s in seen.values()} == {
+        frozenset(p) for p in [(1, 2), (2, 3), (1, 3), (1, 5), (2, 5), (3, 4), (2, 4),
+                               (1, 6), (3, 6)]}
+    assert len(links) == 12                     # each Tuckerman triangle is a 3-cycle
+    # Tuckerman triangles: three states pairwise one flex apart.
+    keys = list(seen)
+    tris = set()
+    for a in range(9):
+        for b in range(a + 1, 9):
+            for c in range(b + 1, 9):
+                trio = (keys[a], keys[b], keys[c])
+                if all(frozenset((x, y)) in links for x, y in
+                       ((trio[0], trio[1]), (trio[1], trio[2]), (trio[0], trio[2]))):
+                    tris.add(frozenset(f for t in trio for f in shows(seen[t])))
+    assert tris == {frozenset(t) for t in [(1, 2, 3), (1, 2, 5), (1, 3, 6), (2, 3, 4)]}
     count = {f: sum(f in t for t in tris) for f in range(1, 7)}
-    assert count == {1: 3, 2: 3, 3: 3, 4: 1, 5: 1, 6: 1}   # Gardner's 3-to-1 ratio
-    # Faces 4, 5, 6 never show together with each other (no edge joins them).
-    assert not any(e <= {4, 5, 6} for e in edges)
-    # Trihexaflexagon model: one triangle 1-2-3, three states, each face in two.
-    tri_edges = {frozenset(e) for e in ((1, 2), (2, 3), (3, 1))}
-    assert len(tri_edges) == 3
-    assert all(sum(f in e for e in tri_edges) == 2 for f in (1, 2, 3))
+    assert count == {1: 3, 2: 3, 3: 3, 4: 1, 5: 1, 6: 1}
+    # From the starting state (1 and 2) one flex reaches face 3 or face 5, never 4.
+    start_nbrs = set()
+    for m in (hexa, [flip(hexa[-i % 6]) for i in range(6)]):
+        for k in (0, 1):
+            t = pinch6(m, k)
+            if t is not None:
+                start_nbrs |= set(shows(t)) - {1, 2}
+    assert start_nbrs == {3, 5}
+    # Tuckerman traverse: flex the same way until it will not open, then shift one
+    # pat.  It returns to the start after 12 flexes, visiting all 9 states, and the
+    # faces on top are a rotation of the sequence on Wikipedia's Flexagon page.
+    s, tops, path = hexa, [], [canon6(hexa)]
+    for _ in range(24):
+        t = pinch6(s, 0) or pinch6(s, 1)
+        s = t
+        tops.append(shows(s)[0])
+        path.append(canon6(s))
+    assert path[12] == path[0] and path[24] == path[0] and len(set(path[:12])) == 9
+    wiki = [1, 3, 6, 1, 3, 2, 4, 3, 2, 1, 5, 2]
+    assert any(tops[:12] == wiki[r:] + wiki[:r] for r in range(12))
+    assert sorted(tops[:12].count(f) for f in range(1, 7)) == [1, 1, 1, 3, 3, 3]
+    assert [tops[:12].count(f) for f in (1, 2, 3)] == [3, 3, 3]
 
 
 # ---------------------------------------------------------------- week 162
