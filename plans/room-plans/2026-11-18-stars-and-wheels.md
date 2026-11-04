@@ -10,6 +10,8 @@ For adults: number the n dots 0 to n − 1. Hopping k from any dot comes back af
 
 ## Prep checklist for Wednesday afternoon
 
+**Supplies (James, November 4):** room for the 10-foot circle by moving tables; 60 counters in two colours, coloured pencils, whiteboards and markers, and card stock in hand; brass fasteners and yarn ordered. Still to confirm: 8 scissors, 9 six-inch rulers and a pushpin.
+
 Print single-sided on Letter paper at 100% ("Actual size"); "Fit to page" shrinks the wheels and the K–1 dots. The packets are black and white; the opener prints fine either way. The guide's counts assume 4 children at K–1, 4 at 2–3 and 3 at 4–5; the 2–3 counts below lean up to 6, since most of the room is there, and every table has a spare for a child who moves over at the midpoint.
 
 - [ ] [K–1 packet](../../lowell-math-circle-year-2/week-04/week-04-k-1.pdf), 10 pages: 6 copies (4 children, the host, 1 spare), not stapled; the host hands out one page at a time
