@@ -4,6 +4,8 @@ One card per theme says whether the theme is good enough to keep as it is, and w
 
 Every decision the October 23 revisions left for the organizer (re-approvals, substance changes, new content and untouched weeks) is on one page: [ORGANIZER-QUEUE.md](ORGANIZER-QUEUE.md).
 
+[KID-FIT-REVIEW.md](KID-FIT-REVIEW.md) (November 4, 2026) asks a different question of every week and draft plan, Weeks 1 to 208: will children of each band actually enjoy it and manage the core move? Fresh reviewers gave one verdict per band, with the weakest weeks and the patterns behind them.
+
 Two sweeps check the whole collection: [checks/HEALTH.md](checks/HEALTH.md) reran every review check script on October 23, and [checks/ZIP-SWEEP.md](checks/ZIP-SWEEP.md) rebuilt every portable source ZIP from a clean extraction on October 24.
 
 ## What a card says
