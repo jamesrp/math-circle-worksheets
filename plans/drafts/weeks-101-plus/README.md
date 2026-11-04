@@ -1,14 +1,14 @@
-# Weeks 101–175: draft plans toward a wider corpus
+# Weeks 101–208: draft plans toward a wider corpus
 
-November 3, 2026. James reversed the pause on new weeks the same day: near-term circle content is covered, and new themes should keep growing in the background as draft markdown plans (see the [corpus plan's Decisions](../../corpus-plan.md#decisions)). This folder holds 75 of them: Weeks 101–142 from November 3 and Weeks 143–175 from November 4, after James asked for more. Each is one page: the deep idea stated theorem-first, linked sources that were opened and read, a hands-on way in, an entry for each band, checked facts, the nearest existing themes, an app idea and open questions. They follow [TEMPLATE.md](TEMPLATE.md).
+November 3, 2026. James reversed the pause on new weeks the same day: near-term circle content is covered, and new themes should keep growing in the background as draft markdown plans (see the [corpus plan's Decisions](../../corpus-plan.md#decisions)). This folder holds 108 of them: Weeks 101–142 from November 3, then Weeks 143–175 and Weeks 176–208 from November 4, each time after James asked for more. Each is one page: the deep idea stated theorem-first, linked sources that were opened and read, a hands-on way in, an entry for each band, checked facts, the nearest existing themes, an app idea and open questions. They follow [TEMPLATE.md](TEMPLATE.md).
 
 **Status.** Plans only: no student pages, facilitator guide, review card or pilot. Nothing here has been reviewed by James or tried with children. A plan becomes a week through the [worksheet workflow](../../../worksheet-workflow/README.md) once someone picks it.
 
 ## How they were chosen
 
 1. **Map the library.** [coverage.py](coverage.py) counts the 101 library themes, 90 atlas families and 12 scouted drafts by catalog area and by a coarse deep-math field. Shape (30 themes) and chance (17) are deep; games and logic have 7 each, counting and symmetry 9, number 10. By field, analysis and dynamics (9 weeks, though 33 atlas families), topology (8) and logic and computation (13) are thinnest in the weeks children actually use. 24 concepts in the concept map have no week, among them binomial counts, lattice paths, groups, equilibria, continuity and the diagonal argument.
-2. **Choose gaps.** Topics were kept when they had a theorem or open problem a mathematician finds compelling, a cheap physical entry for K–1, room for grades 4–5, and something new against the library, the atlas, the [scouted drafts](../../topic-scouting/README.md) and the Year 1 handouts (figurate numbers, Fibonacci strips, Pascal recursion and knights and knaves were already used). Wythoff (Week 8), Stern–Brocot (Week 31's return visit), sorting networks (Week 23) and substitution words (Week 76) were ruled out as already present; for the second batch, de Bruijn sequences were dropped too (Week 10's return visit and Week 33's bonus use them). The second batch leaned again on the thinnest strands (logic, games, networks, counting, symmetry) and on topology and analysis.
-3. **Research and check.** Twelve research passes (seven for the first batch, five for the second), one per group, read real sources (papers, survey and expository articles, circle handouts) and cite only pages they opened. Every small number a plan quotes is asserted in a standard-library script, one per group; all twelve pass. I reviewed each group's report and spot-checked plans before they went to `main`.
+2. **Choose gaps.** Topics were kept when they had a theorem or open problem a mathematician finds compelling, a cheap physical entry for K–1, room for grades 4–5, and something new against the library, the atlas, the [scouted drafts](../../topic-scouting/README.md) and the Year 1 handouts (figurate numbers, Fibonacci strips, Pascal recursion and knights and knaves were already used). Wythoff (Week 8), Stern–Brocot (Week 31's return visit), sorting networks (Week 23) and substitution words (Week 76) were ruled out as already present; for the second batch, de Bruijn sequences were dropped too (Week 10's return visit and Week 33's bonus use them). The second batch leaned again on the thinnest strands (logic, games, networks, counting, symmetry) and on topology and analysis. The third batch went to games, networks, logic and analysis, the strands still thinnest after Week 175; Sprouts and Colonel Blotto (scouted drafts), matching cards with one shared symbol (Week 36), distinguishing colourings (Week 34), the liar's guessing game (Week 18), Tchoukaillon and Dots and Boxes (scouting set-asides) and 4×4 sudoku (near Week 5) were ruled out.
+3. **Research and check.** Seventeen research passes (seven for the first batch, five each for the second and third), one per group, read real sources (papers, survey and expository articles, circle handouts) and cite only pages they opened. Every small number a plan quotes is asserted in a standard-library script, one per group; all seventeen pass. I reviewed each group's report and spot-checked plans before they went to `main`.
 
 ```sh
 for f in plans/drafts/weeks-101-plus/check_*.py; do python3 "$f"; done
@@ -93,8 +93,41 @@ for f in plans/drafts/weeks-101-plus/check_*.py; do python3 "$f"; done
 | 173 | [How long does Snakes and Ladders last?](week-173-snakes-and-ladders.md) | chance | Markov chains, expected game length | play a 20-square board and line up the roll towers |
 | 174 | [Shrinking piles](week-174-shrinking-piles.md) | chance (analysis) | exponential decay, maxima of waiting times | pour off heads; build a falling staircase |
 | 175 | [The chaos game](week-175-chaos-game.md) | analysis (chance) | iterated function systems, Sierpiński | halfway-jump dots, then stack everyone's sheets |
+| 176 | [Hide and seek with unequal prizes](week-176-hide-and-seek.md) | games | zero-sum games, the minimax theorem | hide a bean in one hand; prizes 1 and 2 |
+| 177 | [Pirates share the gold](week-177-pirates-share-the-gold.md) | games | backward induction with voting | act out two, then three pirates splitting coins |
+| 178 | [Bidding for turns](week-178-bidding-for-turns.md) | games | Richman games, random-turn games | bid chips for each move in a short race |
+| 179 | [Sharing the taxi fare](week-179-sharing-the-taxi-fare.md) | games | the Shapley value, the airport rule | share a ride along a floor road with three stops |
+| 180 | [Who holds the power?](week-180-who-holds-the-power.md) | games | weighted voting, power indices | vote with stacks of cubes; who can swing it? |
+| 181 | [A new road makes traffic worse](week-181-a-new-road-makes-traffic-worse.md) | games (networks) | Braess's paradox, price of anarchy | drive four cars on a floor map, then add a road |
+| 182 | [Passing secrets by phone](week-182-gossip-calls.md) | networks | the gossip problem, 2n − 4 calls | pass secret cards in pairs until everyone knows all |
+| 183 | [Can everyone get a partner?](week-183-dance-partners.md) | networks | Hall's theorem, König's theorem | pair children with cards they accept; find the stuck group |
+| 184 | [Your friends have more friends](week-184-your-friends-have-more-friends.md) | networks (chance) | the friendship paradox, sums of squares | a yarn friendship web with sticky-note counts |
+| 185 | [Making every street one-way](week-185-one-way-streets.md) | networks | Robbins' theorem, lifeline roads | put arrows on a town map and test every trip |
+| 186 | [How many trees on numbered pegs?](week-186-counting-trees.md) | networks (counting) | Cayley's formula, Prüfer codes | join 3 and 4 pegs with string, no loops |
+| 187 | [Can the fire cross the forest?](week-187-crossing-the-forest.md) | networks (chance) | percolation, crossing chance 1/2 | colour a hexagon board by coin flips |
+| 188 | [A few shortcuts make a small world](week-188-small-worlds.md) | networks (chance) | small-world networks, graph distance | pass a note round a ring, then add yarn shortcuts |
+| 189 | [Guessing your own hat](week-189-guessing-your-hat.md) | logic | hat games, Hamming codes | three-player hat game with sticker dots |
+| 190 | [Follow the loop to find your card](week-190-hundred-prisoners.md) | logic | permutation loops, the 100 prisoners | four cups, two looks each, follow the loop |
+| 191 | [Say what you see](week-191-look-and-say.md) | logic | look-and-say, Conway's cosmological theorem | read rows of counters aloud to build the next |
+| 192 | [Short codes for common letters](week-192-shortest-codes.md) | logic | Huffman codes, the Kraft budget | build a code tree for a short message |
+| 193 | [The ant that builds a highway](week-193-langtons-ant.md) | logic | Langton's ant, an open problem | be the ant on a floor grid of flip cards |
+| 194 | [The endless hotel and the strip nobody listed](week-194-hilberts-hotel.md) | logic | infinite sets, Cantor's diagonal | move along a line of rooms; the 3-by-3 diagonal game |
+| 195 | [Ordering stones with a balance](week-195-ordering-stones.md) | logic | comparison sorting, log2 n! bound | order three, then four stones with a balance |
+| 196 | [Ringing every order of the bells](week-196-change-ringing.md) | symmetry | change ringing, Hamiltonian cycles, cosets | stand in a row and swap neighbours to a beat |
+| 197 | [Star patterns from crossing lines](week-197-star-patterns.md) | symmetry | Hankin's method, star polygons | extend lines from edge midpoints on a dot grid |
+| 198 | [Nibble a tile](week-198-nibble-a-tile.md) | symmetry (shape) | tiling by translation, Beauquier–Nivat | nibble a card square and tape the bite opposite |
+| 199 | [Steering a card with perfect shuffles](week-199-perfect-shuffles.md) | symmetry, number | faro shuffles, multiplicative order | perfect-shuffle eight cards and track one |
+| 200 | [Kaprekar's sorting machine](week-200-kaprekars-routine.md) | number | Kaprekar's routine, proof by cases | sort digit cards big-first and small-first |
+| 201 | [Two prime towers make every even tower?](week-201-prime-pairs.md) | number | Goldbach's conjecture (open) | build even towers from two prime towers |
+| 202 | [Halfway to the wall](week-202-halfway-to-the-wall.md) | analysis | geometric series, picture proofs | fold and cut halves of a sheet |
+| 203 | [Press it again](week-203-press-it-again.md) | analysis | fixed points, contraction mappings | a halfway-between ribbon rule, again and again |
+| 204 | [The fastest slide](week-204-fastest-slide.md) | analysis (shape) | the brachistochrone, the cycloid | race marbles on straight and curved ramps |
+| 205 | [Pi from polygons](week-205-pi-from-polygons.md) | analysis (shape) | Archimedes' bounds, limits | wrap string round cans and lids |
+| 206 | [Folding the square root of two](week-206-folding-the-square-root-of-two.md) | number (analysis) | √2 is irrational, Theon's ladder | cut the biggest squares off a sheet of paper |
+| 207 | [Random walks home](week-207-random-walks-home.md) | chance | Pólya's recurrence theorem | walk a floor number line by coin flips |
+| 208 | [Long runs](week-208-long-runs.md) | chance | longest runs, the log n law | make one real and one fake coin list |
 
-By main strand, Weeks 101–142: counting 4, networks 3, number 7, symmetry 6, shape 9, chance 4, games 3 (plus 110 and 132), logic 4, analysis 2. Weeks 143–175: logic 4, games 3, networks 4, counting 3, number 4, symmetry 3, shape 7, chance 4, analysis 1. Together: counting 7, networks 7, number 11, symmetry 9, shape 16, chance 8, games 6, logic 8, analysis 3. By field, the plans add most where the weeks were thinnest: topology and analysis (106, 127, 128, 129, 141, 142), logic and computation (137–140) and groups (115–117). They give first weeks to binomial counts and lattice paths (101), groups (115–117), equilibria (135, 136), continuity and connectedness (129, 142) and computability (138). The second batch adds topology (164–167), computation and complexity (143, 144, 146), equilibria and positional games (147, 148), Markov chains (152, 173) and group actions (162).
+By main strand, Weeks 101–142: counting 4, networks 3, number 7, symmetry 6, shape 9, chance 4, games 3 (plus 110 and 132), logic 4, analysis 2. Weeks 143–175: logic 4, games 3, networks 4, counting 3, number 4, symmetry 3, shape 7, chance 4, analysis 1. Weeks 176–208: games 6, networks 7, logic 7, symmetry 4, number 3, analysis 4, chance 2 (no counting or shape, which were already deeper). Together: counting 7, networks 14, number 14, symmetry 13, shape 16, chance 10, games 12, logic 15, analysis 7. By field, the plans add most where the weeks were thinnest: topology and analysis (106, 127, 128, 129, 141, 142), logic and computation (137–140) and groups (115–117). They give first weeks to binomial counts and lattice paths (101), groups (115–117), equilibria (135, 136), continuity and connectedness (129, 142) and computability (138). The second batch adds topology (164–167), computation and complexity (143, 144, 146), equilibria and positional games (147, 148), Markov chains (152, 173) and group actions (162). The third adds cooperative and zero-sum game theory (176, 179, 180), selfish routing (181), matching duality (183), percolation (187), infinite sets and the diagonal argument (194), information theory (192) and calculus-flavoured analysis (202–205).
 
 ## Strongest picks
 
@@ -118,6 +151,16 @@ From Weeks 143–175:
 
 Close behind: [Guess two-thirds of the average](week-148-guess-two-thirds.md) (a whole-room game with published data from real players), [The MU puzzle](week-144-mu-puzzle.md) (a K–1 cube-pile version of a famous impossibility) and [Thirty coloured cubes](week-162-thirty-coloured-cubes.md).
 
+From Weeks 176–208:
+
+1. **[Follow the loop to find your card](week-190-hundred-prisoners.md).** A strategy that looks impossible works a third of the time, and the reason is the loops children already met in Week 3; with four cups the whole answer (5/12) is a count they can finish.
+2. **[A new road makes traffic worse](week-181-a-new-road-makes-traffic-worse.md).** Four toy cars on a floor map, each choosing the quickest road, all get slower when a shortcut opens. A real surprise with arithmetic K–1 can follow.
+3. **[The fastest slide](week-204-fastest-slide.md).** Marbles race down straight and curved ramps; the curve wins, and the best curve is a 1696 challenge problem with computed race times.
+4. **[Pirates share the gold](week-177-pirates-share-the-gold.md).** Acting out two, three, then five pirates makes backward induction a story, and the lopsided answer (98, 0, 1, 0, 1) is memorable.
+5. **[Guessing your own hat](week-189-guessing-your-hat.md).** A team game where passing is allowed and the best strategy wins 3 times in 4, because wrong guesses pile up together.
+
+Close behind: [Ringing every order of the bells](week-196-change-ringing.md) (children are the bells), [Can the fire cross the forest?](week-187-crossing-the-forest.md) (after Hex) and [Bidding for turns](week-178-bidding-for-turns.md).
+
 ## Overlaps and weak spots to settle in review
 
 Weeks 101–142:
@@ -139,9 +182,18 @@ Weeks 143–175:
 - **151 Instant Insanity and 162 Thirty coloured cubes** both use coloured cubes with different mathematics; schedule them apart.
 - **153 Soap-film shortcuts** is exactly the move Week 53 forbids (new junctions), so frame it as Week 53's pair. **150** shares its drag-the-dots action with the scouted untangling draft, and **156** could serve as the Ramsey scouting draft's return visit.
 - **167 Walking a loop** overlaps Week 65's "left minus right is 4"; the plan centres figure eights, stars and the turtle rule. **169**'s pyramid counts repeat Year 1's figurate numbers; **165** shares its parity trick with 106; **144** uses the same invariant move as Week 2 and atlas AP-25.
-- **161 Flexagons:** the hexahexaflexagon face map is reconstructed from published counts and must be checked on a real folded flexagon before any page is drawn.
+- **161 Flexagons (checked November 4):** a strip-folding simulation corrected two outer labels in the hexahexaflexagon face map and confirms 6 faces, 9 states, 12 flex links and the 12-flex Tuckerman traverse. A real folded flexagon is still the last check.
 - No prior use with K–5 children was found for 143, 144, 145, 147, 149, 150, 162, 163, 166, 173 and 174.
 - Not confirmed from a page that was read, and flagged in each plan: Drensky's "exactly k(k−1) moves" (the check shows it is only the maximum; 154), the best proven Steiner-ratio bound (sources differ; 153), the Beardon paper beyond its abstract (160), a recent odd-perfect-number bound (159), the board size in Allis's gomoku result (147), a real-data Benford table (172), and some classic dates (157, 158, 159, 164).
+
+Weeks 176–208:
+
+- **Better as return visits than weeks:** 186 counting trees (atlas AD-04 and AD-05 already have Prüfer codes and the 16 trees; fold into draft 150 or a return visit), 199 perfect shuffles (Week 3's grades 4–5 problems already reach 8 out-shuffles for 52 cards; a Week 3 encore), 195 ordering stones (Week 23's counting bound) and 197 star patterns (Week 4's star polygons, draft 115's symmetry).
+- **Atlas families without a K–1 entry:** 176 (AP-22, same 2/3 numbers, and Week 24's bonus), 192 (AP-29) and 194 (AD-02 and Week 82) each propose to be that family's full-band week rather than run beside it. 181's Pigou part repeats AP-23.
+- **203 Press it again** overlaps Week 93 (the same averaging fractions), atlas GA-36 and draft 168's pinch game; the plan proposes sorting calculator machines by convergence speed instead. **206** shares √2 material with Week 93, AD-10 and draft 170; the irrationality proof is the new part. **202** keeps Week 80's halfway walk to a two-minute launch.
+- **200 Kaprekar** replaces draft 108's Kaprekar side station if both are built. **183** is near Week 13 (König's theorem is a case of max-flow min-cut). **187** should come after the Hex scouting draft. **189**'s seven-player step repeats Week 18's code.
+- No prior use with K–5 children was found for most of Weeks 176–208; exceptions are a Princeton Friends School sheet (176), a Waterloo CEMC grades 7–8 handout (177), a Wellesley grade 7 module (180) and JRMF's gossip sheet (182), all for older children.
+- Not confirmed from a page that was read, and flagged in each plan: Stewart's 1999 pirate column (177), Shapley 1953 and Banzhaf 1965 (cited through later texts; 179, 180), Huffman 1952 beyond its title page (192), who first proved the ant's path unbounded (sources disagree; 193), White 1983 beyond its abstract (196), and the Cayley, Borchardt and Prüfer dates (186).
 
 ## Next
 
