@@ -25,18 +25,18 @@ Print single-sided, US Letter, at 100% ("Actual size"), so cubes stand on the 1-
 - [ ] Small whiteboards, pencils, plain paper (laid lengthwise off a row's end, it marks "about a foot"), a big timer
 - [ ] Ten-minute test the evening before: the guide's three tests, plus one untried: the launch towers on the floor base as 2, 1, 4, 5, 3 show 3 from the left and 2 from the right, chin on the floor a foot away
 
-**The cubes: two routes.** The guide pre-builds a set for every child (its "main job"). The lighter route keeps the mathematics: one set per pair, children build their own towers inside Problem 1 or 2 (as the problems say), and one colour per height at 2–3 and 4–5 (1 yellow, 2 blue, 3 red, 4 green; 5 purple, launch only), so a repeated colour in a line shows a mistake. The 2–3 pairs play Problem 5 against each other; 4–5 keeps two sets because the guide's referee builds second cities.
+**The cubes: two routes.** The guide pre-builds a set for every child (its "main job"). The lighter route keeps the mathematics: one set per pair, children build their own towers inside Problem 1 or 2 (as the problems say), and one colour per height at 2–3 and 4–5 (1 yellow, 2 orange, 3 red, 4 dark green; 5 brown, launch only: colours the school bin has plenty of, James, November 4), so a repeated colour in a line shows a mistake. The 2–3 pairs play Problem 5 against each other; 4–5 keeps two sets because the guide's referee builds second cities.
 
 | Table | Guide: own sets, pre-built | Lighter: shared sets, loose cubes |
 |---|---|---|
 | K–1 (4) | 24 + 6 spare, 12 towers | 24, a bag of 6 per child, any colours |
-| 2–3 (4) | 72 + 10 spare, 36 towers | 36: per pair 3 yellow, 6 blue, 9 red |
-| 4–5 (3) | 120 + 10 spare, 48 towers | 80: two sets of 4 yellow, 8 blue, 12 red, 16 green |
+| 2–3 (4) | 72 + 10 spare, 36 towers | 36: per pair 3 yellow, 6 orange, 9 red |
+| 4–5 (3) | 120 + 10 spare, 48 towers | 80: two sets of 4 yellow, 8 orange, 12 red, 16 dark green |
 | Launch | borrows a K–1 set | 15: towers 1 to 5, built; stays on the floor |
-| **Total** | **242 cubes, 96 towers built** | **155: 15 yellow, 30 blue, 45 red, 36 green, 5 purple, 24 any** |
+| **Total** | **242 cubes, 96 towers built** | **155: 15 yellow, 30 orange, 45 red, 36 dark green, 5 brown, 24 any** |
 | Prep (untimed estimate) | 45 to 60 minutes | 20 to 25 minutes (30 from a mixed bin) |
 
-Add 18 cubes per extra 2–3 pair and 6 per extra K–1 child. If the bin is short, give 4–5 one set (115 in all) and the referee checks in pencil on a page-2 grid. November 4 uses about 75 cubes from the school's bin, whose size nobody knows: count it by colour that day. Building costs children about 2 minutes at 2–3 and 3 to 4 at 4–5.
+Add 18 cubes per extra 2–3 pair and 6 per extra K–1 child. If the bin is short, give 4–5 one set (115 in all) and the referee checks in pencil on a page-2 grid. James checked the school's bin on November 4: plenty of red, orange, pink, yellow, dark green and brown (pink is the spare colour). Building costs children about 2 minutes at 2–3 and 3 to 4 at 4–5.
 
 ## Before the children arrive
 

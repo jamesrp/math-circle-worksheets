@@ -19,8 +19,8 @@ Print single-sided, in colour, at 100% ("Actual size"), so the mat slots stay 1.
 - [ ] This room plan: one per adult (3)
 - [ ] [Opener sheet](2026-11-04-opener.pdf), 2 pages, cut in half: page 1 (the main puzzle, two per page) 5 copies, page 2 (easier on top, harder below) 3 copies
 - [ ] Five animal signs: BEAR, FOX, OWL, RABBIT, TURTLE in big letters on five sheets of paper, for the sitters to hold
-- [ ] Snap cubes from school: about 75, at least 14 each of green, blue, red, yellow and purple, plus a pink one per 2–3 child and a spare (any small pink object will do); one set per child in its own cup
-- [ ] Masking tape and five coloured sheets for the chairs (green, blue, red, yellow, purple)
+- [ ] Snap cubes from school: about 75, at least 14 each of dark green, brown, red, yellow and orange, plus a pink one per 2–3 child and a spare (any small pink object will do; the colours match the school bin, as counted by James on November 4); one set per child in its own cup
+- [ ] Masking tape and five coloured sheets for the chairs (green, brown, red, yellow, orange)
 - [ ] Coloured pencils (three colours per child at 2–3), pencils, scrap paper
 - [ ] Whiteboards and markers, one per child; one big whiteboard or easel by the chairs
 - [ ] Sticky notes for the floor rounds
@@ -33,7 +33,7 @@ Print single-sided, in colour, at 100% ("Actual size"), so the mat slots stay 1.
 
 - Opener half-sheets and pencils already on every table, so the first child in starts on the puzzle. The animal signs by the chairs.
 - Five chairs with their coloured sheets and masking-tape arrows on the floor, exactly as in the guide (chairs 1 → 2 → 3 → 1, chairs 4 and 5 point to themselves).
-- At each table: a cup of snap cubes per child (green, blue, red, yellow, purple, pink; about 75 in all), that band's packet pages face down, coloured pencils, whiteboards.
+- At each table: a cup of snap cubes per child (dark green, brown, red, yellow, orange, pink; about 75 in all), that band's packet pages face down, coloured pencils, whiteboards.
 - One timer everyone can see. A whiteboard by the chairs for loop names, and a pad of sticky notes.
 - Printed early-finisher cards: "Draw a 5-slot machine that takes as many turns as you can" (2–3 and 4–5) and "Draw a machine where only one cube moves" (K–1, from its Problem 5; it can't be done).
 
@@ -41,7 +41,7 @@ Print single-sided, in colour, at 100% ("Actual size"), so the mat slots stay 1.
 
 A soft logic puzzle on the tables as children arrive, in the spirit of year one's openers (the theater seats, Squirrel's party, the planets), then acted out on the same five chairs the launch uses. The answer becomes the launch's sitters, so the room goes straight from the puzzle into the first switch. An adult reads the clues aloud at any table that wants it.
 
-**The puzzle (most of the room).** Five animals went to a show and sat in the five coloured chairs: 1 green, 2 blue, 3 red, 4 yellow, 5 purple. Write each animal's name in its chair.
+**The puzzle (most of the room).** Five animals went to a show and sat in the five coloured chairs: 1 green, 2 brown, 3 red, 4 yellow, 5 orange. Write each animal's name in its chair.
 
 1. Fox sat in the red chair.
 2. Owl sat on an end chair.
@@ -49,21 +49,21 @@ A soft logic puzzle on the tables as children arrive, in the spirit of year one'
 4. Bear sat somewhere to the left of Fox.
 5. Turtle sat right next to Fox.
 
-**Answer:** green Bear, blue Turtle, red Fox, yellow Rabbit, purple Owl. It is the only answer, and every clue is needed (checked by computer).
+**Answer:** green Bear, brown Turtle, red Fox, yellow Rabbit, orange Owl. It is the only answer, and every clue is needed (checked by computer).
 
 **Hint ladder** (give one step, then walk away):
 
 1. "Which clue tells you exactly where one animal sat? Write that one first." (Fox, red.)
-2. "Owl is on an end. Try Owl in green. Where does Rabbit go? Now where can Bear go?" (Rabbit blue, and Bear has no chair left of Fox: so Owl is not in green.)
-3. "So Owl is in purple and Rabbit in yellow. Which clue places Turtle?" (Turtle blue, so Bear green.)
+2. "Owl is on an end. Try Owl in green. Where does Rabbit go? Now where can Bear go?" (Rabbit brown, and Bear has no chair left of Fox: so Owl is not in green.)
+3. "So Owl is in orange and Rabbit in yellow. Which clue places Turtle?" (Turtle brown, so Bear green.)
 
-**Easier (younger children, or anyone stuck at step 1).** Three chairs: green, blue, red. Owl sat in the green chair. Fox did not sit next to Owl. Where did Bear sit? *Answer:* green Owl, blue Bear, red Fox.
+**Easier (younger children, or anyone stuck at step 1).** Three chairs: green, brown, red. Owl sat in the green chair. Fox did not sit next to Owl. Where did Bear sit? *Answer:* green Owl, brown Bear, red Fox.
 
 **Harder (older children, or anyone done in two minutes).** The same five animals and chairs, but no clue names a chair: Owl sat on an end chair. Rabbit sat right next to Owl. Fox had exactly one animal between it and Owl. Bear sat somewhere to the left of Rabbit. Turtle did not sit on an end chair. *Answer:* the same seating as the main puzzle (Owl in green leaves Bear no room left of Rabbit).
 
 **Early finishers.** "Cross out the clue *Turtle sat right next to Fox*. How many answers are there now? Write a new clue that brings it back to exactly one." (Two answers: Bear and Turtle can swap. "Bear sat on an end chair" fixes it, and so do others.)
 
-**On the floor (minute 6).** Five children who solved it take the animal signs and sit where the answer says. The room checks each clue out loud, thumbs up or down. They stay seated: they are the launch's sitters, and the organizer hands each the cube of their chair's colour. A bridge question before the first switch: "After one switch, who will be in the red chair?" (Turtle, from blue.)
+**On the floor (minute 6).** Five children who solved it take the animal signs and sit where the answer says. The room checks each clue out loud, thumbs up or down. They stay seated: they are the launch's sitters, and the organizer hands each the cube of their chair's colour. A bridge question before the first switch: "After one switch, who will be in the red chair?" (Turtle, from brown.)
 
 ## The hour
 

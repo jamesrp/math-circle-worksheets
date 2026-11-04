@@ -1,6 +1,6 @@
 # Checks the opener puzzles in who-sat-where.tex: each must have exactly one answer.
 # "without X: n" shows how many answers remain if clue X is dropped (n > 1 means the clue is needed).
-# Chairs are numbered 1 green, 2 blue, 3 red, 4 yellow, 5 purple, left to right. Run: python3 check.py
+# Chairs are numbered 1 green, 2 brown, 3 red, 4 yellow, 5 orange, left to right. Run: python3 check.py
 from itertools import permutations
 
 def answers(names, clues):

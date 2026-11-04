@@ -87,10 +87,10 @@ def one_indexed(p):
 # children use snap cubes, so the pictures show cubes, not pattern-block shapes)
 
 CUBE_COLOURS = {
-    "green": "pbgreen", "blue": "pbblue", "red": "pbred", "yellow": "pbyellow",
-    "purple": "pbpurple", "pink": "pbpink", "teal": "pbteal", "gray": "pbgray",
+    "green": "pbgreen", "brown": "pbbrown", "red": "pbred", "yellow": "pbyellow",
+    "orange": "pborange", "pink": "pbpink", "teal": "pbteal", "gray": "pbgray",
 }
-BLOCK_ORDER = ["green", "blue", "red", "yellow", "purple", "pink", "teal", "gray"]
+BLOCK_ORDER = ["green", "brown", "red", "yellow", "orange", "pink", "teal", "gray"]
 CUBE_DEPTH = 0.38   # the receding edge, as a fraction of the front face's side
 
 

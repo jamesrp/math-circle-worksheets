@@ -23,8 +23,8 @@ SRC = os.path.join(HERE, "..", "src")
 FIG = os.path.join(SRC, "fig")
 EPS = 0.006
 
-COLOUR = {"pbgreen": "green", "pbblue": "blue", "pbred": "red", "pbyellow": "yellow",
-          "pbpurple": "purple", "pbpink": "pink", "pbteal": "teal", "pbgray": "gray"}
+COLOUR = {"pbgreen": "green", "pbbrown": "brown", "pbred": "red", "pbyellow": "yellow",
+          "pborange": "orange", "pbpink": "pink", "pbteal": "teal", "pbgray": "gray"}
 
 FAILURES = []
 SEEN_MACHINES = set()   # every machine (1-indexed targets) computed or read from the pages and confirmed
@@ -309,8 +309,8 @@ def check_k1():
     print("Problem 1")
     ms = [m for _, m in machines_in(byprob[1])]
     expect("P1 machines", [one(m.perm) for m in ms], [[3, 1, 2], [1, 3, 2]])
-    for m, rows, t in zip(ms, ([["blue", "red", "green"], ["red", "green", "blue"], ["green", "blue", "red"]],
-                             [["green", "red", "blue"], ["green", "blue", "red"]]), (3, 2)):
+    for m, rows, t in zip(ms, ([["brown", "red", "green"], ["red", "green", "brown"], ["green", "brown", "red"]],
+                             [["green", "red", "brown"], ["green", "brown", "red"]]), (3, 2)):
         seq = run_until_home(m.perm, m.pictures)
         expect(f"  {arrows_str(m.perm)} turns", len(seq) - 1, t)
         expect("  rows after each turn", seq[1:], rows)
@@ -319,9 +319,9 @@ def check_k1():
     ms = [m for _, m in machines_in(byprob[2])]
     expect("P2 machines", [one(m.perm) for m in ms], [[3, 4, 2, 1], [3, 4, 1, 2]])
     want_rows = [
-        [["yellow", "red", "green", "blue"], ["blue", "green", "yellow", "red"],
-         ["red", "yellow", "blue", "green"], ["green", "blue", "red", "yellow"]],
-        [["red", "yellow", "green", "blue"], ["green", "blue", "red", "yellow"]],
+        [["yellow", "red", "green", "brown"], ["brown", "green", "yellow", "red"],
+         ["red", "yellow", "brown", "green"], ["green", "brown", "red", "yellow"]],
+        [["red", "yellow", "green", "brown"], ["green", "brown", "red", "yellow"]],
     ]
     for m, rows in zip(ms, want_rows):
         seq = run_until_home(m.perm, m.pictures)
@@ -335,17 +335,17 @@ def check_k1():
     expect("  4-slot turns", order(ms[0].perm), 3)
     expect("  4-slot loops", loops(ms[0].perm), [(1, 2, 4), (3,)])
     expect("  4-slot rows", run_until_home(ms[0].perm, ms[0].pictures)[1:],
-           [["yellow", "green", "red", "blue"], ["blue", "yellow", "red", "green"], ["green", "blue", "red", "yellow"]])
+           [["yellow", "green", "red", "brown"], ["brown", "yellow", "red", "green"], ["green", "brown", "red", "yellow"]])
     expect("  5-slot turns", order(ms[1].perm), 6)
     expect("  5-slot loops", loops(ms[1].perm), [(1, 3), (2, 4, 5)])
     expect("  5-slot home times per cube", home_times(ms[1].perm, ms[1].pictures), [2, 3, 2, 3, 3])
     expect("  5-slot rows", run_until_home(ms[1].perm, ms[1].pictures)[1:], [
-        ["red", "purple", "green", "blue", "yellow"],
-        ["green", "yellow", "red", "purple", "blue"],
-        ["red", "blue", "green", "yellow", "purple"],
-        ["green", "purple", "red", "blue", "yellow"],
-        ["red", "yellow", "green", "purple", "blue"],
-        ["green", "blue", "red", "yellow", "purple"]])
+        ["red", "orange", "green", "brown", "yellow"],
+        ["green", "yellow", "red", "orange", "brown"],
+        ["red", "brown", "green", "yellow", "orange"],
+        ["green", "orange", "red", "brown", "yellow"],
+        ["red", "yellow", "green", "orange", "brown"],
+        ["green", "brown", "red", "yellow", "orange"]])
 
     print("Problem 4")
     labels = sorted(s for fg in byprob[4] for _, _, s in parse_fig(fg)[3])
@@ -368,7 +368,7 @@ def check_k1():
     expect("  first machine", one(a.perm), [4, 3, 1, 2])
     expect("  second mat is blank", b.perm, None)
     row1 = turn(a.pictures, a.perm)
-    expect("  row after one turn", row1, ["red", "yellow", "blue", "green"])
+    expect("  row after one turn", row1, ["red", "yellow", "brown", "green"])
     sols = [one(list(q)) for q in permutations(range(4)) if turn(row1, list(q)) == b.pictures]
     expect("  machines on the second mat that put every cube home", sols, [[3, 4, 2, 1]])
     expect("  equals the first machine with arrows reversed", sols[0], one(undo(a.perm)))
@@ -413,7 +413,7 @@ def check_m23():
     expect("  loops", [loops(m.perm) for m in ms],
            [[(1, 2, 5, 3), (4,)], [(1, 4), (2, 3, 6, 5)], [(1, 4, 2), (3, 6, 5)], [(1, 5, 4), (2, 6), (3,)]])
     expect("  turns", [order(m.perm) for m in ms], [4, 4, 3, 6])
-    expect("  pictures on the 6-slot mats", ms[1].pictures, ["green", "blue", "red", "yellow", "purple", "pink"])
+    expect("  pictures on the 6-slot mats", ms[1].pictures, ["green", "brown", "red", "yellow", "orange", "pink"])
 
     print("Problem 3")
     expect("  turns possible with 5 slots", orders_for(5), [1, 2, 3, 4, 5, 6])
@@ -429,7 +429,7 @@ def check_m23():
     blanks = [m for _, m in pairs if not m.perm]
     expect("  machines with arrows", [one(m.perm) for m in arrowed], [[2, 4, 1, 3], [5, 1, 4, 3, 2]])
     for m, bl, row_want, sol_want in zip(arrowed, blanks,
-                                         (["red", "green", "yellow", "blue"], ["blue", "purple", "yellow", "red", "green"]),
+                                         (["red", "green", "yellow", "brown"], ["brown", "orange", "yellow", "red", "green"]),
                                          ([3, 1, 4, 2], [2, 5, 4, 3, 1])):
         r = turn(m.pictures, m.perm)
         expect("  row after one turn", r, row_want)
@@ -451,9 +451,9 @@ def check_m23():
 
     print("Problem 6")
     for f, want in (("m-p6a", ([2, 1, 3, 4], [1, 3, 2, 4],
-                               ["blue", "red", "green", "yellow"], ["red", "green", "blue", "yellow"], False)),
+                               ["brown", "red", "green", "yellow"], ["red", "green", "brown", "yellow"], False)),
                     ("m-p6b", ([3, 2, 1, 4], [1, 4, 3, 2],
-                               ["red", "yellow", "green", "blue"], ["red", "yellow", "green", "blue"], True))):
+                               ["red", "yellow", "green", "brown"], ["red", "yellow", "green", "brown"], True))):
         ms = mats_of(f)
         A = [m for m in ms if m.perm and m.label == "A"][0]
         B = [m for m in ms if m.perm and m.label == "B"][0]
@@ -655,7 +655,7 @@ def check_launch():
     expect("  differs from every printed machine", one(floor) in printed, False)
 
 
-LETTER = {"green": "g", "blue": "b", "red": "r", "yellow": "y", "purple": "p", "pink": "k"}
+LETTER = {"green": "g", "brown": "b", "red": "r", "yellow": "y", "orange": "p", "pink": "k"}
 
 
 def crow(row):
@@ -691,7 +691,7 @@ def write_generated():
         one_row(f"Msix{tag}AB", turn(turn(A.pictures, A.perm), B.perm))
         one_row(f"Msix{tag}BA", turn(turn(B.pictures, B.perm), A.perm))
     floor = [1, 2, 0, 3, 4]   # the launch floor map, as in check_launch()
-    rows = run_until_home(floor, ["green", "blue", "red", "yellow", "purple"])[1:]
+    rows = run_until_home(floor, ["green", "brown", "red", "yellow", "orange"])[1:]
     defs.append("\\newcommand{\\LaunchRows}{" + "".join(f"\\tn{{{k}}}{crow(r)}" for k, r in enumerate(rows, 1)) + "}")
     with open(os.path.join(HERE, "generated.tex"), "w") as fh:
         fh.write("% written by check_answers.py from the drawn machines in ../src/fig; do not edit\n")
