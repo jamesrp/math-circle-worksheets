@@ -1,6 +1,14 @@
 # Home plan: poisoned cookie (Chomp)
 
-Weekend of November 7 and 8, 2026, at the kitchen table: James with Jay, Rose and perhaps a third child. **Untried:** nobody has played this plan yet, and every time is a guess. It comes from the [poisoned cookie draft](../topic-scouting/drafts/poisoned-cookie/) but drops its worksheets, bite card and labelling tables, which turn the game into recording. Print the [boards](2026-11-08-poisoned-cookie-boards.pdf). Every fact below is checked by [src/chomp_check.py](src/chomp_check.py).
+Weekend of November 7 and 8, 2026 (James picked it November 5), at the kitchen table: James with Jay, Rose and perhaps a third child. **Untried:** nobody has played this plan yet, and every time is a guess. It comes from the [poisoned cookie draft](../topic-scouting/drafts/poisoned-cookie/) but drops its worksheets, bite card and labelling tables, which turn the game into recording. Print the [boards](2026-11-08-poisoned-cookie-boards.pdf). Every fact below is checked by [src/chomp_check.py](src/chomp_check.py). A fresh kid-fit review (November 5) rated it strong for Jay and a third child and workable for Rose, strong in her first 15 minutes; its fixes are in.
+
+## At the table
+
+- Boards: the big 4 by 6 for the older children; the small page for Rose, in order train, four square, little corner, L.
+- The question before every new board: "Would you rather go first or second?"
+- Trap boards, where second is right: the little corner, a two-row step, an equal L.
+- Winning first bites: 2 by anything, the top-right cookie; squares, row 2, column 2; 3 by 4, row 2, column 3.
+- Stop on a high point: Rose's win, or a trick someone found.
 
 ## The mathematics, for you
 
@@ -16,9 +24,9 @@ Weekend of November 7 and 8, 2026, at the kitchen table: James with Jay, Rose an
 ## Materials and setup (5 minutes)
 
 - The two board pages at 100% (check the 10 cm bar). Squares are 30 mm, a little bigger than the draft's 25 mm, so a US quarter (about 24 mm) or a small square cracker about 2.5 cm across fits. Big board 4 by 6; small page: a 1 by 5 train, 2 by 2, 2 by 3, and an L with arms of 3.
-- About 30 cookies (counters, coins, cereal, chocolate chips, small crackers) and a cup each. The green face is the poison. **Mess-free:** what you bite goes in your cup. **Real food:** eat what you bite except the poison; a chocolate bar that breaks into a grid is a board by itself, with one corner piece as poison.
+- About 30 cookies (counters, coins, cereal, chocolate chips, small crackers) and a cup each. The green face is the poison. **Mess-free:** what you bite goes in your cup. **Real food** suits the small boards (a 4 by 6 game uses 23 crackers): eat what you bite except the poison; a chocolate bar that breaks into a grid is a board by itself, with one corner piece as poison.
 - Nothing to write with. The only record is optional: a sticky-note arrow on a bite that wins.
-- Sit side by side, facing the same way, so "up and to the right" means the same to everyone; across the table, turn the board to whoever is biting.
+- Everyone sits on the poison's side of the board, facing the same way, so "up and to the right" means the same to everyone. Turning a full board scatters the cookies.
 
 ## The route
 
@@ -26,16 +34,16 @@ Each move stands alone. Stop after any of them and pick up anywhere next time.
 
 **1. Launch (3 minutes).** Fill two rows, 5 columns, on the big board. "The green one is poisoned. Put a finger on any cookie: it goes, and so does every cookie above it and to its right. Whoever has to eat the poison loses." Bite row 1, column 3: six cookies go. Rebuild; a child bites the top cookie in column 2, and only the top row from there goes. Two children play one game. Say only whether a bite is allowed. *Watch for* bites that take cookies below or to the left.
 
-**2. Rose's boards (5 to 10 minutes).** The older children play each other on the big board, choosing sizes, while Rose plays you. Play honestly: if she misses the winning bite, win, and offer a rematch at once.
+**2. Rose's boards (5 to 10 minutes).** The older children play each other on the big board, choosing sizes, while Rose plays you. No third child? Jay plays you on the big board at the same time (two games, alternate turns), or teams with Rose. Let Rose point and say "this one", then sweep the cookies with her. Play honestly: if she misses the winning bite, win, and offer a rematch at once.
 
 - *The train (1 by 5).* "Can you make me eat the poison?" She goes first and can find the big bite: everything but the poison.
-- *The little corner (2 by 2).* She goes first. Only the top-right cookie wins: it leaves the little corner, and whichever cookie you eat, she eats the other. Use her name for it, then ask "On the little corner, would you rather go first or second?"
+- *Four square (2 by 2).* She goes first. Only the top-right cookie wins: it leaves the little corner (three cookies: the poison, one to its right, one above), and whichever cookie you eat, she eats the other. Use her name for the little corner. Then, with just those three cookies on the table, ask "On the little corner, would you rather go first or second?"
 - *2 by 3.* The same first bite wins, and after any reply she can make the little corner or leave just the poison.
 - *Copy-cat (the L).* You go first. If she makes the arms match after every bite, she wins. Hint only if asked: "Can you make the arms the same?"
 
 *Rose's moment:* she goes first against Jay or the third child on 2 by 2 or 2 by 3, or builds the little corner and says "You go first", and wins because she knows something. Her jobs between games: build every board, choose its size, ask "first or second?" She can also team with an older child against you and make the bite they agree on. *Stop* once she has won by knowing, or would rather build.
 
-**3. First or second? (10 minutes).** The older children challenge you. Before each new board shape ask "Would you rather go first or second?"; they choose, you take the other seat. Going first on a rectangle, use the bites above; going second, play your best, and after a loss ask "Was there a bite that would have beaten me?" Slip in trap boards (a step such as 5 and 4, the little corner, an equal L), where second is right. Don't explain. *Watch for* "you always win when you start" and "it depends on the shape". If someone says "first always wins", offer a step board. Hint if asked: "Look at my first bite."
+**3. First or second? (10 minutes).** The older children challenge you. Start on two-row boards up to 2 by 5 and on 2 by 2 and 3 by 3; keep 3 by 4 for Move 4. After two losses in a row, offer the child first on a 2-row board with the hint below. Before each new board shape ask "Would you rather go first or second?"; they choose, you take the other seat. Going first on a rectangle, use the bites above; going second, play your best, and after a loss ask "Was there a bite that would have beaten me?" Slip in trap boards (a step such as 5 and 4, the little corner, an equal L), where second is right. Don't explain. *Watch for* "you always win when you start" and "it depends on the shape". If someone says "first always wins", offer a step board. Hint if asked: "Look at my first bite."
 
 **4. Square and two-row challenges (10 to 15 minutes).** Jay and the third child go first.
 

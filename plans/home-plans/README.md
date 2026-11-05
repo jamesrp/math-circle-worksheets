@@ -10,4 +10,4 @@ To rebuild a plan's printable PDF after editing: `python3 plans/room-plans/build
 
 | Weekend | Plan | Theme | Status |
 |---|---|---|---|
-| November 7 and 8, 2026 | [Poisoned cookie (Chomp)](2026-11-08-poisoned-cookie.md) ([printable](2026-11-08-poisoned-cookie.pdf), 2 pages; [boards](2026-11-08-poisoned-cookie-boards.pdf), 2 pages, 30 mm squares; checker [src/chomp_check.py](src/chomp_check.py)) | draft `poisoned-cookie` | unpiloted |
+| November 7 and 8, 2026 | [Poisoned cookie (Chomp)](2026-11-08-poisoned-cookie.md) ([printable](2026-11-08-poisoned-cookie.pdf), 3 pages; [boards](2026-11-08-poisoned-cookie-boards.pdf), 2 pages, 30 mm squares; checker [src/chomp_check.py](src/chomp_check.py)) | draft `poisoned-cookie` | unpiloted |
