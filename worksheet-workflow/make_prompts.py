@@ -8,6 +8,7 @@ Writes into the run folder:
   PROMPT.md       writer: outline + context + standard + do-not list + examples + technical notes
   CRITIC.md       generic adversarial review   -> review.md
   CRITIC-MATH.md  optional correctness check   -> review-math.md
+  CRITIC-KIDS.md  kid-fit review               -> review-kids.md
   REVISE.md       revision                     -> final/*.pdf
 Each stage is meant for a fresh agent. See worksheet-workflow/README.md.
 
@@ -48,7 +49,7 @@ def narrow(name, text, bands):
         text = sub(text, "the three finished PDFs at exactly these paths", "the finished " + paths)
         text = sub(text, all_pdfs("draft"), pdfs("draft"))
         text = sub(text, "reply with the three PDF paths and their page counts", "reply with " + reply)
-    if name in ("critic", "critic-math", "reviser"):
+    if name in ("critic", "critic-math", "critic-kids", "reviser"):
         text = sub(text, "draft/k-1.pdf, draft/grades-2-3.pdf, draft/grades-4-5.pdf: the author's draft.", draft + ": the author's draft.")
     if name == "critic-math":
         scope = f"For every problem in the {NAMES[bands[0]]} packet:" if n == 1 else "For every problem in every band (" + ", ".join(NAMES[b] for b in bands) + "):"
@@ -92,6 +93,7 @@ def main():
         "PROMPT.md": writer,
         "CRITIC.md": stage("critic"),
         "CRITIC-MATH.md": stage("critic-math"),
+        "CRITIC-KIDS.md": stage("critic-kids"),
         "REVISE.md": stage("reviser"),
     }
     for name, text in files.items():
@@ -102,7 +104,8 @@ def main():
     print(f"  1. {run}/PROMPT.md       (writer -> draft/*.pdf)")
     print(f"  2. {run}/CRITIC.md       (review -> review.md)")
     print(f"     {run}/CRITIC-MATH.md  (optional, for enumeration-heavy weeks -> review-math.md)")
-    print(f"  3. {run}/REVISE.md       (revision -> final/*.pdf)")
+    print(f"  3. {run}/CRITIC-KIDS.md  (kid-fit review, without reading review.md -> review-kids.md)")
+    print(f"  4. {run}/REVISE.md       (revision -> final/*.pdf)")
 
 if __name__ == "__main__":
     main()

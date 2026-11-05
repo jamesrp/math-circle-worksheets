@@ -71,7 +71,7 @@ To draft a week's student worksheets, use [worksheet-workflow/](worksheet-workfl
 1. Write the week's outline from `worksheet-workflow/outlines/TEMPLATE.md`: the mathematical kernels, a one-line emphasis per band, and the materials with their physical constraints. Leave the choice of problems to the writer stage.
 2. Check that `worksheet-workflow/context.md` matches the current group.
 3. Run `python3 worksheet-workflow/make_prompts.py --outline <outline> --run tmp/worksheet-runs/<week>-v1`.
-4. Run the stage files in order, each in a fresh agent (a subagent in Claude Code, a separate `codex exec` run or session in Codex): `PROMPT.md` (writer), then `CRITIC.md` (adversarial review; add `CRITIC-MATH.md` for weeks whose answers come from enumeration), then `REVISE.md`. The reviewer must not be the writer.
+4. Run the stage files in order, each in a fresh agent (a subagent in Claude Code, a separate `codex exec` run or session in Codex): `PROMPT.md` (writer), then `CRITIC.md` (adversarial review; add `CRITIC-MATH.md` for weeks whose answers come from enumeration), then `CRITIC-KIDS.md` (kid-fit review: will children enjoy and manage it, activity and page rated separately, K–1 held to its own bar), then `REVISE.md`. The reviewers must not be the writer.
 5. If you were started with one of these stage files, do only that stage.
 6. Present `final/*.pdf` for review. After approval, move the packet into `lowell-math-circle-year-2/` as problem files (below) and record it as unpiloted.
 
