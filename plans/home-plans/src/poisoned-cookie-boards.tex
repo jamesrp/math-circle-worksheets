@@ -1,0 +1,85 @@
+% Poisoned cookie (Chomp) home boards. Build with pdflatex; print at 100% (actual size).
+% Every square is 30 mm, so coins (a US quarter is about 24 mm), small square crackers
+% about 25 mm across, cereal and counters up to about 28 mm sit inside one square.
+% Source for plans/home-plans/2026-11-08-poisoned-cookie-boards.pdf.
+\documentclass{article}
+\usepackage[letterpaper,margin=14mm]{geometry}
+\usepackage{tikz}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\definecolor{cookie}{rgb}{1.0,0.94,0.82}
+\definecolor{crumb}{rgb}{0.55,0.38,0.2}
+\definecolor{poison}{rgb}{0.62,0.86,0.55}
+
+% \poisonface{x}{y}: the poison square with its bottom-left corner at (x,y), in cm.
+\newcommand{\poisonface}[2]{%
+  \fill[poison] (#1,#2) rectangle ++(3,3);
+  \draw[crumb, line width=0.8pt] (#1,#2) rectangle ++(3,3);
+  \begin{scope}[shift={(#1+1.5,#2+1.5)}, line width=1.4pt, black!80]
+    \draw (0,0) circle (1.0);
+    \draw (-0.55,0.15) -- ++(0.3,0.3) (-0.55,0.45) -- ++(0.3,-0.3);
+    \draw (0.25,0.15) -- ++(0.3,0.3) (0.25,0.45) -- ++(0.3,-0.3);
+    \draw (-0.45,-0.55) .. controls (-0.15,-0.25) and (0.15,-0.25) .. (0.45,-0.55);
+  \end{scope}}
+
+% \board{rows}{cols}: a full rectangle, poison bottom-left, 3 cm squares.
+\newcommand{\board}[2]{%
+  \begin{tikzpicture}
+    \foreach \r in {1,...,#1} {\foreach \c in {1,...,#2} {
+      \fill[cookie] ({3*(\c-1)},{3*(\r-1)}) rectangle ++(3,3);
+      \draw[crumb, line width=0.8pt] ({3*(\c-1)},{3*(\r-1)}) rectangle ++(3,3);}}
+    \poisonface{0}{0}
+  \end{tikzpicture}}
+
+% \lboard{n}: the poison with an arm of n cookies to its right and n above.
+\newcommand{\lboard}[1]{%
+  \begin{tikzpicture}
+    \foreach \k in {1,...,#1} {
+      \fill[cookie] ({3*\k},0) rectangle ++(3,3);
+      \draw[crumb, line width=0.8pt] ({3*\k},0) rectangle ++(3,3);
+      \fill[cookie] (0,{3*\k}) rectangle ++(3,3);
+      \draw[crumb, line width=0.8pt] (0,{3*\k}) rectangle ++(3,3);}
+    \poisonface{0}{0}
+  \end{tikzpicture}}
+
+\newcommand{\note}[1]{{\small\color{black!55}#1}}
+
+\begin{document}
+\sffamily
+% ---------------------------------------------------------------- page 1
+{\large Poisoned cookie: the big board}\hfill\note{30 mm squares, print at 100\%}
+
+\vspace*{\fill}
+\begin{center}
+\board{4}{6}
+
+\medskip
+\note{4 rows by 6 columns. Play any smaller rectangle by filling only part of it, starting at the poison.}
+
+\vspace{12mm}
+\tikz{\draw[line width=1pt] (0,0) -- (10,0); \draw (0,-0.15) -- (0,0.15) (10,-0.15) -- (10,0.15);}\\[1mm]
+\note{Printing check: this bar should measure 10 cm.}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+% ---------------------------------------------------------------- page 2
+{\large Poisoned cookie: small boards}\hfill\note{30 mm squares, print at 100\%}
+
+\vspace*{\fill}
+\begin{center}
+\board{1}{5}\\[1mm]
+\note{1 by 5}
+
+\vspace{7mm}
+\board{2}{2}\hspace{28mm}\board{2}{3}\\[1mm]
+\makebox[60mm]{\note{2 by 2}}\hspace{28mm}\makebox[90mm]{\note{2 by 3}}
+
+\vspace{7mm}
+\lboard{3}\\[1mm]
+\note{L with two arms of 3}
+\end{center}
+\vspace*{\fill}
+\end{document}
