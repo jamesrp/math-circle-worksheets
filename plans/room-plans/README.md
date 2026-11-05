@@ -21,14 +21,16 @@ To rebuild a plan's printable after editing it: `python3 plans/room-plans/build/
 
 ## Plans
 
-**After fall quarter (James, November 5, 2026):** he will probably stop the school circle after fall quarter and switch to informal sessions at his house, with a smaller group and no set length. He found the hour a little long. So plan only the few remaining fall dates here; home sessions get lighter plans.
+**After fall quarter (James, November 5, 2026):** the fall circle meets November 18, December 2 and December 9 (the last), skipping November 11 and 25. He will probably stop the school circle after fall quarter and switch to informal sessions at his house, with a smaller group and no set length. He found the hour a little long. So plan only the few remaining fall dates here; home sessions get lighter plans.
 
 | Date | Plan | Week | Status |
 |---|---|---|---|
 | November 4, 2026 | [Shuffle machines and loop names](2026-11-04-shuffle-machines.md) ([printable](2026-11-04-shuffle-machines.pdf), [opener sheet](2026-11-04-opener.pdf)) | 3 | taught November 4 (see the plan's "How it went") |
 | November 11, 2026 | No circle: Veterans Day, no school | | |
 | November 18, 2026 | [Bridges](2026-11-18-bridges.md) ([printable](2026-11-18-bridges.pdf), [opener sheet](2026-11-18-opener.pdf)) | 10 | proposed (James agreed to Week 10 on November 3 and to this date on November 5); unpiloted |
-| Next after November 18, tentative | [Stars and wheels](tentative-stars-and-wheels.md) ([printable](tentative-stars-and-wheels.pdf), [opener sheet](tentative-stars-and-wheels-opener.pdf)) | 4 | proposed by Claude; not confirmed; unpiloted |
+| November 25, 2026 | No circle (Thanksgiving week) | | |
+| December 2, 2026, tentative | [Stars and wheels](tentative-stars-and-wheels.md) ([printable](tentative-stars-and-wheels.pdf), [opener sheet](tentative-stars-and-wheels-opener.pdf)) | 4 | proposed by Claude; not confirmed; unpiloted |
+| December 9, 2026 | Open: the last circle of fall quarter | | |
 | Reference | [Tower cities](reference-tower-cities.md) ([printable](reference-tower-cities.pdf), [opener sheet](reference-tower-cities-opener.pdf)) | 5 | the circle already ran Week 5 (James, November 3); kept for a return visit |
 | Reference | [Take-away games](reference-take-away-games.md) ([printable](reference-take-away-games.pdf), [opener sheet](reference-take-away-games-opener.pdf)) | 7 | the 2–3 table played Week 7 on October 21; kept for a return visit or for K–1 and 4–5 |
 | Reference | [Chip firing with a sink](2026-11-04-chip-firing.md) | 11 | the circle ran Week 11 before this plan was written; a success |
