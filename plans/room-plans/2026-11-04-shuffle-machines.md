@@ -87,4 +87,4 @@ A soft logic puzzle on the tables as children arrive, in the spirit of year one'
 
 ## How it went
 
-(Add a dated line after the session.)
+- November 4, 2026 (James, November 5): taught at all three tables. "Who sat where?" was great as an opener: the five children who did it liked it, and every age, K included, understood the mechanics. The lesson seemed to go pretty well; James was mostly at the 4–5 table, where two children worked the whole time and one got distracted, and the lower tables seemed to be working well. He found the hour a little long.

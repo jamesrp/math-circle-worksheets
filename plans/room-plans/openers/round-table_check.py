@@ -3,7 +3,7 @@
 # the clue is needed). Seats are numbered clockwise from the star seat: 0 is the star seat, then
 # 1, 2, ... going the way the arrow points. "X sat 2 seats clockwise from Y" means X's seat is Y's
 # seat plus 2, going round past the star seat (counting the next seat as one).
-# It also checks the numbers the November 18 room plan uses: the note passes acted out on the
+# It also checks the numbers the stars and wheels room plan uses: the note passes acted out on the
 # chairs, the yarn-star finale table, and the early-finisher answers. Run: python3 round-table_check.py
 from itertools import permutations
 from math import gcd

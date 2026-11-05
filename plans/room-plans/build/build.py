@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build a room plan's printable PDF from its Markdown.
 
-    python3 plans/room-plans/build/build.py plans/room-plans/2026-11-11-bridges.md
+    python3 plans/room-plans/build/build.py plans/room-plans/2026-11-18-bridges.md
 
 Writes the PDF beside the Markdown (same name, .pdf). Needs pandoc and LibreOffice (soffice).
 Pandoc makes HTML with style.css; the "The hour" section starts a new page so the timetable
