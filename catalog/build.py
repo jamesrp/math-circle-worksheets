@@ -51,7 +51,7 @@ PENDING_KINDS = ["return visit", "K-1 pages"]
 PENDING_FIELDS = {"kind", "path", "date", "note"}
 BAND_PDF = {"K-1": "k-1.pdf", "2-3": "grades-2-3.pdf", "4-5": "grades-4-5.pdf"}
 DRAFT_ROLES = {"k-1.pdf": "K–1 pages", "grades-2-3.pdf": "Grades 2–3 pages", "grades-4-5.pdf": "Grades 4–5 pages",
-               "facilitator.pdf": "Facilitator guide (draft)", "materials.pdf": "Materials to print",
+               "facilitator.pdf": "Facilitator guide (draft)", "k1-guide.pdf": "K–1 guide section (draft)", "materials.pdf": "Materials to print",
                "review.md": "Adversarial review", "review-math.md": "Math check", "review-guide.md": "Guide review"}
 ATLAS_BOOKS = {
     "algebra-discrete": ("Algebra and discrete mathematics", "atlas-algebra-discrete"),

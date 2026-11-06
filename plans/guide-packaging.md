@@ -1,0 +1,35 @@
+# Eleven draft guides: packaging handoff
+
+The four return-visit guides and seven K–1 guide sections are packaged with their existing student-page drafts: **11 guides / 63 pages**. They remain **drafts awaiting organizer review, untested with children and physically unrehearsed**. No student page, existing companion guide, approval/piloting state or use-log/collection/path data changed.
+
+| Guide | Packaged PDF | Review evidence | Dispositions and future work |
+|---|---|---|---|
+| k1-57 | [5 pp.](k1-drafts/week-57/k1-guide.pdf) | [Original critic](k1-drafts/week-57/review-guide.md) | [Revision/insertions](k1-drafts/week-57/guide-revision.md) |
+| k1-66 | [4 pp.](k1-drafts/week-66/k1-guide.pdf) | [Original critic](k1-drafts/week-66/review-guide.md) | [Revision/insertions](k1-drafts/week-66/guide-revision.md) |
+| k1-81 | [5 pp.](k1-drafts/week-81/k1-guide.pdf) | [Original critic](k1-drafts/week-81/review-guide.md) | [Revision/insertions](k1-drafts/week-81/guide-revision.md) |
+| k1-87 | [5 pp.](k1-drafts/week-87/k1-guide.pdf) | [Original critic](k1-drafts/week-87/review-guide.md) | [Revision/insertions](k1-drafts/week-87/guide-revision.md) |
+| k1-91 | [4 pp.](k1-drafts/week-91/k1-guide.pdf) | [Original critic](k1-drafts/week-91/review-guide.md) | [Revision/insertions](k1-drafts/week-91/guide-revision.md) |
+| k1-97 | [4 pp.](k1-drafts/week-97/k1-guide.pdf) | [Original critic](k1-drafts/week-97/review-guide.md) | [Revision/insertions](k1-drafts/week-97/guide-revision.md) |
+| k1-98 | [5 pp.](k1-drafts/week-98/k1-guide.pdf) | [Original critic](k1-drafts/week-98/review-guide.md) | [Revision/insertions](k1-drafts/week-98/guide-revision.md) |
+| rv-53 | [7 pp.](return-visit-drafts/week-53/facilitator.pdf) | [Original critic](return-visit-drafts/week-53/review-guide.md) | [Revision/insertions](return-visit-drafts/week-53/guide-revision.md) |
+| rv-58 | [8 pp.](return-visit-drafts/week-58/facilitator.pdf) | [Original critic](return-visit-drafts/week-58/review-guide.md) | [Revision/insertions](return-visit-drafts/week-58/guide-revision.md) |
+| rv-62 | [8 pp.](return-visit-drafts/week-62/facilitator.pdf) | [Original critic](return-visit-drafts/week-62/review-guide.md) | [Revision/insertions](return-visit-drafts/week-62/guide-revision.md) |
+| rv-63 | [8 pp.](return-visit-drafts/week-63/facilitator.pdf) | [Original critic](return-visit-drafts/week-63/review-guide.md) | [Revision/insertions](return-visit-drafts/week-63/guide-revision.md) |
+
+Each package has `guide-src/` with the exact revised source and a `build.sh` that writes its parent PDF and finishes with its mathematical checker. The student's original `src/` remains separate and unchanged. Each `review-guide.md` is byte-identical to the original critic review; `guide-revision.md` preserves the finding dispositions, mathematical/page/material checks and future companion insertion notes, with links to [revision checkpoint 24a18cb0](https://github.com/jamesrp/math-circle-worksheets/tree/24a18cb02a3f45c91311c90d5a85b65886450278/plans/guide-runs/). Writer outputs, independent critic scripts and historical run verification remain available at that pinned checkpoint. No `plans/guide-runs/` folder or absolute-path stage prompt enters this main-tree package.
+
+The [return-visit index](return-visit-drafts/README.md) and [K–1 index](k1-drafts/README.md) give guide counts, critic corrections, student-page workarounds, preparation and rebuild instructions. All **3 must-fix and 58 should-fix** findings were addressed in revision. RV63 avoids the two materials answer leaks; K1-91 accepts complete failed searches as finite proofs; K1-97 leaves before the older launch reveals its task answer. The per-guide reports explain minor dispositions, including K1-87's already-sufficient fallback and RV63's justified concision limit.
+
+## Packaging checks
+
+[Machine-readable verification](guide-packaging-verification.json) records all guide/student hashes and results. The packaging coordinator rebuilt all eleven guides in place and from **clean copies of the complete draft folders outside the repository**. Every checker passed, with no TeX errors or overfull boxes. Every rebuilt PDF and `pdftotext -layout` output is identical to the packaged PDF and to the visually inspected revision checkpoint. No PDF changed during packaging, so the checkpoint's every-page inspection of all 63 final guide pages remains applicable. Pinned student edition checks and the independent mathematics/reference checks pass; all 19 served student PDFs (144 pages), their sources and the selected base/material/companion inputs match the revision inputs. Problem/page/material references are unchanged and their detailed audited maps remain in each revision report.
+
+The new catalog implementation is preserved. `catalog/build.py` adds only the K–1 draft-guide role. The regenerated explorer adds exactly **22 guide/review links on the 11 pending drafts**; all other explorer payload, readiness rungs, uses, collections, path, template and JavaScript remain identical. Catalog build, path check, standalone readiness report, JavaScript syntax and all **40 existing scratch negative-validation cases** pass. `CATALOG.md` and `plans/readiness.md` were regenerated without byte changes; all 101 weekly themes, 12 theme drafts and four collections remain unchanged. No explorer republication or deployment occurred.
+
+## Coordination and next review
+
+The packaging-only claim was pushed and remotely verified on main at **`996e2f78269219db01687067e7cf8456a58dd4f7`**, after the catalog integration `2e81d569119a26e28caad9bf93253f05ff4b9ddc` and revision completion row `048df84f73cdd6aba89e1d8f72154e69dcf15a94`. Packaging uses `codex/package-week-guides`, based on that fetched main, copying the verified outputs from the pinned guide checkpoint. This keeps the branch-only run evidence out of main. The exact packaging and tested integration SHAs are reported with the final handoff. Only the guide's workboard row is claimed/closed; unrelated rows are preserved. PR #6 is an evidence/handoff draft and is not merged or approved.
+
+**Existing companion changes remain future work after organizer approval.** This package does not replace the existing adult-led K–1 routes, fix their stale no-packet/print/route sentences, change Week 98's older-band page citations or alter band views/path data. The exact future insertion work is preserved in each `guide-revision.md`. The guides and student pages still need organizer review before adoption, followed by the brief's approved promotion process.
+
+Digital checks do not establish actual-size printing/cutting, material fit/handling, resets, adult staffing or classroom pacing. Every guide remains **untested with children and physically unrehearsed**. No private source was newly consulted, no external agent contacted, and no release or deployment performed.
