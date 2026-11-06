@@ -1,6 +1,6 @@
 # Planned-weeks layer verification
 
-Implemented from [the brief](../plans/briefs/planned-weeks-layer.md), based on fetched main `d48efee6b0c705a7673b4dc0d3446b9abd505da4`. Row-only claim: `6cf7022005eca187c2519455c5123c22e0fc4dd5`; implementation branch: `codex/planned-weeks-layer`.
+Implemented from [the brief](../plans/briefs/planned-weeks-layer.md), based on fetched main `d48efee6b0c705a7673b4dc0d3446b9abd498da4`. Row-only claim: `6cf7022005eca187c2519455c5123c22e0fc4dd5`; implementation branch: `codex/planned-weeks-layer`.
 
 ## Records and boundaries
 
