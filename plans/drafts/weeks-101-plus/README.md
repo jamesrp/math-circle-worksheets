@@ -197,4 +197,6 @@ Weeks 176–208:
 
 ## Next
 
+**Research stopped at 108 plans (James, November 6, 2026).** No fourth batch: effort now goes into proving out the weeks that exist, with AI work running ahead of what can be piloted with children. Codex is taking the catalog build.
+
 James picks what, if anything, moves forward. A chosen plan goes through the worksheet workflow's outline, writer, critic and reviser stages, then a home pilot before the circle. Catalog draft records (`catalog/drafts/`) are not yet written for these plans, so they do not appear in the explorer.
