@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Publish the reviewed explorer from clean main; requires publication approval.
 
-Usage: python3 catalog/publish_pages.py
+Usage: python3 catalog/publish_pages.py [--dry-run]
 Only origin's gh-pages ref is pushed. No Pages settings are changed.
+--dry-run does every check and builds the publication tree, but creates no
+commit and pushes nothing; it only reads from origin.
 """
 import os
 from pathlib import Path
@@ -40,7 +42,7 @@ def require_source(root, source=None):
     return current
 
 
-def publish(root):
+def publish(root, dry_run=False):
     source = require_source(root)
     # Fetch into a private ref, without moving origin/gh-pages or a local branch.
     remote_ref = "refs/heads/gh-pages"
@@ -67,6 +69,11 @@ def publish(root):
         push_urls = git(root, "remote", "get-url", "--push", "--all", "origin").stdout.splitlines()
         if len(urls) != 1 or push_urls != urls:
             raise PublishError("origin must have one matching fetch/push URL.")
+        # Publish only reviewed, pushed main, so the SHA in the commit message
+        # exists on origin and the published bytes can be checked against it.
+        remote_main = git(root, "ls-remote", "--exit-code", "--refs", "origin", "refs/heads/main", check=False)
+        if remote_main.returncode or remote_main.stdout.split()[0].decode() != source:
+            raise PublishError("Local main is not origin's main; pull or push first.")
         remote = git(root, "ls-remote", "--exit-code", "--refs", "origin", remote_ref, check=False)
         if remote.returncode not in (0, 2):
             raise PublishError(remote.stderr.decode(errors="replace").strip() or "Cannot read origin.")
@@ -92,6 +99,10 @@ def publish(root):
         require_source(root, source)
         if parent and tree == git(root, "rev-parse", f"{parent}^{{tree}}").stdout.decode().strip():
             print(f"Explorer unchanged; no commit or push (gh-pages {parent}).")
+            return
+        if dry_run:
+            where = f"on top of gh-pages {parent}" if parent else "as a new orphan gh-pages"
+            print(f"Dry run: would publish tree {tree} {where} from source {source}; nothing pushed.")
             return
         args = ["commit-tree", tree]
         if parent:
@@ -124,13 +135,14 @@ def publish(root):
 
 
 def main():
-    if len(sys.argv) != 1:
-        raise PublishError("Usage: python3 catalog/publish_pages.py (publishes to origin/gh-pages)")
+    args = sys.argv[1:]
+    if args not in ([], ["--dry-run"]):
+        raise PublishError("Usage: python3 catalog/publish_pages.py [--dry-run] (publishes to origin/gh-pages)")
     # Git environment overrides could redirect a worktree's index or repository.
     if any(key in os.environ for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_COMMON_DIR")):
         raise PublishError("Unset GIT_DIR, GIT_WORK_TREE, GIT_INDEX_FILE and GIT_COMMON_DIR first.")
     root = Path(git(Path(__file__).resolve().parent, "rev-parse", "--show-toplevel").stdout.decode().strip())
-    publish(root)
+    publish(root, dry_run=args == ["--dry-run"])
 
 
 def interrupted(signum, frame):

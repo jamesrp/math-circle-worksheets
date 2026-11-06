@@ -46,10 +46,11 @@ After an explorer change is reviewed, rebuild with Python 3.11 or later, inspect
 ```sh
 git switch main
 git pull --ff-only origin main
+python3 catalog/publish_pages.py --dry-run   # every check, reads origin only, pushes nothing
 python3 catalog/publish_pages.py
 ```
 
-This command **pushes to `origin`'s `gh-pages` branch**. It checks for a clean `main` (including untracked files), builds the committed source in a temporary detached worktree, and refuses any tracked build difference. On refusal, run `python3 catalog/build.py` in the source checkout, review and commit the outputs before retrying. The script leaves the caller's checkout untouched, including on a failed build.
+This command **pushes to `origin`'s `gh-pages` branch**. It checks for a clean `main` (including untracked files) that matches `origin`'s `main`, so the source SHA it records is on GitHub, builds the committed source in a temporary detached worktree, and refuses any tracked build difference. On refusal, run `python3 catalog/build.py` in the source checkout, review and commit the outputs before retrying. The script leaves the caller's checkout untouched, including on a failed build.
 
 The publication tree contains only `index.html` (byte-identical to the source commit's `explorer/index.html`) and an empty `.nojekyll`. The first commit has no parent; later commits descend from fetched `gh-pages`. Each commit names the full source SHA. Identical trees produce no commit or push, including when source documentation alone changes. The script never force-pushes: if another publisher advances the branch, inspect the remote result and reviewed source before retrying. A failed or interrupted push may already have reached the server; check the remote ref first. Temporary worktrees and private refs are removed on normal completion, failure and handled interruption. A cleanup failure reports the retained worktree path for manual recovery; abrupt power loss or `SIGKILL` can also require cleanup. Existing local branches and other worktrees are left in place. The script changes no Pages settings and requires one matching fetch/push URL for `origin`.
 

@@ -47,9 +47,8 @@ class PublisherTests(unittest.TestCase):
         self.write("explorer/index.html", HTML)
         self.write(".gitignore", "__pycache__/\n")
         self.write("not-for-publication.txt", "stay on main\n")
-        self.commit("Initial source")
         self.git(self.repo, "remote", "add", "origin", str(self.remote))
-        self.git(self.repo, "push", "origin", "main")
+        self.commit("Initial source")
 
     def git(self, root, *args, input=None, check=True):
         result = subprocess.run([self.real_git, "-C", str(root), *args],
@@ -65,19 +64,20 @@ class PublisherTests(unittest.TestCase):
     def commit(self, message):
         self.git(self.repo, "add", ".")
         self.git(self.repo, "commit", "-m", message)
+        self.git(self.repo, "push", "origin", "main")
         return self.git(self.repo, "rev-parse", "HEAD").strip()
 
     def remote_head(self):
         result = self.git(self.remote, "rev-parse", "--verify", "refs/heads/gh-pages", check=False)
         return result.stdout.strip() if result.returncode == 0 else None
 
-    def publish(self, success=True):
+    def publish(self, success=True, *extra):
         before = self.git(self.repo, "status", "--porcelain", "--untracked-files=all")
         worktrees = self.git(self.repo, "worktree", "list", "--porcelain")
         scratch_before = set(self.scratch.iterdir())
         head = self.git(self.repo, "rev-parse", "HEAD")
         branch = self.git(self.repo, "symbolic-ref", "HEAD", check=False).stdout
-        result = subprocess.run([sys.executable, str(self.repo / "catalog/publish_pages.py")],
+        result = subprocess.run([sys.executable, str(self.repo / "catalog/publish_pages.py"), *extra],
                                 cwd=self.repo / "catalog", capture_output=True, env=self.env)
         text = (result.stdout + result.stderr).decode(errors="replace")
         if success:
@@ -278,6 +278,26 @@ class PublisherTests(unittest.TestCase):
         # Use real Git, bypassing the injected failure, to remove the test's worktree.
         self.git(self.repo, "worktree", "remove", "--force", str(retained[0] / "pages"))
         retained[0].rmdir()
+
+    def test_dry_run_pushes_nothing(self):
+        self.assertIn("as a new orphan", self.publish(True, "--dry-run"))
+        self.assertIsNone(self.remote_head())
+        self.publish()
+        first = self.remote_head()
+        self.write("catalog/fixture.html", HTML + b"dry\n")
+        self.write("explorer/index.html", HTML + b"dry\n")
+        self.commit("Reviewed update")
+        self.assertIn(f"on top of gh-pages {first.decode()}", self.publish(True, "--dry-run"))
+        self.assertEqual(self.remote_head(), first)
+
+    def test_unpushed_or_stale_main_refused(self):
+        self.git(self.repo, "commit", "--allow-empty", "-m", "Local only")
+        self.assertIn("not origin's main", self.publish(False))
+        self.assertIsNone(self.remote_head())
+        self.git(self.repo, "push", "origin", "main")
+        self.git(self.repo, "reset", "--hard", "HEAD^")
+        self.assertIn("not origin's main", self.publish(False))
+        self.assertIsNone(self.remote_head())
 
     def test_mismatched_push_destination_refused(self):
         self.git(self.repo, "remote", "set-url", "--push", "origin", str(self.base / "elsewhere.git"))
