@@ -1,0 +1,25 @@
++++
+id = "w34.four-ring"
+title = "The four-ring"
+grades = ["K-1", "2-3", "4-5"]
+route = "first"
+kernel = "On four spots every two-kind pattern is matched by some turn or flip; three kinds are needed."
++++
+
+## prompt [K-1]
+Make a pattern on this ring that no turn or flip can match. How few kinds of counter can you use?
+
+## prompt [2-3]
+Find how few kinds of counter can make a pattern on this ring that no turn or flip can match.
+
+## prompt [4-5]
+Find the fewest kinds of counter for a pattern on the four-ring that no turn or flip can match. Explain why fewer kinds cannot work.
+
+## figure [K-1]
+ring(9.2,13,4)
+
+## figure [2-3]
+ring(9.2,13,4)+line(22.5)+line(24)
+
+## figure [4-5]
+ring(9.2,10.8,4,6)+box(18.7,24.2)
