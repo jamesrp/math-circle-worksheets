@@ -2,7 +2,9 @@
 
 One record per theme (Weeks 1–100 and the Week 1 encore), one per atlas investigation family, one per draft theme awaiting the organizer's review, a concept map, and a builder that turns them into a browsable explorer and the [catalog page](../CATALOG.md). The records describe the activities; the PDFs, guides and review cards stay where they are, and the builder finds each week's current print files itself.
 
-The explorer is one self-contained page, `explorer/index.html`: download it and open it in a browser. The organizer's published copy is the [Math Circle Explorer](https://claude.ai/artifact/DarUYkLh2qfEBBDGF4cZm1) (private to the owner unless shared). It has five views: an activity list with filters (band, area, reasoning move, concept, status, review verdict, materials, app) and a detail panel with print links and connected themes; the concept map in area lanes; the network of links between themes; strands, one per area, ordered by prerequisites for planning return visits; and the path, the [proposed six-year path](../plans/six-year-path.md) as six year columns of session cards, with links back to the sessions each one returns to and a selector that follows a child from a chosen starting grade. The published copy was updated with the path view on October 24; republish it when the explorer changes. Marks for themes used with a group stay in the viewer's browser.
+The explorer is one self-contained page, `explorer/index.html`: download it and open it in a browser. The organizer's published copy is the [Math Circle Explorer](https://claude.ai/artifact/DarUYkLh2qfEBBDGF4cZm1) (private to the owner unless shared). It has five views: an activity list with filters (band, area, reasoning move, concept, status, rung, collection, review verdict, materials, app) and a detail panel with print links and connected themes; the concept map in area lanes; the network of links between themes; strands, one per area, ordered by prerequisites for planning return visits; and the path, the [proposed six-year path](../plans/six-year-path.md) as six year columns of session cards, with links back to the sessions each one returns to and a selector that follows a child from a chosen starting grade. The published copy was updated with the path view on October 24; Claude republishes it after reviewing explorer changes. Marks for themes used with a group stay in the viewer's browser, separately from the public use log.
+
+Weekly-theme detail panels show the highest evidenced readiness rung and each public use-log line's date, setting and outcome. The Rung filter matches that highest rung exactly; drafts and atlas families have no weekly-theme rung. Collection membership appears on weekly themes and proposed draft members, and the Collection filter includes both within the selected libraries. An empty collection has no matching entries. These proposals do not adopt draft pages or change a theme's catalog status.
 
 [Drafts awaiting review](#drafts-awaiting-review) appear with dashed outlines on a yellow ground: draft themes in the list (the Library filter, on by default, and an "Awaiting review" filter that also finds weeks with draft pages), on the concept map (a count on each concept a draft is about, and dashed boxes for concepts only drafts use) and in the network (dashed dots placed near the weeks they link to, without moving any week); a week's detail panel lists its pending drafts. A switch on each map hides them. Drafts stay out of the strands and the path.
 
@@ -13,17 +15,57 @@ catalog/
   atlas/XX-NN.toml    one record per atlas investigation family (AD, GA, AP)
   drafts/<slug>.toml  one record per draft theme awaiting the organizer's review, with no week number yet
   path.toml           the proposed six-year path: 120 sessions by year, as week, return-visit and atlas ids
+  use-log.toml        public summaries of sessions at home or in the circle; no child names or private records
+  collections.toml    curated memberships, purposes and done bars; proposals unless organizer-approved
+  readiness.py       writes ../plans/readiness.md from records, the path, use log and room-plan index
   check_path.py       checks path.toml against the records; build.py runs it, and --tables prints the plan's year tables
-  build.py            checks every record and the path, and writes explorer/index.html and CATALOG.md
+  build.py            checks records, the use log, collections and path; writes explorer/index.html, CATALOG.md and ../plans/readiness.md
 ```
 
-Rebuild after changing a record, a concept or a week's PDFs:
+Rebuild after changing a record, a concept, a week's PDFs, the use log, collections, path or room-plan index:
 
 ```sh
 python3 catalog/build.py
+python3 catalog/build.py --check       # validate without rewriting any output
+python3 catalog/readiness.py --print   # standalone report to stdout
 ```
 
+Use Python 3.11 or later (`tomllib` is in the standard library). The build imports and runs the standalone readiness report after validation. Its rungs are library (a week record), signed off (`organizer-approved` or `piloted`), circle-ready (named in the room-plan index), and taught (named in a use-log session). Each theme displays the highest rung it reaches; a higher rung does not imply it passed the others. Teaching a past version does not approve the current pages. [plans/readiness.md](../plans/readiness.md) counts the rungs independently; edit its inputs and rebuild, rather than editing the report.
+
 The build stops on an unknown concept, mechanism, area or week, a cycle in the concept map, a missing required field, or a draft whose folder, outline or band PDFs do not match its record. It also stops when the six-year path breaks one of its rules: an unknown id, a concept before one it requires, the same theme twice in a year, three sessions in a row from one area, a year with fewer than five areas, a revisit closer than a year or without a catalog link behind it, three heavy kits in a row, or a session without a K–1 or Grades 2–3 entry. Run `python3 catalog/check_path.py` to check the path alone and print its summary. When a record change breaks the path, change [path.toml](path.toml) and the [plan](../plans/six-year-path.md) together.
+
+## Use log
+
+[use-log.toml](use-log.toml) has one `[[use]]` table per reported meeting or home session. Record only what the organizer reported; detailed private records stay outside Git. A use-log line adds the catalog's Taught marker, without changing `status` or claiming a revised packet was piloted.
+
+| Field | Required | Meaning |
+|---|---|---|
+| `date` | yes | Quoted `YYYY-MM` or `YYYY-MM-DD`; month precision when the exact day was not recorded. |
+| `setting` | yes | `circle` or `home`. |
+| `weeks` | yes | List of string week ids present in `catalog/weeks/`, such as `["1", "1e"]`; `[]` when no catalog theme was used. |
+| `activity` | yes | Non-empty description of what was done. |
+| `outcome` | yes | Non-empty account of the organizer's judgment; distinguish unjudged outcomes. |
+| `source` | yes | Non-empty source reference, such as a repository file or `organizer, <date>`. |
+| `notes` | no | Limits, context or what to continue. |
+
+The build rejects missing required fields, empty or non-text required text, a date in another format, an unknown setting or week, and a weeks value other than a list of string ids. Empty weeks lists remain valid and count as sessions in the report.
+
+## Collections
+
+[collections.toml](collections.toml) has one `[[collection]]` table per curated view. It refers to the existing library and never copies or changes pages. `CATALOG.md` lists each purpose, done bar, status and linked members after the area tables.
+
+| Field | Required | Meaning |
+|---|---|---|
+| `id` | yes | Non-empty string id, unique across collections. |
+| `title` | yes | Non-empty display name. |
+| `purpose` | yes | Non-empty description of who uses it, where and with how much adult time. |
+| `done` | yes | Non-empty bar every member must reach for this collection to count as done. |
+| `status` | yes | `proposal` or `organizer-approved`. |
+| `weeks` | yes | List of string ids from `catalog/weeks/` in suggested order, with no repeats; `[]` is allowed. |
+| `drafts` | no | List of string ids with records in `catalog/drafts/`, proposed as members once approved. |
+| `source` | no | Origin or rationale for the list. |
+
+The build rejects missing required fields, empty or non-text required text, repeated collection ids, another status, unknown week or draft ids, repeated weeks within a collection, and member lists that are not lists of string ids.
 
 ## A week record
 

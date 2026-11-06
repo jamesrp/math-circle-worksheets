@@ -4,7 +4,8 @@
 Reads catalog/concepts.toml, catalog/weeks/*.toml, catalog/atlas/*.toml and the draft
 themes in catalog/drafts/*.toml, finds each week's current print files and each draft's
 pages, checks the six-year path in catalog/path.toml (catalog/check_path.py), and writes
-explorer/index.html and CATALOG.md.
+explorer/index.html, CATALOG.md and plans/readiness.md. Also validates teaching
+evidence in catalog/use-log.toml and curated membership in catalog/collections.toml.
 
     python3 catalog/build.py            # check and build
     python3 catalog/build.py --check    # check only
@@ -22,6 +23,7 @@ from collections import defaultdict
 from pathlib import Path
 
 import check_path
+import readiness
 
 ROOT = Path(__file__).resolve().parent.parent
 CAT = ROOT / "catalog"
@@ -268,6 +270,76 @@ def repo_path(p, where, errors, want_dir):
         errors.append(f"{where}: file {p} does not exist")
         return None
     return full
+
+
+def load_use_and_collections(weeks, drafts):
+    """Validate public teaching evidence and curated membership before writing outputs."""
+    errors = []
+
+    def tables(filename, key):
+        try:
+            rows = tomllib.loads((CAT / filename).read_text()).get(key, [])
+        except (OSError, tomllib.TOMLDecodeError) as exc:
+            errors.append(f"{filename}: {exc}")
+            return []
+        if not isinstance(rows, list) or any(not isinstance(r, dict) for r in rows):
+            errors.append(f"{filename}: {key} must be a list of [[{key}]] tables")
+            return []
+        return rows
+
+    def text_fields(rec, fields, where):
+        for field in fields:
+            if field not in rec:
+                errors.append(f"{where}: missing {field}")
+            elif not isinstance(rec[field], str) or not rec[field].strip():
+                errors.append(f"{where}: {field} must be non-empty text")
+
+    def members(rec, field, known, where, required=False, unique=False):
+        if field not in rec:
+            if required:
+                errors.append(f"{where}: missing {field}")
+            return
+        values = rec[field]
+        if not isinstance(values, list) or any(not isinstance(v, str) for v in values):
+            errors.append(f"{where}: {field} must be a list of string ids")
+            return
+        seen = set()
+        for value in values:
+            if value not in known:
+                label = "unknown week" if field == "weeks" else "no catalog/drafts record for"
+                errors.append(f"{where}: {label} {value!r}")
+            if unique and value in seen:
+                errors.append(f"{where}: week {value!r} appears twice in one collection")
+            seen.add(value)
+
+    uses = tables("use-log.toml", "use")
+    for i, rec in enumerate(uses, 1):
+        where = f"use-log.toml: use entry {i}"
+        text_fields(rec, ("date", "setting", "activity", "outcome", "source"), where)
+        date = rec.get("date")
+        if not isinstance(date, str) or not re.fullmatch(r"[0-9]{4}-[0-9]{2}(-[0-9]{2})?", date):
+            errors.append(f"{where}: date must be written YYYY-MM or YYYY-MM-DD")
+        if rec.get("setting") not in ("circle", "home"):
+            errors.append(f"{where}: setting must be circle or home")
+        members(rec, "weeks", weeks, where, required=True)
+
+    collections = tables("collections.toml", "collection")
+    ids = set()
+    for i, rec in enumerate(collections, 1):
+        where = f"collections.toml: collection entry {i}"
+        text_fields(rec, ("id", "title", "purpose", "done", "status"), where)
+        cid = rec.get("id")
+        if isinstance(cid, str):
+            if cid in ids:
+                errors.append(f"{where}: duplicate collection id {cid!r}")
+            ids.add(cid)
+        if rec.get("status") not in ("proposal", "organizer-approved"):
+            errors.append(f"{where}: status must be proposal or organizer-approved")
+        members(rec, "weeks", weeks, where, required=True, unique=True)
+        members(rec, "drafts", drafts, where)
+    if errors:
+        raise CatalogError("\n".join(errors))
+    return uses, collections
 
 
 def check_date(d, where, errors):
@@ -655,7 +727,7 @@ def pending_data(d):
             "files": draft_files(folder), "index": str(index.relative_to(ROOT)) if index.is_file() else ""}
 
 
-def build_data(areas, mechanisms, concepts, weeks, atlas, drafts):
+def build_data(areas, mechanisms, concepts, weeks, atlas, drafts, uses, collections):
     depth = concept_depths(concepts)
     concept_weeks = defaultdict(list)
     concept_uses = defaultdict(list)
@@ -720,6 +792,7 @@ def build_data(areas, mechanisms, concepts, weeks, atlas, drafts):
     wpos, ww, wh = layout_weeks(weeks, edge_list, areas)
     dpos = layout_drafts(drafts, wpos, ww, wh)
 
+    room_plans = readiness.room_plan_weeks()
     out_weeks = []
     for wid in sorted(weeks, key=week_key):
         rec = weeks[wid]
@@ -741,6 +814,9 @@ def build_data(areas, mechanisms, concepts, weeks, atlas, drafts):
             "materials": rec["materials"],
             "prep": rec.get("prep", ""),
             "status": rec["status"],
+            "rung": readiness.theme_rung(rec, wid in room_plans, any(wid in u["weeks"] for u in uses)),
+            "useLog": sorted([u for u in uses if wid in u["weeks"]], key=lambda u: u["date"]),
+            "collections": [c["id"] for c in collections if wid in c["weeks"]],
             "verdict": rec["verdict"],
             "verdictNote": rec.get("verdict_note", ""),
             "app": rec["app"],
@@ -838,6 +914,7 @@ def build_data(areas, mechanisms, concepts, weeks, atlas, drafts):
             "status": rec["status"],
             "date": rec["date"],
             "folder": folder,
+            "collections": [c["id"] for c in collections if did in c.get("drafts", [])],
             "files": rec["_files"],
             "links": links,
             "area": concepts[rec["concepts"][0]]["area"],
@@ -849,6 +926,7 @@ def build_data(areas, mechanisms, concepts, weeks, atlas, drafts):
             draft_edges.append({"draft": did, "week": week_id(rel["week"]), "kind": rel["kind"], "note": rel["note"]})
     return {
         "repo": REPO_URL,
+        "collections": collections,
         "tree": TREE_URL,
         "atlas": out_atlas,
         "atlasEdges": atlas_edges,
@@ -883,7 +961,8 @@ def write_catalog_md(data, path):
         "[catalog README](catalog/README.md)) shows the same records with filters, the concept map and the links between activities.",
         "",
         "Bands are entry points by prerequisites, not age limits. Status: piloted means a classroom report exists; "
-        "organizer-approved means the organizer reviewed and promoted it; everything else is unpiloted.",
+        "organizer-approved means the organizer reviewed and promoted it; everything else is unpiloted. "
+        "Taught marks use recorded at home or in the circle; it does not approve or pilot the current pages.",
         "",
     ]
     if data["drafts"] or any(w["drafts"] for w in weeks):
@@ -904,6 +983,10 @@ def write_catalog_md(data, path):
                 prints.append(f"[guide]({guide['path']})")
             bands = ", ".join(b.replace("-", "–") for b in w["bands"])
             status = w["status"]
+            if w["useLog"]:
+                settings = {u["setting"] for u in w["useLog"]}
+                status += "; Taught " + " and ".join(
+                    label for setting, label in (("home", "at home"), ("circle", "in the circle")) if setting in settings)
             if w["verdict"] not in ("keep", "none"):
                 status += f"; card: {w['verdict']}"
             if w["drafts"]:
@@ -912,6 +995,17 @@ def write_catalog_md(data, path):
             title = w["title"].replace("|", "\\|")
             lines.append(f"| {w['id']} | {title} | {hook} | {bands} | {status} | {' · '.join(prints)} |")
         lines.append("")
+    if data["collections"]:
+        lines += ["## Collections", "", "Curated views of the library; membership and each done bar come from "
+                  "[catalog/collections.toml](catalog/collections.toml). Draft members remain awaiting review.", ""]
+        draft_map = {d["id"]: d for d in data["drafts"]}
+        week_map = {w["id"]: w for w in weeks}
+        for c in data["collections"]:
+            lines += [f"### {c['title']}", "", c["purpose"], "", f"**Done:** {c['done']}", "",
+                      f"**Status:** {c['status']}.", ""]
+            members = [f"[Week {wid}: {week_map[wid]['title']}](catalog/weeks/{week_map[wid]['slug']}.toml)" for wid in c["weeks"]]
+            members += [f"[{draft_map[did]['title']} (draft)]({draft_map[did]['folder']}/)" for did in c.get("drafts", [])]
+            lines += ["**Members:** " + ("; ".join(members) if members else "None chosen yet."), ""]
     lines += drafts_md(data)
     if data["atlas"]:
         lines += ["## Atlas investigations", "",
@@ -999,6 +1093,7 @@ def main():
     args = ap.parse_args()
     try:
         areas, mechanisms, concepts, weeks, atlas, drafts = load()
+        uses, collections = load_use_and_collections(weeks, drafts)
     except CatalogError as exc:
         print("The catalog has problems:\n" + str(exc), file=sys.stderr)
         sys.exit(1)
@@ -1012,7 +1107,8 @@ def main():
     print("\n".join(path_summary))
     if args.check:
         return
-    data = build_data(areas, mechanisms, concepts, weeks, atlas, drafts)
+    readiness.main()
+    data = build_data(areas, mechanisms, concepts, weeks, atlas, drafts, uses, collections)
     data["path"] = path
     write_explorer(data, ROOT / "explorer" / "index.html", args.fragment)
     write_catalog_md(data, ROOT / "CATALOG.md")

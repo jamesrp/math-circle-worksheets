@@ -590,14 +590,16 @@ const DATA = /*__DATA__*/null;
   $("#foot").append(
     "Built from the catalog records in ",
     h("a", { href: DATA.repo + "catalog/README.md", target: "_blank", rel: "noopener" }, "math-circle-worksheets/catalog"),
-    ". Print files open on GitHub. Atlas investigations come from the mathematics atlas books; their bands name where a K–5 child can genuinely enter. Bands are entry points by prerequisites, not age limits. Unless a theme says piloted, no child has used it yet. ",
+    ". Print files open on GitHub. Atlas investigations come from the mathematics atlas books; their bands name where a K–5 child can genuinely enter. Bands are entry points by prerequisites, not age limits. Readiness and use-log entries record teaching separately from catalog approval and piloting of the current pages. ",
     DATA.drafts.length || PENDING.length ? "Dashed outlines on yellow mark drafts awaiting the organizer's review: new themes with no week number yet, and new pages for existing weeks. None is approved, piloted or on the path. " : "",
     "Marks for themes you have used stay in this browser only."
   );
 
   // ---------------------------------------------------------------- filters
   const LIB0 = () => new Set(DATA.drafts.length ? ["week", "draft"] : ["week"]);
-  const F = { lib: LIB0(), review: "", q: "", bands: new Set(), areas: new Set(), mech: "", concept: "", status: new Set(), verdict: "", paper: false, app: "", used: "", sort: "week" };
+  const F = { lib: LIB0(), review: "", q: "", bands: new Set(), areas: new Set(), mech: "", concept: "", status: new Set(), rung: "", collection: "", verdict: "", paper: false, app: "", used: "", sort: "week" };
+  const RUNGS = ["library", "signed off", "circle-ready", "taught"];
+  const COLLECTIONS = new Map(DATA.collections.map(c => [c.id, c]));
   const inLib = () => ITEMS.filter(x => F.lib.has(x.kind));
 
   function chipToggle(label, pressed, onclick, sw) {
@@ -666,6 +668,15 @@ const DATA = /*__DATA__*/null;
       h("div", { class: "chips" },
         [["piloted", "piloted"], ["organizer-approved", "approved"], ["unpiloted", "unpiloted"]].map(([v, l]) =>
           chipToggle(l, F.status.has(v), () => { toggle(F.status, v); renderFilters(); renderList(); }))),
+      h("h2", { text: "Rung" }),
+      h("select", { class: "sel", id: "rung", "aria-label": "Rung", onchange: e => { F.rung = e.target.value; renderList(); } },
+        h("option", { value: "" }, "any"),
+        RUNGS.map(r => h("option", { value: r, selected: F.rung === r }, r))),
+      h("p", { class: "dmuted" }, "Highest evidenced rung for weekly themes. Taught does not imply signed off."),
+      h("h2", { text: "Collection" }),
+      h("select", { class: "sel", id: "collection", "aria-label": "Collection", onchange: e => { F.collection = e.target.value; renderList(); } },
+        h("option", { value: "" }, "any"),
+        DATA.collections.map(c => h("option", { value: c.id, selected: F.collection === c.id }, c.title))),
       h("h2", { text: "Review card" }),
       h("div", { class: "chips" },
         [["keep", "keep"], ["revise", "needs fixes"], ["revised", "fixes done"], ["none", "no card yet"]].map(([v, l]) =>
@@ -688,7 +699,7 @@ const DATA = /*__DATA__*/null;
   function toggle(set, v) { set.has(v) ? set.delete(v) : set.add(v); }
   function resetFilters() {
     F.lib = LIB0();
-    Object.assign(F, { review: "", q: "", mech: "", concept: "", verdict: "", paper: false, app: "", used: "" });
+    Object.assign(F, { review: "", q: "", mech: "", concept: "", rung: "", collection: "", verdict: "", paper: false, app: "", used: "" });
     F.bands.clear(); F.areas.clear(); F.status.clear();
     renderFilters(); renderList();
   }
@@ -715,6 +726,8 @@ const DATA = /*__DATA__*/null;
     if (F.mech && !w.mechanisms.includes(F.mech)) return false;
     if (F.concept && !w.concepts.includes(F.concept) && !w.uses.includes(F.concept)) return false;
     if (F.status.size && !F.status.has(atlas || draft ? "unpiloted" : w.status)) return false;
+    if (F.rung && w.rung !== F.rung) return false;
+    if (F.collection && !(w.collections || []).includes(F.collection)) return false;
     if (F.verdict && (atlas || draft ? "none" : w.verdict) !== F.verdict) return false;
     if (F.paper && (atlas || w.materials.length)) return false;
     if (F.app && (atlas || draft || w.appDecision !== F.app)) return false;
@@ -742,6 +755,8 @@ const DATA = /*__DATA__*/null;
     if (F.areas.size) act.push([...F.areas].map(a => AREAS[a]).join(", "));
     if (F.mech) act.push(DATA.mechanisms[F.mech].toLowerCase());
     if (F.concept) act.push(C.get(F.concept).name);
+    if (F.rung) act.push(F.rung);
+    if (F.collection) act.push(COLLECTIONS.get(F.collection).title);
     $("#active-filters").textContent = act.join(" · ");
     const list = $("#list");
     list.replaceChildren();
@@ -803,6 +818,16 @@ const DATA = /*__DATA__*/null;
   }
   document.addEventListener("keydown", e => { if (e.key === "Escape" && (current || pathCurrent)) closeDetail(); });
 
+  function collectionEl(w) {
+    return h("section", {}, h("h3", { text: "Collections" }),
+      w.collections.length ? w.collections.map(id => {
+        const c = COLLECTIONS.get(id);
+        return h("div", { class: "draftbox" }, h("strong", { text: c.title }),
+          h("p", { class: "dmuted", text: c.status }), h("p", { text: c.purpose }),
+          h("p", {}, h("strong", { text: "Done: " }), c.done));
+      }) : h("p", { class: "dmuted", text: "No collection membership recorded." }));
+  }
+
   function detailEl(w) {
     const frag = document.createDocumentFragment();
     const tags = h("div", { class: "tags" },
@@ -814,6 +839,12 @@ const DATA = /*__DATA__*/null;
       h("button", { class: "close", "aria-label": "Close", onclick: closeDetail }, "×"),
       h("h2", { text: w.title }), tags));
     const body = h("div", { class: "d-body" });
+    body.append(h("section", {}, h("h3", { text: "Readiness" }), h("p", {}, h("strong", { text: w.rung })),
+      h("p", { class: "dmuted", text: "Highest evidenced rung: library → signed off → circle-ready → taught. Rungs are independent; teaching does not imply sign-off or approval of the current pages." }),
+      h("h3", { text: "Use log" }),
+      w.useLog.length ? h("ul", {}, w.useLog.map(u => h("li", {}, h("strong", { text: `${u.date} · ${u.setting}: ` }), u.outcome)))
+        : h("p", { class: "dmuted", text: "No use recorded." })));
+    body.append(collectionEl(w));
     body.append(h("section", {}, h("p", { class: "d-hook", text: w.hook })));
     body.append(h("section", {}, h("h3", { text: "The mathematics" }), h("p", { text: w.math })));
     if (w.discover) body.append(h("section", {}, h("h3", { text: "What children can find" }), h("p", { text: w.discover })));
@@ -949,6 +980,7 @@ const DATA = /*__DATA__*/null;
         h("span", { class: "pill", style: "color:var(--ink-3)", text: "unpiloted" }))));
     const body = h("div", { class: "d-body" });
     body.append(h("section", {}, h("p", { class: "draftbox", text: "Drafts awaiting the organizer's review: student pages, a draft facilitator guide and, for most themes, a materials file to print. Not approved, piloted or on the path; no week number yet, and no kit tried with real materials." })));
+    body.append(collectionEl(x));
     body.append(h("section", {}, h("p", { class: "d-hook", text: x.hook })));
     body.append(h("section", {}, h("h3", { text: "The mathematics" }), h("p", { text: x.math })));
     if (x.discover) body.append(h("section", {}, h("h3", { text: "What children can find" }), h("p", { text: x.discover })));

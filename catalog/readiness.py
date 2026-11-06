@@ -3,7 +3,7 @@
 
 Reads catalog/weeks, catalog/drafts, catalog/atlas, catalog/path.toml, catalog/use-log.toml,
 catalog/concepts.toml and the room-plan index, and writes plans/readiness.md. Run it after
-changing any of those (build.py does not run it yet):
+changing any of those (build.py also runs it):
 
     python3 catalog/readiness.py            # write plans/readiness.md
     python3 catalog/readiness.py --print    # print instead
@@ -51,7 +51,18 @@ def room_plan_weeks():
     return weeks
 
 
-def main():
+def theme_rung(record, has_room_plan, has_use):
+    """The highest evidenced rung; teaching does not imply organizer sign-off."""
+    if has_use:
+        return "taught"
+    if has_room_plan:
+        return "circle-ready"
+    if record["status"] in ("organizer-approved", "piloted"):
+        return "signed off"
+    return "library"
+
+
+def main(print_report=False):
     concepts = load(CAT / "concepts.toml")
     areas = concepts["areas"]
     cmap = concepts["concepts"]
@@ -161,7 +172,7 @@ def main():
     add("")
 
     text = "\n".join(lines) + "\n"
-    if "--print" in sys.argv:
+    if print_report:
         print(text, end="")
     else:
         OUT.write_text(text)
@@ -169,4 +180,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(print_report="--print" in sys.argv)
