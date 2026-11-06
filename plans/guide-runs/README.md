@@ -1,12 +1,36 @@
-# Eleven week-tied guides: writer and critic handoff
+# Eleven week-tied guides: revision handoff
 
-**critics done; reviser next (Codex)** — October 31, 2026. Writers finished earlier the same day.
+**revisions ready; packaging waits for catalog integration** — November 6, 2026.
 
-This is the handoff for [the brief](../briefs/week-guides.md): four return-visit guides and seven K–1 guide sections, **60 pages total**. Each was written in a fresh Codex session from the final student PDFs. All remain **unpiloted and physically unrehearsed**. The critic stage has run (see [Critic results](#critic-results)); the reviser stage has not, so no critic finding is fixed yet.
+The reviser stage is complete: **11 final guides / 63 pages**. Each `REVISE.md` ran in a fresh local reviser session. All **3 must-fix and 58 should-fix** findings are addressed; none was declined. Minor dispositions and student-page workarounds are recorded per guide. All guides remain **untested with children and physically unrehearsed**.
 
-**Review branch only. Do not merge this folder into `main`.** The draft PR is for Claude's review and the next workflow stage, not a release or approval of these guides. The brief requires `plans/guide-runs/` to stay on `codex/week-guides` until the critic/reviser stages are complete, then be removed during packaging. Student pages, existing guides, draft catalog records, and published print files are unchanged.
+**Review branch only. Do not merge this folder into `main`.** This stage adds only `final/`, revision reports and this handoff under `plans/guide-runs/`. Original writer PDFs/sources, reports, reviews and critic check evidence remain intact. Student pages, existing guides, packaged draft folders and catalog implementation are unchanged. The only main edits are this task's guide coordination row.
 
-## Drafts
+The catalog task landed separately at `2e81d569119a26e28caad9bf93253f05ff4b9ddc`. Packaging remains deferred until the revision handoff is checked and a separate follow-up authorizes that step. No packaging, rebase/integration of guide content, PR merge or deployment occurred.
+
+## Revised guides
+
+| Run | Topic | Revised guide | Finding dispositions and checks | Critic must / should / minor |
+|---|---|---|---|---|
+| k1-57 | Area from dots | [5 pages](k1-57-v1/final/k1-guide.pdf) | [Report](k1-57-v1/reviser-report.md) | 0 / 7 / 5 |
+| k1-66 | Lamplighter streets | [4 pages](k1-66-v1/final/k1-guide.pdf) | [Report](k1-66-v1/reviser-report.md) | 0 / 3 / 10 |
+| k1-81 | Buckets of Fish | [5 pages](k1-81-v1/final/k1-guide.pdf) | [Report](k1-81-v1/reviser-report.md) | 0 / 6 / 8 |
+| k1-87 | Voting and agendas | [5 pages](k1-87-v1/final/k1-guide.pdf) | [Report](k1-87-v1/reviser-report.md) | 0 / 3 / 12 |
+| k1-91 | Rotor-router machines | [4 pages](k1-91-v1/final/k1-guide.pdf) | [Report](k1-91-v1/reviser-report.md) | 1 / 5 / 7 |
+| k1-97 | Square remainders | [4 pages](k1-97-v1/final/k1-guide.pdf) | [Report](k1-97-v1/reviser-report.md) | 1 / 2 / 10 |
+| k1-98 | Growing from a few seeds | [5 pages](k1-98-v1/final/k1-guide.pdf) | [Report](k1-98-v1/reviser-report.md) | 0 / 6 / 10 |
+| rv-53 | Connecting networks | [7 pages](rv-53-v1/final/facilitator.pdf) | [Report](rv-53-v1/reviser-report.md) | 0 / 6 / 13 |
+| rv-58 | Fair division | [8 pages](rv-58-v1/final/facilitator.pdf) | [Report](rv-58-v1/reviser-report.md) | 0 / 7 / 6 |
+| rv-62 | Conflict networks | [8 pages](rv-62-v1/final/facilitator.pdf) | [Report](rv-62-v1/reviser-report.md) | 0 / 6 / 8 |
+| rv-63 | Cards away from home | [8 pages](rv-63-v1/final/facilitator.pdf) | [Report](rv-63-v1/reviser-report.md) | 1 / 7 / 9 |
+
+## Revision evidence
+
+[Revision report](REVISION-REPORT.md) summarizes the corrections, limits and handoff. [Coordinator verification](reviser-verification.json) records all final page counts, PDF/source hashes, unchanged student hashes, clean builds and exact comparisons. The older [verification.json](verification.json) remains the historical writer record.
+
+Every revised guide compiles without errors or overfull boxes and ends its build by running its mathematical checker. Every final guide page and all 144 served student pages were rendered and inspected by their revisers. The coordinator independently rebuilt every source in the checkout and in an isolated outside-repository directory containing only `src/` and the unchanged student PDF(s): **all 11 checkers passed; all 11 PDF byte streams and extracted texts matched exactly**. All fonts are embedded and Letter-size text bounds pass. Catalog build/path checks passed in a disposable copy of the guide branch; no generated catalog changes were retained. Combining the new catalog implementation with packaged guides is a later check.
+
+## Original writer drafts
 
 | Run | Topic | Guide | Report | Portable source |
 |---|---|---|---|---|
@@ -22,7 +46,7 @@ This is the handoff for [the brief](../briefs/week-guides.md): four return-visit
 | k1-97 | Square remainders | [4 pages](k1-97-v1/draft/k1-guide.pdf) | [Writer report](k1-97-v1/writer-report.md) | [Source](k1-97-v1/draft/src/) |
 | k1-98 | Growing from a few seeds | [4 pages](k1-98-v1/draft/k1-guide.pdf) | [Writer report](k1-98-v1/writer-report.md) | [Source](k1-98-v1/draft/src/) |
 
-## Checks completed
+## Historical writer checks completed
 
 - Every writer recomputed the printed answers independently, with exhaustive finite enumeration where appropriate, and inspected every served student page and every resulting guide page: **19 student PDFs / 144 pages; 11 guides / 60 pages**. The reports distinguish finite checks from general proofs and record final-PDF numbering rather than relying on outdated student reviews.
 - Every guide compiles without errors or overfull boxes. Each portable source includes its own checker and a `build.sh` that compiles the PDF into its parent directory and runs the checker.
@@ -70,24 +94,10 @@ Patterns across the set, for the reviser:
 
 Each review also says where it agrees or disagrees with the writer's flagged page issues.
 
-## Next stage
+## Next stage: separate packaging follow-up
 
-In a checkout of this branch, regenerate the machine-local stage prompts:
+The generated absolute-path prompts are machine-local and uncommitted. Do not rerun the writer or critic stages or replace the preserved evidence. The revised deliverables above are the checkpoint for review.
 
-```sh
-python3 worksheet-workflow/guide/make_week_runs.py --dir plans/guide-runs
-```
+Packaging is deliberately deferred. A separate follow-up should first verify this revision checkpoint and current catalog main, then follow step 4 of [the brief](../briefs/week-guides.md), including the insertion/companion updates recorded by each K–1 reviser. Until then, do not copy these guides into packaged draft folders, edit catalog files, delete `plans/guide-runs/`, merge PR #6 or integrate guide content to main.
 
-This fills `WRITER.md`, `CRITIC.md` and `REVISE.md` in each run; **do not commit those generated absolute-path prompts**. The critics are done. Codex now runs each `REVISE.md` in a fresh session; it fixes every must-fix and should-fix in that run's `review-guide.md` and writes `<run>/final/`. Packaging then follows step 4 of the brief, and its README lists should say what the critics caught (the table above). The review scripts find the repository relative to themselves, so they run from any checkout. Follow the brief for final destinations, README/catalog updates and removal of these run folders before eventual main integration.
-
-To repeat a draft build in this checkout (normal Python 3/PyMuPDF, Poppler and pdfLaTeX dependencies; see each source README):
-
-```sh
-for run in plans/guide-runs/*-v1; do
-    bash "$run/draft/src/build.sh" || exit 1
-done
-python3 catalog/build.py
-python3 catalog/check_path.py
-```
-
-For a detached clean build, copy a run's `draft/src/` to a new folder and place that draft's final student PDF(s) beside `src/`; run `bash src/build.sh`. This does not require rebuilding or changing the students.
+To rebuild a revised guide, run its `final/src/build.sh` with documented Python/Poppler/pdfLaTeX dependencies. To verify portability, copy only that `src/` plus its final student PDF(s) into a clean directory outside the repository, then run `src/build.sh` and compare the rebuilt PDF's extracted text. Packaging must repeat the relevant checks on the combined current-main result.
