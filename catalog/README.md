@@ -6,6 +6,8 @@ The explorer is one self-contained page, `explorer/index.html`: download it and 
 
 Weekly-theme detail panels show every readiness rung the theme has reached and each public use-log line's date, setting and outcome. The Rung filter keeps themes that have reached the chosen rung, counted independently as in the readiness report, so its counts match the report's headline; drafts and atlas families have no weekly-theme rung. Collection membership appears on weekly themes and proposed draft members, and the Collection filter includes both within the selected libraries. An empty collection has no matching entries. These proposals do not adopt draft pages or change a theme's catalog status.
 
+The intended public copy is [Math Circle Explorer on GitHub Pages](https://jamesrp.github.io/math-circle-worksheets/), **publication pending explicit user approval; destination unverified**. Source preparation does not publish it. The claude.ai copy above is a separate private page, updated independently; the GitHub Pages script does not update it.
+
 [Drafts awaiting review](#drafts-awaiting-review) appear with dashed outlines on a yellow ground: draft themes in the list (the Library filter, on by default, and an "Awaiting review" filter that also finds weeks with draft pages), on the concept map (a count on each concept a draft is about, and dashed boxes for concepts only drafts use) and in the network (dashed dots placed near the weeks they link to, without moving any week); a week's detail panel lists its pending drafts. A switch on each map hides them. Drafts stay out of the strands and the path.
 
 ```
@@ -34,6 +36,34 @@ python3 catalog/readiness.py --print   # standalone report to stdout
 Use Python 3.11 or later (`tomllib` is in the standard library). The build imports and runs the standalone readiness report after validation. Its rungs are library (a week record), signed off (`organizer-approved` or `piloted`), circle-ready (named in the room-plan index), and taught (named in a use-log session). Each theme displays every rung it reaches; a higher rung does not imply it passed the others. Teaching a past version does not approve the current pages. [plans/readiness.md](../plans/readiness.md) counts the rungs independently; edit its inputs and rebuild, rather than editing the report.
 
 The build stops on an unknown concept, mechanism, area or week, a cycle in the concept map, a missing required field, or a draft whose folder, outline or band PDFs do not match its record. It also stops when the six-year path breaks one of its rules: an unknown id, a concept before one it requires, the same theme twice in a year, three sessions in a row from one area, a year with fewer than five areas, a revisit closer than a year or without a catalog link behind it, three heavy kits in a row, or a session without a K–1 or Grades 2–3 entry. Run `python3 catalog/check_path.py` to check the path alone and print its summary. When a record change breaks the path, change [path.toml](path.toml) and the [plan](../plans/six-year-path.md) together.
+
+## GitHub Pages publication (pending)
+
+Only the publishing source and local tests have been prepared. **Do not run the publisher against GitHub until the user separately approves publication.** The linked [brief](../plans/briefs/explorer-github-pages.md) describes the eventual deployment; it does not grant that approval. Neither Pages settings nor a live public site were verified during source preparation.
+
+After an explorer change is reviewed, rebuild with Python 3.11 or later, inspect the HTML in a browser, and commit the reviewed inputs and generated outputs. For each later redeploy, repeat that review before publication. Once publication is approved, use a clean, current `main` checkout with Git, Python 3.11+ and existing push access to `origin`:
+
+```sh
+git switch main
+git pull --ff-only origin main
+python3 catalog/publish_pages.py
+```
+
+This command **pushes to `origin`'s `gh-pages` branch**. It checks for a clean `main` (including untracked files), builds the committed source in a temporary detached worktree, and refuses any tracked build difference. On refusal, run `python3 catalog/build.py` in the source checkout, review and commit the outputs before retrying. The script leaves the caller's checkout untouched, including on a failed build.
+
+The publication tree contains only `index.html` (byte-identical to the source commit's `explorer/index.html`) and an empty `.nojekyll`. The first commit has no parent; later commits descend from fetched `gh-pages`. Each commit names the full source SHA. Identical trees produce no commit or push, including when source documentation alone changes. The script never force-pushes: if another publisher advances the branch, inspect the remote result and reviewed source before retrying. A failed or interrupted push may already have reached the server; check the remote ref first. Temporary worktrees and private refs are removed on normal completion, failure and handled interruption. A cleanup failure reports the retained worktree path for manual recovery; abrupt power loss or `SIGKILL` can also require cleanup. Existing local branches and other worktrees are left in place. The script changes no Pages settings and requires one matching fetch/push URL for `origin`.
+
+For the initial setup **after approval**, first publish the branch using the command above. Confirm the repository is public and free deploy-from-branch Pages remains available; stop if it requires payment or a visibility change. In repository **Settings → Pages → Build and deployment**, choose **Deploy from a branch**, branch **gh-pages**, folder **/(root)**, then **Save**. This uses the free public-repository option documented in [GitHub's publishing-source instructions](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site); add no custom workflow, paid feature or custom domain. Once enabled, a later `gh-pages` push can deploy automatically, so every publisher run requires publication authorization.
+
+After eventual deployment, verify the remote two-file tree, the source SHA and HTML bytes; then check HTTP success, the page title, filters, a detail panel, the path view and GitHub print links in a browser. These live checks remain pending. The private claude.ai artifact still needs its separate review and republication process.
+
+Reproduce publisher checks without network access or GitHub writes:
+
+```sh
+python3 -m unittest discover -s catalog -p 'test_publish_pages.py' -v
+```
+
+The tests copy repository-owned fixtures and the publisher into throwaway repositories with local bare remotes. They allow only Git's file transport and never use the canonical GitHub remote. See [source-preparation verification](pages-source-verification.md).
 
 ## Use log
 
