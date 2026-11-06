@@ -672,7 +672,7 @@ const DATA = /*__DATA__*/null;
       h("select", { class: "sel", id: "rung", "aria-label": "Rung", onchange: e => { F.rung = e.target.value; renderList(); } },
         h("option", { value: "" }, "any"),
         RUNGS.map(r => h("option", { value: r, selected: F.rung === r }, r))),
-      h("p", { class: "dmuted" }, "Highest evidenced rung for weekly themes. Taught does not imply signed off."),
+      h("p", { class: "dmuted" }, "Weekly themes that have reached this rung, counted as in the readiness report. Rungs are independent: taught does not imply signed off."),
       h("h2", { text: "Collection" }),
       h("select", { class: "sel", id: "collection", "aria-label": "Collection", onchange: e => { F.collection = e.target.value; renderList(); } },
         h("option", { value: "" }, "any"),
@@ -726,7 +726,7 @@ const DATA = /*__DATA__*/null;
     if (F.mech && !w.mechanisms.includes(F.mech)) return false;
     if (F.concept && !w.concepts.includes(F.concept) && !w.uses.includes(F.concept)) return false;
     if (F.status.size && !F.status.has(atlas || draft ? "unpiloted" : w.status)) return false;
-    if (F.rung && w.rung !== F.rung) return false;
+    if (F.rung && !(w.rungs || []).includes(F.rung)) return false;
     if (F.collection && !(w.collections || []).includes(F.collection)) return false;
     if (F.verdict && (atlas || draft ? "none" : w.verdict) !== F.verdict) return false;
     if (F.paper && (atlas || w.materials.length)) return false;
@@ -839,8 +839,8 @@ const DATA = /*__DATA__*/null;
       h("button", { class: "close", "aria-label": "Close", onclick: closeDetail }, "×"),
       h("h2", { text: w.title }), tags));
     const body = h("div", { class: "d-body" });
-    body.append(h("section", {}, h("h3", { text: "Readiness" }), h("p", {}, h("strong", { text: w.rung })),
-      h("p", { class: "dmuted", text: "Highest evidenced rung: library → signed off → circle-ready → taught. Rungs are independent; teaching does not imply sign-off or approval of the current pages." }),
+    body.append(h("section", {}, h("h3", { text: "Readiness" }), h("p", {}, h("strong", { text: w.rungs.length > 1 ? w.rungs.slice(1).join(", ") : "library only" })),
+      h("p", { class: "dmuted", text: "Rungs reached, from library → signed off → circle-ready → taught. Rungs are independent; teaching does not imply sign-off or approval of the current pages." }),
       h("h3", { text: "Use log" }),
       w.useLog.length ? h("ul", {}, w.useLog.map(u => h("li", {}, h("strong", { text: `${u.date} · ${u.setting}: ` }), u.outcome)))
         : h("p", { class: "dmuted", text: "No use recorded." })));

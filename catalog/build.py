@@ -815,6 +815,11 @@ def build_data(areas, mechanisms, concepts, weeks, atlas, drafts, uses, collecti
             "prep": rec.get("prep", ""),
             "status": rec["status"],
             "rung": readiness.theme_rung(rec, wid in room_plans, any(wid in u["weeks"] for u in uses)),
+            # Every rung reached, counted independently as in plans/readiness.md's headline.
+            "rungs": ["library"]
+            + (["signed off"] if rec["status"] in ("organizer-approved", "piloted") else [])
+            + (["circle-ready"] if wid in room_plans else [])
+            + (["taught"] if any(wid in u["weeks"] for u in uses) else []),
             "useLog": sorted([u for u in uses if wid in u["weeks"]], key=lambda u: u["date"]),
             "collections": [c["id"] for c in collections if wid in c["weeks"]],
             "verdict": rec["verdict"],
@@ -985,7 +990,7 @@ def write_catalog_md(data, path):
             status = w["status"]
             if w["useLog"]:
                 settings = {u["setting"] for u in w["useLog"]}
-                status += "; Taught " + " and ".join(
+                status += "; taught " + " and ".join(
                     label for setting, label in (("home", "at home"), ("circle", "in the circle")) if setting in settings)
             if w["verdict"] not in ("keep", "none"):
                 status += f"; card: {w['verdict']}"
