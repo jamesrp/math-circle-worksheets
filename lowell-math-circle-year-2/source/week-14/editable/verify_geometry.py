@@ -6,9 +6,9 @@ import json, math, re
 ROOT=Path(__file__).resolve().parent
 COORD=re.compile(r'\\coordinate \(v(\d+)\) at \((-?[\d.]+),(-?[\d.]+)\);')
 EXPECTED={
-    'src/k-1.tex': {5:26,6:27},
-    'src/grades-2-3.tex': {5:23,6:42,7:3},
-    'src/grades-4-5.tex': {5:14,6:23,8:13},
+    'src/k-1.tex': {5:18,6:24},          # kid-fit revision, November 6, 2026 (was {5:26,6:27})
+    'src/grades-2-3.tex': {5:23,6:34,7:3},          # (was {5:23,6:42,7:3})
+    'src/grades-4-5.tex': {5:14,6:16,7:1,8:6},      # (was {5:14,6:23,8:13})
     'facilitator-src/facilitator-guide.tex': {5:7,6:38,8:9},
 }
 counts={}; exceptions={}; worst_side=0; worst_angle=0

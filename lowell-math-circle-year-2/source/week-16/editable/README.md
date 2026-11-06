@@ -1,6 +1,8 @@
 # Three-color triangles: Week 16 editable release
 
-## Current release: October 4, 2026 fresh-review revision, with the October 23, 2026 card fixes
+## Current release: October 4, 2026 fresh-review revision, with the October 23, 2026 card fixes and the November 6, 2026 kid-fit revision
+
+**Kid-fit revision, November 6, 2026.** The v4 student packets come from a kid-fit pilot of the pages, adopted with James's approval. K–1: Problem 1 reads aloud more easily, Problem 2 is a partner hiding game, Problem 5 records places with an X, and Problem 6 asks for two zero fillings without record triangles. Grades 2–3 and 4–5: Problem 1 uses counters; rows are now Problem 2 (with the door definition), local cases Problem 3 (different fillings rather than a complete catalog) and routes Problem 4; Grades 2–3 Problem 5 asks only about routes from bottom-side doors. The guide, F16-G-v4, follows the new numbers and page order, keys the changed K–1 problems and lists counters for the older Problem 1. Unpiloted. `review/verify_card_fixes_2026_10_23.py` checks the earlier v3 pages and is kept as a record.
 
 **Card fixes, October 23, 2026.** The v3 student packets split every blank side dot in its side's tints, enlarge the K–1 rings, replace the repeated Problem 1 text with "Another board for Problem 1.", reword Grades 4–5 Problems 2 and 4 and Grades 2–3 Problem 2, and add four record triangles to K–1 Problem 6; the guide's preparation, hour, launch and keys follow. `review/verify_card_fixes_2026_10_23.py` checks them.
 

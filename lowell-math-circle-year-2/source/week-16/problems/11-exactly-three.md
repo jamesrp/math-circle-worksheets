@@ -8,7 +8,7 @@ kernel = "Exactly three is possible on the four-step board, and the outside rout
 +++
 
 ## prompt
-Fill the dots so that exactly three little triangles have R, B, and Y. Draw all routes that start at outside doors. Can all those routes end outside?
+Fill the dots so that exactly three little triangles have R, B, and Y. Can all the routes that start at doors on the bottom side end outside?
 
 ## figure
 board(4)

@@ -50,10 +50,15 @@ def repeated(points, count=6):
     return recording_boards([points]*count)
 
 
-def region_key():
-    return r"""\vspace{0.15cm}
+def region_key(full=True):
+    """The opening key. K-1 (full=False) keeps only the K-L-M-N worked split;
+    the E, F-G and H-I-J panels stay with the adult's board demonstration."""
+    return (r"""\vspace{0.15cm}
 \begin{center}
-\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{11}{13}\selectfont]
+"""+(KEY_REGIONS if full else '')+KEY_SPLIT)
+
+
+KEY_REGIONS=r"""\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{11}{13}\selectfont]
 \path[use as bounding box] (0,-.65) rectangle (17.2,2.8);
 \node at (.4,1.5) {E};
 \draw[->,line width=.7pt] (.95,1.5) -- (1.8,1.5);
@@ -75,7 +80,9 @@ def region_key():
 \node at (14.55,-.35) {edge and inside};
 \end{tikzpicture}
 
-\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{11}{13}\selectfont]
+"""
+
+KEY_SPLIT=r"""\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{11}{13}\selectfont]
 \path[use as bounding box] (0,-.6) rectangle (17.2,2.05);
 \foreach \x/\y/\n in {1/0/K,3/0/L,3/1.5/M,1/1.5/N}{\fill (\x,\y) circle (.05);\node[above left] at (\x,\y) {\n};}
 \node at (2,-.45) {four labels};
@@ -100,3 +107,11 @@ m_tri=[('A',2,3,'below left=5pt'),('B',10,2,'below right=5pt'),('C',3,10,'above=
 m_line=[('A',2,6.3,'above=6pt'),('B',7.8,6.3,'above=6pt'),('C',10.8,6.3,'above=6pt'),('D',4.6,6.3,'above=6pt')]
 u_tri=[('A',2,2,'below left=5pt'),('B',10.5,3,'below right=5pt'),('C',4.5,10,'above=5pt')]
 u_line=[('A',2,3,'below right=5pt'),('B',8,9,'below right=5pt'),('C',5,6,'below right=5pt'),('D',10,11,'below right=5pt')]
+
+# Rows of dots on one line (v7, kid-fit review): the same positions with the labels moved
+# farther from the line, so one group can be drawn just above the dots and the other just below.
+def far(points, gap):
+    return [(l,x,y,a.split('=')[0]+f'={gap}pt') for l,x,y,a in points]
+k_line_far=far(k_line,14)
+m_line_far=far(m_line,14)
+u_line_far=far(u_line,12)

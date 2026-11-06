@@ -15,6 +15,15 @@ drawing; grades 2-3 P6's bottom copies clear the footer; the largest working boa
 (3.8 x 4.4 in) fits the quarter tracing sheets the guide now recommends; the route note's
 pentagon problems (grades 2-3 P4-5) and hexagon problems (P3, P6) are as it says, and the
 grades 4-5 P7 hint's "erase AC, draw BD" is on P3.
+
+The November 6, 2026 kid-fit revision changed the layouts these checks read, and they now
+read the new drawings: K-1 P4 (k1_kept_line) has three pentagons keeping 13 for two
+completions and six hexagons keeping 14 for four; grades 4-5 P4 is three_routes_written,
+grades 2-3 P6 hexagon_route_23_written (its ruled lines clear the footer); the quarter
+sheets are counted for the seven older children, since K-1 no longer traces. Added: K-1
+P2 has six pentagon boards for five fillings; the K-1 P6 ring has five boards, the top one
+the fan at 1, with five arrows, and around the pentagon's flip cycle the first change from
+any filling has two choices and every later change one that does not go back.
 """
 from pathlib import Path
 import json, sys
@@ -24,7 +33,8 @@ for week in (ROOT.parent/'problem-files', ROOT.parent.parent):
 else: sys.exit('Cannot find the Week 14 problem files (figures.py); see README.md.')
 sys.path.insert(0,str(week)); sys.dont_write_bytecode=True
 from figures import (fillings, graph, dist, fan, es, hex_fan_b, hex_center, hex_fan_d, oct_start, oct_end,  # noqa: E402
-                     two_cases_with_records, three_routes, hexagon_route_23, START_GRAY)
+                     two_cases_with_records, three_routes_written, hexagon_route_23_written, START_GRAY,
+                     k1_kept_line, k1_pentagon_six, k1_ring)
 
 T={n:fillings(n) for n in range(3,9)}
 G={n:graph(ts) for n,ts in T.items()}
@@ -69,12 +79,14 @@ for big,smalls,start in ((k1p5[0],k1p5[1:5],fan(6,0)),(k1p5[5],k1p5[6:10],hex_ce
     for pts,lines in smalls:
         assert {(a,b) for a,b,o in lines}==set(start) and all(o==','+START_GRAY for a,b,o in lines)
     assert len(neighbours(start,6))==3<len(smalls)
-# K-1 P4: the pentagon keeps 13 in four copies, with only two completions.
-k1p4=scopes(two_cases_with_records(5,6,es((1,3)),es((1,4)),keep_edges=True))
-pent=[s for s in k1p4 if len(s[0])==5]
-assert len(pent)==5 and sum((0,2) in t for t in fillings(5))==2
+# K-1 P4 (kid-fit): three pentagons keep 13 for two completions; six hexagons keep 14 for four.
+k1p4=scopes(k1_kept_line())
+pent=[s for s in k1p4 if len(s[0])==5]; hexa=[s for s in k1p4 if len(s[0])==6]
+assert len(pent)==3 and all({(a,b) for a,b,o in l}=={(0,2)} for p,l in pent)
+assert len(hexa)==6 and all({(a,b) for a,b,o in l}=={(0,3)} for p,l in hexa)
+assert sum((0,2) in t for t in fillings(5))==2 and sum((0,3) in t for t in fillings(6))==4
 # Grades 4-5 P4: one arrow from each start towards the target, clear of every drawing.
-tex=three_routes(); polys=scopes(tex)
+tex=three_routes_written(); polys=scopes(tex)
 arrows=[((float(a),float(b)),(float(c),float(d))) for a,b,c,d in re.findall(r'\\draw\[-stealth,line width=\.8pt\] \((-?[\d.]+), (-?[\d.]+)\) -- \((-?[\d.]+), (-?[\d.]+)\);',tex)]
 assert len(arrows)==3
 def centre(pts): return (sum(x for x,y in pts)/len(pts),sum(y for x,y in pts)/len(pts))
@@ -96,8 +108,10 @@ for (tail,head),start in zip(sorted(arrows),sorted(starts,key=lambda p:centre(p)
     for pts,lines in polys:
         assert not any(cross(tail,head,a,b) for a,b in zip(pts,pts[1:]+pts[:1]))
 # Grades 2-3 P6: the lowest copy's corner label stays 0.1 in above the footer line (y = 10.48 in).
-low=max(y for pts,lines in scopes(hexagon_route_23()) for x,y in pts)
+low=max(y for pts,lines in scopes(hexagon_route_23_written()) for x,y in pts)
 assert low+0.12+0.06<10.48-0.1, low
+rules=[float(y) for y in re.findall(r'\\draw\[line width=\.4pt,black!60\] \([\d.]+,([\d.]+)\)',hexagon_route_23_written())]
+assert len(rules)==14 and max(rules)<10.48-0.1, rules
 # The guide's supplies: a quarter Letter sheet (4.25 x 5.5 in) covers the largest working board, 3.8 x 4.4 in.
 sizes=[]
 for name in ('k-1','grades-2-3','grades-4-5'):
@@ -107,7 +121,7 @@ for name in ('k-1','grades-2-3','grades-4-5'):
             sizes.append((max(x for x,y in pts)-min(x for x,y in pts),max(y for x,y in pts)-min(y for x,y in pts)))
 widest=max(w for w,h in sizes); tallest=max(h for w,h in sizes)
 assert round(widest,1)==3.8 and round(tallest,1)==4.4 and widest<4.25 and tallest<5.5, (widest,tallest)
-assert math.ceil(11*10/4)==28          # eleven children, about ten quarter sheets each
+assert math.ceil(7*10/4)==18<=20        # kid-fit: seven older children, ten quarters each, a few spare for K-1
 # The route note: grades 2-3 P4-5 are pentagon problems, P3 and P6 hexagon problems;
 # the grades 4-5 P7 hint cites P3's worked example.
 def pages(name):
@@ -121,6 +135,22 @@ def pages(name):
 mid=pages('grades-2-3')
 assert mid[3][0]=={6} and mid[4][0]=={5} and mid[5][0]=={5} and mid[6][0]=={6}
 assert 'erase AC, draw BD' in pages('grades-4-5')[3][1]
-print('Card-fix checks: K-1 P5 gray starts (4 copies, 3 results each); K-1 P4 four pentagon copies, two completions;',
+# Kid-fit, November 6, 2026: K-1 P2 has six boards for five fillings; the K-1 P6 ring.
+assert len(scopes(k1_pentagon_six()))==6>len(fillings(5))==5
+ring=scopes(k1_ring())
+assert len(ring)==5 and {(a,b) for a,b,o in ring[0][1]}==set(fan(5,0)) and all(not l for p,l in ring[1:])
+assert len(re.findall(r'-stealth,line width=1\.3pt',k1_ring()))==5
+def no_return_routes(start,length):
+    out=[[start]]
+    for _ in range(length):
+        out=[r+[t] for r in out for t in G[5][r[-1]] if t not in r]
+    return out
+for s in T[5]:
+    walks=no_return_routes(s,4)
+    assert len(walks)==2 and all(s in G[5][w[-1]] for w in walks)   # two choices, then forced; back in five
+print('Kid-fit checks: K-1 P4 three kept-13 pentagons (2 completions) and six kept-14 hexagons (4);',
+      'K-1 P2 six boards for five fillings; K-1 P6 ring of five with the fan at 1 on top and five arrows;',
+      'from each pentagon filling exactly two four-change routes avoid repeats, each one change from home.')
+print('Card-fix checks: K-1 P5 gray starts (4 copies, 3 results each); K-1 P4 kept-line boards;',
       'grades 4-5 P4 three clear arrows to the target; grades 2-3 P6 copies clear of the footer;',
       f'largest board {widest:.2f} x {tallest:.2f} in, inside a quarter sheet.')

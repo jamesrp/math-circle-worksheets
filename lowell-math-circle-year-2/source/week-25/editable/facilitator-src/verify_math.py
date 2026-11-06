@@ -41,22 +41,40 @@ def distances(a):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--output',default='verification.json');args=ap.parse_args()
+    # Problem numbers are those of the November 6, 2026 kid-fit packets (W25-K-v6, W25-23-v5, W25-45-v5).
     cases=[('K1 P1 top',[1,1],[1,1],2),('K1 P1 middle',[1,1],[1,0,1],2),
-      ('K1 P1 bottom; K1 P2 right; 23 P1 top',[2,1],[1,1,1],3),('K1 P2 left',[1,2],[1,1,1],3),
-      ('K1 P3',[1,1,1],[1,1,1],6),('K1 P4 first; 23 P1 middle',[3,1],[2,1,1],1),
-      ('K1 P4 second; 23 P4 top left',[2,1,0],[2,1,0],1),('K1 P4 last; 23 P2',[2,1,1],[2,1,1],5),
-      ('23 P1 bottom',[2,2],[2,1,1],2),('23 P3 nonadjacent',[1,0,1],[1,0,1],2),
-      ('23 P5; 45 P1 and P2',[2,2],[1,1,1,1],6),('45 P3',[3,3],[1,1,1,1,1,1],20),
+      ('K1 P1 bottom; K1 P3 right; 23 P1 top',[2,1],[1,1,1],3),('K1 P3 left',[1,2],[1,1,1],3),
+      ('K1 P4; 23 P3 page 4',[1,1,1],[1,1,1],6),('K1 P5 first; 23 P1 middle',[3,1],[2,1,1],1),
+      ('K1 P5 second; 23 P5 top left',[2,1,0],[2,1,0],1),('K1 P5 last; 23 P2; 23 P5 page 7',[2,1,1],[2,1,1],5),
+      ('23 P1 bottom',[2,2],[2,1,1],2),('23 P3 page 3; 23 P5 top right',[1,0,1],[1,0,1],2),
+      ('23 P6; 45 P1 and P2',[2,2],[1,1,1,1],6),('45 P3; 45 P5 farthest pair',[3,3],[1,1,1,1,1,1],20),
       ('45 P4',[3,3],[2,1,0,1,1,1],6)]
     result={'method':'Independent row-subset reconstruction and breadth-first search. No student answer file or student builder imported.','fixed_cases':[]}
     for label,rows,cols,n in cases:
         ss=solutions(rows,cols);assert len(ss)==n
         result['fixed_cases'].append(dict(label=label,rows=rows,columns=cols,count=n,pictures=[code(a) for a in ss]))
-    printed=['110/100/000','100/000/001','110/001/100','111/110/100']
-    result['23_P4_switches']=[]
-    for s,n in zip(printed,[0,1,3,0]):
+    # Grades 2-3 P3: a two-counter move that keeps every count is a switch. Check that directly
+    # by moving every pair of counters to every pair of empty cells, then compare with the switch list.
+    result['23_P3_two_counter_moves']=[]
+    for s,expected in [('100/000/001',['001/000/100']),('100/010/001',['001/010/100','010/100/001','100/001/010'])]:
+        a=picture(s);r,c=len(a),len(a[0]);cells=[(i,j) for i in range(r) for j in range(c)]
+        full=[x for x in cells if a[x[0]][x[1]]];empty=[x for x in cells if not a[x[0]][x[1]]]
+        found=set()
+        for pair in combinations(full,2):
+            for dest in combinations(empty,2):
+                b=[list(row) for row in a]
+                for x,y in pair:b[x][y]=0
+                for x,y in dest:b[x][y]=1
+                b=tuple(map(tuple,b))
+                if margins(b)==margins(a):found.add(code(b))
+        assert sorted(found)==sorted(expected)==sorted(code(t) for _,t in switches(a)),(s,found)
+        result['23_P3_two_counter_moves'].append(dict(start=s,results=sorted(found)))
+    # Grades 2-3 P5: page 6 holds three pictures; page 7 holds four copies of the fourth.
+    printed=['110/100/000','100/000/001','111/110/100','110/001/100']
+    result['23_P5_switches']=[]
+    for s,n in zip(printed,[0,1,0,3]):
         sw=switches(picture(s));assert len(sw)==n
-        result['23_P4_switches'].append(dict(start=s,count=n,moves=[dict(rows=[chr(65+x[0]),chr(65+x[1])],columns=[x[2]+1,x[3]+1],result=code(b)) for x,b in sw]))
+        result['23_P5_switches'].append(dict(start=s,count=n,moves=[dict(rows=[chr(65+x[0]),chr(65+x[1])],columns=[x[2]+1,x[3]+1],result=code(b)) for x,b in sw]))
     paths=[['1100/0011','0110/1001','0011/1100'],
            ['111000/000111','011100/100011','001110/110001','000111/111000'],
            ['110100/100011','100110/110001','100011/110100']]
@@ -66,7 +84,7 @@ def main():
         for a,b in zip(aa,aa[1:]):assert b in [t for _,t in switches(a)]
         result['shortest_routes'].append(dict(route=route,distance=len(route)-1))
     one=distances(picture('1100/0011'));assert sorted(one.values())==[0,1,1,1,1,2]
-    result['23_P5_distance_distribution']={str(i):list(one.values()).count(i) for i in range(3)}
+    result['23_P6_distance_distribution']={str(i):list(one.values()).count(i) for i in range(3)}
     result['construction_examples']=[]
     for s,n in [('111/100',1),('110/101',2),('111/100/000',1),('110/001/100',5)]:
         a=picture(s);rr,cc=margins(a);ss=solutions(rr,cc);assert len(ss)==n and sum(rr)==4
@@ -97,6 +115,12 @@ def main():
                     assert max(dd.values())==min(k,s-k)
                     for b in aa:
                         exact=sum(x==1 and y==0 for x,y in zip(a[0],b[0]));assert dd[b]==exact;comparisons+=1
+        if (r,c)==(2,6):
+            # Grades 4-5 P5: over every set of counts on a 2-by-6 grid, the farthest pair is 3 switches apart,
+            # and only for row counts 3,3 with every column count 1.
+            far={m:max(max(distances(a).values()) for a in aa) for m,aa in groups.items()}
+            assert max(far.values())==3 and [m for m,v in far.items() if v==3]==[((3,3),(1,)*6)]
+            result['45_P5_farthest_pair']=dict(greatest_distance=3,only_counts=dict(rows=[3,3],columns=[1]*6),example=['111000/000111','000111/111000'])
         result['exhaustive_checks'].append(dict(shape=f'{r}x{c}',boards=1<<(r*c),margin_sets=len(groups),uniqueness_criterion=True,two_row_ordered_pairs_checked=comparisons))
     for rows,cols in [([2,2],[1,1,1,1]),([3,3],[2,1,0,1,1,1])]:
         aa=solutions(rows,cols);assert max(max(distances(a).values()) for a in aa)==2
@@ -105,5 +129,5 @@ def main():
     root=Path(__file__).resolve().parent.parent
     result['student_pdf_sha256']={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (root/'reference-pdfs').glob('*.pdf') if p.name!='facilitator-guide.pdf'}
     Path(args.output).write_text(json.dumps(result,indent=2)+'\n')
-    print('PASS: 13 fixed reconstruction cases; all printed switches; shortest routes; four-counter constructions; 4864 binary boards; all two-row pairs.')
+    print('PASS: 13 fixed reconstruction cases; grades 2-3 P3 two-counter moves; all printed switches; 2-by-6 farthest pair; shortest routes; four-counter constructions; 4864 binary boards; all two-row pairs.')
 if __name__=='__main__':main()

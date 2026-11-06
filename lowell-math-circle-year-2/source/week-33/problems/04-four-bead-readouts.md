@@ -19,4 +19,4 @@ Find four-bead rings with one, two, three or four different readouts, or explain
 mats(4,8)+mats(4,18)
 
 ## figure
-mats(4,8)+mats(4,18)+ruled(23,2)
+six_boards(4, 1.8, 4.5, 6.1)+ruled(20.3,3)

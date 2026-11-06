@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Independent exact checks: no import of student checker or hull algorithm.
 Four labels allow only point-versus-triangle or segment-versus-segment.
-Coordinates transcribed from the finalized v2 source; Fractions are exact.
+Coordinates transcribed from the student source (v7 adds Grades 2-3 Problem 7, M7); Fractions are exact.
 """
 from fractions import Fraction as Q
 from itertools import combinations
@@ -20,6 +20,8 @@ for i,c in enumerate([(6,5.6),(11,5.6),(5.5,9.5)],1):add(f'K5_{i}',{'A':(2.5,5.6
 add('M1',{'A':(2,3),'B':(10,2),'C':(3,10)},[(9,9),(4,5),(6,2.5),(6,1)])
 add('M2',{'A':(2,6.3),'B':(7.8,6.3),'C':(10.8,6.3),'D':(4.6,6.3)})
 add('M5',{'A':(2,3),'B':(10,4),'C':(6,10)})
+# Grades 2-3 Problem 7 (v7): C on each of four crosses with A and B fixed.
+for i,c in enumerate([(6,5.6),(11.2,5.6),(5.5,9.5),(4,3)],1):add(f'M7_{i}',{'A':(2.5,5.6),'B':(8.8,5.6),'C':c})
 add('U1',{'A':(2,2),'B':(10.5,3),'C':(4.5,10)},[(9.8,9),(5,5),(6.25,2.5),(1,6)])
 add('U2',{'A':(2,3),'B':(8,9),'C':(5,6),'D':(10,11)})
 add('U4',{'A':(3,3),'B':(10,4.5),'C':(5.5,10),'D':(3,3)})
@@ -36,6 +38,7 @@ EXPECTED={
  'K5_1':['AB|C'],'K5_2':['AC|B'],'K5_3':[],
  'M1_1':['AD|BC'],'M1_2':['ABC|D'],'M1_3':['AB|CD','ABC|D'],'M1_4':['AB|CD'],
  'M2':['AB|CD','AC|BD','ABC|D','ACD|B'],'M5':[],
+ 'M7_1':['AB|C'],'M7_2':['AC|B'],'M7_3':[],'M7_4':[],
  'U1_1':['AD|BC'],'U1_2':['ABC|D'],'U1_3':['AB|CD','ABC|D'],'U1_4':['AC|BD'],
  'U2':['AB|CD','AD|BC','ABD|C','ACD|B'],
  'U4':['A|BCD','AB|CD','AC|BD','ABC|D'],'U7':[],
@@ -103,7 +106,7 @@ for key in ['INNER','OUTER']:
  assert all(orient(*(point(DATA[key][x]) for x in tri))!=0 for tri in combinations('ABCD',3))
 # Packet matching integrity, when rebuilding next to original PDFs.
 from pypdf import PdfReader
-pages={'k-1':9,'grades-2-3':9,'grades-4-5':12}
+pages={'k-1':6,'grades-2-3':10,'grades-4-5':11}
 manifest={}
 for slug,count in pages.items():
  p=R.parent/'reference-pdfs'/(slug+'.pdf')
@@ -118,7 +121,7 @@ if manifest_path.exists():
   assert name in pinned and pinned[name]==info, f'Student input differs from reviewed version: {name}'
 else:
  manifest_path.write_text(json.dumps(manifest,indent=2)+'\n')
-(R/'checks.txt').write_text(f'PASS: {len(DATA)} configurations, every unordered split, exact rational predicates.\nPASS: new INNER/OUTER witnesses have distinct unique splits.\nPASS: locus probes and 6,561 labeled grid configurations (coincidences included).\nPASS: student PDF page counts 9/9/12 when present.\nThe finite checks do not prove the universal theorem; see the illustrated proof.\n')
+(R/'checks.txt').write_text(f'PASS: {len(DATA)} configurations, every unordered split, exact rational predicates.\nPASS: new INNER/OUTER witnesses have distinct unique splits.\nPASS: locus probes and 6,561 labeled grid configurations (coincidences included).\nPASS: student PDF page counts 6/10/11 (v7) when present.\nThe finite checks do not prove the universal theorem; see the illustrated proof.\n')
 print((R/'checks.txt').read_text())
 if __name__=='__main__':
  for key,val in RESULT.items(): print(key, ', '.join(val['solutions']) or 'none')

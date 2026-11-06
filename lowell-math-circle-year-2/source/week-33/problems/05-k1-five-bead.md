@@ -7,7 +7,7 @@ kernel = "Two A and three B beads make two rings, AABBB and ABABB, each with fiv
 +++
 
 ## prompt @0
-Find every different five-bead ring with two A beads and three B beads. How many different readouts does each have?
+Find every different five-bead ring with two A beads and three B beads.
 
 ## figure
 mats(5,8)+mats(5,18)

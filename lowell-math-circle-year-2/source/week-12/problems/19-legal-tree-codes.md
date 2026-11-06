@@ -7,7 +7,7 @@ kernel = "A U/D string comes from a tree exactly when every prefix has at least 
 +++
 
 ## prompt
-Which of these codes could come from a tree? Give rules that decide for any string of U's and D's, and explain why they work. Describe how to rebuild a tree from any code that follows your rules.
+Which of these codes could come from a tree? Give rules that decide for any string of U's and D's, and explain why they work.
 
 ## figure
 tree_codes()

@@ -88,14 +88,15 @@ def ring(x, y, n, word=None, r=2.9, start=0, bead=.38, labels=False):  # a bead 
         s += '\n' + r'\draw[fill=' + fill + '] (' + f'{X:.4f},{-Y:.4f}' + ') circle (' + str(bead) + 'cm);'
         if word is not None: s += node(X, Y, word[i], 12 if bead > .25 else 8)
         elif labels: s += node(X, Y, i+1, 10)
-    a = math.pi/2 - 2*math.pi*start/n
-    X = x + (r+.95)*math.cos(a); Y = y - (r+.95)*math.sin(a)
-    XX = x + (r+bead+.12)*math.cos(a); YY = y - (r+bead+.12)*math.sin(a)
-    s += line(X, Y, XX, YY, '->,line width=.8pt')
-    if start == 0:
-        s += node(X, Y - .2, 'start', 9)
-    else:  # a moved start: label it just below its own bead, so neighbouring rings' labels stay apart
-        s += node(x + r*math.cos(a), y - r*math.sin(a) + bead + .36, 'start', 9)
+    if word is not None:  # blank working boards print no start: the child's sticky-note arrow is the only start
+        a = math.pi/2 - 2*math.pi*start/n
+        X = x + (r+.95)*math.cos(a); Y = y - (r+.95)*math.sin(a)
+        XX = x + (r+bead+.12)*math.cos(a); YY = y - (r+bead+.12)*math.sin(a)
+        s += line(X, Y, XX, YY, '->,line width=.8pt')
+        if start == 0:
+            s += node(X, Y - .2, 'start', 9)
+        else:  # a moved start: label it just below its own bead, so neighbouring rings' labels stay apart
+            s += node(x + r*math.cos(a), y - r*math.sin(a) + bead + .36, 'start', 9)
     # Keep the direction arrow outside bead positions.
     ar = r + bead + .2
     ax = x + ar*math.cos(math.radians(150))
@@ -136,8 +137,20 @@ def three_cards():  # all eight three-bead readouts, two to a row
     return ''.join(card((i % 2)*9.5, 2.5+(i//2)*5.1, ''.join(t), num=i+1) for i, t in enumerate(product('AB', repeat=3)))
 
 
-def five_cards():  # all 32 five-bead readouts, four to a row
-    return ''.join(card((i % 4)*4.7, 2.5+(i//4)*2.65, ''.join(t), w=4.4, h=2.3, num=i+1) for i, t in enumerate(product('AB', repeat=5)))
+def five_cards():  # all 32 five-bead readouts, four to a row, edge to edge so 3 + 7 straight cuts separate them
+    return ''.join(card((i % 4)*4.625, 2.0+(i//4)*1.95, ''.join(t), w=4.625, h=1.95, num=i+1) for i, t in enumerate(product('AB', repeat=5)))
+
+
+def five_board():  # one blank five-bead board below the 32-card grid
+    return ring(9.25, 21.75, 5, None, 2.4, 0, .42)
+
+
+def ring_card(x, y, word, num, w=9.25, h=5.2):  # a readout card drawn as a small ring with its start mark
+    return rect(x, y, w, h, 'line width=.65pt') + ring(x+w/2, y+h/2+.35, len(word), word, 1.35, 0, .36) + node(x+w-.3, y+.3, num, 9)
+
+
+def three_ring_cards():  # all eight three-bead readouts as ring cards, two to a row, edge to edge
+    return ''.join(ring_card((i % 2)*9.25, 2.2+(i//2)*5.2, ''.join(t), i+1) for i, t in enumerate(product('AB', repeat=3)))
 
 
 def short_lines(x, y, X, rows=3, gap=1.2):  # gray recording lines beside a board
@@ -152,9 +165,9 @@ def four_boards(n):  # four smaller n-bead boards, 2 by 2, each with three recor
     return s
 
 
-def six_boards(n, r=1.75):  # six n-bead boards, 3 rows by 2 columns, each with three recording lines beside it
+def six_boards(n, r=1.75, top=12.35, gap=5.1):  # six n-bead boards, 3 rows by 2 columns, each with three recording lines beside it
     s = ''
-    for y in (12.35, 17.45, 22.55):
+    for y in (top, top+gap, top+2*gap):
         s += ring(2.7, y, n, None, r, 0, .42) + short_lines(5.3, y-1.15, 9.0, 3, 1.15)
         s += ring(12.0, y, n, None, r, 0, .42) + short_lines(14.6, y-1.15, 18.5, 3, 1.15)
     return s

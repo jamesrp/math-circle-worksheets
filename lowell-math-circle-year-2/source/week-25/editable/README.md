@@ -1,6 +1,10 @@
 # Discrete tomography and hidden pictures: Week 25 editable release
 
-## Current release: October 23, 2026 card fixes
+## Current release: November 6, 2026 kid-fit revision
+
+The student pages are the kid-fit revision that the organizer, James, approved for adoption on November 6, 2026 (W25-K-v6, W25-23-v5, W25-45-v5; key view W25-G-v5). K–1: the partner puzzles moved from P5 to P2, so a partner checks the counts and judges "different" early; P6 became a partner game (make a picture the partner cannot change into a different one with the same counts); both have 11 mm count circles. Grades 2–3 (now 8 pages): P3 gained a second filled picture, A1, B2, C3, with three two-counter moves on a new page 4; the partner game moved from P6 to P4; the every-switch problem, now P5, keeps three pictures on page 6 and gives its three-switch picture four copies on page 7; the exact-switches problem is now P6. Grades 4–5: a new P5 asks for the two pictures farthest apart on the 2-by-6 grids before the general two-row rule, now P6 on the same page. The adult guide (now 22 pages) was renumbered to match: K–1 pages renumbered, P2 and P6 answered together on p. 7; grades 2–3 on pp. 8–12 (P3 and P4 on p. 10, P5 on p. 11 with the three recorded switches and a note that page 7's four copies are extra workspace, P6 on p. 12); grades 4–5 P5 on a new p. 16 and P6 on p. 17; later page references, supplies, routes, the route note and the source notes updated. `facilitator-src/verify_math.py` now also checks every two-counter move in grades 2–3 P3 and that 3 is the greatest distance on a 2-by-6 grid, reached only with counts 3, 3 and every column 1. The problem files' keys match the guide (`problem-files/check_guide_copy.py`). Unpiloted.
+
+## Previous release: October 23, 2026 card fixes
 
 The adult guide carries the corrections from its review card: the Grades 2–3 lower-bound held hint now accepts the counter-counting argument (p. 11), supplies are 24 counters per table (p. 1; 15–16 mm wide since Critic J's could, the same day), and the launch uses a one-picture example (p. 2). Later the same day the student pages, stored as problem files, got the card's student-page fixes: a clearer p. 1 rule in every band, continuing pages headed "Problem N (continued)", grades 2–3 renumbered P1–P6 with a recorded switch, spare grids in grades 4–5 P1 and P3, a new grades 4–5 workspace page for P4, and the card's K–1 P6 wording. Then two small coulds: the grid rows of K–1 p. 2, Grades 2–3 pp. 1 and 5 and Grades 4–5 p. 3 are spaced so that circled counts no longer crowd the next grid's labels (Grades 4–5 p. 3 now has Problem 1's 18.5 mm cells), and the guide's overview and p. 1 carry the student headers' theme name, "Row and column shadows". See `review/card-fixes-2026-10-23.md`.
 
@@ -10,7 +14,7 @@ The October 4 revision gave the guide first routes, readiness-dependent continua
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
-Current pages: **K–1 8; Grades 2–3 6; Grades 4–5 8; adult guide 20**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 8; Grades 2–3 8; Grades 4–5 8; adult guide 22**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project
 

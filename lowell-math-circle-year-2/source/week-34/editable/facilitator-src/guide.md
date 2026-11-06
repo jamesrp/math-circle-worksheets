@@ -18,7 +18,7 @@
 
 - **Grades 4-5:** Explain the small-ring obstruction and turn the six-ring discovery into a construction for every larger ring. Unequal gaps are a useful explanation after a child has a successful pattern.
 
-**Status.** This guide keys the final v3 student PDFs, with 6 / 5 / 5 problems; the grades 4-5 packet adds a page of extra workspace (a seven-ring and a nine-ring) for Problem 5. Mathematical cases are checked. These pages and the proposed pacing have not been classroom-tested.
+**Status.** This guide keys the v4 student PDFs of the November 6, 2026 kid-fit revision (K-1 6 pages, Grades 2-3 5, Grades 4-5 6), with 6 / 5 / 5 problems and unchanged numbering; the grades 4-5 packet adds a page of extra workspace (a seven-ring and a nine-ring) for Problem 5. The revision made the copy a dotted tracing, put the builder and tester roles into the shared rules, printed a starting pattern for K-1 Problem 3 and cut K-1 Problem 6 to one pattern. Mathematical cases are checked. These pages and the proposed pacing have not been classroom-tested.
 
 ---page---
 
@@ -28,19 +28,19 @@
 
 **For eleven children and three adults:** use the three fixed tables (four K-1, four 2-3, three 4-5). Children work in pairs; at the three-child table, rotate builder, tester and observer. Budget five pair-sized material sets overall. Supply each pair with about 24 counters, eight in each of three easily distinguished kinds, and a small bowl. Use pieces at least 20 mm wide; colors should have a shape or texture backup.
 
-Print the selected student mats at actual size. Each pair needs about ten sheets of tracing paper large enough to cover the whole ring and coloured pencils in the counters' colours; K-1 Problem 6 needs at least two separate copies. One eight-ring per pair is enough if partners take turns. The final spot circles are roughly 28 mm across.
+Print the selected student mats at actual size. Each pair needs about ten sheets of tracing paper large enough to cover the whole ring and coloured pencils in the counters' colours. One eight-ring per pair is enough if partners take turns. The final spot circles are roughly 28 mm across.
 
-**Making a tracing copy:** lay a sheet over the ring with its counters in place, trace each spot circle, and colour it with its counter's colour. Make a fresh copy for each new or changed pattern; keep earlier copies to compare. Lift a copy to turn or flip it (untested prediction: sliding it moves loose counters).
+**Making a tracing copy:** lay a sheet on the built ring and press a coloured dot over each spot in its counter's colour; lift the copy to turn or flip it (untested prediction: sliding it moves loose counters). **Copy between building and testing:** builders rearrange freely and copy only a pattern they think cannot be matched; each change needs a new copy. At K-1 an adult can make slow copies (children still turn and flip); past four spots, “no match” means “we couldn't catch it.”
 
-**Adult preparation, estimated 15-20 minutes:** print only likely starting pages and make one coloured copy at home to check that a flipped sheet still shows its circles and colours from the back. Remove any temporary home tick before testing a pattern. Do not flip a loose-counter board and spill the pieces.
+**Adult preparation, estimated 15-20 minutes:** print only likely starting pages and make one dotted copy at home to check that a flipped sheet still shows its dots and colours from the back. Remove any temporary home tick before testing a pattern. Do not flip a loose-counter board and spill the pieces.
 
 **Readiness:** no arithmetic beyond counting small collections. Adults read aloud and can record a child's construction. Before offering optimization, check that the child keeps the original fixed, lines up all spots, and checks every kind. A turn that leaves even one spot between printed positions is not an allowed comparison.
 
 ## Common launch and flexible hour
 
-**0-5, after the opening run-around:** let children handle counters and tracing paper. On a printed four-ring (a Problem 2 page), lay out the alternating pattern and make its copy in front of the children. Keeping the original still, turn the copy one spot (no match) and two spots (match), then flip it over the line through two opposite spots (match), as in the page-1 picture. Ask, “Could I change this pattern without you noticing?” Do not reveal a successful six-ring.
+**0-5, after the opening run-around:** let children handle counters and tracing paper. On a printed four-ring (a Problem 2 page), lay out the alternating pattern and make its dotted copy in front of the children. Keeping the original still, turn the copy one spot (no match) and two spots (match), then flip it over the line through two opposite spots (match), as in the page-1 picture. Ask, “Could I change this pattern without you noticing?” Do not reveal a successful six-ring.
 
-**5-20:** youngest children start K-1 Problems 1-2; middle and upper groups try the three- and four-rings. Partners alternate builder and tester. Save at least one candidate on its own copy before changing it.
+**5-20:** youngest children start K-1 Problems 1-2; middle and upper groups try the three- and four-rings. Partners swap roles; K-1 Problem 1 always goes to the tester (see key).
 
 **20-38:** continue a worthwhile construction. Offer the five- or six-ring when the small-ring pattern is clear; offer the eight-ring or general construction only when testing is reliable. Grades 4-5 can test an eight-ring construction on the extra page's seven- and nine-rings.
 
@@ -54,19 +54,19 @@ Print the selected student mats at actual size. Each pair needs about ten sheets
 
 ## Problems 1 through 3
 
-**Problem 1, three-ring exploration.** Every two-kind pattern admits a nonidentity reflection. If all three spots match, every motion works. Otherwise one kind occurs once and the other twice; a reflection fixes the lone spot and exchanges the other two. A mixed ring has no nonidentity matching rotation, so “no matching turn” is not enough. Accept repeated experiments and a physically demonstrated surviving flip. The answer to “Can you make one your partner cannot match?” is no with two kinds; a child who adds a third kind (A B C) can.
+**Problem 1, three-ring exploration.** Every two-kind pattern admits a nonidentity reflection. If all three spots match, every motion works. Otherwise one kind occurs once and the other twice; a reflection fixes the lone spot and exchanges the other two. A mixed ring has no nonidentity matching rotation, so “no matching turn” is not enough. Accept repeated experiments and a physically demonstrated surviving flip. The answer to “Can you make one your partner cannot match?” is no: every two-kind pattern is caught by the flip through its lone counter, so the builder cannot win. Swap roles after each catch so everyone catches; when a child says “the flip always gets me,” agree and move to Problem 2, where a third kind gives the builder a first win (A B C would also win here).
 
 **Problem 2, four-ring minimum.** The answer is 3 kinds. A B C C is a witness. Since A and B each occur once, any matching motion must fix both adjacent spots; only the identity does. With two kinds, the minority has 0, 1 or 2 spots and a reflection survives. The general lower-bound reason appears on page 5.
 
-**Problem 3, changing one counter.** Outcomes depend on the starting construction. From A B C C, changing the third spot C to A gives A B A C, which has a reflection through the B and C spots. Changing that same C to B gives A B B C, which remains distinguishing because unique A and C are adjacent. Thus one-counter edits can either create a hidden motion or preserve asymmetry. Restore the starting pattern between trials if comparing edits. Do not teach that every change must destroy asymmetry.
+**Problem 3, changing one counter.** Before starting, say which counter kind each printed mark stands for. The start is A A B C clockwise from the top (filled dots A top and right, ring B bottom, square C left); the lone B and C are neighbours, so nothing matches. Of the eight one-counter changes, two keep it unmatched: top A to C (C A B C) and right A to B (A B B C), each leaving two lone kinds side by side. The other six each let a flip match; none creates a matching turn. Each change needs its own copy; restore the start between trials.
 
 ## Problems 4 through 6
 
 **Problem 4, five-ring.** Two kinds cannot stop all motions. Three kinds can: A B C C C. The unique A and B are adjacent, so both must be fixed and no nonidentity motion remains. Let children exhibit failures with two kinds; the adult can supply the all-cases argument later.
 
-**Problem 5, six-ring.** One answer is A A B A B B, whose A spots are 0, 1, 3. The gaps between A spots are 1, 2, 3. No rotation or reflection preserves their cyclic placement. Children may instead check all five nonidentity rotations and six reflections using an overlay. Record the candidate before testing.
+**Problem 5, six-ring.** One answer is A A B A B B, whose A spots are 0, 1, 3. The gaps between A spots are 1, 2, 3. No rotation or reflection preserves their cyclic placement. Children may instead check all five nonidentity rotations and six reflections using an overlay. Make the candidate's copy before testing.
 
-**Problem 6, two genuinely different eight-rings.** Use A A B A B B B B and A A B B A B B B. Their A-gap multisets are {1, 2, 5} and {1, 3, 4}; both contain three different gaps and so are distinguishing. Dihedral motions preserve the gap multiset, so the two patterns cannot match each other. Separate tracing copies are essential. A mere rotation, reflection, or shifted drawing of the first pattern is not a second answer. Swapping kinds (B B A B A A A A) or using another pair of kinds also cannot match under the fixed-kind rule; accept it, then ask for a second arrangement with the same kinds and counts.
+**Problem 6, eight-ring.** A A B A B B B B (A gaps 1, 2, 5) and A A B B A B B B (gaps 1, 3, 4) work, as does a kind swap such as B B A B A A A A; three different gaps rule out every turn and flip. 96 of the 256 two-kind patterns work, so trying can succeed, but fifteen checks is long for this band: a survivor is “we couldn't catch it” until the adult checks its gaps.
 
 **Optional hints, one at a time:** “Show me one place where the copy fails.” “Which counter kind is easiest to track?” “Can a flip keep that spot fixed?” For a child ready for the eight-ring distinction: “How far apart are the three A spots as you go around?” Do not give the 0, 1, 3 construction before exploration has a chance to work.
 
@@ -82,7 +82,7 @@ Print the selected student mats at actual size. Each pair needs about ten sheets
 
 **Problem 3, five-ring:** 3 kinds; A B C C C. The same upper- and lower-bound arguments apply. This is not a claim that the child must find the proof before moving on.
 
-**Problem 4, six-ring:** A A B A B B works. A complete physical verification checks five nonidentity rotations and six reflections, always lining up every spot. An explanation from gaps 1, 2, 3 is shorter and generalizes. In the adult indexing, rotations send i to i + k and reflections send i to k - i, modulo 6; these exhaust the possibilities.
+**Problem 4, six-ring:** A A B A B B works. The explanation can be a feature rather than a list of moves; a complete physical verification checks five nonidentity rotations and six reflections, always lining up every spot. An explanation from gaps 1, 2, 3 is shorter and generalizes. In the adult indexing, rotations send i to i + k and reflections send i to k - i, modulo 6; these exhaust the possibilities.
 
 **Problem 5, eight-ring:** A A B A B B B B works and has the least possible minority count, 3. Zero, one or two counters of one kind always leave a reflection. The three A gaps 1, 2, 5 establish that three suffice. The question concerns the less frequent kind; the number of kinds is already fixed at two.
 

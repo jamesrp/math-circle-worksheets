@@ -2,9 +2,13 @@
 
 ## Introduction-audit follow-up
 
-All three student bands were v4 (now v6). The region key now includes one complete two-group split and its shared point. The guide launch uses the same labels. Existing 12.6 cm work boards and page counts remain. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
+All three student bands were v4 (now v7). The region key now includes one complete two-group split and its shared point. The guide launch uses the same labels. Existing 12.6 cm work boards and page counts remain. All revisions remain unpiloted; material handling has not been rehearsed. Older release descriptions below are historical.
 
-## Current release: October 23, 2026 card-fix revision
+## Current release: November 6, 2026 kid-fit revision
+
+**Kid-fit revision, November 6, 2026 (v7, unpiloted).** A kid-fit review (a critic, then a reviser, student pages only) revised the student pages, and James approved adopting them on November 6, 2026. Packets F22-K-v7 (6 pages), F22-23-v7 (10) and F22-45-v7 (11). K–1 keeps two rule sentences and only the K-L-M-N key, draws Problem 1 straight onto three larger boards, moves the placing games up to Problems 2–3, asks for two meeting groupings per place of D (P4), asks children to circle the crosses for C (P5) and puts the dots-in-a-row problem last (P6). Grades 2–3 move the placing game to Problem 2, reword the two-arrangements task and split the three-dot question (P6) from a new C-on-crosses problem (P7). Grades 4–5 put the coincident case (P4) on one page of six boards and split the three-dot question (P7) from the smallest-number question (P8). Rows of dots have labels set back from the line, and Grades 2–5 add the above-and-below rule to the opening rules. The adult guide F22-FAC-v7 (23 pages) follows the new numbering and page map, answers Grades 2–3 P7, tells the adult to show the one-dot-against-a-triangle move on K–1 Problem 1's second board, and marks K–1 P4 and P6 optional. `facilitator-src/check_math.py` (31 configurations; 6, 10 and 11 pages), `src/check_examples.py` and `src/check_geometry.py` check the v7 pages; `review/verify_card_fixes_2026_10_23.py` checks the v6 build and is historical. A clean rebuild from the extracted ZIP passes `verify_rebuild.py` with identical text and 100-dpi pixels on all 50 pages.
+
+## Earlier release: October 23, 2026 card-fix revision
 
 **Critic follow-up, October 23, 2026 (v6).** Problem 1's page 1 now asks only for the search with the D marker; the drawing request is on the record page (page 2) alone. Packets F22-K-v6, F22-23-v6, F22-45-v6; the guide names them. `review/verify_card_fixes_2026_10_23.py` checks the v6 build.
 
@@ -16,7 +20,7 @@ The guide now gives first routes, readiness-dependent continuation and return vi
 
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
-Current pages: **K–1 9; Grades 2–3 9; Grades 4–5 12; adult guide 23**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 6; Grades 2–3 10; Grades 4–5 11; adult guide 23**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project
 
@@ -30,7 +34,7 @@ The current verifier compares paper geometry and every 100-dpi rendered page aga
 
 Edit student problems in `problem-files/problems/*.md` (figures in `problem-files/figures.py`, the document head in `problem-files/template.tex`); `build.sh` regenerates `src/*.tex` from them before compiling, so do not edit the TeX by hand. To build every view: `python3 problem-files/tools/build.py problem-files --out views`. Edit the existing guide source under `facilitator-src/`. Where present, `facilitator-src/route-note.json` holds the concise starting/return update; the root build regenerates the guide before appending it exactly once. Do not run the appender alone against an already appended guide. Build intermediates belong in a separate working copy; inspect changed pages before updating references.
 
-The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/card-fixes-2026-10-23.md`, and before it `review/fresh-review-2026-10-04.md`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
+The current reference manifest is `review/reference-manifest.json`; revision evidence for the kid-fit revision is in the project's `plans/review/kid-fit/pilot/week-22/` (reviews before and after) and the week's README; before it `review/card-fixes-2026-10-23.md`, and before that `review/fresh-review-2026-10-04.md`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
 
 ## Use and rights
 

@@ -9,10 +9,13 @@ the problem files.
 import math
 from canvas import text, label, line, rect, circle
 
+NEW = 'black!10'   # fill of every new ring and new mat
 
-def ring(x, y, vals=None, span=42, r=7, gaps=False, letters=True, squares=False):
+
+def ring(x, y, vals=None, span=42, r=7, gaps=False, letters=True, squares=False, fill='white'):
     """Four stations at the corners of a square (or three at a triangle's), with arrows
-    from each station to the next; squares=True draws the cube mats."""
+    from each station to the next; squares=True draws the cube mats. fill shades the
+    stations (the new mats are light grey so they read apart from the old ones)."""
     vals = vals if vals is not None else [None]*4; n = len(vals)
     pts = [(x, y), (x+span, y), (x+span, y+span), (x, y+span)] if n == 4 else [(x+span/2, y), (x+span, y+span), (x, y+span)]
     s = ''; names = 'ABCD'
@@ -25,8 +28,8 @@ def ring(x, y, vals=None, span=42, r=7, gaps=False, letters=True, squares=False)
             else: offs = [(7, -2), (0, 6), (-7, -2)][i]
             s += label((a+c)/2+offs[0], (b+d)/2+offs[1], str(abs(vals[i]-vals[(i+1) % n])), 11)
     for i, (a, b) in enumerate(pts):
-        if squares: s += rect(a-r, b-r, r*2, r*2, 'fill=white,rounded corners=1mm')
-        else: s += circle(a, b, r, 'fill=white')
+        if squares: s += rect(a-r, b-r, r*2, r*2, f'fill={fill},rounded corners=1mm')
+        else: s += circle(a, b, r, f'fill={fill}')
         if letters: s += label(a, b+r+4 if (i >= 2 if n == 4 else i >= 1) else b-r-4, names[i], 9)
         if vals[i] is not None: s += label(a, b, str(vals[i]), 13)
     return s
@@ -44,7 +47,7 @@ def record(x, y, vals=None):
 def mats(y=60):
     """The paired old and new four-station cube mats: 36 mm stations, centres 52 mm
     apart, a 9 mm gap between the mats and the page-1 arrow from old to new."""
-    return (ring(18, y, None, 52, 18, squares=True)+ring(115, y, None, 52, 18, squares=True)
+    return (ring(18, y, None, 52, 18, squares=True)+ring(115, y, None, 52, 18, squares=True, fill=NEW)
             + line(78, y+26, 107, y+26, '-{Stealth[length=3mm]}'))
 
 
@@ -53,40 +56,45 @@ def moves_row(x, y, tx, w):
     return record(x, y)+text(tx, y, r'Moves to zero: \rule{17mm}{.3pt}', w=w, size=12)
 
 
-def worked_example():
+def worked_example(dy=0):
     """Page 1: the old ring (1,4,2,0) with its gaps on the arrows, and the new ring."""
-    return (label(41, 37, 'old', 12)+label(144, 37, 'new', 12)
-            + ring(20, 52, [1, 4, 2, 0], 42, 7, True)+line(78, 73, 105, 73, '-{Stealth[length=3mm]}')+ring(122, 52, [3, 2, 2, 1], 42, 7))
+    return (label(41, 37+dy, 'old', 12)+label(144, 37+dy, 'new', 12)
+            + ring(20, 52+dy, [1, 4, 2, 0], 42, 7, True)+line(78, 73+dy, 105, 73+dy, '-{Stealth[length=3mm]}')
+            + ring(122, 52+dy, [3, 2, 2, 1], 42, 7, fill=NEW))
 
 
-def four_starts():
-    """Problem 1's four starts, small."""
+def four_starts(y=177, two=False):
+    """Problem 1's four starts, small; two=True keeps only (1,1,0,0) and (0,0,0,2)."""
     s = ''
-    for x, vs in zip([13, 60, 107, 154], [[1, 1, 0, 0], [1, 0, 1, 0], [2, 1, 0, 1], [0, 0, 0, 2]]):
-        s += ring(x, 177, vs, 25, 5, letters=False)
+    starts = [[1, 1, 0, 0], [1, 0, 1, 0], [2, 1, 0, 1], [0, 0, 0, 2]]
+    xs = [13, 60, 107, 154]
+    if two:
+        starts, xs = [starts[0], starts[3]], [45, 115]
+    for x, vs in zip(xs, starts):
+        s += ring(x, y, vs, 25, 5, letters=False)
     return s
 
 
-def big_mats():
-    """Page 2: the labelled old and new four-station mats."""
-    return label(44, 43, 'old', 12)+label(141, 43, 'new', 12)+mats(71)
+def big_mats(y=71):
+    """The labelled old and new four-station mats."""
+    return label(44, y-28, 'old', 12)+label(141, y-28, 'new', 12)+mats(y)
 
 
 def three_station_mats(y=104):
     """The three-station starts' labelled old and new mats, spaced as the four-station ones."""
     return (label(44, y-28, 'old', 12)+label(141, y-28, 'new', 12)
-            + ring(18, y, [None]*3, 52, 18, squares=True)+ring(115, y, [None]*3, 52, 18, squares=True)
+            + ring(18, y, [None]*3, 52, 18, squares=True)+ring(115, y, [None]*3, 52, 18, squares=True, fill=NEW)
             + line(70, y, 111, y, '-{Stealth[length=3mm]}'))
 
 
-def abc_rows(x, y, first=1, n=3):
-    """A block of A-B-C record rows, numbered by move."""
+def abc_rows(x, y, first=1, n=3, names='ABC'):
+    """A block of A-B-C (or A-B-C-D) record rows, numbered by move."""
     s = ''
-    for i in range(3):
-        s += label(x+i*14+7, y-4, 'ABC'[i], 9)
+    for i in range(len(names)):
+        s += label(x+i*14+7, y-4, names[i], 9)
     for r in range(n):
         s += label(x-6, y+r*11+5.5, str(first+r), 10)
-        for i in range(3):
+        for i in range(len(names)):
             s += rect(x+i*14, y+r*11, 14, 11)
     return s
 
@@ -96,18 +104,23 @@ def three_station_records(y=190):
     return abc_rows(30, y, 1)+abc_rows(120, y, 4)
 
 
+def four_station_records(y=195):
+    """Six numbered A-B-C-D rows for the four-station run, in two blocks."""
+    return abc_rows(28, y, 1, names='ABCD')+abc_rows(118, y, 4, names='ABCD')
+
+
 def old_row(x, y):
     """A four-box row for an old ring, labelled old."""
     return label(x-8, y+5.5, 'old', 10)+record(x, y)
 
 
-def letter_runs(y):
-    """Four columns of A-B-C-D letter boxes, each a start (move 0) and four moves."""
+def letter_runs(y, cols=4):
+    """Columns of A-B-C-D letter boxes, each a start (move 0) and four moves."""
     s = label(5, y-4, 'move', 8)
     for r in range(5):
         s += label(5, y+r*9+4.5, str(r), 10)
-    for c in range(4):
-        x = 14+c*44
+    for c in range(cols):
+        x = 14+c*44 if cols == 4 else 14+c*80
         for i in range(4):
             s += label(x+i*9+4.5, y-4, 'ABCD'[i], 9)
             for r in range(5):

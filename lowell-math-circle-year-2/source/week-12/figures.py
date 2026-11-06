@@ -223,11 +223,19 @@ def k1_finish_records(starts):  # 03: an eight-dot mat and a record for each dra
     for j,e in enumerate(starts):s+=circle([37.5,84.5,131.5,178.5][j%4],[191,241][j//4],8,r=16,fixed=[e])
     return s
 
-def k1_more_records():  # 05: ten more eight-dot records, rows of three and two
-    s=''
-    for y,xs in zip([74,125,176,227],[[41,108,175],[74.5,141.5],[41,108,175],[74.5,141.5]]):
-        for x in xs:s+=circle(x,y,8,r=18.5)
+def k1_eight_mat_and_records():  # 04: an eight-dot mat and three larger pencil records (46 mm across)
+    s=circle(108,104,8,r=40,physical=True)
+    for x in [46,108,170]:s+=circle(x,208,8,r=23)
     return s
+
+def k1_more_records():  # 05: six more eight-dot records, 52 mm across, two columns of three
+    s=''
+    for y in [76,146,216]:
+        for x in [63,153]:s+=circle(x,y,8,r=26)
+    return s
+
+def k1_check_mat():  # 06: a six-dot string mat only; children check their Problem 1 boards
+    return circle(108,110,6,r=40,physical=True)
 
 def k1_parity_circles():  # 06: a ten-dot mat, then 3 to 7 dots
     s=circle(108,102,10,r=43,physical=True)
@@ -290,6 +298,11 @@ def eight_dot_rows():  # 14: sixteen rows for the fourteen pairings
 def five_edge_example(caption):  # 00
     return (text(18,74,caption,width=83,font=12.5,leading=15)+tree(133,78,'UUDUDDUUDD',width=60,depth_step=15)
             + text(146,75,'root',width=35,font=9,leading=11))
+
+def five_edge_pair(caption):  # 00: the five-edge example beside its mirror image
+    return (text(18,52,caption,font=12.5,leading=15)
+            + tree(62,66,'UUDUDDUUDD',width=56,depth_step=14) + text(75,63,'root',width=35,font=9,leading=11)
+            + tree(152,66,'UUDDUUDUDD',width=56,depth_step=14))
 
 def roots(xs,ys):
     """A filled root dot to start each drawing (15, 20)."""

@@ -1,6 +1,10 @@
 # Catalan bijections: Week 12 editable release
 
-## Current release: October 23, 2026 card fixes
+## Current release: November 6, 2026 kid-fit revision
+
+**Kid-fit revision, November 6, 2026.** A kid-fit pilot revised the student pages and James approved adopting them. K–1 (W12-K-v5): shorter rules; the odd-and-even circles are now Problem 2 and checking the six-dot collection Problem 5, on its own six-dot string mat; Problem 4 has 9 larger frames (3 on page 4, 6 on page 5). Grades 2–3 (W12-23-v4): Problem 2 asks whether a pairing can make a path that goes below the dark line. Grades 4–5 (W12-45-v5): shorter tree rules with a five-edge tree beside its mirror image; Problem 4 no longer asks how to rebuild a tree. The guide (still 10 pages) is renumbered to match, keys the new ids on page 1, records the revision on page 9, and on page 2 asks for K–1 strings about 3.5 cm (neighbors) and 7.5 cm (every other pair), measured from the printed mats so that strings can stay inside the circle; Grades 2–3 keep 20 cm strings. Unrehearsed and unpiloted. Checked by `review/verify_kid_fit_2026_11_06.py`. `review/verify_student_fixes_2026_10_23.py` checks the October 23 student pages and now fails by design (6 + 10 frames, the old problem order).
+
+## Previous release: October 23, 2026 card fixes
 
 **Guide corrections.** The adult guide carries the corrections from its review card: the K–1 Problem 4 duplicate hint (p. 4), the K–1 timing order (p. 3) and the Grades 2–3 return-visit line (p. 10) are corrected, and the preparation (p. 2) asks for strings about 20 cm long instead of 40 cm, a length measured from the printed boards but not yet rehearsed. See `review/card-fixes-2026-10-23.md`.
 
@@ -23,13 +27,13 @@ Extract the complete ZIP. Install Python 3.11 or later with `requirements.txt`, 
     python3 -m pip install -r requirements.txt
     bash build.sh
     python3 verify_revision.py
-    python3 review/verify_student_fixes_2026_10_23.py
+    python3 review/verify_kid_fit_2026_11_06.py
 
 The current verifier compares paper geometry and every 100-dpi rendered page against `reference-pdfs/`; timestamps may differ. It permits only specifically audited full-page font/hyphenation alternatives for unchanged student PDFs. See `review/fresh-review-rebuild.md` for actual results. The original strict verifier (`verify_rebuild.py` or `verify.py`) is retained and rejects those alternatives. The corpus report explicitly records any pre-existing small TeX font-metric differences for unchanged student bands; their current print/reference PDFs stay byte-identical. For Weeks 24 and 35, the detailed student-stage record is `review/student-reviser-fresh-review.md`. The corpus release report records those differences explicitly rather than calling them pixel-identical.
 
 Edit student problems in `problem-files/problems/*.md` (figures and the page template in `problem-files/figures.py`); `build.sh` regenerates `src/*.tex` from them and reruns `src/check_catalan.py` before compiling, so do not edit the TeX by hand. To build every view: `python3 problem-files/tools/build.py problem-files --out views`. Each problem file's key repeats the main answer from the guide, and `problem-files/guide/overview.tex` repeats the guide's first page; `python3 problem-files/check_guide_copy.py` confirms every copied sentence is still in `facilitator-src/build_guide.py`. Edit the existing guide source under `facilitator-src/`. Where present, `facilitator-src/route-note.json` holds the concise starting/return update; the root build regenerates the guide before appending it exactly once. Do not run the appender alone against an already appended guide. Build intermediates belong in a separate working copy; inspect changed pages before updating references.
 
-The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/fresh-review-2026-10-04.md` and, for the October 23 card fixes, `review/card-fixes-2026-10-23.md` with its checks `review/verify_card_fixes_2026_10_23.py` and `review/verify_student_fixes_2026_10_23.py`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
+The current reference manifest is `review/reference-manifest.json`; revision evidence is `review/fresh-review-2026-10-04.md`, for the October 23 card fixes `review/card-fixes-2026-10-23.md` with its checks `review/verify_card_fixes_2026_10_23.py` and `review/verify_student_fixes_2026_10_23.py` (written for the October 23 references), and for the November 6 kid-fit revision `review/verify_kid_fit_2026_11_06.py`. Older review files and `review/README-before-fresh-review-2026-10-04.md` describe their dated versions. Prior releases are archived outside the current package in the project.
 
 ## Use and rights
 

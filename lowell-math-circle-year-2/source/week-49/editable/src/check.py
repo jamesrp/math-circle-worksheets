@@ -73,7 +73,7 @@ print('PASS three stations: (1,0,0) gives (1,0,1), (1,1,0), (0,1,1) and (1,0,1) 
       'numbered record rows; (1,0,0,0) reaches zero in', rounds((1, 0, 0, 0))[0], 'moves.')
 assert rounds((1, 0, 0, 0)) == (4, True)
 
-# Predecessors (older Problem 3): complete search, since 2(max - min) <= sum of the gaps.
+# Predecessors (Grades 2-3 Problem 4, Grades 4-5 Problem 3 since the v4 packets): complete search, since 2(max - min) <= sum of the gaps.
 def preds(t, top=8):
     return [s for s in product(range(top + 1), repeat=4) if min(s) == 0 and D(s) == t]
 
@@ -83,7 +83,7 @@ assert all(sum(D(s)) % 2 == 0 for s in product(range(6), repeat=4))
 print('PASS predecessors: (2,0,2,0) and (1,1,1,1) have old rings, (1,1,1,0) (odd total) and (0,0,0,2) (three zero '
       'gaps) do not.')
 
-# One-move and two-move starts (K-1 Problems 3-4), with the all-zero start taking 0 moves.
+# One-move and two-move starts (K-1 Problems 4-5 since the v4 packets), with the all-zero start taking 0 moves.
 one = [s for s in product(range(6), repeat=4) if rounds(s) == (1, True)]
 assert one == [(c,) * 4 for c in range(1, 6)] and rounds((0, 0, 0, 0)) == (0, True)
 assert rounds((0, 1, 0, 1)) == (2, True) and rounds((0, 1, 2, 1)) == (2, True)
@@ -93,3 +93,14 @@ print('PASS K-1: exactly the positive constant rings become all zeros in one mov
 assert D((0, 1, 2, 4)) == (1, 1, 2, 4)
 assert all(max(D(s)) <= max(s) for s in product(range(9), repeat=4))
 print('PASS bound: no new height exceeds the old maximum, and (0,1,2,4) -> (1,1,2,4) keeps it at 4.')
+
+# Added with the kid-fit revision, November 6, 2026 (v4 packets): Grades 4-5 Problem 1 keeps two starts,
+# K-1 counts moves with counters in a cup, and the doubled 4-5 start needs 36 of the 40 cubes.
+assert rounds((1, 1, 0, 0)) == (3, True) and rounds((0, 0, 0, 2)) == (4, True)
+k1 = list(product(range(5), repeat=4))
+assert max(rounds(s)[0] for s in k1) == 7 and sum(rounds(s)[0] == 7 for s in k1) == 16
+assert max(sum(s) + sum(D(s)) for s in k1) <= 32
+assert sum(b[0]) + sum(b[1]) == 36 and b[1] == (6, 8, 2, 4)
+print('PASS kid-fit v4: 4-5 P1 (1,1,0,0) and (0,0,0,2) last 3 and 4 moves; K-1 starts from 0 to 4 last at most 7 moves '
+      '(16 of 625), so 10 counters cover any run, and an old and new K-1 ring use at most 32 cubes; the doubled start '
+      '(4,10,2,0) with (6,8,2,4) uses 36 of the 40 cubes.')

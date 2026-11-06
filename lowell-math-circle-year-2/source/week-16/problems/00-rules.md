@@ -10,4 +10,4 @@ route = ["first", "return"]
 Put one R, B, or Y counter on every dot. Keep the corner letters. Each outside side allows only the letters beside it. A little triangle has no lines inside.\par\vspace{0.23in}
 
 ## text
-Write R, B, or Y on every empty dot. Keep the printed letters. Each outside side allows only the letters beside it. A little triangle has no lines inside.\par\vspace{0.23in}
+Put R, B, or Y on every empty dot. Keep the printed letters. Each outside side allows only the letters beside it. A little triangle has no lines inside.\par\vspace{0.23in}

@@ -46,7 +46,7 @@ def wins(points):
 results={}
 configsets={
  'k_p1':({'A':(2,2),'B':(10,3),'C':(4,10)},[(9,9),(4.3,4.7),(0.8,7.2)]),
- 'k_p2':({'A':(2,3),'B':(8,3),'C':(5,10)},[(5,3),(11,3),(3.5,6.5)]),
+ 'k_p4':({'A':(2,3),'B':(8,3),'C':(5,10)},[(5,3),(11,3),(3.5,6.5)]),
  '23_p1':({'A':(2,3),'B':(10,2),'C':(3,10)},[(9,9),(4,5),(6,2.5),(6,1)]),
  '45_p1':({'A':(2,2),'B':(10.5,3),'C':(4.5,10)},[(9.8,9),(5,5),(6.25,2.5),(1,6)]),
 }
@@ -55,8 +55,8 @@ for name,(base,ds) in configsets.items():
         w=wins(dict(base,D=d));assert w
         results[f'{name}_position_{i}']=w
 for name,points in {
- 'k_p3':{'A':(1.8,6.3),'B':(10.8,6.3),'C':(7.5,6.3),'D':(4.5,6.3)},
- '23_p2':{'A':(2,6.3),'B':(7.8,6.3),'C':(10.8,6.3),'D':(4.6,6.3)},
+ 'k_p6':{'A':(1.8,6.3),'B':(10.8,6.3),'C':(7.5,6.3),'D':(4.5,6.3)},
+ '23_p3':{'A':(2,6.3),'B':(7.8,6.3),'C':(10.8,6.3),'D':(4.6,6.3)},
  '45_p2':{'A':(2,3),'B':(8,9),'C':(5,6),'D':(10,11)},
  '45_p4':{'A':(3,3),'B':(10,4.5),'C':(5.5,10),'D':(3,3)}
 }.items():
@@ -66,11 +66,18 @@ for i,c in enumerate([(6,5.6),(11,5.6),(5.5,9.5)],1):
     results[f'k_p5_position_{i}']=w
     assert bool(w)==(i<3)
 for name,points in {
- '23_p5':{'A':(2,3),'B':(10,4),'C':(6,10)},
+ '23_p6':{'A':(2,3),'B':(10,4),'C':(6,10)},
  '45_p7':{'A':(2,3),'B':(10.3,4),'C':(4.8,10.1)}
 }.items():
     results[name]=wins(points);assert not results[name]
-# The revised K-1 P5 locus includes both extensions and both fixed points.
+# Grades 2-3 P7 (v7): of four crosses for C, exactly the two on line AB work.
+for i,c in enumerate([(6,5.6),(11.2,5.6),(5.5,9.5),(4,3)],1):
+    w=wins({'A':(2.5,5.6),'B':(8.8,5.6),'C':c})
+    results[f'23_p7_position_{i}']=w
+    assert bool(w)==(i<3)
+# K-1 P4 (v7) asks for two ways per place of D: each place has exactly two.
+for i in (1,2,3):assert len(results[f'k_p4_position_{i}'])==2
+# The K-1 P5 and Grades 2-3 P7 locus (an adult extension) includes both extensions and both fixed points.
 for x in [0,1,2.5,4,8.8,10,12.6]:
     assert wins({'A':(2.5,5.6),'B':(8.8,5.6),'C':(x,5.6)})
     for y in [0,5.5,5.7,12.6]:

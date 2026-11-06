@@ -10,7 +10,7 @@ kernel = "The fewest flips to the fan at A is $n-3-d_A$: each flip adds at most 
 Find a rule for the fewest flips needed to turn any filling into a fan at A. Explain why your rule works for every starting filling and every number of corners, when all corners point outward.
 
 ## figure
-polygon(8,4.25,4.35,4.8,3.6,labels='letters')
+fan_rule_boards()
 
 ## key
 For a convex $n$-gon, let $d_A$ be the number of \emph{interior diagonals} in the starting filling incident to A. The minimum number of flips to the A fan is

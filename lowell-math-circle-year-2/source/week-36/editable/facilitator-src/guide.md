@@ -10,7 +10,7 @@
 
 **No early stopping.** Every legal three-tile collection has exactly three possible fourth tiles. Legal collection sizes 0, 1, 2, 3, 4 have respectively 9, 8, 6, 3, 0 legal extensions. Therefore legal adding from empty always lasts exactly four moves. In the two-player normal-play game, the second player wins regardless of choices, provided both obey the rule. It is a discovery about forced length, not a strategy-rich game.
 
-**Limits.** These exact counts use two attributes with three values each and no duplicate tiles. Ordinary tic-tac-toe has only eight geometric lines and is a different object. On every printed nine-tile grid (K-1 p. 3, Grades 2-3 pp. 3-4, Grades 4-5 pp. 2-4) the tiles sit in rows by shape and columns by fill: all eight straight lines of that layout are allowed threes, and four allowed threes are bent: {open circle, solid triangle, striped square}, {striped circle, open triangle, solid square}, {striped circle, solid triangle, open square} and {solid circle, open triangle, striped square}. Reading lines off a board finds four threes through the centre tile, three through a corner and two through an edge tile, although every tile is in four. One-attribute warmups and larger SET decks do not inherit this nine-tile maximum or game result.
+**Limits.** These exact counts use two attributes with three values each and no duplicate tiles. Ordinary tic-tac-toe has only eight geometric lines and is a different object. On every printed nine-tile grid (K-1 p. 5, Grades 2-3 pp. 2-5, Grades 4-5 pp. 2-4) the tiles sit in rows by shape and columns by fill: all eight straight lines of that layout are allowed threes, and four allowed threes are bent: {open circle, solid triangle, striped square}, {striped circle, open triangle, solid square}, {striped circle, solid triangle, open square} and {solid circle, open triangle, striped square}. Reading lines off a board finds four threes through the centre tile, three through a corner and two through an edge tile, although every tile is in four. One-attribute warmups and larger SET decks do not inherit this nine-tile maximum or game result.
 
 ## Readiness and intended discoveries
 
@@ -18,7 +18,7 @@
 
 K-1 can discover completion and grouping concretely. Grades 2-3 can search for large legal collections and notice the fixed game length. Grades 4-5 can prove uniqueness, incidence counts, the maximum, and absence of early stopping. Finding examples, proposing a general rule and justifying the rule are different outcomes.
 
-**Status.** Version 3 (October 23, 2026) has 4 / 5 / 5 problems. Finite mathematics is checked. Child readiness, material handling and the proposed hour remain untested.
+**Status.** Version 4 (kid-fit revision, November 6, 2026) has 4 / 5 / 5 problems. Finite mathematics is checked. Child readiness, material handling and timing remain untested.
 
 ---page---
 
@@ -26,13 +26,13 @@ K-1 can discover completion and grouping concretely. Grades 2-3 can search for l
 
 ## Materials and before use checks
 
-For eleven children, print K-1 p. 3 on card stock once per child, plus one, and cut on the grey lines: nine 60 mm tiles that fit the mats' cells, circle, triangle and square each in open, striped and solid fill. Keep five pair sets together initially; individual sets are useful for preserving a found collection. Per table supply three blank mats, selection counters, a tray for unused tiles, and spare paper. The final student grid is a parking/recording aid, not a rule about straightness.
+For eleven children, print K-1 p. 5 on card stock once per child, plus one, and cut on the grey lines: nine 60 mm tiles that fit the mats' cells, circle, triangle and square each in open, striped and solid fill. Keep five pair sets together initially; individual sets are useful for preserving a found collection. Per table supply three blank mats, selection counters, a tray for unused tiles, and spare paper. The final student grid is a parking/recording aid, not a rule about straightness.
 
 For an optional upper proof, add ten small pair markers and four dishes. Adults can write the two tile names on each pair marker. Use a large demonstration tile set. **Estimated first preparation:** 20-35 minutes to print, cut and sort reusable sets; allow another 5 minutes to rehearse the rule. Check that every set has exactly one of each combination and no indistinguishable stripe/solid printing.
 
 **Two-attribute readiness check:** show the printed allowed triple (open circle, solid triangle, striped square) and the near miss (open circle, open triangle, solid square). Ask the child to judge shapes first and fills second, then move the pieces into a bent arrangement and ask again. Offer two new pairs and a fresh near miss without telling the answers. Proceed with the nine-tile tasks only if the child can explain or point out both attribute conditions. This is a practical proposed check, not a validated developmental test or a completed classroom observation.
 
-If the gate fails, judge shapes only, with all nine tiles (fills ignored). Problems 2 and 3 still work, and the most tiles without a three is again four, two each of two shapes. Then add fills with the printed near miss. The K-1 table's adult should not have to run a second proof lesson while repairing the rule.
+If the gate fails, judge shapes only, with all nine tiles (fills ignored). Problems 2 and 4 still work, and the most tiles without a three is again four, two each of two shapes. Then add fills with the printed near miss. The K-1 table's adult should not have to run a second proof lesson while repairing the rule.
 
 ## Common launch and flexible hour
 
@@ -60,25 +60,25 @@ For new pairs, apply the rule to each attribute. Since the inputs differ in at l
 
 ## K-1
 
-**Problem 1:** the four completions above. Other paired choices have one answer each. A child may demonstrate the answer without writing names.
+**Problem 1:** the four completions above, placed as real tiles; the partner checks each three. Other paired choices have one answer each.
 
 **Problem 2:** four partitions exist in total; page 4 lists all. Easy entry examples are the three same-shape groups or the three same-fill groups. The problem asks for different ways, not necessarily a completeness proof at this band.
 
-**Problem 3:** 4 tiles is the maximum. One answer is open circle, striped circle, open triangle and striped triangle. Every triple from this set has exactly two of some shape or fill, so it fails one condition. “We could not add another” verifies maximality of a particular attempt only; page 5 explains why no five-tile answer can exist.
+**Problem 3:** four triples through any chosen tile. For an open circle, the other pairs are: striped circle + solid circle; open triangle + open square; striped triangle + solid square; solid triangle + striped square. The eight other tiles are paired off once each. On the p. 4 mat, the chosen tile can sit in the centre with each pair in opposite cells.
 
-**Problem 4:** four triples through any chosen tile. For an open circle, the other pairs are: striped circle + solid circle; open triangle + open square; striped triangle + solid square; solid triangle + striped square. The eight other tiles are paired off once each. The chosen tile's physical position in the middle of the table has no mathematical effect.
+**Problem 4:** 4 tiles is the maximum. One answer is open circle, striped circle, open triangle and striped triangle. Every triple from this set has exactly two of some shape or fill, so it fails one condition. “We could not add another” verifies maximality of a particular attempt only; page 5 explains why no five-tile answer can exist.
 
 ## Grades 2-3
 
 **Problem 1:** the four completions above; no pair of distinct tiles has two answers. Common attributes force the same value, and differing attributes force their third value.
 
-**Problem 2:** exactly four unordered splits, listed on page 4. Reordering the same three groups is not a new split.
+**Problem 2:** exactly four unordered splits, listed on page 4. Reordering the same three groups is not a new split. Six boards leave room for a repeat.
 
-**Problem 3:** maximum 4, with the same two-by-two witness. Accept a check that every unused tile makes an allowed three with two chosen tiles; that this collection cannot grow is not yet that no five tiles work (page 5). Hint for fewer than four: "Can you change one chosen tile and then add another?"
+**Problem 3:** maximum 4, with the same two-by-two witness. Accept a check that every unused tile makes an allowed three with two chosen tiles; that this collection cannot grow is not yet that no five tiles work (page 5). Hint for fewer than four: "Can you change one chosen tile and then add another?" A partner's hunt in five tiles always succeeds.
 
 **Problem 4:** four triples through a chosen tile. Each uses two of the other eight tiles, and unique completion pairs those eight without overlap or omission. Straight lines on the record board give four only for the centre tile (page 1, Limits); point to a bent three.
 
-**Problem 5:** all legal games last exactly four moves. The second player makes move 4; the first player then has no legal move and loses. Choices change the final collection, not the duration or winner. If a game ends after three moves, inspect the three legal fourth choices. If it lasts five, find the forbidden triple. This answer concerns legal play, not a player voluntarily passing.
+**Problem 5:** all legal games last exactly four moves. The second player makes move 4; the first player then has no legal move and loses. Choices change the final collection, not the duration or winner. If a game ends after three moves, inspect the three legal fourth choices. If it lasts five, find the forbidden triple. Passing is not legal play. The p. 5 boards can save each final four.
 
 ---page---
 
@@ -90,7 +90,7 @@ For new pairs, apply the rule to each attribute. Since the inputs differ in at l
 
 **Problem 2:** maximum 4. The open/striped circles and open/striped triangles give a witness. The ten-pair argument on page 5 rules out five, hence every larger size too. Children can first verify the witness by choosing each of its four triples and locating a failing attribute.
 
-**Problem 3:** two different allowed threes share 0 or 1 tile. If they shared two, those two would have two completions, contradicting Problem 1. Disjoint examples are the three circles versus the three triangles; intersecting examples are all circles versus all open tiles. Exactly four threes pass through any chosen tile. Pair the other eight by unique completion; each pair appears in one such three, giving 8/2 = 4.
+**Problem 3:** exactly four threes pass through any chosen tile. Pair the other eight by unique completion; each pair appears in one such three, giving 8/2 = 4. Two different allowed threes share 0 or 1 tile. If they shared two, those two would have two completions, contradicting Problem 1. Disjoint examples are the three circles versus the three triangles; intersecting examples are all circles versus all open tiles.
 
 ## Problem 4 and the complete partition key
 
@@ -112,7 +112,7 @@ These are also the complete list of 12 allowed threes, arranged into four parall
 
 ## Problem 5
 
-Every legal adding sequence stops at four tiles, never sooner. With three legal tiles, completing each of its three pairs gives three distinct forbidden unused tiles. Of the six unused tiles, exactly the other three remain legal. Smaller legal collections also extend; a legal four cannot extend by the maximum theorem. Optional adult hint, after the child explores: “With three tiles chosen, which unused tiles are ruled out by a pair?”
+Every legal game stops at four tiles, never sooner, so the second player wins. With three legal tiles, completing each of its three pairs gives three distinct forbidden unused tiles. Of the six unused tiles, exactly the other three remain legal. Smaller legal collections also extend; a legal four cannot extend by the maximum theorem. Optional adult hint, after the child explores: “With three tiles chosen, which unused tiles are ruled out by a pair?”
 
 
 

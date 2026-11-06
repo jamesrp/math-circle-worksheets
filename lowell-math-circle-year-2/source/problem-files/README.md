@@ -16,7 +16,7 @@ source/week-NN/
   editable/          optional: the week's portable package (guide source, fonts, reference PDFs), see below
 ```
 
-A band's footer id is `packet-tag-version`. When one band's packet is revised alone, its table in `week.toml` may set its own `version` (Week 12's K–1 is `W12-K-v4` beside `W12-23-v3`).
+A band's footer id is `packet-tag-version`. When one band's packet is revised alone, its table in `week.toml` may set its own `version` (Week 12's K–1 is `W12-K-v5` beside `W12-23-v4`).
 
 ## A problem file
 

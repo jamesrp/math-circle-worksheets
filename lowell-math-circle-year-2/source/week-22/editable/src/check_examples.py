@@ -21,10 +21,16 @@ def regions():
  assert 7.35<9.2 # closed segment has distinct endpoints
  for band in ('k-1','grades-2-3','grades-4-5'):
   tex=(S/(band+'.tex')).read_text().split('\\newpage')[0]
+  # Every band's opening key shows the K-L-M-N split before Problem 1.
+  assert tex.index('1/0/K,3/0/L,3/1.5/M,1/1.5/N')<tex.index('\\problem{1}') and tex.index('one group: K, M')<tex.index('\\problem{1}')
+  if band=='k-1':
+   # v7 (kid-fit revision): the K-1 key keeps only the K-L-M-N split; the adult draws E, F-G and H-I-J.
+   assert '{E};' not in tex and '\\fill (14.38,1.48) circle (.04);' not in tex
+   continue
   assert tex.index('{E};')<tex.index('\\problem{1}')
   assert 'fill=black!9' in tex and '\\fill (14.38,1.48) circle (.04);' in tex
   assert '\\fill (7.35,1.5)' in tex and '\\fill (9.2,1.5)' in tex
- return 'E is a point; FG includes both endpoints; HIJ is noncollinear and its small dot lies strictly inside.'
+ return 'E is a point; FG includes both endpoints; HIJ is noncollinear and its small dot lies strictly inside (Grades 2-5 keys); every key shows the K-L-M-N split.'
 
 result=regions()
 print(f"PASS Week {WEEK}: {result}")

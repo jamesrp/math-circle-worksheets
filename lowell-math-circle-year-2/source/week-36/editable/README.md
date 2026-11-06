@@ -4,9 +4,11 @@
 
 The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained. On October 23, 2026 the student pages became problem files and the review card's shoulds and clear coulds were made (v3): see `review/card-shoulds-2026-10-23.md`, checked by `review/verify_card_shoulds_2026_10_23.py`. A critic's follow-up the same day changed only the guide: its straight-line warning names every printed nine-tile grid.
 
+**Kid-fit revision, November 6, 2026 (v4).** A kid-fit pilot revised the student pages and James approved adopting them: partners or a third player check the threes, K-1 Problem 1 has tile-size answer boxes and the middle-tile problem comes before the most-tiles search, Grades 2-3 gets split boards and a game page, and Grades 4-5 Problem 5 is a refereed game. The guide was updated to match (version 4, still 6 pages). See `review/kid-fit-2026-11-06.md`, checked by `review/verify_kid_fit_2026_11_06.py`. Unpiloted.
+
 This is an unpiloted theme library, not a fixed meeting schedule. Select a manageable first route in the guide and return for further investigations. Preserve the full Grades 4–5 material. Prerequisites, launch, materials, hints and theorem-first mathematical overview are in the separate adult guide. Physical fit, demonstrations and classroom timing have not been tested.
 
-Current pages: **K–1 4; Grades 2–3 4; Grades 4–5 5; adult guide 6**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 5; Grades 2–3 5; Grades 4–5 5; adult guide 6** (v4). Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project
 

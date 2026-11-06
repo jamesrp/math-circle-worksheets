@@ -14,7 +14,7 @@ Make every different three-bead ring using A and B.
 Make every different three-bead ring using A and B. Find all its readouts as you move the start.
 
 ## prompt @7.8 [4-5]
-Find every three-bead ring using A and B. How many different readouts does each ring have?
+Find every three-bead ring using A and B. How many different readouts does each ring have? Someone divides 8 by 3 to count the rings. What went wrong?
 
 ## figure
 six_boards(3)

@@ -14,7 +14,7 @@ Fill each shape with triangles in two different ways.
 Fill each polygon in two different ways. Can the two fillings of one polygon have different numbers of triangles?
 
 ## figure [K-1]
-first_page_pair(5,6)
+k1_two_each()
 
 ## figure [2-3]
 first_page_pair(6,7,labels='letters')
@@ -26,7 +26,7 @@ Any two distinct legal fillings of each printed polygon suffice. For the pentago
 Any two distinct legal fillings suffice. Hexagon examples: $\{AC,AD,AE\}$ and $\{BD,BE,BF\}$. Heptagon examples: $\{AC,AD,AE,AF\}$ and $\{BD,BE,BF,BG\}$. The counts cannot differ: every hexagon filling has 4 triangles and every heptagon filling has 5. Use page 3's splitting argument if children seek an explanation.
 
 ## hints [K-1]
-If a child repeats the same picture, compare the endpoints of every line. A tracing turned around without changing corner names is still the same filling.
+If a child repeats the same picture, compare the endpoints of every line. Turning the page around does not make a new filling: compare corner numbers, not looks.
 
 ## hints [2-3]
 Ask whether a thin or large triangle should still count as one. The task uses all triangles, regardless of size or shape.

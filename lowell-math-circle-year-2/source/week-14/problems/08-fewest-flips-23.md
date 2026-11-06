@@ -10,7 +10,7 @@ kernel = "Each flip adds at most one target diagonal, so a target with all three
 Change the first filling into the second using as few flips as you can. Find another route with a different number of flips, without visiting any filling twice.
 
 ## figure
-hexagon_route_23()
+hexagon_route_23_written()
 
 ## key
 The printed start is the B fan $\{BD,BE,BF\}$ and the target is the A fan $\{AC,AD,AE\}$. The minimum is three flips. Here is one shortest route, read left to right:
@@ -31,4 +31,4 @@ Why three is best. None of the three target diagonals is present initially. One 
 Check the actual move. Two diagonal lists of length three are flip neighbors when they share exactly two diagonals. Merely rotating a page is not a move; nor may the child replace two diagonals at once.
 
 ## hints
-For the shortest route, ask which target lines are missing and how many can appear in one move. For the second route, try a different first move. Undoing and redoing a move does not satisfy the no-repeated-fillings instruction.
+For the shortest route, ask which target lines are missing and how many can appear in one move. For the second route, try a different first move. Undoing and redoing a move does not satisfy the no-repeated-fillings instruction. Routes are written on the ruled lines as lists of flips, such as ``erase BF, draw AE'' (Problem 5's example); the working hexagon is for trying moves.

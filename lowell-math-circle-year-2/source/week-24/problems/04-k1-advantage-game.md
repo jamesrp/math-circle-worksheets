@@ -7,7 +7,7 @@ kernel = "Against A choose C, against B choose A, against C choose B; each chose
 +++
 
 ## prompt
-Your partner takes A. Choose a deck that wins more card pairs against it and play six rounds. Do the same for B and C. Must your chosen deck win more rounds?
+Your partner takes A. Choose a deck that wins more card pairs against it, write its letter in the box, and play six rounds. Do the same for B and C. Must your chosen deck win more rounds?
 
 ## figure
-art(kdeck('A',[2,4,9],7.9), kdeck('B',[1,6,8],6.5), kdeck('C',[3,5,7],5.1))
+art(ktracks([('A',None),('B',None),('C',None)],8.3,2.4))

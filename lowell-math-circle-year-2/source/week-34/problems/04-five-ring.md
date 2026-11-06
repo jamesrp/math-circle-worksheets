@@ -18,5 +18,8 @@ Find the fewest kinds of counter for a pattern on the five-ring that no turn or 
 ## figure [K-1]
 ring(9.2,13,5)
 
-## figure
+## figure [2-3]
 ring(9.2,13,5)+line(23)+line(24.1)
+
+## figure [4-5]
+ring(9.2,10.8,5,6)+box(18.7,24.2)

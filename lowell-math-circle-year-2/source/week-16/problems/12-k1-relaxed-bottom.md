@@ -8,7 +8,7 @@ kernel = "Once the bottom side may use Y, fillings with no triangle with R, B an
 +++
 
 ## prompt
-The bottom side now allows R, B, or Y. Find four different fillings with no little triangle that has R, B, and Y.
+The bottom side now allows R, B, or Y. Find a filling with no little triangle that has R, B, and Y. Then find a different one.
 
 ## figure
-board(3,exception='whole',counter=True)+'\n\\vspace{0.2in}\n'+record_triangles()
+board(3,exception='whole',counter=True)

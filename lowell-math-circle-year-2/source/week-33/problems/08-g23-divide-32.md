@@ -7,8 +7,8 @@ page = "same"
 kernel = "Dividing 32 by 5 fails because AAAAA and BBBBB each have one readout; (32 - 2) / 5 + 2 = 8 rings."
 +++
 
-## prompt @18
+## prompt @18.3
 Someone divides 32 by 5 to count the five-bead rings. What went wrong? Find a calculation that counts them correctly.
 
 ## figure
-ruled(21,3)
+ruled(20.6,3)

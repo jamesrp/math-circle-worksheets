@@ -52,6 +52,31 @@ for a in combinations(range(1,10),3):
   cycles+=cycle(a,b,c);strong+=min(counts(a,b,c))>=6
 assert partitions==1680 and cycles==15 and strong==0
 sixwin=sum(Fraction(comb(6,k)*5**k*4**(6-k),9**6) for k in range(4,7));sixtie=Fraction(comb(6,3)*5**3*4**3,9**6)
-out={'original_matrices':matrices,'original_counts':counts(A,B,C),'K5':repK,'K6_swaps':swaps,'fixed_maxima':fixed,'fixed_case_table':case_table,'M4':repM,'six_card_counts':counts(*dup),'four_card_counts':counts(*four),'M6_example':example,'M6_counts':counts(*example),'M6_number_of_solutions':len(total_solutions),'U3_example':repeat,'U3_counts':counts(*repeat),'U5_counts':[win(a,b) for a,b in [((1,5),(2,4)),((2,6),(1,5)),((4,6),(2,3)),((1,3),(2,6))]],'partitions_123456789':partitions,'oriented_strict_cycles':cycles,'six_win_cycles':strong,'favored_six_round_majority':str(sixwin),'favored_six_round_tie':str(sixtie),'six_losses_possible':str(Fraction(4,9)**6),'hidden_left_streak_possible_under_disadvantage':str(Fraction(4,9)**6)}
+# Short games (Problem 1 in every band; Grades 2-3 Problem 3). Count rounds from the actual decks, not only from 5/9.
+def series(x,y,n):
+ dist={0:1}
+ for _ in range(n):
+  nd={}
+  for k,v in dist.items():
+   for u,w in product(x,y):nd[k+(u>w)]=nd.get(k+(u>w),0)+v
+  dist=nd
+ tot=(len(x)*len(y))**n
+ return Fraction(sum(v for k,v in dist.items() if 2*k>n),tot),Fraction(dist.get(n//2,0) if n%2==0 else 0,tot)
+games={n:{f'{la} over {lb}':series(da,db,n) for la,da,lb,db in [('A',A,'B',B),('B',B,'C',C),('C',C,'A',A)]} for n in (6,10)}
+assert all(len(set(g.values()))==1 for g in games.values())
+w6,t6=games[6]['A over B'];w10,t10=games[10]['A over B']
+assert (w6,t6)==(sixwin,sixtie) and round(float(w6),3)==0.453 and round(float(t6),3)==0.301
+assert round(float(w10),3)==0.519 and round(float(t10),3)==0.231
+l6=1-w6-t6
+three_all=w6**3
+outcomes=[('W',w6),('T',t6),('L',l6)]
+three_champion=Fraction(0)
+for (r0,p0),(r1,p1),(r2,p2) in product(outcomes,repeat=3):
+ # games A-B, B-C, C-A, each read from the favored deck; a deck wins both its games
+ if (r0=='W' and r2=='L') or (r1=='W' and r0=='L') or (r2=='W' and r1=='L'):three_champion+=p0*p1*p2
+assert round(float(three_all),3)==0.093 and round(float(three_champion),3)==0.334
+guess6=w6+t6/2;guess10=w10+t10/2
+assert round(float(guess6),2)==0.60 and round(float(guess10),2)==0.63
+out={'original_matrices':matrices,'original_counts':counts(A,B,C),'K5':repK,'K6_swaps':swaps,'fixed_maxima':fixed,'fixed_case_table':case_table,'M4':repM,'six_card_counts':counts(*dup),'four_card_counts':counts(*four),'M6_example':example,'M6_counts':counts(*example),'M6_number_of_solutions':len(total_solutions),'U3_example':repeat,'U3_counts':counts(*repeat),'U5_counts':[win(a,b) for a,b in [((1,5),(2,4)),((2,6),(1,5)),((4,6),(2,3)),((1,3),(2,6))]],'partitions_123456789':partitions,'oriented_strict_cycles':cycles,'six_win_cycles':strong,'favored_six_round_majority':str(sixwin),'favored_six_round_tie':str(sixtie),'six_losses_possible':str(Fraction(4,9)**6),'hidden_left_streak_possible_under_disadvantage':str(Fraction(4,9)**6),'favored_ten_round_majority':str(w10),'favored_ten_round_tie':str(t10),'three_six_round_games_all_favored_win':str(three_all),'three_six_round_games_some_deck_wins_both':str(three_champion),'hidden_guess_right_six_rounds':str(guess6),'hidden_guess_right_ten_rounds':str(guess10),'six_card_A_over_B':win(dup[0],dup[1]),'four_card_C_over_B':win(four[2],four[1])}
 Path(__file__).with_name('checks.json').write_text(json.dumps(out,indent=2)+'\n')
 print(json.dumps(out,indent=2))

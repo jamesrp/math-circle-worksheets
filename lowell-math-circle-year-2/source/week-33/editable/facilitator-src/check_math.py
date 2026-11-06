@@ -66,5 +66,12 @@ assert necklaces(5)=={'AAAAA':[1],'AAAAB':[2,3,5,9,17],'AAABB':[4,7,13,18,25],'A
 assert sorted(len(v) for v in necklaces(4).values())==[1,1,2,4,4,4]
 assert len(necklaces(5,'ABC'))==51
 for w,size in [('ABABAB',2),('AABAAB',3),('AAAAAB',6)]:assert len(rotations(w))==size
+# Week 33 kid-fit renumbering (6 November 2026): K-1 P3/P5 lists and the Grades 4-5 P4 readout sets.
+assert sorted(k for k in necklaces(4) if k.count('A')==2)==['AABB','ABAB']
+assert sorted(k for k in necklaces(5) if k.count('A')==2)==['AABBB','ABABB']
+for n,sizes in [(4,{1,2,4}),(6,{2,3,6}),(7,{7}),(9,{3,9})]:
+ mixed={len(v) for k,v in necklaces(n).items() if len(set(k))>1}
+ assert mixed=={s for s in sizes if s>1} and len(rotations('A'*n))==1
+for w,size in [('AABAABAAB',3),('AAAAABBBB',9)]:assert len(rotations(w))==size
 assert 'AABBAB' not in rotations('AABABB') and 'AABBAB' in rotations('AABABB'[::-1])
 print('PASS: rod certificates and exact small combinations; signed-weight ranges and uniqueness; geometric blocker counts; all 49 rectangle-search cases; printed necklace partitions and three-color count.')

@@ -10,4 +10,4 @@ route = "first"
 Each card has the same chance. Mix the bags separately. Draw once from each bag, then put both cards back. The bigger number wins.
 
 ## text @.62,10.07 size=11.5
-Each physical card is equally likely. Mix each deck separately and draw one card from each. Return both cards before the next round. The larger number wins. The two decks in a comparison must not share a number. Card order in a deck does not matter.
+Each card has the same chance. Mix the bags separately. Draw once from each bag, then put both cards back. The bigger number wins.

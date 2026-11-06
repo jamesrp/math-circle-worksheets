@@ -7,3 +7,5 @@ Run `bash build.sh` with Python 3, pdfLaTeX/TikZ and Poppler. The build regenera
 October 23, 2026: the build now writes the source from the problem files (`regenerate.py`) and runs the old builder's finite checks as `check_distinguishing.py`; the LaTeX is byte-identical.
 
 October 23, 2026, card fixes (v3): the example adds a flip panel with its axis, every goal reads "a pattern that no turn or flip can match", the rules say "neighbors may be the same kind", and Grades 4-5 get a sixth page of extra workspace (seven- and nine-rings). Checked by `plans/review/checks/week-34/check_card_fixes.py` in the project.
+
+November 6, 2026, kid-fit revision (v4): copy-by-dots and builder/tester roles in the shared rules (shorter K-1 rules), K-1 Problem 3 on its own page with a printed start (A A B C), K-1 Problem 6 cut to one pattern, Problem 4 asks for an explanation rather than a list of moves, Grades 4-5 answer boxes. `check_revised_cases.py` already checks that the printed A A B C start has one-counter changes of both kinds. Approved for adoption by James; unpiloted.

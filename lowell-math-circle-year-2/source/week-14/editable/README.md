@@ -1,6 +1,6 @@
 # Polygon triangulations and flips: Week 14 editable release
 
-## Current release: October 4, 2026 fresh-review revision, with the October 23 card fixes
+## Current release: October 4, 2026 fresh-review revision, with the October 23 card fixes and the November 6 kid-fit revision
 
 The guide now gives first routes, readiness-dependent continuation and return visits; original mathematical investigations are retained. On October 23, 2026 the student pages became problem files, and the review card's should fixes were made in them (v3 packets): K–1 Problem 5's copies print their start in light gray, grades 2–3 page 8 is headed "Problem 7 (continued)" only, four questions are plainer, grades 4–5 Problem 4 has arrows to the target, and grades 2–3 page 6's copies clear the footer. The guide adds a referee check for every change, quarter-cut tracing sheets for eleven children, a menu matching the group's hour, two key notes, a route-recording hint and the corrected route note. See `review/card-fixes-2026-10-23.md`.
 
@@ -8,7 +8,9 @@ This is an unpiloted theme library, not a fixed meeting schedule. Select a manag
 
 Later on October 23 the tightest recording copies were enlarged (K–1 p. 4, Grades 2–3 p. 6, Grades 4–5 p. 5; footers v4, named on guide p. 2).
 
-Current pages: **K–1 6; Grades 2–3 8; Grades 4–5 7; adult guide 14**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
+On November 6, 2026 the kid-fit revision, approved by James, replaced the student pages (footers F14-K-v5, F14-23-v5, F14-45-v5): K–1 works on large printed boards with no tracing paper and gains a ring for Problem 6 and an extra-boards page, grades 2–3 Problems 4 and 5 swap, the older bands' one-change copies print gray starts, and routes are written as lists of flips beside a working board. The guide (F14-FAC-v5) follows, with a K–1 table note and a note on handling K–1 Problem 5's small gray copies; `src/student_checks.py` and `verify_geometry.py` check the new layouts. Unpiloted.
+
+Current pages: **K–1 7; Grades 2–3 8; Grades 4–5 7; adult guide 14**. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project
 

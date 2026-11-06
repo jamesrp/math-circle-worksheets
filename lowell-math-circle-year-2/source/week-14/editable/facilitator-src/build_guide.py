@@ -38,7 +38,7 @@ pre=r'''\documentclass[11pt,letterpaper]{article}
 \setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
 \setlist[itemize]{label=$\bullet$,itemsep=2pt,topsep=3pt,leftmargin=16pt}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Bellingham Math Circle}\fancyhead[R]{\small Polygon triangulations and flips}
-\fancyfoot[L]{\small Week 14 library slot / Draft and unpiloted}\fancyfoot[R]{\thepage}
+\fancyfoot[L]{\small Week 14 library slot / F14-FAC-v5 / Draft and unpiloted}\fancyfoot[R]{\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \newcommand{\pagehead}[1]{{\Large\bfseries #1}\par\vspace{3pt}}
 \newcommand{\prob}[2]{\par\vspace{5pt}{\large\bfseries #1}\par #2}
@@ -47,27 +47,27 @@ pre=r'''\documentclass[11pt,letterpaper]{article}
 '''
 pages=[(P/'mathematical-overview.tex').read_text()]
 pages.append(r'''\pagehead{Polygon triangulations facilitator guide}
-This guide keys the final F14-K-v4, F14-23-v4, and F14-45-v4 student packets. They have 6, 8, and 7 pages, respectively. The middle packet has seven problems; page 8 is explicitly labeled Problem 7 (continued) and provides extra hexagons for the same collection. There are 20 distinct numbered problems across the three bands. ``Week 14'' is an unscheduled library label. This guide and these activities are draft and unpiloted.
+This guide, F14-FAC-v5, keys the F14-K-v5, F14-23-v5, and F14-45-v5 packets of the November 6, 2026 kid-fit revision, with 7, 8, and 7 pages; K--1 page 7 is unnumbered extra workspace. The middle packet has seven problems; page 8 is explicitly labeled Problem 7 (continued) and provides extra hexagons for the same collection. There are 20 distinct numbered problems across the three bands. ``Week 14'' is an unscheduled library label. This guide and these activities are draft and unpiloted.
 
 \textbf{Mathematical purpose.} Children construct complete triangle fillings, distinguish fixed-label configurations, find complete small collections, and investigate how one local change connects them. The pentagon admits a five-flip return loop. Fan targets have a useful exact distance rule. These conclusions should emerge after drawing and comparing.
 
 \textbf{Prerequisites and entry points}
 \begin{itemize}
-\item K--1: point to original corners, draw or direct a straight line, recognize triangles, and compare two pictures. Adult reads and may trace. No reading, angle measurement, or multiplication is required.
+\item K--1: point to original corners, draw or direct a straight line, recognize triangles, and compare two pictures. Adult reads; children draw on large printed boards, with no tracing paper. No reading, angle measurement, or multiplication is required.
 \item Grades 2--3: preserve labels while comparing pictures, organize a collection, and count changes. The hexagon collection is a substantial optional endpoint.
 \item Grades 4--5: track several configurations and compare a construction with a lower bound. General reasoning may be spoken and picture based. No Catalan formula, algebra, or polytope vocabulary is assumed.
 \end{itemize}
-\textbf{Supplies and preparation for eleven children.} Prepare eleven pencils, erasers and short straightedges, about 28 tracing sheets cut into quarters ($4\tfrac14\times5\tfrac12$ in, which covers the largest board, $3.8\times4.4$ in), and at least 30 blank Letter sheets beyond the packets. Children use a tracing for each find or step, so plan on about ten quarters per child. These are proposed quantities, not an inventory claim. Print single-sided at 100\%. The large working polygons are roughly 3--5 inches across. The student polygon boards are regular, with equally scaled axes; compact copies are for recording answers. Use the larger outlines or tracing paper for the main exploration. Tracing sheets preserve printed starts and separate alternative answers. Pattern-block triangles are unsuitable: legal triangles vary in size and shape. Label every traced corner before drawing inside it.
+\textbf{Supplies and preparation for eleven children.} Prepare eleven pencils, erasers and short straightedges, about 20 tracing sheets cut into quarters ($4\tfrac14\times5\tfrac12$ in, which covers the largest board, $3.8\times4.4$ in), and at least 30 blank Letter sheets beyond the packets. K--1 children draw directly on their large printed boards. The seven older children use a tracing for each find, so plan on about ten quarters each, with a few spare at the K--1 table for Problem 5. These are proposed quantities, not an inventory claim. Print single-sided at 100\%. The large working polygons are roughly 2--4.5 inches across. The student polygon boards are regular, with equally scaled axes; compact copies are for recording answers. Use the larger outlines or tracing paper for the main exploration. Tracing sheets preserve printed starts and separate alternative answers. Pattern-block triangles are unsuitable: legal triangles vary in size and shape. Label every traced corner before drawing inside it.
 
 \textbf{A flexible one hour menu}
 \begin{itemize}
 \item Minutes 0--5: run around; the children arrive straight from school.
-\item Minutes 5--9: the whole group launch below; then let children handle tracing paper and straightedges.
+\item Minutes 5--9: the whole group launch below; then let children handle straightedges and, from grade 2, tracing paper.
 \item Minutes 9--28: K--1 P1--2; middle P1--2; upper P1--2. Let children draw and compare before organizing the full collection.
 \item Minutes 28--50: choose fixed-line completions, one-change neighbors, a pentagon map, or a shortest-route question. Keep middle P7 in reserve if collecting fourteen cases would displace the flips children want to explore.
 \item Minutes 50--60: share a complete collection, an odd return route, or a shortest-route certificate. Stopping with one convincing example is fine.
 \end{itemize}
-\textbf{Whole group launch.} On a convex quadrilateral, draw one diagonal between two printed corners. Ask, ``Is the whole shape triangles now?'' Trace a copy, erase only that diagonal on the tracing, and draw the other one. Let children make the same change. Then show the referee check every table uses for every change: a partner lays the new drawing on the old one and points to the one line that moved. A drawing with two changed lines, or redrawn from scratch two changes away, does not count as one change. Name the operation later, after they have used it. Do not show the five-cycle or the fan rule in advance.
+\textbf{Whole group launch.} On a convex quadrilateral, draw one diagonal between two printed corners. Ask, ``Is the whole shape triangles now?'' Trace a copy, erase only that diagonal on the tracing, and draw the other one. Let children make the same change. Then show the referee check every table uses for every change: a partner lays the new drawing on the old one and points to the one line that moved. A drawing with two changed lines, or redrawn from scratch two changes away, does not count as one change. The K--1 table skips the tracing (page 4). Name the operation later, after they have used it. Do not show the five-cycle or the fan rule in advance.
 ''')
 s=r'''\pagehead{Rules and a complete pentagon collection}
 \textbf{Legal fillings.} Use only straight segments between the original corners of a strictly convex polygon. No new interior points, extra edge points, moving corners, or crossing interiors. Fill the entire polygon with triangles. The labels stay attached to their corners even if the sheet turns. Two fillings differ exactly when their sets of diagonals differ. Rotations of the paper do not identify labeled fillings.
@@ -92,21 +92,23 @@ The last row counts different whole fillings, not triangles inside one filling. 
 '''
 pages.append(s)
 s=r'''\pagehead{K--1 solutions for Problems 1 to 4}
+\textbf{At the K--1 table.} Children draw directly on the large boards, with no tracing. The adult checks each change by finding the one line crossed out and the one line drawn. The rule that every corner of every triangle is a printed dot is what rules out crossing lines: if a child draws a star, point to a crossing that is not a dot. Problem 6 needs only the pentagon, so a table can turn to it straight after Problem 2.
 \prob{Problem 1}{Any two distinct legal fillings of each printed polygon suffice. For the pentagon, use $\{13,14\}$ and $\{24,25\}$. For the hexagon, use $\{13,14,15\}$ and $\{24,25,26\}$. Each pentagon has 3 triangles; each hexagon has 4.}
-\hint{If a child repeats the same picture, compare the endpoints of every line. A tracing turned around without changing corner names is still the same filling.}
-\prob{Problem 2}{There are five fillings, exactly the five fans on page 3 with letters replaced by numbers. Their diagonal sets are $\{13,14\}$, $\{24,25\}$, $\{13,35\}$, $\{14,24\}$, and $\{25,35\}$.}
-\hint{Let the child keep each discovery on a separate tracing. When ready to check completeness, ask whether the two lines meet at a corner and which corner it is.}
+\hint{If a child repeats the same picture, compare the endpoints of every line. Turning the page around does not make a new filling: compare corner numbers, not looks.}
+\prob{Problem 2}{There are five fillings, exactly the five fans on page 3 with letters replaced by numbers. Their diagonal sets are $\{13,14\}$, $\{24,25\}$, $\{13,35\}$, $\{14,24\}$, and $\{25,35\}$. The page has six boards for five fillings, so one stays empty.}
+\hint{Let the child keep each discovery on its own board; the packet's last page has spare boards. When ready to check completeness, ask whether the two lines meet at a corner and which corner it is.}
 \prob{Problem 3}{Three triangles are impossible; four are possible. For example, $\{13,14,15\}$ gives four. Any diagonal of a hexagon separates a triangle and a pentagon, or two quadrilaterals. Completing those sides gives $1+3=4$ or $2+2=4$ triangles. Thus changing the shape of the triangles cannot yield three.}
 \hint{Ask the child to point to any uncovered region in a three-triangle attempt. For a child seeking a reason that covers every attempt, cover one side of a chosen diagonal and count the two smaller pieces separately.}
-\prob{Problem 4}{Keeping 13 in the pentagon leaves a quadrilateral with two choices. Keeping 14 in the hexagon leaves two quadrilaterals, each with two independent choices: four completions. Only two pentagon completions exist, so two of the four pre-lined pentagon copies stay empty; the spares keep the copies from giving the count away. Here is the full answer collection.}
+\prob{Problem 4}{Keeping 13 in the pentagon leaves a quadrilateral with two choices. Keeping 14 in the hexagon leaves two quadrilaterals, each with two independent choices: four completions. Only two pentagon completions exist, so one of the three pre-lined pentagons stays empty, and two of the six pre-lined hexagons stay empty; the spares keep the boards from giving the count away. Here is the full answer collection.}
 '''
 s+=gallery(5,D['fixed_pentagon'],labels='numbers',cols=2,radius=.9,captions=['13, 35','13, 14'])
 s+=gallery(6,D['fixed_hexagon'],labels='numbers',cols=4,radius=.78,captions=['14, 24, 46','13, 14, 46','14, 15, 24','13, 14, 15'])
-s+=r'''\hint{Keep the required printed diagonal visible on every tracing. If one hexagon side is always filled the same way, ask whether its quadrilateral has another filling. Combining each left choice with each right choice proves completeness.}
+s+=r'''\hint{The required diagonal is printed on every board; if a child erases it, redraw it on a spare board from the packet's last page. If one hexagon side is always filled the same way, ask whether its quadrilateral has another filling. Combining each left choice with each right choice proves completeness.}
 '''
 pages.append(s)
 s=r'''\pagehead{K--1 solutions for Problems 5 and 6}
 \prob{Problem 5}{Each printed hexagon has exactly three one-change results, one for each of its three interior diagonals. The original filling itself is not a new result. Each small copy prints its start's lines in light gray: the child crosses out the gray line that goes and draws the new one, so every copy differs from its start by one line. Show this once at the table. Four copies for three results keep the count open.}
+\textbf{Handling the small copies.} The copies are about 1.3 in across, and gray lines cannot be erased, so ``erase'' means cross out: the child slashes the gray line that goes and rules the new one, and a wobbly line that clearly joins the right two dots counts. If small hands cannot manage, the adult rules the line the child points to, the child works on a quarter tracing sheet over the large board, or the adult uses a whiteboard copy, where a line really can be erased. The child still chooses every change.
 \textbf{First start} $\{13,14,15\}$ has these three neighbors:
 '''
 s+=gallery(6,D['hex_fan_neighbors'],labels='numbers',cols=3,radius=1,captions=['13, 14, 46','13, 15, 35','14, 15, 24'])
@@ -121,8 +123,8 @@ s+=r'''
 \{13,14\}\to\{13,35\}\to\{25,35\}\to
 \{24,25\}\to\{14,24\}\to\{13,14\}.
 \]
-Each arrow replaces exactly one line. The pentagon map on page 6 shows why all five fillings have been visited.
-\hint{Lay the five earlier tracings around the table. Ask which ones can follow the current picture after one change. Keep the used tracings separate until it is time to return.}
+Each arrow replaces exactly one line. The pentagon map on page 6 shows why all five fillings have been visited. The ring's top board is the fan at 1; four blank boards take four changes, and the last arrow home is the fifth. Only the first change is a choice; each later one is forced, since the other change goes back.
+\hint{Lay the five Problem 2 boards beside the ring. Ask which of them can follow the current picture after one change. A child who reaches a filling already on the ring has gone back; look for the other change.}
 \textbf{Useful stopping point.} Children who build and explain this five-step loop have encountered a genuine odd cycle. They do not need the word ``parity'' or the older packet's distance formula.
 '''
 pages.append(s)
@@ -132,8 +134,10 @@ s=r'''\pagehead{Grades 2--3 solutions for Problems 1 to 5}
 \prob{Problem 2}{Exactly five pentagon fillings, displayed on page 3. The shared-corner argument there proves completeness.}
 \hint{Sort a child's collection by the corner shared by its two diagonals. Keep corner names fixed so that all five fans remain distinct.}
 \prob{Problem 3}{First start $\{AC,AD,AE\}$ has neighbors $\{AC,AD,DF\}$, $\{AC,AE,CE\}$, and $\{AD,AE,BD\}$. Second start $\{AC,AE,CE\}$ has neighbors $\{AC,CE,CF\}$, $\{AE,BE,CE\}$, and $\{AC,AD,AE\}$. The six diagrams on page 5 show all results after replacing number labels by letters.}
-\hint{Choose one original diagonal; identify its two incident triangles. The other diagonal of their quadrilateral is the only legal replacement.}
-\prob{Problem 4}{The complete pentagon map has exactly five joins: $F_A F_C$, $F_C F_E$, $F_E F_B$, $F_B F_D$, $F_D F_A$. There are no other joins. The revised student layout follows this cycle around the page.}
+\hint{Choose one original diagonal; identify its two incident triangles. The other diagonal of their quadrilateral is the only legal replacement. Each small copy prints its start in light gray: cross out the gray line that goes and draw the new one.}
+\prob{Problem 4}{An odd return route is $F_A,F_C,F_E,F_B,F_D,F_A$, with five flips. The complete sets are the K--1 P6 route with letters replacing numbers. No shorter odd return is possible: the pentagon's flip map (Problem 5) has no loops or triangles. An immediate out-and-back takes two flips and does not meet the odd condition. Children find this route before drawing the map; Problem 5 then shows it as the map's cycle.}
+\hint{Ask children to count \emph{moves}, not pictures, along their route. Six listed pictures represent five flips when the first is repeated at the end.}
+\prob{Problem 5}{The complete pentagon map has exactly five joins: $F_A F_C$, $F_C F_E$, $F_E F_B$, $F_B F_D$, $F_D F_A$. There are no other joins. The revised student layout follows this cycle around the page.}
 \begin{center}
 \begin{tikzpicture}[>=Stealth,every node/.style={draw,circle,minimum size=11mm},scale=.85]
 \foreach \name/\angle in {A/90,C/18,E/-54,B/-126,D/162}{\node(\name) at (\angle:2.1) {$F_{\name}$};}
@@ -141,8 +145,6 @@ s=r'''\pagehead{Grades 2--3 solutions for Problems 1 to 5}
 \end{tikzpicture}
 \end{center}
 Each adjacent pair keeps one diagonal and replaces the other. Each of the five fillings has only two interior diagonals, hence exactly two possible flips; the displayed joins account for both and prove completeness.
-\prob{Problem 5}{An odd return route is $F_A,F_C,F_E,F_B,F_D,F_A$, with five flips. The complete sets are the K--1 P6 route with letters replacing numbers. No shorter odd return is possible: this graph has no loops or triangles. An immediate out-and-back takes two flips and does not meet the odd condition.}
-\hint{Ask children to trace the joins with a finger and count \emph{moves}, not pictures. Six listed pictures represent five flips when the first is repeated at the end.}
 '''
 pages.append(s)
 s=r'''\pagehead{Grades 2--3 Problem 6 and shortest routes}
@@ -158,7 +160,7 @@ s+=r'''
 s+=gallery(6,D['routes']['middle6_long'],cols=5,radius=.68,captions=[str(i) for i in range(5)])
 s+=route_table('middle6_long')
 s+=r'''
-\hint{For the shortest route, ask which target lines are missing and how many can appear in one move. For the second route, try a different first move. Undoing and redoing a move does not satisfy the no-repeated-fillings instruction.}
+\hint{For the shortest route, ask which target lines are missing and how many can appear in one move. For the second route, try a different first move. Undoing and redoing a move does not satisfy the no-repeated-fillings instruction. Routes are written on the ruled lines as lists of flips, such as ``erase BF, draw AE'' (Problem 5's example); the working hexagon is for trying moves.}
 \textbf{Check the actual move.} Two diagonal lists of length three are flip neighbors when they share exactly two diagonals. Merely rotating a page is not a move; nor may the child replace two diagonals at once.
 '''
 pages.append(s)
@@ -183,7 +185,7 @@ pages.append(s)
 s=r'''\pagehead{Grades 4--5 solutions for Problems 1 to 4}
 \prob{Problem 1}{The five pentagon fans on page 3 are the complete answer. The shared-corner proof or the root-edge classification proves no filling is missing.}
 \prob{Problem 2}{The two printed hexagon starts have the same six neighbors keyed in middle P3 and pictured in K--1 P5. Each start has exactly three possible flips. The two-triangle quadrilateral argument on page 5 proves completeness.}
-\hint{A different-looking triangulation need not be one move away. Check that exactly one old diagonal disappeared and exactly one new one appeared.}
+\hint{A different-looking triangulation need not be one move away. Check that exactly one old diagonal disappeared and exactly one new one appeared. Each small copy prints its start in light gray: cross out the gray line that goes and draw the new one.}
 \prob{Problem 3}{The complete map is the five-cycle on page 6. The five-flip loop $F_A,F_C,F_E,F_B,F_D,F_A$ is an odd return. Its reverse is also valid. The graph is not bipartite: alternating two colors around the cycle makes the final edge join two same-colored vertices.}
 \textbf{Fidelity warning.} A parity invariant from lozenge tiling flips does not transfer here. The objects and moves are different; a polygon five-cycle is a direct counterexample to an even-return claim.
 \prob{Problem 4}{The three starts, left to right, are $\{BD,BE,BF\}$, $\{AC,AE,CE\}$, and $\{AD,BD,DF\}$. The fourth filling, where the arrows point, is the A fan $\{AC,AD,AE\}$. Their minimum distances are 3, 1, and 2.}
@@ -194,7 +196,7 @@ s+=gallery(6,D['routes']['upper4_middle'],cols=2,radius=.9)
 s+=r'''\textbf{Right start.} Replace BD by AC, then DF by AE. Exactly two target diagonals were missing.
 '''
 s+=gallery(6,D['routes']['upper4_right'],cols=3,radius=.9)
-s+=r'''\hint{Have a child mark which A-fan diagonals are already present, without erasing them. Ask how much that count can rise in one flip. A successful short route alone is not a proof that it is shortest.}
+s+=r'''\hint{Have a child mark which A-fan diagonals are already present, without erasing them. Ask how much that count can rise in one flip. A successful short route alone is not a proof that it is shortest. Each route is written as a list of flips on the ruled lines beside the blank hexagon, which is for trying moves.}
 '''
 pages.append(s)
 s=r'''\pagehead{Grades 4--5 Problem 5 and two octagon fans}
@@ -207,7 +209,7 @@ s+=r'''\textbf{Three-flip route to the A fan}
 '''+route_table('upper5_E')+r'''
 \textbf{Optimality certificates.} The start already has two of A's five diagonals and none of E's five. Each flip can add at most one target diagonal. Therefore at least $5-2=3$ and $5-0=5$ flips are required. Both tables achieve their lower bounds, always adding a target diagonal and never deleting one.
 \hint{Ask the child to choose a target corner and point to every diagonal already meeting it. If a proposed flip removes one of those, ask whether a different choice can increase the count instead. The general reason that such a choice exists is on page 11.}
-\textbf{Using the tables.} Step 0 is the given picture. Draw each later row on tracing paper and compare consecutive rows. The change column names the entire local move; all other diagonals stay fixed. The eight new pictures in the two routes fit the eight provided recording copies if the printed start is reused.
+\textbf{Using the tables.} Step 0 is the printed start. The change column names the entire local move; all other diagonals stay fixed. Children write each route on the ruled lines as a list of flips, such as ``erase DH, draw AG'', and try moves on the blank octagon. Nine lines under each fan leave room for the five-flip route and a false start.
 '''
 pages.append(s)
 s=r'''\pagehead{Grades 4--5 Problem 6 and the fan rule}
@@ -215,7 +217,7 @@ s=r'''\pagehead{Grades 4--5 Problem 6 and the fan rule}
 \[
 \boxed{n-3-d_A}.
 \]
-Do not count the two boundary sides at A. For a triangle, $n-3=d_A=0$, so the formula includes the zero-move case.
+Do not count the two boundary sides at A. For a triangle, $n-3=d_A=0$, so the formula includes the zero-move case. The page gives a blank hexagon, heptagon and octagon for testing a rule.
 
 \textbf{Lower bound.} Every filling has $n-3$ diagonals. An A fan has all of them incident to A. One flip adds at most one new A diagonal, so at least $n-3-d_A$ flips are necessary.
 

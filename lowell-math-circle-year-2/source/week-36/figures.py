@@ -86,12 +86,12 @@ def tile(p,x,y,shape,fill,s=2.25,frame=True):
  else:cmd=f'({x-r},{y-r}) rectangle ({x+r},{y+r})'
  p.p.append(f'\\draw[line width=1pt,{opt}] '+cmd+';')
 def swatch(p,x,y,f):
+ # Revised November 6, 2026: a short wide fill bar, so the fills row shows no repeated shape.
  opt='fill=white' if f==0 else 'pattern=north east lines' if f==1 else 'fill=black'
- p.p.append(f'\\draw[{opt},line width=.7pt] ({x-.18},{y-.18}) rectangle ({x+.18},{y+.18});')
+ p.p.append(f'\\draw[{opt},line width=.7pt] ({x-.45},{y-.15}) rectangle ({x+.45},{y+.15});')
 def demo_(p):
- # Left: two inputs, arrow, completing third. Right: two fills equal is invalid.
+ # Left: an allowed three, not in a row. Right: two fills equal is invalid. (Arrow removed November 6, 2026.)
  for x,y,sh,fi in [(1.1,4.1,0,0),(3.8,4.9,1,2),(7.3,4.1,2,1),(11.2,4.1,0,0),(13.9,4.1,1,0),(16.6,4.1,2,2)]:tile(p,x,y,sh,fi,2.1)
- p.p.append(r'\draw[-{Stealth},line width=1pt] (5.05,4.7) -- (6.02,4.25);')
  p.text(.15,6.1,8.6,'allowed three',13);p.text(10.1,6.1,8.2,'not allowed',13)
  p.text(.15,6.85,2.3,'shapes',12);p.text(10.1,6.85,2.3,'shapes',12)
  for x,sh in [(2.7,0),(4,1),(5.3,2),(12.65,0),(13.95,1),(15.25,2)]:tile(p,x,7.12,sh,0,.63,False)
@@ -104,6 +104,12 @@ def pairs_(p):
   for j,(a,b) in enumerate(pair):tile(p,x+1.1+2.75*j,y,a,b,2.2)
   tile(p,x+7,y,None,None,2.2)
   p.p.append(f'\\draw[-{{Stealth}}] ({x+5.05},{y}) -- ({x+5.68},{y});')
+def pairs_big_(p):
+ # Added November 6, 2026 for K-1: each pair drawn small above a 64 mm answer cell that holds a 60 mm tile.
+ for x,y,pair in [(1.6,2.9,[(0,0),(0,1)]),(10.7,2.9,[(0,0),(1,0)]),(1.6,13.8,[(0,1),(1,2)]),(10.7,13.8,[(1,1),(2,0)])]:
+  for j,(a,b) in enumerate(pair):tile(p,x+1.75+2.9*j,y+1.2,a,b,2.4)
+  p.p.append(f'\\draw[-{{Stealth}},line width=1pt] ({x+3.2},{y+2.55}) -- ({x+3.2},{y+3.2});')
+  tile(p,x+3.2,y+6.55,None,None,6.4)
 def mat_(p,y=4.8,shown=False):
  for i in range(4):
   p.p.append(f'\\draw[gray!65] (.2,{y+6*i}) -- (18.2,{y+6*i});')
@@ -133,6 +139,10 @@ def demo(p):  # the rules: an allowed three and a near miss, with shape and fill
 @draw
 def pairs(p):  # Problem 1 in every band: four pairs to complete
  pairs_(p)
+
+@draw
+def pairs_big(p):  # K-1 Problem 1: the four pairs, each above a tile-size answer cell
+ pairs_big_(p)
 
 @draw
 def mat(p,y=4.8,shown=False):  # a 3 x 3 mat of 60 mm cells, empty or with the nine tiles

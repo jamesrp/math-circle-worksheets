@@ -28,3 +28,6 @@ Deferred: none of the card's items. Physical card-stock tiles, the shapes-only f
 ## Critic follow-up, the same day (guide only)
 
 An independent critic noted that the straight-line warning on guide p. 1 named only the record boards, though the 60 mm grids on K–1 p. 3, Grades 2–3 p. 3 and Grades 4–5 p. 2 use the same rows-by-shape layout. The warning now begins "On every printed nine-tile grid (K-1 p. 3, Grades 2-3 pp. 3-4, Grades 4-5 pp. 2-4)". The student packets are unchanged (v3).
+
+
+Since the November 6, 2026 kid-fit revision (v4), `verify_card_shoulds_2026_10_23.py` describes the v3 pages, now archived; run it against copies of those PDFs. The current pages are checked by `verify_kid_fit_2026_11_06.py` (see `kid-fit-2026-11-06.md`).

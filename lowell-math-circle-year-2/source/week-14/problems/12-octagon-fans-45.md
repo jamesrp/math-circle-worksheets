@@ -10,7 +10,7 @@ kernel = "From the printed octagon filling the fans at A and E need 3 and 5 flip
 A filling whose inside lines all meet at one corner is called a fan. Find the fewest flips from this filling to a fan at A, and to a fan at E. Explain why each route is shortest.
 
 ## figure
-large_plus_copies(8,oct_start,'letters',topcy=4.3,copyy=7.75,copy_h=1.15,rowgap=1.62)
+octagon_fans_written()
 
 ## key
 The printed start is $S=\{AC,AD,DF,DG,DH\}$. A fan at A has five diagonals $\{AC,AD,AE,AF,AG\}$; a fan at E has $\{AE,BE,CE,EG,EH\}$. The minimum distances are 3 and 5, respectively. Three-flip route to the A fan
@@ -29,7 +29,7 @@ Five-flip route to the E fan
 4 & AC, AE, CE, EG, EH & AD $\to$ CE\\
 5 & AE, BE, CE, EG, EH & AC $\to$ BE\\
 \bottomrule\end{tabular}\end{center}
-Optimality certificates. The start already has two of A's five diagonals and none of E's five. Each flip can add at most one target diagonal. Therefore at least $5-2=3$ and $5-0=5$ flips are required. Both tables achieve their lower bounds, always adding a target diagonal and never deleting one. The eight new pictures in the two routes fit the eight provided recording copies if the printed start is reused.
+Optimality certificates. The start already has two of A's five diagonals and none of E's five. Each flip can add at most one target diagonal. Therefore at least $5-2=3$ and $5-0=5$ flips are required. Both tables achieve their lower bounds, always adding a target diagonal and never deleting one. Children write each route on the ruled lines as a list of flips, such as ``erase DH, draw AG'', and try moves on the blank octagon.
 
 ## hints
 Ask the child to choose a target corner and point to every diagonal already meeting it. If a proposed flip removes one of those, ask whether a different choice can increase the count instead. The general reason that such a choice exists is on page 11.

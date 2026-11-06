@@ -1,6 +1,8 @@
 # Kid-fit pilot: ten weak-page weeks through the reviser
 
-November 6, 2026. James asked on November 6 to try the kid-fit stage on existing weeks before any wider sweep ("Sounds good! Go ahead on this"). This is the result. Nothing here has been used with children, and the current print PDFs are unchanged. The revised packets are candidates, waiting for James.
+November 6, 2026. James asked on November 6 to try the kid-fit stage on existing weeks before any wider sweep ("Sounds good! Go ahead on this"). This is the result. Nothing here has been used with children.
+
+**Adopted, November 6, 2026.** James approved adopting the revised weeks the same day. All ten are now the current print set: the band PDFs are the approved candidates (byte-identical), and each week's facilitator guide, key, band views, editable package, source ZIP, README and catalog record were updated to match. Each guide was renumbered and gained this summary's adoption notes: Week 24's new page says a short game shows the stronger deck winning outright only 45% of the time over 6 rounds and 52% over 10, and that the cycle shows by counting pairs; the materials gaps in Weeks 12, 16, 24 and 49 are filled; Week 25's identical boards are called extra workspace; Week 22's K–1 board 2 tells the adult to show the one-dot move. The replaced files are in each week's `archive-before-kid-fit-2026-11-06/`. Every packet and guide rebuilds from its extracted source ZIP. The PyMuPDF-based `verify_revision.py` scripts could not run in this environment (PyMuPDF not installed); exact text and 100-dpi pixel comparisons stand in for them. Some older dated check scripts (October 23 card-fix verifiers, `plans/review/checks/week-22/` and `week-34/`) describe the previous pages and will now fail by design. The six activity questions below stay open for James. The candidate copies under `plans/review/kid-fit/pilot/` are kept as the record of what was approved.
 
 ## Verdict
 

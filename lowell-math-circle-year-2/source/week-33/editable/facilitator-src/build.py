@@ -37,5 +37,5 @@ for pi,page in enumerate(data['pages'],1):
   else:
    sty=styles[typ];y-=sty.spaceBefore;p=Paragraph(block[1],sty);w,h=p.wrap(528,720);y-=h;p.drawOn(c,42,y);y-=sty.spaceAfter
   if y<44:raise RuntimeError(f"Page {pi} overflows to y={y}")
- c.setFont('D',8);c.setFillColor(MUTED);c.drawString(42,27,'Bellingham Math Circle | Prepared October 2026 | Unpiloted');c.drawRightString(570,27,str(pi));c.showPage()
+ c.setFont('D',8);c.setFillColor(MUTED);c.drawString(42,27,'Bellingham Math Circle | Guide G33-v5, kid-fit revision 6 November 2026 | Unpiloted');c.drawRightString(570,27,str(pi));c.showPage()
 c.save();print(out)

@@ -8,7 +8,7 @@ kernel = "Each of the 16 little triangles of the four-step board can be the only
 +++
 
 ## prompt
-Make just one little triangle with R, B, and Y. Move the counters to put it in as many different places as you can.
+Make just one little triangle with R, B, and Y, and draw an X inside it. Move the counters to put it in as many other places as you can. Draw an X in each new place.
 
 ## figure
 board(4,counter=True)

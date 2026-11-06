@@ -13,7 +13,9 @@ CELL=22
 # ---------------------------------------------------------------- drawing primitives (build_packets.py)
 
 # A circled total is separate from the permanent row/column labels.
-def board(x,y,r,c,rows=None,cols=None,picture=None,blank_counts=False,cell=CELL):
+def board(x,y,r,c,rows=None,cols=None,picture=None,blank_counts=False,cell=CELL,count_r=3.6):
+    # count_r=5.5 gives K-1 children 11 mm circles to write counts in (kid-fit fix 7, November 2026).
+    gap=6 if count_r==3.6 else count_r+2.5
     s=[]
     for j in range(c+1):
         s.append(fr'\draw[line width=0.55pt] ({x+j*cell},{y}) -- ({x+j*cell},{y+r*cell});')
@@ -23,16 +25,16 @@ def board(x,y,r,c,rows=None,cols=None,picture=None,blank_counts=False,cell=CELL)
         yy=y+(i+.5)*cell
         s.append(fr'\node[font=\fontsize{{11}}{{13}}\selectfont] at ({x-5.2},{yy}) {{{chr(65+i)}}};')
         if rows is not None or blank_counts:
-            xx=x+c*cell+6
-            s.append(fr'\draw[line width=.45pt] ({xx},{yy}) circle[radius=3.6mm];')
+            xx=x+c*cell+gap
+            s.append(fr'\draw[line width=.45pt] ({xx},{yy}) circle[radius={count_r}mm];')
             value='' if rows is None else str(rows[i])
             s.append(fr'\node[font=\fontsize{{12}}{{14}}\selectfont] at ({xx},{yy}) {{{value}}};')
     for j in range(c):
         xx=x+(j+.5)*cell
         s.append(fr'\node[font=\fontsize{{11}}{{13}}\selectfont] at ({xx},{y-5.2}) {{{j+1}}};')
         if cols is not None or blank_counts:
-            yy=y+r*cell+6
-            s.append(fr'\draw[line width=.45pt] ({xx},{yy}) circle[radius=3.6mm];')
+            yy=y+r*cell+gap
+            s.append(fr'\draw[line width=.45pt] ({xx},{yy}) circle[radius={count_r}mm];')
             value='' if cols is None else str(cols[j])
             s.append(fr'\node[font=\fontsize{{12}}{{14}}\selectfont] at ({xx},{yy}) {{{value}}};')
     if picture:
@@ -46,9 +48,9 @@ def board(x,y,r,c,rows=None,cols=None,picture=None,blank_counts=False,cell=CELL)
 def text(y,content,size=13,leading=17):
     return fr'\node[anchor=north west,inner sep=0pt,text width=188mm,font=\fontsize{{{size}}}{{{leading}}}\selectfont,align=left] at (14,{y}) {{{content}}};'
 
-def pair(y,r,c,rows,cols,pictures=None,blank=False):
+def pair(y,r,c,rows,cols,pictures=None,blank=False,count_r=3.6):
     xs=[25,122] if c==3 else [36,133]
-    return '\n'.join(board(x,y,r,c,rows,cols,None if pictures is None else pictures[i],blank) for i,x in enumerate(xs))
+    return '\n'.join(board(x,y,r,c,rows,cols,None if pictures is None else pictures[i],blank,count_r=count_r) for i,x in enumerate(xs))
 
 def center(y,r,c,rows=None,cols=None,picture=None,blank=False,cell=CELL):
     return board((215.9-c*cell)/2,y,r,c,rows,cols,picture,blank,cell)
@@ -152,8 +154,9 @@ def k1_forced_pair():  # 05
 def k1_forced_or_not():  # 06
     return lines(pair(65,3,3,[2,1,0],[2,1,0]),pair(165,3,3,[2,1,1],[2,1,1]))
 
-def blank_pairs(y1=86,y2=170):  # 07, 08 (K-1) and 15 (grades 2-3, y1=85): a 2 x 3 and a 3 x 3 pair, counts blank
-    return lines(pair(y1,2,3,None,None,blank=True),pair(y2,3,3,None,None,blank=True))
+def blank_pairs(y1=86,y2=170,big=False):  # 02, 08 (K-1, big circles) and 14 (grades 2-3, y1=85): a 2 x 3 and a 3 x 3 pair, counts blank
+    r=5.5 if big else 3.6
+    return lines(pair(y1,2,3,None,None,blank=True,count_r=r),pair(y2,3,3,None,None,blank=True,count_r=r))
 
 
 # ---------------------------------------------------------------- grades 2-3 figures
@@ -170,12 +173,17 @@ def m_211_more():  # 11
 def m_two_counter_move():  # 12
     return lines(pair(181,3,3,[1,0,1],[1,0,1],[['100','000','001'],None]))
 
-def m_switch_pictures(caption,record=False):  # 13: the switch example, then pictures with 0, 1, 3 and 0 switches
+def m_two_counter_more():  # 13: a second filled picture with three two-counter moves, and three grids (kid-fit fix 4)
+    return lines(pair(55,3,3,[1,1,1],[1,1,1],[['100','010','001'],None]),pair(150,3,3,[1,1,1],[1,1,1]))
+
+def m_switch_pictures(caption,record=False):  # 15: the switch example, then pictures with 0, 1 and 0 switches
     return lines(switch_example(55,caption,record),
                  board(25,91,3,3,[2,1,0],[2,1,0],['110','100','000']),
                  board(122,91,3,3,[1,0,1],[1,0,1],['100','000','001']),
-                 board(25,183,3,3,[2,1,1],[2,1,1],['110','001','100']),
-                 board(122,183,3,3,[3,2,1],[3,2,1],['111','110','100']))
+                 center(183,3,3,[3,2,1],[3,2,1],['111','110','100']))
+
+def m_switch_copies():  # 16: four copies of the picture with three switches, one rectangle per copy (kid-fit fix 5)
+    return lines(*(pair(y,3,3,[2,1,1],[2,1,1],[['110','001','100']]*2) for y in (55,150)))
 
 def m_exact_switches():  # 14
     return lines(center(70,2,4,[2,2],[1,1,1,1],['1100','0011']),center(138,2,4,[2,2],[1,1,1,1]),center(206,2,4,[2,2],[1,1,1,1]))
@@ -213,5 +221,5 @@ def h_fixed_columns():  # 21
 def h_fixed_blanks():  # 22: workspace with Problem 4's counts, fewer grids than its six pictures
     return lines(*(center(y,2,6,[3,3],[2,1,0,1,1,1]) for y in (44,114,184)))
 
-def h_two_row_blanks():  # 23
-    return lines(center(92,2,6,blank=True),center(170,2,6,blank=True))
+def h_farthest_blanks():  # 25: two blank 2 x 6 grids; Problem 6 sits below them (kid-fit fix 8)
+    return lines(center(55,2,6,blank=True),center(121,2,6,blank=True))

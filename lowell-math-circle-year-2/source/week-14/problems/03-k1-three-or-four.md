@@ -7,10 +7,10 @@ kernel = "Any hexagon diagonal splits it into a triangle and a pentagon or two q
 +++
 
 ## prompt
-Can you fill this shape with 3 triangles, or with 4 triangles? If one cannot be done, explain why.
+Can you fill this shape with 3 triangles? Can you fill it with 4 triangles?
 
 ## figure
-large_plus_copies(6)
+k1_hexagon_four()
 
 ## key
 Three triangles are impossible; four are possible. For example, $\{13,14,15\}$ gives four. Any diagonal of a hexagon separates a triangle and a pentagon, or two quadrilaterals. Completing those sides gives $1+3=4$ or $2+2=4$ triangles. Thus changing the shape of the triangles cannot yield three.

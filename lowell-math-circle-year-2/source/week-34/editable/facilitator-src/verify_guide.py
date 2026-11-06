@@ -11,6 +11,12 @@ def symmetry_keys():
  assert list(counts.values())==[0,0,0,12,28,96,252,600]
  for w in ['ABC','ABCC','ABCCC','AABABB','AABABBBB','AABBABBB','ABBC','AABABBB','AABABBBBB','BBABAAAA']:assert good(w),w
  assert not good('ABAC')
+ # K-1 Problem 3 (v4): printed start AABC; exactly CABC and ABBC of its eight one-counter edits stay distinguishing
+ start='AABC';assert good(start)
+ edits={start[:i]+v+start[i+1:]:good(start[:i]+v+start[i+1:]) for i in range(4) for v in 'ABC' if v!=start[i]}
+ assert len(edits)==8 and {e for e,g in edits.items() if g}=={'CABC','ABBC'}
+ # K-1 Problem 1 (v4): the builder cannot win with two kinds on three spots
+ assert not any(good(w) for w in it.product('AB',repeat=3))
  w,v='AABABBBB','AABBABBB'
  assert not any(all(w[i]==v[p[i]] for i in range(8)) for p in maps(8)+[tuple(range(8))])
  assert not any(all(w[i]==x[p[i]] for i in range(8)) for x in ['BBABAAAA'] for p in maps(8)+[tuple(range(8))])  # a kind swap is a different pattern

@@ -14,4 +14,4 @@ Draw all different trees with three edges, using these rules. How do you know yo
 roots([61,155],[146,185,224])
 
 ## key
-\emph{Print guide, p. 8.} The five-edge example has two root children: the left has two leaf children, and the right has one. Exactly five three-edge trees; see page 6 and its root-child case split. A chain and a fork are different; changing edge lengths is irrelevant. Swapping unequal subtrees creates a different ordered tree.
+\emph{Print guide, p. 8.} The two five-edge examples are mirror images. In the first, the root has two children: the left has two leaf children, and the right has one. The second swaps them, so it is a different ordered tree. Exactly five three-edge trees; see page 6 and its root-child case split. A chain and a fork are different; changing edge lengths is irrelevant. Swapping unequal subtrees creates a different ordered tree.

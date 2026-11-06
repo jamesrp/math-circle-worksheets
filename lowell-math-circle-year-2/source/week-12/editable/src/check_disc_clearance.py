@@ -3,9 +3,9 @@ import fitz, math, json
 from PIL import Image, ImageDraw
 ROOT=Path(__file__).resolve().parent
 RENDERS=ROOT.parent/'build'/'disc-checks';RENDERS.mkdir(parents=True,exist_ok=True)
-# K-1 string mats by page since the October 23, 2026 card fixes: the mats on pages 2-4 moved up 3 mm and the
-# parity mat 2 mm; page 5 continues Problem 4 with pencil records only.
-MATS={1:[(61,188,6,32)],2:[(108,104,6,40)],3:[(108,104,8,40)],4:[(108,104,8,40)],6:[(108,102,10,43)],7:[(108,107,8,40)]}
+# K-1 string mats by page since the November 6, 2026 kid-fit revision: the parity mat is now on page 2
+# (Problem 2) and the six-dot check mat on page 6 (Problem 5); page 5 continues Problem 4 with pencil records only.
+MATS={1:[(61,188,6,32)],2:[(108,102,10,43)],3:[(108,104,8,40)],4:[(108,104,8,40)],6:[(108,110,6,40)],7:[(108,107,8,40)]}
 PAGES={'k-1':7,'grades-2-3':6,'grades-4-5':6}
 MM=72/25.4
 checks=[]

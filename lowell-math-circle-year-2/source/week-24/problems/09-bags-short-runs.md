@@ -1,13 +1,13 @@
 +++
 id = "w24.bags-short-runs"
-title = "Six wins in a row from hidden bags"
+title = "Guess the hidden decks from six results"
 grades = ["2-3"]
 route = "first"
 kernel = "Every finite run of results can happen whichever bag has the advantage, so no fixed number of draws makes it certain."
 +++
 
 ## prompt
-Two bags hold two different decks from A, B, and C. You hear only which bag wins. The left bag wins six draws in a row. Can you be sure it wins more possible card pairs? Could any fixed number of these results make you sure? Explain.
+Your partner secretly picks two of the bags, hides their letters, and puts one on the left and one on the right. Your partner draws and tells you only which side wins. After six rounds, guess which side has the deck that wins more possible card pairs, then look. Play several times. Could any fixed number of rounds make you sure? Explain.
 
 ## figure
-art(decks(ABC,7.6))
+art(decks(ABC,7.0))

@@ -10,10 +10,10 @@ kernel = "A kept diagonal splits the polygon into pieces filled independently, s
 Fill each shape with triangles, keeping the printed line. Find every way.
 
 ## figure
-two_cases_with_records(5,6,es((1,3)),es((1,4)),keep_edges=True)
+k1_kept_line()
 
 ## key
-Keeping 13 in the pentagon leaves a quadrilateral with two choices. Keeping 14 in the hexagon leaves two quadrilaterals, each with two independent choices: four completions. Only two pentagon completions exist, so two of the four pre-lined pentagon copies stay empty; the spares keep the copies from giving the count away.
+Keeping 13 in the pentagon leaves a quadrilateral with two choices. Keeping 14 in the hexagon leaves two quadrilaterals, each with two independent choices: four completions. Only two pentagon completions exist, so one of the three pre-lined pentagons stays empty, and two of the six pre-lined hexagons stay empty; the spares keep the boards from giving the count away.
 
 ## hints
-Keep the required printed diagonal visible on every tracing. If one hexagon side is always filled the same way, ask whether its quadrilateral has another filling. Combining each left choice with each right choice proves completeness.
+The required diagonal is printed on every board; if a child erases it, redraw it on a spare board from the packet's last page. If one hexagon side is always filled the same way, ask whether its quadrilateral has another filling. Combining each left choice with each right choice proves completeness.

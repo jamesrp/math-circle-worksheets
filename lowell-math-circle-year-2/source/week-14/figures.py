@@ -205,3 +205,82 @@ def page_prompt(n, body, x, y, size):
 
 def page_text(x, y, body, w, size):
     return text(x,y,w,body,size)
+
+
+# ---------------------------------------------------------------- kid-fit revision, November 6, 2026
+# K-1 works on large printed boards only (no tracing paper, no one-inch copies); grades 2-3 and 4-5
+# record routes as written flips beside a large working board instead of redrawing small copies.
+
+def board_grid(n,xs,ys,w,h,edges=(),labels='numbers'):
+    """Large boards (full-size labels) at every (x, y) of the grid."""
+    return ''.join(polygon(n,x,y,w,h,edges,labels) for y in ys for x in xs)
+
+def k1_two_each():
+    """K-1 Problem 1 and the extra page: two pentagons above two hexagons, about 3 in across."""
+    return board_grid(5,[2.30,6.20],[3.80],2.80,2.70)+board_grid(6,[2.30,6.20],[7.65],2.80,3.30)
+
+def k1_pentagon_six():
+    """K-1 Problem 2: six pentagon boards, 2.5 in across (five fillings and a spare)."""
+    return board_grid(5,[2.30,6.20],[2.65,5.45,8.25],2.35,2.30)
+
+def k1_hexagon_four():
+    """K-1 Problem 3: four hexagon boards, 3 in across."""
+    return board_grid(6,[2.30,6.20],[3.35,7.55],3.00,3.50)
+
+def k1_kept_line():
+    """K-1 Problem 4: three pentagons keeping 1-3 (two completions), six hexagons keeping 1-4 (four)."""
+    xs=[1.50,4.25,7.00]
+    return board_grid(5,xs,[2.40],2.00,1.95,es((1,3)))+board_grid(6,xs,[5.10,8.30],2.00,2.35,es((1,4)))
+
+RING=[(4.25,2.85),(6.75,5.00),(5.95,8.30),(2.55,8.30),(1.75,5.00)]
+def k1_ring():
+    """K-1 Problem 6: five pentagon boards in a ring, the top one printed with the fan at 1, arrows around."""
+    s=''
+    for i,(x,y) in enumerate(RING):
+        s+=polygon(5,x,y,2.10,2.00,fan(5,0) if i==0 else (),'numbers')
+    for i in range(5):
+        (x1,y1),(x2,y2)=RING[i],RING[(i+1)%5]
+        dx,dy=x2-x1,y2-y1; d=math.hypot(dx,dy); ux,uy=dx/d,dy/d
+        a=1.30; b=1.30   # clear of each board and its corner numbers
+        s+=(rf'\draw[-stealth,line width=1.3pt] ({x1+a*ux:.3f},{y1+a*uy:.3f}) -- '
+            rf'({x2-b*ux:.3f},{y2-b*uy:.3f});'+'\n')
+    return s
+
+def ruled(x,y,w,n,gap,label=None,size=12):
+    """Writing lines; an optional short label above them."""
+    s=''
+    if label: s+=text(x,y,w,label,size)
+    top=y+(.42 if label else 0)
+    for k in range(n):
+        yy=top+k*gap
+        s+=rf'\draw[line width=.4pt,black!60] ({x:.3f},{yy:.3f}) -- ({x+w:.3f},{yy:.3f});'+'\n'
+    return s
+
+def hexagon_route_23_written():
+    """Grades 2-3: the B fan, an arrow, the A fan, a working hexagon and room to write two routes."""
+    return (polygon(6,2.05,2.85,2.15,1.85,hex_fan_b,'letters')+polygon(6,6.35,2.85,2.15,1.85,fan(6,0),'letters')
+            +r'\draw[-stealth,line width=.8pt] (3.45,2.85) -- (4.95,2.85);'+'\n'+polygon(6,4.25,5.55,4.8,3.00,labels='letters')
+            +ruled(.75,7.50,3.25,7,.36,'Fewest flips')+ruled(4.50,7.50,3.25,7,.36,'Another route'))
+
+def three_routes_written():
+    """Grades 4-5: three starts with arrows to the A fan, a working hexagon and room to write each route."""
+    drawings=''
+    for x,edges in zip([1.65,4.25,6.85],[hex_fan_b,hex_center,hex_fan_d]):
+        drawings+=polygon(6,x,THREE_STARTS_Y,1.75,1.50,edges,'letters',True)
+    drawings+=polygon(6,4.25,TARGET_Y,1.75,1.50,fan(6,0),'letters',True)
+    for start,end in [((2.25,3.12),(3.42,3.90)),((4.25,3.37),(4.25,3.61)),((6.25,3.12),(5.08,3.90))]:
+        drawings+=rf'\draw[-stealth,line width=.8pt] {start} -- {end};'+'\n'
+    drawings+=polygon(6,2.35,7.75,4.00,3.60,labels='letters')
+    for y,lab in [(5.70,'Left start'),(7.15,'Middle start'),(8.60,'Right start')]:
+        drawings+=ruled(4.75,y,3.20,4,.30,lab)
+    return drawings
+
+def octagon_fans_written():
+    """Grades 4-5: the printed octagon start, a blank working octagon and room to write both routes."""
+    return (polygon(8,2.25,3.50,3.05,3.05,oct_start,'letters')+polygon(8,6.25,3.50,3.05,3.05,labels='letters')
+            +ruled(.75,5.75,3.25,9,.40,'To a fan at A')+ruled(4.50,5.75,3.25,9,.40,'To a fan at E'))
+
+def fan_rule_boards():
+    """Grades 4-5: a hexagon and a seven-corner polygon beside the octagon."""
+    return (polygon(6,2.30,3.65,2.70,3.10,labels='letters')+polygon(7,6.20,3.65,3.00,3.00,labels='letters')
+            +polygon(8,4.25,7.70,3.80,3.80,labels='letters'))

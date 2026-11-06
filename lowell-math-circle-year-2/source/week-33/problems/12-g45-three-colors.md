@@ -4,7 +4,7 @@ title = "Three colours and Fermat's little theorem"
 grades = ["4-5"]
 route = "return"
 page = "same"
-kernel = "With c colours and prime length p there are (c^p - c)/p + c rings, so p divides c^p - c."
+kernel = "With $c$ colours and prime length $p$ there are $(c^p - c)/p + c$ rings, so $p$ divides $c^p - c$."
 +++
 
 ## prompt @14

@@ -7,7 +7,7 @@ kernel = "On eight spots there are several different two-kind patterns that no t
 +++
 
 ## prompt [K-1]
-Build two two-kind patterns that no turn or flip can match and that cannot match each other. Keep each on its own tracing copy.
+Make a pattern on this ring with two kinds of counter that no turn or flip can match.
 
 ## prompt [2-3]
 Find an eight-ring pattern with two kinds of counter that no turn or flip can match. How few counters of one kind can it have?
@@ -18,5 +18,8 @@ Can you make a two-kind pattern that no turn or flip can match on any ring with 
 ## figure [K-1]
 ring(9.2,13,8)
 
-## figure
+## figure [2-3]
 ring(9.2,13,8)+line(23)+line(24.1)
+
+## figure [4-5]
+ring(9.2,10.8,8,6)+box(18.7,24.2)

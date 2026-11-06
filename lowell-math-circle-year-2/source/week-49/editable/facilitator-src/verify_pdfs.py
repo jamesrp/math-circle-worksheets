@@ -33,12 +33,13 @@ for n in [WEEK]:
   assert all(abs(x-15)<.02 for x in dimensions['fine_cell_widths_mm'])
   assert len(dimensions['coarse_cell_widths_mm'])==4 and len(dimensions['fine_cell_widths_mm'])==8
  elif n==49:
-  for pageidx in [1,3]:
+  # K-1 v4 (kid-fit revision, November 6, 2026): four-station mats on pages 2, 4 and 6, three-station mats on page 7.
+  for pageidx,count in [(1,8),(3,8),(5,8),(6,6)]:
    # 36 mm stations since the October 23, 2026 card fixes (40 mm before), centres still 52 mm apart.
    rects=[p['rect'] for p in k[pageidx].get_drawings() if abs(mm(p['rect'].width)-36)<.03 and abs(mm(p['rect'].height)-36)<.03]
    centers=[(round(mm((r.x0+r.x1)/2),2),round(mm((r.y0+r.y1)/2),2)) for r in rects]
    dimensions[f'page{pageidx+1}_36mm_station_centers']=centers
-   assert len(centers)==(8 if pageidx==1 else 6)
+   assert len(centers)==count,(pageidx+1,len(centers))
  elif n==50:
   b=[p['rect'] for p in k[1].get_drawings() if abs(mm(p['rect'].width)-160)<.03 and abs(mm(p['rect'].height)-120)<.03]
   assert b;dimensions['main_board_mm']=[round(mm(b[0].width),3),round(mm(b[0].height),3)]

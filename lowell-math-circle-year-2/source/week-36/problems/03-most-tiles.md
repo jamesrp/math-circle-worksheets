@@ -7,10 +7,10 @@ kernel = "At most four tiles avoid an allowed three: five tiles have ten pairs, 
 +++
 
 ## prompt [K-1]
-Choose tiles without making any allowed three. How many can you keep?
+Choose tiles without making any allowed three. Your partner looks for an allowed three in your tiles. How many can you keep?
 
 ## prompt [2-3]
-Choose as many tiles as you can with no allowed three among them. How do you know you cannot keep more?
+Choose as many tiles as you can with no allowed three among them. Your partner looks for an allowed three in your tiles. How do you know you cannot keep more?
 
 ## prompt [4-5]
 Choose as many tiles as possible without an allowed three among them. Explain why a larger collection is impossible.

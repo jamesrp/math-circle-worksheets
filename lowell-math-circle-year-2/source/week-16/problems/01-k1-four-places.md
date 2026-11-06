@@ -7,7 +7,7 @@ kernel = "On the two-step board every legal filling has exactly one triangle wit
 +++
 
 ## prompt
-Fill the dots with counters. Move the counters to put a little triangle with R, B, and Y in each of the four places, one at a time.
+Fill the dots with counters. Move the counters so the little triangle with R, B, and Y is in a new place. Find all four places.
 
 ## figure
 board(2,counter=True)

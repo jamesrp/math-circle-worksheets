@@ -7,10 +7,10 @@ kernel = "On the three-step board only 1, 3 and 5 triangles with R, B and Y occu
 +++
 
 ## prompt [2-3]
-Find a filling with as few little triangles containing R, B, and Y as you can. Find another filling with as many as you can.
+Try fillings with R, B, and Y counters. Find a filling with as few little triangles containing R, B, and Y as you can, and another with as many as you can. Write each record on its own board.
 
 ## prompt [4-5]
-Find a filling with as few little triangles containing R, B, and Y as you can, and another with as many as you can. Which counts between your two records can you make?
+Try fillings with R, B, and Y counters. Find a filling with as few little triangles containing R, B, and Y as you can, and another with as many as you can. Write each record on its own board. Which counts between your two records can you make?
 
 ## figure
 board(3)

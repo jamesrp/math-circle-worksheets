@@ -69,6 +69,10 @@ def ring(x, y, n, R=7, spot=1.4, vals=None):  # a ring of n spots on a gray circ
     return s
 
 
+def box(y0, y1):  # a gray open answer box across the page
+    return '\n' + f'\\draw[gray!40] (0,{y0}) rectangle (18.3,{y1});'
+
+
 def line(y):  # a gray answer line across the page
     return '\n' + f'\\draw[gray!40] (0,{y}) -- (18.3,{y});'
 
@@ -79,13 +83,13 @@ def caption(x, y, body, w=4.4, size=12):  # a centred caption under a picture
     return '\n' + r'\node[anchor=north,inner sep=0,align=center,text width=' + str(w) + r'cm,font=\sffamily\fontsize{' + str(size) + '}{' + str(size*1.25) + r'}\selectfont] at (' + str(x) + ',' + str(y) + ') {' + body + '};'
 
 
-def demo(start, turn1, turn2, flip):  # the rules' example on an alternating four-ring: each move starts from the same original; captions from the problem file
-    y = 4.9
+def demo(start, turn1, turn2, flip, dy=0):  # the rules' example on an alternating four-ring: each move starts from the same original; captions from the problem file; dy moves it down
+    y = 4.9 + dy
     s = ''
     for x, v, label in [(1.9, [0, 1, 0, 1], start), (6.7, [1, 0, 1, 0], turn1), (11.5, [0, 1, 0, 1], turn2), (16.3, [0, 1, 0, 1], flip)]:
-        s += ring(x, y, 4, 1, .37, v) + caption(x, 6.45, label)
+        s += ring(x, y, 4, 1, .37, v) + caption(x, 6.45 + dy, label)
     s += '\n' + f'\\draw[dashed,line width=.8pt] (16.3,{y-1.75}) -- (16.3,{y+1.75});'   # the flip's axis, through the top and bottom spots
     s += '\n' + f'\\draw[-{{Stealth}},line width=1pt] (3.45,{y}) -- (5.15,{y});'
     for x1, c in [(10.78, 2.6), (15.58, 2.2)]:   # the other two moves also start from the original, over the rings between
-        s += '\n' + f'\\draw[-{{Stealth}},line width=1pt] (2.62,3.64) .. controls (4.5,{c}) and ({x1-1.9},{c}) .. ({x1},3.64);'
+        s += '\n' + f'\\draw[-{{Stealth}},line width=1pt] (2.62,{3.64+dy}) .. controls (4.5,{c+dy}) and ({x1-1.9},{c+dy}) .. ({x1},{3.64+dy});'
     return s
