@@ -230,7 +230,7 @@ Themes drafted with the worksheet workflow that have no week number yet. The ran
 
 ## Draft plans, Weeks 101–208
 
-Draft plan only: no pages, guide, review or pilot yet. Unproven with children. These plans are separate from drafts with pages, readiness rungs, collections and the six-year path. The explorer's Plans chip is off by default. Grouped by area; bands are proposed entries, not pages.
+Draft plan only: no pages, guide, review or pilot yet. Unproven with children. These plans are separate from drafts with pages, readiness rungs, collections and the six-year path. The explorer's draft plans chip is off by default. Grouped by area; bands are proposed entries, not pages.
 
 | Week | Title | Area | Bands | Plan |
 |---|---|---|---|---|

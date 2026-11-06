@@ -422,7 +422,7 @@ footer.foot { color: var(--ink-3); font-size: .82rem; padding-block: 24px; max-w
   <section class="view" id="view-map" aria-labelledby="tab-map" hidden>
     <div class="map-bar">
       <p class="hint">Each box is a concept; arrows run from what children usually meet first to what builds on it. Choose a concept to light up its prerequisites and what it leads to, and the activities about it.</p>
-      <label class="kind-key" for="cmap-plans"><input type="checkbox" class="show-plans" id="cmap-plans"> Plans</label>
+      <label class="kind-key" for="cmap-plans"><input type="checkbox" class="show-plans" id="cmap-plans"> Draft plans</label>
       <label class="kind-key" for="cmap-drafts"><input type="checkbox" class="show-drafts" id="cmap-drafts" checked> drafts awaiting review</label>
       <div class="zoom" aria-label="Zoom">
         <button id="cz-out" aria-label="Zoom out">−</button><button id="cz-in" aria-label="Zoom in">+</button><button id="cz-reset" aria-label="Reset zoom">↺</button>
@@ -438,7 +438,7 @@ footer.foot { color: var(--ink-3); font-size: .82rem; padding-block: 24px; max-w
   <section class="view" id="view-links" aria-labelledby="tab-links" hidden>
     <div class="map-bar">
       <p class="hint">Each dot is a theme, coloured by the area of its central idea; lines are the links written in the catalog. Choose a theme to see its neighbours.</p>
-      <label class="kind-key" for="wmap-plans"><input type="checkbox" class="show-plans" id="wmap-plans"> Plans</label>
+      <label class="kind-key" for="wmap-plans"><input type="checkbox" class="show-plans" id="wmap-plans"> Draft plans</label>
       <label class="kind-key" for="wmap-drafts"><input type="checkbox" class="show-drafts" id="wmap-drafts" checked> drafts awaiting review</label>
       <div class="zoom" aria-label="Zoom">
         <button id="wz-out" aria-label="Zoom out">−</button><button id="wz-in" aria-label="Zoom in">+</button><button id="wz-reset" aria-label="Reset zoom">↺</button>
@@ -616,7 +616,7 @@ const DATA = /*__DATA__*/null;
     h("a", { href: DATA.repo + "catalog/README.md", target: "_blank", rel: "noopener" }, "math-circle-worksheets/catalog"),
     ". Print files open on GitHub. Atlas investigations come from the mathematics atlas books; their bands name where a K–5 child can genuinely enter. Bands are entry points by prerequisites, not age limits. Readiness and use-log entries record teaching separately from catalog approval and piloting of the current pages. ",
     DATA.drafts.length || PENDING.length ? "Dashed outlines on yellow mark drafts awaiting the organizer's review: new themes with no week number yet, and new pages for existing weeks. None is approved, piloted or on the path. " : "",
-    "Dotted outlines mark markdown-only plans, with no pages, guide, review or pilot. Plans are off by default. Marks for themes you have used stay in this browser only."
+    "Dotted outlines mark draft plans for Weeks 101–208: written ideas with no pages, guide, review or pilot yet, untried with children. They are hidden until you turn on the draft plans chip. Marks for themes you have used stay in this browser only."
   );
 
   // ---------------------------------------------------------------- filters
@@ -636,7 +636,7 @@ const DATA = /*__DATA__*/null;
     const mechCount = {};
     for (const x of pool) for (const m of x.mechanisms) mechCount[m] = (mechCount[m] || 0) + 1;
     const conceptCount = c => pool.filter(x => x.concepts.includes(c)).length;
-    const libs = [["week", `weekly themes (${DATA.weeks.length})`], ["draft", `draft themes (${DATA.drafts.length})`], ["plan", `Plans (${DATA.plans.length})`], ["atlas", `atlas (${DATA.atlas.length})`]]
+    const libs = [["week", `weekly themes (${DATA.weeks.length})`], ["draft", `draft themes (${DATA.drafts.length})`], ["plan", `draft plans, Weeks 101–208 (${DATA.plans.length})`], ["atlas", `atlas (${DATA.atlas.length})`]]
       .filter(([v]) => v === "week" || (v === "draft" ? DATA.drafts.length : v === "plan" ? DATA.plans.length : DATA.atlas.length));
     const libChip = ([v, l]) => {
       const b = chipToggle(l, F.lib.has(v), () => {
