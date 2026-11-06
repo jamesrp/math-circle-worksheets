@@ -242,6 +242,17 @@ svg text { font-family: var(--body); fill: var(--ink); }
 .cnode .dcnt { font-family: var(--mono); font-size: 10px; fill: var(--ink); }
 .cnode.draftonly rect.box { stroke: var(--warn); stroke-dasharray: 4 3; }
 .no-drafts .dr { display: none; }
+.no-plans .pl { display: none; }
+.item.plan, .planbox { border: 2px dotted var(--ink-3); }
+.item.plan[aria-current="true"] { border-color: var(--accent); }
+.pill.plan, .pbadge { color: var(--ink-2); background: var(--surface-2); border: 1px dotted var(--ink-3); }
+.planbox { padding: 10px 12px; border-radius: var(--r); }
+.wnode.plan circle { fill: var(--surface-2); stroke-dasharray: 1 3; stroke-linecap: round; }
+.wedge.pedge { stroke-dasharray: 1 4; }
+.cnode.planonly rect.box { stroke: var(--ink-3); stroke-dasharray: 1 3; }
+.plans-on.no-drafts .cnode.draftonly.plan-context rect.box { stroke: var(--ink-3); stroke-dasharray: 1 3; }
+.pcnt { font-size: 9px; fill: var(--ink-2); }
+.pl-key[hidden] { display: none; }
 .dkey { display: inline-flex; align-items: center; gap: 6px; font-size: .84rem; color: var(--ink-2); }
 .dkey svg { flex: none; }
 .kind-key { display: inline-flex; align-items: center; gap: 6px; font-size: .84rem; color: var(--ink-2); }
@@ -411,6 +422,7 @@ footer.foot { color: var(--ink-3); font-size: .82rem; padding-block: 24px; max-w
   <section class="view" id="view-map" aria-labelledby="tab-map" hidden>
     <div class="map-bar">
       <p class="hint">Each box is a concept; arrows run from what children usually meet first to what builds on it. Choose a concept to light up its prerequisites and what it leads to, and the activities about it.</p>
+      <label class="kind-key" for="cmap-plans"><input type="checkbox" class="show-plans" id="cmap-plans"> Plans</label>
       <label class="kind-key" for="cmap-drafts"><input type="checkbox" class="show-drafts" id="cmap-drafts" checked> drafts awaiting review</label>
       <div class="zoom" aria-label="Zoom">
         <button id="cz-out" aria-label="Zoom out">−</button><button id="cz-in" aria-label="Zoom in">+</button><button id="cz-reset" aria-label="Reset zoom">↺</button>
@@ -426,6 +438,7 @@ footer.foot { color: var(--ink-3); font-size: .82rem; padding-block: 24px; max-w
   <section class="view" id="view-links" aria-labelledby="tab-links" hidden>
     <div class="map-bar">
       <p class="hint">Each dot is a theme, coloured by the area of its central idea; lines are the links written in the catalog. Choose a theme to see its neighbours.</p>
+      <label class="kind-key" for="wmap-plans"><input type="checkbox" class="show-plans" id="wmap-plans"> Plans</label>
       <label class="kind-key" for="wmap-drafts"><input type="checkbox" class="show-drafts" id="wmap-drafts" checked> drafts awaiting review</label>
       <div class="zoom" aria-label="Zoom">
         <button id="wz-out" aria-label="Zoom out">−</button><button id="wz-in" aria-label="Zoom in">+</button><button id="wz-reset" aria-label="Reset zoom">↺</button>
@@ -501,16 +514,20 @@ const DATA = /*__DATA__*/null;
     return el;
   }
 
+  DATA.plans = DATA.plans || [];
+  DATA.planEdges = DATA.planEdges || [];
   DATA.drafts = DATA.drafts || [];
   DATA.draftEdges = DATA.draftEdges || [];
   for (const w of DATA.weeks) { w.kind = "week"; w.drafts = w.drafts || []; }
   for (const a of DATA.atlas) a.kind = "atlas";
   for (const d of DATA.drafts) d.kind = "draft";
+  for (const p of DATA.plans) p.kind = "plan";
   const W = new Map(DATA.weeks.map(w => [w.id, w]));
   const AT = new Map(DATA.atlas.map(a => [a.id, a]));
   const DR = new Map(DATA.drafts.map(d => [d.id, d]));
-  const I = new Map([...W, ...AT, ...DR]);
-  const ITEMS = [...DATA.weeks, ...DATA.drafts, ...DATA.atlas];
+  const PL = new Map(DATA.plans.map(p => [p.id, p]));
+  const I = new Map([...W, ...AT, ...DR, ...PL]);
+  const ITEMS = [...DATA.weeks, ...DATA.drafts, ...DATA.plans, ...DATA.atlas];
   const PENDING = DATA.weeks.filter(w => w.drafts.length);
   const C = new Map(DATA.concepts.map(c => [c.id, c]));
   const AREAS = DATA.areas;
@@ -519,14 +536,21 @@ const DATA = /*__DATA__*/null;
   const fileUrl = p => DATA.repo + p.split("/").map(encodeURIComponent).join("/");
   const dirUrl = p => (DATA.tree || DATA.repo) + p.replace(/\/$/, "").split("/").map(encodeURIComponent).join("/");
   const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  const fmtDate = iso => { const [y, m, d] = iso.split("-").map(Number); return `${MONTHS[m - 1]} ${d}, ${y}`; };
+  const fmtDate = iso => { const [y, m, d] = iso.split("-").map(Number); return d ? `${MONTHS[m - 1]} ${d}, ${y}` : `${MONTHS[m - 1]} ${y}`; };
   const sortWeeks = ids => ids.slice().sort((a, b) => parseInt(a) - parseInt(b) || a.localeCompare(b));
-  const KIND_ORDER = { week: 0, draft: 1, atlas: 2 };
-  const itemOrder = (a, b) => KIND_ORDER[a.kind] - KIND_ORDER[b.kind] || (a.kind === "week" ? parseInt(a.id) - parseInt(b.id) : a.kind === "draft" ? a.rank - b.rank : 0) || a.id.localeCompare(b.id);
+  const KIND_ORDER = { week: 0, draft: 1, plan: 2, atlas: 3 };
+  const itemOrder = (a, b) => KIND_ORDER[a.kind] - KIND_ORDER[b.kind] || ((a.kind === "week" || a.kind === "plan") ? parseInt(a.id) - parseInt(b.id) : a.kind === "draft" ? a.rank - b.rank : 0) || a.id.localeCompare(b.id);
   const idOf = x => x.kind === "draft" ? x.short : x.id;
-  const hashFor = id => { const x = I.get(id); return !x ? "activities" : x.kind === "atlas" ? id : x.kind === "draft" ? "d-" + id : "w" + id; };
+  const hashFor = id => { const x = I.get(id); return !x ? "activities" : x.kind === "atlas" ? id : x.kind === "draft" ? "d-" + id : x.kind === "plan" ? "plan-" + id : "w" + id; };
   const pendingName = d => d.kind === "return visit" ? "Return-visit draft" : d.kind.replace("K-1", "K–1") + " draft";
   const pendingPill = d => d.kind === "return visit" ? "return-visit draft" : d.kind === "K-1 pages" ? "K–1 draft pages" : d.kind + " draft";
+  const PLAN_NOTE = "Draft plan only: no pages, guide, review or pilot yet. Unproven with children.";
+  const PREL = new Map();
+  for (const e of DATA.planEdges) {
+    if (!PREL.has(e.plan)) PREL.set(e.plan, []);
+    PREL.get(e.plan).push({ other: e.week, kind: e.kind, note: e.note });
+  }
+  const plansOn = () => F.lib.has("plan");
   const DRAFT_NOTE = "Awaiting the organizer's review: unpiloted, not approved and not on the path.";
 
   // Draft themes' links to weekly themes, both directions. A draft's leads-to reads as prepared-by from the week.
@@ -580,19 +604,19 @@ const DATA = /*__DATA__*/null;
     for (const id of used) for (const c of I.get(id)?.concepts || []) met.add(c);
     const out = new Set();
     for (const w of ITEMS) {
-      if (used.has(w.id) || w.kind === "draft") continue;
+      if (used.has(w.id) || w.kind === "draft" || w.kind === "plan") continue;
       if (w.uses.every(c => met.has(c) || C.get(c).depth === 0)) out.add(w.id);
     }
     return out;
   }
 
-  $("#subline").textContent = `${DATA.weeks.length} themes` + (DATA.drafts.length ? ` · ${DATA.drafts.length} draft themes` : "") + (DATA.atlas.length ? ` · ${DATA.atlas.length} atlas investigations` : "") + ` · ${DATA.concepts.filter(c => !c.draftOnly).length} concepts · K–5`;
+  $("#subline").textContent = `${DATA.weeks.length} themes` + (DATA.drafts.length ? ` · ${DATA.drafts.length} draft themes` : "") + (DATA.atlas.length ? ` · ${DATA.atlas.length} atlas investigations` : "") + ` · ${DATA.concepts.filter(c => !c.draftOnly && !c.planOnly).length} concepts · K–5`;
   $("#foot").append(
     "Built from the catalog records in ",
     h("a", { href: DATA.repo + "catalog/README.md", target: "_blank", rel: "noopener" }, "math-circle-worksheets/catalog"),
     ". Print files open on GitHub. Atlas investigations come from the mathematics atlas books; their bands name where a K–5 child can genuinely enter. Bands are entry points by prerequisites, not age limits. Readiness and use-log entries record teaching separately from catalog approval and piloting of the current pages. ",
     DATA.drafts.length || PENDING.length ? "Dashed outlines on yellow mark drafts awaiting the organizer's review: new themes with no week number yet, and new pages for existing weeks. None is approved, piloted or on the path. " : "",
-    "Marks for themes you have used stay in this browser only."
+    "Dotted outlines mark markdown-only plans, with no pages, guide, review or pilot. Plans are off by default. Marks for themes you have used stay in this browser only."
   );
 
   // ---------------------------------------------------------------- filters
@@ -612,14 +636,14 @@ const DATA = /*__DATA__*/null;
     const mechCount = {};
     for (const x of pool) for (const m of x.mechanisms) mechCount[m] = (mechCount[m] || 0) + 1;
     const conceptCount = c => pool.filter(x => x.concepts.includes(c)).length;
-    const libs = [["week", `weekly themes (${DATA.weeks.length})`], ["draft", `draft themes (${DATA.drafts.length})`], ["atlas", `atlas (${DATA.atlas.length})`]]
-      .filter(([v]) => v === "week" || (v === "draft" ? DATA.drafts.length : DATA.atlas.length));
+    const libs = [["week", `weekly themes (${DATA.weeks.length})`], ["draft", `draft themes (${DATA.drafts.length})`], ["plan", `Plans (${DATA.plans.length})`], ["atlas", `atlas (${DATA.atlas.length})`]]
+      .filter(([v]) => v === "week" || (v === "draft" ? DATA.drafts.length : v === "plan" ? DATA.plans.length : DATA.atlas.length));
     const libChip = ([v, l]) => {
       const b = chipToggle(l, F.lib.has(v), () => {
         toggle(F.lib, v);
         if (!F.lib.size) F.lib.add(v === "week" ? (DATA.drafts.length ? "draft" : "atlas") : "week");
         if ((F.review === "weeks" && !F.lib.has("week")) || (F.review === "themes" && !F.lib.has("draft"))) F.review = "";
-        renderFilters(); renderList();
+        syncPlans(); renderFilters(); renderList();
       });
       if (v === "draft") b.classList.add("dchip");
       return b;
@@ -644,7 +668,7 @@ const DATA = /*__DATA__*/null;
       h("h2", { text: "Search" }),
       h("input", { class: "search", id: "q", type: "search", placeholder: "Title, idea, material…", value: F.q, "aria-label": "Search themes",
         oninput: e => { F.q = e.target.value; renderList(); } }),
-      h("h2", { text: "Band with pages" }),
+      h("h2", { text: plansOn() ? "Band with pages or planned entry" : "Band with pages" }),
       h("div", { class: "chips" }, DATA.bands.map(b => chipToggle(bandLabel(b), F.bands.has(b), () => { toggle(F.bands, b); renderFilters(); renderList(); }))),
       h("div", { class: "row-between" }, h("h2", { text: "Area" }), F.areas.size ? h("button", { class: "linkbtn", onclick: () => { F.areas.clear(); renderFilters(); renderList(); } }, "clear") : null),
       h("div", { class: "areas-list" }, Object.entries(AREAS).map(([a, name]) => {
@@ -662,7 +686,7 @@ const DATA = /*__DATA__*/null;
       h("select", { class: "sel", id: "concept", "aria-label": "Concept", onchange: e => { F.concept = e.target.value; renderList(); } },
         h("option", { value: "" }, "any"),
         Object.entries(AREAS).map(([a, name]) => h("optgroup", { label: name },
-          DATA.concepts.filter(c => c.area === a && (c.weeks.length || c.usedBy.length || c.atlas.length || c.drafts.length || c.draftUses.length)).sort((x, y) => x.name.localeCompare(y.name))
+          DATA.concepts.filter(c => c.area === a && (c.weeks.length || c.usedBy.length || c.atlas.length || c.drafts.length || c.draftUses.length || (plansOn() && c.plans.length))).sort((x, y) => x.name.localeCompare(y.name))
             .map(c => h("option", { value: c.id, selected: F.concept === c.id }, `${c.name} (${conceptCount(c.id)})`))))),
       h("h2", { text: "Status" }),
       h("div", { class: "chips" },
@@ -701,7 +725,7 @@ const DATA = /*__DATA__*/null;
     F.lib = LIB0();
     Object.assign(F, { review: "", q: "", mech: "", concept: "", rung: "", collection: "", verdict: "", paper: false, app: "", used: "" });
     F.bands.clear(); F.areas.clear(); F.status.clear();
-    renderFilters(); renderList();
+    syncPlans(); renderFilters(); renderList();
   }
   $("#toggle-filters").addEventListener("click", e => {
     const f = $("#filters"); f.classList.toggle("open");
@@ -710,12 +734,12 @@ const DATA = /*__DATA__*/null;
 
   function matches(w, ready) {
     if (!F.lib.has(w.kind)) return false;
-    const atlas = w.kind === "atlas", draft = w.kind === "draft";
+    const atlas = w.kind === "atlas", draft = w.kind === "draft", plan = w.kind === "plan";
     if (F.review === "weeks" && !(w.kind === "week" && w.drafts.length)) return false;
     if (F.review === "themes" && !draft) return false;
     if (F.q) {
       const q = F.q.toLowerCase();
-      const hay = [w.id, w.title, w.hook, w.math, w.discover, w.gem, w.app, w.question, w.book,
+      const hay = [w.id, w.title, w.hook, w.math, w.discover, w.gem, w.app, w.question, w.book, w.field, plan ? "plan" : "",
         atlas ? w.materials : w.materials.join(" "),
         draft ? `${w.short} draft awaiting review` : "", ...(w.kind === "week" ? w.drafts.map(d => `${d.kind} draft ${d.note}`) : []),
         ...w.concepts.map(c => C.get(c).name), ...w.mechanisms.map(m => DATA.mechanisms[m])].join(" ").toLowerCase();
@@ -728,9 +752,9 @@ const DATA = /*__DATA__*/null;
     if (F.status.size && !F.status.has(atlas || draft ? "unpiloted" : w.status)) return false;
     if (F.rung && !(w.rungs || []).includes(F.rung)) return false;
     if (F.collection && !(w.collections || []).includes(F.collection)) return false;
-    if (F.verdict && (atlas || draft ? "none" : w.verdict) !== F.verdict) return false;
+    if (F.verdict && (atlas || draft || plan ? "none" : w.verdict) !== F.verdict) return false;
     if (F.paper && (atlas || w.materials.length)) return false;
-    if (F.app && (atlas || draft || w.appDecision !== F.app)) return false;
+    if (F.app && (atlas || draft || plan || w.appDecision !== F.app)) return false;
     if (F.used === "hide" && used.has(w.id)) return false;
     if (F.used === "ready" && !ready.has(w.id)) return false;
     return true;
@@ -744,8 +768,8 @@ const DATA = /*__DATA__*/null;
     if (F.sort === "depth") ws.sort((a, b) => a.depth - b.depth || itemOrder(a, b));
     else if (F.sort === "area") ws.sort((a, b) => areaIdx.indexOf(a.area) - areaIdx.indexOf(b.area) || itemOrder(a, b));
     const total = inLib().length;
-    const noun = F.lib.size > 1 ? "entries" : F.lib.has("atlas") ? "atlas investigations" : F.lib.has("draft") ? "draft themes" : "themes";
-    const parts = [["week", "themes"], ["draft", "drafts"], ["atlas", "atlas"]].map(([k, l]) => [ws.filter(x => x.kind === k).length, l]).filter(([n]) => n);
+    const noun = F.lib.size > 1 ? "entries" : F.lib.has("atlas") ? "atlas investigations" : F.lib.has("draft") ? "draft themes" : F.lib.has("plan") ? "plans" : "themes";
+    const parts = [["week", "themes"], ["draft", "drafts"], ["plan", "plans"], ["atlas", "atlas"]].map(([k, l]) => [ws.filter(x => x.kind === k).length, l]).filter(([n]) => n);
     $("#count").textContent = F.review === "weeks" ? `${ws.length} week${ws.length === 1 ? "" : "s"} with drafts awaiting review`
       : F.review === "themes" ? `${ws.length} draft theme${ws.length === 1 ? "" : "s"} awaiting review`
       : (ws.length === total ? `All ${ws.length} ${noun}` : `${ws.length} of ${total} ${noun}`) + (parts.length > 1 ? ` (${parts.map(([n, l]) => `${n} ${l}`).join(", ")})` : "");
@@ -776,8 +800,8 @@ const DATA = /*__DATA__*/null;
     return h("span", {}, DATA.bands.map(b => h("span", { class: "band" + (w.bands.includes(b) ? "" : " off"), text: bandLabel(b), style: "margin-right:3px" })));
   }
   function itemEl(w) {
-    const atlas = w.kind === "atlas", draft = w.kind === "draft";
-    return h("button", { class: "item" + (draft ? " draft" : ""), style: `--area:${areaColor(w.area)}`, "aria-current": current === w.id ? "true" : "false",
+    const atlas = w.kind === "atlas", draft = w.kind === "draft", plan = w.kind === "plan";
+    return h("button", { class: "item" + (draft ? " draft" : plan ? " plan" : ""), style: `--area:${areaColor(w.area)}`, "aria-current": current === w.id ? "true" : "false",
       onclick: () => openDetail(w.id), "data-id": w.id },
       h("span", { class: "num" + (atlas ? " aid" : draft ? " dnum" : ""), text: idOf(w), title: draft ? `Draft theme ${w.short}: scouting rank ${w.rank}` : null }),
       h("span", { style: "min-width:0" },
@@ -787,7 +811,8 @@ const DATA = /*__DATA__*/null;
           h("span", { class: "area-name" }, h("span", { class: "sw", style: `background:${areaColor(w.area)}` }), AREAS[w.area]),
           bandsEl(w),
           atlas ? h("span", { class: "pill atlas", text: "atlas · " + w.book.toLowerCase() })
-            : draft ? h("span", { class: "pill draft", text: "draft · awaiting review", title: DRAFT_NOTE }) : statusPill(w),
+            : draft ? h("span", { class: "pill draft", text: "draft · awaiting review", title: DRAFT_NOTE })
+            : plan ? h("span", { class: "pill plan", text: "plan", title: PLAN_NOTE }) : statusPill(w),
           w.verdict === "revise" ? h("span", { class: "pill revise", text: "card: fixes due" }) : null,
           w.kind === "week" ? w.drafts.map(d => h("span", { class: "pill pending", text: pendingPill(d), title: DRAFT_NOTE })) : null,
           used.has(w.id) ? h("span", { class: "pill used", text: "used" }) : null)));
@@ -797,12 +822,13 @@ const DATA = /*__DATA__*/null;
   function openDetail(id, opts = {}) {
     const w = I.get(id);
     if (!w) return;
+    if (w.kind === "plan" && !plansOn()) { F.lib.add("plan"); syncPlans(); renderFilters(); renderList(); }
     current = id;
     if (!opts.keepView) showView("activities", false);
     $("#acts").classList.add("has-detail");
     const d = $("#detail");
     d.hidden = false;
-    d.replaceChildren(w.kind === "atlas" ? atlasDetailEl(w) : w.kind === "draft" ? draftDetailEl(w) : detailEl(w));
+    d.replaceChildren(w.kind === "atlas" ? atlasDetailEl(w) : w.kind === "draft" ? draftDetailEl(w) : w.kind === "plan" ? planDetailEl(w) : detailEl(w));
     d.scrollTop = 0;
     for (const el of document.querySelectorAll(".item")) el.setAttribute("aria-current", el.dataset.id === id ? "true" : "false");
     setHash(hashFor(id));
@@ -1020,6 +1046,32 @@ const DATA = /*__DATA__*/null;
     frag.append(body);
     return frag;
   }
+  function planDetailEl(x) {
+    const frag = document.createDocumentFragment();
+    frag.append(h("div", { class: "d-head" },
+      h("p", { class: "planbox", text: PLAN_NOTE }),
+      h("div", { class: "kicker" }, `Week ${x.id} · plan · ${fmtDate(x.date)}`),
+      h("button", { class: "close", "aria-label": "Close", onclick: closeDetail }, "×"),
+      h("h2", { text: x.title }),
+      h("div", { class: "tags" }, h("span", { class: "pill plan", text: "plan" }),
+        h("span", { class: "area-name", text: AREAS[x.area] }), bandsEl(x))));
+    const body = h("div", { class: "d-body" },
+      h("section", {}, h("p", { class: "d-hook", text: x.hook })),
+      h("section", {}, h("h3", { text: "The mathematics" }), h("p", { text: x.math })),
+      h("section", {}, h("h3", { text: "Deep-math field" }), h("p", { text: x.field })),
+      h("section", {}, h("h3", { text: "Planned entries by band" }), bandsEl(x),
+        h("p", { class: "muted", text: "Proposed entry points; no student pages yet." })),
+      h("section", {}, h("h3", { text: "Materials" }), h("p", { text: x.materials.length ? x.materials.join("; ") : "None listed in the plan." })),
+      h("section", {}, h("h3", { text: "Concepts and reasoning" }),
+        h("div", { class: "chips" }, x.concepts.map(conceptChip)),
+        h("p", { text: x.mechanisms.map(m => DATA.mechanisms[m]).join("; ") })),
+      h("section", {}, h("h3", { text: "Related weeks" }),
+        (PREL.get(x.id) || []).length ? (PREL.get(x.id) || []).map(r => relItem(r.other, `${KIND_TITLE[r.kind]}. ${r.note}`))
+          : h("p", { class: "muted", text: "No weekly-theme links listed." })),
+      h("section", {}, h("a", { href: fileUrl(x.file), target: "_blank", rel: "noopener" }, "Read the draft plan on GitHub")));
+    frag.append(body);
+    return frag;
+  }
   function relItem(id, note) {
     const o = I.get(id);
     const draft = o && o.kind === "draft";
@@ -1073,7 +1125,7 @@ const DATA = /*__DATA__*/null;
     $(ids[2]).addEventListener("click", () => { z = fit(); apply(); });
     const fit = () => Math.max(.35, Math.min(1, (container.clientWidth - 8) / w));
     z = fit(); apply();
-    return { center(x, y) { container.scrollTo({ left: x * z - container.clientWidth / 2, top: y * z - container.clientHeight / 2, behavior: "smooth" }); } };
+    return { resize(width, height) { w = width; hgt = height; svg.setAttribute("width", w); svg.setAttribute("height", hgt); svg.setAttribute("viewBox", `0 0 ${w} ${hgt}`); apply(); }, center(x, y) { container.scrollTo({ left: x * z - container.clientWidth / 2, top: y * z - container.clientHeight / 2, behavior: "smooth" }); } };
   }
 
   // ---------------------------------------------------------------- concept map
@@ -1095,14 +1147,14 @@ const DATA = /*__DATA__*/null;
       const a = C.get(r);
       const x1 = a.x + nodeW(a), y1 = a.y, x2 = c.x, y2 = c.y;
       const mx = (x1 + x2) / 2;
-      const p = s("path", { class: "cedge" + (a.draftOnly || c.draftOnly ? " dr" : ""), d: `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`, "data-a": r, "data-b": c.id });
+      const p = s("path", { class: "cedge" + ((a.planOnly || c.planOnly) ? " pl" : a.draftOnly || c.draftOnly ? " dr" : ""), d: `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`, "data-a": r, "data-b": c.id });
       gE.append(p); edges.push(p);
     }
     const nodes = new Map();
     for (const c of DATA.concepts) {
       const wdt = nodeW(c);
       const nd = c.drafts.length;
-      const g = s("g", { class: "cnode" + (c.weeks.length || c.atlas.length || c.draftOnly ? "" : " empty") + (c.draftOnly ? " draftonly dr" : ""),
+      const g = s("g", { class: "cnode" + (c.weeks.length || c.atlas.length || c.draftOnly ? "" : " empty") + (c.planOnly ? " planonly pl" : c.draftOnly ? " draftonly dr" : "") + (c.planContext ? " plan-context" : ""),
         transform: `translate(${c.x},${c.y - 11})`, tabindex: 0, role: "button",
         "aria-label": `${c.name}, ${c.weeks.length} themes` + (nd ? `, ${nd} draft theme${nd > 1 ? "s" : ""}` : ""), onclick: () => selectConcept(c.id),
         onkeydown: e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectConcept(c.id); } } });
@@ -1113,6 +1165,7 @@ const DATA = /*__DATA__*/null;
         c.weeks.length ? s("text", { class: "cnt", x: wdt - 6 - (nd ? 22 : 0), y: 15, "text-anchor": "end", text: c.weeks.length }) : null,
         nd ? s("g", { class: "dr" }, s("rect", { class: "dbadge", x: wdt - 22, y: 4, width: 18, height: 14, rx: 7 }),
           s("text", { class: "dcnt", x: wdt - 13, y: 14.5, "text-anchor": "middle", text: nd })) : null,
+        c.plans.length ? s("g", { class: "pl" }, s("rect", { class: "pbadge", x: wdt + 2, y: 4, width: 27, height: 14, rx: 3, fill: "var(--surface-2)", stroke: "var(--ink-3)", "stroke-dasharray": "1 2" }), s("text", { class: "pcnt", x: wdt + 15, y: 14, "text-anchor": "middle", text: `P${c.plans.length}` })) : null,
         s("title", { text: `${c.name}: ${c.about}` + (c.draftOnly ? " (only draft themes use this concept so far)" : nd ? ` (${nd} draft theme${nd > 1 ? "s" : ""} awaiting review)` : "") }));
       gN.append(g); nodes.set(c.id, g);
     }
@@ -1129,6 +1182,8 @@ const DATA = /*__DATA__*/null;
         h("span", { class: "dkey dr-key" }, s("svg", { viewBox: "0 0 20 16", width: 20, height: 16 }, s("rect", { x: 1, y: 1, width: 18, height: 14, rx: 7, fill: "var(--hi)", stroke: "var(--warn)", "stroke-dasharray": "2 2" })), "number of draft themes about the concept"),
         h("span", { class: "dkey dr-key" }, s("svg", { viewBox: "0 0 30 16", width: 30, height: 16 }, s("rect", { x: 1, y: 1, width: 28, height: 14, rx: 4, fill: "var(--surface)", stroke: "var(--warn)", "stroke-dasharray": "4 3" })), "concept only drafts use so far")] : []));
     applyDraftKeys();
+    legend.append(h("span", { class: "dkey pl-key", text: "P = number of draft plans about the concept" }));
+    syncPlans();
     conceptSide(null);
   }
   function highlightArea(a, btn) {
@@ -1140,14 +1195,15 @@ const DATA = /*__DATA__*/null;
     svg.classList.add("dim");
     for (const [id, g] of nodes) { g.classList.toggle("on", C.get(id).area === a); g.classList.remove("sel"); }
     for (const p of edges) p.classList.toggle("on", C.get(p.dataset.a).area === a && C.get(p.dataset.b).area === a);
-    const cs = DATA.concepts.filter(c => c.area === a && (showDrafts || !c.draftOnly));
+    const cs = DATA.concepts.filter(c => c.area === a && (c.planOnly ? plansOn() : showDrafts || !c.draftOnly || (plansOn() && c.planContext)));
     const ws = sortWeeks([...new Set(cs.flatMap(c => c.weeks))]);
     const ds = showDrafts ? draftSort([...new Set(cs.flatMap(c => c.drafts))]) : [];
     const side = $("#cside");
     cmapState.sel = null;
     put(side, h("h2", { text: AREAS[a] }), h("p", { class: "muted", text: `${cs.length} concepts and ${ws.length} themes.` }),
       h("h3", { text: "Themes" }), weekList(ws),
-      ds.length ? [h("h3", { text: `Draft themes awaiting review (${ds.length})` }), weekList(ds)] : null);
+      ds.length ? [h("h3", { text: `Draft themes awaiting review (${ds.length})` }), weekList(ds)] : null,
+      plansOn() ? [h("h3", { text: "Draft plans" }), weekList(sortWeeks([...new Set(cs.flatMap(c => c.plans))]))] : null);
   }
   const draftSort = ids => ids.slice().sort((a, b) => DR.get(a).rank - DR.get(b).rank);
   function ancestors(id, acc = new Set()) { for (const r of C.get(id).requires) if (!acc.has(r)) { acc.add(r); ancestors(r, acc); } return acc; }
@@ -1206,9 +1262,10 @@ const DATA = /*__DATA__*/null;
       c.usedBy.length ? weekList(c.usedBy) : null,
       showDrafts && c.drafts.length ? [h("h3", { text: `Draft themes about it (${c.drafts.length})` }), weekList(c.drafts)] : null,
       showDrafts && c.draftUses.length ? [h("h3", { text: `Draft themes that build on it (${c.draftUses.length})` }), weekList(c.draftUses)] : null,
+      plansOn() && c.plans.length ? [h("h3", { text: `Draft plans (${c.plans.length})` }), weekList(c.plans)] : null,
       c.atlas.length ? h("h3", { text: `Atlas investigations (${c.atlas.length})` }) : null,
       c.atlas.length ? weekList(c.atlas) : null,
-      showDrafts && c.draftOnly ? h("p", { class: "muted", text: "Only draft themes awaiting review use this concept so far." }) : null,
+      showDrafts && c.draftOnly && !(plansOn() && c.planContext) ? h("p", { class: "muted", text: "Only draft themes awaiting review use this concept so far." }) : null,
       h("p", {}, h("button", { class: "linkbtn", onclick: () => {
         F.concept = id; F.review = "";
         if (c.atlas.length) F.lib.add("atlas");
@@ -1248,6 +1305,13 @@ const DATA = /*__DATA__*/null;
       ln.append(s("title", { text: `Draft ${a.short} (${a.title}) and Week ${e.week}: ${e.note}` }));
       gE.append(ln); edges.push(ln);
     }
+    for (const e of DATA.planEdges) {
+      const a = PL.get(e.plan), b = W.get(e.week);
+      const ln = s("line", { class: `wedge pedge pl k-${e.kind}`, x1: a.x, y1: a.y, x2: b.x, y2: b.y,
+        "data-a": a.id, "data-b": b.id, "data-k": e.kind });
+      ln.append(s("title", { text: `Plan ${a.id} and Week ${b.id}: ${e.note}` }));
+      gE.append(ln); edges.push(ln);
+    }
     const nodes = new Map();
     for (const w of DATA.weeks) {
       const g = s("g", { class: "wnode", transform: `translate(${w.x},${w.y})`, tabindex: 0, role: "button",
@@ -1266,6 +1330,15 @@ const DATA = /*__DATA__*/null;
         s("text", { class: "lab", x: 16, y: 4, text: (d.title.length > 24 ? d.title.slice(0, 23) + "…" : d.title) + " (draft)" }),
         s("title", { text: `${d.short}. ${d.title}: draft theme awaiting review` }));
       gN.append(g); nodes.set(d.id, g);
+    }
+    for (const p of DATA.plans) {
+      const g = s("g", { class: "wnode plan pl", transform: `translate(${p.x},${p.y})`, tabindex: 0, role: "button",
+        "aria-label": `Plan ${p.id}, ${p.title}`, onclick: () => selectWeek(p.id),
+        onkeydown: e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectWeek(p.id); } } });
+      g.append(s("circle", { r: 14, stroke: areaColor(p.area) }), s("text", { "text-anchor": "middle", y: 3.5, text: p.id }),
+        s("text", { class: "lab", x: 18, y: 4, text: (p.title.length > 25 ? p.title.slice(0, 24) + "…" : p.title) + " (plan)" }),
+        s("title", { text: PLAN_NOTE }));
+      gN.append(g); nodes.set(p.id, g);
     }
     const inner = h("div", { style: "position:relative" });
     inner.append(svg);
@@ -1286,13 +1359,15 @@ const DATA = /*__DATA__*/null;
         h("span", { class: "dkey dr-key" }, s("svg", { viewBox: "0 0 34 10", width: 34, height: 10 }, s("line", { x1: 2, y1: 5, x2: 32, y2: 5, stroke: "var(--warn)", "stroke-width": 2 })), "a draft's link"),
         h("span", { class: "dkey dr-key" }, s("svg", { viewBox: "0 0 12 12", width: 12, height: 12 }, s("circle", { cx: 6, cy: 6, r: 4.5, fill: "var(--warn)" })), "week with draft pages")] : []));
     applyDraftKeys();
+    kl.append(h("span", { class: "dkey pl-key", text: "dotted grey dots and links: draft plans, no pages yet" }));
+    syncPlans();
     weekSide(null);
   }
   function applyKinds() { for (const ln of wmapState.edges) ln.style.display = kindsOn.has(ln.dataset.k) ? "" : "none"; }
   function selectWeek(id) {
     const { svg, nodes, edges, zoom } = wmapState;
     const nb = new Set([id]);
-    const live = ln => kindsOn.has(ln.dataset.k) && (showDrafts || !ln.classList.contains("dedge"));
+    const live = ln => kindsOn.has(ln.dataset.k) && (showDrafts || !ln.classList.contains("dedge")) && (plansOn() || !ln.classList.contains("pedge"));
     for (const ln of edges) if (live(ln) && (ln.dataset.a === id || ln.dataset.b === id)) { nb.add(ln.dataset.a); nb.add(ln.dataset.b); }
     svg.classList.add("dim");
     for (const [wid, g] of nodes) { g.classList.toggle("on", nb.has(wid)); g.classList.toggle("sel", wid === id); }
@@ -1308,7 +1383,22 @@ const DATA = /*__DATA__*/null;
       put(side, h("h2", { text: "Choose a theme" }), h("p", { class: "muted", text: "Most connected themes:" }),
         h("ul", {}, deg.slice(0, 12).map(([w, n]) => h("li", {}, h("button", { onclick: () => pickOnMap(w.id) }, h("span", { class: "wn", text: w.id }), `${w.title} (${n})`)))),
         showDrafts && DATA.drafts.length ? [h("h3", { text: `Draft themes awaiting review (${DATA.drafts.length})` }), weekList(DATA.drafts.map(d => d.id), pickOnMap)] : null,
-        showDrafts && PENDING.length ? [h("h3", { text: `Weeks with draft pages (${PENDING.length})` }), weekList(PENDING.map(w => w.id), pickOnMap)] : null);
+        showDrafts && PENDING.length ? [h("h3", { text: `Weeks with draft pages (${PENDING.length})` }), weekList(PENDING.map(w => w.id), pickOnMap)] : null,
+        plansOn() ? [h("h3", { text: `Draft plans (${DATA.plans.length})` }), weekList(DATA.plans.map(p => p.id), pickOnMap)] : null);
+      return;
+    }
+    if (PL.has(id)) {
+      const p = PL.get(id);
+      side.scrollTop = 0;
+      put(side, h("p", { class: "planbox", text: PLAN_NOTE }), h("h2", { text: p.title }),
+        h("p", { class: "muted", text: p.hook }),
+        h("button", { class: "linkbtn", onclick: () => openDetail(id) }, "Open the full plan"),
+        h("h3", { text: "Related weeks" }),
+        (PREL.get(id) || []).map(r => {
+          const el = relItem(r.other, `${KIND_TITLE[r.kind]}. ${r.note}`);
+          el.querySelector("button").onclick = () => pickOnMap(r.other);
+          return el;
+        }));
       return;
     }
     if (DR.has(id)) {
@@ -1348,6 +1438,55 @@ const DATA = /*__DATA__*/null;
       })) : null);
   }
 
+  function syncConceptVisibility() {
+    if (!cmapState) return;
+    const visible = c => c.planOnly ? plansOn() : !c.draftOnly || showDrafts || (plansOn() && c.planContext);
+    for (const [id, node] of cmapState.nodes) {
+      const c = C.get(id);
+      node.style.display = !visible(c) ? "none" : c.draftOnly && !showDrafts ? "inline" : "";
+    }
+    for (const edge of cmapState.edges) {
+      const a = C.get(edge.dataset.a), b = C.get(edge.dataset.b);
+      edge.style.display = !visible(a) || !visible(b) ? "none" : (a.draftOnly || b.draftOnly) && !showDrafts ? "inline" : "";
+    }
+  }
+  function syncPlans() {
+    const on = plansOn();
+    for (const box of document.querySelectorAll(".show-plans")) box.checked = on;
+    for (const key of document.querySelectorAll(".pl-key")) key.hidden = !on;
+    if (!on && PL.has(current)) closeDetail();
+    if (cmapState) {
+      cmapState.svg.classList.toggle("no-plans", !on);
+      cmapState.svg.classList.toggle("plans-on", on);
+      syncConceptVisibility();
+      cmapState.zoom.resize(DATA.conceptMap.width, on ? DATA.conceptMap.planHeight : DATA.conceptMap.height);
+      const sel = cmapState.sel;
+      if (sel && !on && (C.get(sel).planOnly || (!showDrafts && C.get(sel).draftOnly))) {
+        cmapState.sel = null; cmapState.svg.classList.remove("dim");
+        for (const g of cmapState.nodes.values()) g.classList.remove("on", "sel");
+        for (const e of cmapState.edges) e.classList.remove("on");
+      }
+      const pressed = document.querySelector("#map-legend .chip[aria-pressed='true']");
+      if (pressed) { pressed.setAttribute("aria-pressed", "false"); pressed.click(); }
+      else conceptSide(cmapState.sel);
+    }
+    if (wmapState) {
+      wmapState.svg.classList.toggle("no-plans", !on);
+      wmapState.zoom.resize(DATA.weekMap.width, on ? DATA.weekMap.planHeight : DATA.weekMap.height);
+      if (PL.has(wmapState.sel) && !on) {
+        wmapState.sel = null; wmapState.svg.classList.remove("dim");
+        for (const g of wmapState.nodes.values()) g.classList.remove("on", "sel");
+        for (const e of wmapState.edges) e.classList.remove("on");
+      }
+      if (wmapState.sel) selectWeek(wmapState.sel); else weekSide(null);
+    }
+  }
+  for (const box of document.querySelectorAll(".show-plans")) box.addEventListener("change", e => {
+    if (e.target.checked) F.lib.add("plan"); else F.lib.delete("plan");
+    if (!F.lib.size) F.lib.add("week");
+    syncPlans(); renderFilters(); renderList();
+  });
+
   // ---------------------------------------------------------------- the drafts switch on both maps
   function applyDraftKeys() { for (const el of document.querySelectorAll(".dr-key")) el.hidden = !showDrafts; }
   function setShowDrafts(on) {
@@ -1357,6 +1496,7 @@ const DATA = /*__DATA__*/null;
     applyDraftKeys();
     if (cmapState) {
       cmapState.svg.classList.toggle("no-drafts", !on);
+      syncConceptVisibility();
       const pressed = document.querySelector("#map-legend .chip[aria-pressed='true']");
       if (pressed) { pressed.setAttribute("aria-pressed", "false"); pressed.click(); }
       else conceptSide(cmapState.sel);
@@ -1649,6 +1789,7 @@ const DATA = /*__DATA__*/null;
     const tok = (location.hash || "").slice(1);
     suppressHash = true;
     if (/^w\d+e?$/.test(tok) && W.has(tok.slice(1))) openDetail(tok.slice(1), { focus: false });
+    else if (tok.startsWith("plan-") && PL.has(tok.slice(5))) openDetail(tok.slice(5), { focus: false });
     else if (AT.has(tok)) openDetail(tok, { focus: false });
     else if (tok.startsWith("d-") && DR.has(tok.slice(2))) openDetail(tok.slice(2), { focus: false });
     else if (["map", "links", "strands", "activities", "path"].includes(tok)) showView(tok, false);

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Readiness report: how far the library is from done, measured from the records.
 
-Reads catalog/weeks, catalog/drafts, catalog/atlas, catalog/path.toml, catalog/use-log.toml,
+Reads catalog/weeks, catalog/drafts, catalog/plans, catalog/atlas, catalog/path.toml, catalog/use-log.toml,
 catalog/concepts.toml and the room-plan index, and writes plans/readiness.md. Run it after
 changing any of those (build.py also runs it):
 
@@ -71,6 +71,7 @@ def main(print_report=False):
         r = load(f)
         weeks[r["week"]] = r
     drafts = [load(f) for f in sorted((CAT / "drafts").glob("*.toml"))]
+    draft_plans = [load(f) for f in sorted((CAT / "plans").glob("*.toml"))]
     atlas = [load(f) for f in sorted((CAT / "atlas").glob("*.toml"))]
     path = load(CAT / "path.toml")
     uses = load(CAT / "use-log.toml").get("use", [])
@@ -116,6 +117,8 @@ def main(print_report=False):
     for label, k in rows:
         add(f"| {label} | {k} | {100 * k / n:.0f}% |")
     add("")
+    add(f"Draft plans with no pages: {len(draft_plans)}")
+    add("")
     circle_sessions = sum(u["setting"] == "circle" for u in uses)
     home_sessions = sum(u["setting"] == "home" for u in uses)
     add(f"The use log has {circle_sessions} circle sessions and {home_sessions} home sessions. "
@@ -129,17 +132,18 @@ def main(print_report=False):
 
     add("## By area")
     add("")
-    add("| Area | Themes | K–1 entry | 4–5 only | Signed off | Room plan | Taught | Draft themes waiting | Atlas families |")
-    add("|---|---|---|---|---|---|---|---|---|")
+    add("| Area | Themes | K–1 entry | 4–5 only | Signed off | Room plan | Taught | Draft themes waiting | Atlas families | Draft plans |")
+    add("|---|---|---|---|---|---|---|---|---|---|")
     for aid, aname in areas.items():
         ws = [w for w, r in weeks.items() if area(r) == aid]
-        add("| {} | {} | {} | {} | {} | {} | {} | {} | {} |".format(
+        add("| {} | {} | {} | {} | {} | {} | {} | {} | {} | {} |".format(
             aname, len(ws), sum(w in k1 for w in ws),
             sum(weeks[w]["bands"] == ["4-5"] for w in ws),
             sum(w in signed for w in ws), sum(w in plans for w in ws),
             sum(w in taught for w in ws),
             sum(area(d) == aid for d in drafts),
-            sum(area(a) == aid for a in atlas)))
+            sum(area(a) == aid for a in atlas),
+            sum(p["area"] == aid for p in draft_plans)))
     add("")
 
     add("## The six-year path")

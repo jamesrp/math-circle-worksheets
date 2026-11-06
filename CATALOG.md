@@ -228,6 +228,121 @@ Themes drafted with the worksheet workflow that have no week number yet. The ran
 | 97 | Square remainders | K–1 pages | Square leftovers. | 2026-10-25 | [pages](plans/k1-drafts/week-97/) · [index](plans/k1-drafts/README.md) |
 | 98 | Growing from a few seeds | K–1 pages | Fill or stuck. | 2026-10-25 | [pages](plans/k1-drafts/week-98/) · [index](plans/k1-drafts/README.md) |
 
+## Draft plans, Weeks 101–208
+
+Draft plan only: no pages, guide, review or pilot yet. Unproven with children. These plans are separate from drafts with pages, readiness rungs, collections and the six-year path. The explorer's Plans chip is off by default. Grouped by area; bands are proposed entries, not pages.
+
+| Week | Title | Area | Bands | Plan |
+|---|---|---|---|---|
+| 105 | Knight's tours on small boards | Networks and graphs | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-105-knights-tours.md) |
+| 106 | Colouring maps | Networks and graphs | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-106-map-colouring.md) |
+| 107 | Mazes, walls and random trees | Networks and graphs | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-107-mazes.md) |
+| 150 | Same network or different? | Networks and graphs | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-150-same-network-or-different.md) |
+| 151 | Instant Insanity | Networks and graphs | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-151-instant-insanity.md) |
+| 152 | Who is most important? | Networks and graphs | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-152-who-is-most-important.md) |
+| 153 | Soap-film shortcuts | Networks and graphs | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-153-soap-film-shortcuts.md) |
+| 182 | Passing secrets by phone | Networks and graphs | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-182-gossip-calls.md) |
+| 183 | Can everyone get a partner? | Networks and graphs | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-183-dance-partners.md) |
+| 184 | Your friends have more friends | Networks and graphs | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-184-your-friends-have-more-friends.md) |
+| 185 | Making every street one-way | Networks and graphs | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-185-one-way-streets.md) |
+| 186 | How many trees on numbered pegs? | Networks and graphs | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-186-counting-trees.md) |
+| 187 | Can the fire cross the forest? | Networks and graphs | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-187-crossing-the-forest.md) |
+| 188 | A few shortcuts make a small world | Networks and graphs | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-188-small-worlds.md) |
+| 134 | Peg jumps and Conway's soldiers | Games, choices and optimization | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-134-conways-soldiers.md) |
+| 135 | The trust game | Games, choices and optimization | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-135-trust-game.md) |
+| 136 | Sealed-bid auctions | Games, choices and optimization | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-136-sealed-bid-auctions.md) |
+| 147 | Pairing strategies | Games, choices and optimization | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-147-pairing-strategies.md) |
+| 148 | Guess two-thirds of the average | Games, choices and optimization | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-148-guess-two-thirds.md) |
+| 149 | Racetrack | Games, choices and optimization | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-149-racetrack.md) |
+| 176 | Hide and seek with unequal prizes | Games, choices and optimization | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-176-hide-and-seek.md) |
+| 177 | Pirates share the gold | Games, choices and optimization | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-177-pirates-share-the-gold.md) |
+| 178 | Bidding for turns | Games, choices and optimization | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-178-bidding-for-turns.md) |
+| 179 | Sharing the taxi fare | Games, choices and optimization | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-179-sharing-the-taxi-fare.md) |
+| 180 | Who holds the power? | Games, choices and optimization | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-180-who-holds-the-power.md) |
+| 181 | A new road makes traffic worse | Games, choices and optimization | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-181-a-new-road-makes-traffic-worse.md) |
+| 130 | Dropping sticks and noodles on lines | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-130-buffons-needle-and-noodle.md) |
+| 131 | Collecting every sticker | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-131-collecting-every-sticker.md) |
+| 132 | Coin-pattern races | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-132-penneys-game.md) |
+| 133 | Better in both, worse together | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-133-simpsons-paradox.md) |
+| 141 | Leaning towers off the table | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-141-leaning-towers.md) |
+| 142 | A path through every point | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-142-space-filling-curves.md) |
+| 171 | Shared birthdays | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-171-shared-birthdays.md) |
+| 172 | First digits | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-172-first-digits.md) |
+| 173 | How long does Snakes and Ladders last? | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-173-snakes-and-ladders.md) |
+| 174 | Shrinking piles | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-174-shrinking-piles.md) |
+| 175 | The chaos game | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-175-chaos-game.md) |
+| 202 | Halfway to the wall | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-202-halfway-to-the-wall.md) |
+| 203 | Press it again | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-203-press-it-again.md) |
+| 204 | The fastest slide | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-204-fastest-slide.md) |
+| 205 | Pi from polygons | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-205-pi-from-polygons.md) |
+| 207 | Random walks home | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-207-random-walks-home.md) |
+| 208 | Long runs | Chance, dynamics and infinity | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-208-long-runs.md) |
+| 108 | Hailstone numbers | Numbers and divisibility | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-108-hailstone-numbers.md) |
+| 109 | Sharing loaves the Egyptian way | Numbers and divisibility | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-109-egyptian-fractions.md) |
+| 110 | Fibonacci coins | Numbers and divisibility | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-110-fibonacci-coins.md) |
+| 111 | Staircase numbers | Numbers and divisibility | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-111-staircase-numbers.md) |
+| 112 | Spreading claps around a circle | Numbers and divisibility | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-112-euclidean-rhythms.md) |
+| 113 | One magic square | Numbers and divisibility | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-113-magic-squares.md) |
+| 114 | Sunflower spirals | Numbers and divisibility | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-114-sunflower-spirals.md) |
+| 157 | Remainders that repeat | Numbers and divisibility | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-157-remainders-that-repeat.md) |
+| 158 | Squares from two squares | Numbers and divisibility | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-158-squares-from-two-squares.md) |
+| 159 | Rectangles of a number | Numbers and divisibility | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-159-rectangles-of-a-number.md) |
+| 160 | Times tables on a circle | Numbers and divisibility | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-160-times-tables-on-a-circle.md) |
+| 200 | Kaprekar's sorting machine | Numbers and divisibility | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-200-kaprekars-routine.md) |
+| 201 | Two prime towers make every even tower? | Numbers and divisibility | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-201-prime-pairs.md) |
+| 206 | Folding the square root of two | Numbers and divisibility | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-206-folding-the-square-root-of-two.md) |
+| 115 | Wallpaper patterns | Symmetry, groups and algebra | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-115-wallpaper-patterns.md) |
+| 116 | Kaleidoscopes | Symmetry, groups and algebra | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-116-kaleidoscopes.md) |
+| 117 | Commutator puzzles | Symmetry, groups and algebra | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-117-commutator-puzzles.md) |
+| 118 | Card magic | Symmetry, groups and algebra | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-118-card-magic.md) |
+| 119 | Juggling patterns | Symmetry, groups and algebra | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-119-juggling-patterns.md) |
+| 125 | One tile that never repeats | Symmetry, groups and algebra | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-125-one-tile-never-repeats.md) |
+| 161 | Flexagons | Symmetry, groups and algebra | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-161-flexagons.md) |
+| 162 | Thirty coloured cubes | Symmetry, groups and algebra | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-162-thirty-coloured-cubes.md) |
+| 163 | Arrow multiplication | Symmetry, groups and algebra | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-163-arrow-multiplication.md) |
+| 196 | Ringing every order of the bells | Symmetry, groups and algebra | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-196-change-ringing.md) |
+| 197 | Star patterns from crossing lines | Symmetry, groups and algebra | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-197-star-patterns.md) |
+| 198 | Nibble a tile | Symmetry, groups and algebra | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-198-nibble-a-tile.md) |
+| 199 | Steering a card with perfect shuffles | Symmetry, groups and algebra | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-199-perfect-shuffles.md) |
+| 120 | Gems made only of triangles | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-120-eight-deltahedra.md) |
+| 121 | Flat patterns that fold into a box | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-121-cube-nets.md) |
+| 122 | Tangram shapes with no dents | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-122-convex-tangrams.md) |
+| 123 | Guards in a gallery | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-123-gallery-guards.md) |
+| 124 | One straight cut | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-124-fold-and-cut.md) |
+| 126 | Cut and rearrange | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-126-cut-and-rearrange.md) |
+| 127 | How long is a coastline? | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-127-how-long-is-a-coastline.md) |
+| 128 | Splitting necklaces | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-128-splitting-necklaces.md) |
+| 129 | The wobbly table and the crumpled map | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-129-wobbly-table-crumpled-map.md) |
+| 164 | Three rings that hold together | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-164-borromean-rings.md) |
+| 165 | Inside or outside? | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-165-inside-or-outside.md) |
+| 166 | You can't comb a hairy ball | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-166-hairy-ball.md) |
+| 167 | Walking a loop | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-167-walking-a-loop.md) |
+| 168 | Folding beats the compass | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-168-folding-beats-the-compass.md) |
+| 169 | Stacking oranges | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-169-stacking-oranges.md) |
+| 170 | Shapes that build bigger copies of themselves | Shape, space and surfaces | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-170-rep-tiles.md) |
+| 137 | The Game of Life | Logic, algorithms and information | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-137-game-of-life.md) |
+| 138 | Tiny machines and the busy beaver | Logic, algorithms and information | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-138-busy-beaver.md) |
+| 139 | Secret messages and two padlocks | Logic, algorithms and information | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-139-secret-messages.md) |
+| 140 | Proving without telling | Logic, algorithms and information | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-140-proving-without-telling.md) |
+| 143 | Domino computers | Logic, algorithms and information | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-143-domino-computers.md) |
+| 144 | The MU puzzle | Logic, algorithms and information | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-144-mu-puzzle.md) |
+| 145 | The fake coin and the balance | Logic, algorithms and information | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-145-fake-coin-balance.md) |
+| 146 | Easy to check, hard to find | Logic, algorithms and information | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-146-easy-to-check-hard-to-find.md) |
+| 189 | Guessing your own hat | Logic, algorithms and information | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-189-guessing-your-hat.md) |
+| 190 | Follow the loop to find your card | Logic, algorithms and information | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-190-hundred-prisoners.md) |
+| 191 | Say what you see | Logic, algorithms and information | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-191-look-and-say.md) |
+| 192 | Short codes for common letters | Logic, algorithms and information | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-192-shortest-codes.md) |
+| 193 | The ant that builds a highway | Logic, algorithms and information | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-193-langtons-ant.md) |
+| 194 | The endless hotel and the strip nobody listed | Logic, algorithms and information | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-194-hilberts-hotel.md) |
+| 195 | Ordering stones with a balance | Logic, algorithms and information | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-195-ordering-stones.md) |
+| 101 | Bead machines and the odd triangle | Counting and arrangements | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-101-galton-and-odd-pascal.md) |
+| 102 | Domino diamonds | Counting and arrangements | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-102-aztec-diamond.md) |
+| 103 | Tower maps and one-switch codes | Counting and arrangements | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-103-hanoi-maps-and-gray-codes.md) |
+| 104 | The sixteen-card square | Counting and arrangements | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-104-sixteen-card-squares.md) |
+| 154 | Bulgarian solitaire | Counting and arrangements | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-154-bulgarian-solitaire.md) |
+| 155 | Weird dice | Counting and arrangements | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-155-weird-dice.md) |
+| 156 | Lining up by height | Counting and arrangements | K–1, 2–3, 4–5 | [plan](plans/drafts/weeks-101-plus/week-156-lining-up-by-height.md) |
+
 ## Atlas investigations
 
 Ninety investigation families from the [mathematics atlas](plans/atlas/README.md), printed in four books. Bands are the K–5 bands with a genuine entry; a dash means the entry needs algebra or more. None is classroom-piloted.

@@ -2,7 +2,7 @@
 """Check the activity catalog and build the explorer and the catalog page.
 
 Reads catalog/concepts.toml, catalog/weeks/*.toml, catalog/atlas/*.toml and the draft
-themes in catalog/drafts/*.toml, finds each week's current print files and each draft's
+themes in catalog/drafts/*.toml and markdown-only catalog/plans/*.toml, finds each week's current print files and each draft's
 pages, checks the six-year path in catalog/path.toml (catalog/check_path.py), and writes
 explorer/index.html, CATALOG.md and plans/readiness.md. Also validates teaching
 evidence in catalog/use-log.toml and curated membership in catalog/collections.toml.
@@ -50,6 +50,10 @@ DRAFT_OPTIONAL = ["discover", "gem", "uses", "prep", "untried", "rank", "related
 PENDING_KINDS = ["return visit", "K-1 pages"]
 PENDING_FIELDS = {"kind", "path", "date", "note"}
 BAND_PDF = {"K-1": "k-1.pdf", "2-3": "grades-2-3.pdf", "4-5": "grades-4-5.pdf"}
+PLAN_SOURCE = "plans/drafts/weeks-101-plus"
+PLAN_REQUIRED = ["id", "title", "file", "status", "date", "area", "field", "hook", "math",
+                 "concepts", "mechanisms", "bands", "materials", "related"]
+PLAN_OPTIONAL = ["pick"]
 DRAFT_ROLES = {"k-1.pdf": "K–1 pages", "grades-2-3.pdf": "Grades 2–3 pages", "grades-4-5.pdf": "Grades 4–5 pages",
                "facilitator.pdf": "Facilitator guide (draft)", "k1-guide.pdf": "K–1 guide section (draft)", "materials.pdf": "Materials to print",
                "review.md": "Adversarial review", "review-math.md": "Math check", "review-guide.md": "Guide review"}
@@ -151,7 +155,7 @@ def series_of(w):
     return ""
 
 
-def load():
+def load(include_plans=False):
     concepts_doc = tomllib.loads((CAT / "concepts.toml").read_text())
     areas = concepts_doc["areas"]
     mechanisms = concepts_doc["mechanisms"]
@@ -252,9 +256,11 @@ def load():
                 errors.append(f"{week_slug(wid)}.toml: relates to itself")
     atlas = load_atlas(concepts, mechanisms, weeks, errors)
     drafts = load_drafts(concepts, mechanisms, weeks, errors)
+    plans = load_plans(areas, concepts, mechanisms, weeks, drafts, errors)
     if errors:
         raise CatalogError("\n".join(errors))
-    return areas, mechanisms, concepts, weeks, atlas, drafts
+    result = (areas, mechanisms, concepts, weeks, atlas, drafts)
+    return result + (plans,) if include_plans else result
 
 
 def repo_path(p, where, errors, want_dir):
@@ -272,7 +278,7 @@ def repo_path(p, where, errors, want_dir):
     return full
 
 
-def load_use_and_collections(weeks, drafts):
+def load_use_and_collections(weeks, drafts, plans=None):
     """Validate public teaching evidence and curated membership before writing outputs."""
     errors = []
 
@@ -327,6 +333,14 @@ def load_use_and_collections(weeks, drafts):
     ids = set()
     for i, rec in enumerate(collections, 1):
         where = f"collections.toml: collection entry {i}"
+        if "plans" in rec:
+            errors.append(f"{where}: plans cannot belong to a collection")
+        for field in ("weeks", "drafts"):
+            values = rec.get(field, [])
+            if isinstance(values, list):
+                for value in values:
+                    if isinstance(value, str) and value in (plans or {}):
+                        errors.append(f"{where}: plan {value!r} cannot belong to a collection")
         text_fields(rec, ("id", "title", "purpose", "done", "status"), where)
         cid = rec.get("id")
         if isinstance(cid, str):
@@ -345,6 +359,115 @@ def load_use_and_collections(weeks, drafts):
 def check_date(d, where, errors):
     if not (isinstance(d, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", d)):
         errors.append(f"{where}: date must be written YYYY-MM-DD")
+
+
+def load_plans(areas, concepts, mechanisms, weeks, drafts, errors):
+    """Markdown-only plans, deliberately outside the page library and readiness ladder."""
+    from datetime import date
+
+    plans, files = {}, {}
+    sources = {str(p.relative_to(ROOT)): p for p in (ROOT / PLAN_SOURCE).glob("week-*.md")}
+    # A source survives promotion. A draft's outline then takes the place of its plan.
+    promoted = {d.get("outline") for d in drafts.values()}
+    for path in sorted((CAT / "plans").glob("*.toml")):
+        where = f"plans/{path.name}"
+        try:
+            rec = tomllib.loads(path.read_text())
+        except tomllib.TOMLDecodeError as exc:
+            errors.append(f"{where}: {exc}")
+            continue
+        for field in PLAN_REQUIRED:
+            if field not in rec:
+                errors.append(f"{where}: missing {field}")
+        for field in rec:
+            if field not in PLAN_REQUIRED + PLAN_OPTIONAL:
+                errors.append(f"{where}: unknown field {field!r}")
+        for field in ("id", "title", "file", "status", "date", "area", "field", "hook", "math"):
+            if field in rec and (not isinstance(rec[field], str) or not rec[field].strip()):
+                errors.append(f"{where}: {field} must be non-empty text")
+        pid = rec.get("id")
+        if not isinstance(pid, str) or not re.fullmatch(r"[1-9][0-9]*", pid):
+            errors.append(f"{where}: id must be a canonical positive integer string")
+            pid = None
+        if pid:
+            if path.stem != f"week-{pid}":
+                errors.append(f"{where}: file name should be week-{pid}.toml")
+            if pid in plans:
+                errors.append(f"{where}: duplicate plan id {pid!r}")
+            if pid in weeks:
+                errors.append(f"{where}: plan id {pid!r} collides with a week record")
+            if pid in drafts:
+                errors.append(f"{where}: plan id {pid!r} collides with a draft record")
+        if rec.get("status") != "plan":
+            errors.append(f'{where}: status must be "plan"')
+        if not isinstance(rec.get("area"), str) or rec["area"] not in areas:
+            errors.append(f"{where}: unknown area {rec.get('area')!r}")
+        d = rec.get("date")
+        try:
+            if not isinstance(d, str) or not re.fullmatch(r"\d{4}-\d{2}(-\d{2})?", d):
+                raise ValueError
+            date.fromisoformat(d + "-01" if len(d) == 7 else d)
+        except ValueError:
+            errors.append(f"{where}: date must be a valid YYYY-MM or YYYY-MM-DD")
+        for field, known, label, minimum, maximum in (
+                ("concepts", concepts, "concept", 1, 4),
+                ("mechanisms", mechanisms, "mechanism", 1, 3),
+                ("bands", BANDS, "band", 1, 3),
+                ("materials", None, "material", 0, None)):
+            values = rec.get(field, [])
+            if not isinstance(values, list) or any(not isinstance(v, str) or not v.strip() for v in values):
+                errors.append(f"{where}: {field} must be a list of non-empty strings")
+                continue
+            if len(values) < minimum or (maximum is not None and len(values) > maximum):
+                errors.append(f"{where}: {field} should list {minimum} to {maximum} entries")
+            if len(values) != len(set(values)):
+                errors.append(f"{where}: {field} contains duplicate entries")
+            if known is not None:
+                for value in values:
+                    if value not in known:
+                        errors.append(f"{where}: unknown {label} {value!r}")
+        if "pick" in rec and not isinstance(rec["pick"], bool):
+            errors.append(f"{where}: pick must be true or false")
+        full = repo_path(rec.get("file"), where, errors, want_dir=False)
+        if full:
+            file = str(full.relative_to(ROOT))
+            if file not in sources:
+                errors.append(f"{where}: file must name a week-*.md source in {PLAN_SOURCE}")
+            elif pid and not full.name.startswith(f"week-{pid}-"):
+                errors.append(f"{where}: source file does not match plan id {pid!r}")
+            if file in files:
+                errors.append(f"{where}: source file already recorded by {files[file]}")
+            if file in promoted:
+                errors.append(f"{where}: source already has a draft record; remove its plan record")
+            files[file] = where
+        rels = rec.get("related", [])
+        if not isinstance(rels, list) or len(rels) > 6 or any(not isinstance(r, dict) for r in rels):
+            errors.append(f"{where}: related must list 0 to 6 tables")
+            rels = []
+        seen = set()
+        for rel in rels:
+            for field in ("week", "kind", "note"):
+                if field not in rel:
+                    errors.append(f"{where}: related entry missing {field}")
+                elif not isinstance(rel[field], str) or not rel[field].strip():
+                    errors.append(f"{where}: related {field} must be non-empty text")
+            for field in rel:
+                if field not in ("week", "kind", "note"):
+                    errors.append(f"{where}: unknown related field {field!r}")
+            wid, kind = rel.get("week"), rel.get("kind")
+            if not isinstance(wid, str) or wid not in weeks:
+                errors.append(f"{where}: unknown related week {wid!r}")
+            if not isinstance(kind, str) or kind not in KINDS:
+                errors.append(f"{where}: unknown relation kind {kind!r}")
+            if isinstance(wid, str):
+                if wid in seen:
+                    errors.append(f"{where}: duplicate related week {wid!r}")
+                seen.add(wid)
+        if pid:
+            plans[pid] = rec
+    for file in sorted(sources.keys() - files.keys() - promoted):
+        errors.append(f"{file}: no catalog/plans record")
+    return plans
 
 
 def draft_files(folder):
@@ -727,7 +850,8 @@ def pending_data(d):
             "files": draft_files(folder), "index": str(index.relative_to(ROOT)) if index.is_file() else ""}
 
 
-def build_data(areas, mechanisms, concepts, weeks, atlas, drafts, uses, collections):
+def build_data(areas, mechanisms, concepts, weeks, atlas, drafts, uses, collections, plans=None):
+    plans = plans or {}
     depth = concept_depths(concepts)
     concept_weeks = defaultdict(list)
     concept_uses = defaultdict(list)
@@ -789,6 +913,27 @@ def build_data(areas, mechanisms, concepts, weeks, atlas, drafts, uses, collecti
         if concept_drafts[cid] or concept_draft_uses[cid]:
             keep(cid)
     cpos, cw, ch, lanes = layout_concepts(concepts, depth, areas, shown)
+    # Preserve the default map's positions and dimensions. Plan-only concepts occupy
+    # an extra row, visible only with the Plans chip; existing nodes never move.
+    before_plans = set(shown)
+    concept_plans = defaultdict(list)
+    plan_context = set()
+
+    def keep_plan(cid):
+        if cid not in plan_context:
+            plan_context.add(cid)
+            for prerequisite in concepts[cid].get("requires", []):
+                keep_plan(prerequisite)
+
+    for pid in sorted(plans, key=int):
+        for cid in plans[pid]["concepts"]:
+            concept_plans[cid].append(pid)
+            keep_plan(cid)
+            keep(cid)
+    extra = [cid for cid in concepts if cid in shown - before_plans]
+    for i, cid in enumerate(extra):
+        cpos[cid] = (30 + (i % 5) * 210, ch + 60 + (i // 5) * 40)
+    plan_ch = ch + 100 + ((len(extra) - 1) // 5) * 40 if extra else ch
     wpos, ww, wh = layout_weeks(weeks, edge_list, areas)
     dpos = layout_drafts(drafts, wpos, ww, wh)
 
@@ -853,6 +998,9 @@ def build_data(areas, mechanisms, concepts, weeks, atlas, drafts, uses, collecti
             "drafts": concept_drafts[cid],
             "draftUses": concept_draft_uses[cid],
             "draftOnly": cid not in in_library,
+            "planOnly": cid not in before_plans,
+            "planContext": cid in plan_context,
+            "plans": concept_plans[cid],
             "x": cpos[cid][0],
             "y": cpos[cid][1],
         })
@@ -929,6 +1077,16 @@ def build_data(areas, mechanisms, concepts, weeks, atlas, drafts, uses, collecti
         })
         for rel in rec.get("related", []):
             draft_edges.append({"draft": did, "week": week_id(rel["week"]), "kind": rel["kind"], "note": rel["note"]})
+    out_plans, plan_edges = [], []
+    plan_order = sorted(plans, key=lambda pid: (list(areas).index(plans[pid]["area"]), int(pid)))
+    cols = max(1, ww // 240)
+    for i, pid in enumerate(plan_order):
+        rec = plans[pid]
+        out_plans.append({**rec, "uses": [], "depth": max(depth[c] for c in rec["concepts"]),
+                          "x": 35 + (i % cols) * 240, "y": wh + 65 + (i // cols) * 42})
+        plan_edges.extend({"plan": pid, "week": r["week"], "kind": r["kind"], "note": r["note"]}
+                          for r in rec["related"])
+    out_plans.sort(key=lambda p: int(p["id"]))
     return {
         "repo": REPO_URL,
         "collections": collections,
@@ -937,6 +1095,8 @@ def build_data(areas, mechanisms, concepts, weeks, atlas, drafts, uses, collecti
         "atlasEdges": atlas_edges,
         "drafts": out_drafts,
         "draftEdges": draft_edges,
+        "plans": out_plans,
+        "planEdges": plan_edges,
         "gateCodes": GATE_CODES,
         "areas": areas,
         "mechanisms": mechanisms,
@@ -945,8 +1105,9 @@ def build_data(areas, mechanisms, concepts, weeks, atlas, drafts, uses, collecti
         "concepts": out_concepts,
         "weeks": out_weeks,
         "edges": edge_list,
-        "conceptMap": {"width": cw, "height": ch, "lanes": lanes},
-        "weekMap": {"width": ww, "height": wh},
+        "conceptMap": {"width": cw, "height": ch, "planHeight": plan_ch, "lanes": lanes},
+        "weekMap": {"width": ww, "height": wh,
+                    "planHeight": wh + 110 + (math.ceil(len(plans) / cols) * 42) if plans else wh},
     }
 
 
@@ -1012,6 +1173,19 @@ def write_catalog_md(data, path):
             members += [f"[{draft_map[did]['title']} (draft)]({draft_map[did]['folder']}/)" for did in c.get("drafts", [])]
             lines += ["**Members:** " + ("; ".join(members) if members else "None chosen yet."), ""]
     lines += drafts_md(data)
+    if data["plans"]:
+        lines += ["## Draft plans, Weeks 101–208", "",
+                  "Draft plan only: no pages, guide, review or pilot yet. Unproven with children. "
+                  "These plans are separate from drafts with pages, readiness rungs, collections and the six-year path. "
+                  "The explorer's Plans chip is off by default. Grouped by area; bands are proposed entries, not pages.", "",
+                  "| Week | Title | Area | Bands | Plan |", "|---|---|---|---|---|"]
+        for aid, name in areas.items():
+            for p in data["plans"]:
+                if p["area"] == aid:
+                    title = p["title"].replace("|", "\\|")
+                    bands = ", ".join(b.replace("-", "–") for b in p["bands"])
+                    lines.append(f"| {p['id']} | {title} | {name} | {bands} | [plan]({p['file']}) |")
+        lines.append("")
     if data["atlas"]:
         lines += ["## Atlas investigations", "",
                   "Ninety investigation families from the [mathematics atlas](plans/atlas/README.md), printed in four books. "
@@ -1097,13 +1271,13 @@ def main():
     ap.add_argument("--fragment", help="also write the page body without the document wrapper")
     args = ap.parse_args()
     try:
-        areas, mechanisms, concepts, weeks, atlas, drafts = load()
-        uses, collections = load_use_and_collections(weeks, drafts)
+        areas, mechanisms, concepts, weeks, atlas, drafts, plans = load(include_plans=True)
+        uses, collections = load_use_and_collections(weeks, drafts, plans)
     except CatalogError as exc:
         print("The catalog has problems:\n" + str(exc), file=sys.stderr)
         sys.exit(1)
     pending = sum(len(w.get("drafts", [])) for w in weeks.values())
-    print(f"{len(weeks)} week records, {len(atlas)} atlas records, {len(drafts)} draft themes, "
+    print(f"{len(weeks)} week records, {len(atlas)} atlas records, {len(drafts)} draft themes, {len(plans)} plans, "
           f"{pending} pending drafts on weeks, {len(concepts)} concepts: all checks pass")
     path, path_errors, path_summary, _ = check_path.check(areas, mechanisms, concepts, weeks, atlas)
     if path_errors:
@@ -1113,7 +1287,7 @@ def main():
     if args.check:
         return
     readiness.main()
-    data = build_data(areas, mechanisms, concepts, weeks, atlas, drafts, uses, collections)
+    data = build_data(areas, mechanisms, concepts, weeks, atlas, drafts, uses, collections, plans)
     data["path"] = path
     write_explorer(data, ROOT / "explorer" / "index.html", args.fragment)
     write_catalog_md(data, ROOT / "CATALOG.md")

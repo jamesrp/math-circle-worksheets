@@ -1,6 +1,6 @@
 # Activity catalog
 
-One record per theme (Weeks 1–100 and the Week 1 encore), one per atlas investigation family, one per draft theme awaiting the organizer's review, a concept map, and a builder that turns them into a browsable explorer and the [catalog page](../CATALOG.md). The records describe the activities; the PDFs, guides and review cards stay where they are, and the builder finds each week's current print files itself.
+One record per theme (Weeks 1–100 and the Week 1 encore), one per atlas investigation family, one per draft theme awaiting the organizer's review, one per markdown-only plan, a concept map, and a builder that turns them into a browsable explorer and the [catalog page](../CATALOG.md). The records describe the activities; the PDFs, guides and review cards stay where they are, and the builder finds each week's current print files itself.
 
 The explorer is one self-contained page, `explorer/index.html`: download it and open it in a browser. The organizer's published copy is the [Math Circle Explorer](https://claude.ai/artifact/E8boivs9V5u9CpNxdrqGhw) (private to the owner unless shared). It has five views: an activity list with filters (band, area, reasoning move, concept, status, rung, collection, review verdict, materials, app) and a detail panel with print links and connected themes; the concept map in area lanes; the network of links between themes; strands, one per area, ordered by prerequisites for planning return visits; and the path, the [proposed six-year path](../plans/six-year-path.md) as six year columns of session cards, with links back to the sessions each one returns to and a selector that follows a child from a chosen starting grade. The current published copy was made from the November 6 build (readiness rungs, use log and collections), replacing the October 24 copy; Claude republishes it after reviewing explorer changes. Marks for themes used with a group stay in the viewer's browser, separately from the public use log.
 
@@ -14,6 +14,7 @@ catalog/
   weeks/week-NN.toml  one record per theme; week-01e.toml is the encore
   atlas/XX-NN.toml    one record per atlas investigation family (AD, GA, AP)
   drafts/<slug>.toml  one record per draft theme awaiting the organizer's review, with no week number yet
+  plans/week-NNN.toml one record per markdown-only plan; separate from drafts with pages
   path.toml           the proposed six-year path: 120 sessions by year, as week, return-visit and atlas ids
   use-log.toml        public summaries of sessions at home or in the circle; no child names or private records
   collections.toml    curated memberships, purposes and done bars; proposals unless organizer-approved
@@ -212,3 +213,30 @@ note = "Dearest links, paid trips and optional places."   # optional: what the p
 ```
 
 The folder must exist and hold at least one PDF. The explorer shows the entry in the week's detail panel with links to its pages, reviews and the drafts index, marks the week in the list and the network, and the list's "Awaiting review" filter finds every week with one. When the pages are adopted, remove the entry in the same change that updates the week's bands, print files and status.
+
+## Draft plans, Weeks 101–208
+
+The 108 markdown plans in [plans/drafts/weeks-101-plus/](../plans/drafts/weeks-101-plus/README.md) have no student pages, guide, review or pilot. Each has one record in `catalog/plans/week-NNN.toml`. The explorer lists plans after drafts, with dotted outlines and a grey plan pill. **Plans is off by default**; the Library chip and the Plans controls on both maps share one state. Reset all filters turns Plans off again. The default list, filter counts and existing map positions stay unchanged. Bands on plans describe proposed entry points, not pages.
+
+Every plan detail opens with: "Draft plan only: no pages, guide, review or pilot yet. Unproven with children." It links the source plan on GitHub for sources, checked facts, overlap warnings, app ideas and open questions beyond the compact record. Plans never contribute to readiness rungs, collections, strands or the six-year path; Rung and Collection filters exclude them. The readiness report counts them only on its separate headline line and Draft plans area column.
+
+| Field | Required | Meaning |
+|---|---|---|
+| `id`, `title` | yes | String week number and exact plan title; the id matches `week-NNN.toml` and its source filename, and is unique across plans and weekly themes. |
+| `file` | yes | Repository path of its `week-*.md` source in `plans/drafts/weeks-101-plus/`; one source per record. |
+| `status` | yes | Always `plan`; no approval or piloting is implied. |
+| `date` | yes | Quoted `YYYY-MM` or `YYYY-MM-DD`, preserving the status line's precision (these plans say November 2026). |
+| `area` | yes | Existing area id for the first named strand. Analysis maps to `chance` (Chance, dynamics and infinity); cross-strand detail remains in `field` and the source. |
+| `field` | yes | The source's deep-math field, as free text. |
+| `hook` | yes | One sentence shortened from A kid-friendly way in. |
+| `math` | yes | Two or three sentences shortened from The deep idea, preserving proved, checked, observed and open distinctions. |
+| `concepts` | yes | One to four existing concept ids, central first. |
+| `mechanisms` | yes | One to three existing reasoning-move ids. |
+| `bands` | yes | One or more of `K-1`, `2-3`, `4-5` with a proposed entry in By band. |
+| `materials` | yes | List from the plan; `[]` if none. |
+| `related` | yes | Zero to six `[[related]]` tables with an existing string `week`, a usual relation `kind`, and a non-empty one-line `note` from Nearest existing themes; `related = []` when there are no links. Atlas, other-plan and prior-year references stay in the source. |
+| `pick` | no | Boolean `true` for a numbered strongest pick in the source index; close-behind mentions do not set it. |
+
+The build rejects missing or malformed fields, unknown fields or ids, invalid dates, repeated list values or related weeks, duplicate ids or source files, id/source mismatches, missing records or source files, and collections that name plans (including a `plans` membership field).
+
+When a plan is chosen, draft pages with the [worksheet workflow](../worksheet-workflow/README.md). Add its `catalog/drafts/<slug>.toml` record with `outline` pointing to the original plan and remove the plan record in the same change. The build recognises that source as promoted only while its valid draft record exists, and rejects keeping both records. Approval later replaces the draft with a weekly-theme record under the existing adoption process; preserve the source plan and its history.
