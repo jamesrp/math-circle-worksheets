@@ -9,6 +9,7 @@ Writes into the run folder:
   CRITIC.md       generic adversarial review   -> review.md
   CRITIC-MATH.md  optional correctness check   -> review-math.md
   CRITIC-KIDS.md  kid-fit review               -> review-kids.md
+  CRITIC-ADULT.md adult cold read of the pages -> review-adult.md (on draft/), review-adult-final.md (on final/)
   REVISE.md       revision                     -> final/*.pdf
 Each stage is meant for a fresh agent. See worksheet-workflow/README.md.
 
@@ -49,7 +50,7 @@ def narrow(name, text, bands):
         text = sub(text, "the three finished PDFs at exactly these paths", "the finished " + paths)
         text = sub(text, all_pdfs("draft"), pdfs("draft"))
         text = sub(text, "reply with the three PDF paths and their page counts", "reply with " + reply)
-    if name in ("critic", "critic-math", "critic-kids", "reviser"):
+    if name in ("critic", "critic-math", "critic-kids", "critic-adult", "reviser"):
         text = sub(text, "draft/k-1.pdf, draft/grades-2-3.pdf, draft/grades-4-5.pdf: the author's draft.", draft + ": the author's draft.")
     if name == "critic-math":
         scope = f"For every problem in the {NAMES[bands[0]]} packet:" if n == 1 else "For every problem in every band (" + ", ".join(NAMES[b] for b in bands) + "):"
@@ -94,6 +95,7 @@ def main():
         "CRITIC.md": stage("critic"),
         "CRITIC-MATH.md": stage("critic-math"),
         "CRITIC-KIDS.md": stage("critic-kids"),
+        "CRITIC-ADULT.md": stage("critic-adult"),
         "REVISE.md": stage("reviser"),
     }
     for name, text in files.items():
@@ -105,7 +107,9 @@ def main():
     print(f"  2. {run}/CRITIC.md       (review -> review.md)")
     print(f"     {run}/CRITIC-MATH.md  (optional, for enumeration-heavy weeks -> review-math.md)")
     print(f"  3. {run}/CRITIC-KIDS.md  (kid-fit review, without reading review.md -> review-kids.md)")
+    print(f"     {run}/CRITIC-ADULT.md (adult cold read of the student pages only -> review-adult.md)")
     print(f"  4. {run}/REVISE.md       (revision -> final/*.pdf)")
+    print(f"  5. {run}/CRITIC-ADULT.md again, in a fresh agent, on final/ (-> review-adult-final.md); fix any blocking gap before presenting")
 
 if __name__ == "__main__":
     main()
