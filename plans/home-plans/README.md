@@ -6,8 +6,9 @@ They differ from [room plans](../room-plans/README.md), which run a full Wednesd
 
 Started November 5, 2026, after the organizer said the school circle will probably give way to informal sessions at home after fall quarter. Plans are unpiloted until tried; after a session, add a dated line under "How it went" in the plan, in the organizer's words, and a line in `catalog/use-log.toml`.
 
-To rebuild a plan's printable PDF after editing: `python3 plans/room-plans/build/build.py plans/home-plans/<plan>.md` (pandoc and LibreOffice; the room plans' style). Board pages are LaTeX in `src/`, built with `pdflatex` in a scratch folder and copied here.
+To rebuild a plan's printable PDF after editing: `python3 plans/room-plans/build/build.py plans/home-plans/<plan>.md` (pandoc and LibreOffice; the room plans' style). Pictures beside the plan are embedded; the Sprouts picture is drawn by `python3 plans/home-plans/src/sprouts_figure.py` (matplotlib). Board pages are LaTeX in `src/`, built with `pdflatex` in a scratch folder and copied here.
 
 | Weekend | Plan | Theme | Status |
 |---|---|---|---|
 | November 7 and 8, 2026 | [Poisoned cookie (Chomp)](2026-11-08-poisoned-cookie.md) ([printable](2026-11-08-poisoned-cookie.pdf), 3 pages; [boards](2026-11-08-poisoned-cookie-boards.pdf), 2 pages, 30 mm squares; checker [src/chomp_check.py](src/chomp_check.py)) | draft `poisoned-cookie` | unpiloted |
+| November 8, 2026 (Sunday) | [Sprouts](2026-11-08-sprouts.md) ([printable](2026-11-08-sprouts.pdf), 3 pages; worked example [picture](2026-11-08-sprouts-example.png) from [src/sprouts_figure.py](src/sprouts_figure.py); checker [src/sprouts_check.py](src/sprouts_check.py)) | the Sprouts part of draft `games-decided-before-they-start` | unpiloted |

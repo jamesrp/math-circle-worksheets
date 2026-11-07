@@ -4,7 +4,7 @@
     python3 plans/room-plans/build/build.py plans/room-plans/2026-11-18-bridges.md
 
 Writes the PDF beside the Markdown (same name, .pdf). Needs pandoc and LibreOffice (soffice).
-Pandoc makes HTML with style.css; the "The hour" section starts a new page so the timetable
+Pandoc makes HTML with style.css, with any pictures embedded from beside the Markdown; the "The hour" section starts a new page so the timetable
 prints whole; LibreOffice's web export makes the PDF (the November 4 plan's pipeline).
 """
 import pathlib, re, shutil, subprocess, sys, tempfile
@@ -15,6 +15,7 @@ with tempfile.TemporaryDirectory() as tmp:
     tmp = pathlib.Path(tmp)
     html = tmp / (md.stem + ".html")
     subprocess.run(["pandoc", "-s", str(md), "-f", "gfm", "-t", "html5",
+                    "--resource-path", str(md.parent), "--embed-resources",
                     "--metadata", "pagetitle=" + md.stem, "-o", str(html)], check=True)
     text = html.read_text()
     text = re.sub(r"<header[^>]*>.*?</header>", "", text, flags=re.S)
