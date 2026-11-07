@@ -14,7 +14,7 @@ Your partner picks one of the decks A, B, and C. Then you pick a different deck.
 One player picks one of the decks A, B, and C. Then the other player picks a different deck. They play ten rounds while a third player draws the cards and keeps score. Rotate jobs and play again. Is it better to pick first or second?
 
 ## figure [2-3]
-art(decks(ABC,6.75), score_table(5.3,6))
+art(decks(ABC,6.75), score_table(5.3,6,example=('A, 4 wins','C, 6 wins')))
 
 ## figure [4-5]
-art(decks(ABC,6.75), score_table(5.35,6))
+art(decks(ABC,6.75), score_table(5.35,6,example=('A, 4 wins','C, 6 wins')))

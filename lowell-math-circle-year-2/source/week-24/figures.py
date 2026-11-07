@@ -25,19 +25,29 @@ def card(x,y,value,w=.62,h=.87,dots=False):
     if value is not None:
         s.append(rf'\node[font=\fontsize{{{25 if dots else 22}}}{{26}}\selectfont] at ({x+w/2},{y+h*(.76 if dots else .5)}) {{{value}}};')
         if dots:
-            c=.13; x0=x+w/2-2.5*c; y0=y+.12
+            c=min(.13,(w-.1)/5); x0=x+w/2-2.5*c; y0=y+.12
             for k in range(3):
                 s.append(rf'\draw[line width=.4pt,gray] ({x0:.3f},{y0+k*c:.3f}) -- ({x0+5*c:.3f},{y0+k*c:.3f});')
             for k in range(6):
                 s.append(rf'\draw[line width=.4pt,gray] ({x0+k*c:.3f},{y0:.3f}) -- ({x0+k*c:.3f},{y0+2*c:.3f});')
             for i in range(value):
                 col=i%5;row=i//5
-                s.append(rf'\fill ({x0+(col+.5)*c:.3f},{y0+(1.5-row)*c:.3f}) circle (.047);')
+                s.append(rf'\fill ({x0+(col+.5)*c:.3f},{y0+(1.5-row)*c:.3f}) circle ({.047 if c==.13 else round(.047*c/.13,3)});')
     return '\n'.join(s)
 
 def kdeck(label,values,y,x=2.12):
     s=[rf'\node[font=\fontsize{{22}}{{25}}\selectfont] at (1.3,{y+.53}) {{{label}}};']
     for i,v in enumerate(values):s.append(card(x+i*1.26,y,v,.86,1.12,True))
+    return '\n'.join(s)
+
+def kdecks_row(y,w=.66,step=.72,gap=.42):
+    """K-1 page 1: all three decks side by side, each labelled above, as dot cards,
+    so the decks are shown before the first game."""
+    s=[]; x=(8.5-(3*(2*step+w)+2*gap))/2
+    for label,values in ABC:
+        s.append(rf'\node[anchor=south,font=\fontsize{{18}}{{21}}\selectfont] at ({x+step+w/2:.3f},{y+.92}) {{{label}}};')
+        for i,v in enumerate(values):s.append(card(x+i*step,y,v,w,.9,True))
+        x+=2*step+w+gap
     return '\n'.join(s)
 
 def kpool(values,y):
@@ -91,8 +101,8 @@ def ktrack(top,bottom,y,x=1.9,d=.6,pitch=.78):
             s.append(rf'\draw[line width=.8pt] ({x+d/2+i*(d+.32):.3f},{yy}) circle ({d/2});')
     return '\n'.join(s)
 
-def ktracks(games,y,gap=2.15):
-    return '\n'.join(ktrack(t,b,y-i*gap) for i,(t,b) in enumerate(games))
+def ktracks(games,y,gap=2.15,pitch=.78):
+    return '\n'.join(ktrack(t,b,y-i*gap,pitch=pitch) for i,(t,b) in enumerate(games))
 
 def triangle(cx,cy,r=.95):
     """A, B, C at the corners of a triangle, with a box beside each side for the
@@ -121,7 +131,7 @@ def swap_grid(a,b,y,x=2.3,c=1.2):
             s.append(rf'\draw[line width=.8pt] ({x+i*c+.06:.3f},{y-(j+1)*c+.06:.3f}) rectangle ({x+(i+1)*c-.06:.3f},{y-j*c-.06:.3f});')
     return '\n'.join(s)
 
-def score_table(y,rows=5,x=1.25,w=3.0,h=.55):
+def score_table(y,rows=5,x=1.25,w=3.0,h=.55,example=None):
     """Grades 2-5 game record: one row per game, first and second picker's deck and rounds won."""
     s=[rf'\node[anchor=south,font=\fontsize{{13}}{{16}}\selectfont] at ({x+w/2},{y+.08}) {{First pick}};',
        rf'\node[anchor=south,font=\fontsize{{13}}{{16}}\selectfont] at ({x+1.5*w},{y+.08}) {{Second pick}};']
@@ -129,6 +139,14 @@ def score_table(y,rows=5,x=1.25,w=3.0,h=.55):
     s.append(rf'\draw[line width=.6pt] ({x+w},{y}) -- ({x+w},{y-rows*h});')
     for r in range(1,rows):
         s.append(rf'\draw[line width=.4pt] ({x},{y-r*h:.3f}) -- ({x+2*w},{y-r*h:.3f});')
+    if example:
+        # one example row just under the headings, shaded: each player's deck and rounds won
+        s.append(rf'\fill[gray!12] ({x},{y}) rectangle ({x+2*w},{y-h:.3f});')
+        s.append(rf'\draw[line width=.6pt] ({x},{y}) rectangle ({x+2*w},{y-h:.3f});')
+        s.append(rf'\draw[line width=.6pt] ({x+w},{y}) -- ({x+w},{y-h:.3f});')
+        s.append(rf'\node[anchor=east,font=\fontsize{{11}}{{13}}\selectfont\itshape] at ({x-.08},{y-h/2:.3f}) {{example}};')
+        for k,t in enumerate(example):
+            s.append(rf'\node[font=\fontsize{{14}}{{17}}\selectfont] at ({x+w/2+k*w:.3f},{y-h/2:.3f}) {{{t}}};')
     return '\n'.join(s)
 
 

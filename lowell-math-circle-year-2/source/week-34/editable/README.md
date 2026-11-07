@@ -1,6 +1,8 @@
 # Week 34 Hidden turns editable source
 
-## Current release: November 6, 2026 kid-fit revision (v4)
+## Current release: November 7, 2026 adult-read fix (v5) of the November 6 kid-fit revision
+
+**Adult-read fix, November 7, 2026 (v5).** An adult cold-read pilot (`plans/review/ADULT-READ-PILOT.md`) found that page 1's rule, "make every dot sit on its own color", never said the match must be somewhere other than where the copy started, so on a first read it could never fail. James approved a fix the same day. Page 1's rules now say that the tester turns or flips the copy to a new place, that every dot on its own colour is a match, and that putting the copy back or turning it all the way around does not count; the upper bands add "Fill every spot; neighbors may be the same kind" and "A flip may be over any line through the middle" and drop "Only counter kinds and spots count". Only page 1 of each band changed; numbering is unchanged. Ids W34-k-1-v5, W34-grades-2-3-v5, W34-grades-4-5-v5; guide footer "Student packet v5 / Revised November 7 2026". Unpiloted.
 
 **Kid-fit revision, November 6, 2026.** The student pages were revised after a kid-fit review and James approved adopting them on November 6, 2026: the shared rules say how to copy (a dot of each counter's colour) and make testing a builder-against-tester game, K-1 has shorter rules, K-1 Problem 3 gets its own page with a printed start, K-1 Problem 6 asks for one eight-ring pattern, Problem 4 in Grades 2-3 and 4-5 asks for an explanation instead of a list of moves, and Grades 4-5 get open answer boxes. Problem numbering is unchanged. The guide keys the new pages, says that each changed pattern needs a copy before testing (an adult may make slow K-1 copies) and that K-1 Problem 1 is always won by the tester. Ids: W34-k-1-v4, W34-grades-2-3-v4, W34-grades-4-5-v4; guide footer "Student packet v4 / Revised November 6 2026". Unpiloted.
 

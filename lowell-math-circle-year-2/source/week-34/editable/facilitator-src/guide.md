@@ -18,7 +18,7 @@
 
 - **Grades 4-5:** Explain the small-ring obstruction and turn the six-ring discovery into a construction for every larger ring. Unequal gaps are a useful explanation after a child has a successful pattern.
 
-**Status.** This guide keys the v4 student PDFs of the November 6, 2026 kid-fit revision (K-1 6 pages, Grades 2-3 5, Grades 4-5 6), with 6 / 5 / 5 problems and unchanged numbering; the grades 4-5 packet adds a page of extra workspace (a seven-ring and a nine-ring) for Problem 5. The revision made the copy a dotted tracing, put the builder and tester roles into the shared rules, printed a starting pattern for K-1 Problem 3 and cut K-1 Problem 6 to one pattern. Mathematical cases are checked. These pages and the proposed pacing have not been classroom-tested.
+**Status.** This guide keys the v5 student PDFs (November 7, 2026: page 1's rules now say a match puts the copy in a new place) of the November 6, 2026 kid-fit revision (K-1 6 pages, Grades 2-3 5, Grades 4-5 6), with 6 / 5 / 5 problems and unchanged numbering; the grades 4-5 packet adds a page of extra workspace (a seven-ring and a nine-ring) for Problem 5. The revision made the copy a dotted tracing, put the builder and tester roles into the shared rules, printed a starting pattern for K-1 Problem 3 and cut K-1 Problem 6 to one pattern. Mathematical cases are checked. These pages and the proposed pacing have not been classroom-tested.
 
 ---page---
 

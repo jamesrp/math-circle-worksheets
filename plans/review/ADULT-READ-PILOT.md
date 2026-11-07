@@ -63,3 +63,28 @@ The [explorer page](../../explorer/index.html) links each week's guide too.
 | 49 | 23 | 147k | 1.04M | 8.4k | 1.4 |
 
 About 150k reader tokens per week, roughly a quarter of the ~530k per week of the full kid-fit sweep, and most of it is fixed overhead plus page images. A pass over all 100 print weeks would be about 15M reader tokens (on the order of 110–120M processed, mostly cached reads). Reading only K–1 plus page 1 of the other bands, which is where the launch failures were, would cut that by roughly a third to a half. Not run: like the kid-fit sweep, the cheaper path is to run it just in time on a week before it is printed, and in the workflow for new packets.
+
+## Follow-up: fixes adopted (November 7, 2026)
+
+James approved the stage and the fixes for Weeks 24 and 34 the same day. Weeks 36 and 49 are untouched.
+
+- **Workflow stage.** [worksheet-workflow/stages/critic-adult.md](../../worksheet-workflow/stages/critic-adult.md) runs as `CRITIC-ADULT.md` beside the kid-fit critic, and again on `final/`; the reviser reads its report and leaves "for the adult card" items to the guide. Logged in [worksheet-workflow/README.md](../../worksheet-workflow/README.md).
+- **Week 24** (F24-K-v5, F24-23-v4, F24-45-v5). Page 1 of every band now says "Decks A, B and C are bags of three number cards, shown below" and pictures the decks before Problem 1 (K–1 as dot cards above the game). K–1 Problem 1 says to play with a partner and names the three games. The pick-first table has a shaded example row, "A, 4 wins" and "C, 6 wins". Only page 1 changed in each band.
+- **Week 34** (v5). Page 1 says the tester moves the copy "to a new place", that every dot on its own colour is a match, and that putting the copy back or turning it all the way around does not count. The upper bands add "A flip may be over any line through the middle." Only page 1 changed.
+- **Adult table cards.** [week-24-adult-card.pdf](https://github.com/jamesrp/math-circle-worksheets/blob/main/lowell-math-circle-year-2/week-24/week-24-adult-card.pdf) and [week-34-adult-card.pdf](https://github.com/jamesrp/math-circle-worksheets/blob/main/lowell-math-circle-year-2/week-34/week-34-adult-card.pdf) each fit one page: what the activity is, materials and how to make them, the one-minute launch, what Problem 1 is for, the surprise and the key answers. They are separate sheets beside the guide; whether the card becomes page 1 of every guide is still the organizer's call.
+
+### Re-reads
+
+Fresh readers had the same brief and saw only the new band PDFs: [week-24](adult-read/week-24-reread.md), [week-34](adult-read/week-34-reread.md).
+
+| Week | Before | After |
+|---|---|---|
+| 24 | Activity clear only at K–1 page 4. Problem 1 blocking in every band. | K–1 clear from page 1. The upper bands were partly clear: the example "A 4, C 6" read as card values, so it now says "A, 4 wins". A second reader then read the table correctly: Grades 2–3 clear, Grades 4–5 partly (the three-player rotation is a setup question). |
+| 34 | Clear only on a second read of page 1. | Clear on the first read in all three bands. |
+
+The remaining gaps are answers and counts that the adult card now carries, plus two small Week 34 K–1 points:
+
+- the K–1 rules lack "any line through the middle";
+- the Problem 3 marks have no key (the card tells the adult to say which counter each mark is).
+
+Each re-read cost about the same as the first reads, roughly 140–150k reader tokens.

@@ -92,6 +92,7 @@ FILE_ROLES = [
     ("shared-catalog-upper.pdf", "Compact catalog, upper"),
     ("shared-catalog-boards.pdf", "Compact catalog boards"),
     ("shared-catalog-facilitator.pdf", "Compact catalog adult guide"),
+    ("adult-card.pdf", "Adult table card"),
     ("facilitator.pdf", "Adult guide"),
     ("materials.pdf", "Materials to print"),
     ("extra-rhombi.pdf", "Paper rhombi"),

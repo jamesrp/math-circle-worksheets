@@ -7,7 +7,7 @@ route = "first"
 +++
 
 ## text @.62,10.07 size=11.5 [K-1]
-Each card has the same chance. Mix the bags separately. Draw once from each bag, then put both cards back. The bigger number wins.
+Decks A, B and C are bags of three number cards, shown below. Mix each bag on its own. In a game, each player takes one deck. Each round, draw one card from each player's bag without looking; the bigger number wins the round. Put both cards back before the next round.
 
 ## text @.62,10.07 size=11.5
-Each card has the same chance. Mix the bags separately. Draw once from each bag, then put both cards back. The bigger number wins.
+Decks A, B and C are bags of three number cards, shown below. Mix each bag on its own. In a game, each player takes one deck. Each round, draw one card from each player's bag without looking; the bigger number wins the round. Put both cards back before the next round.
