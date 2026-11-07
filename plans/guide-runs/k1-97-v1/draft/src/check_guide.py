@@ -1,0 +1,176 @@
+#!/usr/bin/env python3
+"""Independent arithmetic, finite-case, source and final-PDF checks for W97-K-FAC-v1.
+
+Requires Python 3 and Poppler's pdftotext/pdfinfo, no Python packages.
+The frozen student-PDF hash binds these answers to the personally inspected final
+13-page packet, not the obsolete nine-page reviewed draft. Run --write-answers
+before compilation; ordinary execution also verifies the compiled guide.
+"""
+from pathlib import Path
+import argparse
+import hashlib
+import re
+import subprocess
+
+HERE = Path(__file__).resolve().parent
+STUDENT_SHA256 = '4905ded7fa316b912b7f2de7159f34192d11ff661e3026c322e41e72a430cc4d'
+
+
+def student_pdf():
+    nearby = HERE.parent / 'k-1.pdf'
+    if nearby.is_file():
+        return nearby
+    for root in HERE.parents:
+        candidate = root / 'plans/k1-drafts/week-97/k-1.pdf'
+        if candidate.is_file():
+            return candidate
+    raise FileNotFoundError('Put the final k-1.pdf beside src/ (or guide-src/).')
+
+
+def pages(path):
+    text = subprocess.check_output(['pdftotext', '-layout', str(path), '-'], text=True)
+    return [p for p in text.split('\f') if p.strip()]
+
+
+def norm(text):
+    return re.sub(r'\s+', ' ', text).strip()
+
+
+def remainder(a, m):
+    """Count disjoint complete chunks in an explicit tile collection."""
+    tiles = list(range(a))
+    groups = [tiles[i:i+m] for i in range(0, len(tiles), m)]
+    full = sum(len(g) == m for g in groups)
+    rest = sum(len(g) for g in groups if len(g) < m)
+    assert a == full * m + rest and 0 <= rest < m
+    assert (full, rest) == divmod(a, m)  # second, arithmetic implementation
+    return rest
+
+
+def row(m, sides):
+    return [remainder(n*n, m) for n in sides]
+
+
+def invert(m, sides):
+    return {r: [n for n in sides if remainder(n*n, m) == r]
+            for r in range(m) if any(remainder(n*n, m) == r for n in sides)}
+
+
+def numbers(seq):
+    return ', '.join(map(str, seq))
+
+
+def inverse_tex(d):
+    return r';\quad '.join(str(r) + r':\{' + numbers(ns) + r'\}'
+                           for r, ns in d.items())
+
+
+def check_math():
+    # Exhaustive searches are over the actual final-page domains, not old reviews.
+    p1 = row(4, range(1, 7)); assert p1 == [1, 0, 1, 0, 1, 0]
+    p2 = invert(4, range(1, 6)); assert p2 == {0: [2, 4], 1: [1, 3, 5]}
+    rectangles = [(4, 3), (3, 2), (5, 2), (5, 3)]
+    totals = [w*h for w, h in rectangles]
+    p3 = [remainder(a, 4) for a in totals]; assert p3 == [0, 2, 2, 3]
+    p4 = row(3, range(1, 7)); assert p4 == [1, 1, 0, 1, 1, 0]
+    p5 = row(6, range(1, 7)); assert p5 == [1, 4, 3, 4, 1, 0]
+    p6 = invert(6, range(1, 7)); assert p6 == {0: [6], 1: [1, 5], 3: [3], 4: [2, 4]}
+    p7 = row(2, range(1, 6)); assert p7 == [1, 0, 1, 0, 1]
+    p8 = row(4, [9, 10]); assert p8 == [1, 0]
+    p9 = row(8, [1, 3, 5]); assert p9 == [1, 1, 1]
+    p10 = remainder(7*7, 8); assert p10 == 1
+    p11 = invert(8, range(1, 7)); assert p11 == {0: [4], 1: [1, 3, 5], 4: [2, 6]}
+    # Complete residue-class inventories support the overview's range claims.
+    for m, expected in [(2, {0, 1}), (3, {0, 1}), (4, {0, 1}), (6, {0, 1, 3, 4}), (8, {0, 1, 4})]:
+        assert set(row(m, range(m))) == expected
+        for n in range(80):
+            assert (n+m)**2 - n*n == 2*n*m + m*m
+            assert remainder((n+m)**2, m) == remainder(n*n, m)
+    # The proof, not these finite tests, extends the theorem to every side.
+    for k in range(1, 51):
+        ring = [(x, y) for x in range(-k, k+1) for y in range(-k, k+1)
+                if max(abs(x), abs(y)) == k]
+        assert len(ring) == 8*k == 2*(2*k+1) + 2*(2*k-1)
+    assert [len([(x,y) for x in range(-k,k+1) for y in range(-k,k+1)
+                 if max(abs(x), abs(y)) == k]) for k in (1,2,3)] == [8,16,24]
+    # Every additional numerical example, material arithmetic and extension.
+    assert remainder(9, 5) == 4 and divmod(9, 5) == (1, 4) # non-task demo
+    assert (3, 5) not in {(n,m) for m, ns in [(4,range(1,7)), (3,range(1,7)),
+                           (6,range(1,7)), (2,range(1,6)), (8,[1,2,3,4,5,6,7])]
+                          for n in ns}
+    assert 9 == 4 + 4 + 1  # shared launch and prefilled square
+    assert invert(4, range(1,7)) == {0:[2,4,6],1:[1,3,5]}
+    assert invert(8, range(1,8)) == {0:[4],1:[1,3,5,7],4:[2,6]}
+    assert 6*6//3 == 12 and 81 == 20*4+1 == 64+8+8+1
+    assert 100 == 25*4 and 49 == 1+8+16+24 == 6*8+1
+    assert 36 <= 64 and 49 <= 64 < 81 < 100
+    assert 1+16 <= 32 and 8+24 <= 32 and 2*32 == 64
+    assert 6*26 == 156 and 25.4 < 26
+    assert sum([5,5,3,15,15,10,7]) == 60
+    macros = {'Pone':numbers(p1), 'Ptwo':inverse_tex(p2), 'Pthree':numbers(p3),
+              'Recttotals':numbers(totals), 'Pfour':numbers(p4), 'Pfive':numbers(p5),
+              'Psix':inverse_tex(p6), 'Pseven':numbers(p7),
+              'Peighta':str(p8[0]), 'Peightb':str(p8[1]), 'Ringcounts':'8, 16',
+              'Pten':str(p10), 'Peleven':inverse_tex(p11)}
+    output = '% Generated by check_guide.py from independent enumeration.\n'
+    output += ''.join('\\newcommand{\\'+k+'}{'+v+'}\n' for k,v in macros.items())
+    for p, result in [(1,p1),(2,p2),(3,p3),(4,p4),(5,p5),(6,p6),(7,p7),(8,p8),(9,p9),(10,p10),(11,p11)]:
+        print(f'P{p}: {result}')
+    return output
+
+
+def check_student(path):
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == STUDENT_SHA256, \
+        'Student PDF differs from the verified final packet; inspect/re-solve before updating hash.'
+    pp = pages(path); assert len(pp) == 13
+    for n in range(1,12):
+        t = norm(pp[n-1])
+        assert f'Problem {n}:' in t
+        assert re.findall(r'Problem (\d+):', t) == [str(n)]
+        assert 'W97-K-v1' in t
+    for n,m in [(1,4),(2,4),(3,4),(4,3),(5,6),(6,6),(7,2),(8,4),(9,8),(10,8),(11,8)]:
+        assert f'groups of {m}' in norm(pp[n-1]), (n,m)
+    assert 'only the leftover' in norm(pp[1])
+    assert 'Without building' in norm(pp[7])
+    assert 'on the table from the middle out' in norm(pp[8])
+    assert 'too few tiles' in norm(pp[0])
+    for i in (11,12):
+        assert all(str(n) in pp[i] for n in range(1,7)) and 'Problem' not in pp[i]
+    print(f'Student fixture: 13 pages, current revision, {path}')
+
+
+def check_guide():
+    tex = (HERE/'k1-guide.tex').read_text()
+    for n in range(1,12):
+        assert f'Problem {n}, page {n}:' in tex
+    assert tex.index('Mathematical overview:') < tex.index('Problem 1, page 1:')
+    assert '\\head{Launch together' in tex and 'not a student task' in tex
+    pp = pages(HERE.parent/'k1-guide.pdf'); assert len(pp) == 4, len(pp)
+    for n,p in enumerate(pp,1):
+        assert 'K–1 adult guide' in p and 'W97-K-FAC-v1' in p
+        assert p.rstrip().endswith(str(n)), (n, 'page footer')
+    text = norm('\n'.join(pp))
+    for n in range(1,12):
+        assert f'Problem {n}, page {n}:' in text
+    for phrase in ['physically unrehearsed', '156', '26', '58 by 74', 'no packet', 'W97-FAC-v3']:
+        assert phrase in text, phrase
+    info = subprocess.check_output(['pdfinfo',str(HERE.parent/'k1-guide.pdf')], text=True)
+    assert '612 x 792 pts (letter)' in info
+    print('Guide: 4 US Letter pages; every problem/page, header/footer and answer macro checked.')
+
+
+def main():
+    args=argparse.ArgumentParser(); args.add_argument('--write-answers',action='store_true')
+    opts=args.parse_args()
+    check_student(student_pdf())
+    expected=check_math()
+    if opts.write_answers:
+        (HERE/'answers.tex').write_text(expected)
+    else:
+        assert (HERE/'answers.tex').read_text() == expected, 'Answer macros are stale.'
+        check_guide()
+    print('PASS: complete finite answer sets, ring geometry, all printed numerical examples and kit counts.')
+
+
+if __name__ == '__main__':
+    main()

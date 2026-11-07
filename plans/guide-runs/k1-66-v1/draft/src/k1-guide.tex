@@ -1,0 +1,141 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,margin=.7in,headheight=15pt,headsep=18pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,tikz}
+\usetikzlibrary{arrows.meta}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 66 / Lamplighter streets / K--1 adult guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 66 / GGT66-K-FAC-v1}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\head}[1]{\par\textbf{\large #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+\newcommand{\keyrow}[8]{#2 & #3 & #4 & \texttt{#5} & $#6+#7$ & \textbf{#8}\\}
+\newcommand{\allways}[3]{\textbf{#2 ways:} \texttt{#3}}
+\newcommand{\exactword}[2]{\texttt{#2}}
+\newenvironment{keytable}{\par\smallskip\begingroup\small\setlength{\tabcolsep}{7pt}\renewcommand{\arraystretch}{1.15}\begin{tabular}{@{}llllcr@{}}\textbf{Picture}&\textbf{Lamps on}&\textbf{Walker}&\textbf{One shortest word}&\textbf{Steps+flips}&\textbf{Fewest}\\\midrule}{\end{tabular}\endgroup\par\smallskip}
+\newcommand{\demo}[2]{%
+\begin{tikzpicture}[x=4.6mm,y=4.6mm,baseline=0pt]
+\draw[gray] (-3,0)--(3,0);
+\foreach \p in {-3,-2,...,3}{\draw[fill=white] (\p,0) circle (.23);}
+\ifnum#1=1\fill (3,0) circle (.23);\fi
+\node at (#2,.64) {$\blacktriangledown$};
+\node[font=\scriptsize] at (0,-.62) {home};
+\end{tikzpicture}}
+\begin{document}
+\head{Mathematical overview: a picture has a shortest build}
+\textbf{Fewest moves = required flips + shortest visiting walk.} Start with all lamps off and the walker at home. A step to the next lamp and a flip of the lamp under the walker are separate moves. Every lamp that ends on needs at least one flip; every such lamp must be visited, and the walker must end where the picture shows. Conversely, a shortest visiting walk, flipping each required lamp once, attains that lower bound. A child can point to the necessary lamps and trace the unavoidable walk: ``These flips and these steps have to happen.'' Trying a short route alone does not prove it is shortest.
+
+\textbf{One more move can make an easier picture.} The distance is always counted again from all-off at home, not from the previous picture. In Problem 7 the left picture needs 9 moves, but each of its three one-move neighbors needs 8. This is a \emph{dead end for distance}, not a place where the pawn cannot move. Problem 6 is a contrasting non-example.
+
+\textbf{Exact move counts come in twos.} If the fewest count is $d$, exactly the counts $d,d+2,d+4,\ldots$ work. A flip followed by another flip adds two without changing the finish. For the converse, count lit lamps plus the walker's number of steps from home: every legal move changes this sum's evenness. Thus all routes to one picture have the same evenness. ``I can add two'' proves possibility, not the impossibility of the other counts.
+
+\textbf{Scope and destination.} These facts apply to the line of lamps, with finitely many on. The seven-lamp workstreet does not change any printed minimum; every required shortest route stays on it. K--1 reaches concrete lower bounds and, when ready, complete short-route lists, a dead-end example and an evenness conjecture. A build is an experiment, ``I think none is shorter'' a conjecture, and the forced-flips/forced-walk argument an explanation. The general dead-end classification remains an older-table destination: see ``Mathematical destination,'' page 1 of the base Week 66 adult guide, rather than expecting K--1 to prove it.
+
+\head{Preparation and adult support}
+\textbf{Status.} Unpiloted and physically unrehearsed. Counter and pawn fit, flipping without displacing neighbors, tall cube stacks, pencil records and these timing estimates have not been tried with children.
+
+\textbf{Per pair.} Use the week's kit: nine two-sided lamp counters no wider than 17 mm (or paper squares dark on one side), one visibly different pawn, about 24 cubes, and pencils with erasers. Set out 7 counters; keep two spares. Use linking cubes if available. The K--1 lamps are 20 mm circles on 24 mm centers, with separate 17 mm pawn spots above; choose a pawn whose base fits a spot. Dark/filled means \emph{on}; say ``all lamps off,'' not ``dark side up.'' Counters stay on their lamps; the pawn never covers a counter.
+
+\textbf{Print and prepare.} Per pair, print all eight pages of \texttt{k-1.pdf} from the Week 66 K--1 draft, US Letter, single-sided, Actual Size. The workstreet is on every page; the small pictures are targets, not counter boards. This guide is for the adult. The older tables keep \texttt{week-66-students.pdf} and the base guide. No separate materials PDF prints the counters, pawn or cubes: supply real objects. Allow about 5--10 extra minutes to print and arrange the K--1 pages and check two pair kits beyond the week's usual preparation; no cutting is required with ready-made counters.
+
+\textbf{Prerequisites and staffing.} No independent reading, signed numbers or letter writing is needed. Children match two-part pictures and count/compare towers to about 10; a non-shortest attempt can be longer. One adult anchors the two K--1 pairs, reads each prompt aloud and records when asked. The mover chooses steps; the flipper points to the pawn's lamp before flipping. Whoever acts adds one cube. Swap jobs between pictures. The adult checks legality and resets, not route choices; if repeated adult direction is needed, stay with one picture.
+\newpage
+\head{Launch, first route and the first two problems}
+\textbf{Join the whole-group launch.} Keep the base guide's short demonstration of separate steps and flips, and its comparison of two routes to one goal. Let children handle counters first. Back at the K--1 table, practice a two-move record on a \emph{non-task start}: all off, pawn on the rightmost lamp. Flip there, then step one place left. Add one cube for each action; below, a dot records a flip and an arrow records a step. This is a practice sequence, not a shortest-build question.
+\begin{center}
+\begin{tabular}{c@{\quad}c@{\quad}c}
+Input: no cubes & After $\bullet$: one cube & After $\leftarrow$: two cubes\\[3pt]
+\demo{0}{3}&\demo{1}{3}&\demo{1}{2}
+\end{tabular}
+\end{center}
+The lit lamp stays put when the pawn steps. Before \emph{every target attempt}, reset all lamps off, pawn home, and dismantle the tower. The picture remains visible. Record a new best in its squares before reusing the cubes; erase surplus shading if the best gets shorter. Twelve squares are recording capacity, not a promised answer or a limit on exploration. The adult can note a longer attempt beside them.
+
+\textbf{A one-hour first visit.} Allow about 5 minutes for the common launch, 3 for table practice, 10--12 each for Problems 1 and 2, a 3-minute stretch, then about 15 for selected Problem 3 or 4 pictures and 5 for sharing an unavoidable-moves argument. Leave transition time. Stop earlier if matching and replaying are still absorbing. Save Problem 5's complete lists and Problems 6--8 for a later visit or a ready pair with adult attention. For that pair, take 6 and 7 together; 8 can be a separate return investigation. Finishing every page is not the goal.
+
+\textbf{How to read the key.} Each problem is on the same-numbered student page. TL/TR/BL/BR mean top-left/top-right/bottom-left/bottom-right. Adult shorthand only: H = home; 2L = second lamp left of home; 3R = third right. Words are read left to right: L/R is one step, F is one flip. Children can point, act and use dot/arrow records instead. The table gives one shortest route unless ``every way'' is requested.
+
+\sub{Problem 1 (student page 1): separate walking from flipping}
+\begin{keytable}
+\keyrow{1TL}{TL}{H}{H}{F}{0}{1}{1}
+\keyrow{1TR}{TR}{none}{2L}{LL}{2}{0}{2}
+\keyrow{1BL}{BL}{2R}{2R}{RRF}{2}{1}{3}
+\keyrow{1BR}{BR}{3L}{3L}{LLLF}{3}{1}{4}
+\end{keytable}
+\textbf{Reasoning.} The home lamp needs only a flip. The all-off picture needs only two steps. The other two force a walk to the indicated lamp and one flip there. Each displayed word meets these lower bounds.
+\textbf{Hints, only if needed:} ``Which lamp needs a flip?'' ``Does the walker match the picture too?'' A child who flips a lamp in the all-off picture may undo it legally, then compare the longer tower.
+
+\sub{Problem 2 (student page 2): same lamp, different finish}
+\begin{keytable}
+\keyrow{2TL}{TL}{2R}{3R}{RRFR}{3}{1}{4}
+\keyrow{2TR}{TR}{2R}{1R}{RRFL}{3}{1}{4}
+\keyrow{2BL}{BL}{2R}{H}{RRFLL}{4}{1}{5}
+\keyrow{2BR}{BR}{2R}{1L}{RRFLLL}{5}{1}{6}
+\end{keytable}
+\textbf{Reasoning.} All four need one flip at 2R. Reaching it takes two steps; the finish then needs one, one, two or three more. The top pair tie despite ending in different places.
+\textbf{Hint:} ``What changes between these pictures, and what stays the same?'' \textbf{Continuation:} ask which new ending would make the same lit-lamp picture easiest; ending on that lamp needs just the outward walk and its flip.
+\newpage
+\head{Visiting order and finding every shortest way}
+\sub{Problem 3 (student page 3): which end first?}
+\begin{keytable}
+\keyrow{3TL}{TL}{1R,2R}{2R}{RFRF}{2}{2}{4}
+\keyrow{3TR}{TR}{1L,2R}{2R}{LFRRRF}{4}{2}{6}
+\keyrow{3BL}{BL}{3L,1R}{3L}{RFLLLLF}{5}{2}{7}
+\keyrow{3BR}{BR}{2L,3R}{3R}{LLFRRRRRF}{7}{2}{9}
+\end{keytable}
+\textbf{Reasoning.} Two lamps force two flips. TL needs two right steps. For the other pictures, the walk must reach both lit ends and finish at the pictured end. Going first to the \emph{other} end avoids retracing the whole street: TR has 4 steps rather than 8; BL has 5 rather than 11; BR has 7 rather than 13. These are walking counts before the two flips.
+\textbf{Hints:} ``Where must the walker finish?'' ``Can you trace both orders without flipping yet?'' Do not announce the preferred order before children have a route to compare.
+
+\sub{Problem 4 (student page 4): changing the finish can change the best order}
+\begin{keytable}
+\keyrow{4TL}{TL}{2L,1R}{1R}{LLFRRRF}{5}{2}{7}
+\keyrow{4TR}{TR}{2L,1R}{H}{LLFRRRFL}{6}{2}{8}
+\keyrow{4BL}{BL}{2L,1R}{1L}{RFLLLFR}{5}{2}{7}
+\keyrow{4BR}{BR}{2L,1R}{2L}{RFLLLF}{4}{2}{6}
+\end{keytable}
+\textbf{Reasoning.} Always two flips. Trace the trip to 2L first, then 1R and the finish; compare going to 1R first. The walking counts (left first/right first) are TL 5/7, TR 6/6, BL 7/5, BR 8/4. The cheaper route gives the table. At home either order ties; this target has exactly two shortest words, \texttt{LLFRRRFL} and \texttt{RFLLLFRR}.
+\textbf{Hint:} ``Can both visits fit in your route without walking farther than you must?'' \textbf{Continuation:} compare the two equal home-ending routes by replay, not just their tower heights.
+
+\sub{Problem 5 (student page 5): every way, not merely one}
+Before starting, replay the page's small dot-then-right-arrow example: all off at home, flip home, then step right. Read the input, intermediate and finish; it is not either target below. Children mark moves in order, one per square, and leave unused end squares blank. The adult can draw requested marks, but the child should replay and compare rows. A fifth blank row does not promise five solutions.
+
+\textbf{Top picture: home and 1R lit, walker home.} Fewest \textbf{4}: two steps and two flips. \allways{5top}{2}{FRFL,RFLF}. The walk must go right and return. The 1R lamp can only be flipped at the turn; home can be flipped before leaving or after returning. These are all choices.
+
+\textbf{Bottom picture: home, 1R and 2R lit, walker home.} Fewest \textbf{7}: four steps and three flips. \allways{5bottom}{4}{FRFRFLL,FRRFLFL,RFRFLLF,RRFLFLF}. The walk must be RRLL. Flip 2R at the turn; choose whether to flip 1R outward or homeward, and home before leaving or after returning. Two independent choices give all four ways. A route with fewer steps cannot visit 2R and return; fewer flips cannot light all three.
+
+\textbf{Hints:} ``Which lamps do you stand on more than once?'' ``Could you leave this lamp off now and light it when you return?'' Sort the recorded rows by when home is lit, then compare the remaining choices. This is completeness support after exploration, not an opening procedure. Readiness means the child can recognize a replayed route; if only the adult can compare the records, return to improving one route.
+\newpage
+\head{One more move, and exact-size towers}
+\sub{Problem 6 (student page 6): a harder next picture exists}
+The arrows describe how pictures differ; they are \emph{not} the route to use. Solve all four pictures afresh from all-off at home. The right-hand pictures are top = L, middle = R, bottom = F; the diagonal arrow labeled L is still a \emph{left step}, not a diagonal move on the street.
+\begin{keytable}
+\keyrow{6start}{Left}{2L,1L}{1L}{LFLFR}{3}{2}{5}
+\keyrow{6L}{Top right (L)}{2L,1L}{2L}{LFLF}{2}{2}{4}
+\keyrow{6R}{Middle right (R)}{2L,1L}{H}{LFLFRR}{4}{2}{6}
+\keyrow{6F}{Bottom right (F)}{2L}{1L}{LLFR}{3}{1}{4}
+\end{keytable}
+\textbf{Answer and reason.} The middle-right R picture needs the most: \textbf{6}. Each route must reach 2L; the ending forces respectively 3, 2, 4 and 3 steps, plus the shown flips. Stepping toward home from the left picture creates a target needing more walking from the original start.
+\textbf{Hint:} ``Where did this attempt start? Where must it finish?'' Record one count and reuse the cubes; do not keep every tower standing.
+
+\sub{Problem 7 (student page 7): every next picture is easier}
+\begin{keytable}
+\keyrow{7start}{Left}{1L,H,2R}{H}{FLFRRRFLL}{6}{3}{9}
+\keyrow{7L}{Top right (L)}{1L,H,2R}{1L}{FRRFLLLF}{5}{3}{8}
+\keyrow{7R}{Middle right (R)}{1L,H,2R}{1R}{FLFRRRFL}{5}{3}{8}
+\keyrow{7F}{Bottom right (F)}{1L,2R}{H}{LFRRRFLL}{6}{2}{8}
+\end{keytable}
+\textbf{Answer and reason.} The \emph{left} picture needs the most: \textbf{9}. Visiting 1L and 2R and returning home needs six steps plus three flips. Finishing one step either side saves one walking step; turning home off saves one flip but no walking. All three alternatives need \textbf{8}, so all possible next moves make the target easier. The walker is free to move: ``dead end'' concerns distance only. Appending a move to a nine-move route gives a ten-move attempt, not the new minimum.
+\textbf{Hints:} ``Are we including the left picture?'' ``What must happen if we finish at home?'' The four towers would use 33 cubes; the shaded squares retain the counts while the pair reuses its 24 cubes. A ready pair can invent a similar target and compare all three neighbors; the base guide supplies the general rule.
+
+\sub{Problem 8 (student page 8): which exact counts work?}
+\textbf{Top row: circle 1 and 3; not 2 or 4.} Examples: \exactword{8top}{F}, \exactword{8top}{FFF}.\par
+\textbf{Middle row: circle 2 and 4; not 1 or 3.} Examples: \exactword{8middle}{LR}, \exactword{8middle}{LRLR}. The picture is already built in zero moves, but no zero tower is offered.\par
+\textbf{Bottom row: circle 4 and 6; not 5 or 7.} Examples: \exactword{8bottom}{RFLL}, \exactword{8bottom}{RFLLFF}.
+
+\textbf{Reasoning and hints.} All successful exact counts are the minimum plus an even number (overview). Let the child experiment, then ask ``Can two extra moves leave the same picture?'' and ``What do the working tower heights have in common?'' Adding a cancelling pair explains the possible counts. For the impossible counts, the adult may pair up lit-lamp counters together with one cube per step the pawn is from home: every move switches between an even and an odd total. Failed attempts alone are not proof. Keep the parity argument optional, not a condition for enjoying the investigation.
+
+\textbf{Where it goes.} Once the K--1 pages are approved, this section replaces only ``K--1 tables.'' in ``Materials and preparation,'' page 1 of \texttt{week-66-facilitator.pdf} (GGT66-FAC-v2); retain its shared launch and older-band guide.
+\end{document}
