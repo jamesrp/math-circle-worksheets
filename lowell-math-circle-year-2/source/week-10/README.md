@@ -1,5 +1,7 @@
 # Week 10: Bridges and one-stroke drawings
 
+**Adult table card, November 8, 2026.** A one-page plain card for the adult at each table, [week-10-adult-card.pdf](../../week-10/week-10-adult-card.pdf), sits beside the guide. It covers what the activity is, the materials (including the hexagons and craft sticks for the building problems), the two-minute launch, how Problem 1 runs, the rule to let children find, and the key answers. All of it is condensed from the guide (F10-FAC-v5). Source: `adult-card/adult-card.tex`, built with `pdflatex`. The student pages are unchanged. Made at James's request ahead of the November 18 circle; see `plans/review/ADULT-READ-PILOT.md`.
+
 Concrete revision of October 3, 2026: F10-K-v4 / F10-M-v6 / F10-U-v4 (2–3 v4 until October 23, then v5, and v6 after a critic's follow-up the same day), adult guide F10-FAC-v5 (F10-FAC-v4 until October 23; the id was bumped for the October 23 guide changes, with no other change). **Unpiloted.** It follows the organizer's report on Weeks 1 and 2 (the October 3 forecast and pivot, a private record: see [LOCAL-RESOURCES.md](../../../LOCAL-RESOURCES.md#private-records)): rules enforced by the materials or by the other player, partner play at fixed KK11 / 3333 / 445 tables, and deeper questions late in each packet.
 
 - [K–1](../../week-10/week-10-k-1.pdf) — 12 pages.
