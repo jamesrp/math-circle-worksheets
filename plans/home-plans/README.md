@@ -11,4 +11,4 @@ To rebuild a plan's printable PDF after editing: `python3 plans/room-plans/build
 | Weekend | Plan | Theme | Status |
 |---|---|---|---|
 | November 7 and 8, 2026 | [Poisoned cookie (Chomp)](2026-11-08-poisoned-cookie.md) ([printable](2026-11-08-poisoned-cookie.pdf), 3 pages; [boards](2026-11-08-poisoned-cookie-boards.pdf), 2 pages, 30 mm squares; checker [src/chomp_check.py](src/chomp_check.py)) | draft `poisoned-cookie` | unpiloted |
-| November 8, 2026 (Sunday) | [Sprouts](2026-11-08-sprouts.md) ([printable](2026-11-08-sprouts.pdf), 3 pages; worked example [picture](2026-11-08-sprouts-example.png) from [src/sprouts_figure.py](src/sprouts_figure.py); checker [src/sprouts_check.py](src/sprouts_check.py)) | the Sprouts part of draft `games-decided-before-they-start` | unpiloted |
+| November 8, 2026 (Sunday) | [Sprouts](2026-11-08-sprouts.md) ([printable](2026-11-08-sprouts.pdf), 3 pages; worked example [picture](2026-11-08-sprouts-example.png) from [src/sprouts_figure.py](src/sprouts_figure.py); checker [src/sprouts_check.py](src/sprouts_check.py)) | the Sprouts part of draft `games-decided-before-they-start` | played once at home, November 8 |
