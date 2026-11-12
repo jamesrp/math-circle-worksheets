@@ -1,0 +1,123 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,margin=.7in,headheight=15pt,headsep=18pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,tikz}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5.5pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 81 / Buckets of Fish / K--1 adult guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 81 / W81-K-FAC-v1}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\head}[1]{\par\textbf{\large #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+\newcommand{\hint}[1]{\textit{If needed:} #1}
+\newcommand{\buckets}[2]{%
+\begin{tikzpicture}[x=1mm,y=1mm,baseline=0]
+\foreach \x/\n/\lab in {0/#1/1,19/#2/2}{
+ \draw[rounded corners=1mm] (\x,0) rectangle +(15,18);
+ \node[font=\scriptsize] at (\x+7.5,-3) {\lab};
+ \foreach \i in {1,...,\n}{
+  \pgfmathsetmacro{\xx}{\x+3.5+mod(\i-1,3)*4}
+  \pgfmathsetmacro{\yy}{3+floor((\i-1)/3)*4}
+  \fill (\xx,\yy) circle (1.3);
+ }
+}
+\end{tikzpicture}}
+\input{verified-data.tex}
+\begin{document}
+\head{Mathematical overview: pairs, copying and an ending}
+\textbf{Exactly the all-paired starts favor the second player.} With finite counts in one, two or three ordered buckets, use the printed rule: remove one counter, optionally add at most one to each smaller-numbered bucket, and win by leaving all buckets empty. Empty buckets count as paired. From a start with every bucket even, the second player can copy the first player's move: take from the same bucket and refill exactly the same smaller buckets. The chosen bucket had at least two counters before the first take, so the copy is legal. Two takes and two of each refill leave every bucket paired again. As every game ends, the copier takes the last counter.
+
+If any bucket is odd, the first player can leave every bucket even: take from the highest-numbered odd bucket and refill each smaller odd bucket once, leaving the smaller even buckets alone. Then copy. Under this one-each rule that first move is unique. A child can show the idea with pairs and one leftover; the adult need not name parity or teach the rule before the search. ``Can always win'' means having a reply to \emph{every} legal opponent move, not winning one trial.
+
+\textbf{Games end even when the buckets gain counters.} For adults, write the counts as $(a,b,c)$ in bucket order. The nonnegative number $a+2b+4c$ falls by at least one on every move. Always making every permitted refill makes it fall by exactly one. Thus the shortest game has $a+b+c$ moves (never refill), and the longest has $a+2b+4c$. Omit $c$ for two buckets. These bounds depend on the cap; the upper table's uncapped game has different length claims. One counter in Removed per turn counts moves, provided Removed starts empty and refills come from Supply, not from Removed.
+
+\textbf{Destination and evidence.} K--1 reaches the week's paired-position strategy through play, then explores growth and finite game length. Playing a start is an experiment; ``pairs let the second player win'' is a conjecture until the child shows a reply that restores pairs after any move. Explaining why the last bucket cannot refill, then considering the earlier buckets, is a concrete ending argument. The original Week 81 guide's overview (p.\ 1) gives the older bands' destination, including finite but unbounded uncapped play; do not import that rule into this packet.
+
+\head{Preparation and access}
+\textbf{Status.} Unpiloted with children. Printed counter fit, cutting, masking, drawing space, handling, adult workload and suggested timings are physically unrehearsed.
+
+\textbf{Per pair.} Print all seven pages of \texttt{k-1.pdf}, plus page 2 of \texttt{week-81-students.pdf} (W81-S-v3): three $56\times139$ mm buckets with 5 mm gaps, and $86\times40$ mm Supply and Removed boxes. Print US Letter, single-sided, Actual Size. Use about 30 loose counters plus a reserve; choose flat counters no wider than about 20 mm and test fit first. Add a pencil and scrap paper to cover unused buckets. Small worksheet pictures are setup instructions, not counter mats. The week's sixteen $39\times27.5$ mm cut cards (shared packet p.\ 3) can stay in the kit but are not needed for this first route. No new printable object is missing.
+
+\textbf{Beyond the week's kit:} allow about 5--10 minutes to print/stack the K--1 pages, prepare masks and check a reset. This is an estimate, not a rehearsal. Use two pair kits for the table.
+\newpage
+\head{Launch, pacing and the first games}
+\textbf{Prerequisites and staffing.} One anchored adult for the K--1 table reads each prompt and the 1st/2nd choices aloud, records a child's chosen result when asked and checks resets. Children count small sets, recognize bucket labels 1--3, take turns and match dots to counters. The core reaches 11 counters; optional length work reaches 12 moves, while Problem 12 needs no count to 14. Pairing is learnable here. The child still chooses the bucket, whether to refill and what to try next. If adults must choose moves, stay with one bucket and a few contrasting games. With an odd child, rotate player, player and checker; the adult can be a temporary partner.
+
+\textbf{Join the common launch.} After the movement opening and material handling, use the week's short demonstration: remove one from the middle bucket, then optionally add one to bucket 1. The partner points to the chosen bucket before removal and checks additions. No same-bucket or higher-numbered refill is legal. Supply is not a fourth bucket; Removed is not a refill supply.
+
+\textbf{At the table, two minutes.} Match the first rule picture on student p.\ 1 to the large board: three counters in bucket 1 and two in bucket 2, with bucket 3 covered and Removed empty. Take one from bucket 2 into Removed. Show both possible endings, resetting before the second. Neither is a winning first move for this non-task start, so no task answer is supplied.
+\begin{center}\small
+\begin{tabular}{ccc}
+Set up & Take from bucket 2 & Or also refill bucket 1\\[3pt]
+\buckets{3}{2} & \buckets{3}{1} & \buckets{4}{1}\\[7pt]
+Removed: 0 & Removed: 1 & Removed: 1
+\end{tabular}
+\end{center}
+Draw dots only for the \emph{resulting buckets}, not arrows for hand movements. Point to the matching before/after pictures on p.\ 1; children may dictate or show a result rather than draw it. Cover buckets 2 and 3 for Problem 1. Reset buckets and empty Removed before every new game.
+
+\textbf{A first hour.} Allow 5 minutes movement, 5 minutes handling/common launch, 3 minutes table setup, 10 minutes Problem 1, 15 minutes Problems 2--3, 15 minutes selected Problem 4 games or Problem 5, and 7 minutes sharing a move and a question. Choose only a few starts at first; do not require every game in both orders. Save Problems 6--7 for children ready to organize all splits, and Problems 8--12 for a later visit or a fluent pair. Finishing every page is not the goal. Record rule errors and who chose the moves, not only wins.
+
+\sub{Problem 1 (student p.\ 1): one bucket}
+In printed left-to-right order:
+\begin{center}\small\begin{tabular}{*{8}{c}}\OneBucketRow\end{tabular}\end{center}
+There is exactly one move each turn, so the game lasts as many turns as the start has counters. Two counters give one turn to each player; an unpaired counter gives the first player the last turn. \hint{``Can these counters all have partners? Whose turn takes the leftover?''}
+
+\sub{Problem 2 (student p.\ 2): who can always win?}
+Printed across the top row, then across the bottom:
+\begin{center}\small\begin{tabular}{*{6}{c}}\TwoBucketRow\end{tabular}\end{center}
+A single win is not a guarantee. Let a partner challenge a proposed strategy with a different legal move. Paired buckets support the copying argument from the overview. \hint{``Does that still work if your partner chooses not to refill?''}
+\newpage
+\head{Winning moves and complete collections}
+\textbf{Key notation.} $(a,b)$ means $a$ counters in bucket 1 and $b$ in bucket 2; children can use dots instead. Each arrow below is one whole turn, including its optional refill.
+
+\sub{Problem 3 (student p.\ 2): the winning first move}
+The unique winning results, in printed order across each row, are:
+\begin{center}\small\begin{tabular}{l*{6}{c}}\FirstMovesWide\end{tabular}\end{center}
+Take from bucket 2 except at $(1,2)$, where taking from bucket 1 works. Refill bucket 1 at $(1,1)$, $(3,1)$ and $(3,3)$; do \emph{not} refill at $(2,1)$ or $(2,3)$. Every result is paired, so copying wins thereafter. Any other move leaves an odd bucket and gives the opponent a move to pairs. \hint{``What start would you like your partner to face? Is adding a counter always helpful?''}
+
+\sub{Problem 4 (student p.\ 3): play the adult}
+$(4,2)$ favors \textbf{2nd}; $(3,4)$ favors \textbf{1st}, whose only winning start is $(3,4)\to(2,4)$, taking from bucket 1. Start with one child challenging the adult from $(4,2)$; swap starters on another trial. Rotate challengers rather than playing every child through every combination while the others wait.
+
+\textbf{Adult play card.} When the child moves from paired buckets, quietly take from that same bucket, making the same refill choice. This works at \emph{every} later paired position, not only at the initial one. If it is your turn with an unpaired bucket, take from the highest-numbered unpaired bucket and refill exactly the smaller unpaired buckets; then copy. If all buckets are paired on your turn, no guaranteed win exists: make any legal move and let the child demonstrate the reply. Do not manufacture a win or quietly change a move. Invite children to show what the adult is doing before naming copying. \hint{``What changed between your turn and mine? Can you be the adult this time?''}
+
+\sub{Problem 5 (student p.\ 3): every move and a reply}
+From $(2,2)$ the partner has exactly three moves. Each has one winning reply:
+\begin{center}\small\begin{tabular}{cc}
+After partner's move & After your reply\\\midrule
+\CopyReplies
+\end{tabular}\end{center}
+Completeness: taking from bucket 1 has no refill choice; taking from bucket 2 has two choices, no refill or one in bucket 1. The reply copies that choice and restores pairs. Fill the three rows in any order; each row restarts from $(2,2)$, not the previous row's ending. \hint{``Which bucket could your partner take from? Could the same take have a different ending?''}
+
+\sub{Problem 6 (student p.\ 4): every second-player start}
+Four counters: $(0,4),(2,2),(4,0)$, \textbf{three ways}. Six counters: $(0,6),(2,4),(4,2),(6,0)$, \textbf{four ways}. Empty buckets are allowed; swapped counts differ because the buckets are numbered. The five slots per row are spare recording space, not a promised answer count. To explain completeness, distribute whole pairs between the two buckets: with two pairs there are three choices for bucket 1; with three pairs there are four. Any split breaking a pair leaves an odd bucket. \hint{``Could bucket 1 be empty? Is there another number of whole pairs it could hold?''}
+
+\sub{Problem 7 (student p.\ 4): five counters}
+\textbf{Impossible.} Five counters cannot all be paired inside their buckets: pairs use two at a time, leaving one counter. Therefore every split lets the first player reach pairs. A child may show all six splits, from $(0,5)$ through $(5,0)$, or give the leftover argument. \hint{``Where can the last unpaired counter go without making an unpaired bucket?''}
+\newpage
+\head{Long games, growing buckets and an ending}
+\textbf{Switch the goal explicitly.} In Problems 8, 9 and 11 the partners cooperate, rather than trying to win. A longest game is not the same question as the largest number in the buckets. Before using bucket 3, revisit student p.\ 1's tree from $(1,0,2)$: one take from bucket 3 permits neither refill, bucket 1 only, bucket 2 only, or both. These are four endings of \emph{one} move; keep the one-each cap.
+
+\sub{Problem 8 (student p.\ 5): shortest and longest}
+Read the left column down, then the right column down:
+\begin{center}\small\begin{tabular}{l*{6}{c}}\LengthsWide\end{tabular}\end{center}
+Never refilling achieves the shortest: every original counter must be removed. For the longest, each counter originally in bucket 2 can produce one extra counter in bucket 1; that counter gets one later removal. Thus $(a,b)$ has at most $a+2b$ moves, attained by refilling after every bucket-2 take. A child can match each such take to its one later extra take. \hint{``Which takes can give us another turn later? What must happen to every counter already here?''} Reset Removed before \emph{each} trial.
+
+\sub{Problem 9 (student p.\ 5): most counters held at once}
+From $(0,0,1),(0,0,2),(0,0,3)$, the answers are \textbf{2, 4, 6}. Count only the buckets; pause at the biggest board. Take from bucket 3 and refill both earlier buckets each time to reach $(1,1,0),(2,2,0),(3,3,0)$. Each bucket-3 take can increase the board count by only one; a bucket-2 take cannot increase it, and a bucket-1 take decreases it. There are only one, two or three bucket-3 takes, so these maxima cannot be beaten. \hint{``Which take can leave more counters in the buckets than before? How often can we do that?''}
+
+\sub{Problem 10 (student p.\ 6): winning with three buckets}
+Top to bottom, the unique winning results are:
+\begin{center}\small\begin{tabular}{l*{4}{c}}\ThreeMovesWide\end{tabular}\end{center}
+All four take from bucket 3; refill neither bucket, only bucket 1, only bucket 2, then both. These leave pairs, so the same copy works. \hint{``Which buckets have a leftover? Can one take and its allowed refills leave none?''} Try this when children own the two-bucket strategy.
+
+\sub{Problem 11 (student p.\ 7): longest three-bucket games}
+Left to right, $(0,1,1),(1,1,1),(0,0,3)$ last at most \textbf{6, 7, 12} moves. Refill every allowed bucket to attain each. One bucket-3 counter earns at most four removals: itself, its new bucket-1 counter, its new bucket-2 counter, and that counter's later refill into bucket 1. A bucket-2 counter earns at most two; a bucket-1 counter earns one. \hint{``After bucket 3 is empty, are there still ways to earn extra turns?''} Count Removed, not counters still in play.
+
+\sub{Problem 12 (student p.\ 7): could play last forever?}
+\textbf{No.} Bucket 3 starts with two and never refills. Between its takes, only finitely many bucket-2 takes are possible; between those, only finitely many bucket-1 takes are possible. After the last bucket-3 take, only the ending two-bucket game remains. A long trial suggests this but does not prove it. Adult check: at most $2+2(2)+4(2)=14$ moves; counting them is not required. \hint{``Which bucket can never get another counter? What game is left after its last take?''}
+
+{\footnotesize \textbf{Where it goes.} After approval, replace only the paragraph beginning ``K--1, adult-led, after the launch'' in \emph{Materials and common launch}, p.\ 2 of \texttt{week-81-facilitator.pdf} (W81-FAC-v2). Game provenance: Joel David Hamkins, ``Buckets of fish!'' (2017), as credited in the week's source notes; this K--1 route is an untested teaching adaptation.}
+\end{document}

@@ -1,0 +1,231 @@
+\documentclass[10pt]{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,margin=.68in,headheight=15pt,headsep=16pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,hyperref,tikz}
+\hypersetup{hidelinks}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{\small Week 62 / Conflict networks / Adult return-visit guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 62 / W62-RV-FAC-v1}\fancyfoot[R]{\thepage}
+\newcommand{\head}[1]{\par{\large\bfseries #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+\newcommand{\hint}[1]{\textit{If needed:} #1}
+\newcommand{\word}[1]{\texttt{#1}}
+\begin{document}
+\head{Mathematical overview: three new restrictions}
+The first visit made a legal schedule by giving joined cards different slots. Here a finite simple network still has one card at each letter, unlimited capacity in a slot, and no extra vertices at line crossings. The new questions add \emph{allowed lists}, then \emph{one-card changes}, then \emph{earlier-than arrows}. These are separate investigations: lists do not carry into move tasks, and arrows are not merely conflict lines.
+
+\textbf{Two allowed slots per card need not suffice, even on a two-slot network.} A tree always works: start at a root and work outward; every new card has only its parent already placed, so at most one of its two distinct choices is blocked. A simple ring with two distinct choices at every card fails \emph{exactly} when it is odd and every list is the same pair. Equal pairs force alternation. Otherwise choose adjacent cards $u,v$ with different lists; give $v$ a number absent from $u$'s list, walk round away from $u$, and place $u$ last. Each intermediate card avoids one neighbor; $u$ need only avoid its other neighbor. A leaf with two choices can always be filled afterward.
+
+\textbf{Five cards and six cards differ.} Suppose A and B are each joined to C,D,E (and no other lines). If A and B share an allowed number, put both there; each remaining card can avoid it. If their two-number lists are disjoint, A and B have four joint choices; each of C,D,E can forbid at most one. At least one choice survives. Adding a fourth shared neighbor can block all four choices. The solutions below show this full obstruction, not merely an unsuccessful search.
+
+\textbf{A legal placement can be stuck, or movable yet unable to reach a goal.} A move replaces one circle's counter, and the complete placement must remain legal. On a ring with exactly three available numbers, a circle is stuck precisely when its two neighbors have the other two numbers. An entirely stuck ring therefore repeats three different numbers and exists exactly when the ring length is a multiple of three. For a fixed direction round a legal three-number ring, call $1\to2$, $2\to3$, $3\to1$ an \emph{up}; the other steps are downs. A movable circle has equal-number neighbors, so changing it exchanges one up and one down. The total ups is invariant. Different up-counts rule out a route even when a move is always possible. This invariant is not a claim that every pair with equal counts connects on every graph.
+
+\textbf{Four numbers connect all legal placements of any simple ring.} Fix cards to their target numbers one at a time. A neighbor occupying the desired number cannot already be fixed, because the target is legal. Move that neighbor aside, avoiding its at most two neighbors' numbers \emph{and} the desired number: four choices leave a spare. Do this for each blocker, then fix the chosen card. Previously fixed cards never move. This is the maximum-degree-plus-two recoloring argument [S1], specialized to rings; three numbers do not give the same guarantee.
+
+\textbf{For arrows, fewest slots equals the most cards on a directed path.} This assumes no directed cycle, unit-time tasks and unlimited simultaneous capacity. Put cards with no incoming arrow in slot 1; put every other card one slot after its latest predecessor. Induction makes its slot equal to the longest path ending there, counted in \emph{cards}, not lines. Every such path forces that many strictly increasing slots, proving optimality [S2]. A directed cycle cannot be scheduled with any number of slots. Choosing circle-free directions for conflict lines links the two models: orient a legal coloring from smaller to larger slots, or recover a coloring by earliest placement. The minimum longest path over these directions is the conflict minimum.
+
+\textbf{Band map and evidence.} K--1 places allowed counters and discovers temporary parking; matching numerals 1--4, tracing endpoints and adult reading suffice. Grades 2--3 adds designing lists, recording a move word and testing stuck rings; arrows are later work. Grades 4--5 explains the list contrast, ring invariant and longest-path bound; counting and ordered comparison suffice, but keeping an invariant is a substantial abstraction. Experiments suggest rules; displayed obstructions and the arguments above explain them. Exhaustive finite checks verify examples, not arbitrary-size theorems.
+\newpage
+\head{Preparation, shared launch and a one-hour route}
+\textbf{Status.} Unpiloted. Printing at scale, counter fit and letter visibility, sleeve glare, replacement/checking procedures, preparation times and classroom pacing are physically unrehearsed. The base week is also unpiloted; returning familiarity is an intended route, not recorded classroom evidence.
+
+\textbf{Per pair or upper trio.} Reuse one kit: 8 cards A--H and 4 headers 1--4, each $31\times38$ mm; 32 counters, 8 of each of four colors, no wider than 15 mm; 2 Letter sleeves, a tissue and a tray/folder. Put one key counter in each header's 16 mm dashed circle, with the same color-number mapping in every kit. Remaining counters go on the student mats' 20 mm circles. At most eight circles appear; unused cards stay in the tray. The small Start/Goal copies are references, not counter boards. Lift a counter briefly to recover a hidden letter.
+
+\textbf{Tables and print plan.} Two kits at K--1, two at Grades 2--3, one at the upper table, one launch/comparison kit and one spare: 7 kits total, hence 56 letter cards, 28 headers, 224 counters and 14 sleeves. Reuse existing kits; if rebuilding, print \word{week-62-materials.pdf} (W62-M-v1), its single page, three times on card stock. Cut along the grid: three kits per sheet, nine kits available, seven needed. No base student page is needed. Print the return-visit K--1 packet (6 pages) twice, Grades 2--3 (10) twice and Grades 4--5 (10) once: 42 student sheets for complete table sets, or just the chosen route. Print single-sided US Letter at 100\%, never fit-to-page. New pages stay uncut and go in sleeves. Supply 8 fine-tip dry-erase markers (6 active, 2 spare), pencils and scrap paper. No extra cutouts are needed; the printed gray header circles need the actual color keys.
+
+\textbf{Preparation and staffing.} Allow 10--15 minutes to print, check and repack reused kits, or roughly 20--25 minutes for cutting and packing from scratch, plus time to read the chosen solutions. These are estimates. Anchor one adult at each table: a reader/occasional scribe for the two younger pairs, an endpoint-checking coach for the middle pairs, and an organizer for the upper trio. Rotate placer, checker and recorder. Children choose placements and moves; an adult may write a dictated move word. If the adult must choose every move, stay with a smaller board rather than demonstrate the solution.
+
+\textbf{Whole-group launch, about 5 minutes after 5 minutes of movement.} Let everyone handle the counters and match them to the four headers. Use the opening non-task A--B visual printed on page 1 of every packet. Point to a list and one line, then act out its three panels:
+\begin{center}
+\begin{tabular}{lll}
+Input & One placement & Finished example\\\midrule
+A allows 1,3; B allows 2,3 & A gets 3; B still empty & A gets 3; B gets 2\\
+\end{tabular}
+\end{center}
+Ask the checker to touch both ends and use the key, not memorize color names. Do not give a ring rule or a target answer. Introduce the other conventions \emph{only when reached}: the printed paw (triangle ABC plus CD), starting A1 B2 C3 D2, replaces D's counter by 1; the partner checks CD and the recorder writes \word{D1}. The arrow visual has $A\to B,A\to C$: input arrows, cards A under 1 and B,C under 2, then counters A1 B2 C2. These are non-task examples, not answers to the numbered problems. For arrows, every arrow must be satisfied; an \emph{indirect} path also forces earlier/later order even without a direct arrow.
+
+\begin{tabular}{p{.11\linewidth}p{.82\linewidth}}
+\textbf{K--1} & About 20 minutes on P1--2, 15 on P4--5, then 10 minutes sharing/replaying and 5 closing/packing. P3, P6--8 are later choices. Adult records a successful route after play; no simultaneous tally is required.\\[4pt]
+\textbf{2--3} & About 20 minutes on P1--3, 15 on P5--6, 10 sharing/replaying, 5 closing/packing. Keep P4 and P7--10 for a return or a ready pair.\\[4pt]
+\textbf{4--5} & About 20 minutes on P1--3, 15 on P5--6, 10 comparing explanations, 5 closing/packing. P4 and P7--8 can each fill a later visit; P9--11 is a separate arrows route.\\
+\end{tabular}\par
+With the common 10-minute opening, each route totals 60 minutes. Finishing every page is not the goal. Save the exact problem, board, start, move word or obstruction, and whether a claim was tried, guessed or explained.
+\newpage
+\head{K--1: allowed slots and temporary parking}
+\textbf{Adult lookup convention.} A string such as \word{231} means A2 B3 C1: letters in alphabetical order, \emph{not} their positions on the page. These strings are guide shorthand, not new child instructions. Point to the actual letters. The lists below include every legal completion of the printed list boards.
+
+\sub{Problem 1, page 1: four forced completions}
+In reading order: path \word{231}; triangle \word{213}; three-leaf star \word{3121}; square \word{1213}. Each is unique. The path starts with A2, forcing B3 then C1. The triangle starts B1, forcing A2 then C3. On the star, B1 and C2 force A3, then D1. On the square, A1 forces B2 and D3, then C1. A child can show the successive blocked choices with counters. \hint{``Which circle has only one choice?'' Then, ``What does its line rule out next door?''} The star C label (2) and the adjacent square D list (1,3) sit close together in the print; point to the appropriate circle rather than read across boards.
+
+\sub{Problem 2, page 2: impossible is an answer}
+\textbf{Upper-left triangle: no solution.} Three pairwise joined circles would need three different numbers, but only 1 and 2 are allowed. \textbf{Upper-right square:} exactly \word{1212} and \word{2121}; walk alternately round it, starting with either number at A. \textbf{Middle three-card path: no solution.} A1 blocks B1, while C2 blocks B2. \textbf{Bottom four-card path:} only \word{1231}, forced from A1 along the line. \hint{``If B cannot use either of its numbers, which line blocks each?''} On the square ask, ``Could A begin with the other number?'' A failed attempt is not itself an impossibility explanation.
+
+\sub{Problem 3, page 3: a forced ring, then a blocked center}
+The top six-ring has only \word{123123}. Start at A1 and follow the forced choices; the last F3 differs from A1, so it closes legally. The lower five-card network cannot be filled: C1, D2 and E3 block all three allowed choices at A, regardless of B. \hint{``Which numbers are already promised? Which of them touch A?''} If children enjoy the successful ring, let them replay the forcing in the opposite direction; keep the failed board as a contrast, not an endurance test.
+
+\sub{Problems 4--8: shortest routes, not simultaneous swaps}
+Set up each Start on its own large board. Only the numbered counter types printed beneath that board may be used. One move removes and replaces a counter on \emph{one} circle; swapping two circles at once is not legal. A move word can be dictated to the adult and replayed later.
+\begin{center}\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{p{.25\linewidth}c p{.57\linewidth}}
+Printed problem / page & Fewest & One shortest route or obstruction\\\midrule
+P4 / p.4, upper line (1,2) & -- & Neither circle has any legal move; Goal is unreachable.\\
+P4 / p.4, lower line (1--3) & 3 & \word{A3 B1 A2}\\
+P5 / p.4, three-card path & 4 & \word{B3 A2 C2 B1}\\
+P6 / p.5, five-leaf star & 7 & \word{A3 B1 C1 D1 E1 F1 A2}\\
+P7 / p.5, square & 6 & \word{A3 C3 B1 D1 A2 C2}\\
+P8 / p.6, upper triangle (1--3) & -- & Each circle sees the other two numbers; none can move.\\
+P8 / p.6, lower triangle (1--4) & 4 & \word{A4 C1 B3 A2}\\
+\end{tabular}\end{center}
+\textbf{Why these are fewest.} Every circle whose target differs must change. For the line, three-card path, star and triangle, no first move can put a circle directly into its target, so at least one extra temporary change is necessary: respectively $2+1$, $3+1$, $6+1$, $3+1$. On the square, the separate pairs AB and CD each need a temporary change before their own swapped targets can be reached: $4+2=6$. The routes attain those lower bounds. For younger children a replay plus noticing one necessary parking move is enough; the full minimality argument can wait.
+
+\textbf{Hints by problem.} P4: ``Can either circle use the other number without breaking its line? What changes when 3 is available?'' P5: ``Which circle touches both ends?'' P6: ``Does a parked center free more cards than a parked leaf?'' P7: ``Can two circles that are not joined park together?'' P8: ``Which numbers are blocked at this circle? Is there one unused number?'' These are optional questions, not a prescribed method. A natural continuation is to compare two legal routes and replay the shorter one, not race to write all routes.
+\newpage
+\head{Grades 2--3: allowed lists and invented obstructions}
+Here problem numbers equal student page numbers. Strings list slots at A,B,C,\ldots\ in alphabetical order. List sizes describe \emph{distinct choices}; writing the same number twice would not give two choices.
+
+\sub{Problem 1, page 1: trace a forced chain}
+The top tree has the unique completion A4 B3 C1 D1 E4 F3 G2 H2 (\word{43114322}). G2 forces F3, then D1, H2, B3, C1 and A4; D1 also forces E4. Children may find another order. The lower ring with leaves cannot be filled. G3 forces A1, B2 and C3; H3 forces D2. Then E4 is forced, so F cannot use 4 (next to E) or 1 (next to A). The conflict at F is a short certificate. \hint{``Where is a single-number promise?'' Then, ``Can you point to a reason for every forced step?''} A reset is appropriate if a supposed forced placement has silently ignored a list.
+
+\sub{Problem 2, page 2: one changed list matters}
+In reading order the answers are \textbf{no, yes, yes, no}. Upper right has exactly \word{12312} and \word{21321}; lower left has \word{121212} and \word{212121}. The upper-left five-ring and the ring part of the lower-right board require alternation of one common pair round an odd ring, which closes with equal ends. The extra leaf cannot repair a conflict on the ring. In the upper-right board C must take 3: if it took 1, the other four cards would force a conflict. Once C3 is fixed, the remaining path alternates in either direction. \hint{``What happens when your walk returns to A?'' Then, ``Does the changed choice at C have to be used?''} The general ring theorem belongs to the upper continuation; let this table first compare actual successes and failures.
+
+\sub{Problem 3, page 3: six cards, four blockers}
+The upper network cannot be filled. A chooses 1 or 2 and B chooses 3 or 4. These are all their joint choices:
+\begin{center}\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{cccc}
+A & B & Blocked card & Its entire list is used by its two neighbors\\\midrule
+1&3&C&1,3\\
+1&4&D&1,4\\
+2&3&E&2,3\\
+2&4&F&2,4\\
+\end{tabular}\end{center}
+The lower network has exactly two completions: \word{241133} and \word{243133}. A2 B4 is the only joint choice that survives; D1, E3 and F3 are forced, while C may use 1 or 3. This confirms both success and the completeness of the two-answer list. \hint{``Once A and B have numbers, which other circle loses both its choices?''} If bookkeeping becomes the task, split the four A/B cases between pairs and compare their counters; do not make one child transcribe a large table.
+
+\sub{Problem 4, page 4: make the six-card board fail; test the five-card board}
+\textbf{Upper board: yes.} A already allows 1,3. Give B the list 2,4 and give C,D,E,F respectively 1,2; 1,4; 2,3; 3,4. Every A/B choice now consumes the entire list of one neighbor. These are \emph{all} failing designs: B must be 2,4 and the four mixed pairs must appear once each on C--F, in any order. Thus there are $4!=24$ failing designs among $6^5=7{,}776$ assignments to the five blank circles. The task asks for a design, not all 24; this classification is an adult completeness check.
+
+Why no other type fails: if A and B share an allowed number, put both there and each neighbor can avoid that one number. Otherwise the four A/B combinations are distinct. A two-number list at C--F forbids at most one of them. To cover all four, every neighbor must forbid a different combination.
+
+\textbf{Lower board: no.} The same reasoning leaves one of the four A/B combinations uncovered because only C,D,E can block them; if A and B have a common choice, use that instead. With A fixed at 1,3, all $6^4=1{,}296$ assignments work. The child need not search that many: a few attempted failures can motivate the four-cases argument. \hint{``Can A and B use one common number?'' If not: ``How many joint choices do they have, and how many can these three circles block?''}
+
+\textbf{Pacing and continuation.} The revised upper board offers an attainable construction before the impossible hunt on five cards. Stop the latter hunt to compare reasons once children have several attempts; do not equate ``I couldn't make it fail'' with a proof. A ready pair may give its lists to another pair to test. Keep the six-card and five-card cases visibly separate, since removing just one circle changes the answer.
+\newpage
+\head{Grades 2--3: routes, stuck rings and arrows}
+\sub{Problems 5--7, pages 5--7: shortest move words}
+Use the replacement demo at the top of page 5 before moving. For each line below, a checker can replay the word from the exact printed Start. Do not import the allowed lists from earlier pages.
+\begin{center}\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{p{.30\linewidth}c p{.53\linewidth}}
+Problem and board & Fewest & One shortest route / reason unreachable\\\midrule
+P5, line AB & 3 & \word{A3 B1 A2}\\
+P5, path ABC & 4 & \word{B3 A2 C2 B1}\\
+P6, path ABCD & 6 & \word{A3 C3 B1 A2 D1 C2}\\
+P6, star centered at A & 7 & \word{A3 B1 C1 D1 E1 F1 A2}\\
+P7, triangle with 1--3 & -- & All three circles are stuck at Start.\\
+P7, triangle with 1--4 & 4 & \word{A4 C1 B3 A2}\\
+\end{tabular}\end{center}
+For the line, three-card path, star and triangle, the lower bounds are ``every circle must change, plus one unavoidable temporary change'' (guide p.3). For the four-card path, AB and CD are disjoint swapped pairs. Each needs a circle to visit a temporary number, giving at least $4+2=6$ moves. One pair's temporary change cannot serve the other pair. The printed route attains six.
+
+\hint{P5: ``Which circle's target is currently blocked?'' P6: ``Could parking one central circle free several others?'' For the path: ``What must happen to each end pair?'' P7: ``Which other numbers does this circle see? What changes with a fourth?''} An extra route need not be minimal to be mathematically useful; replay it, then compare where its extra changes occurred. Keep just one running move word plus the resulting state, not a simultaneous tally.
+
+\sub{Problem 8, page 8: only the six-ring can be entirely stuck}
+The four printed rings have 4,5,6,7 circles. Only the six-ring (lower left) works. All its stuck placements, read A through F, are
+\[
+\word{123123},\ \word{132132},\ \word{213213},\ \word{231231},\ \word{312312},\ \word{321321}.
+\]
+For a circle to be stuck, its two neighbors must show the two other numbers. Once two neighboring numbers are chosen, the next is forced to be the third, repeatedly. That three-number pattern closes exactly when the length is divisible by three; it cannot close on 4,5 or 7. The six strings account for every choice of two different starting numbers. Illegal placements, such as all 1s, are \emph{not} answers. \hint{``Check all lines first. What must each circle see to stop it moving?''} A ready continuation is to predict an eight-ring or nine-ring using the explanation, rather than enumerate more pictures.
+
+\sub{Problem 9, page 9: four headers, witnessed by one path}
+Use the arrow example before this problem. A minimum schedule is
+\[
+1:\ A,E,F,G\qquad 2:\ B,H\qquad 3:\ C\qquad 4:\ D.
+\]
+Every arrow goes to a larger number. The path $A\to B\to C\to D$ forces four different slots, so fewer cannot work. E could begin a different four-card path; the displayed earliest schedule is not the only minimum schedule. \hint{``Which cards must wait? Can one chain of arrows force four times?''} Distinguish a path through four \emph{cards} from four \emph{arrows}. No direct arrow between two cards is not enough to put them together when an indirect path connects them.
+
+\sub{Problem 10, page 10: only the lower-left network fits four}
+\textbf{Upper left: no schedule at all.} The cycle demands $A<B<C<A$, impossible for strictly ordered slots. \textbf{Upper right: five slots needed.} The path $A\to B\to C\to D\to E$ forces five. \textbf{Lower left: four suffice}, with $1:A,B,C$; $2:D,E$; $3:F$; $4:G$. Path $A\to D\to F\to G$ proves four necessary. \textbf{Lower right: five needed}: added $E\to D$ creates $B\to E\to D\to F\to G$. Earliest slots would be $1:A,B,C$; $2:E$; $3:D$; $4:F$; $5:G$.
+
+The kit has only headers 1--4. A fifth printed header is neither missing nor required: the five-card path is the certificate that the task cannot fit. Write a hypothetical slot 5 on scrap paper only to discuss a later extension. \hint{``Is the obstruction a loop, or a long path? Would one extra header fix each of those?''} A cycle is not repaired by adding headers. Preserve this distinction when comparing the three negative answers.
+\newpage
+\head{Grades 4--5: why lists fail, and why some never do}
+Student page numbers no longer equal problem numbers: P1 is on p.1; P2--3 on p.2; P4 on p.3.
+
+\sub{Problem 1, page 1: six cards}
+The top board is impossible; the bottom has exactly \word{241133} and \word{243133}. Use the four-case table on guide p.4: A1/B3 is blocked at C, A1/B4 at D, A2/B3 at E, and (on the top board) A2/B4 at F. Changing F's list to 3,4 removes that final obstruction; A2 B4 then leaves C1 or C3, D1 E3 F3. This is a proof covering every A/B choice, not a claim based on trying several starts. \hint{``Can you organize failures by just the choices at A and B?''} Extension: exchange the four neighbor lists and explain why the top board still fails.
+
+\sub{Problem 2, page 2: five cards always work}
+\textbf{No failing two-number assignment exists.} If A and B have a common allowed number, put both there: a two-element list at each of C,D,E contains something else. If their lists are disjoint, there are four ordered choices for A/B, and a neighbor blocks a choice only when its list is exactly that pair. Three neighbors block at most three choices, leaving one legal joint choice; then fill each neighbor independently. This argument works for any slot names, not only 1--4. The verifier checks all $6^5=7{,}776$ assignments from 1--4 as a separate finite check. \hint{``Could A and B share a number? If not, can three blockers cover four possibilities?''} Let the child arrange four little A/B cases rather than require multiplication notation.
+
+\sub{Problem 3, page 2: two choices on a tree}
+\textbf{Again no failing assignment exists.} Root at H. Place H in either allowed slot; then A,B,D; then C,E,F; then G. Each new card touches only one previously placed card, so at least one of its two numbers remains. There are no extra lines between siblings; that is the tree hypothesis. All $6^8=1{,}679{,}616$ list assignments from 1--4 pass the independent checker. The proof, not that finite count, gives the general result. \hint{``Could you begin at one circle and grow outward? How many already placed neighbors would the next circle have?''} A child can point through the rooted branches. A natural continuation compares two different roots without changing the lists.
+
+\sub{Problem 4, page 3: the ring criterion and all printed completions}
+The answers in reading order are \textbf{no, yes, yes, yes}. All legal strings are below; the letter order is A,B,C,\ldots, so the leaf F is last even though it is drawn above A.
+\begin{center}\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{p{.27\linewidth}p{.63\linewidth}}
+Upper-left five-ring & None: odd ring, identical pair 1,2.\\
+Upper-right five-ring & \word{12123}, \word{12312}, \word{12313}, \word{12323}, \word{13123}, \word{23123}.\\
+Lower-left ring and leaf & \word{123122}, \word{213211}.\\
+Lower-right six-ring & \word{343434}, \word{434343}.\\
+\end{tabular}\end{center}
+\textbf{Why the list is complete.} On the upper-right board, split by A and then B; choosing each succeeding card from its two-element list and finally checking EA yields precisely the six strings. On the lower-left ring C must be 3; the remaining path alternates 1 and 2 in two ways, and F is the opposite of A. On the six-ring the single shared pair forces alternation from either starting choice.
+
+\textbf{General explanation.} An odd ring with one common pair fails; an even ring with a common pair alternates successfully. With unequal neighboring lists, choose a number on one neighbor that the other lacks. Walk the long way round from the chosen card, leaving the other for last. Every intermediate card avoids only its predecessor, and the last card automatically avoids the first chosen number; it has to avoid only the other neighbor. This proves the criterion for every simple ring, using exactly two distinct choices per circle. The attached leaf can then avoid A; it does not affect the criterion. \hint{``Where do neighboring lists differ? Could the final circle be protected from the very first choice?''}
+
+\textbf{Practical note.} On student p.3 some lists from different boards are close, especially the bottom row. Point to the intended circle and cover the neighboring board with scrap paper if reading spills across it. Do not change a list to rescue a failed construction. The general argument is readiness-dependent; a concrete comparison of the four boards remains substantial work.
+\newpage
+\head{Grades 4--5: stuck is not the same as trapped}
+\sub{Problem 5, student page 4: an entry to single changes}
+With 1--3, the triangle is stuck and Goal is unreachable. With 1--4, \word{A4 C1 B3 A2} takes four moves and is shortest: all three cards must change, and the first move cannot reach its target, so one extra change is unavoidable. \hint{``Which numbers does a circle's two neighbors forbid?''} Act the replacement demo before introducing any invariant; a simultaneous swap would invalidate the investigation.
+
+\sub{Problem 6, student page 5: classify the stuck rings}
+Only the lower-left six-ring can be entirely stuck. Its six answers are \word{123123}, \word{132132}, \word{213213}, \word{231231}, \word{312312}, \word{321321}. The four-, five- and seven-rings cannot: stuckness forces three different numbers to repeat around the ring. See guide p.5 for the completeness argument. \hint{``Once two neighbors are chosen, what must the next circle be so that the middle one is stuck?''} Keep this result visible: the coming five-ring has \emph{no} entirely stuck placement, but that will not make every goal reachable.
+
+\sub{Problem 7, student page 6: one reachable goal and one invariant obstruction}
+Start is \word{12312}. Goal 1, \word{23123}, is reachable by \word{E3 D2 C1 B3 A2}. This uses five moves, necessarily shortest because all five circles change. The task asks for a route, not a shortest-route proof. Reset to the printed Start before testing Goal 2, \word{13213}. \textbf{Goal 2 is unreachable with 1--3}, even though some counter can always move on the five-ring.
+
+\textbf{Introduce the invariant after genuine attempts.} Always read the ring in the fixed order A,B,C,D,E,A. Mark each step up for $1\to2$, $2\to3$ or $3\to1$; otherwise mark it down. This is a cyclic convention: 3 to 1 is an up, not ordinary numerical increase. The return step E to A counts.
+\begin{center}\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{lll}
+Placement & Steps AB,BC,CD,DE,EA & Number of ups\\\midrule
+Start \word{12312} & U U U U D & 4\\
+Goal 1 \word{23123} & U U U U D & 4\\
+Goal 2 \word{13213} & D D D D U & 1\\
+\end{tabular}\end{center}
+A circle can move only if its neighbors have the same number: different numbers would block both alternatives. Only its two incident steps change. A small non-task local example makes the rule tangible:
+\[
+\underbrace{2\;1\;2}_{\mathrm{D\ U}}\quad
+\xrightarrow{\text{replace middle 1 by 3}}\quad
+\underbrace{2\;3\;2}_{\mathrm{U\ D}}.
+\]
+For any neighbor number, changing the center reverses DU to UD or back. Thus the number of ups never changes, ruling out 4-to-1. The checker finds 30 legal five-ring placements in two connected families of 15, with four or one ups; every placement has a legal move. Those small counts are adult verification, not a new enumeration demand. \hint{First, ``What do the two neighbors of a movable circle have in common?'' Later, ``What changes on the two steps beside it?''} A recording adult can label steps while children supply them; do not take over choosing moves.
+
+\sub{Problem 8, student page 7: a fourth counter frees the ring}
+\word{B4 C2 B3 E3} reaches Goal in four moves. B,C,E must change, and B and C initially hold one another's target numbers, so at least one must make an extra temporary change. Hence four is minimum. \hint{``Which two cards are waiting for each other's current numbers?''}
+
+\textbf{Every legal placement on every simple ring can reach every other with 1--4.} Choose a target card $v$ to fix. Any neighbor holding $v$'s target number is not already fixed. Move that neighbor to a number avoiding its two neighbors' current numbers and $v$'s target; at most three numbers are forbidden, so one of four remains. Repeat for the other neighbor if necessary, then set $v$ to its target and never move it again. Eventually every card is fixed. There are no allowed lists in this question. This proves the arbitrary-size claim; checking rings of 3--8 only tests instances. \hint{``What must a blocker avoid if it steps aside? How many numbers can that forbid?''} Save this explanation for a child ready to hold a target and a growing fixed set; concrete routes alone can occupy the visit.
+\newpage
+\head{Grades 4--5: arrows, schedules and source boundaries}
+\sub{Problem 9, student page 8: a matching upper and lower bound}
+Four headers are necessary and sufficient: $1:A,E,F,G$; $2:B,H$; $3:C$; $4:D$. The directed path $A\to B\to C\to D$ proves necessity. For sufficiency check each arrow, including $E\to B$, $F\to C$ and the separate $G\to H$. Earliest placement is guaranteed optimal here, unlike the first visit's greedy conflict-coloring order. \hint{``What must finish before this card can start? Can you find a chain as long as your number of slots?''}
+
+\sub{Problem 10, student page 9: one extra arrow changes the answer}
+\textbf{Top board fits four}: $1:B,G,H$; $2:A,D$; $3:C,E$; $4:F$. The path $H\to A\to C\to F$ proves four necessary. \textbf{Bottom board does not}: $G\to D\to E\to C\to F$ needs five. Earliest placement there would be $1:B,G,H$; $2:A,D$; $3:E$; $4:C$; $5:F$. The only new arrow is $E\to C$. The absent fifth header is the intended obstruction, not a preparation error. \hint{``Can you follow a longer path that uses the new arrow?''} The unchanged top schedule is a useful comparison state.
+
+\sub{Problem 11, student page 10: choose directions, then schedule them}
+\textbf{Five-ring with leaf: minimum longest path is three cards.} One attaining schedule is $1:A,C$; $2:B,D,F$; $3:E$. Draw arrows from lower to higher slot: $A\to B$, $C\to B$, $C\to D$, $D\to E$, $A\to E$, $A\to F$. The path $C\to D\to E$ has three cards; none has more. No orientation can avoid a path through three: otherwise every ring vertex would have both incident arrows in or both out, since an incoming and an outgoing arrow produce a three-card path. In/out types must alternate, impossible on the odd ring. This uses arrows rather than merely recalling the first visit's coloring answer.
+
+\textbf{Six-ring with two leaves: minimum is two cards.} Put A,C,E,H in slot 1 and B,D,F,G in slot 2 and point every line from 1 to 2. All arrows stop immediately at a sink; each path has at most two cards. At least one line exists, so one card cannot be the maximum. The two reverse bipartition orientations are the only optimal directions. \hint{``To avoid a two-arrow path, may any card have both an incoming and outgoing arrow? Can those two kinds of card alternate all the way round?''}
+
+The task also asks for a schedule. Reject directed cycles: they may have finite simple paths, but cannot satisfy earlier-than constraints. The checker examines all 64 orientations of the upper board and all 256 of the lower; among schedulable orientations their minimum longest paths are 3 and 2. No enumeration of orientations is required from children.
+
+\sub{Sources: what was actually consulted}
+\textbf{[S1]} Igor Pak, MIT 18.315, notes by Amanda Redlich, \emph{Lecture 4}, p.1, opening theorem and proof: recoloring with at least maximum degree plus two colors. Both scanned pages were inspected; only that opening result is used. \href{https://ocw.mit.edu/courses/18-315-combinatorial-theory-introduction-to-graph-theory-extremal-and-enumerative-combinatorics-spring-2005/1a85b3cef5c53f1dbab7dd5d18b54035_lec04.pdf}{MIT OCW Lecture 4}.
+
+\textbf{[S2]} E. Lehman, F. T. Leighton and A. R. Meyer, \emph{Mathematics for Computer Science}, June 6, 2018, section 10.5.2, printed pp.435--438 (PDF 443--446), especially Theorem 10.5.8 and Corollary 10.5.9: earliest parallel scheduling and critical-path size. Consulted directly. \href{https://courses.csail.mit.edu/6.042/spring18/mcs.pdf}{MIT text}.
+
+\textbf{Outline context, not proof sources consulted here.} Erd\H{o}s--Rubin--Taylor, \emph{Choosability in graphs}, Congressus Numerantium 26, pp.125--157 (1979 conference); Vizing (1976); Diestel, \emph{Graph Theory}, ch.5 list-coloring section; Cereceda--van den Heuvel--Johnson, \emph{Connectedness of the graph of vertex-colourings}, Discrete Math. 308 (2008), pp.913--919, and \emph{Finding paths between 3-colorings}, J. Graph Theory 67 (2011), pp.69--82; van den Heuvel, \emph{The complexity of change} (2013); Mirsky (1971), pp.876--877; Gallai (1968) and Roy (1967), via West, 2nd ed., section 5.1; Stanley, \emph{Acyclic orientations of graphs} (1973), pp.171--178. The 2011 publisher abstract/bibliography was checked, not its proof. Further edition/year and access notes are in \word{SOURCES.md}; no unverified precise theorem attribution is needed for the elementary proofs above.
+
+\textbf{Local adaptation and limits.} Consulted: final student packets, their source and both earlier reviews; return-visit outline; base W62-FAC-v3 and W62-M-v1; Week 8 return-visit and Week 98 model guides. The base guide's reports of concrete work and reduced transcription informed the proposed partner checks; the cited MSRI originals are unavailable here and were not newly inspected. These procedures are hypotheses, not classroom findings. Record who actually chose moves, which convention needed rescue, and what children wanted to revisit. Independent code checks all listed answers; no physical rehearsal or child trial is claimed.
+\end{document}
