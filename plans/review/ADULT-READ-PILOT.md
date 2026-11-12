@@ -92,3 +92,7 @@ Each re-read cost about the same as the first reads, roughly 140–150k reader t
 ### Week 10 card (November 8, 2026)
 
 James asked for a card for Week 10 ahead of the November 18 circle, and for a card for each week just before it is printed. [week-10-adult-card.pdf](https://github.com/jamesrp/math-circle-worksheets/blob/main/lowell-math-circle-year-2/week-10/week-10-adult-card.pdf) condenses the guide. A fresh reader given the card and the band pages could run the table, against "only with help" without it ([report](adult-read/week-10-card-read.md)). Its suggestions were folded into the card. The student pages are unchanged; their missing "continued" labels remain a minor point.
+
+### Default from here: pages first (James, November 12, 2026)
+
+On November 8 James checked Week 10's three bands and said they read well from the student files alone: "if the worksheets are great, I don't need the guide! (Obviously I can refer to it if needed.)" Asked whether to work pages first, he said yes on November 12. So before a week is printed, run the adult cold read on its band PDFs and fix the student pages first. Make a one-page adult card only where the pages can't carry what an adult needs, such as materials to make ahead (Week 24's decks). The guide stays the fallback.
