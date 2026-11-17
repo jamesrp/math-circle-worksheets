@@ -7,7 +7,7 @@ kernel = "There are exactly four splits of the nine tiles into allowed threes, o
 +++
 
 ## prompt
-Split the nine tiles into three allowed threes. Find every split, and explain why your list is complete.
+Split the nine tiles into three allowed threes. Colour each split on a board, one colour for each three. Find every split, and explain why your list is complete.
 
 ## figure
-boards((1.8,2.6),(11,2.6),(1.8,10),(11,10),(1.8,17.4),(11,17.4))
+boards((1.8,3.1),(11,3.1),(1.8,10.4),(11,10.4),(1.8,17.7),(11,17.7))

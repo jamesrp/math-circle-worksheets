@@ -1,6 +1,6 @@
 # Week 36 revised student packet
 
-K–1, grades 2–3 and grades 4–5: five pages each (v4, the November 6, 2026 kid-fit revision; v3 had 4/4/5). Draft and unpiloted. Build using `bash build.sh` with Python 3, a standard pdfLaTeX/TikZ installation and Poppler. Since October 23, 2026 the `.tex` files are generated from the problem files by `regenerate.py` (see the week's README); `student_checks.py` writes `mathematical-checks.json`. The original diagrams use shape and fill independently; color is never needed.
+K–1, grades 2–3 and grades 4–5: five pages each (v5, the November 17, 2026 pages-first wording on the November 6, 2026 kid-fit revision v4; v3 had 4/4/5). Draft and unpiloted. Build using `bash build.sh` with Python 3, a standard pdfLaTeX/TikZ installation and Poppler. Since October 23, 2026 the `.tex` files are generated from the problem files by `regenerate.py` (see the week's README); `student_checks.py` writes `mathematical-checks.json`. The original diagrams use shape and fill independently; color is never needed.
 
 ## Readiness gate
 

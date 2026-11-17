@@ -30,7 +30,7 @@ To rebuild a plan's printable after editing it: `python3 plans/room-plans/build/
 | November 18, 2026 | [Bridges](2026-11-18-bridges.md) ([printable](2026-11-18-bridges.pdf), [opener sheet](2026-11-18-opener.pdf)) | 10 | proposed (James agreed to Week 10 on November 3 and to this date on November 5); unpiloted |
 | November 25, 2026 | No circle (Thanksgiving week) | | |
 | December 2, 2026, tentative | [Stars and wheels](tentative-stars-and-wheels.md) ([printable](tentative-stars-and-wheels.pdf), [opener sheet](tentative-stars-and-wheels-opener.pdf)) | 4 | proposed by Claude; not confirmed; unpiloted |
-| December 9, 2026 | Open: the last circle of fall quarter | | |
+| December 9, 2026 | [Making threes, and a SET deck to take home](2026-12-09-set.md) ([printable](2026-12-09-set.pdf), [opener sheet](2026-12-09-opener.pdf), [big tiles](2026-12-09-big-tiles.pdf), [take-home slip](2026-12-09-take-home.pdf)), the last circle of fall quarter | 36 | proposed (James chose SET for this date on November 16, with a SET deck for each child as the farewell gift); unpiloted |
 | Reference | [Tower cities](reference-tower-cities.md) ([printable](reference-tower-cities.pdf), [opener sheet](reference-tower-cities-opener.pdf)) | 5 | the circle already ran Week 5 (James, November 3); kept for a return visit |
 | Reference | [Take-away games](reference-take-away-games.md) ([printable](reference-take-away-games.pdf), [opener sheet](reference-take-away-games-opener.pdf)) | 7 | the 2–3 table played Week 7 on October 21; kept for a return visit or for K–1 and 4–5 |
 | Reference | [Chip firing with a sink](2026-11-04-chip-firing.md) | 11 | the circle ran Week 11 before this plan was written; a success |

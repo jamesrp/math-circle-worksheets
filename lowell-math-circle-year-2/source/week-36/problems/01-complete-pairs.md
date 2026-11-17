@@ -8,13 +8,13 @@ kernel = "Any two different tiles have exactly one completing tile: for each att
 +++
 
 ## prompt [K-1]
-Pick a third tile for each pair to make an allowed three. Your partner checks each three. Then give your partner new pairs.
+Put a tile in each big box to make an allowed three. Your partner checks each three. Then give your partner new pairs.
 
 ## prompt @9 [2-3]
 Complete each pair to make an allowed three. Choose other pairs to give your partner; can any pair have two different answers?
 
 ## prompt @9 [4-5]
-Complete the pairs. Can two different tiles have two completing tiles, or none? Explain.
+Complete the pairs. Can a pair of tiles have two completing tiles, or none? Explain.
 
 ## figure [K-1]
 pairs_big()

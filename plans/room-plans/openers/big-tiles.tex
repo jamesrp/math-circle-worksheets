@@ -1,0 +1,26 @@
+% Big demonstration tiles for December 9, 2026 (Week 36): the nine tiles, two per Letter page.
+% Print on card stock and cut each page in half on the dashed line; each tile is about 4.5 inches.
+% Build in a scratch directory: pdflatex big-tiles.tex, then copy to ../2026-12-09-big-tiles.pdf
+\documentclass{article}
+\usepackage[letterpaper,margin=0.4in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{patterns.meta}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\tikzset{fillo/.style={fill=white},fillh/.style={pattern={Lines[angle=45,distance=9pt,line width=2.4pt]},pattern color=black},fillf/.style={fill=black}}
+% \bigtile{shape c t s}{fill o h f}
+\newcommand{\bigtile}[2]{\begin{tikzpicture}
+  \draw[gray!60,line width=1pt] (-5.7,-5.7) rectangle (5.7,5.7);
+  \ifx c#1\draw[line width=4pt,fill#2] (0,0) circle (3.7);\fi
+  \ifx t#1\draw[line width=4pt,fill#2,line join=round] (0,4.2) -- (4.3,-3.25) -- (-4.3,-3.25) -- cycle;\fi
+  \ifx s#1\draw[line width=4pt,fill#2] (-3.5,-3.5) rectangle (3.5,3.5);\fi
+  \end{tikzpicture}}
+\newcommand{\cut}{\par\vfill\noindent\begin{tikzpicture}\draw[dashed,gray] (0,0)--(\linewidth,0);\end{tikzpicture}\par\vfill}
+\newcommand{\pagepair}[4]{\centering\bigtile{#1}{#2}\cut\bigtile{#3}{#4}\newpage}
+\begin{document}
+\pagepair{c}{f}{t}{o}
+\pagepair{s}{h}{s}{f}
+\pagepair{c}{o}{c}{h}
+\pagepair{t}{h}{t}{f}
+\centering\bigtile{s}{o}
+\end{document}

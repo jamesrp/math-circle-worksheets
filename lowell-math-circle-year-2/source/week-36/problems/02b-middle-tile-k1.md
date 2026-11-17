@@ -7,7 +7,7 @@ kernel = "Exactly four allowed threes pass through each tile, one for each other
 +++
 
 ## prompt
-Choose one tile and keep it in the middle of the table. Find all allowed threes using it; then try other middle tiles.
+Put one tile in the middle square. Fill the squares around it so that every line through the middle is an allowed three. Then try another middle tile.
 
 ## figure
 mat()

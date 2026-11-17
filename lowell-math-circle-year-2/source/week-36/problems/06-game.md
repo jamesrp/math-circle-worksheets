@@ -7,7 +7,7 @@ kernel = "Every legal collection of three tiles extends in exactly three ways an
 +++
 
 ## prompt
-Start with no tiles chosen. Take turns adding an unused tile to the same collection without making an allowed three. The first player who cannot move loses. Can your choices change how many moves the game lasts?
+Start with no tiles chosen. Take turns adding an unused tile to the same collection without making an allowed three. The first player who cannot move loses. Number the tiles on a board in the order they are chosen. Can your choices change how many moves the game lasts?
 
 ## figure
 boards((1.8,4.2),(11,4.2),(1.8,11.6),(11,11.6))

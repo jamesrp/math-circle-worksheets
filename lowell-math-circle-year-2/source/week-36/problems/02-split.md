@@ -7,13 +7,13 @@ kernel = "The nine tiles split into three disjoint allowed threes in exactly fou
 +++
 
 ## prompt [K-1]
-Put all nine tiles into three allowed threes. Find different ways.
+Put all nine tiles into three allowed threes, one three in each row of the mat. Find different ways; the same three groups in other rows are not a new way.
 
 ## prompt [2-3]
-Split all nine tiles into three allowed threes. Find different splits; changing the order of the same three groups does not make a new split.
+Split all nine tiles into three allowed threes. Colour each split on a board, one colour for each three. Find different splits; the same three groups in another order are not a new split.
 
 ## figure [2-3]
-boards((1.8,2.6),(11,2.6),(1.8,10),(11,10),(1.8,17.4),(11,17.4))
+boards((1.8,3.1),(11,3.1),(1.8,10.4),(11,10.4),(1.8,17.7),(11,17.7))
 
 ## figure
 mat()

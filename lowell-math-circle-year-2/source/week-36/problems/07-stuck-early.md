@@ -7,7 +7,7 @@ kernel = "Maximal equals maximum here: every three-tile legal collection has thr
 +++
 
 ## prompt
-Start with no tiles chosen. Two players take turns adding an unused tile to the same collection without making an allowed three, and a third player checks each move. The first player who cannot move loses. Can different choices make the game stop at different numbers of tiles? Explain why you can or cannot get stuck early.
+Start with no tiles chosen. Two players take turns adding an unused tile to the same collection without making an allowed three, and a third player checks each move. Put the chosen tiles on the mat. The first player who cannot move loses. Can different choices make the game stop at different numbers of tiles? Explain why you can or cannot get stuck early.
 
 ## figure
 mat()
