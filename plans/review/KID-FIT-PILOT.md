@@ -75,7 +75,7 @@ The critics raised these. They are activity choices, so the reviser left them al
 - **Week 24:** keep the K–1 two-card impossibility argument? Lead K–1 with the game or with counting pairs (see above)?
 - **Week 34:** should K–1 go beyond the 3- and 4-rings, up to the eight-ring?
 - **Week 49:** can K–1 run whole moves, or should they work with one step?
-- **Week 36:** are K–1 children ready to track shape and fill together? A shapes-only start is a fallback.
+- **Week 36 (decided November 17, 2026):** are K–1 children ready to track shape and fill together? James: "I think starting K-1 with all three is fine; we can audible if needed." K–1 starts with all three attributes; the guide's shapes-only fallback stays as the live adjustment, not the opening. For the week's future room plan: James owns a copy of Set and could buy more, so real Set cards are an option for the tiles.
 
 ## Cost of adopting a revised week
 
