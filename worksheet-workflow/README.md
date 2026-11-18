@@ -43,6 +43,8 @@ The review pass gives a small improvement that is hard to see when skimming. Its
 
 ## Changes since the tested version
 
+- 2026-11-18: two levels by default. The organizer's rule (November 18): new print sets have two levels, K–1 and grades 2–5; existing three-level weeks stay as they are until a week comes up for printing. `make_prompts.py` now defaults to `--bands k-1,grades-2-5` and accepts `grades-2-5`; `--bands k-1,grades-2-3,grades-4-5` still gives the tested three-band text unchanged (checked on `week-07-games.md`). `context.md` and `outlines/TEMPLATE.md` say so. The block and stage files are unchanged. A two-level run is untested.
+
 - 2026-10-01: footer now includes the packet id (`blocks/spec.md`), matching AGENTS.md.
 - 2026-10-01: do-not list gained one item on sentences that narrate a diagram or say what the blanks are for. This was the main slop left after a review pass.
 - 2026-10-01: paths and isolation notes generalized from the experiment's cloud setup. Each stage file now says which stage it is, so an agent that also reads AGENTS.md doesn't start the workflow again.

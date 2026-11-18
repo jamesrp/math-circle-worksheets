@@ -1,5 +1,7 @@
 The Bellingham Math Circle is an elementary-school math circle that meets weekly for one hour. Its purpose is enjoyment, curiosity, and real mathematical thinking rather than school arithmetic practice.
 
+Levels since November 18, 2026: two packets, K–1 and grades 2–5. The organizer has seen that the grade 2+ children can usually be treated as one group, so the grades 2–5 packet opens where a second grader can start and runs deep enough for fifth graders later in the packet.
+
 Children at this session (group as of October 3, 2026; update this file when the group changes): eleven, at three fixed tables that do not mix. The K–1 table has two kindergartners and two first graders. The 2–3 table has four third graders. The 4–5 table has two fourth graders and one fifth grader.
 
 Adults: three, one anchored at each table. The parent volunteer, who is not a mathematician, stays with the K–1 table. A second mathematician stays with the 2–3 table. The organizer, a research mathematician, stays with the 4–5 table.

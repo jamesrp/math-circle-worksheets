@@ -13,9 +13,11 @@ Writes into the run folder:
   REVISE.md       revision                     -> final/*.pdf
 Each stage is meant for a fresh agent. See worksheet-workflow/README.md.
 
---bands k-1 (or any comma-separated subset of k-1, grades-2-3, grades-4-5)
-asks for those packets only, for example K-1 pages for a week whose other
-bands already exist. The default asks for all three, with the tested text.
+--bands k-1 (or any comma-separated subset of k-1, grades-2-3, grades-2-5,
+grades-4-5) asks for those packets only, for example K-1 pages for a week whose
+other bands already exist. The default is k-1,grades-2-5: since November 18,
+2026, new print sets have two levels (the organizer's rule). Pass
+--bands k-1,grades-2-3,grades-4-5 for the original three, with the tested text.
 """
 import argparse, os, sys
 
@@ -24,9 +26,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 def read(*parts):
     return open(os.path.join(HERE, *parts)).read().strip()
 
-BANDS = ["k-1", "grades-2-3", "grades-4-5"]
-NAMES = {"k-1": "K–1", "grades-2-3": "grades 2–3", "grades-4-5": "grades 4–5"}
-COUNT = {1: "", 2: "two "}
+BANDS = ["k-1", "grades-2-3", "grades-4-5"]  # the three packets the tested stage text lists
+ORDER = ["k-1", "grades-2-3", "grades-2-5", "grades-4-5"]
+DEFAULT = ["k-1", "grades-2-5"]  # two levels for new print sets (organizer, November 18, 2026)
+NAMES = {"k-1": "K–1", "grades-2-3": "grades 2–3", "grades-2-5": "grades 2–5", "grades-4-5": "grades 4–5"}
+COUNT = {1: "", 2: "two ", 3: "three ", 4: "four "}
 
 def sub(text, old, new):
     if old not in text:
@@ -66,11 +70,11 @@ def main():
     ap.add_argument("--outline", required=True, help="outline file (see outlines/TEMPLATE.md)")
     ap.add_argument("--run", required=True, help="run folder to create, e.g. tmp/worksheet-runs/week-03-v1")
     ap.add_argument("--context", default=os.path.join(HERE, "context.md"), help="session context file")
-    ap.add_argument("--bands", default=",".join(BANDS), help="packets to write: a comma-separated subset of " + ", ".join(BANDS))
+    ap.add_argument("--bands", default=",".join(DEFAULT), help="packets to write: a comma-separated subset of " + ", ".join(ORDER) + " (default " + ",".join(DEFAULT) + ")")
     a = ap.parse_args()
-    bands = [b for b in BANDS if b in a.bands.split(",")]
+    bands = [b for b in ORDER if b in a.bands.split(",")]
     if not bands or sorted(bands) != sorted(set(a.bands.split(","))):
-        sys.exit("--bands must be a comma-separated subset of " + ", ".join(BANDS))
+        sys.exit("--bands must be a comma-separated subset of " + ", ".join(ORDER))
 
     run = os.path.abspath(a.run)
     if os.path.exists(os.path.join(run, "PROMPT.md")):

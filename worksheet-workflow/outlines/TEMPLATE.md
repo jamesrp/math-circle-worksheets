@@ -8,7 +8,7 @@ Mathematical kernels
 
 Sources: <undergraduate courses, textbooks, or papers where this mathematics lives.>
 
-Suggested emphasis by level: <one line each for K–1, grades 2–3, grades 4–5, saying which kernel or entry point suits the band. Do not list problems; the writer chooses the problems.>
+Suggested emphasis by level: <one line each for K–1 and grades 2–5 (the default two levels since November 18, 2026; grades 2–3 and 4–5 only for a week kept at three levels), saying which kernel or entry point suits the band. Do not list problems; the writer chooses the problems.>
 
 Materials
 
