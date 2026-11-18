@@ -1,52 +1,42 @@
-# Checks the footprint puzzles on footprints.pdf (built by footprints.py): each must have one answer.
-# The town is the Week 10 house town and the floor town:
-#   green A (top), purple B (upper left), yellow C (upper right), blue D (bottom left), red E (bottom right),
-#   bridges D-E, D-B, E-C, B-C, B-A, C-A.
-# Rule: crossing a bridge picks up its note, and a bridge with no note is closed, so Pat crosses each
-# held bridge exactly once and no other bridge. A puzzle gives the notes Pat holds and either where Pat
-# started or where Pat is now; the answer is the other end of the walk.
-# Run: python3 footprints_check.py
-WORD = {"A": "green", "B": "purple", "C": "yellow", "D": "blue", "E": "red"}
-BRIDGES = {frozenset(b) for b in ["DE", "DB", "EC", "BC", "BA", "CA"]}
+# Checks the route puzzles on ../2026-11-18-footprints.pdf (built by footprints.py).
+# Rule: Pat never crosses the same bridge twice, but may stand on an island again.
+# Each puzzle must have exactly one route, and dropping any one clue must leave more than one.
+# The search covers every walk of 1 or more bridges in each town. Run: python3 footprints_check.py
+# (The first version of this sheet, November 18 morning, had four forced-route puzzles; see git history.)
+from footprints_puzzles import PUZZLES
 
 
-def walks(held):
-    """Every walk that crosses each held bridge exactly once and nothing else: (start, end) pairs."""
-    held = [frozenset(b) for b in held]
-    assert all(b in BRIDGES for b in held), held
-    ends = set()
+def trails(edges):
+    adj = {}
+    for i, e in enumerate(edges):
+        u, v = e[0], e[1]
+        adj.setdefault(u, []).append((v, i))
+        adj.setdefault(v, []).append((u, i))
+    out = []
 
-    def go(here, start, left):
-        if not left:
-            ends.add((start, here))
-            return
-        for b in left:
-            if here in b:
-                (there,) = b - {here}
-                go(there, start, left - {b})
+    def go(path, used):
+        if used:
+            out.append((tuple(path), tuple(used)))
+        for v, i in adj[path[-1]]:
+            if i not in used:
+                go(path + [v], used + [i])
 
-    for start in "ABCDE":
-        go(start, start, frozenset(held))
-    return ends
-
-
-def solve(held, start=None, now=None):
-    pairs = walks(held)
-    if start:
-        return sorted({e for s, e in pairs if s == start})
-    return sorted({s for s, e in pairs if e == now})
+    for s in adj:
+        go([s], [])
+    return out
 
 
-PUZZLES = [
-    # (label, held notes, known start, known position now, expected answer)
-    ("Problem 1: started on blue; where now?", ["DE", "EC"], "D", None, "C"),
-    ("Problem 2: on green now; where did Pat start?", ["DB", "BC", "CA"], None, "A", "D"),
-    ("Problem 3: on purple now; where did Pat start?", ["BC", "CA", "AB"], None, "B", "B"),
-    ("Problem 4: started on green; where now?", ["AB", "BD", "DE", "EC", "CB"], "A", None, "B"),
-]
+def count(walks, clues):
+    return [w for w in walks if all(f(w) for _, f in clues)]
 
-for label, held, start, now, want in PUZZLES:
-    got = solve(held, start, now)
-    print(f"{label} -> {[WORD[g] for g in got]}")
-    assert got == [want], (label, got)
-print("All four puzzles have exactly one answer.")
+
+for p in PUZZLES:
+    walks = trails(p["edges"])
+    clues = p["checks"]
+    sols = count(walks, clues)
+    routes = ["-".join(w[0]) for w in sols]
+    drops = [len(count(walks, clues[:i] + clues[i + 1:])) for i in range(len(clues))]
+    print(f"Problem {p['n']}: {routes}; without each clue: {drops}; walks in town: {len(walks)}")
+    assert routes == [p["answer"]], routes
+    assert min(drops) > 1, drops
+print("Every puzzle has exactly one route, and every clue is needed.")
