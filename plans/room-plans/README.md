@@ -27,7 +27,7 @@ To rebuild a plan's printable after editing it: `python3 plans/room-plans/build/
 |---|---|---|---|
 | November 4, 2026 | [Shuffle machines and loop names](2026-11-04-shuffle-machines.md) ([printable](2026-11-04-shuffle-machines.pdf), [opener sheet](2026-11-04-opener.pdf)) | 3 | taught November 4 (see the plan's "How it went") |
 | November 11, 2026 | No circle: Veterans Day, no school | | |
-| November 18, 2026 | [Bridges](2026-11-18-bridges.md) ([printable](2026-11-18-bridges.pdf), [opener sheet](2026-11-18-opener.pdf), [footprints sheet](2026-11-18-footprints.pdf)) | 10 | proposed (James agreed to Week 10 on November 3 and to this date on November 5); unpiloted |
+| November 18, 2026 | [Bridges](2026-11-18-bridges.md) ([printable](2026-11-18-bridges.pdf), [opener sheet](2026-11-18-opener.pdf), [footprints sheet](2026-11-18-footprints.pdf), [Königsberg stretch page](2026-11-18-konigsberg-stretch.pdf)) | 10 | proposed (James agreed to Week 10 on November 3 and to this date on November 5); unpiloted |
 | November 25, 2026 | No circle (Thanksgiving week) | | |
 | December 2, 2026, tentative | [Stars and wheels](tentative-stars-and-wheels.md) ([printable](tentative-stars-and-wheels.pdf), [opener sheet](tentative-stars-and-wheels-opener.pdf)) | 4 | proposed by Claude; not confirmed; unpiloted |
 | December 9, 2026 | [Making threes, and a SET deck to take home](2026-12-09-set.md) ([printable](2026-12-09-set.pdf), [opener sheet](2026-12-09-opener.pdf), [big tiles](2026-12-09-big-tiles.pdf), [take-home slip](2026-12-09-take-home.pdf)), the last circle of fall quarter | 36 | proposed (James chose SET for this date on November 16, with a SET deck for each child as the farewell gift); unpiloted |
