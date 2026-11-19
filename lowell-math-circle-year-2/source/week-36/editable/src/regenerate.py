@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write k-1.tex, grades-2-3.tex and grades-4-5.tex from the Week 36 problem files.
+"""Write k-1.tex, grades-2-3.tex, grades-4-5.tex and grades-2-5.tex from the Week 36 problem files.
 
 The problem files are the student pages' source. In the portable ZIP they are in
 ../problem-files/ with the tools in ../problem-files/tools/; in the repository they
@@ -21,6 +21,6 @@ sys.path.insert(0, str(tools))
 import atoms  # noqa: E402
 
 w = atoms.load_week(week)
-for band, name in (('K-1', 'k-1'), ('2-3', 'grades-2-3'), ('4-5', 'grades-4-5')):
+for band, name in (('K-1', 'k-1'), ('2-3', 'grades-2-3'), ('4-5', 'grades-4-5'), ('2-5', 'grades-2-5')):
     (HERE / f'{name}.tex').write_text(atoms.student_tex(w, band))
-print(f'Wrote k-1.tex, grades-2-3.tex and grades-4-5.tex from {week}', file=sys.stderr)
+print(f'Wrote k-1.tex, grades-2-3.tex, grades-4-5.tex and grades-2-5.tex from {week}', file=sys.stderr)

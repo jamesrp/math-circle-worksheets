@@ -1,12 +1,12 @@
 +++
 id = "w36.through-a-tile"
 title = "All the allowed threes through one tile"
-grades = ["2-3", "4-5"]
+grades = ["2-3", "4-5", "2-5"]
 route = "return"
 kernel = "Exactly four allowed threes pass through each tile, one for each other tile it pairs with, and two different threes share at most one tile."
 +++
 
-## prompt [2-3]
+## prompt [2-3, 2-5]
 Choose one tile. Find all the allowed threes that use it, colouring each three in its own colour on a board, and explain why you have them all.
 
 ## prompt [4-5]

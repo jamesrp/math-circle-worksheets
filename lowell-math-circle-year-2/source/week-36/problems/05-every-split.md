@@ -1,7 +1,7 @@
 +++
 id = "w36.every-split"
 title = "Every split, and why the list is complete"
-grades = ["4-5"]
+grades = ["4-5", "2-5"]
 route = "return"
 kernel = "There are exactly four splits of the nine tiles into allowed threes, one for each direction of parallel lines."
 +++

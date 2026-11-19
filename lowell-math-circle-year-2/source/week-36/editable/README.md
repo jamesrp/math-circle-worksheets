@@ -10,7 +10,7 @@ This is an unpiloted theme library, not a fixed meeting schedule. Select a manag
 
 **Pages-first wording, November 17, 2026 (v5).** An adult cold read led to wording-only changes saying where tiles go, how to mark chosen tiles (counters) and how to record splits and threes (one colour per three); the guide changed only its footer. See the week README.
 
-Current pages: **K–1 5; Grades 2–3 5; Grades 4–5 5; adult guide 6** (v5). Print selected student pages single-sided on US Letter at Actual Size / 100%.
+Current pages: **K–1 5; Grades 2–3 5; Grades 4–5 5; Grades 2–5 6; adult guide 6** (v5). The Grades 2–5 packet (November 18, 2026, for the two-level print rule) is the 2–3 packet with the 4–5 "every split" problem as Problem 5. Print selected student pages single-sided on US Letter at Actual Size / 100%.
 
 ## Rebuild outside the project
 

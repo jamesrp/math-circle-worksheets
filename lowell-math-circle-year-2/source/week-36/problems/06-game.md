@@ -1,7 +1,7 @@
 +++
 id = "w36.game"
 title = "The adding game: can choices change its length?"
-grades = ["2-3"]
+grades = ["2-3", "2-5"]
 route = "return"
 kernel = "Every legal collection of three tiles extends in exactly three ways and every stuck collection has four tiles, so the adding game always lasts four moves."
 +++
