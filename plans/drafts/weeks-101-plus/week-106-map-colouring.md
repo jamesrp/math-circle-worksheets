@@ -1,6 +1,6 @@
 # Week 106 (draft plan): Colouring maps
 
-**Strand:** networks (Maps and networks). **Deep-math field:** graph theory and topology (planar colouring, surfaces). **Status:** draft plan, November 2026. No student pages, guide, review card or pilot.
+**Strand:** networks (Maps and networks). **Deep-math field:** graph theory and topology (planar colouring, surfaces). **Status:** draft plan, November 2026. Student pages for K–1 and grades 2–5 written November 20, 2026 as a December 2 option ([week-106-pages/](week-106-pages/README.md), room plan [2026-12-02-map-coloring.md](../../room-plans/2026-12-02-map-coloring.md)); no guide; unpiloted.
 
 ## The deep idea
 

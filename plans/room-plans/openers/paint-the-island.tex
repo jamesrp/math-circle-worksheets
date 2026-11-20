@@ -1,0 +1,79 @@
+% Opener for the tentative December 2, 2026 map-coloring circle: Paint the island.
+% Build in a scratch directory: pdflatex paint-the-island.tex, then copy to ../2026-12-02-map-coloring-opener.pdf
+% Every puzzle here is checked for exactly one answer, with every clue needed, by paint-the-island_check.py.
+% Main map on a 3-by-4 grid (rows top to bottom): Ant Ant Bear Bear / Cat Dog Eel Bear / Cat Dog Dog Fox.
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[default]{sourcesanspro}
+\usepackage{tikz}
+\usepackage{ragged2e}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+% Maps drawn by hand from the grids in paint-the-island_check.py: thick lines only between different countries.
+\tikzset{border/.style={line width=2.2pt,line cap=round,line join=round}}
+\newcommand{\mainmap}[1]{\begin{tikzpicture}[x=#1cm,y=#1cm]
+  \draw[border] (0,0) rectangle (4,3);
+  \draw[border] (0,2) -- (3,2) (2,2) -- (2,3) (1,0) -- (1,2) (2,1) -- (2,2) (2,1) -- (4,1) (3,0) -- (3,2);
+  \foreach \p/\n in {{(1,2.5)}/Ant,{(3,2.5)}/Bear,{(0.5,1)}/Cat,{(1.5,1)}/Dog,{(2.5,1.5)}/Eel,{(3.5,0.5)}/Fox}
+    \node[font=\large\bfseries] at \p {\n};
+  \end{tikzpicture}}
+\newcommand{\smallmap}[1]{\begin{tikzpicture}[x=#1cm,y=#1cm]
+  \draw[border] (0,0) rectangle (2,2);
+  \draw[border] (1,0) -- (1,2) (0,1) -- (2,1);
+  \foreach \p/\n in {{(0.5,1.5)}/Ant,{(1.5,1.5)}/Bear,{(0.5,0.5)}/Cat,{(1.5,0.5)}/Dog}
+    \node[font=\large\bfseries] at \p {\n};
+  \end{tikzpicture}}
+\newenvironment{half}{\begin{minipage}[t][0.475\textheight][t]{\linewidth}\large\RaggedRight}{\end{minipage}}
+\newcommand{\cutline}{\par\noindent\begin{tikzpicture}\draw[dashed,gray] (0,0)--(\linewidth,0);\end{tikzpicture}\par\vspace{0.3in}}
+\newcommand{\heading}[1]{{\LARGE\bfseries #1}\par\medskip}
+\newcommand{\twocol}[2]{\begin{minipage}[t]{0.50\linewidth}\vspace{0pt}#1\end{minipage}\hfill
+  \begin{minipage}[t]{0.46\linewidth}\vspace{0pt}\centering #2\end{minipage}}
+\newcommand{\therule}{Every country on the island is red, blue or yellow. Two countries that share a border
+  are different colors. Countries that touch only at a corner may match.}
+\newcommand{\mainpuzzle}{%
+  \heading{Paint the island}
+  \therule\ Color each country, or write its color in it.\par
+  \medskip
+  \twocol{%
+  \begin{enumerate}\setlength{\itemsep}{5pt}
+  \item Ant Land is red.
+  \item Ant Land and Fox Land are different colors.
+  \item Cat Land and Eel Land are the same color.
+  \item Exactly two countries are blue.
+  \end{enumerate}\par
+  \medskip
+  \textbf{Done?} Cross out clue 4. How many answers are there now? Write a new clue that makes it exactly one again.}{\mainmap{2.0}}}
+\begin{document}
+\begin{half}\mainpuzzle\end{half}
+\cutline
+\begin{half}\mainpuzzle\end{half}
+\newpage
+\begin{half}
+\heading{Paint the island (four countries)}
+\therule\ Color each country, or write its color in it.\par
+\medskip
+\twocol{%
+\begin{enumerate}\setlength{\itemsep}{5pt}
+\item Ant Land is red.
+\item Bear Land is blue.
+\item Dog Land is not red.
+\end{enumerate}\par
+\medskip
+\textbf{Done?} Try the six-country island.}{\smallmap{2.8}}
+\end{half}
+\cutline
+\begin{half}
+\heading{Paint the island (no colors given)}
+\therule\ Color each country, or write its color in it.\par
+\medskip
+\twocol{%
+\begin{enumerate}\setlength{\itemsep}{5pt}
+\item Ant Land and Fox Land are different colors.
+\item Exactly one country is red.
+\item Exactly two countries are blue.
+\end{enumerate}\par
+\medskip
+\textbf{Done?} Could this island be painted with only two colors? Why or why not?}{\mainmap{2.0}}
+\end{half}
+\end{document}
