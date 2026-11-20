@@ -301,7 +301,7 @@ def check_k1():
     for y, x, name in boxes:
         grid.setdefault(y, []).append(name)
     rows = [grid[y] for y in sorted(grid)]
-    assert len(rows) == 6 and all(v is None for r in rows[1:] for v in r)
+    assert len(rows) == 4 and all(v is None for r in rows[1:] for v in r)
     hop = int(re.search(r'Hop (\d+) changes', probtext('k-1', 8)).group(1))
     cur, out = rows[0], []
     while True:
@@ -309,7 +309,7 @@ def check_k1():
         out.append(cur)
         if cur == rows[0]:
             break
-    assert len(out) <= 5
+    assert len(out) == len(rows) - 1  # one blank row per hop, the last one the top row again
     claim('K P8', out)
     # Problem 9
     res = []

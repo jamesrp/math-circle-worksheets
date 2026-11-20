@@ -207,20 +207,20 @@ def second_settings(firsts):
     return center(pic(b, 4.7, 2.4, ox=-0.05, oy=-2.1), before='0.3in')
 
 
-def predict_pieces(cases, drawn=2):
-    """Grades 4-5 Problem 3: a "pieces" line for each case, and rings for the first `drawn` cases."""
+def predict_pieces(cases, drawn=2, label="pieces", Rc=1.38, gap=3.45, h=6.65):
+    """Grades 4-5 Problem 3: a "pieces" line (grades 2-5: "starts") for each case, and rings for the first `drawn` cases."""
     b = []
     for j, (n, k) in enumerate(cases):
         y = -0.3 - j * 0.6
         b.append(f"\\node[font=\\normalsize, anchor=west] at (0,{f(y)}) {{{n} dots, hop {k}}};")
-        b.append(f"\\node[font=\\normalsize, anchor=west] at (1.75,{f(y)}) {{pieces}};")
+        b.append(f"\\node[font=\\normalsize, anchor=west] at (1.75,{f(y)}) {{{label}}};")
         b.append(hline(2.4, 3.2, y - 0.1, lw='0.7pt', color='black'))
-    Rc, cxr = 1.38, 5.45
+    cxr = 5.45 if Rc < 1.5 else 7.3 - Rc - 0.08
     for j, (n, k) in enumerate(cases[:drawn]):
-        cy = -1.5 - j * 3.45
+        cy = -0.12 - Rc - j * gap
         b += dot_ring(n, Rc, cx=cxr, cy=cy, dr=0.038)
         b.append(f"\\node[font=\\normalsize] at ({f(cxr)},{f(cy - Rc - 0.3)}) {{{n} dots, hop {k}}};")
-    return center(pic(b, TW, 6.65, ox=0, oy=-6.6), before='0.3in')
+    return center(pic(b, TW, h, ox=0, oy=-h + 0.05), before='0.3in')
 
 
 def settings_table(rows):
@@ -255,3 +255,24 @@ def times_rings():
     b += dot_ring(24, R, cx=cx2, cy=cy2, dr=0.035, numbers=True, numsize='\\footnotesize', numgap=0.2)
     b.append(f"\\node[font=\\LARGE] at ({f(cx2 - R - 0.65)},{f(cy2 - R)}) {{\\texttimes3}};")
     return center(pic(b, TW, H, ox=0, oy=-H), before='0.3in')
+
+
+def hop_example():
+    """Grades 2-5 rules: a worked example that is not a task: hop 2 on 6 dots, two starts
+    (solid, then dashed), a clockwise arrow and the start dots marked."""
+    R = 0.85
+    b = dot_ring(6, R, dr=0.045)
+    b.append(cw_arrow(R + 0.3, a0=-50, a1=-130, lw='1.6pt', tip='7pt'))
+    b.append("\\node[font=\\small, black!60] at (0,%s) {clockwise};" % f(-R - 0.5))
+    cyc = pieces(6, 2)
+    for c, style in zip(cyc, ['black, line width=1.4pt', 'black, line width=1.4pt, dashed']):
+        pts = " -- ".join("(%s,%s)" % tuple(map(f, P(6, i, R))) for i in c)
+        b.append("\\draw[%s, line join=round] %s -- cycle;" % (style, pts))
+    for k, c in enumerate(cyc):
+        x, y = P(6, c[0], R + 0.3)
+        b.append("\\node[font=\\small] at (%s,%s) {start %d};" % (f(x), f(y), k + 1))
+    b.append("\\node[font=\\normalsize, anchor=west] at (1.55,0.25) {6 dots, hop 2.};")
+    b.append("\\node[font=\\normalsize, anchor=west] at (1.55,-0.1) {Solid lines: the first start, back after 3 hops.};")
+    b.append("\\node[font=\\normalsize, anchor=west] at (1.55,-0.45) {Dashed lines: start again at a dot with no line.};")
+    b.append("\\node[font=\\normalsize, anchor=west] at (1.55,-0.8) {Started 2 times.};")
+    return center(pic(b, TW, 2.75, ox=-1.4, oy=-1.6), before='0.15in')

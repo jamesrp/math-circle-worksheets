@@ -1,7 +1,7 @@
 +++
 id = "w04.m-rings-of-12-guess"
 title = "Guess, then draw: rings of 12"
-grades = ["2-3"]
+grades = ["2-3", "2-5"]
 route = "first"
 page = "new"
 +++

@@ -10,4 +10,4 @@ page = "new"
 Hop 2 changes each picture into the picture 2 places along the arrow. Use hop 2 on each row to make the next row, until you get the top row again.
 
 ## figure
-k1_hop_rows(top=('sun', 'tree', 'fish'), rows=6)
+k1_hop_rows(top=('sun', 'tree', 'fish'), rows=4)

@@ -1,8 +1,8 @@
 +++
 id = "w04.m-more-rings-guess"
 title = "Guess, then draw: four more rings"
-grades = ["2-3"]
-route = "return"
+grades = ["2-3", "2-5"]
+route = { "2-3" = "return", "2-5" = "first" }
 page = "new"
 +++
 

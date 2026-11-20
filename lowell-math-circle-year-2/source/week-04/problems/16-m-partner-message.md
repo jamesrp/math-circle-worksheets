@@ -1,7 +1,7 @@
 +++
 id = "w04.m-partner-message"
 title = "Code a message for your partner"
-grades = ["2-3"]
+grades = ["2-3", "2-5"]
 route = "first"
 +++
 

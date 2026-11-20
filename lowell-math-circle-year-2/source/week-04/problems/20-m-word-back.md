@@ -1,7 +1,7 @@
 +++
 id = "w04.m-word-back"
 title = "A second setting that gives the word back"
-grades = ["2-3"]
+grades = ["2-3", "2-5"]
 route = "return"
 +++
 
