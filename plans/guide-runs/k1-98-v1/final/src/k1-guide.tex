@@ -1,0 +1,141 @@
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1\pdftrailerid{}
+\usepackage[letterpaper,margin=.7in,headheight=15pt,headsep=18pt,footskip=24pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,array,booktabs,fancyhdr,tikz}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Week 98 / Growing from a few seeds / K--1 adult guide}
+\fancyfoot[L]{\scriptsize Bellingham Math Circle / Week 98 / W98-K-FAC-v2}
+\fancyfoot[R]{\thepage}
+\newcommand{\head}[1]{\par\textbf{\large #1}\par}
+\newcommand{\sub}[1]{\par\textbf{#1}\par}
+\newcommand{\hint}[1]{\textit{If needed:} #1}
+\newcommand{\demoboard}[1]{\begin{tikzpicture}[x=8mm,y=-8mm,baseline=0pt]
+\draw (0,0) rectangle (3,2); \draw (1,0)--(1,2) (2,0)--(2,2) (0,1)--(3,1); #1\end{tikzpicture}}
+\begin{document}
+\head{Mathematical overview: growing, stopping and needing every seed}
+\textbf{The facts, under one fixed rule.} On these finite boards, add a counter to an empty square with \emph{at least two filled side-neighbors}. Corners do not count, nothing lies outside the board, and counters stay put during growth. Every completed run from the same seeds has the same finish. Exactly $n$ seeds are needed to fill an $n\times n$ square. On a one-row strip of $L\ge2$ squares the fewest seeds are $\lfloor L/2\rfloor+1$: $2,3,3,4$ on the printed strips. Both ends must be seeds and no two empty squares may lie side by side. On an $a\times b$ board the fence count below requires at least $\lceil(a+b)/2\rceil$ seeds. The printed two-wide boards attain it: $3,3,4$. A longer board need not need another seed.
+
+\textbf{Every seed needed need not mean fewest.} The four middle-edge seeds on $3\times3$ are all needed, yet three slanting seeds fill. Taking seeds off one at a time from one start can stop at three or four (Problem 9).
+
+\textbf{Why these facts hold.} For the same-finish fact, imagine a square one finished run missed. Take the first such square added by the other run: its two supporting neighbors were already there in both runs. The first run could still grow, so it was not finished. For the square minimum, a slanting line of $n$ seeds fills outward: each next square has two filled neighbors. For the lower bound, count exposed unit sides, including hole edges and the board's outside boundary. Adding beside $k$ filled neighbors changes that count by $4-2k$: $0$, $-2$ or $-4$ for a legal addition. Seeds bring at most four sides each; the full square needs $4n$. Growth cannot supply the missing sides. For $a\times b$, the same comparison is $4s\ge2(a+b)$. On a strip, $s$ seeds separated by at most $s-1$ single gaps cover at most $2s-1$ squares, so $s\ge\lceil(L+1)/2\rceil=\lfloor L/2\rfloor+1$. Alternating seeds and gaps, with one extra seed for even $L$, attains this. Testing removals compares only subsets of one start, not every possible placement.
+
+\textbf{The K--1 destination.} Children distinguish a truly stuck board from an unfinished run, find every two-seed start on the smallest square, and hunt for economical starts. Later they can discover ``none can come off'' is different from ``fewest.'' A five-year-old's explanation may be a finger on each supporting neighbor, a complete set of small pictures, or ``this end has only one neighbor, so it must start filled.'' Trying a start is an \emph{experiment}; predicting the next square's seed count is a \emph{conjecture}; showing a legal fill proves that particular start works. A few failed attempts do not prove that fewer seeds are impossible. Keep the fence argument as adult background unless children want it. The base guide's mathematical overview (p.\ 1) maps the older bands' further destination; this section does not require its abstract proof work.
+
+\textbf{Where it goes.} Once the K--1 pages are approved, this section replaces ``K--1 route, adult-led'' under ``Preparation, shared launch and pacing,'' p.\ 2 of \texttt{week-98-facilitator.pdf} (W98-FAC-v4); retain the shared launch and older-band mathematics. Replace p.\ 1's ``No K--1 packet is claimed\ldots'' with a pointer to this section. Add the K--1 table to p.\ 2's ``Per pair'' and ``Staffing'': one adult, two pairs, each with 6 seed-color plus 20 growth-color counters. These are later integration instructions; existing files remain unchanged.
+
+\newpage
+\head{Preparation, launch and first route}
+\textbf{Status.} Unpiloted and physically unrehearsed: actual-size printing, counter fit, the partner's two-finger check, resets, preparation time and session pacing have not been tried with these pages.
+
+\textbf{Per pair.} Print all nine W98-K-v1 pages: today\textquotesingle s draft \texttt{k-1.pdf}, eventually \texttt{week-98-k-1.pdf} after approval, US Letter, single-sided at Actual Size; use its large boards directly. Supply \textbf{6 seed-color and 20 growth-color counters}, flat and no wider than 25 mm, plus a pencil. Working squares are 30 mm; small 15--16 mm squares are for dot records, not counters. The $5\times5$ board needs five seeds and all 20 growth counters. Work \emph{one board at a time}, including Problems 2, 6, 7 and 8; record where asked, then clear before the next board. Running out of counters is not being stuck. If a first guess needs more than six seeds, draw it on a record board instead.
+
+\textbf{The table.} Two pairs need 12 seed and 40 growth counters. Allow about five extra minutes beyond the week's preparation to count the larger K--1 kit and draw a small seed-record grid for the shared launch board. Bring the shared launch's $2\times3$ board to this table; if it is on a fixed whiteboard, draw a 30 mm-square copy. No materials PDF supplies counters or that board. This route needs no fence sticks; keep the fence proof as adult background.
+
+\textbf{Prerequisites and staffing.} One adult stays with the K--1 table, reads each selected prompt and records the children's chosen seeds when asked. Counting to six, recognizing filled squares and telling sides from corners are enough to enter; counting to about 10--12 supports comparisons. Counting all 25 squares is unnecessary. Children place seeds, choose legal additions and decide when growth has stopped. Rotate grower and checker; an adult doing those jobs for them is a reason to return to a smaller board, not to speed through the packet.
+
+\textbf{Join the week's launch.} After the five-minute movement opening, let children handle counters, then use the base guide's five-minute whole-group launch (p.\ 2). Say \emph{two or more}, not exactly two. At the K--1 table take two minutes to replay its non-filling $2\times3$ start and show how a record keeps only the seeds:
+\begin{center}
+\begin{tabular}{ccc}
+Start & One addition; now stuck & Seed record after reset\\[4pt]
+\demoboard{\fill (.5,.5) circle (2pt);\fill (.5,1.5) circle (2pt);\fill (1.5,1.5) circle (2pt);}&
+\demoboard{\fill (.5,.5) circle (2pt);\fill (.5,1.5) circle (2pt);\fill (1.5,1.5) circle (2pt);\node at (1.5,.5) {$+$};}&
+\demoboard{\fill (.5,.5) circle (2pt);\fill (.5,1.5) circle (2pt);\fill (1.5,1.5) circle (2pt);}
+\end{tabular}
+\end{center}
+Dots are original seeds; $+$ is the growth-color counter. Point to the left and lower supports of the new counter. Each right-hand square has only one filled neighbor, so the finish has four filled squares. Remove \emph{only the growth color} to reset; draw seed dots, not growth dots, in the small record. Children then make their own choices. The page-1 check mark permits \emph{one addition} with three side-neighbors; it does not announce that a whole board will fill.
+
+\textbf{A first hour.} After the opening and shared launch (10 minutes), allow the table replay (2), Problem 2's contrasting starts (10), Problem 1's complete small collection (15), and Problem 3's hunt (15). Use the last 8 minutes for a favorite replay and one child's explanation; close with ``How many seeds for the next size?'' and save that conjecture for another visit. These are estimates, not deadlines. If the rule is already secure, begin with Problem 1 as printed. Save Problems 4--5 for children eager to predict a larger square; choose strips in Problem 6 when an explanation with objects is more inviting. Problems 7--9 can fill a return visit. Finishing every page is not the goal.
+
+\newpage
+\head{Smallest cases and growing squares}
+\sub{Problem 1, student page 1: every two-seed start on $2\times2$}
+\textbf{All six starts:} the top row, bottom row, left column, right column, and the two diagonals. Ring \textbf{only the diagonals}. Each diagonal lets either empty square fill, then the other. A side-by-side pair is already stuck: every empty square has just one filled neighbor. Positions on the printed board count separately; a turned copy in different squares is a different way.
+
+\textbf{Why complete.} The top-left square can pair with any of the other three. If it is absent, the top-right square can pair with either bottom square. With both top squares absent, only the bottom pair remains: $3+2+1=6$. Children can point through these cases on their dot records rather than read labels or do arithmetic. \hint{``Which pictures are really the same start?'' ``With this seed fixed, have we tried every place for the other?''} Later ask what changes if only one seed is allowed: nothing can grow.
+
+\sub{Problem 2, student page 2: four printed starts}
+Cover the gray circles with seed-color counters. \textbf{Top left:} add the missing corner of the small L; finish is the upper-left $2\times2$ block, four squares. \textbf{Top right:} the middle row is already stuck, three squares. \textbf{Bottom left:} the gap in the top row fills, then the second row; finish is the top two rows, six squares. \textbf{Bottom right:} the left column and top-right seed fill the whole board, nine squares. Thus all except the top-right board can still grow.
+
+The middle-row start is the useful rule check: each empty square touches one counter along a side and one or two at corners, so counting corners would let every square grow. \hint{``Can your partner point to two filled \emph{sides} of that square?'' ``Is there any empty square that can still grow?''} If two children get different finishes from one start, first compare seeds, then look for an illegal or unfinished addition; the theorem concerns completed runs only.
+
+
+Coordinates here are adult lookup notation: $(\text{row},\text{column})$, counted from 1 at the top left. Children need only counters and seed dots. These hunts ask for an economical start, not every optimal placement; unused record boards are fine.
+
+\sub{Problems 3--5, student pages 3--5: growing squares}
+\begin{center}\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{c c c l}
+Problem & Board & Fewest & One filling start\\\midrule
+3 & $3\times3$ & 3 & $(1,1),(2,2),(3,3)$\\
+4 & $4\times4$ & 4 & $(1,1),(2,2),(3,3),(4,4)$\\
+5 & $5\times5$ & 5 & $(1,1),(2,2),(3,3),(4,4),(5,5)$
+\end{tabular}\end{center}
+For each, children can grow a slanting line outward, pointing to the two supports at every addition. The opposite diagonal works too. On $3\times3$, all 14 three-seed fills are: the two diagonals; any three corners (four); two corners of one side and the middle of its opposite side (four); one corner and the middles of its two far sides (four). Every straight row or column of three is stuck. Write a child's guess beside the problem number on Problems 4 and 5 before the hunt, including a wrong guess, and distinguish ``this many works'' from ``nothing smaller works.''
+
+\textbf{Problem 3 hint:} ``Which two seeds could help the same empty square?'' \textbf{Problem 4 hint:} ``What made your smaller square grow? Could that idea reach farther?'' \textbf{Problem 5 hint:} ``Where does your start get stuck? What change might help there?'' Give a hint only after time to hunt; do not supply the diagonal as a placement instruction. If a six-seed start fills, let the child choose whether to seek fewer. If ready, compare two different successful starts or predict another square size before trying it.
+
+\newpage
+\head{Strips, rectangles and a new procedure}
+\sub{Problem 6, student page 6: strips of lengths 3, 4, 5 and 6}
+Number squares from the left for this adult key. The table gives \emph{all} starts using the fewest seeds, although the child need only find one per strip.
+\begin{center}\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{c c l}
+Length & Fewest & Seed positions\\\midrule
+3 & 2 & $1,3$\\
+4 & 3 & $1,2,4$ or $1,3,4$\\
+5 & 3 & $1,3,5$\\
+6 & 4 & $1,2,4,6$ or $1,3,4,6$ or $1,3,5,6$
+\end{tabular}\end{center}
+\textbf{Why these are complete.} Each end has only one neighbor, so it must be a seed. Two adjacent empty squares can never get started: each has at most one filled neighbor outside their gap. Conversely, if the ends are seeds and every empty square lies alone between seeds, each gap fills. With $s$ seeds there are at most $s-1$ single gaps, so $L\le2s-1$. Thus lengths $3,4,5,6$ require at least $2,3,3,4$ seeds. A child can show ``seed, gap, seed, gap, seed.'' At these minima, choosing all possible isolated interior gaps gives exactly the rows above. This is an explanation a child can demonstrate with counters, not a search over invisible cases.
+
+\hint{``Could an empty end ever get two neighbors?'' ``Can either square in this empty pair fill first?''} Later, offer a longer hand-drawn strip and ask for a prediction; do not assume the square-board pattern applies to strips.
+
+\sub{Problem 7, student page 7: the upright two-wide boards}
+\textbf{Top left, $3\times2$:} three seeds suffice, for example $(1,1),(2,2),(3,1)$. \textbf{Bottom left, $4\times2$:} three also suffice, at $(1,1),(2,2),(4,1)$. \textbf{Right, $5\times2$:} four suffice, at $(1,1),(2,2),(4,1),(5,2)$. Grow each to check; other answers are welcome.
+
+A full $r\times2$ board has $2(r+2)$ exposed sides, so the fence bound forces at least $\lceil(r+2)/2\rceil$ seeds: respectively $3,3,4$. The constructions attain those bounds; no claim about all rectangles is needed. \hint{``Can a square between seeds help the next row?'' ``Does a longer board always need another seed?''} If ready, compare the two boards that need the same number and let children show how a new row can be reached.
+
+\sub{One-minute return-visit demonstration before Problems 8--9}
+Rebuild the table launch and add one seed at the top right. Grow: it fills. Clear the growth color, lift only that top-right seed and grow again: it stops at four. Clear growth and \textbf{put that seed back}. Show just this test; children choose their task removals.
+\begin{center}\begin{tabular}{ccc}
+Four seeds & Lift top right; grow & Clear growth; restore seed\\[4pt]
+\demoboard{\fill (.5,.5) circle (2pt);\fill (2.5,.5) circle (2pt);\fill (.5,1.5) circle (2pt);\fill (1.5,1.5) circle (2pt);}&
+\demoboard{\fill (.5,.5) circle (2pt);\fill (.5,1.5) circle (2pt);\fill (1.5,1.5) circle (2pt);\node at (1.5,.5) {$+$};}&
+\demoboard{\fill (.5,.5) circle (2pt);\fill (2.5,.5) circle (2pt);\fill (.5,1.5) circle (2pt);\fill (1.5,1.5) circle (2pt);}
+\end{tabular}\end{center}
+For Problem 8, every test returns to the full original start. For Problem 9, a deletion stays only if the reduced start fills. A child refusing a square with three or four filled neighbors is using ``exactly two''; Problem 8's printed starts will then fail to fill.
+
+\newpage
+\head{Removal tests: one at a time means two different things}
+\sub{Problem 8, student page 8: test each seed separately}
+First grow its full printed start so the child knows it fills. Then remove all growth counters, take off one chosen seed, and grow from the remaining seeds. After that test, remove the growth color again and \textbf{restore the missing seed before trying another}. A printed dot under a removed counter is a location mark, not a filled square. Ring successful removals only after lifting counters so the record stays visible.
+
+\textbf{Top-left $2\times2$ L:} ring only the top-left seed $(1,1)$. Its removal leaves the diagonal pair, which fills all four squares. Removing either other seed leaves a side-by-side pair, stuck at two. A child's explanation can be the complete two-counter test from Problem 1.
+
+\textbf{Top-right $3\times3$ corners:} ring \emph{all four corners}, each tested on its own. Any three corners grow to fill the board. For example, with the bottom-right corner removed, fill the top-middle and middle-left squares; their supports allow the center, and the remaining squares follow. Other single removals are rotations of that case. The rings do \emph{not} say all four can go together. Removing any two corners leaves only two seeds, too few for this board.
+
+\textbf{Bottom-left $3\times3$, three corners and center:} ring the top-left seed $(1,1)$ and the center $(2,2)$ only. Removing the top-left leaves the opposite diagonal, which fills; removing the center leaves three corners, which fill. Removing the top-right or bottom-left seed instead gives a six-square finish, not a filled board.
+
+\textbf{Bottom-right $3\times3$, middle of each side:} ring nothing. All four seeds together fill, including the center with \emph{four} filled side-neighbors. Removing any one leaves a six-square finish. Thus every seed is needed in this start, although Problem 3 has a filling start of three seeds in other positions.
+
+This page needs four full grows and 15 single-removal tests. One pair can take the L and four corners; the other takes the two lower boards. Test seeds in reading order, then compare ring counts $1,4,2,0$.
+
+\hint{``Are we testing the same original start each time?'' ``If all four corners are ringed, what does one ring promise?''} Late question: if two children grow the same seeds in different orders, do they finish the same?
+
+\sub{Problem 9, student page 9: keep successful removals}
+This time a successful deletion \emph{stays deleted}. Before each test, clear all growth counters. If the reduced seeds fill, keep that seed off; if they get stuck, restore it. The seed-color counters left on the board are the current start; bare dots show seeds already taken off. Draw only each ending on the page's two record boards. Do not remove a seed from a grown board and keep the other growth counters: that tests a different question.
+
+\textbf{Exactly two endings, with different numbers of seeds:}
+\begin{center}\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{p{.39\linewidth} p{.52\linewidth}}
+Successful removals & Seeds left when no more can go\\\midrule
+Take off $(1,1)$ first. & Four: $(1,2),(1,3),(2,1),(3,1)$.\\
+Take off $(1,2)$, then $(2,1)$, or reverse those two. & Three: $(1,1),(1,3),(3,1)$, the three corners.
+\end{tabular}\end{center}
+\textbf{Why there are no other endings.} Testing all five first deletions shows only $(1,1),(1,2),(2,1)$ can go. The first leaves the four-seed ending, with no further successful deletion. Either of the other first choices permits only the other one next, leaving the three-seed ending. Further single removals fail. Children can share these three possible first choices and pool their endings, rather than memorize the whole tree.
+
+\hint{``Could a different first seed leave a different start?'' ``Does needing every seed here mean no other start uses fewer?''} The point is not merely to finish with three; the four-seed ending is the important contrast. On a return visit, a child may invent a new start and ask a partner to find different endings.
+
+\end{document}

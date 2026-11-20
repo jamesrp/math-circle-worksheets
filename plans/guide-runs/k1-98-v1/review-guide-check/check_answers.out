@@ -1,0 +1,78 @@
+PASS page 1 check-mark target has 3 side-neighbours (guide: three)
+PASS page 1 cross target has 1 side-neighbour (illegal)
+PASS launch 2x3 finish [(1, 1), (1, 2), (2, 1), (2, 2)] has 4 squares; addition (1,2)
+PASS launch 2x3 has exactly one legal first addition
+P1 starts: 6 filling: [((1, 1), (2, 2)), ((1, 2), (2, 1))]
+PASS P1: 6 starts, exactly the two diagonals fill
+PASS P1: side-by-side pairs never grow
+PASS P1: page prints 6 record boards
+PASS P1: one seed never grows
+PASS P2 board at [12.3, 27.8] seeds [(1, 1), (1, 2), (2, 1)]: finish sizes [4] (guide 4); finishes over all orders: 1
+    finish: [(1, 1), (1, 2), (2, 1), (2, 2)]
+PASS P2 board at [113.6, 27.8] seeds [(2, 1), (2, 2), (2, 3)]: finish sizes [3] (guide 3); finishes over all orders: 1
+    finish: [(2, 1), (2, 2), (2, 3)]
+PASS P2 board at [12.3, 131.8] seeds [(1, 1), (1, 3), (2, 1)]: finish sizes [6] (guide 6); finishes over all orders: 1
+    finish: [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)]
+PASS P2 board at [113.6, 131.8] seeds [(1, 1), (1, 3), (2, 1), (3, 1)]: finish sizes [9] (guide 9); finishes over all orders: 1
+    finish: [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3)]
+PASS P3: board is 3x3
+PASS P3: main and opposite diagonals fill
+PASS P3: no 2-seed start fills (checked 36)
+    3-seed filling starts: 14 of 84
+PASS P3: perimeter 12 / 4 = 3.0
+PASS P4: board is 4x4
+PASS P4: main and opposite diagonals fill
+PASS P4: no 3-seed start fills (checked 560)
+    4-seed filling starts: 130 of 1820
+PASS P4: perimeter 16 / 4 = 4.0
+PASS P5: board is 5x5
+PASS P5: main and opposite diagonals fill
+PASS P5: no 4-seed start fills (checked 12650)
+PASS P5: perimeter 20 / 4 = 5.0
+PASS P5: 5x5 from 5 seeds uses 20 growth counters
+PASS P6 strip 1x3: min 2, all minimum starts [[1, 3]] (guide 2, [[1, 3]])
+PASS P6 strip 1x3: min equals floor(L/2)+1
+PASS P6 strip 1x4: min 3, all minimum starts [[1, 2, 4], [1, 3, 4]] (guide 3, [[1, 2, 4], [1, 3, 4]])
+PASS P6 strip 1x4: min equals floor(L/2)+1
+PASS P6 strip 1x5: min 3, all minimum starts [[1, 3, 5]] (guide 3, [[1, 3, 5]])
+PASS P6 strip 1x5: min equals floor(L/2)+1
+PASS P6 strip 1x6: min 4, all minimum starts [[1, 2, 4, 6], [1, 3, 4, 6], [1, 3, 5, 6]] (guide 4, [[1, 2, 4, 6], [1, 3, 4, 6], [1, 3, 5, 6]])
+PASS P6 strip 1x6: min equals floor(L/2)+1
+PASS P7 board 3x2 at [12.3, 27.8]: min 3 (10 minimum starts); guide 3; guide example fills: True
+PASS P7 3x2: fence bound ceil((r+2)/2) = 3
+    guide example under 'exactly two' misreading reaches 5 of 6
+PASS P7 board 5x2 at [143.6, 27.8]: min 4 (48 minimum starts); guide 4; guide example fills: True
+PASS P7 5x2: fence bound ceil((r+2)/2) = 4
+    guide example under 'exactly two' misreading reaches 9 of 10
+PASS P7 board 4x2 at [12.3, 131.8]: min 3 (8 minimum starts); guide 3; guide example fills: True
+PASS P7 4x2: fence bound ceil((r+2)/2) = 3
+    guide example under 'exactly two' misreading reaches 8 of 8
+PASS P8 board 2x2 seeds [(1, 1), (1, 2), (2, 1)] fills as printed
+PASS P8 removable alone [(1, 1)] (guide [(1, 1)]); finishes {(1, 1): 4, (1, 2): 2, (2, 1): 2}
+PASS P8 board 3x3 seeds [(1, 1), (1, 3), (3, 1), (3, 3)] fills as printed
+PASS P8 removable alone [(1, 1), (1, 3), (3, 1), (3, 3)] (guide [(1, 1), (1, 3), (3, 1), (3, 3)]); finishes {(1, 1): 9, (1, 3): 9, (3, 1): 9, (3, 3): 9}
+    pairs removable together: []
+PASS P8 board 3x3 seeds [(1, 1), (1, 3), (2, 2), (3, 1)] fills as printed
+PASS P8 removable alone [(1, 1), (2, 2)] (guide [(1, 1), (2, 2)]); finishes {(1, 1): 9, (1, 3): 6, (2, 2): 9, (3, 1): 6}
+    pairs removable together: []
+PASS P8 board 3x3 seeds [(1, 2), (2, 1), (2, 3), (3, 2)] fills as printed
+PASS P8 removable alone [] (guide []); finishes {(1, 2): 6, (2, 1): 6, (2, 3): 6, (3, 2): 6}
+    pairs removable together: []
+PASS P9 first removals [(1, 1), (1, 2), (2, 1)] (guide (1,1),(1,2),(2,1))
+    ending [(1, 2), (1, 3), (2, 1), (3, 1)] via [[(1, 1)]]
+    ending [(1, 1), (1, 3), (3, 1)] via [[(1, 2), (2, 1)], [(2, 1), (1, 2)]]
+PASS P9 exactly two endings: four seeds {(1,2),(1,3),(2,1),(3,1)} and three corners
+    four-seed ending single removals: {(1, 2): 3, (1, 3): 6, (2, 1): 3, (3, 1): 6}
+PASS P9 record boards printed: 2
+Counter needs (seeds, growth) per printed-start board:
+    page 2 3x3: 3 seeds, 1 growth
+    page 2 3x3: 3 seeds, 0 growth
+    page 2 3x3: 3 seeds, 3 growth
+    page 2 3x3: 4 seeds, 5 growth
+    page 8 2x2: 3 seeds, 1 growth
+    page 8 3x3: 4 seeds, 5 growth
+    page 8 3x3: 4 seeds, 5 growth
+    page 8 3x3: 4 seeds, 5 growth
+    page 9 3x3: 5 seeds, 4 growth
+Seed counters to load whole page at once: P2 13, P6 12, P7 10, P8 15
+ALL PASS
