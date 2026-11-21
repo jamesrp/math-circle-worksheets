@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Rebuild plans/home-plans/2026-11-21-hackenbush.pdf: the plan's pages, then the positions page.
+Also rebuilds the puzzle sheet and its answer key (2026-11-21-hackenbush-puzzles*.pdf).
 
     python3 plans/home-plans/src/hackenbush_build.py
 
@@ -22,3 +23,7 @@ with tempfile.TemporaryDirectory() as tmp:
                     str(HOME / "2026-11-21-hackenbush-positions.pdf"), str(joined)], check=True)
     shutil.copy(joined, plan.with_suffix(".pdf"))
 print("appended the positions page to", plan.with_suffix(".pdf"))
+
+# the puzzle sheet and its key (separate files; not part of the plan's printable)
+subprocess.run([sys.executable, str(SRC / "hackenbush_puzzles_check.py")], check=True, stdout=subprocess.DEVNULL)
+subprocess.run([sys.executable, str(SRC / "hackenbush_puzzles.py")], check=True)
