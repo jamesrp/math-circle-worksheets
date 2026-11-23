@@ -84,6 +84,7 @@ FILE_ROLES = [
     ("grades-2-3.pdf", "Grades 2–3 packet"),
     ("grades-4-5.pdf", "Grades 4–5 packet"),
     ("grades-3-5.pdf", "Grades 3–5 packet"),
+    ("grades-2-5.pdf", "Grades 2–5 packet"),
     ("students.pdf", "Shared student packet"),
     ("shared.pdf", "Shared student packet"),
     ("upper.pdf", "Upper packet"),
@@ -104,7 +105,7 @@ FILE_ROLES = [
     ("extensions.pdf", "Extensions"),
     ("extensions-facilitator.pdf", "Extensions guide"),
 ]
-STUDENT_ROLES = {"K–1 packet", "Grades 2–3 packet", "Grades 4–5 packet", "Grades 3–5 packet",
+STUDENT_ROLES = {"K–1 packet", "Grades 2–3 packet", "Grades 4–5 packet", "Grades 3–5 packet", "Grades 2–5 packet",
                  "Shared student packet", "Upper packet", "Line packet", "Compact catalog",
                  "Compact catalog, upper"}
 
@@ -370,6 +371,8 @@ def load_plans(areas, concepts, mechanisms, weeks, drafts, errors):
     sources = {str(p.relative_to(ROOT)): p for p in (ROOT / PLAN_SOURCE).glob("week-*.md")}
     # A source survives promotion. A draft's outline then takes the place of its plan.
     promoted = {d.get("outline") for d in drafts.values()}
+    # So does a plan whose week number became a week record (Week 106, November 22, 2026).
+    promoted |= {f for f in sources if (m := re.match(r"week-(\d+)-", Path(f).name)) and m.group(1) in weeks}
     for path in sorted((CAT / "plans").glob("*.toml")):
         where = f"plans/{path.name}"
         try:

@@ -1,6 +1,6 @@
 # Week 106 (draft plan): Colouring maps
 
-**Strand:** networks (Maps and networks). **Deep-math field:** graph theory and topology (planar colouring, surfaces). **Status:** draft plan, November 2026. Student pages for K–1 and grades 2–5 written November 20, 2026 as a December 2 option ([week-106-pages/](week-106-pages/README.md), room plan [2026-12-02-map-coloring.md](../../room-plans/2026-12-02-map-coloring.md)); no guide; unpiloted.
+**Strand:** networks (Maps and networks). **Deep-math field:** graph theory and topology (planar colouring, surfaces). **Status:** draft plan, November 2026. Student pages for K–1 and grades 2–5 written November 20, 2026 ([run notes](week-106-pages/README.md)) and chosen by James for December 2 on November 22: now [Week 106 in lowell-math-circle-year-2](../../../lowell-math-circle-year-2/week-106/) as problem files, with the [room plan](../../room-plans/2026-12-02-map-coloring.md); no guide; unpiloted.
 
 ## The deep idea
 

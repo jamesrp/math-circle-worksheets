@@ -1,6 +1,6 @@
 # Room plan: coloring maps (paint, spoil, and a donut world)
 
-**An option for Wednesday, December 2, 2026**, one of two options James asked for on November 20 so he can compare them (the other is [stars and wheels](2026-12-02-stars-and-wheels.md)). Week 106, coloring maps: new student packets for [K–1](../../lowell-math-circle-year-2/week-106/week-106-k-1.pdf) and [grades 2–5](../../lowell-math-circle-year-2/week-106/week-106-grades-2-5.pdf), written through the repository's worksheet workflow (writer, adversarial review, math check, kid-fit review, adult cold read, revision, second adult read) from the [Week 106 draft plan](../drafts/weeks-101-plus/week-106-map-colouring.md). No facilitator guide: the answers adults need are in this plan. One theme at every table. Unpiloted, at the circle and at home.
+**The plan for Wednesday, December 2, 2026.** James chose it on November 22 ("Plan Map Coloring") over the other option he asked for, [stars and wheels](2026-12-02-stars-and-wheels.md). Week 106, coloring maps: student packets for [K–1](../../lowell-math-circle-year-2/week-106/week-106-k-1.pdf) and [grades 2–5](../../lowell-math-circle-year-2/week-106/week-106-grades-2-5.pdf), written through the repository's worksheet workflow (writer, adversarial review, math check, kid-fit review, adult cold read, revision, second adult read) from the [Week 106 draft plan](../drafts/weeks-101-plus/week-106-map-colouring.md). No facilitator guide: the answers adults need are in this plan. One theme at every table. Unpiloted, at the circle and at home.
 
 ## Why this is more than "color some maps"
 
@@ -31,8 +31,8 @@ The rule: countries that share a border get different colors; countries that mee
 
 Print single-sided on Letter paper at 100% ("Actual size"). Everything prints in black and white; children add the color.
 
-- [ ] [K–1 packet](../../lowell-math-circle-year-2/week-106/week-106-k-1.pdf), 12 pages: pages 1–10, 5 copies, not stapled (an adult hands out a page or two at a time); pages 11–12 (spare copies of maps for a second try), 3 copies
-- [ ] [Grades 2–5 packet](../../lowell-math-circle-year-2/week-106/week-106-grades-2-5.pdf), 12 pages: pages 1–9, 11 copies, stapled; pages 10–12 (donut world), 5 copies, for whoever reaches them
+- [ ] [K–1 packet](../../lowell-math-circle-year-2/week-106/week-106-k-1.pdf) (footer W106-k-1-v2), 12 pages: pages 1–10, 5 copies, not stapled (an adult hands out a page or two at a time); pages 11–12 (spare copies of maps for a second try), 3 copies
+- [ ] [Grades 2–5 packet](../../lowell-math-circle-year-2/week-106/week-106-grades-2-5.pdf) (footer W106-grades-2-5-v1), 12 pages: pages 1–9 (Problems 1–11), 11 copies, stapled; pages 10–12 (donut world, Problems 12–14), 5 copies, for whoever reaches them
 - [ ] [Opener sheet](2026-12-02-map-coloring-opener.pdf), 2 pages, cut in half: page 1 (the main puzzle, two per page) 6 copies; page 2 (easier on top, harder below) 3 copies
 - [ ] This room plan: one per adult (3)
 - [ ] Colored pencils: a set of at least 7 colors per pair (6 sets; the donut map needs 7). For K–1, also two thick pencils or crayons of very different colors per child for Problems 1–3 and the games; from Problem 4 on they need at least four colors.
@@ -41,11 +41,13 @@ Print single-sided on Letter paper at 100% ("Actual size"). Everything prints in
 - [ ] Two early-finisher cards, handwritten (text below)
 - [ ] A timer everyone can see
 
-Prep time: about 15 minutes to print and cut the opener sheet, 5 to count the paper, and about 5 at the room to tape the floor grid. Roughly 25 minutes in all, less than Bridges.
+Prep time: about 15 minutes to print and cut the opener sheet, 5 to count the paper, and about 5 at the room to tape the floor grid. Roughly 25 minutes in all, less than Bridges. Nothing to buy: everything is on the November 4 supply list.
+
+**Floor room.** The finale grid is 6 feet square, and a ring of 11 children and 3 adults standing shoulder to shoulder is about 18 feet round, so about 6 feet across. Side by side they fit the 8-by-12-foot floor space the room has (James, November 4): tape the grid at one end and make the ring at the other. If the floor is tighter, tape 18-inch squares (a 4½-foot grid): a 9-by-12-inch sheet of construction paper still fits in each square.
 
 ## Before the children arrive
 
-- **Tape the floor grid:** a tic-tac-toe board of nine squares about 2 feet on a side (6 feet across), the outline plus two lines each way. Leave room around it for two teams to stand.
+- **Tape the floor grid:** a tic-tac-toe board of nine squares about 2 feet on a side (6 feet across), the outline plus two lines each way. Tape it at one end of the floor space, leaving room for two teams to stand along its sides; the human ring at 0:28 uses the other end.
 - **On the whiteboard,** copy the opener's six-country island (a rectangle split as on the sheet: Ant across the top left, Bear top right and down the right side, Cat down the left, Dog in the middle, Eel a small square, Fox the bottom right corner).
 - On every table: opener half-sheets and pencils, so the first child in starts on the puzzle; colored pencils; packet page 1 face down.
 - Early-finisher cards:
@@ -84,7 +86,7 @@ A soft logic puzzle on the tables as children arrive. An adult reads the clues a
 | Time | Everyone | Jobs |
 |---|---|---|
 | 0:00–0:08 | **Opener: paint the island.** Puzzle on the tables as children arrive; at minute 6, solvers color the whiteboard copy. | Solvers check each other's sheets; adults give one hint step at a time. |
-| 0:08–0:12 | **Launch at the whiteboard.** An adult draws one long scribble that loops round, crosses itself several times and ends where it started. Children call out colors country by country with two markers. "Will two colors always be enough? Try to break it." Practise the reset signal: "Pencils down", both hands on heads. Off to tables. | One child per table names the next country; the room says whether it clashes. |
+| 0:08–0:12 | **Launch at the whiteboard.** An adult draws one long scribble that loops round, crosses itself several times and ends where it started. Children call out colors country by country with two markers, and the adult colors each country with one quick scribble, not a full fill: "A scribble is enough." "Will two colors always be enough? Try to break it." Practise the reset signal: "Pencils down", both hands on heads. Off to tables. | One child per table names the next country; the room says whether it clashes. |
 | 0:12–0:20 | **Round 1: scribble maps.** K–1 Problems 1–2. 2–5 Problems 1–2: color, then try to draw a map that breaks the two-color trick on the whiteboards. | Partners color the same map with different pencils and compare. |
 | 0:20–0:28 | **Round 2: what breaks it.** K–1 Problems 3–4 (their own scribble, then maps where a line stops). 2–5 Problem 3, then Problem 8 (why the trick works) for a pair with an idea. At 0:26 each host asks: "Has anyone found a map the trick can't do? What's different about it?" | Swap who draws and who colors. |
 | 0:28–0:33 | **Human ring on the floor.** Everyone stands in a ring, shoulder to shoulder, holding a sheet in front: each child is a country, the children on either side share its borders, and the inside is a lake. Hand out red and blue sheets alternately round the ring. With an odd number of children, the last two neighbors end up holding the same color; count the ring out loud and ask "Why does it go wrong?" Hand one child yellow to fix it. Now add or remove an adult so the ring is even: red and blue work. Last, an adult steps into the middle: "The lake is now a country that touches all of you." Even ring: the middle needs yellow. Make the ring odd again: the middle needs a fourth color, green. | Two children hand out the sheets; one child counts the ring out loud. |
@@ -97,7 +99,8 @@ A soft logic puzzle on the tables as children arrive. An adult reads the clues a
 
 - A table finishes early: hand out its early-finisher card.
 - A child says "two colors don't work" on a scribble map: "Show me the two countries that clash." Usually one was miscolored; if a line stops partway, that's the discovery 2–5 Problem 3 and K–1 Problem 4 want.
-- K–1 coloring is slow: color only a few countries per map, or have partners split the map; the question is whether two pencils are enough, not finishing.
+- K–1 coloring is slow: point to the page's rule, a quick scribble in each country is enough, or have partners split the map; the question is whether two pencils are enough, not finishing. For pacing, the four maps of K–1 Problems 1–2 have about 30 countries in all, two or three minutes of scribbling for a pair.
+- K–1 lines in Problem 3 come out wobbly or stop short: that is fine. A line that stops in the middle of a country changes nothing (it does not split anything), and a wobbly line is still a line. Only a line that stops exactly on another line makes a "T" that needs a third pencil, which is Problem 4's surprise arriving early: say so. For a child who can't steer a line to the edge, say "keep going until you bump the side", let them do the loops box first (any closed scribble works), or let a partner hold the page.
 - The human ring gets silly: "Pencils down" signal works here too (sheets on heads), then go straight to the middle-country step.
 - Finale: with 3 colors the Spoilers can always win whoever goes first, and with 4 the Painters always can (checked). Do not say so; ask afterwards "Which team would you rather be with three colors? With four?"
 - No floor space: play the finale on the whiteboard with markers in a 3-by-3 grid.
