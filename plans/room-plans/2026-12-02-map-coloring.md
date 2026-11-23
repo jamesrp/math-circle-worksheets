@@ -1,6 +1,6 @@
 # Room plan: coloring maps (paint, spoil, and a donut world)
 
-**An option for Wednesday, December 2, 2026**, one of two options James asked for on November 20 so he can compare them (the other is [stars and wheels](2026-12-02-stars-and-wheels.md)). Week 106, coloring maps: new student packets for [K–1](2026-12-02-map-coloring-k-1.pdf) and [grades 2–5](2026-12-02-map-coloring-grades-2-5.pdf), written through the repository's worksheet workflow (writer, adversarial review, math check, kid-fit review, adult cold read, revision, second adult read) from the [Week 106 draft plan](../drafts/weeks-101-plus/week-106-map-colouring.md). No facilitator guide: the answers adults need are in this plan. One theme at every table. Unpiloted, at the circle and at home.
+**An option for Wednesday, December 2, 2026**, one of two options James asked for on November 20 so he can compare them (the other is [stars and wheels](2026-12-02-stars-and-wheels.md)). Week 106, coloring maps: new student packets for [K–1](../../lowell-math-circle-year-2/week-106/week-106-k-1.pdf) and [grades 2–5](../../lowell-math-circle-year-2/week-106/week-106-grades-2-5.pdf), written through the repository's worksheet workflow (writer, adversarial review, math check, kid-fit review, adult cold read, revision, second adult read) from the [Week 106 draft plan](../drafts/weeks-101-plus/week-106-map-colouring.md). No facilitator guide: the answers adults need are in this plan. One theme at every table. Unpiloted, at the circle and at home.
 
 ## Why this is more than "color some maps"
 
@@ -31,8 +31,8 @@ The rule: countries that share a border get different colors; countries that mee
 
 Print single-sided on Letter paper at 100% ("Actual size"). Everything prints in black and white; children add the color.
 
-- [ ] [K–1 packet](2026-12-02-map-coloring-k-1.pdf), 12 pages: pages 1–10, 5 copies, not stapled (an adult hands out a page or two at a time); pages 11–12 (spare copies of maps for a second try), 3 copies
-- [ ] [Grades 2–5 packet](2026-12-02-map-coloring-grades-2-5.pdf), 12 pages: pages 1–9, 11 copies, stapled; pages 10–12 (donut world), 5 copies, for whoever reaches them
+- [ ] [K–1 packet](../../lowell-math-circle-year-2/week-106/week-106-k-1.pdf), 12 pages: pages 1–10, 5 copies, not stapled (an adult hands out a page or two at a time); pages 11–12 (spare copies of maps for a second try), 3 copies
+- [ ] [Grades 2–5 packet](../../lowell-math-circle-year-2/week-106/week-106-grades-2-5.pdf), 12 pages: pages 1–9, 11 copies, stapled; pages 10–12 (donut world), 5 copies, for whoever reaches them
 - [ ] [Opener sheet](2026-12-02-map-coloring-opener.pdf), 2 pages, cut in half: page 1 (the main puzzle, two per page) 6 copies; page 2 (easier on top, harder below) 3 copies
 - [ ] This room plan: one per adult (3)
 - [ ] Colored pencils: a set of at least 7 colors per pair (6 sets; the donut map needs 7). For K–1, also two thick pencils or crayons of very different colors per child for Problems 1–3 and the games; from Problem 4 on they need at least four colors.
