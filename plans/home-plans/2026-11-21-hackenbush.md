@@ -1,6 +1,6 @@
 # Home plan: Hackenbush
 
-Weekend of November 21 and 22, 2026 (James picked it November 21), at the kitchen table: James with Jay, Rose and perhaps a third child. **Untried:** nobody has played this plan yet, and every time is a guess. It is a home version of [Week 83, Hackenbush balances](../../lowell-math-circle-year-2/source/week-83/README.md), on paper instead of snap cubes, with picture boards and a way in for Rose. Print the [starting positions](2026-11-21-hackenbush-positions.pdf) in colour (page 3 of the printable). Every fact below is checked by [src/hackenbush_check.py](src/hackenbush_check.py).
+Weekend of November 21 and 22, 2026 (James picked it November 21), at the kitchen table: James with Jay, Rose and perhaps a third child. **Played once at home** (see "How it went" at the end); the times are still guesses. It is a home version of [Week 83, Hackenbush balances](../../lowell-math-circle-year-2/source/week-83/README.md), on paper instead of snap cubes, with picture boards and a way in for Rose. Print the [starting positions](2026-11-21-hackenbush-positions.pdf) in colour (page 4 of the printable). Every fact below is checked by [src/hackenbush_check.py](src/hackenbush_check.py).
 
 ## At the table
 
@@ -55,3 +55,7 @@ Each part stands alone. Stop after any of them and pick up anywhere next time.
 - Reading a stalk from the bottom: whole moves, then halves, quarters, eighths, as in Berlekamp's rule above. "Draw a stalk worth 1¾." (BBRB.)
 
 **When to stop.** On a high point (Rose's trunk chop, Jay's "BR is half"). Next time, start at Move 4 or 5.
+
+## How it went
+
+- November 21, 2026 (James, reported November 26), with Jay, Rose and two of Jay's friends, one of them the neighbor. "Hackenbush went well. 2 of Jay's friends came over (neighbor and another) and the four kids played Hackenbush together. They enjoyed the game and figuring out the type of winning positions (red, blue, or second) for the ones on the sheet. I asked what would it take to make a first player win and the neighbor came up with a purple line. Then we worked a bit on the number part: I asked about what happens if we add together, eg stick and two trees. The neighbor was interested (I ended up sending him home with more) but nobody else was, so I switched them to Golomb rulers and had them work out the 0-6 one. Rose had wandered away but all three older boys liked this!" Reached: Moves 3 and 4 (classifying the boards); the sums of Move 5 only with the neighbor, who also took home the [puzzle sheet](2026-11-21-hackenbush-puzzles.pdf). Not recorded: how Rose's part went before she left. The purple line is what the books call a green segment, which either player may chop: alone it is a first-player win and has no number value, the limit stated in item 1 of the mathematics. Next time could start at Move 5 for an interested child.
